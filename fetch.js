@@ -26,8 +26,12 @@ const COOL_DOWN_MS = 60000;
 let globalConsecutiveErrors = 0;
 
 const YT_DLP_BASE_ARGS = [
-  "-x", // Audio only
-  "-k", // Keep video
+  // --- KVALITETA VIDEA (NOVO) ---
+  // Ovo kaže: Daj mi video max visine 360px (dakle 640x360) + najbolji audio
+  "-f", "bestvideo[height<=360]+bestaudio/best[height<=360]",
+
+  "-x", // Audio only (extract audio)
+  "-k", // Keep video (zadrži i video datoteku - sad će biti mala 360p)
   "--audio-format", "mp3",
   "--embed-thumbnail",
   "--add-metadata",
@@ -41,8 +45,7 @@ const YT_DLP_BASE_ARGS = [
   // --- USER AGENT ---
   "--user-agent", MY_USER_AGENT,
 
-  // --- KLJUČNO RJEŠENJE ZA 'Requested format is not available' ---
-  // Ovo dozvoljava yt-dlp-u da skine potrebne skripte za rješavanje YouTube zaštite
+  // --- RJEŠENJE ZA 'Requested format is not available' ---
   "--remote-components", "ejs:github",
   
   "--no-check-certificate",
@@ -261,9 +264,10 @@ async function main() {
   let channels = listFiles.map((file) => new ChannelQueue(file, baseOutputDir));
   let activeChannels = channels.filter((c) => !c.isExhausted);
 
-  console.log(`\n🚀 POČETAK RADA (Brave on macOS + Remote Components)`);
+  console.log(`\n🚀 POČETAK RADA (Brave on macOS + 360p Limit)`);
   console.log(`   📂 Liste: ${LISTS_DIR}`);
   console.log(`   🍪 Browser Source: ${BROWSER_NAME.toUpperCase()}`);
+  console.log(`   🎥 Video Quality: Max 360p`);
 
   let round = 1;
   while (activeChannels.length > 0) {
