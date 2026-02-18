@@ -1,0 +1,167 @@
+$ time ./refresh_podcasts.sh
+Započinjem cikličku obradu (Chunk size: 50)...
+------------------------------------------------------------
+>>> KRUG 1: Stavke 1 do 50
+------------------------------------------------------------
+[iva-kraljevic] Skeniram... OK (Pronađeno novih).
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... OK (Pronađeno novih).
+[catholic-futurist] Skeniram... OK (Pronađeno novih).
+[bozja-pobjeda] Skeniram... OK (Pronađeno novih).
+[muzevni-budite] Skeniram... OK (Pronađeno novih).
+[marin-miletic] Skeniram... OK (Pronađeno novih).
+[neuspjeh-prvaka] Skeniram... OK (Pronađeno novih).
+[radio-mreznica] Skeniram... OK (Pronađeno novih).
+[poduzetnistvo-s-povjerenjem] Skeniram... OK (Pronađeno novih).
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[kko-hr] Skeniram... OK (Pronađeno novih).
+[glas-koncila] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[rastuci-s-djecom] Skeniram... OK (Pronađeno novih).
+[ad-deum-podcast] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... OK (Pronađeno novih).
+[podcast-za-bolju-hrvatsku] Skeniram... OK (Pronađeno novih).
+[horizonti-liderstva] Skeniram... OK (Pronađeno novih).
+[sapere-aude] Skeniram... OK (Pronađeno novih).
+[mislav-kolakusic] Skeniram... OK (Pronađeno novih).
+[ikra-institut] Skeniram... OK (Pronađeno novih).
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+[gorica-tv] Skeniram... Nema novih - završen za danas.
+[podcast-by-niko] Skeniram... OK (Pronađeno novih).
+[eho-projekt] Skeniram... OK (Pronađeno novih).
+[podcast-cuspajz] Skeniram... OK (Pronađeno novih).
+[hercegovina-info] Skeniram... OK (Pronađeno novih).
+[franjina-ekonomija] Skeniram... OK (Pronađeno novih).
+[marijanski-zavjet] Skeniram... OK (Pronađeno novih).
+[glas-poduzetnika] Skeniram... OK (Pronađeno novih).
+[duhovnost-hagio] Skeniram... OK (Pronađeno novih).
+[popcast-pavicic] Skeniram... OK (Pronađeno novih).
+------------------------------------------------------------
+>>> KRUG 2: Stavke 51 do 100
+------------------------------------------------------------
+[iva-kraljevic] Skeniram... OK (Pronađeno novih).
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... OK (Pronađeno novih).
+[catholic-futurist] Skeniram... Nema novih - završen za danas.
+[bozja-pobjeda] Skeniram... OK (Pronađeno novih).
+[muzevni-budite] Skeniram... OK (Pronađeno novih).
+[marin-miletic] Skeniram... OK (Pronađeno novih).
+[neuspjeh-prvaka] Skeniram... OK (Pronađeno novih).
+[radio-mreznica] Skeniram... OK (Pronađeno novih).
+[poduzetnistvo-s-povjerenjem] Skeniram... Nema novih - završen za danas.
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[kko-hr] Skeniram... Nema novih - završen za danas.
+[glas-koncila] Skeniram... Nema novih - završen za danas.
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[rastuci-s-djecom] Skeniram... Nema novih - završen za danas.
+[ad-deum-podcast] Skeniram... Nema novih - završen za danas.
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... OK (Pronađeno novih).
+[podcast-za-bolju-hrvatsku] Skeniram... Nema novih - završen za danas.
+[horizonti-liderstva] Skeniram... Nema novih - završen za danas.
+[sapere-aude] Skeniram... Nema novih - završen za danas.
+[mislav-kolakusic] Skeniram... OK (Pronađeno novih).
+[ikra-institut] Skeniram... Nema novih - završen za danas.
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+[podcast-by-niko] Skeniram... Nema novih - završen za danas.
+[eho-projekt] Skeniram... OK (Pronađeno novih).
+[podcast-cuspajz] Skeniram... OK (Pronađeno novih).
+[hercegovina-info] Skeniram... OK (Pronađeno novih).
+[franjina-ekonomija] Skeniram... OK (Pronađeno novih).
+[marijanski-zavjet] Skeniram... OK (Pronađeno novih).
+[glas-poduzetnika] Skeniram... OK (Pronađeno novih).
+[duhovnost-hagio] Skeniram... Nema novih - završen za danas.
+[popcast-pavicic] Skeniram... Nema novih - završen za danas.
+------------------------------------------------------------
+>>> KRUG 3: Stavke 101 do 150
+------------------------------------------------------------
+[iva-kraljevic] Skeniram... Nema novih - završen za danas.
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... OK (Pronađeno novih).
+[bozja-pobjeda] Skeniram... Nema novih - završen za danas.
+[muzevni-budite] Skeniram... OK (Pronađeno novih).
+[marin-miletic] Skeniram... OK (Pronađeno novih).
+[neuspjeh-prvaka] Skeniram... OK (Pronađeno novih).
+[radio-mreznica] Skeniram... OK (Pronađeno novih).
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... OK (Pronađeno novih).
+[mislav-kolakusic] Skeniram... OK (Pronađeno novih).
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+[eho-projekt] Skeniram... OK (Pronađeno novih).
+[podcast-cuspajz] Skeniram... OK (Pronađeno novih).
+[hercegovina-info] Skeniram... Nema novih - završen za danas.
+[franjina-ekonomija] Skeniram... Nema novih - završen za danas.
+[marijanski-zavjet] Skeniram... Nema novih - završen za danas.
+[glas-poduzetnika] Skeniram... Nema novih - završen za danas.
+------------------------------------------------------------
+>>> KRUG 4: Stavke 151 do 200
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... OK (Pronađeno novih).
+[muzevni-budite] Skeniram... OK (Pronađeno novih).
+[marin-miletic] Skeniram... OK (Pronađeno novih).
+[neuspjeh-prvaka] Skeniram... Nema novih - završen za danas.
+[radio-mreznica] Skeniram... OK (Pronađeno novih).
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... OK (Pronađeno novih).
+[mislav-kolakusic] Skeniram... OK (Pronađeno novih).
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+[eho-projekt] Skeniram... OK (Pronađeno novih).
+[podcast-cuspajz] Skeniram... Nema novih - završen za danas.
+------------------------------------------------------------
+>>> KRUG 5: Stavke 201 do 250
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... OK (Pronađeno novih).
+[muzevni-budite] Skeniram... OK (Pronađeno novih).
+[marin-miletic] Skeniram... Nema novih - završen za danas.
+[radio-mreznica] Skeniram... Nema novih - završen za danas.
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... OK (Pronađeno novih).
+[mislav-kolakusic] Skeniram... Nema novih - završen za danas.
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+[eho-projekt] Skeniram... Nema novih - završen za danas.
+------------------------------------------------------------
+>>> KRUG 6: Stavke 251 do 300
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[40-dana-za-zivot] Skeniram... Nema novih - završen za danas.
+[muzevni-budite] Skeniram... Nema novih - završen za danas.
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[hnb] Skeniram... Nema novih - završen za danas.
+[mreze-rijeci] Skeniram... OK (Pronađeno novih).
+------------------------------------------------------------
+>>> KRUG 7: Stavke 301 do 350
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[budi-frajer] Skeniram... OK (Pronađeno novih).
+[nanovoroeni] Skeniram... OK (Pronađeno novih).
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+[mreze-rijeci] Skeniram... Nema novih - završen za danas.
+------------------------------------------------------------
+>>> KRUG 8: Stavke 351 do 400
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... OK (Pronađeno novih).
+[budi-frajer] Skeniram... Nema novih - završen za danas.
+[nanovoroeni] Skeniram... Nema novih - završen za danas.
+[lood-podcast] Skeniram... OK (Pronađeno novih).
+------------------------------------------------------------
+>>> KRUG 9: Stavke 401 do 450
+------------------------------------------------------------
+[mladi-za-domovinu] Skeniram... Nema novih - završen za danas.
+[lood-podcast] Skeniram... Nema novih - završen za danas.
+Svi kanali su sinkronizirani ili dosegnuti.
+Gotovo! Sve liste su u: ./podcasts
+
+real	3m38.184s
+user	1m4.489s
+sys	0m7.273s
