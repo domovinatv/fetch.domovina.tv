@@ -3,3 +3,6 @@ fetch.log
 
 # Cookies files
 automatic/cookies.txt
+
+# State files
+*-state.json
