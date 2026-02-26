@@ -19,6 +19,7 @@ KANALI=(
     "catholic-futurist|https://www.youtube.com/@CatholicFuturist/videos"
     "bozanstvena-komedija|https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos"
     "bozja-pobjeda|https://www.youtube.com/@Bo%C5%BEjapobjeda/videos"
+    "domovina-tv|https://www.youtube.com/@domovinatv/videos"
     "muzevni-budite|https://www.youtube.com/@muzevnibudite/videos"
     "marin-miletic|https://www.youtube.com/@MileticMarin_/videos"
     "neuspjeh-prvaka|https://www.youtube.com/@neuspjehprvaka/videos"
