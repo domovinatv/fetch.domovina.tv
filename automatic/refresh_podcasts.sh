@@ -17,6 +17,7 @@ KANALI=(
     "mladi-za-domovinu|https://www.youtube.com/@mladizadomovinu1074/videos"
     "40-dana-za-zivot|https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos"
     "catholic-futurist|https://www.youtube.com/@CatholicFuturist/videos"
+    "bozanstvena-komedija|https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos"
     "bozja-pobjeda|https://www.youtube.com/@Bo%C5%BEjapobjeda/videos"
     "muzevni-budite|https://www.youtube.com/@muzevnibudite/videos"
     "marin-miletic|https://www.youtube.com/@MileticMarin_/videos"
