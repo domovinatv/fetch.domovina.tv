@@ -3,20 +3,25 @@
 /**
  * transcribe_diarized.js
  *
- * Pokreće whisperx za transkripciju i diarizaciju (raspoznavanje govornika).
- * 
- * IZLAZ:
- *   Neće pregaziti postojeće .wav.srt datoteke generirane s whisper.cpp.
- *   Umjesto toga, rezultat sprema kao: .wav.diarized.srt
+ * HIBRIDNI PRISTUP za diarizaciju:
+ *   1. whisper.cpp (Metal GPU) → brza transkripcija → .wav.srt
+ *   2. pyannote (MPS/Metal GPU) → samo diarizacija govornika
+ *   3. Spajanje: dodaje oznake govornika u postojeći SRT → .wav.diarized.srt
+ *
+ * Ovo je PUNO brže od čistog WhisperX-a na Apple Silicon jer:
+ *   - whisper.cpp koristi Metal GPU za transkripciju (već gotovo iz pipeline-a)
+ *   - pyannote koristi MPS (PyTorch Metal) za diarizaciju
+ *   - Izbjegava se CTranslate2 koji radi samo na CPU
  *
  * PREDUVJETI:
- *   1. Instaliran whisperx (dostupan u PATH-u, npr. iz conda environmenta)
- *   2. HuggingFace Token s pristupom pyannote modelima (za diarizaciju)
- *   3. Konvertirane .wav datoteke u output direktorijima
+ *   1. Postojeći .wav.srt datoteke (generirane s transcribe.js / whisper.cpp)
+ *   2. Python 3 s instaliranim pyannote.audio i torch
+ *   3. HuggingFace token s pristupom pyannote modelima
  *
  * Primjer:
  *   node transcribe_diarized.js --channel domovina_tv --hf-token TVOJ_TOKEN
  *   node transcribe_diarized.js --channel domovina_tv --hf-token TVOJ_TOKEN --dry-run
+ *   node transcribe_diarized.js --hf-token TVOJ_TOKEN  (svi kanali)
  */
 
 const { spawn } = require("child_process");
@@ -26,9 +31,7 @@ const path = require("path");
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
 const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
-const WHISPERX_BIN = "whisperx";
-const WHISPER_MODEL = "large-v3";
-const WHISPER_LANGUAGE = "hr";
+const DIARIZE_SCRIPT = path.join(__dirname, "diarize.py");
 
 // --- POMOĆNE FUNKCIJE ---
 
@@ -98,78 +101,40 @@ function formatDuration(seconds) {
     return `${h}h ${m}m ${s}s`;
 }
 
-// --- WHISPERX IZVRŠAVANJE ---
+// --- DIARIZACIJA (poziva Python skriptu) ---
 
 /**
- * Pokreće whisperx, a zatim preimenuje generirani SRT 
- * da ne bi prebrisao onaj od originalnog whisper.cpp.
+ * Pokreće diarize.py koji:
+ *   1. Učita pyannote model na MPS (Metal GPU)
+ *   2. Odradi samo diarizaciju (prepoznavanje govornika)
+ *   3. Spoji oznake govornika s postojećim whisper.cpp SRT-om
+ *   4. Spremi kao .wav.diarized.srt
  */
-function runWhisperX(wavFile, hfToken, outputDir) {
+function runDiarization(wavFile, srtFile, outputFile, hfToken) {
+    const args = [
+        DIARIZE_SCRIPT,
+        "--wav", wavFile,
+        "--srt", srtFile,
+        "--output", outputFile,
+        "--hf-token", hfToken,
+    ];
+
+    const startTime = Date.now();
+
     return new Promise((resolve, reject) => {
-        // WhisperX briše ekstenziju pa za file.wav generira file.srt (ili sl.) u outputDir-u
-        // Zato moramo znati točno ime fajla koje očekujemo dobiti nazad.
-        const baseName = path.basename(wavFile, ".wav");
-        const expectedSrtPath = path.join(outputDir, baseName + ".srt");
-        const finalSrtPath = path.join(outputDir, baseName + ".wav.diarized.srt");
-
-        // Da bismo izbjegli da WhisperX pregazi već postojeći file.srt (od recimo whisper.cpp),
-        // privremeno ćemo sakriti postojeći file.srt ako postoji.
-        const backupSrtPath = expectedSrtPath + ".backup.tmp";
-        let backupCreated = false;
-
-        if (fs.existsSync(expectedSrtPath)) {
-            fs.renameSync(expectedSrtPath, backupSrtPath);
-            backupCreated = true;
-        }
-
-        const args = [
-            wavFile,
-            "--model", WHISPER_MODEL,
-            "--language", WHISPER_LANGUAGE,
-            "--diarize",
-            "--hf_token", hfToken,
-            "--output_dir", outputDir,
-            "--output_format", "srt",
-            "--compute_type", "int8",  // CPU/Mac MPS ne podržava efikasno float16 u ovom backendu
-            // whisperx ne prima --prompt parametar nažalost (bez kompliciranijeg setupa)
-        ];
-
-        const startTime = Date.now();
-        const proc = spawn(WHISPERX_BIN, args, { stdio: "inherit" });
+        const proc = spawn("python3", args, { stdio: "inherit" });
 
         proc.on("close", (code) => {
             const elapsed = (Date.now() - startTime) / 1000;
-
-            // Sad WhisperX završi - naš output bi trebao biti u expectedSrtPath (file.srt)
-            // Preimenujmo to u naš finalni oblik (file.wav.diarized.srt)
-            let success = false;
-            if (fs.existsSync(expectedSrtPath)) {
-                fs.renameSync(expectedSrtPath, finalSrtPath);
-                success = true;
-            }
-
-            // Vrati backup na originalno mjesto (čak i ako je ovo failed)
-            if (backupCreated) {
-                if (fs.existsSync(backupSrtPath)) {
-                    // preimenuj file.srt.backup.tmp nazad u file.srt
-                    fs.renameSync(backupSrtPath, expectedSrtPath);
-                }
-            }
-
-            if (code === 0 && success) {
+            if (code === 0) {
                 resolve({ elapsed });
-            } else if (code === 0 && !success) {
-                reject(new Error(`whisperx je uspješno završio, ali SRT fajl nije kreiran na očekivanoj putanji: ${expectedSrtPath}`));
             } else {
-                reject(new Error(`whisperx exit code: ${code} (trajalo: ${formatDuration(elapsed)})`));
+                reject(new Error(`diarize.py exit code: ${code} (trajalo: ${formatDuration(elapsed)})`));
             }
         });
 
         proc.on("error", (err) => {
-            if (backupCreated && fs.existsSync(backupSrtPath)) {
-                fs.renameSync(backupSrtPath, expectedSrtPath);
-            }
-            reject(new Error(`Nije possible pokrenuti whisperx: ${err.message}. Je li command line alat instaliran i u PATH-u?`));
+            reject(new Error(`Nije moguće pokrenuti python3: ${err.message}. Je li Python 3 instaliran?`));
         });
     });
 }
@@ -184,21 +149,25 @@ async function main() {
     const channelIdx = args.indexOf("--channel");
     const channelFilter = channelIdx !== -1 ? args[channelIdx + 1] : null;
 
-    // Dohvati HF token
+    // HF token
     const tokenIdx = args.indexOf("--hf-token");
     const hfToken = tokenIdx !== -1 ? args[tokenIdx + 1] : null;
 
     if (!hfToken && !dryRun) {
-        console.error("❌ Greška: HuggingFace token je OBAVEZAN za diarizaciju.");
-        console.error("   Dodaj parametar: --hf-token TVOJ_TOKEN");
+        console.error("❌ HuggingFace token je OBAVEZAN za diarizaciju.");
+        console.error("   Dodaj: --hf-token TVOJ_TOKEN");
         process.exit(1);
     }
 
+    // Provjera preduvjeta
+    if (!fs.existsSync(DIARIZE_SCRIPT)) {
+        console.error(`❌ Python skripta ne postoji: ${DIARIZE_SCRIPT}`);
+        process.exit(1);
+    }
     if (!fs.existsSync(LISTS_DIR)) {
         console.error(`❌ Nema direktorija s listama: ${LISTS_DIR}`);
         process.exit(1);
     }
-
     if (!fs.existsSync(baseOutputDir)) {
         console.error(`❌ Output direktorij ne postoji: ${baseOutputDir}`);
         process.exit(1);
@@ -215,20 +184,30 @@ async function main() {
         });
         if (listFiles.length === 0) {
             console.error(`❌ Kanal "${channelFilter}" nije pronađen.`);
+            fs.readdirSync(LISTS_DIR)
+                .filter(f => f.endsWith("-lista.txt"))
+                .forEach(f => {
+                    const name = sanitizeDescription(path.basename(f).replace("-lista.txt", ""));
+                    console.error(`     - ${name}`);
+                });
             process.exit(1);
         }
     }
 
     console.log("╔══════════════════════════════════════════════════╗");
-    console.log("║   🗣️  WHISPER-X DIARIZACIJA (Prepoznavanje govornika)║");
+    console.log("║   🗣️  HIBRIDNA DIARIZACIJA                      ║");
+    console.log("║   whisper.cpp (Metal) + pyannote (MPS)          ║");
     console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   📂 Liste: ${LISTS_DIR}`);
+    console.log(`   💾 Output: ${baseOutputDir}`);
     if (channelFilter) console.log(`   🎯 Kanal: ${channelFilter}`);
-    console.log(`   🧠 Model: ${WHISPER_MODEL}`);
-    if (dryRun) console.log("   ⚠️  DRY RUN - samo prikaz, bez izvršavanja");
+    console.log(`   📋 Lista datoteka: ${listFiles.length}`);
+    if (dryRun) console.log("   ⚠️  DRY RUN - samo prikaz");
     console.log("");
 
-    let totalTranscribed = 0;
+    let totalDiarized = 0;
     let totalSkipped = 0;
+    let totalMissingSrt = 0;
     let totalMissingWav = 0;
     let totalErrors = 0;
     let totalElapsed = 0;
@@ -257,39 +236,47 @@ async function main() {
 
         for (const entry of completedEntries) {
             const wavFile = findFile(outputDir, entry.videoId, ".wav");
-
             if (!wavFile) {
                 console.log(`   ⚠️  WAV nije pronađen za: ${entry.videoId}`);
                 totalMissingWav++;
                 continue;
             }
 
-            // Izbjegni prebrisavanje - traži onaj s extenzijom .diarized.srt
-            const baseName = path.basename(wavFile, ".wav");
-            const finalSrtPath = path.join(outputDir, baseName + ".wav.diarized.srt");
+            // Provjeri postoji li whisper.cpp SRT (preduvjet!)
+            const srtFile = wavFile + ".srt";
+            if (!fs.existsSync(srtFile)) {
+                console.log(`   ⏭️  [NEMA SRT] ${path.basename(wavFile)} — najprije pokreni transcribe.js`);
+                totalMissingSrt++;
+                continue;
+            }
 
-            if (fs.existsSync(finalSrtPath)) {
-                console.log(`   ⏭️  [POSTOJI] ${path.basename(finalSrtPath)}`);
+            // Provjeri je li diarized SRT već generiran
+            const diarizedSrtFile = wavFile + ".diarized.srt";
+            if (fs.existsSync(diarizedSrtFile)) {
+                console.log(`   ⏭️  [POSTOJI] ${path.basename(diarizedSrtFile)}`);
                 totalSkipped++;
                 continue;
             }
 
+            const baseName = path.basename(wavFile, ".wav");
+
             if (dryRun) {
                 console.log(`   🔄 [DIARIZIRAO BI] ${baseName}`);
-                console.log(`      📄 Izlaz će biti: ${path.basename(finalSrtPath)}`);
-                totalTranscribed++;
+                console.log(`      📄 SRT ulaz: ${path.basename(srtFile)}`);
+                console.log(`      📄 Izlaz:    ${path.basename(diarizedSrtFile)}`);
+                totalDiarized++;
                 continue;
             }
 
             try {
                 console.log(`\n   🗣️  [DIARIZIRAM] ${baseName}`);
-                console.log(`      ⏳ Pokrećem whisperx, ovo može potrajati...`);
+                console.log(`      📄 SRT: ${path.basename(srtFile)}`);
 
-                const result = await runWhisperX(wavFile, hfToken, outputDir);
+                const result = await runDiarization(wavFile, srtFile, diarizedSrtFile, hfToken);
                 totalElapsed += result.elapsed;
 
-                console.log(`   ✅ [GOTOVO] ${path.basename(finalSrtPath)} (${formatDuration(result.elapsed)})`);
-                totalTranscribed++;
+                console.log(`   ✅ [GOTOVO] ${path.basename(diarizedSrtFile)} (${formatDuration(result.elapsed)})`);
+                totalDiarized++;
             } catch (err) {
                 console.error(`   ❌ [GREŠKA] ${baseName}: ${err.message}`);
                 totalErrors++;
@@ -300,13 +287,15 @@ async function main() {
     console.log("\n╔══════════════════════════════════════════════════╗");
     console.log("║   📊 SAŽETAK DIARIZACIJE                        ║");
     console.log("╚══════════════════════════════════════════════════╝");
-    console.log(`   ✅ Završeno:       ${totalTranscribed}`);
-    console.log(`   ⏭️  Preskočeno:      ${totalSkipped}`);
+    console.log(`   ✅ Diarizirano:     ${totalDiarized}`);
+    console.log(`   ⏭️  Preskočeno:      ${totalSkipped} (već postoji)`);
+    console.log(`   📝 Nema SRT-a:      ${totalMissingSrt} (treba transcribe.js)`);
     console.log(`   ⚠️  Nedostaje WAV:   ${totalMissingWav}`);
     console.log(`   ❌ Grešaka:          ${totalErrors}`);
     if (totalElapsed > 0) {
         console.log(`   ⏱️  Ukupno vrijeme:  ${formatDuration(totalElapsed)}`);
     }
+    console.log("");
 }
 
 main().catch((err) => console.error("Fatal error:", err));
