@@ -130,7 +130,7 @@ function runWhisperX(wavFile, hfToken, outputDir) {
             "--hf_token", hfToken,
             "--output_dir", outputDir,
             "--output_format", "srt",
-            "--compute_type", "float16",  // Ubrzanje za Mac
+            "--compute_type", "int8",  // CPU/Mac MPS ne podržava efikasno float16 u ovom backendu
             // whisperx ne prima --prompt parametar nažalost (bez kompliciranijeg setupa)
         ];
 
