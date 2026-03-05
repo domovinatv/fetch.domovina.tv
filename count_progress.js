@@ -9,6 +9,7 @@
  * 2. Koliko ima .wav datoteka (konvertiranih)
  * 3. Koliko ima _whisper_prompt.txt datoteka (LLM ključne riječi)
  * 4. Koliko ima .wav.srt datoteka (završenih transkripcija)
+ * 5. Koliko ima .diarized.srt datoteka (diariziranih titlova)
  */
 
 const fs = require('fs');
@@ -26,7 +27,8 @@ const stats = {
     totalMp3: 0,
     totalWav: 0,
     totalPrompts: 0,
-    totalSrt: 0
+    totalSrt: 0,
+    totalDiarized: 0
 };
 
 console.log("Skeniram direktorije...");
@@ -52,6 +54,8 @@ for (const channel of channels) {
                 stats.totalWav++;
             } else if (file.endsWith('_whisper_prompt.txt')) {
                 stats.totalPrompts++;
+            } else if (file.endsWith('.diarized.srt')) {
+                stats.totalDiarized++;
             } else if (file.endsWith('.wav.srt')) {
                 stats.totalSrt++;
             }
@@ -69,15 +73,20 @@ console.log(`   🎵 Ukupno preuzetih videa (.mp3):        ${stats.totalMp3}`);
 console.log(`   🔊 Uspješno konvertirano u WAV:          ${stats.totalWav}`);
 console.log(`   📝 Generirano Whisper promptova (.txt):  ${stats.totalPrompts}`);
 console.log(`   🎙️  Završeno transkripcija (.srt):       ${stats.totalSrt}`);
+console.log(`   🗣️  Diariziranih titlova (.diarized.srt): ${stats.totalDiarized}`);
 console.log("");
 
 // Dodatni postoci (u odnosu na broj MP3 zapisa)
 if (stats.totalMp3 > 0) {
     const wavPerc = Math.round((stats.totalWav / stats.totalMp3) * 100);
     const srtPerc = Math.round((stats.totalSrt / stats.totalMp3) * 100);
+    const diarPerc = stats.totalSrt > 0
+        ? Math.round((stats.totalDiarized / stats.totalSrt) * 100)
+        : 0;
 
     console.log(`   📈 PROGRES:`);
     console.log(`      WAV konverzije: ${wavPerc}% završeno`);
     console.log(`      Transkripcije:  ${srtPerc}% završeno`);
+    console.log(`      Diarizacije:    ${diarPerc}% završeno (od transkribiranog)`);
     console.log("");
 }
