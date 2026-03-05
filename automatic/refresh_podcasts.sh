@@ -50,6 +50,7 @@ KANALI=(
     "duhovnost-hagio|https://www.youtube.com/@duhovnosthagio6031/videos"
     "popcast-pavicic|https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU"
     "zeljka-markic-i-narod-hr|https://www.youtube.com/@zeljkamarkicinarod/videos"
+    "podcast-bitno-net|https://www.youtube.com/playlist?list=PLuxH86sIsJ-aHROAlz-GEWkN4mGPcCa11"
 
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda
