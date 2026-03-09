@@ -10,8 +10,8 @@ const COOKIES_FILE = path.join(__dirname, "automatic", "cookies.txt");
 const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
 
 // --- PRECIZNA KONFIGURACIJA ZA TVOJ STROJ (BRAVE on MACOS) ---
-const BROWSER_NAME = "brave"; 
-const USE_BROWSER_COOKIES = true; 
+const BROWSER_NAME = "brave";
+const USE_BROWSER_COOKIES = true;
 
 // Tvoj točan User-Agent header
 const MY_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36";
@@ -41,13 +41,13 @@ const YT_DLP_BASE_ARGS = [
   "--sub-lang", "hr,en",
   "--write-thumbnail",
   "--convert-thumbnails", "png",
-  
+
   // --- USER AGENT ---
   "--user-agent", MY_USER_AGENT,
 
   // --- RJEŠENJE ZA 'Requested format is not available' ---
   "--remote-components", "ejs:github",
-  
+
   "--no-check-certificate",
   "--prefer-free-formats",
   "--restrict-filenames"
@@ -97,12 +97,12 @@ function extractDataFromLine(line) {
     const parts = line.split("|");
     const url = parts[parts.length - 1].trim();
     let title = "nepoznat_naslov";
-    let date = "NA"; 
+    let date = "NA";
     if (parts.length >= 3) {
-        date = parts[0].trim();
-        title = parts.slice(1, parts.length - 1).join(" ").trim();
+      date = parts[0].trim();
+      title = parts.slice(1, parts.length - 1).join(" ").trim();
     } else if (parts.length === 2) {
-        title = parts[0].trim();
+      title = parts[0].trim();
     }
     return { url, title, date };
   }
@@ -112,12 +112,15 @@ function extractDataFromLine(line) {
 function loadState(stateFile) {
   if (fs.existsSync(stateFile)) {
     try {
-      return JSON.parse(fs.readFileSync(stateFile, "utf-8"));
+      const state = JSON.parse(fs.readFileSync(stateFile, "utf-8"));
+      // Osiguraj da 'private' polje postoji (kompatibilnost sa starijim state datotekama)
+      if (!Array.isArray(state.private)) state.private = [];
+      return state;
     } catch (e) {
       console.error(`[GREŠKA] Neispravan JSON stanja: ${stateFile}`);
     }
   }
-  return { completed: [], failed: [] };
+  return { completed: [], failed: [], private: [] };
 }
 
 function saveState(stateFile, state) {
@@ -137,10 +140,32 @@ function downloadVideo(videoId, outputDir, filenameTemplate) {
   ];
 
   return new Promise((resolve, reject) => {
-    const proc = spawn("yt-dlp", args, { stdio: "inherit" });
+    // Capture stderr da detektiramo private/unavailable video greške
+    const proc = spawn("yt-dlp", args, {
+      stdio: ["inherit", "inherit", "pipe"]  // stdin+stdout inherit, stderr capture
+    });
+
+    let stderrOutput = "";
+    proc.stderr.on("data", (chunk) => {
+      const text = chunk.toString();
+      stderrOutput += text;
+      // Ispiši stderr u realnom vremenu (kao i prije)
+      process.stderr.write(text);
+    });
+
     proc.on("close", (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`yt-dlp exit code: ${code}`));
+      if (code === 0) {
+        resolve();
+      } else {
+        const err = new Error(`yt-dlp exit code: ${code}`);
+        // Detektiraj private/unavailable video
+        if (stderrOutput.includes("This video is private") ||
+          stderrOutput.includes("Video unavailable") ||
+          stderrOutput.includes("Private video")) {
+          err.isPrivate = true;
+        }
+        reject(err);
+      }
     });
     proc.on("error", reject);
   });
@@ -151,7 +176,7 @@ class ChannelQueue {
     this.filePath = filePath;
     this.baseOutputDir = baseOutputDir;
     const filename = path.basename(filePath).replace("-lista.txt", "").replace(".txt", "");
-    this.channelName = sanitizeDescription(filename); 
+    this.channelName = sanitizeDescription(filename);
     this.outputDir = path.join(baseOutputDir, this.channelName);
     this.stateFile = filePath.replace(".txt", "-state.json");
     this.state = loadState(this.stateFile);
@@ -171,11 +196,11 @@ class ChannelQueue {
 
         const safeTitle = sanitizeDescription(data.title);
         let filenameTemplate = "";
-        
+
         if (data.date && /^\d{8}$/.test(data.date) && data.date !== "NA") {
-             filenameTemplate = `${data.date}_${safeTitle}_yt_${videoId}`;
+          filenameTemplate = `${data.date}_${safeTitle}_yt_${videoId}`;
         } else {
-             filenameTemplate = `%(upload_date)s_${safeTitle}_yt_${videoId}`;
+          filenameTemplate = `%(upload_date)s_${safeTitle}_yt_${videoId}`;
         }
 
         return { line, url: data.url, videoId, title: data.title, filenameTemplate };
@@ -184,7 +209,10 @@ class ChannelQueue {
 
     const uniqueMap = new Map();
     entries.forEach((e) => uniqueMap.set(e.videoId, e));
-    this.pendingVideos = Array.from(uniqueMap.values()).filter(e => !this.state.completed.includes(e.videoId));
+    this.pendingVideos = Array.from(uniqueMap.values()).filter(e =>
+      !this.state.completed.includes(e.videoId) &&
+      !this.state.private.includes(e.videoId)
+    );
 
     if (this.pendingVideos.length === 0) this.isExhausted = true;
   }
@@ -202,17 +230,17 @@ class ChannelQueue {
 
     for (let i = 0; i < batch.length; i++) {
       const video = batch[i];
-      const logName = video.filenameTemplate.startsWith("%") 
-        ? `[Auto-Date] ...${video.title.substring(0, 30)}...` 
+      const logName = video.filenameTemplate.startsWith("%")
+        ? `[Auto-Date] ...${video.title.substring(0, 30)}...`
         : video.filenameTemplate;
-      
+
       console.log(`   ➡️  [${i + 1}/${batch.length}] Cilj: "${logName}"`);
 
       try {
         await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate);
 
         if (globalConsecutiveErrors > 0) {
-            console.log(`   ✨ [OPORAVAK] Resetiram brojač grešaka.`);
+          console.log(`   ✨ [OPORAVAK] Resetiram brojač grešaka.`);
         }
         globalConsecutiveErrors = 0;
 
@@ -226,6 +254,20 @@ class ChannelQueue {
         if (i < batch.length - 1) await sleep(1000);
 
       } catch (err) {
+        // --- PRIVATNI VIDEO: trajno preskoči, bez retry-a ---
+        if (err.isPrivate) {
+          console.log(`   🔒  [PRIVATNO] ${video.videoId}: Video je privatan/nedostupan — trajno preskačem`);
+          if (!this.state.private.includes(video.videoId)) {
+            this.state.private.push(video.videoId);
+            // Ako je bio u failed, makni ga
+            this.state.failed = this.state.failed.filter((id) => id !== video.videoId);
+            saveState(this.stateFile, this.state);
+          }
+          // NE povećavaj globalConsecutiveErrors (nije bot-protection problem)
+          continue;
+        }
+
+        // --- OSTALE GREŠKE: uobičajena logika ---
         globalConsecutiveErrors++;
         console.error(`   ❌  [GREŠKA] ${video.videoId}: ${err.message}`);
         console.error(`       ⚠️  Uzastopna greška br. ${globalConsecutiveErrors}`);
@@ -236,10 +278,10 @@ class ChannelQueue {
         }
 
         if (globalConsecutiveErrors >= ERROR_THRESHOLD) {
-            console.log(`\n🛑 BOT PROTECTION TRIGGERED (${globalConsecutiveErrors} grešaka).`);
-            console.log(`⏳ Čekam ${COOL_DOWN_MS / 1000} sekundi...`);
-            await sleep(COOL_DOWN_MS);
-            console.log(`▶️  Nastavljam...`);
+          console.log(`\n🛑 BOT PROTECTION TRIGGERED (${globalConsecutiveErrors} grešaka).`);
+          console.log(`⏳ Čekam ${COOL_DOWN_MS / 1000} sekundi...`);
+          await sleep(COOL_DOWN_MS);
+          console.log(`▶️  Nastavljam...`);
         }
       }
     }
