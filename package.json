@@ -1,0 +1,23 @@
+{
+  "name": "fetch.domovina.tv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "convert_to_wav.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domovinatv/fetch.domovina.tv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domovinatv/fetch.domovina.tv/issues"
+  },
+  "homepage": "https://github.com/domovinatv/fetch.domovina.tv#readme",
+  "dependencies": {
+    "@gradio/client": "^2.1.0"
+  }
+}
