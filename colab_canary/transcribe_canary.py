@@ -130,6 +130,10 @@ Primjeri:
         "--file", default=None,
         help="Transkribira samo jednu specifičnu WAV datoteku"
     )
+    parser.add_argument(
+        "--limit", type=int, default=None,
+        help="Ograniči broj datoteka za obradu (korisno za testiranje)"
+    )
 
     return parser.parse_args()
 
@@ -258,7 +262,6 @@ def transcribe_single_file(model, wav_file: str, output_dir: str,
         return {"status": "error", "reason": str(e), "elapsed": elapsed}
 
     finally:
-        # Čisti GPU memoriju između datoteka
         gc.collect()
         try:
             import torch
@@ -316,6 +319,9 @@ def main():
 
     if already_done > 0:
         print(f"   ⏭️  Preskočeno (transkript već postoji): {already_done}")
+    if args.limit and args.limit < len(to_process):
+        to_process = to_process[:args.limit]
+        print(f"   🔢 Ograničeno na: {args.limit} datoteka (--limit)")
     print(f"   🔄 Za obradu: {len(to_process)}")
     print("")
 
