@@ -139,18 +139,20 @@ Primjeri:
 
 
 def find_wav_files(input_dir: str) -> list:
-    """Pronalazi sve WAV datoteke u direktoriju (ignorira macOS ._* metadata)."""
+    """Pronalazi sve WAV datoteke rekurzivno u direktoriju i poddirektorijima."""
     wav_files = sorted([
-        str(p) for p in Path(input_dir).glob("*.wav")
+        str(p) for p in Path(input_dir).rglob("*.wav")
         if not p.name.startswith("._")
     ])
     return wav_files
 
 
 def has_canary_transcript(wav_file: str, output_dir: str) -> bool:
-    """Provjerava postoji li canary transkript za danu WAV datoteku."""
+    """Provjerava postoji li canary transkript za danu WAV datoteku.
+    Traži SRT pored WAV fajla (u istom direktoriju)."""
+    wav_dir = os.path.dirname(wav_file)
     basename = os.path.basename(wav_file)
-    srt_path = os.path.join(output_dir, basename + CANARY_SRT_SUFFIX)
+    srt_path = os.path.join(wav_dir, basename + CANARY_SRT_SUFFIX)
     return os.path.exists(srt_path)
 
 
@@ -193,9 +195,10 @@ def transcribe_single_file(model, wav_file: str, output_dir: str,
     """
     import torch
 
+    wav_dir = os.path.dirname(wav_file)
     basename = os.path.basename(wav_file)
-    srt_output = os.path.join(output_dir, basename + CANARY_SRT_SUFFIX)
-    csv_output = os.path.join(output_dir, basename + CANARY_CSV_SUFFIX)
+    srt_output = os.path.join(wav_dir, basename + CANARY_SRT_SUFFIX)
+    csv_output = os.path.join(wav_dir, basename + CANARY_CSV_SUFFIX)
 
     # Sigurnosna provjera
     if os.path.exists(srt_output):
