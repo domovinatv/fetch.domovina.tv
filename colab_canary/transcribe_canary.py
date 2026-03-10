@@ -168,7 +168,7 @@ def install_dependencies():
 
 
 def load_model():
-    """Učitava Canary 1B v2 model."""
+    """Učitava Canary 1B v2 model s BF16 optimizacijom."""
     import torch
     from nemo.collections.asr.models import ASRModel
 
@@ -182,6 +182,11 @@ def load_model():
     print("   📥 Učitavam nvidia/canary-1b-v2 model (ovo traje ~1-2min prvi put)...")
     model = ASRModel.from_pretrained(model_name="nvidia/canary-1b-v2")
     model.eval()
+
+    # BF16 optimizacija — pola memorije, brži compute na modernim GPU-ima
+    if device == "cuda" and torch.cuda.is_bf16_supported():
+        model = model.to(torch.bfloat16)
+        print("   ⚡ BF16 optimizacija aktivna")
     print("   ✅ Model učitan")
 
     return model, device
@@ -210,13 +215,14 @@ def transcribe_single_file(model, wav_file: str, output_dir: str,
     start_time = time.time()
 
     try:
-        # Pokreni transkripciju s timestampovima
-        output = model.transcribe(
-            [wav_file],
-            timestamps=True,
-            source_lang=source_lang,
-            target_lang=target_lang
-        )
+        # Pokreni transkripciju s timestampovima (inference_mode smanjuje overhead)
+        with torch.inference_mode():
+            output = model.transcribe(
+                [wav_file],
+                timestamps=True,
+                source_lang=source_lang,
+                target_lang=target_lang
+            )
 
         elapsed = time.time() - start_time
 
@@ -255,23 +261,15 @@ def transcribe_single_file(model, wav_file: str, output_dir: str,
 
     except torch.cuda.OutOfMemoryError:
         elapsed = time.time() - start_time
+        gc.collect()
+        torch.cuda.empty_cache()
         print(f"      ❌ CUDA Out of Memory! Datoteka je prevelika za GPU.")
-        print(f"         💡 Pokušaj s kraćim audio datotekama ili Colab Pro (A100 GPU)")
         return {"status": "error", "reason": "CUDA OOM", "elapsed": elapsed}
 
     except Exception as e:
         elapsed = time.time() - start_time
         print(f"      ❌ Greška: {e}")
         return {"status": "error", "reason": str(e), "elapsed": elapsed}
-
-    finally:
-        gc.collect()
-        try:
-            import torch
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-        except Exception:
-            pass
 
 
 def main():
