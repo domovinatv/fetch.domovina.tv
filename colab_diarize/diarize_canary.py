@@ -163,7 +163,7 @@ def load_diarization_pipeline(hf_token):
         print("   Na Colabu: Runtime > Change runtime type > T4 GPU")
 
     if device == "cuda":
-        vram_gb = torch.cuda.get_device_properties(0).total_mem / (1024**3)
+        vram_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
         gpu_name = torch.cuda.get_device_name(0)
         print(f"   GPU: {gpu_name} ({vram_gb:.1f} GB VRAM)")
 
