@@ -25,6 +25,7 @@ Primjeri:
 """
 
 import argparse
+import multiprocessing
 import os
 import re
 import sys
@@ -267,6 +268,72 @@ def write_diarized_srt(segments, output_path):
             f.write("\n")
 
 
+# ─── Parallel worker ───
+
+_worker_pipeline = None
+_worker_min_speakers = None
+_worker_max_speakers = None
+
+
+def _worker_init(hf_token, min_speakers, max_speakers):
+    """Inicijalizacija worker procesa — svaki učitava vlastiti pyannote pipeline."""
+    global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+    import torch
+    from pyannote.audio import Pipeline
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    pipeline = Pipeline.from_pretrained(
+        "pyannote/speaker-diarization-community-1",
+        token=hf_token
+    )
+    pipeline.to(torch.device(device))
+
+    _worker_pipeline = pipeline
+    _worker_min_speakers = min_speakers
+    _worker_max_speakers = max_speakers
+
+
+def _worker_diarize(wav_file):
+    """Worker funkcija: diarizira jedan fajl. Vraća (wav_file, result)."""
+    global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+
+    wav_dir = os.path.dirname(wav_file)
+    basename = os.path.basename(wav_file)
+    srt_input = os.path.join(wav_dir, basename + CANARY_SRT_SUFFIX)
+    diarized_output = os.path.join(wav_dir, basename + DIARIZED_SRT_SUFFIX)
+
+    if os.path.exists(diarized_output):
+        return wav_file, {"status": "skipped", "reason": "already exists"}
+    if not os.path.exists(srt_input):
+        return wav_file, {"status": "skipped", "reason": "no .canary.srt"}
+
+    start_time = time.time()
+    try:
+        srt_segments = parse_srt(srt_input)
+        if not srt_segments:
+            return wav_file, {"status": "error", "reason": "empty .canary.srt", "elapsed": 0}
+
+        speaker_segments, num_speakers = run_diarization(
+            _worker_pipeline, wav_file,
+            min_speakers=_worker_min_speakers,
+            max_speakers=_worker_max_speakers
+        )
+
+        srt_segments = assign_speakers(srt_segments, speaker_segments)
+        elapsed = time.time() - start_time
+
+        if not os.path.exists(diarized_output):
+            write_diarized_srt(srt_segments, diarized_output)
+
+        return wav_file, {
+            "status": "diarized", "elapsed": elapsed,
+            "segments": len(srt_segments), "speakers": num_speakers
+        }
+    except Exception as e:
+        elapsed = time.time() - start_time
+        return wav_file, {"status": "error", "reason": str(e), "elapsed": elapsed}
+
+
 # ─── Batch obrada ───
 
 def has_diarized_transcript(wav_file):
@@ -391,6 +458,10 @@ Primjeri:
         "--max-speakers", type=int, default=None,
         help="Maksimalan broj govornika"
     )
+    parser.add_argument(
+        "--workers", type=int, default=1,
+        help="Broj paralelnih procesa (default: 1). Svaki koristi ~3 GB RAM. Za CPU VM: --workers $(nproc)"
+    )
 
     return parser.parse_args()
 
@@ -401,9 +472,10 @@ def main():
 
     print("╔══════════════════════════════════════════════════╗")
     print("║   PYANNOTE DIARIZACIJA — CANARY TRANSKRIPTI     ║")
-    print("║   Google Colab GPU                               ║")
     print("╚══════════════════════════════════════════════════╝")
     print(f"   Input:  {input_dir}")
+    if args.workers > 1:
+        print(f"   Workers: {args.workers} (paralelno, ~{args.workers * 3} GB RAM)")
     if args.min_speakers:
         print(f"   Min govornika: {args.min_speakers}")
     if args.max_speakers:
@@ -466,43 +538,85 @@ def main():
         print("   Pokreni bez --dry-run za stvarnu diarizaciju.")
         return
 
-    # ─── Instaliraj dependencies i učitaj model ───
+    # ─── Instaliraj dependencies ───
     install_dependencies()
     hf_token = get_hf_token(args.hf_token)
-    pipeline, device = load_diarization_pipeline(hf_token)
-    print("")
 
     total_diarized = 0
     total_skipped = 0
     total_errors = 0
     total_elapsed = 0.0
+    batch_start = time.time()
 
-    for i, wav_file in enumerate(to_process):
-        basename = os.path.basename(wav_file)
-        print(f"   ─────────────────────────────────────────────")
-        print(f"   [{i+1}/{len(to_process)}] {basename}")
+    if args.workers > 1:
+        # ─── Paralelna obrada ───
+        from concurrent.futures import ProcessPoolExecutor, as_completed
 
-        result = diarize_single_file(
-            pipeline, wav_file,
-            min_speakers=args.min_speakers,
-            max_speakers=args.max_speakers
-        )
+        print(f"   Pokrećem {args.workers} worker procesa (svaki učitava vlastiti model)...")
+        print("")
 
-        if result["status"] == "diarized":
-            total_diarized += 1
-            total_elapsed += result["elapsed"]
-            avg_per_file = total_elapsed / total_diarized
-            remaining = (len(to_process) - i - 1) * avg_per_file
-            print(f"      Trajalo: {format_duration(result['elapsed'])}  |  ETA: {format_duration(remaining)}")
-        elif result["status"] == "skipped":
-            total_skipped += 1
-            print(f"      Preskočeno: {result['reason']}")
-        elif result["status"] == "error":
-            total_errors += 1
-            if result.get("reason") == "CUDA OOM":
-                print("      Preskačem na sljedeću datoteku...")
+        ctx = multiprocessing.get_context("spawn")
+        with ProcessPoolExecutor(
+            max_workers=args.workers,
+            mp_context=ctx,
+            initializer=_worker_init,
+            initargs=(hf_token, args.min_speakers, args.max_speakers)
+        ) as executor:
+            futures = {executor.submit(_worker_diarize, f): f for f in to_process}
+            done_count = 0
+
+            for future in as_completed(futures):
+                wav_file, result = future.result()
+                done_count += 1
+                basename = os.path.basename(wav_file)
+
+                if result["status"] == "diarized":
+                    total_diarized += 1
+                    total_elapsed += result["elapsed"]
+                    wall_elapsed = time.time() - batch_start
+                    wall_per_file = wall_elapsed / done_count
+                    wall_remaining = (len(to_process) - done_count) * wall_per_file
+                    print(f"   [{done_count}/{len(to_process)}] {basename}"
+                          f"  {format_duration(result['elapsed'])}"
+                          f"  {result['speakers']} spk"
+                          f"  |  ETA: {format_duration(wall_remaining)}")
+                elif result["status"] == "skipped":
+                    total_skipped += 1
+                elif result["status"] == "error":
+                    total_errors += 1
+                    print(f"   [{done_count}/{len(to_process)}] {basename}  ERROR: {result.get('reason')}")
+    else:
+        # ─── Sekvencijalna obrada (1 worker, default) ───
+        pipeline, device = load_diarization_pipeline(hf_token)
+        print("")
+
+        for i, wav_file in enumerate(to_process):
+            basename = os.path.basename(wav_file)
+            print(f"   ─────────────────────────────────────────────")
+            print(f"   [{i+1}/{len(to_process)}] {basename}")
+
+            result = diarize_single_file(
+                pipeline, wav_file,
+                min_speakers=args.min_speakers,
+                max_speakers=args.max_speakers
+            )
+
+            if result["status"] == "diarized":
+                total_diarized += 1
+                total_elapsed += result["elapsed"]
+                avg_per_file = total_elapsed / total_diarized
+                remaining = (len(to_process) - i - 1) * avg_per_file
+                print(f"      Trajalo: {format_duration(result['elapsed'])}  |  ETA: {format_duration(remaining)}")
+            elif result["status"] == "skipped":
+                total_skipped += 1
+                print(f"      Preskočeno: {result['reason']}")
+            elif result["status"] == "error":
+                total_errors += 1
+                if result.get("reason") == "CUDA OOM":
+                    print("      Preskačem na sljedeću datoteku...")
 
     # ─── Sažetak ───
+    wall_total = time.time() - batch_start
     print("")
     print("╔══════════════════════════════════════════════════╗")
     print("║   SAŽETAK                                        ║")
@@ -510,11 +624,13 @@ def main():
     print(f"   Diarized:    {total_diarized}")
     print(f"   Preskočeno:  {total_skipped}")
     print(f"   Grešaka:     {total_errors}")
-    if total_elapsed > 0:
-        print(f"   Ukupno vrijeme:  {format_duration(total_elapsed)}")
-        if total_diarized > 0:
-            avg = total_elapsed / total_diarized
-            print(f"   Prosjek po datoteci: {format_duration(avg)}")
+    print(f"   Wall clock:  {format_duration(wall_total)}")
+    if total_diarized > 0:
+        print(f"   CPU vrijeme:  {format_duration(total_elapsed)} (suma svih fajlova)")
+        print(f"   Prosjek/fajl: {format_duration(total_elapsed / total_diarized)}")
+        if args.workers > 1:
+            speedup = total_elapsed / wall_total if wall_total > 0 else 0
+            print(f"   Speedup:      {speedup:.1f}x ({args.workers} workera)")
     print("")
 
 
