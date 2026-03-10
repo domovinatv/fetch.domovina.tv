@@ -202,6 +202,9 @@ def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None):
     audio_input = {"waveform": waveform, "sample_rate": sample_rate}
     result = pipeline(audio_input, **diarize_params)
 
+    # Oslobodi waveform iz memorije (100+ MB za velike fajlove)
+    del waveform, data, audio_input
+
     # community-1 (pyannote 4.x) vraća DiarizeOutput dataclass:
     #   result.speaker_diarization          — puna diarizacija s overlapima
     #   result.exclusive_speaker_diarization — jedan govornik u svakom trenutku
@@ -265,26 +268,6 @@ def write_diarized_srt(segments, output_path):
 
 
 # ─── Batch obrada ───
-
-def find_diarizable_files(input_dir):
-    """Pronalazi WAV datoteke koje imaju .canary.srt ali nemaju .canary.diarized.srt."""
-    wav_files = sorted([
-        str(p) for p in Path(input_dir).rglob("*.wav")
-        if not p.name.startswith("._")
-    ])
-
-    diarizable = []
-    for wav_file in wav_files:
-        wav_dir = os.path.dirname(wav_file)
-        basename = os.path.basename(wav_file)
-        srt_path = os.path.join(wav_dir, basename + CANARY_SRT_SUFFIX)
-        diarized_path = os.path.join(wav_dir, basename + DIARIZED_SRT_SUFFIX)
-
-        if os.path.exists(srt_path) and not os.path.exists(diarized_path):
-            diarizable.append(wav_file)
-
-    return diarizable
-
 
 def has_diarized_transcript(wav_file):
     """Provjerava postoji li diarized transkript za WAV datoteku."""
@@ -493,7 +476,6 @@ def main():
     total_skipped = 0
     total_errors = 0
     total_elapsed = 0.0
-    total_speakers_seen = set()
 
     for i, wav_file in enumerate(to_process):
         basename = os.path.basename(wav_file)
@@ -509,7 +491,9 @@ def main():
         if result["status"] == "diarized":
             total_diarized += 1
             total_elapsed += result["elapsed"]
-            print(f"      Trajalo: {format_duration(result['elapsed'])}")
+            avg_per_file = total_elapsed / total_diarized
+            remaining = (len(to_process) - i - 1) * avg_per_file
+            print(f"      Trajalo: {format_duration(result['elapsed'])}  |  ETA: {format_duration(remaining)}")
         elif result["status"] == "skipped":
             total_skipped += 1
             print(f"      Preskočeno: {result['reason']}")
