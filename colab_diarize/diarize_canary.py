@@ -301,11 +301,15 @@ def _worker_diarize(wav_file):
     basename = os.path.basename(wav_file)
     srt_input = os.path.join(wav_dir, basename + CANARY_SRT_SUFFIX)
     diarized_output = os.path.join(wav_dir, basename + DIARIZED_SRT_SUFFIX)
+    pid = os.getpid()
 
     if os.path.exists(diarized_output):
         return wav_file, {"status": "skipped", "reason": "already exists"}
     if not os.path.exists(srt_input):
         return wav_file, {"status": "skipped", "reason": "no .canary.srt"}
+
+    file_size_mb = os.path.getsize(wav_file) / (1024 * 1024)
+    print(f"      [W{pid}] START {basename} ({file_size_mb:.0f} MB)", flush=True)
 
     start_time = time.time()
     try:
@@ -325,12 +329,14 @@ def _worker_diarize(wav_file):
         if not os.path.exists(diarized_output):
             write_diarized_srt(srt_segments, diarized_output)
 
+        print(f"      [W{pid}] DONE  {basename} {elapsed:.0f}s {num_speakers}spk", flush=True)
         return wav_file, {
             "status": "diarized", "elapsed": elapsed,
             "segments": len(srt_segments), "speakers": num_speakers
         }
     except Exception as e:
         elapsed = time.time() - start_time
+        print(f"      [W{pid}] ERROR {basename}: {e}", flush=True)
         return wav_file, {"status": "error", "reason": str(e), "elapsed": elapsed}
 
 
