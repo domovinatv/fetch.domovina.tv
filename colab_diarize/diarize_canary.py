@@ -275,13 +275,26 @@ _worker_min_speakers = None
 _worker_max_speakers = None
 
 
-def _worker_init(hf_token, min_speakers, max_speakers):
-    """Inicijalizacija worker procesa — svaki učitava vlastiti pyannote pipeline."""
+def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
+    """Inicijalizacija worker procesa — svaki učitava vlastiti pyannote pipeline.
+
+    Na CPU-only stroju, ograničava PyTorch/MKL/OMP threadove po workeru
+    da spriječi oversubscription (npr. 40 workera × 80 threadova = 3200 threadova na 80 CPU).
+    """
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
     import torch
     from pyannote.audio import Pipeline
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    # Ograniči threadove po workeru na CPU-only strojima
+    if device == "cpu":
+        os.environ["OMP_NUM_THREADS"] = str(threads_per_worker)
+        os.environ["MKL_NUM_THREADS"] = str(threads_per_worker)
+        os.environ["OPENBLAS_NUM_THREADS"] = str(threads_per_worker)
+        torch.set_num_threads(threads_per_worker)
+        torch.set_num_interop_threads(1)
+
     pipeline = Pipeline.from_pretrained(
         "pyannote/speaker-diarization-community-1",
         token=hf_token
@@ -466,7 +479,7 @@ Primjeri:
     )
     parser.add_argument(
         "--workers", type=int, default=1,
-        help="Broj paralelnih procesa (default: 1). Svaki koristi ~3 GB RAM. Za CPU VM: --workers $(nproc)"
+        help="Broj paralelnih procesa (default: 1). Svaki koristi ~3 GB RAM + 2 CPU threada. Za CPU VM: --workers $(($(nproc)/2))"
     )
 
     return parser.parse_args()
@@ -558,7 +571,14 @@ def main():
         # ─── Paralelna obrada ───
         from concurrent.futures import ProcessPoolExecutor, as_completed
 
-        print(f"   Pokrećem {args.workers} worker procesa (svaki učitava vlastiti model)...")
+        # Izračunaj threadove po workeru: cilj je workers × threads ≈ CPU count
+        cpu_count = os.cpu_count() or args.workers
+        threads_per_worker = max(1, cpu_count // args.workers)
+        # Cap na 4 — više threadova nema smisla za pyannote inference
+        threads_per_worker = min(threads_per_worker, 4)
+
+        print(f"   Pokrećem {args.workers} worker procesa × {threads_per_worker} thread(s) = "
+              f"{args.workers * threads_per_worker} ukupno threadova (CPU: {cpu_count})")
         print("")
 
         ctx = multiprocessing.get_context("spawn")
@@ -566,7 +586,7 @@ def main():
             max_workers=args.workers,
             mp_context=ctx,
             initializer=_worker_init,
-            initargs=(hf_token, args.min_speakers, args.max_speakers)
+            initargs=(hf_token, args.min_speakers, args.max_speakers, threads_per_worker)
         ) as executor:
             futures = {executor.submit(_worker_diarize, f): f for f in to_process}
             done_count = 0

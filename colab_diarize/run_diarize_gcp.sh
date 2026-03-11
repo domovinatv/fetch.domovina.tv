@@ -42,13 +42,16 @@ if [[ -z "$HF_TOKEN" ]]; then
 fi
 
 # ─── Auto-detect optimalan broj workera ───
+# Svaki worker koristi ~2 CPU threada za pyannote inference,
+# pa je optimalan broj workera = CPU_COUNT / 2 (ne CPU_COUNT).
+# Više od toga uzrokuje oversubscription i dramatičan pad performansi.
 CPU_COUNT=$(nproc)
 MEM_GB=$(awk '/MemTotal/ {printf "%.0f", $2/1024/1024}' /proc/meminfo)
 if [[ -z "$WORKERS" ]]; then
-    WORKERS_BY_CPU=$CPU_COUNT
+    WORKERS_BY_CPU=$((CPU_COUNT / 2))
     WORKERS_BY_MEM=$((MEM_GB / 3))
     WORKERS=$((WORKERS_BY_CPU < WORKERS_BY_MEM ? WORKERS_BY_CPU : WORKERS_BY_MEM))
-    if [[ $WORKERS -gt 40 ]]; then WORKERS=40; fi
+    if [[ $WORKERS -lt 1 ]]; then WORKERS=1; fi
 fi
 
 echo "═══════════════════════════════════════════════════"
