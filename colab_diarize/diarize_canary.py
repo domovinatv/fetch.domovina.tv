@@ -375,6 +375,23 @@ def _worker_diarize(wav_file):
         return wav_file, {"status": "error", "reason": str(e), "elapsed": elapsed}
 
 
+# ─── Background rclone upload ───
+
+def _bg_rclone_upload(diarized_srt_path, rclone_dest, input_dir):
+    """Spawna background rclone process za upload jednog diarized SRT fajla."""
+    import subprocess
+
+    # Izračunaj relativni path unutar input_dir-a
+    rel_path = os.path.relpath(os.path.dirname(diarized_srt_path), input_dir)
+    dest = f"{rclone_dest}/{rel_path}" if rel_path != "." else rclone_dest
+
+    subprocess.Popen(
+        ["rclone", "copyto", diarized_srt_path, f"{dest}/{os.path.basename(diarized_srt_path)}",
+         "--quiet"],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+
+
 # ─── Batch obrada ───
 
 def has_diarized_transcript(wav_file):
@@ -503,6 +520,10 @@ Primjeri:
         "--workers", type=int, default=1,
         help="Broj paralelnih procesa (default: 1). Svaki koristi ~3 GB RAM + 2 CPU threada. Za CPU VM: --workers $(($(nproc)/2))"
     )
+    parser.add_argument(
+        "--rclone-dest", default=None,
+        help="rclone destinacija za background upload nakon svakog fajla (npr. google_drive_ms:domovina_fetch_data/canary_wav)"
+    )
 
     return parser.parse_args()
 
@@ -521,6 +542,8 @@ def main():
         print(f"   Min govornika: {args.min_speakers}")
     if args.max_speakers:
         print(f"   Max govornika: {args.max_speakers}")
+    if args.rclone_dest:
+        print(f"   rclone upload: {args.rclone_dest} (background, nakon svakog fajla)")
     if args.dry_run:
         print("   DRY RUN — samo prikaz, bez diarizacije")
     print("")
@@ -628,6 +651,12 @@ def main():
                           f"  {format_duration(result['elapsed'])}"
                           f"  {result['speakers']} spk"
                           f"  |  ETA: {format_duration(wall_remaining)}")
+                    # Background upload ako je konfigurirano
+                    if args.rclone_dest:
+                        diarized_path = os.path.join(
+                            os.path.dirname(wav_file),
+                            os.path.basename(wav_file) + DIARIZED_SRT_SUFFIX)
+                        _bg_rclone_upload(diarized_path, args.rclone_dest, input_dir)
                 elif result["status"] == "skipped":
                     total_skipped += 1
                 elif result["status"] == "error":
@@ -655,6 +684,12 @@ def main():
                 avg_per_file = total_elapsed / total_diarized
                 remaining = (len(to_process) - i - 1) * avg_per_file
                 print(f"      Trajalo: {format_duration(result['elapsed'])}  |  ETA: {format_duration(remaining)}")
+                # Background upload ako je konfigurirano
+                if args.rclone_dest:
+                    diarized_path = os.path.join(
+                        os.path.dirname(wav_file),
+                        os.path.basename(wav_file) + DIARIZED_SRT_SUFFIX)
+                    _bg_rclone_upload(diarized_path, args.rclone_dest, input_dir)
             elif result["status"] == "skipped":
                 total_skipped += 1
                 print(f"      Preskočeno: {result['reason']}")

@@ -182,7 +182,8 @@ for CHANNEL in $CHANNELS; do
         echo "  Diarizing s $WORKERS workera..."
         python3 -u /data/fetch.domovina.tv/colab_diarize/diarize_canary.py \
             --input-dir "$CHANNEL_DIR" \
-            --workers "$WORKERS"
+            --workers "$WORKERS" \
+            --rclone-dest "${RCLONE_REMOTE}:${DRIVE_PATH}/${CHANNEL}"
 
         # Broji nove diarized
         NEW_DIARIZED=$(find "$CHANNEL_DIR" -name "*.canary.diarized.srt" 2>/dev/null | wc -l)
