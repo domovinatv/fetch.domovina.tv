@@ -180,9 +180,9 @@ for CHANNEL in $CHANNELS; do
     # B) Diarizi
     if [[ "$WAV_COUNT" -gt 0 ]]; then
         echo "  Diarizing s $WORKERS workera..."
-        python3 /data/fetch.domovina.tv/colab_diarize/diarize_canary.py \
+        python3 -u /data/fetch.domovina.tv/colab_diarize/diarize_canary.py \
             --input-dir "$CHANNEL_DIR" \
-            --workers "$WORKERS" 2>&1 | tail -20
+            --workers "$WORKERS"
 
         # Broji nove diarized
         NEW_DIARIZED=$(find "$CHANNEL_DIR" -name "*.canary.diarized.srt" 2>/dev/null | wc -l)

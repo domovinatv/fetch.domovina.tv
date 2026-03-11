@@ -282,19 +282,21 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
     da spriječi oversubscription (npr. 40 workera × 80 threadova = 3200 threadova na 80 CPU).
     """
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+
+    # VAŽNO: env vars moraju biti postavljene PRIJE import torch,
+    # jer PyTorch/OMP/MKL čitaju ih pri inicijalizaciji
+    os.environ["OMP_NUM_THREADS"] = str(threads_per_worker)
+    os.environ["MKL_NUM_THREADS"] = str(threads_per_worker)
+    os.environ["OPENBLAS_NUM_THREADS"] = str(threads_per_worker)
+    os.environ["NUMEXPR_NUM_THREADS"] = str(threads_per_worker)
+
     import torch
     from pyannote.audio import Pipeline
 
+    torch.set_num_threads(threads_per_worker)
+    torch.set_num_interop_threads(1)
+
     device = "cuda" if torch.cuda.is_available() else "cpu"
-
-    # Ograniči threadove po workeru na CPU-only strojima
-    if device == "cpu":
-        os.environ["OMP_NUM_THREADS"] = str(threads_per_worker)
-        os.environ["MKL_NUM_THREADS"] = str(threads_per_worker)
-        os.environ["OPENBLAS_NUM_THREADS"] = str(threads_per_worker)
-        torch.set_num_threads(threads_per_worker)
-        torch.set_num_interop_threads(1)
-
     pipeline = Pipeline.from_pretrained(
         "pyannote/speaker-diarization-community-1",
         token=hf_token
