@@ -72,7 +72,7 @@ if [[ ! -d /data/venv ]]; then
     python3 -m venv /data/venv
 fi
 source /data/venv/bin/activate
-pip install -q pyannote.audio
+pip install -q pyannote.audio soundfile
 echo "  Dependencies instalirani."
 echo ""
 
