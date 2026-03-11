@@ -283,6 +283,11 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
     """
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
 
+    # Suppress torchcodec/pyannote warnings u worker procesima
+    import warnings
+    warnings.filterwarnings("ignore", message="torchcodec is not installed")
+    warnings.filterwarnings("ignore", message="std\\(\\): degrees of freedom")
+
     # VAŽNO: env vars moraju biti postavljene PRIJE import torch,
     # jer PyTorch/OMP/MKL čitaju ih pri inicijalizaciji
     os.environ["OMP_NUM_THREADS"] = str(threads_per_worker)
@@ -311,6 +316,7 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
 def _worker_diarize(wav_file):
     """Worker funkcija: diarizira jedan fajl. Vraća (wav_file, result)."""
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+    import threading
 
     wav_dir = os.path.dirname(wav_file)
     basename = os.path.basename(wav_file)
@@ -327,9 +333,21 @@ def _worker_diarize(wav_file):
     print(f"      [W{pid}] START {basename} ({file_size_mb:.0f} MB)", flush=True)
 
     start_time = time.time()
+    # Heartbeat: ispiši napredak svake 60 sekundi dok traje diarizacija
+    heartbeat_stop = threading.Event()
+
+    def _heartbeat():
+        while not heartbeat_stop.wait(60):
+            elapsed = time.time() - start_time
+            print(f"      [W{pid}] ...   {basename} {elapsed:.0f}s", flush=True)
+
+    hb_thread = threading.Thread(target=_heartbeat, daemon=True)
+    hb_thread.start()
+
     try:
         srt_segments = parse_srt(srt_input)
         if not srt_segments:
+            heartbeat_stop.set()
             return wav_file, {"status": "error", "reason": "empty .canary.srt", "elapsed": 0}
 
         speaker_segments, num_speakers = run_diarization(
@@ -340,6 +358,7 @@ def _worker_diarize(wav_file):
 
         srt_segments = assign_speakers(srt_segments, speaker_segments)
         elapsed = time.time() - start_time
+        heartbeat_stop.set()
 
         if not os.path.exists(diarized_output):
             write_diarized_srt(srt_segments, diarized_output)
@@ -351,6 +370,7 @@ def _worker_diarize(wav_file):
         }
     except Exception as e:
         elapsed = time.time() - start_time
+        heartbeat_stop.set()
         print(f"      [W{pid}] ERROR {basename}: {e}", flush=True)
         return wav_file, {"status": "error", "reason": str(e), "elapsed": elapsed}
 
