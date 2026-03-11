@@ -143,12 +143,32 @@ for CHANNEL in $CHANNELS; do
 
     echo "  SRT na Drive-u: $SRT_COUNT_REMOTE, već diarized: $DIARIZED_REMOTE"
 
-    # A) Download WAV + .canary.srt za ovaj kanal
-    echo "  Downloadam..."
+    # A) Dohvati listu već diarized fajlova, generiraj rclone filter-file
     mkdir -p "$CHANNEL_DIR"
+    FILTER_FILE="/tmp/rclone_filter_${CHANNEL}.txt"
+
+    # Osnovna pravila
+    echo "- ._*" > "$FILTER_FILE"
+
+    # Exclude WAV+SRT za fajlove koji već imaju diarized SRT na Drive-u
+    rclone ls "${RCLONE_REMOTE}:${DRIVE_PATH}/${CHANNEL}" \
+        --filter "- ._*" --filter "+ *.canary.diarized.srt" --filter "- *" 2>/dev/null \
+        | awk '{print $NF}' | sed 's/\.canary\.diarized\.srt$//' | while read -r DONE; do
+            echo "- ${DONE}" >> "$FILTER_FILE"
+            echo "- ${DONE}.canary.srt" >> "$FILTER_FILE"
+        done
+
+    # Include pravila
+    echo "+ *.wav" >> "$FILTER_FILE"
+    echo "+ *.canary.srt" >> "$FILTER_FILE"
+    echo "- *" >> "$FILTER_FILE"
+
+    TO_DOWNLOAD=$((SRT_COUNT_REMOTE - DIARIZED_REMOTE))
+    echo "  Downloadam $TO_DOWNLOAD nediarized fajlova (skip $DIARIZED_REMOTE)..."
     rclone copy "${RCLONE_REMOTE}:${DRIVE_PATH}/${CHANNEL}" "$CHANNEL_DIR" \
-        --filter "- ._*" --filter "+ *.wav" --filter "+ *.canary.srt" --filter "+ *.canary.diarized.srt" --filter "- *" \
+        --filter-from "$FILTER_FILE" \
         --transfers 16 --quiet
+    rm -f "$FILTER_FILE"
 
     WAV_COUNT=$(find "$CHANNEL_DIR" -name "*.wav" 2>/dev/null | wc -l)
     DISK_USED=$(du -sh "$CHANNEL_DIR" 2>/dev/null | cut -f1)
