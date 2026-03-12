@@ -10,17 +10,19 @@
 #   4. transcribe.js        — Whisper transkripcija → SRT titlovi
 #   5. transcribe_diarized.js — Diarizacija govornika (pyannote na MPS)
 #   6. diarize_canary.py    — Canary diarizacija govornika (pyannote na MPS/CPU)
+#   7. summarize_gemini.js  — Gemini sumarizacija diariziranih transkripata
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
-#   - LM Studio pokrenut na localhost:1234 (za korak 2)
-#   - whisper.cpp binary i model dostupni (za korak 3)
-#   - Python 3 + pyannote.audio + HuggingFace token (za korak 4)
+#   - LM Studio pokrenut na localhost:1234 (za korak 3)
+#   - whisper.cpp binary i model dostupni (za korak 4)
+#   - Python 3 + pyannote.audio + HuggingFace token (za korak 5, 6)
+#   - Google AI Studio API ključ (za korak 7)
 #
 # Primjer:
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --dry-run
-#   ./run_pipeline.sh --hf-token TVOJ_TOKEN  (svi kanali)
+#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key TVOJ_GEMINI_KEY
+#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key TVOJ_KEY --dry-run
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --gemini-key TVOJ_KEY  (svi kanali)
 #   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --threads 8
 #
 
@@ -39,12 +41,14 @@ echo ""
 # --- PARSIRANJE ARGUMENATA ---
 # Razdvajamo argumente po skriptama:
 #   --threads     → samo transcribe.js
-#   --hf-token    → samo transcribe_diarized.js
+#   --hf-token    → samo transcribe_diarized.js + diarize_canary.py
+#   --gemini-key  → samo summarize_gemini.js
 #   ostalo        → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
 WHISPER_ARGS=()
 DIARIZE_ARGS=()
+GEMINI_KEY=""
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -54,6 +58,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 2))
     elif [ "$arg" = "--hf-token" ]; then
         DIARIZE_ARGS+=("$arg" "${ALL_ARGS[$((i+1))]}")
+        i=$((i + 2))
+    elif [ "$arg" = "--gemini-key" ]; then
+        GEMINI_KEY="${ALL_ARGS[$((i+1))]}"
         i=$((i + 2))
     else
         COMMON_ARGS+=("$arg")
@@ -68,7 +75,7 @@ DIARIZE_ARGS=("${COMMON_ARGS[@]}" "${DIARIZE_ARGS[@]}")
 
 # --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/6: Osvježavanje i preuzimanje podcasta"
+echo "   📢 KORAK 1/7: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -85,7 +92,7 @@ echo ""
 
 # --- KORAK 2: MP3 → WAV ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/6: Konverzija MP3 → WAV"
+echo "   📢 KORAK 2/7: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -93,7 +100,7 @@ node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/6: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 3/7: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -101,7 +108,7 @@ node "$SCRIPT_DIR/generate_whisper_prompt.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 4/6: Whisper transkripcija"
+echo "   📢 KORAK 4/7: Whisper transkripcija"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -109,7 +116,7 @@ node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 5/6: Diarizacija govornika (pyannote MPS)"
+echo "   📢 KORAK 5/7: Diarizacija govornika (pyannote MPS)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -117,7 +124,7 @@ node "$SCRIPT_DIR/transcribe_diarized.js" "${DIARIZE_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6/6: Canary Diarizacija govornika (pyannote)"
+echo "   📢 KORAK 6/7: Canary Diarizacija govornika (pyannote)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -148,6 +155,18 @@ if [ -n "$HF_TOKEN" ]; then
     python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
     echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
+fi
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 7/7: Gemini Sumarizacija transkripata"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+if [ -n "$GEMINI_KEY" ]; then
+    node "$SCRIPT_DIR/summarize_gemini.js" --input-dir "$OUTPUT_DIR" --gemini-key "$GEMINI_KEY" $CANARY_DRY_RUN
+else
+    echo "⚠️ Preskačem Gemini Sumarizaciju jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
 fi
 
 echo ""
