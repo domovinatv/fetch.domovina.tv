@@ -156,17 +156,19 @@ def load_diarization_pipeline(hf_token):
     import torch
     from pyannote.audio import Pipeline
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"   Uređaj: {device.upper()}")
-
-    if device == "cpu":
-        print("   UPOZORENJE: GPU nije dostupan! Diarizacija će biti spora.")
-        print("   Na Colabu: Runtime > Change runtime type > T4 GPU")
-
-    if device == "cuda":
+    if torch.cuda.is_available():
+        device = "cuda"
         vram_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
         gpu_name = torch.cuda.get_device_name(0)
-        print(f"   GPU: {gpu_name} ({vram_gb:.1f} GB VRAM)")
+        print(f"   Uređaj: CUDA — {gpu_name} ({vram_gb:.1f} GB VRAM)")
+    elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+        device = "mps"
+        print(f"   Uređaj: MPS (Apple Silicon)")
+    else:
+        device = "cpu"
+        print("   Uređaj: CPU")
+        print("   UPOZORENJE: GPU nije dostupan! Diarizacija će biti spora.")
+        print("   Na Colabu: Runtime > Change runtime type > T4 GPU")
 
     print("   Učitavam pyannote/speaker-diarization-community-1 model...")
     pipeline = Pipeline.from_pretrained(
@@ -273,9 +275,13 @@ def write_diarized_srt(segments, output_path):
 _worker_pipeline = None
 _worker_min_speakers = None
 _worker_max_speakers = None
+_worker_rclone_dest = None
+_worker_drive_mount = None
+_worker_input_dir = None
 
 
-def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
+def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2,
+                 rclone_dest=None, drive_mount=None, input_dir=None):
     """Inicijalizacija worker procesa — svaki učitava vlastiti pyannote pipeline.
 
     Na CPU-only stroju, ograničava PyTorch/MKL/OMP threadove po workeru
@@ -301,7 +307,12 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
     torch.set_num_threads(threads_per_worker)
     torch.set_num_interop_threads(1)
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+        device = "mps"
+    else:
+        device = "cpu"
     pipeline = Pipeline.from_pretrained(
         "pyannote/speaker-diarization-community-1",
         token=hf_token
@@ -311,11 +322,16 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2):
     _worker_pipeline = pipeline
     _worker_min_speakers = min_speakers
     _worker_max_speakers = max_speakers
+    global _worker_rclone_dest, _worker_drive_mount, _worker_input_dir
+    _worker_rclone_dest = rclone_dest
+    _worker_drive_mount = drive_mount
+    _worker_input_dir = input_dir
 
 
 def _worker_diarize(wav_file):
     """Worker funkcija: diarizira jedan fajl. Vraća (wav_file, result)."""
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+    global _worker_rclone_dest, _worker_drive_mount, _worker_input_dir
     import threading
 
     wav_dir = os.path.dirname(wav_file)
@@ -328,6 +344,25 @@ def _worker_diarize(wav_file):
         return wav_file, {"status": "skipped", "reason": "already exists"}
     if not os.path.exists(srt_input):
         return wav_file, {"status": "skipped", "reason": "no .canary.srt"}
+
+    # Distributed lock provjera u workeru
+    use_lock = bool(_worker_rclone_dest or _worker_drive_mount)
+    if use_lock:
+        lock_status = None
+        if _worker_rclone_dest:
+            lock_status = _lock_exists_remote(wav_file, _worker_input_dir, _worker_rclone_dest)
+        elif _worker_drive_mount:
+            lock_status = _lock_exists_mount(wav_file, _worker_drive_mount)
+
+        if lock_status == "diarized":
+            return wav_file, {"status": "skipped", "reason": "already diarized on Drive"}
+        elif lock_status == "locked":
+            return wav_file, {"status": "skipped", "reason": "locked by another worker"}
+
+        if _worker_rclone_dest:
+            _create_lock_remote(wav_file, _worker_input_dir, _worker_rclone_dest)
+        elif _worker_drive_mount:
+            _create_lock_mount(wav_file)
 
     file_size_mb = os.path.getsize(wav_file) / (1024 * 1024)
     print(f"      [W{pid}] START {basename} ({file_size_mb:.0f} MB)", flush=True)
@@ -348,6 +383,11 @@ def _worker_diarize(wav_file):
         srt_segments = parse_srt(srt_input)
         if not srt_segments:
             heartbeat_stop.set()
+            if use_lock:
+                if _worker_rclone_dest:
+                    _remove_lock_remote(wav_file, _worker_input_dir, _worker_rclone_dest)
+                elif _worker_drive_mount:
+                    _remove_lock_mount(wav_file)
             return wav_file, {"status": "error", "reason": "empty .canary.srt", "elapsed": 0}
 
         speaker_segments, num_speakers = run_diarization(
@@ -363,6 +403,13 @@ def _worker_diarize(wav_file):
         if not os.path.exists(diarized_output):
             write_diarized_srt(srt_segments, diarized_output)
 
+        # Upload + ukloni lock
+        if _worker_rclone_dest:
+            _bg_rclone_upload(diarized_output, _worker_rclone_dest, _worker_input_dir)
+            _remove_lock_remote(wav_file, _worker_input_dir, _worker_rclone_dest)
+        elif _worker_drive_mount:
+            _remove_lock_mount(wav_file)
+
         print(f"      [W{pid}] DONE  {basename} {elapsed:.0f}s {num_speakers}spk", flush=True)
         return wav_file, {
             "status": "diarized", "elapsed": elapsed,
@@ -371,8 +418,163 @@ def _worker_diarize(wav_file):
     except Exception as e:
         elapsed = time.time() - start_time
         heartbeat_stop.set()
+        # Ukloni lock pri grešci
+        if use_lock:
+            if _worker_rclone_dest:
+                _remove_lock_remote(wav_file, _worker_input_dir, _worker_rclone_dest)
+            elif _worker_drive_mount:
+                _remove_lock_mount(wav_file)
         print(f"      [W{pid}] ERROR {basename}: {e}", flush=True)
         return wav_file, {"status": "error", "reason": str(e), "elapsed": elapsed}
+
+
+# ─── Distributed lock (Google Drive koordinacija) ───
+
+LOCK_SUFFIX = ".canary.lock"
+LOCK_STALE_SECONDS = 7200  # 2 sata — stariji lockovi se smatraju stale (worker crashao)
+
+
+def _get_hostname():
+    """Vraća hostname za lock identifikaciju."""
+    import socket
+    return socket.gethostname()
+
+
+def _remote_path_for_wav(wav_file, input_dir, rclone_dest):
+    """Izračunaj rclone remote path za dati WAV fajl."""
+    rel = os.path.relpath(wav_file, input_dir)
+    return f"{rclone_dest}/{rel}"
+
+
+def _lock_exists_remote(wav_file, input_dir, rclone_dest):
+    """Provjeri postoji li .lock ili .diarized.srt na remote-u (rclone).
+    Vraća: 'diarized', 'locked', ili None.
+    """
+    import subprocess
+
+    basename = os.path.basename(wav_file)
+    rel_dir = os.path.relpath(os.path.dirname(wav_file), input_dir)
+    remote_dir = f"{rclone_dest}/{rel_dir}" if rel_dir != "." else rclone_dest
+
+    # Provjeri .canary.diarized.srt
+    diarized_remote = f"{remote_dir}/{basename}{DIARIZED_SRT_SUFFIX}"
+    ret = subprocess.run(
+        ["rclone", "ls", diarized_remote, "--max-depth", "1"],
+        capture_output=True, text=True, timeout=30
+    )
+    if ret.returncode == 0 and ret.stdout.strip():
+        return "diarized"
+
+    # Provjeri .canary.lock
+    lock_remote = f"{remote_dir}/{basename}{LOCK_SUFFIX}"
+    ret = subprocess.run(
+        ["rclone", "ls", lock_remote, "--max-depth", "1"],
+        capture_output=True, text=True, timeout=30
+    )
+    if ret.returncode == 0 and ret.stdout.strip():
+        # Provjeri starost locka — dohvati sadržaj
+        ret2 = subprocess.run(
+            ["rclone", "cat", lock_remote],
+            capture_output=True, text=True, timeout=30
+        )
+        if ret2.returncode == 0:
+            try:
+                lock_ts = float(ret2.stdout.strip().split("\n")[0])
+                if time.time() - lock_ts > LOCK_STALE_SECONDS:
+                    print(f"      Lock stale (>{LOCK_STALE_SECONDS//3600}h), ignoriram: {basename}", flush=True)
+                    return None
+            except (ValueError, IndexError):
+                pass
+        return "locked"
+
+    return None
+
+
+def _lock_exists_mount(wav_file, drive_mount):
+    """Provjeri postoji li .lock ili .diarized.srt na mountanom Drive-u.
+    Vraća: 'diarized', 'locked', ili None.
+    """
+    basename = os.path.basename(wav_file)
+    # Pronađi odgovarajući direktorij na mountu — koristi isti relativni path
+    # wav_file path sadrži kanal/filename, trebamo mapirati to na drive_mount
+    # drive_mount je root dir na Drive-u, wav_file struktura je input_dir/kanal/file.wav
+    # Za mount mode: wav_file JE na Drive-u, pa lock i diarized su u istom direktoriju
+    wav_dir = os.path.dirname(wav_file)
+
+    diarized_path = os.path.join(wav_dir, basename + DIARIZED_SRT_SUFFIX)
+    if os.path.exists(diarized_path):
+        return "diarized"
+
+    lock_path = os.path.join(wav_dir, basename + LOCK_SUFFIX)
+    if os.path.exists(lock_path):
+        try:
+            with open(lock_path, "r") as f:
+                lock_ts = float(f.readline().strip())
+            if time.time() - lock_ts > LOCK_STALE_SECONDS:
+                print(f"      Lock stale (>{LOCK_STALE_SECONDS//3600}h), ignoriram: {basename}", flush=True)
+                return None
+        except (ValueError, OSError):
+            pass
+        return "locked"
+
+    return None
+
+
+def _create_lock_remote(wav_file, input_dir, rclone_dest):
+    """Stvori .lock fajl na remote-u."""
+    import subprocess
+    import tempfile
+
+    basename = os.path.basename(wav_file)
+    rel_dir = os.path.relpath(os.path.dirname(wav_file), input_dir)
+    remote_dir = f"{rclone_dest}/{rel_dir}" if rel_dir != "." else rclone_dest
+    lock_remote = f"{remote_dir}/{basename}{LOCK_SUFFIX}"
+
+    # Stvori privremeni lock fajl sa timestamp + hostname
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".lock", delete=False) as f:
+        f.write(f"{time.time()}\n{_get_hostname()}\n")
+        tmp_path = f.name
+
+    try:
+        subprocess.run(
+            ["rclone", "copyto", tmp_path, lock_remote, "--quiet"],
+            capture_output=True, timeout=30
+        )
+    finally:
+        os.unlink(tmp_path)
+
+
+def _create_lock_mount(wav_file):
+    """Stvori .lock fajl na mountanom Drive-u."""
+    basename = os.path.basename(wav_file)
+    lock_path = os.path.join(os.path.dirname(wav_file), basename + LOCK_SUFFIX)
+    with open(lock_path, "w") as f:
+        f.write(f"{time.time()}\n{_get_hostname()}\n")
+
+
+def _remove_lock_remote(wav_file, input_dir, rclone_dest):
+    """Obriši .lock fajl s remote-a."""
+    import subprocess
+
+    basename = os.path.basename(wav_file)
+    rel_dir = os.path.relpath(os.path.dirname(wav_file), input_dir)
+    remote_dir = f"{rclone_dest}/{rel_dir}" if rel_dir != "." else rclone_dest
+    lock_remote = f"{remote_dir}/{basename}{LOCK_SUFFIX}"
+
+    subprocess.run(
+        ["rclone", "deletefile", lock_remote, "--quiet"],
+        capture_output=True, timeout=30
+    )
+
+
+def _remove_lock_mount(wav_file):
+    """Obriši .lock fajl s mountanog Drive-a."""
+    basename = os.path.basename(wav_file)
+    lock_path = os.path.join(os.path.dirname(wav_file), basename + LOCK_SUFFIX)
+    try:
+        os.remove(lock_path)
+    except OSError:
+        pass
 
 
 # ─── Background rclone upload ───
@@ -522,7 +724,11 @@ Primjeri:
     )
     parser.add_argument(
         "--rclone-dest", default=None,
-        help="rclone destinacija za background upload nakon svakog fajla (npr. google_drive_ms:domovina_fetch_data/canary_wav)"
+        help="rclone destinacija za background upload + distributed lock (npr. google_drive_ms:domovina_fetch_data/canary_wav)"
+    )
+    parser.add_argument(
+        "--drive-mount", default=None,
+        help="Path do mountanog Google Drive-a za distributed lock (npr. /content/drive/MyDrive/domovina_fetch_data/canary_wav). Za Colab."
     )
 
     return parser.parse_args()
@@ -544,6 +750,11 @@ def main():
         print(f"   Max govornika: {args.max_speakers}")
     if args.rclone_dest:
         print(f"   rclone upload: {args.rclone_dest} (background, nakon svakog fajla)")
+    if args.drive_mount:
+        print(f"   Drive mount:  {args.drive_mount} (distributed lock via mount)")
+    use_distributed_lock = bool(args.rclone_dest or args.drive_mount)
+    if use_distributed_lock:
+        print(f"   Distributed lock: AKTIVAN (stale timeout: {LOCK_STALE_SECONDS//3600}h)")
     if args.dry_run:
         print("   DRY RUN — samo prikaz, bez diarizacije")
     print("")
@@ -631,7 +842,8 @@ def main():
             max_workers=args.workers,
             mp_context=ctx,
             initializer=_worker_init,
-            initargs=(hf_token, args.min_speakers, args.max_speakers, threads_per_worker)
+            initargs=(hf_token, args.min_speakers, args.max_speakers, threads_per_worker,
+                      args.rclone_dest, args.drive_mount, input_dir)
         ) as executor:
             futures = {executor.submit(_worker_diarize, f): f for f in to_process}
             done_count = 0
@@ -672,6 +884,29 @@ def main():
             print(f"   ─────────────────────────────────────────────")
             print(f"   [{i+1}/{len(to_process)}] {basename}")
 
+            # ─── Distributed lock provjera ───
+            if use_distributed_lock:
+                lock_status = None
+                if args.rclone_dest:
+                    lock_status = _lock_exists_remote(wav_file, input_dir, args.rclone_dest)
+                elif args.drive_mount:
+                    lock_status = _lock_exists_mount(wav_file, args.drive_mount)
+
+                if lock_status == "diarized":
+                    total_skipped += 1
+                    print(f"      Preskočeno: već diarized na Drive-u")
+                    continue
+                elif lock_status == "locked":
+                    total_skipped += 1
+                    print(f"      Preskočeno: drugi worker radi (lock)")
+                    continue
+
+                # Claim: stvori lock
+                if args.rclone_dest:
+                    _create_lock_remote(wav_file, input_dir, args.rclone_dest)
+                elif args.drive_mount:
+                    _create_lock_mount(wav_file)
+
             result = diarize_single_file(
                 pipeline, wav_file,
                 min_speakers=args.min_speakers,
@@ -684,17 +919,32 @@ def main():
                 avg_per_file = total_elapsed / total_diarized
                 remaining = (len(to_process) - i - 1) * avg_per_file
                 print(f"      Trajalo: {format_duration(result['elapsed'])}  |  ETA: {format_duration(remaining)}")
-                # Background upload ako je konfigurirano
+                # Upload diarized SRT + ukloni lock
                 if args.rclone_dest:
                     diarized_path = os.path.join(
                         os.path.dirname(wav_file),
                         os.path.basename(wav_file) + DIARIZED_SRT_SUFFIX)
                     _bg_rclone_upload(diarized_path, args.rclone_dest, input_dir)
+                    _remove_lock_remote(wav_file, input_dir, args.rclone_dest)
+                elif args.drive_mount:
+                    _remove_lock_mount(wav_file)
             elif result["status"] == "skipped":
                 total_skipped += 1
                 print(f"      Preskočeno: {result['reason']}")
+                # Ukloni lock ako smo ga stvorili
+                if use_distributed_lock:
+                    if args.rclone_dest:
+                        _remove_lock_remote(wav_file, input_dir, args.rclone_dest)
+                    elif args.drive_mount:
+                        _remove_lock_mount(wav_file)
             elif result["status"] == "error":
                 total_errors += 1
+                # Ukloni lock pri grešci — da drugi worker može probati
+                if use_distributed_lock:
+                    if args.rclone_dest:
+                        _remove_lock_remote(wav_file, input_dir, args.rclone_dest)
+                    elif args.drive_mount:
+                        _remove_lock_mount(wav_file)
                 if result.get("reason") == "CUDA OOM":
                     print("      Preskačem na sljedeću datoteku...")
 
