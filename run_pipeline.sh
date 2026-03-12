@@ -4,10 +4,11 @@
 # run_pipeline.sh
 #
 # Pokreće cijeli pipeline za obradu audio zapisa:
-#   1. convert_to_wav.js    — MP3 → WAV (16kHz, mono, PCM 16-bit LE)
-#   2. generate_whisper_prompt.js — Ekstrakcija ključnih riječi putem LLM-a
-#   3. transcribe.js        — Whisper transkripcija → SRT titlovi
-#   4. transcribe_diarized.js — Diarizacija govornika (pyannote na MPS)
+#   1. fetch.js             — Osvježavanje i preuzimanje podcasta
+#   2. convert_to_wav.js    — MP3 → WAV (16kHz, mono, PCM 16-bit LE)
+#   3. generate_whisper_prompt.js — Ekstrakcija ključnih riječi putem LLM-a
+#   4. transcribe.js        — Whisper transkripcija → SRT titlovi
+#   5. transcribe_diarized.js — Diarizacija govornika (pyannote na MPS)
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -64,9 +65,26 @@ WHISPER_ARGS=("${COMMON_ARGS[@]}" "${WHISPER_ARGS[@]}")
 # Diarize dobiva common + hf-token
 DIARIZE_ARGS=("${COMMON_ARGS[@]}" "${DIARIZE_ARGS[@]}")
 
-# --- KORAK 1: MP3 → WAV ---
+# --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/4: Konverzija MP3 → WAV"
+echo "   📢 KORAK 1/5: Osvježavanje i preuzimanje podcasta"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+cd "$SCRIPT_DIR/automatic" || exit 1
+./refresh_podcasts.sh
+
+git add .
+git commit -m "chore(podcasts): refresh podcast lists" || true
+cd "$SCRIPT_DIR" || exit 1
+
+node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
+
+echo ""
+
+# --- KORAK 2: MP3 → WAV ---
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 2/5: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -74,7 +92,7 @@ node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/4: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 3/5: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -82,7 +100,7 @@ node "$SCRIPT_DIR/generate_whisper_prompt.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/4: Whisper transkripcija"
+echo "   📢 KORAK 4/5: Whisper transkripcija"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -90,7 +108,7 @@ node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 4/4: Diarizacija govornika (pyannote MPS)"
+echo "   📢 KORAK 5/5: Diarizacija govornika (pyannote MPS)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
