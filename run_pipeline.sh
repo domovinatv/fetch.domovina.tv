@@ -9,6 +9,7 @@
 #   3. generate_whisper_prompt.js — Ekstrakcija ključnih riječi putem LLM-a
 #   4. transcribe.js        — Whisper transkripcija → SRT titlovi
 #   5. transcribe_diarized.js — Diarizacija govornika (pyannote na MPS)
+#   6. diarize_canary.py    — Canary diarizacija govornika (pyannote na MPS/CPU)
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -67,7 +68,7 @@ DIARIZE_ARGS=("${COMMON_ARGS[@]}" "${DIARIZE_ARGS[@]}")
 
 # --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/5: Osvježavanje i preuzimanje podcasta"
+echo "   📢 KORAK 1/6: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -84,7 +85,7 @@ echo ""
 
 # --- KORAK 2: MP3 → WAV ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/5: Konverzija MP3 → WAV"
+echo "   📢 KORAK 2/6: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -92,7 +93,7 @@ node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/5: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 3/6: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -100,7 +101,7 @@ node "$SCRIPT_DIR/generate_whisper_prompt.js" "${COMMON_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 4/5: Whisper transkripcija"
+echo "   📢 KORAK 4/6: Whisper transkripcija"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -108,11 +109,46 @@ node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 5/5: Diarizacija govornika (pyannote MPS)"
+echo "   📢 KORAK 5/6: Diarizacija govornika (pyannote MPS)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 node "$SCRIPT_DIR/transcribe_diarized.js" "${DIARIZE_ARGS[@]}"
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 6/6: Canary Diarizacija govornika (pyannote)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+# Ekstrakcija output direktorija iz COMMON_ARGS
+OUTPUT_DIR="/Volumes/DOMOVINA1TB/fetch_domovina_tv_output"
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--output-dir" ]]; then
+        OUTPUT_DIR="${COMMON_ARGS[$((j+1))]}"
+        break
+    fi
+done
+
+# Ekstrakcija HF tokena iz DIARIZE_ARGS
+HF_TOKEN=""
+for ((j=0; j<${#DIARIZE_ARGS[@]}; j++)); do
+    if [[ "${DIARIZE_ARGS[$j]}" == "--hf-token" ]]; then
+        HF_TOKEN="${DIARIZE_ARGS[$((j+1))]}"
+        break
+    fi
+done
+
+CANARY_DRY_RUN=""
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    CANARY_DRY_RUN="--dry-run"
+fi
+
+if [ -n "$HF_TOKEN" ]; then
+    python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
+else
+    echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
+fi
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
