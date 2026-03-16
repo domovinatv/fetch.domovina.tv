@@ -104,23 +104,27 @@ echo "   📢 KORAK 3/7: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-node "$SCRIPT_DIR/generate_whisper_prompt.js" "${COMMON_ARGS[@]}"
+if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
+    node "$SCRIPT_DIR/generate_whisper_prompt.js" "${COMMON_ARGS[@]}"
 
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 4/7: Whisper transkripcija"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "   📢 KORAK 4/7: Whisper transkripcija"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
 
-node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
+    node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
 
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 5/7: Diarizacija govornika (pyannote MPS)"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "   📢 KORAK 5/7: Diarizacija govornika (pyannote MPS)"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
 
-node "$SCRIPT_DIR/transcribe_diarized.js" "${DIARIZE_ARGS[@]}"
+    node "$SCRIPT_DIR/transcribe_diarized.js" "${DIARIZE_ARGS[@]}"
+else
+    echo "⚠️ LM Studio nije pokrenut na localhost:1234 — preskačem korake 3, 4 i 5 (Whisper prompt, transkripcija, diarizacija)"
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -157,16 +161,45 @@ else
     echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
 fi
 
+## --- KORAK 7: GEMINI SUMARIZACIJA (ZAKOMENTIRANO) ---
+# echo ""
+# echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+# echo "   📢 KORAK 7/8: Gemini Sumarizacija transkripata"
+# echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+# echo ""
+#
+# if [ -n "$GEMINI_KEY" ]; then
+#     node "$SCRIPT_DIR/summarize_gemini.js" --input-dir "$OUTPUT_DIR" --gemini-key "$GEMINI_KEY" $CANARY_DRY_RUN
+# else
+#     echo "⚠️ Preskačem Gemini Sumarizaciju jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
+# fi
+
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 7/7: Gemini Sumarizacija transkripata"
+echo "   📢 KORAK 8/8: Gemini Generiranje članaka"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 if [ -n "$GEMINI_KEY" ]; then
-    node "$SCRIPT_DIR/summarize_gemini.js" --input-dir "$OUTPUT_DIR" --gemini-key "$GEMINI_KEY" $CANARY_DRY_RUN
+    # Pronađi sve .canary.diarized.srt datoteke po kanalima
+    for CHANNEL_DIR in "$OUTPUT_DIR"/*/; do
+        [ -d "$CHANNEL_DIR" ] || continue
+        CHANNEL_NAME=$(basename "$CHANNEL_DIR")
+        echo "   📂 Kanal: $CHANNEL_NAME"
+
+        for SRT_FILE in "$CHANNEL_DIR"*.canary.diarized.srt; do
+            [ -f "$SRT_FILE" ] || continue
+            # Preskoči macOS resource fork datoteke
+            case "$(basename "$SRT_FILE")" in ._*) continue ;; esac
+
+            echo "   🔄 Generiram članak za: $(basename "$SRT_FILE")"
+            node "$SCRIPT_DIR/generate_article_gemini.js" --file "$SRT_FILE" --gemini-key "$GEMINI_KEY" || {
+                echo "   ⚠️  Greška pri generiranju članka za $(basename "$SRT_FILE"), nastavljam..."
+            }
+        done
+    done
 else
-    echo "⚠️ Preskačem Gemini Sumarizaciju jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
+    echo "⚠️ Preskačem generiranje članaka jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
 fi
 
 echo ""
