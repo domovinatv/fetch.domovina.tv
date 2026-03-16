@@ -73,9 +73,34 @@ WHISPER_ARGS=("${COMMON_ARGS[@]}" "${WHISPER_ARGS[@]}")
 # Diarize dobiva common + hf-token
 DIARIZE_ARGS=("${COMMON_ARGS[@]}" "${DIARIZE_ARGS[@]}")
 
+# Ekstrakcija output direktorija iz COMMON_ARGS
+OUTPUT_DIR="/Volumes/DOMOVINA1TB/fetch_domovina_tv_output"
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--output-dir" ]]; then
+        OUTPUT_DIR="${COMMON_ARGS[$((j+1))]}"
+        break
+    fi
+done
+
+# --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 0/8: Skidanje novih diarisation fajlova s Google Drive-a"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+if command -v rclone &> /dev/null; then
+    echo "   ⏬ Preuzimam .canary.diarized.srt s Google Drive-a..."
+    rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
+      --include "**.canary.**" --exclude "._*" \
+      --drive-shared-with-me --progress
+else
+    echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
+fi
+echo ""
+
 # --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/7: Osvježavanje i preuzimanje podcasta"
+echo "   📢 KORAK 1/8: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -92,15 +117,31 @@ echo ""
 
 # --- KORAK 2: MP3 → WAV ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/7: Konverzija MP3 → WAV"
+echo "   📢 KORAK 2/8: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
 node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}"
 
 echo ""
+# --- POST-KORAK 2: UPLOAD NOVIH WAV I SRT NA DRIVE (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/7: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 2.5: Upload WAV datoteka na Google Drive"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+if command -v rclone &> /dev/null; then
+    echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
+    rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
+      --filter "- ._*" --filter "+ *.wav" --filter "- *" \
+      --drive-shared-with-me --progress
+else
+    echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
+fi
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 3/8: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -109,7 +150,7 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 4/7: Whisper transkripcija"
+    echo "   📢 KORAK 4/8: Whisper transkripcija"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -117,7 +158,7 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 5/7: Diarizacija govornika (pyannote MPS)"
+    echo "   📢 KORAK 5/8: Diarizacija govornika (pyannote MPS)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -128,18 +169,11 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6/7: Canary Diarizacija govornika (pyannote)"
+echo "   📢 KORAK 6/8: Canary Diarizacija govornika (pyannote)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-# Ekstrakcija output direktorija iz COMMON_ARGS
-OUTPUT_DIR="/Volumes/DOMOVINA1TB/fetch_domovina_tv_output"
-for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
-    if [[ "${COMMON_ARGS[$j]}" == "--output-dir" ]]; then
-        OUTPUT_DIR="${COMMON_ARGS[$((j+1))]}"
-        break
-    fi
-done
+# OUTPUT_DIR je sada ekstraktiran na vrhu skripte znatno ranije.
 
 # Ekstrakcija HF tokena iz DIARIZE_ARGS
 HF_TOKEN=""

@@ -32,14 +32,25 @@ Google Drive                          Google Colab (GPU)
 
 ## Workflow
 
-### 1. HuggingFace token u Colab Secrets
+### 1. Upload WAV datoteka na Google Drive (rclone)
+
+Prije pokretanja diarizacije u oblaku, potrebno je prebaciti WAV datoteke (i pripadajuće `.canary.srt` ako postoje) s lokalnog diska na Google Drive.
+
+```bash
+rclone copy /Volumes/DOMOVINA1TB/fetch_domovina_tv_output/ \
+  google_drive_ms:domovina_fetch_data/canary_wav \
+  --filter "- ._*" --filter "+ *.wav" --filter "- *" \
+  --drive-shared-with-me --progress
+```
+
+### 2. HuggingFace token u Colab Secrets
 
 U Google Colabu:
 1. Klikni ikonu ključa (Secrets) u lijevom panelu
 2. Dodaj novi secret: `HF_TOKEN` = tvoj HuggingFace token
 3. Uključi "Notebook access"
 
-### 2. Diarizacija na Google Colab
+### 3. Diarizacija na Google Colab
 
 Otvori `domovina_tv_diarize.ipynb` na Colabu i pokreni cellove:
 
@@ -59,14 +70,14 @@ drive.mount('/content/drive')
   --input-dir "/content/drive/MyDrive/domovina_fetch_data/canary_wav"
 ```
 
-### 3. Download diarized transkripata lokalno (rclone)
+### 4. Download diariziranih transkripata lokalno (rclone)
 
-Postojeća rclone naredba za download već pokriva `.canary.diarized.srt` jer koristi `*.canary.*` filter:
+Nakon što Google Colab (ili GCP VM, npr. G4 grafičke kartice) izvođenjem Python skripti obradi datoteke i stvori diarizirane `.canary.diarized.srt` datoteke, vraćamo ih nazad u lokalni path koristeći rclone:
 
 ```bash
 rclone copy google_drive_ms:domovina_fetch_data/canary_wav \
   /Volumes/DOMOVINA1TB/fetch_domovina_tv_output \
-  --filter "- ._*" --filter "+ *.canary.*" --filter "- *" \
+  --filter "- ._*" --filter "+ **.canary.**" --filter "- *" \
   --drive-shared-with-me \
   --transfers 4 --progress
 ```
