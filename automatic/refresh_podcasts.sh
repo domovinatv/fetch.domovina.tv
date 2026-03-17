@@ -7,7 +7,7 @@ COOKIE_FILE="./cookies.txt"
 CHUNK_SIZE=50
 MAX_CHUNKS=1000      # 40 * 50 = 2000 videa max po kanalu
 MIN_DURATION=901  # Sekunde dohvati sve sto je dulje od 15:01 da se eliminiraju reels clipovi i kratke reklame
-MIN_DURATION=2881 # podcast-inkubator za se QA video zapisi filtriraju
+# MIN_DURATION=2881 # podcast-inkubator za se QA video zapisi filtriraju
 
 mkdir -p "$OUTPUT_DIR"
 
