@@ -43,12 +43,14 @@ echo ""
 #   --threads     → samo transcribe.js
 #   --hf-token    → samo transcribe_diarized.js + diarize_canary.py
 #   --gemini-key  → samo summarize_gemini.js
+#   --only-articles → preskače sve korake (0-7) i vrti samo korak 8 (slučaj: testiranja ili kad su podaci već skinuti)
 #   ostalo        → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
 WHISPER_ARGS=()
 DIARIZE_ARGS=()
 GEMINI_KEY=""
+ONLY_ARTICLES=false
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -62,6 +64,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--gemini-key" ]; then
         GEMINI_KEY="${ALL_ARGS[$((i+1))]}"
         i=$((i + 2))
+    elif [ "$arg" = "--only-articles" ]; then
+        ONLY_ARTICLES=true
+        i=$((i + 1))
     else
         COMMON_ARGS+=("$arg")
         i=$((i + 1))
@@ -81,6 +86,8 @@ for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
         break
     fi
 done
+
+if [ "$ONLY_ARTICLES" = false ]; then
 
 # --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -194,6 +201,8 @@ if [ -n "$HF_TOKEN" ]; then
 else
     echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
 fi
+
+fi # Kraj ONLY_ARTICLES=false bloka
 
 ## --- KORAK 7: GEMINI SUMARIZACIJA (ZAKOMENTIRANO) ---
 # echo ""
