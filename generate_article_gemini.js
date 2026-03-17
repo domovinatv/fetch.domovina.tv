@@ -28,9 +28,9 @@ const path = require("path");
 const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
 const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
-const REQUEST_DELAY_MS = 3000;
-const MAX_RETRIES = 3;
-const RETRY_BASE_DELAY_MS = 5000;
+const REQUEST_DELAY_MS = 5000;
+const MAX_RETRIES = 5;
+const RETRY_BASE_DELAY_MS = 15000;
 
 // ─── SYSTEM PROMPTOVI ────────────────────────────────────────────
 
@@ -97,7 +97,7 @@ function parseArgs() {
     }
 
     const file = getArg("--file");
-    const geminiKey = getArg("--gemini-key") || process.env.GEMINI_API_KEY || null;
+    const geminiKeyArg = getArg("--gemini-key") || process.env.GEMINI_API_KEY || null;
 
     if (!file) {
         console.error("❌ Obavezan argument: --file <putanja_do_srt_datoteke>");
@@ -109,12 +109,19 @@ function parseArgs() {
         process.exit(1);
     }
 
-    if (!geminiKey) {
+    if (!geminiKeyArg) {
         console.error("❌ Gemini API ključ nije pronađen (--gemini-key ili GEMINI_API_KEY env)!");
         process.exit(1);
     }
 
-    return { file, geminiKey };
+    // Parsiranje ključeva odvojenih zarezom
+    const geminiKeys = geminiKeyArg.split(",").map(k => k.trim()).filter(k => k.length > 0);
+    if (geminiKeys.length === 0) {
+        console.error("❌ Nevažeći format Gemini ključeva!");
+        process.exit(1);
+    }
+
+    return { file, geminiKeys };
 }
 
 // Iterativno pokušava popraviti česte Gemini JSON malformacije
@@ -188,7 +195,9 @@ function extractJsonFromText(text) {
 
 // ─── GEMINI API ──────────────────────────────────────────────────
 
-async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API poziv", rawSavePath = null) {
+let currentKeyIndex = 0;
+
+async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini API poziv", rawSavePath = null) {
     const payload = {
         contents: [
             {
@@ -206,10 +215,13 @@ async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API
         }
     };
 
-    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-        const timer = startElapsedTimer(`${label} (pokušaj ${attempt}/${MAX_RETRIES})`);
+        // Rotiraj ključ za svaki novi pokušaj ili novu rundu pozva
+        const currentKey = apiKeys[currentKeyIndex];
+        currentKeyIndex = (currentKeyIndex + 1) % apiKeys.length;
+        const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent?key=${currentKey}`;
+
+        const timer = startElapsedTimer(`${label} (ključ ${currentKeyIndex === 0 ? apiKeys.length : currentKeyIndex}/${apiKeys.length}, pokušaj ${attempt}/${MAX_RETRIES})`);
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -271,7 +283,7 @@ async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { file, geminiKey } = parseArgs();
+    const { file, geminiKeys } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -279,6 +291,7 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Datoteka: ${file}`);
     console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
+    console.log(`   🔑 Ključevi: ${geminiKeys.length} aktivnih API ključa/eva`);
     console.log("");
 
     const srtContent = fs.readFileSync(file, "utf-8");
@@ -328,7 +341,7 @@ async function main() {
             const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
 
             try {
-                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, geminiKey, "FAZA 1 — Outline", rawPath1);
+                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, geminiKeys, "FAZA 1 — Outline", rawPath1);
                 outlineJson = result1.parsed;
                 // Normaliziraj: ako Gemini vrati goli niz, omotaj u {iterations: [...]}
                 if (Array.isArray(outlineJson)) {
@@ -427,7 +440,7 @@ async function main() {
 
         try {
             const rawPath2 = path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.raw.txt`);
-            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, geminiKey, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
+            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, geminiKeys, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
             const sectionResult = result2.parsed;
 
             // Provjeri je li Gemini vratio sections pod očekivanim ključem

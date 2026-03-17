@@ -17,12 +17,12 @@
 #   - LM Studio pokrenut na localhost:1234 (za korak 3)
 #   - whisper.cpp binary i model dostupni (za korak 4)
 #   - Python 3 + pyannote.audio + HuggingFace token (za korak 5, 6)
-#   - Google AI Studio API ključ (za korak 7)
+#   - Google AI Studio API ključ (za korak 7, 8) - Može se unijeti i više ključeva odvojenih zarezom zbog Rate Limit-a
 #
 # Primjer:
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key TVOJ_GEMINI_KEY
+#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key KEY1,KEY2,KEY3
 #   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key TVOJ_KEY --dry-run
-#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --gemini-key TVOJ_KEY  (svi kanali)
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --gemini-key KEY1,KEY2  (svi kanali)
 #   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --threads 8
 #
 
