@@ -117,6 +117,54 @@ function parseArgs() {
     return { file, geminiKey };
 }
 
+// Iterativno pokušava popraviti česte Gemini JSON malformacije
+// (npr. niz objekata bez vitičastih zagrada: ["key": val] umjesto [{"key": val}])
+function tryRepairMalformedJson(text) {
+    let repaired = text;
+    const MAX_FIXES = 100;
+
+    for (let i = 0; i < MAX_FIXES; i++) {
+        try {
+            return JSON.parse(repaired);
+        } catch (e) {
+            const posMatch = e.message.match(/position (\d+)/);
+            if (!posMatch) return null;
+            const pos = parseInt(posMatch[1]);
+
+            // Slučaj 1: Očekivano ',' ili ']' a na poziciji je ':'
+            // → goli key-value par u nizu, nedostaje '{' oko objekta
+            if (e.message.includes("Expected ','") && repaired[pos] === ':') {
+                // Pronađi otvarajući " imena ključa (preskoči whitespace i zatvarajući ")
+                let k = pos - 1;
+                while (k >= 0 && /\s/.test(repaired[k])) k--; // preskoči razmake između ključa i :
+                if (k >= 0 && repaired[k] === '"') {
+                    k--; // preskoči zatvarajući "
+                    while (k >= 0 && repaired[k] !== '"') k--; // pronađi otvarajući "
+                    if (k >= 0) {
+                        repaired = repaired.slice(0, k) + '{ ' + repaired.slice(k);
+                        continue;
+                    }
+                }
+            }
+
+            // Slučaj 2: Očekivano ',' ili '}' a pronađen ']' — nedostaje '}' prije ']'
+            if (e.message.includes("Expected ','") && repaired[pos] === ']') {
+                repaired = repaired.slice(0, pos) + ' }' + repaired.slice(pos);
+                continue;
+            }
+
+            // Slučaj 3: Očekivano ',' ili '}' a pronađen '{' — nedostaje '},' prije novog objekta
+            if (e.message.includes("Expected ','") && repaired[pos] === '{') {
+                repaired = repaired.slice(0, pos) + '}, ' + repaired.slice(pos);
+                continue;
+            }
+
+            return null; // ne znamo popraviti ovu grešku
+        }
+    }
+    return null;
+}
+
 // Čisti JSON string od markdown blockova (```json ... ```) i drugih wrappera
 function extractJsonFromText(text) {
     let clean = text.trim();
@@ -125,16 +173,22 @@ function extractJsonFromText(text) {
     clean = clean.trim();
     try {
         return JSON.parse(clean);
-    } catch (err) {
-        console.error(`      ⚠️  JSON parse error: ${err.message}`);
+    } catch (firstErr) {
+        // Pokušaj automatski popraviti česte Gemini malformacije
+        const repaired = tryRepairMalformedJson(clean);
+        if (repaired !== null) {
+            console.error(`      🔧 JSON automatski popravljen (malformirani niz objekata).`);
+            return repaired;
+        }
+        console.error(`      ⚠️  JSON parse error: ${firstErr.message}`);
         console.error(`      ⚠️  Raw response (first 500 chars): ${text.substring(0, 500)}`);
-        throw err;
+        throw firstErr;
     }
 }
 
 // ─── GEMINI API ──────────────────────────────────────────────────
 
-async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API poziv") {
+async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API poziv", rawSavePath = null) {
     const payload = {
         contents: [
             {
@@ -190,6 +244,11 @@ async function callGemini(systemPrompt, userMessage, apiKey, label = "Gemini API
                 throw new Error("Gemini vratio prazan odgovor");
             }
 
+            // Spremi sirovi odgovor PRIJE parsiranja (omogućava oporavak ako parse padne)
+            if (rawSavePath) {
+                fs.writeFileSync(rawSavePath, responseText, "utf-8");
+            }
+
             const parsed = extractJsonFromText(responseText);
             return { parsed, raw: responseText };
 
@@ -242,27 +301,47 @@ async function main() {
         console.log(`   ✅ [FAZA 1] Pronađen postojeći outline: ${outlinePath}`);
         outlineJson = JSON.parse(fs.readFileSync(outlinePath, "utf-8"));
     } else {
-        console.log(`   🚀 [FAZA 1] Generiram semantički outline...`);
-        const startTime1 = Date.now();
+        const rawPath1 = path.join(rawDir, "faza1_outline.raw.txt");
 
-        // Šaljemo cijeli transkript kao kontekst
-        const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
-
-        try {
-            const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, geminiKey, "FAZA 1 — Outline");
-            outlineJson = result1.parsed;
-            fs.writeFileSync(path.join(rawDir, "faza1_outline.raw.txt"), result1.raw, "utf-8");
-            // Normaliziraj: ako Gemini vrati goli niz, omotaj u {iterations: [...]}
-            if (Array.isArray(outlineJson)) {
-                console.log(`   ℹ️  [FAZA 1] Gemini vratio goli JSON niz (${outlineJson.length} elemenata) — omotavam u {iterations: [...]}.`);
-                outlineJson = { iterations: outlineJson };
+        // Pokušaj oporavak iz raw datoteke (ako postoji od prethodnog neuspjelog pokušaja)
+        if (fs.existsSync(rawPath1)) {
+            console.log(`   🔧 [FAZA 1] Pronađen sirovi odgovor od prethodnog pokušaja — pokušavam parsirati...`);
+            try {
+                const rawText = fs.readFileSync(rawPath1, "utf-8");
+                outlineJson = extractJsonFromText(rawText);
+                if (Array.isArray(outlineJson)) {
+                    outlineJson = { iterations: outlineJson };
+                }
+                fs.writeFileSync(outlinePath, JSON.stringify(outlineJson, null, 2), "utf-8");
+                console.log(`   ✅ [FAZA 1] Outline uspješno obnovljen iz raw datoteke. Pronađeno ${outlineJson.iterations?.length || 0} iteracija.`);
+            } catch (rawErr) {
+                console.log(`   ⚠️  [FAZA 1] Oporavak iz raw datoteke neuspješan: ${rawErr.message}`);
+                outlineJson = null;
             }
-            fs.writeFileSync(outlinePath, JSON.stringify(outlineJson, null, 2), "utf-8");
-            const elapsed = ((Date.now() - startTime1) / 1000).toFixed(1);
-            console.log(`   ✅ [FAZA 1] Outline spremljen. Pronađeno ${outlineJson.iterations?.length || 0} iteracija. (${elapsed}s)`);
-        } catch (err) {
-            console.error(`   ❌ [FAZA 1] Greška: ${err.message}`);
-            process.exit(1);
+        }
+
+        if (!outlineJson) {
+            console.log(`   🚀 [FAZA 1] Generiram semantički outline...`);
+            const startTime1 = Date.now();
+
+            // Šaljemo cijeli transkript kao kontekst
+            const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
+
+            try {
+                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, geminiKey, "FAZA 1 — Outline", rawPath1);
+                outlineJson = result1.parsed;
+                // Normaliziraj: ako Gemini vrati goli niz, omotaj u {iterations: [...]}
+                if (Array.isArray(outlineJson)) {
+                    console.log(`   ℹ️  [FAZA 1] Gemini vratio goli JSON niz (${outlineJson.length} elemenata) — omotavam u {iterations: [...]}.`);
+                    outlineJson = { iterations: outlineJson };
+                }
+                fs.writeFileSync(outlinePath, JSON.stringify(outlineJson, null, 2), "utf-8");
+                const elapsed = ((Date.now() - startTime1) / 1000).toFixed(1);
+                console.log(`   ✅ [FAZA 1] Outline spremljen. Pronađeno ${outlineJson.iterations?.length || 0} iteracija. (${elapsed}s)`);
+            } catch (err) {
+                console.error(`   ❌ [FAZA 1] Greška: ${err.message}`);
+                process.exit(1);
+            }
         }
 
         // Zbog rate limita pauziraj prije Faze 2
@@ -347,9 +426,9 @@ async function main() {
             `Transkript cijelog razgovora (iskoristi za kontekst i prepoznavanje imena, ali PIŠI SAMO O VREMENSKOM OKVIRU ${iter.start_time} - ${iter.end_time}):\n\n${srtContent}`;
 
         try {
-            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, geminiKey, `FAZA 2 — Iteracija ${iter.iteration_number}`);
+            const rawPath2 = path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.raw.txt`);
+            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, geminiKey, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
             const sectionResult = result2.parsed;
-            fs.writeFileSync(path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.raw.txt`), result2.raw, "utf-8");
 
             // Provjeri je li Gemini vratio sections pod očekivanim ključem
             let sections;
