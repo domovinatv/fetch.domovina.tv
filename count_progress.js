@@ -28,7 +28,11 @@ const stats = {
     totalWav: 0,
     totalPrompts: 0,
     totalSrt: 0,
-    totalDiarized: 0
+    totalDiarized: 0,
+    totalCanarySrt: 0,
+    totalCanaryDiarized: 0,
+    totalSummary: 0,
+    totalArticle: 0
 };
 
 console.log("Skeniram direktorije...");
@@ -54,10 +58,18 @@ for (const channel of channels) {
                 stats.totalWav++;
             } else if (file.endsWith('_whisper_prompt.txt')) {
                 stats.totalPrompts++;
+            } else if (file.endsWith('.canary.diarized.srt')) {
+                stats.totalCanaryDiarized++;
+            } else if (file.endsWith('.canary.srt')) {
+                stats.totalCanarySrt++;
             } else if (file.endsWith('.diarized.srt')) {
                 stats.totalDiarized++;
             } else if (file.endsWith('.wav.srt')) {
                 stats.totalSrt++;
+            } else if (file.endsWith('.canary.summary.json')) {
+                stats.totalSummary++;
+            } else if (file.endsWith('.article.json')) {
+                stats.totalArticle++;
             }
         }
     } catch (e) {
@@ -69,24 +81,42 @@ console.log("\n╔════════════════════�
 console.log("║   📊 STVARNI PROGRES NA DISKU                    ║");
 console.log("╚══════════════════════════════════════════════════╝");
 console.log("");
-console.log(`   🎵 Ukupno preuzetih videa (.mp3):        ${stats.totalMp3}`);
-console.log(`   🔊 Uspješno konvertirano u WAV:          ${stats.totalWav}`);
-console.log(`   📝 Generirano Whisper promptova (.txt):  ${stats.totalPrompts}`);
-console.log(`   🎙️  Završeno transkripcija (.srt):       ${stats.totalSrt}`);
-console.log(`   🗣️  Diariziranih titlova (.diarized.srt): ${stats.totalDiarized}`);
+console.log(`   🎵 Ukupno preuzetih videa (.mp3):             ${stats.totalMp3}`);
+console.log(`   🔊 Uspješno konvertirano u WAV:               ${stats.totalWav}`);
+console.log(`   📝 Generirano Whisper promptova (.txt):       ${stats.totalPrompts}`);
+console.log(`   🎙️  Završeno Whisper (.srt):                  ${stats.totalSrt}`);
+console.log(`   🗣️  Whisper Diarizirano (.diarized.srt):      ${stats.totalDiarized}`);
+console.log(`   🦅 Canary Transkribirano (.canary.srt):       ${stats.totalCanarySrt}`);
+console.log(`   🦜 Canary Diarizirano (.canary.diarized.srt): ${stats.totalCanaryDiarized}`);
+console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSummary}`);
+console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle}`);
 console.log("");
 
 // Dodatni postoci (u odnosu na broj MP3 zapisa)
 if (stats.totalMp3 > 0) {
     const wavPerc = Math.round((stats.totalWav / stats.totalMp3) * 100);
     const srtPerc = Math.round((stats.totalSrt / stats.totalMp3) * 100);
+    const canarySrtPerc = Math.round((stats.totalCanarySrt / stats.totalMp3) * 100);
     const diarPerc = stats.totalSrt > 0
         ? Math.round((stats.totalDiarized / stats.totalSrt) * 100)
         : 0;
+    const canaryDiarPerc = stats.totalCanarySrt > 0
+        ? Math.round((stats.totalCanaryDiarized / stats.totalCanarySrt) * 100)
+        : 0;
+    const summaryPerc = stats.totalCanaryDiarized > 0
+        ? Math.round((stats.totalSummary / stats.totalCanaryDiarized) * 100)
+        : 0;
+    const articlePerc = stats.totalCanaryDiarized > 0
+        ? Math.round((stats.totalArticle / stats.totalCanaryDiarized) * 100)
+        : 0;
 
     console.log(`   📈 PROGRES:`);
-    console.log(`      WAV konverzije: ${wavPerc}% završeno`);
-    console.log(`      Transkripcije:  ${srtPerc}% završeno`);
-    console.log(`      Diarizacije:    ${diarPerc}% završeno (od transkribiranog)`);
+    console.log(`      WAV konverzije:       ${wavPerc}% završeno`);
+    console.log(`      Whisper Transkripcije:${srtPerc}% završeno`);
+    console.log(`      Whisper Diarizacije:  ${diarPerc}% završeno (od transkribiranog)`);
+    console.log(`      Canary Transkripcije: ${canarySrtPerc}% završeno`);
+    console.log(`      Canary Diarizacije:   ${canaryDiarPerc}% završeno (od canary)`);
+    console.log(`      Gemini Sažeci:        ${summaryPerc}% završeno (od canary diarized)`);
+    console.log(`      Gemini Članci:        ${articlePerc}% završeno (od canary diarized)`);
     console.log("");
 }
