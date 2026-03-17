@@ -1,6 +1,6 @@
 # Domovina.tv Audio Pipeline
 
-Ovaj projekt sadrži automatizirani sustav (pipeline) za preuzimanje, obradu, transkripciju, diarizaciju govornika i generiranje članaka iz YouTube podcasta.
+*Ažurirano: 17. ožujka 2026.*
 
 ## 🚀 Arhitektura Sustava
 
@@ -34,7 +34,7 @@ Glavna skripta za orkestraciju cijelog procesa je `run_pipeline.sh`. Proces se s
 ## 🛠️ Preduvjeti
 
 Za ispravno funkcioniranje pipeline-a potrebno je ispunjenje osnovnih tehnoloških uvjeta:
-- **Mac s Apple Silicon (M1/M2/M3)** arhitekturom preporučeno zbog MPS/Metal akceleracije.
+- **Mac s Apple Silicon (M1/M2/M3/M4)** arhitekturom preporučeno zbog MPS/Metal akceleracije.
 - Montiran vanjski/eksterni radni disk (default: `/Volumes/DOMOVINA1TB/fetch_domovina_tv_output`).
 - Instaliran **Node.js** i zadovoljeni njegovi uvjeti iz `package.json` zapisa (`npm install`).
 - Instaliran **Python 3** s paketima za AI rad, primarno `pyannote.audio` i `torch` podrška.
