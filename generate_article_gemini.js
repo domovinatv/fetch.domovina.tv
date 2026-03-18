@@ -25,9 +25,9 @@ const path = require("path");
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
 // const GEMINI_MODEL = "gemini-3.1-pro-preview"; // Koristimo najnoviji Pro model za visoku kvalitetu novinarstva
-// const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
+const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
 
-const GEMINI_MODEL = "gemini-2.5-flash"; // Prebačeno na stabilan model zbog većih kvota
+// const GEMINI_MODEL = "gemini-2.5-flash"; // Prebačeno na stabilan model zbog većih kvota
 const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 const REQUEST_DELAY_MS = 5000;
