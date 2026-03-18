@@ -22,30 +22,36 @@
  *   - Gemini prima CIJELI transkript (kontekst od 1M tokena to omogućuje)
  *
  * PREDUVJETI:
- *   - Google AI Studio API ključ (GEMINI_API_KEY env ili --gemini-key argument)
+ *   - gcloud CLI instaliran i autentificiran (gcloud auth login)
+ *   - GCP projekt s omogućenim Vertex AI API-jem
  *   - Node.js 18+ (za native fetch)
+ *
+ * Endpoint: Vertex AI (us-central1-aiplatform.googleapis.com) s OAuth Bearer tokenom.
+ * Koristi GCP kredite (free trial / GenAI krediti), ne naplaćuje karticu direktno.
  *
  * Primjeri:
  *   node summarize_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
  *   node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5
+ *   node summarize_gemini.js --input-dir ... --model gemini-2.5-flash
  *   node summarize_gemini.js --input-dir ... --dry-run
- *
- * Cijena: ~$0.02 ukupno za 834 datoteke s gemini-2.0-flash
  */
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
-// Gemini API endpoint (Google AI Studio — generativeai)
-const GEMINI_MODEL = "gemini-2.0-flash";
-const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
+// Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
+let GEMINI_MODEL = "gemini-2.5-flash";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "za-inventuru-spremni-prod";
+const VERTEX_REGION = process.env.VERTEX_REGION || "us-central1";
+const GEMINI_API_BASE = `https://${VERTEX_REGION}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${VERTEX_REGION}/publishers/google/models`;
 
-// Rate limiting: Gemini Flash ima 15 RPM na free tier, 1000 RPM na pay-as-you-go
-const REQUEST_DELAY_MS = 2000;    // 2 sekunde između zahtjeva (sigurno za free tier)
-const MAX_RETRIES = 3;            // Broj pokušaja pri 429/5xx greškama
-const RETRY_BASE_DELAY_MS = 5000; // Bazno čekanje za exponential backoff
+// Rate limiting
+const REQUEST_DELAY_MS = 2000;     // 2 sekunde između zahtjeva
+const MAX_RETRIES = 10;            // Broj pokušaja pri 429/5xx greškama
+const RETRY_BASE_DELAY_MS = 10000; // Bazno čekanje za exponential backoff
 
 // Sufiksi datoteka
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
@@ -208,20 +214,42 @@ function srtToText(srtContent) {
     return textLines.join("\n");
 }
 
-// ─── GEMINI API ──────────────────────────────────────────────────
+// ─── OAUTH TOKEN (iz generate_article_gemini.js) ───────────────
+
+function getAccessToken() {
+    try {
+        return execSync("gcloud auth print-access-token", { encoding: "utf-8" }).trim();
+    } catch (err) {
+        console.error("❌ Ne mogu dohvatiti access token. Pokreni: gcloud auth login");
+        process.exit(1);
+    }
+}
+
+let cachedAccessToken = null;
+let tokenExpiry = 0;
+
+// Access token traje ~60min, refreshamo svako ~50min
+function getOrRefreshAccessToken() {
+    const now = Date.now();
+    if (cachedAccessToken && now < tokenExpiry) {
+        return cachedAccessToken;
+    }
+    cachedAccessToken = getAccessToken();
+    tokenExpiry = now + 50 * 60 * 1000;
+    return cachedAccessToken;
+}
+
+// ─── GEMINI API (Vertex AI — OAuth Bearer token) ────────────────
 
 /**
- * Poziva Google Gemini API s diariziranim transkriptom.
- *
- * Koristi Gemini REST API (Google AI Studio) — ne zahtijeva SDK,
- * radi s native Node.js fetch (Node 18+).
+ * Poziva Gemini API putem Vertex AI endpointa s OAuth Bearer tokenom.
+ * Koristi gcloud CLI za autentikaciju — troši GCP kredite, ne naplaćuje karticu.
  *
  * @param {string} transcript - Čisti tekst transkripta s [SPEAKER_XX] oznakama
  * @param {Object|null} metadata - Podaci iz .info.json (naslov, opis, tagovi)
- * @param {string} apiKey - Google AI Studio API ključ
  * @returns {Object} Parsirani JSON sažetak
  */
-async function callGemini(transcript, metadata, apiKey) {
+async function callGemini(transcript, metadata) {
     // Konstruiraj korisnički prompt s metapodacima + transkriptom
     let userMessage = "";
 
@@ -243,42 +271,59 @@ async function callGemini(transcript, metadata, apiKey) {
     userMessage += "=== DIARIZIRANI TRANSKRIPT ===\n";
     userMessage += transcript;
 
-    // Gemini API payload
+    // Vertex AI payload — systemInstruction odvojen od contents
     const payload = {
         contents: [
             {
                 role: "user",
-                parts: [{ text: SYSTEM_PROMPT + "\n\n" + userMessage }]
+                parts: [{ text: userMessage }]
             }
         ],
+        systemInstruction: {
+            role: "system",
+            parts: [{ text: SYSTEM_PROMPT }]
+        },
         generationConfig: {
             temperature: 0.2,   // Niska temperatura za konzistentne, faktične sažetke
-            maxOutputTokens: 4096,
             responseMimeType: "application/json"  // Forsiraj JSON output
         }
     };
 
-    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent`;
 
     // Exponential backoff za rate limiting (429) i server greške (5xx)
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const token = getOrRefreshAccessToken();
+
         try {
             const response = await fetch(url, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
                 body: JSON.stringify(payload)
             });
 
-            // Rate limit ili server error → retry s exponential backoff
-            if (response.status === 429 || response.status >= 500) {
-                const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                console.error(`      ⏳ HTTP ${response.status} — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
-                await sleep(waitMs);
-                continue;
-            }
-
             if (!response.ok) {
                 const errorBody = await response.text();
+
+                // Token istekao → refresh i retry
+                if (response.status === 401) {
+                    console.error(`      ⚠️  Access token istekao — refresham...`);
+                    cachedAccessToken = null;
+                    tokenExpiry = 0;
+                    continue;
+                }
+
+                // Rate limit ili server error → retry s exponential backoff
+                if (response.status === 429 || response.status >= 500) {
+                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                    console.error(`      ⏳ HTTP ${response.status} — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                    await sleep(waitMs);
+                    continue;
+                }
+
                 throw new Error(`Gemini API HTTP ${response.status}: ${errorBody.substring(0, 300)}`);
             }
 
@@ -292,7 +337,6 @@ async function callGemini(transcript, metadata, apiKey) {
             const responseText = data.candidates[0].content.parts[0].text;
 
             // Parsiraj JSON iz odgovora
-            // Gemini ponekad wrapa u ```json ... ``` unatoč responseMimeType
             let cleanedJson = responseText.trim();
             cleanedJson = cleanedJson.replace(/^```json\s*\n?/, "").replace(/\n?```\s*$/, "");
 
@@ -462,33 +506,26 @@ function parseArgs() {
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
 
-    // Gemini API ključ: CLI argument ima prednost nad env varijablom
-    const geminiKey = getArg("--gemini-key") || process.env.GEMINI_API_KEY || null;
+    // --model flag za override modela
+    const model = getArg("--model");
+    if (model) {
+        GEMINI_MODEL = model;
+    }
 
     if (!inputDir) {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
         console.error("");
         console.error("Primjeri:");
         console.error("  node summarize_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
-        console.error("  node summarize_gemini.js --input-dir ... --gemini-key YOUR_KEY");
         console.error("  node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5");
+        console.error("  node summarize_gemini.js --input-dir ... --model gemini-2.5-flash");
         console.error("  node summarize_gemini.js --input-dir ... --dry-run");
         console.error("");
-        console.error("Environment varijabla: GEMINI_API_KEY");
+        console.error("Autentikacija: gcloud auth login (OAuth Bearer token)");
         process.exit(1);
     }
 
-    if (!geminiKey && !dryRun) {
-        console.error("❌ Gemini API ključ nije pronađen!");
-        console.error("   Opcije:");
-        console.error("     1. CLI: --gemini-key TVOJ_KLJUČ");
-        console.error("     2. Environment: export GEMINI_API_KEY=TVOJ_KLJUČ");
-        console.error("");
-        console.error("   Kreiraj ga na: https://aistudio.google.com/apikey");
-        process.exit(1);
-    }
-
-    return { inputDir, channel, limit, dryRun, geminiKey };
+    return { inputDir, channel, limit, dryRun };
 }
 
 // ─── DISCOVERY: PRONAĐI SVE DATOTEKE ZA OBRADU ──────────────────
@@ -550,7 +587,7 @@ function discoverFiles(inputDir, channelFilter) {
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { inputDir, channel, limit, dryRun, geminiKey } = parseArgs();
+    const { inputDir, channel, limit, dryRun } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -558,6 +595,8 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Input:   ${inputDir}`);
     console.log(`   🤖 Model:   ${GEMINI_MODEL}`);
+    console.log(`   🌐 Endpoint: Vertex AI (OAuth Bearer)`);
+    console.log(`   📋 Projekt:  ${VERTEX_PROJECT} (${VERTEX_REGION})`);
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
@@ -630,7 +669,7 @@ async function main() {
                 console.log(`   🤖 [GEMINI] ${base}`);
                 console.log(`      📄 Transkript: ${(srtContent.length / 1024).toFixed(0)} KB, ${transcriptText.split("\n").length} linija`);
 
-                const geminiResult = await callGemini(transcriptText, metadata, geminiKey);
+                const geminiResult = await callGemini(transcriptText, metadata);
 
                 // 4. Gradi output objekte
                 const summaryJson = buildSummaryJson(geminiResult, basename, ch, metadata);

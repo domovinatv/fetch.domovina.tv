@@ -17,13 +17,15 @@
 #   - LM Studio pokrenut na localhost:1234 (za korak 3)
 #   - whisper.cpp binary i model dostupni (za korak 4)
 #   - Python 3 + pyannote.audio + HuggingFace token (za korak 5, 6)
-#   - Google AI Studio API ključ (za korak 7, 8) - Može se unijeti i više ključeva odvojenih zarezom zbog Rate Limit-a
+#   - gcloud CLI autentificiran (gcloud auth login) — za korak 7, 8 (Vertex AI OAuth)
 #
 # Primjer:
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key KEY1,KEY2,KEY3
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --gemini-key TVOJ_KEY --dry-run
-#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --gemini-key KEY1,KEY2  (svi kanali)
+#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN
+#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --dry-run
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN  (svi kanali)
 #   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --threads 8
+#   ./run_pipeline.sh --only-summaries                (samo korak 7: sumarizacija)
+#   ./run_pipeline.sh --only-articles                 (samo korak 7+8: sumarizacija + članci)
 #
 
 set -e  # Prekini na prvoj grešci
@@ -43,14 +45,16 @@ echo ""
 #   --threads     → samo transcribe.js
 #   --hf-token    → samo transcribe_diarized.js + diarize_canary.py
 #   --gemini-key  → samo summarize_gemini.js
-#   --only-articles → preskače sve korake (0-7) i vrti samo korak 8 (slučaj: testiranja ili kad su podaci već skinuti)
-#   ostalo        → svima (--channel, --dry-run, --output-dir)
+#   --only-articles   → preskače sve korake (0-6) i vrti samo korak 7 i 8
+#   --only-summaries  → preskače sve korake (0-6) i vrti samo korak 7
+#   ostalo            → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
 WHISPER_ARGS=()
 DIARIZE_ARGS=()
 GEMINI_KEY=""
 ONLY_ARTICLES=false
+ONLY_SUMMARIES=false
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -66,6 +70,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 2))
     elif [ "$arg" = "--only-articles" ]; then
         ONLY_ARTICLES=true
+        i=$((i + 1))
+    elif [ "$arg" = "--only-summaries" ]; then
+        ONLY_SUMMARIES=true
         i=$((i + 1))
     else
         COMMON_ARGS+=("$arg")
@@ -87,7 +94,7 @@ for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
     fi
 done
 
-if [ "$ONLY_ARTICLES" = false ]; then
+if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
 
 # --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -202,21 +209,43 @@ else
     echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
 fi
 
-fi # Kraj ONLY_ARTICLES=false bloka
+fi # Kraj ONLY_ARTICLES=false && ONLY_SUMMARIES=false bloka
 
-## --- KORAK 7: GEMINI SUMARIZACIJA (ZAKOMENTIRANO) ---
-# echo ""
-# echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-# echo "   📢 KORAK 7/8: Gemini Sumarizacija transkripata"
-# echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-# echo ""
-#
-# if [ -n "$GEMINI_KEY" ]; then
-#     node "$SCRIPT_DIR/summarize_gemini.js" --input-dir "$OUTPUT_DIR" --gemini-key "$GEMINI_KEY" $CANARY_DRY_RUN
-# else
-#     echo "⚠️ Preskačem Gemini Sumarizaciju jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
-# fi
+# --- KORAK 7: GEMINI SUMARIZACIJA (Vertex AI OAuth) ---
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 7/8: Gemini Sumarizacija transkripata"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
 
+# Vertex AI koristi gcloud OAuth token — ne treba API key
+SUMMARIZE_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+# Proslijedi --channel ako postoji u COMMON_ARGS
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        SUMMARIZE_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    SUMMARIZE_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/summarize_gemini.js" "${SUMMARIZE_ARGS[@]}"
+
+if [ "$ONLY_SUMMARIES" = true ]; then
+    echo ""
+    echo "╔══════════════════════════════════════════════════╗"
+    echo "║   ✅ PIPELINE ZAVRŠEN (--only-summaries)         ║"
+    echo "╚══════════════════════════════════════════════════╝"
+    echo "   ⏱️  Kraj: $(date '+%Y-%m-%d %H:%M:%S')"
+    echo ""
+    exit 0
+fi
+
+# --- KORAK 8: GEMINI GENERIRANJE ČLANAKA (Vertex AI OAuth) ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   📢 KORAK 8/8: Gemini Generiranje članaka"
