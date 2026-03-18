@@ -16,19 +16,25 @@
  *   Izlaz svake iteracije su "sections" koji se spajaju u konačni članak.
  *
  * Primjer pokretanja:
- *   node generate_article_gemini.js --file /path/to/transcript.srt --gemini-key TVOJ_KLJUC
+ *   node generate_article_gemini.js --file /path/to/transcript.srt
+ *
+ * Koristi Vertex AI endpoint s OAuth Bearer tokenom (troši GCP kredite).
+ * Autentikacija: gcloud CLI (`gcloud auth print-access-token`).
+ * Konfig: VERTEX_PROJECT i VERTEX_REGION env varijable ili defaulti.
  */
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
-// const GEMINI_MODEL = "gemini-3.1-pro-preview"; // Koristimo najnoviji Pro model za visoku kvalitetu novinarstva
-const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
+const GEMINI_MODEL = "gemini-2.5-flash"; // Jedini model dostupan na Vertex AI za ovaj projekt
 
-// const GEMINI_MODEL = "gemini-2.5-flash"; // Prebačeno na stabilan model zbog većih kvota
-const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
+// Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "za-inventuru-spremni-prod";
+const VERTEX_REGION = process.env.VERTEX_REGION || "us-central1";
+const GEMINI_API_BASE = `https://${VERTEX_REGION}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${VERTEX_REGION}/publishers/google/models`;
 
 const REQUEST_DELAY_MS = 5000;
 const MAX_RETRIES = 10;
@@ -91,6 +97,16 @@ function startElapsedTimer(prefix) {
     };
 }
 
+// Dohvaća OAuth2 access token koristeći gcloud CLI
+function getAccessToken() {
+    try {
+        return execSync("gcloud auth print-access-token", { encoding: "utf-8" }).trim();
+    } catch (err) {
+        console.error("❌ Ne mogu dohvatiti access token. Pokreni: gcloud auth login");
+        process.exit(1);
+    }
+}
+
 function parseArgs() {
     const args = process.argv.slice(2);
     function getArg(name) {
@@ -99,7 +115,6 @@ function parseArgs() {
     }
 
     const file = getArg("--file");
-    const geminiKeyArg = getArg("--gemini-key") || process.env.GEMINI_API_KEY || null;
 
     if (!file) {
         console.error("❌ Obavezan argument: --file <putanja_do_srt_datoteke>");
@@ -111,19 +126,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    if (!geminiKeyArg) {
-        console.error("❌ Gemini API ključ nije pronađen (--gemini-key ili GEMINI_API_KEY env)!");
-        process.exit(1);
-    }
-
-    // Parsiranje ključeva odvojenih zarezom
-    const geminiKeys = geminiKeyArg.split(",").map(k => k.trim()).filter(k => k.length > 0);
-    if (geminiKeys.length === 0) {
-        console.error("❌ Nevažeći format Gemini ključeva!");
-        process.exit(1);
-    }
-
-    return { file, geminiKeys };
+    return { file };
 }
 
 // Iterativno pokušava popraviti česte Gemini JSON malformacije
@@ -197,9 +200,21 @@ function extractJsonFromText(text) {
 
 // ─── GEMINI API ──────────────────────────────────────────────────
 
-let currentKeyIndex = 0;
+let cachedAccessToken = null;
+let tokenExpiry = 0;
 
-async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini API poziv", rawSavePath = null) {
+// Access token traje ~60min, refreshamo svako ~50min
+function getOrRefreshAccessToken() {
+    const now = Date.now();
+    if (cachedAccessToken && now < tokenExpiry) {
+        return cachedAccessToken;
+    }
+    cachedAccessToken = getAccessToken();
+    tokenExpiry = now + 50 * 60 * 1000;
+    return cachedAccessToken;
+}
+
+async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv", rawSavePath = null) {
     const payload = {
         contents: [
             {
@@ -217,17 +232,19 @@ async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini AP
         }
     };
 
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-        // Rotiraj ključ za svaki novi pokušaj ili novu rundu pozva
-        const currentKey = apiKeys[currentKeyIndex];
-        currentKeyIndex = (currentKeyIndex + 1) % apiKeys.length;
-        const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent?key=${currentKey}`;
+    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent`;
 
-        const timer = startElapsedTimer(`${label} (ključ ${currentKeyIndex === 0 ? apiKeys.length : currentKeyIndex}/${apiKeys.length}, pokušaj ${attempt}/${MAX_RETRIES})`);
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const token = getOrRefreshAccessToken();
+
+        const timer = startElapsedTimer(`${label} (Vertex AI, pokušaj ${attempt}/${MAX_RETRIES})`);
         try {
             const response = await fetch(url, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
                 body: JSON.stringify(payload)
             });
             timer.stop();
@@ -235,13 +252,15 @@ async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini AP
             if (!response.ok) {
                 const errorBody = await response.text();
 
-                // 1) Ako je ključ nevažeći ili istekao, preskačemo na idući odmah
-                if (response.status === 400 && (errorBody.includes("API_KEY") || errorBody.includes("expired"))) {
-                    console.error(`      ⚠️  Ključ ...${currentKey.slice(-5)} je nevažeći ili istekao. Odmah prebacujem na idući...`);
+                // Token istekao — refresh i retry
+                if (response.status === 401) {
+                    console.error(`      ⚠️  Access token istekao — refresham...`);
+                    cachedAccessToken = null;
+                    tokenExpiry = 0;
                     continue;
                 }
 
-                // 2) Ako je 429 Rate Limit ili 500+ Server greška, čekamo i pokušavamo ponovno
+                // 429 Rate Limit ili 500+ Server greška — čekamo i pokušavamo ponovno
                 if (response.status === 429 || response.status >= 500) {
                     const errorDetail = errorBody ? errorBody.substring(0, 300) : "Nema detalja od servera";
                     const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
@@ -296,7 +315,7 @@ async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini AP
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { file, geminiKeys } = parseArgs();
+    const { file } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -304,7 +323,7 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Datoteka: ${file}`);
     console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
-    console.log(`   🔑 Ključevi: ${geminiKeys.length} aktivnih API ključa/eva`);
+    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT} (${VERTEX_REGION})`);
     console.log("");
 
     const srtContent = fs.readFileSync(file, "utf-8");
@@ -354,7 +373,7 @@ async function main() {
             const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
 
             try {
-                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, geminiKeys, "FAZA 1 — Outline", rawPath1);
+                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, "FAZA 1 — Outline", rawPath1);
                 outlineJson = result1.parsed;
                 // Normaliziraj: ako Gemini vrati goli niz, omotaj u {iterations: [...]}
                 if (Array.isArray(outlineJson)) {
@@ -453,7 +472,7 @@ async function main() {
 
         try {
             const rawPath2 = path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.raw.txt`);
-            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, geminiKeys, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
+            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
             const sectionResult = result2.parsed;
 
             // Provjeri je li Gemini vratio sections pod očekivanim ključem

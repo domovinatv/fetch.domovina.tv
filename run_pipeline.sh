@@ -223,27 +223,23 @@ echo "   📢 KORAK 8/8: Gemini Generiranje članaka"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-if [ -n "$GEMINI_KEY" ]; then
-    # Pronađi sve .canary.diarized.srt datoteke po kanalima
-    for CHANNEL_DIR in "$OUTPUT_DIR"/*/; do
-        [ -d "$CHANNEL_DIR" ] || continue
-        CHANNEL_NAME=$(basename "$CHANNEL_DIR")
-        echo "   📂 Kanal: $CHANNEL_NAME"
+# Vertex AI koristi gcloud OAuth token — ne treba API key
+for CHANNEL_DIR in "$OUTPUT_DIR"/*/; do
+    [ -d "$CHANNEL_DIR" ] || continue
+    CHANNEL_NAME=$(basename "$CHANNEL_DIR")
+    echo "   📂 Kanal: $CHANNEL_NAME"
 
-        for SRT_FILE in "$CHANNEL_DIR"*.canary.diarized.srt; do
-            [ -f "$SRT_FILE" ] || continue
-            # Preskoči macOS resource fork datoteke
-            case "$(basename "$SRT_FILE")" in ._*) continue ;; esac
+    for SRT_FILE in "$CHANNEL_DIR"*.canary.diarized.srt; do
+        [ -f "$SRT_FILE" ] || continue
+        # Preskoči macOS resource fork datoteke
+        case "$(basename "$SRT_FILE")" in ._*) continue ;; esac
 
-            echo "   🔄 Generiram članak za: $(basename "$SRT_FILE")"
-            node "$SCRIPT_DIR/generate_article_gemini.js" --file "$SRT_FILE" --gemini-key "$GEMINI_KEY" || {
-                echo "   ⚠️  Greška pri generiranju članka za $(basename "$SRT_FILE"), nastavljam..."
-            }
-        done
+        echo "   🔄 Generiram članak za: $(basename "$SRT_FILE")"
+        node "$SCRIPT_DIR/generate_article_gemini.js" --file "$SRT_FILE" || {
+            echo "   ⚠️  Greška pri generiranju članka za $(basename "$SRT_FILE"), nastavljam..."
+        }
     done
-else
-    echo "⚠️ Preskačem generiranje članaka jer nedostaje API ključ (--gemini-key TVOJ_KLJUČ ili GEMINI_API_KEY env)"
-fi
+done
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
