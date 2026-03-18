@@ -61,7 +61,9 @@ STRUKTURA JSON-a: Odgovor mora biti JSON objekt koji sadrži niz "sections". Sva
 - "subtitle": Atraktivni novinarski podnaslov za ovu temu.
 - "screenshot_timestamp": Točno vrijeme iz videa (u formatu HH:MM:SS) koje je idealno za screenshot vezan uz ovu temu.
 - "screenshot_description": Kratki opis onoga što bi se trebalo nalaziti na tom screenshotu (npr. "Gost objašnjava apsurd odljeva kapitala").
-- "content": Bogat, detaljan novinarski tekst koji obrađuje tu temu (više paragrafa, dozvoljen Markdown).`;
+- "content": Bogat, detaljan novinarski tekst koji obrađuje tu temu (više paragrafa, dozvoljen Markdown).
+- "keywords": Niz (array) od 3 do 5 ključnih pojmova ili koncepata koji se spominju u ovom odlomku (npr. ["radna terapija", "nasilje u obitelji", "molitva"]).
+- "entities": Niz (array) vlastitih imenica, lokacija ili ustanova koje se spominju (npr. ["Međugorje", "Sveti Ante", "Mostar"]).`;
 
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
