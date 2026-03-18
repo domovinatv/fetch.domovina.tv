@@ -25,12 +25,14 @@ const path = require("path");
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
 // const GEMINI_MODEL = "gemini-3.1-pro-preview"; // Koristimo najnoviji Pro model za visoku kvalitetu novinarstva
-const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
+// const GEMINI_MODEL = "gemini-3-flash-preview"; // Koristimo najnoviji Flash model za brzinu i nisku cijenu
+
+const GEMINI_MODEL = "gemini-2.5-flash"; // Prebačeno na stabilan model zbog većih kvota
 const GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 const REQUEST_DELAY_MS = 5000;
-const MAX_RETRIES = 5;
-const RETRY_BASE_DELAY_MS = 15000;
+const MAX_RETRIES = 10;
+const RETRY_BASE_DELAY_MS = 10000;
 
 // ─── SYSTEM PROMPTOVI ────────────────────────────────────────────
 
@@ -230,15 +232,26 @@ async function callGemini(systemPrompt, userMessage, apiKeys, label = "Gemini AP
             });
             timer.stop();
 
-            if (response.status === 429 || response.status >= 500) {
-                const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                console.error(`      ⏳ HTTP ${response.status} — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
-                await sleep(waitMs);
-                continue;
-            }
-
             if (!response.ok) {
                 const errorBody = await response.text();
+
+                // 1) Ako je ključ nevažeći ili istekao, preskačemo na idući odmah
+                if (response.status === 400 && (errorBody.includes("API_KEY") || errorBody.includes("expired"))) {
+                    console.error(`      ⚠️  Ključ ...${currentKey.slice(-5)} je nevažeći ili istekao. Odmah prebacujem na idući...`);
+                    continue;
+                }
+
+                // 2) Ako je 429 Rate Limit ili 500+ Server greška, čekamo i pokušavamo ponovno
+                if (response.status === 429 || response.status >= 500) {
+                    const errorDetail = errorBody ? errorBody.substring(0, 300) : "Nema detalja od servera";
+                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                    console.error(`      ⏳ HTTP ${response.status} — server vratio: ${errorDetail}`);
+                    console.error(`      ⏳ Čekam ${waitMs / 1000}s pa pokušavam ponovno... (pokušaj ${attempt}/${MAX_RETRIES})`);
+                    await sleep(waitMs);
+                    continue;
+                }
+
+                // Sve ostale nepoznate greške prekidaju izvođenje
                 throw new Error(`Gemini API HTTP ${response.status}: ${errorBody.substring(0, 300)}`);
             }
 
