@@ -98,7 +98,7 @@ echo ""
 if command -v rclone &> /dev/null; then
     echo "   ⏬ Preuzimam .canary.diarized.srt s Google Drive-a..."
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
-      --include "**.canary.**" --exclude "._*" \
+      --filter "- ._*" --filter "+ **.canary.**" --filter "- *" \
       --drive-shared-with-me --progress
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
