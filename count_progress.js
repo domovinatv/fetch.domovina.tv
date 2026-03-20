@@ -15,11 +15,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const OUTPUT_DIR = '/Volumes/DOMOVINA1TB/fetch_domovina_tv_output';
+const args = process.argv.slice(2);
+const inputDirIdx = args.indexOf('--input-dir');
+const OUTPUT_DIR = inputDirIdx !== -1 && inputDirIdx + 1 < args.length
+    ? args[inputDirIdx + 1]
+    : '/Volumes/DOMOVINA1TB/fetch_domovina_tv_output';
 
 if (!fs.existsSync(OUTPUT_DIR)) {
     console.error(`❌ Output direktorij ne postoji: ${OUTPUT_DIR}`);
-    console.error(`   Je li disk DOMOVINA1TB mountan?`);
+    console.error(`   Je li disk mountan? Ili koristi: node count_progress.js --input-dir <putanja>`);
     process.exit(1);
 }
 
