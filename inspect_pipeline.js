@@ -412,52 +412,57 @@ function main() {
         console.log("");
     }
 
-    // Fix suggestions
-    if (fixSuggestions && errors.length > 0) {
-        console.log("━━━ 🔧 PRIJEDLOZI ZA POPRAVAK ━━━━━━━━━━━━━━━━━━━━");
-        console.log("");
+    // Generiranje fix skripte
+    if (fixSuggestions) {
+        const filesToDelete = [];
 
-        const emptyArticles = [];
-        const incompleteArticles = [];
-        const corruptJsons = [];
-
-        for (const a of errors) {
+        for (const a of allAnomalies) {
             for (const issue of a.issues) {
-                const srtFile = path.join(inputDir, a.channel, `${a.base}.wav.canary.diarized.srt`);
-                if (issue.type === "EMPTY_ARTICLE") {
-                    emptyArticles.push({ file: path.join(inputDir, a.channel, issue.file), srt: srtFile });
-                } else if (issue.type === "INCOMPLETE_ARTICLE") {
-                    incompleteArticles.push({ file: path.join(inputDir, a.channel, issue.file), srt: srtFile });
-                } else if (issue.type === "CORRUPT_JSON") {
-                    corruptJsons.push(path.join(inputDir, a.channel, issue.file));
+                if (issue.severity !== "error") continue;
+
+                if (issue.type === "EMPTY_ARTICLE" || issue.type === "INCOMPLETE_ARTICLE" || issue.type === "CORRUPT_JSON") {
+                    filesToDelete.push(path.join(inputDir, a.channel, issue.file));
+                } else if (issue.type === "EMPTY_FILE") {
+                    filesToDelete.push(path.join(inputDir, a.channel, issue.file));
                 }
             }
         }
 
-        if (emptyArticles.length > 0) {
-            console.log(`   🗑️  Obriši ${emptyArticles.length} praznih article.json i regeneriraj:`);
-            for (const { file, srt } of emptyArticles) {
-                console.log(`      rm "${file}"`);
-                console.log(`      node generate_article_gemini.js --file "${srt}"`);
-            }
-            console.log("");
-        }
+        if (filesToDelete.length === 0) {
+            console.log("   ✨ Nema datoteka za brisanje!");
+        } else {
+            const scriptPath = path.join(inputDir, `_fix_cleanup_${Date.now()}.sh`);
+            const lines = [
+                "#!/bin/bash",
+                "",
+                "# Automatski generirana skripta za brisanje pokvarenih datoteka",
+                `# Generirao: inspect_pipeline.js @ ${new Date().toISOString()}`,
+                `# Ukupno datoteka za brisanje: ${filesToDelete.length}`,
+                "",
+                "set -e",
+                "",
+                `echo "Brisanje ${filesToDelete.length} pokvarenih datoteka..."`,
+                ""
+            ];
 
-        if (incompleteArticles.length > 0) {
-            console.log(`   🔄 Regeneriraj ${incompleteArticles.length} nepotpunih članaka:`);
-            for (const { srt } of incompleteArticles) {
-                console.log(`      node generate_article_gemini.js --file "${srt}"`);
+            for (const f of filesToDelete) {
+                lines.push(`rm -v "${f}"`);
             }
-            console.log("");
-        }
 
-        if (corruptJsons.length > 0) {
-            console.log(`   🗑️  Obriši ${corruptJsons.length} pokvarenih JSON datoteka:`);
-            for (const f of corruptJsons) {
-                console.log(`      rm "${f}"`);
-            }
-            console.log("");
+            lines.push("");
+            lines.push(`echo ""`);
+            lines.push(`echo "Obrisano ${filesToDelete.length} datoteka."`);
+            lines.push(`echo "Brišem samu sebe..."`);
+            lines.push(`rm -v "$0"`);
+            lines.push("");
+
+            fs.writeFileSync(scriptPath, lines.join("\n"), { mode: 0o755 });
+            console.log(`   🔧 Generirana fix skripta: ${scriptPath}`);
+            console.log(`      Datoteka za brisanje: ${filesToDelete.length}`);
+            console.log(`      Pokreni s: bash "${scriptPath}"`);
+            console.log(`      (skripta obriše samu sebe nakon izvršenja)`);
         }
+        console.log("");
     }
 }
 
