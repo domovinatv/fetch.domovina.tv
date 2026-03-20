@@ -1,0 +1,459 @@
+#!/usr/bin/env node
+
+/**
+ * screenshot_youtube.js
+ *
+ * Izvlači screenshotove iz YouTube videa na temelju timestampova iz .article.json.
+ * Koristi yt-dlp za dohvaćanje stream URL-a u najboljoj mogućoj kvaliteti (4K/1080p/720p)
+ * i ffmpeg za ekstrakciju pojedinačnog framea na točnom timestampu.
+ *
+ * PRINCIP: Ne downloada cijeli video — samo seekira na timestamp i izvlači 1 frame.
+ *
+ * Načini pokretanja:
+ *   1. Pojedinačni article.json:
+ *      node screenshot_youtube.js --file /path/to/video.article.json
+ *
+ *   2. Batch (svi videi koji imaju article.json):
+ *      node screenshot_youtube.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *      node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5
+ *      node screenshot_youtube.js --input-dir ... --dry-run
+ *
+ * Preduvjeti:
+ *   - yt-dlp (brew install yt-dlp)
+ *   - ffmpeg (brew install ffmpeg)
+ *   - Brave browser za YouTube cookies (anti-bot)
+ */
+
+const fs = require("fs");
+const path = require("path");
+const { execSync, spawn } = require("child_process");
+
+// ─── KONFIGURACIJA ───────────────────────────────────────────────
+
+const BROWSER_NAME = "brave";
+const SLEEP_BETWEEN_VIDEOS_MS = 2000;
+const STREAM_URL_TIMEOUT_MS = 30000;
+
+// ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Izvlači YouTube video ID iz naziva datoteke.
+ * Očekuje format: ..._yt_XXXXXXXXXXX...
+ */
+function extractVideoIdFromFilename(filename) {
+    const match = filename.match(/_yt_([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+}
+
+/**
+ * Parsira HH:MM:SS timestamp u sekunde.
+ */
+function timestampToSeconds(ts) {
+    const parts = ts.split(":").map(Number);
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    return parts[0];
+}
+
+/**
+ * Sanitizira timestamp za korištenje u nazivu datoteke (HH:MM:SS → HH-MM-SS).
+ */
+function sanitizeTimestamp(ts) {
+    return ts.replace(/:/g, "-");
+}
+
+// ─── YT-DLP & FFMPEG ─────────────────────────────────────────────
+
+/**
+ * Dohvaća direktni stream URL za best video quality putem yt-dlp.
+ * Koristi browser cookies za izbjegavanje bot detekcije.
+ * Vraća URL string ili null.
+ */
+function getStreamUrl(videoId) {
+    const args = [
+        "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
+        "--get-url",
+        "--cookies-from-browser", BROWSER_NAME,
+        "--no-check-certificate",
+        `https://www.youtube.com/watch?v=${videoId}`
+    ];
+
+    try {
+        const url = execSync(`yt-dlp ${args.map(a => `'${a}'`).join(" ")}`, {
+            encoding: "utf-8",
+            timeout: STREAM_URL_TIMEOUT_MS,
+            stdio: ["pipe", "pipe", "pipe"]
+        }).trim();
+
+        // yt-dlp može vratiti više URL-ova (video + audio), uzimamo prvi
+        return url.split("\n")[0].trim();
+    } catch (err) {
+        return null;
+    }
+}
+
+/**
+ * Izvlači jedan frame iz video streama na zadanom timestampu pomoću ffmpeg.
+ * -ss prije -i = brzi seek bez dekodiranja cijelog videa.
+ *
+ * @returns {boolean} true ako je screenshot uspješno spremljen
+ */
+function captureFrame(streamUrl, timestamp, outputPath) {
+    return new Promise((resolve) => {
+        const args = [
+            "-ss", timestamp,
+            "-i", streamUrl,
+            "-frames:v", "1",
+            "-update", "1",     // Potrebno za novije ffmpeg verzije s jednim frameom
+            "-q:v", "1",        // Najviša kvaliteta
+            "-y",               // Overwrite
+            outputPath
+        ];
+
+        const proc = spawn("ffmpeg", args, {
+            stdio: ["pipe", "pipe", "pipe"]
+        });
+
+        let stderr = "";
+        proc.stderr.on("data", (chunk) => { stderr += chunk.toString(); });
+
+        proc.on("close", (code) => {
+            if (code === 0 && fs.existsSync(outputPath)) {
+                const size = fs.statSync(outputPath).size;
+                if (size > 1000) {  // Minimalno 1KB za validan screenshot
+                    resolve(true);
+                    return;
+                }
+                // Premali file — vjerovatno crni frame
+                try { fs.unlinkSync(outputPath); } catch {}
+            }
+            resolve(false);
+        });
+
+        proc.on("error", () => resolve(false));
+    });
+}
+
+// ─── ARTICLE PROCESSING ──────────────────────────────────────────
+
+/**
+ * Izvlači sve screenshot timestampove iz article.json.
+ * @returns {Array<{timestamp, description, section_subtitle, iteration_number}>}
+ */
+function extractScreenshots(articleJson) {
+    const screenshots = [];
+    if (!articleJson.iterations) return screenshots;
+
+    for (const iter of articleJson.iterations) {
+        if (!iter.sections) continue;
+        for (const section of iter.sections) {
+            if (section.screenshot_timestamp) {
+                screenshots.push({
+                    timestamp: section.screenshot_timestamp,
+                    description: section.screenshot_description || "",
+                    section_subtitle: section.subtitle || "",
+                    iteration_number: iter.iteration_number
+                });
+            }
+        }
+    }
+    return screenshots;
+}
+
+/**
+ * Obrađuje jedan article.json — izvlači sve screenshotove za taj video.
+ * @returns {{total: number, captured: number, skipped: number, failed: number}}
+ */
+async function processArticle(articlePath) {
+    const dir = path.dirname(articlePath);
+    const articleFilename = path.basename(articlePath);
+
+    // Izvuci base video ime (bez _DATE_MODEL.article.json sufiksa)
+    const videoBase = articleFilename.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, "");
+    const videoId = extractVideoIdFromFilename(videoBase);
+
+    if (!videoId) {
+        console.error(`   ❌ Ne mogu izvući YouTube ID iz: ${articleFilename}`);
+        return { total: 0, captured: 0, skipped: 0, failed: 0 };
+    }
+
+    // Parsiraj article.json
+    let article;
+    try {
+        article = JSON.parse(fs.readFileSync(articlePath, "utf-8"));
+    } catch (err) {
+        console.error(`   ❌ Nevažeći JSON: ${articleFilename}`);
+        return { total: 0, captured: 0, skipped: 0, failed: 0 };
+    }
+
+    const screenshots = extractScreenshots(article);
+    if (screenshots.length === 0) {
+        console.log(`   ⚠️  Nema screenshot timestampova u: ${articleFilename}`);
+        return { total: 0, captured: 0, skipped: 0, failed: 0 };
+    }
+
+    // Provjeri koji screenshotovi već postoje
+    const screenshotDir = path.join(dir, `${videoBase}_screenshots`);
+    const pending = [];
+    let skipped = 0;
+
+    for (const ss of screenshots) {
+        const outputFile = path.join(screenshotDir, `${videoBase}_${sanitizeTimestamp(ss.timestamp)}.png`);
+        if (fs.existsSync(outputFile)) {
+            skipped++;
+        } else {
+            pending.push({ ...ss, outputFile });
+        }
+    }
+
+    if (pending.length === 0) {
+        console.log(`   ✅ Svi screenshotovi već postoje (${skipped}/${screenshots.length})`);
+        return { total: screenshots.length, captured: 0, skipped, failed: 0 };
+    }
+
+    if (skipped > 0) {
+        console.log(`   ⏭️  ${skipped} screenshotova već postoji, ${pending.length} preostalo`);
+    }
+
+    // Dohvati stream URL (jednom za sve screenshotove istog videa)
+    console.log(`   🔗 Dohvaćam stream URL za ${videoId} (best quality)...`);
+    const streamUrl = getStreamUrl(videoId);
+    if (!streamUrl) {
+        console.error(`   ❌ Ne mogu dohvatiti stream URL za ${videoId}`);
+        return { total: screenshots.length, captured: 0, skipped, failed: pending.length };
+    }
+
+    // Kreiraj screenshot direktorij
+    if (!fs.existsSync(screenshotDir)) {
+        fs.mkdirSync(screenshotDir, { recursive: true });
+    }
+
+    // Izvuci svaki frame
+    let captured = 0;
+    let failed = 0;
+
+    for (const ss of pending) {
+        process.stdout.write(`      📸 ${ss.timestamp} — ${ss.section_subtitle.substring(0, 50)}... `);
+        const ok = await captureFrame(streamUrl, ss.timestamp, ss.outputFile);
+        if (ok) {
+            const sizeKb = (fs.statSync(ss.outputFile).size / 1024).toFixed(0);
+            console.log(`✅ (${sizeKb} KB)`);
+            captured++;
+        } else {
+            console.log(`❌`);
+            failed++;
+        }
+    }
+
+    // Spremi manifest s metapodacima za sve screenshotove
+    const manifestPath = path.join(screenshotDir, "_manifest.json");
+    const manifest = {
+        video_id: videoId,
+        video_base: videoBase,
+        article_file: articleFilename,
+        generated_at: new Date().toISOString(),
+        screenshots: screenshots.map(ss => ({
+            timestamp: ss.timestamp,
+            filename: `${videoBase}_${sanitizeTimestamp(ss.timestamp)}.png`,
+            description: ss.description,
+            section_subtitle: ss.section_subtitle,
+            iteration: ss.iteration_number
+        }))
+    };
+    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), "utf-8");
+
+    return { total: screenshots.length, captured, skipped, failed };
+}
+
+// ─── DISCOVERY ────────────────────────────────────────────────────
+
+/**
+ * Pronalazi sve .article.json datoteke za obradu.
+ * Za svaki video bira najnoviju article.json (po datumu u imenu).
+ */
+function discoverArticleFiles(inputDir, channelFilter) {
+    const results = [];
+
+    const entries = fs.readdirSync(inputDir, { withFileTypes: true });
+    for (const entry of entries) {
+        if (!entry.isDirectory() || entry.name.startsWith(".")) continue;
+        if (channelFilter && entry.name !== channelFilter) continue;
+
+        const channelName = entry.name;
+        const channelDir = path.join(inputDir, channelName);
+        const files = fs.readdirSync(channelDir);
+
+        // Grupiraj article.json po video bazi, uzmi najnoviji
+        const byVideo = new Map();
+
+        for (const file of files) {
+            if (!file.endsWith(".article.json")) continue;
+            if (file.startsWith("._")) continue;
+
+            const videoBase = file.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, "");
+            if (!byVideo.has(videoBase) || file > byVideo.get(videoBase)) {
+                byVideo.set(videoBase, file);
+            }
+        }
+
+        for (const [videoBase, articleFile] of byVideo) {
+            const articlePath = path.join(channelDir, articleFile);
+            const screenshotDir = path.join(channelDir, `${videoBase}_screenshots`);
+            const manifestPath = path.join(screenshotDir, "_manifest.json");
+
+            // Provjeri ima li manifest (označava da je obrada završena)
+            // Ali i dalje dodaj — processArticle provjerava pojedinačne fileove
+            results.push({
+                articlePath,
+                channel: channelName,
+                videoBase,
+                hasManifest: fs.existsSync(manifestPath)
+            });
+        }
+    }
+
+    // Sortiraj: najnoviji videi prvo (YYYYMMDD prefiks)
+    results.sort((a, b) => b.videoBase.localeCompare(a.videoBase));
+
+    return results;
+}
+
+// ─── CLI ──────────────────────────────────────────────────────────
+
+function parseArgs() {
+    const args = process.argv.slice(2);
+    function getArg(name) {
+        const idx = args.indexOf(name);
+        return idx !== -1 && idx + 1 < args.length ? args[idx + 1] : null;
+    }
+
+    const file = getArg("--file");
+    const inputDir = getArg("--input-dir");
+    const channel = getArg("--channel");
+    const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
+    const dryRun = args.includes("--dry-run");
+
+    if (!file && !inputDir) {
+        console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
+        console.error("");
+        console.error("Primjeri:");
+        console.error("  node screenshot_youtube.js --file /path/to/video.article.json");
+        console.error("  node screenshot_youtube.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5");
+        console.error("  node screenshot_youtube.js --input-dir ... --dry-run");
+        process.exit(1);
+    }
+
+    if (file) {
+        if (!fs.existsSync(file)) {
+            console.error(`❌ Datoteka ne postoji: ${file}`);
+            process.exit(1);
+        }
+        return { mode: "single", file };
+    }
+
+    if (!fs.existsSync(inputDir)) {
+        console.error(`❌ Direktorij ne postoji: ${inputDir}`);
+        process.exit(1);
+    }
+
+    return { mode: "batch", inputDir, channel, limit, dryRun };
+}
+
+// ─── MAIN ─────────────────────────────────────────────────────────
+
+async function main() {
+    const opts = parseArgs();
+
+    console.log("");
+    console.log("╔══════════════════════════════════════════════════╗");
+    console.log("║   📸 YOUTUBE SCREENSHOT EXTRACTOR                ║");
+    console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   🔧 yt-dlp + ffmpeg (best available quality)`);
+    console.log(`   🍪 Cookies: ${BROWSER_NAME}`);
+
+    // ── Single file mode ──
+    if (opts.mode === "single") {
+        console.log(`   📂 Datoteka: ${opts.file}`);
+        console.log("");
+
+        const result = await processArticle(opts.file);
+        console.log("");
+        console.log(`   📊 Ukupno: ${result.total} | Novo: ${result.captured} | Preskočeno: ${result.skipped} | Neuspjelo: ${result.failed}`);
+        console.log("");
+        return;
+    }
+
+    // ── Batch mode ──
+    const { inputDir, channel, limit, dryRun } = opts;
+    console.log(`   📂 Input:   ${inputDir}`);
+    if (channel) console.log(`   🎯 Kanal:   ${channel}`);
+    if (limit) console.log(`   🔢 Limit:   ${limit}`);
+    if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez screenshotanja");
+    console.log("");
+
+    console.log("   Skeniram direktorije...");
+    const allFiles = discoverArticleFiles(inputDir, channel);
+
+    console.log(`   📊 Videa s article.json: ${allFiles.length}`);
+    console.log("");
+
+    if (allFiles.length === 0) {
+        console.log("   ✨ Nema article.json datoteka za obradu.");
+        return;
+    }
+
+    const finalList = limit ? allFiles.slice(0, limit) : allFiles;
+
+    if (dryRun) {
+        console.log(`   📋 Videi za obradu (${finalList.length}):`);
+        for (let i = 0; i < finalList.length; i++) {
+            const item = finalList[i];
+            const marker = item.hasManifest ? "✅" : "📸";
+            console.log(`      ${String(i + 1).padStart(4)}. ${marker} [${item.channel}] ${item.videoBase}`);
+        }
+        console.log("");
+        return;
+    }
+
+    // Obradi sve
+    let totalCaptured = 0;
+    let totalSkipped = 0;
+    let totalFailed = 0;
+    let videosProcessed = 0;
+
+    for (let i = 0; i < finalList.length; i++) {
+        const item = finalList[i];
+        console.log(`\n   ━━━ [${i + 1}/${finalList.length}] [${item.channel}] ${item.videoBase} ━━━`);
+
+        const result = await processArticle(item.articlePath);
+        totalCaptured += result.captured;
+        totalSkipped += result.skipped;
+        totalFailed += result.failed;
+        if (result.captured > 0) videosProcessed++;
+
+        // Pauza između videa (yt-dlp rate limiting)
+        if (result.captured > 0 && i < finalList.length - 1) {
+            await sleep(SLEEP_BETWEEN_VIDEOS_MS);
+        }
+    }
+
+    console.log("");
+    console.log("╔══════════════════════════════════════════════════╗");
+    console.log("║   📊 SCREENSHOT BATCH ZAVRŠEN                   ║");
+    console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   📸 Novih screenshotova:  ${totalCaptured}`);
+    console.log(`   ⏭️  Preskočenih:         ${totalSkipped}`);
+    if (totalFailed > 0) console.log(`   ❌ Neuspjelih:           ${totalFailed}`);
+    console.log(`   🎬 Videa obrađenih:      ${videosProcessed}`);
+    console.log("");
+}
+
+main().catch((err) => {
+    console.error("Fatal error:", err);
+    process.exit(1);
+});
