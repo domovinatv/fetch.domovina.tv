@@ -43,9 +43,11 @@ const stats = {
     totalRagCombined: 0
 };
 
-// Brojači po modelu (outline i article imaju model u imenu datoteke)
+// Brojači po modelu: ukupno datoteka i unikatnih videa
 const outlinesByModel = {};
 const articlesByModel = {};
+const outlineVideosByModel = {};
+const articleVideosByModel = {};
 
 console.log("Skeniram direktorije...");
 
@@ -87,11 +89,12 @@ for (const channel of channels) {
             } else if (file.endsWith('.outline.json')) {
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.outline\.json$/, '');
                 videosWithOutline.add(base);
-                // Izvuci model: _YYYY-MM-DD_MODEL.outline.json
                 const modelMatch = file.match(/\.wav\.canary\.diarized_\d{4}-\d{2}-\d{2}_(.+)\.outline\.json$/);
                 if (modelMatch) {
                     const model = modelMatch[1];
                     outlinesByModel[model] = (outlinesByModel[model] || 0) + 1;
+                    if (!outlineVideosByModel[model]) outlineVideosByModel[model] = new Set();
+                    outlineVideosByModel[model].add(base);
                 }
             } else if (file.endsWith('.article.json')) {
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, '');
@@ -100,6 +103,8 @@ for (const channel of channels) {
                 if (modelMatch) {
                     const model = modelMatch[1];
                     articlesByModel[model] = (articlesByModel[model] || 0) + 1;
+                    if (!articleVideosByModel[model]) articleVideosByModel[model] = new Set();
+                    articleVideosByModel[model].add(base);
                 }
             } else if (file.endsWith('.rag_chunks.jsonl')) {
                 stats.totalRagChunks++;
@@ -132,12 +137,14 @@ console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSu
 console.log(`   📑 Gemini Outlinei (.outline.json):           ${stats.totalOutline} videa`);
 const outlineModels = Object.entries(outlinesByModel).sort((a, b) => b[1] - a[1]);
 for (const [model, count] of outlineModels) {
-    console.log(`      └─ ${model}: ${count} datoteka`);
+    const videos = outlineVideosByModel[model]?.size || 0;
+    console.log(`      └─ ${model}: ${videos} videa (${count} datoteka)`);
 }
 console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle} videa`);
 const articleModels = Object.entries(articlesByModel).sort((a, b) => b[1] - a[1]);
 for (const [model, count] of articleModels) {
-    console.log(`      └─ ${model}: ${count} datoteka`);
+    const videos = articleVideosByModel[model]?.size || 0;
+    console.log(`      └─ ${model}: ${videos} videa (${count} datoteka)`);
 }
 console.log(`   🧩 RAG Chunks (.rag_chunks.jsonl):            ${stats.totalRagChunks}`);
 console.log(`   🗂️  RAG Import (.rag_import.jsonl):           ${stats.totalRagImport}`);
