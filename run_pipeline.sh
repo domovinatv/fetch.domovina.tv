@@ -11,6 +11,9 @@
 #   5. transcribe_diarized.js — Diarizacija govornika (pyannote na MPS)
 #   6. diarize_canary.py    — Canary diarizacija govornika (pyannote na MPS/CPU)
 #   7. summarize_gemini.js  — Gemini sumarizacija diariziranih transkripata
+#   8. generate_article_gemini.js — Gemini generiranje članaka
+#   9. prepare_rag_*.js     — RAG priprema (chunkanje i import)
+#  10. screenshot_youtube.js — YouTube screenshotovi (samo uz --with-screenshots)
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -26,6 +29,7 @@
 #   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --threads 8
 #   ./run_pipeline.sh --only-summaries                (samo korak 7: sumarizacija)
 #   ./run_pipeline.sh --only-articles                 (samo korak 7+8: sumarizacija + članci)
+#   ./run_pipeline.sh --only-articles --with-screenshots  (članci + screenshotovi)
 #
 
 set -e  # Prekini na prvoj grešci
@@ -47,6 +51,7 @@ echo ""
 #   --gemini-key  → samo summarize_gemini.js
 #   --only-articles   → preskače sve korake (0-6) i vrti samo korak 7 i 8
 #   --only-summaries  → preskače sve korake (0-6) i vrti samo korak 7
+#   --with-screenshots → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
 #   ostalo            → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
@@ -55,6 +60,7 @@ DIARIZE_ARGS=()
 GEMINI_KEY=""
 ONLY_ARTICLES=false
 ONLY_SUMMARIES=false
+WITH_SCREENSHOTS=false
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -73,6 +79,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--only-summaries" ]; then
         ONLY_SUMMARIES=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-screenshots" ]; then
+        WITH_SCREENSHOTS=true
         i=$((i + 1))
     else
         COMMON_ARGS+=("$arg")
@@ -98,7 +107,7 @@ if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
 
 # --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 0/8: Skidanje novih diarisation fajlova s Google Drive-a"
+echo "   📢 KORAK 0/10: Skidanje novih diarisation fajlova s Google Drive-a"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -114,7 +123,7 @@ echo ""
 
 # --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/8: Osvježavanje i preuzimanje podcasta"
+echo "   📢 KORAK 1/10: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -131,7 +140,7 @@ echo ""
 
 # --- KORAK 2: MP3 → WAV ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/8: Konverzija MP3 → WAV"
+echo "   📢 KORAK 2/10: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -155,7 +164,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/8: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 3/10: Generiranje Whisper promptova (LLM)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -164,7 +173,7 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 4/8: Whisper transkripcija"
+    echo "   📢 KORAK 4/10: Whisper transkripcija"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -172,7 +181,7 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 5/8: Diarizacija govornika (pyannote MPS)"
+    echo "   📢 KORAK 5/10: Diarizacija govornika (pyannote MPS)"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -183,7 +192,7 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6/8: Canary Diarizacija govornika (pyannote)"
+echo "   📢 KORAK 6/10: Canary Diarizacija govornika (pyannote)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -214,7 +223,7 @@ fi # Kraj ONLY_ARTICLES=false && ONLY_SUMMARIES=false bloka
 # --- KORAK 7: GEMINI SUMARIZACIJA (Vertex AI OAuth) ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 7/8: Gemini Sumarizacija transkripata"
+echo "   📢 KORAK 7/10: Gemini Sumarizacija transkripata"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -248,7 +257,7 @@ fi
 # --- KORAK 8: GEMINI GENERIRANJE ČLANAKA (Vertex AI OAuth) ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 8/8: Gemini Generiranje članaka"
+echo "   📢 KORAK 8/10: Gemini Generiranje članaka"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -257,6 +266,44 @@ echo ""
 node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" || {
     echo "   ⚠️  Greška pri batch generiranju članaka, nastavljam..."
 }
+
+# --- KORAK 9: RAG PRIPREMA ---
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 9/10: RAG priprema (chunkanje i import)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR"
+node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR"
+node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR"
+
+# --- KORAK 10: YOUTUBE SCREENSHOTOVI (opcionalno, --with-screenshots) ---
+if [ "$WITH_SCREENSHOTS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 10/10: YouTube screenshotovi (yt-dlp + ffmpeg)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SCREENSHOT_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+# Proslijedi --channel ako postoji
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        SCREENSHOT_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    SCREENSHOT_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri screenshotanju, nastavljam..."
+}
+fi
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
