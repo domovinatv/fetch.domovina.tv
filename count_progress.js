@@ -32,6 +32,7 @@ const stats = {
     totalCanarySrt: 0,
     totalCanaryDiarized: 0,
     totalSummary: 0,
+    totalOutline: 0,
     totalArticle: 0,
     totalRagChunks: 0,
     totalRagImport: 0,
@@ -50,6 +51,10 @@ for (const channel of channels) {
 
     try {
         const files = fs.readdirSync(channelPath);
+
+        // Za outline/article brojimo unikatne videe (ne višestruke verzije)
+        const videosWithOutline = new Set();
+        const videosWithArticle = new Set();
 
         for (const file of files) {
             // Ignoriraj macOS resource fork datoteke
@@ -71,8 +76,13 @@ for (const channel of channels) {
                 stats.totalSrt++;
             } else if (file.endsWith('.canary.summary.json')) {
                 stats.totalSummary++;
+            } else if (file.endsWith('.outline.json')) {
+                // Izvuci base video ime: sve prije .wav.canary.diarized_*
+                const base = file.replace(/\.wav\.canary\.diarized_.*\.outline\.json$/, '');
+                videosWithOutline.add(base);
             } else if (file.endsWith('.article.json')) {
-                stats.totalArticle++;
+                const base = file.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, '');
+                videosWithArticle.add(base);
             } else if (file.endsWith('.rag_chunks.jsonl')) {
                 stats.totalRagChunks++;
             } else if (file.endsWith('.rag_import.jsonl')) {
@@ -81,6 +91,9 @@ for (const channel of channels) {
                 stats.totalRagCombined++;
             }
         }
+
+        stats.totalOutline += videosWithOutline.size;
+        stats.totalArticle += videosWithArticle.size;
     } catch (e) {
         console.error(`Greška pri čitanju: ${channelPath} - ${e.message}`);
     }
@@ -98,7 +111,8 @@ console.log(`   🗣️  Whisper Diarizirano (.diarized.srt):      ${stats.total
 console.log(`   🦅 Canary Transkribirano (.canary.srt):       ${stats.totalCanarySrt}`);
 console.log(`   🦜 Canary Diarizirano (.canary.diarized.srt): ${stats.totalCanaryDiarized}`);
 console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSummary}`);
-console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle}`);
+console.log(`   📑 Gemini Outlinei (.outline.json):           ${stats.totalOutline} videa`);
+console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle} videa`);
 console.log(`   🧩 RAG Chunks (.rag_chunks.jsonl):            ${stats.totalRagChunks}`);
 console.log(`   🗂️  RAG Import (.rag_import.jsonl):           ${stats.totalRagImport}`);
 console.log(`   🧬 RAG Combined (.rag_combined.jsonl):       ${stats.totalRagCombined}`);
@@ -117,6 +131,9 @@ if (stats.totalMp3 > 0) {
         : 0;
     const summaryPerc = stats.totalCanaryDiarized > 0
         ? Math.round((stats.totalSummary / stats.totalCanaryDiarized) * 100)
+        : 0;
+    const outlinePerc = stats.totalCanaryDiarized > 0
+        ? Math.round((stats.totalOutline / stats.totalCanaryDiarized) * 100)
         : 0;
     const articlePerc = stats.totalCanaryDiarized > 0
         ? Math.round((stats.totalArticle / stats.totalCanaryDiarized) * 100)
@@ -138,6 +155,7 @@ if (stats.totalMp3 > 0) {
     console.log(`      Canary Transkripcije: ${canarySrtPerc}% završeno`);
     console.log(`      Canary Diarizacije:   ${canaryDiarPerc}% završeno (od canary)`);
     console.log(`      Gemini Sažeci:        ${summaryPerc}% završeno (od canary diarized)`);
+    console.log(`      Gemini Outlinei:      ${outlinePerc}% završeno (od canary diarized)`);
     console.log(`      Gemini Članci:        ${articlePerc}% završeno (od canary diarized)`);
     console.log(`      RAG Chunks:           ${ragChunksPerc}% završeno (od canary diarized)`);
     console.log(`      RAG Import:           ${ragImportPerc}% završeno (od canary diarized)`);
