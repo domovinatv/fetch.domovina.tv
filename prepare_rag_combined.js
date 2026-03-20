@@ -71,7 +71,7 @@
  *   3. *.canary.diarized_{date}_{model}.article.json  — Generirani članak sa sekcijama
  *   4. *.canary.summary.json (OPCIJSKI)               — Sažetak s imenima govornika
  *
- * OUTPUT: JSONL (jedan JSON objekt po liniji), jedan fajl po kanalu
+ * OUTPUT: JSONL (jedan JSON objekt po liniji), jedan fajl po YouTube videu
  *   Svaka linija:
  *   {
  *     "id": "RA4bHbq2MkE_topic_001",
@@ -494,11 +494,10 @@ function main() {
     let totalWithSpeakerNames = 0;
     let totalWithoutSpeakerNames = 0;
 
+    const allJsonlPaths = [];
+
     for (const [ch, files] of Object.entries(byChannel)) {
         console.log(`\n🔵 [${ch.toUpperCase()}] — ${files.length} epizoda`);
-
-        const jsonlPath = path.join(finalOutputDir, `${ch}_rag_combined.jsonl`);
-        const jsonlLines = [];
 
         for (const { srtPath, outlinePath, articlePath } of files) {
             const basename = path.basename(srtPath);
@@ -537,6 +536,7 @@ function main() {
             const allChunks = [...topicChunks, ...summaryChunks];
             const totalForEpisode = allChunks.length;
 
+            const jsonlLines = [];
             for (let i = 0; i < allChunks.length; i++) {
                 const chunk = allChunks[i];
                 const typeSuffix = chunk.type === "topic_transcript" ? "topic" : "summary";
@@ -569,20 +569,17 @@ function main() {
             totalSummaryChunks += summaryChunks.length;
             totalFiles++;
 
-            if (dryRun) {
+            // Zapiši JSONL po videu (u isti direktorij kao SRT)
+            if (!dryRun && jsonlLines.length > 0) {
+                const jsonlPath = path.join(path.dirname(srtPath), `${base}.rag_combined.jsonl`);
+                fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
+                const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
+                console.log(`   ✅ ${base}: ${topicChunks.length} topic + ${summaryChunks.length} summary → ${path.basename(jsonlPath)} (${sizeKb} KB)`);
+                allJsonlPaths.push(jsonlPath);
+            } else if (dryRun) {
                 console.log(`   📄 ${base}: ${segments.length} seg → ${topicChunks.length} topic + ${summaryChunks.length} summary` +
                     `${hasSpeakerNames ? " ✅ speaker imena" : " ⚠️ bez imena"}`);
-            } else {
-                console.log(`   ✅ ${base}: ${topicChunks.length} topic + ${summaryChunks.length} summary chunkova`);
             }
-        }
-
-        // Zapiši JSONL
-        if (!dryRun && jsonlLines.length > 0) {
-            fs.mkdirSync(path.dirname(jsonlPath), { recursive: true });
-            fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
-            const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
-            console.log(`   💾 Zapisano: ${path.basename(jsonlPath)} (${jsonlLines.length} chunkova, ${sizeKb} KB)`);
         }
     }
 
@@ -599,11 +596,11 @@ function main() {
     console.log(`   ✅ Sa speaker imenima:     ${totalWithSpeakerNames}`);
     console.log(`   ⚠️  Bez speaker imena:     ${totalWithoutSpeakerNames}`);
 
-    if (!dryRun) {
+    if (!dryRun && allJsonlPaths.length > 0) {
         console.log("");
         console.log("   📁 JSONL datoteke spremne za import u vector DB:");
-        for (const ch of Object.keys(byChannel)) {
-            console.log(`      ${finalOutputDir}/${ch}_rag_combined.jsonl`);
+        for (const p of allJsonlPaths) {
+            console.log(`      ${p}`);
         }
     }
 

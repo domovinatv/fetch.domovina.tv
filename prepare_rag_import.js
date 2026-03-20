@@ -4,8 +4,8 @@
  * prepare_rag_import.js
  *
  * Priprema podataka za RAG (Retrieval-Augmented Generation) pipeline.
- * Cita tri vrste datoteka nastalih obradom podcasta i generira jednu
- * izlaznu datoteku spremnu za embedding i pohranu u Vector DB.
+ * Cita tri vrste datoteka nastalih obradom podcasta i generira JSONL
+ * datoteku po YouTube videu, spremnu za embedding i pohranu u Vector DB.
  *
  * Ulazne datoteke:
  *   1. *.canary.diarized.srt  — Diarizirani transkript s vremenskim oznakama i govornicima
@@ -13,7 +13,12 @@
  *   3. *.article.json         — Generirani novinarski clanak s sekcijama
  *
  * Primjeri pokretanja:
- *   # Auto-discovery: pronalazi sve triplete u folderu
+ *   # Svi kanali odjednom
+ *   node prepare_rag_import.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *   node prepare_rag_import.js --input-dir ... --channel domovina_tv
+ *   node prepare_rag_import.js --input-dir ... --limit 10 --dry-run
+ *
+ *   # Jedan kanal (stari mod)
  *   node prepare_rag_import.js --dir /path/to/output/channel/
  *
  *   # Eksplicitne putanje
@@ -32,20 +37,28 @@ function parseArgs() {
         return idx !== -1 && idx + 1 < args.length ? args[idx + 1] : null;
     }
 
+    const inputDir = getArg("--input-dir");
     const dir = getArg("--dir");
+    const channel = getArg("--channel");
+    const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
+    const dryRun = args.includes("--dry-run");
     const srt = getArg("--srt");
     const outline = getArg("--outline");
     const article = getArg("--article");
 
-    if (!dir && !srt) {
-        console.error("❌ Obavezan argument: --dir <folder> ili --srt <putanja>");
-        console.error("   Primjeri:");
-        console.error("     node prepare_rag_import.js --dir /path/to/channel/");
-        console.error("     node prepare_rag_import.js --srt file.srt --outline file.outline.json --article file.article.json");
+    if (!inputDir && !dir && !srt) {
+        console.error("❌ Obavezan argument: --input-dir <putanja> ili --dir <folder> ili --srt <putanja>");
+        console.error("");
+        console.error("Primjeri:");
+        console.error("  node prepare_rag_import.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node prepare_rag_import.js --input-dir ... --channel domovina_tv");
+        console.error("  node prepare_rag_import.js --input-dir ... --limit 10 --dry-run");
+        console.error("  node prepare_rag_import.js --dir /path/to/channel/");
+        console.error("  node prepare_rag_import.js --srt file.srt --outline file.outline.json --article file.article.json");
         process.exit(1);
     }
 
-    return { dir, srt, outline, article };
+    return { inputDir, dir, channel, limit, dryRun, srt, outline, article };
 }
 
 // ─── SRT PARSER ─────────────────────────────────────────────────
@@ -312,14 +325,16 @@ function processTriplet(srtPath, outlinePath, articlePath) {
     const summaryChunks = buildSummaryChunks(articleJson, sourceName);
     console.log(`   📦 Generirano ${summaryChunks.length} article summary chunkova`);
 
-    // Spoji sve chunkove
+    // Spoji sve chunkove i generiraj JSONL
     const allChunks = [...rawChunks, ...summaryChunks];
+    const jsonlLines = allChunks.map(chunk => JSON.stringify(chunk));
 
-    // Spremi izlaz
+    // Spremi JSONL po videu (u isti direktorij kao SRT)
     const outDir = path.dirname(srtPath);
-    const outPath = path.join(outDir, `${srtBase}_rag_ready.json`);
-    fs.writeFileSync(outPath, JSON.stringify(allChunks, null, 2), "utf-8");
-    console.log(`   ✅ Spremljeno ${allChunks.length} chunkova → ${path.basename(outPath)}`);
+    const outPath = path.join(outDir, `${sourceName}.rag_import.jsonl`);
+    fs.writeFileSync(outPath, jsonlLines.join("\n") + "\n", "utf-8");
+    const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
+    console.log(`   ✅ Spremljeno ${allChunks.length} chunkova → ${path.basename(outPath)} (${sizeKb} KB)`);
 
     return { outPath, rawCount: rawChunks.length, summaryCount: summaryChunks.length };
 }
@@ -327,13 +342,12 @@ function processTriplet(srtPath, outlinePath, articlePath) {
 // ─── MAIN ───────────────────────────────────────────────────────
 
 function main() {
-    const { dir, srt, outline, article } = parseArgs();
+    const { inputDir, dir, channel, limit, dryRun, srt, outline, article } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
     console.log("║   🗂️  RAG IMPORT PRIPREMA                        ║");
     console.log("╚══════════════════════════════════════════════════╝");
-    console.log("");
 
     if (srt) {
         // Eksplicitni mod: korisnik dao putanje
@@ -348,40 +362,145 @@ function main() {
             }
         }
 
+        console.log("");
         processTriplet(srt, outline, article);
-    } else {
-        // Auto-discovery mod
+    } else if (dir) {
+        // Stari mod: --dir za jedan kanal
         if (!fs.existsSync(dir)) {
             console.error(`❌ Direktorij ne postoji: ${dir}`);
             process.exit(1);
         }
 
-        console.log(`   🔍 Tražim triplete u: ${dir}`);
+        console.log(`   📂 Dir: ${dir}`);
+        if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
         console.log("");
 
         const triplets = discoverTriplets(dir);
+        const finalList = limit ? triplets.slice(0, limit) : triplets;
 
-        if (triplets.length === 0) {
+        if (finalList.length === 0) {
             console.log("   ⚠️  Nisu pronađeni kompletni tripleti (srt + outline + article).");
             process.exit(0);
         }
 
-        console.log(`   📊 Pronađeno ${triplets.length} triplet(a)`);
+        console.log(`   📊 Pronađeno ${triplets.length} triplet(a), za obradu: ${finalList.length}`);
         console.log("");
 
         let totalRaw = 0;
         let totalSummary = 0;
 
-        for (let i = 0; i < triplets.length; i++) {
-            const t = triplets[i];
-            console.log(`   ── Triplet ${i + 1}/${triplets.length} ──`);
-            const result = processTriplet(t.srt, t.outline, t.article);
-            totalRaw += result.rawCount;
-            totalSummary += result.summaryCount;
-            console.log("");
+        for (let i = 0; i < finalList.length; i++) {
+            const t = finalList[i];
+            if (dryRun) {
+                const sourceName = path.basename(t.srt).replace(/\.wav\.canary\.diarized\.srt$/, "");
+                console.log(`   📄 ${sourceName}`);
+            } else {
+                console.log(`   ── Triplet ${i + 1}/${finalList.length} ──`);
+                const result = processTriplet(t.srt, t.outline, t.article);
+                totalRaw += result.rawCount;
+                totalSummary += result.summaryCount;
+                console.log("");
+            }
         }
 
-        console.log(`   🎉 Ukupno: ${totalRaw} raw + ${totalSummary} summary = ${totalRaw + totalSummary} chunkova`);
+        if (!dryRun) {
+            console.log(`   🎉 Ukupno: ${totalRaw} raw + ${totalSummary} summary = ${totalRaw + totalSummary} chunkova`);
+        }
+    } else {
+        // Novi mod: --input-dir za sve kanale odjednom
+        if (!fs.existsSync(inputDir)) {
+            console.error(`❌ Input direktorij ne postoji: ${inputDir}`);
+            process.exit(1);
+        }
+
+        console.log(`   📂 Input:  ${inputDir}`);
+        if (channel) console.log(`   🎯 Kanal:  ${channel}`);
+        if (limit) console.log(`   🔢 Limit:  ${limit}`);
+        if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
+        console.log("");
+
+        // Skeniraj sve kanale (poddirektorije)
+        const entries = fs.readdirSync(inputDir, { withFileTypes: true });
+        let allTriplets = [];
+
+        for (const entry of entries) {
+            if (!entry.isDirectory()) continue;
+            if (entry.name.startsWith(".")) continue;
+            if (channel && entry.name !== channel) continue;
+
+            const channelDir = path.join(inputDir, entry.name);
+            const triplets = discoverTriplets(channelDir);
+
+            for (const t of triplets) {
+                t.channel = entry.name;
+            }
+            allTriplets.push(...triplets);
+        }
+
+        allTriplets.sort((a, b) => {
+            if (a.channel !== b.channel) return a.channel.localeCompare(b.channel);
+            return a.srt.localeCompare(b.srt);
+        });
+
+        const finalList = limit ? allTriplets.slice(0, limit) : allTriplets;
+
+        console.log(`   📊 Pronađeno tripleta: ${allTriplets.length}, za obradu: ${finalList.length}`);
+        console.log("");
+
+        if (finalList.length === 0) {
+            console.log("   ✨ Nema kompletnih tripleta za obradu!");
+            console.log("");
+            return;
+        }
+
+        // Grupiraj po kanalu
+        const byChannel = {};
+        for (const t of finalList) {
+            if (!byChannel[t.channel]) byChannel[t.channel] = [];
+            byChannel[t.channel].push(t);
+        }
+
+        let totalRaw = 0;
+        let totalSummary = 0;
+        let totalFiles = 0;
+        const allJsonlPaths = [];
+
+        for (const [ch, triplets] of Object.entries(byChannel)) {
+            console.log(`🔵 [${ch.toUpperCase()}] — ${triplets.length} epizoda`);
+
+            for (const t of triplets) {
+                const sourceName = path.basename(t.srt).replace(/\.wav\.canary\.diarized\.srt$/, "");
+
+                if (dryRun) {
+                    console.log(`   📄 ${sourceName}`);
+                } else {
+                    const result = processTriplet(t.srt, t.outline, t.article);
+                    totalRaw += result.rawCount;
+                    totalSummary += result.summaryCount;
+                    allJsonlPaths.push(result.outPath);
+                    console.log("");
+                }
+                totalFiles++;
+            }
+        }
+
+        // Sažetak
+        const totalChunks = totalRaw + totalSummary;
+        console.log("╔══════════════════════════════════════════════════╗");
+        console.log("║   📊 SAŽETAK RAG IMPORT PRIPREME               ║");
+        console.log("╚══════════════════════════════════════════════════╝");
+        console.log(`   📄 Obrađenih epizoda:      ${totalFiles}`);
+        console.log(`   🧩 Raw chunkova:           ${totalRaw}`);
+        console.log(`   📰 Summary chunkova:       ${totalSummary}`);
+        console.log(`   📦 Ukupno chunkova:        ${totalChunks}`);
+
+        if (!dryRun && allJsonlPaths.length > 0) {
+            console.log("");
+            console.log("   📁 JSONL datoteke spremne za import u vector DB:");
+            for (const p of allJsonlPaths) {
+                console.log(`      ${p}`);
+            }
+        }
     }
 
     console.log("");

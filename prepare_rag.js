@@ -13,8 +13,8 @@
  *      - Grupira uzastopne segmente istog govornika
  *      - Spaja u chunkove od ~500 tokena (poštujući granice govornika)
  *      - Svaki chunk ima bogati metadata za filtrirano pretraživanje
- *   4. Zapisuje JSONL datoteke (jedan JSON objekt po liniji) — univerzalan
- *      format koji svi vector DB-ovi mogu importati
+ *   4. Zapisuje JSONL datoteke (jedan JSON objekt po liniji, jedna datoteka
+ *      po YouTube videu) — univerzalan format koji svi vector DB-ovi mogu importati
  *
  * ZAŠTO SPEAKER-AWARE CHUNKING?
  *   - Fiksni chunking (npr. 500 znakova) prekida rečenice i govornikove izjave
@@ -470,13 +470,11 @@ async function main() {
     let totalWithSummary = 0;
     let totalWithoutSummary = 0;
 
+    const allJsonlPaths = [];
+
     // ── Obrada po kanalu ──
     for (const [ch, files] of Object.entries(byChannel)) {
         console.log(`\n🔵 [${ch.toUpperCase()}] — ${files.length} datoteka`);
-
-        // JSONL output: jedan fajl po kanalu
-        const jsonlPath = path.join(finalOutputDir, `${ch}_rag_chunks.jsonl`);
-        let jsonlLines = [];
 
         for (const { srtPath } of files) {
             const basename = path.basename(srtPath);
@@ -506,6 +504,7 @@ async function main() {
             const chunks = buildChunks(speakerBlocks, speakerMap, chunkSize);
 
             // ── Generiraj JSONL linije ──
+            const jsonlLines = [];
             for (let i = 0; i < chunks.length; i++) {
                 const chunk = chunks[i];
                 const chunkId = `${youtubeId || base}_chunk_${String(i + 1).padStart(3, "0")}`;
@@ -534,20 +533,17 @@ async function main() {
             totalChunks += chunks.length;
             totalFiles++;
 
-            if (dryRun) {
+            // ── Zapiši JSONL po videu (u isti direktorij kao SRT) ──
+            if (!dryRun && jsonlLines.length > 0) {
+                const jsonlPath = path.join(path.dirname(srtPath), `${base}.rag_chunks.jsonl`);
+                fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
+                const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
+                console.log(`   ✅ ${base}: ${chunks.length} chunkova → ${path.basename(jsonlPath)} (${sizeKb} KB)`);
+                allJsonlPaths.push(jsonlPath);
+            } else if (dryRun) {
                 console.log(`   📄 ${base}: ${segments.length} seg → ${speakerBlocks.length} blokova → ${chunks.length} chunkova` +
                     `${hasSummary ? " ✅ summary" : " ⚠️ no summary"}`);
-            } else {
-                console.log(`   ✅ ${base}: ${chunks.length} chunkova (${speakerBlocks.length} govornih blokova)`);
             }
-        }
-
-        // ── Zapiši JSONL ──
-        if (!dryRun && jsonlLines.length > 0) {
-            fs.mkdirSync(path.dirname(jsonlPath), { recursive: true });
-            fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
-            const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
-            console.log(`   💾 Zapisano: ${path.basename(jsonlPath)} (${jsonlLines.length} chunkova, ${sizeKb} KB)`);
         }
     }
 
@@ -561,12 +557,11 @@ async function main() {
     console.log(`   ✅ Sa summary.json:     ${totalWithSummary}`);
     console.log(`   ⚠️  Bez summary.json:   ${totalWithoutSummary}`);
 
-    if (!dryRun) {
+    if (!dryRun && allJsonlPaths.length > 0) {
         console.log("");
-        console.log("   📁 JSONL datoteke sprme za import u vector DB:");
-        const channels = Object.keys(byChannel);
-        for (const ch of channels) {
-            console.log(`      ${finalOutputDir}/${ch}_rag_chunks.jsonl`);
+        console.log("   📁 JSONL datoteke spremne za import u vector DB:");
+        for (const p of allJsonlPaths) {
+            console.log(`      ${p}`);
         }
     }
 
