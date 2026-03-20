@@ -15,8 +15,18 @@
  *   identificirao govornike pravim imenima i predložio screenshotove.
  *   Izlaz svake iteracije su "sections" koji se spajaju u konačni članak.
  *
- * Primjer pokretanja:
- *   node generate_article_gemini.js --file /path/to/transcript.srt
+ * Načini pokretanja:
+ *   1. Pojedinačna datoteka:
+ *      node generate_article_gemini.js --file /path/to/transcript.srt
+ *
+ *   2. Batch (round-robin po kanalima, najnoviji videi prvo):
+ *      node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *      node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10
+ *      node generate_article_gemini.js --input-dir ... --dry-run
+ *
+ * Round-robin logika: umjesto obrade svih videa jednog kanala pa drugog,
+ * uzima najnoviji neobrađeni video iz svakog kanala, zatim drugi najnoviji,
+ * itd. — tako svi kanali dobivaju članke za najsvježije epizode što prije.
  *
  * Koristi Vertex AI endpoint s OAuth Bearer tokenom (troši GCP kredite).
  * Autentikacija: gcloud CLI (`gcloud auth print-access-token`).
@@ -117,18 +127,36 @@ function parseArgs() {
     }
 
     const file = getArg("--file");
+    const inputDir = getArg("--input-dir");
+    const channel = getArg("--channel");
+    const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
+    const dryRun = args.includes("--dry-run");
 
-    if (!file) {
-        console.error("❌ Obavezan argument: --file <putanja_do_srt_datoteke>");
+    if (!file && !inputDir) {
+        console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
+        console.error("");
+        console.error("Primjeri:");
+        console.error("  node generate_article_gemini.js --file /path/to/transcript.srt");
+        console.error("  node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10");
+        console.error("  node generate_article_gemini.js --input-dir ... --dry-run");
         process.exit(1);
     }
 
-    if (!fs.existsSync(file)) {
-        console.error(`❌ Datoteka ne postoji: ${file}`);
+    if (file) {
+        if (!fs.existsSync(file)) {
+            console.error(`❌ Datoteka ne postoji: ${file}`);
+            process.exit(1);
+        }
+        return { mode: "single", file };
+    }
+
+    if (!fs.existsSync(inputDir)) {
+        console.error(`❌ Input direktorij ne postoji: ${inputDir}`);
         process.exit(1);
     }
 
-    return { file };
+    return { mode: "batch", inputDir, channel, limit, dryRun };
 }
 
 // Iterativno pokušava popraviti česte Gemini JSON malformacije
@@ -198,6 +226,131 @@ function extractJsonFromText(text) {
         console.error(`      ⚠️  Raw response (first 500 chars): ${text.substring(0, 500)}`);
         throw firstErr;
     }
+}
+
+// ─── DISCOVERY & ROUND-ROBIN ─────────────────────────────────
+
+const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
+const BLOCKED_SUFFIX = ".canary.diarized.blocked.json";
+
+/**
+ * Sprema marker datoteku za blokirani sadržaj tako da se u budućim pokretanjima preskače.
+ */
+function saveBlockedMarker(srtPath, err) {
+    const baseDir = path.dirname(srtPath);
+    const base = path.basename(srtPath).replace(/\.srt$/, "");
+    const blockedPath = path.join(baseDir, `${base}.blocked.json`);
+    const blockedData = {
+        blocked_at: new Date().toISOString(),
+        model: GEMINI_MODEL,
+        reason: err.blockReason,
+        source_file: path.basename(srtPath),
+        raw_response: err.rawResponse
+    };
+    fs.writeFileSync(blockedPath, JSON.stringify(blockedData, null, 2), "utf-8");
+    return blockedPath;
+}
+
+/**
+ * Provjerava ima li video kompletiran članak za dani datum i model.
+ * Članak je kompletiran ako article.json postoji I ima sve iteracije s nepraznim sections.
+ */
+function hasCompleteArticle(channelDir, srtFilename) {
+    const basename = srtFilename.replace(/\.(srt|txt)$/i, "");
+    const today = new Date().toISOString().split('T')[0];
+    const articlePath = path.join(channelDir, `${basename}_${today}_${GEMINI_MODEL}.article.json`);
+
+    if (!fs.existsSync(articlePath)) return false;
+
+    try {
+        const article = JSON.parse(fs.readFileSync(articlePath, "utf-8"));
+        if (!article.iterations || article.iterations.length === 0) return false;
+
+        // Provjeri postoji li outline za usporedbu broja iteracija
+        const outlinePath = path.join(channelDir, `${basename}_${today}_${GEMINI_MODEL}.outline.json`);
+        if (fs.existsSync(outlinePath)) {
+            const outline = JSON.parse(fs.readFileSync(outlinePath, "utf-8"));
+            const expectedCount = Array.isArray(outline) ? outline.length : (outline.iterations?.length || 0);
+            if (article.iterations.length < expectedCount) return false;
+        }
+
+        // Sve iteracije moraju imati neprazne sections
+        return article.iterations.every(it => it.sections && it.sections.length > 0);
+    } catch {
+        return false;
+    }
+}
+
+/**
+ * Pronalazi sve .canary.diarized.srt datoteke kojima nedostaje kompletiran članak.
+ * Grupira po kanalu, unutar kanala sortira po datumu silazno (najnoviji prvo).
+ *
+ * @returns {Map<string, string[]>} channel → [srtPath, ...] sortirani najnoviji prvo
+ */
+function discoverPendingFiles(inputDir, channelFilter) {
+    const byChannel = new Map();
+
+    const entries = fs.readdirSync(inputDir, { withFileTypes: true });
+    for (const entry of entries) {
+        if (!entry.isDirectory() || entry.name.startsWith(".")) continue;
+        if (channelFilter && entry.name !== channelFilter) continue;
+
+        const channelName = entry.name;
+        const channelDir = path.join(inputDir, channelName);
+        const pending = [];
+
+        const files = fs.readdirSync(channelDir);
+        for (const file of files) {
+            if (!file.endsWith(DIARIZED_SRT_SUFFIX)) continue;
+            if (file.startsWith("._")) continue;
+
+            // Provjeri postoji li blocked marker (PROHIBITED_CONTENT itd.)
+            const base = file.replace(/\.srt$/, "");
+            const blockedPath = path.join(channelDir, `${base}.blocked.json`);
+            if (fs.existsSync(blockedPath)) continue;
+
+            if (!hasCompleteArticle(channelDir, file)) {
+                pending.push(path.join(channelDir, file));
+            }
+        }
+
+        // Sortiranje silazno po imenu (YYYYMMDD prefiks → najnoviji prvi)
+        pending.sort((a, b) => path.basename(b).localeCompare(path.basename(a)));
+
+        if (pending.length > 0) {
+            byChannel.set(channelName, pending);
+        }
+    }
+
+    return byChannel;
+}
+
+/**
+ * Gradi round-robin red iz datoteka grupiranih po kanalima.
+ * Uzima prvi (najnoviji) iz svakog kanala, zatim drugi, itd.
+ *
+ * @param {Map<string, string[]>} byChannel - channel → [srtPath, ...] sortirani najnoviji prvo
+ * @returns {Array<{srtPath: string, channel: string}>}
+ */
+function buildRoundRobinQueue(byChannel) {
+    const queue = [];
+    const channels = [...byChannel.keys()].sort();
+    let hasMore = true;
+    let roundIndex = 0;
+
+    while (hasMore) {
+        hasMore = false;
+        for (const ch of channels) {
+            const files = byChannel.get(ch);
+            if (roundIndex < files.length) {
+                queue.push({ srtPath: files[roundIndex], channel: ch });
+                hasMore = true;
+            }
+        }
+        roundIndex++;
+    }
+
+    return queue;
 }
 
 // ─── GEMINI API ──────────────────────────────────────────────────
@@ -278,6 +431,15 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
 
             const data = await response.json();
 
+            // Provjeri je li sadržaj blokiran (PROHIBITED_CONTENT, SAFETY, itd.)
+            if (data.promptFeedback && data.promptFeedback.blockReason) {
+                const err = new Error(`Gemini blokirao sadržaj: ${data.promptFeedback.blockReason} — ${data.promptFeedback.blockReasonMessage || 'bez objašnjenja'}`);
+                err.blocked = true;
+                err.blockReason = data.promptFeedback.blockReason;
+                err.rawResponse = data;
+                throw err;
+            }
+
             if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
                 throw new Error(`Neočekivan Gemini odgovor: ${JSON.stringify(data).substring(0, 300)}`);
             }
@@ -300,6 +462,9 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
 
         } catch (err) {
             timer.stop();
+            // Blokirani sadržaj — nema smisla retryati
+            if (err.blocked) throw err;
+
             if (attempt === MAX_RETRIES) throw err;
 
             if (err.name === "TypeError" || err.code === "ECONNRESET") {
@@ -314,25 +479,18 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
     }
 }
 
-// ─── MAIN ────────────────────────────────────────────────────────
+// ─── PROCESS FILE ─────────────────────────────────────────────
 
-async function main() {
-    const { file } = parseArgs();
-
-    console.log("");
-    console.log("╔══════════════════════════════════════════════════╗");
-    console.log("║   📰 GEMINI ARTICLE GENERATOR (2 FAZE)          ║");
-    console.log("╚══════════════════════════════════════════════════╝");
-    console.log(`   📂 Datoteka: ${file}`);
-    console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
-    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT} (${VERTEX_REGION})`);
-    console.log("");
-
+/**
+ * Obrađuje jednu SRT datoteku: generira outline (Faza 1) i članak (Faza 2).
+ * Vraća true ako je uspješno završeno, false ako je došlo do greške.
+ * U batch modu ne radi process.exit() nego vraća false.
+ */
+async function processFile(file, { exitOnError = true } = {}) {
     const srtContent = fs.readFileSync(file, "utf-8");
     const baseDir = path.dirname(file);
     const basename = path.basename(file).replace(/\.(srt|txt)$/i, "");
 
-    // YYYY-MM-DD format
     const today = new Date();
     const dateStr = today.toISOString().split('T')[0];
 
@@ -345,12 +503,11 @@ async function main() {
     let outlineJson = null;
 
     if (fs.existsSync(outlinePath)) {
-        console.log(`   ✅ [FAZA 1] Pronađen postojeći outline: ${outlinePath}`);
+        console.log(`   ✅ [FAZA 1] Pronađen postojeći outline: ${path.basename(outlinePath)}`);
         outlineJson = JSON.parse(fs.readFileSync(outlinePath, "utf-8"));
     } else {
         const rawPath1 = path.join(rawDir, "faza1_outline.raw.txt");
 
-        // Pokušaj oporavak iz raw datoteke (ako postoji od prethodnog neuspjelog pokušaja)
         if (fs.existsSync(rawPath1)) {
             console.log(`   🔧 [FAZA 1] Pronađen sirovi odgovor od prethodnog pokušaja — pokušavam parsirati...`);
             try {
@@ -371,13 +528,11 @@ async function main() {
             console.log(`   🚀 [FAZA 1] Generiram semantički outline...`);
             const startTime1 = Date.now();
 
-            // Šaljemo cijeli transkript kao kontekst
             const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
 
             try {
                 const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, "FAZA 1 — Outline", rawPath1);
                 outlineJson = result1.parsed;
-                // Normaliziraj: ako Gemini vrati goli niz, omotaj u {iterations: [...]}
                 if (Array.isArray(outlineJson)) {
                     console.log(`   ℹ️  [FAZA 1] Gemini vratio goli JSON niz (${outlineJson.length} elemenata) — omotavam u {iterations: [...]}.`);
                     outlineJson = { iterations: outlineJson };
@@ -386,28 +541,32 @@ async function main() {
                 const elapsed = ((Date.now() - startTime1) / 1000).toFixed(1);
                 console.log(`   ✅ [FAZA 1] Outline spremljen. Pronađeno ${outlineJson.iterations?.length || 0} iteracija. (${elapsed}s)`);
             } catch (err) {
+                if (err.blocked) {
+                    const bp = saveBlockedMarker(file, err);
+                    console.error(`   🚫 [FAZA 1] Blokirano: ${err.blockReason} — spremljeno u ${path.basename(bp)}`);
+                    return false;
+                }
                 console.error(`   ❌ [FAZA 1] Greška: ${err.message}`);
-                process.exit(1);
+                if (exitOnError) process.exit(1);
+                return false;
             }
         }
 
-        // Zbog rate limita pauziraj prije Faze 2
         await sleep(REQUEST_DELAY_MS);
     }
 
-    // Normaliziraj i kod učitavanja iz keša (cached outline mogao biti goli niz)
     if (Array.isArray(outlineJson)) {
         outlineJson = { iterations: outlineJson };
     }
 
     if (!outlineJson || !outlineJson.iterations || outlineJson.iterations.length === 0) {
         console.error("   ❌ Outline ne sadrži validne iteracije. Prekidam.");
-        process.exit(1);
+        if (exitOnError) process.exit(1);
+        return false;
     }
 
     // --- FAZA 2: ARTICLE GENERATION PO ITERACIJAMA ---
 
-    // Učitaj postojeći article.json ako postoji (za nastavak prekinutog rada)
     let finalArticle = null;
     if (fs.existsSync(articlePath)) {
         try {
@@ -417,17 +576,14 @@ async function main() {
         }
     }
 
-    // Provjeri je li članak već kompletiran (sve iteracije imaju neprazne sections)
     if (finalArticle && finalArticle.iterations && finalArticle.iterations.length === outlineJson.iterations.length) {
         const allComplete = finalArticle.iterations.every(it => it.sections && it.sections.length > 0);
         if (allComplete) {
-            console.log(`\n   ✅ [FAZA 2] Članak već postoji i kompletiran je (${finalArticle.iterations.length} iteracija): ${articlePath}`);
-            console.log("");
-            return;
+            console.log(`\n   ✅ [FAZA 2] Članak već postoji i kompletiran je (${finalArticle.iterations.length} iteracija)`);
+            return true;
         }
     }
 
-    // Odredi koje iteracije već imaju sadržaj (za nastavak)
     const completedIterations = new Set();
     if (finalArticle && finalArticle.iterations) {
         for (const it of finalArticle.iterations) {
@@ -452,7 +608,6 @@ async function main() {
     console.log(`\n   🚀 [FAZA 2] Generiranje članka po iteracijama (${pendingCount} preostalo od ${outlineJson.iterations.length})...`);
 
     for (const iter of outlineJson.iterations) {
-        // Preskoči već generirane iteracije
         if (completedIterations.has(iter.iteration_number)) {
             console.log(`      ⏭️  Iteracija ${iter.iteration_number} već postoji — preskačem.`);
             continue;
@@ -460,10 +615,6 @@ async function main() {
 
         console.log(`      🔄 Generiram iteraciju ${iter.iteration_number} (${iter.start_time} - ${iter.end_time}): ${iter.theme}`);
         const startTime2 = Date.now();
-
-        // Šaljemo CIJELI transkript za kontekst, ali s posebnim napomenom da piše samo za ovu iteraciju.
-        // Alternativa bi bila slati samo dio transkripta, ali LLM gubi širi kontekst (imena govornika prije).
-        // S obzirom na Gemini-jev veliki context window, šaljemo cijeli transkript, no napominjemo granice.
 
         const iterDetails = `Fokusiraj se ISKLJUČIVO na iteraciju broj ${iter.iteration_number}.\n` +
             `Vremenski okvir: od ${iter.start_time} do ${iter.end_time}.\n` +
@@ -477,10 +628,8 @@ async function main() {
             const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
             const sectionResult = result2.parsed;
 
-            // Provjeri je li Gemini vratio sections pod očekivanim ključem
             let sections;
             if (Array.isArray(sectionResult)) {
-                // Gemini vratio goli niz umjesto {sections: [...]}
                 console.log(`      ℹ️  Iteracija ${iter.iteration_number}: Gemini vratio goli JSON niz (${sectionResult.length} elemenata) — koristim direktno kao sections.`);
                 sections = sectionResult;
             } else {
@@ -489,7 +638,6 @@ async function main() {
                     const keys = Object.keys(sectionResult);
                     console.error(`      ⚠️  Iteracija ${iter.iteration_number}: 'sections' prazan ili nedostaje. Ključevi u odgovoru: [${keys.join(", ")}]`);
                     console.error(`      ⚠️  Raw struktura: ${JSON.stringify(sectionResult).substring(0, 500)}`);
-                    // Pokušaj pronaći sections pod drugim imenom
                     const altKey = keys.find(k => Array.isArray(sectionResult[k]) && sectionResult[k].length > 0);
                     if (altKey) {
                         console.log(`      🔧 Koristim alternativni ključ: '${altKey}' (${sectionResult[altKey].length} elemenata)`);
@@ -511,21 +659,115 @@ async function main() {
             const elapsed = ((Date.now() - startTime2) / 1000).toFixed(1);
             console.log(`      ✅ Iteracija ${iter.iteration_number} završena (${elapsed}s)`);
 
-            // Spremi napredak (u slučaju pucanja veze)
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
 
-            // Rate limit pauza
             await sleep(REQUEST_DELAY_MS);
 
         } catch (err) {
+            if (err.blocked) {
+                const bp = saveBlockedMarker(file, err);
+                console.error(`      🚫 [FAZA 2] Blokirano u iteraciji ${iter.iteration_number}: ${err.blockReason} — spremljeno u ${path.basename(bp)}`);
+                // Spremi dosadašnji progress članka
+                if (finalArticle.iterations.length > 0) {
+                    fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
+                }
+                return false;
+            }
             console.error(`      ❌ Greška u iteraciji ${iter.iteration_number}: ${err.message}`);
             console.log("   Spremam dosadašnji progress...");
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
-            process.exit(1);
+            if (exitOnError) process.exit(1);
+            return false;
         }
     }
 
-    console.log(`\n   🎉 [GOTOVO] Kompletan članak je spremljen u: ${articlePath}`);
+    console.log(`\n   🎉 [GOTOVO] Kompletan članak: ${path.basename(articlePath)}`);
+    return true;
+}
+
+// ─── MAIN ────────────────────────────────────────────────────────
+
+async function main() {
+    const opts = parseArgs();
+
+    console.log("");
+    console.log("╔══════════════════════════════════════════════════╗");
+    console.log("║   📰 GEMINI ARTICLE GENERATOR (2 FAZE)          ║");
+    console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
+    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT} (${VERTEX_REGION})`);
+
+    // ── Način 1: Pojedinačna datoteka ──
+    if (opts.mode === "single") {
+        console.log(`   📂 Datoteka: ${opts.file}`);
+        console.log("");
+        await processFile(opts.file, { exitOnError: true });
+        console.log("");
+        return;
+    }
+
+    // ── Način 2: Batch s round-robin rasporedom ──
+    const { inputDir, channel, limit, dryRun } = opts;
+    console.log(`   📂 Input:    ${inputDir}`);
+    if (channel) console.log(`   🎯 Kanal:    ${channel}`);
+    if (limit) console.log(`   🔢 Limit:    ${limit}`);
+    if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
+    console.log("");
+
+    // Pronađi datoteke kojima nedostaje članak
+    console.log("   Skeniram direktorije...");
+    const byChannel = discoverPendingFiles(inputDir, channel);
+
+    let totalPending = 0;
+    for (const files of byChannel.values()) totalPending += files.length;
+
+    console.log(`   📊 Kanala s neobrađenim videima: ${byChannel.size}`);
+    console.log(`   📊 Ukupno videa za obradu:       ${totalPending}`);
+    console.log("");
+
+    if (totalPending === 0) {
+        console.log("   ✅ Svi videi već imaju kompletiran članak.");
+        return;
+    }
+
+    // Gradi round-robin red
+    const queue = buildRoundRobinQueue(byChannel);
+    const finalQueue = limit ? queue.slice(0, limit) : queue;
+
+    if (dryRun) {
+        console.log(`   📋 Round-robin red (${finalQueue.length} videa):`);
+        for (let i = 0; i < finalQueue.length; i++) {
+            const item = finalQueue[i];
+            console.log(`      ${String(i + 1).padStart(4)}. [${item.channel}] ${path.basename(item.srtPath)}`);
+        }
+        console.log("");
+        return;
+    }
+
+    // Obradi redom
+    let success = 0;
+    let failed = 0;
+
+    for (let i = 0; i < finalQueue.length; i++) {
+        const item = finalQueue[i];
+        console.log("");
+        console.log(`   ━━━ [${i + 1}/${finalQueue.length}] [${item.channel}] ${path.basename(item.srtPath)} ━━━`);
+
+        const ok = await processFile(item.srtPath, { exitOnError: false });
+        if (ok) {
+            success++;
+        } else {
+            failed++;
+            console.error(`   ⚠️  Greška za ${path.basename(item.srtPath)}, nastavljam s idućim...`);
+        }
+    }
+
+    console.log("");
+    console.log("╔══════════════════════════════════════════════════╗");
+    console.log("║   📊 BATCH ZAVRŠEN                              ║");
+    console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   ✅ Uspješno: ${success}`);
+    if (failed > 0) console.log(`   ❌ Neuspješno: ${failed}`);
     console.log("");
 }
 

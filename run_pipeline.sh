@@ -253,22 +253,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Vertex AI koristi gcloud OAuth token — ne treba API key
-for CHANNEL_DIR in "$OUTPUT_DIR"/*/; do
-    [ -d "$CHANNEL_DIR" ] || continue
-    CHANNEL_NAME=$(basename "$CHANNEL_DIR")
-    echo "   📂 Kanal: $CHANNEL_NAME"
-
-    for SRT_FILE in "$CHANNEL_DIR"*.canary.diarized.srt; do
-        [ -f "$SRT_FILE" ] || continue
-        # Preskoči macOS resource fork datoteke
-        case "$(basename "$SRT_FILE")" in ._*) continue ;; esac
-
-        echo "   🔄 Generiram članak za: $(basename "$SRT_FILE")"
-        node "$SCRIPT_DIR/generate_article_gemini.js" --file "$SRT_FILE" || {
-            echo "   ⚠️  Greška pri generiranju članka za $(basename "$SRT_FILE"), nastavljam..."
-        }
-    done
-done
+# Round-robin obrada: najnoviji videi prvo, ravnomjerno po kanalima
+node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" || {
+    echo "   ⚠️  Greška pri batch generiranju članaka, nastavljam..."
+}
 
 echo ""
 echo "╔══════════════════════════════════════════════════╗"

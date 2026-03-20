@@ -57,6 +57,7 @@ const RETRY_BASE_DELAY_MS = 10000; // Bazno čekanje za exponential backoff
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
 const SUMMARY_JSON_SUFFIX = ".canary.summary.json";
 const SUMMARY_MD_SUFFIX = ".canary.summary.md";
+const SUMMARY_BLOCKED_SUFFIX = ".canary.summary.blocked.json";
 const INFO_JSON_SUFFIX = ".info.json";
 
 // Verzija output sheme — za backward compatibility kod budućih promjena
@@ -329,6 +330,15 @@ async function callGemini(transcript, metadata) {
 
             const data = await response.json();
 
+            // Provjeri je li sadržaj blokiran (PROHIBITED_CONTENT, SAFETY, itd.)
+            if (data.promptFeedback && data.promptFeedback.blockReason) {
+                const err = new Error(`Gemini blokirao sadržaj: ${data.promptFeedback.blockReason} — ${data.promptFeedback.blockReasonMessage || 'bez objašnjenja'}`);
+                err.blocked = true;
+                err.blockReason = data.promptFeedback.blockReason;
+                err.rawResponse = data;
+                throw err;
+            }
+
             // Izvuci tekst odgovora iz Gemini response strukture
             if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
                 throw new Error(`Neočekivan Gemini odgovor: ${JSON.stringify(data).substring(0, 300)}`);
@@ -343,6 +353,9 @@ async function callGemini(transcript, metadata) {
             return JSON.parse(cleanedJson);
 
         } catch (err) {
+            // Blokirani sadržaj — nema smisla retryati, odmah propagiraj
+            if (err.blocked) throw err;
+
             if (attempt === MAX_RETRIES) throw err;
 
             // Network error → retry
@@ -569,9 +582,11 @@ function discoverFiles(inputDir, channelFilter) {
             const srtPath = path.join(channelDir, file);
             const base = file.replace(/\.wav\.canary\.diarized\.srt$/, "");
             const summaryJsonPath = path.join(channelDir, base + ".wav" + SUMMARY_JSON_SUFFIX);
+            const blockedJsonPath = path.join(channelDir, base + ".wav" + SUMMARY_BLOCKED_SUFFIX);
             const hasSummary = fs.existsSync(summaryJsonPath);
+            const isBlocked = fs.existsSync(blockedJsonPath);
 
-            results.push({ srtPath, channel: channelName, hasSummary });
+            results.push({ srtPath, channel: channelName, hasSummary, isBlocked });
         }
     }
 
@@ -604,11 +619,13 @@ async function main() {
 
     // ── Pronađi datoteke ──
     const allFiles = discoverFiles(inputDir, channel);
-    const toProcess = allFiles.filter((f) => !f.hasSummary);
-    const alreadyDone = allFiles.length - toProcess.length;
+    const blocked = allFiles.filter((f) => f.isBlocked && !f.hasSummary);
+    const toProcess = allFiles.filter((f) => !f.hasSummary && !f.isBlocked);
+    const alreadyDone = allFiles.filter((f) => f.hasSummary).length;
 
     console.log(`   📊 Ukupno .canary.diarized.srt:  ${allFiles.length}`);
     console.log(`   ✅ Već sumariziranih:             ${alreadyDone}`);
+    if (blocked.length > 0) console.log(`   🚫 Blokiranih (preskačem):       ${blocked.length}`);
 
     // Primijeni limit
     const finalList = limit ? toProcess.slice(0, limit) : toProcess;
@@ -704,7 +721,25 @@ async function main() {
 
             } catch (err) {
                 const elapsed = (Date.now() - startTime) / 1000;
-                console.error(`   ❌ [GREŠKA] ${base}: ${err.message} (${elapsed.toFixed(1)}s)`);
+
+                if (err.blocked) {
+                    // Spremi blokirani odgovor kao marker — neće se retryati u budućim pokretanjima
+                    const blockedPath = path.join(
+                        path.dirname(srtPath),
+                        base + ".wav" + SUMMARY_BLOCKED_SUFFIX
+                    );
+                    const blockedData = {
+                        blocked_at: new Date().toISOString(),
+                        model: GEMINI_MODEL,
+                        reason: err.blockReason,
+                        source_file: basename,
+                        raw_response: err.rawResponse
+                    };
+                    fs.writeFileSync(blockedPath, JSON.stringify(blockedData, null, 2), "utf-8");
+                    console.error(`   🚫 [BLOKIRANO] ${base}: ${err.blockReason} — spremljeno u ${path.basename(blockedPath)}`);
+                } else {
+                    console.error(`   ❌ [GREŠKA] ${base}: ${err.message} (${elapsed.toFixed(1)}s)`);
+                }
                 totalErrors++;
             }
         }

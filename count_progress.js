@@ -40,7 +40,9 @@ const stats = {
     totalArticle: 0,
     totalRagChunks: 0,
     totalRagImport: 0,
-    totalRagCombined: 0
+    totalRagCombined: 0,
+    totalSummaryBlocked: 0,
+    totalArticleBlocked: 0
 };
 
 // Brojači po modelu: ukupno datoteka i unikatnih videa
@@ -106,6 +108,10 @@ for (const channel of channels) {
                     if (!articleVideosByModel[model]) articleVideosByModel[model] = new Set();
                     articleVideosByModel[model].add(base);
                 }
+            } else if (file.endsWith('.canary.summary.blocked.json')) {
+                stats.totalSummaryBlocked++;
+            } else if (file.endsWith('.canary.diarized.blocked.json')) {
+                stats.totalArticleBlocked++;
             } else if (file.endsWith('.rag_chunks.jsonl')) {
                 stats.totalRagChunks++;
             } else if (file.endsWith('.rag_import.jsonl')) {
@@ -133,14 +139,14 @@ console.log(`   🎙️  Završeno Whisper (.srt):                  ${stats.tota
 console.log(`   🗣️  Whisper Diarizirano (.diarized.srt):      ${stats.totalDiarized}`);
 console.log(`   🦅 Canary Transkribirano (.canary.srt):       ${stats.totalCanarySrt}`);
 console.log(`   🦜 Canary Diarizirano (.canary.diarized.srt): ${stats.totalCanaryDiarized}`);
-console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSummary}`);
+console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSummary}${stats.totalSummaryBlocked > 0 ? ` (🚫 ${stats.totalSummaryBlocked} blokirano)` : ''}`);
 console.log(`   📑 Gemini Outlinei (.outline.json):           ${stats.totalOutline} videa`);
 const outlineModels = Object.entries(outlinesByModel).sort((a, b) => b[1] - a[1]);
 for (const [model, count] of outlineModels) {
     const videos = outlineVideosByModel[model]?.size || 0;
     console.log(`      └─ ${model}: ${videos} videa (${count} datoteka)`);
 }
-console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle} videa`);
+console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle} videa${stats.totalArticleBlocked > 0 ? ` (🚫 ${stats.totalArticleBlocked} blokirano)` : ''}`);
 const articleModels = Object.entries(articlesByModel).sort((a, b) => b[1] - a[1]);
 for (const [model, count] of articleModels) {
     const videos = articleVideosByModel[model]?.size || 0;
