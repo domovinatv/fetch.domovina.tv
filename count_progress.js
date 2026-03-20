@@ -43,6 +43,10 @@ const stats = {
     totalRagCombined: 0
 };
 
+// Brojači po modelu (outline i article imaju model u imenu datoteke)
+const outlinesByModel = {};
+const articlesByModel = {};
+
 console.log("Skeniram direktorije...");
 
 const channels = fs.readdirSync(OUTPUT_DIR).filter(f => {
@@ -56,7 +60,7 @@ for (const channel of channels) {
     try {
         const files = fs.readdirSync(channelPath);
 
-        // Za outline/article brojimo unikatne videe (ne višestruke verzije)
+        // Za outline/article brojimo unikatne videe i ukupne datoteke po modelu
         const videosWithOutline = new Set();
         const videosWithArticle = new Set();
 
@@ -81,12 +85,22 @@ for (const channel of channels) {
             } else if (file.endsWith('.canary.summary.json')) {
                 stats.totalSummary++;
             } else if (file.endsWith('.outline.json')) {
-                // Izvuci base video ime: sve prije .wav.canary.diarized_*
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.outline\.json$/, '');
                 videosWithOutline.add(base);
+                // Izvuci model: _YYYY-MM-DD_MODEL.outline.json
+                const modelMatch = file.match(/\.wav\.canary\.diarized_\d{4}-\d{2}-\d{2}_(.+)\.outline\.json$/);
+                if (modelMatch) {
+                    const model = modelMatch[1];
+                    outlinesByModel[model] = (outlinesByModel[model] || 0) + 1;
+                }
             } else if (file.endsWith('.article.json')) {
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, '');
                 videosWithArticle.add(base);
+                const modelMatch = file.match(/\.wav\.canary\.diarized_\d{4}-\d{2}-\d{2}_(.+)\.article\.json$/);
+                if (modelMatch) {
+                    const model = modelMatch[1];
+                    articlesByModel[model] = (articlesByModel[model] || 0) + 1;
+                }
             } else if (file.endsWith('.rag_chunks.jsonl')) {
                 stats.totalRagChunks++;
             } else if (file.endsWith('.rag_import.jsonl')) {
@@ -116,7 +130,15 @@ console.log(`   🦅 Canary Transkribirano (.canary.srt):       ${stats.totalCan
 console.log(`   🦜 Canary Diarizirano (.canary.diarized.srt): ${stats.totalCanaryDiarized}`);
 console.log(`   📋 Gemini Sažeci (.canary.summary.json):      ${stats.totalSummary}`);
 console.log(`   📑 Gemini Outlinei (.outline.json):           ${stats.totalOutline} videa`);
+const outlineModels = Object.entries(outlinesByModel).sort((a, b) => b[1] - a[1]);
+for (const [model, count] of outlineModels) {
+    console.log(`      └─ ${model}: ${count} datoteka`);
+}
 console.log(`   📰 Gemini Članci (.article.json):             ${stats.totalArticle} videa`);
+const articleModels = Object.entries(articlesByModel).sort((a, b) => b[1] - a[1]);
+for (const [model, count] of articleModels) {
+    console.log(`      └─ ${model}: ${count} datoteka`);
+}
 console.log(`   🧩 RAG Chunks (.rag_chunks.jsonl):            ${stats.totalRagChunks}`);
 console.log(`   🗂️  RAG Import (.rag_import.jsonl):           ${stats.totalRagImport}`);
 console.log(`   🧬 RAG Combined (.rag_combined.jsonl):       ${stats.totalRagCombined}`);
