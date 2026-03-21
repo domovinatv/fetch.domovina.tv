@@ -252,23 +252,39 @@ function saveBlockedMarker(srtPath, err) {
 }
 
 /**
- * Provjerava ima li video kompletiran članak za dani datum i model.
+ * Pronalazi najnoviju datoteku za dani basename i tip (outline, article) — bilo koji datum.
+ * @returns {string|null} Puni put do datoteke ili null
+ */
+function findLatestFile(dir, basename, type) {
+    const prefix = `${basename}_`;
+    const suffix = `_${GEMINI_MODEL}.${type}.json`;
+    try {
+        const matches = fs.readdirSync(dir)
+            .filter(f => f.startsWith(prefix) && f.endsWith(suffix) && !f.startsWith("._"))
+            .sort();
+        return matches.length > 0 ? path.join(dir, matches[matches.length - 1]) : null;
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Provjerava ima li video kompletiran članak (bilo koji datum, isti model).
  * Članak je kompletiran ako article.json postoji I ima sve iteracije s nepraznim sections.
  */
 function hasCompleteArticle(channelDir, srtFilename) {
     const basename = srtFilename.replace(/\.(srt|txt)$/i, "");
-    const today = new Date().toISOString().split('T')[0];
-    const articlePath = path.join(channelDir, `${basename}_${today}_${GEMINI_MODEL}.article.json`);
 
-    if (!fs.existsSync(articlePath)) return false;
+    const articlePath = findLatestFile(channelDir, basename, "article");
+    if (!articlePath) return false;
 
     try {
         const article = JSON.parse(fs.readFileSync(articlePath, "utf-8"));
         if (!article.iterations || article.iterations.length === 0) return false;
 
         // Provjeri postoji li outline za usporedbu broja iteracija
-        const outlinePath = path.join(channelDir, `${basename}_${today}_${GEMINI_MODEL}.outline.json`);
-        if (fs.existsSync(outlinePath)) {
+        const outlinePath = findLatestFile(channelDir, basename, "outline");
+        if (outlinePath) {
             const outline = JSON.parse(fs.readFileSync(outlinePath, "utf-8"));
             const expectedCount = Array.isArray(outline) ? outline.length : (outline.iterations?.length || 0);
             if (article.iterations.length < expectedCount) return false;
@@ -494,9 +510,23 @@ async function processFile(file, { exitOnError = true } = {}) {
     const today = new Date();
     const dateStr = today.toISOString().split('T')[0];
 
-    const outlinePath = path.join(baseDir, `${basename}_${dateStr}_${GEMINI_MODEL}.outline.json`);
-    const articlePath = path.join(baseDir, `${basename}_${dateStr}_${GEMINI_MODEL}.article.json`);
-    const rawDir = path.join(baseDir, `${basename}_${dateStr}_${GEMINI_MODEL}_raw`);
+    // Traži postojeće datoteke od bilo kojeg datuma (ne samo danas)
+    const existingOutline = findLatestFile(baseDir, basename, "outline");
+    const existingArticle = findLatestFile(baseDir, basename, "article");
+
+    // Koristi datum iz postojećeg outlinea/artikla za konzistentnost, inače danas
+    let effectiveDateStr = dateStr;
+    if (existingOutline) {
+        const m = path.basename(existingOutline).match(/_(\d{4}-\d{2}-\d{2})_/);
+        if (m) effectiveDateStr = m[1];
+    } else if (existingArticle) {
+        const m = path.basename(existingArticle).match(/_(\d{4}-\d{2}-\d{2})_/);
+        if (m) effectiveDateStr = m[1];
+    }
+
+    const outlinePath = existingOutline || path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}.outline.json`);
+    const articlePath = existingArticle || path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}.article.json`);
+    const rawDir = path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}_raw`);
     if (!fs.existsSync(rawDir)) fs.mkdirSync(rawDir, { recursive: true });
 
     // --- FAZA 1: OUTLINE ---
