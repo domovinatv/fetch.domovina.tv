@@ -45,13 +45,41 @@ const { execSync } = require("child_process");
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
 let GEMINI_MODEL = "gemini-2.5-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "za-inventuru-spremni-prod";
-const VERTEX_REGION = process.env.VERTEX_REGION || "us-central1";
-const GEMINI_API_BASE = `https://${VERTEX_REGION}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${VERTEX_REGION}/publishers/google/models`;
+
+// Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region)
+const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
+    ? process.env.VERTEX_REGIONS.split(",").map(r => r.trim())
+    : [
+        "global",
+        "us-central1",
+        "us-east1",
+        "us-east4",
+        "us-west1",
+        "us-west4",
+        "us-south1",
+        "europe-west1",
+        "europe-west4",
+    ];
+
+let regionIndex = 0;
+
+function getNextRegion() {
+    const region = VERTEX_REGIONS[regionIndex % VERTEX_REGIONS.length];
+    regionIndex++;
+    return region;
+}
+
+function buildEndpointUrl(region) {
+    if (region === "global") {
+        return `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+    }
+    return `https://${region}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${region}/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+}
 
 // Rate limiting
 const REQUEST_DELAY_MS = 2000;     // 2 sekunde između zahtjeva
 const MAX_RETRIES = 10;            // Broj pokušaja pri 429/5xx greškama
-const RETRY_BASE_DELAY_MS = 10000; // Bazno čekanje za exponential backoff
+const RETRY_BASE_DELAY_MS = 5000;  // Bazno čekanje (smanjeno jer rotiramo regije)
 
 // Sufiksi datoteka
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
@@ -290,10 +318,10 @@ async function callGemini(transcript, metadata) {
         }
     };
 
-    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent`;
-
     // Exponential backoff za rate limiting (429) i server greške (5xx)
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const region = getNextRegion();
+        const url = buildEndpointUrl(region);
         const token = getOrRefreshAccessToken();
 
         try {
@@ -317,15 +345,23 @@ async function callGemini(transcript, metadata) {
                     continue;
                 }
 
-                // Rate limit ili server error → retry s exponential backoff
-                if (response.status === 429 || response.status >= 500) {
-                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                    console.error(`      ⏳ HTTP ${response.status} — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                // 429 Rate Limit — rotiramo na sljedeći region
+                if (response.status === 429) {
+                    const waitMs = Math.min(RETRY_BASE_DELAY_MS * attempt, 30000);
+                    console.error(`      ⏳ HTTP 429 na ${region} — rotiram region, čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
                     await sleep(waitMs);
                     continue;
                 }
 
-                throw new Error(`Gemini API HTTP ${response.status}: ${errorBody.substring(0, 300)}`);
+                // 500+ Server greška
+                if (response.status >= 500) {
+                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                    console.error(`      ⏳ HTTP ${response.status} na ${region} — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                    await sleep(waitMs);
+                    continue;
+                }
+
+                throw new Error(`Gemini API HTTP ${response.status} (${region}): ${errorBody.substring(0, 300)}`);
             }
 
             const data = await response.json();
@@ -358,10 +394,10 @@ async function callGemini(transcript, metadata) {
 
             if (attempt === MAX_RETRIES) throw err;
 
-            // Network error → retry
+            // Network error → retry s rotacijom regije
             if (err.name === "TypeError" || err.code === "ECONNRESET") {
                 const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                console.error(`      ⏳ Network error — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                console.error(`      ⏳ Network error (${region}) — rotiram region, čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
                 await sleep(waitMs);
                 continue;
             }
@@ -611,7 +647,8 @@ async function main() {
     console.log(`   📂 Input:   ${inputDir}`);
     console.log(`   🤖 Model:   ${GEMINI_MODEL}`);
     console.log(`   🌐 Endpoint: Vertex AI (OAuth Bearer)`);
-    console.log(`   📋 Projekt:  ${VERTEX_PROJECT} (${VERTEX_REGION})`);
+    console.log(`   📋 Projekt:  ${VERTEX_PROJECT}`);
+    console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");

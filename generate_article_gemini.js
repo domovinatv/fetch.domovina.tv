@@ -43,12 +43,42 @@ const GEMINI_MODEL = "gemini-2.5-flash"; // Jedini model dostupan na Vertex AI z
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "za-inventuru-spremni-prod";
-const VERTEX_REGION = process.env.VERTEX_REGION || "us-central1";
-const GEMINI_API_BASE = `https://${VERTEX_REGION}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${VERTEX_REGION}/publishers/google/models`;
 
-const REQUEST_DELAY_MS = 5000;
+// Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region).
+// Rotacijom preko N regiona efektivno dobivamo N× throughput.
+// Global endpoint koristi aiplatform.googleapis.com (bez region prefiksa) s locations/global.
+const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
+    ? process.env.VERTEX_REGIONS.split(",").map(r => r.trim())
+    : [
+        "global",
+        "us-central1",
+        "us-east1",
+        "us-east4",
+        "us-west1",
+        "us-west4",
+        "us-south1",
+        "europe-west1",
+        "europe-west4",
+    ];
+
+let regionIndex = 0;
+
+function getNextRegion() {
+    const region = VERTEX_REGIONS[regionIndex % VERTEX_REGIONS.length];
+    regionIndex++;
+    return region;
+}
+
+function buildEndpointUrl(region) {
+    if (region === "global") {
+        return `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+    }
+    return `https://${region}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${region}/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+}
+
+const REQUEST_DELAY_MS = 2000; // Smanjeno jer multi-region raspoređuje opterećenje
 const MAX_RETRIES = 10;
-const RETRY_BASE_DELAY_MS = 10000;
+const RETRY_BASE_DELAY_MS = 5000; // Smanjeno jer rotiramo na drugi region umjesto čekanja
 
 // ─── SYSTEM PROMPTOVI ────────────────────────────────────────────
 
@@ -403,12 +433,12 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
         }
     };
 
-    const url = `${GEMINI_API_BASE}/${GEMINI_MODEL}:generateContent`;
-
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const region = getNextRegion();
+        const url = buildEndpointUrl(region);
         const token = getOrRefreshAccessToken();
 
-        const timer = startElapsedTimer(`${label} (Vertex AI, pokušaj ${attempt}/${MAX_RETRIES})`);
+        const timer = startElapsedTimer(`${label} (${region}, pokušaj ${attempt}/${MAX_RETRIES})`);
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -423,7 +453,7 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
             if (!response.ok) {
                 const errorBody = await response.text();
 
-                // Token istekao — refresh i retry
+                // Token istekao — refresh i retry (isti region OK)
                 if (response.status === 401) {
                     console.error(`      ⚠️  Access token istekao — refresham...`);
                     cachedAccessToken = null;
@@ -431,18 +461,26 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
                     continue;
                 }
 
-                // 429 Rate Limit ili 500+ Server greška — čekamo i pokušavamo ponovno
-                if (response.status === 429 || response.status >= 500) {
-                    const errorDetail = errorBody ? errorBody.substring(0, 300) : "Nema detalja od servera";
+                // 429 Rate Limit — rotiramo na sljedeći region s kraćim čekanjem
+                if (response.status === 429) {
+                    const waitMs = Math.min(RETRY_BASE_DELAY_MS * attempt, 30000);
+                    console.error(`      ⏳ HTTP 429 na ${region} — rotiram na sljedeći region, čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                    await sleep(waitMs);
+                    continue;
+                }
+
+                // 500+ Server greška — retry s eksponencijalnim backoffom
+                if (response.status >= 500) {
                     const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                    console.error(`      ⏳ HTTP ${response.status} — server vratio: ${errorDetail}`);
+                    const errorDetail = errorBody ? errorBody.substring(0, 200) : "Nema detalja";
+                    console.error(`      ⏳ HTTP ${response.status} na ${region}: ${errorDetail}`);
                     console.error(`      ⏳ Čekam ${waitMs / 1000}s pa pokušavam ponovno... (pokušaj ${attempt}/${MAX_RETRIES})`);
                     await sleep(waitMs);
                     continue;
                 }
 
                 // Sve ostale nepoznate greške prekidaju izvođenje
-                throw new Error(`Gemini API HTTP ${response.status}: ${errorBody.substring(0, 300)}`);
+                throw new Error(`Gemini API HTTP ${response.status} (${region}): ${errorBody.substring(0, 300)}`);
             }
 
             const data = await response.json();
@@ -485,7 +523,7 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
 
             if (err.name === "TypeError" || err.code === "ECONNRESET") {
                 const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
-                console.error(`      ⏳ Network error — čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
+                console.error(`      ⏳ Network error (${region}) — rotiram region, čekam ${waitMs / 1000}s (pokušaj ${attempt}/${MAX_RETRIES})`);
                 await sleep(waitMs);
                 continue;
             }
@@ -725,7 +763,8 @@ async function main() {
     console.log("║   📰 GEMINI ARTICLE GENERATOR (2 FAZE)          ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
-    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT} (${VERTEX_REGION})`);
+    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT}`);
+    console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
 
     // ── Način 1: Pojedinačna datoteka ──
     if (opts.mode === "single") {
