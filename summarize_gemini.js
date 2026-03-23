@@ -386,7 +386,20 @@ async function callGemini(transcript, metadata) {
             let cleanedJson = responseText.trim();
             cleanedJson = cleanedJson.replace(/^```json\s*\n?/, "").replace(/\n?```\s*$/, "");
 
-            return JSON.parse(cleanedJson);
+            try {
+                return JSON.parse(cleanedJson);
+            } catch (parseErr) {
+                // Sanitiziraj kontrolne znakove koje Gemini ponekad ubaci u JSON stringove
+                if (parseErr.message.includes("control character") || parseErr.message.includes("Bad control")) {
+                    const sanitized = cleanedJson
+                        .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "")
+                        .replace(/\t/g, "\\t");
+                    const result = JSON.parse(sanitized);
+                    console.error(`      🔧 JSON automatski popravljen (uklonjeni kontrolni znakovi).`);
+                    return result;
+                }
+                throw parseErr;
+            }
 
         } catch (err) {
             // Blokirani sadržaj — nema smisla retryati, odmah propagiraj

@@ -237,6 +237,17 @@ function tryRepairMalformedJson(text) {
     return null;
 }
 
+// Uklanja ilegalne kontrolne znakove iz JSON stringa.
+// JSON spec dozvoljava \n, \r, \t samo kao escape sekvence (\\n, \\r, \\t),
+// ali Gemini ponekad ubaci sirove control characters unutar string vrijednosti.
+function sanitizeJsonControlChars(text) {
+    // Zamijeni sirove kontrolne znakove (0x00-0x1F) unutar JSON stringova
+    // s njihovim escape sekvencama ili ukloni ih.
+    return text.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "")  // ukloni opskurne kontrolne znakove
+               .replace(/\t/g, "\\t")                            // tab → \t escape
+               .replace(/(?<!\\)\n(?=([^"]*"[^"]*")*[^"]*"[^"]*$)/g, "\\n"); // goli newline unutar stringa → \n
+}
+
 // Čisti JSON string od markdown blockova (```json ... ```) i drugih wrappera
 function extractJsonFromText(text) {
     let clean = text.trim();
@@ -246,12 +257,33 @@ function extractJsonFromText(text) {
     try {
         return JSON.parse(clean);
     } catch (firstErr) {
+        // Pokušaj sanitizirati kontrolne znakove pa ponovo parsirati
+        if (firstErr.message.includes("control character") || firstErr.message.includes("Bad control")) {
+            try {
+                const sanitized = sanitizeJsonControlChars(clean);
+                const result = JSON.parse(sanitized);
+                console.error(`      🔧 JSON automatski popravljen (uklonjeni kontrolni znakovi).`);
+                return result;
+            } catch { /* nastavi s ostalim popravcima */ }
+        }
+
         // Pokušaj automatski popraviti česte Gemini malformacije
         const repaired = tryRepairMalformedJson(clean);
         if (repaired !== null) {
             console.error(`      🔧 JSON automatski popravljen (malformirani niz objekata).`);
             return repaired;
         }
+
+        // Zadnji pokušaj: sanitizacija + repair kombinirano
+        try {
+            const sanitized = sanitizeJsonControlChars(clean);
+            const repairedSanitized = tryRepairMalformedJson(sanitized);
+            if (repairedSanitized !== null) {
+                console.error(`      🔧 JSON automatski popravljen (sanitizacija + repair).`);
+                return repairedSanitized;
+            }
+        } catch { /* odustani */ }
+
         console.error(`      ⚠️  JSON parse error: ${firstErr.message}`);
         console.error(`      ⚠️  Raw response (first 500 chars): ${text.substring(0, 500)}`);
         throw firstErr;
