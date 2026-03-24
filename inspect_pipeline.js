@@ -20,7 +20,7 @@ const path = require("path");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
-const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
+const DEFAULT_OUTPUT_DIR = path.join(__dirname, "storage", "output");
 
 const SUFFIXES = {
     mp3: ".mp3",

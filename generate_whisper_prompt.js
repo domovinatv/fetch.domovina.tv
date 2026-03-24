@@ -26,7 +26,7 @@ const http = require("http");
 
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
-const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
+const DEFAULT_OUTPUT_DIR = path.join(__dirname, "storage", "output");
 
 // LM Studio API
 const LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions";

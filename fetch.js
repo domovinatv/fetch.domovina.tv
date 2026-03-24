@@ -7,7 +7,7 @@ const path = require("path");
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
 const COOKIES_FILE = path.join(__dirname, "automatic", "cookies.txt");
-const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
+const DEFAULT_OUTPUT_DIR = path.join(__dirname, "storage", "output");
 
 // --- PRECIZNA KONFIGURACIJA ZA TVOJ STROJ (BRAVE on MACOS) ---
 const BROWSER_NAME = "brave";

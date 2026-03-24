@@ -43,7 +43,7 @@ const __dirname = path.dirname(__filename);
 const HF_SPACE = "nvidia/canary-1b-v2";
 const API_ENDPOINT = "/transcribe_file";
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
-const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
+const DEFAULT_OUTPUT_DIR = path.join(__dirname, "storage", "output");
 const DEFAULT_SOURCE_LANG = "Croatian";
 const DEFAULT_TARGET_LANG = "Croatian";
 

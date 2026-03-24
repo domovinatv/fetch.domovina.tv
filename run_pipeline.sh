@@ -36,6 +36,19 @@ set -e  # Prekini na prvoj grešci
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# --- PROVJERA STORAGE KONFIGURACIJE ---
+if [ ! -f "$SCRIPT_DIR/storage/.storage_ready" ]; then
+    echo ""
+    echo "❌ Storage nije konfiguriran!"
+    echo ""
+    echo "   Pokreni:"
+    echo "   cp storage.conf.example storage.conf"
+    echo "   # Editiraj storage.conf prema svojim diskovima"
+    echo "   ./setup_storage.sh"
+    echo ""
+    exit 1
+fi
+
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
 echo "║   🚀 DOMOVINA.TV AUDIO PIPELINE                 ║"
@@ -95,7 +108,7 @@ WHISPER_ARGS=("${COMMON_ARGS[@]}" "${WHISPER_ARGS[@]}")
 DIARIZE_ARGS=("${COMMON_ARGS[@]}" "${DIARIZE_ARGS[@]}")
 
 # Ekstrakcija output direktorija iz COMMON_ARGS
-OUTPUT_DIR="/Volumes/DOMOVINA1TB/fetch_domovina_tv_output"
+OUTPUT_DIR="$SCRIPT_DIR/storage/output"
 for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
     if [[ "${COMMON_ARGS[$j]}" == "--output-dir" ]]; then
         OUTPUT_DIR="${COMMON_ARGS[$((j+1))]}"

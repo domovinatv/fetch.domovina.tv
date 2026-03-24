@@ -18,7 +18,7 @@ const args = process.argv.slice(2);
 const inputDirIdx = args.indexOf('--input-dir');
 const OUTPUT_DIR = inputDirIdx !== -1 && inputDirIdx + 1 < args.length
     ? args[inputDirIdx + 1]
-    : '/Volumes/DOMOVINA1TB/fetch_domovina_tv_output';
+    : path.join(__dirname, 'storage', 'output');
 
 if (!fs.existsSync(OUTPUT_DIR)) {
     console.error(`❌ Output direktorij ne postoji: ${OUTPUT_DIR}`);

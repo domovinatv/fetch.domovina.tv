@@ -1,0 +1,20 @@
+# storage.conf — Mapiranje kanala na fizičke diskove
+#
+# Format: KANAL=FIZIČKI_PATH
+#
+# DEFAULT se koristi za sve kanale koji NISU eksplicitno navedeni.
+# Setup skripta će automatski kreirati subdirektorij <kanal_ime> na DEFAULT putanji.
+#
+# Kopiraj ovu datoteku: cp storage.conf.example storage.conf
+# Zatim pokreni: ./setup_storage.sh
+#
+# ─── PRIMJER ZA 1 DISK ───────────────────────────────────
+DEFAULT=/Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+
+# ─── PRIMJER ZA 2 DISKA ──────────────────────────────────
+# DEFAULT=/Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+#
+# Premjesti velike kanale na novi 2TB disk:
+# domovina_tv=/Volumes/DOMOVINA2TB/fetch_output/domovina_tv
+# podcast_inkubator=/Volumes/DOMOVINA2TB/fetch_output/podcast_inkubator
+# laudato_tv=/Volumes/DOMOVINA2TB/fetch_output/laudato_tv

@@ -22,3 +22,7 @@ automatic/cookies.txt
 
 # State & History
 *-state.json
+
+# Local storage symlinks (per-machine config)
+storage/
+storage.conf

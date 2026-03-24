@@ -27,7 +27,7 @@ const path = require("path");
 
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
-const DEFAULT_OUTPUT_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output";
+const DEFAULT_OUTPUT_DIR = path.join(__dirname, "storage", "output");
 
 // FFmpeg parametri za Whisper-kompatibilni WAV
 const FFMPEG_WAV_ARGS = [
