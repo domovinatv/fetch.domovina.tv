@@ -237,6 +237,56 @@ function tryRepairMalformedJson(text) {
     return null;
 }
 
+// Pokušava popraviti skraćeni (truncated) JSON odgovor od Geminija.
+// Gemini ponekad prekorači output token limit i prekine JSON u sredini stringa.
+// Strategija: pronađi zadnji kompletni objekt u nizu i zatvori JSON strukturu.
+function tryRepairTruncatedJson(text) {
+    const trimmed = text.trimEnd();
+
+    let inString = false;
+    let escape = false;
+    const stack = [];
+    let arrayDepth = -1;
+    let lastCompleteElementEnd = -1;
+    let stackAtLastComplete = [];
+
+    for (let i = 0; i < trimmed.length; i++) {
+        const ch = trimmed[i];
+        if (escape) { escape = false; continue; }
+        if (ch === '\\' && inString) { escape = true; continue; }
+        if (ch === '"') { inString = !inString; continue; }
+        if (inString) continue;
+
+        if (ch === '{') {
+            stack.push('}');
+        } else if (ch === '[') {
+            if (arrayDepth === -1) arrayDepth = stack.length + 1;
+            stack.push(']');
+        } else if (ch === '}' || ch === ']') {
+            if (stack.length > 0) stack.pop();
+        }
+
+        // Kad se zatvori '}' i stack.length padne na arrayDepth,
+        // znači da smo upravo zatvorili kompletni objekt unutar glavnog niza
+        if (ch === '}' && stack.length === arrayDepth) {
+            lastCompleteElementEnd = i;
+            stackAtLastComplete = [...stack];
+        }
+    }
+
+    if (lastCompleteElementEnd === -1) return null;
+
+    // Odreži na zadnjem kompletnom objektu i zatvori otvorene strukture
+    let repaired = trimmed.substring(0, lastCompleteElementEnd + 1);
+    repaired += '\n' + stackAtLastComplete.reverse().join('\n');
+
+    try {
+        return JSON.parse(repaired);
+    } catch {
+        return null;
+    }
+}
+
 // Uklanja ilegalne kontrolne znakove iz JSON stringa.
 // JSON spec dozvoljava \n, \r, \t samo kao escape sekvence (\\n, \\r, \\t),
 // ali Gemini ponekad ubaci sirove control characters unutar string vrijednosti.
@@ -283,6 +333,29 @@ function extractJsonFromText(text) {
                 return repairedSanitized;
             }
         } catch { /* odustani */ }
+
+        // Pokušaj popraviti skraćeni (truncated) JSON — Gemini prekoračio output token limit
+        {
+            const truncRepaired = tryRepairTruncatedJson(clean);
+            if (truncRepaired !== null) {
+                const items = Array.isArray(truncRepaired) ? truncRepaired :
+                    (truncRepaired.sections || truncRepaired.iterations || []);
+                console.error(`      🔧 JSON automatski popravljen (skraćeni odgovor — spašeno ${items.length} kompletnih elemenata).`);
+                return truncRepaired;
+            }
+
+            // Sanitizacija + truncation repair kombinirano
+            try {
+                const sanitized = sanitizeJsonControlChars(clean);
+                const truncRepairedSan = tryRepairTruncatedJson(sanitized);
+                if (truncRepairedSan !== null) {
+                    const items = Array.isArray(truncRepairedSan) ? truncRepairedSan :
+                        (truncRepairedSan.sections || truncRepairedSan.iterations || []);
+                    console.error(`      🔧 JSON automatski popravljen (sanitizacija + truncation repair — spašeno ${items.length} kompletnih elemenata).`);
+                    return truncRepairedSan;
+                }
+            } catch { /* odustani */ }
+        }
 
         console.error(`      ⚠️  JSON parse error: ${firstErr.message}`);
         console.error(`      ⚠️  Raw response (first 500 chars): ${text.substring(0, 500)}`);
@@ -461,6 +534,7 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
         },
         generationConfig: {
             temperature: 0.2,
+            maxOutputTokens: 65536,
             responseMimeType: "application/json"
         }
     };
@@ -531,6 +605,12 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
             }
 
             const responseText = data.candidates[0].content.parts[0].text;
+            const finishReason = data.candidates[0].finishReason || "UNKNOWN";
+
+            // Upozori ako je Gemini prekinuo odgovor zbog token limita
+            if (finishReason === "MAX_TOKENS" || finishReason === "LENGTH") {
+                console.error(`      ⚠️  Gemini prekinuo odgovor (finishReason: ${finishReason}) — pokušat ću spasiti parcijalni JSON.`);
+            }
 
             // Ponekad Gemini vrati prazan tekst ili samo whitespace
             if (!responseText || !responseText.trim()) {
@@ -872,7 +952,30 @@ async function main() {
     console.log("");
 }
 
-main().catch((err) => {
-    console.error("Fatal error:", err);
-    process.exit(1);
-});
+// Pokreni main samo kad se izvršava direktno (ne kad se require-a kao modul)
+if (require.main === module) {
+    main().catch((err) => {
+        console.error("Fatal error:", err);
+        process.exit(1);
+    });
+}
+
+// Eksportiraj funkcije za testiranje
+module.exports = {
+    extractJsonFromText,
+    tryRepairMalformedJson,
+    tryRepairTruncatedJson,
+    sanitizeJsonControlChars,
+    buildRoundRobinQueue,
+    findLatestFile,
+    hasCompleteArticle,
+    discoverPendingFiles,
+    processFile,
+    callGemini,
+    DIARIZED_SRT_SUFFIX,
+    // Za testiranje: postavi cached token da se izbjegne poziv gcloud auth
+    _setTestToken(token) {
+        cachedAccessToken = token;
+        tokenExpiry = Date.now() + 999_999_999;
+    },
+};
