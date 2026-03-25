@@ -127,7 +127,7 @@ echo ""
 if command -v rclone &> /dev/null; then
     echo "   ⏬ Preuzimam .canary.diarized.srt s Google Drive-a..."
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
-      --filter "- ._*" --filter "+ **.canary.**" --filter "- *" \
+      -L --filter "- ._*" --filter "+ **.canary.**" --filter "- *" \
       --drive-shared-with-me --progress
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
@@ -169,7 +169,7 @@ echo ""
 if command -v rclone &> /dev/null; then
     echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
-      --filter "- ._*" --filter "+ *.wav" --filter "- *" \
+      -L --filter "- ._*" --filter "+ *.wav" --filter "- *" \
       --drive-shared-with-me --progress
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
