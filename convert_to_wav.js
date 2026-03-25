@@ -223,11 +223,13 @@ async function main() {
 
         console.log(`\n🔵 [${channelName.toUpperCase()}] — ${completedEntries.length} completed audio zapisa`);
 
+        let channelSkipped = 0;
+        const channelStart = Date.now();
+
         for (const entry of completedEntries) {
             const mp3File = findAudioFile(outputDir, entry.videoId);
 
             if (!mp3File) {
-                console.log(`   ⚠️  MP3 nije pronađen za: ${entry.videoId} (${entry.title.substring(0, 40)}...)`);
                 totalMissing++;
                 continue;
             }
@@ -236,7 +238,7 @@ async function main() {
 
             if (dryRun) {
                 if (fs.existsSync(wavFile)) {
-                    console.log(`   ⏭️  [POSTOJI] ${path.basename(wavFile)}`);
+                    channelSkipped++;
                     totalSkipped++;
                 } else {
                     console.log(`   🔄 [KONVERTIRAO BI] ${path.basename(mp3File)} → .wav`);
@@ -248,16 +250,27 @@ async function main() {
             try {
                 const result = await convertToWav(mp3File);
                 if (result.skipped) {
-                    console.log(`   ⏭️  [POSTOJI] ${path.basename(result.wavFile)}`);
+                    channelSkipped++;
                     totalSkipped++;
+                    const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+                    process.stdout.write(`   ⏭️  Provjeravam... ${channelSkipped}/${completedEntries.length} (${elapsed}s)\r`);
                 } else {
+                    if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
                     console.log(`   ✅ [KONVERTIRANO] ${path.basename(result.wavFile)}`);
                     totalConverted++;
                 }
             } catch (err) {
+                if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
                 console.error(`   ❌ [GREŠKA] ${path.basename(mp3File)}: ${err.message}`);
                 totalErrors++;
             }
+        }
+
+        // Završni ispis za kanal (prepiši progress liniju)
+        if (channelSkipped > 0) {
+            const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+            process.stdout.write("\r\x1b[K");
+            console.log(`   ⏭️  ${channelSkipped} već konvertiranih (${elapsed}s)`);
         }
     }
 

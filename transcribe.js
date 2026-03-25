@@ -251,12 +251,13 @@ async function main() {
 
         console.log(`\n🔵 [${channelName.toUpperCase()}] — ${completedEntries.length} video zapisa`);
 
+        let channelSkipped = 0;
+        const channelStart = Date.now();
+
         for (const entry of completedEntries) {
             // Pronađi WAV
             const wavFile = findFile(outputDir, entry.videoId, ".wav");
             if (!wavFile) {
-                console.log(`   ⚠️  WAV nije pronađen za: ${entry.videoId} (${entry.title.substring(0, 40)}...)`);
-                console.log(`      💡 Pokreni najprije: node convert_to_wav.js --channel ${channelName}`);
                 totalMissingWav++;
                 continue;
             }
@@ -265,10 +266,15 @@ async function main() {
             // whisper-cli kreira output s imenom: {input}.srt (npr. file.wav.srt)
             const srtFile = wavFile + ".srt";
             if (fs.existsSync(srtFile)) {
-                console.log(`   ⏭️  [POSTOJI] ${path.basename(srtFile)}`);
+                channelSkipped++;
                 totalSkipped++;
+                const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+                process.stdout.write(`   ⏭️  Provjeravam... ${channelSkipped}/${completedEntries.length} (${elapsed}s)\r`);
                 continue;
             }
+
+            // Završi progress liniju prije ispisa novog videa
+            if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
 
             // Pronađi whisper prompt (opcionalan ali preporučen)
             const promptFile = findFile(outputDir, entry.videoId, "_whisper_prompt.txt");
@@ -303,6 +309,13 @@ async function main() {
                 console.error(`   ❌ [GREŠKA] ${baseName}: ${err.message}`);
                 totalErrors++;
             }
+        }
+
+        // Završni ispis za kanal (prepiši progress liniju)
+        if (channelSkipped > 0) {
+            const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+            process.stdout.write("\r\x1b[K");
+            console.log(`   ⏭️  ${channelSkipped} već transkribiranih (${elapsed}s)`);
         }
     }
 

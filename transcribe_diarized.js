@@ -234,10 +234,12 @@ async function main() {
 
         console.log(`\n🔵 [${channelName.toUpperCase()}] — ${completedEntries.length} video zapisa`);
 
+        let channelSkipped = 0;
+        const channelStart = Date.now();
+
         for (const entry of completedEntries) {
             const wavFile = findFile(outputDir, entry.videoId, ".wav");
             if (!wavFile) {
-                console.log(`   ⚠️  WAV nije pronađen za: ${entry.videoId}`);
                 totalMissingWav++;
                 continue;
             }
@@ -245,7 +247,6 @@ async function main() {
             // Provjeri postoji li whisper.cpp SRT (preduvjet!)
             const srtFile = wavFile + ".srt";
             if (!fs.existsSync(srtFile)) {
-                console.log(`   ⏭️  [NEMA SRT] ${path.basename(wavFile)} — najprije pokreni transcribe.js`);
                 totalMissingSrt++;
                 continue;
             }
@@ -253,10 +254,15 @@ async function main() {
             // Provjeri je li diarized SRT već generiran
             const diarizedSrtFile = wavFile + ".diarized.srt";
             if (fs.existsSync(diarizedSrtFile)) {
-                console.log(`   ⏭️  [POSTOJI] ${path.basename(diarizedSrtFile)}`);
+                channelSkipped++;
                 totalSkipped++;
+                const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+                process.stdout.write(`   ⏭️  Provjeravam... ${channelSkipped}/${completedEntries.length} (${elapsed}s)\r`);
                 continue;
             }
+
+            // Završi progress liniju prije ispisa novog videa
+            if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
 
             const baseName = path.basename(wavFile, ".wav");
 
@@ -281,6 +287,13 @@ async function main() {
                 console.error(`   ❌ [GREŠKA] ${baseName}: ${err.message}`);
                 totalErrors++;
             }
+        }
+
+        // Završni ispis za kanal (prepiši progress liniju)
+        if (channelSkipped > 0) {
+            const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+            process.stdout.write("\r\x1b[K");
+            console.log(`   ⏭️  ${channelSkipped} već diariziranih (${elapsed}s)`);
         }
     }
 
