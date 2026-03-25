@@ -39,27 +39,47 @@ const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
-const GEMINI_MODEL = "gemini-2.5-flash"; // Jedini model dostupan na Vertex AI za ovaj projekt
+// Učitaj gemini.conf (key=value format, kao storage.conf)
+function loadGeminiConf() {
+    const confPath = path.join(__dirname, "gemini.conf");
+    const conf = {};
+    if (fs.existsSync(confPath)) {
+        for (const line of fs.readFileSync(confPath, "utf-8").split("\n")) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith("#")) continue;
+            const eqIdx = trimmed.indexOf("=");
+            if (eqIdx === -1) continue;
+            conf[trimmed.slice(0, eqIdx).trim()] = trimmed.slice(eqIdx + 1).trim();
+        }
+    }
+    return conf;
+}
+
+const GEMINI_CONF = loadGeminiConf();
+
+const GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "za-inventuru-spremni-prod";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "ci-main-default-project";
 
 // Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region).
 // Rotacijom preko N regiona efektivno dobivamo N× throughput.
 // Global endpoint koristi aiplatform.googleapis.com (bez region prefiksa) s locations/global.
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
     ? process.env.VERTEX_REGIONS.split(",").map(r => r.trim())
-    : [
-        "global",
-        "us-central1",
-        "us-east1",
-        "us-east4",
-        "us-west1",
-        "us-west4",
-        "us-south1",
-        "europe-west1",
-        "europe-west4",
-    ];
+    : (GEMINI_CONF.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
+        ? GEMINI_CONF.VERTEX_REGIONS.split(",").map(r => r.trim())
+        : [
+            "global",
+            "us-central1",
+            "us-east1",
+            "us-east4",
+            "us-west1",
+            "us-west4",
+            "us-south1",
+            "europe-west1",
+            "europe-west4",
+        ];
 
 let regionIndex = 0;
 
