@@ -299,11 +299,13 @@ async function main() {
 
         console.log(`\n🔵 [${channelName.toUpperCase()}] — ${completedEntries.length} video zapisa`);
 
+        let channelSkipped = 0;
+        const channelStart = Date.now();
+
         for (const entry of completedEntries) {
             const infoJsonFile = findInfoJson(outputDir, entry.videoId);
 
             if (!infoJsonFile) {
-                console.log(`   ⚠️  .info.json nije pronađen za: ${entry.videoId}`);
                 totalMissing++;
                 continue;
             }
@@ -314,10 +316,15 @@ async function main() {
 
             // Preskoči ako već postoji
             if (fs.existsSync(promptFile)) {
-                console.log(`   ⏭️  [POSTOJI] ${baseName}_whisper_prompt.txt`);
+                channelSkipped++;
                 totalSkipped++;
+                const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+                process.stdout.write(`   ⏭️  Provjeravam... ${channelSkipped}/${completedEntries.length} (${elapsed}s)\r`);
                 continue;
             }
+
+            // Završi progress liniju prije ispisa novog videa
+            if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
 
             try {
                 // Čitaj info.json
@@ -357,6 +364,13 @@ async function main() {
                 console.error(`   ❌ [GREŠKA] ${baseName}: ${err.message}`);
                 totalErrors++;
             }
+        }
+
+        // Završni ispis za kanal (prepiši progress liniju)
+        if (channelSkipped > 0) {
+            const elapsed = ((Date.now() - channelStart) / 1000).toFixed(1);
+            process.stdout.write("\r\x1b[K");
+            console.log(`   ⏭️  ${channelSkipped} već generiranih promptova (${elapsed}s)`);
         }
     }
 
