@@ -424,7 +424,7 @@ function main() {
         let allTriplets = [];
 
         for (const entry of entries) {
-            if (!entry.isDirectory()) continue;
+            if (!(entry.isDirectory() || entry.isSymbolicLink())) continue;
             if (entry.name.startsWith(".")) continue;
             if (channel && entry.name !== channel) continue;
 

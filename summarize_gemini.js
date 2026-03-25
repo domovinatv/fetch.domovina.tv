@@ -613,7 +613,7 @@ function discoverFiles(inputDir, channelFilter) {
     const entries = fs.readdirSync(inputDir, { withFileTypes: true });
 
     for (const entry of entries) {
-        if (!entry.isDirectory()) continue;
+        if (!(entry.isDirectory() || entry.isSymbolicLink())) continue;
         if (entry.name.startsWith(".")) continue;
 
         const channelName = entry.name;

@@ -443,7 +443,7 @@ function discoverPendingFiles(inputDir, channelFilter) {
 
     const entries = fs.readdirSync(inputDir, { withFileTypes: true });
     for (const entry of entries) {
-        if (!entry.isDirectory() || entry.name.startsWith(".")) continue;
+        if (!(entry.isDirectory() || entry.isSymbolicLink()) || entry.name.startsWith(".")) continue;
         if (channelFilter && entry.name !== channelFilter) continue;
 
         const channelName = entry.name;
