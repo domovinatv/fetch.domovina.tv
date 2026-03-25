@@ -896,6 +896,12 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
     console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT}`);
+    const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
+    if (gcloudProject !== VERTEX_PROJECT) {
+        console.log(`   ⚠️  gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD VERTEX_PROJECT!)`);
+    } else {
+        console.log(`   ✅ gcloud projekt: ${gcloudProject}`);
+    }
     console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
 
     // ── Način 1: Pojedinačna datoteka ──

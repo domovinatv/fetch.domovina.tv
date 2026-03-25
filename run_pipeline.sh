@@ -56,6 +56,7 @@ echo "║   🚀 DOMOVINA.TV AUDIO PIPELINE                 ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo "   ⏱️  Početak: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "   📂 Argumenti: $*"
+echo "   ☁️  GCP projekt: $(gcloud config get-value project 2>/dev/null || echo 'N/A')"
 echo ""
 
 # --- PARSIRANJE ARGUMENATA ---

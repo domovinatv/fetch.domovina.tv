@@ -32,6 +32,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
 // ─── .env UČITAVANJE (ručno, bez dotenv dependency) ──────────────
 
@@ -177,6 +178,12 @@ async function main() {
     }
 
     log("📋", `Projekt:    ${GCP_PROJECT_ID}`);
+    const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
+    if (gcloudProject !== GCP_PROJECT_ID) {
+        log("⚠️", `gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD GCP_PROJECT_ID!)`);
+    } else {
+        log("✅", `gcloud projekt: ${gcloudProject}`);
+    }
     log("🪣", `Bucket:     ${GCS_BUCKET_NAME}`);
     log("📂", `GCS prefix: ${GCS_PREFIX}/`);
     log("🏪", `Data Store: ${DATA_STORE_ID}`);
