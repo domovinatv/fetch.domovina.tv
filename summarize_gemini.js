@@ -586,6 +586,7 @@ function parseArgs() {
     const channel = getArg("--channel");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
+    const rebuildState = args.includes("--rebuild-state");
 
     // --model flag za override modela
     const model = getArg("--model");
@@ -601,12 +602,37 @@ function parseArgs() {
         console.error("  node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5");
         console.error("  node summarize_gemini.js --input-dir ... --model gemini-2.5-flash");
         console.error("  node summarize_gemini.js --input-dir ... --dry-run");
+        console.error("  node summarize_gemini.js --input-dir ... --rebuild-state");
         console.error("");
         console.error("Autentikacija: gcloud auth login (OAuth Bearer token)");
         process.exit(1);
     }
 
-    return { inputDir, channel, limit, dryRun };
+    return { inputDir, channel, limit, dryRun, rebuildState };
+}
+
+// ─── DONE CACHE ─────────────────────────────────────────────────
+
+const DONE_STATE_FILENAME = "summarize-done.json";
+
+function loadDoneState(inputDir) {
+    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
+    try {
+        if (fs.existsSync(statePath)) {
+            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
+            return new Set(Array.isArray(data.completed) ? data.completed : []);
+        }
+    } catch (e) {
+        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
+    }
+    return new Set();
+}
+
+function saveDoneState(inputDir, doneSet) {
+    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
+    const tempPath = statePath + ".tmp";
+    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
+    fs.renameSync(tempPath, statePath);
 }
 
 // ─── DISCOVERY: PRONAĐI SVE DATOTEKE ZA OBRADU ──────────────────
@@ -670,7 +696,7 @@ function discoverFiles(inputDir, channelFilter) {
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { inputDir, channel, limit, dryRun } = parseArgs();
+    const { inputDir, channel, limit, dryRun, rebuildState } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -690,16 +716,48 @@ async function main() {
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
+    if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
     console.log("");
+
+    // Done cache: O(1) skip za već obrađene datoteke
+    const doneSet = rebuildState ? new Set() : loadDoneState(inputDir);
+    if (doneSet.size > 0) {
+        console.log(`   💾 Done cache: ${doneSet.size} već obrađenih epizoda`);
+    }
 
     // ── Pronađi datoteke ──
     const allFiles = discoverFiles(inputDir, channel);
     const blocked = allFiles.filter((f) => f.isBlocked && !f.hasSummary);
-    const toProcess = allFiles.filter((f) => !f.hasSummary && !f.isBlocked);
-    const alreadyDone = allFiles.filter((f) => f.hasSummary).length;
+
+    // Filtriraj: cache → FS check → pending
+    let cachedSkipped = 0;
+    let fsSkipped = 0;
+    const toProcess = [];
+
+    for (const f of allFiles) {
+        if (f.isBlocked) continue;
+
+        const base = path.basename(f.srtPath).replace(/\.wav\.canary\.diarized\.srt$/, "");
+
+        // O(1) cache provjera
+        if (doneSet.has(base)) {
+            cachedSkipped++;
+            continue;
+        }
+
+        // Filesystem fallback (originalna provjera)
+        if (f.hasSummary) {
+            doneSet.add(base); // Cache warming
+            fsSkipped++;
+            continue;
+        }
+
+        toProcess.push(f);
+    }
 
     console.log(`   📊 Ukupno .canary.diarized.srt:  ${allFiles.length}`);
-    console.log(`   ✅ Već sumariziranih:             ${alreadyDone}`);
+    console.log(`   ✅ Preskočeno (cache):            ${cachedSkipped}`);
+    if (fsSkipped > 0) console.log(`   ✅ Preskočeno (FS check):         ${fsSkipped} (dodano u cache)`);
     if (blocked.length > 0) console.log(`   🚫 Blokiranih (preskačem):       ${blocked.length}`);
 
     // Primijeni limit
@@ -708,6 +766,8 @@ async function main() {
     console.log("");
 
     if (finalList.length === 0) {
+        // Spremi cache warming rezultate
+        if (fsSkipped > 0 && !dryRun) saveDoneState(inputDir, doneSet);
         console.log("   ✨ Nema novih datoteka za sumarizaciju!");
         return;
     }
@@ -788,6 +848,7 @@ async function main() {
                 console.log(`      📋 ${summaryJson.summary.title_hr?.substring(0, 80) || "(bez naslova)"}`);
                 console.log(`      🏷️  ${summaryJson.summary.key_topics?.slice(0, 4).join(", ") || "(bez tema)"}`);
                 totalSummarized++;
+                doneSet.add(base);
 
                 // Rate limiting — čekaj između zahtjeva
                 if (i < files.length - 1) {
@@ -820,13 +881,19 @@ async function main() {
         }
     }
 
+    // Spremi done cache
+    if (!dryRun) {
+        saveDoneState(inputDir, doneSet);
+    }
+
     // ── SAŽETAK ──
     console.log("\n╔══════════════════════════════════════════════════╗");
     console.log("║   📊 SAŽETAK SUMARIZACIJE                      ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   ✅ Sumariziranih:      ${totalSummarized}`);
-    console.log(`   ⏭️  Preskočenih:       ${alreadyDone}${totalSkipped > 0 ? ` + ${totalSkipped} prekratkih` : ""}`);
+    console.log(`   ⏭️  Preskočenih:       ${cachedSkipped + fsSkipped}${totalSkipped > 0 ? ` + ${totalSkipped} prekratkih` : ""}`);
     console.log(`   ❌ Grešaka:            ${totalErrors}`);
+    console.log(`   💾 Done cache:         ${doneSet.size} epizoda`);
     if (totalElapsed > 0) {
         console.log(`   ⏱️  Ukupno vrijeme:    ${formatDuration(totalElapsed)}`);
         if (totalSummarized > 0) {

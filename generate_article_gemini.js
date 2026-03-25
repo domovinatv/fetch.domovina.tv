@@ -181,6 +181,7 @@ function parseArgs() {
     const channel = getArg("--channel");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
+    const rebuildState = args.includes("--rebuild-state");
 
     if (!file && !inputDir) {
         console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
@@ -190,6 +191,7 @@ function parseArgs() {
         console.error("  node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10");
         console.error("  node generate_article_gemini.js --input-dir ... --dry-run");
+        console.error("  node generate_article_gemini.js --input-dir ... --rebuild-state");
         process.exit(1);
     }
 
@@ -206,7 +208,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    return { mode: "batch", inputDir, channel, limit, dryRun };
+    return { mode: "batch", inputDir, channel, limit, dryRun, rebuildState };
 }
 
 // Iterativno pokušava popraviti česte Gemini JSON malformacije
@@ -452,14 +454,41 @@ function hasCompleteArticle(channelDir, srtFilename) {
     }
 }
 
+// ─── DONE CACHE ─────────────────────────────────────────────────
+
+const DONE_STATE_FILENAME = "articles-done.json";
+
+function loadDoneState(inputDir) {
+    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
+    try {
+        if (fs.existsSync(statePath)) {
+            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
+            return new Set(Array.isArray(data.completed) ? data.completed : []);
+        }
+    } catch (e) {
+        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
+    }
+    return new Set();
+}
+
+function saveDoneState(inputDir, doneSet) {
+    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
+    const tempPath = statePath + ".tmp";
+    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
+    fs.renameSync(tempPath, statePath);
+}
+
 /**
  * Pronalazi sve .canary.diarized.srt datoteke kojima nedostaje kompletiran članak.
  * Grupira po kanalu, unutar kanala sortira po datumu silazno (najnoviji prvo).
+ * Koristi doneSet za O(1) skip već kompletiranih datoteka.
  *
- * @returns {Map<string, string[]>} channel → [srtPath, ...] sortirani najnoviji prvo
+ * @returns {{ byChannel: Map<string, string[]>, cachedSkipped: number, fsSkipped: number }}
  */
-function discoverPendingFiles(inputDir, channelFilter) {
+function discoverPendingFiles(inputDir, channelFilter, doneSet) {
     const byChannel = new Map();
+    let cachedSkipped = 0;
+    let fsSkipped = 0;
 
     const entries = fs.readdirSync(inputDir, { withFileTypes: true });
     for (const entry of entries) {
@@ -475,6 +504,14 @@ function discoverPendingFiles(inputDir, channelFilter) {
             if (!file.endsWith(DIARIZED_SRT_SUFFIX)) continue;
             if (file.startsWith("._")) continue;
 
+            const baseKey = file.replace(/\.wav\.canary\.diarized\.srt$/, "");
+
+            // O(1) cache provjera
+            if (doneSet.has(baseKey)) {
+                cachedSkipped++;
+                continue;
+            }
+
             // Provjeri postoji li blocked marker (PROHIBITED_CONTENT itd.)
             const base = file.replace(/\.srt$/, "");
             const blockedPath = path.join(channelDir, `${base}.blocked.json`);
@@ -482,6 +519,10 @@ function discoverPendingFiles(inputDir, channelFilter) {
 
             if (!hasCompleteArticle(channelDir, file)) {
                 pending.push(path.join(channelDir, file));
+            } else {
+                // Cache warming: kompletiran, ali nije bio u cacheu
+                doneSet.add(baseKey);
+                fsSkipped++;
             }
         }
 
@@ -493,7 +534,7 @@ function discoverPendingFiles(inputDir, channelFilter) {
         }
     }
 
-    return byChannel;
+    return { byChannel, cachedSkipped, fsSkipped };
 }
 
 /**
@@ -914,25 +955,36 @@ async function main() {
     }
 
     // ── Način 2: Batch s round-robin rasporedom ──
-    const { inputDir, channel, limit, dryRun } = opts;
+    const { inputDir, channel, limit, dryRun, rebuildState } = opts;
     console.log(`   📂 Input:    ${inputDir}`);
     if (channel) console.log(`   🎯 Kanal:    ${channel}`);
     if (limit) console.log(`   🔢 Limit:    ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
+    if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
     console.log("");
+
+    // Done cache: O(1) skip za već kompletne članke
+    const doneSet = rebuildState ? new Set() : loadDoneState(inputDir);
+    if (doneSet.size > 0) {
+        console.log(`   💾 Done cache: ${doneSet.size} već kompletiranih članaka`);
+    }
 
     // Pronađi datoteke kojima nedostaje članak
     console.log("   Skeniram direktorije...");
-    const byChannel = discoverPendingFiles(inputDir, channel);
+    const { byChannel, cachedSkipped, fsSkipped } = discoverPendingFiles(inputDir, channel, doneSet);
 
     let totalPending = 0;
     for (const files of byChannel.values()) totalPending += files.length;
 
-    console.log(`   📊 Kanala s neobrađenim videima: ${byChannel.size}`);
-    console.log(`   📊 Ukupno videa za obradu:       ${totalPending}`);
+    console.log(`   ✅ Preskočeno (cache):            ${cachedSkipped}`);
+    if (fsSkipped > 0) console.log(`   ✅ Preskočeno (FS check):         ${fsSkipped} (dodano u cache)`);
+    console.log(`   📊 Kanala s neobrađenim videima:  ${byChannel.size}`);
+    console.log(`   📊 Ukupno videa za obradu:        ${totalPending}`);
     console.log("");
 
     if (totalPending === 0) {
+        // Spremi cache warming rezultate
+        if (fsSkipped > 0 && !dryRun) saveDoneState(inputDir, doneSet);
         console.log("   ✅ Svi videi već imaju kompletiran članak.");
         return;
     }
@@ -963,10 +1015,19 @@ async function main() {
         const ok = await processFile(item.srtPath, { exitOnError: false });
         if (ok) {
             success++;
+            const baseKey = path.basename(item.srtPath).replace(/\.wav\.canary\.diarized\.srt$/, "");
+            doneSet.add(baseKey);
+            // Periodično spremanje cachea (svaki 10. uspjeh)
+            if (success % 10 === 0) saveDoneState(inputDir, doneSet);
         } else {
             failed++;
             console.error(`   ⚠️  Greška za ${path.basename(item.srtPath)}, nastavljam s idućim...`);
         }
+    }
+
+    // Spremi done cache
+    if (!dryRun) {
+        saveDoneState(inputDir, doneSet);
     }
 
     console.log("");
@@ -975,6 +1036,7 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   ✅ Uspješno: ${success}`);
     if (failed > 0) console.log(`   ❌ Neuspješno: ${failed}`);
+    console.log(`   💾 Done cache: ${doneSet.size} epizoda`);
     console.log("");
 }
 

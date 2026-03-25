@@ -576,30 +576,30 @@ describe("discoverPendingFiles", () => {
     after(() => rmTmpDir(tmpDir));
 
     it("pronalazi SRT datoteke bez kompletiranog članka", () => {
-        const result = discoverPendingFiles(tmpDir, null);
+        const { byChannel } = discoverPendingFiles(tmpDir, null, new Set());
         // channel_a ima 1 pending, channel_b ima 0 (blokirano), channel_c ima 1
-        assert.equal(result.size, 2);
-        assert.ok(result.has("channel_a"));
-        assert.ok(result.has("channel_c"));
-        assert.ok(!result.has("channel_b"));
+        assert.equal(byChannel.size, 2);
+        assert.ok(byChannel.has("channel_a"));
+        assert.ok(byChannel.has("channel_c"));
+        assert.ok(!byChannel.has("channel_b"));
     });
 
     it("preskače blokirane datoteke", () => {
-        const result = discoverPendingFiles(tmpDir, "channel_b");
-        assert.equal(result.size, 0);
+        const { byChannel } = discoverPendingFiles(tmpDir, "channel_b", new Set());
+        assert.equal(byChannel.size, 0);
     });
 
     it("filtrira po kanalu", () => {
-        const result = discoverPendingFiles(tmpDir, "channel_c");
-        assert.equal(result.size, 1);
-        assert.ok(result.has("channel_c"));
-        assert.equal(result.get("channel_c").length, 1);
+        const { byChannel } = discoverPendingFiles(tmpDir, "channel_c", new Set());
+        assert.equal(byChannel.size, 1);
+        assert.ok(byChannel.has("channel_c"));
+        assert.equal(byChannel.get("channel_c").length, 1);
     });
 
     it("preskače kompletiran članak", () => {
-        const result = discoverPendingFiles(tmpDir, "channel_a");
-        assert.equal(result.get("channel_a").length, 1);
-        const pendingFile = path.basename(result.get("channel_a")[0]);
+        const { byChannel } = discoverPendingFiles(tmpDir, "channel_a", new Set());
+        assert.equal(byChannel.get("channel_a").length, 1);
+        const pendingFile = path.basename(byChannel.get("channel_a")[0]);
         assert.ok(pendingFile.includes("pending"));
     });
 });
