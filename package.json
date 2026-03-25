@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/domovinatv/fetch.domovina.tv#readme",
   "dependencies": {
+    "@google-cloud/discoveryengine": "^2.5.3",
+    "@google-cloud/storage": "^7.19.0",
     "@gradio/client": "^2.1.0"
   }
 }

@@ -14,6 +14,7 @@
 #   8. generate_article_gemini.js — Gemini generiranje članaka
 #   9. prepare_rag_*.js     — RAG priprema (chunkanje i import)
 #  10. screenshot_youtube.js — YouTube screenshotovi (samo uz --with-screenshots)
+#  11. import_to_vertex.js   — Upload RAG JSONL u Vertex AI Agent Builder
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -283,7 +284,7 @@ node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" || {
 # --- KORAK 9: RAG PRIPREMA ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9/10: RAG priprema (chunkanje i import)"
+echo "   📢 KORAK 9/11: RAG priprema (chunkanje i import)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -295,7 +296,7 @@ node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR"
 if [ "$WITH_SCREENSHOTS" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 10/10: YouTube screenshotovi (yt-dlp + ffmpeg)"
+echo "   📢 KORAK 10/11: YouTube screenshotovi (yt-dlp + ffmpeg)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -316,6 +317,35 @@ fi
 node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {
     echo "   ⚠️  Greška pri screenshotanju, nastavljam..."
 }
+fi
+
+# --- KORAK 11: VERTEX AI RAG IMPORT ---
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 11/11: Vertex AI RAG import (Discovery Engine)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+if [ -f "$SCRIPT_DIR/.env" ]; then
+    VERTEX_IMPORT_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+    # Proslijedi --channel ako postoji
+    for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+        if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+            VERTEX_IMPORT_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+            break
+        fi
+    done
+
+    if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        VERTEX_IMPORT_ARGS+=("--dry-run")
+    fi
+
+    node "$SCRIPT_DIR/import_to_vertex.js" "${VERTEX_IMPORT_ARGS[@]}" || {
+        echo "   ⚠️  Greška pri Vertex AI importu, nastavljam..."
+    }
+else
+    echo "   ⚠️ Preskačem Vertex AI import jer .env nije konfiguriran (vidi .env.example)"
 fi
 
 echo ""

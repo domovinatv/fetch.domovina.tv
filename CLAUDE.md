@@ -59,6 +59,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
+| 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
