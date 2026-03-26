@@ -113,8 +113,9 @@ function loadState(stateFile) {
   if (fs.existsSync(stateFile)) {
     try {
       const state = JSON.parse(fs.readFileSync(stateFile, "utf-8"));
-      // Osiguraj da 'private' polje postoji (kompatibilnost sa starijim state datotekama)
+      // Osiguraj da polja postoje (kompatibilnost sa starijim state datotekama)
       if (!Array.isArray(state.private)) state.private = [];
+      if (!Array.isArray(state.archived)) state.archived = [];
       return state;
     } catch (e) {
       console.error(`[GREŠKA] Neispravan JSON stanja: ${stateFile}`);
@@ -211,7 +212,8 @@ class ChannelQueue {
     entries.forEach((e) => uniqueMap.set(e.videoId, e));
     this.pendingVideos = Array.from(uniqueMap.values()).filter(e =>
       !this.state.completed.includes(e.videoId) &&
-      !this.state.private.includes(e.videoId)
+      !this.state.private.includes(e.videoId) &&
+      !this.state.archived.includes(e.videoId)
     );
 
     if (this.pendingVideos.length === 0) this.isExhausted = true;
