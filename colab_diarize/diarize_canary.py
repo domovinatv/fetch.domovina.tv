@@ -43,7 +43,7 @@ DIARIZED_SRT_SUFFIX = ".canary.diarized.srt"
 
 def parse_srt(srt_path):
     """Parsira SRT datoteku i vraća listu segmenata."""
-    with open(srt_path, "r", encoding="utf-8") as f:
+    with open(srt_path, "r", encoding="utf-8", errors="replace") as f:
         content = f.read()
 
     pattern = re.compile(

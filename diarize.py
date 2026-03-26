@@ -46,7 +46,7 @@ def parse_args():
 
 def parse_srt(srt_path):
     """Parsira SRT datoteku i vraća listu segmenata."""
-    with open(srt_path, "r", encoding="utf-8") as f:
+    with open(srt_path, "r", encoding="utf-8", errors="replace") as f:
         content = f.read()
 
     # SRT format: indeks\ntimestamp --> timestamp\ntekst\n\n

@@ -165,6 +165,9 @@ function downloadVideo(videoId, outputDir, filenameTemplate) {
           stderrOutput.includes("Private video")) {
           err.isPrivate = true;
         }
+        if (stderrOutput.includes("Premieres in")) {
+          err.isPremiere = true;
+        }
         reject(err);
       }
     });
@@ -266,6 +269,14 @@ class ChannelQueue {
             saveState(this.stateFile, this.state);
           }
           // NE povećavaj globalConsecutiveErrors (nije bot-protection problem)
+          continue;
+        }
+
+        // --- PREMIJERA: video još nije dostupan, preskoči bez penala ---
+        if (err.isPremiere) {
+          console.log(`   ⏳  [PREMIJERA] ${video.videoId}: Video još nije premijerno emitiran — preskačem`);
+          // NE dodaj u failed[], NE povećavaj globalConsecutiveErrors
+          // Video ostaje u pending listi i bit će preuzet nakon premijere
           continue;
         }
 
