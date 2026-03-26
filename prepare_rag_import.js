@@ -45,6 +45,7 @@ function parseArgs() {
     const srt = getArg("--srt");
     const outline = getArg("--outline");
     const article = getArg("--article");
+    const rebuildState = args.includes("--rebuild-state");
 
     if (!inputDir && !dir && !srt) {
         console.error("❌ Obavezan argument: --input-dir <putanja> ili --dir <folder> ili --srt <putanja>");
@@ -53,12 +54,37 @@ function parseArgs() {
         console.error("  node prepare_rag_import.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag_import.js --input-dir ... --channel domovina_tv");
         console.error("  node prepare_rag_import.js --input-dir ... --limit 10 --dry-run");
+        console.error("  node prepare_rag_import.js --input-dir ... --rebuild-state");
         console.error("  node prepare_rag_import.js --dir /path/to/channel/");
         console.error("  node prepare_rag_import.js --srt file.srt --outline file.outline.json --article file.article.json");
         process.exit(1);
     }
 
-    return { inputDir, dir, channel, limit, dryRun, srt, outline, article };
+    return { inputDir, dir, channel, limit, dryRun, srt, outline, article, rebuildState };
+}
+
+// ─── DONE CACHE ─────────────────────────────────────────────────
+
+const DONE_STATE_FILENAME = "rag-import-done.json";
+
+function loadDoneState(baseDir) {
+    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
+    try {
+        if (fs.existsSync(statePath)) {
+            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
+            return new Set(Array.isArray(data.completed) ? data.completed : []);
+        }
+    } catch (e) {
+        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
+    }
+    return new Set();
+}
+
+function saveDoneState(baseDir, doneSet) {
+    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
+    const tempPath = statePath + ".tmp";
+    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
+    fs.renameSync(tempPath, statePath);
 }
 
 // ─── SRT PARSER ─────────────────────────────────────────────────
@@ -299,14 +325,16 @@ function discoverTriplets(dir) {
 
 // ─── OBRADA JEDNOG TRIPLETA ─────────────────────────────────────
 
-function processTriplet(srtPath, outlinePath, articlePath) {
+function processTriplet(srtPath, outlinePath, articlePath, verbose = true) {
     const srtBase = path.basename(srtPath).replace(/\.srt$/, "");
     // Source name: dio prije .wav za citljivije ID-eve
     const sourceName = path.basename(srtPath).replace(/\.wav\.canary\.diarized\.srt$/, "");
 
-    console.log(`   📂 SRT:     ${path.basename(srtPath)}`);
-    console.log(`   📋 Outline: ${path.basename(outlinePath)}`);
-    console.log(`   📰 Article: ${path.basename(articlePath)}`);
+    if (verbose) {
+        console.log(`   📂 SRT:     ${path.basename(srtPath)}`);
+        console.log(`   📋 Outline: ${path.basename(outlinePath)}`);
+        console.log(`   📰 Article: ${path.basename(articlePath)}`);
+    }
 
     // Ucitaj datoteke
     const srtContent = fs.readFileSync(srtPath, "utf-8");
@@ -315,15 +343,15 @@ function processTriplet(srtPath, outlinePath, articlePath) {
 
     // Parsiraj SRT
     const srtBlocks = parseSrt(srtContent);
-    console.log(`   🔤 Parsirano ${srtBlocks.length} SRT blokova`);
+    if (verbose) console.log(`   🔤 Parsirano ${srtBlocks.length} SRT blokova`);
 
     // KORAK 1: Raw transcript chunks
     const rawChunks = buildRawChunks(srtBlocks, outlineJson, sourceName);
-    console.log(`   📦 Generirano ${rawChunks.length} raw transcript chunkova`);
+    if (verbose) console.log(`   📦 Generirano ${rawChunks.length} raw transcript chunkova`);
 
     // KORAK 2: Article summary chunks
     const summaryChunks = buildSummaryChunks(articleJson, sourceName);
-    console.log(`   📦 Generirano ${summaryChunks.length} article summary chunkova`);
+    if (verbose) console.log(`   📦 Generirano ${summaryChunks.length} article summary chunkova`);
 
     // Spoji sve chunkove i generiraj JSONL
     const allChunks = [...rawChunks, ...summaryChunks];
@@ -334,7 +362,7 @@ function processTriplet(srtPath, outlinePath, articlePath) {
     const outPath = path.join(outDir, `${sourceName}.rag_import.jsonl`);
     fs.writeFileSync(outPath, jsonlLines.join("\n") + "\n", "utf-8");
     const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
-    console.log(`   ✅ Spremljeno ${allChunks.length} chunkova → ${path.basename(outPath)} (${sizeKb} KB)`);
+    if (verbose) console.log(`   ✅ Spremljeno ${allChunks.length} chunkova → ${path.basename(outPath)} (${sizeKb} KB)`);
 
     return { outPath, rawCount: rawChunks.length, summaryCount: summaryChunks.length };
 }
@@ -342,7 +370,7 @@ function processTriplet(srtPath, outlinePath, articlePath) {
 // ─── MAIN ───────────────────────────────────────────────────────
 
 function main() {
-    const { inputDir, dir, channel, limit, dryRun, srt, outline, article } = parseArgs();
+    const { inputDir, dir, channel, limit, dryRun, srt, outline, article, rebuildState } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -417,7 +445,14 @@ function main() {
         if (channel) console.log(`   🎯 Kanal:  ${channel}`);
         if (limit) console.log(`   🔢 Limit:  ${limit}`);
         if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
+        if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
         console.log("");
+
+        // Done cache: O(1) skip za već obrađene datoteke
+        const doneSet = rebuildState ? new Set() : loadDoneState(inputDir);
+        if (doneSet.size > 0) {
+            console.log(`   💾 Done cache: ${doneSet.size} već obrađenih epizoda`);
+        }
 
         // Skeniraj sve kanale (poddirektorije)
         const entries = fs.readdirSync(inputDir, { withFileTypes: true });
@@ -442,13 +477,40 @@ function main() {
             return a.srt.localeCompare(b.srt);
         });
 
-        const finalList = limit ? allTriplets.slice(0, limit) : allTriplets;
+        // Filtriraj: preskoči datoteke iz done cachea i one kojima već postoji JSONL
+        const toProcess = [];
+        let cachedSkipped = 0;
+        let fsSkipped = 0;
 
-        console.log(`   📊 Pronađeno tripleta: ${allTriplets.length}, za obradu: ${finalList.length}`);
+        for (const t of allTriplets) {
+            const sourceName = path.basename(t.srt).replace(/\.wav\.canary\.diarized\.srt$/, "");
+
+            if (doneSet.has(sourceName)) {
+                cachedSkipped++;
+                continue;
+            }
+
+            const jsonlPath = path.join(path.dirname(t.srt), `${sourceName}.rag_import.jsonl`);
+            if (fs.existsSync(jsonlPath)) {
+                doneSet.add(sourceName);
+                fsSkipped++;
+                continue;
+            }
+
+            toProcess.push(t);
+        }
+
+        const finalList = limit ? toProcess.slice(0, limit) : toProcess;
+
+        console.log(`   📊 Pronađeno tripleta: ${allTriplets.length}`);
+        console.log(`   ✅ Preskočeno (cache):    ${cachedSkipped}`);
+        if (fsSkipped > 0) console.log(`   ✅ Preskočeno (FS check): ${fsSkipped} (dodano u cache)`);
+        console.log(`   🔄 Za obradu: ${finalList.length}`);
         console.log("");
 
         if (finalList.length === 0) {
-            console.log("   ✨ Nema kompletnih tripleta za obradu!");
+            if (fsSkipped > 0 && !dryRun) saveDoneState(inputDir, doneSet);
+            console.log("   ✨ Nema novih datoteka za obradu!");
             console.log("");
             return;
         }
@@ -463,7 +525,6 @@ function main() {
         let totalRaw = 0;
         let totalSummary = 0;
         let totalFiles = 0;
-        const allJsonlPaths = [];
 
         for (const [ch, triplets] of Object.entries(byChannel)) {
             console.log(`🔵 [${ch.toUpperCase()}] — ${triplets.length} epizoda`);
@@ -474,11 +535,11 @@ function main() {
                 if (dryRun) {
                     console.log(`   📄 ${sourceName}`);
                 } else {
-                    const result = processTriplet(t.srt, t.outline, t.article);
+                    const result = processTriplet(t.srt, t.outline, t.article, false);
                     totalRaw += result.rawCount;
                     totalSummary += result.summaryCount;
-                    allJsonlPaths.push(result.outPath);
-                    console.log("");
+                    doneSet.add(sourceName);
+                    console.log(`   ✅ ${sourceName}: ${result.rawCount} raw + ${result.summaryCount} summary chunkova`);
                 }
                 totalFiles++;
             }
@@ -494,12 +555,9 @@ function main() {
         console.log(`   📰 Summary chunkova:       ${totalSummary}`);
         console.log(`   📦 Ukupno chunkova:        ${totalChunks}`);
 
-        if (!dryRun && allJsonlPaths.length > 0) {
-            console.log("");
-            console.log("   📁 JSONL datoteke spremne za import u vector DB:");
-            for (const p of allJsonlPaths) {
-                console.log(`      ${p}`);
-            }
+        if (!dryRun) {
+            saveDoneState(inputDir, doneSet);
+            console.log(`   💾 Done cache spremljen: ${doneSet.size} epizoda`);
         }
     }
 

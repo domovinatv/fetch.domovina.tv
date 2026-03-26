@@ -558,8 +558,6 @@ function main() {
     let totalWithSpeakerNames = 0;
     let totalWithoutSpeakerNames = 0;
 
-    const allJsonlPaths = [];
-
     for (const [ch, files] of Object.entries(byChannel)) {
         console.log(`\n🔵 [${ch.toUpperCase()}] — ${files.length} epizoda`);
 
@@ -639,7 +637,6 @@ function main() {
                 fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
                 const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
                 console.log(`   ✅ ${base}: ${topicChunks.length} topic + ${summaryChunks.length} summary → ${path.basename(jsonlPath)} (${sizeKb} KB)`);
-                allJsonlPaths.push(jsonlPath);
                 doneSet.add(base);
             } else if (dryRun) {
                 console.log(`   📄 ${base}: ${segments.length} seg → ${topicChunks.length} topic + ${summaryChunks.length} summary` +
@@ -660,14 +657,6 @@ function main() {
     console.log(`   📏 Prosjek chunk/epizoda:  ${totalFiles > 0 ? (totalChunks / totalFiles).toFixed(1) : 0}`);
     console.log(`   ✅ Sa speaker imenima:     ${totalWithSpeakerNames}`);
     console.log(`   ⚠️  Bez speaker imena:     ${totalWithoutSpeakerNames}`);
-
-    if (!dryRun && allJsonlPaths.length > 0) {
-        console.log("");
-        console.log("   📁 JSONL datoteke spremne za import u vector DB:");
-        for (const p of allJsonlPaths) {
-            console.log(`      ${p}`);
-        }
-    }
 
     // Spremi done cache
     if (!dryRun) {

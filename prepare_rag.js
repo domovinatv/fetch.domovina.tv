@@ -364,6 +364,7 @@ function parseArgs() {
         ? parseInt(getArg("--chunk-size"), 10)
         : DEFAULT_CHUNK_TARGET_CHARS;
     const dryRun = args.includes("--dry-run");
+    const rebuildState = args.includes("--rebuild-state");
 
     if (!inputDir) {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
@@ -374,10 +375,11 @@ function parseArgs() {
         console.error("  node prepare_rag.js --input-dir ... --channel bozanstvena_komedija");
         console.error("  node prepare_rag.js --input-dir ... --chunk-size 300");
         console.error("  node prepare_rag.js --input-dir ... --dry-run");
+        console.error("  node prepare_rag.js --input-dir ... --rebuild-state");
         process.exit(1);
     }
 
-    return { inputDir, outputDir, channel, limit, chunkSize, dryRun };
+    return { inputDir, outputDir, channel, limit, chunkSize, dryRun, rebuildState };
 }
 
 // ─── DISCOVERY ───────────────────────────────────────────────────
@@ -424,10 +426,34 @@ function discoverFiles(inputDir, channelFilter) {
     return results;
 }
 
+// ─── DONE CACHE ─────────────────────────────────────────────────
+
+const DONE_STATE_FILENAME = "rag-chunks-done.json";
+
+function loadDoneState(baseDir) {
+    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
+    try {
+        if (fs.existsSync(statePath)) {
+            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
+            return new Set(Array.isArray(data.completed) ? data.completed : []);
+        }
+    } catch (e) {
+        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
+    }
+    return new Set();
+}
+
+function saveDoneState(baseDir, doneSet) {
+    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
+    const tempPath = statePath + ".tmp";
+    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
+    fs.renameSync(tempPath, statePath);
+}
+
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { inputDir, outputDir, channel, limit, chunkSize, dryRun } = parseArgs();
+    const { inputDir, outputDir, channel, limit, chunkSize, dryRun, rebuildState } = parseArgs();
 
     // Ako nije naveden outputDir, JSONL se sprema u inputDir
     const finalOutputDir = outputDir || inputDir;
@@ -442,18 +468,52 @@ async function main() {
     if (channel) console.log(`   🎯 Kanal:      ${channel}`);
     if (limit) console.log(`   🔢 Limit:      ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
+    if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
     console.log("");
 
     // Pronađi datoteke
     const allFiles = discoverFiles(inputDir, channel);
-    const finalList = limit ? allFiles.slice(0, limit) : allFiles;
+
+    // Done cache: O(1) skip za već obrađene datoteke
+    const doneSet = rebuildState ? new Set() : loadDoneState(inputDir);
+    if (doneSet.size > 0) {
+        console.log(`   💾 Done cache: ${doneSet.size} već obrađenih epizoda`);
+    }
+
+    // Filtriraj: preskoči datoteke iz cachea ili koje već imaju JSONL
+    const toProcess = [];
+    let cachedSkipped = 0;
+    let fsSkipped = 0;
+
+    for (const f of allFiles) {
+        const base = path.basename(f.srtPath).replace(/\.wav\.canary\.diarized\.srt$/, "");
+
+        if (doneSet.has(base)) {
+            cachedSkipped++;
+            continue;
+        }
+
+        const jsonlPath = path.join(path.dirname(f.srtPath), `${base}.rag_chunks.jsonl`);
+        if (fs.existsSync(jsonlPath)) {
+            doneSet.add(base);
+            fsSkipped++;
+            continue;
+        }
+
+        toProcess.push(f);
+    }
+
+    const finalList = limit ? toProcess.slice(0, limit) : toProcess;
 
     console.log(`   📊 Ukupno .canary.diarized.srt: ${allFiles.length}`);
+    console.log(`   ✅ Preskočeno (cache):    ${cachedSkipped}`);
+    if (fsSkipped > 0) console.log(`   ✅ Preskočeno (FS check): ${fsSkipped} (dodano u cache)`);
     console.log(`   🔄 Za obradu: ${finalList.length}`);
     console.log("");
 
     if (finalList.length === 0) {
-        console.log("   ✨ Nema datoteka za obradu!");
+        if (fsSkipped > 0 && !dryRun) saveDoneState(inputDir, doneSet);
+        console.log("   ✨ Nema novih datoteka za obradu!");
         return;
     }
 
@@ -469,8 +529,6 @@ async function main() {
     let totalChunks = 0;
     let totalWithSummary = 0;
     let totalWithoutSummary = 0;
-
-    const allJsonlPaths = [];
 
     // ── Obrada po kanalu ──
     for (const [ch, files] of Object.entries(byChannel)) {
@@ -538,11 +596,10 @@ async function main() {
                 const jsonlPath = path.join(path.dirname(srtPath), `${base}.rag_chunks.jsonl`);
                 fs.writeFileSync(jsonlPath, jsonlLines.join("\n") + "\n", "utf-8");
                 const sizeKb = (Buffer.byteLength(jsonlLines.join("\n")) / 1024).toFixed(0);
-                console.log(`   ✅ ${base}: ${chunks.length} chunkova → ${path.basename(jsonlPath)} (${sizeKb} KB)`);
-                allJsonlPaths.push(jsonlPath);
+                console.log(`   ✅ ${base}: ${chunks.length} chunkova (${sizeKb} KB)`);
+                doneSet.add(base);
             } else if (dryRun) {
-                console.log(`   📄 ${base}: ${segments.length} seg → ${speakerBlocks.length} blokova → ${chunks.length} chunkova` +
-                    `${hasSummary ? " ✅ summary" : " ⚠️ no summary"}`);
+                console.log(`   📄 ${base}: ${segments.length} seg → ${chunks.length} chunkova`);
             }
         }
     }
@@ -557,12 +614,9 @@ async function main() {
     console.log(`   ✅ Sa summary.json:     ${totalWithSummary}`);
     console.log(`   ⚠️  Bez summary.json:   ${totalWithoutSummary}`);
 
-    if (!dryRun && allJsonlPaths.length > 0) {
-        console.log("");
-        console.log("   📁 JSONL datoteke spremne za import u vector DB:");
-        for (const p of allJsonlPaths) {
-            console.log(`      ${p}`);
-        }
+    if (!dryRun) {
+        saveDoneState(inputDir, doneSet);
+        console.log(`   💾 Done cache spremljen: ${doneSet.size} epizoda`);
     }
 
     console.log("");
