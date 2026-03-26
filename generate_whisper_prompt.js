@@ -103,21 +103,9 @@ function loadState(stateFile) {
 // --- LLM EKSTRAKCIJA KLJUČNIH RIJEČI ---
 
 /**
- * Šalje naslov + opis LLM-u i vraća formatirane ključne riječi.
+ * Šalje HTTP request prema LM Studio i vraća Promise s odgovorom.
  */
-function callLLM(title, description) {
-    const userMessage = `NASLOV: ${title}\n\nOPIS:\n${description}`;
-
-    const payload = JSON.stringify({
-        model: LM_STUDIO_MODEL,
-        messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            { role: "user", content: userMessage }
-        ],
-        temperature: 0.0,
-        max_tokens: 300
-    });
-
+function callLLMOnce(payload) {
     return new Promise((resolve, reject) => {
         const url = new URL(LM_STUDIO_URL);
         const options = {
@@ -159,6 +147,44 @@ function callLLM(title, description) {
         req.write(payload);
         req.end();
     });
+}
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Šalje naslov + opis LLM-u i vraća formatirane ključne riječi.
+ * Retry do 2x pri ECONNRESET/ECONNREFUSED (intermittent LM Studio hiccups).
+ */
+async function callLLM(title, description) {
+    const userMessage = `NASLOV: ${title}\n\nOPIS:\n${description}`;
+
+    const payload = JSON.stringify({
+        model: LM_STUDIO_MODEL,
+        messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            { role: "user", content: userMessage }
+        ],
+        temperature: 0.0,
+        max_tokens: 300
+    });
+
+    const MAX_RETRIES = 2;
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+        try {
+            return await callLLMOnce(payload);
+        } catch (err) {
+            const isRetryable = err.message.includes("ECONNRESET") || err.message.includes("ECONNREFUSED");
+            if (isRetryable && attempt < MAX_RETRIES) {
+                const waitSec = (attempt + 1) * 2;
+                console.log(`   ⚠️  LM Studio ECONNRESET — retry ${attempt + 1}/${MAX_RETRIES} za ${waitSec}s...`);
+                await sleep(waitSec * 1000);
+                continue;
+            }
+            throw err;
+        }
+    }
 }
 
 /**
