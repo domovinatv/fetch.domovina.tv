@@ -82,6 +82,7 @@ Configured in `storage.conf` (key=value, bash 3 compatible — macOS has bash 3.
 - Node.js `fs.readdirSync` with `{ withFileTypes: true }` returns `isDirectory()=false` for symlinks. Must use `(entry.isDirectory() || entry.isSymbolicLink())`.
 - `fs.statSync()` follows symlinks and works correctly (used by `count_progress.js`).
 - rclone requires `-L` (`--copy-links`) flag to traverse symlinked channel directories.
+- Python `Path.rglob()` does **not** follow symlinks (even on Python 3.13). Use `os.walk(dir, followlinks=True)` instead.
 
 ## Code Patterns & Gotchas
 

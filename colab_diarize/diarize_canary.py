@@ -772,10 +772,12 @@ def main():
         to_process = [args.file] if not has_diarized_transcript(args.file) else []
         total_wav = 1
     else:
-        # Sve WAV datoteke
+        # Sve WAV datoteke (followlinks=True potrebno za symlinke u storage/output/)
         all_wav = sorted([
-            str(p) for p in Path(input_dir).rglob("*.wav")
-            if not p.name.startswith("._")
+            os.path.join(root, f)
+            for root, _, files in os.walk(input_dir, followlinks=True)
+            for f in files
+            if f.endswith(".wav") and not f.startswith("._")
         ])
         total_wav = len(all_wav)
 
