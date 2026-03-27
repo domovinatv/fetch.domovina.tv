@@ -157,11 +157,11 @@ Gemini token refresh: cached 50 minutes (token lasts 60min), auto-refresh via `g
 
 ### Blocked Content Handling
 
-Gemini `PROHIBITED_CONTENT` responses create permanent marker files:
+Gemini `PROHIBITED_CONTENT` responses create marker files:
 - `.canary.summary.blocked.json` — summary was blocked
 - `.canary.diarized.blocked.json` — article was blocked
 
-These are **never retried**. `count_progress.js` tracks them separately. `discoverPendingFiles()` skips files with `.blocked.json` markers.
+Grace retry: after `GRACE_RETRY_HOURS` (24h), marker is deleted and video re-queued. Each re-block increments `retry_count`. After `MAX_BLOCKED_RETRIES` (3), permanently blocked — no more retries. `count_progress.js` displays block reasons and permanent count.
 
 ### RAG Chunking Constants
 

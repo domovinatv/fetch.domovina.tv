@@ -99,6 +99,8 @@ function buildEndpointUrl(region) {
 const REQUEST_DELAY_MS = 2000; // Smanjeno jer multi-region raspoređuje opterećenje
 const MAX_RETRIES = 10;
 const RETRY_BASE_DELAY_MS = 5000; // Smanjeno jer rotiramo na drugi region umjesto čekanja
+const GRACE_RETRY_HOURS = 24; // Ponovni pokušaj blokiranog sadržaja nakon X sati
+const MAX_BLOCKED_RETRIES = 3;     // Maksimalan broj ponovnih pokušaja prije trajnog blokiranja
 
 // ─── SYSTEM PROMPTOVI ────────────────────────────────────────────
 
@@ -397,15 +399,21 @@ function saveBlockedMarker(srtPath, err) {
     const baseDir = path.dirname(srtPath);
     const base = path.basename(srtPath).replace(/\.srt$/, "");
     const blockedPath = path.join(baseDir, `${base}.blocked.json`);
+    let prevRetryCount = 0;
+    try {
+        const prev = JSON.parse(fs.readFileSync(blockedPath, "utf-8"));
+        prevRetryCount = (prev.retry_count || 0) + 1;
+    } catch (_) { /* prvi put blokirano */ }
     const blockedData = {
         blocked_at: new Date().toISOString(),
         model: GEMINI_MODEL,
         reason: err.blockReason,
+        retry_count: prevRetryCount,
         source_file: path.basename(srtPath),
         raw_response: err.rawResponse
     };
     fs.writeFileSync(blockedPath, JSON.stringify(blockedData, null, 2), "utf-8");
-    return blockedPath;
+    return { blockedPath, retryCount: prevRetryCount };
 }
 
 /**
@@ -515,7 +523,23 @@ function discoverPendingFiles(inputDir, channelFilter, doneSet) {
             // Provjeri postoji li blocked marker (PROHIBITED_CONTENT itd.)
             const base = file.replace(/\.srt$/, "");
             const blockedPath = path.join(channelDir, `${base}.blocked.json`);
-            if (fs.existsSync(blockedPath)) continue;
+            if (fs.existsSync(blockedPath)) {
+                try {
+                    const blockData = JSON.parse(fs.readFileSync(blockedPath, "utf-8"));
+                    const retryCount = blockData.retry_count || 0;
+                    const hoursSince = (Date.now() - new Date(blockData.blocked_at).getTime()) / (1000 * 60 * 60);
+                    if (retryCount >= MAX_BLOCKED_RETRIES) {
+                        continue;
+                    } else if (hoursSince > GRACE_RETRY_HOURS) {
+                        console.log(`   🔄 [RETRY] ${file}: blokiran prije ${Math.round(hoursSince)}h — pokušaj ${retryCount + 1}/${MAX_BLOCKED_RETRIES}`);
+                        fs.unlinkSync(blockedPath);
+                    } else {
+                        continue;
+                    }
+                } catch(e) {
+                    continue;
+                }
+            }
 
             if (!hasCompleteArticle(channelDir, file)) {
                 pending.push(path.join(channelDir, file));
@@ -783,8 +807,9 @@ async function processFile(file, { exitOnError = true } = {}) {
                 console.log(`   ✅ [FAZA 1] Outline spremljen. Pronađeno ${outlineJson.iterations?.length || 0} iteracija. (${elapsed}s)`);
             } catch (err) {
                 if (err.blocked) {
-                    const bp = saveBlockedMarker(file, err);
-                    console.error(`   🚫 [FAZA 1] Blokirano: ${err.blockReason} — spremljeno u ${path.basename(bp)}`);
+                    const { blockedPath: bp, retryCount } = saveBlockedMarker(file, err);
+                    const permanent = retryCount >= MAX_BLOCKED_RETRIES ? " (TRAJNO)" : "";
+                    console.error(`   🚫 [FAZA 1] Blokirano: ${err.blockReason} — pokušaj ${retryCount}/${MAX_BLOCKED_RETRIES}${permanent}`);
                     return false;
                 }
                 console.error(`   ❌ [FAZA 1] Greška: ${err.message}`);
@@ -906,8 +931,9 @@ async function processFile(file, { exitOnError = true } = {}) {
 
         } catch (err) {
             if (err.blocked) {
-                const bp = saveBlockedMarker(file, err);
-                console.error(`      🚫 [FAZA 2] Blokirano u iteraciji ${iter.iteration_number}: ${err.blockReason} — spremljeno u ${path.basename(bp)}`);
+                const { blockedPath: bp, retryCount } = saveBlockedMarker(file, err);
+                const permanent = retryCount >= MAX_BLOCKED_RETRIES ? " (TRAJNO)" : "";
+                console.error(`      🚫 [FAZA 2] Blokirano u iteraciji ${iter.iteration_number}: ${err.blockReason} — pokušaj ${retryCount}/${MAX_BLOCKED_RETRIES}${permanent}`);
                 // Spremi dosadašnji progress članka
                 if (finalArticle.iterations.length > 0) {
                     fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");

@@ -40,6 +40,8 @@ const outlinesByModel = {};
 const articlesByModel = {};
 const outlineVideosByModel = {};
 const articleVideosByModel = {};
+const blockedReasons = { summary: {}, article: {} };
+const blockedPermanent = { summary: 0, article: 0 };
 
 // Extension matchers — order matters (longer/more specific first)
 const matchers = [
@@ -92,6 +94,19 @@ for (const channel of channels) {
             const key = classify(file);
             if (key) {
                 stats[key] = (stats[key] || 0) + 1;
+
+                // Track blocked reasons and retry status
+                if (key === 'summaryBlocked' || key === 'articleBlocked') {
+                    try {
+                        const content = JSON.parse(fs.readFileSync(path.join(channelPath, file), 'utf-8'));
+                        const reason = content.reason || 'UNKNOWN';
+                        const type = (key === 'summaryBlocked') ? 'summary' : 'article';
+                        blockedReasons[type][reason] = (blockedReasons[type][reason] || 0) + 1;
+                        if ((content.retry_count || 0) >= 3) {
+                            blockedPermanent[type]++;
+                        }
+                    } catch (e) { /* ignore parse errors */ }
+                }
             }
 
             // Track unique videos and models for outline/article
@@ -174,9 +189,20 @@ line('Canary CSV', g('canaryCsv'), total);
 line('Canary diarizacija', g('canaryDiarized'), total);
 
 console.log('\n    -- Gemini (Google) --');
-line('Gemini sazeci', g('summary'), total, { blocked: g('summaryBlocked') || undefined });
+
+function formatBlocked(type) {
+    const count = g(type + 'Blocked');
+    if (!count) return undefined;
+    const reasons = Object.entries(blockedReasons[type === 'summary' ? 'summary' : 'article']);
+    const reasonStr = reasons.length > 0 ? ` [${reasons.map(([r, c]) => `${r}: ${c}`).join(', ')}]` : '';
+    const permCount = blockedPermanent[type === 'summary' ? 'summary' : 'article'];
+    const permStr = permCount > 0 ? ` (${permCount} trajno)` : '';
+    return `${count}${reasonStr}${permStr}`;
+}
+
+line('Gemini sazeci', g('summary'), total, { blocked: formatBlocked('summary') });
 line('Gemini outlinei', totalOutlineVideos, total, { extra: g('outline'), models: outlinesByModel, modelVideos: outlineVideosByModel });
-line('Gemini clanci', totalArticleVideos, total, { extra: g('article'), blocked: g('articleBlocked') || undefined, models: articlesByModel, modelVideos: articleVideosByModel });
+line('Gemini clanci', totalArticleVideos, total, { extra: g('article'), blocked: formatBlocked('article'), models: articlesByModel, modelVideos: articleVideosByModel });
 
 console.log('\n    -- RAG priprema --');
 line('RAG chunks', g('ragChunks'), total);

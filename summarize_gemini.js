@@ -99,6 +99,8 @@ function buildEndpointUrl(region) {
 const REQUEST_DELAY_MS = 2000;     // 2 sekunde između zahtjeva
 const MAX_RETRIES = 10;            // Broj pokušaja pri 429/5xx greškama
 const RETRY_BASE_DELAY_MS = 5000;  // Bazno čekanje (smanjeno jer rotiramo regije)
+const GRACE_RETRY_HOURS = 24;      // Ponovni pokušaj blokiranog sadržaja nakon X sati
+const MAX_BLOCKED_RETRIES = 3;     // Maksimalan broj ponovnih pokušaja prije trajnog blokiranja
 
 // Sufiksi datoteka
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
@@ -678,7 +680,25 @@ function discoverFiles(inputDir, channelFilter) {
             const summaryJsonPath = path.join(channelDir, base + ".wav" + SUMMARY_JSON_SUFFIX);
             const blockedJsonPath = path.join(channelDir, base + ".wav" + SUMMARY_BLOCKED_SUFFIX);
             const hasSummary = fs.existsSync(summaryJsonPath);
-            const isBlocked = fs.existsSync(blockedJsonPath);
+            
+            let isBlocked = false;
+            if (fs.existsSync(blockedJsonPath)) {
+                try {
+                    const blockData = JSON.parse(fs.readFileSync(blockedJsonPath, "utf-8"));
+                    const retryCount = blockData.retry_count || 0;
+                    const hoursSince = (Date.now() - new Date(blockData.blocked_at).getTime()) / (1000 * 60 * 60);
+                    if (retryCount >= MAX_BLOCKED_RETRIES) {
+                        isBlocked = true;
+                    } else if (hoursSince > GRACE_RETRY_HOURS) {
+                        console.log(`   🔄 [RETRY] ${base}: blokiran prije ${Math.round(hoursSince)}h — pokušaj ${retryCount + 1}/${MAX_BLOCKED_RETRIES}`);
+                        fs.unlinkSync(blockedJsonPath);
+                    } else {
+                        isBlocked = true;
+                    }
+                } catch(e) {
+                    isBlocked = true;
+                }
+            }
 
             results.push({ srtPath, channel: channelName, hasSummary, isBlocked });
         }
@@ -864,15 +884,22 @@ async function main() {
                         path.dirname(srtPath),
                         base + ".wav" + SUMMARY_BLOCKED_SUFFIX
                     );
+                    let prevRetryCount = 0;
+                    try {
+                        const prev = JSON.parse(fs.readFileSync(blockedPath, "utf-8"));
+                        prevRetryCount = (prev.retry_count || 0) + 1;
+                    } catch (_) { /* prvi put blokirano */ }
                     const blockedData = {
                         blocked_at: new Date().toISOString(),
                         model: GEMINI_MODEL,
                         reason: err.blockReason,
+                        retry_count: prevRetryCount,
                         source_file: basename,
                         raw_response: err.rawResponse
                     };
                     fs.writeFileSync(blockedPath, JSON.stringify(blockedData, null, 2), "utf-8");
-                    console.error(`   🚫 [BLOKIRANO] ${base}: ${err.blockReason} — spremljeno u ${path.basename(blockedPath)}`);
+                    const permanent = prevRetryCount >= MAX_BLOCKED_RETRIES ? " (TRAJNO)" : "";
+                    console.error(`   🚫 [BLOKIRANO] ${base}: ${err.blockReason} — pokušaj ${prevRetryCount}/${MAX_BLOCKED_RETRIES}${permanent}`);
                 } else {
                     console.error(`   ❌ [GREŠKA] ${base}: ${err.message} (${elapsed.toFixed(1)}s)`);
                 }
