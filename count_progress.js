@@ -13,6 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const args = process.argv.slice(2);
 const inputDirIdx = args.indexOf('--input-dir');
@@ -209,4 +210,58 @@ line('RAG chunks', g('ragChunks'), total);
 line('RAG import', g('ragImport'), total);
 line('RAG combined', g('ragCombined'), total);
 
+console.log();
+
+// --- Disk usage ---
+
+function formatBytes(bytes) {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
+}
+
+console.log('    -- Disk usage po kanalu --\n');
+
+const diskUsage = [];
+for (const channel of channels) {
+    const channelPath = path.join(OUTPUT_DIR, channel);
+    try {
+        const raw = execSync(`du -skL "${channelPath}"`, { encoding: 'utf-8' });
+        const kb = parseInt(raw.split('\t')[0], 10);
+        // Resolve real path (follow symlink) for volume info
+        let realPath = channelPath;
+        try { realPath = fs.realpathSync(channelPath); } catch {}
+        const volume = realPath.split('/').slice(0, 3).join('/'); // /Volumes/DISKNAME
+        diskUsage.push({ channel, kb, volume });
+    } catch {
+        diskUsage.push({ channel, kb: 0, volume: '?' });
+    }
+}
+
+diskUsage.sort((a, b) => b.kb - a.kb);
+
+const maxKb = diskUsage[0]?.kb || 1;
+const totalKb = diskUsage.reduce((s, d) => s + d.kb, 0);
+
+for (const { channel, kb, volume } of diskUsage) {
+    const bar = progressBar(kb, maxKb);
+    const disk = volume !== OUTPUT_DIR ? `  [${volume.replace('/Volumes/', '')}]` : '';
+    console.log(`    ${pad(channel, 30)} ${bar.bar} ${rpad(formatBytes(kb * 1024), 10)}${disk}`);
+}
+console.log(`\n    ${'─'.repeat(72)}`);
+console.log(`    ${pad('UKUPNO', 30)} ${''.padStart(BAR_WIDTH + 1)} ${rpad(formatBytes(totalKb * 1024), 10)}`);
+
+// Per-volume summary
+const volumes = {};
+for (const { kb, volume } of diskUsage) {
+    volumes[volume] = (volumes[volume] || 0) + kb;
+}
+if (Object.keys(volumes).length > 1) {
+    console.log();
+    for (const [vol, kb] of Object.entries(volumes).sort((a, b) => b[1] - a[1])) {
+        const volName = vol.replace('/Volumes/', '');
+        console.log(`    Disk ${pad(volName, 20)} ${rpad(formatBytes(kb * 1024), 10)}`);
+    }
+}
 console.log();
