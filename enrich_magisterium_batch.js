@@ -9,7 +9,7 @@
  *   - Šalje do BATCH_SIZE sekcija po API pozivu umjesto jednu po jednu.
  *   - Magisterium AI naplaćuje veliki system prompt za svaki zahtjev —
  *     batch smanjuje broj API poziva za ~4× i proporcionalno smanjuje troškove.
- *   - Output format je identičan: isti .article.magisterium.json fajlovi,
+ *   - Output format je identičan: isti .article.magisterium_batch.json fajlovi,
  *     kompatibilni s pipeline koracima koji ih konzumiraju.
  *
  * Za svaku sekciju generira (isto kao single mode):
@@ -19,7 +19,7 @@
  *   - enrichment: teološki kontekst iz crkvenih dokumenata
  *   - citations: globalne citacije batcha (Katekizam, enciklike, papinski govori...)
  *
- * Output: {basename}_{date}_{model}.article.magisterium.json
+ * Output: {basename}_{date}_{model}.article.magisterium_batch.json
  *
  * Idempotentnost:
  *   - Ako output postoji i NIJE parcijalan → preskači
@@ -396,7 +396,7 @@ function findArticleFiles() {
 // --- Process one article.json ---
 
 async function processArticle({ channel, articlePath, basename }) {
-    const outputPath = articlePath.replace(/\.article\.json$/, '.article.magisterium.json');
+    const outputPath = articlePath.replace(/\.article\.json$/, '.article.magisterium_batch.json');
 
     // Provjeri postoji li output i je li parcijalan (null sekcije).
     // Detektiramo sadržajem, ne po partial flagu, jer stariji fajlovi nemaju flag.
