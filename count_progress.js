@@ -58,6 +58,7 @@ const matchers = [
     ['.info.json', 'infoJson'],
     ['.description', 'description'],
     ['.outline.json', 'outline'],
+    ['.article.magisterium.json', 'magisterium'],
     ['.article.json', 'article'],
     ['.rag_chunks.jsonl', 'ragChunks'],
     ['.rag_import.jsonl', 'ragImport'],
@@ -80,6 +81,7 @@ const channels = fs.readdirSync(OUTPUT_DIR).filter(f => {
 
 let totalOutlineVideos = 0;
 let totalArticleVideos = 0;
+let totalMagisteriumVideos = 0;
 
 for (const channel of channels) {
     const channelPath = path.join(OUTPUT_DIR, channel);
@@ -88,6 +90,7 @@ for (const channel of channels) {
         const files = fs.readdirSync(channelPath);
         const videosWithOutline = new Set();
         const videosWithArticle = new Set();
+        const videosWithMagisterium = new Set();
 
         for (const file of files) {
             if (file.startsWith('._')) continue;
@@ -110,7 +113,7 @@ for (const channel of channels) {
                 }
             }
 
-            // Track unique videos and models for outline/article
+            // Track unique videos and models for outline/article/magisterium
             if (key === 'outline') {
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.outline\.json$/, '');
                 videosWithOutline.add(base);
@@ -129,11 +132,15 @@ for (const channel of channels) {
                     if (!articleVideosByModel[m[1]]) articleVideosByModel[m[1]] = new Set();
                     articleVideosByModel[m[1]].add(base);
                 }
+            } else if (key === 'magisterium') {
+                const base = file.replace(/\.wav\.canary\.diarized_.*\.article\.magisterium\.json$/, '');
+                videosWithMagisterium.add(base);
             }
         }
 
         totalOutlineVideos += videosWithOutline.size;
         totalArticleVideos += videosWithArticle.size;
+        totalMagisteriumVideos += videosWithMagisterium.size;
     } catch (e) {
         console.error(`Greška pri čitanju: ${channelPath} - ${e.message}`);
     }
@@ -204,6 +211,7 @@ function formatBlocked(type) {
 line('Gemini sazeci', g('summary'), total, { blocked: formatBlocked('summary') });
 line('Gemini outlinei', totalOutlineVideos, total, { extra: g('outline'), models: outlinesByModel, modelVideos: outlineVideosByModel });
 line('Gemini clanci', totalArticleVideos, total, { extra: g('article'), blocked: formatBlocked('article'), models: articlesByModel, modelVideos: articleVideosByModel });
+line('Magisterium (teol. score)', totalMagisteriumVideos, total, { extra: g('magisterium') });
 
 console.log('\n    -- RAG priprema --');
 line('RAG chunks', g('ragChunks'), total);

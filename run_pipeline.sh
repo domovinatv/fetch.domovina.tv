@@ -69,7 +69,8 @@ echo ""
 #   --only-articles   → preskače sve korake (0-6) i vrti samo korak 7 i 8
 #   --only-summaries  → preskače sve korake (0-6) i vrti samo korak 7
 #   --with-screenshots → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
-#   --with-r2-upload   → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
+#   --with-r2-upload      → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
+#   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
 #   ostalo            → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
@@ -80,6 +81,7 @@ ONLY_ARTICLES=false
 ONLY_SUMMARIES=false
 WITH_SCREENSHOTS=false
 WITH_R2_UPLOAD=false
+WITH_MAGISTERIUM=false
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -104,6 +106,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-r2-upload" ]; then
         WITH_R2_UPLOAD=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-magisterium" ]; then
+        WITH_MAGISTERIUM=true
         i=$((i + 1))
     else
         COMMON_ARGS+=("$arg")
@@ -288,6 +293,32 @@ echo ""
 node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" || {
     echo "   ⚠️  Greška pri batch generiranju članaka, nastavljam..."
 }
+
+# --- KORAK 8.5: MAGISTERIUM AI TEOLOŠKO OBOGAĆIVANJE (opcionalno, --with-magisterium) ---
+if [ "$WITH_MAGISTERIUM" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 8.5: Magisterium AI — teološko obogaćivanje"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+MAGISTERIUM_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        MAGISTERIUM_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    MAGISTERIUM_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/enrich_magisterium.js" "${MAGISTERIUM_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri Magisterium obogaćivanju, nastavljam..."
+}
+fi
 
 # --- KORAK 9: RAG PRIPREMA ---
 echo ""
