@@ -648,6 +648,7 @@ async function main() {
     const videoIdFilter = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : 0;
     const dryRun = hasFlag("--dry-run");
+    const metaDir = getArg("--meta-dir"); // npr. storage/meta — uploadira sve JSON fajlove iz tog direktorija
     const flutterKeys = hasFlag("--flutter-keys");
 
     console.log("");
@@ -883,6 +884,75 @@ async function main() {
 
     // Spremi disk MD5 cache ako se promijenio
     if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
+
+    // ── META UPLOAD (--meta-dir) ──────────────────────────────────
+    // Uploadira statične JSON fajlove iz meta direktorija (channels/index.json,
+    // channels/{id}.json) koristeći relativnu putanju kao R2 ključ.
+
+    if (metaDir) {
+        const resolvedMetaDir = path.resolve(metaDir);
+
+        if (!fs.existsSync(resolvedMetaDir)) {
+            log("⚠️", `Meta direktorij ne postoji: ${resolvedMetaDir} — preskačem`);
+        } else {
+            console.log("");
+            console.log("   ━━━ Meta fajlovi ━━━");
+            console.log("");
+
+            // Rekurzivno skupi sve JSON fajlove iz meta direktorija
+            function collectMetaFiles(dir, baseDir) {
+                const metaFiles = [];
+                for (const entry of fs.readdirSync(dir)) {
+                    if (entry.startsWith('.') || entry.startsWith('._')) continue;
+                    const fullPath = path.join(dir, entry);
+                    const stat = fs.statSync(fullPath);
+                    if (stat.isDirectory()) {
+                        metaFiles.push(...collectMetaFiles(fullPath, baseDir));
+                    } else if (entry.endsWith('.json')) {
+                        const r2Key = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+                        metaFiles.push({ localPath: fullPath, r2Key, size: stat.size });
+                    }
+                }
+                return metaFiles;
+            }
+
+            const metaFiles = collectMetaFiles(resolvedMetaDir, resolvedMetaDir);
+            log("📊", `Meta fajlova: ${metaFiles.length}`);
+
+            if (dryRun) {
+                for (const f of metaFiles) {
+                    log("🏜️", `[DRY RUN] ${f.r2Key} (${humanSize(f.size)})`);
+                }
+            } else {
+                const metaDiskCache = loadMd5Cache();
+                const metaMemCache  = new Map();
+
+                for (const f of metaFiles) {
+                    // Meta JSON fajlovi su mali — uvijek provjeri MD5 (nema smisla skip HeadObject)
+                    const remoteEtag = await getRemoteEtag(client, f.r2Key);
+                    const localMd5   = await computeMd5Cached(f.localPath, metaDiskCache, metaMemCache);
+
+                    if (remoteEtag && remoteEtag === localMd5) {
+                        log("⏭️", `Nepromijenjeno: ${f.r2Key}`);
+                        skipped++;
+                    } else {
+                        try {
+                            await uploadToR2(client, f.localPath, f.r2Key);
+                            const action = remoteEtag ? "UPDATE" : "NOVO";
+                            log("⬆️", `${action} ${f.r2Key} (${humanSize(f.size)})`);
+                            if (remoteEtag) updated++; else uploaded++;
+                            uploadedBytes += f.size;
+                        } catch (err) {
+                            log("❌", `Upload neuspješan: ${f.r2Key}: ${err.message}`);
+                            failed++;
+                        }
+                    }
+                }
+
+                saveMd5Cache(metaDiskCache);
+            }
+        }
+    }
 
     // Statistika
     console.log("");
