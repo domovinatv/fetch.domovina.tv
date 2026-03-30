@@ -125,7 +125,8 @@ const UPLOAD_SUFFIXES = [
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
-const MAGISTERIUM_PATTERN = /\.article\.magisterium\.json$/;  // mora biti prije ARTICLE_PATTERN
+const MAGISTERIUM_PATTERN       = /\.article\.magisterium\.json$/;        // mora biti prije ARTICLE_PATTERN
+const MAGISTERIUM_BATCH_PATTERN = /\.article\.magisterium_batch\.json$/;  // batch varijanta (usporedba)
 const ARTICLE_PATTERN     = /\.article\.json$/;
 const OUTLINE_PATTERN     = /\.outline\.json$/;
 
@@ -398,6 +399,9 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.mp4`)
         return `data/${videoId}/video.mp4`;
 
+    if (MAGISTERIUM_BATCH_PATTERN.test(filename))
+        return `data/${videoId}/article.magisterium_batch.json`;
+
     if (MAGISTERIUM_PATTERN.test(filename))
         return `data/${videoId}/article.magisterium.json`;
 
@@ -463,6 +467,7 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
             }
         }
 
+        if (!shouldUpload && MAGISTERIUM_BATCH_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && ARTICLE_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && OUTLINE_PATTERN.test(filename)) shouldUpload = true;
