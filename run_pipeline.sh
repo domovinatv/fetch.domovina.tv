@@ -15,6 +15,7 @@
 #   9. prepare_rag_*.js     — RAG priprema (chunkanje i import)
 #  10. screenshot_youtube.js — YouTube screenshotovi (samo uz --with-screenshots)
 #  11. import_to_vertex.js   — Upload RAG JSONL u Vertex AI Agent Builder
+#  12. upload_to_r2.js       — Cloudflare R2 upload (samo uz --with-r2-upload)
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -31,6 +32,7 @@
 #   ./run_pipeline.sh --only-summaries                (samo korak 7: sumarizacija)
 #   ./run_pipeline.sh --only-articles                 (samo korak 7+8: sumarizacija + članci)
 #   ./run_pipeline.sh --only-articles --with-screenshots  (članci + screenshotovi)
+#   ./run_pipeline.sh --only-articles --with-r2-upload    (članci + R2 upload)
 #
 
 set -e  # Prekini na prvoj grešci
@@ -67,6 +69,7 @@ echo ""
 #   --only-articles   → preskače sve korake (0-6) i vrti samo korak 7 i 8
 #   --only-summaries  → preskače sve korake (0-6) i vrti samo korak 7
 #   --with-screenshots → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
+#   --with-r2-upload   → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
 #   ostalo            → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
@@ -76,6 +79,7 @@ GEMINI_KEY=""
 ONLY_ARTICLES=false
 ONLY_SUMMARIES=false
 WITH_SCREENSHOTS=false
+WITH_R2_UPLOAD=false
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -97,6 +101,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-screenshots" ]; then
         WITH_SCREENSHOTS=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-r2-upload" ]; then
+        WITH_R2_UPLOAD=true
         i=$((i + 1))
     else
         COMMON_ARGS+=("$arg")
@@ -347,6 +354,33 @@ if [ -f "$SCRIPT_DIR/.env" ]; then
     }
 else
     echo "   ⚠️ Preskačem Vertex AI import jer .env nije konfiguriran (vidi .env.example)"
+fi
+
+# --- KORAK 12: CLOUDFLARE R2 UPLOAD (opcionalno, --with-r2-upload) ---
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 12: Cloudflare R2 upload (cdn.domovina.ai)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+R2_UPLOAD_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+# Proslijedi --channel ako postoji
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        R2_UPLOAD_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    R2_UPLOAD_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri R2 uploadu, nastavljam..."
+}
 fi
 
 echo ""
