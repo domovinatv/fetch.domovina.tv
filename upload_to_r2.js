@@ -198,6 +198,73 @@ function computeMd5(filePath) {
     });
 }
 
+// ─── DISK MD5 CACHE ──────────────────────────────────────────────
+//
+// Pamti MD5 hasheve po (localPath, mtime, size) da se ne čitaju
+// nepromijenjeni fajlovi pri svakom re-runu (posebno važno za video).
+// Format: { "/abs/path": { mtime, size, md5 } }
+
+const MD5_CACHE_PATH = path.join(__dirname, ".r2_md5_cache.json");
+
+function loadMd5Cache() {
+    try {
+        if (fs.existsSync(MD5_CACHE_PATH)) {
+            return JSON.parse(fs.readFileSync(MD5_CACHE_PATH, "utf-8"));
+        }
+    } catch { /* corrupt cache — zanemarujem */ }
+    return {};
+}
+
+function saveMd5Cache(cache) {
+    try {
+        fs.writeFileSync(MD5_CACHE_PATH, JSON.stringify(cache), "utf-8");
+    } catch { /* disk full ili permissions — nije kritično */ }
+}
+
+/**
+ * Vraća MD5 za datoteku. Koristi disk cache ako (mtime, size) odgovaraju.
+ * In-memory map (`memCache`) dijeli istu vrijednost između više R2 keyeva
+ * koji dijele isti localPath (npr. pipeline i flutter key za isti fajl).
+ */
+async function computeMd5Cached(filePath, diskCache, memCache) {
+    const cached = memCache.get(filePath);
+    if (cached) return cached;
+
+    let stat;
+    try { stat = fs.statSync(filePath); } catch { return null; }
+
+    const diskEntry = diskCache[filePath];
+    if (diskEntry && diskEntry.mtime === stat.mtimeMs && diskEntry.size === stat.size) {
+        memCache.set(filePath, diskEntry.md5);
+        return diskEntry.md5;
+    }
+
+    const md5 = await computeMd5(filePath);
+    diskCache[filePath] = { mtime: stat.mtimeMs, size: stat.size, md5 };
+    memCache.set(filePath, md5);
+    return md5;
+}
+
+// ─── CONCURRENT UTILITY ───────────────────────────────────────────
+
+/**
+ * Pokreće N asinkronih taskova konkurentno s gornjom granicom `concurrency`.
+ * Svaki task je funkcija () => Promise<T>.
+ */
+async function runConcurrent(tasks, concurrency) {
+    const results = new Array(tasks.length);
+    let idx = 0;
+    async function worker() {
+        while (idx < tasks.length) {
+            const i = idx++;
+            try { results[i] = await tasks[i](); }
+            catch (e) { results[i] = { error: e }; }
+        }
+    }
+    await Promise.all(Array.from({ length: Math.min(concurrency, tasks.length) }, worker));
+    return results;
+}
+
 // ─── FFMPEG REMUX (MKV → MP4) ───────────────────────────────────
 
 /**
@@ -527,27 +594,19 @@ function createR2Client() {
 }
 
 /**
- * Provjerava postoji li objekt u R2 i je li isti (ETag match).
- * @returns {"missing"|"changed"|"unchanged"}
+ * Dohvaća remote ETag iz R2 (samo HeadObject, bez čitanja lokalnog fajla).
+ * @returns {string|null} ETag bez navodnika, ili null ako fajl ne postoji u R2
  */
-async function checkR2Status(client, key, localMd5) {
+async function getRemoteEtag(client, key) {
     const { HeadObjectCommand } = require("@aws-sdk/client-s3");
-
     try {
         const resp = await client.send(new HeadObjectCommand({
             Bucket: R2_BUCKET_NAME,
             Key: key,
         }));
-
-        const remoteEtag = (resp.ETag || "").replace(/"/g, "");
-        if (remoteEtag === localMd5) {
-            return "unchanged";
-        }
-        return "changed";
+        return (resp.ETag || "").replace(/"/g, "");
     } catch (err) {
-        if (err.name === "NotFound" || err.$metadata?.httpStatusCode === 404) {
-            return "missing";
-        }
+        if (err.name === "NotFound" || err.$metadata?.httpStatusCode === 404) return null;
         throw err;
     }
 }
@@ -731,59 +790,94 @@ async function main() {
     // Inicijaliziraj R2 klijent
     const client = createR2Client();
 
+    const R2_CHECK_CONCURRENCY = 20; // paralelni HeadObject pozivi
+
     let uploaded = 0;
     let skipped = 0;
     let updated = 0;
     let failed = 0;
     let uploadedBytes = 0;
 
-    // MD5 cache — isti localPath ima isti hash, ne računaj dvaput (važno za video)
-    const md5Cache = new Map();
+    // ── FAZA 1: Paralelni HeadObject za sve fajlove ───────────────
+    // Samo dohvaćamo remote ETag — ne čitamo lokalne fajlove ovdje.
+
+    log("🔍", `Provjera R2 statusa (${allFiles.length} fajlova, ${R2_CHECK_CONCURRENCY} paralelno)...`);
+
+    const remoteEtags = new Array(allFiles.length).fill(undefined); // null = ne postoji u R2
+    let checked = 0;
+
+    const checkTasks = allFiles.map((f, i) => async () => {
+        try {
+            remoteEtags[i] = await getRemoteEtag(client, f.r2Key);
+        } catch (err) {
+            log("❌", `Greška pri provjeri ${f.r2Key}: ${err.message}`);
+            remoteEtags[i] = undefined; // undefined = greška, preskočit ćemo upload
+        }
+        checked++;
+        if (checked % 100 === 0 || checked === allFiles.length) {
+            process.stdout.write(`\r   🔍 Provjereno: ${checked}/${allFiles.length}   `);
+        }
+    });
+
+    await runConcurrent(checkTasks, R2_CHECK_CONCURRENCY);
+    process.stdout.write("\n");
+
+    const countMissing  = remoteEtags.filter(e => e === null).length;
+    const countExisting = remoteEtags.filter(e => e !== null && e !== undefined).length;
+    log("📊", `R2 status: ${countMissing} novih, ${countExisting} već postoji (uspoređujem MD5...)${failed > 0 ? `, ${failed} grešaka` : ""}`);
+    console.log("");
+
+    // ── FAZA 2: MD5 usporedba i upload ────────────────────────────
+    // Novi fajlovi (remoteEtag === null) → upload odmah, bez MD5.
+    // Postojeći fajlovi (remoteEtag !== null) → MD5 iz disk cachea, usporedi.
+
+    const diskMd5Cache = loadMd5Cache();
+    const memMd5Cache  = new Map(); // in-memory, dijeli MD5 za isti localPath
+    let diskCacheDirty = false;
 
     for (let i = 0; i < allFiles.length; i++) {
         const f = allFiles[i];
-        const shortName = f.r2Key;
-        const keyLabel = f.isAppKey ? "📱" : "📦";
+        const remoteEtag = remoteEtags[i];
 
-        // MD5 s cache-om
-        let localMd5 = md5Cache.get(f.localPath);
-        if (!localMd5) {
-            localMd5 = await computeMd5(f.localPath);
-            md5Cache.set(f.localPath, localMd5);
-        }
-
-        let status;
-        try {
-            status = await checkR2Status(client, f.r2Key, localMd5);
-        } catch (err) {
-            log("❌", `[${i + 1}/${allFiles.length}] Greška pri provjeri ${shortName}: ${err.message}`);
+        // Greška u fazi 1 — preskoči
+        if (remoteEtag === undefined) {
             failed++;
             continue;
         }
 
-        if (status === "unchanged") {
-            skipped++;
-            continue;
+        let action;
+        if (remoteEtag === null) {
+            // Ne postoji u R2 — upload bez MD5 provjere
+            action = "NOVO";
+        } else {
+            // Postoji — usporedi MD5
+            const localMd5 = await computeMd5Cached(f.localPath, diskMd5Cache, memMd5Cache);
+            diskCacheDirty = true;
+            if (localMd5 === null) {
+                log("❌", `Ne mogu pročitati: ${f.localPath}`);
+                failed++;
+                continue;
+            }
+            if (localMd5 === remoteEtag) {
+                skipped++;
+                continue; // Nepromijenjeno — preskoči
+            }
+            action = "UPDATE";
         }
-
-        const action = status === "missing" ? "NOVO" : "UPDATE";
 
         try {
             await uploadToR2(client, f.localPath, f.r2Key);
-
-            if (status === "missing") {
-                uploaded++;
-            } else {
-                updated++;
-            }
+            if (action === "NOVO") uploaded++; else updated++;
             uploadedBytes += f.size;
-
-            log("⬆️", `${keyLabel} [${uploaded + updated + skipped}/${allFiles.length}] ${action} ${shortName} (${humanSize(f.size)})`);
+            log("⬆️", `[${uploaded + updated}] ${action} ${f.r2Key} (${humanSize(f.size)})`);
         } catch (err) {
-            log("❌", `[${i + 1}/${allFiles.length}] Upload neuspješan za ${shortName}: ${err.message}`);
+            log("❌", `Upload neuspješan za ${f.r2Key}: ${err.message}`);
             failed++;
         }
     }
+
+    // Spremi disk MD5 cache ako se promijenio
+    if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
 
     // Statistika
     console.log("");

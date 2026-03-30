@@ -27,3 +27,4 @@ automatic/cookies.txt
 # Local storage symlinks (per-machine config)
 storage/
 storage.conf
+.r2_md5_cache.json
