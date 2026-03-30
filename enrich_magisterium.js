@@ -165,10 +165,12 @@ async function callMagisterium(prompt, retries = 0) {
         return null;
     }
 
-    // Parse JSON iz odgovora
+    // Parse JSON iz odgovora — strippi markdown code fence ako model doda ```json ... ```
     let parsed = {};
     try {
-        parsed = JSON.parse(data.choices[0].message.content);
+        let raw = data.choices[0].message.content;
+        raw = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+        parsed = JSON.parse(raw);
     } catch {
         // Model nije vratio validan JSON unatoč response_format — spasi što možemo
         parsed = { assessment: data.choices[0].message.content, score: null, concerns: [] };
