@@ -180,15 +180,15 @@ move_channel() {
     # Kreiraj dest direktorij
     mkdir -p "$DEST_BASE"
 
-    # Rsync kopija
+    # Rsync kopija (isključuje macOS resource fork ._* fajlove)
     echo "   ⏳ Kopiram s rsync..."
-    rsync -a --progress --human-readable "$src/" "$dest/"
+    rsync -a --progress --human-readable --exclude='._*' "$src/" "$dest/"
     echo ""
 
-    # Verifikacija broja datoteka
+    # Verifikacija — uspoređuje samo ne-._* fajlove (ignorira macOS resource forks)
     local src_count dest_count
-    src_count="$(find "$src" -type f | wc -l | tr -d ' ')"
-    dest_count="$(find "$dest" -type f | wc -l | tr -d ' ')"
+    src_count="$(find "$src" ! -name '._*' -type f | wc -l | tr -d ' ')"
+    dest_count="$(find "$dest" ! -name '._*' -type f | wc -l | tr -d ' ')"
 
     if [ "$src_count" != "$dest_count" ]; then
         echo "   ❌ VERIFIKACIJA NEUSPJEŠNA! Izvor: $src_count datoteka, Dest: $dest_count datoteka"
@@ -196,7 +196,7 @@ move_channel() {
         return 1
     fi
 
-    echo "   ✅ Verifikacija OK: $dest_count datoteka"
+    echo "   ✅ Verifikacija OK: $dest_count datoteka (bez ._* resource forks)"
 
     # Ažuriraj storage.conf
     update_storage_conf "$channel" "$dest"
