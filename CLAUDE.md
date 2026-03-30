@@ -23,16 +23,23 @@ node -c <file.js>
 # Dry run (preview without API calls)
 ./run_pipeline.sh --hf-token <TOKEN> --dry-run
 
-# Check pipeline progress across all channels
+# Check pipeline progress + disk usage across all channels
 node count_progress.js
 
 # Detect anomalies and corrupt files
 node inspect_pipeline.js --input-dir storage/output
+
+# Configure multi-disk storage (run after editing storage.conf)
+./setup_storage.sh
+
+# Move a channel to another disk (rsync + updates storage.conf + recreates symlinks)
+./move_to_disk.sh <channel> <dest-path>
+./move_to_disk.sh lood_podcast /Volumes/DOMOVINA2TB/fetch_domovina_tv_output --dry-run
 ```
 
 ## Architecture
 
-10-step pipeline for processing Croatian YouTube podcasts into AI-enhanced searchable content. Orchestrated by `run_pipeline.sh`.
+12-step pipeline for processing Croatian YouTube podcasts into AI-enhanced searchable content. Orchestrated by `run_pipeline.sh`.
 
 ### Pipeline Flow
 
@@ -40,6 +47,7 @@ node inspect_pipeline.js --input-dir storage/output
 YouTube → fetch.js → convert_to_wav.js → generate_whisper_prompt.js → transcribe.js
   → transcribe_diarized.js / diarize_canary.py → summarize_gemini.js
   → generate_article_gemini.js → prepare_rag_*.js → screenshot_youtube.js
+  → import_to_vertex.js → upload_to_r2.js
 ```
 
 Each step is idempotent — checks for existing output before processing. The pipeline can be partially complete (a video can have .wav.srt but no .canary.diarized.srt yet). Scripts are designed for incremental processing, not all-or-nothing.
@@ -60,6 +68,21 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
+| 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
+
+### Utility & Diagnostic Scripts (not in pipeline)
+
+| Script | Purpose |
+|--------|---------|
+| `count_progress.js` | Pipeline progress bars + per-channel disk usage (`du -skL`, follows symlinks) |
+| `inspect_pipeline.js` | Detect anomalies, zero-byte files, corrupt JSON |
+| `archive_videos.js` | Move video IDs from `completed[]` → `archived[]` in state files (pipeline skips archived) |
+| `test_gemini_keys.js` | Validate Gemini API key list |
+| `test_models.js` | Test which Gemini models respond |
+| `generate_article_aistudio.js` | AI Studio variant (API key auth, `gemini-3-flash-preview`) — quality comparison |
+| `generate_article_vertexai_express.js` | Vertex AI Express variant (`gemini-2.5-flash-lite`) |
+| `setup_storage.sh` | Create `storage/output/` symlinks from `storage.conf` |
+| `move_to_disk.sh` | Safely move a channel to another disk: rsync + verify + update `storage.conf` + recreate symlinks |
 
 ### Two-Phase Article Generation (generate_article_gemini.js)
 

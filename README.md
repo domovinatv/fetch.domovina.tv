@@ -1,64 +1,159 @@
 # Domovina.tv Audio Pipeline
 
-*Ažurirano: 17. ožujka 2026.*
+*Ažurirano: 30. ožujka 2026.*
 
 ## 🚀 Arhitektura Sustava
 
-Glavna skripta za orkestraciju cijelog procesa je `run_pipeline.sh`. Proces se sastoji od 8 logičkih koraka:
+Glavna skripta za orkestraciju cijelog procesa je `run_pipeline.sh`. Proces se sastoji od 12 koraka:
+
+0. **Sync diariziranih transkripata (`rclone`)**
+   - Preuzima `.canary.diarized.srt` s Google Drivea (remote: `google_drive_ms:domovina_fetch_data/canary_wav`).
+   - Canary diarizacija se odvija na Cloud GPU-u (Colab T4); rezultati se syncaju ovdje.
 
 1. **Osvježavanje Podcasta (`automatic/refresh_podcasts.sh`)**
-   - Skenira definirane YouTube kanale i traži nove videozapise.
-   - Ažurira tekstualne liste s novim URL-ovima i preskače već obrađene zapise automatski sortirajući.
+   - Skenira definirane YouTube kanale i traži nove videozapise (`yt-dlp --flat-playlist --break-on-existing`).
+   - Ažurira tekstualne liste u `automatic/podcasts/*.txt` (format: `YYYYMMDD|Naziv|URL`).
+
 2. **Preuzimanje Audio Zapisa (`fetch.js`)**
-   - Skida audio zapise koristeći `yt-dlp`.
-   - Koristi specifične argumente (ograničenje na 360p video, kvalitetan audio) te čuva kolačiće iz preglednika (anti-bot mjere).
+   - Skida audio zapise koristeći `yt-dlp` (360p video + visokokvalitetni audio).
+   - Koristi Brave cookies za anti-bot zaštitu. Three-tier state: `completed[]`, `failed[]`, `private[]`.
+
 3. **Konverzija u WAV (`convert_to_wav.js`)**
-   - Konvertira preuzete datoteke u standardni WAV format potreban za prepoznavanje govora (16kHz, mono, 16-bit PCM).
-4. **Generiranje Promptova (`generate_whisper_prompt.js`)**
-   - Komunicira s lokalnim LLM-om (putem izloženog API-ja iz LM Studia na `localhost:1234`) kako bi izvukao ključne riječi za Whisper prompt, uvelike poboljšavajući prepoznavanje specifičnih termina u tom trenutku.
-5. **Whisper Transkripcija (`transcribe.js` / `transcribe_nvidia_canary.mjs`)**
-   - Koristi modele i sustave kao `whisper.cpp` ili nVidia Canary za generiranje osnovne tekstualne transkripcije u ispravnom formatu.
-6. **Diarizacija Govornika (`transcribe_diarized.js` / `diarize.py` / `diarize_canary.py`)**
-   - Koristi HuggingFace `pyannote/speaker-diarization-3.1` model za prepoznavanje tko govori i kada (Speaker Diarization).
-   - Sustav automatski koristi MPS (Metal GPU na Macu) ubrzanje ako je dostupno, s tolerancijom do par stotina govornika.
-   - Rezultat je datoteka s ukomponiranim oznakama govornika.
-7. **Sumarizacija (`summarize_gemini.js`)**
-   - Opcionalan korak koji generira brzi sažetak pomoću Gemini API-ja.
-8. **Generiranje Članaka (`generate_article_gemini.js`)**
-   - Dvofazna inteligentna skripta koja rabi Google Gemini modele (`gemini-3.1-pro-preview` ili `gemini-3-flash-preview`).
-   - **Faza 1**: Analizira cijeli transkript i dijeli ga u logične tematske blokove od po otprilike 35-45 minuta (generira pametni JSON nacrt/outline baziran na točnoj rezoluciji svake teme i promjene teme).
-   - **Faza 2**: Iterativno čita nacrt, za svaki blok piše dublji novinarski tekst u stručnom trećem licu i identificira te pridaje prava imena sudionika/govornika.
+   - Konvertira MP3 → WAV (16kHz, mono, 16-bit PCM) potreban za ASR modele.
+
+4. **Generiranje Whisper Promptova (`generate_whisper_prompt.js`)**
+   - Komunicira s lokalnim LLM-om (LM Studio `localhost:1234`, `qwen2.5-7b-instruct`) za ekstrakciju ključnih riječi.
+   - Poboljšava prepoznavanje specifičnih pojmova u Whisperu.
+
+5. **Whisper Transkripcija (`transcribe.js`)**
+   - Koristi `whisper.cpp` s Metal GPU akceleracijom za generiranje `.wav.srt` titlova.
+
+6. **Whisper Diarizacija Govornika (`transcribe_diarized.js`)**
+   - Koristi HuggingFace `pyannote/speaker-diarization-3.1` na MPS/Metal za `.diarized.srt`.
+
+7. **Canary Diarizacija (`diarize_canary.py`)**
+   - Cloud pyannote diarizacija na Colab T4 GPU; lokalno samo orkestrira.
+   - Rezultat: `.canary.diarized.srt` (sinkronizira se via rclone u koraku 0).
+
+8. **Gemini Sumarizacija (`summarize_gemini.js`)**
+   - Generira sažetak pomoću `gemini-2.5-flash` (Vertex AI OAuth).
+   - Output: `.canary.summary.json`. Blokirani sadržaj → `.canary.summary.blocked.json`.
+
+9. **Gemini Generiranje Članaka (`generate_article_gemini.js`)**
+   - **Faza 1**: Dijeli transkript u logične tematske blokove po ~35-45 min → `.outline.json`.
+   - **Faza 2**: Piše dublji novinarski tekst za svaki blok → `.article.json`.
+   - Multi-region Vertex AI rotacija (9 regija) za zaobilaženje 429 rate limita.
+
+10. **RAG Priprema (`prepare_rag_combined.js` + `prepare_rag_import.js` + `prepare_rag.js`)**
+    - Chunking transkripata za semantičko pretraživanje.
+    - Output: `.rag_combined.jsonl` (preporučena strategija), `.rag_import.jsonl`, `.rag_chunks.jsonl`.
+
+11. **YouTube Screenshotovi (`screenshot_youtube.js`)** *(opcionalno, `--with-screenshots`)*
+    - Izvlači frameove iz videa na vremenskim oznakama iz članaka.
+
+12. **Vertex AI RAG Import (`import_to_vertex.js`)**
+    - Uploadira `.rag_combined.jsonl` u Vertex AI Agent Builder (Discovery Engine).
+
+13. **Cloudflare R2 Upload (`upload_to_r2.js`)** *(opcionalno, `--with-r2-upload`)*
+    - Uploadira finalne datoteke (SRT, JSON, screenshotovi, video) na `cdn.domovina.ai`.
+    - MKV→MP4 remux (ffmpeg, copy stream) prije uploada za Flutter app kompatibilnost.
+
+---
+
+## 💾 Storage Arhitektura (Multi-Disk)
+
+Pipeline koristi `storage/output/` kao logički direktorij sa symlinkovima prema fizičkim diskovima:
+
+```
+storage/output/domovina_tv  →  /Volumes/DOMOVINA1TB/fetch_domovina_tv_output/domovina_tv
+storage/output/lood_podcast →  /Volumes/DOMOVINA2TB/fetch_domovina_tv_output/lood_podcast
+```
+
+Konfigurira se u `storage.conf` (kopirati iz `storage.conf.example`):
+
+```bash
+DEFAULT=/Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+# Veliki kanali na drugi disk:
+lood_podcast=/Volumes/DOMOVINA2TB/fetch_domovina_tv_output/lood_podcast
+```
+
+```bash
+# Inicijalna konfiguracija:
+cp storage.conf.example storage.conf
+# Uredi storage.conf
+./setup_storage.sh
+
+# Premještanje kanala na drugi disk (rsync + verify + ažurira storage.conf):
+./move_to_disk.sh lood_podcast /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
+./move_to_disk.sh --dry-run lood_podcast /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
+
+# Pregled disk usage po kanalu:
+node count_progress.js
+```
 
 ---
 
 ## 🛠️ Preduvjeti
 
-Za ispravno funkcioniranje pipeline-a potrebno je ispunjenje osnovnih tehnoloških uvjeta:
-- **Mac s Apple Silicon (M1/M2/M3/M4)** arhitekturom preporučeno zbog MPS/Metal akceleracije.
-- Montiran vanjski/eksterni radni disk (default: `/Volumes/DOMOVINA1TB/fetch_domovina_tv_output`).
-- Instaliran **Node.js** i zadovoljeni njegovi uvjeti iz `package.json` zapisa (`npm install`).
-- Instaliran **Python 3** s paketima za AI rad, primarno `pyannote.audio` i `torch` podrška.
-- Aktivan **HuggingFace Token** (za preuzimanje modernih i zaštićenih Pyannote modela).
-- Aktivan **Gemini API Key** (Sredstvo verifikacije za AI pozive pametnog generiranja finalnih tekstova).
-- Opcionalno za dodatan AI input: **LM Studio** ili sl. servis pokrenut na lokalnom hostu `localhost:1234` s pokrenutim LLM-om (za precizne Whisper promptove).
-- Zasebno postavljeni, dostupni alati putanja u konzoli na os sustavu, konkretno: `yt-dlp` za YouTube, kao i popularni `rclone` (Google Drive remote mapirana sinhronizacija).
+- **Mac s Apple Silicon (M1/M2/M3/M4)** — Metal/MPS akceleracija za diarizaciju i Whisper.
+- **Montiran vanjski disk** — konfiguriraj u `storage.conf` (default: `/Volumes/DOMOVINA1TB/fetch_domovina_tv_output`).
+- **Node.js** + `npm install` (ovisnosti iz `package.json`).
+- **Python 3** s `pyannote.audio`, `torch` (MPS podrška).
+- **HuggingFace Token** — za preuzimanje `pyannote/speaker-diarization-3.1`.
+- **Google Cloud / Vertex AI** — `gcloud auth login` + projekt u `gemini.conf`. Koristi OAuth token, ne API key.
+- **LM Studio** na `localhost:1234` s `qwen2.5-7b-instruct` — za korak 4 (Whisper promptovi).
+- **whisper.cpp** binary i `ggml-large-v3-turbo` model — za korak 5.
+- **rclone** s konfiguriranim Google Drive remoteom (`google_drive_ms`) — za korak 0 i 2.5.
+- **ffmpeg** — za WAV konverziju i MKV→MP4 remux.
+- **yt-dlp** s Brave cookies (`--cookies-from-browser brave`).
+- **Cloudflare R2 credentials** u `.env` — za korak 13 (`--with-r2-upload`).
 
-## 💻 Pokretanje Radnog Sustava (Pipeline)
+---
 
-Pokretanje cjelokupnog procesa i serijska sinkronizacija svih etapa obavlja se putem glavne .sh skripte smještene na baznoj/root grani sustava:
+## 💻 Pokretanje
 
 ```bash
-./run_pipeline.sh --hf-token TVOJ_HF_TOKEN --gemini-key TVOJ_GEMINI_KEY
+# Puni pipeline
+./run_pipeline.sh --hf-token TVOJ_TOKEN
+
+# Samo sumarizacija i članci (preskoči download, WAV, transkripciju)
+./run_pipeline.sh --only-articles
+./run_pipeline.sh --only-summaries
+
+# Samo jedan kanal
+./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN
+
+# Dry run (bez API poziva i pisanja datoteka)
+./run_pipeline.sh --hf-token TVOJ_TOKEN --dry-run
+
+# S opcionalni koracima
+./run_pipeline.sh --only-articles --with-screenshots
+./run_pipeline.sh --only-articles --with-r2-upload
+
+# Više CPU niti za Whisper
+./run_pipeline.sh --hf-token TVOJ_TOKEN --threads 8
 ```
 
-**Dodatni korisni argumenti pri inicijaciji:**
-- `--dry-run`: Siguran način pretraživanja - samo ispisuje što bi se uistinu dogodilo (posebno korisno u Canary ili Gemini skriptama), ali program nema moć trajne prepiske fajlova i generiranja greški prema API poslužiteljima.
-- `--channel <ime_kanala>`: Filtrira rednu izvedbu tako da pretražuje samo striktan određeni kanal na temelju podudaranja ulazne mape i zadatih parametara u polju automatic osvježivača.
-- `--threads <broj>`: Određuje dodijeljen broj CPU operacijskih niti za izvođenje obuhvatne i lokalne Whisper transkripcije.
-- `--only-articles`: Potpuno preskače sve ulazne korake preuzimanja s web okruženja, kao i sve faze rudimentarne transkripcije, te odmah pokreće Fazu 8 (tzv. "Gemini članci") na oslanjanju isključivo na pre-stojećim i kompletno stvorenim datotekama na spojenom storage mediju.
+---
 
-### 🗃️ Struktura i Organizacija Skladišta Koda
-* `automatic/podcasts/` - Ciljne organizacijske mape i radna polja s postepenim i stalno ažuriranim tekstualnim format listama URL-ova videozapisa i podcasta snimljenih na kanalu za preuzimanje.
-* `automatic/refresh_podcasts.sh` - Srž automatizma sustava: skripta za ažuriranje i usporedbu listi s YouTube izvorima.
-* `*.js` / `*.py` / `*.mjs` - Mikro-skripte koje služe obavljanju točno određenog logičkog tehnološkog koraka u masivnom cjevovodu podataka na sustavu.
-* `colab_canary/` / `colab_diarize/` - Udaljeno prilagođene skripte i metode programirane suštinski za prenašanje i udaljeno robusno izvođenje obrade podataka na snažnim strojevima i resursima oblačnih infrastruktura (primjerice Google Colab ili Kaggle platforme koje sadrže T4 i moćnije grafičke GPU procesne farme).
+## 🗃️ Struktura Repozitorija
+
+| Putanja | Opis |
+|---------|------|
+| `automatic/podcasts/*.txt` | Liste URL-ova YouTube kanala (format: `YYYYMMDD\|Naziv\|URL`) |
+| `automatic/refresh_podcasts.sh` | Ažuriranje listi novih videozapisa |
+| `storage/output/` | Logički output dir (symlinks → fizički diskovi) |
+| `storage.conf` | Mapiranje kanala → fizički diskovi |
+| `colab_diarize/` | Canary diarizacija za Cloud GPU (Google Colab/Kaggle T4) |
+| `colab_canary/` | Canary transkripcija skripte |
+| `*.js` / `*.py` / `*.mjs` | Pipeline skripte (svaka je standalone, bez shared modula) |
+
+### Dijagnostika
+
+```bash
+# Progress svih kanala + disk usage
+node count_progress.js
+
+# Detekcija anomalija i koruptiranih datoteka
+node inspect_pipeline.js --input-dir storage/output
+```
