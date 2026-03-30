@@ -623,7 +623,6 @@ async function main() {
     if (channelFilter) log("🎯", `Kanal:    ${channelFilter}`);
     if (videoIdFilter) log("🎬", `Video ID: ${videoIdFilter}`);
     if (limit > 0) log("🔢", `Limit:    ${limit}`);
-    if (flutterKeys) log("📱", "Flutter keyevi: UKLJUČENI (pipeline + app keyevi)");
     if (dryRun) log("🏜️", "DRY RUN — samo prikaz, bez uploada");
     console.log("");
 
@@ -670,36 +669,27 @@ async function main() {
         }
     }
 
-    // NOTE: Pipeline keyevi ({channel}/{longFilename}) se trenutno NE uploadaju.
-    // Uploadaju se samo flutter app keyevi (data/{videoId}/..., images/{videoId}/...).
-    // Kad/ako zatrebaju pipeline keyevi, odkomentiraj pipelineFiles liniju ispod.
-    // const pipelineFiles = discoveredFiles;
-    const pipelineFiles = [];
-
-    // Generiraj flutter app keyeve (isti localPath, kratki app-friendly R2 key)
+    // Generiraj flutter app keyeve (kratki app-friendly R2 ključevi).
+    // Ovo je default ponašanje — svaki upload koristi data/{videoId}/... i images/{videoId}/...
+    // keyeve umjesto dugačkih pipeline filenamea.
     const appFiles = [];
-    if (flutterKeys) {
-        for (const f of discoveredFiles) {
-            const appKey = getFlutterKey(f.localPath, f.r2Key, f.videoId, f.videoBase);
-            if (appKey) {
-                appFiles.push({
-                    localPath: f.localPath,
-                    r2Key: appKey,
-                    size: f.size,
-                    videoId: f.videoId,
-                    videoBase: f.videoBase,
-                    channel: f.channel,
-                    isAppKey: true,
-                });
-            }
+    for (const f of discoveredFiles) {
+        const appKey = getFlutterKey(f.localPath, f.r2Key, f.videoId, f.videoBase);
+        if (appKey) {
+            appFiles.push({
+                localPath: f.localPath,
+                r2Key: appKey,
+                size: f.size,
+                videoId: f.videoId,
+                videoBase: f.videoBase,
+                channel: f.channel,
+            });
         }
     }
 
-    const allFiles = [...pipelineFiles, ...appFiles];
+    const allFiles = appFiles;
 
-    if (pipelineFiles.length > 0) log("📊", `Pipeline datoteka: ${pipelineFiles.length}`);
-    if (flutterKeys) log("📱", `Flutter app datoteka: ${appFiles.length}`);
-    log("📊", `Ukupno za provjeru: ${allFiles.length}`);
+    log("📊", `Ukupno za provjeru: ${allFiles.length} (od ${discoveredFiles.length} otkrivenih datoteka)`);
     const totalSize = allFiles.reduce((sum, f) => sum + f.size, 0);
     log("💾", `Ukupna veličina: ${humanSize(totalSize)}`);
     console.log("");
@@ -709,25 +699,10 @@ async function main() {
         return;
     }
 
-    // Dry run: prikaži oba seta
+    // Dry run: prikaži što bi se uploadalo
     if (dryRun) {
-        if (pipelineFiles.length > 0) {
-            log("🏜️", "Pipeline keyevi:");
-            console.log("");
-
-            let prevChannel = "";
-            for (const f of pipelineFiles) {
-                if (f.channel !== prevChannel) {
-                    console.log(`      📁 ${f.channel}/`);
-                    prevChannel = f.channel;
-                }
-                console.log(`         ${path.basename(f.r2Key)}  (${humanSize(f.size)})`);
-            }
-            console.log("");
-        }
-
-        if (flutterKeys && appFiles.length > 0) {
-            log("📱", "Flutter app keyevi:");
+        if (appFiles.length > 0) {
+            log("🏜️", "Datoteke za upload (R2 keyevi):");
             console.log("");
 
             let prevPrefix = "";
@@ -816,7 +791,6 @@ async function main() {
     console.log(`   ⏭️  Nepromijenjenih: ${skipped}`);
     if (failed > 0) console.log(`   ❌ Neuspjelih:      ${failed}`);
     console.log(`   💾 Uploadano:       ${humanSize(uploadedBytes)}`);
-    if (flutterKeys) console.log(`   📱 Flutter keyevi:  uključeni`);
     console.log(`   🌐 CDN:            ${R2_PUBLIC_URL}`);
     console.log("");
 }
