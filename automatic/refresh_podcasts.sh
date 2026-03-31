@@ -70,6 +70,37 @@ AKTIVNI_KANALI=("${KANALI[@]}")
 COOKIE_ARG=""
 [ -f "$COOKIE_FILE" ] && COOKIE_ARG="--cookies $COOKIE_FILE"
 
+# --- DOHVAT KANAL METAPODATAKA (avatar, opis, follower count) ---
+# Sprema se u {ime}-channel.json. Preskače ako je mlađe od 7 dana.
+
+echo "Dohvaćam metapodatke kanala..."
+
+for stavka in "${KANALI[@]}"; do
+    IME="${stavka%%|*}"
+    URL="${stavka#*|}"
+    META_FILE="$OUTPUT_DIR/${IME}-channel.json"
+
+    # Preskoči ako je svjež (mlađi od 7 dana)
+    if [ -f "$META_FILE" ] && [ "$(find "$META_FILE" -mtime -7 2>/dev/null)" ]; then
+        continue
+    fi
+
+    echo -n "  [$IME] Kanal metapodaci... "
+
+    # Ukloni /videos suffix za channel-level dohvat; playlist URL-ove ostavi kako jesu
+    CHANNEL_URL="${URL%/videos}"
+
+    if yt-dlp --dump-single-json --flat-playlist --playlist-items 0 \
+        $COOKIE_ARG "$CHANNEL_URL" > "$META_FILE.tmp" 2>/dev/null; then
+        mv "$META_FILE.tmp" "$META_FILE"
+        echo "OK"
+    else
+        rm -f "$META_FILE.tmp"
+        echo "GREŠKA (preskačem)"
+    fi
+done
+
+echo ""
 echo "Započinjem cikličku obradu (Chunk size: $CHUNK_SIZE)..."
 
 for (( krug=0; krug<$MAX_CHUNKS; krug++ )); do
