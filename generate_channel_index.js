@@ -33,8 +33,10 @@
 
 'use strict';
 
-const fs   = require('fs');
-const path = require('path');
+const fs    = require('fs');
+const path  = require('path');
+const https = require('https');
+const http  = require('http');
 
 // --- CLI args (Pattern B) ---
 const args = process.argv.slice(2);
@@ -57,6 +59,7 @@ if (fs.existsSync(envPath)) {
     }
 }
 const CDN_BASE = (process.env.R2_PUBLIC_URL || 'https://cdn.domovina.ai').replace(/\/$/, '');
+const PODCASTS_DIR = getArg('--podcasts-dir') || path.join(__dirname, 'automatic', 'podcasts');
 
 // --- Helpers ---
 
@@ -96,6 +99,37 @@ function readJson(filePath) {
     } catch {
         return null;
     }
+}
+
+// Preuzima datoteku s URL-a na disk. Podržava redirecte.
+function downloadFile(url, destPath) {
+    return new Promise((resolve, reject) => {
+        fs.mkdirSync(path.dirname(destPath), { recursive: true });
+        const proto = url.startsWith('https') ? https : http;
+        proto.get(url, (res) => {
+            if (res.statusCode === 301 || res.statusCode === 302) {
+                downloadFile(res.headers.location, destPath).then(resolve).catch(reject);
+                return;
+            }
+            if (res.statusCode !== 200) {
+                res.resume();
+                reject(new Error(`HTTP ${res.statusCode}`));
+                return;
+            }
+            const file = fs.createWriteStream(destPath);
+            res.pipe(file);
+            file.on('finish', () => { file.close(); resolve(true); });
+            file.on('error', reject);
+        }).on('error', reject);
+    });
+}
+
+// Čita yt-dlp kanal metapodatke iz automatic/podcasts/{name}-channel.json.
+// Mapira channelId (underscores) na podcast list name (hyphens).
+function loadChannelMeta(channelId) {
+    const listName = channelId.replace(/_/g, '-');
+    const metaPath = path.join(PODCASTS_DIR, `${listName}-channel.json`);
+    return readJson(metaPath);
 }
 
 // Normalizira naziv kanala iz uploader stringa (title case, cleanup)
@@ -197,7 +231,7 @@ function collectChannelVideos(channelId) {
             duration_display: formatDuration(duration),
             views,
             likes,
-            thumbnail:        `${CDN_BASE}/data/${videoId}/thumbnail.png`,
+            thumbnail:        `${CDN_BASE}/images/${videoId}/thumbnail.png`,
             youtube_url:      info.webpage_url || `https://www.youtube.com/watch?v=${videoId}`,
             abstract,
             topics,
@@ -239,7 +273,7 @@ async function main() {
 
     // Kreiraj output direktorij
     if (!DRY_RUN) {
-        fs.mkdirSync(path.join(OUTPUT_DIR, 'channels'), { recursive: true });
+        fs.mkdirSync(path.join(OUTPUT_DIR, 'channels', 'data'), { recursive: true });
     }
 
     // Pronađi sve kanale
@@ -253,6 +287,7 @@ async function main() {
     console.log(`  Kanali pronađeni: ${channelIds.length}\n`);
 
     const channelIndex = []; // za channels/index.json
+    const avatarDownloads = []; // {url, dest} — skupljaju se u petlji, izvršavaju paralelno
 
     for (const channelId of channelIds) {
         process.stdout.write(`  📁 ${channelId}... `);
@@ -273,13 +308,52 @@ async function main() {
             return Math.round(scored.reduce((sum, v) => sum + v.magisterium_score, 0) / scored.length);
         })();
 
+        // ── yt-dlp kanal metapodaci (avatar, opis, follower count) ─
+        const channelMeta     = loadChannelMeta(channelId);
+        const followerCount   = channelMeta?.channel_follower_count ?? null;
+        const channelDesc     = channelMeta?.description?.trim() || null;
+        const channelTags     = Array.isArray(channelMeta?.tags) ? channelMeta.tags : [];
+
+        // Avatar: avatar_uncropped je UVIJEK square, thumbnails[0] može biti cover/banner (širi)
+        const thumbs        = channelMeta?.thumbnails || [];
+        const coverThumb    = thumbs.find(t => t.id === '0') || thumbs[0] || null;
+        const squareThumb   = thumbs.find(t => t.id === 'avatar_uncropped') || coverThumb || null;
+
+        // Playlist URL za kanale koji su zapravo playliste unutar većeg kanala
+        const isPlaylist    = channelMeta?.webpage_url?.includes('playlist?list=');
+        const playlistUrl   = isPlaylist ? channelMeta.webpage_url : null;
+
+        // Download avatara na disk (paralelno se skupljaju, izvršavaju se poslije)
+        const imgDir = path.join(OUTPUT_DIR, 'channels', 'images', channelId);
+        let avatarSquareCdn = null;
+        let avatarCoverCdn  = null;
+
+        if (squareThumb?.url) {
+            avatarSquareCdn = `${CDN_BASE}/channels/images/${channelId}/avatar_square.jpg`;
+            if (!DRY_RUN) {
+                avatarDownloads.push({ url: squareThumb.url, dest: path.join(imgDir, 'avatar_square.jpg') });
+            }
+        }
+        if (coverThumb?.url) {
+            avatarCoverCdn = `${CDN_BASE}/channels/images/${channelId}/avatar_cover.jpg`;
+            if (!DRY_RUN) {
+                avatarDownloads.push({ url: coverThumb.url, dest: path.join(imgDir, 'avatar_cover.jpg') });
+            }
+        }
+
         // ── channels/{channelId}.json ─────────────────────────────
         const channelDetail = {
             version:          '1.0',
             generated_at:     new Date().toISOString(),
             id:               channelId,
             name:             displayName,
+            avatar_square:    avatarSquareCdn,
+            avatar_cover:     avatarCoverCdn,
             youtube_channel_url: channelUrl,
+            youtube_playlist_url: playlistUrl,
+            description:      channelDesc,
+            tags:             channelTags,
+            follower_count:   followerCount,
             video_count:      videos.length,
             total_duration_seconds: totalDuration,
             avg_magisterium_score:  avgMagisterium,
@@ -287,7 +361,7 @@ async function main() {
             videos,
         };
 
-        const detailPath = path.join(OUTPUT_DIR, 'channels', `${channelId}.json`);
+        const detailPath = path.join(OUTPUT_DIR, 'channels', 'data', `${channelId}.json`);
         if (!DRY_RUN) {
             fs.writeFileSync(detailPath, JSON.stringify(channelDetail, null, 2), 'utf-8');
         }
@@ -296,7 +370,11 @@ async function main() {
         channelIndex.push({
             id:               channelId,
             name:             displayName,
+            avatar_square:    avatarSquareCdn,
+            avatar_cover:     avatarCoverCdn,
             youtube_channel_url: channelUrl,
+            youtube_playlist_url: playlistUrl,
+            follower_count:   followerCount,
             video_count:      videos.length,
             total_duration_seconds: totalDuration,
             avg_magisterium_score:  avgMagisterium,
@@ -316,24 +394,48 @@ async function main() {
         }
     }
 
+    // ── Preuzimanje avatara (paralelno) ──────────────────────────
+    if (avatarDownloads.length > 0) {
+        console.log(`\n  ⬇️  Preuzimam ${avatarDownloads.length} avatara...`);
+        let ok = 0;
+        let fail = 0;
+        await Promise.all(avatarDownloads.map(t =>
+            downloadFile(t.url, t.dest)
+                .then(() => { ok++; })
+                .catch(() => { fail++; })
+        ));
+        console.log(`  ✅ Avatari: ${ok} preuzeto${fail > 0 ? `, ${fail} neuspjelo` : ''}\n`);
+    }
+
     // ── channels/index.json ───────────────────────────────────────
+    // Ako je aktivan --channel filtar, mergea s postojećim indexom da ne
+    // prepiše ostale kanale koji su već generirani.
+    const indexPath = path.join(OUTPUT_DIR, 'channels', 'data', 'index.json');
+    let finalChannels = channelIndex;
+    if (CHANNEL_FILTER) {
+        const existing = readJson(indexPath);
+        if (existing?.channels) {
+            const others = existing.channels.filter(c => c.id !== CHANNEL_FILTER);
+            finalChannels = [...others, ...channelIndex].sort((a, b) => a.id.localeCompare(b.id));
+        }
+    }
+
     const indexData = {
         version:       '1.0',
         generated_at:  new Date().toISOString(),
-        channel_count: channelIndex.length,
-        channels:      channelIndex,
+        channel_count: finalChannels.length,
+        channels:      finalChannels,
     };
 
-    const indexPath = path.join(OUTPUT_DIR, 'channels', 'index.json');
     if (!DRY_RUN) {
         fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2), 'utf-8');
-        console.log(`\n  ✅ Index: ${indexPath} (${channelIndex.length} kanala)`);
+        console.log(`\n  ✅ Index: ${indexPath} (${finalChannels.length} kanala)`);
     } else {
-        console.log(`\n  ✅ [DRY RUN] channels/index.json: ${channelIndex.length} kanala`);
+        console.log(`\n  ✅ [DRY RUN] channels/index.json: ${finalChannels.length} kanala`);
     }
 
-    const totalVideos = channelIndex.reduce((s, c) => s + c.video_count, 0);
-    console.log(`     Ukupno: ${totalVideos} videa kroz ${channelIndex.length} kanala`);
+    const totalVideos = finalChannels.reduce((s, c) => s + c.video_count, 0);
+    console.log(`     Ukupno: ${totalVideos} videa kroz ${finalChannels.length} kanala`);
     console.log(`\n  Upload: node upload_to_r2.js --meta-dir ${OUTPUT_DIR}\n`);
 }
 

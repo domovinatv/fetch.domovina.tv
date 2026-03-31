@@ -657,25 +657,23 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log("");
 
-    if (!inputDir) {
-        console.error("❌ Obavezan argument: --input-dir <putanja>");
+    if (!inputDir && !metaDir) {
+        console.error("❌ Obavezan argument: --input-dir <putanja> ili --meta-dir <putanja>");
         console.error("");
         console.error("Primjeri:");
         console.error("  node upload_to_r2.js --input-dir /path/to/output --video-id H-p2Hl6x7I0");
         console.error("  node upload_to_r2.js --input-dir /path/to/output --channel domovina_tv");
         console.error("  node upload_to_r2.js --input-dir /path/to/output");
-        console.error("  node upload_to_r2.js --input-dir /path/to/output --dry-run");
-        console.error("  node upload_to_r2.js --input-dir /path/to/output --flutter-keys");
-        console.error("  node upload_to_r2.js --input-dir /path/to/output --channel domovina_tv --limit 5");
+        console.error("  node upload_to_r2.js --meta-dir storage/meta");
         process.exit(1);
     }
 
-    if (!fs.existsSync(inputDir)) {
+    if (inputDir && !fs.existsSync(inputDir)) {
         log("❌", `Input direktorij ne postoji: ${inputDir}`);
         process.exit(1);
     }
 
-    // Provjeri R2 konfiguraciju
+    // Provjeri R2 konfiguraciju (potrebno i za video i za meta upload)
     const missing = [];
     if (!R2_ACCOUNT_ID) missing.push("R2_ACCOUNT_ID");
     if (!R2_ACCESS_KEY_ID) missing.push("R2_ACCESS_KEY_ID");
@@ -687,6 +685,16 @@ async function main() {
         process.exit(1);
     }
 
+    // Zajednički brojači — koriste ih i video i meta upload sekcija
+    let uploaded = 0;
+    let skipped = 0;
+    let updated = 0;
+    let failed = 0;
+    let uploadedBytes = 0;
+    let remuxStats = null;
+    const client = dryRun ? null : createR2Client();
+
+if (inputDir) {
     log("📂", `Input:    ${inputDir}`);
     log("🪣", `Bucket:   ${R2_BUCKET_NAME}`);
     log("🌐", `CDN URL:  ${R2_PUBLIC_URL}`);
@@ -714,7 +722,7 @@ async function main() {
     console.log("   ━━━ MKV → MP4 remux ━━━");
     console.log("");
 
-    const remuxStats = await remuxPhase(videos, dryRun);
+    remuxStats = await remuxPhase(videos, dryRun);
 
     if (remuxStats.remuxed > 0 || remuxStats.failed > 0) {
         log("📊", `Remux: ${remuxStats.remuxed} novo, ${remuxStats.skipped} preskočeno, ${remuxStats.failed} neuspjelo`);
@@ -793,16 +801,9 @@ async function main() {
         return;
     }
 
-    // Inicijaliziraj R2 klijent
-    const client = createR2Client();
+    // Inicijaliziraj R2 klijent (lokalno za video upload; zajednički client deklariran dolje)
 
     const R2_CHECK_CONCURRENCY = 20; // paralelni HeadObject pozivi
-
-    let uploaded = 0;
-    let skipped = 0;
-    let updated = 0;
-    let failed = 0;
-    let uploadedBytes = 0;
 
     // ── FAZA 1: Paralelni HeadObject za sve fajlove ───────────────
     // Samo dohvaćamo remote ETag — ne čitamo lokalne fajlove ovdje.
@@ -885,6 +886,8 @@ async function main() {
     // Spremi disk MD5 cache ako se promijenio
     if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
 
+} // end if (inputDir)
+
     // ── META UPLOAD (--meta-dir) ──────────────────────────────────
     // Uploadira statične JSON fajlove iz meta direktorija (channels/index.json,
     // channels/{id}.json) koristeći relativnu putanju kao R2 ključ.
@@ -908,7 +911,7 @@ async function main() {
                     const stat = fs.statSync(fullPath);
                     if (stat.isDirectory()) {
                         metaFiles.push(...collectMetaFiles(fullPath, baseDir));
-                    } else if (entry.endsWith('.json')) {
+                    } else if (entry.endsWith('.json') || entry.endsWith('.jpg') || entry.endsWith('.png')) {
                         const r2Key = path.relative(baseDir, fullPath).replace(/\\/g, '/');
                         metaFiles.push({ localPath: fullPath, r2Key, size: stat.size });
                     }
@@ -959,7 +962,7 @@ async function main() {
     console.log("╔══════════════════════════════════════════════════╗");
     console.log("║   📊 R2 UPLOAD ZAVRŠEN                          ║");
     console.log("╚══════════════════════════════════════════════════╝");
-    if (remuxStats.remuxed > 0) console.log(`   🎬 Remuxano:        ${remuxStats.remuxed}`);
+    if (remuxStats?.remuxed > 0) console.log(`   🎬 Remuxano:        ${remuxStats.remuxed}`);
     console.log(`   ⬆️  Novih:          ${uploaded}`);
     if (updated > 0) console.log(`   🔄 Ažuriranih:     ${updated}`);
     console.log(`   ⏭️  Nepromijenjenih: ${skipped}`);

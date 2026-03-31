@@ -25,14 +25,14 @@
 #   - gcloud CLI autentificiran (gcloud auth login) — za korak 7, 8 (Vertex AI OAuth)
 #
 # Primjer:
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --dry-run
-#   ./run_pipeline.sh --hf-token TVOJ_TOKEN  (svi kanali)
-#   ./run_pipeline.sh --channel domovina_tv --hf-token TVOJ_TOKEN --threads 8
-#   ./run_pipeline.sh --only-summaries                (samo korak 7: sumarizacija)
-#   ./run_pipeline.sh --only-articles                 (samo korak 7+8: sumarizacija + članci)
-#   ./run_pipeline.sh --only-articles --with-screenshots  (članci + screenshotovi)
-#   ./run_pipeline.sh --only-articles --with-r2-upload    (članci + R2 upload)
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN                      (standardni pipeline: fetch + Canary + Gemini)
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --channel domovina_tv (samo jedan kanal)
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --dry-run             (prikaz bez obrade)
+#   ./run_pipeline.sh --only-summaries                            (samo korak 7: sumarizacija)
+#   ./run_pipeline.sh --only-articles                             (samo korak 7+8: sumarizacija + članci)
+#   ./run_pipeline.sh --only-articles --with-r2-upload            (članci + R2 upload)
+#   ./run_pipeline.sh --hf-token T --with-whisper                 (legacy: uključi Whisper transkripciju)
+#   ./run_pipeline.sh --hf-token T --with-local-whisper-diarize    (legacy: uključi lokalnu Whisper diarizaciju)
 #
 
 set -e  # Prekini na prvoj grešci
@@ -66,12 +66,20 @@ echo ""
 #   --threads     → samo transcribe.js
 #   --hf-token    → samo transcribe_diarized.js + diarize_canary.py
 #   --gemini-key  → samo summarize_gemini.js
-#   --only-articles   → preskače sve korake (0-6) i vrti samo korak 7 i 8
-#   --only-summaries  → preskače sve korake (0-6) i vrti samo korak 7
-#   --with-screenshots → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
+#   --only-articles       → preskače sve korake (0-6) i vrti samo korak 7 i 8
+#   --only-summaries      → preskače sve korake (0-6) i vrti samo korak 7
+#   --with-whisper        → uključuje korake 3+4 (legacy Whisper prompt + transkripcija; zahtijeva LM Studio na localhost:1234)
+#                            LEGACY: Canary na Google Colab daje značajno bolju kvalitetu transkripcije.
+#                            Whisper je zadržan za edge slučajeve kad Colab nije dostupan.
+#   --with-local-whisper-diarize → uključuje korak 5 (lokalna Whisper pyannote diarizacija na MPS/Metal; CPU-intenzivno)
+#                            UPOZORENJE: Troši značajne resurse na MacMini. Preferirati Canary diarizaciju (korak 6).
+#   --with-local-canary-diarize → uključuje korak 6 (lokalna Canary diarizacija putem pyannote; CPU-intenzivno)
+#                            Alternativa: Colab T4 GPU diarizacija + rclone sync (korak 0).
+#   --with-screenshots    → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
+#   --with-vertex-import  → uključuje korak 11 (Vertex AI RAG import; zahtijeva konfiguriran GCS bucket)
 #   --with-r2-upload      → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
-#   ostalo            → svima (--channel, --dry-run, --output-dir)
+#   ostalo                → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
 WHISPER_ARGS=()
@@ -79,7 +87,11 @@ DIARIZE_ARGS=()
 GEMINI_KEY=""
 ONLY_ARTICLES=false
 ONLY_SUMMARIES=false
+WITH_WHISPER=false
+WITH_LOCAL_WHISPER_DIARIZE=false
+WITH_LOCAL_CANARY_DIARIZE=false
 WITH_SCREENSHOTS=false
+WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 ALL_ARGS=("$@")
@@ -101,8 +113,20 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--only-summaries" ]; then
         ONLY_SUMMARIES=true
         i=$((i + 1))
+    elif [ "$arg" = "--with-whisper" ]; then
+        WITH_WHISPER=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-local-whisper-diarize" ]; then
+        WITH_LOCAL_WHISPER_DIARIZE=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-local-canary-diarize" ]; then
+        WITH_LOCAL_CANARY_DIARIZE=true
+        i=$((i + 1))
     elif [ "$arg" = "--with-screenshots" ]; then
         WITH_SCREENSHOTS=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-vertex-import" ]; then
+        WITH_VERTEX_IMPORT=true
         i=$((i + 1))
     elif [ "$arg" = "--with-r2-upload" ]; then
         WITH_R2_UPLOAD=true
@@ -189,9 +213,14 @@ else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
 fi
 
+# --- KORACI 3+4: WHISPER PROMPT + TRANSKRIPCIJA (legacy, opcionalno --with-whisper) ---
+# LEGACY: Lokalni Whisper daje značajno lošiju kvalitetu od Canary diarizacije na Google Colab.
+# Zadržano za edge slučajeve kad Colab nije dostupan ili za usporedbu kvalitete.
+# Zahtijeva: LM Studio na localhost:1234 (za prompt) + whisper.cpp binary (za transkripciju)
+if [ "$WITH_WHISPER" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/10: Generiranje Whisper promptova (LLM)"
+echo "   📢 KORAK 3/10: Generiranje Whisper promptova (LLM) [--with-whisper]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -200,30 +229,45 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 4/10: Whisper transkripcija"
+    echo "   📢 KORAK 4/10: Whisper transkripcija [--with-whisper]"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
     node "$SCRIPT_DIR/transcribe.js" "${WHISPER_ARGS[@]}"
+else
+    echo "⚠️ LM Studio nije pokrenut na localhost:1234 — preskačem Whisper korake (3+4)"
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem korake 3+4 (Whisper) — nije zadan --with-whisper (legacy, Canary je bolji)"
+fi
 
-    echo ""
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 5/10: Diarizacija govornika (pyannote MPS)"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo ""
+# --- KORAK 5: LOKALNA WHISPER DIARIZACIJA (legacy, opcionalno --with-local-whisper-diarize) ---
+# LEGACY: Lokalna pyannote diarizacija na MPS/Metal troši značajne CPU/GPU resurse na MacMini.
+# Preferirati Canary diarizaciju (korak 6) koja se izvršava na Google Colab T4 GPU.
+# Zahtijeva: --hf-token + pyannote.audio + MPS/Metal GPU
+if [ "$WITH_LOCAL_WHISPER_DIARIZE" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 5/10: Lokalna Whisper diarizacija (pyannote MPS) [--with-local-whisper-diarize]"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
 
     node "$SCRIPT_DIR/transcribe_diarized.js" "${DIARIZE_ARGS[@]}"
 else
-    echo "⚠️ LM Studio nije pokrenut na localhost:1234 — preskačem korake 3, 4 i 5 (Whisper prompt, transkripcija, diarizacija)"
+    echo "   ⏭️  Preskačem korak 5 (Whisper diarizacija) — nije zadan --with-local-whisper-diarize (CPU-intenzivno)"
 fi
 
+# --- KORAK 6: CANARY DIARIZACIJA (opcionalno --with-local-canary-diarize) ---
+# Lokalna Canary diarizacija putem pyannote na MPS/CPU. Troši značajne resurse.
+# Alternativa: pokrenuti diarizaciju na Google Colab T4 GPU i rclone-om sinkronizirati rezultate (korak 0).
+# Zahtijeva: --hf-token + pyannote.audio
+if [ "$WITH_LOCAL_CANARY_DIARIZE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6/10: Canary Diarizacija govornika (pyannote)"
+echo "   📢 KORAK 6/10: Canary Diarizacija govornika (pyannote) [--with-local-canary-diarize]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-
-# OUTPUT_DIR je sada ekstraktiran na vrhu skripte znatno ranije.
 
 # Ekstrakcija HF tokena iz DIARIZE_ARGS
 HF_TOKEN=""
@@ -243,6 +287,10 @@ if [ -n "$HF_TOKEN" ]; then
     python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
     echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem korak 6 (Canary diarizacija) — nije zadan --with-local-canary-diarize"
 fi
 
 fi # Kraj ONLY_ARTICLES=false && ONLY_SUMMARIES=false bloka
@@ -358,10 +406,13 @@ node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {
 }
 fi
 
-# --- KORAK 11: VERTEX AI RAG IMPORT ---
+# --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---
+# Zahtijeva konfiguriran GCS bucket i Vertex AI Data Store.
+# Još nije potpuno konfigurirano — uključiti tek kad je infrastruktura spremna.
+if [ "$WITH_VERTEX_IMPORT" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 11/11: Vertex AI RAG import (Discovery Engine)"
+echo "   📢 KORAK 11/11: Vertex AI RAG import (Discovery Engine) [--with-vertex-import]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -385,6 +436,10 @@ if [ -f "$SCRIPT_DIR/.env" ]; then
     }
 else
     echo "   ⚠️ Preskačem Vertex AI import jer .env nije konfiguriran (vidi .env.example)"
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem korak 11 (Vertex AI RAG import) — nije zadan --with-vertex-import"
 fi
 
 # --- KORAK 12: CLOUDFLARE R2 UPLOAD (opcionalno, --with-r2-upload) ---
