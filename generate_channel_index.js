@@ -323,6 +323,12 @@ async function main() {
         const isPlaylist    = channelMeta?.webpage_url?.includes('playlist?list=');
         const playlistUrl   = isPlaylist ? channelMeta.webpage_url : null;
 
+        // Dimenzije avatara iz yt-dlp metapodataka
+        const squareDims = squareThumb?.width && squareThumb?.height
+            ? { width: squareThumb.width, height: squareThumb.height } : null;
+        const coverDims  = coverThumb?.width && coverThumb?.height
+            ? { width: coverThumb.width, height: coverThumb.height } : null;
+
         // Download avatara na disk (paralelno se skupljaju, izvršavaju se poslije)
         const imgDir = path.join(OUTPUT_DIR, 'channels', 'images', channelId);
         let avatarSquareCdn = null;
@@ -348,7 +354,9 @@ async function main() {
             id:               channelId,
             name:             displayName,
             avatar_square:    avatarSquareCdn,
+            avatar_square_dimensions: squareDims,
             avatar_cover:     avatarCoverCdn,
+            avatar_cover_dimensions:  coverDims,
             youtube_channel_url: channelUrl,
             youtube_playlist_url: playlistUrl,
             description:      channelDesc,
@@ -371,7 +379,9 @@ async function main() {
             id:               channelId,
             name:             displayName,
             avatar_square:    avatarSquareCdn,
+            avatar_square_dimensions: squareDims,
             avatar_cover:     avatarCoverCdn,
+            avatar_cover_dimensions:  coverDims,
             youtube_channel_url: channelUrl,
             youtube_playlist_url: playlistUrl,
             follower_count:   followerCount,
