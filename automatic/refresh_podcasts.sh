@@ -80,11 +80,6 @@ for stavka in "${KANALI[@]}"; do
     URL="${stavka#*|}"
     META_FILE="$OUTPUT_DIR/${IME}-channel.json"
 
-    # Preskoči ako je svjež (mlađi od 7 dana)
-    if [ -f "$META_FILE" ] && [ "$(find "$META_FILE" -mtime -7 2>/dev/null)" ]; then
-        continue
-    fi
-
     echo -n "  [$IME] Kanal metapodaci... "
 
     # Ukloni /videos suffix za channel-level dohvat; playlist URL-ove ostavi kako jesu
