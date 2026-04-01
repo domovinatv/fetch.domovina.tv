@@ -286,7 +286,8 @@ async function main() {
 
     console.log(`  Kanali pronađeni: ${channelIds.length}\n`);
 
-    const channelIndex = []; // za channels/index.json
+    const channelIndex = [];   // za channels/data/index.json (sažetak)
+    const channelDetails = []; // za channels/data/index_bundle.json (kompletni podaci)
     const avatarDownloads = []; // {url, dest} — skupljaju se u petlji, izvršavaju paralelno
 
     for (const channelId of channelIds) {
@@ -369,6 +370,8 @@ async function main() {
             videos,
         };
 
+        channelDetails.push(channelDetail);
+
         const detailPath = path.join(OUTPUT_DIR, 'channels', 'data', `${channelId}.json`);
         if (!DRY_RUN) {
             fs.writeFileSync(detailPath, JSON.stringify(channelDetail, null, 2), 'utf-8');
@@ -446,6 +449,35 @@ async function main() {
 
     const totalVideos = finalChannels.reduce((s, c) => s + c.video_count, 0);
     console.log(`     Ukupno: ${totalVideos} videa kroz ${finalChannels.length} kanala`);
+
+    // ── channels/data/index_bundle.json ──────────────────────────
+    // Kompletni podaci svih kanala (uključujući sve videe) u jednoj datoteci.
+    // Kad je aktivan --channel filtar, mergea s postojećim bundleom.
+    const bundlePath = path.join(OUTPUT_DIR, 'channels', 'data', 'index_bundle.json');
+    let finalDetails = channelDetails;
+    if (CHANNEL_FILTER) {
+        const existingBundle = readJson(bundlePath);
+        if (existingBundle?.channels) {
+            const others = existingBundle.channels.filter(c => c.id !== CHANNEL_FILTER);
+            finalDetails = [...others, ...channelDetails].sort((a, b) => a.id.localeCompare(b.id));
+        }
+    }
+
+    const bundleData = {
+        version:       '1.0',
+        generated_at:  new Date().toISOString(),
+        channel_count: finalDetails.length,
+        channels:      finalDetails,
+    };
+
+    if (!DRY_RUN) {
+        fs.writeFileSync(bundlePath, JSON.stringify(bundleData), 'utf-8');
+        const bundleSize = (fs.statSync(bundlePath).size / 1024).toFixed(0);
+        console.log(`  ✅ Bundle: ${bundlePath} (${bundleSize} KB)`);
+    } else {
+        console.log(`  ✅ [DRY RUN] channels/data/index_bundle.json: ${finalDetails.length} kanala`);
+    }
+
     console.log(`\n  Upload: node upload_to_r2.js --meta-dir ${OUTPUT_DIR}\n`);
 }
 
