@@ -32,6 +32,25 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 function pad(s, n) { return String(s).padEnd(n); }
 function rpad(s, n) { return String(s).padStart(n); }
 
+// Ukupan broj epizoda koje je refresh_podcasts.sh otkrio preko svih kanala.
+// Ovo je upper bound korpusa — sve ostalo je downstream progres protiv ove baze.
+function countTotalListaEntries() {
+    const listaDir = path.join(__dirname, 'automatic', 'podcasts');
+    if (!fs.existsSync(listaDir)) return 0;
+    let total = 0;
+    for (const f of fs.readdirSync(listaDir)) {
+        if (!f.endsWith('-lista.txt')) continue;
+        try {
+            const content = fs.readFileSync(path.join(listaDir, f), 'utf8');
+            for (const line of content.split('\n')) {
+                const t = line.trim();
+                if (t && !t.startsWith('#')) total++;
+            }
+        } catch { /* skip */ }
+    }
+    return total;
+}
+
 // --- Scan ---
 
 console.log("Skeniram direktorije...");
@@ -149,7 +168,13 @@ for (const channel of channels) {
 // --- Output ---
 
 const g = (k) => stats[k] || 0;
-const total = g('mp3');
+
+// Baza = ukupno u automatic/podcasts/*-lista.txt (korpus koji refresh otkriva).
+// Fallback na broj .mp3 ako direktorij nije dostupan (npr. pokretano izvan repoa).
+const listaTotal = countTotalListaEntries();
+const mp3Count   = g('mp3');
+const total      = listaTotal || mp3Count;
+const backlog    = listaTotal ? listaTotal - mp3Count : 0;
 
 const BAR_WIDTH = 20;
 
@@ -178,7 +203,11 @@ function line(label, count, base, opts = {}) {
     }
 }
 
-console.log(`\n  Pipeline progress (${total} preuzetih videa)\n`);
+if (listaTotal) {
+    console.log(`\n  Pipeline progress (${listaTotal} u listama, ${mp3Count} preuzeto, ${backlog} u backlogu)\n`);
+} else {
+    console.log(`\n  Pipeline progress (${total} preuzetih videa)\n`);
+}
 
 console.log('    -- Download & konverzija --');
 line('Preuzeto (.mp3)', g('mp3'), total);
