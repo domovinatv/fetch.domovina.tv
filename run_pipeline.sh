@@ -363,7 +363,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     MAGISTERIUM_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/enrich_magisterium.js" "${MAGISTERIUM_ARGS[@]}" || {
+node "$SCRIPT_DIR/enrich_magisterium_full.js" "${MAGISTERIUM_ARGS[@]}" || {
     echo "   ⚠️  Greška pri Magisterium obogaćivanju, nastavljam..."
 }
 fi
