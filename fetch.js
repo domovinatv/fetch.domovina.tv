@@ -54,12 +54,15 @@ const YT_DLP_BASE_ARGS = [
 ];
 
 // --- AUTO-DETECT COOKIES ---
-if (USE_BROWSER_COOKIES) {
-  console.log(`🍪 Koristim LIVE kolačiće iz preglednika: ${BROWSER_NAME.toUpperCase()}`);
-  YT_DLP_BASE_ARGS.push("--cookies-from-browser", BROWSER_NAME);
-} else if (fs.existsSync(COOKIES_FILE)) {
+// Prioritet: eksplicitno eksportirani cookies.txt (svjež, kontrolirani state)
+// iznad live browser cookies (koji mogu biti stale ili invalid session).
+// Ako cookies.txt ne postoji, fallback na browser cookies.
+if (fs.existsSync(COOKIES_FILE)) {
   console.log(`🍪 Cookies datoteka pronađena: ${COOKIES_FILE}`);
   YT_DLP_BASE_ARGS.push("--cookies", COOKIES_FILE);
+} else if (USE_BROWSER_COOKIES) {
+  console.log(`🍪 Koristim LIVE kolačiće iz preglednika: ${BROWSER_NAME.toUpperCase()}`);
+  YT_DLP_BASE_ARGS.push("--cookies-from-browser", BROWSER_NAME);
 } else {
   console.log("⚠️ Nema kolačića. YouTube će te vjerojatno blokirati.");
 }
