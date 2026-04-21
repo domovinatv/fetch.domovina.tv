@@ -334,15 +334,16 @@ async function callMagisterium(prompt, triedKeys = new Set(), retries = 0) {
 }
 
 // --- Parse score iz markdown odgovora ---
-// Traži "score: NN" ili "score (0-100): NN" ili "**NN/100**" paterne.
+// Traži razne formate: "(NN/100)", "score: NN", "**NN/100**".
+// Prvi match pobjeđuje — stavi najspecifičniji/najčešći v2 format prvi.
 
 function parseScoreFromText(text) {
-    // Pokušaj: "score: 85" ili "score (0-100): 85" ili "Score: 85/100"
     const patterns = [
-        /score[:\s]*(\d{1,3})\s*\/?\s*100/i,
-        /score[^:]*:\s*(\d{1,3})/i,
-        /\*\*(\d{1,3})\/100\*\*/,
-        /\*\*(\d{1,3})\*\*\s*\/\s*100/,
+        /\((\d{1,3})\s*\/\s*100\)/,           // v2: "**Ukupni score (92/100)**"
+        /score[:\s]*(\d{1,3})\s*\/?\s*100/i,  // "Score: 85/100" ili "score 85/100"
+        /score[^:]*:\s*(\d{1,3})/i,           // "Score: 85" (bez /100)
+        /\*\*(\d{1,3})\/100\*\*/,             // "**85/100**"
+        /\*\*(\d{1,3})\*\*\s*\/\s*100/,       // "**85** / 100"
     ];
     for (const pat of patterns) {
         const m = text.match(pat);
