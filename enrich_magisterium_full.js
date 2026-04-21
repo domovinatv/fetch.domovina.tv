@@ -59,6 +59,7 @@ const DRY_RUN         = args.includes('--dry-run');
 const MAGISTERIUM_ENDPOINT = 'https://www.magisterium.com/api/v1/chat/completions';
 const MODEL                = 'magisterium-1';
 const MAX_RETRIES          = 3;
+const PROMPT_VERSION       = 'v2';  // Bump kad se system_prompt.md bitno mijenja — output filename i prompt_version field prate ovu vrijednost
 
 // Učitaj .env ako postoji
 const envPath = path.join(__dirname, '.env');
@@ -146,19 +147,25 @@ function scoreInterpretation(score) {
 
 const SYSTEM_PROMPT_PATH = path.join(__dirname, 'storage', 'meta', 'magisterium_prompts', 'system_prompt.md');
 
-const EMBEDDED_SYSTEM_PROMPT = `Ti si stručni teološki analitičar Katoličke Crkve. Tvoj je zadatak objektivno evaluirati priloženi tekst (sažetak podcasta) isključivo temeljem katoličkog nauka, socijalnog nauka Crkve i Svetog pisma.
+const EMBEDDED_SYSTEM_PROMPT = `Ti si stručni teološki analitičar Katoličke Crkve. Tvoj je zadatak objektivno evaluirati priloženi tekst (sažetak podcasta) kao instrument evangelizacije i ljudske promidžbe, temeljeći se isključivo na katoličkom nauku, socijalnom nauku Crkve i Svetom pismu.
 
 VAŽNO PRAVILO: Analiziraj isključivo informacije koje su eksplicitno navedene u tekstu. Ne izmišljaj izjave gostiju i ne pretpostavljaj kontekst koji nije napisan. Tvoj izlaz mora biti strogo strukturiran u točno 6 numeriranih točaka. ZABRANJENO je korištenje tablica u odgovoru, koristi isključivo tekst i obične liste (bullet points).
 
 Za cijeli tekst daj JEDNU sveobuhvatnu evaluaciju točno ovim redoslijedom:
 
-1. **Ukupni score (0-100)** usklađenosti s katoličkim naukom i Svetim pismom. (Koristi skalu: 90-100 = aktivno promiče; 70-89 = uglavnom usklađeno; 50-69 = djelomično usklađeno/nejasnoće; 30-49 = značajno odstupanje; 0-29 = proturječi nauku).
-2. **Teološka procjena** (3 do 5 rečenica) — Sažeta sinteza onoga što je u tekstu teološki relevantno, a što neutralno.
-3. **Pozitivni elementi** — Konkretni primjeri iz teksta gdje se aktivno promiču kršćanske vrijednosti i dostojanstvo osobe.
-4. **Zabrinutosti** — Eventualna teološka odstupanja, rizici ili nejasnoće u iznesenim stavovima.
+1. **Ukupni score (0-100)** usklađenosti s katoličkim naukom, Svetim pismom i potencijala za navještaj kršćanskih vrijednosti. Koristi skalu:
+   - 90-100 = aktivno promiče Evanđelje i kulturu susreta
+   - 70-89 = uglavnom usklađeno; potiče na dobro i poštuje dostojanstvo osobe
+   - 50-69 = djelomično usklađeno, nejasnoće ili redukcionistički pristup
+   - 30-49 = značajno odstupanje od kršćanske antropologije
+   - 0-29 = proturječi nauku; promiče relativizam, redukcionizam ili kulturu odbacivanja
+2. **Teološka i antropološka procjena** (3 do 5 rečenica) — Sažeta sinteza onoga što je u tekstu teološki relevantno, a što neutralno. Ako tekst tematizira tehnologiju, AI ili digitalnu kulturu, dodatno procijeni tretira li se tehnologija kao alat u službi čovjeka ili kao zamjena za ljudsku inteligenciju i moralnu odgovornost.
+3. **Sjeme Logosa (pozitivni elementi)** — Konkretni primjeri iz teksta gdje se aktivno promiču kršćanske vrijednosti, dostojanstvo osobe, kultura susreta, pravda ili odgovorno upravljanje stvorenim.
+4. **Zabrinutosti i rizici** — Eventualna teološka odstupanja, rizici ili nejasnoće u iznesenim stavovima (npr. redukcionizam, moralni relativizam, odstupanja od kršćanske antropologije). Ako je tema digitalna ili tehnološka, uključi i rizike tipa algoritamsko uvjetovanje, gubitak ljudske agencije ili tehnokratski pristup.
 5. **Teološki kontekst** — Relevantni crkveni dokumenti koji se izravno tiču tema.
-   *UPOZORENJE:* Navodi isključivo temeljne enciklike, Katekizam Katoličke Crkve (KKC) i opće poznate dokumente (npr. Laudato Si', Gaudium et Spes, dokumenti ekumenskih sabora). STROGO ZABRANJENO: Ne navodi lokalne govore, obraćanja pojedinim političarima ili opskurne dokumente. Ako nisi 100% siguran u izravnu teološku poveznicu dokumenta i teme, izostavi ga!
-6. **Score po tematskim blokovima** — Za svaki dostavljeni blok navedi njegov naziv, pripadajući score (0-100) i jednu rečenicu teološke procjene. (Ponavljam: koristi tekstualnu listu, NE tablicu).`;
+   *DOPUŠTENO:* Katekizam Katoličke Crkve (KKC), temeljne enciklike (npr. Laudato Si', Fratelli Tutti, Gaudium et Spes), dokumenti ekumenskih sabora. Za teme o tehnologiji i AI dopušteno je referirati na Antiqua et Nova i Rome Call for AI Ethics.
+   *STROGO ZABRANJENO:* Ne navodi lokalne govore, obraćanja pojedinim političarima ili opskurne dokumente. Ako nisi 100% siguran u izravnu teološku poveznicu dokumenta i teme, izostavi ga!
+6. **Score po tematskim blokovima** — Za svaki dostavljeni blok navedi njegov naziv, pripadajući score (0-100) i jednu rečenicu teološke procjene, uključujući kako taj blok doprinosi ili odmaže evangelizacijskom poslanju. (Ponavljam: koristi tekstualnu listu, NE tablicu).`;
 
 function loadSystemPrompt() {
     try {
@@ -382,8 +389,8 @@ function findArticleFiles() {
 // --- Process one article ---
 
 async function processArticle({ channel, articlePath, basename }) {
-    const outputPath = articlePath.replace(/\.article\.json$/, '.article.magisterium_full.json');
-    const promptPath = articlePath.replace(/\.article\.json$/, '.article.magisterium_full_prompt.md');
+    const outputPath = articlePath.replace(/\.article\.json$/, `.article.magisterium_full_${PROMPT_VERSION}.json`);
+    const promptPath = articlePath.replace(/\.article\.json$/, `.article.magisterium_full_${PROMPT_VERSION}_prompt.md`);
 
     // Idempotentnost: preskači ako output JSON postoji
     if (fs.existsSync(outputPath)) {
@@ -460,6 +467,7 @@ async function processArticle({ channel, articlePath, basename }) {
     // Spremi output
     const output = {
         version:              '1.0',
+        prompt_version:       PROMPT_VERSION,
         generated_at:         new Date().toISOString(),
         model:                MODEL,
         source_article:       basename,
@@ -498,7 +506,7 @@ async function main() {
 
     // System prompt info
     const spFromFile = fs.existsSync(SYSTEM_PROMPT_PATH);
-    console.log(`   System prompt: ${spFromFile ? SYSTEM_PROMPT_PATH : 'embedded fallback'}`);
+    console.log(`   System prompt: ${spFromFile ? SYSTEM_PROMPT_PATH : 'embedded fallback'} (${PROMPT_VERSION})`);
 
     const filters = [
         VIDEO_ID_FILTER ? `video: ${VIDEO_ID_FILTER}` : null,
