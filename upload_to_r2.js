@@ -125,10 +125,12 @@ const UPLOAD_SUFFIXES = [
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
-const MAGISTERIUM_PATTERN       = /\.article\.magisterium\.json$/;        // mora biti prije ARTICLE_PATTERN
-const MAGISTERIUM_BATCH_PATTERN = /\.article\.magisterium_batch\.json$/;  // batch varijanta (usporedba)
-const MAGISTERIUM_FULL_PATTERN  = /\.article\.magisterium_full\.json$/;   // full holističko obogaćivanje
-const MAGISTERIUM_FULL_PROMPT   = /\.article\.magisterium_full_prompt\.md$/; // prompt za full mode
+const MAGISTERIUM_PATTERN         = /\.article\.magisterium\.json$/;           // mora biti prije ARTICLE_PATTERN
+const MAGISTERIUM_BATCH_PATTERN   = /\.article\.magisterium_batch\.json$/;     // batch varijanta (usporedba)
+const MAGISTERIUM_FULL_PATTERN    = /\.article\.magisterium_full\.json$/;      // full v1 (legacy, pre-prompt-versioning)
+const MAGISTERIUM_FULL_PROMPT     = /\.article\.magisterium_full_prompt\.md$/; // v1 prompt
+const MAGISTERIUM_FULL_V2_PATTERN = /\.article\.magisterium_full_v2\.json$/;   // full v2 (evangelizacijska revizija)
+const MAGISTERIUM_FULL_V2_PROMPT  = /\.article\.magisterium_full_v2_prompt\.md$/;
 const ARTICLE_PATTERN     = /\.article\.json$/;
 const OUTLINE_PATTERN     = /\.outline\.json$/;
 
@@ -401,6 +403,12 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.mp4`)
         return `data/${videoId}/video.mp4`;
 
+    if (MAGISTERIUM_FULL_V2_PATTERN.test(filename))
+        return `data/${videoId}/article.magisterium_full_v2.json`;
+
+    if (MAGISTERIUM_FULL_V2_PROMPT.test(filename))
+        return `data/${videoId}/article.magisterium_full_v2_prompt.md`;
+
     if (MAGISTERIUM_FULL_PATTERN.test(filename))
         return `data/${videoId}/article.magisterium_full.json`;
 
@@ -475,6 +483,8 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
             }
         }
 
+        if (!shouldUpload && MAGISTERIUM_FULL_V2_PATTERN.test(filename)) shouldUpload = true;
+        if (!shouldUpload && MAGISTERIUM_FULL_V2_PROMPT.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_FULL_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_FULL_PROMPT.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_BATCH_PATTERN.test(filename)) shouldUpload = true;
