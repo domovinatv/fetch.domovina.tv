@@ -1,0 +1,5106 @@
+{
+  "version": "1.2",
+  "generated_at": "2026-04-08",
+  "description": "Single source of truth za hrvatske podcaste na YouTubeu. Spaja: (1) trenutno praćene kanale iz automatic/refresh_podcasts.sh, (2) deep_research_prompt_hr_podcasti.md, (3) Gemini Deep Research, (4) Perplexity research, (5) Claude Opus 4.6 sveobuhvatni research. PRINCIP v1.2: free speech aggregator — uključuje SVE hrvatske podcaste bez obzira na političku ili vjersku orijentaciju. Tracking odluke su isključivo tehničke (verificirani URL, kompletni metapodaci, format kompatibilan s pipeline-om), nikad editorijalne. Polje 'disputes' u notes-ima entries-a označava gdje se izvori ne slažu.",
+  "sources": [
+    {
+      "id": "current",
+      "label": "automatic/refresh_podcasts.sh KANALI array (stanje 2026-04-08)",
+      "type": "internal"
+    },
+    {
+      "id": "report",
+      "label": "deep_research_prompt_hr_podcasti.md (Tier 1-4)",
+      "type": "external-research",
+      "date": "2025-11"
+    },
+    {
+      "id": "gemini",
+      "label": "Gemini Deep Research - hrvatski podcasti.md",
+      "type": "external-research",
+      "date": "2026-03"
+    },
+    {
+      "id": "perplexity",
+      "label": "Perplexity - hrvatski podcasti.md",
+      "type": "external-research",
+      "date": "2026-03"
+    },
+    {
+      "id": "claude-opus",
+      "label": "Claude Opus 4.6 - sveobuhvatni popis hrvatskih podcasta na YouTubeu (compass artifact)",
+      "type": "external-research",
+      "date": "2026-04"
+    }
+  ],
+  "tag_legend": {
+    "religious-catholic": "Katolički sadržaj, vjera, duhovnost",
+    "pro-life": "Pro-life inicijative",
+    "domoljubni": "Domoljubni / nacionalni identitet",
+    "political": "Politika opće",
+    "political-conservative": "Konzervativna politika",
+    "political-party": "Vezano uz političku stranku",
+    "business": "Poslovanje opće",
+    "entrepreneurship": "Poduzetništvo",
+    "leadership": "Vođenje, liderstvo",
+    "personal-development": "Osobni razvoj",
+    "communication": "Komunikacija",
+    "technology": "Tehnologija",
+    "finance": "Financije",
+    "sport": "Sport opće",
+    "football": "Nogomet",
+    "mma": "Borilački sportovi",
+    "true-crime": "True crime",
+    "mystery": "Misterij, paranormalno",
+    "geopolitics": "Geopolitika",
+    "pop-culture": "Pop kultura",
+    "lifestyle": "Lifestyle",
+    "women": "Ženske teme",
+    "parenting": "Roditeljstvo",
+    "diaspora": "Hrvatska dijaspora",
+    "culture": "Kultura",
+    "language": "Jezik",
+    "philosophy": "Filozofija",
+    "theology": "Teologija",
+    "evangelization": "Evangelizacija",
+    "masculinity": "Muškost",
+    "franciscan": "Franjevačka tradicija",
+    "testimonies": "Svjedočanstva",
+    "history": "Povijest",
+    "domovinski-rat": "Domovinski rat",
+    "regional-media": "Regionalni mediji",
+    "institutional": "Institucionalni kanal",
+    "talk-show": "Talk show / razno",
+    "gaming": "Gaming",
+    "tourism": "Turizam",
+    "travel": "Putovanja",
+    "education": "Edukacija",
+    "science": "Znanost",
+    "comedy": "Komedija",
+    "health": "Zdravlje",
+    "fitness": "Fitness",
+    "digital": "Digitalno",
+    "media": "Mediji opće",
+    "advocacy": "Zagovaranje",
+    "economics": "Ekonomija",
+    "society": "Društvo",
+    "own-channel": "Vlasnički kanal (DOMOVINA.tv)"
+  },
+  "research_gaps": [
+    "sport (osim PI spinoff-a, MAXSport-a i Bilićevog (Ne)uspjeha prvaka — još neistraženi nezavisni)",
+    "comedy / humor (gotovo nepokriveno)",
+    "znanstveni / edukativni (deficit)",
+    "regionalni (Dalmacija, Slavonija, Istra — lokalna scena)",
+    "HRT / RTL / Nova TV / Telegram / Index — postoje li podcast formati?",
+    "podcasti političkih stranaka (Most, Možemo, DP, HDZ mladi)",
+    "podcasti pokrenuti u prosincu 2025 - travnju 2026 (najnoviji val)",
+    "dijasporni podcasti na hrvatskom (osim Tomaševih i Zovkovih)",
+    "true crime (osim Mjesto zločina, Kriminalno dobre priče, Surove strasti)"
+  ],
+  "podcasts": [
+    {
+      "slug": "iva-kraljevic",
+      "display_name": "Iva Kraljević",
+      "youtube": {
+        "url": "https://www.youtube.com/@ivakraljevic./videos",
+        "handle": "@ivakraljevic.",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [
+        "Iva Kraljević"
+      ],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "mladi-za-domovinu",
+      "display_name": "Mladi za Domovinu",
+      "youtube": {
+        "url": "https://www.youtube.com/@mladizadomovinu1074/videos",
+        "handle": "@mladizadomovinu1074",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "domoljubni",
+        "society"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2023-02",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 90,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report",
+        "gemini"
+      ],
+      "notes": "Gemini djelomično verificirao 03/2026.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 8,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "40-dana-za-zivot",
+      "display_name": "40 dana za život - Hrvatska za Život",
+      "youtube": {
+        "url": "https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos",
+        "handle": "@40danazaživot-HrvatskazaŽivot",
+        "type": "channel"
+      },
+      "tags": [
+        "pro-life",
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "catholic-futurist",
+      "display_name": "Catholic Futurist",
+      "youtube": {
+        "url": "https://www.youtube.com/@CatholicFuturist/videos",
+        "handle": "@CatholicFuturist",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "technology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true,
+        "review_needed": true,
+        "review_reason": "Perplexity: kanal je na ENGLESKOM jeziku (AI, budućnost rada), nije hrvatski podcast. Claude Opus: nije pronađen kroz web pretrage. Razmisliti je li smisleno pratiti ne-hrvatski kanal."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Disputes: Perplexity tvrdi da je na engleskom jeziku (tematski AI/vjera, ne hrvatski). Claude Opus ga nije pronašao kroz web pretrage. Currently tracked u refresh_podcasts.sh — jezik treba potvrditi.",
+      "quality_score": {
+        "total": 43,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 8,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "bozanstvena-komedija",
+      "display_name": "Božanstvena Komedija",
+      "youtube": {
+        "url": "https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos",
+        "handle": "@BožanstvenaKomedija",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "domoljubni"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "bozja-pobjeda",
+      "display_name": "Božja pobjeda",
+      "youtube": {
+        "url": "https://www.youtube.com/@Bo%C5%BEjapobjeda/videos",
+        "handle": "@Božjapobjeda",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "domovina-tv",
+      "display_name": "DOMOVINA.tv",
+      "youtube": {
+        "url": "https://www.youtube.com/@domovinatv/videos",
+        "handle": "@domovinatv",
+        "type": "channel"
+      },
+      "tags": [
+        "own-channel",
+        "domoljubni",
+        "technology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": null,
+      "data_quality": "verified",
+      "sources": [
+        "current"
+      ],
+      "notes": "Vlasnički kanal (DOMOVINA.tv) — uključen u pipeline radi konzistentnosti, ne brojati kao konkurenciju. Tematski fokus: digitalna suverenost, blockchain, hrvatski identitet.",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "muzevni-budite",
+      "display_name": "Muževni budite!",
+      "youtube": {
+        "url": "https://www.youtube.com/@muzevnibudite/videos",
+        "handle": "@muzevnibudite",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "masculinity"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "marin-miletic",
+      "display_name": "Marin Miletić",
+      "youtube": {
+        "url": "https://www.youtube.com/@MileticMarin_/videos",
+        "handle": "@MileticMarin_",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "political-conservative"
+      ],
+      "voditelji": [
+        "Marin Miletić"
+      ],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "neuspjeh-prvaka",
+      "display_name": "(Ne)uspjeh prvaka",
+      "youtube": {
+        "url": "https://www.youtube.com/@neuspjehprvaka/videos",
+        "handle": "@neuspjehprvaka",
+        "type": "channel"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "personal-development"
+      ],
+      "voditelji": [
+        "Slaven Bilić",
+        "Mirza Džomba",
+        "Mario Stanić"
+      ],
+      "metadata": {
+        "subscribers": 69600,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 186,
+        "last_episode": "2026-04",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini",
+        "claude-opus"
+      ],
+      "notes": "Sportski podcast s rotirajućim sezonskim voditeljima: S1 Mario Stanić, S2 Mirza Džomba, S3 Slaven Bilić. Produkcija Sportskih igara mladih. Milijunski pregledi intervjua sa Zlatanom Ibrahimovićem i Lukom Modrićem. Disputes: Gemini=186 ep/75min/69.6K, Claude Opus=40 ep/45min.",
+      "quality_score": {
+        "total": 88,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 13,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "radio-mreznica",
+      "display_name": "Radio Mrežnica (Podcast Mrežnica)",
+      "youtube": {
+        "url": "https://www.youtube.com/@radiomreznica2174/videos",
+        "handle": "@radiomreznica2174",
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media",
+        "geopolitics"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "average_duration_minutes": 90,
+        "last_episode": "2026-03",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini"
+      ],
+      "notes": "Gemini referencira kao 'Podcast Mrežnica' — geopolitika.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "poduzetnistvo-s-povjerenjem",
+      "display_name": "Poduzetništvo s povjerenjem",
+      "youtube": {
+        "url": "https://www.youtube.com/@poduzetnistvospovjerenjem/videos",
+        "handle": "@poduzetnistvospovjerenjem",
+        "type": "channel"
+      },
+      "tags": [
+        "entrepreneurship",
+        "religious-catholic",
+        "business"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "budi-frajer",
+      "display_name": "Budi FRAjer",
+      "youtube": {
+        "url": "https://www.youtube.com/@budiFRAjer/videos",
+        "handle": "@budiFRAjer",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "franciscan"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "kko-hr",
+      "display_name": "KKO.hr",
+      "youtube": {
+        "url": "https://www.youtube.com/@kkohr/videos",
+        "handle": "@kkohr",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Vjerojatno 'Kršćanski kulturni okvir'.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "glas-koncila",
+      "display_name": "Glas Koncila",
+      "youtube": {
+        "url": "https://www.youtube.com/@gkonline1/videos",
+        "handle": "@gkonline1",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "media"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Službeni YouTube kanal Glasa Koncila.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "nanovoroeni",
+      "display_name": "Na novo rođeni",
+      "youtube": {
+        "url": "https://www.youtube.com/@nanovoroeni3392/videos",
+        "handle": "@nanovoroeni3392",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "rastuci-s-djecom",
+      "display_name": "Rastući s djecom",
+      "youtube": {
+        "url": "https://www.youtube.com/@Rastucisdjecom/videos",
+        "handle": "@Rastucisdjecom",
+        "type": "channel"
+      },
+      "tags": [
+        "parenting",
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "ad-deum-podcast",
+      "display_name": "Ad Deum Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@AdDeumPodcast/videos",
+        "handle": "@AdDeumPodcast",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [
+        "Fra Andrija Majić",
+        "Fra Ivo Rastočić"
+      ],
+      "metadata": {
+        "first_episode": "2023",
+        "last_episode": "2026-03",
+        "episodes_estimate": 20,
+        "average_duration_minutes": 75,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "perplexity"
+      ],
+      "notes": "Katolički podcast s dugačkim razgovorima (60-90 min) s franjevcima, teolozima i laicima. Vrlo aktivan početkom 2026.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "lood-podcast",
+      "display_name": "LOOD",
+      "youtube": {
+        "url": "https://www.youtube.com/@lood/videos",
+        "handle": "@lood",
+        "type": "channel"
+      },
+      "tags": [
+        "personal-development"
+      ],
+      "voditelji": [
+        "Vinko Mihaljević"
+      ],
+      "metadata": {
+        "subscribers": 70000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 170,
+        "first_episode": "2021-01",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 75,
+        "frequency": "svaka-2-tjedna",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "TIER 1 podcast — fokus na mentalno zdravlje i osobni razvoj. Ivana Paradžiković se u nekim epizodama pojavljuje kao gostujuća suvoditeljica. Disputes: Gemini=70K subs (03/2026), Perplexity=90-100K (2025/2026 rast), Claude Opus=70K+ (04/2026 procjena).",
+      "quality_score": {
+        "total": 88,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 13,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "hnb",
+      "display_name": "HNB - Hrvatska narodna banka",
+      "youtube": {
+        "url": "https://www.youtube.com/@hrvatskanarodnabankacroati9475/videos",
+        "handle": "@hrvatskanarodnabankacroati9475",
+        "type": "channel"
+      },
+      "tags": [
+        "institutional",
+        "finance"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Institucionalni kanal HNB-a. Provjeriti ima li razgovorni format ili samo službene objave.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "podcast-za-bolju-hrvatsku",
+      "display_name": "Podcast za bolju Hrvatsku",
+      "youtube": {
+        "url": "https://www.youtube.com/@PodcastzaBoljuHrvatsku/videos",
+        "handle": "@PodcastzaBoljuHrvatsku",
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "society"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Gemini napominje da Mislav Kolakušić nema klasičan podcast format. Provjeriti je li ovo ista koalicija/srodni kanal ili odvojeni podcast format.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "horizonti-liderstva",
+      "display_name": "Horizonti Liderstva",
+      "youtube": {
+        "url": "https://www.youtube.com/@HorizontiLiderstva/videos",
+        "handle": "@HorizontiLiderstva",
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "leadership"
+      ],
+      "voditelji": [
+        "Filip Đurović"
+      ],
+      "metadata": {
+        "subscribers": 109,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 15,
+        "average_duration_minutes": 45,
+        "status": "inactive"
+      },
+      "tracking": {
+        "enabled": true,
+        "review_needed": true,
+        "review_reason": "Gemini i Claude Opus klasificiraju kao neaktivan (15 ep, 109 subs). Perplexity tvrdi da je studentski projekt iz Crne Gore/regije — moguće da je u pitanju drugi kanal s istim imenom. Treba ručno verificirati URL i razmotriti disable."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "NEAKTIVAN. Disputes: Gemini i Claude Opus = mali HR poslovni kanal (109 subs), neaktivan. Perplexity = studentski podcast iz Crne Gore/regije o liderstvu, tehnologiji i Bitcoinu. Vjerojatno različiti kanali s istim imenom — treba pronaći točan URL.",
+      "quality_score": {
+        "total": 37,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 3,
+          "audience": 2,
+          "format": 15,
+          "substance": 7,
+          "verification": 10,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "sapere-aude",
+      "display_name": "Sapere Aude Cro",
+      "youtube": {
+        "url": "https://www.youtube.com/@SapereAudeCro/videos",
+        "handle": "@SapereAudeCro",
+        "type": "channel"
+      },
+      "tags": [
+        "philosophy",
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "mislav-kolakusic",
+      "display_name": "Mislav Kolakušić",
+      "youtube": {
+        "url": "https://www.youtube.com/@mislavkolakusichr/videos",
+        "handle": "@mislavkolakusichr",
+        "type": "channel"
+      },
+      "tags": [
+        "political"
+      ],
+      "voditelji": [
+        "Mislav Kolakušić"
+      ],
+      "metadata": {
+        "subscribers": 59700,
+        "subscribers_as_of": "2026-03",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true,
+        "review_needed": true,
+        "review_reason": "TRI nezavisna izvora (Gemini, Perplexity, Claude Opus) potvrđuju da kanal NE zadovoljava podcast definiciju. Gemini: kompilacije političkih govora, press konferencije, reemitiranja TV istupa. Perplexity: nema strukturirani autorski serijal. Claude Opus: 'gost na podcastima, nema vlastiti podcast'. PREPORUKA: disable iz pipeline-a."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Veliki broj pretplatnika ali konsenzus 3 nezavisna istraživanja je da nije nativni podcast format.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 13,
+          "format": 15,
+          "substance": 4,
+          "verification": 10,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "ikra-institut",
+      "display_name": "IKRA Institut",
+      "youtube": {
+        "url": "https://www.youtube.com/@ikra-institut/videos",
+        "handle": "@ikra-institut",
+        "type": "channel"
+      },
+      "tags": [
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "mreze-rijeci",
+      "display_name": "Mreže Riječi",
+      "youtube": {
+        "url": "https://www.youtube.com/@mrezerijeci/videos",
+        "handle": "@mrezerijeci",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "gorica-tv",
+      "display_name": "Gorica TV",
+      "youtube": {
+        "url": "https://www.youtube.com/@GoricaTV/videos",
+        "handle": "@GoricaTV",
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Lokalna televizija (Velika Gorica). Provjeriti ima li podcast/razgovorni format.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "podcast-by-niko",
+      "display_name": "Podcast by Niko",
+      "youtube": {
+        "url": "https://www.youtube.com/@PodcastbyNiko/videos",
+        "handle": "@PodcastbyNiko",
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show"
+      ],
+      "voditelji": [
+        "Niko"
+      ],
+      "metadata": {
+        "episodes_estimate": 5,
+        "last_episode": "2025",
+        "average_duration_minutes": 60,
+        "status": "inactive"
+      },
+      "tracking": {
+        "enabled": true,
+        "review_needed": true,
+        "review_reason": "Gemini 03/2026 — neaktivan, samo ~5 objavljenih epizoda, posljednji upload prije više od godinu dana. Razmisliti o disabling."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini"
+      ],
+      "notes": "Sadrži pravi podcast format (gostovanja Matije Ptića i Marija Vujinovića) ali nije održao produkcijski ritam.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 2
+        }
+      }
+    },
+    {
+      "slug": "eho-projekt",
+      "display_name": "Eho Projekt",
+      "youtube": {
+        "url": "https://www.youtube.com/@ehoprojekt/videos",
+        "handle": "@ehoprojekt",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "podcast-cuspajz",
+      "display_name": "Podcast Čušpajz",
+      "youtube": {
+        "url": "https://www.youtube.com/@podcastcuspajz/videos",
+        "handle": "@podcastcuspajz",
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "society"
+      ],
+      "voditelji": [
+        "Alen Kristović"
+      ],
+      "metadata": {
+        "subscribers": 3110,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 920,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini",
+        "claude-opus"
+      ],
+      "notes": "Drugi po broju epizoda u Hrvatskoj (~920). Suverenistički / alternativno-politički diskurs. Claude Opus ga nije pronašao kroz web pretrage ali Gemini direktno verificirao s YT URL-om i brojem epizoda.",
+      "quality_score": {
+        "total": 89,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 18,
+          "audience": 8,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "hercegovina-info",
+      "display_name": "Hercegovina Info",
+      "youtube": {
+        "url": "https://www.youtube.com/@HercegovinaInfo2/videos",
+        "handle": "@HercegovinaInfo2",
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Regionalni medij (BiH/HR).",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "franjina-ekonomija",
+      "display_name": "Franjina ekonomija",
+      "youtube": {
+        "url": "https://www.youtube.com/@franjinaekonomijahrvatska8604/videos",
+        "handle": "@franjinaekonomijahrvatska8604",
+        "type": "channel"
+      },
+      "tags": [
+        "economics",
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Vjerojatno franjevačka socijalna nauka.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "marijanski-zavjet",
+      "display_name": "Marijanski zavjet",
+      "youtube": {
+        "url": "https://www.youtube.com/@marijanskizavjet/videos",
+        "handle": "@marijanskizavjet",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "glas-poduzetnika",
+      "display_name": "Glas poduzetnika",
+      "youtube": {
+        "url": "https://www.youtube.com/@glaspoduzetnika8972/videos",
+        "handle": "@glaspoduzetnika8972",
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "advocacy"
+      ],
+      "voditelji": [
+        "Hrvoje Bujas"
+      ],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true,
+        "review_needed": true,
+        "review_reason": "Claude Opus: 'Glas poduzetnika je organizacija (Hrvoje Bujas), nema vlastiti podcast'. Perplexity sličan zaključak. Razmisliti o disable jer možda nema serijski podcast format."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Udruga Glas poduzetnika. Surove Strasti su radile 'Surove Strasti – specijal Glas Poduzetnika' epizode. Treba provjeriti ima li samostalni serijski format.",
+      "quality_score": {
+        "total": 43,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 8,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "duhovnost-hagio",
+      "display_name": "Duhovnost Hagio",
+      "youtube": {
+        "url": "https://www.youtube.com/@duhovnosthagio6031/videos",
+        "handle": "@duhovnosthagio6031",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "popcast-pavicic",
+      "display_name": "Popcast by Darko Pavičić",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Večernji TV"
+      },
+      "tags": [
+        "society",
+        "religious-catholic",
+        "culture"
+      ],
+      "voditelji": [
+        "Darko Pavičić"
+      ],
+      "metadata": {
+        "episodes_estimate": 40,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini"
+      ],
+      "notes": "Format Večernjeg lista. Sustavno obrađuje teme iz crkvenog i duhovnog života kroz duge intervjue (npr. don Damir Stojić).",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "zeljka-markic-i-narod-hr",
+      "display_name": "Željka Markić i Narod.hr",
+      "youtube": {
+        "url": "https://www.youtube.com/@zeljkamarkicinarod/videos",
+        "handle": "@zeljkamarkicinarod",
+        "type": "channel"
+      },
+      "tags": [
+        "political-conservative"
+      ],
+      "voditelji": [
+        "Željka Markić"
+      ],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "podcast-bitno-net",
+      "display_name": "Podcast Bitno.net-a",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLuxH86sIsJ-aHROAlz-GEWkN4mGPcCa11",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Bitno.net"
+      },
+      "tags": [
+        "religious-catholic",
+        "evangelization"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 50,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "report",
+        "gemini"
+      ],
+      "notes": "Redovito ugošćuje redovnike i istaknute laike.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "hitna-pomoc-za-nemirne",
+      "display_name": "Hitna pomoć za nemirne",
+      "youtube": {
+        "url": "https://www.youtube.com/@hitnapomoczanemirne7345/videos",
+        "handle": "@hitnapomoczanemirne7345",
+        "type": "channel"
+      },
+      "tags": [],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Tematika nepoznata — istražiti.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "merz-institut",
+      "display_name": "Merz Institut (Za vječnu slavu)",
+      "youtube": {
+        "url": "https://www.youtube.com/@zavjecnuslavu6073/videos",
+        "handle": "@zavjecnuslavu6073",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current",
+        "report"
+      ],
+      "notes": "Handle 'zavjecnuslavu6073' — verbalno 'Za vječnu slavu'.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "projekt-velebit",
+      "display_name": "Podcast Velebit (Projekt Velebit)",
+      "youtube": {
+        "url": "https://www.youtube.com/@projektvelebit6100/videos",
+        "handle": "@projektvelebit6100",
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "history",
+        "domoljubni",
+        "geopolitics"
+      ],
+      "voditelji": [
+        "Marko Jurič",
+        "Janja Franko",
+        "Tomislav Sunić",
+        "Dinko Dedić"
+      ],
+      "metadata": {
+        "subscribers": 88700,
+        "subscribers_as_of": "2024-11",
+        "episodes_estimate": 500,
+        "first_episode": "2017",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 90,
+        "status": "active",
+        "total_videos": 1037
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Veliki kanal s puno izjava, QA isječaka i punih epizoda. Treba custom MIN_DURATION (>2400s) i odvojen ciklus obrade.",
+        "min_duration_override": 2400,
+        "candidate_phase": 2
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current-commented",
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Pionirski hrvatski podcast (2017). Visoko utjecajna nezavisna desnica/suverenisti. Disputes: Gemini=92.2K subs/500 ep (03/2026), Claude Opus=88.7K (NoxInfluencer 11/2024) / 1037 ukupno videa. Perplexity dodaje Dinka Dedića kao 4. voditelja.",
+      "quality_score": {
+        "total": 96,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 18,
+          "audience": 13,
+          "format": 15,
+          "substance": 10,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "podcast-inkubator",
+      "display_name": "Podcast Inkubator",
+      "youtube": {
+        "url": "https://www.youtube.com/@PodcastInkubator/videos",
+        "handle": "@PodcastInkubator",
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show",
+        "society"
+      ],
+      "voditelji": [
+        "Marko Petrak",
+        "Ratko Martinović",
+        "Ivona Hemen",
+        "Milan Stjelja",
+        "Aida Šukurica",
+        "Dea Redžić",
+        "Fil Tilen"
+      ],
+      "metadata": {
+        "subscribers": 400000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 1405,
+        "first_episode": "2017-03",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 90,
+        "frequency": "vise-puta-tjedno",
+        "status": "active",
+        "total_views": 615000000
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Najveći hrvatski podcast. Puno shorts/clipova — treba custom MIN_DURATION i odvojen ciklus.",
+        "min_duration_override": 3000,
+        "candidate_phase": 2
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "current-commented",
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Najveći HR podcast. Spinoff formati: A1 Nogometni Podcast, Extra Runda, Mysterium, GameOn. Produkcija MiS Studio. Disputes: Gemini=418K subs/1405 ep (03/2026), Claude Opus=400K/600 ep glavnog formata (04/2026), Perplexity=360K (01/2025). 'Luda ekipa' je kolokvijalni naziv za PI tim po Claude analizi.",
+      "quality_score": {
+        "total": 100,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 20,
+          "audience": 15,
+          "format": 15,
+          "substance": 10,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "laudato-tv",
+      "display_name": "Laudato TV",
+      "youtube": {
+        "url": "https://www.youtube.com/@LaudatoTV/videos",
+        "handle": "@LaudatoTV",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "regional-media"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Veliki TV kanal s miješanim sadržajem (vijesti, dugi razgovori, emisije). Broji samo epizode ≥30 min razgovornog formata.",
+        "min_duration_override": 1800,
+        "candidate_phase": 2
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current-commented",
+        "report"
+      ],
+      "notes": "Prva HR obiteljska TV s kršćanskim vrijednostima. Mnogi formati su podcast-style.",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "z1-televizija",
+      "display_name": "Z1 Televizija",
+      "youtube": {
+        "url": "https://www.youtube.com/@z1televizija/videos",
+        "handle": "@z1televizija",
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media",
+        "media"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Regionalna TV. Reemitira HKR sadržaj, miješan format.",
+        "min_duration_override": 1800,
+        "candidate_phase": 2
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current-commented",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "ora-et-labora",
+      "display_name": "Ora et Labora (Međugorje)",
+      "youtube": {
+        "url": "https://www.youtube.com/@oraetlabora.cro-medjugorje/videos",
+        "handle": "@oraetlabora.cro-medjugorje",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Veliki kanal, miješan sadržaj.",
+        "min_duration_override": 1800,
+        "candidate_phase": 2
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current-commented",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "most-hrvatska",
+      "display_name": "Most Hrvatska",
+      "youtube": {
+        "url": "https://www.youtube.com/@MostHrvatska/videos",
+        "handle": "@MostHrvatska",
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "political-party"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Politička stranka. Provjeriti ima li podcast/razgovorni format ili samo politički sadržaj.",
+        "candidate_phase": 2
+      },
+      "tier": 3,
+      "data_quality": "unverified",
+      "sources": [
+        "current-commented",
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 40,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 5,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "neven-vidakovic",
+      "display_name": "Neven Vidaković",
+      "youtube": {
+        "url": "https://www.youtube.com/@nevenvidakovic",
+        "handle": "@nevenvidakovic",
+        "type": "channel"
+      },
+      "tags": [
+        "theology",
+        "philosophy"
+      ],
+      "voditelji": [
+        "Neven Vidaković"
+      ],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 3,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "Iz deep_research_prompt Tier 3, nije u trenutnom refresh_podcasts.sh.",
+      "quality_score": {
+        "total": 38,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 3,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "nova-eva",
+      "display_name": "Nova Eva",
+      "youtube": {
+        "url": "https://www.youtube.com/@NovaEva",
+        "handle": "@NovaEva",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "evangelization"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 3,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "Katolička evangelizacija. Iz deep_research_prompt Tier 3, nije u trenutnom refresh_podcasts.sh.",
+      "quality_score": {
+        "total": 38,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 3,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "hkm-argumenti",
+      "display_name": "Argumenti (Hrvatska katolička mreža)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "society",
+        "media"
+      ],
+      "voditelji": [
+        "Tanja Maleš",
+        "Katarina Varenica",
+        "Dalija Mock",
+        "Branimir Gubić",
+        "Marino Erceg"
+      ],
+      "metadata": {
+        "episodes_estimate": 500,
+        "last_episode": "disputed",
+        "average_duration_minutes": 45,
+        "status": "disputed"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "VISOKI PRIORITET ali status sporan između 3 izvora — treba ručna verifikacija prije dodavanja u pipeline."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "MAJOR DISPUTE između 3 izvora: (1) Gemini = AKTIVAN 03/2026, povratak nakon ukidanja u 06/2025, urednik Marino Erceg. (2) Perplexity = NEAKTIVAN, posljednje YT epizode 06/2025, nakon 12.06.2025. nema novih objava. (3) Claude Opus = AKTIVAN u 7. sezoni od 2025., emitira ponedjeljak-četvrtak 8:10 na HKR-u, urednici Tanja Maleš, Katarina Varenica, Dalija Mock, Branimir Gubić, isječci na HKM YouTube. Treba ručno provjeriti HKM YouTube kanal i status emisije. hkr.hkm.hr je matični site.",
+      "quality_score": {
+        "total": 53,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 12,
+          "catalog": 18,
+          "audience": 4,
+          "format": 8,
+          "substance": 7,
+          "verification": 4,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "domovinski-rat-borna-marinic",
+      "display_name": "Gdje si bio '91? (Borna Marinić)",
+      "youtube": {
+        "url": "https://music.youtube.com/channel/UCpXfcdXulKYTBO3DNBFWMjQ",
+        "channel_id": "UCpXfcdXulKYTBO3DNBFWMjQ",
+        "handle": null,
+        "type": "disputed"
+      },
+      "tags": [
+        "history",
+        "domovinski-rat",
+        "domoljubni"
+      ],
+      "voditelji": [
+        "Borna Marinić"
+      ],
+      "metadata": {
+        "subscribers": 50200,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 100,
+        "first_episode": "2021-06",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 186,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "VISOKI PRIORITET za DOMOVINA.tv editorijalnu liniju, ALI postoji DISPUTE oko platforme: Gemini tvrdi 50.2K YouTube subs, Claude Opus tvrdi audio-only (Spotify/Apple) BEZ YouTube prisutnosti. Treba ručna verifikacija prije dodavanja."
+      },
+      "tier": 1,
+      "data_quality": "partial",
+      "sources": [
+        "gemini",
+        "claude-opus"
+      ],
+      "notes": "Povjesničar Borna Marinić dokumentira usmenu povijest kroz monumentalne višesatne intervjue s hrvatskim braniteljima i zapovjednicima. MAJOR DISPUTE: Gemini = aktivan YouTube kanal s 50.2K subs, 100 ep, ~186min, channel_id UCpXfcdXulKYTBO3DNBFWMjQ. Claude Opus = audio-only na Spotify/Apple, NEMA YouTube prisutnost. Moguće da Gemini halucinira YouTube prisutnost ili da je channel_id zapravo audio-distribucija kroz YT Music. KRITIČNA RUČNA VERIFIKACIJA POTREBNA.",
+      "quality_score": {
+        "total": 80,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 13,
+          "format": 8,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "podcast-inkubator-a1-nogometni",
+      "display_name": "A1 Nogometni Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Podcast Inkubator"
+      },
+      "tags": [
+        "sport",
+        "football"
+      ],
+      "voditelji": [
+        "Marko Petrak",
+        "M. Pukšar"
+      ],
+      "metadata": {
+        "episodes_estimate": 325,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 120,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Spinoff Podcast Inkubatora. Dio glavnog kanala — pratit će se kroz inkubator-cycle ako/kada se podcast-inkubator ukljuci."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "Specijalizirani sub-format unutar PI. Dio Podcast Inkubator kanala.",
+      "quality_score": {
+        "total": 79,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "podcast-inkubator-extra-runda",
+      "display_name": "Extra Runda",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Podcast Inkubator"
+      },
+      "tags": [
+        "sport",
+        "mma"
+      ],
+      "voditelji": [
+        "Marko Petrak",
+        "Hamby"
+      ],
+      "metadata": {
+        "episodes_estimate": 134,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 90,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Spinoff Podcast Inkubatora. Dio glavnog kanala."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "MMA / borilački sportovi unutar PI ekosustava.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "podcast-inkubator-mysterium",
+      "display_name": "Mysterium",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Podcast Inkubator"
+      },
+      "tags": [
+        "geopolitics",
+        "mystery"
+      ],
+      "voditelji": [
+        "Ratko Martinović",
+        "D. Pintarić"
+      ],
+      "metadata": {
+        "episodes_estimate": 153,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 150,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Spinoff Podcast Inkubatora — geopolitika i rubni društveni fenomeni. Potencijalno relevantno za DOMOVINA.tv tematiku."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "Iznimno popularan format — geopolitika i rubni fenomeni.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "nemoj-me",
+      "display_name": "nemoj me. (Maša Zibar)",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCIIMBF5bE6dmjLBLug7fzUQ",
+        "handle": "@MashintheBeauty",
+        "channel_id": "UCIIMBF5bE6dmjLBLug7fzUQ",
+        "type": "channel",
+        "parent_channel": "Mashin' the Beauty"
+      },
+      "tags": [
+        "pop-culture",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Maša Zibar",
+        "Filip Jančik",
+        "Nina Remenar"
+      ],
+      "metadata": {
+        "subscribers": 84000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 200,
+        "first_episode": "2019-09",
+        "last_episode": "disputed",
+        "average_duration_minutes": 60,
+        "status": "disputed"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Status sporan između istraživačkih izvora — treba ručna verifikacija prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Treći po pretplatnicima u HR (~84K po Claude Opus). Distribuiran preko kanala 'Mashin' the Beauty'. Deep research prompt navodi 'Maša Zibar' kao Tier 1 #3 — ovo je isti format pod brandom 'nemoj me.'. STATUS DISPUTE: Gemini = aktivan 03/2026 s ~100K subs. Perplexity = pauziran od 11/2024 (zadnja sezona S05 jesen 2024.). Claude Opus = aktivan 04/2026 s ~84K subs, ~200 ep.",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 12,
+          "catalog": 15,
+          "audience": 13,
+          "format": 8,
+          "substance": 8,
+          "verification": 10,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "moc-komunikacije",
+      "display_name": "Moć komunikacije",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "communication",
+        "leadership",
+        "personal-development"
+      ],
+      "voditelji": [
+        "Saša Tenodi"
+      ],
+      "metadata": {
+        "subscribers": 40000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 100,
+        "first_episode": "2024",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Saša Tenodi je također suvoditelj Surovih strasti i autor Nominis eCommerce / Prodajni Mindset. Ekspanzivni rast 2024-2026. Razvio i 'solocast' format (kraće epizode bez gosta) — Perplexity napominje. Top 5 po pretplatnicima u HR po Claude Opus.",
+      "quality_score": {
+        "total": 84,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 13,
+          "format": 15,
+          "substance": 8,
+          "verification": 6,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "human-lab-podcast",
+      "display_name": "Human LAB Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA",
+        "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "health",
+        "fitness"
+      ],
+      "voditelji": [
+        "Mateo Ćorluka"
+      ],
+      "metadata": {
+        "subscribers": 23000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 96,
+        "first_episode": "2019-04",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 75,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Disputes oko broja pretplatnika: Tier 1 prompt = 35K, Claude Opus = 23K (04/2026). Sadrži mješavinu live streamova, kratkih klipova i full epizoda.",
+      "quality_score": {
+        "total": 83,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 11,
+          "format": 15,
+          "substance": 8,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "superhuman-life",
+      "display_name": "Superhuman Life",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "personal-development"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 25000,
+        "subscribers_as_of": "2025-11",
+        "episodes_estimate": 100,
+        "first_episode": "2021",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "partial",
+      "sources": [
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 11,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "samo-bez-panike",
+      "display_name": "Samo bez panike (formerly 'Od A do Žena')",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "women",
+        "lifestyle",
+        "health"
+      ],
+      "voditelji": [
+        "Margarita Tomić",
+        "Maja Marić"
+      ],
+      "metadata": {
+        "subscribers": 31200,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 80,
+        "first_episode": "2021-08",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "claude-opus"
+      ],
+      "notes": "RECLASSIFIED u v1.1: Claude Opus utvrdio da su 'Od A do Žena' i 'Samo bez panike' isti podcast (voditeljice Margarita Tomić i Maja Marić). Perplexity navodi voditeljicu 'Marina Kolar' za 'Od A do Žena' — moguće da je u pitanju različiti format koji je nastao iz iste niše. Top 6 po pretplatnicima u HR po Claude Opus.",
+      "quality_score": {
+        "total": 80,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 13,
+          "format": 15,
+          "substance": 8,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "rebootcast",
+      "display_name": "Rebootcast (Reboot magazine)",
+      "youtube": {
+        "url": "https://www.youtube.com/user/rebootmag",
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "Reboot magazine"
+      },
+      "tags": [
+        "gaming"
+      ],
+      "voditelji": [
+        "Luka Žučko",
+        "Matko Pavlić",
+        "Ivan Medak"
+      ],
+      "metadata": {
+        "subscribers": 11500,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 300,
+        "first_episode": "2017-04",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 90,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Dio Reboot magazine medijske kuće. Pionirski gaming podcast (od 2017). Top 10 po pretplatnicima.",
+      "quality_score": {
+        "total": 91,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 11,
+          "format": 15,
+          "substance": 10,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "kriminalno-dobre-price",
+      "display_name": "Kriminalno dobre priče",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UC2hr0oPLYT_ETqKquJc3f0A",
+        "channel_id": "UC2hr0oPLYT_ETqKquJc3f0A",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "true-crime"
+      ],
+      "voditelji": [
+        "Ines Mataija",
+        "Dolores 'Doda' Mataija"
+      ],
+      "metadata": {
+        "subscribers": 12000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 376,
+        "first_episode": "2022-06",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "frequency": "dvaput-tjedno",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "Vrlo aktivan true crime podcast, 376+ epizoda dvaput tjedno. Disputes oko hostova: Perplexity navodi 'Tia i Filip' (po Netokraciji), Claude Opus navodi 'Ines Mataija, Dolores Mataija'. Mogu biti različiti formati ili pogrešna atribucija u jednom od izvora — treba ručno provjeriti.",
+      "quality_score": {
+        "total": 88,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 11,
+          "format": 15,
+          "substance": 7,
+          "verification": 10,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "babyroom-podcast",
+      "display_name": "BabyRoom Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "parenting"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 10000,
+        "subscribers_as_of": "2025-11",
+        "episodes_estimate": 100,
+        "first_episode": "2019",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "partial",
+      "sources": [
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 11,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "grizli-office",
+      "display_name": "Grizli Office",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 10000,
+        "subscribers_as_of": "2025-11",
+        "episodes_estimate": 60,
+        "first_episode": "2019",
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "partial",
+      "sources": [
+        "report"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 48,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 9,
+          "audience": 11,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "netokracija",
+      "display_name": "Netokracija (Office Talks)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "business"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 8000,
+        "subscribers_as_of": "2025-11",
+        "episodes_estimate": 100,
+        "first_episode": "2018",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "partial",
+      "sources": [
+        "report"
+      ],
+      "notes": "Više formata uključujući 'Office Talks'.",
+      "quality_score": {
+        "total": 65,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 8,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "pametni-ljudi",
+      "display_name": "Pametni ljudi",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 8000,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 150,
+        "first_episode": "2017",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "150+ različitih gostiju od 2017.",
+      "quality_score": {
+        "total": 78,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 8,
+          "format": 15,
+          "substance": 8,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "balkan-rules",
+      "display_name": "Balkan Rules",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "geopolitics"
+      ],
+      "voditelji": [
+        "Danijal Hadžović"
+      ],
+      "metadata": {
+        "episodes_estimate": 222,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 110,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "podcast.hr listed.",
+      "quality_score": {
+        "total": 79,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 5,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "fakat-podcast",
+      "display_name": "Fakat Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Iz podcast.hr liste, treba istražiti format i tematiku."
+      },
+      "tier": 2,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "podcast.hr/p/fakat",
+      "quality_score": {
+        "total": 35,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "putoholicari",
+      "display_name": "Putoholicari",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "travel",
+        "tourism"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "podcast.hr/p/putoholicari",
+      "quality_score": {
+        "total": 35,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "surove-strasti",
+      "display_name": "Surove Strasti",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "business",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Saša Tenodi",
+        "Ivan Voras"
+      ],
+      "metadata": {
+        "episodes_estimate": 422,
+        "first_episode": "2017-11",
+        "last_episode": "2025",
+        "average_duration_minutes": 90,
+        "status": "active-slowing"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only podcast bez (ili s minimalnom) YouTube prisutnosti — pipeline ne može pratiti audio podcaste. Razmotriti samo ako se u budućnosti pokrene YT distribucija."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "surovestrasti.com — pionirski hrvatski podcast (2017). Voditelj Saša Tenodi vodi i Moć komunikacije, Nominis eCommerce, Prodajni Mindset. PLATFORM DISPUTE: Gemini = aktivan na YT s 400+ ep. Perplexity = primarno audio, YouTube sporedan kanal. Claude Opus = 422+ ep, NEMA YouTube kanal, distribucija isključivo Spotify/Apple. Konsenzus 2 od 3 izvora: audio-only.",
+      "quality_score": {
+        "total": 61,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 18,
+          "catalog": 15,
+          "audience": 4,
+          "format": 6,
+          "substance": 10,
+          "verification": 6,
+          "recency": 2
+        }
+      }
+    },
+    {
+      "slug": "turizam24",
+      "display_name": "Turizam24",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "tourism"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "podcast.hr/p/turizam24",
+      "quality_score": {
+        "total": 35,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "zapozorje-podcast",
+      "display_name": "Zapozorje Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [],
+      "voditelji": [],
+      "metadata": {
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Iz podcast.hr liste — istražiti tematiku i format."
+      },
+      "tier": 2,
+      "data_quality": "unverified",
+      "sources": [
+        "report"
+      ],
+      "notes": "podcast.hr/p/zapozorje",
+      "quality_score": {
+        "total": 35,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "mjesto-zlocina",
+      "display_name": "Mjesto Zločina",
+      "youtube": {
+        "url": "https://www.youtube.com/@mjestozlocinapodcast",
+        "channel_id": "UCZuyOqDhsrLq6MuxlxBzY6g",
+        "handle": "@mjestozlocinapodcast",
+        "type": "channel"
+      },
+      "tags": [
+        "true-crime"
+      ],
+      "voditelji": [
+        "Katia Tia Kozina",
+        "Filip Štimec"
+      ],
+      "metadata": {
+        "subscribers": 9000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 229,
+        "first_episode": "2020-10",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 50,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "gemini",
+        "claude-opus"
+      ],
+      "notes": "Patreon model financiranja. Disputes: Gemini = 3.14K subs / 229 ep / 55min (03/2026). Claude Opus = 9K+ subs / 90+ ep / 45min (04/2026). Najveći jaz je u broju epizoda — moguće da je Gemini brojao i klipove ili je došlo do reorganizacije kanala.",
+      "quality_score": {
+        "total": 84,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 8,
+          "format": 15,
+          "substance": 7,
+          "verification": 9,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina",
+      "display_name": "Tribina",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "sport",
+        "football"
+      ],
+      "voditelji": [
+        "J. Korda",
+        "M. Topić"
+      ],
+      "metadata": {
+        "episodes_estimate": 200,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "gemini"
+      ],
+      "notes": "Aktivan na Patreonu i Discordu — community-funded model.",
+      "quality_score": {
+        "total": 75,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 3,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "utakmicu-po-utakmicu",
+      "display_name": "Utakmicu po utakmicu",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XSH6m_QxPD2mygdBRXS-i5",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "MAXSport / gol.hr"
+      },
+      "tags": [
+        "sport",
+        "football"
+      ],
+      "voditelji": [
+        "M. Pukšar",
+        "I. Ljubić"
+      ],
+      "metadata": {
+        "episodes_estimate": 365,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "gemini"
+      ],
+      "notes": "Integriran u MAXSport / gol.hr.",
+      "quality_score": {
+        "total": 79,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "all-things-croatia",
+      "display_name": "All Things Croatia",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "diaspora",
+        "culture"
+      ],
+      "voditelji": [
+        "Stanko Zovak"
+      ],
+      "metadata": {
+        "first_episode": "2022-04",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 34,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only podcast — pipeline ne podržava distribuciju bez YouTube kanala. Dodati ako/kada se pokrene YT distribucija."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "gemini"
+      ],
+      "notes": "rss.com/podcasts/allthingscroatia/",
+      "quality_score": {
+        "total": 50,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 5,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "croatian-american",
+      "display_name": "Croatian/American",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "diaspora",
+        "culture"
+      ],
+      "voditelji": [
+        "Gaj Tomaš",
+        "C.M. Brown"
+      ],
+      "metadata": {
+        "first_episode": "2024-10",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 59,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio primarno. Dijasporni dvojezični format."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "gemini"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 52,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 7,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "bliski-susreti-jezicne-vrste",
+      "display_name": "Bliski susreti jezične vrste",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "language",
+        "culture"
+      ],
+      "voditelji": [
+        "Gaj Tomaš"
+      ],
+      "metadata": {
+        "episodes_estimate": 100,
+        "first_episode": "2020-03",
+        "last_episode": "2026-03",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio primarno (Apple Podcasts). Slaba YT prisutnost."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "report",
+        "gemini"
+      ],
+      "notes": "",
+      "quality_score": {
+        "total": 63,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 6,
+          "substance": 8,
+          "verification": 3,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "logit",
+      "display_name": "Logit / Logit Live",
+      "youtube": {
+        "url": "https://www.youtube.com/c/Logitnet/streams",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "technology"
+      ],
+      "voditelji": [
+        "Višnja Željeznjak"
+      ],
+      "metadata": {
+        "subscribers": 484,
+        "subscribers_as_of": "2026-03",
+        "episodes_estimate": 105,
+        "last_episode": "2023",
+        "average_duration_minutes": 45,
+        "status": "completed"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "ZAVRŠEN nakon 105 epizoda. Arhiviran radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "B2B digitalni marketing podcast, 105 epizoda. ZAVRŠEN. Voditeljica Višnja Željeznjak je također povezana s aktivnim Eduza Show podcastom. Disputes: Gemini = 109 ep i 'inactive', Claude Opus = 105 ep i 'completed' (Logit Live).",
+      "quality_score": {
+        "total": 46,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 12,
+          "audience": 2,
+          "format": 15,
+          "substance": 7,
+          "verification": 10,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "luda-ekipa",
+      "display_name": "Luda ekipa (REJECTED — nije zaseban podcast)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [],
+      "voditelji": [],
+      "metadata": {
+        "status": "rejected"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "REJECTED: nije zaseban podcast brand.",
+        "permanently_excluded": true
+      },
+      "tier": null,
+      "data_quality": "verified",
+      "sources": [
+        "report",
+        "gemini",
+        "claude-opus"
+      ],
+      "notes": "DUAL REJECTION RATIONALE: (1) Gemini 03/2026 = identificiran kao dječji zabavni kanal 'Stefan JUTJUBER' s glumljenim skečevima ('Kriminalac vs. Policajac'). (2) Claude Opus 04/2026 = 'Luda ekipa' je kolokvijalni naziv za tim Podcast Inkubatora korišten u članku Dalmatinskog portala iz 01/2025. 362K pretplatnika koji su navedeni u seed istraživanju zapravo pripada Podcast Inkubatoru u tom trenutku. Inicijalno klasificiran u deep_research_prompt-u kao Tier 1 #2. PERMANENTNO ISKLJUČEN iz podcast registry.",
+      "quality_score": {
+        "total": 18,
+        "tier": "❌ very-low",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 4,
+          "audience": 4,
+          "format": 0,
+          "substance": 4,
+          "verification": 6,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "hcl-podcast",
+      "display_name": "HCL Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@HCLGamingPortal",
+        "handle": "@HCLGamingPortal",
+        "type": "channel"
+      },
+      "tags": [
+        "gaming"
+      ],
+      "voditelji": [
+        "Igor Belan",
+        "Zoran Žalac"
+      ],
+      "metadata": {
+        "subscribers": 2000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 50,
+        "first_episode": "2015-06",
+        "last_episode": "2025",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Kandidat za dodavanje u pipeline. URL je poznat, treba verifikacija metapodataka i odluka o uključivanju."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "report",
+        "gemini",
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "RECLASSIFIED iz REJECTED u CANDIDATE u v1.1. Disputes: Gemini = nije podcast (no structured format identified, possible HCLTech mixup). Perplexity i Claude Opus = aktivan podcast, hosts Igor Belan i Zoran Žalac, ~50 ep podcast playlista, od 2015. HCL.hr je gaming portal s ~635K subs (Perplexity) na ukupnom kanalu, ali podcast je manji segment (~1-3K aktivnih po Claude Opus). Najstariji hrvatski gaming podcast.",
+      "quality_score": {
+        "total": 72,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 5,
+          "format": 15,
+          "substance": 8,
+          "verification": 8,
+          "recency": 2
+        }
+      }
+    },
+    {
+      "slug": "spica-s-macanom",
+      "display_name": "Špica s Macanom",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "society",
+        "economics"
+      ],
+      "voditelji": [
+        "Krešimir Macan",
+        "Neven Kepeski"
+      ],
+      "metadata": {
+        "subscribers": 10000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 80,
+        "first_episode": "2023-06",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Profesionalizirani politički podcast s gostima suprotstavljenih stajališta. Centralni politički podcast po Claude Opus analizi.",
+      "quality_score": {
+        "total": 75,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 11,
+          "format": 15,
+          "substance": 7,
+          "verification": 3,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "ana-radisic-podcast",
+      "display_name": "Ana Radišić Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show",
+        "personal-development"
+      ],
+      "voditelji": [
+        "Ana Radišić"
+      ],
+      "metadata": {
+        "subscribers": 10000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 145,
+        "first_episode": "2020",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Inspirativni intervjui.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 11,
+          "format": 15,
+          "substance": 7,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "nebitno-o-bitnom",
+      "display_name": "Nebitno O Bitnom",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show",
+        "lifestyle"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 7500,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 80,
+        "first_episode": "2021-05",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Mladi tim, intervjui.",
+      "quality_score": {
+        "total": 70,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 8,
+          "format": 15,
+          "substance": 7,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "iza-okvira",
+      "display_name": "Iza Okvira",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "comedy",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Karla Mihaljević",
+        "Ivan Franko"
+      ],
+      "metadata": {
+        "subscribers": 3000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 60,
+        "first_episode": "2021-11",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "RIJETKA komedija/lifestyle niša. Karla Mihaljević je 'MihaTheTrash'.",
+      "quality_score": {
+        "total": 70,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 8,
+          "format": 15,
+          "substance": 7,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "dalmacija-podcast",
+      "display_name": "Dalmacija Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCAYpITaR1fJnM-JdPuO19Ew",
+        "channel_id": "UCAYpITaR1fJnM-JdPuO19Ew",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media",
+        "lifestyle",
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 3000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 50,
+        "first_episode": "2021-02",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba verifikacija YouTube kanala prije dodavanja."
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Mladi tim iz Trogira. Jedan od rijetkih pravih regionalnih hrvatskih podcasta (Dalmacija). Dalmacija/mladi/trendovi.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 8,
+          "format": 15,
+          "substance": 7,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "eduza-show",
+      "display_name": "Eduza Show",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCKPBjmgFMFR_WufZs3GLQwA",
+        "channel_id": "UCKPBjmgFMFR_WufZs3GLQwA",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "education"
+      ],
+      "voditelji": [
+        "Višnja Željeznjak",
+        "Saša Matijašić"
+      ],
+      "metadata": {
+        "subscribers": 2000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 50,
+        "first_episode": "2020-08",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba verifikacija prije dodavanja."
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Poslovno obrazovanje. Višnja Željeznjak je također povezana s ugašenim Logit projektom.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 5,
+          "format": 15,
+          "substance": 7,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "brodcast",
+      "display_name": "Brodcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@Brodcasteu",
+        "handle": "@Brodcasteu",
+        "type": "channel"
+      },
+      "tags": [
+        "regional-media",
+        "society"
+      ],
+      "voditelji": [
+        "Klara Tuličić Tenkai"
+      ],
+      "metadata": {
+        "subscribers": 1000,
+        "subscribers_as_of": "2026-04",
+        "episodes_estimate": 30,
+        "first_episode": "2021-02",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba verifikacija prije dodavanja."
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "REGIONALNI podcast iz Slavonskog Broda. Jedan od rijetkih regionalnih izvan Zagreba/Dalmacije. Tema: zajednica.",
+      "quality_score": {
+        "total": 70,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 5,
+          "format": 15,
+          "substance": 7,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "ideje-hr",
+      "display_name": "Ideje.hr",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "political",
+        "philosophy",
+        "science"
+      ],
+      "voditelji": [
+        "Domagoj Novokmet"
+      ],
+      "metadata": {
+        "subscribers": null,
+        "episodes_estimate": 60,
+        "first_episode": "2025",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 60,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+      },
+      "tier": 2,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "NOVI intelektualni podcast (pokrenut 2025). Politika/filozofija/znanost. Brzo dosegao 60 epizoda.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "pogled-s-cuke",
+      "display_name": "Pogled s Čuke",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "domovinski-rat",
+        "history",
+        "domoljubni"
+      ],
+      "voditelji": [
+        "Jozo",
+        "Peco"
+      ],
+      "metadata": {
+        "episodes_estimate": 30,
+        "average_duration_minutes": 45,
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YouTube URL i verificirati prije dodavanja."
+      },
+      "tier": 3,
+      "data_quality": "unverified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Branitelji / Domovinski rat. Tematski uskladiv s DOMOVINA.tv. Pseudonimi voditelja 'Jozo' i 'Peco'.",
+      "quality_score": {
+        "total": 40,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 7,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "vatrena-obitelj",
+      "display_name": "Vatrena obitelj",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "HNS"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "institutional"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "average_duration_minutes": 30,
+        "last_episode": "2026-04",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan HNS YouTube playlist URL."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "HNS-ov službeni podcast. Nogomet/reprezentacija.",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "audijalog",
+      "display_name": "Audijalog",
+      "youtube": {
+        "url": "https://www.youtube.com/@Audijalog",
+        "handle": "@Audijalog",
+        "type": "channel"
+      },
+      "tags": [
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-05",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba verifikacija prije dodavanja."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Glazbeni podcast.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 7,
+          "verification": 5,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "podkist-fer",
+      "display_name": "Podkist (FER)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "FER"
+      },
+      "tags": [
+        "science",
+        "technology",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2023",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YT URL FER kanala."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "RIJETKA znanost/tehnologija niša. Fakultet elektrotehnike i računarstva, Zagreb.",
+      "quality_score": {
+        "total": 61,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 7,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "kuhinjski-element",
+      "display_name": "Kuhinjski Element",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "KakoZašto"
+      },
+      "tags": [
+        "science",
+        "education"
+      ],
+      "voditelji": [
+        "Saša Ceci",
+        "Martina Manenica",
+        "Vida Strasser"
+      ],
+      "metadata": {
+        "first_episode": "2020",
+        "average_duration_minutes": 30,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan KakoZašto YT URL."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Popularna znanost. KakoZašto je platforma Instituta Ruđer Bošković (IRB).",
+      "quality_score": {
+        "total": 54,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "slusalica-penkala",
+      "display_name": "Slušalica (Udruga Penkala)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "science",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2020-03",
+        "average_duration_minutes": 30,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YT URL Udruge Penkala."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Znanost/doktorandi. Udruga Penkala.",
+      "quality_score": {
+        "total": 54,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "metautism",
+      "display_name": "Metautism",
+      "youtube": {
+        "url": "https://www.youtube.com/@metautism",
+        "handle": "@metautism",
+        "type": "channel"
+      },
+      "tags": [
+        "health",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2024-02",
+        "episodes_estimate": 15,
+        "average_duration_minutes": 30,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba verifikacija prije dodavanja."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "RIJETKA niša: autizam i inkluzija.",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "foi-business-talks",
+      "display_name": "FOI Business Talks",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "FOI"
+      },
+      "tags": [
+        "business",
+        "education"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-10",
+        "episodes_estimate": 20,
+        "average_duration_minutes": 30,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan FOI YT URL."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Akademski. Fakultet organizacije i informatike, Varaždin.",
+      "quality_score": {
+        "total": 56,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "sportklub-podcast",
+      "display_name": "Sportklub Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "Sportklub"
+      },
+      "tags": [
+        "sport"
+      ],
+      "voditelji": [
+        "Ivan Ivković",
+        "Josip Juraj Pajvot"
+      ],
+      "metadata": {
+        "first_episode": "2018-09",
+        "episodes_estimate": 50,
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan Sportklub playlist URL."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Sport, dio Sportklub TV mreže.",
+      "quality_score": {
+        "total": 61,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 7,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "sportske-novosti-podcast",
+      "display_name": "Sportske Novosti Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "Sportske Novosti"
+      },
+      "tags": [
+        "sport"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2019-06",
+        "episodes_estimate": 50,
+        "average_duration_minutes": 30,
+        "status": "unknown"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan SN YT URL."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Sport, dio Sportskih Novosti.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 8,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "f1-puls-podcast",
+      "display_name": "F1 Puls Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "Tribina"
+      },
+      "tags": [
+        "sport"
+      ],
+      "voditelji": [
+        "Vetma",
+        "Andraka",
+        "Karlo Duvnjak"
+      ],
+      "metadata": {
+        "average_duration_minutes": 60,
+        "last_episode": "2026-04",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan URL — sub-format Tribine."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Formula 1 podcast. Sub-format ili spinoff Tribine.",
+      "quality_score": {
+        "total": 62,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 1,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "marko-vuletic-podcast",
+      "display_name": "Marko Vuletić Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Marko Vuletić"
+      ],
+      "metadata": {
+        "average_duration_minutes": 45,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Treba pronaći točan YT URL."
+      },
+      "tier": 4,
+      "data_quality": "unverified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Mladi/odrastanje.",
+      "quality_score": {
+        "total": 55,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 7,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "birc-talk",
+      "display_name": "Birc Talk",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCQxfuSwkCySfpsftoHlo8Yw",
+        "channel_id": "UCQxfuSwkCySfpsftoHlo8Yw",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "talk-show",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Petar Starčević",
+        "Oliver Petrović"
+      ],
+      "metadata": {
+        "subscribers": 2000,
+        "episodes_estimate": 30,
+        "first_episode": "2019",
+        "last_episode": "2021-03",
+        "status": "inactive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NEAKTIVAN od 03/2021. Arhiviran u registry-ju radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Neaktivan od ožujka 2021. Intervjui/lifestyle.",
+      "quality_score": {
+        "total": 37,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 6,
+          "audience": 5,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "brutzcast",
+      "display_name": "BrützCast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel",
+        "parent_channel": "Good Game Show"
+      },
+      "tags": [
+        "gaming"
+      ],
+      "voditelji": [
+        "Duki420",
+        "Marko Ševa"
+      ],
+      "metadata": {
+        "subscribers": 1000,
+        "episodes_estimate": 20,
+        "first_episode": "2018",
+        "last_episode": "2020-12",
+        "status": "inactive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NEAKTIVAN od 12/2020. Arhiviran radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Neaktivan od prosinca 2020. Gaming/esport.",
+      "quality_score": {
+        "total": 31,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 6,
+          "audience": 5,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "kuzimo-filmove",
+      "display_name": "Kužimo filmove?",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "culture"
+      ],
+      "voditelji": [
+        "Dorian Sabo",
+        "Bruno Koić"
+      ],
+      "metadata": {
+        "episodes_estimate": 30,
+        "first_episode": "2019-03",
+        "status": "paused"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "PAUZIRAN. Arhiviran radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Pauziran. Film.",
+      "quality_score": {
+        "total": 35,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 5,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "libos-posla",
+      "display_name": "Libos Posla",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "political"
+      ],
+      "voditelji": [
+        "Igor Vuk"
+      ],
+      "metadata": {
+        "first_episode": "2019-02",
+        "status": "paused"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "PAUZIRAN. Arhiviran radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Pauziran. Politika/slobode. Igor Vuk je također povezan s 'The Podcast' projektom.",
+      "quality_score": {
+        "total": 33,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 5,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "0800-devops",
+      "display_name": "0800-DEVOPS",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "technology"
+      ],
+      "voditelji": [
+        "Ivan Krnić"
+      ],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only podcast (Spotify/Apple), nema YouTube prisutnosti — pipeline ne podržava."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "perplexity",
+        "claude-opus"
+      ],
+      "notes": "DevOps/tech podcast. Veteran iz hrvatske tech scene.",
+      "quality_score": {
+        "total": 46,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 4,
+          "verification": 3,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "povijest-cetvrtkom",
+      "display_name": "Povijest četvrtkom",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary",
+        "parent_channel": "HRT"
+      },
+      "tags": [
+        "history"
+      ],
+      "voditelji": [
+        "Dario Špelić"
+      ],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "HRT audio podcast — distribucija primarno HRT radio i Apple Podcasts. Nema YouTube prisutnosti."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "HRT podcast o povijesti. Apple Podcasts HR #1 u kategoriji.",
+      "quality_score": {
+        "total": 44,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "prvi-glas-telegram",
+      "display_name": "Prvi glas (Telegram.hr)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary",
+        "parent_channel": "Telegram.hr"
+      },
+      "tags": [
+        "media",
+        "society"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "average_duration_minutes": 15,
+        "first_episode": "2025",
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only (Spotify/Apple) — nema YouTube prisutnosti."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Prvi hrvatski dnevni news podcast (15 min). Pokrenut 2025. od strane Telegram.hr redakcije.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 2,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "heinzelova-33",
+      "display_name": "Heinzelova 33",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "technology",
+        "entrepreneurship"
+      ],
+      "voditelji": [
+        "Viktor Marohnić"
+      ],
+      "metadata": {
+        "status": "paused"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "PAUZIRAN audio podcast. Arhiviran radi povijesnog konteksta."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Pauziran. Tech/poduzetništvo. Viktor Marohnić iz Five (sada Endeavor).",
+      "quality_score": {
+        "total": 24,
+        "tier": "📦 weak",
+        "breakdown": {
+          "activity": 5,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "lets-learn-croatian",
+      "display_name": "Let's Learn Croatian",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "language",
+        "diaspora",
+        "culture"
+      ],
+      "voditelji": [
+        "Uncle Mike",
+        "Tony D",
+        "DJ Moe"
+      ],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dijasporni podcast — engleski/hrvatski."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Dijasporni podcast. Učenje hrvatskog jezika za hrvatsku dijasporu.",
+      "quality_score": {
+        "total": 53,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "croatiansports-podcast",
+      "display_name": "CroatianSports Podcast",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary"
+      },
+      "tags": [
+        "sport",
+        "diaspora"
+      ],
+      "voditelji": [
+        "Lovre Nikolac"
+      ],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only dijasporni podcast — engleski jezik."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Hrvatski sport na engleskom za dijasporu.",
+      "quality_score": {
+        "total": 44,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "sbs-croatian",
+      "display_name": "SBS Croatian",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-primary",
+        "parent_channel": "SBS Australia"
+      },
+      "tags": [
+        "media",
+        "diaspora"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only dijasporni podcast (SBS Audio)."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "Vijesti za hrvatsku dijasporu u Australiji. Službeni SBS Croatian program.",
+      "quality_score": {
+        "total": 44,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 6,
+          "substance": 4,
+          "verification": 1,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "pod-smokvom",
+      "display_name": "Pod Smokvom (REJECTED — kraće od 30 min)",
+      "youtube": {
+        "url": "https://www.youtube.com/c/PodSmokvom",
+        "handle": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "average_duration_minutes": 10,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "REJECTED: dnevne meditacije od 10 minuta — ne zadovoljava ≥30 min razgovorni format definiciju.",
+        "permanently_excluded": true
+      },
+      "tier": null,
+      "data_quality": "verified",
+      "sources": [
+        "claude-opus"
+      ],
+      "notes": "REJECTED — Claude Opus utvrdio: dnevne meditacije (10 min), ne zadovoljava ≥30 min kriterij. ~60 volontera, više svećenika. Aktivan kanal ali izvan podcast definicije.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 0,
+          "substance": 2,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    }
+  ],
+  "philosophy": {
+    "principle": "Free speech aggregator — pravedno nogometno igralište",
+    "description": "Cilj registry-ja i platforme je objediniti SVE hrvatske podcaste bez obzira na političku, vjersku ili tematsku orijentaciju. Publika bira sadržaj koji želi konzumirati. Tracking odluke su isključivo tehničke prirode — ne provodi se editorijalna selekcija po tematici.",
+    "tracking_decision_criteria": [
+      "URL je verificiran (yt-dlp može doseći kanal)",
+      "Format je kompatibilan s pipeline-om (≥30 min razgovorni format na YouTube-u, ne audio-only)",
+      "Metapodaci su dovoljno popunjeni (poznati hosts, prosječno trajanje, status aktivnosti)",
+      "Veliki kanali (>1000 videa) dobivaju custom MIN_DURATION i odvojen ciklus obrade"
+    ]
+  },
+  "quality_score_rubric": {
+    "description": "Objektivna kvantitativna metrika kvalitete podcasta (0-100). Editorialno neutralna — ne uzima u obzir tematiku, politiku ili vjersku orijentaciju. Mjeri samo: aktivnost, dubinu kataloga, doseg auditorija, format compliance, supstancu, verificiranost i svježinu.",
+    "components": {
+      "activity": {
+        "max": 25,
+        "description": "Recentnost zadnje epizode (active=25, disputed=12, paused=5, inactive=0)"
+      },
+      "catalog": {
+        "max": 20,
+        "description": "Ukupan broj epizoda (1000+=20, 500+=18, 200+=15, 100+=12...)"
+      },
+      "audience": {
+        "max": 15,
+        "description": "Broj YT pretplatnika, log-skaliran (100K+=15, 30K+=13, 10K+=11...)"
+      },
+      "format": {
+        "max": 15,
+        "description": "Zadovoljava li ≥30min razgovornu definiciju (channel=15, audio-only=6, rejected=0)"
+      },
+      "substance": {
+        "max": 10,
+        "description": "Prosječno trajanje epizode (90+=10, 60+=8, 45+=7, 30+=5)"
+      },
+      "verification": {
+        "max": 10,
+        "description": "Broj nezavisnih izvora + verificirani URL + data_quality"
+      },
+      "recency": {
+        "max": 5,
+        "description": "Bonus za svježe epizode (2026=5, 2025=2, 2024=1)"
+      }
+    },
+    "tiers": {
+      "🌟 elite": "80-100 — top kvaliteta, verificirano, aktivno",
+      "✅ strong": "60-79 — etablirano, vrijedi pratiti",
+      "👀 moderate": "40-59 — vrijedi promatrati, treba verifikacija",
+      "📦 weak": "20-39 — ograničeni podaci ili niska aktivnost",
+      "❌ very-low": "0-19 — rejected, ugašen ili premalo podataka"
+    }
+  }
+}
