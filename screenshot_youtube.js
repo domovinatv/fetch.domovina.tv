@@ -31,8 +31,15 @@ const { execSync, spawn } = require("child_process");
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
 const BROWSER_NAME = "brave";
+const COOKIES_FILE = path.join(__dirname, "automatic", "cookies.txt");
 const SLEEP_BETWEEN_VIDEOS_MS = 2000;
 const STREAM_URL_TIMEOUT_MS = 30000;
+
+// Prioritet: eksportirani cookies.txt (svjež, kontrolirani) iznad browser
+// cookies (mogu biti stale). Identično kao u fetch.js.
+const COOKIE_ARGS = fs.existsSync(COOKIES_FILE)
+    ? ["--cookies", COOKIES_FILE]
+    : ["--cookies-from-browser", BROWSER_NAME];
 
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
@@ -77,7 +84,7 @@ function getStreamUrl(videoId) {
     const args = [
         "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
         "--get-url",
-        "--cookies-from-browser", BROWSER_NAME,
+        ...COOKIE_ARGS,
         "--no-check-certificate",
         `https://www.youtube.com/watch?v=${videoId}`
     ];
@@ -374,7 +381,7 @@ async function main() {
     console.log("║   📸 YOUTUBE SCREENSHOT EXTRACTOR                ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   🔧 yt-dlp + ffmpeg (best available quality)`);
-    console.log(`   🍪 Cookies: ${BROWSER_NAME}`);
+    console.log(`   🍪 Cookies: ${fs.existsSync(COOKIES_FILE) ? COOKIES_FILE : `browser:${BROWSER_NAME}`}`);
 
     // ── Single file mode ──
     if (opts.mode === "single") {
