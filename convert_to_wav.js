@@ -145,6 +145,9 @@ async function main() {
     const dryRun = args.includes("--dry-run");
     const channelIdx = args.indexOf("--channel");
     const channelFilter = channelIdx !== -1 ? args[channelIdx + 1] : null;
+    // --video-id filter: konvertiraj samo jedan video po YouTube ID-u (11 znakova)
+    const videoIdIdx = args.indexOf("--video-id");
+    const videoIdFilter = videoIdIdx !== -1 ? args[videoIdIdx + 1] : null;
 
     if (!fs.existsSync(LISTS_DIR)) {
         console.error(`❌ Nema direktorija s listama: ${LISTS_DIR}`);
@@ -188,6 +191,7 @@ async function main() {
     console.log(`   📂 Liste: ${LISTS_DIR}`);
     console.log(`   💾 Output: ${baseOutputDir}`);
     if (channelFilter) console.log(`   🎯 Kanal: ${channelFilter}`);
+    if (videoIdFilter) console.log(`   🎯 Video ID: ${videoIdFilter}`);
     console.log(`   📋 Pronađeno lista: ${listFiles.length}`);
     if (dryRun) console.log("   ⚠️  DRY RUN - samo prikaz, bez konverzije");
     console.log("");
@@ -217,7 +221,12 @@ async function main() {
             .filter(e => e && e.videoId);
 
         // Samo completed video ID-ovi
-        const completedEntries = entries.filter(e => state.completed.includes(e.videoId));
+        let completedEntries = entries.filter(e => state.completed.includes(e.videoId));
+
+        // --video-id filter: zadrži samo zadani video
+        if (videoIdFilter) {
+            completedEntries = completedEntries.filter(e => e.videoId === videoIdFilter);
+        }
 
         if (completedEntries.length === 0) continue;
 

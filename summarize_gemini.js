@@ -586,6 +586,8 @@ function parseArgs() {
 
     const inputDir = getArg("--input-dir");
     const channel = getArg("--channel");
+    // --video-id filter: sumariziraj samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
     const rebuildState = args.includes("--rebuild-state");
@@ -602,6 +604,7 @@ function parseArgs() {
         console.error("Primjeri:");
         console.error("  node summarize_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5");
+        console.error("  node summarize_gemini.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node summarize_gemini.js --input-dir ... --model gemini-2.5-flash");
         console.error("  node summarize_gemini.js --input-dir ... --dry-run");
         console.error("  node summarize_gemini.js --input-dir ... --rebuild-state");
@@ -610,7 +613,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    return { inputDir, channel, limit, dryRun, rebuildState };
+    return { inputDir, channel, videoId, limit, dryRun, rebuildState };
 }
 
 // ─── DONE CACHE ─────────────────────────────────────────────────
@@ -646,9 +649,10 @@ function saveDoneState(inputDir, doneSet) {
  *
  * @param {string} inputDir - Bazni direktorij s output datotekama
  * @param {string|null} channelFilter - Opcijski filter po kanalu
+ * @param {string|null} videoIdFilter - Opcijski filter po YouTube video ID-u (11 znakova)
  * @returns {Array<{srtPath, channel, hasSummary}>} Lista datoteka
  */
-function discoverFiles(inputDir, channelFilter) {
+function discoverFiles(inputDir, channelFilter, videoIdFilter) {
     const results = [];
 
     if (!fs.existsSync(inputDir)) {
@@ -674,6 +678,8 @@ function discoverFiles(inputDir, channelFilter) {
         for (const file of files) {
             if (!file.endsWith(DIARIZED_SRT_SUFFIX)) continue;
             if (file.startsWith("._")) continue;  // macOS resource forks
+            // Filtriraj po YouTube video ID-u (u imenu kao _yt_VIDEOID)
+            if (videoIdFilter && !file.includes(`_yt_${videoIdFilter}`)) continue;
 
             const srtPath = path.join(channelDir, file);
             const base = file.replace(/\.wav\.canary\.diarized\.srt$/, "");
@@ -716,7 +722,7 @@ function discoverFiles(inputDir, channelFilter) {
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { inputDir, channel, limit, dryRun, rebuildState } = parseArgs();
+    const { inputDir, channel, videoId, limit, dryRun, rebuildState } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -734,6 +740,7 @@ async function main() {
     }
     console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
+    if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
     if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
@@ -746,7 +753,7 @@ async function main() {
     }
 
     // ── Pronađi datoteke ──
-    const allFiles = discoverFiles(inputDir, channel);
+    const allFiles = discoverFiles(inputDir, channel, videoId);
     const blocked = allFiles.filter((f) => f.isBlocked && !f.hasSummary);
 
     // Filtriraj: cache → FS check → pending

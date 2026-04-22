@@ -359,6 +359,8 @@ function parseArgs() {
     const inputDir = getArg("--input-dir");
     const outputDir = getArg("--output-dir");  // Opcijski: ako nije naveden, koristi inputDir
     const channel = getArg("--channel");
+    // --video-id filter: obradi samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const chunkSize = getArg("--chunk-size")
         ? parseInt(getArg("--chunk-size"), 10)
@@ -373,13 +375,14 @@ function parseArgs() {
         console.error("  node prepare_rag.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag.js --input-dir ... --output-dir ./rag_export");
         console.error("  node prepare_rag.js --input-dir ... --channel bozanstvena_komedija");
+        console.error("  node prepare_rag.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node prepare_rag.js --input-dir ... --chunk-size 300");
         console.error("  node prepare_rag.js --input-dir ... --dry-run");
         console.error("  node prepare_rag.js --input-dir ... --rebuild-state");
         process.exit(1);
     }
 
-    return { inputDir, outputDir, channel, limit, chunkSize, dryRun, rebuildState };
+    return { inputDir, outputDir, channel, videoId, limit, chunkSize, dryRun, rebuildState };
 }
 
 // ─── DISCOVERY ───────────────────────────────────────────────────
@@ -387,7 +390,7 @@ function parseArgs() {
 /**
  * Pronalazi sve .canary.diarized.srt datoteke, grupirane po kanalu.
  */
-function discoverFiles(inputDir, channelFilter) {
+function discoverFiles(inputDir, channelFilter, videoIdFilter) {
     const results = [];
 
     if (!fs.existsSync(inputDir)) {
@@ -410,6 +413,8 @@ function discoverFiles(inputDir, channelFilter) {
         for (const file of files) {
             if (!file.endsWith(DIARIZED_SRT_SUFFIX)) continue;
             if (file.startsWith("._")) continue;
+            // Filtriraj po YouTube video ID-u (u imenu kao _yt_VIDEOID)
+            if (videoIdFilter && !file.includes(`_yt_${videoIdFilter}`)) continue;
 
             results.push({
                 srtPath: path.join(channelDir, file),
@@ -453,7 +458,7 @@ function saveDoneState(baseDir, doneSet) {
 // ─── MAIN ────────────────────────────────────────────────────────
 
 async function main() {
-    const { inputDir, outputDir, channel, limit, chunkSize, dryRun, rebuildState } = parseArgs();
+    const { inputDir, outputDir, channel, videoId, limit, chunkSize, dryRun, rebuildState } = parseArgs();
 
     // Ako nije naveden outputDir, JSONL se sprema u inputDir
     const finalOutputDir = outputDir || inputDir;
@@ -466,13 +471,14 @@ async function main() {
     console.log(`   💾 Output:     ${finalOutputDir}`);
     console.log(`   📏 Chunk size: ~${chunkSize} znakova (~${Math.round(chunkSize / 4)} tokena)`);
     if (channel) console.log(`   🎯 Kanal:      ${channel}`);
+    if (videoId) console.log(`   🎯 Video ID:   ${videoId}`);
     if (limit) console.log(`   🔢 Limit:      ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
     if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
     console.log("");
 
     // Pronađi datoteke
-    const allFiles = discoverFiles(inputDir, channel);
+    const allFiles = discoverFiles(inputDir, channel, videoId);
 
     // Done cache: O(1) skip za već obrađene datoteke
     const doneSet = rebuildState ? new Set() : loadDoneState(inputDir);

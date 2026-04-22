@@ -282,7 +282,7 @@ async function processArticle(articlePath) {
  * Pronalazi sve .article.json datoteke za obradu.
  * Za svaki video bira najnoviju article.json (po datumu u imenu).
  */
-function discoverArticleFiles(inputDir, channelFilter) {
+function discoverArticleFiles(inputDir, channelFilter, videoIdFilter) {
     const results = [];
 
     const entries = fs.readdirSync(inputDir, { withFileTypes: true });
@@ -300,6 +300,8 @@ function discoverArticleFiles(inputDir, channelFilter) {
         for (const file of files) {
             if (!file.endsWith(".article.json")) continue;
             if (file.startsWith("._")) continue;
+            // Filtriraj po YouTube video ID-u (u imenu kao _yt_VIDEOID)
+            if (videoIdFilter && !file.includes(`_yt_${videoIdFilter}`)) continue;
 
             const videoBase = file.replace(/\.wav\.canary\.diarized_.*\.article\.json$/, "");
             if (!byVideo.has(videoBase) || file > byVideo.get(videoBase)) {
@@ -341,6 +343,8 @@ function parseArgs() {
     const file = getArg("--file");
     const inputDir = getArg("--input-dir");
     const channel = getArg("--channel");
+    // --video-id filter: u batch modu obradi samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
 
@@ -351,6 +355,7 @@ function parseArgs() {
         console.error("  node screenshot_youtube.js --file /path/to/video.article.json");
         console.error("  node screenshot_youtube.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5");
+        console.error("  node screenshot_youtube.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node screenshot_youtube.js --input-dir ... --dry-run");
         process.exit(1);
     }
@@ -368,7 +373,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    return { mode: "batch", inputDir, channel, limit, dryRun };
+    return { mode: "batch", inputDir, channel, videoId, limit, dryRun };
 }
 
 // ─── MAIN ─────────────────────────────────────────────────────────
@@ -396,15 +401,16 @@ async function main() {
     }
 
     // ── Batch mode ──
-    const { inputDir, channel, limit, dryRun } = opts;
+    const { inputDir, channel, videoId, limit, dryRun } = opts;
     console.log(`   📂 Input:   ${inputDir}`);
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
+    if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez screenshotanja");
     console.log("");
 
     console.log("   Skeniram direktorije...");
-    const allFiles = discoverArticleFiles(inputDir, channel);
+    const allFiles = discoverArticleFiles(inputDir, channel, videoId);
 
     console.log(`   📊 Videa s article.json: ${allFiles.length}`);
     console.log("");

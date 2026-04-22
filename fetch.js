@@ -179,9 +179,11 @@ function downloadVideo(videoId, outputDir, filenameTemplate) {
 }
 
 class ChannelQueue {
-  constructor(filePath, baseOutputDir) {
+  constructor(filePath, baseOutputDir, videoIdFilter = null) {
     this.filePath = filePath;
     this.baseOutputDir = baseOutputDir;
+    // Opcijski filter: obradi samo redak s odgovarajućim YouTube video ID-om
+    this.videoIdFilter = videoIdFilter;
     const filename = path.basename(filePath).replace("-lista.txt", "").replace(".txt", "");
     this.channelName = sanitizeDescription(filename);
     this.outputDir = path.join(baseOutputDir, this.channelName);
@@ -200,6 +202,9 @@ class ChannelQueue {
         if (!data) return null;
         const videoId = extractVideoId(data.url);
         if (!videoId) return null;
+
+        // Preskoči sve osim traženog video ID-a ako je zadan --video-id filter
+        if (this.videoIdFilter && videoId !== this.videoIdFilter) return null;
 
         const safeTitle = sanitizeDescription(data.title);
         let filenameTemplate = "";
@@ -314,18 +319,22 @@ async function main() {
   const args = process.argv.slice(2);
   const outputDirIdx = args.indexOf("--output-dir");
   const baseOutputDir = outputDirIdx !== -1 ? args[outputDirIdx + 1] : DEFAULT_OUTPUT_DIR;
+  // --video-id filter: procesiraj samo jedan video po YouTube ID-u (11 znakova)
+  const videoIdIdx = args.indexOf("--video-id");
+  const videoIdFilter = videoIdIdx !== -1 ? args[videoIdIdx + 1] : null;
 
   if (!fs.existsSync(LISTS_DIR)) { console.error(`Nema direktorija: ${LISTS_DIR}`); process.exit(1); }
   const listFiles = fs.readdirSync(LISTS_DIR).filter((f) => f.endsWith("-lista.txt")).map((f) => path.join(LISTS_DIR, f));
 
   console.log("--- Inicijalizacija ---");
-  let channels = listFiles.map((file) => new ChannelQueue(file, baseOutputDir));
+  let channels = listFiles.map((file) => new ChannelQueue(file, baseOutputDir, videoIdFilter));
   let activeChannels = channels.filter((c) => !c.isExhausted);
 
   console.log(`\n🚀 POČETAK RADA (Brave on macOS + 360p Limit)`);
   console.log(`   📂 Liste: ${LISTS_DIR}`);
   console.log(`   🍪 Browser Source: ${BROWSER_NAME.toUpperCase()}`);
   console.log(`   🎥 Video Quality: Max 360p`);
+  if (videoIdFilter) console.log(`   🎯 Video ID filter: ${videoIdFilter}`);
 
   let round = 1;
   while (activeChannels.length > 0) {

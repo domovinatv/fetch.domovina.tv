@@ -181,6 +181,8 @@ function parseArgs() {
     const file = getArg("--file");
     const inputDir = getArg("--input-dir");
     const channel = getArg("--channel");
+    // --video-id filter: u batch modu obradi samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
     const rebuildState = args.includes("--rebuild-state");
@@ -192,6 +194,7 @@ function parseArgs() {
         console.error("  node generate_article_gemini.js --file /path/to/transcript.srt");
         console.error("  node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10");
+        console.error("  node generate_article_gemini.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node generate_article_gemini.js --input-dir ... --dry-run");
         console.error("  node generate_article_gemini.js --input-dir ... --rebuild-state");
         process.exit(1);
@@ -210,7 +213,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    return { mode: "batch", inputDir, channel, limit, dryRun, rebuildState };
+    return { mode: "batch", inputDir, channel, videoId, limit, dryRun, rebuildState };
 }
 
 // Iterativno pokušava popraviti česte Gemini JSON malformacije
@@ -493,7 +496,7 @@ function saveDoneState(inputDir, doneSet) {
  *
  * @returns {{ byChannel: Map<string, string[]>, cachedSkipped: number, fsSkipped: number }}
  */
-function discoverPendingFiles(inputDir, channelFilter, doneSet) {
+function discoverPendingFiles(inputDir, channelFilter, doneSet, videoIdFilter) {
     const byChannel = new Map();
     let cachedSkipped = 0;
     let fsSkipped = 0;
@@ -511,6 +514,8 @@ function discoverPendingFiles(inputDir, channelFilter, doneSet) {
         for (const file of files) {
             if (!file.endsWith(DIARIZED_SRT_SUFFIX)) continue;
             if (file.startsWith("._")) continue;
+            // Filtriraj po YouTube video ID-u (u imenu kao _yt_VIDEOID)
+            if (videoIdFilter && !file.includes(`_yt_${videoIdFilter}`)) continue;
 
             const baseKey = file.replace(/\.wav\.canary\.diarized\.srt$/, "");
 
@@ -981,9 +986,10 @@ async function main() {
     }
 
     // ── Način 2: Batch s round-robin rasporedom ──
-    const { inputDir, channel, limit, dryRun, rebuildState } = opts;
+    const { inputDir, channel, videoId, limit, dryRun, rebuildState } = opts;
     console.log(`   📂 Input:    ${inputDir}`);
     if (channel) console.log(`   🎯 Kanal:    ${channel}`);
+    if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
     if (limit) console.log(`   🔢 Limit:    ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz, bez API poziva");
     if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
@@ -997,7 +1003,7 @@ async function main() {
 
     // Pronađi datoteke kojima nedostaje članak
     console.log("   Skeniram direktorije...");
-    const { byChannel, cachedSkipped, fsSkipped } = discoverPendingFiles(inputDir, channel, doneSet);
+    const { byChannel, cachedSkipped, fsSkipped } = discoverPendingFiles(inputDir, channel, doneSet, videoId);
 
     let totalPending = 0;
     for (const files of byChannel.values()) totalPending += files.length;

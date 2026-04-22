@@ -40,6 +40,8 @@ function parseArgs() {
     const inputDir = getArg("--input-dir");
     const dir = getArg("--dir");
     const channel = getArg("--channel");
+    // --video-id filter: obradi samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
     const srt = getArg("--srt");
@@ -53,6 +55,7 @@ function parseArgs() {
         console.error("Primjeri:");
         console.error("  node prepare_rag_import.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag_import.js --input-dir ... --channel domovina_tv");
+        console.error("  node prepare_rag_import.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node prepare_rag_import.js --input-dir ... --limit 10 --dry-run");
         console.error("  node prepare_rag_import.js --input-dir ... --rebuild-state");
         console.error("  node prepare_rag_import.js --dir /path/to/channel/");
@@ -60,7 +63,7 @@ function parseArgs() {
         process.exit(1);
     }
 
-    return { inputDir, dir, channel, limit, dryRun, srt, outline, article, rebuildState };
+    return { inputDir, dir, channel, videoId, limit, dryRun, srt, outline, article, rebuildState };
 }
 
 // ─── DONE CACHE ─────────────────────────────────────────────────
@@ -370,7 +373,7 @@ function processTriplet(srtPath, outlinePath, articlePath, verbose = true) {
 // ─── MAIN ───────────────────────────────────────────────────────
 
 function main() {
-    const { inputDir, dir, channel, limit, dryRun, srt, outline, article, rebuildState } = parseArgs();
+    const { inputDir, dir, channel, videoId, limit, dryRun, srt, outline, article, rebuildState } = parseArgs();
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -400,10 +403,15 @@ function main() {
         }
 
         console.log(`   📂 Dir: ${dir}`);
+        if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
         if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
         console.log("");
 
-        const triplets = discoverTriplets(dir);
+        let triplets = discoverTriplets(dir);
+        // Filtriraj po YouTube video ID-u ako je zadan --video-id
+        if (videoId) {
+            triplets = triplets.filter(t => path.basename(t.srt).includes(`_yt_${videoId}`));
+        }
         const finalList = limit ? triplets.slice(0, limit) : triplets;
 
         if (finalList.length === 0) {
@@ -443,6 +451,7 @@ function main() {
 
         console.log(`   📂 Input:  ${inputDir}`);
         if (channel) console.log(`   🎯 Kanal:  ${channel}`);
+        if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
         if (limit) console.log(`   🔢 Limit:  ${limit}`);
         if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
         if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
@@ -464,7 +473,11 @@ function main() {
             if (channel && entry.name !== channel) continue;
 
             const channelDir = path.join(inputDir, entry.name);
-            const triplets = discoverTriplets(channelDir);
+            let triplets = discoverTriplets(channelDir);
+            // Filtriraj po YouTube video ID-u ako je zadan --video-id
+            if (videoId) {
+                triplets = triplets.filter(t => path.basename(t.srt).includes(`_yt_${videoId}`));
+            }
 
             for (const t of triplets) {
                 t.channel = entry.name;

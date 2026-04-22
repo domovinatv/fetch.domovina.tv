@@ -359,7 +359,7 @@ function buildSummaryChunks(articleJson) {
  * ali traži triplete (SRT + outline + article) kao prepare_rag_import.js,
  * plus opcijski summary.json.
  */
-function discoverFiles(inputDir, channelFilter) {
+function discoverFiles(inputDir, channelFilter, videoIdFilter) {
     const results = [];
 
     if (!fs.existsSync(inputDir)) {
@@ -379,9 +379,11 @@ function discoverFiles(inputDir, channelFilter) {
         const channelDir = path.join(inputDir, channelName);
         const files = fs.readdirSync(channelDir);
 
-        // Pronadi sve SRT datoteke
+        // Pronadi sve SRT datoteke (opcijski filtrirane po YouTube video ID-u)
         const srtFiles = files.filter(f =>
-            f.endsWith(DIARIZED_SRT_SUFFIX) && !f.startsWith("._")
+            f.endsWith(DIARIZED_SRT_SUFFIX) &&
+            !f.startsWith("._") &&
+            (!videoIdFilter || f.includes(`_yt_${videoIdFilter}`))
         );
 
         for (const srtFile of srtFiles) {
@@ -456,6 +458,8 @@ function parseArgs() {
     const inputDir = getArg("--input-dir");
     const outputDir = getArg("--output-dir");
     const channel = getArg("--channel");
+    // --video-id filter: obradi samo jedan video po YouTube ID-u (11 znakova)
+    const videoId = getArg("--video-id");
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
     const rebuildState = args.includes("--rebuild-state");
@@ -467,19 +471,20 @@ function parseArgs() {
         console.error("  node prepare_rag_combined.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag_combined.js --input-dir ... --output-dir ./rag_export");
         console.error("  node prepare_rag_combined.js --input-dir ... --channel domovina_tv");
+        console.error("  node prepare_rag_combined.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node prepare_rag_combined.js --input-dir ... --limit 10");
         console.error("  node prepare_rag_combined.js --input-dir ... --dry-run");
         console.error("  node prepare_rag_combined.js --input-dir ... --rebuild-state");
         process.exit(1);
     }
 
-    return { inputDir, outputDir, channel, limit, dryRun, rebuildState };
+    return { inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState };
 }
 
 // ─── MAIN ───────────────────────────────────────────────────────
 
 function main() {
-    const { inputDir, outputDir, channel, limit, dryRun, rebuildState } = parseArgs();
+    const { inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState } = parseArgs();
     const finalOutputDir = outputDir || inputDir;
 
     console.log("");
@@ -489,6 +494,7 @@ function main() {
     console.log(`   📂 Input:  ${inputDir}`);
     console.log(`   💾 Output: ${finalOutputDir}`);
     if (channel) console.log(`   🎯 Kanal:  ${channel}`);
+    if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
     if (limit) console.log(`   🔢 Limit:  ${limit}`);
     if (dryRun) console.log("   ⚠️  DRY RUN — samo prikaz statistike");
     if (rebuildState) console.log("   🔄 REBUILD STATE — ignoriram done cache");
@@ -501,7 +507,7 @@ function main() {
     }
 
     // Pronadi datoteke (SRT + outline + article, grupirane po kanalu)
-    const allFiles = discoverFiles(inputDir, channel);
+    const allFiles = discoverFiles(inputDir, channel, videoId);
 
     // Filtriraj: preskoči datoteke iz done cachea, ali i one kojima već postoji JSONL
     const toProcess = [];
