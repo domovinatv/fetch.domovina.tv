@@ -35,14 +35,19 @@ const COOKIES_FILE = path.join(__dirname, "automatic", "cookies.txt");
 const SLEEP_BETWEEN_VIDEOS_MS = 2000;
 const STREAM_URL_TIMEOUT_MS = 30000;
 
-// YouTube auth cookies imaju ~1h TTL — u dugim batch runovima cookies.txt
-// istekne i svi sljedeći yt-dlp pozivi vraćaju "Sign in to confirm you're
-// not a bot" / prazan stream URL. Auto-refresh ih iz Brave-a nakon N
-// uzastopnih grešaka (Brave mora biti pokrenut s logiranim YouTubeom).
+// Dvije klase failure-a koje treba razlikovati:
+//   1. "Cookies expired"   — cookies.txt zastario (bilo dani, bilo ~1h u dugim
+//                            runovima). Fix: re-export iz Brave-a.
+//   2. "IP-level anti-bot" — YouTube je rate-limito IP nakon puno requestova.
+//                            "Sign in to confirm you're not a bot" se javlja
+//                            ČAK i bez cookies-a, ČAK i za javne videe.
+//                            Fix nije code: čekaj 1-24h ili VPN/proxy.
 const MAX_FAILURES_BEFORE_REFRESH = 3;
-const MAX_REFRESH_ATTEMPTS_PER_RUN = 10;
+const MAX_REFRESH_ATTEMPTS_PER_RUN = 3;
+const MAX_FAILURES_BEFORE_ABORT = 8;  // nakon refresh-a još ovoliko = IP block
 let consecutiveStreamFailures = 0;
 let cookieRefreshAttempts = 0;
+let lastStderr = "";
 
 // Prioritet: eksportirani cookies.txt (svjež, kontrolirani) iznad browser
 // cookies (mogu biti stale). Identično kao u fetch.js.
@@ -113,10 +118,21 @@ function refreshCookiesFromBrowser() {
 }
 
 /**
+ * Detektira je li yt-dlp greška IP-level anti-bot block.
+ * Tipičan stderr: "Sign in to confirm you're not a bot."
+ */
+function isAntiBotBlock(stderr) {
+    if (!stderr) return false;
+    return /Sign in to confirm you[’']re not a bot/i.test(stderr) ||
+           /confirm you are not a bot/i.test(stderr);
+}
+
+/**
  * Dohvaća direktni stream URL za best video quality putem yt-dlp.
- * Koristi browser cookies za izbjegavanje bot detekcije.
- * Auto-refresha cookies nakon N uzastopnih grešaka (~1h u praksi).
- * Vraća URL string ili null.
+ * Razlikuje cookies-expired od IP-level anti-bot blocka.
+ *   - cookies expired → refresh + retry
+ *   - IP block        → refresh ne pomaže; abort cijeli run nakon N puta
+ * Vraća URL string, null, ili throw-a sa "ANTI_BOT_BLOCK" za abort.
  */
 function getStreamUrl(videoId, allowRefreshRetry = true) {
     const args = [
@@ -136,15 +152,31 @@ function getStreamUrl(videoId, allowRefreshRetry = true) {
 
         // Uspjeh — resetiraj counter
         consecutiveStreamFailures = 0;
+        lastStderr = "";
 
         // yt-dlp može vratiti više URL-ova (video + audio), uzimamo prvi
         return url.split("\n")[0].trim();
     } catch (err) {
         consecutiveStreamFailures++;
+        lastStderr = err.stderr ? err.stderr.toString() : "";
 
-        // Cookies vjerojatno istekli (~1h TTL) — refresh + retry once
+        // ── IP-level anti-bot ──
+        // Refresh cookies-a NIŠTA ne pomaže. Najbrža potvrda: greška se
+        // javlja čak i bez cookies-a. Abort run nakon dovoljno failure-a.
+        if (isAntiBotBlock(lastStderr)) {
+            if (consecutiveStreamFailures === 1) {
+                console.log(`   🚫 YouTube anti-bot block detektiran (Sign in to confirm...)`);
+                console.log(`   ℹ️  Ovo je IP-level rate limit, ne cookies problem.`);
+            }
+            if (consecutiveStreamFailures >= MAX_FAILURES_BEFORE_ABORT) {
+                throw new Error("ANTI_BOT_BLOCK");
+            }
+            return null;
+        }
+
+        // ── Cookies expired (drugi tip greške) ──
         if (allowRefreshRetry && consecutiveStreamFailures >= MAX_FAILURES_BEFORE_REFRESH) {
-            console.log(`   ⚠️  ${consecutiveStreamFailures} uzastopnih grešaka — vjerojatno cookies expired`);
+            console.log(`   ⚠️  ${consecutiveStreamFailures} uzastopnih grešaka — pokušavam refresh cookies-a`);
             if (refreshCookiesFromBrowser()) {
                 console.log(`   🔁 Pokušavam ponovo s osvježenim cookies-ima...`);
                 return getStreamUrl(videoId, false);
@@ -490,11 +522,34 @@ async function main() {
     let totalFailed = 0;
     let videosProcessed = 0;
 
+    let abortedAntiBot = false;
     for (let i = 0; i < finalList.length; i++) {
         const item = finalList[i];
         console.log(`\n   ━━━ [${i + 1}/${finalList.length}] [${item.channel}] ${item.videoBase} ━━━`);
 
-        const result = await processArticle(item.articlePath);
+        let result;
+        try {
+            result = await processArticle(item.articlePath);
+        } catch (err) {
+            if (err.message === "ANTI_BOT_BLOCK") {
+                abortedAntiBot = true;
+                console.log("");
+                console.log("╔══════════════════════════════════════════════════╗");
+                console.log("║   🚫 ABORT: YouTube IP-level anti-bot block      ║");
+                console.log("╚══════════════════════════════════════════════════╝");
+                console.log(`   Posljednji yt-dlp stderr (sažeto):`);
+                console.log(`     ${lastStderr.split("\n").find(l => l.includes("ERROR")) || lastStderr.split("\n")[0]}`);
+                console.log("");
+                console.log("   Što sad:");
+                console.log("     1. Sačekaj 1-24h da YouTube oslobodi IP block");
+                console.log("     2. ILI promijeni IP (VPN, mobile hotspot, drugi network)");
+                console.log("     3. Onda ponovo: ./run_pipeline.sh --with-screenshots ...");
+                console.log("");
+                console.log(`   Stigao do: ${i}/${finalList.length} videa`);
+                break;
+            }
+            throw err;
+        }
         totalCaptured += result.captured;
         totalSkipped += result.skipped;
         totalFailed += result.failed;
