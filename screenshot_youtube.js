@@ -35,6 +35,15 @@ const COOKIES_FILE = path.join(__dirname, "automatic", "cookies.txt");
 const SLEEP_BETWEEN_VIDEOS_MS = 2000;
 const STREAM_URL_TIMEOUT_MS = 30000;
 
+// YouTube auth cookies imaju ~1h TTL — u dugim batch runovima cookies.txt
+// istekne i svi sljedeći yt-dlp pozivi vraćaju "Sign in to confirm you're
+// not a bot" / prazan stream URL. Auto-refresh ih iz Brave-a nakon N
+// uzastopnih grešaka (Brave mora biti pokrenut s logiranim YouTubeom).
+const MAX_FAILURES_BEFORE_REFRESH = 3;
+const MAX_REFRESH_ATTEMPTS_PER_RUN = 10;
+let consecutiveStreamFailures = 0;
+let cookieRefreshAttempts = 0;
+
 // Prioritet: eksportirani cookies.txt (svjež, kontrolirani) iznad browser
 // cookies (mogu biti stale). Identično kao u fetch.js.
 const COOKIE_ARGS = fs.existsSync(COOKIES_FILE)
@@ -76,11 +85,40 @@ function sanitizeTimestamp(ts) {
 // ─── YT-DLP & FFMPEG ─────────────────────────────────────────────
 
 /**
+ * Re-eksportira cookies iz Brave preglednika u cookies.txt.
+ * Pomaže kad YouTube auth tokeni isteknu tokom dugih batch runova.
+ * Vraća true ako uspjelo. Brave mora biti pokrenut s logiranim YouTubeom.
+ */
+function refreshCookiesFromBrowser() {
+    if (cookieRefreshAttempts >= MAX_REFRESH_ATTEMPTS_PER_RUN) {
+        console.error(`   ⛔ Maksimalan broj refresh pokušaja (${MAX_REFRESH_ATTEMPTS_PER_RUN}) iscrpljen za ovaj run`);
+        return false;
+    }
+    cookieRefreshAttempts++;
+    console.log(`   🔄 Osvježavam cookies iz ${BROWSER_NAME} preglednika (pokušaj ${cookieRefreshAttempts}/${MAX_REFRESH_ATTEMPTS_PER_RUN})...`);
+    try {
+        execSync(
+            `yt-dlp --cookies-from-browser '${BROWSER_NAME}' --cookies '${COOKIES_FILE}' --skip-download --quiet --no-warnings 'https://www.youtube.com/'`,
+            { encoding: "utf-8", timeout: 30000, stdio: ["pipe", "pipe", "pipe"] }
+        );
+        console.log(`   ✅ Cookies osvježeni → ${COOKIES_FILE}`);
+        consecutiveStreamFailures = 0;
+        return true;
+    } catch (err) {
+        const msg = (err.stderr ? err.stderr.toString() : err.message).split("\n")[0];
+        console.error(`   ❌ Refresh cookies neuspješan: ${msg}`);
+        console.error(`   💡 Provjeri je li Brave pokrenut i je li YouTube logiran`);
+        return false;
+    }
+}
+
+/**
  * Dohvaća direktni stream URL za best video quality putem yt-dlp.
  * Koristi browser cookies za izbjegavanje bot detekcije.
+ * Auto-refresha cookies nakon N uzastopnih grešaka (~1h u praksi).
  * Vraća URL string ili null.
  */
-function getStreamUrl(videoId) {
+function getStreamUrl(videoId, allowRefreshRetry = true) {
     const args = [
         "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
         "--get-url",
@@ -96,9 +134,22 @@ function getStreamUrl(videoId) {
             stdio: ["pipe", "pipe", "pipe"]
         }).trim();
 
+        // Uspjeh — resetiraj counter
+        consecutiveStreamFailures = 0;
+
         // yt-dlp može vratiti više URL-ova (video + audio), uzimamo prvi
         return url.split("\n")[0].trim();
     } catch (err) {
+        consecutiveStreamFailures++;
+
+        // Cookies vjerojatno istekli (~1h TTL) — refresh + retry once
+        if (allowRefreshRetry && consecutiveStreamFailures >= MAX_FAILURES_BEFORE_REFRESH) {
+            console.log(`   ⚠️  ${consecutiveStreamFailures} uzastopnih grešaka — vjerojatno cookies expired`);
+            if (refreshCookiesFromBrowser()) {
+                console.log(`   🔁 Pokušavam ponovo s osvježenim cookies-ima...`);
+                return getStreamUrl(videoId, false);
+            }
+        }
         return null;
     }
 }
