@@ -136,6 +136,15 @@ For a typical batch (96 files mixed sizes): **~25 min wall clock = ~3.6 compute 
 
 **Do not** suggest "rent a GCE VM with L4" or "set up own server" — Colab Pro+ G4 with `colab_canary/domovina_tv_fetch.ipynb` is the right tool. The notebook auto-detects BF16 support and applies it; `transcribe_canary.py` is the workhorse. T4 will OOM — `colab_canary/README.md` already documents this in the GPU benchmark table.
 
+**Two valid Canary patterns — DO NOT confuse them:**
+
+| Pattern | Use case | GPU | Why |
+|---|---|---|---|
+| **Batch, no chunking** (this repo) | Many WAVs, throughput-optimized | **G4 mandatory (Pro+)** | `transcribe_canary.py` feeds whole WAV to model → ~26 GB VRAM peak on long files → T4/L4 OOM |
+| **Ad-hoc, chunked to 10 min** (e.g. `/Users/ms/git/e-demokracija/upravni-odbor-zapisnici/UO_Transkripcija_Diarizacija.ipynb`) | Single file, latency-tolerant, **fits free Colab T4** | T4 (16 GB) sufficient | ffmpeg pre-splits WAV into ~10-min segments → each fits in T4 with headroom for diarization too. Slower per realtime due to model reload overhead but free. |
+
+For this project's pipeline (96+ file batches arriving weekly), batch-no-chunking on G4 is correct. Don't propose adding chunking to `transcribe_canary.py` "to support T4" — it would slow down the production batch path for an edge case (single ad-hoc file) that's better handled by a separate chunked notebook patterned on the e-demokracija one. Two notebooks for two use cases is the right factoring.
+
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
 The most complex script. Phase 1 creates a semantic outline splitting the podcast into 35-45min thematic iterations. Phase 2 writes detailed journalistic sections per iteration. Both output JSON. Raw API responses saved in `*_raw/` dirs for recovery.
