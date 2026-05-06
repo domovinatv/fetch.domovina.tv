@@ -102,6 +102,40 @@ Do not "optimize" by suggesting the combined Colab notebook for bulk runs — it
 
 **Research validated this decision — see `docs/diarization_research_2026-05.md`.** A May 2026 survey of GPU-resident alternatives (NVIDIA Sortformer, EEND-TA, DiariZen, FluidAudio, sherpa-onnx, WhisperX) confirmed: pyannote-style pipelines are CPU-bound *by design* (segmentation/embedding on GPU, agglomerative/HDBSCAN clustering on CPU — maintainer-confirmed across issues #1403, #1626, #1753), so throwing more GPU at diarization buys almost nothing. The only fully-GPU alternative that would meaningfully change the story is NVIDIA Sortformer, but it is licensed CC-BY-NC-4.0 (non-commercial only) and therefore unusable here. DiariZen (MIT) is the realistic open-source upgrade target if accuracy ever becomes the bottleneck; FluidAudio (Apache-2.0, CoreML on Apple Neural Engine, ~60× realtime on M1) is the upgrade target if the Mac itself becomes the bottleneck. Until one of those changes, the Colab-for-transcription + Mac-for-diarization split is the right call.
 
+### 🐤 Canary Transcription on Colab G4 — Empirical Numbers (2026-05-06)
+
+**G4 GPU is mandatory** — T4 is **not** an option. Empirically observed in a real production run (96 backlog WAVs):
+
+| Resource | Observed value | Note |
+|---|---|---|
+| GPU model | NVIDIA RTX PRO 6000 Blackwell (G4) | Pro+ tier on Colab |
+| GPU RAM total | 95.6 GB | |
+| GPU RAM used at peak | **26.4 GB** | Model (~6.4 GB) + activations + WAV in memory |
+| **T4 (16 GB)** | **CUDA OOM** | Model + activations + 200+ MB WAVs exceed 16 GB. Confirmed: T4 cannot run Canary 1B v2. |
+| System RAM used | 23 / 176.9 GB | |
+| Disk used | 53 / 112.6 GB | Model cache + temp WAV reads from Drive mount |
+
+**Per-file throughput (BF16 + `torch.inference_mode()`):**
+
+| WAV size | Audio duration (approx) | Wall clock |
+|---|---|---|
+| 28-32 MB | ~25-30 min | **~7s** |
+| 45-72 MB | ~45-75 min | **~10-15s** |
+| 189-201 MB | ~3 h | **~23-35s** |
+| 288 MB | ~4 h | **~35s** |
+
+For a typical batch (96 files mixed sizes): **~25 min wall clock = ~3.6 compute units** (~$0.40-0.50 at Pro+ pricing of ~$50/500 units).
+
+**Why Colab G4 specifically (not just "any GPU"):**
+
+1. **VRAM**: 95.6 GB lets you load Canary (~6.4 GB BF16) + handle 200+ MB WAVs without OOM. T4/L4 OOM, A100 works but is slower per dollar.
+2. **Pre-installed CUDA + drivers**: zero setup time vs spinning up own GCE/EC2 instance with NVIDIA drivers.
+3. **Drive mount**: hundreds of GB of WAVs accessible without uploading — `MyDrive/domovina_fetch_data/canary_wav` mounts in seconds. No other free service offers this.
+4. **Pay-as-you-go**: $0.40-0.50 per backlog batch is cheaper than any monthly subscription would be amortized for the actual usage frequency (~weekly).
+5. **NeMo + PyTorch ecosystem pre-installed**: pip install just adds `nemo_toolkit[asr]`; reduces "first run" friction to ~2 min.
+
+**Do not** suggest "rent a GCE VM with L4" or "set up own server" — Colab Pro+ G4 with `colab_canary/domovina_tv_fetch.ipynb` is the right tool. The notebook auto-detects BF16 support and applies it; `transcribe_canary.py` is the workhorse. T4 will OOM — `colab_canary/README.md` already documents this in the GPU benchmark table.
+
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
 The most complex script. Phase 1 creates a semantic outline splitting the podcast into 35-45min thematic iterations. Phase 2 writes detailed journalistic sections per iteration. Both output JSON. Raw API responses saved in `*_raw/` dirs for recovery.
