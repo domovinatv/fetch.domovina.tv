@@ -124,7 +124,7 @@ Do not "optimize" by suggesting the combined Colab notebook for bulk runs — it
 | 189-201 MB | ~3 h | **~23-35s** |
 | 288 MB | ~4 h | **~35s** |
 
-For a typical batch (96 files mixed sizes): **~25 min wall clock = ~3.6 compute units** (~$0.40-0.50 at Pro+ pricing of ~$50/500 units).
+For a typical batch (96 files mixed sizes): **~25 min wall clock**. **Actual measured cost: 2.91 compute units = ~$0.29 at Pro+ pricing** (~$50/500 units). Pre-run heuristic of 3.6 units overestimated by ~25%; real-world is even cheaper because shorter files dominate. **Per-file cost: ~$0.003** ($0.29 / 96).
 
 **Why Colab G4 specifically (not just "any GPU"):**
 
