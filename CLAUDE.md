@@ -100,6 +100,8 @@ Each step is idempotent — checks for existing output before processing. The pi
 
 Do not "optimize" by suggesting the combined Colab notebook for bulk runs — it costs money for no speed benefit. This decision is driven by real benchmarks, not theory.
 
+**Research validated this decision — see `docs/diarization_research_2026-05.md`.** A May 2026 survey of GPU-resident alternatives (NVIDIA Sortformer, EEND-TA, DiariZen, FluidAudio, sherpa-onnx, WhisperX) confirmed: pyannote-style pipelines are CPU-bound *by design* (segmentation/embedding on GPU, agglomerative/HDBSCAN clustering on CPU — maintainer-confirmed across issues #1403, #1626, #1753), so throwing more GPU at diarization buys almost nothing. The only fully-GPU alternative that would meaningfully change the story is NVIDIA Sortformer, but it is licensed CC-BY-NC-4.0 (non-commercial only) and therefore unusable here. DiariZen (MIT) is the realistic open-source upgrade target if accuracy ever becomes the bottleneck; FluidAudio (Apache-2.0, CoreML on Apple Neural Engine, ~60× realtime on M1) is the upgrade target if the Mac itself becomes the bottleneck. Until one of those changes, the Colab-for-transcription + Mac-for-diarization split is the right call.
+
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
 The most complex script. Phase 1 creates a semantic outline splitting the podcast into 35-45min thematic iterations. Phase 2 writes detailed journalistic sections per iteration. Both output JSON. Raw API responses saved in `*_raw/` dirs for recovery.
