@@ -72,6 +72,9 @@ const matchers = [
     ['.canary.summary.json', 'summary'],
     ['.canary.srt', 'canarySrt'],
     ['.canary.csv', 'canaryCsv'],
+    ['.sortformer.diarized.srt', 'sortformerDiarized'],
+    ['.sortformer.srt', 'sortformerSrt'],
+    ['.sortformer.csv', 'sortformerCsv'],
     ['.diarized.srt', 'diarized'],
     ['.wav.srt', 'srt'],
     ['.info.json', 'infoJson'],
@@ -224,6 +227,11 @@ console.log('\n    -- Canary (NVIDIA) --');
 line('Canary transkripcija', g('canarySrt'), total);
 line('Canary CSV', g('canaryCsv'), total);
 line('Canary diarizacija', g('canaryDiarized'), total);
+
+console.log('\n    -- Sortformer (NVIDIA, GPU end-to-end, eksperimentalno) --');
+line('Sortformer transkripcija', g('sortformerSrt'), total);
+line('Sortformer CSV', g('sortformerCsv'), total);
+line('Sortformer diarizacija', g('sortformerDiarized'), total);
 
 console.log('\n    -- Gemini (Google) --');
 

@@ -163,9 +163,12 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 if command -v rclone &> /dev/null; then
-    echo "   ⏬ Preuzimam .canary.diarized.srt s Google Drive-a..."
+    echo "   ⏬ Preuzimam .canary.* i .sortformer.* s Google Drive-a..."
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
-      -L --filter "- ._*" --filter "+ **.canary.**" --filter "- *" \
+      -L --filter "- ._*" \
+      --filter "+ **.canary.**" \
+      --filter "+ **.sortformer.**" \
+      --filter "- *" \
       --drive-shared-with-me --progress
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
