@@ -736,6 +736,31 @@ if (inputDir) {
     }
 
     log("📊", `Pronađeno videa: ${videos.length}`);
+
+    // Pre-scan: klasificiraj statusu video processinga (cheap local check, no R2 calls).
+    // Pokazuje koliko je već dovršeno (idempotentnost), koliko treba još rada.
+    let alreadyMp4 = 0;
+    let needsRemux = 0;
+    let noVideoYet = 0;
+    for (const v of videos) {
+        const mkvPath = path.join(v.channelDir, `${v.videoBase}.mkv`);
+        const mp4Path = path.join(v.channelDir, `${v.videoBase}.mp4`);
+        const hasMkv = fs.existsSync(mkvPath);
+        const hasMp4 = fs.existsSync(mp4Path);
+        if (hasMp4) {
+            // Provjeri freshness: ako .mp4 starija od .mkv, treba re-remux
+            if (hasMkv && fs.statSync(mp4Path).mtimeMs < fs.statSync(mkvPath).mtimeMs) {
+                needsRemux++;
+            } else {
+                alreadyMp4++;
+            }
+        } else if (hasMkv) {
+            needsRemux++;
+        } else {
+            noVideoYet++;
+        }
+    }
+    log("📊", `MP4 pripremljen: ${alreadyMp4} | Treba remux: ${needsRemux} | Bez video fajla: ${noVideoYet}`);
     console.log("");
 
     // ── FAZA 1: MKV → MP4 REMUX ──────────────────────────────────
