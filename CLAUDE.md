@@ -62,7 +62,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 3 | `generate_whisper_prompt.js` | LLM keyword extraction (LM Studio localhost:1234, qwen2.5-7b) |
 | 4 | `transcribe.js` | Whisper.cpp transcription (Metal GPU, hardcoded binary path) |
 | 5 | `transcribe_diarized.js` | pyannote speaker diarization (MPS/Metal) |
-| 6 | `diarize_canary.py` | Cloud pyannote diarization (Colab T4 GPU) |
+| 6 | `diarize_canary.py` | pyannote diarization — **run LOCALLY on Mac Mini M4 Pro**, NOT Colab (see "Diarization Cost/Performance Note" below) |
 | 7 | `summarize_gemini.js` | Gemini summarization (Vertex AI) |
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
@@ -83,6 +83,22 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `generate_article_vertexai_express.js` | Vertex AI Express variant (`gemini-2.5-flash-lite`) |
 | `setup_storage.sh` | Create `storage/output/` symlinks from `storage.conf` |
 | `move_to_disk.sh` | Safely move a channel to another disk: rsync + verify + update `storage.conf` + recreate symlinks |
+
+### ⚠️ Diarization Cost/Performance Note — DO NOT diarize on Colab
+
+**Empirically tested workflow** (do not change without re-benchmarking):
+
+| Phase | Where to run | Why |
+|---|---|---|
+| **Canary 1B v2 transcription** | **Google Colab G4 GPU** (Pro+) | GPU-bound, ~10-15s/file BF16. Mac Mini would take 5-10× longer. |
+| **pyannote community-1 diarization** | **Mac Mini M4 Pro (locally) — NOT Colab** | Mostly **CPU-bound** (sklearn clustering, audio I/O). G4 (~$20k machine) takes about the **same wall clock** as M4 Pro (~$1.5k machine) because the expensive GPU sits idle during clustering. |
+
+**Concrete consequence:** `colab/domovina_tv_batch.ipynb` (which runs both phases on Colab) is **anti-pattern for production batches** — you pay Colab Pro+ units for pyannote that doesn't use the GPU. Keep that notebook for edge cases (no Mac available, testing); for normal operation use:
+
+1. `colab_canary/domovina_tv_fetch.ipynb` on Colab G4 → generates `.canary.srt` on Drive
+2. `run_pipeline.sh --with-local-canary-diarize` on Mac Mini → pulls `.canary.srt` via rclone (step 0), diarizes locally, generates `.canary.diarized.srt`
+
+Do not "optimize" by suggesting the combined Colab notebook for bulk runs — it costs money for no speed benefit. This decision is driven by real benchmarks, not theory.
 
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
