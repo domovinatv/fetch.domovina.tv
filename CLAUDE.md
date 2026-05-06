@@ -145,6 +145,33 @@ For a typical batch (96 files mixed sizes): **~25 min wall clock = ~3.6 compute 
 
 For this project's pipeline (96+ file batches arriving weekly), batch-no-chunking on G4 is correct. Don't propose adding chunking to `transcribe_canary.py` "to support T4" — it would slow down the production batch path for an edge case (single ad-hoc file) that's better handled by a separate chunked notebook patterned on the e-demokracija one. Two notebooks for two use cases is the right factoring.
 
+### 🧪 Experimental: Sortformer GPU-end-to-end pipeline
+
+`colab_sortformer/domovina_tv_sortformer.ipynb` + `colab_sortformer/transcribe_sortformer.py` are an **experimental** alternative that runs **both** transcription (Canary 1B v2) **and** diarization (NVIDIA Streaming Sortformer 4spk v2.1) on Colab G4 — fully GPU-resident, single pass per file. This sidesteps the CPU-bound clustering bottleneck that makes pyannote on Colab a waste (see "Diarization Cost/Performance Note" above).
+
+**When to use** (vs the stable `colab_canary` + Mac-local pyannote workflow):
+
+| Use the experimental Sortformer pipeline if… | Use the stable canary+pyannote split if… |
+|---|---|
+| Mac Mini is unavailable / offline | Mac Mini is available (default — cheaper) |
+| You want to A/B speaker-diarization quality | You want the proven, mature output the rest of the pipeline consumes |
+| You're OK with max 4 speakers per recording | Recording has 5+ distinct speakers (Sortformer caps at 4) |
+| You're testing quality before adopting | You're producing for the live site |
+
+**License caveat**: Sortformer 4spk v2.1 is licensed under the [NVIDIA Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/) — generally permits commercial use with attribution. **Older Sortformer variants (v1, non-streaming v2) are CC-BY-NC-4.0** (non-commercial only) — do **not** swap in `diar_sortformer_4spk-v1` without rechecking the license terms. The user has explicitly accepted the v2.1 license terms for this MIT project.
+
+**Output naming** — uses a **distinct namespace** so it never collides with stable canary outputs:
+
+| Stable pipeline | Experimental Sortformer |
+|---|---|
+| `*.wav.canary.srt` | `*.wav.sortformer.srt` |
+| `*.wav.canary.csv` | `*.wav.sortformer.csv` |
+| `*.wav.canary.diarized.srt` | `*.wav.sortformer.diarized.srt` |
+
+`run_pipeline.sh`, `count_progress.js`, and the rclone sync filter all ignore `.sortformer.*` files. Running the experimental notebook does **not** affect production. To promote it to production: rename the suffix in the workhorse script + add to rclone sync + update `count_progress.js` matchers.
+
+**Workhorse script structure mirrors `transcribe_canary.py`**: idempotent (skips files with existing `.sortformer.diarized.srt`), heartbeat every 60s, ETA from running average, partial-failure tolerant. The diarization+merge logic is the same best-overlap algorithm as `diarize_canary.py:assign_speakers`.
+
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
 The most complex script. Phase 1 creates a semantic outline splitting the podcast into 35-45min thematic iterations. Phase 2 writes detailed journalistic sections per iteration. Both output JSON. Raw API responses saved in `*_raw/` dirs for recovery.

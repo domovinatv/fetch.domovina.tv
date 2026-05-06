@@ -3,6 +3,7 @@
 Outputs:
   - colab/domovina_tv_batch.ipynb               (combined: transcription + diarization)
   - colab_canary/domovina_tv_fetch.ipynb        (transcription only, batch)
+  - colab_sortformer/domovina_tv_sortformer.ipynb (EXPERIMENTAL: GPU end-to-end)
 
 Run: python colab/build_notebook.py
 """
@@ -12,6 +13,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).parent.parent
 NB_PATH = REPO_ROOT / "colab" / "domovina_tv_batch.ipynb"
 CANARY_NB_PATH = REPO_ROOT / "colab_canary" / "domovina_tv_fetch.ipynb"
+SORTFORMER_NB_PATH = REPO_ROOT / "colab_sortformer" / "domovina_tv_sortformer.ipynb"
 
 
 def md(text):
@@ -768,3 +770,368 @@ print("  2. Lokalno: ./run_pipeline.sh (korak 0 rclone povuče nove .canary.srt)
 """))
 
 write_notebook(cells, CANARY_NB_PATH, "canary-only")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3) SORTFORMER NOTEBOOK — EXPERIMENTAL GPU end-to-end (Canary + Sortformer)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def build_sortformer_notebook():
+    """Builds the experimental GPU-end-to-end pipeline notebook.
+
+    Differs from canary-only:
+      - Uses NVIDIA Streaming Sortformer 4spk v2.1 for diarization (GPU-resident)
+      - Output namespace .sortformer.* (NOT .canary.*) to avoid collision
+      - Single workhorse script does Canary + Sortformer + merge in one pass
+    """
+    cells = []
+
+    cells.append(md(r"""
+# Domovina.tv — 🧪 EKSPERIMENTALNI Sortformer GPU pipeline *(Colab)*
+
+End-to-end **GPU-resident** transkripcija + diarizacija na Google Colab G4. Koristi:
+
+- **NVIDIA Canary 1B v2** za transkripciju (proven na G4, ista skripta family kao stable pipeline)
+- **NVIDIA Streaming Sortformer 4spk v2.1** za diarizaciju — **fully GPU end-to-end**, bez CPU clusteringa
+
+---
+
+## ⚠️ LICENCA — PROČITAJ PRIJE KORIŠTENJA
+
+| Model | Licenca | Komercijalno? |
+|---|---|---|
+| Canary 1B v2 | CC-BY-4.0 | ✅ Da |
+| **Streaming Sortformer 4spk v2.1** | **NVIDIA Open Model License** | ✅ Uz uvjete (atribucija, bez zlouporabe) |
+| Sortformer v1 / non-streaming v2 | CC-BY-NC-4.0 | ❌ **Ne** — ne mijenjati varijantu bez provjere |
+
+Korisnik (ovaj repo, MIT) eksplicitno je prihvatio uvjete NVIDIA Open Model License-a. Ako forkaš ovaj projekt za drugu namjenu — **provjeri svoju licencnu situaciju**.
+
+Detalji: [NVIDIA Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/) · [Sortformer model card](https://huggingface.co/nvidia/diar_streaming_sortformer_4spk-v2.1)
+
+---
+
+## Zašto eksperimentalan?
+
+Stable produkcijski pipeline je **Canary na Colab G4 + pyannote DIARIZACIJA na Mac Mini lokalno** (`run_pipeline.sh --with-local-canary-diarize`). Razlog: pyannote je CPU-bound (sklearn clustering), pa Colab G4 nema benefit za diarizaciju → plaćaš premium GPU za posao gdje GPU sjedi idle. Vidi [`docs/diarization_research_2026-05.md`](https://github.com/domovinatv/fetch.domovina.tv/blob/main/docs/diarization_research_2026-05.md).
+
+**Ovaj notebook mijenja tu računicu**: Sortformer je *istinski* GPU end-to-end (~5870× realtime u istraživanju, <2 GB VRAM), pa Colab G4 sad **ima** benefit za diarizaciju — sve teče na GPU-u, jedan model load, jedan pass per fajl.
+
+| Aspekt | Stable (Canary + pyannote local) | Eksperiment (Canary + Sortformer Colab) |
+|---|---|---|
+| Gdje teče | Colab (transkripcija) + Mac (diarizacija) | Colab in toto |
+| GPU iskorištenost | Samo transkripcija | Cijeli pipeline |
+| Mac Mini opterećenje | Visoko (sati pyannote) | Nula |
+| Latencija handoff | rclone delay (Drive → Mac) | Trenutna (sve na Drive-u odmah) |
+| Max govornika | Neograničen (clustering) | **4** (Sortformer ograničenje) |
+| Output namespace | `.canary.diarized.srt` | `.sortformer.diarized.srt` |
+| Licenca | CC-BY-4.0 (sve) | NVIDIA Open Model License (Sortformer) |
+| Dokazano u produkciji | ✅ Da, mjesecima | 🧪 Ne — testira se |
+
+## Output naming — NIKAD ne kolidira sa stable
+
+Ovaj notebook generira **novi namespace** koji NE prepisuje canary outpute:
+
+```
+ep001.wav.canary.srt              ← stable pipeline (ostaje netaknuto)
+ep001.wav.canary.diarized.srt     ← stable pipeline (ostaje netaknuto)
+
+ep001.wav.sortformer.srt          ← OVAJ notebook
+ep001.wav.sortformer.csv          ← OVAJ notebook
+ep001.wav.sortformer.diarized.srt ← OVAJ notebook
+```
+
+`run_pipeline.sh` i `count_progress.js` ignoriraju `.sortformer.*` outpute — ovaj eksperiment *ne utječe* na produkciju.
+
+## Kako koristiti
+
+1. **GPU runtime**: Runtime → Change runtime type → **G4** (Pro+) ili A100. T4 OOM (Canary ne stane).
+2. **HF token**: Secrets panel → `HF_TOKEN` (potrebno za skidanje Sortformer modela).
+3. **Drive folder**: WAV-ovi u `MyDrive/domovina_fetch_data/canary_wav/{kanal}/...wav` (isto kao stable).
+4. **Runtime → Run all** (⌘/Ctrl+F9). Prvi put restart kernela nakon instalacije — pokreni opet.
+
+---
+"""))
+
+    cells.append(md(r"""
+## 0. Konfiguracija
+"""))
+
+    cells.append(code(r"""
+# ─── Drive locations (isto kao stable canary pipeline) ──────────────────────
+DRIVE_MOUNT_POINT = "/content/drive"
+DRIVE_DATA_DIR    = "MyDrive/domovina_fetch_data/canary_wav"
+INPUT_DIR         = f"{DRIVE_MOUNT_POINT}/{DRIVE_DATA_DIR}"
+
+# ─── Batch limits ────────────────────────────────────────────────────────────
+LIMIT             = None   # int ili None — npr. 3 za testiranje
+DRY_RUN           = False  # True: samo prikaz, bez obrade
+
+# ─── Jezik ───────────────────────────────────────────────────────────────────
+SOURCE_LANG       = "hr"
+TARGET_LANG       = "hr"
+
+# ─── Repo ────────────────────────────────────────────────────────────────────
+REPO_URL  = "https://github.com/domovinatv/fetch.domovina.tv.git"
+REPO_PATH = "/content/fetch.domovina.tv"
+
+print("Konfiguracija učitana.")
+print(f"  Input:    {INPUT_DIR}")
+print(f"  Limit:    {LIMIT if LIMIT else 'sve'}")
+print(f"  Dry run:  {DRY_RUN}")
+print(f"  Lang:     {SOURCE_LANG} → {TARGET_LANG}")
+print(f"  Output namespace: .sortformer.* (NE kolidira s .canary.*)")
+"""))
+
+    cells.append(md(r"""
+## 1. GPU provjera
+
+**G4 mandatory** zbog Canary VRAM zahtjeva. Sortformer sam treba <2 GB, ali Canary peak-a na ~26 GB.
+"""))
+
+    cells.append(code(r"""
+import subprocess
+out = subprocess.check_output(["nvidia-smi", "-L"]).decode().strip()
+print(out)
+
+mem = subprocess.check_output(
+    ["nvidia-smi", "--query-gpu=memory.total,memory.free", "--format=csv,noheader,nounits"]
+).decode().strip()
+total, free = [int(x.strip()) for x in mem.split(",")]
+print(f"\nVRAM: {free} MB slobodno / {total} MB ukupno ({free/total*100:.0f}%)")
+
+if total < 22000:
+    print(f"\nUPOZORENJE: Manje od 22 GB VRAM ({total} MB) — Canary može OOM.")
+    print("Idi na Runtime → Change runtime type → L4 (Pro) ili G4 (Pro+).")
+"""))
+
+    cells.append(md(r"""
+## 2. Mount Google Drive
+"""))
+
+    cells.append(code(r"""
+from google.colab import drive
+drive.mount(DRIVE_MOUNT_POINT)
+
+import os
+assert os.path.isdir(INPUT_DIR), (
+    f"Direktorij ne postoji: {INPUT_DIR}\n"
+    f"Provjeri DRIVE_DATA_DIR ili da li su WAV-ovi uploadani."
+)
+n_entries = len(os.listdir(INPUT_DIR))
+print(f"Drive mountan. INPUT_DIR sadrži: {n_entries} entry-ja.")
+"""))
+
+    cells.append(md(r"""
+## 3. Clone / pull repo
+"""))
+
+    cells.append(code(r"""
+import os, subprocess
+
+if not os.path.isdir(REPO_PATH):
+    print(f"Kloniram repo u {REPO_PATH}...")
+    subprocess.run(["git", "clone", REPO_URL, REPO_PATH], check=True)
+else:
+    print("Repo postoji, povlačim najnovije...")
+    subprocess.run(["git", "-C", REPO_PATH, "pull", "--ff-only"], check=True)
+
+WORKHORSE_SCRIPT = f"{REPO_PATH}/colab_sortformer/transcribe_sortformer.py"
+assert os.path.isfile(WORKHORSE_SCRIPT), f"Nedostaje skripta: {WORKHORSE_SCRIPT}"
+print(f"Skripta spremna: {os.path.basename(WORKHORSE_SCRIPT)}")
+"""))
+
+    cells.append(md(r"""
+## 4. Instalacija dependencija (~2-3 min)
+
+NeMo toolkit sadrži i Canary i Sortformer. Prvi put gasi kernel radi reloada — nakon restarta klikni **Runtime → Run all** ponovno.
+"""))
+
+    cells.append(code(r"""
+import os
+
+MARKER = "/content/.sortformer_deps_ok"
+
+def _have_deps():
+    try:
+        import nemo.collections.asr  # noqa: F401
+        from nemo.collections.asr.models import SortformerEncLabelModel  # noqa: F401
+        return True
+    except Exception as e:
+        print(f"deps check: {type(e).__name__}: {e}")
+        return False
+
+if os.path.exists(MARKER) and _have_deps():
+    print("Dependencies već instalirani i spremni.")
+else:
+    print("Instaliram NeMo (sadrži Canary + Sortformer) — traje ~2-3 min...")
+    get_ipython().system(
+        'pip install -qU numpy "nemo_toolkit[asr]" 2>&1 | tail -5'
+    )
+    open(MARKER, "w").write("ok")
+    print("")
+    print("=" * 60)
+    print(" Instalacija gotova — gasim kernel radi čistog reloada.")
+    print(" → Nakon restarta klikni Runtime → Run all ponovno.")
+    print("=" * 60)
+    import time
+    time.sleep(2)
+    os.kill(os.getpid(), 9)
+"""))
+
+    cells.append(code(r"""
+# Bezopasni shimovi za starije NeMo import path-eve
+import sys
+class _DummyYTTM: pass
+sys.modules.setdefault("youtokentome", _DummyYTTM)
+
+import huggingface_hub
+if getattr(huggingface_hub, "ModelFilter", None) is None:
+    class ModelFilter: pass
+    huggingface_hub.ModelFilter = ModelFilter
+
+import torch
+print("torch:", torch.__version__,
+      "| CUDA:", torch.cuda.is_available(),
+      "|", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "NO GPU")
+print("BF16 supported:", torch.cuda.is_bf16_supported() if torch.cuda.is_available() else False)
+"""))
+
+    cells.append(md(r"""
+## 5. HuggingFace token
+
+Sortformer model card zahtijeva prihvaćanje uvjeta — login s HF tokenom je potreban za `from_pretrained`. Token se učita iz Colab Secrets ili pita interaktivno.
+"""))
+
+    cells.append(code(r"""
+HF_TOKEN = None
+try:
+    from google.colab import userdata
+    HF_TOKEN = userdata.get("HF_TOKEN")
+    if HF_TOKEN:
+        print("HF_TOKEN učitan iz Colab Secrets.")
+except Exception:
+    pass
+
+if not HF_TOKEN:
+    from getpass import getpass
+    HF_TOKEN = getpass("Upiši HuggingFace token (hf_...): ").strip()
+
+assert HF_TOKEN and HF_TOKEN.startswith("hf_"), "HF_TOKEN nije valjan (mora počinjati s 'hf_')"
+os.environ["HF_TOKEN"] = HF_TOKEN
+os.environ["HUGGING_FACE_HUB_TOKEN"] = HF_TOKEN
+print("HF_TOKEN spreman.")
+"""))
+
+    cells.append(md(r"""
+## 6. Pregled posla (dry run)
+
+Skenira Drive i prikazuje koliko WAV-ova je već obrađeno (ima `.sortformer.diarized.srt`) vs. koliko će se obraditi u ovom runu. Ne radi nikakvu obradu.
+
+**Bitno**: ova ćelija broji `.sortformer.*` outpute, NE `.canary.*`. WAV-ovi koji su već obrađeni stable pipeline-om i dalje će biti procesirani ovdje (ako nemaju `.sortformer.diarized.srt`).
+"""))
+
+    cells.append(code(r"""
+def scan_progress(input_dir):
+    wavs, with_canary, with_sortformer = [], [], []
+    for root, _, files in os.walk(input_dir, followlinks=True):
+        for f in files:
+            if f.startswith("._") or not f.endswith(".wav"):
+                continue
+            p = os.path.join(root, f)
+            wavs.append(p)
+            if os.path.exists(p + ".canary.diarized.srt"):
+                with_canary.append(p)
+            if os.path.exists(p + ".sortformer.diarized.srt"):
+                with_sortformer.append(p)
+    return wavs, with_canary, with_sortformer
+
+print("Skeniram Drive (može potrajati ~30s za veliki korpus)...")
+wavs, with_canary, with_sortformer = scan_progress(INPUT_DIR)
+to_process = [w for w in wavs if w not in set(with_sortformer)]
+
+print(f"\n  Ukupno WAV datoteka:                {len(wavs)}")
+print(f"  Imaju .canary.diarized.srt (stable):  {len(with_canary)}")
+print(f"  Imaju .sortformer.diarized.srt (ovo): {len(with_sortformer)}")
+print(f"  Za obradu u ovom runu:                {len(to_process)}")
+
+if LIMIT:
+    print(f"\n  LIMIT={LIMIT} → obradit će se najviše {LIMIT} fajlova")
+
+# ETA heuristika — Sortformer je vrlo brz (~realtime/N), Canary dominira
+gpu_name = torch.cuda.get_device_name(0).lower() if torch.cuda.is_available() else ""
+if "rtx pro 6000" in gpu_name or "g4" in gpu_name:
+    sec_per_file = 25  # Canary ~13s + Sortformer ~10s + merge
+elif "a100" in gpu_name:
+    sec_per_file = 40
+elif "l4" in gpu_name:
+    sec_per_file = 90
+else:
+    sec_per_file = 150
+n_to_run = min(LIMIT or 10**9, len(to_process))
+if n_to_run:
+    eta_min = n_to_run * sec_per_file / 60
+    print(f"\n  Procjena trajanja na ovom GPU-u: ~{eta_min:.0f} min")
+    print(f"  (heuristika: ~{sec_per_file}s/file × {n_to_run} fajla)")
+"""))
+
+    cells.append(md(r"""
+## 7. Pokreni batch (Canary + Sortformer end-to-end)
+
+Poziva `transcribe_sortformer.py` koji u jednom prolazu po fajlu:
+
+1. Učita Canary 1B v2 (BF16) i Streaming Sortformer 4spk v2.1 (jednom, na početku)
+2. Za svaki WAV: Canary transkripcija → Sortformer diarizacija → merge speakera u SRT (best-overlap)
+3. Spremi `.sortformer.srt`, `.sortformer.csv`, `.sortformer.diarized.srt` na Drive
+4. Heartbeat svakih 60s, ETA na osnovu prosjeka, nastavak pri grešci jednog fajla
+
+Output ide odmah na Drive — ako želiš povući lokalno, dodaj odgovarajući rclone filter za `.sortformer.*`.
+"""))
+
+    cells.append(code(r"""
+import shlex
+
+cmd = [
+    "python", "-u", WORKHORSE_SCRIPT,
+    "--input-dir", INPUT_DIR,
+    "--source-lang", SOURCE_LANG,
+    "--target-lang", TARGET_LANG,
+]
+if LIMIT:
+    cmd += ["--limit", str(LIMIT)]
+if DRY_RUN:
+    cmd += ["--dry-run"]
+
+print(">", " ".join(shlex.quote(c) for c in cmd))
+print()
+get_ipython().system(" ".join(shlex.quote(c) for c in cmd))
+"""))
+
+    cells.append(md(r"""
+## 8. Sažetak — što je novo na Drive-u
+
+Delta novih `.sortformer.diarized.srt` u ovom runu.
+"""))
+
+    cells.append(code(r"""
+wavs2, with_canary2, with_sortformer2 = scan_progress(INPUT_DIR)
+new_sortformer = len(with_sortformer2) - len(with_sortformer)
+
+print("─" * 60)
+print(f"  Novih .sortformer.diarized.srt:  +{new_sortformer}")
+print("─" * 60)
+print(f"  Stanje na Drive-u:")
+print(f"    {len(wavs2)} WAV ukupno")
+print(f"    {len(with_canary2)}/{len(wavs2)} canary diarized (stable)")
+print(f"    {len(with_sortformer2)}/{len(wavs2)} sortformer diarized (ovo)")
+print()
+print("Sljedeći koraci:")
+print("  • Usporedi kvalitetu: pogledaj nekoliko ep001.wav.sortformer.diarized.srt")
+print("    vs ep001.wav.canary.diarized.srt — koja je bolja za Croatian?")
+print("  • Ako prihvatljiva: dodaj .sortformer.* u rclone sync filter")
+print("  • Ako ne: stable pipeline (.canary.*) ostaje primarni")
+"""))
+
+    write_notebook(cells, SORTFORMER_NB_PATH, "sortformer-experimental")
+
+
+build_sortformer_notebook()
