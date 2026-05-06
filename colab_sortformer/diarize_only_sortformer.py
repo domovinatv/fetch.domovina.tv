@@ -161,20 +161,14 @@ def load_sortformer_model():
     return diar_model
 
 
-def run_sortformer_diarization(diar_model, wav_file: str) -> tuple:
-    """Pokreće Sortformer. Vraća (speaker_segments, num_speakers).
+def _normalize_speaker_segments(raw_segments) -> tuple:
+    """Pretvara Sortformer raw output u normaliziranu listu speaker dictova.
 
     Normalizira labele speaker_0 → SPEAKER_00 (kompatibilno s
     Croatian RAG/article skriptama, regex /^\\[(\\w+)\\]\\s*/).
+
+    Vraća (speaker_segments, num_speakers).
     """
-    import torch
-    with torch.inference_mode():
-        predicted = diar_model.diarize(audio=wav_file, batch_size=1)
-
-    if not predicted or not predicted[0]:
-        return [], 0
-    raw_segments = predicted[0]
-
     speaker_segments = []
     speaker_set = set()
     for seg in raw_segments:
@@ -208,6 +202,131 @@ def run_sortformer_diarization(diar_model, wav_file: str) -> tuple:
         })
 
     return speaker_segments, len(speaker_set)
+
+
+def run_sortformer_diarization(diar_model, wav_file: str) -> tuple:
+    """Single-file wrapper — koristi se kao fallback kad batch faila s OOM."""
+    import torch
+    with torch.inference_mode():
+        predicted = diar_model.diarize(audio=wav_file, batch_size=1)
+    if not predicted or not predicted[0]:
+        return [], 0
+    return _normalize_speaker_segments(predicted[0])
+
+
+# ─── Batch orchestration (paralelni GPU forward pass) ───
+
+def process_batch(diar_model, batch_wavs: list) -> list:
+    """Obradi batch fajlova kroz Sortformer u JEDNOM paralelnom GPU forward pass-u.
+
+    Pre-validira svaki fajl (canary postoji, sortformer ne postoji), zatim
+    poziva NeMo `diar_model.diarize(audio=[...], batch_size=N)` koji interno
+    radi paralelnu inferenciju kroz Lhotse dataloader.
+
+    Pad-to-longest je automatski u NeMo — sortiranje po veličini PRIJE batchanja
+    minimizira waste compute (poziva se u main()).
+
+    Vraća listu rezultata u istom redu kao batch_wavs. Ako batch GPU forward
+    pukne s OOM/RuntimeError, vraća None — caller fallback na per-file.
+    """
+    import torch
+
+    # Pre-validation (sve idempotency provjere prije skupog GPU rada)
+    skip_results = {}
+    valid_wavs = []
+    valid_canary = []
+    for wav in batch_wavs:
+        diar_out = wav + SORTFORMER_DIARIZED_SRT_SUFFIX
+        canary_path = wav + CANARY_SRT_SUFFIX
+        if os.path.exists(diar_out):
+            skip_results[wav] = {"status": "skipped",
+                                  "reason": "already exists", "elapsed": 0.0}
+            continue
+        if not os.path.exists(canary_path):
+            skip_results[wav] = {"status": "skipped",
+                                  "reason": "no .canary.srt", "elapsed": 0.0}
+            continue
+        canary_segs = parse_canary_srt(canary_path)
+        if not canary_segs:
+            skip_results[wav] = {"status": "error",
+                                  "reason": ".canary.srt unparseable",
+                                  "elapsed": 0.0}
+            continue
+        valid_wavs.append(wav)
+        valid_canary.append(canary_segs)
+
+    if not valid_wavs:
+        return [skip_results[w] for w in batch_wavs]
+
+    # Heartbeat za batch — neki fajlovi su 3 h, batch može trajati par minuta
+    pid = os.getpid()
+    heartbeat_stop = threading.Event()
+    batch_t0 = time.time()
+
+    def _heartbeat():
+        while not heartbeat_stop.wait(60):
+            elapsed = time.time() - batch_t0
+            print(f"      ... [W{pid}] batch ({len(valid_wavs)} files) "
+                  f"{elapsed:.0f}s elapsed", flush=True)
+
+    hb = threading.Thread(target=_heartbeat, daemon=True)
+    hb.start()
+
+    print(f"      🎭 Sortformer batch GPU forward "
+          f"({len(valid_wavs)} fajlova paralelno)...")
+    diar_start = time.time()
+
+    try:
+        with torch.inference_mode():
+            predicted = diar_model.diarize(
+                audio=list(valid_wavs),
+                batch_size=len(valid_wavs),
+            )
+    except (torch.cuda.OutOfMemoryError, RuntimeError) as e:
+        heartbeat_stop.set()
+        gc.collect()
+        torch.cuda.empty_cache()
+        print(f"      ⚠️  Batch GPU pukao ({type(e).__name__}: {e}) "
+              f"→ fallback na per-file")
+        return None
+
+    diar_elapsed = time.time() - diar_start
+    heartbeat_stop.set()
+    print(f"      📊 Batch prošao u {diar_elapsed:.1f}s "
+          f"(prosjek {diar_elapsed/len(valid_wavs):.1f}s/file)")
+
+    # Per-file post-process: normalize speakers, merge, write SRT
+    results_by_wav = dict(skip_results)
+    for wav, canary_segs, raw in zip(valid_wavs, valid_canary, predicted):
+        per_file_t0 = time.time()
+        if not raw:
+            results_by_wav[wav] = {"status": "error",
+                                    "reason": "Sortformer empty output",
+                                    "elapsed": time.time() - per_file_t0}
+            continue
+
+        speaker_segs, num_spk = _normalize_speaker_segments(raw)
+        if not speaker_segs:
+            results_by_wav[wav] = {"status": "error",
+                                    "reason": "Sortformer no speakers",
+                                    "elapsed": time.time() - per_file_t0}
+            continue
+
+        merged = assign_speakers(canary_segs, speaker_segs)
+        diar_out = wav + SORTFORMER_DIARIZED_SRT_SUFFIX
+        with open(diar_out, "w", encoding="utf-8") as f:
+            f.write(generate_diarized_srt_content(merged))
+        srt_size_kb = os.path.getsize(diar_out) / 1024
+        print(f"      ✅ {os.path.basename(diar_out)} "
+              f"({num_spk} spk, {srt_size_kb:.1f} KB)")
+        results_by_wav[wav] = {
+            "status": "processed",
+            "elapsed": time.time() - per_file_t0,
+            "segments": len(merged),
+            "speakers": num_spk,
+        }
+
+    return [results_by_wav[w] for w in batch_wavs]
 
 
 # ─── Per-file orchestration ───
@@ -357,19 +476,25 @@ Primjeri:
                         help="Obradi samo jedan specifičan WAV fajl")
     parser.add_argument("--limit", type=int, default=None,
                         help="Ograniči broj fajlova (testiranje)")
+    parser.add_argument("--batch-size", type=int, default=4,
+                        help="Paralelno fajlova kroz Sortformer (default: 4). "
+                             "T4 sweet spot 4-8. Veći = brže ali raste System RAM "
+                             "linearno (~330 MB × batch za 3h fajlove).")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
     input_dir = args.input_dir
+    batch_size = max(1, args.batch_size)
 
     print("╔══════════════════════════════════════════════════╗")
     print("║   🎭 SORTFORMER DIARIZE-ONLY (Pass 2)           ║")
     print("║   Reuse .canary.srt + Sortformer 4spk v2.1      ║")
     print("║   T4-FRIENDLY (~2 GB VRAM peak)                 ║")
     print("╚══════════════════════════════════════════════════╝")
-    print(f"   📂 Input:  {input_dir}")
+    print(f"   📂 Input:      {input_dir}")
+    print(f"   📦 Batch size: {batch_size}  (paralelni GPU forward pass)")
     print(f"   📜 Licenca Sortformer: NVIDIA Open Model License")
     if args.dry_run:
         print("   ⚠️  DRY RUN — samo prikaz, bez obrade")
@@ -431,37 +556,55 @@ def main():
     diar_model = load_sortformer_model()
     print("")
 
+    # Sortiraj po veličini — pad-to-longest waste minimaliziran kad su batch
+    # članovi sličnih duljina (3h+3h+3h vs 3h+30m+30m+30m).
+    if batch_size > 1:
+        to_process = sorted(to_process, key=os.path.getsize)
+        print(f"   🔢 Sortirano po veličini za optimalno batchanje\n")
+
     total_processed = 0
     total_skipped = 0
     total_errors = 0
     total_elapsed = 0.0
-    batch_start = time.time()
+    wall_start = time.time()
+    n_total = len(to_process)
+    n_done = 0
 
-    for i, wav_file in enumerate(to_process):
-        basename = os.path.basename(wav_file)
+    for batch_idx in range(0, n_total, batch_size):
+        batch = to_process[batch_idx:batch_idx + batch_size]
         print(f"   ─────────────────────────────────────────────")
-        print(f"   [{i+1}/{len(to_process)}] 🎙️  {basename}")
+        print(f"   📦 Batch [{batch_idx+1}-{batch_idx+len(batch)}/{n_total}]"
+              f"  ({len(batch)} fajlova)")
+        for wav in batch:
+            size_mb = os.path.getsize(wav) / (1024 * 1024)
+            print(f"      🎙️  {os.path.basename(wav)} ({size_mb:.1f} MB)")
 
-        result = process_single_file(diar_model, wav_file)
+        results = process_batch(diar_model, batch)
 
-        if result["status"] == "processed":
-            total_processed += 1
-            total_elapsed += result["elapsed"]
-            wall_elapsed = time.time() - batch_start
-            wall_per_file = wall_elapsed / (i + 1)
-            wall_remaining = (len(to_process) - i - 1) * wall_per_file
-            print(f"      ⏱️  Trajalo: {format_duration(result['elapsed'])}"
-                  f"  |  Govornici: {result['speakers']}"
-                  f"  |  ETA: {format_duration(wall_remaining)}")
-        elif result["status"] == "skipped":
-            total_skipped += 1
-            print(f"      ⏭️  Preskočeno: {result['reason']}")
-        elif result["status"] == "error":
-            total_errors += 1
-            if result.get("reason") == "CUDA OOM":
-                print("      💡 Preskačem na sljedeću...")
+        if results is None:
+            # Batch GPU OOM/RuntimeError → fallback na per-file za ovaj batch
+            print(f"   🔁 Per-file fallback (batch_size=1) za ovih "
+                  f"{len(batch)} fajlova")
+            results = [process_single_file(diar_model, w) for w in batch]
 
-    wall_total = time.time() - batch_start
+        for wav, result in zip(batch, results):
+            n_done += 1
+            if result["status"] == "processed":
+                total_processed += 1
+                total_elapsed += result["elapsed"]
+            elif result["status"] == "skipped":
+                total_skipped += 1
+            elif result["status"] == "error":
+                total_errors += 1
+                print(f"      ❌ {os.path.basename(wav)}: {result.get('reason')}")
+
+        wall_elapsed = time.time() - wall_start
+        wall_per_file = wall_elapsed / max(n_done, 1)
+        wall_remaining = (n_total - n_done) * wall_per_file
+        print(f"      ⏱️  ETA: {format_duration(wall_remaining)}"
+              f"  |  ✅ {total_processed}  ⏭️  {total_skipped}  ❌ {total_errors}")
+
+    wall_total = time.time() - wall_start
     print("")
     print("╔══════════════════════════════════════════════════╗")
     print("║   📊 SAŽETAK                                    ║")

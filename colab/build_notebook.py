@@ -1210,15 +1210,23 @@ INPUT_DIR         = f"{DRIVE_MOUNT_POINT}/{DRIVE_DATA_DIR}"
 LIMIT             = None   # int ili None — npr. 5 za testiranje
 DRY_RUN           = False  # True: samo prikaz, bez obrade
 
+# ─── Paralelizacija ─────────────────────────────────────────────────────────
+# Koliko fajlova ide paralelno kroz Sortformer u JEDNOM GPU forward pass-u.
+# T4 sweet spot: 4-8. Veći = brže, ali raste System RAM linearno
+# (~330 MB × batch za 3h fajlove). T4 ima 12.7 GB sys RAM → batch=8 je sigurno.
+# Ako CUDA OOM ili sys RAM blizu limita → smanji BATCH_SIZE.
+BATCH_SIZE        = 4
+
 # ─── Repo ────────────────────────────────────────────────────────────────────
 REPO_URL  = "https://github.com/domovinatv/fetch.domovina.tv.git"
 REPO_PATH = "/content/fetch.domovina.tv"
 
 print("Konfiguracija učitana.")
-print(f"  Input:    {INPUT_DIR}")
-print(f"  Limit:    {LIMIT if LIMIT else 'sve'}")
-print(f"  Dry run:  {DRY_RUN}")
-print(f"  Output:   .sortformer.diarized.srt (drop-in kompatibilan s combined notebookom)")
+print(f"  Input:      {INPUT_DIR}")
+print(f"  Limit:      {LIMIT if LIMIT else 'sve'}")
+print(f"  Batch size: {BATCH_SIZE}  (paralelni GPU forward pass)")
+print(f"  Dry run:    {DRY_RUN}")
+print(f"  Output:     .sortformer.diarized.srt (drop-in kompatibilan s combined notebookom)")
 """))
 
     cells.append(md(r"""
@@ -1421,14 +1429,17 @@ if n_to_run:
 """))
 
     cells.append(md(r"""
-## 7. Pokreni Sortformer batch (diarize-only)
+## 7. Pokreni Sortformer batch (diarize-only, paralelni GPU forward)
 
 Poziva `diarize_only_sortformer.py` koji:
 
 1. Učita Streaming Sortformer 4spk v2.1 (jednom, na početku) — **NE učitava Canary**
-2. Za svaki WAV: parsira postojeći `.canary.srt` → Sortformer diarizacija → merge speakera
-3. Spremi `.sortformer.diarized.srt` na Drive
-4. Heartbeat svakih 60s, ETA na osnovu prosjeka, nastavak pri grešci jednog fajla
+2. Sortira fajlove po veličini (minimizira pad-to-longest waste u batchu)
+3. Za svaki batch od `BATCH_SIZE` fajlova: jedan paralelni GPU forward pass
+4. Per-file: parsira `.canary.srt` → merge speakera (best-overlap) → `.sortformer.diarized.srt`
+5. Heartbeat svakih 60s, ETA na osnovu prosjeka, fallback na per-file ako batch faila s OOM
+
+**Tuning**: ako vidiš `CUDA OOM` ili System RAM blizu 12 GB → smanji `BATCH_SIZE` u ćeliji 0. Ako GPU ostaje idle (`nvidia-smi` < 50% util tijekom inferencije) → povećaj.
 """))
 
     cells.append(code(r"""
@@ -1437,6 +1448,7 @@ import shlex
 cmd = [
     "python", "-u", WORKHORSE_SCRIPT,
     "--input-dir", INPUT_DIR,
+    "--batch-size", str(BATCH_SIZE),
 ]
 if LIMIT:
     cmd += ["--limit", str(LIMIT)]
