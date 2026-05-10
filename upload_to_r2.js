@@ -810,9 +810,34 @@ if (inputDir) {
         }
     }
 
-    const allFiles = appFiles;
+    // Dedup: više pipeline fajlova može mapirati na isti R2 ključ. Tipičan
+    // slučaj: pipeline producira `*.diarized_<date>_<model>.article.json` po
+    // svakom Gemini modelu, a `getFlutterKey()` ih sve mapira na isti
+    // `data/{videoId}/article.json`. Bez dedupa se upload-aju svi sekvencijalno
+    // (waste) i ono što na kraju živi na CDN-u ovisi o redoslijedu — non-det.
+    //
+    // Strategija: najnoviji mtime pobjeđuje (tiebreaker: veći fajl). Najnoviji
+    // file = najsvježija pipeline runa = ono što user trenutno smatra "best".
+    const dedupMap = new Map(); // r2Key → best appFile
+    for (const f of appFiles) {
+        let mtimeMs = 0;
+        try { mtimeMs = fs.statSync(f.localPath).mtimeMs; } catch { /* fallback 0 */ }
+        const candidate = { ...f, mtimeMs };
+        const existing = dedupMap.get(f.r2Key);
+        if (!existing) {
+            dedupMap.set(f.r2Key, candidate);
+            continue;
+        }
+        const newer = candidate.mtimeMs > existing.mtimeMs;
+        const sameTimeBigger = candidate.mtimeMs === existing.mtimeMs && candidate.size > existing.size;
+        if (newer || sameTimeBigger) {
+            dedupMap.set(f.r2Key, candidate);
+        }
+    }
+    const allFiles = Array.from(dedupMap.values());
+    const droppedDups = appFiles.length - allFiles.length;
 
-    log("📊", `Ukupno za provjeru: ${allFiles.length} (od ${discoveredFiles.length} otkrivenih datoteka)`);
+    log("📊", `Ukupno za provjeru: ${allFiles.length} (od ${discoveredFiles.length} otkrivenih, ${droppedDups} duplikata po R2 ključu)`);
     const totalSize = allFiles.reduce((sum, f) => sum + f.size, 0);
     log("💾", `Ukupna veličina: ${humanSize(totalSize)}`);
     console.log("");
@@ -848,7 +873,10 @@ if (inputDir) {
 
     // Inicijaliziraj R2 klijent (lokalno za video upload; zajednički client deklariran dolje)
 
-    const R2_CHECK_CONCURRENCY = 20; // paralelni HeadObject pozivi
+    const R2_CHECK_CONCURRENCY  = 20; // paralelni HeadObject pozivi
+    // PUT je teži od HEAD (full body upload), pa malo niža concurrency. Konfigurabilno
+    // preko env vara — povećaj ako mreža/disk to izdrže (R2 nema striktnih rate limita).
+    const R2_UPLOAD_CONCURRENCY = parseInt(process.env.R2_UPLOAD_CONCURRENCY, 10) || 8;
 
     // ── FAZA 1: Paralelni HeadObject za sve fajlove ───────────────
     // Samo dohvaćamo remote ETag — ne čitamo lokalne fajlove ovdje.
@@ -887,14 +915,15 @@ if (inputDir) {
     const memMd5Cache  = new Map(); // in-memory, dijeli MD5 za isti localPath
     let diskCacheDirty = false;
 
-    for (let i = 0; i < allFiles.length; i++) {
-        const f = allFiles[i];
+    log("🚀", `Upload (${R2_UPLOAD_CONCURRENCY} paralelno)...`);
+
+    const uploadTasks = allFiles.map((f, i) => async () => {
         const remoteEtag = remoteEtags[i];
 
         // Greška u fazi 1 — preskoči
         if (remoteEtag === undefined) {
             failed++;
-            continue;
+            return;
         }
 
         let action;
@@ -908,11 +937,11 @@ if (inputDir) {
             if (localMd5 === null) {
                 log("❌", `Ne mogu pročitati: ${f.localPath}`);
                 failed++;
-                continue;
+                return;
             }
             if (localMd5 === remoteEtag) {
                 skipped++;
-                continue; // Nepromijenjeno — preskoči
+                return; // Nepromijenjeno — preskoči
             }
             action = "UPDATE";
         }
@@ -926,7 +955,9 @@ if (inputDir) {
             log("❌", `Upload neuspješan za ${f.r2Key}: ${err.message}`);
             failed++;
         }
-    }
+    });
+
+    await runConcurrent(uploadTasks, R2_UPLOAD_CONCURRENCY);
 
     // Spremi disk MD5 cache ako se promijenio
     if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
