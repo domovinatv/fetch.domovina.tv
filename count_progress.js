@@ -87,9 +87,17 @@ const matchers = [
     ['.rag_combined.jsonl', 'ragCombined'],
     ['.mp3', 'mp3'],
     ['.wav', 'wav'],
+    // Video fajlovi: yt-dlp merged video (.mkv) → ffmpeg remux na .mp4 (R2 publish)
+    ['.mkv', 'mkv'],
+    ['.mp4', 'mp4Final'],
 ];
 
+// Intermediate yt-dlp video fragmenti (.f140.mp4, .f396.mp4, ...) NISU final
+// remuxed mp4 — preskoči ih da ne unesu šum u "MP4 remux" brojač.
+const INTERMEDIATE_MP4_RE = /\.f\d+\.mp4$/;
+
 function classify(filename) {
+    if (INTERMEDIATE_MP4_RE.test(filename)) return null;
     for (const [suffix, key] of matchers) {
         if (filename.endsWith(suffix)) return key;
     }
@@ -104,6 +112,11 @@ const channels = fs.readdirSync(OUTPUT_DIR).filter(f => {
 let totalOutlineVideos = 0;
 let totalArticleVideos = 0;
 let totalMagisteriumVideos = 0;
+// Praćenje MKV/MP4 po videu (za izračun "koliko MKV-ova ima par .mp4 = remuxed").
+// MP4 može postojati i bez MKV-a (yt-dlp ponekad skida direktno .mp4), pa
+// jednostavan g('mp4Final')/g('mkv') ne mjeri remux-progress smisleno.
+let totalMkvRemuxed = 0;
+let totalMkvWaiting = 0;
 
 for (const channel of channels) {
     const channelPath = path.join(OUTPUT_DIR, channel);
@@ -113,9 +126,32 @@ for (const channel of channels) {
         const videosWithOutline = new Set();
         const videosWithArticle = new Set();
         const videosWithMagisterium = new Set();
+        const videosWithMkv = new Set();
+        const videosWithMp4 = new Set();
 
         for (const file of files) {
             if (file.startsWith('._')) continue;
+
+            // Screenshot direktoriji: jedan po videu, sufiks `_screenshots`,
+            // sadrže `_manifest.json` + N PNG fajlova (jedan po timestampu).
+            // Manifest je jedini pouzdan signal "screenshot batch završen za ovaj video".
+            if (file.endsWith('_screenshots')) {
+                const ssPath = path.join(channelPath, file);
+                try {
+                    if (fs.statSync(ssPath).isDirectory()) {
+                        if (fs.existsSync(path.join(ssPath, '_manifest.json'))) {
+                            stats.screenshots = (stats.screenshots || 0) + 1;
+                        }
+                        for (const inner of fs.readdirSync(ssPath)) {
+                            if (inner.startsWith('._')) continue;
+                            if (inner.endsWith('.png')) {
+                                stats.screenshotPng = (stats.screenshotPng || 0) + 1;
+                            }
+                        }
+                    }
+                } catch { /* skip */ }
+                continue;
+            }
 
             const key = classify(file);
             if (key) {
@@ -157,12 +193,20 @@ for (const channel of channels) {
             } else if (key === 'magisterium') {
                 const base = file.replace(/\.wav\.canary\.diarized_.*\.article\.magisterium\.json$/, '');
                 videosWithMagisterium.add(base);
+            } else if (key === 'mkv') {
+                videosWithMkv.add(file.slice(0, -4));
+            } else if (key === 'mp4Final') {
+                videosWithMp4.add(file.slice(0, -4));
             }
         }
 
         totalOutlineVideos += videosWithOutline.size;
         totalArticleVideos += videosWithArticle.size;
         totalMagisteriumVideos += videosWithMagisterium.size;
+        for (const base of videosWithMkv) {
+            if (videosWithMp4.has(base)) totalMkvRemuxed++;
+            else totalMkvWaiting++;
+        }
     } catch (e) {
         console.error(`Greška pri čitanju: ${channelPath} - ${e.message}`);
     }
@@ -192,7 +236,8 @@ function progressBar(count, base) {
 function line(label, count, base, opts = {}) {
     const { bar, pct } = progressBar(count, base);
     const blocked = opts.blocked ? ` (+${opts.blocked} blocked)` : '';
-    const extra = opts.extra ? ` (${opts.extra} files)` : '';
+    const extraLabel = opts.extraLabel || 'files';
+    const extra = opts.extra ? ` (${opts.extra} ${extraLabel})` : '';
     console.log(
         `    ${pad(label, 30)} ${bar} ${rpad(pct + '%', 9)} ${rpad(count, 5)}/${base}${blocked}${extra}`
     );
@@ -215,6 +260,7 @@ if (listaTotal) {
 console.log('    -- Download & konverzija --');
 line('Preuzeto (.mp3)', g('mp3'), total);
 line('WAV konverzija (.wav)', g('wav'), total);
+line('Video MKV (yt-dlp merge)', g('mkv'), total);
 line('Metadata (.info.json)', g('infoJson'), total);
 line('Opisi (.description)', g('description'), total);
 
@@ -254,6 +300,16 @@ console.log('\n    -- RAG priprema --');
 line('RAG chunks', g('ragChunks'), total);
 line('RAG import', g('ragImport'), total);
 line('RAG combined', g('ragCombined'), total);
+
+// Screenshot dirovi su 1:1 s videima koji imaju article.json (screenshot_youtube.js
+// ih čita iz njega). Za MP4 razlikujemo: total .mp4 fajlova (publish-ready video),
+// vs MKV remux progress (koliko MKV-ova ima par .mp4 — to je upload_to_r2 remux faza).
+const mkvCount = g('mkv');
+const mp4Count = g('mp4Final');
+console.log('\n    -- Screenshots & R2 publish prep --');
+line('Screenshot dirovi (po videu)', g('screenshots'), total, { extra: g('screenshotPng'), extraLabel: 'PNG' });
+line('Video MP4 (publish-ready)', mp4Count, total);
+line('MKV → MP4 remux gotovo', totalMkvRemuxed, mkvCount, { extra: totalMkvWaiting, extraLabel: 'MKV bez MP4' });
 
 console.log();
 
