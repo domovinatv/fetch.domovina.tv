@@ -76,6 +76,8 @@ echo ""
 #   --with-local-canary-diarize → uključuje korak 6 (lokalna Canary diarizacija putem pyannote; CPU-intenzivno)
 #                            Alternativa: Colab T4 GPU diarizacija + rclone sync (korak 0).
 #   --with-screenshots    → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
+#   --proxy <url>         → proxy za screenshot korak (zaobilazi YouTube IP-level anti-bot block)
+#                            Format: socks5://host:port, http://user:pass@host:port. Alternativa: HTTPS_PROXY env var.
 #   --with-vertex-import  → uključuje korak 11 (Vertex AI RAG import; zahtijeva konfiguriran GCS bucket)
 #   --with-r2-upload      → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
@@ -94,6 +96,7 @@ WITH_SCREENSHOTS=false
 WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
+SCREENSHOT_PROXY=""
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -134,6 +137,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--with-magisterium" ]; then
         WITH_MAGISTERIUM=true
         i=$((i + 1))
+    elif [ "$arg" = "--proxy" ]; then
+        SCREENSHOT_PROXY="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
     else
         COMMON_ARGS+=("$arg")
         i=$((i + 1))
@@ -402,6 +408,10 @@ done
 
 if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     SCREENSHOT_ARGS+=("--dry-run")
+fi
+
+if [ -n "$SCREENSHOT_PROXY" ]; then
+    SCREENSHOT_ARGS+=("--proxy" "$SCREENSHOT_PROXY")
 fi
 
 node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {

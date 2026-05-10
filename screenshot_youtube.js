@@ -18,6 +18,12 @@
  *      node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5
  *      node screenshot_youtube.js --input-dir ... --dry-run
  *
+ *   3. Preko proxy-ja (zaobilaženje YouTube IP-level anti-bot blocka):
+ *      node screenshot_youtube.js --input-dir ... --proxy socks5://127.0.0.1:1080
+ *      node screenshot_youtube.js --input-dir ... --proxy http://user:pass@host:8080
+ *      Ili putem env vara: HTTPS_PROXY=socks5://... node screenshot_youtube.js ...
+ *      (CLI --proxy ima prednost nad HTTPS_PROXY/HTTP_PROXY/ALL_PROXY env varima.)
+ *
  * Preduvjeti:
  *   - yt-dlp (brew install yt-dlp)
  *   - ffmpeg (brew install ffmpeg)
@@ -54,6 +60,10 @@ let lastStderr = "";
 const COOKIE_ARGS = fs.existsSync(COOKIES_FILE)
     ? ["--cookies", COOKIES_FILE]
     : ["--cookies-from-browser", BROWSER_NAME];
+
+// Proxy se postavlja iz --proxy CLI flag-a (s HTTPS_PROXY/HTTP_PROXY/ALL_PROXY
+// env fallbackom) u parseArgs(). Prazan array = direktna konekcija.
+let PROXY_ARGS = [];
 
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
@@ -102,8 +112,9 @@ function refreshCookiesFromBrowser() {
     cookieRefreshAttempts++;
     console.log(`   🔄 Osvježavam cookies iz ${BROWSER_NAME} preglednika (pokušaj ${cookieRefreshAttempts}/${MAX_REFRESH_ATTEMPTS_PER_RUN})...`);
     try {
+        const proxyFlag = PROXY_ARGS.length ? `--proxy '${PROXY_ARGS[1]}' ` : "";
         execSync(
-            `yt-dlp --cookies-from-browser '${BROWSER_NAME}' --cookies '${COOKIES_FILE}' --skip-download --quiet --no-warnings 'https://www.youtube.com/'`,
+            `yt-dlp ${proxyFlag}--cookies-from-browser '${BROWSER_NAME}' --cookies '${COOKIES_FILE}' --skip-download --quiet --no-warnings 'https://www.youtube.com/'`,
             { encoding: "utf-8", timeout: 30000, stdio: ["pipe", "pipe", "pipe"] }
         );
         console.log(`   ✅ Cookies osvježeni → ${COOKIES_FILE}`);
@@ -138,6 +149,7 @@ function getStreamUrl(videoId, allowRefreshRetry = true) {
     const args = [
         "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
         "--get-url",
+        ...PROXY_ARGS,
         ...COOKIE_ARGS,
         "--no-check-certificate",
         `https://www.youtube.com/watch?v=${videoId}`
@@ -431,6 +443,18 @@ function parseArgs() {
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
 
+    // --proxy zaobilazi YouTube IP-level anti-bot block. CLI ima prednost nad
+    // env varima (HTTPS_PROXY/HTTP_PROXY/ALL_PROXY). Format: socks5://host:port,
+    // http://user:pass@host:port, itd. (sve što yt-dlp prihvaća).
+    const proxy = getArg("--proxy")
+        || process.env.HTTPS_PROXY
+        || process.env.HTTP_PROXY
+        || process.env.ALL_PROXY
+        || null;
+    if (proxy) {
+        PROXY_ARGS = ["--proxy", proxy];
+    }
+
     if (!file && !inputDir) {
         console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
         console.error("");
@@ -440,6 +464,7 @@ function parseArgs() {
         console.error("  node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5");
         console.error("  node screenshot_youtube.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node screenshot_youtube.js --input-dir ... --dry-run");
+        console.error("  node screenshot_youtube.js --input-dir ... --proxy socks5://127.0.0.1:1080");
         process.exit(1);
     }
 
@@ -470,6 +495,11 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   🔧 yt-dlp + ffmpeg (best available quality)`);
     console.log(`   🍪 Cookies: ${fs.existsSync(COOKIES_FILE) ? COOKIES_FILE : `browser:${BROWSER_NAME}`}`);
+    if (PROXY_ARGS.length) {
+        // Maskiraj credentials u logu (user:pass@host → ***@host)
+        const masked = PROXY_ARGS[1].replace(/\/\/[^@]+@/, "//***@");
+        console.log(`   🌐 Proxy:   ${masked}`);
+    }
 
     // ── Single file mode ──
     if (opts.mode === "single") {
@@ -543,7 +573,9 @@ async function main() {
                 console.log("   Što sad:");
                 console.log("     1. Sačekaj 1-24h da YouTube oslobodi IP block");
                 console.log("     2. ILI promijeni IP (VPN, mobile hotspot, drugi network)");
-                console.log("     3. Onda ponovo: ./run_pipeline.sh --with-screenshots ...");
+                console.log("     3. ILI proslijedi proxy: --proxy socks5://host:port");
+                console.log("        (ili HTTPS_PROXY=socks5://... env var)");
+                console.log("     4. Onda ponovo: ./run_pipeline.sh --with-screenshots ...");
                 console.log("");
                 console.log(`   Stigao do: ${i}/${finalList.length} videa`);
                 break;
