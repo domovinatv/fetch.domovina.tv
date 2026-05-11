@@ -480,6 +480,11 @@ Primjeri:
                         help="Paralelno fajlova kroz Sortformer (default: 4). "
                              "T4 sweet spot 4-8. Veći = brže ali raste System RAM "
                              "linearno (~330 MB × batch za 3h fajlove).")
+    parser.add_argument("--max-runtime-hours", type=float, default=None,
+                        help="Wall-clock budget u satima. Skripta završava graceful "
+                             "nakon zadnjeg završenog batcha kad prijeđe budget "
+                             "(ne prekida batch u tijeku). Korisno za Colab gdje "
+                             "želiš sigurnost protiv runaway sesija.")
     return parser.parse_args()
 
 
@@ -487,6 +492,7 @@ def main():
     args = parse_args()
     input_dir = args.input_dir
     batch_size = max(1, args.batch_size)
+    max_runtime_s = args.max_runtime_hours * 3600 if args.max_runtime_hours else None
 
     print("╔══════════════════════════════════════════════════╗")
     print("║   🎭 SORTFORMER DIARIZE-ONLY (Pass 2)           ║")
@@ -495,6 +501,9 @@ def main():
     print("╚══════════════════════════════════════════════════╝")
     print(f"   📂 Input:      {input_dir}")
     print(f"   📦 Batch size: {batch_size}  (paralelni GPU forward pass)")
+    if max_runtime_s:
+        print(f"   ⏱️  Max runtime: {args.max_runtime_hours}h  "
+              f"(graceful exit nakon zadnjeg batcha)")
     print(f"   📜 Licenca Sortformer: NVIDIA Open Model License")
     if args.dry_run:
         print("   ⚠️  DRY RUN — samo prikaz, bez obrade")
@@ -603,6 +612,13 @@ def main():
         wall_remaining = (n_total - n_done) * wall_per_file
         print(f"      ⏱️  ETA: {format_duration(wall_remaining)}"
               f"  |  ✅ {total_processed}  ⏭️  {total_skipped}  ❌ {total_errors}")
+
+        # Runtime budget check — exit-aj graceful prije idućeg batcha, ne mid-batch
+        if max_runtime_s and wall_elapsed >= max_runtime_s:
+            print(f"   ⏱️  Wall-clock budget ({args.max_runtime_hours}h) iscrpljen "
+                  f"({format_duration(wall_elapsed)}) — graceful exit.")
+            print(f"      Preostalo neobrađeno: {n_total - n_done} / {n_total}")
+            break
 
     wall_total = time.time() - wall_start
     print("")
