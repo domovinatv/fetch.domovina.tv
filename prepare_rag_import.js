@@ -69,6 +69,21 @@ function parseArgs() {
 // ─── DONE CACHE ─────────────────────────────────────────────────
 
 const DONE_STATE_FILENAME = "rag-import-done.json";
+const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
+
+// Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
+// Ako uz canary postoji i .sortformer.diarized.srt (eksperimentalna pipeline),
+// preferira sortformer. Discovery i izlazna imena fajlova ostaju canary-anchored.
+function resolveDiarizedSrt(canarySrtPath) {
+    const sortformerPath = canarySrtPath.replace(
+        /\.canary\.diarized\.srt$/,
+        SORTFORMER_DIARIZED_SRT_SUFFIX
+    );
+    if (fs.existsSync(sortformerPath)) {
+        return { path: sortformerPath, source: "sortformer" };
+    }
+    return { path: canarySrtPath, source: "canary" };
+}
 
 function loadDoneState(baseDir) {
     const statePath = path.join(baseDir, DONE_STATE_FILENAME);
@@ -339,8 +354,10 @@ function processTriplet(srtPath, outlinePath, articlePath, verbose = true) {
         console.log(`   📰 Article: ${path.basename(articlePath)}`);
     }
 
-    // Ucitaj datoteke
-    const srtContent = fs.readFileSync(srtPath, "utf-8");
+    // Ucitaj datoteke — sortformer ima prioritet ako postoji
+    const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
+    if (_diarSource === "sortformer") console.log(`   🎭 Dijarizacija: sortformer (override canary)`);
+    const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
     const outlineJson = JSON.parse(fs.readFileSync(outlinePath, "utf-8"));
     const articleJson = JSON.parse(fs.readFileSync(articlePath, "utf-8"));
 

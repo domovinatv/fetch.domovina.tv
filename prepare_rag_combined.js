@@ -106,6 +106,21 @@ const path = require("path");
 // ─── SUFIKSI DATOTEKA ───────────────────────────────────────────
 
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
+const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
+
+// Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
+// Ako uz canary postoji i .sortformer.diarized.srt (eksperimentalna pipeline),
+// preferira sortformer. Discovery i izlazna imena fajlova ostaju canary-anchored.
+function resolveDiarizedSrt(canarySrtPath) {
+    const sortformerPath = canarySrtPath.replace(
+        /\.canary\.diarized\.srt$/,
+        SORTFORMER_DIARIZED_SRT_SUFFIX
+    );
+    if (fs.existsSync(sortformerPath)) {
+        return { path: sortformerPath, source: "sortformer" };
+    }
+    return { path: canarySrtPath, source: "canary" };
+}
 const SUMMARY_JSON_SUFFIX = ".canary.summary.json";
 
 // ─── SRT PARSER (iz prepare_rag.js — preciznije parsira milisekunde) ──
@@ -573,8 +588,10 @@ function main() {
             const youtubeId = extractVideoIdFromFilename(base);
             const uploadDate = extractDateFromFilename(base);
 
-            // Čitaj SRT
-            const srtContent = fs.readFileSync(srtPath, "utf-8");
+            // Čitaj SRT — sortformer ima prioritet ako postoji
+            const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
+            if (_diarSource === "sortformer") console.log(`   🎭 Dijarizacija: sortformer (override canary)`);
+            const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
             const segments = parseSrt(srtContent);
 
             if (segments.length === 0) {

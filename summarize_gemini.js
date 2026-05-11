@@ -104,6 +104,24 @@ const MAX_BLOCKED_RETRIES = 3;     // Maksimalan broj ponovnih pokušaja prije t
 
 // Sufiksi datoteka
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
+const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
+
+// Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
+// Ako uz canary postoji i .sortformer.diarized.srt (eksperimentalna pipeline),
+// preferira sortformer. Discovery i izlazna imena fajlova ostaju canary-anchored
+// (count_progress, R2 putanje, downstream tooling se ne mijenja) — pomiče se
+// samo izvor čitanja sadržaja transkripta.
+function resolveDiarizedSrt(canarySrtPath) {
+    const sortformerPath = canarySrtPath.replace(
+        /\.canary\.diarized\.srt$/,
+        SORTFORMER_DIARIZED_SRT_SUFFIX
+    );
+    if (fs.existsSync(sortformerPath)) {
+        return { path: sortformerPath, source: "sortformer" };
+    }
+    return { path: canarySrtPath, source: "canary" };
+}
+
 const SUMMARY_JSON_SUFFIX = ".canary.summary.json";
 const SUMMARY_MD_SUFFIX = ".canary.summary.md";
 const SUMMARY_BLOCKED_SUFFIX = ".canary.summary.blocked.json";
@@ -831,8 +849,10 @@ async function main() {
             const startTime = Date.now();
 
             try {
-                // 1. Čitaj SRT transkript
-                const srtContent = fs.readFileSync(srtPath, "utf-8");
+                // 1. Čitaj SRT transkript — sortformer ima prioritet ako postoji
+                const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
+                if (_diarSource === "sortformer") console.log(`      🎭 Dijarizacija: sortformer (override canary)`);
+                const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
                 const transcriptText = srtToText(srtContent);
 
                 if (!transcriptText || transcriptText.length < 50) {

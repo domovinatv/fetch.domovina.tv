@@ -393,6 +393,22 @@ function extractJsonFromText(text) {
 // ─── DISCOVERY & ROUND-ROBIN ─────────────────────────────────
 
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
+const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
+
+// Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
+// Ako uz canary postoji i .sortformer.diarized.srt (eksperimentalna pipeline),
+// preferira sortformer. Discovery i izlazna imena fajlova ostaju canary-anchored.
+function resolveDiarizedSrt(canarySrtPath) {
+    const sortformerPath = canarySrtPath.replace(
+        /\.canary\.diarized\.srt$/,
+        SORTFORMER_DIARIZED_SRT_SUFFIX
+    );
+    if (fs.existsSync(sortformerPath)) {
+        return { path: sortformerPath, source: "sortformer" };
+    }
+    return { path: canarySrtPath, source: "canary" };
+}
+
 const BLOCKED_SUFFIX = ".canary.diarized.blocked.json";
 
 /**
@@ -743,7 +759,9 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
  * U batch modu ne radi process.exit() nego vraća false.
  */
 async function processFile(file, { exitOnError = true } = {}) {
-    const srtContent = fs.readFileSync(file, "utf-8");
+    const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(file);
+    if (_diarSource === "sortformer") console.log(`   🎭 Dijarizacija: sortformer (override canary)`);
+    const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
     const baseDir = path.dirname(file);
     const basename = path.basename(file).replace(/\.(srt|txt)$/i, "");
 
