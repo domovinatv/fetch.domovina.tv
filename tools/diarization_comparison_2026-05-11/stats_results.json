@@ -1,0 +1,305 @@
+{
+  "generatedAt": "2026-05-11T14:01:48.537Z",
+  "perFile": [
+    {
+      "base": "20210425_podcast_2_miroslav_skoro_yt_bL4l4df_UTI.wav",
+      "canary": {
+        "numSpeakers": 3,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "UNKNOWN"
+        ],
+        "numSegments": 436,
+        "numTurns": 97,
+        "totalSpeechSec": 3435.4170000000026,
+        "meanTurnSec": 37.57361855670106,
+        "medianTurnSec": 7.68100000000004,
+        "speakerTime": {
+          "SPEAKER_00": 494.5590000000001,
+          "SPEAKER_01": 2940.2980000000025,
+          "UNKNOWN": 0.5599999999999454
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.14395894297548148,
+          "SPEAKER_01": 0.8558780491567691,
+          "UNKNOWN": 0.0001630078677493722
+        },
+        "balance": 0.28824390168646175,
+        "flickerCount": 7,
+        "rapidSwitchCount": 3
+      },
+      "sortformer": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "numSegments": 436,
+        "numTurns": 98,
+        "totalSpeechSec": 3435.439999999998,
+        "meanTurnSec": 37.179591836734694,
+        "medianTurnSec": 7.320000000000029,
+        "speakerTime": {
+          "SPEAKER_00": 485.3599999999988,
+          "SPEAKER_01": 2950.079999999999
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.14128030179540296,
+          "SPEAKER_01": 0.858719698204597
+        },
+        "balance": 0.2825606035908059,
+        "flickerCount": 11,
+        "rapidSwitchCount": 8
+      },
+      "disagreementPct": 0.02752293577981646,
+      "mapping": {
+        "SPEAKER_00": "SPEAKER_00",
+        "SPEAKER_01": "SPEAKER_01",
+        "UNKNOWN": null
+      },
+      "mappedSegments": 436
+    },
+    {
+      "base": "20210514_podcast_6_nansi_ivanisevic_yt_KuWqx0TJaVM.wav",
+      "canary": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "numSegments": 402,
+        "numTurns": 46,
+        "totalSpeechSec": 3314.486000000003,
+        "meanTurnSec": 76.24345652173915,
+        "medianTurnSec": 24.32000000000003,
+        "speakerTime": {
+          "SPEAKER_00": 215.2780000000006,
+          "SPEAKER_01": 3099.208000000003
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.06495064393091429,
+          "SPEAKER_01": 0.9350493560690858
+        },
+        "balance": 0.12990128786182842,
+        "flickerCount": 0,
+        "rapidSwitchCount": 0
+      },
+      "sortformer": {
+        "numSpeakers": 3,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "UNKNOWN"
+        ],
+        "numSegments": 402,
+        "numTurns": 49,
+        "totalSpeechSec": 3314.4800000000014,
+        "meanTurnSec": 71.54122448979595,
+        "medianTurnSec": 27.440000000000055,
+        "speakerTime": {
+          "SPEAKER_00": 255.28000000000023,
+          "SPEAKER_01": 3059.1200000000013,
+          "UNKNOWN": 0.07999999999992724
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.077019622987618,
+          "SPEAKER_01": 0.9229562404962468,
+          "UNKNOWN": 0.000024136516135239075
+        },
+        "balance": 0.1540875190075064,
+        "flickerCount": 1,
+        "rapidSwitchCount": 0
+      },
+      "disagreementPct": 0.00497512437810943,
+      "mapping": {
+        "SPEAKER_00": "SPEAKER_00",
+        "SPEAKER_01": "SPEAKER_01"
+      },
+      "mappedSegments": 402
+    },
+    {
+      "base": "20230521_podcast_19_stjepan_zabcic_yt_Df--kDZSIYU.wav",
+      "canary": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "numSegments": 236,
+        "numTurns": 42,
+        "totalSpeechSec": 3277.277999999997,
+        "meanTurnSec": 80.10097619047617,
+        "medianTurnSec": 19.399999999999963,
+        "speakerTime": {
+          "SPEAKER_00": 299.28099999999904,
+          "SPEAKER_01": 2977.996999999998
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.09131999177366074,
+          "SPEAKER_01": 0.9086800082263393
+        },
+        "balance": 0.18263998354732136,
+        "flickerCount": 3,
+        "rapidSwitchCount": 1
+      },
+      "sortformer": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "numSegments": 236,
+        "numTurns": 42,
+        "totalSpeechSec": 3277.279999999999,
+        "meanTurnSec": 80.10095238095239,
+        "medianTurnSec": 19.399999999999963,
+        "speakerTime": {
+          "SPEAKER_00": 299.2800000000004,
+          "SPEAKER_01": 2977.9999999999977
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.09131963091344057,
+          "SPEAKER_01": 0.9086803690865592
+        },
+        "balance": 0.1826392618268815,
+        "flickerCount": 3,
+        "rapidSwitchCount": 1
+      },
+      "disagreementPct": 0,
+      "mapping": {
+        "SPEAKER_00": "SPEAKER_00",
+        "SPEAKER_01": "SPEAKER_01"
+      },
+      "mappedSegments": 236
+    },
+    {
+      "base": "20240211_podcast_29_nino_raspudic_nasi_roditelji_izborili_su_nam_drzavu_a_mi_igramo_drugo_poluvrijeme_yt_iP5X9Q93sSY.wav",
+      "canary": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_00"
+        ],
+        "numSegments": 353,
+        "numTurns": 69,
+        "totalSpeechSec": 3938.956,
+        "meanTurnSec": 59.407565217391294,
+        "medianTurnSec": 26.080000000000002,
+        "speakerTime": {
+          "SPEAKER_01": 628.5540000000004,
+          "SPEAKER_00": 3310.4019999999996
+        },
+        "speakerPct": {
+          "SPEAKER_01": 0.15957375507621827,
+          "SPEAKER_00": 0.8404262449237817
+        },
+        "balance": 0.3191475101524366,
+        "flickerCount": 2,
+        "rapidSwitchCount": 0
+      },
+      "sortformer": {
+        "numSpeakers": 3,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "UNKNOWN"
+        ],
+        "numSegments": 353,
+        "numTurns": 76,
+        "totalSpeechSec": 3938.9599999999987,
+        "meanTurnSec": 53.78,
+        "medianTurnSec": 21.919999999999995,
+        "speakerTime": {
+          "SPEAKER_00": 685.5199999999999,
+          "SPEAKER_01": 3253.3599999999988,
+          "UNKNOWN": 0.07999999999992724
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.17403578609582226,
+          "SPEAKER_01": 0.8259439039746532,
+          "UNKNOWN": 0.000020309929524526084
+        },
+        "balance": 0.34811219205069355,
+        "flickerCount": 4,
+        "rapidSwitchCount": 0
+      },
+      "disagreementPct": 0.019830028328611915,
+      "mapping": {
+        "SPEAKER_01": "SPEAKER_00",
+        "SPEAKER_00": "SPEAKER_01"
+      },
+      "mappedSegments": 353
+    },
+    {
+      "base": "20240309_profesorica_koja_mijenja_hrvatsku_zeljka_zupan_vuksan_podcast_33_yt_LJtqwpxbB84.wav",
+      "canary": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_00"
+        ],
+        "numSegments": 357,
+        "numTurns": 96,
+        "totalSpeechSec": 3206.7060000000015,
+        "meanTurnSec": 34.978239583333355,
+        "medianTurnSec": 18.95999999999998,
+        "speakerTime": {
+          "SPEAKER_01": 981.5839999999993,
+          "SPEAKER_00": 2225.1220000000026
+        },
+        "speakerPct": {
+          "SPEAKER_01": 0.3061035218071126,
+          "SPEAKER_00": 0.6938964781928875
+        },
+        "balance": 0.6122070436142251,
+        "flickerCount": 7,
+        "rapidSwitchCount": 4
+      },
+      "sortformer": {
+        "numSpeakers": 2,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "numSegments": 357,
+        "numTurns": 110,
+        "totalSpeechSec": 3206.7200000000003,
+        "meanTurnSec": 30.495272727272727,
+        "medianTurnSec": 17.280000000000086,
+        "speakerTime": {
+          "SPEAKER_00": 983.3599999999967,
+          "SPEAKER_01": 2223.3600000000038
+        },
+        "speakerPct": {
+          "SPEAKER_00": 0.30665602235305756,
+          "SPEAKER_01": 0.6933439776469426
+        },
+        "balance": 0.6133120447061149,
+        "flickerCount": 11,
+        "rapidSwitchCount": 9
+      },
+      "disagreementPct": 0.03361344537815125,
+      "mapping": {
+        "SPEAKER_01": "SPEAKER_00",
+        "SPEAKER_00": "SPEAKER_01"
+      },
+      "mappedSegments": 357
+    }
+  ],
+  "aggregate": {
+    "canary": {
+      "meanBalance": 0.30642794537245466,
+      "meanFlicker": 3.8,
+      "meanRapid": 1.6,
+      "meanTurns": 70
+    },
+    "sortformer": {
+      "meanBalance": 0.31614232423640043,
+      "meanFlicker": 6,
+      "meanRapid": 3.6,
+      "meanTurns": 75
+    },
+    "meanDisagreement": 0.01718830677293781
+  }
+}

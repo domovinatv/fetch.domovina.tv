@@ -1,0 +1,262 @@
+{
+  "generatedAt": "2026-05-11T14:06:55.216Z",
+  "model": "gemini-2.5-flash",
+  "project": "ci-main-default-project",
+  "seed": 20260511,
+  "perFile": [
+    {
+      "base": "20210425_podcast_2_miroslav_skoro_yt_bL4l4df_UTI.wav",
+      "windows": [
+        {
+          "window": {
+            "startSec": 597.0258166904747,
+            "endSec": 687.0258166904747
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne, promjene govornika savršeno se podudaraju s prirodnim prekidima u razgovoru, a podjela je prirodna bez 'flickanja'."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne, promjene govornika savršeno se podudaraju s prirodnim prekidima u razgovoru, a podjela je prirodna bez 'flickanja'."
+          }
+        },
+        {
+          "window": {
+            "startSec": 2420.186892680749,
+            "endSec": 2510.186892680749
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je savršeno prepoznao govornike i njihove izmjene, bez ikakvih grešaka u konzistentnosti ili granicama govornih segmenata. Dijarizacija je potpuno prirodna za intervju s dvije osobe."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je besprijekorno identificirao govornike i njihove izmjene, pokazujući visoku konzistentnost i preciznost granica govornih segmenata. Dijalog je podijeljen na vrlo prirodan način za intervju."
+          }
+        },
+        {
+          "window": {
+            "startSec": 3169.729528882876,
+            "endSec": 3259.729528882876
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Granice govornika su precizno detektirane i konzistentno atribuirane. Nema flickanja, a podjela razgovora je prirodna za intervju."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Granice govornika su precizno detektirane i konzistentno atribuirane. Nema flickanja, a podjela razgovora je prirodna za intervju."
+          }
+        }
+      ],
+      "canaryMean": 100,
+      "sortformerMean": 100,
+      "validWindowCount": 3
+    },
+    {
+      "base": "20210514_podcast_6_nansi_ivanisevic_yt_KuWqx0TJaVM.wav",
+      "windows": [
+        {
+          "window": {
+            "startSec": 111.30938378848136,
+            "endSec": 201.30938378848134
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je ispravno prepoznao da se radi o monologu jednog govornika, održavajući konzistentnost i plauzibilnost bez promjena govornika."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je također točno identificirao kontinuirani govor jednog govornika, pokazujući izvrsnu konzistentnost i prirodnu podjelu za ovaj dio razgovora."
+          }
+        },
+        {
+          "window": {
+            "startSec": 1169.1494241397083,
+            "endSec": 1259.1494241397083
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je dosljedno atribuirao sve segmente jednom govorniku (SPEAKER_01), što je ispravno jer se radi o kontinuiranom monologu. Nema promjena govornika niti flickanja."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je dosljedno atribuirao sve segmente jednom govorniku (SPEAKER_01), što je ispravno jer se radi o kontinuiranom monologu. Nema promjena govornika niti flickanja."
+          }
+        },
+        {
+          "window": {
+            "startSec": 2588.9964603350313,
+            "endSec": 2678.9964603350313
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne, a promjene govornika savršeno se podudaraju s pitanjem i odgovorom. Nema 'flickanja' oznaka, a dijaloški obrazac je prirodan za intervju s dvije osobe."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne, a promjene govornika savršeno se podudaraju s pitanjem i odgovorom. Nema 'flickanja' oznaka, a dijaloški obrazac je prirodan za intervju s dvije osobe."
+          }
+        }
+      ],
+      "canaryMean": 100,
+      "sortformerMean": 100,
+      "validWindowCount": 3
+    },
+    {
+      "base": "20230521_podcast_19_stjepan_zabcic_yt_Df--kDZSIYU.wav",
+      "windows": [
+        {
+          "window": {
+            "startSec": 1151.1300411667116,
+            "endSec": 1241.1300411667116
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je ispravno identificirao jednog govornika koji kontinuirano govori, bez nepotrebnih promjena oznaka ili flickanja."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je ispravno identificirao jednog govornika koji kontinuirano govori, bez nepotrebnih promjena oznaka ili flickanja."
+          }
+        },
+        {
+          "window": {
+            "startSec": 1453.8589868276752,
+            "endSec": 1543.8589868276752
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Govornici su dosljedno označeni, granice turn-a savršeno se podudaraju s dijaloškim obrascima, a podjela razgovora je vrlo prirodna bez 'flickanja'."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Govornici su dosljedno označeni, granice turn-a savršeno se podudaraju s dijaloškim obrascima, a podjela razgovora je vrlo prirodna bez 'flickanja'."
+          }
+        },
+        {
+          "window": {
+            "startSec": 2948.325247032791,
+            "endSec": 3038.325247032791
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je ispravno identificirao jednog govornika kroz cijeli segment, bez promjena oznaka ili flickanja, što odgovara monologu."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je ispravno identificirao jednog govornika kroz cijeli segment, bez promjena oznaka ili flickanja, što odgovara monologu."
+          }
+        }
+      ],
+      "canaryMean": 100,
+      "sortformerMean": 100,
+      "validWindowCount": 3
+    },
+    {
+      "base": "20240211_podcast_29_nino_raspudic_nasi_roditelji_izborili_su_nam_drzavu_a_mi_igramo_drugo_poluvrijeme_yt_iP5X9Q93sSY.wav",
+      "windows": [
+        {
+          "window": {
+            "startSec": 574.7533304303885,
+            "endSec": 664.7533304303885
+          },
+          "canary": {
+            "score": 91,
+            "reasoning": "Sustav dosljedno održava identitet govornika (SPEAKER_00 i SPEAKER_01) kroz cijeli prozor, a granice govornih turnova su precizno usklađene s prirodnim dijalogom intervjua. Nema 'flickanja' niti neprirodnih promjena govornika."
+          },
+          "sortformer": {
+            "score": 91,
+            "reasoning": "Sustav vrlo dobro održava konzistentnost govornika (SPEAKER_00 i SPEAKER_01) i precizno detektira promjene turnova, što rezultira prirodnom podjelom razgovora bez ikakvog 'flickanja'."
+          }
+        },
+        {
+          "window": {
+            "startSec": 1298.2911775730922,
+            "endSec": 1388.2911775730922
+          },
+          "canary": {
+            "score": 25,
+            "reasoning": "Konzistentnost govornika je narušena jer je dugi segment na kraju pogrešno pripisan drugom govorniku. Granice turn-a su djelomično točne, ali ključna dugačka izjava je pogrešno atribuirana, što narušava plauzibilnost razgovora."
+          },
+          "sortformer": {
+            "score": 25,
+            "reasoning": "Konzistentnost govornika je narušena jer je dugi segment na kraju pogrešno pripisan drugom govorniku. Granice turn-a su djelomično točne, ali ključna dugačka izjava je pogrešno atribuirana, što narušava plauzibilnost razgovora."
+          }
+        },
+        {
+          "window": {
+            "startSec": 3411.0833342588694,
+            "endSec": 3501.0833342588694
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Sustav je savršeno dosljedan u atribuciji govornika i precizno detektira granice govornih turnova, bez ikakvog 'flickanja' ili pogrešne podjele."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Sustav je savršeno dosljedan u atribuciji govornika i precizno detektira granice govornih turnova, bez ikakvog 'flickanja' ili pogrešne podjele."
+          }
+        }
+      ],
+      "canaryMean": 72,
+      "sortformerMean": 72,
+      "validWindowCount": 3
+    },
+    {
+      "base": "20240309_profesorica_koja_mijenja_hrvatsku_zeljka_zupan_vuksan_podcast_33_yt_LJtqwpxbB84.wav",
+      "windows": [
+        {
+          "window": {
+            "startSec": 263.8765823897719,
+            "endSec": 353.8765823897719
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne i nema flickanja. Granice govornih turnova su precizno detektirane i odgovaraju prirodnom tijeku razgovora."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Oznake govornika su dosljedne i nema flickanja. Granice govornih turnova su precizno detektirane i odgovaraju prirodnom tijeku razgovora."
+          }
+        },
+        {
+          "window": {
+            "startSec": 878.6800557988882,
+            "endSec": 968.6800557988882
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Diarizacija je iznimno precizna, s dosljednim oznakama govornika, točnim granicama govornih cjelina i prirodnim tokom razgovora bez ikakvog 'flickeringa'."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Diarizacija je iznimno precizna, s dosljednim oznakama govornika, točnim granicama govornih cjelina i prirodnim tokom razgovora bez ikakvog 'flickeringa'."
+          }
+        },
+        {
+          "window": {
+            "startSec": 1949.9557380661367,
+            "endSec": 2039.9557380661367
+          },
+          "canary": {
+            "score": 100,
+            "reasoning": "Govornici su dosljedno označeni kroz cijeli prozor, s jasnom podjelom uloga. Granice turn-a su precizne i prate prirodne dijaloške obrasce bez flickanja, što je plauzibilno za intervju."
+          },
+          "sortformer": {
+            "score": 100,
+            "reasoning": "Govornici su dosljedno označeni kroz cijeli prozor, s jasnom podjelom uloga. Granice turn-a su precizne i prate prirodne dijaloške obrasce bez flickanja, što je plauzibilno za intervju."
+          }
+        }
+      ],
+      "canaryMean": 100,
+      "sortformerMean": 100,
+      "validWindowCount": 3
+    }
+  ],
+  "aggregate": {
+    "canaryOverall": 94.4,
+    "sortformerOverall": 94.4
+  }
+}
