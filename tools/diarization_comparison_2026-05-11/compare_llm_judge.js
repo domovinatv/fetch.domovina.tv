@@ -38,7 +38,7 @@ const WINDOW_DURATION_SEC = 90;
 const EDGE_PADDING_SEC = 60;       // izbjegni prvih i zadnjih 60s
 const INTER_CALL_DELAY_MS = 2000;
 
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "ci-main-default-project";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || "domovina-sync-ms";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 const VERTEX_ENDPOINT = `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
 
