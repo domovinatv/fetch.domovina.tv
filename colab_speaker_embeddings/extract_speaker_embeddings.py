@@ -285,29 +285,38 @@ def find_jobs(input_dir, source_label, model_key, channel_filter=None, limit=Non
     """
     Vraća listu (srt_path, wav_path, output_path) parova koje treba obraditi.
     Skipa one koji već imaju model-specific .embeddings.{model_key}.json (idempotentno per-model).
+
+    Koristi `os.walk(followlinks=True)` jer `Path.rglob()` ne prati symlinks
+    (storage/output/ se sastoji od symlink-anih kanal direktorija prema DOMOVINA1TB).
     """
     srt_suffix = f".{source_label}.diarized.srt"
     out_suffix = f".{source_label}.diarized.embeddings.{model_key}.json"
 
     jobs = []
-    input_path = Path(input_dir)
+    for root, _dirs, files in os.walk(input_dir, followlinks=True):
+        for fname in files:
+            if fname.startswith("._"):
+                continue  # macOS AppleDouble metadata, ignoriraj
+            if not fname.endswith(srt_suffix):
+                continue
+            srt_path = Path(root) / fname
 
-    for srt_path in input_path.rglob(f"*{srt_suffix}"):
-        if channel_filter and channel_filter not in str(srt_path):
-            continue
+            if channel_filter and channel_filter not in str(srt_path):
+                continue
 
-        # WAV je pored, bez .{source}.diarized.srt sufiksa
-        base = str(srt_path).removesuffix(srt_suffix)
-        wav_path = Path(base + ".wav")
-        if not wav_path.exists():
-            print(f"   ⚠️  Preskačem (nema WAV): {srt_path.name}")
-            continue
+            # SRT format: {basename}.wav.{source}.diarized.srt — strip suffix vraća {basename}.wav
+            # WAV je na istom path-u, output ide kao {basename}.wav.{source}.diarized.embeddings.{model}.json
+            base_wav = str(srt_path).removesuffix(srt_suffix)  # već uključuje ".wav"
+            wav_path = Path(base_wav)
+            if not wav_path.exists():
+                print(f"   ⚠️  Preskačem (nema WAV): {srt_path.name}")
+                continue
 
-        output_path = Path(base + out_suffix)
-        if output_path.exists():
-            continue  # idempotent skip
+            output_path = Path(base_wav + out_suffix)
+            if output_path.exists():
+                continue  # idempotent skip
 
-        jobs.append((srt_path, wav_path, output_path))
+            jobs.append((srt_path, wav_path, output_path))
 
     # Sort by upload date (newest first, pretpostavljamo basename počinje s YYYYMMDD)
     jobs.sort(key=lambda j: j[0].name, reverse=True)
