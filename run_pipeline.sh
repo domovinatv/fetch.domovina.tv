@@ -76,6 +76,11 @@ echo ""
 #                            UPOZORENJE: Troši značajne resurse na MacMini. Preferirati Canary diarizaciju (korak 6).
 #   --with-local-canary-diarize → uključuje korak 6 (lokalna Canary diarizacija putem pyannote; CPU-intenzivno)
 #                            Alternativa: Colab T4 GPU diarizacija + rclone sync (korak 0).
+#   --with-speaker-embeddings → uključuje korak 6.5 (TitaNet-Large per-speaker embedding extraction)
+#                            Output: *.canary.diarized.embeddings.json pored postojećih SRT-ova.
+#                            Konzumira downstream domovina-rag importer za globalnu speaker
+#                            entity rezoluciju. Zahtijeva: pip install 'nemo_toolkit[asr]'.
+#                            Trošak: ~30-60s po epizodi na M4 Pro MPS.
 #   --with-screenshots    → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
 #   --proxy <url>         → proxy za screenshot korak (zaobilazi YouTube IP-level anti-bot block)
 #                            Format: socks5://host:port, http://user:pass@host:port. Alternativa: HTTPS_PROXY env var.
@@ -98,6 +103,7 @@ ONLY_SUMMARIES=false
 WITH_WHISPER=false
 WITH_LOCAL_WHISPER_DIARIZE=false
 WITH_LOCAL_CANARY_DIARIZE=false
+WITH_SPEAKER_EMBEDDINGS=false
 WITH_SCREENSHOTS=false
 WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
@@ -131,6 +137,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-local-canary-diarize" ]; then
         WITH_LOCAL_CANARY_DIARIZE=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-speaker-embeddings" ]; then
+        WITH_SPEAKER_EMBEDDINGS=true
         i=$((i + 1))
     elif [ "$arg" = "--with-screenshots" ]; then
         WITH_SCREENSHOTS=true
@@ -205,6 +214,7 @@ if command -v rclone &> /dev/null; then
       -L --filter "- ._*" \
       --filter "+ **.canary.**" \
       --filter "+ **.sortformer.**" \
+      --filter "+ **.embeddings.*.json" \
       --filter "- *" \
       --drive-shared-with-me --progress
 else
@@ -331,6 +341,89 @@ fi
 else
     echo ""
     echo "   ⏭️  Preskačem korak 6 (Canary diarizacija) — nije zadan --with-local-canary-diarize"
+fi
+
+# --- KORAK 6.5: SPEAKER EMBEDDING EXTRACTION (opcionalno, --with-speaker-embeddings) ---
+# Ekstrahira per-speaker voice embeddinge (TitaNet-Large, 192-dim L2-normalized) iz dijariziranih
+# WAV-ova. Forward-only inkrementalna obrada — preskače datoteke s postojećim .embeddings.json.
+# Output konzumira downstream domovina-rag importer za globalnu speaker entity rezoluciju (vidi
+# docs/rag_clickhouse_postgres_plan.md §15).
+# Za bulk backfill 2000+ starih epizoda koristi colab_speaker_embeddings/ Jupyter notebook na Colab G4.
+if [ "$WITH_SPEAKER_EMBEDDINGS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 6.5: Speaker embedding extraction (TitaNet-Large) [--with-speaker-embeddings]"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SPEAKER_EMB_DRY_RUN=""
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    SPEAKER_EMB_DRY_RUN="--dry-run"
+fi
+
+SPEAKER_EMB_CHANNEL_ARG=""
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        SPEAKER_EMB_CHANNEL_ARG="--channel ${COMMON_ARGS[$((j+1))]}"
+        break
+    fi
+done
+
+# Modeli koje pokrećemo paralelno (ensemble). Override-aj env varom SPEAKER_EMBEDDING_MODELS.
+# Default: titanet + pyannote_wespeaker34 (jedan NeMo + jedan pyannote, različite arhitekture)
+SPEAKER_MODELS="${SPEAKER_EMBEDDING_MODELS:-titanet pyannote_wespeaker34}"
+
+run_speaker_embedding_for_source() {
+    local source_label="$1"
+    for model_key in $SPEAKER_MODELS; do
+        echo ""
+        echo "   🤖 Model: $model_key (source: $source_label)"
+        # Provjera dependency-ja po modelu
+        case "$model_key" in
+            titanet)
+                if ! python3 -c "import nemo.collections.asr" 2>/dev/null; then
+                    echo "   ⚠️  NeMo nije instaliran — preskačem $model_key."
+                    echo "      Instaliraj: pip3 install 'nemo_toolkit[asr]==2.0.0' soundfile librosa"
+                    continue
+                fi
+                ;;
+            pyannote_wespeaker34)
+                if ! python3 -c "import pyannote.audio" 2>/dev/null; then
+                    echo "   ⚠️  pyannote.audio nije instaliran — preskačem $model_key."
+                    continue
+                fi
+                ;;
+        esac
+
+        python3 "$SCRIPT_DIR/colab_speaker_embeddings/extract_speaker_embeddings.py" \
+            --input-dir "$OUTPUT_DIR" --source "$source_label" --model "$model_key" \
+            $SPEAKER_EMB_CHANNEL_ARG $SPEAKER_EMB_DRY_RUN || {
+            echo "   ⚠️  Greška pri $model_key/$source_label, nastavljam s idućim modelom..."
+        }
+    done
+}
+
+# Canary embeddings (sva 2 modela)
+run_speaker_embedding_for_source canary
+
+# Sortformer embeddings (ako sortformer SRT-ovi postoje)
+if find "$OUTPUT_DIR" -name "*.sortformer.diarized.srt" -print -quit | grep -q .; then
+    echo ""
+    echo "   🧪 Pronađen sortformer output — ekstrahirаm i tamo embedinge..."
+    run_speaker_embedding_for_source sortformer
+fi
+
+# Upload novih .embeddings.{model}.json na Drive (paralelno s ostalim canary outputima)
+if command -v rclone &> /dev/null; then
+    echo ""
+    echo "   ⏫ Uploadam .embeddings.*.json na Google Drive..."
+    rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
+      -L --filter "- ._*" --filter "+ **.embeddings.*.json" --filter "- *" \
+      --drive-shared-with-me --progress
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem korak 6.5 (speaker embeddings) — nije zadan --with-speaker-embeddings"
 fi
 
 fi # Kraj ONLY_ARTICLES=false && ONLY_SUMMARIES=false bloka
