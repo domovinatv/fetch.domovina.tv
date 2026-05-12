@@ -60,6 +60,13 @@ const outlinesByModel = {};
 const articlesByModel = {};
 const outlineVideosByModel = {};
 const articleVideosByModel = {};
+// Speaker embeddings: per-source (canary|sortformer) × per-model breakdown.
+// Naming: `*.wav.{source}.diarized.embeddings.{model}.json` (model je dinamičan,
+// npr. titanet, pyannote_wespeaker34) — pa ne ide kroz statički `matchers` niz.
+const embeddingsByModel = { canary: {}, sortformer: {} };
+const embeddingVideosByModel = { canary: {}, sortformer: {} };
+const embeddingVideosBySource = { canary: new Set(), sortformer: new Set() };
+const EMBEDDING_RE = /^(.+)\.(canary|sortformer)\.diarized\.embeddings\.(.+)\.json$/;
 const blockedReasons = { summary: {}, article: {} };
 const blockedPermanent = { summary: 0, article: 0 };
 
@@ -198,6 +205,18 @@ for (const channel of channels) {
             } else if (key === 'mp4Final') {
                 videosWithMp4.add(file.slice(0, -4));
             }
+
+            // Speaker embeddings (per-source × per-model). Brojimo i jedinstvene
+            // videe po source (jer isti video može imati više modela), i datoteke
+            // po (source, model) za breakdown ispod.
+            const embMatch = file.match(EMBEDDING_RE);
+            if (embMatch) {
+                const [, base, source, model] = embMatch;
+                embeddingVideosBySource[source].add(base);
+                embeddingsByModel[source][model] = (embeddingsByModel[source][model] || 0) + 1;
+                if (!embeddingVideosByModel[source][model]) embeddingVideosByModel[source][model] = new Set();
+                embeddingVideosByModel[source][model].add(base);
+            }
         }
 
         totalOutlineVideos += videosWithOutline.size;
@@ -278,6 +297,34 @@ console.log('\n    -- Sortformer (NVIDIA, GPU end-to-end, eksperimentalno) --');
 line('Sortformer transkripcija', g('sortformerSrt'), total);
 line('Sortformer CSV', g('sortformerCsv'), total);
 line('Sortformer diarizacija', g('sortformerDiarized'), total);
+
+// Speaker embeddings — denominator je broj dijariziranih videa za taj source
+// (embeddings dolaze direktno iz .diarized.srt), ne globalni `total`, jer bi
+// to bilo iskrivljeno za sortformer (eksperimentalni, malo videa).
+function embeddingsTotalFiles(source) {
+    let n = 0;
+    for (const m of Object.values(embeddingsByModel[source])) n += m;
+    return n;
+}
+const canaryDiarizedCount = g('canaryDiarized');
+const sortformerDiarizedCount = g('sortformerDiarized');
+const canaryEmbVideos = embeddingVideosBySource.canary.size;
+const sortformerEmbVideos = embeddingVideosBySource.sortformer.size;
+if (canaryEmbVideos > 0 || sortformerEmbVideos > 0 || canaryDiarizedCount > 0) {
+    console.log('\n    -- Speaker embeddings (per-speaker voice vectors) --');
+    line('Canary embeddings', canaryEmbVideos, canaryDiarizedCount || total, {
+        extra: embeddingsTotalFiles('canary'),
+        models: embeddingsByModel.canary,
+        modelVideos: embeddingVideosByModel.canary,
+    });
+    if (sortformerEmbVideos > 0 || sortformerDiarizedCount > 0) {
+        line('Sortformer embeddings', sortformerEmbVideos, sortformerDiarizedCount || total, {
+            extra: embeddingsTotalFiles('sortformer'),
+            models: embeddingsByModel.sortformer,
+            modelVideos: embeddingVideosByModel.sortformer,
+        });
+    }
+}
 
 console.log('\n    -- Gemini (Google) --');
 
