@@ -33,6 +33,7 @@
 #   ./run_pipeline.sh --only-articles --with-r2-upload            (članci + R2 upload)
 #   ./run_pipeline.sh --hf-token T --with-whisper                 (legacy: uključi Whisper transkripciju)
 #   ./run_pipeline.sh --hf-token T --with-local-whisper-diarize    (legacy: uključi lokalnu Whisper diarizaciju)
+#   ./run_pipeline.sh --only-articles --gemini-backend cli         (koraci 7+8 preko gemini CLI umjesto Vertex API-ja)
 #
 
 set -e  # Prekini na prvoj grešci
@@ -81,6 +82,11 @@ echo ""
 #   --with-vertex-import  → uključuje korak 11 (Vertex AI RAG import; zahtijeva konfiguriran GCS bucket)
 #   --with-r2-upload      → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
+#   --gemini-backend <b>  → backend za korake 7+8 (Gemini sumarizacija + članci):
+#                            "vertex" (default) — Vertex AI REST + 9-region rotacija, gcloud OAuth.
+#                            "cli"             — gemini CLI non-interactive (`gemini -p ...`); koristi
+#                                                user-level google login (browser auth). Nema region rotacije.
+#                                                Bez 429/5xx retry petlje — CLI ima vlastiti.
 #   ostalo                → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
@@ -97,6 +103,7 @@ WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 SCREENSHOT_PROXY=""
+GEMINI_BACKEND="vertex"
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do
@@ -140,11 +147,35 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--proxy" ]; then
         SCREENSHOT_PROXY="${ALL_ARGS[$((i+1))]}"
         i=$((i + 2))
+    elif [ "$arg" = "--gemini-backend" ]; then
+        GEMINI_BACKEND="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
     else
         COMMON_ARGS+=("$arg")
         i=$((i + 1))
     fi
 done
+
+# Validacija --gemini-backend (samo "vertex" ili "cli")
+if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ]; then
+    echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli)"
+    exit 1
+fi
+
+# Ako je --gemini-backend cli, provjeri da je gemini binary dostupan
+if [ "$GEMINI_BACKEND" = "cli" ]; then
+    if ! command -v gemini &> /dev/null; then
+        echo "❌ --gemini-backend cli traži 'gemini' CLI u PATH-u, ali ga nema."
+        echo "   Instaliraj: npm install -g @google/gemini-cli"
+        exit 1
+    fi
+    echo "   🤖 Gemini backend: CLI (gemini $(gemini --version 2>/dev/null | head -1))"
+else
+    echo "   🤖 Gemini backend: Vertex AI REST (multi-region rotacija)"
+fi
+
+# Skripte koraka 7+8 čitaju GEMINI_BACKEND iz okoliša
+export GEMINI_BACKEND
 
 # Whisper dobiva common + threads
 WHISPER_ARGS=("${COMMON_ARGS[@]}" "${WHISPER_ARGS[@]}")

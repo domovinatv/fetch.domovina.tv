@@ -35,7 +35,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execSync, spawn } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -59,8 +59,12 @@ const GEMINI_CONF = loadGeminiConf();
 
 const GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 
+// Backend: "vertex" (default) ili "cli" (gemini CLI non-interactive).
+// Postavi preko env vara GEMINI_BACKEND=cli (run_pipeline.sh --gemini-backend cli).
+const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
+
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "ci-main-default-project";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "domovina-sync-ms";
 
 // Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region).
 // Rotacijom preko N regiona efektivno dobivamo N× throughput.
@@ -626,7 +630,65 @@ function getOrRefreshAccessToken() {
     return cachedAccessToken;
 }
 
+/**
+ * Poziva `gemini` CLI u headless modu. System + user prompt idu preko stdina
+ * (izbjegava ARG_MAX limit), `-p` služi kao bridge direktiva za JSON output.
+ */
+function callGeminiCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        const combinedInput =
+            "=== SUSTAVSKE UPUTE ===\n" + systemPrompt +
+            "\n\n=== KORISNIČKI INPUT ===\n" + userMessage;
+
+        const args = [
+            "-m", GEMINI_MODEL,
+            "-o", "text",
+            "--skip-trust",
+            "-p", "Slijedi sustavske upute iz inputa iznad. Vrati ISKLJUČIVO valjan JSON, bez markdown code blokova.",
+        ];
+
+        const proc = spawn("gemini", args, { stdio: ["pipe", "pipe", "pipe"] });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`gemini CLI spawn failed: ${err.message}`)));
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`gemini CLI exit ${code}: ${stderr.substring(0, 300) || "(no stderr)"}`));
+                return;
+            }
+            if (!stdout || !stdout.trim()) {
+                reject(new Error(`gemini CLI vratio prazan stdout. stderr: ${stderr.substring(0, 200)}`));
+                return;
+            }
+            resolve(stdout);
+        });
+        proc.stdin.write(combinedInput);
+        proc.stdin.end();
+    });
+}
+
 async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv", rawSavePath = null) {
+    // ── CLI backend grana ──
+    // Kad je GEMINI_BACKEND=cli, koristi gemini CLI umjesto Vertex API-ja.
+    // Nema region rotacije ni retry petlje — CLI ima vlastiti auth/retry.
+    if (GEMINI_BACKEND === "cli") {
+        const timer = startElapsedTimer(`${label} (gemini CLI)`);
+        try {
+            const responseText = await callGeminiCli(systemPrompt, userMessage);
+            timer.stop();
+            if (rawSavePath) {
+                fs.writeFileSync(rawSavePath, responseText, "utf-8");
+            }
+            const parsed = extractJsonFromText(responseText);
+            return { parsed, raw: responseText };
+        } catch (err) {
+            timer.stop();
+            throw err;
+        }
+    }
+
     const payload = {
         contents: [
             {

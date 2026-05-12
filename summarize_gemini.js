@@ -38,7 +38,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execSync, spawn } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -61,7 +61,11 @@ function loadGeminiConf() {
 const GEMINI_CONF = loadGeminiConf();
 
 let GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "ci-main-default-project";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "domovina-sync-ms";
+
+// Backend: "vertex" (default, Vertex AI REST API + region rotacija) ili "cli" (gemini CLI, non-interactive).
+// Postavi preko env vara GEMINI_BACKEND=cli (run_pipeline.sh --gemini-backend cli).
+const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
 
 // Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region)
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
@@ -307,6 +311,51 @@ function getOrRefreshAccessToken() {
     return cachedAccessToken;
 }
 
+// ─── GEMINI CLI (non-interactive, koristi user-level google auth) ───
+
+/**
+ * Poziva `gemini` CLI u headless modu. Cijeli sustav-prompt + user-message ide
+ * preko stdina, a `-p` služi samo kao bridge direktiva. Ovo zaobilazi ARG_MAX
+ * limit (transkripti znaju biti 100-200KB).
+ *
+ * CLI nema separaciju system/user — koristimo dogovorenu strukturu s razdjelnikom.
+ * Output je raw text (model.response), bez metadata wrappera (`-o text` je default).
+ */
+function callGeminiCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        const combinedInput =
+            "=== SUSTAVSKE UPUTE ===\n" + systemPrompt +
+            "\n\n=== KORISNIČKI INPUT ===\n" + userMessage;
+
+        const args = [
+            "-m", GEMINI_MODEL,
+            "-o", "text",
+            "--skip-trust",
+            "-p", "Slijedi sustavske upute iz inputa iznad. Vrati ISKLJUČIVO valjan JSON, bez markdown code blokova.",
+        ];
+
+        const proc = spawn("gemini", args, { stdio: ["pipe", "pipe", "pipe"] });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`gemini CLI spawn failed: ${err.message}`)));
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`gemini CLI exit ${code}: ${stderr.substring(0, 300) || "(no stderr)"}`));
+                return;
+            }
+            if (!stdout || !stdout.trim()) {
+                reject(new Error(`gemini CLI vratio prazan stdout. stderr: ${stderr.substring(0, 200)}`));
+                return;
+            }
+            resolve(stdout);
+        });
+        proc.stdin.write(combinedInput);
+        proc.stdin.end();
+    });
+}
+
 // ─── GEMINI API (Vertex AI — OAuth Bearer token) ────────────────
 
 /**
@@ -338,6 +387,28 @@ async function callGemini(transcript, metadata) {
 
     userMessage += "=== DIARIZIRANI TRANSKRIPT ===\n";
     userMessage += transcript;
+
+    // ── CLI backend grana ──
+    // Kad je GEMINI_BACKEND=cli, koristi gemini CLI umjesto Vertex API-ja.
+    // Nema region rotacije ni retry petlje — CLI ima vlastiti auth/retry.
+    if (GEMINI_BACKEND === "cli") {
+        const responseText = await callGeminiCli(SYSTEM_PROMPT, userMessage);
+        let cleanedJson = responseText.trim();
+        cleanedJson = cleanedJson.replace(/^```json\s*\n?/, "").replace(/\n?```\s*$/, "");
+        try {
+            return JSON.parse(cleanedJson);
+        } catch (parseErr) {
+            if (parseErr.message.includes("control character") || parseErr.message.includes("Bad control")) {
+                const sanitized = cleanedJson
+                    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "")
+                    .replace(/\t/g, "\\t");
+                const result = JSON.parse(sanitized);
+                console.error(`      🔧 JSON automatski popravljen (uklonjeni kontrolni znakovi).`);
+                return result;
+            }
+            throw new Error(`gemini CLI vratio neispravan JSON: ${parseErr.message}. Prvih 200 znakova: ${cleanedJson.substring(0, 200)}`);
+        }
+    }
 
     // Vertex AI payload — systemInstruction odvojen od contents
     const payload = {
