@@ -1,6 +1,14 @@
 # Domovina.tv Audio Pipeline
 
-*Ažurirano: 30. ožujka 2026.*
+*Ažurirano: 12. svibnja 2026.*
+
+> **Downstream consumer:** Pretragu i AI agent backend nad ovim podacima implementira sibling repo
+> **[domovinatv/domovina-rag](https://github.com/domovinatv/domovina-rag)** —
+> ClickHouse + PostgreSQL + MCP server za Claude Desktop / Claude.ai / ChatGPT klijente.
+>
+> Format ulaznih datoteka koje proizvodi ovaj repo definiran je u
+> [`docs/data_contract.md`](./docs/data_contract.md). Arhitekturni plan downstream consumer-a u
+> [`docs/rag_clickhouse_postgres_plan.md`](./docs/rag_clickhouse_postgres_plan.md).
 
 ## 🚀 Arhitektura Sustava
 
