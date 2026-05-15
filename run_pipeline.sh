@@ -512,6 +512,33 @@ node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR"
 node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR"
 node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR"
 
+# --- KORAK 9.5: OG-SHARE IMAGE GENERIRANJE (social sharing thumbnail varijanta) ---
+# Generira {base}.og-share.jpg (1200×630 progressive JPEG q=85, 4:2:0, sRGB, stripped)
+# iz postojećeg {base}.png thumbnaila. WhatsApp odbija og:image > 600 KB;
+# raw YouTube PNG thumbnaili često idu preko. Cloudflare Worker (web app) preferira
+# og-share.jpg, fallback na thumbnail.png.
+# Zahtijeva ImageMagick (`magick` binary). Idempotentno.
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 9.5: Generiranje OG-share varijante (1200×630 progressive JPEG q=85)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+OG_IMAGE_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        OG_IMAGE_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    OG_IMAGE_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri generiranju OG image varijanti, nastavljam..."
+}
+
 # --- KORAK 10: YOUTUBE SCREENSHOTOVI (opcionalno, --with-screenshots) ---
 if [ "$WITH_SCREENSHOTS" = true ]; then
 echo ""

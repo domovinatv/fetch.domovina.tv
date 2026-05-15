@@ -22,7 +22,8 @@
  *   - .rag_combined.jsonl        (RAG chunkovi)
  *   - _screenshots/*.png         (screenshotovi iz videa)
  *   - _screenshots/_manifest.json
- *   - .png (thumbnail)
+ *   - .png (thumbnail, full-res)
+ *   - .og-share.jpg (social-sharing varijanta, 1200×630 progressive JPEG q=85, < 600 KB za WhatsApp)
  *   - .mkv (originalni video, 360p)
  *   - .mp4 (remuxed video, H.264+AAC, faststart)
  *   - .info.json (YouTube metapodaci)
@@ -63,6 +64,7 @@
  *   Pipeline: {channel}/{base}.canary.diarized.srt  →  App: data/{videoId}/diarized.srt
  *   Pipeline: {channel}/{base}.info.json            →  App: data/{videoId}/info.json
  *   Pipeline: {channel}/{base}.png                  →  App: images/{videoId}/thumbnail.png
+ *   Pipeline: {channel}/{base}.og-share.jpg         →  App: images/{videoId}/og-share.jpg
  *   Pipeline: {channel}/{base}.mp4                  →  App: data/{videoId}/video.mp4
  *   Pipeline: {channel}/{base}_screenshots/{ts}.png →  App: images/{videoId}/screenshots/{ts}.png
  *   Pipeline: {channel}/{base}_screenshots/_manifest →  App: images/{videoId}/screenshots/manifest.json
@@ -120,7 +122,8 @@ const UPLOAD_SUFFIXES = [
     ".info.json",
     ".mkv",                     // originalni video (360p)
     ".mp4",                     // remuxed video (H.264+AAC, faststart)
-    ".png",                     // thumbnail
+    ".png",                     // thumbnail (full-res)
+    ".og-share.jpg",            // social-sharing OG image (1200×630 progressive JPEG q=85, < 600 KB)
     ".rag_combined.jsonl",
 ];
 
@@ -146,6 +149,7 @@ const CONTENT_TYPES = {
     ".mkv": "video/x-matroska",
     ".mp4": "video/mp4",
     ".png": "image/png",
+    ".jpg": "image/jpeg",
 };
 
 // Cache-Control: immutable za sve outpute (generiraju se jednom, ne mijenjaju se)
@@ -399,6 +403,9 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.png`)
         return `images/${videoId}/thumbnail.png`;
 
+    if (filename === `${videoBase}.og-share.jpg`)
+        return `images/${videoId}/og-share.jpg`;
+
     // Flutter app koristi .mp4 (ne .mkv) za cross-platform kompatibilnost
     if (filename === `${videoBase}.mp4`)
         return `data/${videoId}/video.mp4`;
@@ -474,8 +481,10 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
 
         for (const suffix of UPLOAD_SUFFIXES) {
             if (filename.endsWith(suffix)) {
-                // .png, .mkv, .mp4: samo točan match na videoBase (thumbnail / merged video)
+                // .png, .og-share.jpg, .mkv, .mp4: samo točan match na videoBase (thumbnail / merged video)
+                // .og-share.jpg PRIJE .png check (jer ".og-share.jpg".endsWith(".png") je false, ali držimo ekspl. radi jasnoće)
                 if (suffix === ".png" && filename !== `${videoBase}.png`) continue;
+                if (suffix === ".og-share.jpg" && filename !== `${videoBase}.og-share.jpg`) continue;
                 if (suffix === ".mkv" && filename !== `${videoBase}.mkv`) continue;
                 if (suffix === ".mp4" && filename !== `${videoBase}.mp4`) continue;
                 shouldUpload = true;
