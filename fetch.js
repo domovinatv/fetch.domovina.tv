@@ -322,6 +322,14 @@ async function main() {
   // --video-id filter: procesiraj samo jedan video po YouTube ID-u (11 znakova)
   const videoIdIdx = args.indexOf("--video-id");
   const videoIdFilter = videoIdIdx !== -1 ? args[videoIdIdx + 1] : null;
+  // --proxy: yt-dlp downloads idu kroz proxy (npr. socks5://172.20.10.1:1080 za iPhone tether)
+  // Workaround za YouTube IP-level anti-bot block na main connection.
+  const proxyIdx = args.indexOf("--proxy");
+  const proxyUrl = proxyIdx !== -1 ? args[proxyIdx + 1] : null;
+  if (proxyUrl) {
+    YT_DLP_BASE_ARGS.push("--proxy", proxyUrl);
+    console.log(`🌐 yt-dlp ide kroz proxy: ${proxyUrl}`);
+  }
 
   if (!fs.existsSync(LISTS_DIR)) { console.error(`Nema direktorija: ${LISTS_DIR}`); process.exit(1); }
   const listFiles = fs.readdirSync(LISTS_DIR).filter((f) => f.endsWith("-lista.txt")).map((f) => path.join(LISTS_DIR, f));

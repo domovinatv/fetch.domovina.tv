@@ -113,8 +113,35 @@ echo ""
 #                            entity rezoluciju. Zahtijeva: pip install 'nemo_toolkit[asr]'.
 #                            Trošak: ~30-60s po epizodi na M4 Pro MPS.
 #   --with-screenshots    → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
-#   --proxy <url>         → proxy za screenshot korak (zaobilazi YouTube IP-level anti-bot block)
-#                            Format: socks5://host:port, http://user:pass@host:port. Alternativa: HTTPS_PROXY env var.
+#   --proxy <url>         → proxy za yt-dlp pozive (korak 1 fetch + korak 10 screenshot).
+#                            Zaobilazi YouTube IP-level anti-bot block.
+#                            Format: socks5://host:port, http://user:pass@host:port.
+#
+#                            VAŽNO: --proxy treba SAMO ako želiš da konkretno yt-dlp
+#                            promet ide preko alternativne IP-e dok ostatak Mac-a
+#                            ostaje na Ethernetu. Za sve druge slučajeve postoje
+#                            jednostavnije alternative:
+#
+#                              (A) Najlakše — privremeno prebaci sav Mac promet preko
+#                                  iPhone USB tethera (Personal Hotspot via USB):
+#                                  System Settings → Network → kotačić → "Set Service
+#                                  Order…" → diži iPhone USB iznad Etherneta. Pokreni
+#                                  pipeline bez --proxy. Vrati Service Order nakon runa.
+#                                  Bez ikakve aplikacije; ~200-500 MB cellular potrošnje
+#                                  za 32 epizode na 360p.
+#
+#                              (B) Per-app proxy preko iPhonea (sav ostatak Mac-a ostaje
+#                                  na Ethernetu): iSH Shell (App Store, free) na iPhonu:
+#                                    1. apk add microsocks
+#                                    2. microsocks -i 0.0.0.0 -p 1080 -q
+#                                    3. iPhone Personal Hotspot via USB, WiFi off na iPhonu
+#                                    4. Mac vidi iPhone na 172.20.10.1
+#                                    5. Verify route nije switchala default na iPhone tether:
+#                                       curl -s https://api.ipify.org              # Ethernet IP
+#                                       curl -s --socks5 172.20.10.1:1080 https://api.ipify.org   # cellular IP
+#                                    6. ./run_pipeline.sh --proxy socks5://172.20.10.1:1080 ...
+#                                  iSH može biti suspended u backgroundu — drži iPhone screen on
+#                                  ili Guided Access da spriječi sleep tijekom dugih runova.
 #   --with-vertex-import  → uključuje korak 11 (Vertex AI RAG import; zahtijeva konfiguriran GCS bucket)
 #                            CHAIN DEPENDENCY: traži kompletan upstream lanac
 #                            (Canary `.canary.diarized.srt` → Gemini summary → article → RAG prep).
@@ -191,7 +218,11 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         WITH_MAGISTERIUM=true
         i=$((i + 1))
     elif [ "$arg" = "--proxy" ]; then
+        # --proxy ide ISTODOBNO u screenshot_youtube.js (preko SCREENSHOT_ARGS)
+        # I u fetch.js (preko COMMON_ARGS) jer obje yt-dlp pozive treba proxy-jati
+        # zbog YouTube IP-level anti-bot blocka. Vidi automatic/cookies_proxy_setup.md.
         SCREENSHOT_PROXY="${ALL_ARGS[$((i+1))]}"
+        COMMON_ARGS+=("--proxy" "${ALL_ARGS[$((i+1))]}")
         i=$((i + 2))
     elif [ "$arg" = "--gemini-backend" ]; then
         GEMINI_BACKEND="${ALL_ARGS[$((i+1))]}"
