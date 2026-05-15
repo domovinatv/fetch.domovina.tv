@@ -124,7 +124,7 @@ function loadState(stateFile) {
       console.error(`[GREŠKA] Neispravan JSON stanja: ${stateFile}`);
     }
   }
-  return { completed: [], failed: [], private: [] };
+  return { completed: [], failed: [], private: [], archived: [] };
 }
 
 function saveState(stateFile, state) {
