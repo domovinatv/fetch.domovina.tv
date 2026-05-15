@@ -53,6 +53,7 @@ KANALI=(
     "podcast-bitno-net|https://www.youtube.com/playlist?list=PLuxH86sIsJ-aHROAlz-GEWkN4mGPcCa11"
     "hitna-pomoc-za-nemirne|https://www.youtube.com/@hitnapomoczanemirne7345/videos"
     "merz-institut|https://www.youtube.com/@zavjecnuslavu6073/videos"
+    "hcpi-podcast|https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn"
 
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda
