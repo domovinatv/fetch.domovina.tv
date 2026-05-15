@@ -26,7 +26,9 @@
 #
 # Primjer:
 #   ./run_pipeline.sh --hf-token TVOJ_TOKEN                      (standardni pipeline: fetch + Canary + Gemini)
-#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --channel domovina_tv (samo jedan kanal)
+#   ./run_pipeline.sh --hf-token TVOJ_TOKEN --channel domovina_tv (samo jedan kanal — VAŽNO: fetch.js IGNORIRA --channel,
+#                                                                  proslijeđuje se samo downstream koracima 7+; korak 1
+#                                                                  uvijek obrađuje sve `*-lista.txt`, ali je idempotentan)
 #   ./run_pipeline.sh --hf-token TVOJ_TOKEN --dry-run             (prikaz bez obrade)
 #   ./run_pipeline.sh --only-summaries                            (samo korak 7: sumarizacija)
 #   ./run_pipeline.sh --only-articles                             (samo korak 7+8: sumarizacija + članci)
@@ -34,6 +36,35 @@
 #   ./run_pipeline.sh --hf-token T --with-whisper                 (legacy: uključi Whisper transkripciju)
 #   ./run_pipeline.sh --hf-token T --with-local-whisper-diarize    (legacy: uključi lokalnu Whisper diarizaciju)
 #   ./run_pipeline.sh --only-articles --gemini-backend cli         (koraci 7+8 preko gemini CLI umjesto Vertex API-ja)
+#
+# BACKFILL / CATCH-UP WORKFLOW (kad Canary transkripcija ide na Colab batch):
+#
+#   FAZA A — sada, prije Colab batcha (samo download + WAV):
+#     ./run_pipeline.sh --with-screenshots --with-r2-upload
+#
+#       Bitno: NE dodavati --with-vertex-import u ovoj fazi! Vertex import (korak 11) ima
+#       hard chain dependency: Canary `.canary.diarized.srt` → Gemini summary → Gemini
+#       article → RAG prep → tek tada vertex import ima što importati. Bez transkripcije
+#       svi RAG koraci skipaju nove file-ove, pa je --with-vertex-import no-op ili waste.
+#
+#       Što se događa u Fazi A: nove epizode prolaze samo do WAV (koraci 0-2). Koraci 7+8
+#       su default-on ali skipaju file-ove bez SRT-a, pa rade catch-up za starije epizode
+#       kojima nedostaje summary/article. --with-screenshots i --with-r2-upload su
+#       independent od transkripcije — rade catch-up za sve epizode koje već imaju article
+#       output (screenshots za nedostajuće frameove, R2 push + CDN index refresh).
+#
+#   FAZA B — nakon što Colab vrati `.canary.srt` u Drive (puni pipeline + publish):
+#     ./run_pipeline.sh --hf-token <HF> --with-local-canary-diarize \
+#                       --with-screenshots --with-vertex-import --with-r2-upload
+#
+#       Korak 0 rclone povuče SRT-ove → korak 6 lokalno diarizira → 7+8 generiraju
+#       summary i article → 10 thumbnails → 11 RAG u Vertex Agent Builder → 12 R2 publish.
+#       Sve idempotentno.
+#
+# NAPOMENA: korak 1 (refresh + fetch) radi `git add . && git commit -m "chore(podcasts):
+# refresh podcast lists" || true` nakon `refresh_podcasts.sh` — to je expected (vidi
+# desetke takvih commita u git logu). Ako u trenutku pokretanja imaš uncommit-ane
+# promjene koje NE ŽELIŠ pomiješati s podcast list refresh-om, commit ih prije.
 #
 
 set -e  # Prekini na prvoj grešci
@@ -85,7 +116,13 @@ echo ""
 #   --proxy <url>         → proxy za screenshot korak (zaobilazi YouTube IP-level anti-bot block)
 #                            Format: socks5://host:port, http://user:pass@host:port. Alternativa: HTTPS_PROXY env var.
 #   --with-vertex-import  → uključuje korak 11 (Vertex AI RAG import; zahtijeva konfiguriran GCS bucket)
+#                            CHAIN DEPENDENCY: traži kompletan upstream lanac
+#                            (Canary `.canary.diarized.srt` → Gemini summary → article → RAG prep).
+#                            Bez transkripcije nema novih RAG chunkova → flag postaje no-op.
+#                            NIKAD ne dodavati u "catch-up while waiting for Colab" pokretanje.
 #   --with-r2-upload      → uključuje korak 12 (Cloudflare R2 upload, zahtijeva .env s R2 credentials)
+#                            Independent od transkripcije za starije epizode (one koje već imaju
+#                            article output) — siguran za "Faza A" catch-up pass uz --with-screenshots.
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
 #   --gemini-backend <b>  → backend za korake 7+8 (Gemini sumarizacija + članci):
 #                            "vertex" (default) — Vertex AI REST + 9-region rotacija, gcloud OAuth.
