@@ -22,6 +22,8 @@
  *   - .rag_combined.jsonl        (RAG chunkovi)
  *   - _screenshots/*.png         (screenshotovi iz videa)
  *   - _screenshots/_manifest.json
+ *   - .og-sections/og-t-{sec}.jpg (Tier B per-section composite, 1200×630 progressive JPEG q=85)
+ *   - .og-sections/manifest.json  (map sec → filename za worker)
  *   - .png (thumbnail, full-res)
  *   - .og-share.jpg (social-sharing varijanta, 1200×630 progressive JPEG q=85, < 600 KB za WhatsApp)
  *   - .mkv (originalni video, 360p)
@@ -68,6 +70,8 @@
  *   Pipeline: {channel}/{base}.mp4                  →  App: data/{videoId}/video.mp4
  *   Pipeline: {channel}/{base}_screenshots/{ts}.png →  App: images/{videoId}/screenshots/{ts}.png
  *   Pipeline: {channel}/{base}_screenshots/_manifest →  App: images/{videoId}/screenshots/manifest.json
+ *   Pipeline: {channel}/{base}.og-sections/og-t-{sec}.jpg → App: images/{videoId}/og-t-{sec}.jpg
+ *   Pipeline: {channel}/{base}.og-sections/manifest.json → App: images/{videoId}/og-sections.json
  *
  * Preduvjeti:
  *   - npm install @aws-sdk/client-s3
@@ -444,6 +448,15 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
             return `images/${videoId}/screenshots/${tsMatch[1]}.png`;
     }
 
+    // Og-sections (Tier B per-section composites za /v/<ytId>/t/<sec> share URL-ove)
+    if (r2Key.includes(".og-sections/")) {
+        if (filename === "manifest.json")
+            return `images/${videoId}/og-sections.json`;
+        // og-t-{sec}.jpg → images/{videoId}/og-t-{sec}.jpg (na top level images dir-a)
+        if (/^og-t-\d+\.jpg$/.test(filename))
+            return `images/${videoId}/${filename}`;
+    }
+
     return null;
 }
 
@@ -537,6 +550,38 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
             files.push({
                 localPath: ssLocalPath,
                 r2Key: `${channelName}/${videoBase}_screenshots/${ssFile}`,
+                size: stat.size
+            });
+        }
+    }
+
+    // Og-sections direktorij (Tier B per-section composites)
+    const ogSectionsDir = path.join(channelDir, `${videoBase}.og-sections`);
+    if (fs.existsSync(ogSectionsDir)) {
+        let ogFiles;
+        try {
+            ogFiles = fs.readdirSync(ogSectionsDir);
+        } catch {
+            ogFiles = [];
+        }
+
+        for (const ogFile of ogFiles) {
+            if (ogFile.startsWith("._")) continue;
+            // Prihvati samo og-t-{sec}.jpg i manifest.json — ignoriraj sve drugo
+            if (!/^og-t-\d+\.jpg$/.test(ogFile) && ogFile !== "manifest.json") continue;
+
+            const ogLocalPath = path.join(ogSectionsDir, ogFile);
+            let stat;
+            try {
+                stat = fs.statSync(ogLocalPath);
+            } catch {
+                continue;
+            }
+            if (!stat.isFile()) continue;
+
+            files.push({
+                localPath: ogLocalPath,
+                r2Key: `${channelName}/${videoBase}.og-sections/${ogFile}`,
                 size: stat.size
             });
         }
