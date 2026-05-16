@@ -278,6 +278,10 @@ echo ""
 
 if command -v rclone &> /dev/null; then
     echo "   ⏬ Preuzimam .canary.* i .sortformer.* s Google Drive-a..."
+    # rclone bypass-a HTTPS_PROXY (telefon-residential-proxy) jer Drive traffic
+    # ne treba i ne smije ići kroz cellular tunel — kvari throughput i nije
+    # ono što proxy postoji da pruža (proxy je za yt-dlp YouTube IP fingerprint).
+    env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
       -L --filter "- ._*" \
       --filter "+ **.canary.**" \
@@ -324,6 +328,7 @@ echo ""
 
 if command -v rclone &> /dev/null; then
     echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
+    env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "+ *.wav" --filter "- *" \
       --drive-shared-with-me --progress
@@ -485,6 +490,7 @@ fi
 if command -v rclone &> /dev/null; then
     echo ""
     echo "   ⏫ Uploadam .embeddings.*.json na Google Drive..."
+    env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "+ **.embeddings.*.json" --filter "- *" \
       --drive-shared-with-me --progress
@@ -725,6 +731,10 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     R2_UPLOAD_ARGS+=("--dry-run")
 fi
 
+# R2 upload eksplicitno zaobilazi telefon-residential-proxy. @aws-sdk/client-s3
+# ionako ne honora HTTPS_PROXY env var po defaultu, ali ako se ikad zamijeni
+# transport sloj, ovaj env -u garantira da R2 put nije ovisan o proxyju.
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" || {
     echo "   ⚠️  Greška pri R2 uploadu, nastavljam..."
 }
