@@ -2,24 +2,24 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-04-08
+**Generirano:** 2026-05-20
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
 
-- **Ukupno unosa:** 111
-- **Trenutno se prati:** 40
+- **Ukupno unosa:** 136
+- **Trenutno se prati:** 60
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 0
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
-- **Ostali kandidati** (sekularni / dijaspora / istražiti): 63
+- **Ostali kandidati** (sekularni / dijaspora / istražiti): 68
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 25 · tier 4: 17 · tier 3: 53 · tier 2: 13 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 24 · tier 3: 65 · tier 2: 17 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 37 · partial ⚠️: 65 · unverified ❓: 9
+**Distribucija po data_quality:** verified ✅: 63 · partial ⚠️: 64 · unverified ❓: 9
 
-**Distribucija po status-u:** 🟢 aktivan: 60 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 79 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -30,10 +30,11 @@
 - **gemini**: Gemini Deep Research - hrvatski podcasti.md _(2026-03)_
 - **perplexity**: Perplexity - hrvatski podcasti.md _(2026-03)_
 - **claude-opus**: Claude Opus 4.6 - sveobuhvatni popis hrvatskih podcasta na YouTubeu (compass artifact) _(2026-04)_
+- **yt-dlp-2026-05**: yt-dlp + manualna klasifikacija playlist-i (Tribina + Netokracija)
 
 ---
 
-## 🟢 Trenutno se prati (40)
+## 🟢 Trenutno se prati (60)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -49,6 +50,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **DOMOVINA.tv** | [@domovinatv](https://www.youtube.com/@domovinatv/videos) | — | — | — | 🟢 aktivan | — | `own-channel` `domoljubni` `technology` | ✅ |
 | **Duhovnost Hagio** | [@duhovnosthagio6031](https://www.youtube.com/@duhovnosthagio6031/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Eho Projekt** | [@ehoprojekt](https://www.youtube.com/@ehoprojekt/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `education` | ⚠️ |
+| **F1 Puls Podcast** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD) | 3 | — | 56 | 🟢 aktivan | Vetma, Andraka, Karlo Duvnjak | `sport` `f1` `motorsport` | ✅ |
 | **Franjina ekonomija** | [@franjinaekonomijahrvatska8604](https://www.youtube.com/@franjinaekonomijahrvatska8604/videos) | 3 | — | — | ⚪ nepoznato | — | `economics` `religious-catholic` | ⚠️ |
 | **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
 | **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | — | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
@@ -69,6 +71,11 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Mreže Riječi** | [@mrezerijeci](https://www.youtube.com/@mrezerijeci/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Muževni budite!** | [@muzevnibudite](https://www.youtube.com/@muzevnibudite/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `masculinity` | ⚠️ |
 | **Na novo rođeni** | [@nanovoroeni3392](https://www.youtube.com/@nanovoroeni3392/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
+| **Netokracija — 1on1** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk) | 4 | — | 1 | 🟢 aktivan | — | `technology` `digital` `interview` | ✅ |
+| **Netokracija — Ladies of New Business** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff) | 3 | — | 34 | 🟢 aktivan | — | `technology` `digital` `business` `women` | ✅ |
+| **Netokracija — Netokracija Podcast** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01) | 1 | — | 253 | 🟢 aktivan | — | `technology` `digital` `business` `interview` | ✅ |
+| **Netokracija — Office Talks Podcast** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ) | 1 | — | 289 | 🟢 aktivan | — | `technology` `digital` `business` `interview` | ✅ |
+| **Netokracija — Slažem se...Ne!** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1) | 3 | — | 9 | 🟢 aktivan | — | `technology` `digital` `debate` | ✅ |
 | **Podcast Bitno.net-a** | [playlist](https://www.youtube.com/playlist?list=PLuxH86sIsJ-aHROAlz-GEWkN4mGPcCa11) | 3 | — | 50 | 🟢 aktivan | — | `religious-catholic` `evangelization` | ✅ |
 | **Podcast by Niko** | [@PodcastbyNiko](https://www.youtube.com/@PodcastbyNiko/videos) | 3 | — | 5 | 🔴 neaktivan | Niko | `talk-show` | ✅ |
 | **Podcast Čušpajz** | [@podcastcuspajz](https://www.youtube.com/@podcastcuspajz/videos) | 1 | 3K | 920 | 🟢 aktivan | Alen Kristović | `political` `society` | ✅ |
@@ -78,6 +85,20 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | — | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | — | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
 | **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | — | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Tribina — 1 na 1 s Vladom na ti** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
+| **Tribina — Europski nogomet** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq) | 3 | — | 52 | 🟢 aktivan | — | `sport` `football` | ✅ |
+| **Tribina — Fantasy** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx) | 3 | — | 100 | 🟢 aktivan | — | `sport` `football` `fantasy` | ✅ |
+| **Tribina — HNL ponedjeljak** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10) | 2 | — | 227 | 🟢 aktivan | — | `sport` `football` `hnl` | ✅ |
+| **Tribina — Iza Tribine** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH) | 2 | — | 37 | 🟢 aktivan | — | `sport` `interview` `behind-the-scenes` | ✅ |
+| **Tribina — NBA & košarka** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ) | 3 | — | 155 | 🟢 aktivan | — | `sport` `basketball` `nba` | ✅ |
+| **Tribina — NFL** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG) | 3 | — | 94 | 🟢 aktivan | — | `sport` `nfl` | ✅ |
+| **Tribina — Niže lige specijal** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn) | 3 | — | 14 | 🟢 aktivan | — | `sport` `football` | ✅ |
+| **Tribina — Podcast s gostom** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P) | 2 | — | 159 | 🟢 aktivan | — | `sport` `football` `interview` | ✅ |
+| **Tribina — Q&A** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj) | 2 | — | 26 | 🟢 aktivan | — | `sport` `qa` | ✅ |
+| **Tribina — Reprezentacija** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3) | 3 | — | 19 | 🟢 aktivan | — | `sport` `football` `reprezentacija` | ✅ |
+| **Tribina — Robert Knjaz** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr) | 3 | — | 4 | 🟢 aktivan | — | `sport` `interview` | ✅ |
+| **Tribina — Tenis** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9) | 3 | — | 15 | 🟢 aktivan | — | `sport` `tennis` | ✅ |
+| **Tribina — WeitzerMania** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
 | **Željka Markić i Narod.hr** | [@zeljkamarkicinarod](https://www.youtube.com/@zeljkamarkicinarod/videos) | 3 | — | — | ⚪ nepoznato | Željka Markić | `political-conservative` | ⚠️ |
 
 
@@ -147,7 +168,7 @@ Veliki kanali s puno shorts/clipova/izjava. Trebaju custom `MIN_DURATION` per-ka
 
 ---
 
-## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (63)
+## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (68)
 
 Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (širenje na cijeli hrvatski podcast ekosustav). Neki su bez verificiranog YouTube URL-a — treba istraživanje.
 
@@ -170,7 +191,6 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Dalmacija Podcast** | [UCAYpITaR1fJnM-JdPuO19Ew](https://www.youtube.com/channel/UCAYpITaR1fJnM-JdPuO19Ew) | 2 | 3K | 50 | 🟢 aktivan | — | `regional-media` `lifestyle` `culture` | ✅ |
 | **Eduza Show** | [UCKPBjmgFMFR_WufZs3GLQwA](https://www.youtube.com/channel/UCKPBjmgFMFR_WufZs3GLQwA) | 2 | 2K | 50 | 🟢 aktivan | Višnja Željeznjak, Saša Matijašić | `business` `education` | ✅ |
 | **Extra Runda** | — | 1 | — | 134 | 🟢 aktivan | Marko Petrak, Hamby | `sport` `mma` | ✅ |
-| **F1 Puls Podcast** | — | 3 | — | — | 🟢 aktivan | Vetma, Andraka, Karlo Duvnjak | `sport` | ⚠️ |
 | **Fakat Podcast** | — | 2 | — | — | ⚪ nepoznato | — | — | ❓ |
 | **FOI Business Talks** | — | 3 | — | 20 | 🟢 aktivan | — | `business` `education` | ⚠️ |
 | **Gdje si bio '91? (Borna Marinić)** | [UCpXfcdXulKYTBO3DNBFWMjQ](https://music.youtube.com/channel/UCpXfcdXulKYTBO3DNBFWMjQ) | 1 | 50K | 100 | 🟢 aktivan | Borna Marinić | `history` `domovinski-rat` `domoljubni` | ⚠️ |
@@ -193,7 +213,9 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Mysterium** | — | 1 | — | 153 | 🟢 aktivan | Ratko Martinović, D. Pintarić | `geopolitics` `mystery` | ✅ |
 | **Nebitno O Bitnom** | — | 2 | 8K | 80 | 🟢 aktivan | — | `talk-show` `lifestyle` | ⚠️ |
 | **nemoj me. (Maša Zibar)** | [@MashintheBeauty](https://www.youtube.com/channel/UCIIMBF5bE6dmjLBLug7fzUQ) | 1 | 84K | 200 | ⚪ nepoznato | Maša Zibar, Filip Jančik, Nina Remenar | `pop-culture` `lifestyle` | ✅ |
-| **Netokracija (Office Talks)** | — | 1 | 8K | 100 | 🟢 aktivan | — | `technology` `digital` `business` | ⚠️ |
+| **Netokracija — Digitalni doručak** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8) | 4 | — | 10 | ⏸ pauziran | — | `technology` `digital` | ✅ |
+| **Netokracija — Hrvatska** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2) | 4 | — | 154 | ⚪ nepoznato | — | `technology` `digital` `regional` | ✅ |
+| **Netokracija (Office Talks)** | [@NetokracijaYT](https://www.youtube.com/@NetokracijaYT) | 1 | 8K | 100 | 🟢 aktivan | — | `technology` `digital` `business` | ⚠️ |
 | **Neven Vidaković** | [@nevenvidakovic](https://www.youtube.com/@nevenvidakovic) | 3 | — | — | ⚪ nepoznato | Neven Vidaković | `theology` `philosophy` | ❓ |
 | **Nova Eva** | [@NovaEva](https://www.youtube.com/@NovaEva) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `evangelization` | ❓ |
 | **Pametni ljudi** | — | 1 | 8K | 150 | 🟢 aktivan | — | `business` `education` | ✅ |
@@ -211,7 +233,11 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Superhuman Life** | — | 1 | 25K | 100 | 🟢 aktivan | — | `personal-development` | ⚠️ |
 | **Surove Strasti** | — | 1 | — | 422 | ⚪ nepoznato | Saša Tenodi, Ivan Voras | `business` `lifestyle` | ✅ |
 | **Špica s Macanom** | — | 1 | 10K | 80 | 🟢 aktivan | Krešimir Macan, Neven Kepeski | `political` `society` `economics` | ✅ |
-| **Tribina** | — | 2 | — | 200 | 🟢 aktivan | J. Korda, M. Topić | `sport` `football` | ✅ |
+| **Tribina** | [@Tribina_HR](https://www.youtube.com/@Tribina_HR) | 2 | — | 200 | 🟢 aktivan | J. Korda, M. Topić | `sport` `football` | ✅ |
+| **Tribina — EURO 2024** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG) | 4 | — | 33 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
+| **Tribina — SP Qatar 2022** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU) | 4 | — | 36 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
+| **Tribina — SP Rusija 2018** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN) | 4 | — | 70 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
+| **Tribina — UEFA Euro 2020** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP) | 4 | — | 34 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
 | **Turizam24** | — | 2 | — | — | ⚪ nepoznato | — | `tourism` | ❓ |
 | **Utakmicu po utakmicu** | [playlist](https://www.youtube.com/playlist?list=PL279H2ix-v5XSH6m_QxPD2mygdBRXS-i5) | 1 | — | 365 | 🟢 aktivan | M. Pukšar, I. Ljubić | `sport` `football` | ✅ |
 | **Vatrena obitelj** | — | 3 | — | — | 🟢 aktivan | — | `sport` `football` `institutional` | ⚠️ |

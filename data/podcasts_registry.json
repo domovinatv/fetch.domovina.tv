@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "generated_at": "2026-04-08",
+  "generated_at": "2026-05-20",
   "description": "Single source of truth za hrvatske podcaste na YouTubeu. Spaja: (1) trenutno praćene kanale iz automatic/refresh_podcasts.sh, (2) deep_research_prompt_hr_podcasti.md, (3) Gemini Deep Research, (4) Perplexity research, (5) Claude Opus 4.6 sveobuhvatni research. PRINCIP v1.2: free speech aggregator — uključuje SVE hrvatske podcaste bez obzira na političku ili vjersku orijentaciju. Tracking odluke su isključivo tehničke (verificirani URL, kompletni metapodaci, format kompatibilan s pipeline-om), nikad editorijalne. Polje 'disputes' u notes-ima entries-a označava gdje se izvori ne slažu.",
   "sources": [
     {
@@ -31,6 +31,12 @@
       "label": "Claude Opus 4.6 - sveobuhvatni popis hrvatskih podcasta na YouTubeu (compass artifact)",
       "type": "external-research",
       "date": "2026-04"
+    },
+    {
+      "id": "yt-dlp-2026-05",
+      "label": "yt-dlp + manualna klasifikacija playlist-i (Tribina + Netokracija)",
+      "year_month": "2026-05",
+      "method": "yt-dlp --dump-single-json --flat-playlist na /@channel/playlists + per-playlist enrichment + LLM-asisted classification po duration + semantic kriteriju"
     }
   ],
   "tag_legend": {
@@ -2857,9 +2863,10 @@
       "slug": "netokracija",
       "display_name": "Netokracija (Office Talks)",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "channel"
+        "url": "https://www.youtube.com/@NetokracijaYT",
+        "handle": "@NetokracijaYT",
+        "type": "umbrella",
+        "channel_id": "UCrolbzqlzSeLTH624wKbtLQ"
       },
       "tags": [
         "technology",
@@ -2872,31 +2879,41 @@
         "subscribers_as_of": "2025-11",
         "episodes_estimate": 100,
         "first_episode": "2018",
-        "status": "active"
+        "status": "active",
+        "children_count": 7
       },
       "tracking": {
         "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "reason_disabled": "Umbrella entry — sadrzaj se prati per-playlist child entries, ne direktno preko kanala."
       },
       "tier": 1,
       "data_quality": "partial",
       "sources": [
         "report"
       ],
-      "notes": "Više formata uključujući 'Office Talks'.",
+      "notes": "Umbrella entry za Netokracija YouTube kanal. Sadrzaj se prati po per-playlist child entries (slugovi 'netokracija-*'). Ne prati se direktno — uvijek per-playlist.",
       "quality_score": {
-        "total": 65,
+        "total": 64,
         "tier": "✅ strong",
         "breakdown": {
           "activity": 25,
           "catalog": 12,
           "audience": 8,
-          "format": 15,
+          "format": 10,
           "substance": 4,
-          "verification": 1,
+          "verification": 5,
           "recency": 0
         }
-      }
+      },
+      "child_slugs": [
+        "netokracija-office-talks",
+        "netokracija-podcast",
+        "netokracija-slazem-se-ne",
+        "netokracija-digitalni-dorucak",
+        "netokracija-1on1",
+        "netokracija-ladies-of-new-business",
+        "netokracija-hrvatska"
+      ]
     },
     {
       "slug": "pametni-ljudi",
@@ -3248,9 +3265,10 @@
       "slug": "tribina",
       "display_name": "Tribina",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "channel"
+        "url": "https://www.youtube.com/@Tribina_HR",
+        "handle": "@Tribina_HR",
+        "type": "umbrella",
+        "channel_id": "UCjTiZ9ebMJumhPMsciuevxg"
       },
       "tags": [
         "sport",
@@ -3264,31 +3282,53 @@
         "episodes_estimate": 200,
         "last_episode": "2026-03",
         "average_duration_minutes": 60,
-        "status": "active"
+        "status": "active",
+        "children_count": 19
       },
       "tracking": {
         "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "reason_disabled": "Umbrella entry — sadrzaj se prati per-playlist child entries, ne direktno preko kanala."
       },
       "tier": 2,
       "data_quality": "verified",
       "sources": [
         "gemini"
       ],
-      "notes": "Aktivan na Patreonu i Discordu — community-funded model.",
+      "notes": "Umbrella entry za Tribina YouTube kanal. Sadrzaj se prati po per-playlist child entries (slugovi 'tribina-*' + 'f1-puls-podcast'). Ne prati se direktno — uvijek per-playlist.",
       "quality_score": {
-        "total": 75,
+        "total": 74,
         "tier": "✅ strong",
         "breakdown": {
           "activity": 25,
           "catalog": 15,
           "audience": 4,
-          "format": 15,
+          "format": 10,
           "substance": 8,
-          "verification": 3,
+          "verification": 7,
           "recency": 5
         }
-      }
+      },
+      "child_slugs": [
+        "tribina-podcast-s-gostom",
+        "f1-puls-podcast",
+        "tribina-1-na-1-s-vladom",
+        "tribina-weitzermania",
+        "tribina-iza-tribine",
+        "tribina-robert-knjaz",
+        "tribina-qa",
+        "tribina-hnl-ponedjeljak",
+        "tribina-nize-lige-specijal",
+        "tribina-reprezentacija",
+        "tribina-europski-nogomet",
+        "tribina-nfl",
+        "tribina-fantasy",
+        "tribina-nba-kosarka",
+        "tribina-tenis",
+        "tribina-euro-2024",
+        "tribina-sp-qatar-2022",
+        "tribina-uefa-euro-2020",
+        "tribina-sp-rusija-2018"
+      ]
     },
     {
       "slug": "utakmicu-po-utakmicu",
@@ -4448,13 +4488,16 @@
       "slug": "f1-puls-podcast",
       "display_name": "F1 Puls Podcast",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD",
         "handle": null,
-        "type": "channel",
-        "parent_channel": "Tribina"
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD"
       },
       "tags": [
-        "sport"
+        "sport",
+        "f1",
+        "motorsport"
       ],
       "voditelji": [
         "Vetma",
@@ -4462,30 +4505,31 @@
         "Karlo Duvnjak"
       ],
       "metadata": {
-        "average_duration_minutes": 60,
-        "last_episode": "2026-04",
+        "episodes_estimate": 56,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 122,
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan URL — sub-format Tribine."
+        "enabled": true
       },
       "tier": 3,
-      "data_quality": "partial",
+      "data_quality": "verified",
       "sources": [
-        "claude-opus"
+        "claude-opus",
+        "yt-dlp-2026-05"
       ],
-      "notes": "Formula 1 podcast. Sub-format ili spinoff Tribine.",
+      "notes": "F1 Puls Podcast (na Tribina kanalu). 56 epizoda, prosjek 122 min. Merge s postojecim f1-puls-podcast stub-om — popunjava URL i metadata.",
       "quality_score": {
-        "total": 62,
+        "total": 77,
         "tier": "✅ strong",
         "breakdown": {
           "activity": 25,
-          "catalog": 4,
+          "catalog": 9,
           "audience": 4,
           "format": 15,
-          "substance": 8,
-          "verification": 1,
+          "substance": 10,
+          "verification": 9,
           "recency": 5
         }
       }
@@ -5049,6 +5093,1132 @@
           "substance": 2,
           "verification": 7,
           "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "tribina-podcast-s-gostom",
+      "display_name": "Tribina — Podcast s gostom",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 159,
+        "last_episode": "2026-03",
+        "average_duration_minutes": 81,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Glavni dugogodisnji intervju format Tribine. 159 epizoda, prosjek 81 min.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-1-na-1-s-vladom",
+      "display_name": "Tribina — 1 na 1 s Vladom na ti",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq"
+      },
+      "tags": [
+        "sport",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 6,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 88,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Long-form intervju format s Vladom. 6 epizoda, prosjek 88 min.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-weitzermania",
+      "display_name": "Tribina — WeitzerMania",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu"
+      },
+      "tags": [
+        "sport",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 6,
+        "last_episode": "2026-04",
+        "average_duration_minutes": 123,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Long-form (123m prosjek), 6 epizoda. Named-host format.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-iza-tribine",
+      "display_name": "Tribina — Iza Tribine",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH"
+      },
+      "tags": [
+        "sport",
+        "interview",
+        "behind-the-scenes"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 37,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 113,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "BTS dugi razgovori (NE klipovi). 37 epizoda, prosjek 113 min.",
+      "quality_score": {
+        "total": 72,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-robert-knjaz",
+      "display_name": "Tribina — Robert Knjaz",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr"
+      },
+      "tags": [
+        "sport",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 4,
+        "last_episode": "2020-01",
+        "average_duration_minutes": 40,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Named-guest podcast. 4 epizode, prosjek 40 min.",
+      "quality_score": {
+        "total": 57,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 1,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "tribina-qa",
+      "display_name": "Tribina — Q&A",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj"
+      },
+      "tags": [
+        "sport",
+        "qa"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 26,
+        "last_episode": "2026-01",
+        "average_duration_minutes": 219,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "DESPITE name — 219 min prosjecna duzina znaci da su pune Q&A epizode, ne klipovi. 26 epizoda.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-hnl-ponedjeljak",
+      "display_name": "Tribina — HNL ponedjeljak",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "hnl"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 227,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 137,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 2,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Tjedni HNL pregled. 227 epizoda, prosjek 137 min.",
+      "quality_score": {
+        "total": 81,
+        "tier": "🌟 elite",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-nize-lige-specijal",
+      "display_name": "Tribina — Niže lige specijal",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn"
+      },
+      "tags": [
+        "sport",
+        "football"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 14,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 108,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "14 epizoda, prosjek 108 min.",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-reprezentacija",
+      "display_name": "Tribina — Reprezentacija",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "reprezentacija"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 19,
+        "last_episode": "2026-04",
+        "average_duration_minutes": 110,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "19 epizoda, prosjek 110 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-europski-nogomet",
+      "display_name": "Tribina — Europski nogomet",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq"
+      },
+      "tags": [
+        "sport",
+        "football"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 52,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 101,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "52 epizode, prosjek 101 min.",
+      "quality_score": {
+        "total": 75,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-nfl",
+      "display_name": "Tribina — NFL",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG"
+      },
+      "tags": [
+        "sport",
+        "nfl"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 94,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 96,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "94 epizode, prosjek 96 min.",
+      "quality_score": {
+        "total": 75,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-fantasy",
+      "display_name": "Tribina — Fantasy",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "fantasy"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 100,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 95,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "100 epizoda, prosjek 95 min. Fantasy nogomet.",
+      "quality_score": {
+        "total": 78,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-nba-kosarka",
+      "display_name": "Tribina — NBA & košarka",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ"
+      },
+      "tags": [
+        "sport",
+        "basketball",
+        "nba"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 155,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 92,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "155 epizoda, prosjek 92 min.",
+      "quality_score": {
+        "total": 78,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "tribina-tenis",
+      "display_name": "Tribina — Tenis",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9"
+      },
+      "tags": [
+        "sport",
+        "tennis"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 15,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 69,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "15 epizoda, prosjek 69 min.",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-euro-2024",
+      "display_name": "Tribina — EURO 2024",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "event-archive"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 33,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 94,
+        "status": "archive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Event archive 2024 — zavrsen turnir, NE prati aktivno. 33 epizode, prosjek 94 min. Promote one-shot kasnije ako odlucimo."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Event archive 2024 — zavrsen turnir, NE prati aktivno. 33 epizode, prosjek 94 min. Promote one-shot kasnije ako odlucimo.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 10,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-sp-qatar-2022",
+      "display_name": "Tribina — SP Qatar 2022",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "event-archive"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 36,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 86,
+        "status": "archive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Event archive 2022. 36 epizoda, prosjek 86 min."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Event archive 2022. 36 epizoda, prosjek 86 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-uefa-euro-2020",
+      "display_name": "Tribina — UEFA Euro 2020",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "event-archive"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 34,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 84,
+        "status": "archive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Event archive 2021. 34 epizode, prosjek 84 min."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Event archive 2021. 34 epizode, prosjek 84 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "tribina-sp-rusija-2018",
+      "display_name": "Tribina — SP Rusija 2018",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Tribina",
+        "playlist_id": "PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN"
+      },
+      "tags": [
+        "sport",
+        "football",
+        "event-archive"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 70,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 33,
+        "status": "archive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Event archive 2018. 70 epizoda, prosjek 33 min."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Event archive 2018. 70 epizoda, prosjek 33 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 9,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "netokracija-office-talks",
+      "display_name": "Netokracija — Office Talks Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 289,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 41,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Eksplicitno spomenut od korisnika. 289 epizoda, prosjek 41 min. Najveca biblioteka pravih razgovora.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "netokracija-podcast",
+      "display_name": "Netokracija — Netokracija Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 253,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 42,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 1,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Eksplicitno spomenut od korisnika. 253 epizode, prosjek 42 min.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 15,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "netokracija-slazem-se-ne",
+      "display_name": "Netokracija — Slažem se...Ne!",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "debate"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 9,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 65,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Long-form debate format. 9 epizoda, prosjek 65 min.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "netokracija-digitalni-dorucak",
+      "display_name": "Netokracija — Digitalni doručak",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8"
+      },
+      "tags": [
+        "technology",
+        "digital"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 10,
+        "last_episode": "2022-04",
+        "average_duration_minutes": 63,
+        "status": "paused"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Zadnja modifikacija 2022-04 — vjerojatno pauziran/zatvoren format. 10 epizoda, prosjek 63 min. Promote kasnije ako se ponovo aktivira."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Zadnja modifikacija 2022-04 — vjerojatno pauziran/zatvoren format. 10 epizoda, prosjek 63 min. Promote kasnije ako se ponovo aktivira.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 5,
+          "catalog": 3,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 7,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "netokracija-1on1",
+      "display_name": "Netokracija — 1on1",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 1,
+        "last_episode": "2026-05",
+        "average_duration_minutes": 42,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Nov format, samo 1 epizoda zasad ali mod 2026-05. Niski tier dok ne narastemu epizode.",
+      "quality_score": {
+        "total": 62,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 1,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 5
+        }
+      }
+    },
+    {
+      "slug": "netokracija-ladies-of-new-business",
+      "display_name": "Netokracija — Ladies of New Business",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "women"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 34,
+        "last_episode": "2026-02",
+        "average_duration_minutes": 37,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "34 epizode, prosjek 37 min. Polovina epizoda long-form (50%).",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 6,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 4
+        }
+      }
+    },
+    {
+      "slug": "netokracija-hrvatska",
+      "display_name": "Netokracija — Hrvatska",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Netokracija (Office Talks)",
+        "playlist_id": "PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2"
+      },
+      "tags": [
+        "technology",
+        "digital",
+        "regional"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 154,
+        "last_episode": "2024-10",
+        "average_duration_minutes": 35,
+        "status": "review"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "SUMNJA NA DUPLIKAT — 154 epizode, prosjek 35 min, vjerojatno aggregator koji se preklapa s Netokracija Podcast (253 ep). tracking_enabled=false dok se ne provjeri overlap."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "yt-dlp-2026-05"
+      ],
+      "notes": "SUMNJA NA DUPLIKAT — 154 epizode, prosjek 35 min, vjerojatno aggregator koji se preklapa s Netokracija Podcast (253 ep). tracking_enabled=false dok se ne provjeri overlap.",
+      "possible_duplicate_of": "netokracija-podcast",
+      "quality_score": {
+        "total": 49,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 5,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 5,
+          "verification": 7,
+          "recency": 1
         }
       }
     }
