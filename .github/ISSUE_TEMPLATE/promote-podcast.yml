@@ -1,0 +1,56 @@
+name: "🚀 Aktiviraj postojeći podcast u pipelineu"
+description: Predloži da se podcast koji već postoji u registry-ju aktivira u refresh_podcasts.sh pipelineu
+title: "[promote] "
+labels: ["pipeline-promotion", "registry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hvala što predlažeš aktivaciju!
+
+        Ovaj template je za podcaste koji **već postoje** u [registry-ju](https://podcast-registry.domovina.ai),
+        ali još nisu uključeni u automatski `refresh_podcasts.sh` pipeline. Ako podcast još nije u registry-ju,
+        koristi [drugi template](https://github.com/domovinatv/fetch.domovina.tv/issues/new?template=add-podcast.yml).
+
+  - type: input
+    id: podcast-slug
+    attributes:
+      label: Slug podcasta
+      description: Identifier iz `podcasts_registry.json` (vidiš ga u registry exploreru, npr. `iva-kraljevic`)
+      placeholder: npr. iva-kraljevic
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioritet
+      description: Tvoja procjena hitnosti
+      options:
+        - normal — može u sljedeći batch
+        - high — aktivan kanal, velika publika, propuštamo mnogo
+        - low — bilo bi lijepo ali nije hitno
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Zašto bi trebao biti aktiviran u pipelineu
+      description: Argument zašto se isplati pratiti ovaj kanal (sadržaj, publika, recentni rast, format epizoda, itd.)
+      placeholder: |
+        npr.
+        - Aktivan kanal s tjednim epizodama
+        - Relevantni intervjui s gostima iz X područja
+        - Kvalitetna produkcija, dugi format (60-90 min)
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Dodatne napomene (opcionalno)
+      description: Bilo što što urednik treba znati prije aktivacije (npr. specifični problemi s YouTube feedom, planirani re-launch, itd.)
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Pregled registry-ja prije prijedloga
+    url: https://podcast-registry.domovina.ai
+    about: Provjeri je li podcast već u registry-ju prije nego ga predložiš
+  - name: Dokumentacija o registry-ju
+    url: https://github.com/domovinatv/fetch.domovina.tv/blob/main/data/podcasts_registry.md
+    about: Saznaj kako funkcionira 3-layer model (registry → tracking → pipeline)

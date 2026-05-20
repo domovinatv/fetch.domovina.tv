@@ -1,0 +1,102 @@
+name: "➕ Predloži novi podcast za registry"
+description: Predloži potpuno novi podcast koji još nije u DOMOVINA registry-ju
+title: "[new] "
+labels: ["new-podcast", "registry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hvala što predlažeš novi podcast!
+
+        **Prvo provjeri** u [registry exploreru](https://podcast-registry.domovina.ai) da podcast već nije
+        u sustavu (često se isti kanal vodi pod drugim nazivom). Ako jest, koristi
+        [drugi template](https://github.com/domovinatv/fetch.domovina.tv/issues/new?template=promote-podcast.yml)
+        za aktivaciju u pipelineu.
+
+  - type: input
+    id: name
+    attributes:
+      label: Naziv podcasta ili kanala
+      placeholder: npr. Glas Koncila Podcast
+    validations:
+      required: true
+
+  - type: input
+    id: youtube-url
+    attributes:
+      label: YouTube URL ili handle
+      description: URL na kanal, handle ili playlistu
+      placeholder: https://www.youtube.com/@neki-kanal
+    validations:
+      required: true
+
+  - type: input
+    id: hosts
+    attributes:
+      label: Voditelji
+      description: Imena voditelja, odvojena zarezom
+      placeholder: Ime Prezime, Drugo Ime
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Glavna kategorija
+      description: Najbliža tematska oznaka (urednik može fino-tunirati specifične tagove)
+      options:
+        - religious-catholic — vjera, teologija, evangelizacija, duhovnost
+        - politics — političke teme, geopolitika, domoljubni sadržaj
+        - business — poduzetništvo, ekonomija, financije, leadership
+        - technology — tehnologija, digital, znanost, engineering
+        - education — obrazovanje, osobni razvoj, parenting
+        - culture — kultura, lifestyle, povijest, umjetnost
+        - media — intervju, talk-show, regional-media, novinarstvo
+        - sport — sportski sadržaj svih vrsta
+        - society — društvo, advocacy, women, zajednica
+        - health — zdravlje, fitness, medicina
+        - philosophy — filozofija, intelektualne teme, debata
+        - diaspora — Hrvati izvan domovine
+        - drugo — specificiraj u opisu
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Kratki opis sadržaja
+      description: O čemu je podcast? Format (intervjui, monolog, panel)? Učestalost (tjedno, mjesečno)?
+      placeholder: |
+        Format: dugi intervjui (60-90 min) s gostima iz...
+        Učestalost: tjedno
+        Tipične teme: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: why-relevant
+    attributes:
+      label: Zašto je relevantan za DOMOVINA pipeline
+      description: Što ga čini dobrim kandidatom za uključivanje? Publika? Kvaliteta? Specifičan kut koji nedostaje?
+      placeholder: |
+        npr. Jedan od rijetkih hrvatskih podcasta koji pokriva ...
+        Velika publika u domeni X koja nije pokrivena drugim kanalima u registry-ju.
+    validations:
+      required: true
+
+  - type: input
+    id: episodes-estimate
+    attributes:
+      label: Procjena broja epizoda (opcionalno)
+      description: Otprilike koliko epizoda postoji (s YouTube channel page)
+      placeholder: npr. 150
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Dodatne napomene (opcionalno)
+      description: Bilo što što bi urednik trebao znati (npr. mrtav kanal, planirani relaunch, related kanali, itd.)
+    validations:
+      required: false

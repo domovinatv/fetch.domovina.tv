@@ -28,6 +28,7 @@ function getArg(name, fallback) {
 }
 
 const PORT = parseInt(getArg('--port', '8787'), 10);
+const SNAPSHOT_OUT = getArg('--snapshot', null);  // ako je postavljen → one-shot mod, piše registry.json i izlazi
 const REGISTRY_PATH = path.join(ROOT, 'data', 'podcasts_registry.json');
 const REFRESH_SH_PATH = path.join(ROOT, 'automatic', 'refresh_podcasts.sh');
 const LISTA_DIR = path.join(ROOT, 'automatic', 'podcasts');
@@ -548,6 +549,23 @@ function serveStatic(res, filePath) {
     const ext = path.extname(filePath);
     res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream', 'Cache-Control': 'no-store' });
     fs.createReadStream(filePath).pipe(res);
+}
+
+// ============================================================================
+// Snapshot mode (one-shot, za CF Pages deploy)
+// ============================================================================
+
+if (SNAPSHOT_OUT) {
+    const t0 = Date.now();
+    const data = computeRegistry();
+    data._snapshot_at = new Date().toISOString();
+    data._took_ms = Date.now() - t0;
+    const outPath = path.resolve(SNAPSHOT_OUT);
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, JSON.stringify(data));
+    console.log(`✓ Snapshot zapisan: ${outPath}`);
+    console.log(`  ${data.entries.length} entries, ${(fs.statSync(outPath).size / 1024).toFixed(1)} KB`);
+    process.exit(0);
 }
 
 const server = http.createServer((req, res) => {
