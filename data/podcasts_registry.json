@@ -6221,6 +6221,53 @@
           "recency": 1
         }
       }
+    },
+    {
+      "slug": "hcpi-podcast",
+      "display_name": "HCPI Podcast - Potresne priče",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn",
+        "handle": "@hrvatskicentarzapotresnoin1185",
+        "type": "playlist",
+        "parent_channel": "Hrvatski centar za potresno inženjerstvo",
+        "playlist_id": "PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn",
+        "channel_id": "UCbLvhVq9E9rn9lpJTpvCT-A"
+      },
+      "tags": [
+        "education",
+        "science",
+        "engineering"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 2,
+        "last_episode": "2026-04",
+        "average_duration_minutes": 73,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "current",
+        "yt-dlp-2026-05"
+      ],
+      "notes": "Edukativni podcast Hrvatskog centra za potresno inženjerstvo — \"Prvi podcast kojeg vodi inženjer građevinarstva\". 2 epizode (Ep1, Ep2), prosjek 73 min. Aktivan (mod 2026-04). U pipelineu od ranije (refresh_podcasts.sh) ali bez registry entry-ja — popunjeno 2026-05-20.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 1,
+          "audience": 4,
+          "format": 15,
+          "substance": 8,
+          "verification": 9,
+          "recency": 5
+        }
+      }
     }
   ],
   "philosophy": {

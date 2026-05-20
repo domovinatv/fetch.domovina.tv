@@ -7,19 +7,19 @@
 
 ## Sažetak
 
-- **Ukupno unosa:** 136
-- **Trenutno se prati:** 60
+- **Ukupno unosa:** 137
+- **Trenutno se prati:** 61
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 0
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
 - **Ostali kandidati** (sekularni / dijaspora / istražiti): 68
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 24 · tier 3: 65 · tier 2: 17 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 25 · tier 3: 65 · tier 2: 17 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 63 · partial ⚠️: 64 · unverified ❓: 9
+**Distribucija po data_quality:** verified ✅: 64 · partial ⚠️: 64 · unverified ❓: 9
 
-**Distribucija po status-u:** 🟢 aktivan: 79 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
+**Distribucija po status-u:** 🟢 aktivan: 80 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -34,7 +34,7 @@
 
 ---
 
-## 🟢 Trenutno se prati (60)
+## 🟢 Trenutno se prati (61)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -55,6 +55,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
 | **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | — | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
 | **Gorica TV** | [@GoricaTV](https://www.youtube.com/@GoricaTV/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
+| **HCPI Podcast - Potresne priče** | [@hrvatskicentarzapotresnoin1185](https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn) | 4 | — | 2 | 🟢 aktivan | — | `education` `science` `engineering` | ✅ |
 | **Hercegovina Info** | [@HercegovinaInfo2](https://www.youtube.com/@HercegovinaInfo2/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
 | **Hitna pomoć za nemirne** | [@hitnapomoczanemirne7345](https://www.youtube.com/@hitnapomoczanemirne7345/videos) | 3 | — | — | ⚪ nepoznato | — | — | ⚠️ |
 | **HNB - Hrvatska narodna banka** | [@hrvatskanarodnabankacroati9475](https://www.youtube.com/@hrvatskanarodnabankacroati9475/videos) | 3 | — | — | ⚪ nepoznato | — | `institutional` `finance` | ⚠️ |
