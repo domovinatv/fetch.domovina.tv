@@ -1,0 +1,329 @@
+{
+  "id": "PLta2gH1s4UVRBjAfmC02kEWwW_wJkLLL4",
+  "title": "Digitalni nomadi",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLD2moZegOhzgf6ibKuQPkBH1O-zXQ",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLDAY71F37gpjgkTJfrwzpJUWMVqMA",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAAZdyIXejGk0ImRhCgfzH1Lm0TwQ",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBdEHyGSuA0yMS_E4oUZWZVv8Ga8A",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20191223",
+  "view_count": 146,
+  "playlist_count": 6,
+  "channel": "Netokracija",
+  "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_id": "@NetokracijaYT",
+  "uploader": "Netokracija",
+  "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+  "_type": "playlist",
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "S4W9MrMxn-E",
+      "url": "https://www.youtube.com/watch?v=S4W9MrMxn-E",
+      "title": "Najveće muke po freelancingu u Hrvatskoj | Digitalni nomadi",
+      "description": null,
+      "duration": 273,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDr_2mUU5cTIu90TaV-jFmEXHFpuA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBUkWoq4DY8Y45dgpd7gwvULy6CvA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBzS7R9x00x6-tKwP4hy4guvdaUFg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S4W9MrMxn-E/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB48E8KWGT_ExhkrXx8n06kB4_9hg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 2500,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "r1Jki8YjGgM",
+      "url": "https://www.youtube.com/watch?v=r1Jki8YjGgM",
+      "title": "'Zbogom agencijo, zdravo svijete!' Intervju s Gaspërom Sopijem | Digitalni nomadi",
+      "description": null,
+      "duration": 823,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/r1Jki8YjGgM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAN61iy3z9efHdGjsWEr1-7c4Zq4A",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r1Jki8YjGgM/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAiJGSKQp3DnMqyV63IyelJ1jR-2w",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r1Jki8YjGgM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCQydQ5VIH7H4aQxqni01YdY0pxRA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/r1Jki8YjGgM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCB01esAgcxmApP2YcPpjgDQnn3KQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 718,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "Viq0IhyEglQ",
+      "url": "https://www.youtube.com/watch?v=Viq0IhyEglQ",
+      "title": "Za freelancere u znanosti ima prilika! Zna biokemičar i ekonomist Mikael Hietala | Digitalni nomadi",
+      "description": null,
+      "duration": 911,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Viq0IhyEglQ/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCT89rAhxQ-Hftr75v412PrW0LGxg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Viq0IhyEglQ/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA6zyPO7F3SfHChgcL_1JMCVatitQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Viq0IhyEglQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA1jq8znSQI_9pUnTRnUr5nDFdF_w",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Viq0IhyEglQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAIrUHJx-sLjXPtueDIQGmP_7UJ9Q",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 216,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "R1BXWI7hCBc",
+      "url": "https://www.youtube.com/watch?v=R1BXWI7hCBc",
+      "title": "Emanuel Blagonić: Kako početi, rasti i uspjeti kao freelancer? | Digitalni nomadi",
+      "description": null,
+      "duration": 771,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/R1BXWI7hCBc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAPzcq_EHmPnC23TJtsVzPhnYA85A",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/R1BXWI7hCBc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCEGiWI_6SKkJfmMJcasFNkKPAzoQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/R1BXWI7hCBc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBAcY6L6OiFr35GgyFxmxbhu_hMgQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/R1BXWI7hCBc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAckSElY8xZeuaj2BDkgjx5fsRtIg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 797,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "Osw19hpB8Bo",
+      "url": "https://www.youtube.com/watch?v=Osw19hpB8Bo",
+      "title": "Započni freelance karijeru bez financijskog straha! | Digitalni nomadi",
+      "description": null,
+      "duration": 244,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Osw19hpB8Bo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA5GQp94klOmyrPM1SAPuiKnbF9-A",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Osw19hpB8Bo/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC7B6UCwjXCTuiLjh87aVBNdn4wOA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Osw19hpB8Bo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCWnkrJgVTPLStHyH-3kSjYSLpVwQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Osw19hpB8Bo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBpShhCvlRfXBTCMAQDhEnkCbY3pA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 1900,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "qrmmpiFhrpc",
+      "url": "https://www.youtube.com/watch?v=qrmmpiFhrpc",
+      "title": "Biti sam sebi dobar šef: 6 savjeta za networking i produktivnost! | Digitalni nomadi",
+      "description": null,
+      "duration": 598,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/qrmmpiFhrpc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC6-rMTgT2z2wmqpfcxK1mUg7QJ0A",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/qrmmpiFhrpc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBiecojZMQosJkfkTkEN0l3Z4evQA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/qrmmpiFhrpc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDwHbw58XlP3RZy-H6IjpcjHHlJ7A",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/qrmmpiFhrpc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCOyO02TW5YHH89OF_eaRI_G_DpBw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 1100,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVRBjAfmC02kEWwW_wJkLLL4",
+  "original_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVRBjAfmC02kEWwW_wJkLLL4",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1779273695,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

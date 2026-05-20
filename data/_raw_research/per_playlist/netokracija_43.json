@@ -1,0 +1,197 @@
+{
+  "id": "PLta2gH1s4UVQmysc40hbkL_Hz23BVMf5n",
+  "title": "Rasprave",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBUjOxCpjx_eohA8q8z1gxu_fnSxQ",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBoFyxojwexvK0UlOtq-4CvZ3TuKQ",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBBUH5Peyd1G2bV3sCdWMceC2w9gQ",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAFErpqVeZkBoJD5FnzAmLyPh30Rg",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20180405",
+  "view_count": 3,
+  "playlist_count": 3,
+  "channel": "Netokracija",
+  "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_id": "@NetokracijaYT",
+  "uploader": "Netokracija",
+  "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+  "_type": "playlist",
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "dECaNvuG7y4",
+      "url": "https://www.youtube.com/watch?v=dECaNvuG7y4",
+      "title": "Kako do vrha kao žena u poslovanju?! - Rasprava s Ladies of Business konferencije",
+      "description": null,
+      "duration": 1780,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBphBHijA9eHgK9eApbzYpv9puOVQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBa-dcTDMCVEpNLWvFettht-A2PyA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBRz8WWwc8RDUP0EokrTEY7Jbn6aQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/dECaNvuG7y4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxbxYS-drrbYzPINRpkAbGaveUPw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 338,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "f_aFABK2GsU",
+      "url": "https://www.youtube.com/watch?v=f_aFABK2GsU",
+      "title": "Kako do mentora/mentorice - Rasprava s Ladies of New Business konferencije",
+      "description": null,
+      "duration": 2611,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/f_aFABK2GsU/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAbY8lkJAUxoY9l36RvqQMZ6xTfuw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f_aFABK2GsU/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDth93FMb8wAUkulW_jYjR_v4dChA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f_aFABK2GsU/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCwh3H213yOUADre_PaQxZ2DTrT-w",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/f_aFABK2GsU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDKW-PA3-OR40jjsksI_YCTMX0CJA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 345,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "8WGRLN2Lup0",
+      "url": "https://www.youtube.com/watch?v=8WGRLN2Lup0",
+      "title": "Ready Player One: Treba li ga pogledati zaista svaki gamer?! | Gamer i n00b",
+      "description": null,
+      "duration": 615,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/8WGRLN2Lup0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDj9tjYV2O5RWfjzSjxgxcT8E9ypg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/8WGRLN2Lup0/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBMEgUfO66Zcli7rBqqpzDlebSEVA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/8WGRLN2Lup0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAckhRBMLrROAFVyJbD8l5zXzX2Xg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/8WGRLN2Lup0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAebhAg6-pnI7FV1ksSIV0_tOXmEw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 908,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQmysc40hbkL_Hz23BVMf5n",
+  "original_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQmysc40hbkL_Hz23BVMf5n",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1779273697,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "id": "PLta2gH1s4UVT7fIS0ugebI9GfGICWD5er",
+  "title": "Hrvatska stvara",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBis50jERRRmOd-u2CyvLUMBsEYAA",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCbz8fxpaHdjKne2BTp56BtQkc0Og",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAea-GFv-twcwhKsE1wamCczJAy7Q",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAkFa8OKZrlJgkEPy7Wxn3jAxRDbQ",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20180918",
+  "view_count": 103,
+  "playlist_count": 5,
+  "channel": "Netokracija",
+  "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_id": "@NetokracijaYT",
+  "uploader": "Netokracija",
+  "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+  "_type": "playlist",
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "UV7KqrigWQE",
+      "url": "https://www.youtube.com/watch?v=UV7KqrigWQE",
+      "title": "Igramo pametnu igru Mundus 🤓 i otkrivamo što - HRVATSKA STVARA",
+      "description": null,
+      "duration": 380,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBWtVcJsfA4sc6GqMys-s8lowIEtg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCPjtV6ToEeQLI5hI6Nnq-bpbXAKQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBsR_IBymWl9Z2oTyqcSVOzJRzjpQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/UV7KqrigWQE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBqo1sHPwzVsJaZd1LTuhcYJmtMBg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 932,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "yOgij_ve5xY",
+      "url": "https://www.youtube.com/watch?v=yOgij_ve5xY",
+      "title": "Programiranje u Kninu, Splitu, Križevcima i Dubrovniku - za klince! | Hrvatska stvara",
+      "description": null,
+      "duration": 896,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/yOgij_ve5xY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBnhYothI8fKQ39HDsuIjplfJwjAA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yOgij_ve5xY/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAVjRw27L-Ve7KLv9tl4-vnkCoV-A",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yOgij_ve5xY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCiwzQqQoE1dlLlxu3WUuxF7Ibi2w",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/yOgij_ve5xY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAReI1W9PO0JFHJU6YDzUXpA3dqEg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 230,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "xvEWk13NDgg",
+      "url": "https://www.youtube.com/watch?v=xvEWk13NDgg",
+      "title": "Kako Albert iz MAKERbuina reagira na STEM omladinu? | Hrvatska stvara",
+      "description": null,
+      "duration": 894,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/xvEWk13NDgg/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDc3AvwkPhcADU8y78HyUlM9EUe0g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xvEWk13NDgg/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAmM_CO_YS1Qn6c30WQAyyoW-sHRQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xvEWk13NDgg/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDkAqoN2WHoBUPPXipeIZeRPTbllA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/xvEWk13NDgg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA7ze4YFgPsS4YPwXl5FLjkhViH3Q",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 2800,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "gDKdD11QTuM",
+      "url": "https://www.youtube.com/watch?v=gDKdD11QTuM",
+      "title": "Mundus pitch koji je zaradio 100 tisuća kuna! | Hrvatska stvara",
+      "description": null,
+      "duration": 192,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/gDKdD11QTuM/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDms74IIEVfZPbiWAa4TXjARDHwgw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/gDKdD11QTuM/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDfFGmevl92y2xx3eTcEbisuU7Z8Q",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/gDKdD11QTuM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD9WeY_IVwJ0J4WPbd5x-bX7uBWfg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/gDKdD11QTuM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBT2xzgmxB4xBLZbkjZvTxZLJkB8Q",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 843,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "s2yt9HUggCI",
+      "url": "https://www.youtube.com/watch?v=s2yt9HUggCI",
+      "title": "10 obilježlja najmlađih STEM stvaratelja | Hrvatska stvara",
+      "description": null,
+      "duration": 862,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/s2yt9HUggCI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA-sf1JddpMcw28kc5XYtg6ewpPPQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s2yt9HUggCI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCtWv_YVkfApY33fXW_nB5pJlpt5g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s2yt9HUggCI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDgelTD_OlW2lDr04cGI_Y6mPiLkA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/s2yt9HUggCI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBW4HyrOz662LcEsX_W_bF4j0p9RA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 208,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVT7fIS0ugebI9GfGICWD5er",
+  "original_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVT7fIS0ugebI9GfGICWD5er",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1779273696,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

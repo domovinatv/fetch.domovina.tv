@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "description": "Manualna klasifikacija playlist-i iz Tribina + Netokracija. Generirano u sesiji 2026-05-20 nakon yt-dlp enrichmenta i user filtera 'duration >= 30min + semantic kontekst'.",
+    "criteria": "Pass = avg_duration_sec >= 1800. Klasifikacija dalje: PROMOTE (aktivni podcast), ARCHIVE (povijesni event), REVIEW (sumnja na duplikat ili nedovoljno podataka).",
+    "generated_at": "2026-05-20"
+  },
+  "playlists": [
+    { "playlist_id": "PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P", "slug": "tribina-podcast-s-gostom", "display_name": "Tribina — Podcast s gostom", "tier": 2, "tracking_enabled": true, "tags": ["sport", "football", "interview"], "status": "active", "notes": "Glavni dugogodisnji intervju format Tribine. 159 epizoda, prosjek 81 min." },
+    { "playlist_id": "PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD", "slug": "f1-puls-podcast", "display_name": "F1 Puls Podcast", "tier": 3, "tracking_enabled": true, "tags": ["sport", "f1", "motorsport"], "status": "active", "notes": "F1 Puls Podcast (na Tribina kanalu). 56 epizoda, prosjek 122 min. Merge s postojecim f1-puls-podcast stub-om — popunjava URL i metadata.", "merge_existing_slug": "f1-puls-podcast" },
+    { "playlist_id": "PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq", "slug": "tribina-1-na-1-s-vladom", "display_name": "Tribina — 1 na 1 s Vladom na ti", "tier": 3, "tracking_enabled": true, "tags": ["sport", "interview"], "status": "active", "notes": "Long-form intervju format s Vladom. 6 epizoda, prosjek 88 min." },
+    { "playlist_id": "PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu", "slug": "tribina-weitzermania", "display_name": "Tribina — WeitzerMania", "tier": 3, "tracking_enabled": true, "tags": ["sport", "interview"], "status": "active", "notes": "Long-form (123m prosjek), 6 epizoda. Named-host format." },
+    { "playlist_id": "PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH", "slug": "tribina-iza-tribine", "display_name": "Tribina — Iza Tribine", "tier": 2, "tracking_enabled": true, "tags": ["sport", "interview", "behind-the-scenes"], "status": "active", "notes": "BTS dugi razgovori (NE klipovi). 37 epizoda, prosjek 113 min." },
+    { "playlist_id": "PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr", "slug": "tribina-robert-knjaz", "display_name": "Tribina — Robert Knjaz", "tier": 3, "tracking_enabled": true, "tags": ["sport", "interview"], "status": "active", "notes": "Named-guest podcast. 4 epizode, prosjek 40 min." },
+    { "playlist_id": "PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj", "slug": "tribina-qa", "display_name": "Tribina — Q&A", "tier": 2, "tracking_enabled": true, "tags": ["sport", "qa"], "status": "active", "notes": "DESPITE name — 219 min prosjecna duzina znaci da su pune Q&A epizode, ne klipovi. 26 epizoda." },
+    { "playlist_id": "PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10", "slug": "tribina-hnl-ponedjeljak", "display_name": "Tribina — HNL ponedjeljak", "tier": 2, "tracking_enabled": true, "tags": ["sport", "football", "hnl"], "status": "active", "notes": "Tjedni HNL pregled. 227 epizoda, prosjek 137 min." },
+    { "playlist_id": "PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn", "slug": "tribina-nize-lige-specijal", "display_name": "Tribina — Niže lige specijal", "tier": 3, "tracking_enabled": true, "tags": ["sport", "football"], "status": "active", "notes": "14 epizoda, prosjek 108 min." },
+    { "playlist_id": "PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3", "slug": "tribina-reprezentacija", "display_name": "Tribina — Reprezentacija", "tier": 3, "tracking_enabled": true, "tags": ["sport", "football", "reprezentacija"], "status": "active", "notes": "19 epizoda, prosjek 110 min." },
+    { "playlist_id": "PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq", "slug": "tribina-europski-nogomet", "display_name": "Tribina — Europski nogomet", "tier": 3, "tracking_enabled": true, "tags": ["sport", "football"], "status": "active", "notes": "52 epizode, prosjek 101 min." },
+    { "playlist_id": "PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG", "slug": "tribina-nfl", "display_name": "Tribina — NFL", "tier": 3, "tracking_enabled": true, "tags": ["sport", "nfl"], "status": "active", "notes": "94 epizode, prosjek 96 min." },
+    { "playlist_id": "PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx", "slug": "tribina-fantasy", "display_name": "Tribina — Fantasy", "tier": 3, "tracking_enabled": true, "tags": ["sport", "football", "fantasy"], "status": "active", "notes": "100 epizoda, prosjek 95 min. Fantasy nogomet." },
+    { "playlist_id": "PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ", "slug": "tribina-nba-kosarka", "display_name": "Tribina — NBA & košarka", "tier": 3, "tracking_enabled": true, "tags": ["sport", "basketball", "nba"], "status": "active", "notes": "155 epizoda, prosjek 92 min." },
+    { "playlist_id": "PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9", "slug": "tribina-tenis", "display_name": "Tribina — Tenis", "tier": 3, "tracking_enabled": true, "tags": ["sport", "tennis"], "status": "active", "notes": "15 epizoda, prosjek 69 min." },
+    { "playlist_id": "PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG", "slug": "tribina-euro-2024", "display_name": "Tribina — EURO 2024", "tier": 4, "tracking_enabled": false, "tags": ["sport", "football", "event-archive"], "status": "archive", "notes": "Event archive 2024 — zavrsen turnir, NE prati aktivno. 33 epizode, prosjek 94 min. Promote one-shot kasnije ako odlucimo." },
+    { "playlist_id": "PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU", "slug": "tribina-sp-qatar-2022", "display_name": "Tribina — SP Qatar 2022", "tier": 4, "tracking_enabled": false, "tags": ["sport", "football", "event-archive"], "status": "archive", "notes": "Event archive 2022. 36 epizoda, prosjek 86 min." },
+    { "playlist_id": "PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP", "slug": "tribina-uefa-euro-2020", "display_name": "Tribina — UEFA Euro 2020", "tier": 4, "tracking_enabled": false, "tags": ["sport", "football", "event-archive"], "status": "archive", "notes": "Event archive 2021. 34 epizode, prosjek 84 min." },
+    { "playlist_id": "PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN", "slug": "tribina-sp-rusija-2018", "display_name": "Tribina — SP Rusija 2018", "tier": 4, "tracking_enabled": false, "tags": ["sport", "football", "event-archive"], "status": "archive", "notes": "Event archive 2018. 70 epizoda, prosjek 33 min." },
+    { "playlist_id": "PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ", "slug": "netokracija-office-talks", "display_name": "Netokracija — Office Talks Podcast", "tier": 1, "tracking_enabled": true, "tags": ["technology", "digital", "business", "interview"], "status": "active", "notes": "Eksplicitno spomenut od korisnika. 289 epizoda, prosjek 41 min. Najveca biblioteka pravih razgovora." },
+    { "playlist_id": "PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01", "slug": "netokracija-podcast", "display_name": "Netokracija — Netokracija Podcast", "tier": 1, "tracking_enabled": true, "tags": ["technology", "digital", "business", "interview"], "status": "active", "notes": "Eksplicitno spomenut od korisnika. 253 epizode, prosjek 42 min." },
+    { "playlist_id": "PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1", "slug": "netokracija-slazem-se-ne", "display_name": "Netokracija — Slažem se...Ne!", "tier": 3, "tracking_enabled": true, "tags": ["technology", "digital", "debate"], "status": "active", "notes": "Long-form debate format. 9 epizoda, prosjek 65 min." },
+    { "playlist_id": "PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8", "slug": "netokracija-digitalni-dorucak", "display_name": "Netokracija — Digitalni doručak", "tier": 4, "tracking_enabled": false, "tags": ["technology", "digital"], "status": "paused", "notes": "Zadnja modifikacija 2022-04 — vjerojatno pauziran/zatvoren format. 10 epizoda, prosjek 63 min. Promote kasnije ako se ponovo aktivira." },
+    { "playlist_id": "PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk", "slug": "netokracija-1on1", "display_name": "Netokracija — 1on1", "tier": 4, "tracking_enabled": true, "tags": ["technology", "digital", "interview"], "status": "active", "notes": "Nov format, samo 1 epizoda zasad ali mod 2026-05. Niski tier dok ne narastemu epizode." },
+    { "playlist_id": "PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff", "slug": "netokracija-ladies-of-new-business", "display_name": "Netokracija — Ladies of New Business", "tier": 3, "tracking_enabled": true, "tags": ["technology", "digital", "business", "women"], "status": "active", "notes": "34 epizode, prosjek 37 min. Polovina epizoda long-form (50%)." },
+    { "playlist_id": "PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2", "slug": "netokracija-hrvatska", "display_name": "Netokracija — Hrvatska", "tier": 4, "tracking_enabled": false, "tags": ["technology", "digital", "regional"], "status": "review", "notes": "SUMNJA NA DUPLIKAT — 154 epizode, prosjek 35 min, vjerojatno aggregator koji se preklapa s Netokracija Podcast (253 ep). tracking_enabled=false dok se ne provjeri overlap.", "possible_duplicate_of": "netokracija-podcast" }
+  ],
+  "umbrella_updates": [
+    {
+      "slug": "tribina",
+      "youtube_url": "https://www.youtube.com/@Tribina_HR",
+      "youtube_channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+      "youtube_handle": "@Tribina_HR",
+      "child_slugs_count": 19,
+      "notes": "Umbrella entry za Tribina YouTube kanal. Sadrzaj se prati po per-playlist child entries (slugovi 'tribina-*' + 'f1-puls-podcast'). Ne prati se direktno — uvijek per-playlist."
+    },
+    {
+      "slug": "netokracija",
+      "youtube_url": "https://www.youtube.com/@NetokracijaYT",
+      "youtube_channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "youtube_handle": "@NetokracijaYT",
+      "child_slugs_count": 7,
+      "notes": "Umbrella entry za Netokracija YouTube kanal. Sadrzaj se prati po per-playlist child entries (slugovi 'netokracija-*'). Ne prati se direktno — uvijek per-playlist."
+    }
+  ],
+  "new_source": {
+    "id": "yt-dlp-2026-05",
+    "label": "yt-dlp + manualna klasifikacija playlist-i (Tribina + Netokracija)",
+    "year_month": "2026-05",
+    "method": "yt-dlp --dump-single-json --flat-playlist na /@channel/playlists + per-playlist enrichment + LLM-asisted classification po duration + semantic kriteriju"
+  }
+}

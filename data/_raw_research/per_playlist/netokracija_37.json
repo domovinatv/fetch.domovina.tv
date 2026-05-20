@@ -1,0 +1,593 @@
+{
+  "id": "PLta2gH1s4UVTziUwq5OYN-ZyWiMGW_eV-",
+  "title": "DIGITALNA KAVA",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLDp-c6rE33n_s5d3MSe58WgZ3Or7w",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLAu0Qzq7eRiGbXD3lkQBoK7ppeEMw",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDQI5M30ZVCUDU5REo0QOK9ih50dQ",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAa2tb6IqQEi8gL0Ruv1JCO_otbTg",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20190818",
+  "view_count": 170,
+  "playlist_count": 12,
+  "channel": "Netokracija",
+  "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_id": "@NetokracijaYT",
+  "uploader": "Netokracija",
+  "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+  "_type": "playlist",
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "IPSqwZN-YVI",
+      "url": "https://www.youtube.com/watch?v=IPSqwZN-YVI",
+      "title": "Društvenjak si u digitalnom svijetu? Algebra Lab ti može pomoći! | Digitalna Kava",
+      "description": null,
+      "duration": 509,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBo6LwELoNUD3i9ZQpg-nHFyjI75g",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDCXEvrA6ZVLtPLASOY1yEPv0Pexw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCv4pHFI_DtFV8-x_ZsVfQgBYfRXA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/IPSqwZN-YVI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDWBBLdghlmKlruNVVntd-x7fJ8sw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 343,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "Nu1xqofy4Aw",
+      "url": "https://www.youtube.com/watch?v=Nu1xqofy4Aw",
+      "title": "Auka stigla u Hrvatsku: Ništa \"dolar, euro, keš keš keš\", samo plaćanje 📱!",
+      "description": null,
+      "duration": 1279,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Nu1xqofy4Aw/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBWCtaJBsyZEJ9MHgK0qslJx-zkRA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Nu1xqofy4Aw/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCsH_6mhsOAgmzqpRMqLxugPj4-8w",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Nu1xqofy4Aw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDsf0LTMzllN9Fe36gkH9_xklEHsg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Nu1xqofy4Aw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD4wRcWGJXkyv1kJ2B0unQQngJNjA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 294,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "9ntYty-1g_0",
+      "url": "https://www.youtube.com/watch?v=9ntYty-1g_0",
+      "title": "Algebra Lab je inkubator startupa i data inovacija, a nudi... što točno?  | Digitalna Kava",
+      "description": null,
+      "duration": 777,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/9ntYty-1g_0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCvvob-H_9WSzLgN6Puy6cBbg-tvw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/9ntYty-1g_0/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDiryg-MD5TPcs24LtYd4Pw5cbW9g",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/9ntYty-1g_0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCTaugSEYIaucp7Opgs9FpYxx7eYQ",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/9ntYty-1g_0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAQjWbC-Zenox4os67S06HNZZpIoQ",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 382,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "ndHUsw62c4k",
+      "url": "https://www.youtube.com/watch?v=ndHUsw62c4k",
+      "title": "Can Auka revolutionize Croatian tourism? ft. Daniel Döderlein | Digitalna Kava ...kratka",
+      "description": null,
+      "duration": 216,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/ndHUsw62c4k/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA00hQOIgVrQLLmWcNIXYT80-ztGg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ndHUsw62c4k/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCnGAifPYzOWSmN1g5GWBI_Nm43Ig",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ndHUsw62c4k/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDa9rD7OWU_oHTvjncHO9uaFtwJ7g",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/ndHUsw62c4k/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAt1scIxR-QlkPkLq20Qm3lbTCgEw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 296,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "XBx6ZYMHKYc",
+      "url": "https://www.youtube.com/watch?v=XBx6ZYMHKYc",
+      "title": "Luka Sučić investira u blockchain startupe po Balkanu? | Digitalna Kava",
+      "description": null,
+      "duration": 955,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/XBx6ZYMHKYc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAne-eEYWkogL5xsdNduhvPSgWt_w",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XBx6ZYMHKYc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCLmHLwaQu2XBEzuFJlpOujCwnuiA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XBx6ZYMHKYc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAlnb8kX1BYGzpRRMan3MEDM5QeNg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XBx6ZYMHKYc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAL7quveFRrL1oTglzX8fn4xV_X7w",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 1100,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "VZxARQLEDOo",
+      "url": "https://www.youtube.com/watch?v=VZxARQLEDOo",
+      "title": "Google Analytics: Kad odrastem, želim biti web analitičar ft. Robert Petković",
+      "description": null,
+      "duration": 1229,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/VZxARQLEDOo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAQsthMDYtEoM_3vSBRi8H5yb-iHA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VZxARQLEDOo/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCMgBXHlOrJZMcWhl00vQuGElV2GA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VZxARQLEDOo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHjBqpBRYjBVb5zVeeRfalMn2IHw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/VZxARQLEDOo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCQa15gEV7vRGex8Ih3e4Vf3bJfsA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 1000,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "fs_Qh4OsnnA",
+      "url": "https://www.youtube.com/watch?v=fs_Qh4OsnnA",
+      "title": "vHealthLab, finalisti StartupBootcampa ft. Davor Runje i Nina Šesto | Digitalna Kava",
+      "description": null,
+      "duration": 1087,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/fs_Qh4OsnnA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCG5g7aNDS_TMcZZDpsBy5vCXoDUQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fs_Qh4OsnnA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDUF05wNlaWnvFHZZqz5Cjqx7UxTA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fs_Qh4OsnnA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAFj1WH2muJWvJKVFzfBKuQKGNl9Q",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/fs_Qh4OsnnA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB33NnUZiA8CLzJ8Lo3BGf_uAXsWA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 348,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "FxU_trUwfOs",
+      "url": "https://www.youtube.com/watch?v=FxU_trUwfOs",
+      "title": "Coworking: Što je to točno? Objašnjava Luka Sučić, Hub385 - Nescafe Dolce Gusto Digitalna kava",
+      "description": null,
+      "duration": 568,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/FxU_trUwfOs/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLC4KATF7JOBZwBkkb_68SXUSxGqrQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FxU_trUwfOs/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAG8Madi9kpy6cY1qSe9qgY-CN6yw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FxU_trUwfOs/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLASvrVt_u4JNYHmWDwQYNZTrNqDJg",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/FxU_trUwfOs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDPWhqSRctFYElE0UPVRJdNzixvPA",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 4800,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "uC07fZP9FF4",
+      "url": "https://www.youtube.com/watch?v=uC07fZP9FF4",
+      "title": "Kako Nanobit prodaje mobilne igrice, otkriva Nikola Stolnik - Nescafe Dolce Gusto Digitalna kava",
+      "description": null,
+      "duration": 916,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/uC07fZP9FF4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBQX34gADxqfpnthH6v86n5BoMVaQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/uC07fZP9FF4/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBdnkrukPkykg0kahjlseuEslrIQg",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/uC07fZP9FF4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD5aEd81MgSh_RC_H7R4hT-B2z5Ow",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/uC07fZP9FF4/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmzwtSnAIiwwLJoIRclTDbZlChew",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 5600,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "XemLuopCxmA",
+      "url": "https://www.youtube.com/watch?v=XemLuopCxmA",
+      "title": "WebCamp Zagreb 2017: WordPress Gutenberg zauvijek mijenja vaš blog ili web stranicu",
+      "description": null,
+      "duration": 1419,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/XemLuopCxmA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB3MVCxjNz0nRTcJvkpMcWOqpQ8aA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XemLuopCxmA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD8WSZ_BMljYBoVsgSQ2moy-KY2YA",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XemLuopCxmA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDfoWKAihJiQBH0nvrNqQyxINjdSA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/XemLuopCxmA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCJAeVHnPjmVCS8r0JnvXMDq6Vm8Q",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 273,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "zO9l2awUKrc",
+      "url": "https://www.youtube.com/watch?v=zO9l2awUKrc",
+      "title": "Zulu Zion: Kako zgleda tvoj 'lajf', če oblikuješ nogavice? Nescafé Dolce Gusto Digitalna kava",
+      "description": null,
+      "duration": 794,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/zO9l2awUKrc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCTIBcyVeANxHTCFazgGMYjaWA13Q",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zO9l2awUKrc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCh6bTLTbH6jgbvLROedbCMD_Sefw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zO9l2awUKrc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCPrccHna3XRJCuEEUHabESoDlODw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/zO9l2awUKrc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBOGOsab5toa905Iog3zB7TYj_zKw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 4700,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "w5kNSlcUudA",
+      "url": "https://www.youtube.com/watch?v=w5kNSlcUudA",
+      "title": "Vsakdan gadget freaka. Mak Kordić, CNJ Digital – Nescafé Dolce Gusto Digitalna kava",
+      "description": null,
+      "duration": 542,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/w5kNSlcUudA/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAN4EzT0Sj0nXrUDomwt62PMAssZA",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/w5kNSlcUudA/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD2dQyNMcETt9Y-dXjiwo_38uk8iQ",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/w5kNSlcUudA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDh6kl2C2RznXyNhuKfQHF9x2n22A",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/w5kNSlcUudA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBWSqqD7mlLdoQvgO13z1HbX06pWg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 5100,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTziUwq5OYN-ZyWiMGW_eV-",
+  "original_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTziUwq5OYN-ZyWiMGW_eV-",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1779273697,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

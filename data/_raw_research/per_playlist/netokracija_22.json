@@ -1,0 +1,109 @@
+{
+  "id": "PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+  "title": "1on1",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "Format Netokracija podcasta u kojem osnivač Netokracija Ivan Brezak Brkan ugošćuje poznata lica domaće tehnološke industrije kako bi s njima obavio redoviti... 1on1.",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBgkfOgMojaWg-t0VePW407MH8lRA",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLDVE2RYoVwq0FbSI6J2uGzMhEfwEQ",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDQ2Ovi33Tn6VVdjY3uoGdKMEI1jw",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBYFItQ80QJjqACqWVWsT5DSq1gAg",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20260511",
+  "view_count": 1,
+  "playlist_count": 1,
+  "channel": "Netokracija",
+  "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_id": "@NetokracijaYT",
+  "uploader": "Netokracija",
+  "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+  "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+  "_type": "playlist",
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "S3bL19IexIo",
+      "url": "https://www.youtube.com/watch?v=S3bL19IexIo",
+      "title": "AI će pomoći malim timovima i jako kazniti velike firme | S6.EP26",
+      "description": null,
+      "duration": 2501,
+      "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+      "channel": "Netokracija",
+      "channel_url": "https://www.youtube.com/channel/UCrolbzqlzSeLTH624wKbtLQ",
+      "uploader": "Netokracija",
+      "uploader_id": "@NetokracijaYT",
+      "uploader_url": "https://www.youtube.com/@NetokracijaYT",
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCZWd26bGywUEUamo6FmjYod-2FuQ",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBt44JBnCJ-VdpdOkxFQBdkWCUOjw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBNKrjTk9gBL48JvTYHyQodPyM2VA",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/S3bL19IexIo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB50yyrOw_LCtMND_JkNZmbFOsYAg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 1300,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+  "original_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "epoch": 1779273695,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}
