@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOMOVINA · Fetch Dashboard</title>
+<style>
+:root {
+  --navy: #002F6C;
+  --navy-dark: #00224d;
+  --red: #FF0000;
+  --white: #FFFFFF;
+  --muted: #5A6570;
+  --muted-strong: #3a4450;
+  --border: #E1E5EA;
+  --surface: #F5F7F9;
+  --surface-2: #EDF1F5;
+  --bg: #FFFFFF;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0, 47, 108, 0.08), 0 4px 12px rgba(0, 47, 108, 0.05);
+  --ok: #2D8F4E;
+  --warn: #C77400;
+  --bad: #B12222;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--navy);
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+
+.brand-stripe { display: flex; height: 6px; width: 100%; }
+.brand-stripe span { flex: 1; }
+.brand-stripe span:nth-child(1) { background: var(--red); }
+.brand-stripe span:nth-child(2) { background: var(--white); }
+.brand-stripe span:nth-child(3) { background: var(--navy); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; transition: max-width 0.2s ease; }
+body.wide .container { max-width: none; padding: 0 32px; }
+body.wide .grid-2 { grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
+body.wide .grid-3 { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+body.wide .grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+header.site {
+  padding: 24px 0 8px;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.brand-mark { font-weight: 800; font-size: 22px; letter-spacing: 2px; }
+.brand-mark .ai { color: var(--red); }
+.brand-mark .sub { font-weight: 500; font-size: 14px; letter-spacing: 0.5px; color: var(--muted); margin-left: 12px; }
+
+.header-actions { display: flex; gap: 12px; align-items: center; }
+.btn {
+  display: inline-block; background: var(--navy); color: var(--white);
+  padding: 8px 16px; border-radius: var(--radius-sm); border: none;
+  font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit;
+}
+.btn:hover { background: var(--navy-dark); }
+.btn.secondary { background: var(--white); color: var(--navy); border: 1px solid var(--border); }
+.btn.secondary:hover { border-color: var(--navy); background: var(--surface); }
+.btn:disabled { opacity: 0.5; cursor: wait; }
+.updated { font-size: 12px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+/* Tabs */
+.tabs {
+  display: flex; gap: 4px; margin: 8px 0 0;
+  border-bottom: 1px solid var(--border);
+}
+.tab {
+  background: transparent; border: 1px solid transparent; border-bottom: none;
+  padding: 10px 20px; font-size: 14px; font-weight: 600; color: var(--muted);
+  cursor: pointer; border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  margin-bottom: -1px; font-family: inherit;
+}
+.tab:hover { color: var(--navy); }
+.tab.active { color: var(--navy); background: var(--white); border-color: var(--border); }
+
+.tab-panel { padding: 24px 0; display: none; }
+.tab-panel.active { display: block; }
+
+/* Cards / sections */
+.card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 4px; font-size: 17px; letter-spacing: 0.3px; }
+.card h2 .badge {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  background: var(--surface-2); color: var(--muted-strong);
+  padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: 2px;
+}
+.card .desc { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 900px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* KPI cards */
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
+.kpi .value { font-size: 28px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; margin: 4px 0 0; }
+.kpi .delta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.kpi.featured { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.kpi.featured .label, .kpi.featured .delta, .kpi.featured .value { color: var(--white); }
+
+/* Funnel arrows */
+.funnel { display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap; }
+.funnel .step {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; flex: 1; min-width: 140px; position: relative;
+}
+.funnel .step.featured { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.funnel .step.featured .num { color: var(--white); }
+.funnel .step.featured .lbl { color: rgba(255,255,255,0.7); }
+.funnel .step .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 600; }
+.funnel .step .num { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.funnel .step .pct { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.funnel .step.featured .pct { color: rgba(255,255,255,0.7); }
+
+/* Progress bars */
+.bars { display: flex; flex-direction: column; gap: 6px; }
+.bar-row { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(120px, 2fr) 90px; gap: 12px; align-items: center; }
+.bar-row .lbl { font-size: 13px; color: var(--navy); }
+.bar-row .lbl small { color: var(--muted); font-weight: 400; }
+.bar {
+  background: var(--surface-2); height: 14px; border-radius: 999px; overflow: hidden; position: relative;
+}
+.bar .fill { background: var(--navy); height: 100%; border-radius: 999px; transition: width 0.3s; }
+.bar.red .fill { background: var(--red); }
+.bar.warn .fill { background: var(--warn); }
+.bar.ok .fill { background: var(--ok); }
+.bar-row .count { font-size: 12px; color: var(--muted); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; text-align: right; font-variant-numeric: tabular-nums; }
+.bar-row .count strong { color: var(--navy); font-weight: 700; }
+
+/* Submodel rows under a bar */
+.submodel { font-size: 12px; color: var(--muted); padding: 2px 0 2px 12px; margin-left: 4px; border-left: 2px solid var(--surface-2); }
+.submodel-list { margin: 4px 0 8px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table th { text-align: left; font-weight: 600; padding: 8px 12px; background: var(--surface); border-bottom: 1px solid var(--border); color: var(--muted-strong); }
+table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table tr:hover td { background: var(--surface); }
+table td.num, table th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+table td.slug { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12px; }
+.table-wrap { overflow-x: auto; }
+
+.tag {
+  display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  background: var(--surface-2); color: var(--muted-strong); margin-right: 4px;
+}
+.tag.tier-1 { background: #003a83; color: var(--white); }
+.tag.tier-2 { background: #004fab; color: var(--white); }
+.tag.tier-3 { background: #486785; color: var(--white); }
+.tag.tier-4 { background: var(--surface-2); color: var(--muted-strong); }
+.tag.verified { background: #d8efde; color: var(--ok); }
+.tag.partial { background: #fbe9c2; color: var(--warn); }
+.tag.unverified { background: #f5d2d2; color: var(--bad); }
+.tag.live { background: var(--ok); color: var(--white); }
+.tag.tracked { background: var(--navy); color: var(--white); }
+.tag.umbrella { background: #ddd; color: #555; }
+.tag.stub { background: var(--red); color: var(--white); }
+
+.filter-row {
+  display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; align-items: center;
+}
+.filter-row input[type="search"] {
+  padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 13px; font-family: inherit; min-width: 240px;
+  background: var(--white); color: var(--navy);
+}
+.filter-row input[type="search"]:focus { outline: none; border-color: var(--navy); }
+.chip {
+  font-size: 12px; padding: 4px 12px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+  cursor: pointer; font-weight: 500; user-select: none;
+}
+.chip.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.chip:hover { border-color: var(--navy); }
+
+.alert {
+  background: #fff4e5; border: 1px solid #ffd28a; color: #7a4a00;
+  border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13px; margin-bottom: 12px;
+}
+.alert.error { background: #fcebeb; border-color: #f0b5b5; color: var(--bad); }
+
+.loading { color: var(--muted); font-size: 13px; padding: 16px 0; }
+.empty { color: var(--muted); font-size: 13px; padding: 16px 0; text-align: center; }
+
+footer.site { padding: 32px 0 48px; color: var(--muted); font-size: 12px; }
+
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.row-flex { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+.note { font-size: 12px; color: var(--muted); }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="brand-stripe"><span></span><span></span><span></span></div>
+
+<div class="container">
+  <header class="site">
+    <div>
+      <span class="brand-mark">DOMOVINA<span class="ai">.AI</span></span>
+      <span class="sub">Fetch Pipeline Dashboard</span>
+    </div>
+    <div class="header-actions">
+      <span class="updated" id="lastUpdated">—</span>
+      <button class="btn secondary" id="widthToggle" title="Prebaci između kontejneriziranog i širokog pogleda">⇔ Široki pogled</button>
+      <button class="btn secondary" id="refreshBtn">Osvježi</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="registry" role="tab">Registry</button>
+    <button class="tab" data-tab="pipeline" role="tab">Pipeline</button>
+  </nav>
+
+  <!-- ================= REGISTRY TAB ================= -->
+  <section class="tab-panel active" id="tab-registry">
+    <div id="registryLoading" class="loading">Učitavam registry…</div>
+    <div id="registryError" class="alert error hidden"></div>
+    <div id="registryBody" class="hidden">
+
+      <!-- Funnel KPIs -->
+      <div class="card">
+        <h2>3-layer funnel <span class="badge" id="regMeta">v?</span></h2>
+        <p class="desc">Registry → Real pool (bez umbrella/rejected) → Tracked (editorial intent) → Live u <span class="mono">refresh_podcasts.sh</span></p>
+        <div class="funnel" id="funnelBox"></div>
+        <div id="orphanWarn" class="alert hidden" style="margin-top: 12px;"></div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Data quality -->
+        <div class="card">
+          <h2>Data quality</h2>
+          <p class="desc">Research completeness po entry-u — koliko ih je verified, ima li URL/voditelje/multi-source.</p>
+          <div class="bars" id="qualityBars"></div>
+        </div>
+
+        <!-- Quality buckets -->
+        <div class="card">
+          <h2>Quality score raspodjela</h2>
+          <p class="desc">Composite score (max 100) iz <span class="mono">quality_score.total</span>.</p>
+          <div class="bars" id="scoreBars"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Tier dist -->
+        <div class="card">
+          <h2>Tier distribucija</h2>
+          <p class="desc">Editorial tier (T1=elite, T4=experimental).</p>
+          <div class="bars" id="tierBars"></div>
+        </div>
+
+        <!-- Top tags -->
+        <div class="card">
+          <h2>Top 12 tagova</h2>
+          <p class="desc">Najčešće tematske oznake.</p>
+          <div class="bars" id="tagBars"></div>
+        </div>
+      </div>
+
+      <!-- Action: ready to promote -->
+      <div class="card">
+        <h2>Ready to promote <span class="badge" id="rtpCount">0</span></h2>
+        <p class="desc"><span class="mono">tracking.enabled=true</span>, ali još nije u <span class="mono">refresh_podcasts.sh</span>. Sortirano po quality_score.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Slug</th><th>Naziv</th><th class="num">Score</th><th class="num">Tier</th><th class="num">Ep.</th><th>YouTube</th></tr></thead>
+          <tbody id="rtpTable"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Action: stubs -->
+      <div class="card">
+        <h2>Stubs (bez URL-a) <span class="badge" id="stubCount">0</span></h2>
+        <p class="desc">Blocker: ne mogu ni u pipeline dok se YouTube URL ne pronađe.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Slug</th><th>Naziv</th><th class="num">Score</th><th class="num">Sources</th></tr></thead>
+          <tbody id="stubTable"></tbody>
+        </table></div>
+      </div>
+
+      <!-- Full explorer -->
+      <div class="card">
+        <h2>Registry explorer</h2>
+        <p class="desc">Cijeli katalog. Klikni stupac za sortiranje, filtriraj po nazivu/tagu/statusu.</p>
+        <div class="filter-row">
+          <input type="search" id="exSearch" placeholder="Pretraži (slug, naziv, voditelj, tag, notes)…" />
+          <span class="chip" data-filter="tracked">Samo tracked</span>
+          <span class="chip" data-filter="in_pipeline">Samo live</span>
+          <span class="chip" data-filter="stub">Stubs</span>
+          <span class="chip" data-filter="has_url">Ima URL</span>
+          <span class="chip" data-filter="verified">Verified</span>
+        </div>
+        <div class="table-wrap"><table id="exTable">
+          <thead><tr>
+            <th data-sort="display_name">Naziv</th>
+            <th data-sort="slug">Slug</th>
+            <th class="num" data-sort="score">Score</th>
+            <th class="num" data-sort="tier">Tier</th>
+            <th data-sort="data_quality">Quality</th>
+            <th>Status</th>
+            <th>Flags</th>
+            <th class="num" data-sort="episodes">Ep.</th>
+            <th>Tags</th>
+          </tr></thead>
+          <tbody id="exTbody"></tbody>
+        </table></div>
+        <p class="note" id="exFooter"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PIPELINE TAB ================= -->
+  <section class="tab-panel" id="tab-pipeline">
+    <div id="pipeLoading" class="loading">Učitavam pipeline scan… (file system, par sekundi)</div>
+    <div id="pipeError" class="alert error hidden"></div>
+    <div id="pipeBody" class="hidden">
+
+      <!-- Headline KPIs -->
+      <div class="grid-4">
+        <div class="kpi featured">
+          <div class="label">Korpus (lista)</div>
+          <div class="value" id="kpiLista">—</div>
+          <div class="delta">epizoda otkrivenih u <span class="mono">*-lista.txt</span></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Preuzeto (.mp3)</div>
+          <div class="value" id="kpiMp3">—</div>
+          <div class="delta" id="kpiMp3Pct">—</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Backlog</div>
+          <div class="value" id="kpiBacklog">—</div>
+          <div class="delta">još za skinuti</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Članci (final)</div>
+          <div class="value" id="kpiArticles">—</div>
+          <div class="delta" id="kpiArticlesPct">—</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Download & konverzija</h2>
+          <div class="bars" id="dlBars"></div>
+        </div>
+        <div class="card">
+          <h2>Whisper (OpenAI)</h2>
+          <div class="bars" id="whisperBars"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Canary (NVIDIA) <span class="badge">stable</span></h2>
+          <div class="bars" id="canaryBars"></div>
+        </div>
+        <div class="card">
+          <h2>Sortformer (NVIDIA) <span class="badge">experimental</span></h2>
+          <div class="bars" id="sortformerBars"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Speaker embeddings</h2>
+        <p class="desc">Per-speaker voice vektori. Denominator = dijarizirani videi za taj source.</p>
+        <div class="bars" id="embBars"></div>
+      </div>
+
+      <div class="card">
+        <h2>Gemini (Vertex AI)</h2>
+        <p class="desc">Sažeci, outlineovi, članci, Magisterium teol. score. Blocked content tracking ispod.</p>
+        <div class="bars" id="geminiBars"></div>
+        <div id="blockedBox" class="hidden" style="margin-top: 12px;"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>RAG priprema</h2>
+          <div class="bars" id="ragBars"></div>
+        </div>
+        <div class="card">
+          <h2>Screenshots & R2 publish</h2>
+          <div class="bars" id="publishBars"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Disk usage po kanalu</h2>
+        <p class="desc">Sporo (du -skL). Klikni "Skeniraj diskove" da pokreneš.</p>
+        <button class="btn secondary" id="diskBtn">Skeniraj diskove</button>
+        <div id="diskBody" class="hidden" style="margin-top: 16px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    DOMOVINA Fetch Dashboard · vanilla HTML/CSS · podaci iz <span class="mono">data/podcasts_registry.json</span> + <span class="mono">storage/output/</span>
+  </footer>
+</div>
+
+<div class="brand-stripe" style="margin-top: 16px;"><span></span><span></span><span></span></div>
+
+<script>
+// ============================================================================
+// State
+// ============================================================================
+const state = {
+  registry: null,
+  pipeline: null,
+  disk: null,
+  exFilter: { search: '', flags: new Set() },
+  exSort: { key: 'score', dir: 'desc' },
+};
+
+// ============================================================================
+// Helpers
+// ============================================================================
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') node.className = v;
+    else if (k === 'html') node.innerHTML = v;
+    else if (k.startsWith('on')) node.addEventListener(k.slice(2).toLowerCase(), v);
+    else node.setAttribute(k, v);
+  }
+  for (const c of children.flat()) {
+    if (c == null) continue;
+    node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  }
+  return node;
+}
+
+function pct(n, d) { return d > 0 ? (n / d * 100) : 0; }
+function fmtPct(p, decimals = 1) { return p.toFixed(decimals) + '%'; }
+function fmtBytes(kb) {
+  if (kb < 1024) return kb + ' KB';
+  if (kb < 1024 * 1024) return (kb / 1024).toFixed(1) + ' MB';
+  return (kb / (1024 * 1024)).toFixed(2) + ' GB';
+}
+
+function bar(container, items) {
+  container.innerHTML = '';
+  for (const item of items) {
+    const p = pct(item.count, item.base);
+    const klass = item.color ? `bar ${item.color}` : 'bar';
+    const row = el('div', { class: 'bar-row' },
+      el('div', { class: 'lbl' },
+        item.label,
+        item.sub ? el('small', {}, ' · ' + item.sub) : null
+      ),
+      el('div', { class: klass },
+        el('div', { class: 'fill', style: `width: ${p.toFixed(2)}%` })
+      ),
+      el('div', { class: 'count' },
+        el('strong', {}, String(item.count)),
+        ` / ${item.base}  `,
+        el('span', { class: 'note' }, fmtPct(p))
+      )
+    );
+    container.appendChild(row);
+    if (item.subitems && item.subitems.length) {
+      const sublist = el('div', { class: 'submodel-list' });
+      for (const sub of item.subitems) {
+        sublist.appendChild(el('div', { class: 'submodel' }, sub));
+      }
+      container.appendChild(sublist);
+    }
+  }
+}
+
+// ============================================================================
+// Tabs
+// ============================================================================
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('tab-' + t.dataset.tab).classList.add('active');
+    if (t.dataset.tab === 'pipeline' && !state.pipeline) loadPipeline();
+  });
+});
+
+// ============================================================================
+// Registry rendering
+// ============================================================================
+async function loadRegistry() {
+  document.getElementById('registryLoading').classList.remove('hidden');
+  document.getElementById('registryError').classList.add('hidden');
+  document.getElementById('registryBody').classList.add('hidden');
+  try {
+    const r = await fetch('/api/registry');
+    const data = await r.json();
+    state.registry = data;
+    renderRegistry();
+    document.getElementById('registryLoading').classList.add('hidden');
+    document.getElementById('registryBody').classList.remove('hidden');
+    updateTimestamp();
+  } catch (e) {
+    const errEl = document.getElementById('registryError');
+    errEl.textContent = 'Greška: ' + e.message;
+    errEl.classList.remove('hidden');
+    document.getElementById('registryLoading').classList.add('hidden');
+  }
+}
+
+function renderRegistry() {
+  const r = state.registry;
+
+  document.getElementById('regMeta').textContent =
+    `v${r.version || '?'} · ${r.generated_at || '?'}`;
+
+  // Funnel
+  const f = r.funnel;
+  const funnelBox = document.getElementById('funnelBox');
+  funnelBox.innerHTML = '';
+  const steps = [
+    { lbl: 'Registry total', num: f.total, pct: '' },
+    { lbl: '− umbrellas', num: f.umbrellas, pct: fmtPct(pct(f.umbrellas, f.total)) },
+    { lbl: '− rejected', num: f.rejected, pct: fmtPct(pct(f.rejected, f.total)) },
+    { lbl: 'Real pool', num: f.real_pool, pct: fmtPct(pct(f.real_pool, f.total)), featured: false },
+    { lbl: 'Tracked', num: f.tracked, pct: fmtPct(pct(f.tracked, f.real_pool)) + ' of pool' },
+    { lbl: 'Live u pipelineu', num: f.in_pipeline, pct: fmtPct(pct(f.in_pipeline, f.tracked)) + ' of tracked', featured: true },
+  ];
+  for (const s of steps) {
+    funnelBox.appendChild(el('div', { class: 'step' + (s.featured ? ' featured' : '') },
+      el('div', { class: 'lbl' }, s.lbl),
+      el('div', { class: 'num' }, String(s.num)),
+      s.pct ? el('div', { class: 'pct' }, s.pct) : null,
+    ));
+  }
+
+  // Orphan pipeline
+  const orphanWarn = document.getElementById('orphanWarn');
+  if (f.orphan_pipeline.length > 0) {
+    orphanWarn.innerHTML = `⚠️ ${f.orphan_pipeline.length} slug(ova) u refresh_podcasts.sh kojih nema u registry-ju: <span class="mono">${f.orphan_pipeline.join(', ')}</span>`;
+    orphanWarn.classList.remove('hidden');
+  } else {
+    orphanWarn.classList.add('hidden');
+  }
+
+  // Data quality
+  const q = r.data_quality;
+  const t = r.funnel.total;
+  bar(document.getElementById('qualityBars'), [
+    { label: 'Verified', count: q.verified, base: t, color: 'ok' },
+    { label: 'Partial', count: q.partial, base: t, color: 'warn' },
+    { label: 'Unverified', count: q.unverified, base: t, color: 'red' },
+    { label: 'Has YouTube URL', count: q.with_url, base: t },
+    { label: 'Has voditelji', count: q.with_voditelji, base: t },
+    { label: '2+ research izvora', count: q.multi_source, base: t },
+    { label: 'Well-researched', sub: 'url+vod+src≥2+verified', count: q.well_researched, base: t, color: 'ok' },
+    { label: 'Research-gap', sub: 'ima URL, fali ostalo', count: q.research_gap, base: t, color: 'warn' },
+    { label: 'Stubs (nema URL-a)', sub: 'pipeline blocker', count: q.stubs, base: t, color: 'red' },
+  ]);
+
+  // Quality buckets
+  const b = r.quality_buckets;
+  bar(document.getElementById('scoreBars'), [
+    { label: '🌟 Elite (80+)', count: b.elite, base: t, color: 'ok' },
+    { label: '✅ Strong (60-79)', count: b.strong, base: t },
+    { label: '👀 Moderate (40-59)', count: b.moderate, base: t },
+    { label: '📦 Weak (20-39)', count: b.weak, base: t, color: 'warn' },
+    { label: '❌ Very low (<20)', count: b.very_low, base: t, color: 'red' },
+  ]);
+
+  // Tiers
+  const tierItems = ['T1', 'T2', 'T3', 'T4', '—']
+    .filter(k => r.tier_distribution[k])
+    .map(k => ({ label: `Tier ${k.replace('T', '')}`, count: r.tier_distribution[k], base: t }));
+  bar(document.getElementById('tierBars'), tierItems);
+
+  // Tags
+  bar(document.getElementById('tagBars'), r.top_tags.map(([tag, n]) => ({
+    label: tag, count: n, base: t
+  })));
+
+  // Ready to promote
+  document.getElementById('rtpCount').textContent = r.ready_to_promote.length;
+  const rtpTable = document.getElementById('rtpTable');
+  rtpTable.innerHTML = '';
+  if (r.ready_to_promote.length === 0) {
+    rtpTable.appendChild(el('tr', {}, el('td', { colspan: 6, class: 'empty' }, 'Nema ready-to-promote entry-ja — sve tracked je već u pipelineu.')));
+  } else {
+    for (const p of r.ready_to_promote) {
+      rtpTable.appendChild(el('tr', {},
+        el('td', { class: 'slug' }, p.slug),
+        el('td', {}, p.display_name || '—'),
+        el('td', { class: 'num' }, String(p.score)),
+        el('td', { class: 'num' }, p.tier != null ? 'T' + p.tier : '—'),
+        el('td', { class: 'num' }, p.episodes != null ? String(p.episodes) : '—'),
+        el('td', {}, p.url ? el('a', { href: p.url, target: '_blank', rel: 'noopener' }, 'YT') : '—'),
+      ));
+    }
+  }
+
+  // Stubs
+  document.getElementById('stubCount').textContent = r.stubs_list.length;
+  const stubTable = document.getElementById('stubTable');
+  stubTable.innerHTML = '';
+  if (r.stubs_list.length === 0) {
+    stubTable.appendChild(el('tr', {}, el('td', { colspan: 4, class: 'empty' }, 'Nema stubova — svi entry-ji imaju URL.')));
+  } else {
+    for (const p of r.stubs_list) {
+      stubTable.appendChild(el('tr', {},
+        el('td', { class: 'slug' }, p.slug),
+        el('td', {}, p.display_name || '—'),
+        el('td', { class: 'num' }, String(p.score)),
+        el('td', { class: 'num' }, String(p.sources_count)),
+      ));
+    }
+  }
+
+  // Explorer
+  renderExplorer();
+}
+
+function renderExplorer() {
+  const r = state.registry;
+  if (!r) return;
+
+  const q = state.exFilter.search.toLowerCase();
+  let rows = r.entries.filter(e => {
+    if (q) {
+      const hay = (e.slug + ' ' + (e.display_name || '') + ' ' + (e.tags || []).join(' ') + ' ' + (e.notes || '')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    for (const f of state.exFilter.flags) {
+      if (f === 'tracked' && !e.tracked) return false;
+      if (f === 'in_pipeline' && !e.in_pipeline) return false;
+      if (f === 'stub' && (e.has_url || e.type === 'umbrella')) return false;
+      if (f === 'has_url' && !e.has_url) return false;
+      if (f === 'verified' && e.data_quality !== 'verified') return false;
+    }
+    return true;
+  });
+
+  const { key, dir } = state.exSort;
+  rows.sort((a, b) => {
+    const av = a[key]; const bv = b[key];
+    let cmp;
+    if (av == null && bv == null) cmp = 0;
+    else if (av == null) cmp = 1;
+    else if (bv == null) cmp = -1;
+    else if (typeof av === 'string') cmp = av.localeCompare(bv);
+    else cmp = av - bv;
+    return dir === 'desc' ? -cmp : cmp;
+  });
+
+  const tbody = document.getElementById('exTbody');
+  tbody.innerHTML = '';
+  for (const e of rows) {
+    const flags = [];
+    if (e.tracked) flags.push(el('span', { class: 'tag tracked' }, 'tracked'));
+    if (e.in_pipeline) flags.push(el('span', { class: 'tag live' }, 'live'));
+    if (!e.has_url && e.type !== 'umbrella') flags.push(el('span', { class: 'tag stub' }, 'stub'));
+    if (e.type === 'umbrella') flags.push(el('span', { class: 'tag umbrella' }, 'umbrella'));
+
+    tbody.appendChild(el('tr', {},
+      el('td', {}, e.url ? el('a', { href: e.url, target: '_blank', rel: 'noopener' }, e.display_name || e.slug) : (e.display_name || '—')),
+      el('td', { class: 'slug' }, e.slug),
+      el('td', { class: 'num' }, String(e.score)),
+      el('td', { class: 'num' }, e.tier != null ? el('span', { class: 'tag tier-' + e.tier }, 'T' + e.tier) : '—'),
+      el('td', {}, e.data_quality ? el('span', { class: 'tag ' + e.data_quality }, e.data_quality) : '—'),
+      el('td', {}, e.status || '—'),
+      el('td', {}, ...flags),
+      el('td', { class: 'num' }, e.episodes != null ? String(e.episodes) : '—'),
+      el('td', {}, (e.tags || []).slice(0, 3).map(t => el('span', { class: 'tag' }, t))),
+    ));
+  }
+  document.getElementById('exFooter').textContent = `${rows.length} / ${r.entries.length} entries`;
+}
+
+document.getElementById('exSearch').addEventListener('input', (e) => {
+  state.exFilter.search = e.target.value;
+  renderExplorer();
+});
+
+document.querySelectorAll('.filter-row .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const f = chip.dataset.filter;
+    if (state.exFilter.flags.has(f)) state.exFilter.flags.delete(f);
+    else state.exFilter.flags.add(f);
+    chip.classList.toggle('active');
+    renderExplorer();
+  });
+});
+
+document.querySelectorAll('#exTable thead th[data-sort]').forEach(th => {
+  th.style.cursor = 'pointer';
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    if (state.exSort.key === key) state.exSort.dir = state.exSort.dir === 'desc' ? 'asc' : 'desc';
+    else { state.exSort.key = key; state.exSort.dir = (typeof state.registry.entries[0][key] === 'number') ? 'desc' : 'asc'; }
+    renderExplorer();
+  });
+});
+
+// ============================================================================
+// Pipeline rendering
+// ============================================================================
+async function loadPipeline() {
+  document.getElementById('pipeLoading').classList.remove('hidden');
+  document.getElementById('pipeError').classList.add('hidden');
+  document.getElementById('pipeBody').classList.add('hidden');
+  try {
+    const r = await fetch('/api/pipeline');
+    const data = await r.json();
+    if (data.error) throw new Error(data.error);
+    state.pipeline = data;
+    renderPipeline();
+    document.getElementById('pipeLoading').classList.add('hidden');
+    document.getElementById('pipeBody').classList.remove('hidden');
+    updateTimestamp();
+  } catch (e) {
+    const errEl = document.getElementById('pipeError');
+    errEl.textContent = 'Greška: ' + e.message;
+    errEl.classList.remove('hidden');
+    document.getElementById('pipeLoading').classList.add('hidden');
+  }
+}
+
+function renderPipeline() {
+  const p = state.pipeline;
+  const base = p.total_base;
+
+  // KPIs
+  document.getElementById('kpiLista').textContent = p.lista_total.toLocaleString('hr-HR');
+  document.getElementById('kpiMp3').textContent = p.mp3_count.toLocaleString('hr-HR');
+  document.getElementById('kpiMp3Pct').textContent = fmtPct(pct(p.mp3_count, base), 1);
+  document.getElementById('kpiBacklog').textContent = p.backlog.toLocaleString('hr-HR');
+  document.getElementById('kpiArticles').textContent = p.gemini.article_videos.toLocaleString('hr-HR');
+  document.getElementById('kpiArticlesPct').textContent = fmtPct(pct(p.gemini.article_videos, base), 1) + ' korpusa';
+
+  // Download
+  bar(document.getElementById('dlBars'), [
+    { label: 'Preuzeto (.mp3)', count: p.downloads.mp3, base, color: 'ok' },
+    { label: 'WAV konverzija', count: p.downloads.wav, base },
+    { label: 'Video MKV (yt-dlp merge)', count: p.downloads.mkv, base },
+    { label: 'Metadata (.info.json)', count: p.downloads.info_json, base },
+    { label: 'Opisi (.description)', count: p.downloads.description, base },
+  ]);
+
+  // Whisper
+  bar(document.getElementById('whisperBars'), [
+    { label: 'Whisper prompt', count: p.whisper.prompts, base },
+    { label: 'Whisper transkripcija', count: p.whisper.srt, base },
+    { label: 'Whisper diarizacija', count: p.whisper.diarized, base },
+  ]);
+
+  // Canary
+  bar(document.getElementById('canaryBars'), [
+    { label: 'Canary transkripcija', count: p.canary.srt, base, color: 'ok' },
+    { label: 'Canary CSV', count: p.canary.csv, base },
+    { label: 'Canary diarizacija', count: p.canary.diarized, base },
+  ]);
+
+  // Sortformer
+  bar(document.getElementById('sortformerBars'), [
+    { label: 'Sortformer transkripcija', count: p.sortformer.srt, base },
+    { label: 'Sortformer CSV', count: p.sortformer.csv, base },
+    { label: 'Sortformer diarizacija', count: p.sortformer.diarized, base },
+  ]);
+
+  // Embeddings
+  const embItems = [];
+  const ec = p.embeddings.canary;
+  if (ec.videos > 0 || ec.diarized_total > 0) {
+    embItems.push({
+      label: 'Canary embeddings',
+      sub: `denom: ${ec.diarized_total} dijariziranih`,
+      count: ec.videos,
+      base: ec.diarized_total || base,
+      color: 'ok',
+      subitems: Object.entries(ec.files_by_model).sort((a, b) => b[1] - a[1]).map(
+        ([m, n]) => `└─ ${m}: ${ec.videos_by_model[m] || 0} videa (${n} datoteka)`
+      ),
+    });
+  }
+  const es = p.embeddings.sortformer;
+  if (es.videos > 0 || es.diarized_total > 0) {
+    embItems.push({
+      label: 'Sortformer embeddings',
+      sub: `denom: ${es.diarized_total} dijariziranih`,
+      count: es.videos,
+      base: es.diarized_total || base,
+      subitems: Object.entries(es.files_by_model).sort((a, b) => b[1] - a[1]).map(
+        ([m, n]) => `└─ ${m}: ${es.videos_by_model[m] || 0} videa (${n} datoteka)`
+      ),
+    });
+  }
+  if (embItems.length === 0) embItems.push({ label: '(no embeddings)', count: 0, base: 1 });
+  bar(document.getElementById('embBars'), embItems);
+
+  // Gemini
+  const g = p.gemini;
+  const geminiItems = [
+    { label: 'Gemini sažeci', count: g.summary, base, color: 'ok' },
+    {
+      label: 'Gemini outlineovi',
+      sub: `${g.outline_files} datoteka`,
+      count: g.outline_videos,
+      base,
+      subitems: Object.entries(g.outline_models || {}).map(([m, v]) => `└─ ${m}: ${v.videos} videa (${v.files} dat.)`),
+    },
+    {
+      label: 'Gemini članci',
+      sub: `${g.article_files} datoteka`,
+      count: g.article_videos,
+      base,
+      color: 'ok',
+      subitems: Object.entries(g.article_models || {}).map(([m, v]) => `└─ ${m}: ${v.videos} videa (${v.files} dat.)`),
+    },
+    { label: 'Magisterium (teol. score)', sub: `${g.magisterium_files} datoteka`, count: g.magisterium_videos, base },
+  ];
+  bar(document.getElementById('geminiBars'), geminiItems);
+
+  // Blocked
+  const blockedBox = document.getElementById('blockedBox');
+  const parts = [];
+  if (g.summary_blocked.total > 0) {
+    const reasons = Object.entries(g.summary_blocked.reasons).map(([r, c]) => `${r}: ${c}`).join(', ');
+    parts.push(`<strong>Sažeci blocked:</strong> ${g.summary_blocked.total} (${g.summary_blocked.permanent} trajno) — ${reasons || '—'}`);
+  }
+  if (g.article_blocked.total > 0) {
+    const reasons = Object.entries(g.article_blocked.reasons).map(([r, c]) => `${r}: ${c}`).join(', ');
+    parts.push(`<strong>Članci blocked:</strong> ${g.article_blocked.total} (${g.article_blocked.permanent} trajno) — ${reasons || '—'}`);
+  }
+  if (parts.length > 0) {
+    blockedBox.innerHTML = '<div class="alert">⚠️ ' + parts.join('<br />') + '</div>';
+    blockedBox.classList.remove('hidden');
+  } else {
+    blockedBox.classList.add('hidden');
+  }
+
+  // RAG
+  bar(document.getElementById('ragBars'), [
+    { label: 'RAG chunks', count: p.rag.chunks, base },
+    { label: 'RAG import', count: p.rag.import, base },
+    { label: 'RAG combined', count: p.rag.combined, base, color: 'ok' },
+  ]);
+
+  // Publish
+  bar(document.getElementById('publishBars'), [
+    { label: 'Screenshot dirovi', sub: `${p.publish.screenshot_png} PNG ukupno`, count: p.publish.screenshots, base },
+    { label: 'Video MP4 (publish-ready)', count: p.publish.mp4, base },
+    { label: 'MKV → MP4 remux gotovo', sub: `${p.publish.mkv_waiting} MKV bez MP4`, count: p.publish.mkv_remuxed, base: p.publish.mkv_total || 1 },
+  ]);
+}
+
+// ============================================================================
+// Disk
+// ============================================================================
+document.getElementById('diskBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('diskBtn');
+  btn.disabled = true; btn.textContent = 'Skeniram… (par sek)';
+  try {
+    const r = await fetch('/api/disk-usage');
+    const data = await r.json();
+    if (data.error) throw new Error(data.error);
+    state.disk = data;
+    renderDisk();
+  } catch (e) {
+    document.getElementById('diskBody').innerHTML = `<div class="alert error">Greška: ${e.message}</div>`;
+    document.getElementById('diskBody').classList.remove('hidden');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Osvježi disk scan';
+  }
+});
+
+function renderDisk() {
+  const d = state.disk;
+  const maxKb = d.channels[0]?.kb || 1;
+  const body = document.getElementById('diskBody');
+  body.innerHTML = '';
+
+  // Per-channel bars
+  const channelsList = el('div', { class: 'bars' });
+  for (const c of d.channels) {
+    const p = pct(c.kb, maxKb);
+    const volName = c.volume.replace('/Volumes/', '') || c.volume;
+    channelsList.appendChild(el('div', { class: 'bar-row' },
+      el('div', { class: 'lbl' }, c.channel, el('small', {}, '  [' + volName + ']')),
+      el('div', { class: 'bar' }, el('div', { class: 'fill', style: `width: ${p.toFixed(2)}%` })),
+      el('div', { class: 'count' }, fmtBytes(c.kb))
+    ));
+  }
+  body.appendChild(channelsList);
+
+  // Total
+  body.appendChild(el('p', { class: 'note', style: 'margin-top: 16px;' },
+    `UKUPNO: ${fmtBytes(d.total_kb)} preko ${d.channels.length} kanala`
+  ));
+
+  // Per-volume
+  if (d.volumes.length > 1) {
+    const volBox = el('div', { class: 'bars', style: 'margin-top: 12px;' });
+    for (const v of d.volumes) {
+      const volName = v.volume.replace('/Volumes/', '') || v.volume;
+      const p = pct(v.kb, d.total_kb);
+      volBox.appendChild(el('div', { class: 'bar-row' },
+        el('div', { class: 'lbl' }, 'Disk ' + volName),
+        el('div', { class: 'bar' }, el('div', { class: 'fill', style: `width: ${p.toFixed(2)}%` })),
+        el('div', { class: 'count' }, fmtBytes(v.kb))
+      ));
+    }
+    body.appendChild(volBox);
+  }
+
+  body.classList.remove('hidden');
+}
+
+// ============================================================================
+// Refresh + boot
+// ============================================================================
+function updateTimestamp() {
+  const now = new Date();
+  document.getElementById('lastUpdated').textContent = 'Updated: ' + now.toLocaleTimeString('hr-HR');
+}
+
+document.getElementById('refreshBtn').addEventListener('click', () => {
+  loadRegistry();
+  if (state.pipeline) loadPipeline();
+  if (state.disk) document.getElementById('diskBtn').click();
+});
+
+// ============================================================================
+// Width toggle (persistent)
+// ============================================================================
+const WIDTH_KEY = 'dashboard.wide';
+function applyWidth(wide) {
+  document.body.classList.toggle('wide', wide);
+  document.getElementById('widthToggle').textContent = wide ? '⇥ Kontejnerizirano' : '⇔ Široki pogled';
+}
+applyWidth(localStorage.getItem(WIDTH_KEY) === '1');
+document.getElementById('widthToggle').addEventListener('click', () => {
+  const next = !document.body.classList.contains('wide');
+  localStorage.setItem(WIDTH_KEY, next ? '1' : '0');
+  applyWidth(next);
+});
+
+loadRegistry();
+</script>
+
+</body>
+</html>
