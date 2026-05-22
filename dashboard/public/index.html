@@ -98,6 +98,17 @@ header.site {
 .btn-mini.outline { background: var(--white); color: var(--navy); border: 1px solid var(--navy); }
 .btn-mini.outline:hover { background: var(--navy); color: var(--white); }
 
+.link-icon {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px; margin-right: 4px;
+  text-decoration: none; letter-spacing: 0.5px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.link-icon.yt { background: var(--red); color: var(--white); }
+.link-icon.yt:hover { background: #cc0000; }
+.link-icon.app { background: var(--navy); color: var(--white); }
+.link-icon.app:hover { background: var(--navy-dark); }
+
 /* Cards */
 .card {
   background: var(--white); border: 1px solid var(--border);
@@ -302,6 +313,7 @@ footer.site a { color: var(--muted); }
       <div class="table-wrap"><table id="exTable">
         <thead><tr>
           <th data-sort="display_name">Naziv</th>
+          <th>Linkovi</th>
           <th data-sort="slug">Slug</th>
           <th class="num" data-sort="score">Score</th>
           <th class="num" data-sort="tier">Tier</th>
@@ -540,8 +552,14 @@ function renderExplorer() {
     if (e.in_pipeline) flags.push(el('span', { class: 'tag live' }, 'live'));
     if (!e.has_url && e.type !== 'umbrella') flags.push(el('span', { class: 'tag stub' }, 'stub'));
     if (e.type === 'umbrella') flags.push(el('span', { class: 'tag umbrella' }, 'umbrella'));
+
+    const links = [];
+    if (e.url) links.push(el('a', { class: 'link-icon yt', href: e.url, target: '_blank', rel: 'noopener', title: 'YouTube' }, 'YT'));
+    if (e.domovina_url) links.push(el('a', { class: 'link-icon app', href: e.domovina_url, target: '_blank', rel: 'noopener', title: 'domovina.ai aplikacija' }, 'app'));
+
     tbody.appendChild(el('tr', {},
       el('td', {}, e.url ? el('a', { href: e.url, target: '_blank', rel: 'noopener' }, e.display_name || e.slug) : (e.display_name || '—')),
+      el('td', {}, ...links),
       el('td', { class: 'slug' }, e.slug),
       el('td', { class: 'num' }, String(e.score)),
       el('td', { class: 'num' }, e.tier != null ? el('span', { class: 'tag tier-' + e.tier }, 'T' + e.tier) : '—'),

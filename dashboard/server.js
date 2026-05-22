@@ -131,25 +131,31 @@ function computeRegistry() {
     const statusDistribution = Object.entries(statusCounts).sort((a, b) => b[1] - a[1]);
 
     // Compact entries za UI tablicu (sve, klijent filtrira)
-    const entries = podcasts.map(p => ({
-        slug: p.slug,
-        display_name: p.display_name,
-        tier: p.tier,
-        score: p.quality_score?.total || 0,
-        score_tier: p.quality_score?.tier || '',
-        data_quality: p.data_quality,
-        tracked: p.tracking?.enabled === true,
-        in_pipeline: pipelineSlugs.has(p.slug),
-        has_url: !!p.youtube?.url,
-        type: p.youtube?.type || 'channel',
-        url: p.youtube?.url || '',
-        episodes: p.metadata?.episodes_estimate ?? null,
-        status: p.metadata?.status || '',
-        sources_count: (p.sources || []).length,
-        voditelji_count: (p.voditelji || []).length,
-        tags: p.tags || [],
-        notes: p.notes || '',
-    }));
+    const entries = podcasts.map(p => {
+        const inPipeline = pipelineSlugs.has(p.slug);
+        return {
+            slug: p.slug,
+            display_name: p.display_name,
+            tier: p.tier,
+            score: p.quality_score?.total || 0,
+            score_tier: p.quality_score?.tier || '',
+            data_quality: p.data_quality,
+            tracked: p.tracking?.enabled === true,
+            in_pipeline: inPipeline,
+            has_url: !!p.youtube?.url,
+            type: p.youtube?.type || 'channel',
+            url: p.youtube?.url || '',
+            // Front-end app URL: postoji samo za entries koji su zaista u pipelineu
+            // (domovina.ai slug mapping = registry slug, 1:1, oba s hyphens).
+            domovina_url: inPipeline ? `https://www.domovina.ai/c/${p.slug}` : null,
+            episodes: p.metadata?.episodes_estimate ?? null,
+            status: p.metadata?.status || '',
+            sources_count: (p.sources || []).length,
+            voditelji_count: (p.voditelji || []).length,
+            tags: p.tags || [],
+            notes: p.notes || '',
+        };
+    });
 
     return {
         version: registry.version || null,
