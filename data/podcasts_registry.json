@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "generated_at": "2026-05-20",
+  "generated_at": "2026-05-21",
   "description": "Single source of truth za hrvatske podcaste na YouTubeu. Spaja: (1) trenutno praćene kanale iz automatic/refresh_podcasts.sh, (2) deep_research_prompt_hr_podcasti.md, (3) Gemini Deep Research, (4) Perplexity research, (5) Claude Opus 4.6 sveobuhvatni research. PRINCIP v1.2: free speech aggregator — uključuje SVE hrvatske podcaste bez obzira na političku ili vjersku orijentaciju. Tracking odluke su isključivo tehničke (verificirani URL, kompletni metapodaci, format kompatibilan s pipeline-om), nikad editorijalne. Polje 'disputes' u notes-ima entries-a označava gdje se izvori ne slažu.",
   "sources": [
     {
@@ -2172,9 +2172,9 @@
       "slug": "hkm-argumenti",
       "display_name": "Argumenti (Hrvatska katolička mreža)",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "channel"
+        "url": "https://www.youtube.com/playlist?list=PLcQXSuJQoJAoa83nORkJFrd3DvvlQh6nZ",
+        "handle": "@Hrvatskakatolickamreza",
+        "type": "playlist"
       },
       "tags": [
         "religious-catholic",
@@ -2276,10 +2276,9 @@
       "slug": "podcast-inkubator-a1-nogometni",
       "display_name": "A1 Nogometni Podcast",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "playlist",
-        "parent_channel": "Podcast Inkubator"
+        "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv",
+        "handle": "@podcastinkubator",
+        "type": "playlist"
       },
       "tags": [
         "sport",
@@ -2324,10 +2323,9 @@
       "slug": "podcast-inkubator-extra-runda",
       "display_name": "Extra Runda",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "playlist",
-        "parent_channel": "Podcast Inkubator"
+        "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU",
+        "handle": "@podcastinkubator",
+        "type": "playlist"
       },
       "tags": [
         "sport",
@@ -2372,10 +2370,9 @@
       "slug": "podcast-inkubator-mysterium",
       "display_name": "Mysterium",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "playlist",
-        "parent_channel": "Podcast Inkubator"
+        "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+        "handle": "@podcastinkubator",
+        "type": "playlist"
       },
       "tags": [
         "geopolitics",
@@ -2475,8 +2472,8 @@
       "slug": "moc-komunikacije",
       "display_name": "Moć komunikacije",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@Mo%C4%87komunikacije",
+        "handle": "@Moćkomunikacije",
         "type": "channel"
       },
       "tags": [
@@ -2497,8 +2494,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "verified",
@@ -2578,8 +2574,8 @@
       "slug": "superhuman-life",
       "display_name": "Superhuman Life",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/c/Superhumanlife",
+        "handle": "@Superhumanlife",
         "type": "channel"
       },
       "tags": [
@@ -2594,8 +2590,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "partial",
@@ -2621,7 +2616,7 @@
       "slug": "samo-bez-panike",
       "display_name": "Samo bez panike (formerly 'Od A do Žena')",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/channel/UC7qkcQ7f1r8Wmi49erDXoEg",
         "handle": null,
         "type": "channel"
       },
@@ -2644,8 +2639,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "verified",
@@ -2820,8 +2814,8 @@
       "slug": "grizli-office",
       "display_name": "Grizli Office",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/c/GrizliOfficePodcast",
+        "handle": "@GrizliOfficePodcast",
         "type": "channel"
       },
       "tags": [
@@ -2836,8 +2830,7 @@
         "status": "unknown"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "partial",
@@ -3012,7 +3005,7 @@
       "slug": "fakat-podcast",
       "display_name": "Fakat Podcast",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/channel/UCKrBWYif4EuYSE2RCnv_S3Q",
         "handle": null,
         "type": "channel"
       },
@@ -3049,8 +3042,8 @@
       "slug": "putoholicari",
       "display_name": "Putoholicari",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@Putoholicari",
+        "handle": "@Putoholicari",
         "type": "channel"
       },
       "tags": [
@@ -3062,8 +3055,7 @@
         "status": "unknown"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "unverified",
@@ -3089,9 +3081,9 @@
       "slug": "surove-strasti",
       "display_name": "Surove Strasti",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "audio-primary"
+        "url": "https://www.youtube.com/c/SuroveStrasti",
+        "handle": "@SuroveStrasti",
+        "type": "channel"
       },
       "tags": [
         "business",
@@ -3109,8 +3101,7 @@
         "status": "active-slowing"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Audio-only podcast bez (ili s minimalnom) YouTube prisutnosti — pipeline ne može pratiti audio podcaste. Razmotriti samo ako se u budućnosti pokrene YT distribucija."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "verified",
@@ -3139,7 +3130,7 @@
       "slug": "turizam24",
       "display_name": "Turizam24",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA",
         "handle": null,
         "type": "channel"
       },
@@ -3151,8 +3142,7 @@
         "status": "unknown"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći i potvrditi YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "unverified",
@@ -3178,8 +3168,8 @@
       "slug": "zapozorje-podcast",
       "display_name": "Zapozorje Podcast",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@zapozorjepodcast6776",
+        "handle": "@zapozorjepodcast6776",
         "type": "channel"
       },
       "tags": [],
@@ -3381,9 +3371,9 @@
       "slug": "all-things-croatia",
       "display_name": "All Things Croatia",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "audio-primary"
+        "url": "https://www.youtube.com/@allthingscroatia",
+        "handle": "@allthingscroatia",
+        "type": "channel"
       },
       "tags": [
         "diaspora",
@@ -3399,8 +3389,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Audio-only podcast — pipeline ne podržava distribuciju bez YouTube kanala. Dodati ako/kada se pokrene YT distribucija."
+        "enabled": false
       },
       "tier": 4,
       "data_quality": "partial",
@@ -3472,9 +3461,9 @@
       "slug": "bliski-susreti-jezicne-vrste",
       "display_name": "Bliski susreti jezične vrste",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "audio-primary"
+        "url": "https://www.youtube.com/playlist?list=PL8mo50pgDSnA0RFGO5AYe7BHMabdIFTJE",
+        "handle": "@bliskisusreti",
+        "type": "playlist"
       },
       "tags": [
         "language",
@@ -3660,8 +3649,8 @@
       "slug": "spica-s-macanom",
       "display_name": "Špica s Macanom",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@SpicasMacanom",
+        "handle": "@SpicasMacanom",
         "type": "channel"
       },
       "tags": [
@@ -3683,8 +3672,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 1,
       "data_quality": "verified",
@@ -3710,8 +3698,8 @@
       "slug": "ana-radisic-podcast",
       "display_name": "Ana Radišić Podcast",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@ana.radisic",
+        "handle": "@ana.radisic",
         "type": "channel"
       },
       "tags": [
@@ -3731,8 +3719,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "partial",
@@ -3758,8 +3745,8 @@
       "slug": "nebitno-o-bitnom",
       "display_name": "Nebitno O Bitnom",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@NebitnoOBitnom",
+        "handle": "@NebitnoOBitnom",
         "type": "channel"
       },
       "tags": [
@@ -3777,8 +3764,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "partial",
@@ -3804,8 +3790,8 @@
       "slug": "iza-okvira",
       "display_name": "Iza Okvira",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/@izaokvira4383",
+        "handle": "@izaokvira4383",
         "type": "channel"
       },
       "tags": [
@@ -3826,8 +3812,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "partial",
@@ -3999,9 +3984,9 @@
       "slug": "ideje-hr",
       "display_name": "Ideje.hr",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PLDOWbnwbQ5EPNDIGHuzvnPVlbDhIC3YdZ",
         "handle": null,
-        "type": "channel"
+        "type": "playlist"
       },
       "tags": [
         "political",
@@ -4020,8 +4005,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL prije dodavanja u pipeline."
+        "enabled": false
       },
       "tier": 2,
       "data_quality": "partial",
@@ -4047,8 +4031,8 @@
       "slug": "pogled-s-cuke",
       "display_name": "Pogled s Čuke",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/c/pogledscuke",
+        "handle": "@pogledscuke",
         "type": "channel"
       },
       "tags": [
@@ -4066,8 +4050,7 @@
         "status": "unknown"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YouTube URL i verificirati prije dodavanja."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "unverified",
@@ -4178,10 +4161,9 @@
       "slug": "podkist-fer",
       "display_name": "Podkist (FER)",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
         "handle": null,
-        "type": "channel",
-        "parent_channel": "FER"
+        "type": "playlist"
       },
       "tags": [
         "science",
@@ -4196,8 +4178,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YT URL FER kanala."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "partial",
@@ -4223,10 +4204,9 @@
       "slug": "kuhinjski-element",
       "display_name": "Kuhinjski Element",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PLsC6O92E0tBgz7cp1erPybA3VJVson3n1",
         "handle": null,
-        "type": "channel",
-        "parent_channel": "KakoZašto"
+        "type": "playlist"
       },
       "tags": [
         "science",
@@ -4243,8 +4223,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan KakoZašto YT URL."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "partial",
@@ -4270,7 +4249,7 @@
       "slug": "slusalica-penkala",
       "display_name": "Slušalica (Udruga Penkala)",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/channel/UCDUU6qRAr2FozxtRoZxb6PA",
         "handle": null,
         "type": "channel"
       },
@@ -4285,8 +4264,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YT URL Udruge Penkala."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "partial",
@@ -4355,10 +4333,9 @@
       "slug": "foi-business-talks",
       "display_name": "FOI Business Talks",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "channel",
-        "parent_channel": "FOI"
+        "url": "https://www.youtube.com/user/foicroatia",
+        "handle": "@foicroatia",
+        "type": "channel"
       },
       "tags": [
         "business",
@@ -4372,8 +4349,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan FOI YT URL."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "partial",
@@ -4399,10 +4375,9 @@
       "slug": "sportklub-podcast",
       "display_name": "Sportklub Podcast",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PLUfoX9GOCZD-sY_i79cJ5QcrFla4ZsOL0",
         "handle": null,
-        "type": "channel",
-        "parent_channel": "Sportklub"
+        "type": "playlist"
       },
       "tags": [
         "sport"
@@ -4418,8 +4393,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan Sportklub playlist URL."
+        "enabled": false
       },
       "tier": 3,
       "data_quality": "partial",
@@ -4538,8 +4512,8 @@
       "slug": "marko-vuletic-podcast",
       "display_name": "Marko Vuletić Podcast",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/c/MarkoVuleti%C4%87official",
+        "handle": "@MarkoVuletićofficial",
         "type": "channel"
       },
       "tags": [
@@ -4554,8 +4528,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Treba pronaći točan YT URL."
+        "enabled": false
       },
       "tier": 4,
       "data_quality": "unverified",
@@ -4804,10 +4777,9 @@
       "slug": "povijest-cetvrtkom",
       "display_name": "Povijest četvrtkom",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "audio-primary",
-        "parent_channel": "HRT"
+        "url": "https://www.youtube.com/@Povijestcetvrtkom",
+        "handle": "@Povijestcetvrtkom",
+        "type": "channel"
       },
       "tags": [
         "history"
@@ -4819,8 +4791,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "HRT audio podcast — distribucija primarno HRT radio i Apple Podcasts. Nema YouTube prisutnosti."
+        "enabled": false
       },
       "tier": 4,
       "data_quality": "partial",
@@ -4846,10 +4817,9 @@
       "slug": "prvi-glas-telegram",
       "display_name": "Prvi glas (Telegram.hr)",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PL3YKTluJTGBqgGQQfP9DcdrDWuFZcSuqE",
         "handle": null,
-        "type": "audio-primary",
-        "parent_channel": "Telegram.hr"
+        "type": "playlist"
       },
       "tags": [
         "media",
@@ -4862,8 +4832,7 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Audio-only (Spotify/Apple) — nema YouTube prisutnosti."
+        "enabled": false
       },
       "tier": 4,
       "data_quality": "partial",
@@ -4931,8 +4900,8 @@
       "slug": "lets-learn-croatian",
       "display_name": "Let's Learn Croatian",
       "youtube": {
-        "url": null,
-        "handle": null,
+        "url": "https://www.youtube.com/c/LetsLearnCroatian",
+        "handle": "@LetsLearnCroatian",
         "type": "channel"
       },
       "tags": [
@@ -4976,9 +4945,9 @@
       "slug": "croatiansports-podcast",
       "display_name": "CroatianSports Podcast",
       "youtube": {
-        "url": null,
-        "handle": null,
-        "type": "audio-primary"
+        "url": "https://www.youtube.com/@croatiansports",
+        "handle": "@croatiansports",
+        "type": "channel"
       },
       "tags": [
         "sport",
@@ -5018,10 +4987,9 @@
       "slug": "sbs-croatian",
       "display_name": "SBS Croatian",
       "youtube": {
-        "url": null,
+        "url": "https://www.youtube.com/playlist?list=PLA65Ww7iGS2p1nzZlgZ6mA1lX_vHZfCQk",
         "handle": null,
-        "type": "audio-primary",
-        "parent_channel": "SBS Australia"
+        "type": "playlist"
       },
       "tags": [
         "media",

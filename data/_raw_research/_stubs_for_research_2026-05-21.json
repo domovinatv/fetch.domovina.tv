@@ -1,0 +1,640 @@
+[
+  {
+    "slug": "hkm-argumenti",
+    "display_name": "Argumenti (Hrvatska katolička mreža)",
+    "voditelji": [
+      "Tanja Maleš",
+      "Katarina Varenica",
+      "Dalija Mock",
+      "Branimir Gubić",
+      "Marino Erceg"
+    ],
+    "tags": [
+      "religious-catholic",
+      "society",
+      "media"
+    ],
+    "notes": "MAJOR DISPUTE između 3 izvora: (1) Gemini = AKTIVAN 03/2026, povratak nakon ukidanja u 06/2025, urednik Marino Erceg. (2) Perplexity = NEAKTIVAN, posljednje YT epizode 06/2025, nakon 12.06.2025. nema novih objava. (3) Claude Opus = AKTIVAN u 7. sezoni od 2025., emitira ponedjeljak-četvrtak 8:10 na HKR-u, urednici Tanja Maleš, Katarina Varenica, Dalija Mock, Branimir Gubić, isječci na HKM YouTube. Treba ručno provjeriti HKM YouTube kanal i status emisije. hkr.hkm.hr je matični site.",
+    "sources": [
+      "report",
+      "gemini",
+      "perplexity",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "podcast-inkubator-a1-nogometni",
+    "display_name": "A1 Nogometni Podcast",
+    "voditelji": [
+      "Marko Petrak",
+      "M. Pukšar"
+    ],
+    "tags": [
+      "sport",
+      "football"
+    ],
+    "notes": "Specijalizirani sub-format unutar PI. Dio Podcast Inkubator kanala.",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "podcast-inkubator-extra-runda",
+    "display_name": "Extra Runda",
+    "voditelji": [
+      "Marko Petrak",
+      "Hamby"
+    ],
+    "tags": [
+      "sport",
+      "mma"
+    ],
+    "notes": "MMA / borilački sportovi unutar PI ekosustava.",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "podcast-inkubator-mysterium",
+    "display_name": "Mysterium",
+    "voditelji": [
+      "Ratko Martinović",
+      "D. Pintarić"
+    ],
+    "tags": [
+      "geopolitics",
+      "mystery"
+    ],
+    "notes": "Iznimno popularan format — geopolitika i rubni fenomeni.",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "moc-komunikacije",
+    "display_name": "Moć komunikacije",
+    "voditelji": [
+      "Saša Tenodi"
+    ],
+    "tags": [
+      "communication",
+      "leadership",
+      "personal-development"
+    ],
+    "notes": "Saša Tenodi je također suvoditelj Surovih strasti i autor Nominis eCommerce / Prodajni Mindset. Ekspanzivni rast 2024-2026. Razvio i 'solocast' format (kraće epizode bez gosta) — Perplexity napominje. Top 5 po pretplatnicima u HR po Claude Opus.",
+    "sources": [
+      "report",
+      "gemini",
+      "perplexity",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "superhuman-life",
+    "display_name": "Superhuman Life",
+    "voditelji": [],
+    "tags": [
+      "personal-development"
+    ],
+    "notes": "",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "samo-bez-panike",
+    "display_name": "Samo bez panike (formerly 'Od A do Žena')",
+    "voditelji": [
+      "Margarita Tomić",
+      "Maja Marić"
+    ],
+    "tags": [
+      "women",
+      "lifestyle",
+      "health"
+    ],
+    "notes": "RECLASSIFIED u v1.1: Claude Opus utvrdio da su 'Od A do Žena' i 'Samo bez panike' isti podcast (voditeljice Margarita Tomić i Maja Marić). Perplexity navodi voditeljicu 'Marina Kolar' za 'Od A do Žena' — moguće da je u pitanju različiti format koji je nastao iz iste niše. Top 6 po pretplatnicima u HR po Claude Opus.",
+    "sources": [
+      "report",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "babyroom-podcast",
+    "display_name": "BabyRoom Podcast",
+    "voditelji": [],
+    "tags": [
+      "parenting"
+    ],
+    "notes": "",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "grizli-office",
+    "display_name": "Grizli Office",
+    "voditelji": [],
+    "tags": [
+      "business"
+    ],
+    "notes": "",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "pametni-ljudi",
+    "display_name": "Pametni ljudi",
+    "voditelji": [],
+    "tags": [
+      "business",
+      "education"
+    ],
+    "notes": "150+ različitih gostiju od 2017.",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "balkan-rules",
+    "display_name": "Balkan Rules",
+    "voditelji": [
+      "Danijal Hadžović"
+    ],
+    "tags": [
+      "political",
+      "geopolitics"
+    ],
+    "notes": "podcast.hr listed.",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "fakat-podcast",
+    "display_name": "Fakat Podcast",
+    "voditelji": [],
+    "tags": [],
+    "notes": "podcast.hr/p/fakat",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "putoholicari",
+    "display_name": "Putoholicari",
+    "voditelji": [],
+    "tags": [
+      "travel",
+      "tourism"
+    ],
+    "notes": "podcast.hr/p/putoholicari",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "surove-strasti",
+    "display_name": "Surove Strasti",
+    "voditelji": [
+      "Saša Tenodi",
+      "Ivan Voras"
+    ],
+    "tags": [
+      "business",
+      "lifestyle"
+    ],
+    "notes": "surovestrasti.com — pionirski hrvatski podcast (2017). Voditelj Saša Tenodi vodi i Moć komunikacije, Nominis eCommerce, Prodajni Mindset. PLATFORM DISPUTE: Gemini = aktivan na YT s 400+ ep. Perplexity = primarno audio, YouTube sporedan kanal. Claude Opus = 422+ ep, NEMA YouTube kanal, distribucija isključivo Spotify/Apple. Konsenzus 2 od 3 izvora: audio-only.",
+    "sources": [
+      "report",
+      "gemini",
+      "perplexity",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "turizam24",
+    "display_name": "Turizam24",
+    "voditelji": [],
+    "tags": [
+      "tourism"
+    ],
+    "notes": "podcast.hr/p/turizam24",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "zapozorje-podcast",
+    "display_name": "Zapozorje Podcast",
+    "voditelji": [],
+    "tags": [],
+    "notes": "podcast.hr/p/zapozorje",
+    "sources": [
+      "report"
+    ]
+  },
+  {
+    "slug": "all-things-croatia",
+    "display_name": "All Things Croatia",
+    "voditelji": [
+      "Stanko Zovak"
+    ],
+    "tags": [
+      "diaspora",
+      "culture"
+    ],
+    "notes": "rss.com/podcasts/allthingscroatia/",
+    "sources": [
+      "gemini"
+    ]
+  },
+  {
+    "slug": "croatian-american",
+    "display_name": "Croatian/American",
+    "voditelji": [
+      "Gaj Tomaš",
+      "C.M. Brown"
+    ],
+    "tags": [
+      "diaspora",
+      "culture"
+    ],
+    "notes": "",
+    "sources": [
+      "gemini"
+    ]
+  },
+  {
+    "slug": "bliski-susreti-jezicne-vrste",
+    "display_name": "Bliski susreti jezične vrste",
+    "voditelji": [
+      "Gaj Tomaš"
+    ],
+    "tags": [
+      "language",
+      "culture"
+    ],
+    "notes": "",
+    "sources": [
+      "report",
+      "gemini"
+    ]
+  },
+  {
+    "slug": "luda-ekipa",
+    "display_name": "Luda ekipa (REJECTED — nije zaseban podcast)",
+    "voditelji": [],
+    "tags": [],
+    "notes": "DUAL REJECTION RATIONALE: (1) Gemini 03/2026 = identificiran kao dječji zabavni kanal 'Stefan JUTJUBER' s glumljenim skečevima ('Kriminalac vs. Policajac'). (2) Claude Opus 04/2026 = 'Luda ekipa' je kolokvijalni naziv za tim Podcast Inkubatora korišten u članku Dalmatinskog portala iz 01/2025. 362K pretplatnika koji su navedeni u seed istraživanju zapravo pripada Podcast Inkubatoru u tom trenutku. Inicijalno klasificiran u deep_research_prompt-u kao Tier 1 #2. PERMANENTNO ISKLJUČEN iz podcast registry.",
+    "sources": [
+      "report",
+      "gemini",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "spica-s-macanom",
+    "display_name": "Špica s Macanom",
+    "voditelji": [
+      "Krešimir Macan",
+      "Neven Kepeski"
+    ],
+    "tags": [
+      "political",
+      "society",
+      "economics"
+    ],
+    "notes": "Profesionalizirani politički podcast s gostima suprotstavljenih stajališta. Centralni politički podcast po Claude Opus analizi.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "ana-radisic-podcast",
+    "display_name": "Ana Radišić Podcast",
+    "voditelji": [
+      "Ana Radišić"
+    ],
+    "tags": [
+      "talk-show",
+      "personal-development"
+    ],
+    "notes": "Inspirativni intervjui.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "nebitno-o-bitnom",
+    "display_name": "Nebitno O Bitnom",
+    "voditelji": [],
+    "tags": [
+      "talk-show",
+      "lifestyle"
+    ],
+    "notes": "Mladi tim, intervjui.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "iza-okvira",
+    "display_name": "Iza Okvira",
+    "voditelji": [
+      "Karla Mihaljević",
+      "Ivan Franko"
+    ],
+    "tags": [
+      "comedy",
+      "lifestyle"
+    ],
+    "notes": "RIJETKA komedija/lifestyle niša. Karla Mihaljević je 'MihaTheTrash'.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "pogled-s-cuke",
+    "display_name": "Pogled s Čuke",
+    "voditelji": [
+      "Jozo",
+      "Peco"
+    ],
+    "tags": [
+      "domovinski-rat",
+      "history",
+      "domoljubni"
+    ],
+    "notes": "Branitelji / Domovinski rat. Tematski uskladiv s DOMOVINA.tv. Pseudonimi voditelja 'Jozo' i 'Peco'.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "vatrena-obitelj",
+    "display_name": "Vatrena obitelj",
+    "voditelji": [],
+    "tags": [
+      "sport",
+      "football",
+      "institutional"
+    ],
+    "notes": "HNS-ov službeni podcast. Nogomet/reprezentacija.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "podkist-fer",
+    "display_name": "Podkist (FER)",
+    "voditelji": [],
+    "tags": [
+      "science",
+      "technology",
+      "education"
+    ],
+    "notes": "RIJETKA znanost/tehnologija niša. Fakultet elektrotehnike i računarstva, Zagreb.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "kuhinjski-element",
+    "display_name": "Kuhinjski Element",
+    "voditelji": [
+      "Saša Ceci",
+      "Martina Manenica",
+      "Vida Strasser"
+    ],
+    "tags": [
+      "science",
+      "education"
+    ],
+    "notes": "Popularna znanost. KakoZašto je platforma Instituta Ruđer Bošković (IRB).",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "slusalica-penkala",
+    "display_name": "Slušalica (Udruga Penkala)",
+    "voditelji": [],
+    "tags": [
+      "science",
+      "education"
+    ],
+    "notes": "Znanost/doktorandi. Udruga Penkala.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "foi-business-talks",
+    "display_name": "FOI Business Talks",
+    "voditelji": [],
+    "tags": [
+      "business",
+      "education"
+    ],
+    "notes": "Akademski. Fakultet organizacije i informatike, Varaždin.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "sportklub-podcast",
+    "display_name": "Sportklub Podcast",
+    "voditelji": [
+      "Ivan Ivković",
+      "Josip Juraj Pajvot"
+    ],
+    "tags": [
+      "sport"
+    ],
+    "notes": "Sport, dio Sportklub TV mreže.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "sportske-novosti-podcast",
+    "display_name": "Sportske Novosti Podcast",
+    "voditelji": [],
+    "tags": [
+      "sport"
+    ],
+    "notes": "Sport, dio Sportskih Novosti.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "marko-vuletic-podcast",
+    "display_name": "Marko Vuletić Podcast",
+    "voditelji": [
+      "Marko Vuletić"
+    ],
+    "tags": [
+      "talk-show",
+      "lifestyle"
+    ],
+    "notes": "Mladi/odrastanje.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "brutzcast",
+    "display_name": "BrützCast",
+    "voditelji": [
+      "Duki420",
+      "Marko Ševa"
+    ],
+    "tags": [
+      "gaming"
+    ],
+    "notes": "Neaktivan od prosinca 2020. Gaming/esport.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "kuzimo-filmove",
+    "display_name": "Kužimo filmove?",
+    "voditelji": [
+      "Dorian Sabo",
+      "Bruno Koić"
+    ],
+    "tags": [
+      "culture"
+    ],
+    "notes": "Pauziran. Film.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "libos-posla",
+    "display_name": "Libos Posla",
+    "voditelji": [
+      "Igor Vuk"
+    ],
+    "tags": [
+      "political"
+    ],
+    "notes": "Pauziran. Politika/slobode. Igor Vuk je također povezan s 'The Podcast' projektom.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "0800-devops",
+    "display_name": "0800-DEVOPS",
+    "voditelji": [
+      "Ivan Krnić"
+    ],
+    "tags": [
+      "technology"
+    ],
+    "notes": "DevOps/tech podcast. Veteran iz hrvatske tech scene.",
+    "sources": [
+      "perplexity",
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "povijest-cetvrtkom",
+    "display_name": "Povijest četvrtkom",
+    "voditelji": [
+      "Dario Špelić"
+    ],
+    "tags": [
+      "history"
+    ],
+    "notes": "HRT podcast o povijesti. Apple Podcasts HR #1 u kategoriji.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "prvi-glas-telegram",
+    "display_name": "Prvi glas (Telegram.hr)",
+    "voditelji": [],
+    "tags": [
+      "media",
+      "society"
+    ],
+    "notes": "Prvi hrvatski dnevni news podcast (15 min). Pokrenut 2025. od strane Telegram.hr redakcije.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "heinzelova-33",
+    "display_name": "Heinzelova 33",
+    "voditelji": [
+      "Viktor Marohnić"
+    ],
+    "tags": [
+      "technology",
+      "entrepreneurship"
+    ],
+    "notes": "Pauziran. Tech/poduzetništvo. Viktor Marohnić iz Five (sada Endeavor).",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "lets-learn-croatian",
+    "display_name": "Let's Learn Croatian",
+    "voditelji": [
+      "Uncle Mike",
+      "Tony D",
+      "DJ Moe"
+    ],
+    "tags": [
+      "language",
+      "diaspora",
+      "culture"
+    ],
+    "notes": "Dijasporni podcast. Učenje hrvatskog jezika za hrvatsku dijasporu.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "croatiansports-podcast",
+    "display_name": "CroatianSports Podcast",
+    "voditelji": [
+      "Lovre Nikolac"
+    ],
+    "tags": [
+      "sport",
+      "diaspora"
+    ],
+    "notes": "Hrvatski sport na engleskom za dijasporu.",
+    "sources": [
+      "claude-opus"
+    ]
+  },
+  {
+    "slug": "sbs-croatian",
+    "display_name": "SBS Croatian",
+    "voditelji": [],
+    "tags": [
+      "media",
+      "diaspora"
+    ],
+    "notes": "Vijesti za hrvatsku dijasporu u Australiji. Službeni SBS Croatian program.",
+    "sources": [
+      "claude-opus"
+    ]
+  }
+]

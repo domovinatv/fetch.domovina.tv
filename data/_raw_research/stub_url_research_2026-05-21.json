@@ -1,0 +1,432 @@
+[
+  {
+    "slug": "hkm-argumenti",
+    "display_name": "Argumenti (Hrvatska katolička mreža)",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLcQXSuJQoJAoa83nORkJFrd3DvvlQh6nZ",
+    "proposed_type": "playlist",
+    "proposed_handle": "@Hrvatskakatolickamreza",
+    "confidence": "high",
+    "evidence": "Hrvatska katolička mreža official YouTube channel @Hrvatskakatolickamreza has dedicated Argumenti playlist (PLcQXSuJQoJAoa83nORkJFrd3DvvlQh6nZ). Description matches: talk show about socio-political and economic topics. Episode 13.2.2025. on marriage confirms still active in 2025. Brand match is unambiguous.",
+    "alternatives": ["https://www.youtube.com/@Hrvatskakatolickamreza", "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6"]
+  },
+  {
+    "slug": "podcast-inkubator-a1-nogometni",
+    "display_name": "A1 Nogometni Podcast",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv",
+    "proposed_type": "playlist",
+    "proposed_handle": "@podcastinkubator",
+    "confidence": "high",
+    "evidence": "Playlist on Podcast Inkubator main channel. Episodes confirm hosts Mateo Pukšar and Ivan Ljubić (note: voditelji input lists 'M. Pukšar' = Mateo Pukšar). Marko Petrak is founder of Podcast Inkubator. Football/HNL focus matches tags.",
+    "alternatives": ["https://www.youtube.com/podcastinkubator"]
+  },
+  {
+    "slug": "podcast-inkubator-extra-runda",
+    "display_name": "Extra Runda",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU",
+    "proposed_type": "playlist",
+    "proposed_handle": "@podcastinkubator",
+    "confidence": "high",
+    "evidence": "Official '5Rak vs Hambi - Extra Runda' playlist on Podcast Inkubator channel (list prefix PLbOmR_aFrZfh matches PI namespace). MMA podcast, currently at ep #143, active 2026. Hambi = Hambi/Hamby (host), 5Rak co-host (note: input voditelji lists 'Marko Petrak, Hamby' — Marko Petrak is PI founder, actual on-air host is 5Rak/Hambi).",
+    "alternatives": []
+  },
+  {
+    "slug": "podcast-inkubator-mysterium",
+    "display_name": "Mysterium",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+    "proposed_type": "playlist",
+    "proposed_handle": "@podcastinkubator",
+    "confidence": "high",
+    "evidence": "Podcast Mysterium playlist on PI channel (PLbOmR_aFrZfh prefix matches PI). Hosted by Ratko Martinović (Rale) and Domagoj Pintarić (Pinta) — confirms 'D. Pintarić' = Domagoj Pintarić. Geopolitics/conspiracy/mystery topics. Active in 2026 (ep #163).",
+    "alternatives": []
+  },
+  {
+    "slug": "moc-komunikacije",
+    "display_name": "Moć komunikacije",
+    "proposed_url": "https://www.youtube.com/@Mo%C4%87komunikacije",
+    "proposed_type": "channel",
+    "proposed_handle": "@Moćkomunikacije",
+    "confidence": "high",
+    "evidence": "Dedicated YouTube channel @Moćkomunikacije by Saša Tenodi. sasatenodi.com confirms it's his channel for the 'Moć komunikacije' program covering communication skills.",
+    "alternatives": []
+  },
+  {
+    "slug": "superhuman-life",
+    "display_name": "Superhuman Life",
+    "proposed_url": "https://www.youtube.com/c/Superhumanlife",
+    "proposed_type": "channel",
+    "proposed_handle": "@Superhumanlife",
+    "confidence": "high",
+    "evidence": "Croatian-language channel @Superhumanlife confirmed by Nutriskop.hr work page. Numerous episode titles in Croatian (#13, #20, #27 etc.) and topics match personal-development tag. Borna Zuber episode about Ireland confirms diaspora/Croatian focus.",
+    "alternatives": []
+  },
+  {
+    "slug": "samo-bez-panike",
+    "display_name": "Samo bez panike (formerly 'Od A do Žena')",
+    "proposed_url": "https://www.youtube.com/channel/UC7qkcQ7f1r8Wmi49erDXoEg",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Channel UC7qkcQ7f1r8Wmi49erDXoEg dedicated to Samo bez panike. Confirmed hosts Maja Marić and Margarita Tomić (one #internetmater, other #misusovo). 30,000+ subs, 2M+ views, launched 2021. misusovo.com/podcast/ confirms.",
+    "alternatives": []
+  },
+  {
+    "slug": "babyroom-podcast",
+    "display_name": "BabyRoom Podcast",
+    "proposed_url": null,
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "Despite multiple search queries, no dedicated YouTube channel/handle was found for BabyRoom Podcast. babyroom.space, SoundCloud, Spotify, Apple Podcasts confirmed; YouTube referenced in descriptions but no specific channel URL identified. Primary distribution is non-YouTube.",
+    "alternatives": ["https://babyroom.space/episodes"]
+  },
+  {
+    "slug": "grizli-office",
+    "display_name": "Grizli Office",
+    "proposed_url": "https://www.youtube.com/c/GrizliOfficePodcast",
+    "proposed_type": "channel",
+    "proposed_handle": "@GrizliOfficePodcast",
+    "confidence": "high",
+    "evidence": "Active YouTube channel with 65+ episodes since at least Nov 2019. Hosts business/journalism interviews with Croatian guests. Naziv match is exact.",
+    "alternatives": []
+  },
+  {
+    "slug": "pametni-ljudi",
+    "display_name": "Pametni ljudi",
+    "proposed_url": "https://www.youtube.com/channel/UCvIcKYF3DHMmTEbhku0is6w",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "low",
+    "evidence": "AMBIGUITY: Search reveals two podcasts named 'Pametni ljudi': (1) Centar za odgoj i obrazovanje Čakovec channel (UCvIcKYF3DHMmTEbhku0is6w) — short series, 12 episodes season 1, focused on parenting/education. (2) Tenodi & Voras's 'Pametni ljudi' (Nov 2017 start, 150+ guests) — matches notes 'since 2017, 150+ guests' but no dedicated YT found (likely audio-only Facebook page). Given notes match #2's profile but no YT channel exists for it, no high-confidence match. Marking low — Čakovec channel is the only one with YouTube presence.",
+    "alternatives": ["https://www.facebook.com/Podcast-Pametni-ljudi-110044307205677/"]
+  },
+  {
+    "slug": "balkan-rules",
+    "display_name": "Balkan Rules",
+    "proposed_url": "https://www.youtube.com/@BALKANRULESPODCAST",
+    "proposed_type": "channel",
+    "proposed_handle": "@BALKANRULESPODCAST",
+    "confidence": "medium",
+    "evidence": "Channel @BALKANRULESPODCAST is active with 260+ episodes covering Balkan geopolitics. Hosts named in descriptions as Dino and Tanja. Danijal Hadžović (input voditelji) appears as guest in ep 264, not as host. Possible mismatch: input lists Hadžović as voditelj, but search suggests he is a recurring guest. Tematika (geopolitics) matches.",
+    "alternatives": []
+  },
+  {
+    "slug": "fakat-podcast",
+    "display_name": "Fakat Podcast",
+    "proposed_url": "https://www.youtube.com/channel/UCKrBWYif4EuYSE2RCnv_S3Q",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Active dedicated YouTube channel for Fakat Podcast. 46+ episodes, hosted by Žare, Šrš, Šime. Diverse topics, Croatian language. Naziv match exact.",
+    "alternatives": []
+  },
+  {
+    "slug": "putoholicari",
+    "display_name": "Putoholicari",
+    "proposed_url": "https://www.youtube.com/@Putoholicari",
+    "proposed_type": "channel",
+    "proposed_handle": "@Putoholicari",
+    "confidence": "high",
+    "evidence": "Channel @Putoholicari confirmed via putoholicari.net.hr. Travel content by Iva Mihalic Krčmar and Branko Krčmar (Međimurje couple, traveling since 2006). Note: Their podcast 'PUTOCAST' is co-hosted with Ribafish.",
+    "alternatives": []
+  },
+  {
+    "slug": "surove-strasti",
+    "display_name": "Surove Strasti",
+    "proposed_url": "https://www.youtube.com/c/SuroveStrasti",
+    "proposed_type": "channel",
+    "proposed_handle": "@SuroveStrasti",
+    "confidence": "high",
+    "evidence": "Despite Claude Opus claim of 'no YouTube', dedicated channel @SuroveStrasti exists and is confirmed via surovestrasti.com. Hosts Saša Tenodi & Ivan Voras match input. Note input said 2 of 3 sources said audio-only, but YouTube channel demonstrably exists. May be lower-priority distribution channel.",
+    "alternatives": []
+  },
+  {
+    "slug": "turizam24",
+    "display_name": "Turizam24",
+    "proposed_url": "https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Podcast Turizam24 dedicated YouTube channel. Croatian tourism industry interviews. Confirmed via turizam24.com/category/podcast/.",
+    "alternatives": ["https://www.youtube.com/c/Turizam24VijestiPodcastVideopri%C4%8De"]
+  },
+  {
+    "slug": "zapozorje-podcast",
+    "display_name": "Zapozorje Podcast",
+    "proposed_url": "https://www.youtube.com/@zapozorjepodcast6776",
+    "proposed_type": "channel",
+    "proposed_handle": "@zapozorjepodcast6776",
+    "confidence": "high",
+    "evidence": "Channel @zapozorjepodcast6776 — RadioTeatar's theater podcast. Confirmed via radioteatar.hr. Channel ID UCxO2oHswmGc8QpETChzSdcw.",
+    "alternatives": []
+  },
+  {
+    "slug": "all-things-croatia",
+    "display_name": "All Things Croatia",
+    "proposed_url": "https://www.youtube.com/@allthingscroatia",
+    "proposed_type": "channel",
+    "proposed_handle": "@allthingscroatia",
+    "confidence": "high",
+    "evidence": "Channel @allthingscroatia by Stanko Zovak (Los Angeles-based Croatian diaspora, stand-up comedian, author of 'All Things Croatia – From Los Angeles to the Homeland'). Matches voditelj exactly.",
+    "alternatives": []
+  },
+  {
+    "slug": "croatian-american",
+    "display_name": "Croatian/American",
+    "proposed_url": null,
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "Podcast confirmed on Apple Podcasts and Spotify (creators.spotify.com/pod/profile/croatianamerican), hosted by Gaj Tomaš and Cody McClain Brown. No dedicated YouTube channel found. Gaj Tomaš has his own YouTube channel for 'Bliski susreti jezične vrste' (@bliskisusreti) but not for Croatian/American. Likely Spotify/Apple-only.",
+    "alternatives": ["https://open.spotify.com/show/7rq9pwcEClulQgRNYp0t4B"]
+  },
+  {
+    "slug": "bliski-susreti-jezicne-vrste",
+    "display_name": "Bliski susreti jezične vrste",
+    "proposed_url": "https://www.youtube.com/playlist?list=PL8mo50pgDSnA0RFGO5AYe7BHMabdIFTJE",
+    "proposed_type": "playlist",
+    "proposed_handle": "@bliskisusreti",
+    "confidence": "high",
+    "evidence": "Playlist on Gaj Tomaš's channel @bliskisusreti. 252 episodes, 2020-2025, first Croatian podcast about language. Voditelj Gaj Tomaš match.",
+    "alternatives": ["https://www.youtube.com/@bliskisusreti"]
+  },
+  {
+    "slug": "luda-ekipa",
+    "display_name": "Luda ekipa (REJECTED — nije zaseban podcast)",
+    "proposed_url": null,
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "Entry marked REJECTED in display_name — not a standalone podcast. Per dual research confirmation: name is either Stefan JUTJUBER's skit content (children's entertainment) or colloquial name for PI team. Skipped per instructions.",
+    "alternatives": []
+  },
+  {
+    "slug": "spica-s-macanom",
+    "display_name": "Špica s Macanom",
+    "proposed_url": "https://www.youtube.com/@SpicasMacanom",
+    "proposed_type": "channel",
+    "proposed_handle": "@SpicasMacanom",
+    "confidence": "high",
+    "evidence": "Dedicated channel @SpicasMacanom by Krešimir Macan & Neven Kepeski (matches both voditelji). 50+ episodes, 8M+ views, 12k subs. Launched mid-2023, political/society talk show on 10 local TV stations. Confirmed via kresimirmacan.com.",
+    "alternatives": []
+  },
+  {
+    "slug": "ana-radisic-podcast",
+    "display_name": "Ana Radišić Podcast",
+    "proposed_url": "https://www.youtube.com/@ana.radisic",
+    "proposed_type": "channel",
+    "proposed_handle": "@ana.radisic",
+    "confidence": "high",
+    "evidence": "Channel @ana.radisic — Ana Radišić Podcast in season 5+, inspirational interviews ('I Ana Radišić Podcast'). Matches voditeljica.",
+    "alternatives": []
+  },
+  {
+    "slug": "nebitno-o-bitnom",
+    "display_name": "Nebitno O Bitnom",
+    "proposed_url": "https://www.youtube.com/@NebitnoOBitnom",
+    "proposed_type": "channel",
+    "proposed_handle": "@NebitnoOBitnom",
+    "confidence": "high",
+    "evidence": "Channel @NebitnoOBitnom — 58+ episodes, young team, interviews with diverse guests. Naziv match exact. Website nebitno-o-bitnom.com.",
+    "alternatives": []
+  },
+  {
+    "slug": "iza-okvira",
+    "display_name": "Iza Okvira",
+    "proposed_url": "https://www.youtube.com/@izaokvira4383",
+    "proposed_type": "channel",
+    "proposed_handle": "@izaokvira4383",
+    "confidence": "high",
+    "evidence": "Channel @izaokvira4383 — comedy podcast by MihaTheTrash (Karla Mihaljević) and Ivan Franko. Matches both voditelji exactly. 100+ episodes, weekly.",
+    "alternatives": []
+  },
+  {
+    "slug": "pogled-s-cuke",
+    "display_name": "Pogled s Čuke",
+    "proposed_url": "https://www.youtube.com/c/pogledscuke",
+    "proposed_type": "channel",
+    "proposed_handle": "@pogledscuke",
+    "confidence": "high",
+    "evidence": "Channel @pogledscuke confirmed. Hosts identified as Jozo Ribičić and Željko Petko (pseudonim 'Peco') — matches input pseudonim. Branitelji/Domovinski rat content, 200+ episodes. Tematski match perfekt for DOMOVINA.tv.",
+    "alternatives": []
+  },
+  {
+    "slug": "vatrena-obitelj",
+    "display_name": "Vatrena obitelj",
+    "proposed_url": "https://www.youtube.com/@hns.family",
+    "proposed_type": "channel",
+    "proposed_handle": "@hns.family",
+    "confidence": "medium",
+    "evidence": "Official HNS channel @hns.family hosts 'Podcast Vatrena #obitelj' content. No standalone playlist URL surfaced in search, but channel is confirmed as the home. Episodes with Modrić, Ćorluka, Vlašić confirm match.",
+    "alternatives": []
+  },
+  {
+    "slug": "podkist-fer",
+    "display_name": "Podkist (FER)",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+    "proposed_type": "playlist",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Podkist playlist on FER (Fakultet elektrotehnike i računarstva) channel. First and most-watched university science podcast in Croatia. Hosts: Dario Bojanjac, Filip Turčinović. podkist.fer.hr confirmed.",
+    "alternatives": ["https://www.youtube.com/channel/UCn5uxWuV0KhnBdiFMiIo1Xg"]
+  },
+  {
+    "slug": "kuhinjski-element",
+    "display_name": "Kuhinjski Element",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLsC6O92E0tBgz7cp1erPybA3VJVson3n1",
+    "proposed_type": "playlist",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Kuhinjski element playlist on KakoZašto channel (UC5cV_cK4weQF2LCvYKhtJbA). IRB scientists Saša Ceci, Martina Manenica, Vida Strasser (all 3 input voditelji match). Popular science series, launched during pandemic 2020.",
+    "alternatives": ["https://www.youtube.com/channel/UC5cV_cK4weQF2LCvYKhtJbA"]
+  },
+  {
+    "slug": "slusalica-penkala",
+    "display_name": "Slušalica (Udruga Penkala)",
+    "proposed_url": "https://www.youtube.com/channel/UCDUU6qRAr2FozxtRoZxb6PA",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Udruga Penkala official YouTube channel UCDUU6qRAr2FozxtRoZxb6PA. Hosts Slušalica science podcast (Penkalin znanstveni podcast). Episodes interviewing scientists/doctorands. udruga-penkala.hr confirmed.",
+    "alternatives": []
+  },
+  {
+    "slug": "foi-business-talks",
+    "display_name": "FOI Business Talks",
+    "proposed_url": "https://www.youtube.com/user/foicroatia",
+    "proposed_type": "channel",
+    "proposed_handle": "@foicroatia",
+    "confidence": "high",
+    "evidence": "FOI official channel hosts FOI Business Talks podcast. Started Sep 2022, monthly on Wednesdays at 18:00. Hosted by Amalija Koren Cavaleiro. Confirmed via foi.unizg.hr.",
+    "alternatives": []
+  },
+  {
+    "slug": "sportklub-podcast",
+    "display_name": "Sportklub Podcast",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLUfoX9GOCZD-sY_i79cJ5QcrFla4ZsOL0",
+    "proposed_type": "playlist",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "'Sport Klub Podcast (Košarka, Fudbal, NBA, NFL)' playlist. Hosted by SK commentators including Ivan Ivković, Josip Juraj Pajvot (matches voditelji exactly), Grgić, Bulić. Channel: Sport Klub UChpzBje9Ro6CComXe3BgNaw.",
+    "alternatives": ["https://www.youtube.com/channel/UChpzBje9Ro6CComXe3BgNaw"]
+  },
+  {
+    "slug": "sportske-novosti-podcast",
+    "display_name": "Sportske Novosti Podcast",
+    "proposed_url": "https://www.youtube.com/channel/UCcMUnOOY8vJKiRKF41_mqfQ",
+    "proposed_type": "channel",
+    "proposed_handle": "@sportskenovosti2485",
+    "confidence": "medium",
+    "evidence": "Sportske novosti official YouTube channel hosts 'Podcast SN' series. 4 episodes anticipating 69th selection of best athletes confirmed. Channel is official SN portal channel — podcast is one of its content types, not a standalone channel.",
+    "alternatives": ["https://www.youtube.com/@sportskenovosti2485"]
+  },
+  {
+    "slug": "marko-vuletic-podcast",
+    "display_name": "Marko Vuletić Podcast",
+    "proposed_url": "https://www.youtube.com/c/MarkoVuleti%C4%87official",
+    "proposed_type": "channel",
+    "proposed_handle": "@MarkoVuletićofficial",
+    "confidence": "high",
+    "evidence": "Marko Vuletić's main YT channel (310k subs, created 2012). 'Šta je s glavon?' podcast hosted on /podcasts subpage. Personal/mental health/identity topics — matches lifestyle tag. Voditelj match exact.",
+    "alternatives": []
+  },
+  {
+    "slug": "brutzcast",
+    "display_name": "BrützCast",
+    "proposed_url": null,
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "No YouTube channel for 'BrützCast' found after multiple queries. Notes say inactive since Dec 2020. Duki420 has his own gaming channel but not BrützCast-branded. Marko Ševa appeared on Good Game Show. Likely defunct/never had YouTube presence beyond individual host channels.",
+    "alternatives": []
+  },
+  {
+    "slug": "kuzimo-filmove",
+    "display_name": "Kužimo filmove?",
+    "proposed_url": "https://www.youtube.com/c/KuzimoSvijet",
+    "proposed_type": "channel",
+    "proposed_handle": "@KuzimoSvijet",
+    "confidence": "medium",
+    "evidence": "Dorian Sabo's channel @KuzimoSvijet hosts both 'Kužimo svijet?' (since 2018) and 'Kužimo filmove?'. Co-host Bruno Koić confirmed. Film/horror focus. Naziv match for parent brand. Note: notes say 'Pauziran' (paused).",
+    "alternatives": []
+  },
+  {
+    "slug": "libos-posla",
+    "display_name": "Libos Posla",
+    "proposed_url": "https://www.youtube.com/channel/UCmNlgTqn0BD2FdFSVuaVWxw",
+    "proposed_type": "channel",
+    "proposed_handle": null,
+    "confidence": "medium",
+    "evidence": "Channel 'Liberalni podcast' (UCmNlgTqn0BD2FdFSVuaVWxw) hosts Libos Posla content (ep #45, #47 confirmed). Igor Vuk runs multiple podcast projects ('The Podcast', Libos Posla, KolibriS). Pauziran per notes. Channel name doesn't match podcast name but episodes are titled Libos Posla.",
+    "alternatives": ["https://soundcloud.com/libosposla"]
+  },
+  {
+    "slug": "0800-devops",
+    "display_name": "0800-DEVOPS",
+    "proposed_url": "https://0800devops.buzzsprout.com/",
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "Podcast confirmed (Ivan Krnić, CROZ, devops topics) but no dedicated YouTube channel identified. Distribution primary on Apple Podcasts, Spotify, Buzzsprout. Search descriptions mention 'available on YouTube' but no concrete channel URL surfaced. May exist on CROZ corporate channel — would need manual verification.",
+    "alternatives": ["https://croz.net/community/0800-devops/"]
+  },
+  {
+    "slug": "povijest-cetvrtkom",
+    "display_name": "Povijest četvrtkom",
+    "proposed_url": "https://www.youtube.com/@Povijestcetvrtkom",
+    "proposed_type": "channel",
+    "proposed_handle": "@Povijestcetvrtkom",
+    "confidence": "high",
+    "evidence": "Channel @Povijestcetvrtkom (display name 'Hermes Dagon' in YT) hosts Povijest četvrtkom episodes. Dario Špelić matches voditelj. HRT radio show with YT distribution. Topics: Croatian history, Yugoslavia, Japan samurai, etc.",
+    "alternatives": []
+  },
+  {
+    "slug": "prvi-glas-telegram",
+    "display_name": "Prvi glas (Telegram.hr)",
+    "proposed_url": "https://www.youtube.com/playlist?list=PL3YKTluJTGBqgGQQfP9DcdrDWuFZcSuqE",
+    "proposed_type": "playlist",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "Prvi glas playlist on Telegram.hr's YouTube channel. Daily 15-min news podcast, launched April 2025. Hosts Silvana Menđušić, Jasmin Klarić, Filip Raunić. Confirmed via telegram.hr/podcastovi. 280 episodes in first year, MIXX award.",
+    "alternatives": []
+  },
+  {
+    "slug": "heinzelova-33",
+    "display_name": "Heinzelova 33",
+    "proposed_url": null,
+    "proposed_type": null,
+    "proposed_handle": null,
+    "confidence": "not_found",
+    "evidence": "Podcast confirmed (Viktor Marohnić, Five/Endeavor founder, business interviews). 9 episodes, paused. Distribution: Apple Podcasts, Listen Notes, Acast, Luminary. No dedicated YouTube channel found in any search.",
+    "alternatives": ["https://shows.acast.com/heinzelova-33"]
+  },
+  {
+    "slug": "lets-learn-croatian",
+    "display_name": "Let's Learn Croatian",
+    "proposed_url": "https://www.youtube.com/c/LetsLearnCroatian",
+    "proposed_type": "channel",
+    "proposed_handle": "@LetsLearnCroatian",
+    "confidence": "high",
+    "evidence": "Channel referenced from letslearncroatian.com/about. Hosts Uncle Mike, Tony D, DJ Moe (all 3 voditelji match exactly). Southern California diaspora, learning Croatian. Buzzsprout primary, YT secondary.",
+    "alternatives": ["https://www.letslearncroatian.com/podcast"]
+  },
+  {
+    "slug": "croatiansports-podcast",
+    "display_name": "CroatianSports Podcast",
+    "proposed_url": "https://www.youtube.com/@croatiansports",
+    "proposed_type": "channel",
+    "proposed_handle": "@croatiansports",
+    "confidence": "high",
+    "evidence": "Channel @croatiansports (also legacy /user/CroatianSoccerReport, @CroatianSoccerReport). Lovre Nikolac hosts The Croatian Football Podcast (since Feb 2020) and CroatianSports.com podcast. Diaspora-focused, English language. croatiansports.com confirmed.",
+    "alternatives": ["https://www.youtube.com/@CroatianSoccerReport", "https://www.youtube.com/user/CroatianSoccerReport"]
+  },
+  {
+    "slug": "sbs-croatian",
+    "display_name": "SBS Croatian",
+    "proposed_url": "https://www.youtube.com/playlist?list=PLA65Ww7iGS2p1nzZlgZ6mA1lX_vHZfCQk",
+    "proposed_type": "playlist",
+    "proposed_handle": null,
+    "confidence": "high",
+    "evidence": "SBS Croatian | SBS na hrvatskom playlist on official SBS YouTube channel. Daily Croatian-language news for Australian diaspora. sbs.com.au/language/croatian confirmed.",
+    "alternatives": ["https://www.sbs.com.au/language/croatian/hr"]
+  }
+]
