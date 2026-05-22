@@ -1,0 +1,635 @@
+[
+  {
+    "name": "Well Founded Podcast",
+    "youtube_url": null,
+    "spotify_url": "https://open.spotify.com/show/1lkF0cX60PldN0Qn8EmnDH",
+    "apple_url": null,
+    "web_url": "https://wellfounded.podbean.com/",
+    "hosts": [
+      "Marijana Šarolić Robić",
+      "Ivan Voras"
+    ],
+    "description": "Podcast Croatian Startup Association i CISEx (Croatian Independent Software Exporters); intervjui s hrvatskim tech poduzetnicima — STEMI, Matterless, itd. Mostly hrvatski. ~29 epizoda, prosjek 53 min, long form.",
+    "suggested_tags": [
+      "technology",
+      "startup",
+      "entrepreneurship",
+      "business"
+    ],
+    "platform_primary": "web",
+    "activity_status": "active",
+    "episodes_estimate": 29,
+    "confidence": "high",
+    "evidence": "Multiple sources (Netokracija guide, CISEx LinkedIn, Feedspot Croatia). Podbean + Spotify URL active; 53-min avg confirmed by Feedspot."
+  },
+  {
+    "name": "Nominis (Neuralab + eCommerce Hrvatska)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/us/podcast/nominis-podcast-s-ljudima-na-dobrom-glasu-powered-by/id1571245783",
+    "web_url": "https://www.neuralab.net/category/podcasts/",
+    "hosts": [
+      "Saša Tenodi",
+      "Marcel Majsan"
+    ],
+    "description": "Najveći eCommerce podcast u regiji; intervjui s clanovima eCommerce Hrvatska udruge (300 web trgovaca + 100 servisera). Teme: e-mail marketing, cybersecurity, logistika, eCommerce zakonodavstvo.",
+    "suggested_tags": [
+      "technology",
+      "ecommerce",
+      "business",
+      "digital",
+      "interview"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 80,
+    "confidence": "high",
+    "evidence": "Apple Podcasts URL active; Neuralab company-published episodes through ep 073+; biweekly schedule."
+  },
+  {
+    "name": "Spanoptic (Span)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/us/podcast/spanoptic/id1581405825",
+    "web_url": "https://podtail.com/podcast/spanoptic/",
+    "hosts": [
+      "Slaven Mišak"
+    ],
+    "description": "Tehnoloski podcast tvrtke Span; monthly format gdje IT stručnjaci diskutiraju o trendovima u industriji — cybersecurity, zero-day napadi, digitalna transformacija (Neostar case study).",
+    "suggested_tags": [
+      "technology",
+      "cybersecurity",
+      "enterprise-it"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 20,
+    "confidence": "high",
+    "evidence": "Bug.hr coverage (article id=21128); episode 14, 15+ found on YouTube; Apple Podcasts feed live."
+  },
+  {
+    "name": "Highway to Scale (Bornfight)",
+    "youtube_url": null,
+    "spotify_url": "https://open.spotify.com/show/5mAlJNg2JXCoo0WME9maBz",
+    "apple_url": "https://podcasts.apple.com/us/podcast/highway-to-scale/id1568089927",
+    "web_url": "https://www.bornfight.com/",
+    "hosts": [],
+    "description": "Tjedni podcast tvrtke Bornfight (digital innovation agency Zagreb); intervjui s međunarodnim CEO/foundersima iz growth-stage tvrtki (Rainmaking, Digip, Blazar Capital, Nordgreen). Jezik: engleski; 4 nove epizode mjesečno.",
+    "suggested_tags": [
+      "technology",
+      "startup",
+      "entrepreneurship",
+      "english"
+    ],
+    "platform_primary": "spotify",
+    "activity_status": "active",
+    "episodes_estimate": 60,
+    "confidence": "high",
+    "evidence": "Apple + Spotify feeds active; CISEx article confirms; specific named episode guests confirmed."
+  },
+  {
+    "name": "Games Croatia Podcast",
+    "youtube_url": "https://www.youtube.com/@gamescroatia",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.gamescroatia.com/activities/gamescroatia/podcast",
+    "hosts": [
+      "Benjamin Noah Maričak"
+    ],
+    "description": "Behind-the-scenes hrvatske gaming industrije, inicijativa HAVC (Hrvatski audiovizualni centar). 8 epizoda u 2025; predstavlja lokalne studije i developere.",
+    "suggested_tags": [
+      "gaming",
+      "technology",
+      "industry"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 8,
+    "confidence": "high",
+    "evidence": "gamescroatia.com official page; 2025 launch with 8 episodes confirmed."
+  },
+  {
+    "name": "Alice in Blockchains",
+    "youtube_url": null,
+    "spotify_url": "https://open.spotify.com/show/28TP70DW9zTCsCbE0SuwtW",
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Katarina Mihalj"
+    ],
+    "description": "Podcast udruge Alice in Blockchains; teme fintech, crypto, blockchain industrije. Audio + video format u suradnji s Podcast Hrvatska.",
+    "suggested_tags": [
+      "technology",
+      "blockchain",
+      "crypto",
+      "fintech"
+    ],
+    "platform_primary": "spotify",
+    "activity_status": "active",
+    "episodes_estimate": 30,
+    "confidence": "high",
+    "evidence": "Spotify show URL active; described in multiple sources."
+  },
+  {
+    "name": "StartUp Rant",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Miroslav Žarić"
+    ],
+    "description": "Tjedni podcast startup foundera Miroslava Žarića o izazovima i iskustvima foundera.",
+    "suggested_tags": [
+      "startup",
+      "entrepreneurship",
+      "technology"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 40,
+    "confidence": "medium",
+    "evidence": "Netokracija guide lists as active weekly; YouTube + Spotify mentioned."
+  },
+  {
+    "name": "Surove strasti",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://surovestrasti.com",
+    "hosts": [
+      "Saša Tenodi",
+      "Ivan Voras"
+    ],
+    "description": "Broj 1 audio podcast za biznis & lifestyle u regiji; 350+ epizoda. Saša Tenodi je NLP trener/socijalni pedagog, Ivan Voras je poduzetnik. Tech-adjacent — gosti uključuju i hrvatske tech foundere. Cross-referenced kao Nominis host.",
+    "suggested_tags": [
+      "business",
+      "entrepreneurship",
+      "interview",
+      "lifestyle"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 350,
+    "confidence": "high",
+    "evidence": "Netokracija + Manjgura guides; surovestrasti.com active; 350+ episodes confirmed."
+  },
+  {
+    "name": "FOI Business Talks",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Mjesečni podcast Fakulteta organizacije i informatike (FOI Varaždin); alumni success stories — business + akademski svijet.",
+    "suggested_tags": [
+      "technology",
+      "education",
+      "business",
+      "academic"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 15,
+    "confidence": "medium",
+    "evidence": "Netokracija guide; FOI Varaždin official."
+  },
+  {
+    "name": "Dan Za Podcast (Kontra Agency)",
+    "youtube_url": "https://www.youtube.com/watch?v=zmIvs_M9hNk",
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/bh/podcast/dan-za-podcast/id1483952868",
+    "web_url": "https://podtail.com/podcast/dan-za-vlog/",
+    "hosts": [
+      "Petar Bogdan",
+      "Tibor Trupec"
+    ],
+    "description": "Hrvatski podcast za ljubitelje digitalnog marketinga, tehnologije i biznisa. Gosti: uspješni poduzetnici i CEO-ovi (Nikola Kapraljević/Infinum, Krešimir Macan/Manjgura).",
+    "suggested_tags": [
+      "digital",
+      "marketing",
+      "technology",
+      "business",
+      "interview"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 50,
+    "confidence": "high",
+    "evidence": "Apple Podcasts feed live; named episodes (Infinum, Manjgura) confirmed on YouTube."
+  },
+  {
+    "name": "Razgovori o slobodnom softveru",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://podcast.linux.hr/",
+    "hosts": [
+      "Dobrica Pavlinušić",
+      "Vedran Miletić",
+      "Vlatko Košturjak"
+    ],
+    "description": "Dugogodišnji hrvatski open-source / Linux podcast — razgovori o slobodnom softveru, otvorenim formatima (ODF, PDF), Android developmentu, testiranju, konferencijama. Voditelji su veterani hrvatske FOSS scene.",
+    "suggested_tags": [
+      "technology",
+      "open-source",
+      "linux",
+      "developer",
+      "engineering"
+    ],
+    "platform_primary": "web",
+    "activity_status": "dormant",
+    "episodes_estimate": 30,
+    "confidence": "high",
+    "evidence": "podcast.linux.hr active site; archive sections (Vijesti, Razgovori); named hosts confirmed in archive."
+  },
+  {
+    "name": "King ICT Press Play",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://pressplay.king-ict.eu/",
+    "hosts": [],
+    "description": "Podcast tvrtke King ICT (leading regional ICT solutions provider, 500+ zaposlenih, od 1998). Gosti su IT stručnjaci; teme: enterprise IT, GIS, project management, partneri, light/lifestyle.",
+    "suggested_tags": [
+      "technology",
+      "enterprise-it",
+      "business"
+    ],
+    "platform_primary": "web",
+    "activity_status": "active",
+    "episodes_estimate": 25,
+    "confidence": "high",
+    "evidence": "pressplay.king-ict.eu official site live; LinkedIn King ICT confirmed company; company has dedicated podcast subsite."
+  },
+  {
+    "name": "ICT Insider (Lider Media + A1 Hrvatska)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://lidermedia.hr/podcast/ict-insider-novi-podcast-o-tehnologiji-koja-pokrece-biznis/",
+    "hosts": [
+      "Sandra Babić"
+    ],
+    "description": "Novi podcast serija (2025) Lider Medije u suradnji s A1 Hrvatska; teme: tehnologija koja pokreće biznis, data centers, cloud infrastructure, ICT industrija. Prva epizoda: Marko Teklić (A1).",
+    "suggested_tags": [
+      "technology",
+      "business",
+      "enterprise-it",
+      "media"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 5,
+    "confidence": "high",
+    "evidence": "Lider Media official podcast page; YouTube + Spotify distribution confirmed."
+  },
+  {
+    "name": "Kompare.hr AI Podcast",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.kompare.hr/",
+    "hosts": [],
+    "description": "Prvi 100% AI-generirani podcast na hrvatskom jeziku (2025); pokreće ga Google NotebookLM. Bez ljudskog hosta, 10-min epizode generirane iz 100+ blog postova kompare.hr.",
+    "suggested_tags": [
+      "technology",
+      "ai",
+      "experimental",
+      "novelty"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 10,
+    "confidence": "high",
+    "evidence": "CroPC + Glas Slavonije launch articles (svibanj 2025); Karlo König (marketing director) named; published on YouTube/Spotify/Apple."
+  },
+  {
+    "name": "Voices of The Future",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://europeforus.net.hr/",
+    "hosts": [
+      "Borna Rastović Rasta"
+    ],
+    "description": "Podcast EU-tematike za mlade gledatelje; nova sezona otvorena s AI temom (gost: Hrvoje Odak, RTL Hrvatska AI ambassador). Druge epizode pokrivaju europsku kinematografiju, EU institucije.",
+    "suggested_tags": [
+      "technology",
+      "ai",
+      "society",
+      "media",
+      "europe"
+    ],
+    "platform_primary": "web",
+    "activity_status": "active",
+    "episodes_estimate": 10,
+    "confidence": "medium",
+    "evidence": "EuropeForUs/Net.hr article; Hrvoje Odak guest episode confirmed; host Borna Rastović Rasta named."
+  },
+  {
+    "name": "Global Fokus (N1 Hrvatska)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/us/podcast/n1-hrvatska-global-fokus-s-ivanom-dragi%C4%8Devi%C4%87/id1617105364",
+    "web_url": "https://hr.n1info.com/tag/global-fokus/",
+    "hosts": [
+      "Ivana Dragičević"
+    ],
+    "description": "N1 Hrvatska podcast novinarke Ivane Dragičević; teme uključuju umjetnu inteligenciju, digitalnu transformaciju, klimu, geopolitiku, pandemije, rat. Mjesečno (zadnji petak).",
+    "suggested_tags": [
+      "technology",
+      "ai",
+      "geopolitics",
+      "media",
+      "interview"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 40,
+    "confidence": "high",
+    "evidence": "Apple Podcasts feed live; N1 publisher; multiple distribution platforms (Spotify, Deezer, Castbox)."
+  },
+  {
+    "name": "Retronauti — Hrvatski retro podcast o popkulturi",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/ie/podcast/a-knights-tale-legenda-o-vitezu/id1532416105",
+    "web_url": "https://soundcloud.com/retronautipodcast",
+    "hosts": [],
+    "description": "Hrvatski retro podcast o popkulturi; teme: filmovi, glazba, video igre, TV serije. Nostalgična refleksija pop-kulture koja je oblikovala generaciju. Gaming je značajan dio sadržaja.",
+    "suggested_tags": [
+      "gaming",
+      "pop-culture",
+      "entertainment",
+      "media"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 50,
+    "confidence": "high",
+    "evidence": "Apple Podcasts + SoundCloud + Instagram active; multiple platforms confirmed."
+  },
+  {
+    "name": "Eduza",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Višnja Željeznak"
+    ],
+    "description": "Video podcast Višnje Željeznak (cross-over s Logit); fokus na business education skills, kreiranje i promicanje kvalitetnih business edukacija.",
+    "suggested_tags": [
+      "business",
+      "education",
+      "technology"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 30,
+    "confidence": "medium",
+    "evidence": "Manjgura podcast guide; Višnja Željeznak već u registry (Logit) — sibling project."
+  },
+  {
+    "name": "DBL Podcast",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Siniša Drobnjak"
+    ],
+    "description": "Video podcast Siniše Drobnjaka (serijski poduzetnik); intervjui s poduzetnicima i zdravstvenim stručnjacima; teme business knowledge + personal growth.",
+    "suggested_tags": [
+      "business",
+      "entrepreneurship",
+      "interview"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 50,
+    "confidence": "medium",
+    "evidence": "Manjgura podcast guide; YouTube distribution mentioned."
+  },
+  {
+    "name": "Prodajni Mindset",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Saša Tenodi",
+      "Vedran Sorić"
+    ],
+    "description": "Video podcast (Časopis Poduzetnik channel); intervjui s top hrvatskim prodavačima; demistificiranje prodajnih koncepata. Cross-host sa Surove strasti i Nominis (Saša Tenodi).",
+    "suggested_tags": [
+      "business",
+      "sales",
+      "entrepreneurship"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 80,
+    "confidence": "medium",
+    "evidence": "Manjgura podcast guide; Jordan Belfort 2023 konferencija reference."
+  },
+  {
+    "name": "A1 GameOn (by Podcast Inkubator)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Video podcast (gaming industrija); funded by A1 Telekom; producent Podcast Inkubator. Diskusije o gaming industriji u Hrvatskoj.",
+    "suggested_tags": [
+      "gaming",
+      "technology",
+      "industry"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 30,
+    "confidence": "medium",
+    "evidence": "Manjgura podcast guide; Podcast Inkubator Instagram (reel C_vu9i5Obgw); A1 sponsor."
+  },
+  {
+    "name": "Crypto Hrvatska (YouTube)",
+    "youtube_url": "https://www.youtube.com/channel/UCa5qsLyrzhs5zuGGg8dgyBg",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Hrvatski YouTube kanal o kriptovalutama; pokriva najnovije vijesti, analize i trendove — Bitcoin, altcoins, blockchain. Više video commentary nego klasični podcast format.",
+    "suggested_tags": [
+      "crypto",
+      "blockchain",
+      "technology"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 100,
+    "confidence": "medium",
+    "evidence": "YouTube channel URL active; widely cited Croatian crypto resource."
+  },
+  {
+    "name": "Bitcoin Edukacija",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/sg/podcast/bitcoin-edukacija/id1556761134",
+    "web_url": null,
+    "hosts": [],
+    "description": "Hrvatski edukacijski podcast koji jednostavno objašnjava Bitcoin, blockchain i kriptovalute koristeći metafore iz svakodnevnog života. Manja produkcija.",
+    "suggested_tags": [
+      "crypto",
+      "blockchain",
+      "education",
+      "technology"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "dormant",
+    "episodes_estimate": 15,
+    "confidence": "medium",
+    "evidence": "Apple Podcasts feed; description from podcast metadata."
+  },
+  {
+    "name": "Atomski marketing podcast",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Marijan Palić"
+    ],
+    "description": "Marketing podcast Marijana Palića (poznata figura hrvatske digital marketing scene). Status: pauziran, ali catalogue-worthy.",
+    "suggested_tags": [
+      "digital",
+      "marketing",
+      "business"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "dormant",
+    "episodes_estimate": 20,
+    "confidence": "medium",
+    "evidence": "Netokracija guide marks as paused; Marijan Palić known marketer."
+  },
+  {
+    "name": "Birc Talk",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Petar Starčević",
+      "Oliver Petrović"
+    ],
+    "description": "Tech podcast (inactive od ožujka 2021); legacy entry za katalog. Tema: tech/business razgovori.",
+    "suggested_tags": [
+      "technology",
+      "business"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "dead",
+    "episodes_estimate": 20,
+    "confidence": "medium",
+    "evidence": "Netokracija guide marks as inactive since March 2021."
+  },
+  {
+    "name": "The Podcast (Igor Vuk)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Igor Vuk"
+    ],
+    "description": "General intervju podcast Igora Vuka (drugi projekt, ne Libos Posla); status: pauziran.",
+    "suggested_tags": [
+      "interview",
+      "business",
+      "technology"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "dormant",
+    "episodes_estimate": 20,
+    "confidence": "low",
+    "evidence": "Netokracija guide lists as paused; Igor Vuk's second project."
+  },
+  {
+    "name": "S-Misao Podcast",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Studentski podcast (status: pauziran); akademski/tech kontekst.",
+    "suggested_tags": [
+      "education",
+      "academic",
+      "student"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "dormant",
+    "episodes_estimate": 10,
+    "confidence": "low",
+    "evidence": "Netokracija guide; minimal details available."
+  },
+  {
+    "name": "Nedovršena zemlja",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "D&D / tabletop RPG podcast (status: pauziran); four friends gaming sessions.",
+    "suggested_tags": [
+      "gaming",
+      "tabletop-rpg",
+      "entertainment"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "dormant",
+    "episodes_estimate": 15,
+    "confidence": "low",
+    "evidence": "Netokracija guide marks as paused; D&D theme confirmed."
+  },
+  {
+    "name": "Zmaj BLA",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Tim Zmajeva Garaža — Dungeons & Dragons + tabletop RPG gaming podcast; no fixed schedule. Aktivan ali sporadičan.",
+    "suggested_tags": [
+      "gaming",
+      "tabletop-rpg",
+      "entertainment"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 20,
+    "confidence": "medium",
+    "evidence": "Netokracija guide lists as active w/ no fixed schedule; Zmajeva Garaža is a real HR D&D community."
+  },
+  {
+    "name": "Croatian/Yugoslav Computing History (Bug.hr serials)",
+    "youtube_url": null,
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.bug.hr/",
+    "hosts": [],
+    "description": "Bug.hr serije video razgovora u .debug TV studiju; partner kompanija prezentacije. Više video content nego klasični podcast, ali catalogue-worthy.",
+    "suggested_tags": [
+      "technology",
+      "developer",
+      "industry",
+      "media"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 50,
+    "confidence": "low",
+    "evidence": "bug.hr mentions of .debug TV studio talks; not a single named podcast — more of a content stream."
+  }
+]

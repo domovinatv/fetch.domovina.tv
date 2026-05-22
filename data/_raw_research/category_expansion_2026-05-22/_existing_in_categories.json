@@ -1,0 +1,630 @@
+{
+  "science": [
+    {
+      "slug": "ideje-hr",
+      "display_name": "Ideje.hr",
+      "url": "https://www.youtube.com/playlist?list=PLDOWbnwbQ5EPNDIGHuzvnPVlbDhIC3YdZ",
+      "voditelji": [
+        "Domagoj Novokmet"
+      ],
+      "tags": [
+        "political",
+        "philosophy",
+        "science"
+      ]
+    },
+    {
+      "slug": "podkist-fer",
+      "display_name": "Podkist (FER)",
+      "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+      "voditelji": [],
+      "tags": [
+        "science",
+        "technology",
+        "education"
+      ]
+    },
+    {
+      "slug": "kuhinjski-element",
+      "display_name": "Kuhinjski Element",
+      "url": "https://www.youtube.com/playlist?list=PLsC6O92E0tBgz7cp1erPybA3VJVson3n1",
+      "voditelji": [
+        "Saša Ceci",
+        "Martina Manenica",
+        "Vida Strasser"
+      ],
+      "tags": [
+        "science",
+        "education"
+      ]
+    },
+    {
+      "slug": "slusalica-penkala",
+      "display_name": "Slušalica (Udruga Penkala)",
+      "url": "https://www.youtube.com/channel/UCDUU6qRAr2FozxtRoZxb6PA",
+      "voditelji": [],
+      "tags": [
+        "science",
+        "education"
+      ]
+    },
+    {
+      "slug": "hcpi-podcast",
+      "display_name": "HCPI Podcast - Potresne priče",
+      "url": "https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn",
+      "voditelji": [],
+      "tags": [
+        "education",
+        "science",
+        "engineering"
+      ]
+    }
+  ],
+  "tech": [
+    {
+      "slug": "catholic-futurist",
+      "display_name": "Catholic Futurist",
+      "url": "https://www.youtube.com/@CatholicFuturist/videos",
+      "voditelji": [],
+      "tags": [
+        "religious-catholic",
+        "technology"
+      ]
+    },
+    {
+      "slug": "domovina-tv",
+      "display_name": "DOMOVINA.tv",
+      "url": "https://www.youtube.com/@domovinatv/videos",
+      "voditelji": [],
+      "tags": [
+        "own-channel",
+        "domoljubni",
+        "technology"
+      ]
+    },
+    {
+      "slug": "rebootcast",
+      "display_name": "Rebootcast (Reboot magazine)",
+      "url": "https://www.youtube.com/user/rebootmag",
+      "voditelji": [
+        "Luka Žučko",
+        "Matko Pavlić",
+        "Ivan Medak"
+      ],
+      "tags": [
+        "gaming"
+      ]
+    },
+    {
+      "slug": "netokracija",
+      "display_name": "Netokracija (Office Talks)",
+      "url": "https://www.youtube.com/@NetokracijaYT",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "business"
+      ]
+    },
+    {
+      "slug": "logit",
+      "display_name": "Logit / Logit Live",
+      "url": "https://www.youtube.com/c/Logitnet/streams",
+      "voditelji": [
+        "Višnja Željeznjak"
+      ],
+      "tags": [
+        "business",
+        "technology"
+      ]
+    },
+    {
+      "slug": "hcl-podcast",
+      "display_name": "HCL Podcast",
+      "url": "https://www.youtube.com/@HCLGamingPortal",
+      "voditelji": [
+        "Igor Belan",
+        "Zoran Žalac"
+      ],
+      "tags": [
+        "gaming"
+      ]
+    },
+    {
+      "slug": "podkist-fer",
+      "display_name": "Podkist (FER)",
+      "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+      "voditelji": [],
+      "tags": [
+        "science",
+        "technology",
+        "education"
+      ]
+    },
+    {
+      "slug": "brutzcast",
+      "display_name": "BrützCast",
+      "url": null,
+      "voditelji": [
+        "Duki420",
+        "Marko Ševa"
+      ],
+      "tags": [
+        "gaming"
+      ]
+    },
+    {
+      "slug": "0800-devops",
+      "display_name": "0800-DEVOPS",
+      "url": null,
+      "voditelji": [
+        "Ivan Krnić"
+      ],
+      "tags": [
+        "technology"
+      ]
+    },
+    {
+      "slug": "heinzelova-33",
+      "display_name": "Heinzelova 33",
+      "url": null,
+      "voditelji": [
+        "Viktor Marohnić"
+      ],
+      "tags": [
+        "technology",
+        "entrepreneurship"
+      ]
+    },
+    {
+      "slug": "netokracija-office-talks",
+      "display_name": "Netokracija — Office Talks Podcast",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "interview"
+      ]
+    },
+    {
+      "slug": "netokracija-podcast",
+      "display_name": "Netokracija — Netokracija Podcast",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "interview"
+      ]
+    },
+    {
+      "slug": "netokracija-slazem-se-ne",
+      "display_name": "Netokracija — Slažem se...Ne!",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "debate"
+      ]
+    },
+    {
+      "slug": "netokracija-digitalni-dorucak",
+      "display_name": "Netokracija — Digitalni doručak",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital"
+      ]
+    },
+    {
+      "slug": "netokracija-1on1",
+      "display_name": "Netokracija — 1on1",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "interview"
+      ]
+    },
+    {
+      "slug": "netokracija-ladies-of-new-business",
+      "display_name": "Netokracija — Ladies of New Business",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "business",
+        "women"
+      ]
+    },
+    {
+      "slug": "netokracija-hrvatska",
+      "display_name": "Netokracija — Hrvatska",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "regional"
+      ]
+    }
+  ],
+  "arts_film": [
+    {
+      "slug": "sapere-aude",
+      "display_name": "Sapere Aude Cro",
+      "url": "https://www.youtube.com/@SapereAudeCro/videos",
+      "voditelji": [],
+      "tags": [
+        "philosophy",
+        "culture"
+      ]
+    },
+    {
+      "slug": "popcast-pavicic",
+      "display_name": "Popcast by Darko Pavičić",
+      "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU",
+      "voditelji": [
+        "Darko Pavičić"
+      ],
+      "tags": [
+        "society",
+        "religious-catholic",
+        "culture"
+      ]
+    },
+    {
+      "slug": "podcast-inkubator-mysterium",
+      "display_name": "Mysterium",
+      "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+      "voditelji": [
+        "Ratko Martinović",
+        "D. Pintarić"
+      ],
+      "tags": [
+        "geopolitics",
+        "mystery"
+      ]
+    },
+    {
+      "slug": "nemoj-me",
+      "display_name": "nemoj me. (Maša Zibar)",
+      "url": "https://www.youtube.com/channel/UCIIMBF5bE6dmjLBLug7fzUQ",
+      "voditelji": [
+        "Maša Zibar",
+        "Filip Jančik",
+        "Nina Remenar"
+      ],
+      "tags": [
+        "pop-culture",
+        "lifestyle"
+      ]
+    },
+    {
+      "slug": "all-things-croatia",
+      "display_name": "All Things Croatia",
+      "url": "https://www.youtube.com/@allthingscroatia",
+      "voditelji": [
+        "Stanko Zovak"
+      ],
+      "tags": [
+        "diaspora",
+        "culture"
+      ]
+    },
+    {
+      "slug": "croatian-american",
+      "display_name": "Croatian/American",
+      "url": null,
+      "voditelji": [
+        "Gaj Tomaš",
+        "C.M. Brown"
+      ],
+      "tags": [
+        "diaspora",
+        "culture"
+      ]
+    },
+    {
+      "slug": "bliski-susreti-jezicne-vrste",
+      "display_name": "Bliski susreti jezične vrste",
+      "url": "https://www.youtube.com/playlist?list=PL8mo50pgDSnA0RFGO5AYe7BHMabdIFTJE",
+      "voditelji": [
+        "Gaj Tomaš"
+      ],
+      "tags": [
+        "language",
+        "culture"
+      ]
+    },
+    {
+      "slug": "iza-okvira",
+      "display_name": "Iza Okvira",
+      "url": "https://www.youtube.com/@izaokvira4383",
+      "voditelji": [
+        "Karla Mihaljević",
+        "Ivan Franko"
+      ],
+      "tags": [
+        "comedy",
+        "lifestyle"
+      ]
+    },
+    {
+      "slug": "dalmacija-podcast",
+      "display_name": "Dalmacija Podcast",
+      "url": "https://www.youtube.com/channel/UCAYpITaR1fJnM-JdPuO19Ew",
+      "voditelji": [],
+      "tags": [
+        "regional-media",
+        "lifestyle",
+        "culture"
+      ]
+    },
+    {
+      "slug": "audijalog",
+      "display_name": "Audijalog",
+      "url": "https://www.youtube.com/@Audijalog",
+      "voditelji": [],
+      "tags": [
+        "culture"
+      ]
+    },
+    {
+      "slug": "kuzimo-filmove",
+      "display_name": "Kužimo filmove?",
+      "url": null,
+      "voditelji": [
+        "Dorian Sabo",
+        "Bruno Koić"
+      ],
+      "tags": [
+        "culture"
+      ]
+    },
+    {
+      "slug": "lets-learn-croatian",
+      "display_name": "Let's Learn Croatian",
+      "url": "https://www.youtube.com/c/LetsLearnCroatian",
+      "voditelji": [
+        "Uncle Mike",
+        "Tony D",
+        "DJ Moe"
+      ],
+      "tags": [
+        "language",
+        "diaspora",
+        "culture"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "slug": "projekt-velebit",
+      "display_name": "Podcast Velebit (Projekt Velebit)",
+      "url": "https://www.youtube.com/@projektvelebit6100/videos",
+      "voditelji": [
+        "Marko Jurič",
+        "Janja Franko",
+        "Tomislav Sunić",
+        "Dinko Dedić"
+      ],
+      "tags": [
+        "political",
+        "history",
+        "domoljubni",
+        "geopolitics"
+      ]
+    },
+    {
+      "slug": "domovinski-rat-borna-marinic",
+      "display_name": "Gdje si bio '91? (Borna Marinić)",
+      "url": "https://music.youtube.com/channel/UCpXfcdXulKYTBO3DNBFWMjQ",
+      "voditelji": [
+        "Borna Marinić"
+      ],
+      "tags": [
+        "history",
+        "domovinski-rat",
+        "domoljubni"
+      ]
+    },
+    {
+      "slug": "pogled-s-cuke",
+      "display_name": "Pogled s Čuke",
+      "url": "https://www.youtube.com/c/pogledscuke",
+      "voditelji": [
+        "Jozo",
+        "Peco"
+      ],
+      "tags": [
+        "domovinski-rat",
+        "history",
+        "domoljubni"
+      ]
+    },
+    {
+      "slug": "povijest-cetvrtkom",
+      "display_name": "Povijest četvrtkom",
+      "url": "https://www.youtube.com/@Povijestcetvrtkom",
+      "voditelji": [
+        "Dario Špelić"
+      ],
+      "tags": [
+        "history"
+      ]
+    }
+  ],
+  "regional": [
+    {
+      "slug": "radio-mreznica",
+      "display_name": "Radio Mrežnica (Podcast Mrežnica)",
+      "url": "https://www.youtube.com/@radiomreznica2174/videos",
+      "voditelji": [],
+      "tags": [
+        "regional-media",
+        "geopolitics"
+      ]
+    },
+    {
+      "slug": "gorica-tv",
+      "display_name": "Gorica TV",
+      "url": "https://www.youtube.com/@GoricaTV/videos",
+      "voditelji": [],
+      "tags": [
+        "regional-media"
+      ]
+    },
+    {
+      "slug": "hercegovina-info",
+      "display_name": "Hercegovina Info",
+      "url": "https://www.youtube.com/@HercegovinaInfo2/videos",
+      "voditelji": [],
+      "tags": [
+        "regional-media"
+      ]
+    },
+    {
+      "slug": "laudato-tv",
+      "display_name": "Laudato TV",
+      "url": "https://www.youtube.com/@LaudatoTV/videos",
+      "voditelji": [],
+      "tags": [
+        "religious-catholic",
+        "regional-media"
+      ]
+    },
+    {
+      "slug": "z1-televizija",
+      "display_name": "Z1 Televizija",
+      "url": "https://www.youtube.com/@z1televizija/videos",
+      "voditelji": [],
+      "tags": [
+        "regional-media",
+        "media"
+      ]
+    },
+    {
+      "slug": "putoholicari",
+      "display_name": "Putoholicari",
+      "url": "https://www.youtube.com/@Putoholicari",
+      "voditelji": [],
+      "tags": [
+        "travel",
+        "tourism"
+      ]
+    },
+    {
+      "slug": "turizam24",
+      "display_name": "Turizam24",
+      "url": "https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA",
+      "voditelji": [],
+      "tags": [
+        "tourism"
+      ]
+    },
+    {
+      "slug": "all-things-croatia",
+      "display_name": "All Things Croatia",
+      "url": "https://www.youtube.com/@allthingscroatia",
+      "voditelji": [
+        "Stanko Zovak"
+      ],
+      "tags": [
+        "diaspora",
+        "culture"
+      ]
+    },
+    {
+      "slug": "croatian-american",
+      "display_name": "Croatian/American",
+      "url": null,
+      "voditelji": [
+        "Gaj Tomaš",
+        "C.M. Brown"
+      ],
+      "tags": [
+        "diaspora",
+        "culture"
+      ]
+    },
+    {
+      "slug": "dalmacija-podcast",
+      "display_name": "Dalmacija Podcast",
+      "url": "https://www.youtube.com/channel/UCAYpITaR1fJnM-JdPuO19Ew",
+      "voditelji": [],
+      "tags": [
+        "regional-media",
+        "lifestyle",
+        "culture"
+      ]
+    },
+    {
+      "slug": "brodcast",
+      "display_name": "Brodcast",
+      "url": "https://www.youtube.com/@Brodcasteu",
+      "voditelji": [
+        "Klara Tuličić Tenkai"
+      ],
+      "tags": [
+        "regional-media",
+        "society"
+      ]
+    },
+    {
+      "slug": "lets-learn-croatian",
+      "display_name": "Let's Learn Croatian",
+      "url": "https://www.youtube.com/c/LetsLearnCroatian",
+      "voditelji": [
+        "Uncle Mike",
+        "Tony D",
+        "DJ Moe"
+      ],
+      "tags": [
+        "language",
+        "diaspora",
+        "culture"
+      ]
+    },
+    {
+      "slug": "croatiansports-podcast",
+      "display_name": "CroatianSports Podcast",
+      "url": "https://www.youtube.com/@croatiansports",
+      "voditelji": [
+        "Lovre Nikolac"
+      ],
+      "tags": [
+        "sport",
+        "diaspora"
+      ]
+    },
+    {
+      "slug": "sbs-croatian",
+      "display_name": "SBS Croatian",
+      "url": "https://www.youtube.com/playlist?list=PLA65Ww7iGS2p1nzZlgZ6mA1lX_vHZfCQk",
+      "voditelji": [],
+      "tags": [
+        "media",
+        "diaspora"
+      ]
+    },
+    {
+      "slug": "netokracija-hrvatska",
+      "display_name": "Netokracija — Hrvatska",
+      "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2",
+      "voditelji": [],
+      "tags": [
+        "technology",
+        "digital",
+        "regional"
+      ]
+    }
+  ]
+}

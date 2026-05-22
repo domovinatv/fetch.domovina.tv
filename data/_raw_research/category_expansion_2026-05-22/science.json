@@ -1,0 +1,358 @@
+[
+  {
+    "name": "MUZZA — Ljudi koji čine razliku",
+    "youtube_url": "https://www.youtube.com/@udrugamuzza",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://muzza.hr/podcast/",
+    "hosts": [
+      "Mladenka Šarić"
+    ],
+    "description": "Podcast Udruge MUZZA u partnerstvu sa Sveučilištem u Zagrebu. Razgovori sa znanstvenicima i inovatorima koji svojim radom čine stvarnu razliku — životne i motivacijske priče. Voditeljica Mladenka Šarić (iskusna novinarka). Objavljuje se naizmjenično sa 'Svi naši svjetovi'.",
+    "suggested_tags": [
+      "science",
+      "education",
+      "stem"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 20,
+    "confidence": "high",
+    "evidence": "Verificirano kroz muzza.hr/podcast/ web scrape — kanal @udrugamuzza, dva podcasta pokrenuta 2024; potvrđeno kroz hellomagazin.hr i HRT članke."
+  },
+  {
+    "name": "MUZZA — Svi naši svjetovi",
+    "youtube_url": "https://www.youtube.com/@udrugamuzza",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://muzza.hr/podcast/",
+    "hosts": [
+      "Luka Miholić"
+    ],
+    "description": "Druga MUZZA serija (na istom kanalu @udrugamuzza) — mlađi format: srednjoškolski voditelj Luka Miholić sa srednjoškolskim suvoditeljima raspravlja s gostima-stručnjacima o temama relevantnima mladima (mentalno zdravlje, odnosi, karijera, društvene mreže). STEM popularizacija za teen publiku.",
+    "suggested_tags": [
+      "science",
+      "education",
+      "youth",
+      "mental-health"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 15,
+    "confidence": "high",
+    "evidence": "Verificirano kroz muzza.hr scrape — isti kanal kao 'Ljudi koji čine razliku', objava petkom naizmjenično."
+  },
+  {
+    "name": "Akademski podcast (Sveučilište u Zagrebu)",
+    "youtube_url": "https://www.youtube.com/@akademskipodcast",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.akademski.hr/",
+    "hosts": [],
+    "description": "Službeni podcast Sveučilišta u Zagrebu kao treća medijska platforma (uz Akademski list + akademski.hr portal). Razgovori sa studentima, profesorima i ekspertima o znanosti, obrazovanju, kulturi, umjetnosti i tehnologiji. Plan 2 epizode mjesečno. Dostupno na YouTube, Spotify, Apple Podcasts.",
+    "suggested_tags": [
+      "science",
+      "education",
+      "academic"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 25,
+    "confidence": "high",
+    "evidence": "Potvrđeno kroz unizg.hr i foi.unizg.hr službene priopćenja; postoje epizode #6, #8 itd. dokumentirane na akademski.hr."
+  },
+  {
+    "name": "Ruđer Podcast (TŠRB)",
+    "youtube_url": "https://www.youtube.com/playlist?list=PLdcKUAOeftW6uOsBVg2543ilN3WWgGwNA",
+    "spotify_url": "https://open.spotify.com/show/1JYfrPGq79qPpT5BG6ZvSP",
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [],
+    "description": "Školski projekt knjižnice Tehničke škole Ruđer Bošković u Zagrebu — učenici sami snimaju, montiraju i objavljuju video epizode po školskoj godini. Edukativne teme: matematika, financije, jezici, optika, struka. NIJE Institut Ruđer Bošković (česta zabuna). Najmanje 2 sezone.",
+    "suggested_tags": [
+      "education",
+      "science",
+      "youth"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 20,
+    "confidence": "high",
+    "evidence": "YouTube playlist URL verificiran; Spotify show postoji; 1. sezona i 2. sezona dokumentirane na sites.google.com/view/bez-uveza."
+  },
+  {
+    "name": "Ruđerov interaktivni labos (Institut Ruđer Bošković)",
+    "youtube_url": "https://www.youtube.com/channel/UCzpW25kRydkImb6R8ARGzSw",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.irb.hr/",
+    "hosts": [],
+    "description": "Službeni edukativni kanal Instituta Ruđer Bošković. Znanstvenici donose znanost u domove i škole kroz eksperimente, predavanja, intervjue s znanstvenicima i animirane video objašnjenja. Pokrenuto kao online izdanje Otvorenog dana Instituta. Format: kraće edukativne video lekcije, neki sadržaj duži format (predavanja).",
+    "suggested_tags": [
+      "science",
+      "education",
+      "stem"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 80,
+    "confidence": "high",
+    "evidence": "Channel URL verificiran kroz irb.hr novosti i HRT članke; Instagram @interaktivni_labos_irb potvrđuje brand."
+  },
+  {
+    "name": "DigiLab NSK Podcasti",
+    "youtube_url": "https://www.youtube.com/channel/UCM2A6a_hJkjmoLX9b6rVJXQ",
+    "spotify_url": "https://open.spotify.com/show/5tX8YNWSfGGURloRLzxDjJ",
+    "apple_url": null,
+    "web_url": "https://digilabnskpodcast.podbean.com/",
+    "hosts": [],
+    "description": "Platforma za podcaste Nacionalne i sveučilišne knjižnice u Zagrebu (Digitalni laboratorij NSK). Šest serija: 'Beli Zagreb Grad', 'Mladi znanstvenici među nama', 'Gdje ideje idu?', 'ZKDruškanje', 'Moć knjige', 'Lov na govor'. Financirano kroz MK 2021. Pokriva kulturu, kreativne industrije, znanost i edukaciju.",
+    "suggested_tags": [
+      "science",
+      "education",
+      "culture",
+      "library"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 60,
+    "confidence": "high",
+    "evidence": "YouTube channel, Spotify show, Podbean URL verificirani; potvrđeno kroz Facebook NSK posts i Deezer."
+  },
+  {
+    "name": "Mladi znanstvenici među nama (DigiLab NSK)",
+    "youtube_url": "https://www.youtube.com/watch?v=D_j3FI7dys0",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://digilabnskpodcast.podbean.com/",
+    "hosts": [],
+    "description": "Pojedinačna serija unutar DigiLab NSK Podcasti — predstavlja mlade hrvatske znanstvenike i njihove inovativne projekte. Prva epizoda: Jan Homolak (Medicinski fakultet, farmakologija). Format: razgovori s mladim istraživačima o njihovom radu i karijeri.",
+    "suggested_tags": [
+      "science",
+      "education",
+      "research"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 10,
+    "confidence": "medium",
+    "evidence": "Konkretne epizode dokumentirane (Jan Homolak Ep.1); parent DigiLab platforma aktivna. Posebno entry jer je samostalna serija unutar većeg programa — vrijedi tagati zasebno za RAG."
+  },
+  {
+    "name": "Gdje ideje idu? (Bruno Ćurko / DigiLab NSK)",
+    "youtube_url": "https://www.youtube.com/watch?v=5yvq6SERhgU",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://digilabnskpodcast.podbean.com/",
+    "hosts": [
+      "Bruno Ćurko"
+    ],
+    "description": "Filozofski podcast unutar DigiLab NSK — voditelj dr.sc. Bruno Ćurko (osnivač zadarske udruge Mala filozofija, autor dječjih filozofskih slikovnica). Svaka epizoda na duhovit način tretira filozofsku temu ('Zašto je pojeo vuk magare?', etika i ethical questioning). Cilja odraslu publiku.",
+    "suggested_tags": [
+      "philosophy",
+      "education",
+      "science"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 15,
+    "confidence": "high",
+    "evidence": "Voditelj i format potvrđeni kroz netokracija.com članak o filozofskim podcastima; epizoda #1 ima verificirani YouTube URL."
+  },
+  {
+    "name": "Znanost bez filtera (Institut Pilar)",
+    "youtube_url": "https://www.youtube.com/channel/UCuwOh_KcvPbr9N9NQLJuXEA",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.pilar.hr/",
+    "hosts": [],
+    "description": "Podcast Instituta društvenih znanosti Ivo Pilar pokrenut 26.9.2025. Tematizira društvene znanosti — psihologija, sociologija, primijenjena istraživanja. Ep.1 'Supkulture u hrvatskom društvu' (sociolozi Pilara), Ep.2 'Primjena VR tehnologije u psihologiji i psihoterapiji' (psiholozi). Nova platforma, manji broj epizoda.",
+    "suggested_tags": [
+      "science",
+      "social-science",
+      "psychology"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 4,
+    "confidence": "high",
+    "evidence": "Verificirano kroz pilar.hr službene novosti (rujan 2025 + prosinac 2025); Institut Pilar YouTube kanal URL potvrđen."
+  },
+  {
+    "name": "Povcast (Filozofski fakultet, povijest)",
+    "youtube_url": "https://www.youtube.com/channel/UCdzjTsmYYDjtKrJpMv-riXg",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://povcast.ffzg.unizg.hr/",
+    "hosts": [],
+    "description": "Povijesni podcast Filozofskog fakulteta Sveučilišta u Zagrebu — intervjui i razgovori s domaćim i stranim povjesničarima o najnovijim istraživanjima. Od 2023. službena platforma za digitalni sadržaj FFZG-a za profesore, studente i šire humanističke struke u Hrvatskoj. Pokriva: arheologija, digitalna povijest, ekohistorija, kulturna povijest, religijska povijest, antika do moderne.",
+    "suggested_tags": [
+      "history",
+      "science",
+      "education",
+      "humanities"
+    ],
+    "platform_primary": "web",
+    "activity_status": "active",
+    "episodes_estimate": 50,
+    "confidence": "high",
+    "evidence": "Službena web stranica povcast.ffzg.unizg.hr verificirana; YouTube kanal FFZG postoji."
+  },
+  {
+    "name": "BIOcast (BIUS — Udruga studenata biologije)",
+    "youtube_url": "https://www.youtube.com/playlist?list=PLNEuHYyUJL2VHgLEVxQS82rLYEVJYuqX0",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "http://bius.hr/6670-2/",
+    "hosts": [],
+    "description": "Biološki podcast Udruge studenata biologije BIUS i časopisa In Vivo. Pokrenuto u ožujku 2019. Sadržaj: razgovori s profesorima, asistentima i istraživačima o biologiji — botanika, zoologija, mikrobiologija, ekologija. Više sezona (s01-s05+). Cilja studente biologije i ljubitelje žive prirode.",
+    "suggested_tags": [
+      "science",
+      "biology",
+      "education",
+      "stem"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 30,
+    "confidence": "high",
+    "evidence": "Playlist URL verificiran; konkretne epizode s03/s05 imaju YouTube linkove; bius.hr službena prezentacija podcasta."
+  },
+  {
+    "name": "Andromeda (Drugi program HR-a)",
+    "youtube_url": "https://www.youtube.com/channel/UCouQTbisNnwXznSd0jHhYYg/videos",
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/hr/podcast/andromeda/id1607552351",
+    "web_url": "https://radio.hrt.hr/slusaonica/andromeda",
+    "hosts": [
+      "Tanja Devčić",
+      "Ante Radonić",
+      "Korado Korlević"
+    ],
+    "description": "Legendarna radio emisija Drugog programa Hrvatskog radija o astronomiji, astrofizici i astronautici. Emitira se od 1997. utorkom 20-22h. Pokretači: novinarka Tanja Devčić i astronom Ante Radonić (ravnatelj Planetarija u Tehničkom muzeju). Suradnik Korado Korlević. Dostupno kao podcast.",
+    "suggested_tags": [
+      "science",
+      "astronomy",
+      "education",
+      "radio"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 500,
+    "confidence": "high",
+    "evidence": "HRT službena stranica + Wikipedia + Apple Podcasts URL verificirani; postoji YouTube kanal 'Andromeda emisija bez GLAZBE'."
+  },
+  {
+    "name": "Doturska Ćakula",
+    "youtube_url": "https://www.youtube.com/channel/UCHLajqLOgqOb25TT9HFjZqQ",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": null,
+    "hosts": [
+      "Nives Lesandrić",
+      "Ivan Jukić",
+      "Anisia Banović",
+      "Anja Kožul",
+      "Ante Lončar",
+      "Lada Sente",
+      "Anamarija Krajačić",
+      "Laura Rebić",
+      "Lara Cvitković"
+    ],
+    "description": "Podcast studenata Medicinskog fakulteta u Splitu (MEFST). Devet studenata medicine (uglavnom treća godina) — opušteni razgovori s gostima o medicini, popularizacija medicine za mlađe generacije. Pokrenuto 2024. Cilja: 'pokazati mlađim generacijama koliko je medicina lijepa'.",
+    "suggested_tags": [
+      "medicine",
+      "science",
+      "education",
+      "youth"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 15,
+    "confidence": "high",
+    "evidence": "YouTube channel URL verificiran; Dalmatinski portal i Studentski.hr članci potvrđuju; Instagram + TikTok @doturskacakula."
+  },
+  {
+    "name": "Podcast o zdravlju (Natalija Miodrag)",
+    "youtube_url": "https://www.youtube.com/@Podcastozdravlju-FLH",
+    "spotify_url": "https://open.spotify.com/show/6Xh5x1Ifs81Xl5uM8cLUKd",
+    "apple_url": "https://podcasts.apple.com/hr/podcast/podcast-o-zdravlju/id1795296122",
+    "web_url": "https://podcastozdravlju.com/",
+    "hosts": [
+      "Natalija Miodrag"
+    ],
+    "description": "Voditeljica mag. educ. phys. et chem. Natalija Miodrag (učiteljica fizike i kemije) — znanstveno utemeljeni podcast o zdravlju. Razgovori sa stručnjacima o medicini, prehrani, psihologiji, svakodnevnim zdravstvenim temama. Eksplicitno: 'isključivo informativno-edukativnog karaktera', neovisno o oglašivačima i lobijima. Nove epizode svaka dva tjedna.",
+    "suggested_tags": [
+      "medicine",
+      "health",
+      "science",
+      "education"
+    ],
+    "platform_primary": "apple",
+    "activity_status": "active",
+    "episodes_estimate": 20,
+    "confidence": "high",
+    "evidence": "Sve URL-ove verificirano (YouTube, Spotify, Apple, web podcastozdravlju.com); FAIRYLAND HEALTH backing."
+  },
+  {
+    "name": "PSIHOLOGiJA (HRT)",
+    "youtube_url": "https://www.youtube.com/@PsihologijaHRT",
+    "spotify_url": null,
+    "apple_url": "https://podcasts.apple.com/us/podcast/psihologija/id1644866363",
+    "web_url": null,
+    "hosts": [],
+    "description": "Serija edukativnih epizoda HRT-a — emitira se ponedjeljkom 20:30. Razgovori s inspirativnim psiholozima i psihijatrima. Pitanja iz popularne psihologije, osobni razvoj, napredovanje u karijeri, međuljudski odnosi. YouTube + Apple Podcasts.",
+    "suggested_tags": [
+      "psychology",
+      "science",
+      "education",
+      "media"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 40,
+    "confidence": "high",
+    "evidence": "YouTube kanal verificiran (@PsihologijaHRT); Apple Podcasts URL postoji; HRT institucionalna podrška."
+  },
+  {
+    "name": "Ivan Kosogor Podcast",
+    "youtube_url": "https://www.youtube.com/@IvanKosogorPodcast",
+    "spotify_url": "https://open.spotify.com/show/3xi5ZRPm49uG9q6iYCzbOP",
+    "apple_url": "https://podcasts.apple.com/us/podcast/ivan-kosogor-podcast/id1504705137",
+    "web_url": "https://www.ivankosogor.com/",
+    "hosts": [
+      "Ivan Kosogor"
+    ],
+    "description": "Podcast pokrenut u kolovozu 2019. (bivši naziv 'Da, ti to možeš'). Edukativni sadržaj: psihologija, zdrav život, online biznis, poduzetništvo, sport, osobni razvoj. 5 godina aktivan, 294+ epizoda. Borderline — više life coaching i lifestyle nego klasična znanost, ali dosta epizoda s psiholozima/stručnjacima.",
+    "suggested_tags": [
+      "psychology",
+      "education",
+      "self-development"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 294,
+    "confidence": "medium",
+    "evidence": "Svi URL-ovi verificirani; aktivnost potvrđena. NIŽE confidence zbog 'science' taga — više psihologija/lifestyle nego stroga znanost. Vrijedi za 'education' tag svakako."
+  },
+  {
+    "name": "SocCast (Fakultet hrvatskih studija)",
+    "youtube_url": "https://www.youtube.com/watch?v=G1f_4UdHQus",
+    "spotify_url": null,
+    "apple_url": null,
+    "web_url": "https://www.universitas-portal.hr/soccast-studentski-podcast-koji-otvara-vazne-drustvene-teme/",
+    "hosts": [],
+    "description": "Prvi sociološki podcast u Hrvatskoj. Kreiran na Fakultetu hrvatskih studija od studentske udruge Anomija (studenti sociologije). Platforma za razmjenu znanstvenih iskustava među poznatim znanstvenicima i nastavnicima te uspješnima iz gospodarstva i javnog života. Mjesečno. Ep.1 'Gdje je sociologija danas?' (Ivan Balabanić + Erik Brezovec). Postoji barem 5 epizoda — Ep.5 'Digitalizacija društva' (Maria Zelić).",
+    "suggested_tags": [
+      "sociology",
+      "science",
+      "education",
+      "social-science"
+    ],
+    "platform_primary": "youtube",
+    "activity_status": "active",
+    "episodes_estimate": 10,
+    "confidence": "high",
+    "evidence": "Konkretne epizode imaju YouTube URL-ove; Universitas-portal.hr članak potvrđuje detalje."
+  }
+]
