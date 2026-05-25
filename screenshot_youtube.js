@@ -551,6 +551,20 @@ async function main() {
 
     const finalList = limit ? allFiles.slice(0, limit) : allFiles;
 
+    // Pre-flight: koliko ih već ima `_manifest.json` (znači batch završen u
+    // prethodnom run-u, processArticle će ih instant-skipnuti) vs koliko ne
+    // ima manifest (potpuno novi videi, stvarno treba rad). Daje korisniku
+    // upfront sliku "koliko od X iteracija je realno posla".
+    // Caveat: hasManifest=true ne garantira da su SVI PNG-ovi tu (user može
+    // ručno obrisati frame); takvi case-evi su rijetki i pickup-aju ih per-PNG
+    // existsSync provjere unutar processArticle.
+    const withManifest = finalList.filter(it => it.hasManifest).length;
+    const withoutManifest = finalList.length - withManifest;
+    console.log(`   📊 Pre-flight:`);
+    console.log(`      ✅ Sa manifestom (vjerojatno fully done):  ${withManifest}`);
+    console.log(`      📸 Bez manifesta (potpuno novi videi):     ${withoutManifest}`);
+    console.log("");
+
     if (dryRun) {
         console.log(`   📋 Videi za obradu (${finalList.length}):`);
         for (let i = 0; i < finalList.length; i++) {
@@ -569,9 +583,18 @@ async function main() {
     let videosProcessed = 0;
 
     let abortedAntiBot = false;
+    let jobCount = 0;  // Brojač samo videa koji STVARNO trebaju rad (bez manifesta)
     for (let i = 0; i < finalList.length; i++) {
         const item = finalList[i];
-        console.log(`\n   ━━━ [${i + 1}/${finalList.length}] [${item.channel}] ${item.videoBase} ━━━`);
+        // Dual counter: [iter | job] — iter ide kroz sve, job samo kroz one koji
+        // trebaju rad. Daje smisleni progres umjesto samo "X/2559" gdje 98%
+        // budu instant-skipovi.
+        let jobLabel = "";
+        if (!item.hasManifest) {
+            jobCount++;
+            jobLabel = ` | job ${jobCount}/${withoutManifest}`;
+        }
+        console.log(`\n   ━━━ [${i + 1}/${finalList.length}${jobLabel}] [${item.channel}] ${item.videoBase} ━━━`);
 
         let result;
         try {
