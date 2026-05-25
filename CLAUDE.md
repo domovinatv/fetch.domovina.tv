@@ -93,12 +93,12 @@ Each step is idempotent — checks for existing output before processing. The pi
 | **Canary 1B v2 transcription** | **Google Colab G4 GPU** (Pro+) | GPU-bound, ~10-15s/file BF16. Mac Mini would take 5-10× longer. |
 | **pyannote community-1 diarization** | **Mac Mini M4 Pro (locally) — NOT Colab** | Mostly **CPU-bound** (sklearn clustering, audio I/O). G4 (~$20k machine) takes about the **same wall clock** as M4 Pro (~$1.5k machine) because the expensive GPU sits idle during clustering. |
 
-**Concrete consequence:** `colab/domovina_tv_batch.ipynb` (which runs both phases on Colab) is **anti-pattern for production batches** — you pay Colab Pro+ units for pyannote that doesn't use the GPU. Keep that notebook for edge cases (no Mac available, testing); for normal operation use:
+**Production workflow** (driven by the cost/perf split above):
 
-1. `colab_canary/domovina_tv_fetch.ipynb` on Colab G4 → generates `.canary.srt` on Drive
+1. `colab_canary/domovina_tv_canary_transcribe.ipynb` on Colab G4 → generates `.canary.srt` on Drive
 2. `run_pipeline.sh --with-local-canary-diarize` on Mac Mini → pulls `.canary.srt` via rclone (step 0), diarizes locally, generates `.canary.diarized.srt`
 
-Do not "optimize" by suggesting the combined Colab notebook for bulk runs — it costs money for no speed benefit. This decision is driven by real benchmarks, not theory.
+Do not "optimize" by combining both phases into a single Colab notebook for bulk runs — it costs money for no speed benefit (pyannote does not use the GPU). This decision is driven by real benchmarks, not theory.
 
 **Research validated this decision — see `docs/diarization_research_2026-05.md`.** A May 2026 survey of GPU-resident alternatives (NVIDIA Sortformer, EEND-TA, DiariZen, FluidAudio, sherpa-onnx, WhisperX) confirmed: pyannote-style pipelines are CPU-bound *by design* (segmentation/embedding on GPU, agglomerative/HDBSCAN clustering on CPU — maintainer-confirmed across issues #1403, #1626, #1753), so throwing more GPU at diarization buys almost nothing. The only fully-GPU alternative that would meaningfully change the story is NVIDIA Sortformer, but it is licensed CC-BY-NC-4.0 (non-commercial only) and therefore unusable here. DiariZen (MIT) is the realistic open-source upgrade target if accuracy ever becomes the bottleneck; FluidAudio (Apache-2.0, CoreML on Apple Neural Engine, ~60× realtime on M1) is the upgrade target if the Mac itself becomes the bottleneck. Until one of those changes, the Colab-for-transcription + Mac-for-diarization split is the right call.
 
@@ -134,7 +134,7 @@ For a typical batch (96 files mixed sizes): **~25 min wall clock**. **Actual mea
 4. **Pay-as-you-go**: $0.40-0.50 per backlog batch is cheaper than any monthly subscription would be amortized for the actual usage frequency (~weekly).
 5. **NeMo + PyTorch ecosystem pre-installed**: pip install just adds `nemo_toolkit[asr]`; reduces "first run" friction to ~2 min.
 
-**Do not** suggest "rent a GCE VM with L4" or "set up own server" — Colab Pro+ G4 with `colab_canary/domovina_tv_fetch.ipynb` is the right tool. The notebook auto-detects BF16 support and applies it; `transcribe_canary.py` is the workhorse. T4 will OOM — `colab_canary/README.md` already documents this in the GPU benchmark table.
+**Do not** suggest "rent a GCE VM with L4" or "set up own server" — Colab Pro+ G4 with `colab_canary/domovina_tv_canary_transcribe.ipynb` is the right tool. The notebook auto-detects BF16 support and applies it; `transcribe_canary.py` is the workhorse. T4 will OOM — `colab_canary/README.md` already documents this in the GPU benchmark table.
 
 **Two valid Canary patterns — DO NOT confuse them:**
 

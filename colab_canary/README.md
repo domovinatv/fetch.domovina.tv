@@ -2,7 +2,7 @@
 
 NVIDIA Canary 1B v2 model za batch transkripciju hrvatskih podcast WAV datoteka na Google Colab Pro.
 
-**Jupyter Notebook:** [domovina_tv_fetch.ipynb na Google Colab](https://colab.research.google.com/drive/1Fjs75qxPDlEObUS5GO-yU8xBBsoKfada#scrollTo=ADxKfSt8EgMj)
+**Jupyter Notebook:** [domovina_tv_canary_transcribe.ipynb na Google Colab](https://colab.research.google.com/drive/1Fjs75qxPDlEObUS5GO-yU8xBBsoKfada#scrollTo=ADxKfSt8EgMj)
 
 ## Arhitektura
 
@@ -62,7 +62,7 @@ rclone copy /Volumes/DOMOVINA1TB/fetch_domovina_tv_output \
 
 ### 2. Transkripcija na Google Colab (G4 GPU)
 
-Otvori [domovina_tv_fetch.ipynb](https://colab.research.google.com/drive/1Fjs75qxPDlEObUS5GO-yU8xBBsoKfada#scrollTo=ADxKfSt8EgMj) i pokreni cellove:
+Otvori [domovina_tv_canary_transcribe.ipynb](https://colab.research.google.com/drive/1Fjs75qxPDlEObUS5GO-yU8xBBsoKfada#scrollTo=ADxKfSt8EgMj) i pokreni cellove:
 
 ```python
 # Cell 0 - kloniraj repo (samo prvi put ili nakon runtime restarta)
