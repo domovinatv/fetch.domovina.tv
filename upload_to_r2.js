@@ -691,6 +691,54 @@ async function getRemoteEtag(client, key) {
 }
 
 /**
+ * Lista sve ključeve u R2 bucketu (paginirano, 1000 per page).
+ * 1 Class A operacija per stranica vs 1 Class B per HEAD — za 130k+ objekata
+ * to je ~130 LIST poziva vs ~130k HEAD poziva (1000× manje API operacija).
+ * @returns {Promise<Set<string>>} Set svih remote ključeva
+ */
+async function listAllR2Keys(client) {
+    const { ListObjectsV2Command } = require("@aws-sdk/client-s3");
+    const keys = new Set();
+    let continuationToken;
+    let pages = 0;
+    do {
+        const resp = await client.send(new ListObjectsV2Command({
+            Bucket: R2_BUCKET_NAME,
+            ContinuationToken: continuationToken,
+            MaxKeys: 1000,
+        }));
+        for (const obj of resp.Contents || []) keys.add(obj.Key);
+        continuationToken = resp.NextContinuationToken;
+        pages++;
+        if (pages % 10 === 0) {
+            process.stdout.write(`\r   📋 LIST stranica ${pages} (${keys.size} ključeva)   `);
+        }
+    } while (continuationToken);
+    process.stdout.write("\n");
+    return keys;
+}
+
+/**
+ * Je li ovaj R2 ključ content-mutable (sadržaj se može mijenjati pod istim imenom)?
+ *
+ * Većina file-ova ima timestamp ili YouTube ID u nazivu → naziv jednoznačno
+ * određuje sadržaj (npr. `xxx_2026-05-15_gemini-2.5-flash.article.json`,
+ * `screenshots/xxx_00-15-30.png`). Re-generacija proizvodi NOVI naziv, ne
+ * overwrite starog.
+ *
+ * Iznimke (mutable basename-i):
+ *   - `_manifest.json` u `_screenshots/` — dopisuje se kad se doda novi frame
+ *   - `manifest.json` u `.og-sections/` — dopisuje se kad se doda nova sekcija
+ *
+ * Za ove dvije kategorije i dalje radimo HEAD + MD5 usporedbu da bismo detektirali
+ * update. Za sve ostalo: ako ključ postoji u LIST set-u, skipamo bez HEAD-a.
+ */
+function isContentMutable(r2Key) {
+    const basename = r2Key.split("/").pop();
+    return basename === "_manifest.json" || basename === "manifest.json";
+}
+
+/**
  * Uploadira datoteku u R2.
  * Za datoteke > STREAM_THRESHOLD koristi fs.createReadStream (video datoteke).
  */
@@ -927,43 +975,105 @@ if (inputDir) {
 
     // Inicijaliziraj R2 klijent (lokalno za video upload; zajednički client deklariran dolje)
 
-    const R2_CHECK_CONCURRENCY  = 20; // paralelni HeadObject pozivi
+    const R2_CHECK_CONCURRENCY  = 20; // paralelni HeadObject pozivi (samo za mutable file-ove)
     // PUT je teži od HEAD (full body upload), pa malo niža concurrency. Konfigurabilno
     // preko env vara — povećaj ako mreža/disk to izdrže (R2 nema striktnih rate limita).
     const R2_UPLOAD_CONCURRENCY = parseInt(process.env.R2_UPLOAD_CONCURRENCY, 10) || 8;
 
-    // ── FAZA 1: Paralelni HeadObject za sve fajlove ───────────────
-    // Samo dohvaćamo remote ETag — ne čitamo lokalne fajlove ovdje.
+    // ── FAZA 1: LIST + klasifikacija + selektivni HEAD ────────────
+    // Strategija (vidi listAllR2Keys + isContentMutable docstring):
+    //   1. LIST sve ključeve u bucketu (paginirano, ~1 Class A op per 1000 objekata)
+    //   2. Klasificiraj lokalne file-ove:
+    //        - "novi" (ključ nije u LIST set-u) → upload odmah, bez ikakve provjere
+    //        - "postojeći immutable" (ključ u set-u, naziv content-immutable) → SKIP
+    //        - "postojeći mutable" (ključ u set-u, basename = *manifest.json) → HEAD+MD5
+    //   3. HEAD samo na mutable file-ove (par stotina, ne 130k+)
+    //
+    // Trošak po runu na 132k fajlova:
+    //   PRIJE: 132k Class B (HEAD) = 1.32% mjesečnog free tier-a (10M)
+    //   SAD:   ~132 Class A (LIST) + ~par stotina Class B (HEAD na manifeste)
+    //          = 0.013% Class A free tier-a + <0.005% Class B
+    //   Override: --full-head flag vraća staro ponašanje (HEAD na sve).
 
-    log("🔍", `Provjera R2 statusa (${allFiles.length} fajlova, ${R2_CHECK_CONCURRENCY} paralelno)...`);
+    const forceFullHead = hasFlag("--full-head");
 
-    const remoteEtags = new Array(allFiles.length).fill(undefined); // null = ne postoji u R2
-    let checked = 0;
+    let newFiles, existingImmutable, existingMutable;
+    const remoteEtags = new Map(); // r2Key → etag (string) ili null/undefined
 
-    const checkTasks = allFiles.map((f, i) => async () => {
-        try {
-            remoteEtags[i] = await getRemoteEtag(client, f.r2Key);
-        } catch (err) {
-            log("❌", `Greška pri provjeri ${f.r2Key}: ${err.message}`);
-            remoteEtags[i] = undefined; // undefined = greška, preskočit ćemo upload
+    if (forceFullHead) {
+        log("🔍", `--full-head: HEAD na sve ${allFiles.length} fajlova (${R2_CHECK_CONCURRENCY} paralelno)...`);
+        let checked = 0;
+        const checkTasks = allFiles.map(f => async () => {
+            try {
+                remoteEtags.set(f.r2Key, await getRemoteEtag(client, f.r2Key));
+            } catch (err) {
+                log("❌", `HEAD greška ${f.r2Key}: ${err.message}`);
+                remoteEtags.set(f.r2Key, undefined);
+            }
+            checked++;
+            if (checked % 100 === 0 || checked === allFiles.length) {
+                process.stdout.write(`\r   🔍 HEAD: ${checked}/${allFiles.length}   `);
+            }
+        });
+        await runConcurrent(checkTasks, R2_CHECK_CONCURRENCY);
+        process.stdout.write("\n");
+
+        // U full-head modu sve tretiramo kao mutable (HEAD+MD5 verifikacija)
+        newFiles = allFiles.filter(f => remoteEtags.get(f.r2Key) === null);
+        existingImmutable = [];
+        existingMutable = allFiles.filter(f => {
+            const e = remoteEtags.get(f.r2Key);
+            return e !== null && e !== undefined;
+        });
+    } else {
+        log("📋", `LIST svih R2 ključeva (paginirano)...`);
+        const remoteKeySet = await listAllR2Keys(client);
+        log("📊", `R2 sadrži ${remoteKeySet.size} ključeva ukupno`);
+
+        newFiles = [];
+        existingImmutable = [];
+        existingMutable = [];
+
+        for (const f of allFiles) {
+            if (!remoteKeySet.has(f.r2Key)) {
+                newFiles.push(f);
+            } else if (isContentMutable(f.r2Key)) {
+                existingMutable.push(f);
+            } else {
+                existingImmutable.push(f);
+            }
         }
-        checked++;
-        if (checked % 100 === 0 || checked === allFiles.length) {
-            process.stdout.write(`\r   🔍 Provjereno: ${checked}/${allFiles.length}   `);
+
+        log("📊", `Klasifikacija: ${newFiles.length} novih, ${existingImmutable.length} postojećih immutable (skip), ${existingMutable.length} postojećih mutable (HEAD+MD5)`);
+
+        // HEAD samo za mutable
+        if (existingMutable.length > 0) {
+            log("🔍", `HEAD na ${existingMutable.length} mutable manifesta (${R2_CHECK_CONCURRENCY} paralelno)...`);
+            let headChecked = 0;
+            const headTasks = existingMutable.map(f => async () => {
+                try {
+                    remoteEtags.set(f.r2Key, await getRemoteEtag(client, f.r2Key));
+                } catch (err) {
+                    log("❌", `HEAD greška ${f.r2Key}: ${err.message}`);
+                    remoteEtags.set(f.r2Key, undefined);
+                }
+                headChecked++;
+                if (headChecked % 50 === 0 || headChecked === existingMutable.length) {
+                    process.stdout.write(`\r   🔍 HEAD: ${headChecked}/${existingMutable.length}   `);
+                }
+            });
+            await runConcurrent(headTasks, R2_CHECK_CONCURRENCY);
+            process.stdout.write("\n");
         }
-    });
-
-    await runConcurrent(checkTasks, R2_CHECK_CONCURRENCY);
-    process.stdout.write("\n");
-
-    const countMissing  = remoteEtags.filter(e => e === null).length;
-    const countExisting = remoteEtags.filter(e => e !== null && e !== undefined).length;
-    log("📊", `R2 status: ${countMissing} novih, ${countExisting} već postoji (uspoređujem MD5...)${failed > 0 ? `, ${failed} grešaka` : ""}`);
+    }
     console.log("");
 
-    // ── FAZA 2: MD5 usporedba i upload ────────────────────────────
-    // Novi fajlovi (remoteEtag === null) → upload odmah, bez MD5.
-    // Postojeći fajlovi (remoteEtag !== null) → MD5 iz disk cachea, usporedi.
+    // Immutable file-ovi koji već postoje na R2 = automatski skip
+    skipped += existingImmutable.length;
+
+    // ── FAZA 2: Upload ────────────────────────────────────────────
+    // - newFiles: PUT bez MD5 (nema remote da se uspoređuje)
+    // - existingMutable: usporedi local MD5 vs remote ETag, PUT ako se razlikuje
 
     const diskMd5Cache = loadMd5Cache();
     const memMd5Cache  = new Map(); // in-memory, dijeli MD5 za isti localPath
@@ -971,40 +1081,48 @@ if (inputDir) {
 
     log("🚀", `Upload (${R2_UPLOAD_CONCURRENCY} paralelno)...`);
 
-    const uploadTasks = allFiles.map((f, i) => async () => {
-        const remoteEtag = remoteEtags[i];
+    // Combined task list: nove file-ove gore (najveći prioritet), pa mutable koje treba verify-ati
+    const uploadCandidates = [
+        ...newFiles.map(f => ({ f, kind: "NEW" })),
+        ...existingMutable.map(f => ({ f, kind: "VERIFY" })),
+    ];
 
-        // Greška u fazi 1 — preskoči
+    const uploadTasks = uploadCandidates.map(({ f, kind }) => async () => {
+        if (kind === "NEW") {
+            try {
+                await uploadToR2(client, f.localPath, f.r2Key);
+                uploaded++;
+                uploadedBytes += f.size;
+                log("⬆️", `[${uploaded + updated}] NOVO ${f.r2Key} (${humanSize(f.size)})`);
+            } catch (err) {
+                log("❌", `Upload neuspješan za ${f.r2Key}: ${err.message}`);
+                failed++;
+            }
+            return;
+        }
+
+        // kind === "VERIFY" — mutable, usporedi MD5 vs remote ETag
+        const remoteEtag = remoteEtags.get(f.r2Key);
         if (remoteEtag === undefined) {
             failed++;
             return;
         }
-
-        let action;
-        if (remoteEtag === null) {
-            // Ne postoji u R2 — upload bez MD5 provjere
-            action = "NOVO";
-        } else {
-            // Postoji — usporedi MD5
-            const localMd5 = await computeMd5Cached(f.localPath, diskMd5Cache, memMd5Cache);
-            diskCacheDirty = true;
-            if (localMd5 === null) {
-                log("❌", `Ne mogu pročitati: ${f.localPath}`);
-                failed++;
-                return;
-            }
-            if (localMd5 === remoteEtag) {
-                skipped++;
-                return; // Nepromijenjeno — preskoči
-            }
-            action = "UPDATE";
+        const localMd5 = await computeMd5Cached(f.localPath, diskMd5Cache, memMd5Cache);
+        diskCacheDirty = true;
+        if (localMd5 === null) {
+            log("❌", `Ne mogu pročitati: ${f.localPath}`);
+            failed++;
+            return;
         }
-
+        if (localMd5 === remoteEtag) {
+            skipped++;
+            return; // Nepromijenjeno
+        }
         try {
             await uploadToR2(client, f.localPath, f.r2Key);
-            if (action === "NOVO") uploaded++; else updated++;
+            updated++;
             uploadedBytes += f.size;
-            log("⬆️", `[${uploaded + updated}] ${action} ${f.r2Key} (${humanSize(f.size)})`);
+            log("⬆️", `[${uploaded + updated}] UPDATE ${f.r2Key} (${humanSize(f.size)})`);
         } catch (err) {
             log("❌", `Upload neuspješan za ${f.r2Key}: ${err.message}`);
             failed++;
