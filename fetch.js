@@ -330,6 +330,16 @@ async function main() {
     YT_DLP_BASE_ARGS.push("--proxy", proxyUrl);
     console.log(`🌐 yt-dlp ide kroz proxy: ${proxyUrl}`);
   }
+  // --source-address: bind yt-dlp socket na konkretnu lokalnu IP-u (npr. 172.20.10.13
+  // za iPhone USB tether). Kernel rutira promet preko interface-a kojem ta IP pripada;
+  // default route ostaje netaknut pa ostatak Mac-a i dalje koristi Ethernet.
+  // Postavlja se preko `./run_pipeline.sh --via-iphone` auto-detekcije.
+  const srcAddrIdx = args.indexOf("--source-address");
+  const sourceAddr = srcAddrIdx !== -1 ? args[srcAddrIdx + 1] : null;
+  if (sourceAddr) {
+    YT_DLP_BASE_ARGS.push("--source-address", sourceAddr);
+    console.log(`📡 yt-dlp bind-an na lokalnu IP: ${sourceAddr}`);
+  }
 
   if (!fs.existsSync(LISTS_DIR)) { console.error(`Nema direktorija: ${LISTS_DIR}`); process.exit(1); }
   const listFiles = fs.readdirSync(LISTS_DIR).filter((f) => f.endsWith("-lista.txt")).map((f) => path.join(LISTS_DIR, f));

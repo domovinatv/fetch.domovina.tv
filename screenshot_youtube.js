@@ -65,6 +65,10 @@ const COOKIE_ARGS = fs.existsSync(COOKIES_FILE)
 // env fallbackom) u parseArgs(). Prazan array = direktna konekcija.
 let PROXY_ARGS = [];
 
+// --source-address: bind yt-dlp socket na konkretnu lokalnu IP-u (npr. iPhone USB tether
+// 172.20.10.x) bez diranja default route. Postavlja se preko `./run_pipeline.sh --via-iphone`.
+let SOURCE_ADDR_ARGS = [];
+
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
 function sleep(ms) {
@@ -113,8 +117,9 @@ function refreshCookiesFromBrowser() {
     console.log(`   🔄 Osvježavam cookies iz ${BROWSER_NAME} preglednika (pokušaj ${cookieRefreshAttempts}/${MAX_REFRESH_ATTEMPTS_PER_RUN})...`);
     try {
         const proxyFlag = PROXY_ARGS.length ? `--proxy '${PROXY_ARGS[1]}' ` : "";
+        const srcAddrFlag = SOURCE_ADDR_ARGS.length ? `--source-address '${SOURCE_ADDR_ARGS[1]}' ` : "";
         execSync(
-            `yt-dlp ${proxyFlag}--cookies-from-browser '${BROWSER_NAME}' --cookies '${COOKIES_FILE}' --skip-download --quiet --no-warnings 'https://www.youtube.com/'`,
+            `yt-dlp ${proxyFlag}${srcAddrFlag}--cookies-from-browser '${BROWSER_NAME}' --cookies '${COOKIES_FILE}' --skip-download --quiet --no-warnings 'https://www.youtube.com/'`,
             { encoding: "utf-8", timeout: 30000, stdio: ["pipe", "pipe", "pipe"] }
         );
         console.log(`   ✅ Cookies osvježeni → ${COOKIES_FILE}`);
@@ -150,6 +155,7 @@ function getStreamUrl(videoId, allowRefreshRetry = true) {
         "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
         "--get-url",
         ...PROXY_ARGS,
+        ...SOURCE_ADDR_ARGS,
         ...COOKIE_ARGS,
         "--no-check-certificate",
         `https://www.youtube.com/watch?v=${videoId}`
@@ -455,6 +461,13 @@ function parseArgs() {
         PROXY_ARGS = ["--proxy", proxy];
     }
 
+    // --source-address bind-a yt-dlp socket na lokalnu IP-u (npr. iPhone tether
+    // 172.20.10.13) bez mijenjanja default route. Komplementarno s --proxy.
+    const sourceAddr = getArg("--source-address");
+    if (sourceAddr) {
+        SOURCE_ADDR_ARGS = ["--source-address", sourceAddr];
+    }
+
     if (!file && !inputDir) {
         console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
         console.error("");
@@ -499,6 +512,9 @@ async function main() {
         // Maskiraj credentials u logu (user:pass@host → ***@host)
         const masked = PROXY_ARGS[1].replace(/\/\/[^@]+@/, "//***@");
         console.log(`   🌐 Proxy:   ${masked}`);
+    }
+    if (SOURCE_ADDR_ARGS.length) {
+        console.log(`   📡 Bind IP: ${SOURCE_ADDR_ARGS[1]}`);
     }
 
     // ── Single file mode ──

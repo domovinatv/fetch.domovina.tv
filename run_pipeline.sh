@@ -151,6 +151,16 @@ echo ""
 #                            Independent od transkripcije za starije epizode (one koje već imaju
 #                            article output) — siguran za "Faza A" catch-up pass uz --with-screenshots.
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
+#   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
+#                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
+#                            Use case: Ethernet je primarni link (gigabit za rad), ali
+#                            YouTube anti-bot block traži drugu izvornu IP-u. Samo yt-dlp
+#                            pozivi (fetch.js KORAK 1, screenshot_youtube.js KORAK 10)
+#                            idu kroz iPhone; rclone/gcloud/Vertex AI ostaju na Ethernetu.
+#                            Alternativa za --proxy bez aplikacije na iPhonu (microsocks).
+#                            Napomena: --source-address ne pokriva DNS; DNS ide preko
+#                            default resolvera (OK za YouTube anti-bot, njih zanima samo IP).
+#   --source-address <IP> → eksplicitni bind na lokalnu IP-u (override za --via-iphone)
 #   --gemini-backend <b>  → backend za korake 7+8 (Gemini sumarizacija + članci):
 #                            "vertex" (default) — Vertex AI REST + 9-region rotacija, gcloud OAuth.
 #                            "cli"             — gemini CLI non-interactive (`gemini -p ...`); koristi
@@ -173,6 +183,8 @@ WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 SCREENSHOT_PROXY=""
+SCREENSHOT_SOURCE_ADDR=""
+VIA_IPHONE=false
 GEMINI_BACKEND="vertex"
 ALL_ARGS=("$@")
 i=0
@@ -224,6 +236,18 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         SCREENSHOT_PROXY="${ALL_ARGS[$((i+1))]}"
         COMMON_ARGS+=("--proxy" "${ALL_ARGS[$((i+1))]}")
         i=$((i + 2))
+    elif [ "$arg" = "--via-iphone" ]; then
+        # Auto-detect iPhone USB tether interface (172.20.10.x/28) i bind yt-dlp
+        # na tu IP-u preko --source-address. Kernel rutira promet kroz pripadajući
+        # interface bez diranja default route — Ethernet ostaje za sav ostali rad.
+        # Alternativa za --proxy kad NE želiš dodatnu aplikaciju na iPhonu (microsocks).
+        VIA_IPHONE=true
+        i=$((i + 1))
+    elif [ "$arg" = "--source-address" ]; then
+        # Eksplicitni bind na konkretnu lokalnu IP-u (override za --via-iphone auto-detect)
+        SCREENSHOT_SOURCE_ADDR="${ALL_ARGS[$((i+1))]}"
+        COMMON_ARGS+=("--source-address" "${ALL_ARGS[$((i+1))]}")
+        i=$((i + 2))
     elif [ "$arg" = "--gemini-backend" ]; then
         GEMINI_BACKEND="${ALL_ARGS[$((i+1))]}"
         i=$((i + 2))
@@ -232,6 +256,30 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     fi
 done
+
+# --- --via-iphone: auto-detect iPhone USB tether IP (172.20.10.0/28) ---
+# Apple personal hotspot uvijek dodjeljuje klijentima 172.20.10.2-14 (gateway = .1).
+# Ako user pass-a i --via-iphone i --source-address, eksplicitni --source-address pobjeđuje.
+if [ "$VIA_IPHONE" = true ]; then
+    if [ -n "$SCREENSHOT_SOURCE_ADDR" ]; then
+        echo "   📡 --via-iphone ignoriran (eksplicitni --source-address $SCREENSHOT_SOURCE_ADDR ima prednost)"
+    else
+        # Nađi prvu inet adresu u 172.20.10.x rangeu iz ifconfig outputa
+        IPHONE_IP=$(ifconfig 2>/dev/null | awk '/inet 172\.20\.10\./ {print $2; exit}')
+        if [ -z "$IPHONE_IP" ]; then
+            echo "❌ --via-iphone: nisam našao 172.20.10.x interface u ifconfig outputu."
+            echo "   Provjeri:"
+            echo "     1. iPhone Personal Hotspot uključen (Settings → Personal Hotspot → Allow Others)"
+            echo "     2. iPhone spojen USB-om na Mac (ili 'WiFi: ON' ako koristiš WiFi tether)"
+            echo "     3. Sustav vidi interface: ifconfig | grep -B1 172.20.10"
+            exit 1
+        fi
+        SCREENSHOT_SOURCE_ADDR="$IPHONE_IP"
+        COMMON_ARGS+=("--source-address" "$IPHONE_IP")
+        echo "   📡 --via-iphone: yt-dlp bind-an na $IPHONE_IP (iPhone tether)"
+        echo "      Ostatak prometa (rclone, gcloud, Vertex AI) ostaje na default route-u (Ethernet)."
+    fi
+fi
 
 # Validacija --gemini-backend (samo "vertex" ili "cli")
 if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ]; then
@@ -666,6 +714,10 @@ fi
 
 if [ -n "$SCREENSHOT_PROXY" ]; then
     SCREENSHOT_ARGS+=("--proxy" "$SCREENSHOT_PROXY")
+fi
+
+if [ -n "$SCREENSHOT_SOURCE_ADDR" ]; then
+    SCREENSHOT_ARGS+=("--source-address" "$SCREENSHOT_SOURCE_ADDR")
 fi
 
 node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {
