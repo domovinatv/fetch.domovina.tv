@@ -133,12 +133,14 @@ const UPLOAD_SUFFIXES = [
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
 const MAGISTERIUM_PATTERN         = /\.article\.magisterium\.json$/;           // mora biti prije ARTICLE_PATTERN
+const MAGISTERIUM_EN_PATTERN      = /\.article\.magisterium\.en\.json$/;       // engleski paralelan output (translate_to_english.js)
 const MAGISTERIUM_BATCH_PATTERN   = /\.article\.magisterium_batch\.json$/;     // batch varijanta (usporedba)
 const MAGISTERIUM_FULL_PATTERN    = /\.article\.magisterium_full\.json$/;      // full v1 (legacy, pre-prompt-versioning)
 const MAGISTERIUM_FULL_PROMPT     = /\.article\.magisterium_full_prompt\.md$/; // v1 prompt
 const MAGISTERIUM_FULL_V2_PATTERN = /\.article\.magisterium_full_v2\.json$/;   // full v2 (evangelizacijska revizija)
 const MAGISTERIUM_FULL_V2_PROMPT  = /\.article\.magisterium_full_v2_prompt\.md$/;
 const ARTICLE_PATTERN     = /\.article\.json$/;
+const ARTICLE_EN_PATTERN  = /\.article\.en\.json$/;                            // engleski paralelan output
 const OUTLINE_PATTERN     = /\.outline\.json$/;
 
 // Prag za streaming upload (10MB) — iznad toga koristi fs.createReadStream
@@ -412,6 +414,9 @@ async function remuxPhase(videos, dryRun) {
 function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     const filename = path.basename(localPath);
 
+    if (filename.endsWith(".canary.summary.en.json"))
+        return `data/${videoId}/summary.en.json`;
+
     if (filename.endsWith(".canary.summary.json"))
         return `data/${videoId}/summary.json`;
 
@@ -446,8 +451,14 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (MAGISTERIUM_BATCH_PATTERN.test(filename))
         return `data/${videoId}/article.magisterium_batch.json`;
 
+    if (MAGISTERIUM_EN_PATTERN.test(filename))
+        return `data/${videoId}/article.magisterium.en.json`;
+
     if (MAGISTERIUM_PATTERN.test(filename))
         return `data/${videoId}/article.magisterium.json`;
+
+    if (ARTICLE_EN_PATTERN.test(filename))
+        return `data/${videoId}/article.en.json`;
 
     if (ARTICLE_PATTERN.test(filename))
         return `data/${videoId}/article.json`;
@@ -527,9 +538,13 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
         if (!shouldUpload && MAGISTERIUM_FULL_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_FULL_PROMPT.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_BATCH_PATTERN.test(filename)) shouldUpload = true;
+        if (!shouldUpload && MAGISTERIUM_EN_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && MAGISTERIUM_PATTERN.test(filename)) shouldUpload = true;
+        if (!shouldUpload && ARTICLE_EN_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && ARTICLE_PATTERN.test(filename)) shouldUpload = true;
         if (!shouldUpload && OUTLINE_PATTERN.test(filename)) shouldUpload = true;
+        // Summary engleski paralelan output (.canary.summary.en.json) — UPLOAD_SUFFIXES match .canary.summary.json prvo, pa explicit fallback
+        if (!shouldUpload && filename.endsWith(".canary.summary.en.json")) shouldUpload = true;
 
         if (shouldUpload) {
             files.push({

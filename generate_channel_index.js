@@ -222,6 +222,13 @@ function collectChannelVideos(channelId) {
             f.endsWith('.article.json') && !f.endsWith('.magisterium.json') && !f.endsWith('.magisterium_batch.json'));
         const hasMagisterium = !!magisteriumFile;
 
+        // Engleski paralelan output iz translate_to_english.js
+        // Sva tri (summary.en, article.en, article.magisterium.en) moraju postojati za "full EN"
+        const hasSummaryEn     = videoFiles.some(f => f.endsWith('.canary.summary.en.json'));
+        const hasArticleEn     = videoFiles.some(f => f.endsWith('.article.en.json'));
+        const hasMagisteriumEn = videoFiles.some(f => f.endsWith('.article.magisterium.en.json'));
+        const hasTranslationEn = hasSummaryEn && hasArticleEn;  // Magisterium EN je optional bonus
+
         videos.push({
             id:               videoId,
             title,
@@ -238,11 +245,15 @@ function collectChannelVideos(channelId) {
             speakers,
             magisterium_score: magisteriumScore,
             pipeline: {
-                has_transcript:  hasSrt || hasDiarized,
-                has_diarized:    hasDiarized,
-                has_summary:     hasSummary,
-                has_article:     hasArticle,
-                has_magisterium: hasMagisterium,
+                has_transcript:     hasSrt || hasDiarized,
+                has_diarized:       hasDiarized,
+                has_summary:        hasSummary,
+                has_article:        hasArticle,
+                has_magisterium:    hasMagisterium,
+                has_translation_en: hasTranslationEn,
+                has_summary_en:        hasSummaryEn,
+                has_article_en:        hasArticleEn,
+                has_magisterium_en:    hasMagisteriumEn,
             },
         });
     }
