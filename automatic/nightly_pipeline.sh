@@ -65,7 +65,12 @@ if [ -d "$HOME/google-cloud-sdk/bin" ]; then
     export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 fi
 
-# Homebrew (rclone, ffmpeg, jq, python3)
+# Python 3.13 Framework (drži Pillow za generate_og_sections.py — brew/system pythoni ga nemaju)
+if [ -d "/Library/Frameworks/Python.framework/Versions/3.13/bin" ]; then
+    export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
+fi
+
+# Homebrew (rclone, ffmpeg, jq)
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 # ─── LOGGING ──────────────────────────────────────────────────────
