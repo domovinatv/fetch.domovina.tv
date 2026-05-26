@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    launchd plist za automatsko nightly pokretanje pipeline-a u 03:00.
+
+    Lokacija: ~/Library/LaunchAgents/tv.domovina.fetch.nightly.plist
+    Install:  automatic/launchd/install.sh
+    Logs:     automatic/logs/launchd.{out,err}.log  (boot/load output)
+              automatic/logs/nightly_YYYY-MM-DD.log (per-run pipeline log)
+
+    Ako je Mac u sleep-u u 03:00, launchd će job pokrenuti na sljedećem wake-u.
+    (Auto-wake za job: vidi `pmset repeat wakeorpoweron MTWRFSU 02:55:00` u README.)
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>tv.domovina.fetch.nightly</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/nightly_pipeline.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv</string>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>3</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/ms</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <!--
+        ProcessType=Background: launchd ne ubija proces zbog QoS-a, ali ga ni ne forsira
+        prioritetom. Za dugotrajne pipeline jobove.
+    -->
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <!--
+        Ako neka iteracija crashne, NE restart-aj odmah (sljedeća iteracija dolazi 24h kasnije).
+    -->
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>
