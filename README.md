@@ -1,7 +1,9 @@
 # Domovina.tv Audio Pipeline
 
-*Ažurirano: 12. svibnja 2026.*
+*Ažurirano: 26. svibnja 2026.*
 
+> 📖 **Showcase dokument**: [`docs/PIPELINE.md`](./docs/PIPELINE.md) — vizualizirani end-to-end pipeline s mermaid dijagramima, dizajn-izborima i konkretnim primjerom (`6ueR_Leq6uE` — prvi video s full Magisterium + EN coverage). Pročitaj prvo ako želiš razumjeti zašto je sustav posebno.
+>
 > **Downstream consumer:** Pretragu i AI agent backend nad ovim podacima implementira sibling repo
 > **[domovinatv/domovina-rag](https://github.com/domovinatv/domovina-rag)** —
 > ClickHouse + PostgreSQL + MCP server za Claude Desktop / Claude.ai / ChatGPT klijente.
