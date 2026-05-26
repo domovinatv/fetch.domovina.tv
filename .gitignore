@@ -1,8 +1,14 @@
 # Logs
 *.log
+*.log.gz
+*.log.1
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Runtime artefakti (lockfile, log dir, claude session lock)
+automatic/logs/
+.claude/
 
 # System
 .DS_Store

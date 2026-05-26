@@ -351,7 +351,9 @@ echo ""
 cd "$SCRIPT_DIR/automatic" || exit 1
 ./refresh_podcasts.sh
 
-git add .
+# Scope-aj git add SAMO na podcast liste — inače bi se launchd plistovi, logovi
+# i drugi runtime artefakti unutar automatic/ kupili u "podcast refresh" commit.
+git add podcasts/
 git commit -m "chore(podcasts): refresh podcast lists" || true
 cd "$SCRIPT_DIR" || exit 1
 

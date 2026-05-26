@@ -156,8 +156,25 @@ const CONTENT_TYPES = {
     ".jpg": "image/jpeg",
 };
 
-// Cache-Control: immutable za sve outpute (generiraju se jednom, ne mijenjaju se)
+// Cache-Control za per-video artefakte koji se generiraju jednom (article.json, video.mp4,
+// screenshots, thumbnails, og-share, og-sections sličice itd. — write-once).
 const CACHE_CONTROL_IMMUTABLE = "public, max-age=31536000, immutable";
+
+// Cache-Control za datoteke koje se mijenjaju kako pipeline napreduje:
+//   - channels/data/index.json, index_bundle.json, {channel}.json  → novi video se pojavi
+//   - channels/images/{channel}/avatar_*.jpg                       → kanali mijenjaju avatar
+//   - {channel}/{base}_screenshots/_manifest.json                  → raste s novim frame-ovima
+//   - {channel}/{base}.og-sections/manifest.json                   → raste s novim sekcijama
+// 60s + must-revalidate: browser i CF edge re-validate-aju s If-None-Match;
+// 304 ako isto, full fetch ako promijenjeno. Jeftino, a "novi video uskoro vidljiv".
+const CACHE_CONTROL_MUTABLE = "public, max-age=60, must-revalidate";
+
+function cacheControlFor(r2Key) {
+    if (r2Key.startsWith("channels/")) return CACHE_CONTROL_MUTABLE;
+    const basename = r2Key.split("/").pop();
+    if (basename === "_manifest.json" || basename === "manifest.json") return CACHE_CONTROL_MUTABLE;
+    return CACHE_CONTROL_IMMUTABLE;
+}
 
 // ─── CLI PARSIRANJE ──────────────────────────────────────────────
 
@@ -758,7 +775,7 @@ async function uploadToR2(client, localPath, key) {
         Body: body,
         ContentLength: size,
         ContentType: contentType,
-        CacheControl: CACHE_CONTROL_IMMUTABLE,
+        CacheControl: cacheControlFor(key),
     }));
 }
 

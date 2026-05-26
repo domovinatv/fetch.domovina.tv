@@ -144,39 +144,82 @@ function isAntiBotBlock(stderr) {
 }
 
 /**
+ * Detektira age-restriction grešku. yt-dlp serializacija Brave cookies-a u
+ * Netscape cookies.txt format ne čuva sve age-verification tokene; live
+ * `--cookies-from-browser brave` ima što treba. Fallback se aktivira per-video.
+ * Tipičan stderr: "Sign in to confirm your age. This video may be inappropriate..."
+ */
+function isAgeRestricted(stderr) {
+    if (!stderr) return false;
+    return /Sign in to confirm your age/i.test(stderr) ||
+           /age-restricted/i.test(stderr) ||
+           /may be inappropriate for some users/i.test(stderr);
+}
+
+/**
  * Dohvaća direktni stream URL za best video quality putem yt-dlp.
  * Razlikuje cookies-expired od IP-level anti-bot blocka.
  *   - cookies expired → refresh + retry
  *   - IP block        → refresh ne pomaže; abort cijeli run nakon N puta
  * Vraća URL string, null, ili throw-a sa "ANTI_BOT_BLOCK" za abort.
  */
-function getStreamUrl(videoId, allowRefreshRetry = true) {
+function getStreamUrl(videoId, allowRefreshRetry = true, useLiveBrowserCookies = false) {
+    // Per-video fallback na live brave cookies za age-restricted videe.
+    // cookies.txt nema age-verification token (serializacija ne čuva sve),
+    // ali live `--cookies-from-browser brave` ima → radi.
+    const cookieArgs = useLiveBrowserCookies
+        ? ["--cookies-from-browser", BROWSER_NAME]
+        : COOKIE_ARGS;
+
     const args = [
         "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
         "--get-url",
         ...PROXY_ARGS,
         ...SOURCE_ADDR_ARGS,
-        ...COOKIE_ARGS,
+        ...cookieArgs,
         "--no-check-certificate",
         `https://www.youtube.com/watch?v=${videoId}`
     ];
 
     try {
+        if (useLiveBrowserCookies) {
+            console.log(`   🔐 Decryptam Brave keychain (može potrajati ~5s)...`);
+        }
+        // Za live brave cookies treba TTY na stderr — macOS Keychain ne dozvoli
+        // pristup Brave-ovoj decryption key-i ako pozivatelj nema tty (vidi
+        // dijagnoza: https://github.com/yt-dlp/yt-dlp/issues — Security framework
+        // tretira non-tty process kao background service bez UI auth-a).
+        // Trade-off: yt-dlp stderr šum se izlije u naš stderr, ali age-restricted
+        // videi inače uopće ne rade.
+        const stderrMode = useLiveBrowserCookies ? "inherit" : "pipe";
         const url = execSync(`yt-dlp ${args.map(a => `'${a}'`).join(" ")}`, {
             encoding: "utf-8",
             timeout: STREAM_URL_TIMEOUT_MS,
-            stdio: ["pipe", "pipe", "pipe"]
+            stdio: ["pipe", "pipe", stderrMode]
         }).trim();
 
         // Uspjeh — resetiraj counter
         consecutiveStreamFailures = 0;
         lastStderr = "";
 
+        if (useLiveBrowserCookies) {
+            console.log(`   🔞✅ Stream OK preko --cookies-from-browser (age-restricted ${videoId})`);
+        }
+
         // yt-dlp može vratiti više URL-ova (video + audio), uzimamo prvi
         return url.split("\n")[0].trim();
     } catch (err) {
         consecutiveStreamFailures++;
         lastStderr = err.stderr ? err.stderr.toString() : "";
+
+        // ── Age-restriction: jedinokratni fallback na live browser cookies ──
+        // Pokušaj samo jednom (useLiveBrowserCookies=true sprečava infinite loop).
+        if (!useLiveBrowserCookies && isAgeRestricted(lastStderr)) {
+            console.log(`   🔞 Age-restricted ${videoId} — fallback na --cookies-from-browser ${BROWSER_NAME}`);
+            // Ne broji ovaj failure jer ćemo retry-ati
+            consecutiveStreamFailures--;
+            return getStreamUrl(videoId, false, true);
+        }
 
         // ── IP-level anti-bot ──
         // Refresh cookies-a NIŠTA ne pomaže. Najbrža potvrda: greška se
@@ -332,6 +375,10 @@ async function processArticle(articlePath) {
     const streamUrl = getStreamUrl(videoId);
     if (!streamUrl) {
         console.error(`   ❌ Ne mogu dohvatiti stream URL za ${videoId}`);
+        if (lastStderr) {
+            const errLine = lastStderr.split("\n").find(l => l.includes("ERROR")) || lastStderr.split("\n").slice(0, 3).join(" | ");
+            console.error(`      yt-dlp: ${errLine.slice(0, 240)}`);
+        }
         return { total: screenshots.length, captured: 0, skipped, failed: pending.length };
     }
 

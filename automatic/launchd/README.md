@@ -71,14 +71,26 @@ cat automatic/logs/launchd.err.log
 
 ```
 automatic/logs/
-├── nightly_2026-05-26.log    # detaljni log po danu, rotirano nakon 30 dana
-├── nightly_2026-05-27.log
-├── launchd.out.log            # launchd capture, append-only
-├── launchd.err.log
+├── nightly_2026-05-26.log     # današnji per-day log (plain text, recent)
+├── nightly_2026-05-19.log.gz  # gzip-an automatski nakon 7 dana
+├── nightly_2026-04-26.log.gz  # briše se nakon 30 dana
+├── launchd.out.log            # launchd capture (samo edge case-i prije wrapper exec)
+├── launchd.out.log.1          # backup zadnjeg ciklusa (rotira na > 5 MB)
+├── launchd.err.log            # launchd stderr capture
+├── launchd.err.log.1
 └── .nightly.lock              # lockfile (sadrži PID active run-a)
 ```
 
-Wrapper sam briše log-ove starije od 30 dana.
+**Rotacija (radi se na početku svakog run-a, prije pipeline koraka):**
+
+| Tip loga | Pravilo |
+|---|---|
+| `nightly_YYYY-MM-DD.log` | Plain text dok je svjež |
+| `nightly_*.log` (> 7 dana) | Gzip-a se → `.log.gz` |
+| `nightly_*.log` ili `.log.gz` (> 30 dana) | Briše se |
+| `launchd.out.log` / `.err.log` (> 5 MB) | Backup → `.1`, fresh start |
+
+**Zašto su `launchd.out.log` tipično mali:** wrapper detektira `[ -t 1 ]` i radi clean redirect `exec >> "$LOG_FILE" 2>&1` kad ga pokreće launchd (bez tty). Tee se aktivira samo za manualni run iz terminala. Dakle u launchd kontekstu sav pipeline output ide samo u `nightly_YYYY-MM-DD.log`; `launchd.out.log` hvata isključivo edge case-i (env setup prije exec linije, ili crash wrapper-a prije bilo kakvog log-a).
 
 ## Sleep & wake ponašanje
 

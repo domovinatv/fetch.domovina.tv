@@ -80,8 +80,14 @@ mkdir -p "$LOG_DIR"
 DATESTAMP="$(date +%Y-%m-%d)"
 LOG_FILE="$LOG_DIR/nightly_${DATESTAMP}.log"
 
-# Sve od ovog mjesta nadalje ide u log + stdout
-exec > >(tee -a "$LOG_FILE") 2>&1
+# Pipeline output ide u per-day log. Ako smo u tty (manual run), tee-aj i u terminal;
+# inače (launchd context) samo redirect — bez tee-a izbjegavamo dupliciranje istog
+# sadržaja u launchd.out.log (koje launchd inherit-a kao stdout/stderr).
+if [ -t 1 ]; then
+    exec > >(tee -a "$LOG_FILE") 2>&1
+else
+    exec >> "$LOG_FILE" 2>&1
+fi
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
@@ -118,8 +124,37 @@ echo "$$" > "$LOCK_FILE"
 trap 'rm -f "$LOCK_FILE"' EXIT INT TERM
 
 # ─── LOG ROTACIJA ─────────────────────────────────────────────────
-# Zadrži zadnjih 30 dana, obriši starije.
-find "$LOG_DIR" -name 'nightly_*.log' -type f -mtime +30 -delete 2>/dev/null || true
+# Tri sloja loga:
+#   1. nightly_YYYY-MM-DD.log         — per-day pipeline log. Brisanje > 30 dana.
+#   2. launchd.{out,err}.log          — append-only kroz sve runove (launchd capture).
+#                                       Truncate kad pređu prag, .1 backup za diagnostiku.
+#   3. nightly_*.log.gz arhiva        — gzip-anje starije od 7 dana (čuvaj forensic).
+#
+# Sve rotacije rade tijekom početka run-a (nakon lockfile-a, prije pipeline koraka).
+LAUNCHD_LOG_MAX_SIZE_MB=5
+LOG_GZIP_AGE_DAYS=7
+LOG_DELETE_AGE_DAYS=30
+
+# 1. Brisanje starih per-day logova (svejedno gzip ili plain)
+find "$LOG_DIR" -name 'nightly_*.log' -type f -mtime +$LOG_DELETE_AGE_DAYS -delete 2>/dev/null || true
+find "$LOG_DIR" -name 'nightly_*.log.gz' -type f -mtime +$LOG_DELETE_AGE_DAYS -delete 2>/dev/null || true
+
+# 2. Gzip per-day logova starijih od 7 dana (još nije gzip-an)
+find "$LOG_DIR" -name 'nightly_*.log' -type f -mtime +$LOG_GZIP_AGE_DAYS \
+    ! -name "nightly_${DATESTAMP}.log" -exec gzip -f {} \; 2>/dev/null || true
+
+# 3. launchd.{out,err}.log — size-bound truncate s .1 backup
+for launchd_log in "$LOG_DIR/launchd.out.log" "$LOG_DIR/launchd.err.log"; do
+    if [ -f "$launchd_log" ]; then
+        size_mb=$(du -m "$launchd_log" 2>/dev/null | cut -f1)
+        if [ -n "$size_mb" ] && [ "$size_mb" -gt "$LAUNCHD_LOG_MAX_SIZE_MB" ]; then
+            # Backup → .1 (overwrite stari .1). Nova writes idu na novi inode
+            # jer launchd otvori fresh file na svakom run-u.
+            mv -f "$launchd_log" "${launchd_log}.1" 2>/dev/null || true
+            : > "$launchd_log" 2>/dev/null || true
+        fi
+    fi
+done
 
 # ─── FAZE PIPELINE-A ──────────────────────────────────────────────
 

@@ -133,29 +133,56 @@ function saveState(stateFile, state) {
   fs.renameSync(tempFile, stateFile);
 }
 
-function downloadVideo(videoId, outputDir, filenameTemplate) {
+function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCookies = false) {
   fs.mkdirSync(outputDir, { recursive: true });
   const finalTemplate = path.join(outputDir, filenameTemplate + ".%(ext)s");
 
-  const args = [
-    ...YT_DLP_BASE_ARGS,
-    "-o", finalTemplate,
-    `https://www.youtube.com/watch?v=${videoId}`,
-  ];
+  // Per-video fallback na live brave cookies za age-restricted videe.
+  // cookies.txt nema age-verification token (yt-dlp serializacija Brave-ove
+  // session storage-a ne čuva sve), ali live `--cookies-from-browser brave` ima.
+  let args;
+  if (useLiveBrowserCookies) {
+    // Izbaci --cookies cookies.txt iz base args, ubaci --cookies-from-browser
+    const stripped = [];
+    for (let i = 0; i < YT_DLP_BASE_ARGS.length; i++) {
+      if (YT_DLP_BASE_ARGS[i] === "--cookies") { i++; continue; } // preskoči flag + value
+      if (YT_DLP_BASE_ARGS[i] === "--cookies-from-browser") { i++; continue; }
+      stripped.push(YT_DLP_BASE_ARGS[i]);
+    }
+    args = [
+      ...stripped,
+      "--cookies-from-browser", BROWSER_NAME,
+      "-o", finalTemplate,
+      `https://www.youtube.com/watch?v=${videoId}`,
+    ];
+  } else {
+    args = [
+      ...YT_DLP_BASE_ARGS,
+      "-o", finalTemplate,
+      `https://www.youtube.com/watch?v=${videoId}`,
+    ];
+  }
 
   return new Promise((resolve, reject) => {
-    // Capture stderr da detektiramo private/unavailable video greške
+    // Za live brave cookies treba TTY na stderr — macOS Keychain ne dozvoli
+    // pristup Brave decryption key-u ako pozivatelj nema tty. U fallback putanji
+    // (useLiveBrowserCookies=true) inherit-amo stderr; gubimo error detection
+    // ali age-restricted videi su jedini koji idu kroz ovaj path pa je OK.
     const proc = spawn("yt-dlp", args, {
-      stdio: ["inherit", "inherit", "pipe"]  // stdin+stdout inherit, stderr capture
+      stdio: useLiveBrowserCookies
+        ? ["inherit", "inherit", "inherit"]
+        : ["inherit", "inherit", "pipe"]
     });
 
     let stderrOutput = "";
-    proc.stderr.on("data", (chunk) => {
-      const text = chunk.toString();
-      stderrOutput += text;
-      // Ispiši stderr u realnom vremenu (kao i prije)
-      process.stderr.write(text);
-    });
+    if (proc.stderr) {
+      proc.stderr.on("data", (chunk) => {
+        const text = chunk.toString();
+        stderrOutput += text;
+        // Ispiši stderr u realnom vremenu (kao i prije)
+        process.stderr.write(text);
+      });
+    }
 
     proc.on("close", (code) => {
       if (code === 0) {
@@ -170,6 +197,12 @@ function downloadVideo(videoId, outputDir, filenameTemplate) {
         }
         if (stderrOutput.includes("Premieres in")) {
           err.isPremiere = true;
+        }
+        // Age-restricted: cookies.txt nedostaje session-age token; fallback na live brave.
+        if (/Sign in to confirm your age/i.test(stderrOutput) ||
+            /age-restricted/i.test(stderrOutput) ||
+            /may be inappropriate for some users/i.test(stderrOutput)) {
+          err.isAgeRestricted = true;
         }
         reject(err);
       }
@@ -250,7 +283,19 @@ class ChannelQueue {
       console.log(`   ➡️  [${i + 1}/${batch.length}] Cilj: "${logName}"`);
 
       try {
-        await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate);
+        try {
+          await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate);
+        } catch (firstErr) {
+          // Age-restriction fallback: cookies.txt nedostaje session-age token,
+          // ali `--cookies-from-browser brave` ima. Retry samo jednom.
+          if (firstErr.isAgeRestricted) {
+            console.log(`   🔞  [AGE-RESTRICTED] ${video.videoId}: fallback na --cookies-from-browser ${BROWSER_NAME}`);
+            await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate, true);
+            console.log(`   🔞✅ Download OK preko --cookies-from-browser`);
+          } else {
+            throw firstErr;
+          }
+        }
 
         if (globalConsecutiveErrors > 0) {
           console.log(`   ✨ [OPORAVAK] Resetiram brojač grešaka.`);
