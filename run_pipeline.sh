@@ -794,6 +794,27 @@ node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" || {
 }
 fi
 
+# --- KORAK 13: CHANNEL INDEX REGEN + META UPLOAD (uz --with-r2-upload) ---
+# Bez ovog koraka novi videi (s kompletiranim article.json-om) ne ulaze u
+# channels/data/*.json pa se ne pojavljuju na www.domovina.ai/c/<channel>.
+# Idempotentno: ako se ništa nije promijenilo, upload je no-op (HEAD-skip).
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 13: Channel index regen + meta upload"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+node "$SCRIPT_DIR/generate_channel_index.js" --input-dir "$OUTPUT_DIR" || {
+    echo "   ⚠️  Greška pri generate_channel_index.js, nastavljam..."
+}
+
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/upload_to_r2.js" --meta-dir "$SCRIPT_DIR/storage/meta" || {
+    echo "   ⚠️  Greška pri meta uploadu, nastavljam..."
+}
+fi
+
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
 echo "║   ✅ PIPELINE ZAVRŠEN                            ║"
