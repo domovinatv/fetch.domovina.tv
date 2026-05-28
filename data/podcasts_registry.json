@@ -1,6 +1,6 @@
 {
   "version": "1.2",
-  "generated_at": "2026-05-21",
+  "generated_at": "2026-05-28",
   "description": "Single source of truth za hrvatske podcaste na YouTubeu. Spaja: (1) trenutno praćene kanale iz automatic/refresh_podcasts.sh, (2) deep_research_prompt_hr_podcasti.md, (3) Gemini Deep Research, (4) Perplexity research, (5) Claude Opus 4.6 sveobuhvatni research. PRINCIP v1.2: free speech aggregator — uključuje SVE hrvatske podcaste bez obzira na političku ili vjersku orijentaciju. Tracking odluke su isključivo tehničke (verificirani URL, kompletni metapodaci, format kompatibilan s pipeline-om), nikad editorijalne. Polje 'disputes' u notes-ima entries-a označava gdje se izvori ne slažu.",
   "sources": [
     {
@@ -37,6 +37,13 @@
       "label": "yt-dlp + manualna klasifikacija playlist-i (Tribina + Netokracija)",
       "year_month": "2026-05",
       "method": "yt-dlp --dump-single-json --flat-playlist na /@channel/playlists + per-playlist enrichment + LLM-asisted classification po duration + semantic kriteriju"
+    },
+    {
+      "id": "github-issues-2026-05",
+      "label": "Javni GitHub issue intake (podcast-registry.domovina.ai) — prijedlozi zajednice",
+      "type": "community-submission",
+      "year_month": "2026-05",
+      "method": "GitHub issue forma 'registry' label -> manualna yt-dlp verifikacija playlist metadata + klasifikacija"
     }
   ],
   "tag_legend": {
@@ -6236,6 +6243,73 @@
           "recency": 5
         }
       }
+    },
+    {
+      "slug": "cryptoverse-kripto-caffe",
+      "display_name": "Cryptoverse.hr — Kripto caffe",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Cryptoverse",
+        "playlist_id": "PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb"
+      },
+      "tags": [
+        "technology",
+        "finance",
+        "interview"
+      ],
+      "voditelji": [
+        "Veljko Skenderija"
+      ],
+      "metadata": {
+        "episodes_estimate": 55,
+        "last_episode": null,
+        "average_duration_minutes": 40,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "github-issues-2026-05"
+      ],
+      "notes": "Intervju tjedna s relevantnim sudionicima blockchain/kripto trzista u Hrvatskoj. 55 epizoda, prosjek ~40 min. Prijavljeno kroz GitHub issue #4."
+    },
+    {
+      "slug": "founder-talks",
+      "display_name": "Founder Talks (Promocija znanosti)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS",
+        "handle": null,
+        "type": "playlist",
+        "parent_channel": "Promocija znanosti",
+        "playlist_id": "PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS"
+      },
+      "tags": [
+        "entrepreneurship",
+        "business",
+        "technology",
+        "interview"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "episodes_estimate": 5,
+        "last_episode": null,
+        "average_duration_minutes": 47,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "github-issues-2026-05"
+      ],
+      "notes": "Osnivaci hrvatskih startupa dijele uspjehe i padove; cilj inspirirati studente i poduzetnistvo na sveucilistima. 5 epizoda, prosjek ~47 min. Prijavljeno kroz GitHub issue #5."
     }
   ],
   "philosophy": {

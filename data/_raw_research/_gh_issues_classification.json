@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "Klasifikacija playlist-i prijavljenih kroz javni GitHub issue intake (podcast-registry.domovina.ai). Issue #4 (Cryptoverse - Kripto caffe), Issue #5 (Promocija znanosti - Founder Talks).",
+    "criteria": "Pass = avg_duration_sec >= 1800 + dugi intervju format kompatibilan s pipeline-om. Oba prolaze (40min i 47min prosjek).",
+    "generated_at": "2026-05-28"
+  },
+  "new_source": {
+    "id": "github-issues-2026-05",
+    "label": "Javni GitHub issue intake (podcast-registry.domovina.ai) — prijedlozi zajednice",
+    "type": "community-submission",
+    "year_month": "2026-05",
+    "method": "GitHub issue forma 'registry' label -> manualna yt-dlp verifikacija playlist metadata + klasifikacija"
+  },
+  "playlists": [
+    {
+      "playlist_id": "PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
+      "slug": "cryptoverse-kripto-caffe",
+      "display_name": "Cryptoverse.hr — Kripto caffe",
+      "tier": 3,
+      "tracking_enabled": true,
+      "tags": ["technology", "finance", "interview"],
+      "voditelji": ["Veljko Skenderija"],
+      "status": "active",
+      "notes": "Intervju tjedna s relevantnim sudionicima blockchain/kripto trzista u Hrvatskoj. 55 epizoda, prosjek ~40 min. Prijavljeno kroz GitHub issue #4."
+    },
+    {
+      "playlist_id": "PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS",
+      "slug": "founder-talks",
+      "display_name": "Founder Talks (Promocija znanosti)",
+      "tier": 3,
+      "tracking_enabled": true,
+      "tags": ["entrepreneurship", "business", "technology", "interview"],
+      "voditelji": [],
+      "status": "active",
+      "notes": "Osnivaci hrvatskih startupa dijele uspjehe i padove; cilj inspirirati studente i poduzetnistvo na sveucilistima. 5 epizoda, prosjek ~47 min. Prijavljeno kroz GitHub issue #5."
+    }
+  ],
+  "umbrella_updates": []
+}
