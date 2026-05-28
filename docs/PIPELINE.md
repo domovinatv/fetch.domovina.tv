@@ -98,6 +98,28 @@ flowchart TB
 
 ---
 
+## Autonomous mode — `@docs/PIPELINE.md <VIDEO_ID>`
+
+Kad korisnik pošalje ovaj dokument zajedno s YouTube ID-em (npr. `@docs/PIPELINE.md fO7iltytw0I`), Claude Code agent to čita kao **end-to-end execution request**, ne kao pitanje za strategiju. Pravilo:
+
+1. **Konstatiraj stanje** — `find storage/output -name "*<VID>*"` + provjeri `automatic/podcasts/*-state.json`. Lista što već postoji, što fali.
+2. **Očisti duplikate** — `(1).wav.canary.*` lokalno (MD5-verify identičnost s canonical, briši bez pitanja). Drive 403 = preskoči, benigno.
+3. **Provedi sve preostale korake redom 1→12** — preskoči one koji već imaju output. Striktan preduvjet: diarized SRT mora postojati prije AI sloja.
+4. **Magisterium MCP (korak 8.5) je OBAVEZAN** — ne preskači zbog content-type procjene ("ovo nije katolički sadržaj"). Korisnik traži teološku procjenu kao default jer je to najvažniji output sustava; čak i za sekularni/politički sadržaj scoring je informativan (low score + "nije teološki sadržaj" je validan rezultat, ne razlog za skip). Ako se u budućnosti uvede content classification, mora biti eksplicitan opt-out flag, ne agentska procjena.
+5. **Stani samo na pravim blocker-ima** (missing HF token, GCP auth expired, R2 creds, anti-bot ABORT, Magisterium MCP unavailable) i tada javi konkretan blocker + što treba.
+6. **Završi jednom sumarnom porukom** — što je gotovo, CDN URL, sve pipeline flagove (`has_article`, `has_magisterium`, `has_translation_en`).
+
+Pravila i dalje vrijede:
+- Diarizacija lokalno, ne Colab (Mac M4 Pro)
+- Magisterium **MCP only**, nikad API key
+- **Magisterium MCP poziva se ISKLJUČIVO SEKVENCIJALNO** — empirijski potvrđeno 2026-05-28: 3 paralelna `mcp__claude_ai_Magisterium_AI__chat` poziva u istom messageu daju 1 OK + 2 `[object Object]` error. Server ne podržava concurrent requests s istog klijenta. Jedan poziv → čekaj odgovor → sljedeći poziv. Rate limit (15 req/min) je sekundarna stvar; primarni razlog je da concurrent calls jednostavno ne idu.
+- Vertex AI OAuth (`gcloud auth print-access-token`), nikad `GEMINI_API_KEY`
+- `upload_to_r2.js` re-run dok ne dobiješ "Neuspjelih: 0"
+
+Memory pointer: `pipeline_md_vid_means_autonomous_full_run.md`.
+
+---
+
 ## Tri "neobična" izbora — i zašto
 
 ### Izbor 1 — Hardware-aware podjela: Colab za Canary, M4 Pro za pyannote
@@ -246,7 +268,16 @@ flowchart LR
     E --> F
 ```
 
-#### 7. `summarize_gemini.js` — JSON sažetak (ili manual Opus 4.7)
+#### 7. Sažetak — `summarize_gemini.js` (default) ili Opus 4.7 chat (quality alt)
+
+**Dva equivalentna paths**:
+
+| Path | Kada | Trošak | Kvaliteta |
+|---|---|---|---|
+| `summarize_gemini.js` (Vertex AI Gemini 2.5 Flash) | Default — batch obrada, autonomous mode, nightly pipeline | GCP credits (free za naš usecase) | Dobra; multi-region rotacija za 429 |
+| Opus 4.7 u Claude Code chat-u | Quality alternativa — one-off, high-stakes video, ručna review | Anthropic subscription (uključen u Pro) | Bolje hrvatski morfološki, finije parafraze, manje halucinacije proper noun-a |
+
+Referent `6ueR_Leq6uE` (fra Stjepan Brčina) radio je kroz Opus 4.7 chat workflow jer je to bio prvi pokusni video — output je primjetno bolji od onoga što `summarize_gemini.js` proizvodi (manje "AI gloss-a", točniji prijepis sakramentalnih termina). Za autonomous mode default je Gemini skripta zbog throughput-a; ako se prebaci na Opus put, output ide u istu shemu fajla (`.wav.canary.summary.json`).
 
 System prompt strogo: hrvatski, no halucinacije, parafraze stvarnih izjava. Output schema:
 ```json
@@ -263,7 +294,16 @@ System prompt strogo: hrvatski, no halucinacije, parafraze stvarnih izjava. Outp
 }
 ```
 
-#### 8. `generate_article_gemini.js` — dvije faze
+#### 8. Članak — `generate_article_gemini.js` (default) ili Opus 4.7 chat (quality alt)
+
+Isto kao za korak 7: dva puta s istom shemom outputa.
+
+| Path | Trade-off |
+|---|---|
+| `generate_article_gemini.js` (Vertex Gemini 2.5 Flash, 2-faze, 9-region rotacija) | Throughput-friendly, ima JSON repair pipeline za truncated/control-char responses, multi-region rotacija. Povremeno truncates kompleksne iteracije na zadnjoj sekciji (JSON parse error → resume na ponovnom run-u). |
+| Opus 4.7 u Claude Code chat-u | Zna zauzeti više iteracija (3+ iteracija od 6ueR_Leq6uE) jer pravi finije rezove; finiji subtitle-i; manje "polurelevantne" sekcije. Trade-off: ne paralelizira preko regija, pa za 100+ video batch je sporiji. Output ide u isti `.article.json` format. |
+
+Za `6ueR_Leq6uE` (referentni primjer): napravljeno u Opus 4.7 chat-u, 19 sekcija u 2 iteracije, ručna iteracija. Za autonomous mode (batch) default je Gemini skripta. Ako želiš Opus 4.7 path za konkretni video, reci eksplicitno — agent ne odlučuje sam koji path uzeti.
 
 **Faza 1 (outline)**: razdvoji transkript u 35-45 min tematske iteracije s "pametnim rezovima" (nikad usred misli/anegdote). Output: niz `{iteration_number, start_time, end_time, theme, chapters[]}`.
 
