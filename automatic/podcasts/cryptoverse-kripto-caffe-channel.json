@@ -1,1 +1,65 @@
-{"id": "PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb", "title": "Cryptoverse.hr - Kripto caffe", "availability": null, "channel_follower_count": null, "description": "Cryptoverse vam s vremena na vrijeme donosi najave, intervjue i druge bezvremenske zanimljivosti iz svijeta kriptovaluta!\n\nOdaberite teme po va\u0161em ukusu, zavalite se u naslonja\u010d uz jutarnju kavu i doznajte ne\u0161to vi\u0161e od priznatih stru\u010dnjaka iz regije.\n\nSamo za vas, samo na Cryptoverse.hr!", "tags": [], "thumbnails": [{"url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCOz7YHIiUC5XRuIOhP1K4aLPLC7A", "height": 94, "width": 168, "id": "0", "resolution": "168x94"}, {"url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBohZJghF_ps9F_bvg-xabmPPW2QA", "height": 110, "width": 196, "id": "1", "resolution": "196x110"}, {"url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCPyA1hIdgQKgdBusrPQ1zNFVHS5g", "height": 138, "width": 246, "id": "2", "resolution": "246x138"}, {"url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDMpdWpQIRKZtYAGE1ueUSWThB6RA", "height": 188, "width": 336, "id": "3", "resolution": "336x188"}], "modified_date": "20260303", "view_count": 4954, "playlist_count": 55, "channel": "Cryptoverse", "channel_id": "UCcQ4HZUBV_xpk1PbtQ_2ngw", "uploader_id": "@cryptoverse2022", "uploader": "Cryptoverse", "channel_url": "https://www.youtube.com/channel/UCcQ4HZUBV_xpk1PbtQ_2ngw", "uploader_url": "https://www.youtube.com/@cryptoverse2022", "_type": "playlist", "entries": [], "extractor_key": "YoutubeTab", "extractor": "youtube:tab", "webpage_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb", "original_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb", "webpage_url_basename": "playlist", "webpage_url_domain": "youtube.com", "release_year": null, "requested_entries": [], "epoch": 1779965713, "__files_to_move": {}, "_version": {"version": "2026.04.10.235301", "current_git_head": null, "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993", "repository": "yt-dlp/yt-dlp-nightly-builds"}}
+{
+  "id": "PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
+  "title": "Cryptoverse.hr - Kripto caffe",
+  "availability": null,
+  "channel_follower_count": null,
+  "description": "Cryptoverse vam s vremena na vrijeme donosi najave, intervjue i druge bezvremenske zanimljivosti iz svijeta kriptovaluta!\n\nOdaberite teme po vašem ukusu, zavalite se u naslonjač uz jutarnju kavu i doznajte nešto više od priznatih stručnjaka iz regije.\n\nSamo za vas, samo na Cryptoverse.hr!",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCOz7YHIiUC5XRuIOhP1K4aLPLC7A",
+      "height": 94,
+      "width": 168,
+      "id": "0",
+      "resolution": "168x94"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBohZJghF_ps9F_bvg-xabmPPW2QA",
+      "height": 110,
+      "width": 196,
+      "id": "1",
+      "resolution": "196x110"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCPyA1hIdgQKgdBusrPQ1zNFVHS5g",
+      "height": 138,
+      "width": 246,
+      "id": "2",
+      "resolution": "246x138"
+    },
+    {
+      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDMpdWpQIRKZtYAGE1ueUSWThB6RA",
+      "height": 188,
+      "width": 336,
+      "id": "3",
+      "resolution": "336x188"
+    }
+  ],
+  "modified_date": "20260303",
+  "view_count": 4954,
+  "playlist_count": 55,
+  "channel": "Cryptoverse",
+  "channel_id": "UCcQ4HZUBV_xpk1PbtQ_2ngw",
+  "uploader_id": "@cryptoverse2022",
+  "uploader": "Cryptoverse",
+  "channel_url": "https://www.youtube.com/channel/UCcQ4HZUBV_xpk1PbtQ_2ngw",
+  "uploader_url": "https://www.youtube.com/@cryptoverse2022",
+  "_type": "playlist",
+  "entries": [],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
+  "original_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
+  "webpage_url_basename": "playlist",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "requested_entries": [],
+  "epoch": 1779965713,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.04.10.235301",
+    "current_git_head": null,
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

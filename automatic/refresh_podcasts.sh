@@ -88,8 +88,12 @@ for stavka in "${KANALI[@]}"; do
     # Ukloni /videos suffix za channel-level dohvat; playlist URL-ove ostavi kako jesu
     CHANNEL_URL="${URL%/videos}"
 
+    # Pretty-print kroz Node (indent 2, isto kao state fajlovi) da git diff
+    # pokazuje točne promjene po retku umjesto cijelog jednorednog JSON-a.
     if yt-dlp --dump-single-json --flat-playlist --playlist-items 0 \
-        $COOKIE_ARG "$CHANNEL_URL" > "$META_FILE.tmp" 2>/dev/null; then
+        $COOKIE_ARG "$CHANNEL_URL" 2>/dev/null \
+        | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{process.stdout.write(JSON.stringify(JSON.parse(d),null,2)+"\n")}catch(e){process.exit(1)}})' \
+        > "$META_FILE.tmp" 2>/dev/null && [ -s "$META_FILE.tmp" ]; then
         mv "$META_FILE.tmp" "$META_FILE"
         echo "OK"
     else
