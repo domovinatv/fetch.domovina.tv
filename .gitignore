@@ -34,3 +34,7 @@ automatic/cookies.txt
 storage/
 storage.conf
 .r2_md5_cache.json
+
+# Loudness analysis artefakti (generira analyze_loudness.js)
+loudness_data.json
+loudness_report.json
