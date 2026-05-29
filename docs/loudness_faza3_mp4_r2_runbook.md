@@ -76,6 +76,15 @@ Isti `--normalize-audio` flag = **i pipeline integracija**: `upload_to_r2.js` se
 
 ## 5. Protokol izvršenja (OBAVEZNO ovim redom)
 
+0. **⚠️ DISABLE NOĆNI CRONJOB PRVO.** Postoji launchd agent `tv.domovina.fetch.nightly` koji se pokreće **svaki dan u 03:00** i radi fetch + catch-up + `upload_to_r2.js`. Ako se pokrene usred FAZE 3 backfilla → utrka oko istih `.mp4`/R2 resursa + disk/CPU kontencija (potencijalni rusvaj). Prije backfilla:
+   ```
+   launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/tv.domovina.fetch.nightly.plist
+   ```
+   Nakon što backfill ZAVRŠI, vrati ga:
+   ```
+   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/tv.domovina.fetch.nightly.plist
+   ```
+   (Preskakanje jedne noći je bezopasno — nightly je idempotentan, catch-up sutra.)
 1. **Provjeri da je mp3 backfill završio** (`pgrep -f normalize_loudness.js`); ako još traje, pričekaj (CPU/disk kontencija).
 2. **Implementiraj** `--normalize-audio` + force-upload + auto-purge u `upload_to_r2.js`. `node -c` syntax check.
 3. **Validacija na JEDNOM kanalu (domovina_tv, 6 epizoda) end-to-end:**
@@ -90,7 +99,8 @@ Isti `--normalize-audio` flag = **i pipeline integracija**: `upload_to_r2.js` se
 
 ## 6. Ograničenja / zamke (NE pogazi)
 
-- **Disk:** zamjena `.mp4` na mjestu, NIKAD duplikat. `DOMOVINA1TB` ima ~163 GB free; 607 GB duplikata ne stane. Kanali su symlinkovi na 2 diska — vidi CLAUDE.md "Storage Architecture".
+- **Disk je DISK-NEUTRALAN, ne treba 607 GB.** Zamjena `.mp4` na mjestu (temp `.mp4.tmp` → atomski `rename`) troši samo TRANZIJENTNI prostor ≈ `concurrency × veličina_jednog_mp4` (~1–2 GB pri C=6), pa radi i na skučenom disku. **607 GB je R2 UPLOAD (mreža), NE lokalna pohrana** — ne treba premještati kanale ni koristiti DOMOVINA2TB free space za sam backfill. (Ako bi se htjeli ČUVATI originalni mp4-evi kao duplikat — tek tad treba 607 GB; ali mkv je master pa ne treba.) `DOMOVINA1TB` je kronično tijesan (mp3 .loudnorm dodali 69 GB tamo) — ako treba trajni headroom, premjesti CIJELI kanal (ne pojedine fajlove) DOMOVINA1TB→DOMOVINA2TB preko `move_to_disk.sh`; to je housekeeping, NIJE preduvjet za FAZU 3.
+- **Noćni cronjob:** disable `tv.domovina.fetch.nightly` (03:00) prije backfilla, vrati nakon — vidi korak 0 i memory [[nightly-pipeline-launchd]].
 - **CDN immutable:** `video.mp4` = `max-age=1god, immutable` → overwrite NIŠTA ne mijenja na siteu dok ne purge-aš. Vidi memory `cloudflare-cdn-caches-404s`. Verificiraj **GET**, ne HEAD.
 - **Glasnoća:** koristi single-pass **dynamic** (`linear=false`). NE two-pass `measured_*` (ignorira TP limiter → klipa). NE `linear=true` (nema limiter → klipa). Cilj TP **-2** (ne -1) jer lossy enkoder digne true peak ~+1.6 dB. Detalji: `docs/loudness_normalization_2026-05.md`.
 - **Video:** `-c:v copy` — ne re-enkodiraj video (može biti VP9-u-mp4, radi na frontendu).
