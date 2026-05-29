@@ -332,6 +332,7 @@ if command -v rclone &> /dev/null; then
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
       -L --filter "- ._*" \
+      --filter "- **.loudnorm.**" \
       --filter "+ **.canary.**" \
       --filter "+ **.sortformer.**" \
       --filter "+ **.embeddings.*.json" \
@@ -380,7 +381,7 @@ if command -v rclone &> /dev/null; then
     echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
-      -L --filter "- ._*" --filter "+ *.wav" --filter "- *" \
+      -L --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
       --drive-shared-with-me --progress
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."

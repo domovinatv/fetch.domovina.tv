@@ -99,9 +99,13 @@ function findAudioFile(outputDir, videoId) {
 
     const files = fs.readdirSync(outputDir);
     // Tražimo datoteku koja sadrži _yt_{videoId} i završava na .mp3
-    // Ignoriraj macOS ._ resource fork datoteke
+    // Ignoriraj macOS ._ resource fork datoteke i izvedene namespace-ove
+    // (.loudnorm.mp3 = normalizirani audio, NIJE izvor za transkripciju —
+    //  inače nastaje .loudnorm.wav koji Canary lažno transkribira).
     const match = files.find(f =>
-        !f.startsWith("._") && f.includes(`_yt_${videoId}`) && f.endsWith(".mp3")
+        !f.startsWith("._") &&
+        !f.includes(".loudnorm.") &&
+        f.includes(`_yt_${videoId}`) && f.endsWith(".mp3")
     );
 
     return match ? path.join(outputDir, match) : null;

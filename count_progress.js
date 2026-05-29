@@ -138,6 +138,9 @@ for (const channel of channels) {
 
         for (const file of files) {
             if (file.startsWith('._')) continue;
+            // Loudness namespace (.loudnorm.mp3/.mp4/.json/.wav) je izveden artefakt,
+            // NIJE epizoda — ignoriraj da ne iskrivi brojeve (kao .sortformer.*).
+            if (file.includes('.loudnorm.')) continue;
 
             // Screenshot direktoriji: jedan po videu, sufiks `_screenshots`,
             // sadrže `_manifest.json` + N PNG fajlova (jedan po timestampu).
