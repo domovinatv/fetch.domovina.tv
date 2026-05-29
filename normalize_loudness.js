@@ -199,13 +199,13 @@ function loudnormApply(audioSrc, videoSrc, plan) {
         if (wantMp3 && wantMp4) {
             args.push("-filter_complex", `[0:a]${lf},asplit=2[am][av]`);
             args.push("-map", "[am]", "-ar", "44100", "-c:a", "libmp3lame", "-b:a", plan.mp3.br, plan.mp3.tmp);
-            args.push("-map", "[av]", "-map", "1:v:0", "-c:v", "copy", "-c:a", "aac", "-b:a", plan.mp4.br,
+            args.push("-map", "[av]", "-map", "1:v:0", "-ar", "48000", "-c:v", "copy", "-c:a", "aac", "-b:a", plan.mp4.br,
                 "-movflags", "+faststart", plan.mp4.tmp);
         } else if (wantMp3) {
             args.push("-af", lf, "-ar", "44100", "-c:a", "libmp3lame", "-b:a", plan.mp3.br, plan.mp3.tmp);
         } else if (wantMp4) {
             args.push("-filter_complex", `[0:a]${lf}[am]`);
-            args.push("-map", "[am]", "-map", "1:v:0", "-c:v", "copy", "-c:a", "aac", "-b:a", plan.mp4.br,
+            args.push("-map", "[am]", "-map", "1:v:0", "-ar", "48000", "-c:v", "copy", "-c:a", "aac", "-b:a", plan.mp4.br,
                 "-movflags", "+faststart", plan.mp4.tmp);
         } else {
             return resolve({ ok: false, error: "no-output-planned" });

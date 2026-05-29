@@ -331,7 +331,11 @@ function remuxVideo(mkvPath, mp4Path, normalize = false) {
         const out = normalize ? mp4Path.replace(/\.mp4$/, ".loudnorm.tmp.mp4") : mp4Path;
         const args = ["-i", mkvPath];
         if (normalize) args.push("-af", LOUDNORM_AF);
-        args.push("-c:v", "copy", "-c:a", "aac", "-movflags", "+faststart", "-y", out);
+        args.push("-c:v", "copy", "-c:a", "aac");
+        // loudnorm interno resampla na 192kHz → aac ostane na 96kHz i video se svira
+        // krivom brzinom. Resample audio natrag na standardni 48kHz.
+        if (normalize) args.push("-ar", "48000");
+        args.push("-movflags", "+faststart", "-y", out);
         const proc = spawn("ffmpeg", args, { stdio: ["pipe", "pipe", "pipe"] });
 
         let stderr = "";
