@@ -48,33 +48,46 @@ paralelno, ≤15/min), uzmi doc UUID iz vraćenog URL-a (`.../docs/{uuid}/ref/..
 **dodaj `{ "match": "<jedinstveni substring naslova>", "uuid": "<uuid>" }` u
 `magisterium_doc_urls.json`** (keš trajno raste → idući videi su jeftiniji).
 
-### 5. Sastavi finalne datoteke U STORAGE
+### 5. Sastavi finalnu datoteku U STORAGE (per-section, NE full)
 ```bash
 D="storage/output/<channel>"; B="<basename>"
 node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" \
-  --out "$D/$B.article.magisterium.json" --out-full "$D/$B.article.magisterium_full.json"
-# prompt md (transparentnost / "Prompt" tab):
-{ echo "# Magisterium MCP hibrid — promptovi"; for f in "$PROMPTS"/holistic.txt "$PROMPTS"/batch_*.txt; do
-    echo; echo "## $(basename "$f" .txt)"; echo; echo '```'; cat "$f"; echo '```'; done
-} > "$D/$B.article.magisterium_full_prompt.md"
+  --out "$D/$B.article.magisterium.json"
 ```
 `assemble.js` automatski čita `magisterium_doc_urls.json` (keš) za source_url.
 
-### 6. Channel index + R2 + verifikacija
+> **NE generiraj `--out-full`.** `_full.json` je HR-only (Flutter `MagisteriumFullData`
+> NE čita `evaluation_en`) i njegov primarni "Evaluacija" tab **gazi** per-section tab →
+> blokira dvojezični prikaz. Produkcijski standard (vidi `fO7iltytw0I`) je per-section
+> `.json` + `.en.json` overlay. Holistički sadržaj ostaje u `overall` bloku per-section
+> datoteke (podatkovni ugovor). `--out-full` postoji samo za HR-only ad-hoc preglede.
+
+### 6. Engleski overlay (dvojezičnost)
+```bash
+node translate_to_english.js --input-dir storage/output --video-id "$VID"
+```
+Generira `*.article.magisterium.en.json` (+ summary.en, article.en) — puni mirror s `_en`
+poljima (`assessment_en`, `enrichment_en`, `concerns_en`, `theme_en`, `subtitle_en`, …),
+temperature 0, "no hallucinations". Citati se NE prevode (već su engleski). Flutter ga
+učita kao EN overlay kad je jezik engleski. Idempotentno (preskače ako `.en.json` postoji
+— za prisilni re-translate obriši stari `.en.json`).
+
+### 7. Channel index + R2 + verifikacija
 ```bash
 node generate_channel_index.js --channel <channel>
-node upload_to_r2.js --input-dir storage/output --video-id "$VID"   # 3 nova magisterium filea
+node upload_to_r2.js --input-dir storage/output --video-id "$VID"   # .magisterium.json + .en.json
 node upload_to_r2.js --meta-dir storage/meta                         # channel index
 # GET-verifikacija (NE HEAD — CDN cache-ira 404):
-for f in article.magisterium.json article.magisterium_full.json article.magisterium_full_prompt.md; do
+for f in article.magisterium.json article.magisterium.en.json; do
   curl -s -o /dev/null -w "%{http_code} $f\n" "https://cdn.domovina.ai/data/$VID/$f"; done
 ```
 
 ## Kriterij uspjeha
 - `assemble` prijavi **sve sekcije ocijenjene** (X/X), root `overall_score` postavljen.
 - Channel index: video ima `pipeline.has_magisterium=true` i `magisterium_score`.
-- Sva 3 CDN GET-a vraćaju **200**; `overall_score` čita se s CDN-a.
-- Vidljivo na `https://domovina.ai/v/<VID>` ("Evaluacija" + "Prompt" tab).
+- CDN GET vraća **200** za `article.magisterium.json` **i** `article.magisterium.en.json`.
+- Vidljivo na `https://domovina.ai/v/<VID>` — per-section prikaz (score+citati po sekciji)
+  na hrvatskom, te isti prikaz na engleskom kad je jezik EN.
 
 ## Prompt-predlošci (referenca — generira ih `prep.js`, ne tipkaj ručno)
 

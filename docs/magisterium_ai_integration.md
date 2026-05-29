@@ -201,10 +201,21 @@ breakdown) + `citations` (merged unique, with `source_url`).
 ### `article.magisterium_full_prompt.md`
 The exact holistic + batch prompts, for transparency (renders as a **"Prompt"** tab).
 
-> **UI note:** when `magisterium_full.json` is present, `magisterium_panel.dart` shows the
-> "Evaluacija" tab and treats per-section variants as fallback. The per-section JSON is
-> still delivered (data contract + future structured rendering). To show *both* a holistic
-> essay tab and the structured per-section tab, a small panel tweak is needed.
+### `article.magisterium.en.json` — English overlay (bilingual)
+Produced by `translate_to_english.js` (Vertex Gemini, temp 0, no-hallucinations). It is a
+full mirror of the per-section file with additive `_en` fields — `assessment_en`,
+`enrichment_en`, `concerns_en`, `theme_en`, `subtitle_en`, `score_interpretation_en`, etc.
+Citations are **not** translated (already English). Flutter loads it as an overlay and
+swaps to `_en` fields in English mode. This is the production bilingual pattern (see
+`fO7iltytw0I`): a single Croatian transcription/analysis, presented in HR or EN from one
+data set. **The pipeline handles EN-source podcasts (Canary EN→HR translation, §2) and
+EN-presentation (this overlay) on the same Croatian backbone.**
+
+> **UI / full-file note:** when `magisterium_full.json` is present, `magisterium_panel.dart`
+> shows the "Evaluacija" tab and treats per-section variants as fallback — and the v1 full
+> model has no `_en` overlay. So the **bilingual standard ships per-section `.json` +
+> `.en.json` and NOT a full file** (`MAGISTERIUM_MCP_RUN.md` enforces this). `--out-full`
+> remains available only for HR-only ad-hoc previews.
 
 ---
 
