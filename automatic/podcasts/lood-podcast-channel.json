@@ -4,7 +4,7 @@
   "channel_id": "UCWSfCCG1ai1Jenlo95WfWgw",
   "title": "LOOD",
   "availability": null,
-  "channel_follower_count": 98800,
+  "channel_follower_count": 98900,
   "description": "Postani dio LOOD KRUGA potpuno BESPLATNO 👇\nhttps://lood.net/krug 🔗\n\nLOOD je vodeći podcast u regiji na teme razvoja pojedinca i društva!\nNaša misija je naučiti te sve ono što smo propustili za vrijeme školskih dana u bitnim kategorijama zdravlja, karijere, odnosa i svrhe/smisla.\n",
   "tags": [
     "znanje",
@@ -123,12 +123,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780017234,
+  "epoch": 1780062966,
   "__files_to_move": {},
   "_version": {
-    "version": "2025.12.08",
+    "version": "2026.04.10.235301",
     "current_git_head": null,
-    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }
