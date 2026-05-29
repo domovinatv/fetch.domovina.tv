@@ -4,7 +4,7 @@
   "channel_id": "UCxr8UcEaNug50ZNVSubs-Lg",
   "title": "Rastuci s djecom",
   "availability": null,
-  "channel_follower_count": 6970,
+  "channel_follower_count": 6980,
   "description": "🎙️ Dobrodošli na kanal podcasta Rastući s djecom – prostora za sve roditelje koji žele razumjeti, povezati se i rasti zajedno sa svojom djecom.\n\nPodcast uređuje i vodi Ana Pavlović, a nastaje u produkciji portala Bljesak.info.\n\nGledajte razgovore s psiholozima, liječnicima, edukatorima, umjetnicima, sportašima i – roditeljima – o temama koje otvaraju važne priče o odgoju, granicama, emocijama, zdravlju, tehnologiji i svakodnevnim izazovima roditeljstva.\n\n🎧 Sve dosadašnje epizode dostupne su u playlisti na kanalu Bljesak.info:\n🔗 [https://www.youtube.com/playlist?list=PLr703DZI18XEhBnn7zHyCumVt8jgXhAPW]\n\n🎧 Ako tražiš sadržaj koji ne dijeli recepte za \"savršeno roditeljstvo\", nego prostor za razmjenu iskustava, pitanja i podrške – pretplati se i prati nas.\n\nJer... roditeljstvo je put na kojem rastemo – zajedno s djecom. 🌱\n\n#RastućiSDjecom #podcast #roditeljstvo #djeca #odgoj #emocije\n",
   "tags": [
     "roditeljstvo",
@@ -122,12 +122,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1779984133,
+  "epoch": 1780017230,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
