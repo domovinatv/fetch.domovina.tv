@@ -39,3 +39,4 @@ storage.conf
 loudness_data.json
 loudness_report.json
 loudness_report.xlsx
+loudness_before_after.json

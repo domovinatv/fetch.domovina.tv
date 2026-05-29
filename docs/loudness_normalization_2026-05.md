@@ -101,6 +101,44 @@ Integrated konzistentno **-16.4 do -17.0 LUFS** (cilj -16, unutar ~1 LU); true p
 
 ---
 
+## Rezultat na cijelom katalogu (2683 epizode)
+
+Svaki `.loudnorm.json` sidecar bilježi i ulaznu (prije) i izlaznu (poslije) glasnoću koju loudnorm izmjeri tijekom obrade — pa je before/after dataset nastao kao nusprodukt same normalizacije (agregirano s `loudness_before_after.js`, bez ponovnog mjerenja).
+
+| Metrika (integrated LUFS) | PRIJE | POSLIJE |
+|---|---|---|
+| median | -18.7 | **-16.2** |
+| mean | -19.4 | **-16.4** |
+| min … max | -39.6 … -4.6 | -22.3 … -14.3 |
+| **RASPON (max-min)** | **35.0 LU** | **8.0 LU** |
+| **stddev** | **5.21 LU** | **0.70 LU** |
+| unutar ±1 LU od cilja | 17.9 % | **86.6 %** |
+| unutar ±2 LU | 31.2 % | **97.1 %** |
+| >±3 LU od cilja | 54.5 % | **0.7 %** |
+
+True peak (poslije): max **-2.0 dBTP**, median -2.0 — **nigdje > 0**, dakle nijedna epizoda ne klipa.
+
+```
+Histogram integrated LUFS (broj epizoda po bucketu):
+
+PRIJE  (rasuto preko ~30 LU)              POSLIJE (zbijeno oko -16)
+  -30..-27.5  ████  93                      -20..-17.5  ██  154
+  -27.5..-25  ██████████  192               -17.5..-15  ██████████████████████████████  2508
+  -25..-22.5  ████████████████  301         -15..-12.5  ░  14
+  -22.5..-20  █████████████████████  400
+  -20..-17.5  █████████████████████████  485
+  -17.5..-15  ██████████████████████████████  579
+  -15..-12.5  ████████████████████  385
+  -12.5..-10  ██████  107
+   ...rep do -4.6 i -39.6
+```
+
+**Standardizacija je 7.4× tješnja** (stddev 5.21 → 0.70). 2508 od 2683 epizode (93.5 %) padaju u jedan jedini 2.5-LU bucket oko cilja, dok je prije katalog bio rasut preko ~30 LU. Preostali rep (par % izvan ±2 LU) su rubni slučajevi (npr. iznimno tihi izvori gdje single-pass nije do kraja konvergirao) — kandidati za pojedinačni pregled, ali ne kvare cjelinu.
+
+> Napomena: brojke su loudnorm self-report (mjereno tijekom obrade). Neovisno re-mjerenje (`ebur128` nad izlazom) može odstupati ~0.3-0.5 LU zbog lossy enkodiranja, ali smjer i red veličine su isti.
+
+---
+
 ## Finalna ffmpeg komanda (anotirano)
 
 ```bash
