@@ -143,6 +143,7 @@ def find_wav_files(input_dir: str) -> list:
     wav_files = sorted([
         str(p) for p in Path(input_dir).rglob("*.wav")
         if not p.name.startswith("._")
+        and ".loudnorm." not in p.name  # izvedeni audio (normalizacija), NE transkribirati
     ])
     return wav_files
 
