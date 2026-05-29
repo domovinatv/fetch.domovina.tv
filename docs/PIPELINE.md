@@ -105,7 +105,7 @@ Kad korisnik pošalje ovaj dokument zajedno s YouTube ID-em (npr. `@docs/PIPELIN
 1. **Konstatiraj stanje** — `find storage/output -name "*<VID>*"` + provjeri `automatic/podcasts/*-state.json`. Lista što već postoji, što fali.
 2. **Očisti duplikate** — `(1).wav.canary.*` lokalno (MD5-verify identičnost s canonical, briši bez pitanja). Drive 403 = preskoči, benigno.
 3. **Provedi sve preostale korake redom 1→12** — preskoči one koji već imaju output. Striktan preduvjet: diarized SRT mora postojati prije AI sloja.
-4. **Magisterium MCP (korak 8.5) je OBAVEZAN** — ne preskači zbog content-type procjene ("ovo nije katolički sadržaj"). Korisnik traži teološku procjenu kao default jer je to najvažniji output sustava; čak i za sekularni/politički sadržaj scoring je informativan (low score + "nije teološki sadržaj" je validan rezultat, ne razlog za skip). Ako se u budućnosti uvede content classification, mora biti eksplicitan opt-out flag, ne agentska procjena.
+4. **Magisterium MCP (korak 8.5) je OBAVEZAN** — koristi **hibridni flow iz [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md)** (holistički + batch + assemble.js), NE naivni per-section. Ne preskači zbog content-type procjene ("ovo nije katolički sadržaj"). Korisnik traži teološku procjenu kao default jer je to najvažniji output sustava; čak i za sekularni/politički sadržaj scoring je informativan (low score + "nije teološki sadržaj" je validan rezultat, ne razlog za skip). Ako se u budućnosti uvede content classification, mora biti eksplicitan opt-out flag, ne agentska procjena.
 5. **Stani samo na pravim blocker-ima** (missing HF token, GCP auth expired, R2 creds, anti-bot ABORT, Magisterium MCP unavailable) i tada javi konkretan blocker + što treba.
 6. **Završi jednom sumarnom porukom** — što je gotovo, CDN URL, sve pipeline flagove (`has_article`, `has_magisterium`, `has_translation_en`).
 
@@ -313,20 +313,32 @@ Za `6ueR_Leq6uE` (referentni primjer): napravljeno u Opus 4.7 chat-u, 19 sekcija
 
 #### 8.5. Magisterium MCP — teološka verifikacija
 
+> **▶ IZVRŠAVANJE: slijedi hibridni runbook [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md).**
+> Taj turnkey flow je produkcijski standard (memorija `magisterium_mcp_hybrid_workflow`) i **zamjenjuje** naivni "1 chat po sekciji" pristup koji je ovaj dokument ranije opisivao. Sažeto, hibrid ima tri sloja:
+> 1. **Holistički** (1× `chat`) — jedna sveobuhvatna evaluacija cijelog podcasta (`overall` blok: `overall_score`, `assessment`, `seeds_of_logos`, `concerns`, `theological_context`).
+> 2. **Granularno** (⌈sekcija/N⌉× `chat`, **batch-of-N**, SEKVENCIJALNO) — per-sekciju `{score, assessment, concerns, enrichment}`.
+> 3. **Citat→URL** (keš `magisterium_doc_urls.json` + `search` za nepoznato) — razrješavanje `source_url` bez dodatnih `chat` poziva.
+>
+> Skripte: `magisterium_mcp_prep.js` (generira promptove + job) → ručni `chat` pozivi (raw odgovori u `*.results/`) → `magisterium_mcp_assemble.js` (sklopi per-section `.article.magisterium.json`; root `overall_score` = **prosjek sekcija**, holistički u `overall.holistic_score`). **NE generiraj `--out-full`** (HR-only, gazi dvojezični prikaz). Detalji: [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_2026-05.md).
+
 ```mermaid
 sequenceDiagram
     participant U as User<br/>(Claude Code chat)
     participant M as Magisterium MCP
     participant Vatican as Magisterium Index<br/>(KKC, enciklike, koncili, papinski govori)
 
-    loop For each of 19 sekcija
-        U->>+M: chat({"prompt": "Sekcija: ...<br/>Kontekst: ...<br/>Procijeni teološku usklađenost. Vrati JSON: {score, assessment, concerns, enrichment}"})
+    U->>+M: chat(HOLISTIČKI — cijeli podcast)
+    M->>Vatican: semantic search + RAG
+    Vatican-->>M: relevant documents
+    M-->>-U: {overall_score, assessment, seeds_of_logos, concerns} + References
+    Note over U: spremi holistic.raw.txt
+    loop Za svaki batch (N sekcija), SEKVENCIJALNO
+        U->>+M: chat(BATCH — N sekcija odjednom)
         M->>Vatican: semantic search + RAG
-        Vatican-->>M: relevant documents
-        M-->>-U: JSON + citations array (KKC 1374, Ecclesia de Eucharistia 25, ...)
-        Note over U: ~4s pauza (15 req/min limit)
+        M-->>-U: {results:[{index, score, assessment, concerns, enrichment}]} + References
+        Note over U: spremi batch_NN.raw.txt
     end
-    Note over U: Sklopi article.magisterium.json<br/>overall_score = avg(scores)
+    Note over U: assemble.js → article.magisterium.json<br/>root overall_score = avg(sekcije)
 ```
 
 **Schema** (per-section):
@@ -388,7 +400,9 @@ Per chunk: `{chunk_id, video_id, channel, speaker, start_time, end_time, text, c
 
 #### 10. `screenshot_youtube.js` — frame-ovi za članak
 
-Skida 19 frame-ova s YouTube streama na timestampovima iz `article.json`. Ako anti-bot blok, fallback na lokalni `.mkv` + ffmpeg (vidi cookbook za Korak 5b).
+Skida frame-ove s YouTube streama (yt-dlp "best quality") na timestampovima iz `article.json`.
+
+> **Anti-bot fallback (automatski, od 2026-05-29)**: kad yt-dlp udari IP-level anti-bot block, `screenshot_youtube.js` se **automatski** prebacuje na već skinuti lokalni video (`.mp4`/`.mkv`/`.webm`, `findBestLocalVideo` bira najveću rezoluciju) i izvlači frame-ove ffmpeg-om offline. Jednom kad anti-bot udari, **ostatak run-a ide offline** (`antiBotOfflineMode` — ne zove više yt-dlp). Trade-off: lokalna kopija je tipično niža rezolucija nego yt-dlp "best" (npr. 360p), pa za hi-res treba re-fetch + verzionirani filename (memorije `screenshot_local_ffmpeg_fallback`, `immutable_assets_need_versioned_filenames`).
 
 Output: `{basename}_screenshots/{basename}_{HH-MM-SS}.png` + `_manifest.json`
 
@@ -657,6 +671,8 @@ Ovo su sva naučena iz stvarnih incidenata. Svaki memory zapis ima **Why** (razl
 |---|---|
 | `CLAUDE.md` | Bird's-eye view repo-a; instrukcije za Claude Code agente |
 | `docs/adhoc_video_processing.md` | Korak-po-korak cookbook za pojedinačni video |
+| `docs/MAGISTERIUM_MCP_RUN.md` | **Turnkey hibridni Magisterium runbook (korak 8.5)** — holistički + batch + assemble.js |
+| `docs/magisterium_mcp_hybrid_2026-05.md` | Detaljni nalazi/dizajn hibridnog Magisterium flowa |
 | `docs/diarization_research_2026-05.md` | Detaljan benchmark zašto pyannote ide lokalno |
 | `docs/data_contract.md` | API contract između producer i consumer repo-a |
 | `docs/rag_clickhouse_postgres_plan.md` | Planning za alternativne RAG target-e |
