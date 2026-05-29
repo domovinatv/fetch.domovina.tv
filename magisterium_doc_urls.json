@@ -1,0 +1,32 @@
+{
+  "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
+  "docs": [
+    { "match": "Catechism of the Catholic Church", "uuid": "0583c069-d4bf-42dd-97de-c19f0b80150f" },
+    { "match": "Antiqua et Nova", "uuid": "429efa31-df0f-455d-b7e1-c104ed929e3b" },
+    { "match": "Fides et Ratio", "uuid": "06811b47-ea16-42d9-a748-524adbab66da" },
+    { "match": "Fratelli Tutti", "uuid": "c26b52e4-54db-4be5-9095-5b37146afc82" },
+    { "match": "Magnifica Humanitas", "uuid": "ed397808-82f3-43e6-bf35-8f3f09fbdccc" },
+    { "match": "Evangelii Gaudium", "uuid": "7be34cc1-4084-45e7-adac-b583e91e7b83" },
+    { "match": "Verbum Domini", "uuid": "87ef94d9-231c-4fb1-8c9f-8c55d42d8fd1" },
+    { "match": "Christus vivit", "uuid": "f3ed0241-6989-4129-891f-0da4c51b6e7f" },
+    { "match": "Veritatis gaudium", "uuid": "f83d0b8f-c01c-466f-9905-d336e5a5520b" },
+    { "match": "Praedicate Evangelium", "uuid": "dd0f2abe-eb44-44c5-a69b-1ce251a3a8cc" },
+    { "match": "Builders AI Forum 2025", "uuid": "f1e0a6b7-2806-4c43-aa69-d3efbc31d423" },
+    { "match": "Paris Summit on AI", "uuid": "41ffb17f-6a1a-4b10-90ae-32251ce452b2" },
+    { "match": "Care for Our Common Home", "uuid": "dfad7d53-16ad-4b17-9629-04f3ae4f4c3f" },
+    { "match": "G7 Session on Artificial Intelligence", "uuid": "0178be6e-132c-4920-abe1-44a9913ba02a" },
+    { "match": "Pontifical Academy for Life", "uuid": "050472ef-8b76-4c2d-861e-7bb9ca32c15d" },
+    { "match": "LVII World Day of Peace 2024", "uuid": "e05dba75-4523-4a4d-b5a8-3aa5bdda1ef6" },
+    { "match": "Theology Today", "uuid": "90c2d321-f38d-40f7-8a9a-d50d88968c0d" },
+    { "match": "La Inteligencia Artificial", "uuid": "cf5b95bc-783c-43c7-b665-1dbebd65b714" },
+    { "match": "AI Principles and Priorities Letter", "uuid": "0df28672-6345-4207-b8c2-3fa4e8dea167" },
+    { "match": "Reiki", "uuid": "9313a2a2-ec9e-4ebe-9898-e6f63b5abffb" },
+    { "match": "Pastoral Reflection on Engagement with Social Media", "uuid": "515c96dd-584f-4379-8b9b-a346f972373b" },
+    { "match": "General Catechetical Directory", "uuid": "ec19eb0f-943e-4130-9d46-c6f2cfdec8f1" },
+    { "match": "43rd World Communications Day", "uuid": "c06df74e-4574-4e51-886a-1ed7700cc9c5" },
+    { "match": "44th World Communications Day", "uuid": "3d8e2f64-ad7b-46eb-9d4f-9c95aa5a536f" },
+    { "match": "45th World Communications Day", "uuid": "10b1f494-8324-4514-8319-22a210c6c59b" },
+    { "match": "LVIII World Communications Day", "uuid": "3b16e004-40fa-462a-9a4b-dad955fe70b2" },
+    { "match": "58th World Day of Social Communications", "uuid": "1a384f5a-241c-453c-84a7-cc9e5f478361" }
+  ]
+}

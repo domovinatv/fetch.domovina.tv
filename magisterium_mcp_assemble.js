@@ -40,22 +40,37 @@ const jobPath    = getArg('--job');
 const resultsDir = getArg('--results-dir');
 const outPath    = getArg('--out');           // per-section .article.magisterium.json
 const outFull    = getArg('--out-full');      // holistički .article.magisterium_full.json
-const urlMapPath = getArg('--url-map');       // {document_or_ref: url} za source_url (SLOJ 3)
+const urlMapPath = getArg('--url-map');       // {document_or_ref: url} eksplicitni override
+const docRegPath = getArg('--doc-registry')   // keš document→UUID (default: magisterium_doc_urls.json)
+    || path.join(__dirname, 'magisterium_doc_urls.json');
 
 if (!jobPath || !resultsDir) {
-    console.error('Uporaba: node magisterium_mcp_assemble.js --job <job.json> --results-dir <dir> [--out <p>] [--out-full <p>] [--url-map <p>]');
+    console.error('Uporaba: node magisterium_mcp_assemble.js --job <job.json> --results-dir <dir> [--out <p>] [--out-full <p>] [--url-map <p>] [--doc-registry <p>]');
     process.exit(1);
 }
 
 const MODEL = 'magisterium (MCP hibrid)';
 
-// SLOJ 3: mapa za razrješavanje source_url. Ključ = "document|ref" ili "document".
+// SLOJ 3: razrješavanje source_url.
+//  1) eksplicitni --url-map (override), 2) doc-registry (substring→UUID, gradi /ref/ URL).
 const urlMap = urlMapPath && fs.existsSync(urlMapPath)
     ? JSON.parse(fs.readFileSync(urlMapPath, 'utf-8')) : {};
+const docReg = fs.existsSync(docRegPath)
+    ? (JSON.parse(fs.readFileSync(docRegPath, 'utf-8')).docs || []) : [];
+const unresolvedDocs = new Set();
+
+function urlFromRegistry(document, ref) {
+    const hit = docReg.find(d => document.includes(d.match));
+    if (!hit) return null;
+    const base = `https://www.magisterium.com/docs/${hit.uuid}`;
+    return ref ? `${base}/ref/${encodeURIComponent(ref)}` : base;
+}
 
 // interni citat {n, document, author, ref, citation_text} → konzumirana Flutter shema
 function toConsumedCitation(c) {
-    const url = urlMap[`${c.document}|${c.ref}`] || urlMap[c.document] || null;
+    const url = urlMap[`${c.document}|${c.ref}`] || urlMap[c.document]
+        || urlFromRegistry(c.document || '', c.ref || '');
+    if (!url && c.document) unresolvedDocs.add(c.document);
     return {
         cited_text: '',                       // MCP reference ne nose doslovni citat
         document_title: c.document || '',
@@ -355,5 +370,9 @@ console.log(`   Holistički: ${holistic ? `score ${holisticScore}, ${holisticCit
 console.log(`   Sekcija ocijenjeno: ${scoredCount}/${job.sectionCount}${missingSections ? ` (⚠️ ${missingSections} bez ocjene)` : ''}`);
 console.log(`   Prosjek sekcija (root overall_score): ${sectionsAvg}/100 — ${sectionsAvg !== null ? scoreInterpretation(sectionsAvg) : 'N/A'}`);
 console.log(`   Ukupno zabrinutosti: ${totalConcerns} | source_url razriješeno: ${resolvedUrls}`);
+if (unresolvedDocs.size) {
+    console.log(`   ⚠️  Nerazriješeni dokumenti (search → dodaj UUID u magisterium_doc_urls.json):`);
+    [...unresolvedDocs].forEach(d => console.log(`        - ${d}`));
+}
 if (outPath) console.log(`   → per-section: ${outPath}`);
 if (outFull) console.log(`   → full:        ${outFull}`);

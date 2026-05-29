@@ -31,7 +31,10 @@ function getArg(name) {
 
 const articlePath = getArg('--article');
 const BATCH_SIZE  = parseInt(getArg('--batch-size') || '4', 10);
-const MAX_CONTENT_WORDS = parseInt(getArg('--max-words') || '350', 10);
+// Default 60 rij./sekciji: empirijski timeout-safe. Pune ~100-rij. sekcije u batch-of-4
+// znaju time-outati `chat` (usko grlo je dubina generacije po sekciji). Diže se preko
+// --max-words kad treba više konteksta, ali tada očekuj povremene timeoute → retry kraće.
+const MAX_CONTENT_WORDS = parseInt(getArg('--max-words') || '60', 10);
 const outDir      = getArg('--out-dir') || '/tmp/mag_hybrid';
 
 if (!articlePath) {
