@@ -2,7 +2,9 @@
 
 **Svrha:** Samostalna uputa da **nova Claude Code sesija** (bez konteksta prethodnog razgovora) može izvršiti jednokratni backfill: normalizirati glasnoću **audija unutar isporučnih `.mp4`** datoteka i gurnuti ih na R2 (`cdn.domovina.ai`) tako da frontend `domovina.ai` dobije ujednačen, kvalitetan zvuk.
 
-**Status na 2026-05-29.** Prethodi: [`loudness_analysis_2026-05.md`](loudness_analysis_2026-05.md) (mjerenje), [`loudness_normalization_2026-05.md`](loudness_normalization_2026-05.md) (audio inženjerski put — PROČITAJ PRIJE IMPLEMENTACIJE).
+**Status na 2026-05-29.** Prethodi: [`loudness_analysis_2026-05.md`](loudness_analysis_2026-05.md) (mjerenje), [`loudness_normalization_2026-05.md`](loudness_normalization_2026-05.md) (audio inženjerski put — PROČITAJ PRIJE).
+
+> **⚠️ STATUS 2026-05-29: kod je NAPISAN ali NIJE VALIDIRAN/POKRETAN.** `upload_to_r2.js` sad ima flagove `--normalize-audio` (remux loudnorm in-place + marker `{base}.loudnorm.applied`), `--force-mp4` (re-upload immutable `.mp4` ključeva) i `purgeCloudflareCache()`. **NE POKRETATI još** — user je pri brzom A/B preslušavanju čuo "neke probleme" u zvuku → audio treba doradu prije produkcije. Prvo riješiti kvalitetu (vidi `loudness_normalization_2026-05.md`, možda TP/LRA/limiter tuning), pa onda protokol ispod. Cron je bootout-an (vidi korak 0).
 
 ---
 

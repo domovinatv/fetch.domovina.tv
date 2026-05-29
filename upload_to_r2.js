@@ -118,6 +118,10 @@ const R2_SECRET_ACCESS_KEY = process.env.R2_SECRET_ACCESS_KEY;
 const R2_BUCKET_NAME = process.env.R2_BUCKET_NAME || "cdn-domovina-ai";
 const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL || "https://cdn.domovina.ai";
 
+// FAZA 3: Cloudflare cache purge (nakon prepisivanja immutable .mp4 keyeva).
+const CF_PURGE_TOKEN = process.env.DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE;
+const CF_ZONE_NAME = "domovina.ai";
+
 // Sufiksi datoteka koje se uploadaju (po video bazi)
 const UPLOAD_SUFFIXES = [
     ".canary.diarized.srt",
@@ -316,29 +320,33 @@ function hasFfmpeg() {
  * stavlja moov atom na početak za brži streaming/seek.
  * @returns {Promise<boolean>} true ako je remux uspješan
  */
-function remuxVideo(mkvPath, mp4Path) {
+// FAZA 3: loudness-normalizacija audija pri remuxu (vidi docs/loudness_faza3_mp4_r2_runbook.md).
+// Single-pass dynamic loudnorm (TP -2 dBTP — headroom za lossy codec inflaciju).
+const LOUDNORM_AF = "loudnorm=I=-16:TP=-2:LRA=11:linear=false";
+
+function remuxVideo(mkvPath, mp4Path, normalize = false) {
     return new Promise((resolve) => {
-        const proc = spawn("ffmpeg", [
-            "-i", mkvPath,
-            "-c:v", "copy",
-            "-c:a", "aac",
-            "-movflags", "+faststart",
-            "-y",
-            mp4Path
-        ], { stdio: ["pipe", "pipe", "pipe"] });
+        // Pri normalizaciji pišemo u temp pa atomski rename — štiti postojeći live .mp4.
+        // Temp ima `.loudnorm.` infix → ignoriran od svih pipeline skenera.
+        const out = normalize ? mp4Path.replace(/\.mp4$/, ".loudnorm.tmp.mp4") : mp4Path;
+        const args = ["-i", mkvPath];
+        if (normalize) args.push("-af", LOUDNORM_AF);
+        args.push("-c:v", "copy", "-c:a", "aac", "-movflags", "+faststart", "-y", out);
+        const proc = spawn("ffmpeg", args, { stdio: ["pipe", "pipe", "pipe"] });
 
         let stderr = "";
         proc.stderr.on("data", (chunk) => { stderr += chunk.toString(); });
 
         proc.on("close", (code) => {
-            if (code === 0 && fs.existsSync(mp4Path)) {
-                const size = fs.statSync(mp4Path).size;
-                if (size > 1000) {
-                    resolve(true);
-                    return;
+            if (code === 0 && fs.existsSync(out) && fs.statSync(out).size > 1000) {
+                if (normalize) {
+                    try { fs.renameSync(out, mp4Path); }
+                    catch { resolve(false); return; }
                 }
-                try { fs.unlinkSync(mp4Path); } catch {}
+                resolve(true);
+                return;
             }
+            try { fs.unlinkSync(out); } catch {}
             resolve(false);
         });
 
@@ -350,7 +358,7 @@ function remuxVideo(mkvPath, mp4Path) {
  * Remux faza: za svaki video koji ima .mkv ali nema svjež .mp4, pokreće ffmpeg.
  * Ide PRIJE discovery/upload faze.
  */
-async function remuxPhase(videos, dryRun) {
+async function remuxPhase(videos, dryRun, normalizeAudio = false) {
     const ffmpegAvailable = hasFfmpeg();
     if (!ffmpegAvailable) {
         log("⚠️", "ffmpeg nije instaliran — preskačem MKV → MP4 remux");
@@ -368,6 +376,29 @@ async function remuxPhase(videos, dryRun) {
 
         if (!fs.existsSync(mkvPath)) {
             noMkv++;
+            continue;
+        }
+
+        // FAZA 3: --normalize-audio → loudnorm audija u .mp4 (in-place). Idempotentno
+        // preko markera {base}.loudnorm.applied (ignoriran od svih skenera).
+        if (normalizeAudio) {
+            const marker = path.join(video.channelDir, `${video.videoBase}.loudnorm.applied`);
+            if (fs.existsSync(marker)) { skipped++; continue; }
+            if (dryRun) {
+                log("🔊", `[DRY RUN] Bi normalizirao+remuxao: ${video.videoBase} → .mp4 (loudnorm)`);
+                remuxed++;
+                continue;
+            }
+            log("🔊", `Normalize+remux: ${video.videoBase} (${LOUDNORM_AF}) ...`);
+            const ok = await remuxVideo(mkvPath, mp4Path, true);
+            if (ok) {
+                fs.writeFileSync(marker, new Date().toISOString() + "\n");
+                log("✅", `Normalized MP4: ${video.videoBase}.mp4 (${humanSize(fs.statSync(mp4Path).size)})`);
+                remuxed++;
+            } else {
+                log("⚠️", `Normalize-remux neuspješan: ${video.videoBase}`);
+                failed++;
+            }
             continue;
         }
 
@@ -794,6 +825,50 @@ async function uploadToR2(client, localPath, key) {
     }));
 }
 
+// ─── CLOUDFLARE CDN PURGE (FAZA 3) ────────────────────────────────
+// video.mp4 ima Cache-Control immutable (1god) — nakon prepisivanja na R2, CF
+// servira stari sadržaj dok se ne purge-a. Vidi memory cloudflare-cdn-caches-404s.
+async function cfZoneId() {
+    const r = await fetch(`https://api.cloudflare.com/client/v4/zones?name=${CF_ZONE_NAME}`, {
+        headers: { Authorization: `Bearer ${CF_PURGE_TOKEN}` },
+    });
+    const j = await r.json();
+    return (j && j.success && j.result && j.result[0]) ? j.result[0].id : null;
+}
+
+async function purgeCloudflareCache(urls) {
+    if (!urls.length) return;
+    if (!CF_PURGE_TOKEN) {
+        log("⚠️", "DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE nije postavljen — preskačem CDN purge.");
+        log("💡", `Ručno: CF dashboard → ${CF_ZONE_NAME} → Caching → Purge Everything.`);
+        return;
+    }
+    let zoneId;
+    try { zoneId = await cfZoneId(); } catch (e) { zoneId = null; }
+    if (!zoneId) {
+        log("⚠️", `Ne mogu razriješiti zone ID za ${CF_ZONE_NAME} (token možda nema zone:read).`);
+        log("💡", `Purge-aj ručno ${urls.length} .mp4 URL-ova ili Purge Everything preko dashboarda.`);
+        return;
+    }
+    let purged = 0;
+    for (let i = 0; i < urls.length; i += 30) {   // CF limit: 30 file-ova po pozivu
+        const batch = urls.slice(i, i + 30);
+        try {
+            const r = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
+                method: "POST",
+                headers: { Authorization: `Bearer ${CF_PURGE_TOKEN}`, "Content-Type": "application/json" },
+                body: JSON.stringify({ files: batch }),
+            });
+            const j = await r.json().catch(() => ({}));
+            if (j && j.success) purged += batch.length;
+            else log("⚠️", `CF purge batch greška: ${JSON.stringify(j.errors || j).slice(0, 200)}`);
+        } catch (e) {
+            log("⚠️", `CF purge batch iznimka: ${e.message}`);
+        }
+    }
+    log("🧹", `CDN purge: ${purged}/${urls.length} URL-ova (GET-verify, ne HEAD).`);
+}
+
 // ─── MAIN ─────────────────────────────────────────────────────────
 
 async function main() {
@@ -804,6 +879,12 @@ async function main() {
     const dryRun = hasFlag("--dry-run");
     const metaDir = getArg("--meta-dir"); // npr. storage/meta — uploadira sve JSON fajlove iz tog direktorija
     const flutterKeys = hasFlag("--flutter-keys");
+    // FAZA 3 (vidi docs/loudness_faza3_mp4_r2_runbook.md):
+    //   --normalize-audio → remux normalizira audio (loudnorm) u .mp4 in-place
+    //   --force-mp4       → prisili re-upload .mp4 ključeva (inače immutable=skip) + CDN purge
+    // normalize implicira force (normalizirani .mp4 mora prepisati postojeći na R2).
+    const normalizeAudio = hasFlag("--normalize-audio");
+    const forceMp4 = hasFlag("--force-mp4") || normalizeAudio;
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -901,7 +982,7 @@ if (inputDir) {
     console.log("   ━━━ MKV → MP4 remux ━━━");
     console.log("");
 
-    remuxStats = await remuxPhase(videos, dryRun);
+    remuxStats = await remuxPhase(videos, dryRun, normalizeAudio);
 
     if (remuxStats.remuxed > 0 || remuxStats.failed > 0) {
         log("📊", `Remux: ${remuxStats.remuxed} novo, ${remuxStats.skipped} preskočeno, ${remuxStats.failed} neuspjelo`);
@@ -1100,6 +1181,18 @@ if (inputDir) {
     }
     console.log("");
 
+    // FAZA 3 / --force-mp4: video.mp4 je immutable pa bi postojeći bio skipan;
+    // normalizirani audio mora prepisati postojeći → prebaci .mp4 ključeve u upload.
+    if (forceMp4) {
+        const isMp4Key = (k) => k.endsWith(".mp4");
+        const forced = existingImmutable.filter(f => isMp4Key(f.r2Key));
+        if (forced.length) {
+            existingImmutable = existingImmutable.filter(f => !isMp4Key(f.r2Key));
+            newFiles.push(...forced);
+            log("🔁", `--force-mp4: ${forced.length} postojećih .mp4 ključeva → re-upload`);
+        }
+    }
+
     // Immutable file-ovi koji već postoje na R2 = automatski skip
     skipped += existingImmutable.length;
 
@@ -1165,6 +1258,17 @@ if (inputDir) {
 
     // Spremi disk MD5 cache ako se promijenio
     if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
+
+    // FAZA 3: purge CDN za prepisane .mp4 (immutable cache, inače stari servira 1god).
+    if (forceMp4 && !dryRun) {
+        const mp4Urls = newFiles
+            .filter(f => f.r2Key.endsWith(".mp4"))
+            .map(f => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${f.r2Key}`);
+        if (mp4Urls.length) {
+            log("🧹", `Pokrećem CDN purge za ${mp4Urls.length} prepisanih .mp4 ...`);
+            await purgeCloudflareCache(mp4Urls);
+        }
+    }
 
 } // end if (inputDir)
 
