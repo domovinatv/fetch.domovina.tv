@@ -9,6 +9,11 @@
  *
  * PRINCIP: Ne downloada cijeli video — samo seekira na timestamp i izvlači 1 frame.
  *
+ * ANTI-BOT FALLBACK: ako yt-dlp udari u IP-level anti-bot block, automatski se
+ * prebacuje na lokalni već skinuti video file (.mp4/.mkv) i izvlači frame-ove
+ * ffmpeg-om offline (bez yt-dlp). Niža rezolucija (lokalna kopija), ali radi bez
+ * mreže. Jednom kad anti-bot udari, ostatak run-a ide offline (ne zove više yt-dlp).
+ *
  * Načini pokretanja:
  *   1. Pojedinačni article.json:
  *      node screenshot_youtube.js --file /path/to/video.article.json
@@ -54,6 +59,11 @@ const MAX_FAILURES_BEFORE_ABORT = 8;  // nakon refresh-a još ovoliko = IP block
 let consecutiveStreamFailures = 0;
 let cookieRefreshAttempts = 0;
 let lastStderr = "";
+// Kad yt-dlp jednom udari u IP-level anti-bot block, prebacujemo se na
+// lokalni-file fallback (ffmpeg iz već skinutog .mp4/.mkv) za OSTATAK run-a —
+// ne zovemo više yt-dlp (besmisleno + dodatno hamranje YouTube-a). Trade-off:
+// lokalna kopija je tipično niže rezolucije nego yt-dlp "best" stream.
+let antiBotOfflineMode = false;
 
 // Prioritet: eksportirani cookies.txt (svjež, kontrolirani) iznad browser
 // cookies (mogu biti stale). Identično kao u fetch.js.
@@ -248,16 +258,51 @@ function getStreamUrl(videoId, allowRefreshRetry = true, useLiveBrowserCookies =
 }
 
 /**
+ * Pronalazi najbolji lokalni video file za fallback (kad yt-dlp padne na anti-bot).
+ * captureFrame radi identično sa stream URL-om i s lokalnom putanjom (ffmpeg -i).
+ * Bira najveću rezoluciju među već skinutim kontejnerima; tie-break po veličini.
+ *
+ * @returns {{path: string, height: number}|null}
+ */
+function findBestLocalVideo(dir, videoBase) {
+    const exts = ["mp4", "mkv", "webm", "m4v", "mov"];
+    const candidates = exts
+        .map(ext => path.join(dir, `${videoBase}.${ext}`))
+        .filter(p => { try { return fs.statSync(p).size > 100000; } catch { return false; } });
+    if (candidates.length === 0) return null;
+
+    let best = null;
+    for (const p of candidates) {
+        let height = 0;
+        try {
+            height = parseInt(execSync(
+                `ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 '${p}'`,
+                { encoding: "utf-8", timeout: 15000 }
+            ).trim(), 10) || 0;
+        } catch { /* nema video stream ili ffprobe fail → height 0 */ }
+        const size = fs.statSync(p).size;
+        // height 0 (npr. audio-only) tretiraj kao neupotrebljiv ako ima boljih
+        if (!best || height > best.height || (height === best.height && size > best.size)) {
+            best = { path: p, height, size };
+        }
+    }
+    // Ako najbolji kandidat nema video stream (height 0), nije upotrebljiv.
+    return best && best.height > 0 ? { path: best.path, height: best.height } : null;
+}
+
+/**
  * Izvlači jedan frame iz video streama na zadanom timestampu pomoću ffmpeg.
  * -ss prije -i = brzi seek bez dekodiranja cijelog videa.
+ * Izvor (`source`) može biti yt-dlp stream URL ILI lokalna putanja — ffmpeg
+ * tretira oba identično.
  *
  * @returns {boolean} true ako je screenshot uspješno spremljen
  */
-function captureFrame(streamUrl, timestamp, outputPath) {
+function captureFrame(source, timestamp, outputPath) {
     return new Promise((resolve) => {
         const args = [
             "-ss", timestamp,
-            "-i", streamUrl,
+            "-i", source,
             "-frames:v", "1",
             "-update", "1",     // Potrebno za novije ffmpeg verzije s jednim frameom
             "-q:v", "1",        // Najviša kvaliteta
@@ -370,17 +415,54 @@ async function processArticle(articlePath) {
         console.log(`   ⏭️  ${skipped} screenshotova već postoji, ${pending.length} preostalo`);
     }
 
-    // Dohvati stream URL (jednom za sve screenshotove istog videa)
-    console.log(`   🔗 Dohvaćam stream URL za ${videoId} (best quality)...`);
-    const streamUrl = getStreamUrl(videoId);
-    if (!streamUrl) {
-        console.error(`   ❌ Ne mogu dohvatiti stream URL za ${videoId}`);
+    // Odredi izvor frame-ova: yt-dlp stream (best quality) ili — ako yt-dlp
+    // padne na anti-bot — lokalni već skinuti .mp4/.mkv (ffmpeg iz lokalnog filea).
+    let source = null;
+    let sourceLabel = "";
+
+    if (!antiBotOfflineMode) {
+        // Dohvati stream URL (jednom za sve screenshotove istog videa)
+        console.log(`   🔗 Dohvaćam stream URL za ${videoId} (best quality)...`);
+        try {
+            const streamUrl = getStreamUrl(videoId);
+            if (streamUrl) {
+                source = streamUrl;
+                sourceLabel = "yt-dlp stream (best quality)";
+            } else if (isAntiBotBlock(lastStderr)) {
+                antiBotOfflineMode = true;
+            }
+        } catch (err) {
+            if (err.message === "ANTI_BOT_BLOCK") {
+                antiBotOfflineMode = true;
+            } else {
+                throw err;
+            }
+        }
+        if (antiBotOfflineMode) {
+            console.log(`   🚫 YouTube anti-bot — prelazim na lokalni-file fallback (ffmpeg, offline) za OSTATAK run-a`);
+        }
+    }
+
+    // Fallback: lokalni video file (kad nema stream URL-a — anti-bot ili istekli cookies).
+    if (!source) {
+        const local = findBestLocalVideo(dir, videoBase);
+        if (local) {
+            source = local.path;
+            sourceLabel = `lokalni file ${local.height}p (${path.extname(local.path).slice(1)})`;
+            console.log(`   📁 Fallback izvor: ${path.basename(local.path)} [${local.height}p] — niža kvaliteta od yt-dlp "best"`);
+        }
+    }
+
+    if (!source) {
+        console.error(`   ❌ Ne mogu dohvatiti ni stream URL ni lokalni video za ${videoId}`);
         if (lastStderr) {
             const errLine = lastStderr.split("\n").find(l => l.includes("ERROR")) || lastStderr.split("\n").slice(0, 3).join(" | ");
             console.error(`      yt-dlp: ${errLine.slice(0, 240)}`);
         }
         return { total: screenshots.length, captured: 0, skipped, failed: pending.length };
     }
+
+    console.log(`   🎬 Izvor frame-ova: ${sourceLabel}`);
 
     // Kreiraj screenshot direktorij
     if (!fs.existsSync(screenshotDir)) {
@@ -393,7 +475,7 @@ async function processArticle(articlePath) {
 
     for (const ss of pending) {
         process.stdout.write(`      📸 ${ss.timestamp} — ${ss.section_subtitle.substring(0, 50)}... `);
-        const ok = await captureFrame(streamUrl, ss.timestamp, ss.outputFile);
+        const ok = await captureFrame(source, ss.timestamp, ss.outputFile);
         if (ok) {
             const sizeKb = (fs.statSync(ss.outputFile).size / 1024).toFixed(0);
             console.log(`✅ (${sizeKb} KB)`);
