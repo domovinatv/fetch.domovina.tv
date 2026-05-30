@@ -4,7 +4,7 @@
   "channel_id": "UCK48gv8BTJOiH1QDPfa5eLQ",
   "title": "Glas Poduzetnika",
   "availability": null,
-  "channel_follower_count": 377,
+  "channel_follower_count": 378,
   "description": "Inicijativa “Glas Poduzetnika” je inicijativa prvenstveno #Mikro, #Malih i #Srednjih poduzetnika koja zeli poboljsati komunikaciju prvenstveno svih ugrozenih Poduzetnika i Vlade, kao i komunikaciju sa medijima, te ukazati na nuzne i hitne #MJERE kako bismo sutra imali sansu ponovo dignuti poslovanje i pospjesiti ekonomski oporavak.  ",
   "tags": [],
   "thumbnails": [
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780062977,
+  "epoch": 1780103421,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
