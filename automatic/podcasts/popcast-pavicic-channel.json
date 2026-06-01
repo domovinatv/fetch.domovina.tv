@@ -7,29 +7,29 @@
   "tags": [],
   "thumbnails": [
     {
-      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=CIjX7dAG-oaymwEICPABEPABSFqi85f_AwYI8YWkugY=&rs=AOn4CLDjiUIlJ_UMnGR0pAZjAaZ8e9hTyQ",
+      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=COD-8tAG-oaymwEICPABEPABSFqi85f_AwYI8YWkugY=&rs=AOn4CLAlmA-wYjjQ0jYegjycLFY77lcpfA",
       "height": 240,
       "width": 240,
       "id": "0",
       "resolution": "240x240"
     },
     {
-      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=CLzW7dAG-oaymwEICOADEOADSFqi85f_AwYI8YWkugY=&rs=AOn4CLB6o2r3IinWPt2WicUzkblRSWHR1w",
+      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=CLDy8tAG-oaymwEICOADEOADSFqi85f_AwYI8YWkugY=&rs=AOn4CLCINGWRknClhw1KMtpicYlv5W5Gnw",
       "height": 480,
       "width": 480,
       "id": "1",
       "resolution": "480x480"
     },
     {
-      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=CJr57dAG-oaymwEICNAFENAFSFqi85f_AwYI8YWkugY=&rs=AOn4CLDZU4nBTZmBbw8uX1bpsAeQZIzoMA",
+      "url": "https://i.ytimg.com/pl_c/PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU/studio_square_thumbnail.jpg?sqp=CKTz8tAG-oaymwEICNAFENAFSFqi85f_AwYI8YWkugY=&rs=AOn4CLCV-S02v2whBqFvWwSLTEtteUKaVw",
       "height": 720,
       "width": 720,
       "id": "2",
       "resolution": "720x720"
     }
   ],
-  "modified_date": "20260524",
-  "view_count": 8359,
+  "modified_date": "20260523",
+  "view_count": 8367,
   "playlist_count": 43,
   "channel": "Večernji TV",
   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
@@ -47,7 +47,7 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780189830,
+  "epoch": 1780276244,
   "__files_to_move": {},
   "_version": {
     "version": "2025.12.08",

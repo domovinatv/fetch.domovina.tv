@@ -4,7 +4,7 @@
   "channel_id": "UCotSpU9O5WMhPedWsR2jlXg",
   "title": "HRVATSKA NARODNA BANKA / CROATIAN NATIONAL BANK",
   "availability": null,
-  "channel_follower_count": 1020,
+  "channel_follower_count": 1030,
   "description": "",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780189788,
+  "epoch": 1780276200,
   "__files_to_move": {},
   "_version": {
     "version": "2025.12.08",

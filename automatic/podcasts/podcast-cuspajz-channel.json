@@ -4,7 +4,7 @@
   "channel_id": "UCaqCX-pMk_RXhs4EQnP4VuQ",
   "title": "PODCAST  ČUŠPAJZ ",
   "availability": null,
-  "channel_follower_count": 3720,
+  "channel_follower_count": 3750,
   "description": "",
   "tags": [
     "#politics",
@@ -48,7 +48,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780189814,
+  "epoch": 1780276228,
   "__files_to_move": {},
   "_version": {
     "version": "2025.12.08",
