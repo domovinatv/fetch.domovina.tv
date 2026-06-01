@@ -1,60 +1,109 @@
 {
-  "id": "PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS",
-  "title": "Founder Talks",
-  "availability": null,
-  "channel_follower_count": null,
-  "description": "Founder Talks je projekt u kojem osnivači uspješnih startupa dijele svoje uspjehe, padove i sve između. Cilj je inspirirati studente i stvoriti prostor za poduzetništvo na hrvatskim sveučilištima.",
-  "tags": [],
-  "thumbnails": [
-    {
-      "url": "https://i.ytimg.com/vi/Kx25VpFrHjo/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLDXn3g9_rsv_P23M-5TocZGb_rGow",
-      "height": 94,
-      "width": 168,
-      "id": "0",
-      "resolution": "168x94"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/Kx25VpFrHjo/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCe-0OCcQXKNwy0DxwbYBWF4Gq1bA",
-      "height": 110,
-      "width": 196,
-      "id": "1",
-      "resolution": "196x110"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/Kx25VpFrHjo/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDUMUSc7TC_ODOgM5F8uRySHEIzCQ",
-      "height": 138,
-      "width": 246,
-      "id": "2",
-      "resolution": "246x138"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/Kx25VpFrHjo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBV6lDdHTC1hK0R07ljMqesgP2IHg",
-      "height": 188,
-      "width": 336,
-      "id": "3",
-      "resolution": "336x188"
-    }
-  ],
-  "modified_date": "20260514",
-  "view_count": 26,
-  "playlist_count": 5,
+  "id": "UCOkyFO3dsH1Yq_G-eRApUfw",
   "channel": "Promocija znanosti",
   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+  "title": "Promocija znanosti - Videos",
+  "availability": null,
+  "channel_follower_count": 5130,
+  "description": "Institut za promociju znanosti je središnje mjesto za projekte kojima se promovira znanstveni način razmišljanja i važnost obrazovanja.",
+  "tags": [
+    "kvantna mehanika",
+    "crne rupe",
+    "fizika",
+    "FER",
+    "podcast",
+    "kemija",
+    "ekonomija",
+    "svemir",
+    "AI",
+    "obrazovanje",
+    "predavanje"
+  ],
+  "thumbnails": [
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 175,
+      "width": 1060,
+      "preference": -10,
+      "id": "0",
+      "resolution": "1060x175"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 188,
+      "width": 1138,
+      "preference": -10,
+      "id": "1",
+      "resolution": "1138x188"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 283,
+      "width": 1707,
+      "preference": -10,
+      "id": "2",
+      "resolution": "1707x283"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 351,
+      "width": 2120,
+      "preference": -10,
+      "id": "3",
+      "resolution": "2120x351"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 377,
+      "width": 2276,
+      "preference": -10,
+      "id": "4",
+      "resolution": "2276x377"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 424,
+      "width": 2560,
+      "preference": -10,
+      "id": "5",
+      "resolution": "2560x424"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0OBgo3G-MItOTZWp2SyWTe1TN4i74e3GqJnATiqrwgX2ROXcIMtrVuVrb3ch630C1TVT4Ypi=s0",
+      "id": "banner_uncropped",
+      "preference": -5
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0V4M-WnZsTMJeo1ld9xBBqHGVXaHqDIiAXOnEs5OuGnoNrKsbNqa2dhzCs4HyQhhEeY6SU9Gkg=s900-c-k-c0x00ffffff-no-rj",
+      "height": 900,
+      "width": 900,
+      "id": "7",
+      "resolution": "900x900"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/0V4M-WnZsTMJeo1ld9xBBqHGVXaHqDIiAXOnEs5OuGnoNrKsbNqa2dhzCs4HyQhhEeY6SU9Gkg=s0",
+      "id": "avatar_uncropped",
+      "preference": 1
+    }
+  ],
   "uploader_id": "@promocijaznanosti",
+  "uploader_url": "https://www.youtube.com/@promocijaznanosti",
+  "modified_date": null,
+  "view_count": null,
+  "playlist_count": null,
   "uploader": "Promocija znanosti",
   "channel_url": "https://www.youtube.com/channel/UCOkyFO3dsH1Yq_G-eRApUfw",
-  "uploader_url": "https://www.youtube.com/@promocijaznanosti",
   "_type": "playlist",
   "entries": [],
   "extractor_key": "YoutubeTab",
   "extractor": "youtube:tab",
-  "webpage_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS",
-  "original_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS",
-  "webpage_url_basename": "playlist",
+  "webpage_url": "https://www.youtube.com/channel/UCOkyFO3dsH1Yq_G-eRApUfw/videos",
+  "original_url": "https://www.youtube.com/channel/UCOkyFO3dsH1Yq_G-eRApUfw/videos",
+  "webpage_url_basename": "videos",
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780332417,
+  "epoch": 1780351159,
   "__files_to_move": {},
   "_version": {
     "version": "2026.04.10.235301",

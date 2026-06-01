@@ -85,13 +85,27 @@ for stavka in "${KANALI[@]}"; do
 
     echo -n "  [$IME] Kanal metapodaci... "
 
-    # Ukloni /videos suffix za channel-level dohvat; playlist URL-ove ostavi kako jesu
+    # Ukloni /videos suffix za channel-level dohvat; playlist URL-ove razriješi niže.
     CHANNEL_URL="${URL%/videos}"
+
+    RAW=$(yt-dlp --dump-single-json --flat-playlist --playlist-items 0 \
+        $COOKIE_ARG "$CHANNEL_URL" 2>/dev/null)
+
+    # Ako je URL playlista (podcast je playlista unutar većeg kanala), yt-dlp
+    # vrati thumbnaile VIDEA umjesto avatara kanala. Izvuci .channel_url iz
+    # playliste i ponovo dohvati s <channel_url>/videos da dobiješ
+    # avatar_uncropped + banner_uncropped (pravi avatar/cover kanala).
+    REAL_CHANNEL_URL=$(printf '%s' "$RAW" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{const j=JSON.parse(d);const hasAvatar=(j.thumbnails||[]).some(t=>t.id==="avatar_uncropped");const isPlaylist=(j.webpage_url||"").includes("playlist?list=");if(!hasAvatar&&isPlaylist&&j.channel_url){process.stdout.write(j.channel_url)}}catch(e){}})')
+
+    if [ -n "$REAL_CHANNEL_URL" ]; then
+        echo -n "(playlist → kanal) "
+        RAW=$(yt-dlp --dump-single-json --flat-playlist --playlist-items 0 \
+            $COOKIE_ARG "${REAL_CHANNEL_URL}/videos" 2>/dev/null)
+    fi
 
     # Pretty-print kroz Node (indent 2, isto kao state fajlovi) da git diff
     # pokazuje točne promjene po retku umjesto cijelog jednorednog JSON-a.
-    if yt-dlp --dump-single-json --flat-playlist --playlist-items 0 \
-        $COOKIE_ARG "$CHANNEL_URL" 2>/dev/null \
+    if printf '%s' "$RAW" \
         | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{process.stdout.write(JSON.stringify(JSON.parse(d),null,2)+"\n")}catch(e){process.exit(1)}})' \
         > "$META_FILE.tmp" 2>/dev/null && [ -s "$META_FILE.tmp" ]; then
         mv "$META_FILE.tmp" "$META_FILE"

@@ -1,60 +1,99 @@
 {
-  "id": "PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
-  "title": "Cryptoverse.hr - Kripto caffe",
-  "availability": null,
-  "channel_follower_count": null,
-  "description": "Cryptoverse vam s vremena na vrijeme donosi najave, intervjue i druge bezvremenske zanimljivosti iz svijeta kriptovaluta!\n\nOdaberite teme po vašem ukusu, zavalite se u naslonjač uz jutarnju kavu i doznajte nešto više od priznatih stručnjaka iz regije.\n\nSamo za vas, samo na Cryptoverse.hr!",
-  "tags": [],
-  "thumbnails": [
-    {
-      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLCOz7YHIiUC5XRuIOhP1K4aLPLC7A",
-      "height": 94,
-      "width": 168,
-      "id": "0",
-      "resolution": "168x94"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBohZJghF_ps9F_bvg-xabmPPW2QA",
-      "height": 110,
-      "width": 196,
-      "id": "1",
-      "resolution": "196x110"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCPyA1hIdgQKgdBusrPQ1zNFVHS5g",
-      "height": 138,
-      "width": 246,
-      "id": "2",
-      "resolution": "246x138"
-    },
-    {
-      "url": "https://i.ytimg.com/vi/fxNsMft3SVE/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDMpdWpQIRKZtYAGE1ueUSWThB6RA",
-      "height": 188,
-      "width": 336,
-      "id": "3",
-      "resolution": "336x188"
-    }
-  ],
-  "modified_date": "20260303",
-  "view_count": 4957,
-  "playlist_count": 55,
+  "id": "UCcQ4HZUBV_xpk1PbtQ_2ngw",
   "channel": "Cryptoverse",
   "channel_id": "UCcQ4HZUBV_xpk1PbtQ_2ngw",
+  "title": "Cryptoverse - Videos",
+  "availability": null,
+  "channel_follower_count": 12700,
+  "description": "Cryptoverse je prvi news kanal s prostora ex-YU posvećen kriptovalutama i blockchain tehnologiji. Naša je misija svakodnevno vam donositi najtočnije, najrelevantnije i najaktualnije vijesti iz kripto svijeta. Vijesti, analize, prognoze i intervjui samo su dio sadržaja koji vam želimo ponuditi na ovom nasušno potrebnom portalu.\n\nNaša je vizija, zajedno s vama, graditi najveću kripto zajednicu na ovim prostorima, ne samo pomoću ove stranice i dodatnih video materijala na YouTube kanalu nego ponajprije dijalogom sa svim kripto entuzijastima na društvenim mrežama jer kripto više nije na margini.\n\nKripto postaje dio mainstreama i svakodnevice mnogih, koliko god to nekima bilo teško prihvatiti. Tu smo upravo zato da pokušamo izgraditi platformu koja će svima nama ovu digitalnu revoluciju učiniti jednostavnijom i razumljivijom. Pridružite nam se i budite dio Cryptoversea!\n\nhttps://cryptoverse.hr/\n\nPODRŽI PROJEKT - https://cryptoverse.hr/podrzi-projekt/\n",
+  "tags": [
+    "Cryptoverse.hr"
+  ],
+  "thumbnails": [
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 175,
+      "width": 1060,
+      "preference": -10,
+      "id": "0",
+      "resolution": "1060x175"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 188,
+      "width": 1138,
+      "preference": -10,
+      "id": "1",
+      "resolution": "1138x188"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 283,
+      "width": 1707,
+      "preference": -10,
+      "id": "2",
+      "resolution": "1707x283"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 351,
+      "width": 2120,
+      "preference": -10,
+      "id": "3",
+      "resolution": "2120x351"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 377,
+      "width": 2276,
+      "preference": -10,
+      "id": "4",
+      "resolution": "2276x377"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 424,
+      "width": 2560,
+      "preference": -10,
+      "id": "5",
+      "resolution": "2560x424"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/KoJ_BZnXHSDeKl0x9a1eTVssGarvi9fBg6TukqRnSfj-u0I-vPapGUJxR3QeOmc46WiNT5d-dw=s0",
+      "id": "banner_uncropped",
+      "preference": -5
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/gRlAa_88UAWsQWvGscoFbBtVmL6R3n1TyLBr_8BtGYEfzN33PRADHjK_Z6DcHffn9aAtKPNj8Q=s900-c-k-c0x00ffffff-no-rj",
+      "height": 900,
+      "width": 900,
+      "id": "7",
+      "resolution": "900x900"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/gRlAa_88UAWsQWvGscoFbBtVmL6R3n1TyLBr_8BtGYEfzN33PRADHjK_Z6DcHffn9aAtKPNj8Q=s0",
+      "id": "avatar_uncropped",
+      "preference": 1
+    }
+  ],
   "uploader_id": "@cryptoverse2022",
+  "uploader_url": "https://www.youtube.com/@cryptoverse2022",
+  "modified_date": null,
+  "view_count": null,
+  "playlist_count": null,
   "uploader": "Cryptoverse",
   "channel_url": "https://www.youtube.com/channel/UCcQ4HZUBV_xpk1PbtQ_2ngw",
-  "uploader_url": "https://www.youtube.com/@cryptoverse2022",
   "_type": "playlist",
   "entries": [],
   "extractor_key": "YoutubeTab",
   "extractor": "youtube:tab",
-  "webpage_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
-  "original_url": "https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb",
-  "webpage_url_basename": "playlist",
+  "webpage_url": "https://www.youtube.com/channel/UCcQ4HZUBV_xpk1PbtQ_2ngw/videos",
+  "original_url": "https://www.youtube.com/channel/UCcQ4HZUBV_xpk1PbtQ_2ngw/videos",
+  "webpage_url_basename": "videos",
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780332416,
+  "epoch": 1780351157,
   "__files_to_move": {},
   "_version": {
     "version": "2026.04.10.235301",
