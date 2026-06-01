@@ -7,14 +7,14 @@
   "tags": [],
   "thumbnails": [
     {
-      "url": "https://i.ytimg.com/pl_c/PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn/studio_square_thumbnail.jpg?sqp=CIiB9dAGovOX_wMGCJTPk84G&rs=AOn4CLCG2RELUqFjwq_Qe8DTofJo9vopsA",
+      "url": "https://i.ytimg.com/pl_c/PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn/studio_square_thumbnail.jpg?sqp=CIDf9dAGovOX_wMGCJTPk84G&rs=AOn4CLDhsePykqZujct8pUshuu-1bL25MQ",
       "height": 200,
       "width": 200,
       "id": "0",
       "resolution": "200x200"
     }
   ],
-  "modified_date": "20260528",
+  "modified_date": "20260529",
   "view_count": 114,
   "playlist_count": 3,
   "channel": "HRVATSKI CENTAR ZA POTRESNO INŽENJERSTVO",
@@ -33,7 +33,7 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780308730,
+  "epoch": 1780319263,
   "__files_to_move": {},
   "_version": {
     "version": "2026.04.10.235301",
