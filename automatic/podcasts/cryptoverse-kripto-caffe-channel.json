@@ -54,12 +54,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780276261,
+  "epoch": 1780307420,
   "__files_to_move": {},
   "_version": {
-    "version": "2025.12.08",
+    "version": "2026.04.10.235301",
     "current_git_head": null,
-    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }
