@@ -42,6 +42,18 @@
     { "match": "44th World Communications Day", "uuid": "3d8e2f64-ad7b-46eb-9d4f-9c95aa5a536f" },
     { "match": "45th World Communications Day", "uuid": "10b1f494-8324-4514-8319-22a210c6c59b" },
     { "match": "LVIII World Communications Day", "uuid": "3b16e004-40fa-462a-9a4b-dad955fe70b2" },
-    { "match": "58th World Day of Social Communications", "uuid": "1a384f5a-241c-453c-84a7-cc9e5f478361" }
+    { "match": "58th World Day of Social Communications", "uuid": "1a384f5a-241c-453c-84a7-cc9e5f478361" },
+    { "match": "National Council of Anti-Usury Foundations", "uuid": "a2b0d164-4750-4f13-a9d3-e228f32c630f" },
+    { "match": "Ecclesia in America", "uuid": "30cc6d33-b423-4d9d-ac8e-3d6168c7952b" },
+    { "match": "The Holy Bible", "uuid": "7ab6e175-afab-4262-915a-0e98ce0d133d" },
+    { "match": "Amoris Laetitia", "uuid": "6b01df98-b580-446b-bc46-2fb81333ff6d" },
+    { "match": "Catechesi Tradendae", "uuid": "978a6f0d-52e8-480b-acf1-a55e1504796b" },
+    { "match": "Musicae Sacrae", "uuid": "5a4666f3-aa77-41d3-b50a-a39e7d5d6ccc" },
+    { "match": "Ecclesia in Asia", "uuid": "ce0a9ca1-6f1a-4617-8221-855242d231e8" },
+    { "match": "Ecclesia in Oceania", "uuid": "078e92b6-eeca-4064-ac2f-5ec0e15be694" },
+    { "match": "The Eucharist: Source and Summit of the Life and Mission of the Church", "uuid": "46597b01-2b63-48d1-8027-156116605fdb" },
+    { "match": "The Family and Human Rights", "uuid": "2246d023-c6a2-4ea8-badc-bcb3d6ce13d0" },
+    { "match": "Ethical and Religious Directives for Catholic Health Care Services", "uuid": "43bc8ed0-3286-480f-a538-2fd6bcc44d61" },
+    { "match": "Patris Corde", "uuid": "5f9aefdb-66be-4072-863d-4ac94ffc5083" }
   ]
 }
