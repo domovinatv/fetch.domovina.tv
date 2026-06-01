@@ -63,6 +63,37 @@ const GEMINI_CONF = loadGeminiConf();
 let GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "domovina-sync-ms";
 
+// ─── GEMINI USAGE / TROŠAK TRACKING ───────────────────────────────
+// Vertex vraća usageMetadata (token brojevi) po pozivu. Procjenjujemo trošak iz
+// cjenika gemini-2.5-flash (USD/1M tokena; override u gemini.conf ili env).
+// "diff" = koliko je SVAKA epizoda potrošila u OVOM runu → sidecar {base}.gemini_usage.json + log.
+// NAPOMENA: radi samo za --gemini-backend vertex (CLI ne vraća token brojeve).
+const PRICE_IN_PER_M  = parseFloat(process.env.GEMINI_PRICE_IN  || GEMINI_CONF.GEMINI_PRICE_IN  || "0.30");
+const PRICE_OUT_PER_M = parseFloat(process.env.GEMINI_PRICE_OUT || GEMINI_CONF.GEMINI_PRICE_OUT || "2.50");
+const sessionUsage = { calls: 0, prompt: 0, output: 0, total: 0, usd: 0 };
+function recordUsage(um) {   // pozvati nakon SVAKOG API odgovora (data.usageMetadata)
+    if (!um) return;
+    const p = um.promptTokenCount || 0;
+    const o = (um.candidatesTokenCount || 0) + (um.thoughtsTokenCount || 0);
+    sessionUsage.calls++;
+    sessionUsage.prompt += p;
+    sessionUsage.output += o;
+    sessionUsage.total  += (um.totalTokenCount || (p + o));
+    sessionUsage.usd    += p / 1e6 * PRICE_IN_PER_M + o / 1e6 * PRICE_OUT_PER_M;
+}
+function snapshotUsage() { return { ...sessionUsage }; }   // za per-epizodu diff
+function diffUsage(before) {
+    const d = {
+        calls:  sessionUsage.calls  - before.calls,
+        prompt: sessionUsage.prompt - before.prompt,
+        output: sessionUsage.output - before.output,
+        total:  sessionUsage.total  - before.total,
+        usd:    sessionUsage.usd    - before.usd,
+    };
+    d.usd = Math.round(d.usd * 1e6) / 1e6;
+    return d;
+}
+
 // Backend: "vertex" (default, Vertex AI REST API + region rotacija) ili "cli" (gemini CLI, non-interactive).
 // Postavi preko env vara GEMINI_BACKEND=cli (run_pipeline.sh --gemini-backend cli).
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
@@ -475,6 +506,7 @@ async function callGemini(transcript, metadata) {
             }
 
             const data = await response.json();
+            recordUsage(data.usageMetadata);   // token brojevi za trošak po epizodi
 
             // Provjeri je li sadržaj blokiran (PROHIBITED_CONTENT, SAFETY, itd.)
             if (data.promptFeedback && data.promptFeedback.blockReason) {
@@ -939,6 +971,7 @@ async function main() {
                 console.log(`   🤖 [GEMINI] ${base}`);
                 console.log(`      📄 Transkript: ${(srtContent.length / 1024).toFixed(0)} KB, ${transcriptText.split("\n").length} linija`);
 
+                const _usage0 = snapshotUsage();   // za per-epizodu trošak diff
                 const geminiResult = await callGemini(transcriptText, metadata);
 
                 // 4. Gradi output objekte
@@ -958,6 +991,26 @@ async function main() {
                     base + ".wav" + SUMMARY_MD_SUFFIX
                 );
                 fs.writeFileSync(mdOutputPath, summaryMd, "utf-8");
+
+                // 6.5 Gemini trošak DIFF za ovu epizodu (samo vertex backend daje token brojeve)
+                const _epUsage = diffUsage(_usage0);
+                if (_epUsage.calls > 0) {
+                    const usagePath = path.join(path.dirname(srtPath), base + ".gemini_usage.json");
+                    let prevRuns = [];
+                    try { prevRuns = JSON.parse(fs.readFileSync(usagePath, "utf-8")).runs || []; } catch (_) {}
+                    const rec = {
+                        step: "summary", model: GEMINI_MODEL, project: VERTEX_PROJECT,
+                        prompt_tokens: _epUsage.prompt, output_tokens: _epUsage.output,
+                        total_tokens: _epUsage.total, calls: _epUsage.calls,
+                        est_usd: _epUsage.usd,
+                        price_in_per_m: PRICE_IN_PER_M, price_out_per_m: PRICE_OUT_PER_M,
+                        at: new Date().toISOString(),
+                    };
+                    prevRuns = prevRuns.filter(r => r.step !== "summary").concat(rec);
+                    const totUsd = Math.round(prevRuns.reduce((s, r) => s + (r.est_usd || 0), 0) * 1e6) / 1e6;
+                    fs.writeFileSync(usagePath, JSON.stringify({ base, total_est_usd: totUsd, runs: prevRuns }, null, 2), "utf-8");
+                    console.log(`      💳 Gemini (summary): ${_epUsage.prompt}+${_epUsage.output} tok ≈ $${_epUsage.usd.toFixed(5)}`);
+                }
 
                 const elapsed = (Date.now() - startTime) / 1000;
                 totalElapsed += elapsed;
@@ -1024,6 +1077,9 @@ async function main() {
         if (totalSummarized > 0) {
             console.log(`   ⚡ Prosjek po datoteci: ${(totalElapsed / totalSummarized).toFixed(1)}s`);
         }
+    }
+    if (sessionUsage.calls > 0) {
+        console.log(`   💳 Gemini ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${VERTEX_PROJECT})`);
     }
     console.log("");
 }
