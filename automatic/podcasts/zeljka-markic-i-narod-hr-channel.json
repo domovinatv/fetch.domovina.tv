@@ -4,7 +4,7 @@
   "channel_id": "UCUxKo1ZDaHyXQwr3_w4FZgw",
   "title": "Željka Markić & Narod",
   "availability": null,
-  "channel_follower_count": 8080,
+  "channel_follower_count": 8090,
   "description": "Sa „Željka Markić i Narod.hr“ videopodcastom otvaramo prostor za ljude koje mislimo da je vrijedno upoznati. Svugdje oko nas žive ljudi koji svojim životnim odabirima pomiču ljestvicu za sve nas s kojima dijele prostor i vrijeme. Među muškarcima i ženama koje ćemo vam predstavljati ima javnosti potpuno nepoznatih osoba koje su nas oduševile načinom na koji se nose sa životnim izazovima i tragom koji ostavljaju iza sebe. Predstavit ćemo vam i osobe koje često viđate u javnosti, ali ih u stvari niste imali priliku upoznati.\n",
   "tags": [
     "55 minuta kod Željke Markić"
@@ -93,12 +93,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780355178,
+  "epoch": 1780362651,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
