@@ -199,6 +199,16 @@ async function processEpisode(ep, idx, total) {
             return { ...ep, status: "skip-unpublished" };
     }
 
+    // Idempotentnost preko R2: ako video_h264.mp4 već postoji na R2, preskoči cijelu
+    // epizodu (i transcode i upload). Omogućava --rm-local-after-upload bez ponovnog
+    // transkodiranja na re-runu/nightlyju (lokalni web.mp4 ne mora postojati). --force gazi.
+    if (!FORCE && !TRANSCODE_ONLY && !DRY_RUN) {
+        if (await r2Head(ep.keyNew)) {
+            console.log(`${tag} · već na R2 (video_h264.mp4), skip`);
+            return { ...ep, status: "skip-on-r2" };
+        }
+    }
+
     // 1. Transcode
     if (!UPLOAD_ONLY) {
         if (needsTranscode(ep)) {

@@ -818,7 +818,9 @@ echo "   📢 KORAK 12.5: H.264 cross-platform video (video_h264.mp4)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-H264_ARGS=("--input-dir" "$OUTPUT_DIR")
+# --rm-local-after-upload: web.mp4 je tranzijentan (R2 je durable); briše se odmah po
+# uploadu da ne napuni disk (DOMOVINA1TB je tijesan). Re-run idempotentan preko R2 HEAD-skipa.
+H264_ARGS=("--input-dir" "$OUTPUT_DIR" "--rm-local-after-upload")
 
 # Proslijedi --channel ako postoji (isti pattern kao KORAK 12)
 for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
