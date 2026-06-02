@@ -1017,10 +1017,11 @@ def resolve_speaker_at_import(
 
     # 1) Voice match (ako imamo embedding)
     if voice_embedding is not None:
+        # Ilustrativno jedan model; u praksi RRF preko oba modela — vidi §15.5
         voice_matches = pg.query("""
-            SELECT id, canonical_name, voice_embedding_avg, channels
+            SELECT id, canonical_name, voice_embedding_titanet, channels
             FROM speakers
-            ORDER BY voice_embedding_avg <=> %(emb)s  -- pgvector cosine
+            ORDER BY voice_embedding_titanet <=> %(emb)s  -- pgvector cosine
             LIMIT 10
         """, emb=voice_embedding)
         for s in voice_matches:
@@ -1076,7 +1077,8 @@ CREATE TABLE speakers (
     canonical_name  TEXT NOT NULL,                  -- "fra Ante Vučković"
     normalized_name TEXT GENERATED ALWAYS AS (normalize_name(canonical_name)) STORED,
     aliases         JSONB DEFAULT '[]'::jsonb,      -- ["Ante", "fra Ante", "Vučković", ...]
-    voice_embedding_avg VECTOR(192),                -- prosjek svih utterance embeddinga
+    voice_embedding_titanet   VECTOR(192),          -- prosjek TitaNet utterance embeddinga (NeMo, 192-dim)
+    voice_embedding_wespeaker VECTOR(256),          -- prosjek pyannote-wespeaker embeddinga (256-dim)
     voice_embedding_count INT DEFAULT 0,            -- broj segmenata koji su ušli u prosjek
     channels        JSONB DEFAULT '[]'::jsonb,      -- u kojim kanalima se pojavljuje
     first_seen_episode_id BIGINT REFERENCES episodes(id),
@@ -1090,14 +1092,16 @@ CREATE TABLE speakers (
 );
 
 CREATE INDEX speakers_norm_name_idx ON speakers(normalized_name);
-CREATE INDEX speakers_voice_idx ON speakers USING ivfflat (voice_embedding_avg vector_cosine_ops);
+CREATE INDEX speakers_voice_titanet_idx   ON speakers USING ivfflat (voice_embedding_titanet   vector_cosine_ops);
+CREATE INDEX speakers_voice_wespeaker_idx ON speakers USING ivfflat (voice_embedding_wespeaker vector_cosine_ops);
 
 CREATE TABLE speaker_episode_appearances (
     speaker_id      BIGINT REFERENCES speakers(id),
     episode_id      BIGINT REFERENCES episodes(id),
     local_tag       TEXT NOT NULL,                  -- "SPEAKER_00"
     name_hints      JSONB DEFAULT '[]'::jsonb,      -- ["Ante", "fra Ante"] iz Gemini hintova
-    voice_embedding VECTOR(192),                    -- per-epizoda prosjek
+    voice_embedding_titanet   VECTOR(192),          -- per-epizoda prosjek (TitaNet)
+    voice_embedding_wespeaker VECTOR(256),          -- per-epizoda prosjek (pyannote-wespeaker)
     total_speech_sec FLOAT,
     confidence      FLOAT,                          -- confidence linka, ne speakera
     resolution_method TEXT,                         -- "voice" | "name" | "llm" | "manual"
@@ -1137,40 +1141,68 @@ iz audija. Bilo koji moderni speaker verification model radi posao; razlika je s
 3. Različite arhitekture (Conformer hybrid vs ResNet) → različiti failure modes → ensemble lift
 4. Storage trošak trivijalan (~4 KB po epizodi za oba)
 
-**Ensemble strategija — Reciprocal Rank Fusion (RRF):**
+**Ensemble strategija — Reciprocal Rank Fusion (RRF), u Postgresu/pgvector:**
 
-Embeddings iz različitih modela **nisu** direktno kombinabilni (različite dimenzije, različiti
-vektorski prostori). ALI rezultati ranjirani po cosine similarity **JESU** kombinabilni preko RRF-a:
+Embeddings iz različitih modela **nisu** direktno kombinabilni (različite dimenzije — TitaNet 192,
+wespeaker 256 — i različiti vektorski prostori). ALI rezultati rangirani po cosine similarity
+**JESU** kombinabilni preko RRF-a. Na ovoj skali (par tisuća glasovnih vektora) sve staje u
+Postgres uz `pgvector`; ClickHouse nije potreban (vidi **Odluku** ispod).
 
-```sql
--- ClickHouse retrieval za speaker entity resolution sa 2-model ensemble:
-WITH titanet_ranked AS (
-    SELECT speaker_id,
-           ROW_NUMBER() OVER (ORDER BY cosineDistance(embedding_titanet, {q:Array(Float32)}) ASC) AS rank
-    FROM speaker_voice_signatures
-    WHERE model_key = 'titanet' LIMIT 50
-),
-wespeaker_ranked AS (
-    SELECT speaker_id,
-           ROW_NUMBER() OVER (ORDER BY cosineDistance(embedding_wespeaker, {q:Array(Float32)}) ASC) AS rank
-    FROM speaker_voice_signatures
-    WHERE model_key = 'pyannote_wespeaker34' LIMIT 50
-)
-SELECT
-    coalesce(t.speaker_id, w.speaker_id) AS speaker_id,
-    -- RRF: niži rank = jača evidencija; k=60 je standardni hyperparam
-    (1.0 / (60 + ifNull(t.rank, 1000))) + (1.0 / (60 + ifNull(w.rank, 1000))) AS rrf_score
-FROM titanet_ranked t
-FULL OUTER JOIN wespeaker_ranked w USING (speaker_id)
-ORDER BY rrf_score DESC LIMIT 10;
+Dva odvojena pgvector upita (jedan po modelu, svaki nad svojim stupcem) + fuzija u kodu importera
+koji ionako radi u Pythonu (§15.3):
+
+```python
+def rrf_speaker_candidates(emb_titanet, emb_wespeaker, k=60, limit=50):
+    titanet = pg.query("""
+        SELECT id AS speaker_id
+        FROM speakers
+        WHERE voice_embedding_titanet IS NOT NULL
+        ORDER BY voice_embedding_titanet <=> %(e)s   -- pgvector cosine
+        LIMIT %(n)s
+    """, e=emb_titanet, n=limit)
+    wespeaker = pg.query("""
+        SELECT id AS speaker_id
+        FROM speakers
+        WHERE voice_embedding_wespeaker IS NOT NULL
+        ORDER BY voice_embedding_wespeaker <=> %(e)s
+        LIMIT %(n)s
+    """, e=emb_wespeaker, n=limit)
+
+    scores = {}
+    for rank, row in enumerate(titanet, 1):     # rang 1 = najsličniji
+        scores[row.speaker_id] = scores.get(row.speaker_id, 0) + 1.0 / (k + rank)
+    for rank, row in enumerate(wespeaker, 1):
+        scores[row.speaker_id] = scores.get(row.speaker_id, 0) + 1.0 / (k + rank)
+
+    return sorted(scores.items(), key=lambda kv: kv[1], reverse=True)[:10]
 ```
 
-Ovo:
-- **Boostaš** rezultate koji su top kod oba modela (jaka konvergencija)
-- **Detektaš anomalije** kad se modeli radikalno razilaze (kandidat za `needs_review`)
-- Nemaš pretpostavki o vektorskim prostorima — samo rangovima
+Isto se može izraziti i čistim SQL-om (dva `ROW_NUMBER()` CTE-a nad pgvector `<=>` + `FULL OUTER
+JOIN`), ali na ovoj skali Python fuzija je jednostavnija i drži svu resolution logiku na jednom
+mjestu. RRF:
+- **Boosta** rezultate koji su top kod oba modela (jaka konvergencija)
+- **Detektira anomalije** kad se modeli radikalno razilaze (kandidat za `needs_review`)
+- Nema pretpostavki o vektorskim prostorima — samo o rangovima
 
 Treći ili četvrti model lako se doda u istoj formuli; trošak je linearan u broju modela.
+
+> **Odluka (2026-06-02): glasovni embeddings idu POTPUNO u Postgres/pgvector, NE ClickHouse.**
+> Ranija skica je RRF pisala u ClickHouse (`speaker_voice_signatures`, `cosineDistance`); to je bila
+> premature optimization za broj vektora koji stvarno imamo. Razlozi za pgvector:
+> 1. **Skala je mala** — ~2700 epizoda × 2-3 govornika ≈ 5-8k per-appearance vektora, nekoliko
+>    stotina kanonskih osoba. I pgvector i brute-force scan su <1 ms; performansa nije faktor odluke.
+> 2. **Workload je mutation-heavy** — `voice_embedding_*` se stalno reračunava (nova epizoda;
+>    merge/split iz review queue-a). To je transakcijski row-level UPDATE → Postgres teritorij;
+>    ClickHouse (kolonarni OLAP) je loš za česte point-update (async `ALTER … UPDATE` mutacije).
+> 3. **Relacijski kontekst je već u PG** — `speakers`, `speaker_episode_appearances`,
+>    `speaker_review_queue`, FK na `episodes`. Vektor drugdje = cross-engine JOIN za svaku resoluciju.
+>
+> ClickHouse ostaje gdje je jak: veliki **tekstualni** embedding store (`rag_chunks.embedding`,
+> bge-m3 1024-dim, HNSW USearch) — to je prava OLAP/scale stvar. Glasove ne cijepamo onamo.
+>
+> **Iznimka koja bi promijenila odluku:** realtime "snimi 5s glasa, nađi tko je to" pretraga nad
+> stotinama tisuća *pojedinačnih* utterance vektora (ne po-govornik prosjeka). Tada bi append-only
+> signature tablica u ClickHouse imala smisla zbog skale. Nije u scope-u — YAGNI dok se ne dokaže potreba.
 
 **Croatian-specific napomena:** TitaNet ima `_en_` u imenu jer je trening korpus pretežno engleski
 (VoxCeleb-fokus). Cross-lingual transfer za speaker verification je dobro istražen i daje ~10-30%
