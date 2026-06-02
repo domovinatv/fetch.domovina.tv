@@ -22,9 +22,11 @@
  *     live video starim klijentima. Skripta dodatno odbija brisati ako
  *     video_h264.mp4 nije potvrđen na R2 (HEAD 200).
  *
- * ⚠️  UPSTREAM FIX (zasebno): upload_to_r2.js remuxPhase koristi `-c:v copy` —
- *     treba ga promijeniti da i NOVE epizode transkodira u H.264 (libx264 crf30 Main),
- *     inače backfill popravi staro a nove epizode regresiraju.
+ * ✅  UPSTREAM FIX (riješeno): ova skripta je uvezana kao KORAK 12.5 u run_pipeline.sh
+ *     (iza upload_to_r2.js, uz --with-r2-upload). Nightly tako svaku NOVU epizodu
+ *     transkodira u H.264 i uploada video_h264.mp4 — ne regresira na VP9/AV1. Recept
+ *     živi SAMO ovdje (SSOT); upload_to_r2.js remuxPhase i dalje puni legacy video.mp4
+ *     (`-c:v copy`) koji ostaje kao fallback dok se catalog-wide --delete-old ne pokrene.
  *
  * Primjeri:
  *   node backfill_video_h264.js --dry-run                 # plan, bez ičega

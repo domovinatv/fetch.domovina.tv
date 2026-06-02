@@ -16,6 +16,7 @@
 #  10. screenshot_youtube.js — YouTube screenshotovi (samo uz --with-screenshots)
 #  11. import_to_vertex.js   — Upload RAG JSONL u Vertex AI Agent Builder
 #  12. upload_to_r2.js       — Cloudflare R2 upload (samo uz --with-r2-upload)
+#  12.5 backfill_video_h264.js — H.264 cross-platform video → video_h264.mp4 (uz --with-r2-upload)
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -798,6 +799,43 @@ fi
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" || {
     echo "   ⚠️  Greška pri R2 uploadu, nastavljam..."
+}
+fi
+
+# --- KORAK 12.5: H.264 CROSS-PLATFORM VIDEO (video_h264.mp4) ---
+# upload_to_r2.js (KORAK 12) puni LEGACY data/{id}/video.mp4 remuxom `-c:v copy` koji
+# zadrži izvorni VP9/AV1 codec → ne svira na Safari/iOS web ni starijim TV-ima bez AV1 HW
+# (~84% kataloga). Ovaj korak transkodira u STVARNI H.264 (Main L3.1, yuv420p, AAC + faststart;
+# libx264 crf30 + EQ + loudnorm) i uploada pod VERZIONIRANI ključ data/{id}/video_h264.mp4 —
+# isti koji Flutter probe-a (cdn_config.dart videoH264Url, fallback na video.mp4 ako 404).
+# Idempotentno (HEAD-skip + web.mp4 mtime). BEZ --delete-old (additivno; legacy video.mp4
+# ostaje fallback dok backfill ne bude validiran catalog-wide). SSOT recepta = ova skripta.
+# Vidi docs/video_crossplatform_strategy_2026-06.md.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 12.5: H.264 cross-platform video (video_h264.mp4)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+H264_ARGS=("--input-dir" "$OUTPUT_DIR")
+
+# Proslijedi --channel ako postoji (isti pattern kao KORAK 12)
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        H264_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    H264_ARGS+=("--dry-run")
+fi
+
+# Isti proxy-bypass kao R2 upload (S3 PUT ne smije kroz telefon-residential-proxy).
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/backfill_video_h264.js" "${H264_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri H.264 transcode/uploadu, nastavljam..."
 }
 fi
 
