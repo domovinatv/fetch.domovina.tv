@@ -21,6 +21,11 @@ const OUTPUT_DIR = inputDirIdx !== -1 && inputDirIdx + 1 < args.length
     ? args[inputDirIdx + 1]
     : path.join(__dirname, 'storage', 'output');
 
+// Opt-in: izmjeri H.264 video migraciju IZ R2 (cdn.domovina.ai). Nuzno jer se
+// video_h264.mp4 nakon uploada brise lokalno (--rm-local-after-upload u
+// backfill_video_h264.js) → lokalni scan ga ne vidi; istina je na R2.
+const WITH_R2_VIDEO = args.includes('--with-r2-video');
+
 if (!fs.existsSync(OUTPUT_DIR)) {
     console.error(`❌ Output direktorij ne postoji: ${OUTPUT_DIR}`);
     console.error(`   Je li disk mountan? Ili koristi: node count_progress.js --input-dir <putanja>`);
@@ -416,3 +421,67 @@ if (Object.keys(volumes).length > 1) {
     }
 }
 console.log();
+
+// --- H.264 video migracija (opt-in, IZ R2) ---
+// video_h264.mp4 ne postoji lokalno (brise se po uploadu) → broji se s R2.
+if (!WITH_R2_VIDEO) {
+    console.log('    -- Video H.264 cross-platform --');
+    console.log('    (za R2 status: node count_progress.js --with-r2-video)\n');
+} else {
+    (async () => {
+        // .env (R2 credsi) — isti rucni parser kao upload_to_r2.js
+        const envPath = path.join(__dirname, '.env');
+        if (fs.existsSync(envPath)) {
+            for (const line of fs.readFileSync(envPath, 'utf8').split('\n')) {
+                const t = line.trim();
+                if (!t || t.startsWith('#')) continue;
+                const i = t.indexOf('=');
+                if (i === -1) continue;
+                const k = t.slice(0, i).trim();
+                if (!process.env[k]) process.env[k] = t.slice(i + 1).trim().replace(/^["']|["']$/g, '');
+            }
+        }
+        let S3;
+        try { S3 = require('@aws-sdk/client-s3'); }
+        catch { console.error('    ⚠️  --with-r2-video traži @aws-sdk/client-s3 (npm install @aws-sdk/client-s3)\n'); return; }
+
+        const client = new S3.S3Client({
+            region: 'auto',
+            endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+            credentials: {
+                accessKeyId: process.env.R2_ACCESS_KEY_ID,
+                secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
+            },
+        });
+        const bucket = process.env.R2_BUCKET_NAME || 'cdn-domovina-ai';
+
+        let h264 = 0, legacy = 0, token, pages = 0;
+        process.stdout.write('    -- Video H.264 cross-platform (R2 cdn.domovina.ai) --\n    listam R2');
+        try {
+            do {
+                const resp = await client.send(new S3.ListObjectsV2Command({
+                    Bucket: bucket, Prefix: 'data/', ContinuationToken: token,
+                }));
+                for (const obj of resp.Contents || []) {
+                    if (obj.Key.endsWith('/video_h264.mp4')) h264++;
+                    else if (obj.Key.endsWith('/video.mp4')) legacy++;
+                }
+                token = resp.IsTruncated ? resp.NextContinuationToken : undefined;
+                if (++pages % 5 === 0) process.stdout.write('.');
+            } while (token);
+        } catch (e) {
+            console.error(`\n    ⚠️  R2 listanje neuspjelo: ${e.message}\n`);
+            return;
+        }
+        process.stdout.write('\n');
+
+        // Denominator = objavljeni videi (legacy video.mp4 postoji za svaki dok --delete-old
+        // ne pocisti); h264 je migrirano. cap na max() za slucaj nakon brisanja.
+        const denom = Math.max(legacy, h264, 1);
+        const { bar, pct } = progressBar(h264, denom);
+        console.log(`    ${pad('H.264 (video_h264.mp4)', 30)} ${bar} ${rpad(pct + '%', 9)} ${rpad(h264, 5)}/${denom}`);
+        console.log(`      └─ legacy video.mp4 (VP9/AV1 fallback): ${legacy}`);
+        console.log(`      └─ preostalo za migraciju: ${Math.max(0, legacy - h264)}`);
+        console.log();
+    })();
+}
