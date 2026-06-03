@@ -4,7 +4,7 @@
   "channel_id": "UCT6Sx8T7walJ0dpOgqHllkw",
   "title": "Iva Kraljevic",
   "availability": null,
-  "channel_follower_count": 34600,
+  "channel_follower_count": 34700,
   "description": "Bok, ja sam Iva. Majka dvaju dječaka i supruga jednog muža. Ipak, ovdje sam u ulozi starije sestre. \nIskreno, ali opušteno govorim o bitnim temama. \nUz kavu, naravno! ;)\n\n možeš me podržati na Patreonu https://www.patreon.com/c/IvaKraljevic\nSnimam potpuno neovisno, vlastitom opremom, s puno ljubavi i truda.\nTvoja podrška mi je bitna! Hvala 🤍\n",
   "tags": [],
   "thumbnails": [
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780399494,
+  "epoch": 1780449882,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

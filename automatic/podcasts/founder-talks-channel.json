@@ -4,7 +4,7 @@
   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
   "title": "Promocija znanosti - Videos",
   "availability": null,
-  "channel_follower_count": 5130,
+  "channel_follower_count": 5140,
   "description": "Institut za promociju znanosti je središnje mjesto za projekte kojima se promovira znanstveni način razmišljanja i važnost obrazovanja.",
   "tags": [
     "kvantna mehanika",
@@ -103,12 +103,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780399528,
+  "epoch": 1780449997,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
