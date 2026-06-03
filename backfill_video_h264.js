@@ -35,6 +35,7 @@
  *   node backfill_video_h264.js --only-published          # samo epizode koje imaju live video.mp4 na R2
  *   node backfill_video_h264.js --delete-old --channel domovina_tv   # TEK nakon app cutover-a
  *   node backfill_video_h264.js --upload-only             # preskoči transcode (web.mp4 već postoje)
+ *   node backfill_video_h264.js --web-output-dir /Volumes/DOMOVINA2TB/web_mp4_h264   # ČUVAJ lokalne kopije (bez --rm-local) na disku s mjesta
  */
 
 const fs = require("fs");
@@ -54,6 +55,10 @@ const ONLY_CHANNEL  = getArg("--channel");
 const ONLY_VIDEO_ID = getArg("--video-id");
 const CONCURRENCY   = parseInt(getArg("--concurrency", "2"), 10);   // USB volume → drži nisko (memory)
 const CRF           = getArg("--crf", "30");
+// Ako je zadan, web.mp4 se pišu ovdje (po kanalu: {dir}/{channel}/{base}.web.mp4)
+// umjesto pored sourcea. Koristi se da se lokalne kopije čuvaju na disku s mjesta
+// (DOMOVINA2TB) umjesto da pune tijesni source-disk (DOMOVINA1TB → ENOSPC rizik).
+const WEB_OUT_DIR   = getArg("--web-output-dir");
 const LIMIT         = parseInt(getArg("--limit", "0"), 10);
 const DRY_RUN       = hasFlag("--dry-run");
 const TRANSCODE_ONLY= hasFlag("--transcode-only");
@@ -151,8 +156,10 @@ function discover() {
             const mp4 = path.join(chDir, `${base}.mp4`);
             const src = fs.existsSync(mkv) ? mkv : (fs.existsSync(mp4) ? mp4 : null);
             if (!src) continue;
-            eps.push({ channel: ch, base, videoId: vid, src, chDir,
-                       webMp4: path.join(chDir, `${base}.web.mp4`),
+            const webMp4 = WEB_OUT_DIR
+                ? path.join(WEB_OUT_DIR, ch, `${base}.web.mp4`)
+                : path.join(chDir, `${base}.web.mp4`);
+            eps.push({ channel: ch, base, videoId: vid, src, chDir, webMp4,
                        keyNew: `data/${vid}/video_h264.mp4`,
                        keyOld: `data/${vid}/video.mp4` });
         }
@@ -163,6 +170,7 @@ function discover() {
 
 function ffmpegTranscode(src, out) {
     return new Promise((resolve, reject) => {
+        fs.mkdirSync(path.dirname(out), { recursive: true });   // za --web-output-dir
         const tmp = out.replace(/\.web\.mp4$/, ".web.tmp.mp4");
         const p = spawn("ffmpeg", [
             "-nostdin", "-v", "error", "-y", "-i", src,
