@@ -467,7 +467,11 @@ fi
 if [ -n "$HF_TOKEN" ]; then
     python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
-    echo "⚠️ Preskačem Canary Diarizaciju jer nedostaje HuggingFace token (--hf-token TVOJ_TOKEN)"
+    # Bez CLI tokena — diarize_canary.py sam resolve-a token (env HF_TOKEN ili
+    # cached ~/.cache/huggingface/token). Omogućava nightly diarizaciju bez da
+    # token stoji na command-lineu. Ako baš nema tokena nigdje, skripta sama
+    # izađe s uputama (get_hf_token sys.exit).
+    python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" $CANARY_DRY_RUN
 fi
 else
     echo ""

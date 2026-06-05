@@ -139,6 +139,19 @@ def get_hf_token(args_token):
         print("   HF token učitan iz environment varijable")
         return token
 
+    # 4. Cached HuggingFace token (~/.cache/huggingface/token) — isti file koji
+    #    huggingface_hub koristi. Omogućava nightly diarizaciju bez --hf-token flaga.
+    try:
+        cached = os.path.expanduser("~/.cache/huggingface/token")
+        if os.path.exists(cached):
+            with open(cached) as f:
+                token = f.read().strip()
+            if token:
+                print("   HF token učitan iz ~/.cache/huggingface/token")
+                return token
+    except Exception:
+        pass
+
     print("   HuggingFace token nije pronađen!")
     print("   Opcije:")
     print("     1. Colab Secrets: dodaj HF_TOKEN u Secrets (lijevi panel)")

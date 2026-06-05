@@ -180,8 +180,12 @@ run_step() {
 }
 
 # ─── 1. GLAVNI PIPELINE (faze A + B) ──────────────────────────────
+# --with-local-canary-diarize: pyannote diarizacija lokalno na Macu (gdje nightly
+# ionako trči); token se resolve-a iz ~/.cache/huggingface/token (ne treba --hf-token).
+# Diarize ide PRIJE summary/article u istom prolazu → nove epizode s pristiglim
+# .canary.srt (Colab) dobiju .canary.diarized.srt pa odmah idu kroz AI sloj.
 run_step "run_pipeline.sh (faza A + faza B)" \
-    "$REPO_DIR/run_pipeline.sh" --with-screenshots --with-r2-upload || true
+    "$REPO_DIR/run_pipeline.sh" --with-local-canary-diarize --with-screenshots --with-r2-upload || true
 
 # ─── 2. CHANNEL INDEX REGEN ───────────────────────────────────────
 run_step "generate_channel_index.js" \
