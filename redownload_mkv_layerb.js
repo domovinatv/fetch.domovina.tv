@@ -43,8 +43,11 @@ const DRY_RUN      = hasFlag("--dry-run");
 const PROXY        = getArg("--proxy");                 // npr. http://100.71.146.11:8888
 let   SOURCE_ADDR  = getArg("--source-address");        // npr. 172.20.10.13
 const VIA_IPHONE   = hasFlag("--via-iphone");           // auto-detect tether IP
-const COOKIES_FILE = getArg("--cookies-file", path.join(__dirname, "cookies.txt"));
-const BROWSER      = getArg("--browser", "brave");
+// Cookies OPT-IN: --cookies-from-browser u non-tty (spawnSync) silently faila i daje
+// slomljen prazan .mkv (memory macos_keychain_tty_yt_dlp). Clean cellular IP (proxy)
+// ionako ne treba cookies. Koristi --cookies-file SAMO ako eksplicitno zadano.
+const COOKIES_FILE = getArg("--cookies-file");
+const MIN_VALID_BYTES = 1048576;   // <1MB = slomljen download (npr. 4KB EBML stub)
 const DELAY_MS     = parseInt(getArg("--delay", "3000"), 10);
 const COOLDOWN_MS  = 60000;
 const ERR_THRESHOLD = 3;
@@ -110,8 +113,7 @@ function ytdlpArgs(ep, tmpDir) {
         "--no-progress",
         "-o", path.join(tmpDir, "%(id)s.%(ext)s"),
     ];
-    if (fs.existsSync(COOKIES_FILE)) a.push("--cookies", COOKIES_FILE);
-    else a.push("--cookies-from-browser", BROWSER);
+    if (COOKIES_FILE && fs.existsSync(COOKIES_FILE)) a.push("--cookies", COOKIES_FILE);
     if (PROXY) a.push("--proxy", PROXY);
     if (SOURCE_ADDR) a.push("--source-address", SOURCE_ADDR);
     a.push(ep.url);
@@ -136,8 +138,12 @@ function downloadOne(ep) {
         const mkvFile = produced.find(f => f.endsWith(".mkv"));
         if (mkvFile) {
             fs.renameSync(path.join(tmpDir, mkvFile), ep.mkvPath);   // atomski u channel dir
-            const mb = (fs.statSync(ep.mkvPath).size / 1048576).toFixed(0);
-            return { status: "mkv", mb };
+            const sz = fs.statSync(ep.mkvPath).size;
+            if (sz < MIN_VALID_BYTES) {                              // slomljen (4KB EBML stub)
+                fs.rmSync(ep.mkvPath, { force: true });
+                return { status: "FAIL", error: `slomljen .mkv (${sz}B) — vjerojatno cookies/auth problem` };
+            }
+            return { status: "mkv", mb: (sz / 1048576).toFixed(0) };
         }
         return { status: "still-mp4" };   // YouTube nema odvojene streamove za ovaj video
     } catch (e) {
