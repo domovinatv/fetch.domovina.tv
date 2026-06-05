@@ -356,15 +356,16 @@ line('RAG chunks', g('ragChunks'), total);
 line('RAG import', g('ragImport'), total);
 line('RAG combined', g('ragCombined'), total);
 
-// Screenshot dirovi su 1:1 s videima koji imaju article.json (screenshot_youtube.js
-// ih čita iz njega). Za MP4 razlikujemo: total .mp4 fajlova (publish-ready video),
-// vs MKV remux progress (koliko MKV-ova ima par .mp4 — to je upload_to_r2 remux faza).
-const mkvCount = g('mkv');
-const mp4Count = g('mp4Final');
-console.log('\n    -- Screenshots & R2 publish prep --');
+// Delivery je sada data/{id}/video_h264.mp4 na R2 (mjeri se IZ R2 jer se web.mp4 briše
+// lokalno → vidi --with-r2-video). Stari "MKV → MP4 remux" flow (layer C, VP9/AV1-u-mp4
+// `-c:v copy`) je DEPRECATED: legacy lokalni .mp4 su mrtvi artefakti (kandidati za disk
+// cleanup), više NISU publish-ready. Lokalni .mkv ostaju masteri (izvor za H.264 transcode).
+console.log('\n    -- Screenshots & H.264 publish --');
 line('Screenshot dirovi (po videu)', g('screenshots'), total, { extra: g('screenshotPng'), extraLabel: 'PNG' });
-line('Video MP4 (publish-ready)', mp4Count, total);
-line('MKV → MP4 remux gotovo', totalMkvRemuxed, mkvCount, { extra: totalMkvWaiting, extraLabel: 'MKV bez MP4' });
+console.log('    H.264 delivery se mjeri IZ R2 → node count_progress.js --with-r2-video');
+if (g('mp4Final')) {
+    console.log(`    Legacy lokalni .mp4 (VP9/AV1 layer C): ${g('mp4Final')} — DEPRECATED, kandidati za disk cleanup`);
+}
 
 console.log();
 
