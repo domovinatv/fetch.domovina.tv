@@ -83,9 +83,10 @@ async function runPool(items, worker, n) {
 
     let deleted = 0, freed = 0, skippedNoH264 = 0, wouldDelete = 0, wouldFree = 0;
     let done = 0;
+    const skippedKeys = [];
     await runPool(legacy, async (it) => {
         const h = await head(it.h264);              // gate: h264 mora postojati
-        if (!h) { skippedNoH264++; }
+        if (!h) { skippedNoH264++; skippedKeys.push(it.key); }
         else if (CONFIRM) {
             await client.send(new S3.DeleteObjectCommand({ Bucket: BUCKET, Key: it.key }));
             deleted++; freed += it.size;
@@ -103,4 +104,5 @@ async function runPool(items, worker, n) {
         console.log(`  → pokreni s --confirm za stvarno brisanje`);
     }
     console.log(`  Preskočeno (nema h264):    ${skippedNoH264}  ${skippedNoH264 ? "⚠️ ovima video.mp4 ostaje (sigurnosni gate)" : ""}`);
+    for (const k of skippedKeys) console.log(`     · ${k}`);
 })();
