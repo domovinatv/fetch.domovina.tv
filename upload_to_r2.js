@@ -129,7 +129,13 @@ const UPLOAD_SUFFIXES = [
     ".canary.summary.md",
     ".info.json",
     ".mkv",                     // originalni video (360p)
-    ".mp4",                     // remuxed video (H.264+AAC, faststart)
+    // LEGACY (ugašeno 2026-06-06): legacy `.mp4` (MKV→MP4 `-c:v copy` remux, zadrži VP9/AV1)
+    // više se NE uploada. H.264 migracija (2026-06-05) je catalog-wide gotova → delivery je
+    // `data/{id}/video_h264.mp4` (KORAK 12.5 backfill_video_h264.js, pravi libx264 H.264).
+    // Legacy `video.mp4` je obrisan s R2; ovaj upload ga je nehotice re-populirao svaki nightly.
+    // Za vraćanje fallbacka: odkomentiraj ovdje + getFlutterKey `.mp4` blok + remux gate.
+    // Vidi MEMORY: video_delivery_crossplatform_h264.
+    // ".mp4",                  // remuxed video (H.264+AAC, faststart) — LEGACY, vidi gore
     ".png",                     // thumbnail (full-res)
     ".og-share.jpg",            // social-sharing OG image (1200×630 progressive JPEG q=85, < 600 KB)
     ".rag_combined.jsonl",
@@ -467,9 +473,12 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.og-share.jpg`)
         return `images/${videoId}/og-share.jpg`;
 
+    // LEGACY (ugašeno 2026-06-06): legacy `video.mp4` mapping. H.264 migracija gotova
+    // (2026-06-05) → delivery je `video_h264.mp4` (KORAK 12.5). Mrtav kod dok je `.mp4`
+    // izvan UPLOAD_SUFFIXES, ali ostavljen zakomentiran za buduće iteracije / vraćanje.
     // Flutter app koristi .mp4 (ne .mkv) za cross-platform kompatibilnost
-    if (filename === `${videoBase}.mp4`)
-        return `data/${videoId}/video.mp4`;
+    // if (filename === `${videoBase}.mp4`)
+    //     return `data/${videoId}/video.mp4`;
 
     if (MAGISTERIUM_FULL_V2_PATTERN.test(filename))
         return `data/${videoId}/article.magisterium_full_v2.json`;
@@ -983,19 +992,30 @@ if (inputDir) {
     console.log("");
 
     // ── FAZA 1: MKV → MP4 REMUX ──────────────────────────────────
-    console.log("   ━━━ MKV → MP4 remux ━━━");
-    console.log("");
+    // LEGACY (ugašeno 2026-06-06): default MKV→legacy `.mp4` remux (`-c:v copy`, zadrži
+    // VP9/AV1) je obsolete nakon H.264 migracije (2026-06-05, catalog-wide). Pravi H.264
+    // delivery (`video_h264.mp4`) radi KORAK 12.5 (backfill_video_h264.js, libx264). Legacy
+    // remux je gate-an iza FAZA 3 (`--normalize-audio`), koji ga još koristi za loudnorm;
+    // default upload path (nightly `--with-r2-upload` bez `--normalize-audio`) ga preskače.
+    // Za vraćanje legacy remuxa u default: ukloni `if (normalizeAudio)` guard.
+    if (normalizeAudio) {
+        console.log("   ━━━ MKV → MP4 remux (FAZA 3 loudnorm) ━━━");
+        console.log("");
 
-    remuxStats = await remuxPhase(videos, dryRun, normalizeAudio);
+        remuxStats = await remuxPhase(videos, dryRun, normalizeAudio);
 
-    if (remuxStats.remuxed > 0 || remuxStats.failed > 0) {
-        log("📊", `Remux: ${remuxStats.remuxed} novo, ${remuxStats.skipped} preskočeno, ${remuxStats.failed} neuspjelo`);
-    } else if (remuxStats.skipped > 0) {
-        log("⏭️", `Svi MP4 fajlovi već postoje (${remuxStats.skipped} preskočeno)`);
+        if (remuxStats.remuxed > 0 || remuxStats.failed > 0) {
+            log("📊", `Remux: ${remuxStats.remuxed} novo, ${remuxStats.skipped} preskočeno, ${remuxStats.failed} neuspjelo`);
+        } else if (remuxStats.skipped > 0) {
+            log("⏭️", `Svi MP4 fajlovi već postoje (${remuxStats.skipped} preskočeno)`);
+        } else {
+            log("ℹ️", `Nema MKV datoteka za remux`);
+        }
+        console.log("");
     } else {
-        log("ℹ️", `Nema MKV datoteka za remux`);
+        log("⏭️", "Legacy MKV→video.mp4 remux preskočen (ugašeno 2026-06-06; H.264 delivery ide kroz KORAK 12.5)");
+        console.log("");
     }
-    console.log("");
 
     // ── FAZA 2: DISCOVERY I UPLOAD ────────────────────────────────
     console.log("   ━━━ Upload ━━━");

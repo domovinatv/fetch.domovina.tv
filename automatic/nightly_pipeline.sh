@@ -30,11 +30,19 @@
 #   --with-vertex-import — chain dependency na završenu Canary transkripciju; ne pokreći
 #                          automatski dok Canary visi na Colabu (vidi MEMORY: pipeline_catchup_pass).
 #
-# OČEKIVANI FAILURE-i:
+# iPHONE PROXY (auto-probe):
+#   Prije fetcha, nightly probe-a iPhone mobile-phone-proxy (Tailscale
+#   http://100.71.146.11:8888). Ako je živ I daje egress IP različit od Ethernet
+#   IP-a, prosljeđuje --proxy run_pipeline.sh-u → yt-dlp ide kroz iPhone cellular
+#   i zaobilazi anti-bot. Da bi to radilo noću: iPhone na punjaču + mobile-phone-proxy
+#   app upaljen + WiFi UGAŠEN na iPhonu (inače egress curi kroz WiFi = isti IP =
+#   probe odbacuje proxy). Vidi MEMORY: iphone-http-proxy-via-tailscale.
+#
+# OČEKIVANI FAILURE-i (kad iPhone proxy NIJE dostupan):
 #   YouTube anti-bot na direct connection (Mac na Ethernet/WiFi bez residential proxy-ja).
 #   fetch.js / screenshot_youtube.js exit-aju 0 čak i kod ABORT-a (vidi MEMORY:
 #   pipeline_anti_bot_silent_continue). Failed videi će biti pokupljeni sljedećim
-#   manualnim re-runom na iPhone tethering-u (`yt-dlp --via-iphone`).
+#   runom kad je iPhone proxy gore (auto) ili manualnim re-runom na tethering-u.
 #
 # Pokretanje:
 #   Ručno:    ./automatic/nightly_pipeline.sh
@@ -179,13 +187,51 @@ run_step() {
     fi
 }
 
+# ─── iPhone proxy auto-probe ──────────────────────────────────────
+# Nightly ide unattended. Ako je iPhone mobile-phone-proxy (Tailscale
+# 100.71.146.11:8888) ŽIV *I* daje egress IP različit od Ethernet IP-a, dodaj
+# --proxy za yt-dlp pozive (fetch + screenshot) da zaobiđemo YouTube IP-level
+# anti-bot. Inače fallback na direktno — fetch/screenshot tiho fail-aju na
+# anti-bot (isto kao i dosad), pipeline nastavlja dalje.
+#
+# Egress-IP usporedba hvata i slučaj kad user zaboravi UGASITI WiFi na iPhonu:
+# tada iOS egress-a kroz WiFi (home NAT) → isti public IP kao Mac Ethernet →
+# proxy ne donosi ništa anti-botu, pa ga ne koristimo. Vidi MEMORY:
+# iphone-http-proxy-via-tailscale (KRITIČNO: WiFi off na iPhonu za cellular egress).
+IPHONE_PROXY_URL="http://100.71.146.11:8888"
+PROXY_ARGS=()
+
+probe_iphone_proxy() {
+    local direct_ip proxy_ip
+    direct_ip="$(curl -s --max-time 8 https://api.ipify.org 2>/dev/null || echo "")"
+    proxy_ip="$(curl -s --max-time 15 -x "$IPHONE_PROXY_URL" https://api.ipify.org 2>/dev/null || echo "")"
+    if [ -z "$proxy_ip" ]; then
+        echo "   📡 iPhone proxy nedostupan ($IPHONE_PROXY_URL) — fetch ide direktno (anti-bot očekivan)."
+        return 1
+    fi
+    if [ "$proxy_ip" = "$direct_ip" ]; then
+        echo "   ⚠️  iPhone proxy egress ($proxy_ip) == Ethernet IP — WiFi na iPhonu vjerojatno NIJE ugašen. Ne koristim proxy."
+        return 1
+    fi
+    echo "   📡 iPhone proxy ŽIV: egress $proxy_ip (Ethernet $direct_ip) — yt-dlp ide kroz iPhone (cellular)."
+    PROXY_ARGS=("--proxy" "$IPHONE_PROXY_URL")
+    return 0
+}
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📡 iPhone proxy probe ($IPHONE_PROXY_URL)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+probe_iphone_proxy || true
+
 # ─── 1. GLAVNI PIPELINE (faze A + B) ──────────────────────────────
 # --with-local-canary-diarize: pyannote diarizacija lokalno na Macu (gdje nightly
 # ionako trči); token se resolve-a iz ~/.cache/huggingface/token (ne treba --hf-token).
 # Diarize ide PRIJE summary/article u istom prolazu → nove epizode s pristiglim
 # .canary.srt (Colab) dobiju .canary.diarized.srt pa odmah idu kroz AI sloj.
+# PROXY_ARGS je prazan ako probe nije našao živ iPhone proxy (guard za set -u + bash 3).
 run_step "run_pipeline.sh (faza A + faza B)" \
-    "$REPO_DIR/run_pipeline.sh" --with-local-canary-diarize --with-screenshots --with-r2-upload || true
+    "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload || true
 
 # ─── 2. CHANNEL INDEX REGEN ───────────────────────────────────────
 run_step "generate_channel_index.js" \
