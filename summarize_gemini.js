@@ -236,7 +236,10 @@ function formatDuration(seconds) {
  * Vraća 11-znakovni YouTube ID ili null.
  */
 function extractVideoIdFromFilename(filename) {
-    const match = filename.match(/_yt_([a-zA-Z0-9_-]{11})/);
+    // Last-match (fix 2026-06-06): greedy `.*` forsira ZADNJI _yt_ jer naslov SAM može
+    // sadržavati "_yt_" (npr. ..._yt_kanala_crypto_hrvatska_yt_7OospmYpHRU → bez ovoga
+    // bi uhvatilo "kanala_cryp"). Boundary `(?:[._]|$)` pokriva bare base I filename sa sufiksom.
+    const match = filename.match(/.*_yt_([a-zA-Z0-9_-]{11})(?:[._]|$)/);
     return match ? match[1] : null;
 }
 
