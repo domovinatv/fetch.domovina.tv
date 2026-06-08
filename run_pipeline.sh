@@ -344,7 +344,8 @@ if command -v rclone &> /dev/null; then
       --filter "+ **.sortformer.**" \
       --filter "+ **.embeddings.*.json" \
       --filter "- *" \
-      --drive-shared-with-me --progress
+      --drive-shared-with-me --progress \
+      || echo "   ⚠️ rclone Drive DOWNLOAD nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Publish put (H.264 + reindex) ne smije ovisiti o Colab/Drive syncu."
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
 fi
@@ -389,7 +390,8 @@ if command -v rclone &> /dev/null; then
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
-      --drive-shared-with-me --progress
+      --drive-shared-with-me --progress \
+      || echo "   ⚠️ rclone Drive UPLOAD (WAV za Colab) nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Svježi videi svejedno dobiju video_h264.mp4 + reindex u ovom prolazu (Colab Canary samo kasni dok se Drive ne oslobodi)."
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
 fi
