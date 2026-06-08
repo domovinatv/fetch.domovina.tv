@@ -118,6 +118,33 @@ async function r2Put(key, file) {
 }
 async function r2Delete(key) { await s3().send(new _S3.DeleteObjectCommand({ Bucket: R2_BUCKET, Key: key })); }
 
+// ─── R2 prefetch (LIST umjesto per-epizodi HEAD) ──────────────────
+// Optimizacija (2026-06-08): jedan paginiran ListObjectsV2 (prefix data/, 1000/str)
+// → Map ključ→veličina za sve video_h264.mp4 (+ legacy video.mp4). Zamjenjuje ~N
+// per-epizodi HEAD-ova (Class B read) s ~N/1000 LIST poziva (Class A). Na ~2700
+// epizoda: ~3 LIST stranice umjesto ~2700 HEAD-ova. Isti pattern kao
+// upload_to_r2.js listAllR2Keys. LIST vraća SAMO metapodatke (ključ+veličina), NE
+// skida sadržaj. R2_INDEX=null → processEpisode fallback-a na r2Head (npr. no-creds).
+let R2_INDEX = null;
+async function prefetchR2Index() {
+    const client = s3();   // inicijalizira i _S3
+    const map = new Map();
+    let token, pages = 0;
+    do {
+        const resp = await client.send(new _S3.ListObjectsV2Command({
+            Bucket: R2_BUCKET, Prefix: "data/", ContinuationToken: token, MaxKeys: 1000,
+        }));
+        for (const o of resp.Contents || []) {
+            if (o.Key.endsWith("/video_h264.mp4") || o.Key.endsWith("/video.mp4"))
+                map.set(o.Key, Number(o.Size));
+        }
+        token = resp.IsTruncated ? resp.NextContinuationToken : undefined;
+        if (++pages % 10 === 0) process.stdout.write(`\r   📋 LIST str. ${pages} (${map.size} video ključeva)   `);
+    } while (token);
+    if (pages >= 10) process.stdout.write("\n");
+    return map;
+}
+
 // ─── Util ─────────────────────────────────────────────────────────
 function extractVideoId(base) {
     const m = base.match(/_yt_([A-Za-z0-9_-]{11})$/);
@@ -203,7 +230,9 @@ async function processEpisode(ep, idx, total) {
     const tag = `[${idx + 1}/${total}] ${ep.videoId}`;
 
     if (ONLY_PUBLISHED && !UPLOAD_ONLY) {
-        if (!(await r2Head(ep.keyOld)) && !(await r2Head(ep.keyNew)))
+        const oldOn = R2_INDEX ? R2_INDEX.has(ep.keyOld) : !!(await r2Head(ep.keyOld));
+        const newOn = R2_INDEX ? R2_INDEX.has(ep.keyNew) : !!(await r2Head(ep.keyNew));
+        if (!oldOn && !newOn)
             return { ...ep, status: "skip-unpublished" };
     }
 
@@ -211,7 +240,8 @@ async function processEpisode(ep, idx, total) {
     // epizodu (i transcode i upload). Omogućava --rm-local-after-upload bez ponovnog
     // transkodiranja na re-runu/nightlyju (lokalni web.mp4 ne mora postojati). --force gazi.
     if (!FORCE && !TRANSCODE_ONLY && !DRY_RUN) {
-        if (await r2Head(ep.keyNew)) {
+        const onR2 = R2_INDEX ? R2_INDEX.has(ep.keyNew) : !!(await r2Head(ep.keyNew));
+        if (onR2) {
             console.log(`${tag} · već na R2 (video_h264.mp4), skip`);
             return { ...ep, status: "skip-on-r2" };
         }
@@ -231,10 +261,16 @@ async function processEpisode(ep, idx, total) {
 
     if (!fs.existsSync(ep.webMp4)) return { ...ep, status: "no-webmp4" };
 
-    // 2. Upload (HEAD-skip ako isti size)
+    // 2. Upload (size-skip ako isti size — iz R2_INDEX, fallback HEAD)
     const localSize = fs.statSync(ep.webMp4).size;
-    const head = await r2Head(ep.keyNew);
-    if (head && Number(head.ContentLength) === localSize) {
+    let remoteSize;
+    if (R2_INDEX) {
+        remoteSize = R2_INDEX.has(ep.keyNew) ? R2_INDEX.get(ep.keyNew) : null;
+    } else {
+        const head = await r2Head(ep.keyNew);
+        remoteSize = head ? Number(head.ContentLength) : null;
+    }
+    if (remoteSize === localSize) {
         console.log(`${tag} · već na R2 (isti size), skip upload`);
     } else {
         await r2Put(ep.keyNew, ep.webMp4);
@@ -287,6 +323,19 @@ async function runPool(items, worker, n) {
     const eps = discover();
     console.log(`Pronađeno ${eps.length} epizoda${ONLY_CHANNEL ? ` (kanal ${ONLY_CHANNEL})` : ""}.`);
     if (!eps.length) return;
+
+    // R2 prefetch: jedan LIST umjesto ~N HEAD-ova (Class B → Class A). Preskoči ako
+    // nema R2 interakcije (--transcode-only) ili nema R2 credsa → fallback na HEAD.
+    if (!TRANSCODE_ONLY && R2_ACCOUNT_ID && process.env.R2_ACCESS_KEY_ID) {
+        console.log("📋 LIST R2 (data/ video ključevi) — 1 Class A/1000 umjesto HEAD-a po epizodi...");
+        try {
+            R2_INDEX = await prefetchR2Index();
+            console.log(`📊 R2 ima ${R2_INDEX.size} video ključeva (video_h264.mp4 + legacy video.mp4)`);
+        } catch (e) {
+            console.log(`⚠️  R2 LIST nije uspio (${e.message}) — fallback na per-epizodi HEAD`);
+            R2_INDEX = null;
+        }
+    }
 
     const res = await runPool(eps, processEpisode, CONCURRENCY);
 
