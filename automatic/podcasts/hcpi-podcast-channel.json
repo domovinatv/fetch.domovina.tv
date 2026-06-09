@@ -4,7 +4,7 @@
   "channel_id": "UCbLvhVq9E9rn9lpJTpvCT-A",
   "title": "HRVATSKI CENTAR ZA POTRESNO INŽENJERSTVO - Videos",
   "availability": null,
-  "channel_follower_count": 228,
+  "channel_follower_count": 230,
   "description": "Službeni Youtube kanal Hrvatskog centra za potresno inženjerstvo.",
   "tags": [],
   "thumbnails": [
@@ -38,12 +38,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1780915645,
+  "epoch": 1780967420,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.04.10.235301",
+    "version": "2025.12.08",
     "current_git_head": null,
-    "release_git_head": "2c28ee5d76d2c0d350407fd81dbdd71394b67993",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "7a52ff29d86efc8f3adeba977b2009ce40b8e52e",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

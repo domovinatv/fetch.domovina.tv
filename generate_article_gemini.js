@@ -64,7 +64,7 @@ const GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "domovina-sync-ms";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
 
 // ─── GEMINI USAGE / TROŠAK TRACKING ───────────────────────────────
 // Vertex vraća usageMetadata (token brojevi) po pozivu. Procjenjujemo trošak iz
