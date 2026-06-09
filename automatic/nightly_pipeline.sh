@@ -224,6 +224,18 @@ echo "   📡 iPhone proxy probe ($IPHONE_PROXY_URL)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 probe_iphone_proxy || true
 
+# ─── 0. STUDIO QUEUE CLAIM (ad-hoc/unlisted videi) ────────────────
+# Povuci .env (STUDIO_INGEST_KEY) pa claim queued jobove iz studio.domovina.ai →
+# fetch.js --unlisted-url → _unlisted/. run_pipeline ih dalje obradi automatski
+# (convert_to_wav auto-discoverira _unlisted; diarize/summary/article su dir-driven).
+# Soft-fail (exit 0) bez STUDIO_INGEST_KEY pa ne ruši nightly. Vidi docs/UNLISTED_PIPELINE.md.
+set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
+STUDIO_BRIDGE="${STUDIO_BRIDGE_DIR:-$REPO_DIR/../studio.domovina.ai/bridge}"
+if [ -f "$STUDIO_BRIDGE/claim_and_dispatch.js" ]; then
+    run_step "studio claim (unlisted queue)" \
+        node "$STUDIO_BRIDGE/claim_and_dispatch.js" || true
+fi
+
 # ─── 1. GLAVNI PIPELINE (faze A + B) ──────────────────────────────
 # --with-local-canary-diarize: pyannote diarizacija lokalno na Macu (gdje nightly
 # ionako trči); token se resolve-a iz ~/.cache/huggingface/token (ne treba --hf-token).
@@ -240,6 +252,13 @@ run_step "generate_channel_index.js" \
 # ─── 3. META UPLOAD (channels/data/* na CDN) ──────────────────────
 run_step "upload_to_r2.js --meta-dir storage/meta" \
     node "$REPO_DIR/upload_to_r2.js" --meta-dir storage/meta || true
+
+# ─── 4. STUDIO RECONCILE (javi gotove unlisted jobove) ────────────
+# Za jobove u transcribing/processing: CDN data/{id}/article.json 200 → done + /v/{id}.
+if [ -f "$STUDIO_BRIDGE/reconcile.js" ]; then
+    run_step "studio reconcile (unlisted queue)" \
+        node "$STUDIO_BRIDGE/reconcile.js" || true
+fi
 
 # ─── SAŽETAK ──────────────────────────────────────────────────────
 echo ""
