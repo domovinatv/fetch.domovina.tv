@@ -2,6 +2,9 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     { "match": "Catechism of the Catholic Church", "uuid": "0583c069-d4bf-42dd-97de-c19f0b80150f" },
+    { "match": "Ecclesia de Eucharistia", "uuid": "6398659f-a241-4e62-b01e-8e185c9b5454" },
+    { "match": "Sacramentum Caritatis", "uuid": "8b928ce6-3588-4a80-be41-c8fc7111288e" },
+    { "match": "Gaudium et Spes", "uuid": "fee9c589-dda1-4445-acce-d6ff95f32b71" },
     { "match": "Oeconomicae et pecuniariae quaestiones", "uuid": "a2c68650-d269-4c9a-9857-465ac0009d43" },
     { "match": "Veritatis Splendor", "uuid": "d073ad6f-d216-49d8-9add-639629648741" },
     { "match": "Centesimus Annus", "uuid": "d5bd5337-11ec-4bf3-80aa-827675b951cd" },
