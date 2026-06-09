@@ -124,6 +124,15 @@ moment"). Dakle nije value-issue nego **hard-gate**: nov projekt ne smije self-g
 dok ne sazri (usage/billing povijest) ili kroz Google support case (plaćeni plan). **Prava poluga je quota
 bump**; do tad EN je inherentno spor (1 RPM). Preference su ostavljene na fileu pa mogu proći kad gate padne.
 
+**Ali 1 RPM je DOVOLJAN za ne-hitan backfill (ključni uvid).** Kvota je `...PerRegion...` = 1/min **po regiji**,
+a `translate_to_english.js` rotira 8 regija → **~8 efektivnih req/min**. To je ~11.500 poziva/dan — daleko više
+od ~80 polja koliko treba za par zaostalih fajlova. Pravilo:
+- **Sinhroni/batch-hitan** EN (svih 12 odjednom, sad) → boli (1 RPM strop, ~7 h).
+- **Strpljivi backfill** (par fajlova, raspoređeno, "dan ima 24 h") → trivijalno: pokreni petlju koja retrya
+  dok fajl ne nastane, pa se sama finalizira (upload + reindex). Zaostali fajlovi prođu čim regije nisu
+  zasićene drugim poslom. Zato 2 fajla koja su pala tijekom 8 h batch-a (sve regije zauzete) prolaze čim se
+  pokreću izolirano. Backfill-skripta: `/tmp/patient_backfill_en.sh` (retry-do-uspjeha + auto-finalize).
+
 ### 2.3 Magisterium MCP hibrid — stvarni flow i brojke
 
 ```mermaid
@@ -142,7 +151,7 @@ sequenceDiagram
         Note over U: timeout → ponovi KRAĆI sadržaj<br/>refuse → preformuliraj "moralno-teološki"
     end
     U->>A: assemble --job --results-dir --out STORAGE/article.magisterium.json
-    A-->>U: root overall_score = avg(sekcije); holistic u overall.holistic_score
+    A-->>U: root overall_score = avg(sekcija), holistic u overall.holistic_score
 ```
 
 **Empirijski (12 epizoda, ~100 `chat` poziva):**
