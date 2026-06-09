@@ -118,9 +118,11 @@ flowchart TB
 **`1` zahtjev/min** (default za nov projekt; MedLM ima 60, Gemini 1). Zato je article-generacija (~3 poziva/ep)
 prošla glatko, a prijevod (~300 poziva/ep) puzao. Regional-only fix samo izbjegne najgori `global` 429-zid —
 ali stvarni strop je 1 RPM, pa je i regional-only run trajao **~7 h za 10/12** (2/12 ostala bez po 1 fajla).
-Autonomni quota-increase (`gcloud alpha quotas preferences create/update`, 300 i 60 RPM) Google je **auto-deny**
-("cannot grant ... at this moment, '0' granted") — nov projekt ne može self-grantati Gemini quotu dok ne sazri.
-**Prava poluga je quota bump** (project maturity / support case); do tad EN je inherentno spor.
+Autonomni quota-increase (`gcloud alpha quotas preferences create/update`) Google je **auto-deny** na svaku
+testiranu vrijednost — 300, 60, **i čak `1 → 2` (+1)** → svuda `grantedValue: 0` ("cannot grant ... at this
+moment"). Dakle nije value-issue nego **hard-gate**: nov projekt ne smije self-grantati NIKAKAV Gemini increase
+dok ne sazri (usage/billing povijest) ili kroz Google support case (plaćeni plan). **Prava poluga je quota
+bump**; do tad EN je inherentno spor (1 RPM). Preference su ostavljene na fileu pa mogu proći kad gate padne.
 
 ### 2.3 Magisterium MCP hibrid — stvarni flow i brojke
 
