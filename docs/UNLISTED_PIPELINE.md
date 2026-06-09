@@ -1,7 +1,7 @@
 # UNLISTED PIPELINE — strogi two-pass protokol (single point of truth)
 
 > **Što je ovo:** jedini mjerodavni protokol za obradu **unlisted / ad-hoc** YouTube videa
-> (onih koji dolaze kroz `studio.domovina.ai` queue ili ručno kroz `fetch.js --unlisted-url`).
+> (onih koji dolaze kroz `pipeline.domovina.ai` queue ili ručno kroz `fetch.js --unlisted-url`).
 > Koristi ga kao **baseline** svaki put kad šalješ novi video na obradu, i kao referencu kad
 > nekome objašnjavaš kako unlisted obrada radi.
 >
@@ -24,7 +24,7 @@ diarizacija je CPU-bound pa ide lokalno, transkripcija GPU-bound pa ide na Colab
 |---|---|---|---|
 | **Što** | download + WAV + WAV→Drive + (opcijski) bazna vidljivost (video + meta) | Colab Canary transkripcija | diarizacija → summary → article → Magisterium → RAG → EN → screenshots → upload |
 | **Gate** | ništa (ne treba transkripciju) | — | **`.canary.diarized.srt` mora postojati** |
-| **studio state** | `queued→fetching→transcribing` | `transcribing` (čeka) | `processing→done` |
+| **pipeline state** | `queued→fetching→transcribing` | `transcribing` (čeka) | `processing→done` |
 | **`/v/{id}` pokazuje** | video + naslov + thumbnail (bez AI) | — | **puni članak, sažetak, teološka procjena, poglavlja, screenshoti** |
 
 Nakon **uspješnog prolaska 2 video je 100% backfillan.** Tek tada je `done`.
@@ -40,7 +40,7 @@ Nakon **uspješnog prolaska 2 video je 100% backfillan.** Tek tada je `done`.
 ```mermaid
 flowchart TB
     subgraph P1["🟢 PROLAZAK 1 — bez transkripcije"]
-        E["Enqueue<br/>studio /admin ILI fetch.js --unlisted-url"]
+        E["Enqueue<br/>pipeline /admin ILI fetch.js --unlisted-url"]
         D["Download → storage/output/_unlisted/<br/>(mp3 + mkv + info.json + thumbnail)"]
         W["KORAK 2: convert_to_wav → .wav<br/>(auto-discover _unlisted u punom runu)"]
         U1["KORAK 2.5: WAV → Google Drive<br/>rclone canary_wav/_unlisted/"]
@@ -103,7 +103,7 @@ Ničemu ovdje ne treba `.canary.*`. Cilj: video skinut, WAV na Driveu (za Colab)
 
 | # | Korak | Komanda | Output | Treba transkripciju? |
 |---|---|---|---|:--:|
-| A | Enqueue | studio `/admin` forma **ili** `node fetch.js --unlisted-url "<URL>" [--unlisted-title "…"]` | red / direktni download | ne |
+| A | Enqueue | pipeline `/admin` forma **ili** `node fetch.js --unlisted-url "<URL>" [--unlisted-title "…"]` | red / direktni download | ne |
 | B | Download | (bridge ili fetch.js) → `storage/output/_unlisted/` | `mp3, mkv, info.json, .png, .description` | ne |
 | C | WAV | `node convert_to_wav.js --channel _unlisted` *(ili pun run — auto-discover)* | `{base}.wav` | ne |
 | D | WAV→Drive | `rclone copy storage/output/_unlisted/ google_drive_ms:domovina_fetch_data/canary_wav/_unlisted -L --filter "+ *.wav" --filter "- *" --drive-shared-with-me` | `canary_wav/_unlisted/{base}.wav` | ne |
@@ -111,7 +111,7 @@ Ničemu ovdje ne treba `.canary.*`. Cilj: video skinut, WAV na Driveu (za Colab)
 | F | Bazna meta | `node upload_to_r2.js --input-dir storage/output --channel _unlisted --video-id {id}` | `data/{id}/info.json` + `images/{id}/thumbnail.png` | ne |
 
 **Stanje nakon prolaska 1:** `/v/{id}` renderira **video + naslov + thumbnail** (Flutter traži
-samo `info.json` 200 da ne baci 404). AI sadržaja još nema. studio job = `transcribing`.
+samo `info.json` 200 da ne baci 404). AI sadržaja još nema. pipeline job = `transcribing`.
 
 > Koraci E i F su **opcijski** u prolasku 1 — daju ranu vidljivost. Ako ih preskočiš, sve
 > svejedno dođe u prolasku 2 (KORAK 12 uploada sve odjednom). U punom nightly/`run_pipeline.sh`
@@ -153,7 +153,7 @@ _unlisted` (ili `--video-id {id}`). U punom nightly/`run_pipeline.sh` runu sve o
 | 12 | **Upload** | `node upload_to_r2.js --input-dir storage/output --channel _unlisted` | sve gore | ✅ |
 
 **Stanje nakon prolaska 2:** `data/{id}/article.json` (+ summary, magisterium, outline, diarized,
-screenshoti, og, EN) **live na CDN-u** → `/v/{id}` je 100% kompletan. studio job = `done`.
+screenshoti, og, EN) **live na CDN-u** → `/v/{id}` je 100% kompletan. pipeline job = `done`.
 
 > **NE radi se** `generate_channel_index` (KORAK 11/13) ni `upload_to_r2 --meta-dir` za unlisted:
 > `_unlisted` dir počinje s `_` pa ga indeks svejedno preskače. I **NE** `import_to_vertex` — privatni
@@ -182,7 +182,7 @@ flowchart LR
 
 | | Normalni kanal | Unlisted (`_unlisted`) |
 |---|---|---|
-| Ulaz | `*-lista.txt` + `refresh_podcasts.sh` | `fetch.js --unlisted-url` / studio queue |
+| Ulaz | `*-lista.txt` + `refresh_podcasts.sh` | `fetch.js --unlisted-url` / pipeline queue |
 | Dir | `storage/output/{kanal}/` | `storage/output/_unlisted/` |
 | Channel index | uvrštava (homepage, channel page) | **preskače** (`generate_channel_index.js` ignorira `_`-dir) |
 | Vidljivost | javno u listama | **samo** `https://domovina.ai/v/{id}` (kao YouTube unlisted) |
@@ -191,11 +191,11 @@ flowchart LR
 | RAG/MCP (`import_to_vertex`) | da | **ne** (ostaje privatno) |
 
 Mehanizam i kod detaljno: memory `unlisted_adhoc_ingestion_mechanism` i README repo-a
-`studio.domovina.ai`.
+`pipeline.domovina.ai`.
 
 ---
 
-## 6. studio.domovina.ai — job stanja kroz prolaske
+## 6. pipeline.domovina.ai — job stanja kroz prolaske
 
 ```mermaid
 stateDiagram-v2
@@ -215,7 +215,7 @@ stateDiagram-v2
     end note
 ```
 
-Bridge (`studio.domovina.ai/bridge/`): `claim_and_dispatch.js` (prolazak 1, KORAK 0 punog runa)
+Bridge (`pipeline.domovina.ai/bridge/`): `claim_and_dispatch.js` (prolazak 1, KORAK 0 punog runa)
 + `reconcile.js` (završno javi `done`). Cloud cron vraća stuck `fetching` u `queued`.
 
 ---
@@ -223,7 +223,7 @@ Bridge (`studio.domovina.ai/bridge/`): `claim_and_dispatch.js` (prolazak 1, KORA
 ## 7. BASELINE CHECKLIST — slanje novog unlisted videa
 
 **Prolazak 1**
-- [ ] Enqueue: studio `/admin` (zalijepi URL) **ili** `node fetch.js --unlisted-url "<URL>" --unlisted-title "…"`
+- [ ] Enqueue: pipeline `/admin` (zalijepi URL) **ili** `node fetch.js --unlisted-url "<URL>" --unlisted-title "…"`
 - [ ] Pokreni pun run (`./run_pipeline.sh --with-r2-upload` ili sačekaj nightly) **ili** ručno B→F iz §2
 - [ ] Provjeri: `curl -s -o /dev/null -w "%{http_code}\n" https://cdn.domovina.ai/data/{id}/info.json` → **200**
 - [ ] WAV na Driveu: `rclone lsl google_drive_ms:domovina_fetch_data/canary_wav/_unlisted --drive-shared-with-me`
@@ -247,7 +247,7 @@ done
 ```
 
 - [ ] Otvori `https://domovina.ai/v/{id}` → puni članak vidljiv, a videa **nema** ni u jednom indeksu
-- [ ] (studio) reconcile postavi job na `done`
+- [ ] (pipeline) reconcile postavi job na `done`
 
 ---
 
@@ -260,7 +260,7 @@ done
 | [`MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md) | Magisterium MCP runbook (KORAK 8.5) |
 | `fetch.js --unlisted-url` | Ad-hoc download u `_unlisted` |
 | `convert_to_wav.js` | Auto-discover `_`-kanala u punom runu |
-| `../studio.domovina.ai` | Queue servis (Worker + admin + bridge) |
+| `../pipeline.domovina.ai` | Queue servis (Worker + admin + bridge) |
 | memory `unlisted_adhoc_ingestion_mechanism` | `_`-prefiks asimetrija (index skip vs CDN upload vs `/v/{id}`) |
 
 **Stvoreno:** 2026-06-09 kao single-point-of-truth protokol za unlisted/ad-hoc obradu.

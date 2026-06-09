@@ -240,16 +240,16 @@ else
     probe_iphone_proxy || true
 fi
 
-# ─── 0. STUDIO QUEUE CLAIM (ad-hoc/unlisted videi) ────────────────
-# Povuci .env (STUDIO_INGEST_KEY) pa claim queued jobove iz studio.domovina.ai →
+# ─── 0. PIPELINE QUEUE CLAIM (ad-hoc/unlisted videi) ────────────────
+# Povuci .env (PIPELINE_QUEUE_INGEST_KEY) pa claim queued jobove iz pipeline.domovina.ai →
 # fetch.js --unlisted-url → _unlisted/. run_pipeline ih dalje obradi automatski
 # (convert_to_wav auto-discoverira _unlisted; diarize/summary/article su dir-driven).
-# Soft-fail (exit 0) bez STUDIO_INGEST_KEY pa ne ruši nightly. Vidi docs/UNLISTED_PIPELINE.md.
+# Soft-fail (exit 0) bez PIPELINE_QUEUE_INGEST_KEY pa ne ruši nightly. Vidi docs/UNLISTED_PIPELINE.md.
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
-STUDIO_BRIDGE="${STUDIO_BRIDGE_DIR:-$REPO_DIR/../studio.domovina.ai/bridge}"
-if [ -f "$STUDIO_BRIDGE/claim_and_dispatch.js" ]; then
-    run_step "studio claim (unlisted queue)" \
-        node "$STUDIO_BRIDGE/claim_and_dispatch.js" || true
+PIPELINE_QUEUE_BRIDGE="${PIPELINE_QUEUE_BRIDGE_DIR:-$REPO_DIR/../pipeline.domovina.ai/bridge}"
+if [ -f "$PIPELINE_QUEUE_BRIDGE/claim_and_dispatch.js" ]; then
+    run_step "pipeline claim (unlisted queue)" \
+        node "$PIPELINE_QUEUE_BRIDGE/claim_and_dispatch.js" || true
 fi
 
 # ─── 1. GLAVNI PIPELINE (faze A + B) ──────────────────────────────
@@ -269,11 +269,11 @@ run_step "generate_channel_index.js" \
 run_step "upload_to_r2.js --meta-dir storage/meta" \
     node "$REPO_DIR/upload_to_r2.js" --meta-dir storage/meta || true
 
-# ─── 4. STUDIO RECONCILE (javi gotove unlisted jobove) ────────────
+# ─── 4. PIPELINE RECONCILE (javi gotove unlisted jobove) ────────────
 # Za jobove u transcribing/processing: CDN data/{id}/article.json 200 → done + /v/{id}.
-if [ -f "$STUDIO_BRIDGE/reconcile.js" ]; then
-    run_step "studio reconcile (unlisted queue)" \
-        node "$STUDIO_BRIDGE/reconcile.js" || true
+if [ -f "$PIPELINE_QUEUE_BRIDGE/reconcile.js" ]; then
+    run_step "pipeline reconcile (unlisted queue)" \
+        node "$PIPELINE_QUEUE_BRIDGE/reconcile.js" || true
 fi
 
 # ─── SAŽETAK ──────────────────────────────────────────────────────
