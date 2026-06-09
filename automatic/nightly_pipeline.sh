@@ -201,6 +201,16 @@ run_step() {
 IPHONE_PROXY_URL="http://100.71.146.11:8888"
 PROXY_ARGS=()
 
+# --via-iphone (CLI): forsiraj yt-dlp egress kroz iPhone USB tether (172.20.10.x,
+# residential mobile IP). Kad je zadan, PRESKAČEMO Tailscale proxy probe — to je drugi,
+# sporiji egress put (DERP+cellular ~0.8 MB/s); USB tether je ~10 MB/s i bolji za video.
+# Flag se prosljeđuje run_pipeline.sh-u (koji ga već parsira i auto-detektira tether IP).
+# Vidi MEMORY: yt-dlp-source-address-via-iphone, iphone-http-proxy-via-tailscale.
+VIA_IPHONE=false
+for arg in "$@"; do
+    [ "$arg" = "--via-iphone" ] && VIA_IPHONE=true
+done
+
 probe_iphone_proxy() {
     local direct_ip proxy_ip
     direct_ip="$(curl -s --max-time 8 https://api.ipify.org 2>/dev/null || echo "")"
@@ -220,9 +230,15 @@ probe_iphone_proxy() {
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📡 iPhone proxy probe ($IPHONE_PROXY_URL)"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-probe_iphone_proxy || true
+if [ "$VIA_IPHONE" = true ]; then
+    echo "   📡 --via-iphone zadan → yt-dlp bind na iPhone USB tether (172.20.10.x). Preskačem Tailscale proxy probe."
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    PROXY_ARGS=("--via-iphone")
+else
+    echo "   📡 iPhone proxy probe ($IPHONE_PROXY_URL)"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    probe_iphone_proxy || true
+fi
 
 # ─── 0. STUDIO QUEUE CLAIM (ad-hoc/unlisted videi) ────────────────
 # Povuci .env (STUDIO_INGEST_KEY) pa claim queued jobove iz studio.domovina.ai →
