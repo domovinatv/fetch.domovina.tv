@@ -205,8 +205,8 @@ Fratelli Tutti, Pacem in Terris, Compendium, Dignitas Infinita, KKC 2307-2317).
 | KORAK 12 R2 upload ×12 + meta | **~10 min** | ~70 MB, HEAD-skip idempotent |
 | GET-verifikacija | **~5 s** | svih 12: article+magisterium = **200** |
 | **UKUPNO do "live na CDN" (HR + Magisterium)** | **~3 h 04 min** | od kojih ~80 min je Magisterium MCP |
-| KORAK 6.5 EN prijevod (regional-only, sekvencijalno) | **~7 h 09 min** | ⚠️ 1 RPM Gemini quota: 10/12 (21:09→04:18), 2/12 ostala bez po 1 fajla |
-| **UKUPNO do punog dvojezičnog publisha (10/12)** | **~10 h 15 min** | EN dominira zbog 1-RPM stropa; uz quota bump bilo bi ~+15 min umjesto ~7 h |
+| KORAK 6.5 EN prijevod (regional-only, sekvencijalno) | **~7 h 09 min** | ⚠️ 1 RPM Gemini quota: 10/12 sinhrono (21:09→04:18); preostala 2/12 (po 1 fajl) dovršena **strpljivim backfillom** (vidi §2.2) — pojedinačno, regije slobodne |
+| **UKUPNO do punog dvojezičnog publisha (12/12)** | **~10 h 15 min** | EN dominira zbog 1-RPM stropa; uz quota bump bilo bi ~+15 min umjesto ~7 h |
 
 **Zaključak mjerenja:** do "HR + Magisterium live na CDN" kritični put je **interaktivni Magisterium MCP sloj**
 (~80 min, sekvencijalan po dizajnu); sve ostalo (diarize/summary/article/RAG/media/R2) je ~1 h zajedno i većinom
