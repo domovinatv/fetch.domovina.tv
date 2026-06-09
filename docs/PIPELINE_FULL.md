@@ -108,11 +108,19 @@ flowchart TB
     P["12 epizoda × ~300 polja prijevoda"] --> Q{"strategija"}
     Q -->|"4-way paralelno"| R["429 storm<br/>MAX_RETRIES fail ❌"]
     Q -->|"sekvencijalno + global"| S["global 429 svaki 9. poziv<br/>~15-20 min/ep 🐢"]
-    Q -->|"sekvencijalno, REGIONAL-ONLY"| T["429 rijetko<br/>teče ✅"]
+    Q -->|"sekvencijalno, REGIONAL-ONLY"| T["429 rijetko<br/>teče, ali sporo (1 RPM)"]
     style R fill:#f8d7da
     style S fill:#fff3cd
-    style T fill:#d4edda
+    style T fill:#fff3cd
 ```
+
+**Korijenski uzrok (potvrđeno Cloud Quotas API-jem):** projekt `project-a275a620` ima Gemini RPM kvotu
+**`1` zahtjev/min** (default za nov projekt; MedLM ima 60, Gemini 1). Zato je article-generacija (~3 poziva/ep)
+prošla glatko, a prijevod (~300 poziva/ep) puzao. Regional-only fix samo izbjegne najgori `global` 429-zid —
+ali stvarni strop je 1 RPM, pa je i regional-only run trajao **~7 h za 10/12** (2/12 ostala bez po 1 fajla).
+Autonomni quota-increase (`gcloud alpha quotas preferences create/update`, 300 i 60 RPM) Google je **auto-deny**
+("cannot grant ... at this moment, '0' granted") — nov projekt ne može self-grantati Gemini quotu dok ne sazri.
+**Prava poluga je quota bump** (project maturity / support case); do tad EN je inherentno spor.
 
 ### 2.3 Magisterium MCP hibrid — stvarni flow i brojke
 
@@ -186,11 +194,15 @@ Fratelli Tutti, Pacem in Terris, Compendium, Dignitas Infinita, KKC 2307-2317).
 | KORAK 12 R2 upload ×12 + meta | **~10 min** | ~70 MB, HEAD-skip idempotent |
 | GET-verifikacija | **~5 s** | svih 12: article+magisterium = **200** |
 | **UKUPNO do "live na CDN" (HR + Magisterium)** | **~3 h 04 min** | od kojih ~80 min je Magisterium MCP |
-| KORAK 6.5 EN prijevod ×12 | **backfill** | quota-throttled; regional-only fix; teče u pozadini |
+| KORAK 6.5 EN prijevod (regional-only, sekvencijalno) | **~7 h 09 min** | ⚠️ 1 RPM Gemini quota: 10/12 (21:09→04:18), 2/12 ostala bez po 1 fajla |
+| **UKUPNO do punog dvojezičnog publisha (10/12)** | **~10 h 15 min** | EN dominira zbog 1-RPM stropa; uz quota bump bilo bi ~+15 min umjesto ~7 h |
 
-**Zaključak mjerenja:** kritični put nije compute nego **interaktivni Magisterium MCP sloj** (sekvencijalan
-po dizajnu). Sve ostalo (diarize/summary/article/RAG/media/R2) je ~1 h zajedno i većinom paralelizabilno.
-EN prijevod je jedini infra-bottleneck (Vertex `global` quota), riješen regional-only rotacijom.
+**Zaključak mjerenja:** do "HR + Magisterium live na CDN" kritični put je **interaktivni Magisterium MCP sloj**
+(~80 min, sekvencijalan po dizajnu); sve ostalo (diarize/summary/article/RAG/media/R2) je ~1 h zajedno i većinom
+paralelizabilno. Za **pun dvojezični** publish dominira **EN prijevod (~7 h)**, ali ne zbog algoritma nego
+zbog **1-RPM Gemini quote na novom projektu** — to je jedini pravi infra-bottleneck cijelog sustava. Uz quota
+bump (kad projekt sazri ili kroz support) EN bi pao na ~15 min, čime bi total do punog dvojezičnog publisha
+bio **~3,5 h** umjesto ~10 h.
 
 ---
 
