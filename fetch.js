@@ -212,19 +212,69 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
 }
 
 class ChannelQueue {
-  constructor(filePath, baseOutputDir, videoIdFilter = null) {
-    this.filePath = filePath;
+  constructor(filePath, baseOutputDir, videoIdFilter = null, opts = {}) {
     this.baseOutputDir = baseOutputDir;
     // Opcijski filter: obradi samo redak s odgovarajućim YouTube video ID-om
     this.videoIdFilter = videoIdFilter;
+    this.pendingVideos = [];
+    this.isExhausted = false;
+
+    // --- AD-HOC UNLISTED MOD ---
+    // Skini jedan proizvoljni (npr. unlisted) YouTube URL u "_unlisted" kanal.
+    // Ne čita liste. Dir počinje s "_" pa ga generate_channel_index.js (KORAK 13)
+    // preskoči → video se NIKAD ne pojavi u channels/data/*.json ni na frontendu,
+    // ALI upload_to_r2.js ga svejedno uploada u data/{id}/… → privatni URL
+    // domovina.ai/v/{id} radi (Flutter čita per-video JSON direktno po ID-u).
+    if (opts.unlistedUrl) {
+      this.filePath = null;
+      this.channelName = "_unlisted";
+      this.outputDir = path.join(baseOutputDir, "_unlisted");
+      this.stateFile = path.join(LISTS_DIR, "_unlisted-state.json");
+      this.state = loadState(this.stateFile);
+      this.initUnlisted(opts.unlistedUrl, opts.unlistedTitle, opts.unlistedDate);
+      return;
+    }
+
+    this.filePath = filePath;
     const filename = path.basename(filePath).replace("-lista.txt", "").replace(".txt", "");
     this.channelName = sanitizeDescription(filename);
     this.outputDir = path.join(baseOutputDir, this.channelName);
     this.stateFile = filePath.replace(".txt", "-state.json");
     this.state = loadState(this.stateFile);
-    this.pendingVideos = [];
-    this.isExhausted = false;
     this.init();
+  }
+
+  // Pripremi jednu pending stavku iz proizvoljnog URL-a (ad-hoc unlisted ulaz).
+  initUnlisted(url, title, date) {
+    const trimmed = (url || "").trim();
+    const videoId = extractVideoId(trimmed) ||
+      (/^[a-zA-Z0-9_-]{11}$/.test(trimmed) ? trimmed : null);
+    if (!videoId) {
+      console.error(`[GREŠKA] Ne mogu izvući YouTube ID iz: "${url}"`);
+      this.isExhausted = true;
+      return;
+    }
+
+    if (this.state.completed.includes(videoId) ||
+        this.state.private.includes(videoId) ||
+        this.state.archived.includes(videoId)) {
+      console.log(`   ⏩ ${videoId} već u stanju (_unlisted) — preskačem download.`);
+      this.isExhausted = true;
+      return;
+    }
+
+    const safeTitle = sanitizeDescription(title || "unlisted");
+    const filenameTemplate = (date && /^\d{8}$/.test(date) && date !== "NA")
+      ? `${date}_${safeTitle}_yt_${videoId}`
+      : `%(upload_date)s_${safeTitle}_yt_${videoId}`;
+
+    this.pendingVideos = [{
+      line: `unlisted|${title || ""}|${trimmed}`,
+      url: `https://www.youtube.com/watch?v=${videoId}`,
+      videoId,
+      title: title || "unlisted",
+      filenameTemplate,
+    }];
   }
 
   init() {
@@ -384,6 +434,28 @@ async function main() {
   if (sourceAddr) {
     YT_DLP_BASE_ARGS.push("--source-address", sourceAddr);
     console.log(`📡 yt-dlp bind-an na lokalnu IP: ${sourceAddr}`);
+  }
+
+  // --- AD-HOC UNLISTED ULAZ ---
+  // node fetch.js --unlisted-url "https://www.youtube.com/watch?v=ID" [--unlisted-title "Naziv"] [--unlisted-date YYYYMMDD]
+  // Skine jedan proizvoljni URL u storage/output/_unlisted/ (neindeksiran, ali servira /v/{id}).
+  const unlistedUrlIdx = args.indexOf("--unlisted-url");
+  const unlistedUrl = unlistedUrlIdx !== -1 ? args[unlistedUrlIdx + 1] : null;
+  if (unlistedUrl) {
+    const utIdx = args.indexOf("--unlisted-title");
+    const udIdx = args.indexOf("--unlisted-date");
+    const opts = {
+      unlistedUrl,
+      unlistedTitle: utIdx !== -1 ? args[utIdx + 1] : null,
+      unlistedDate: udIdx !== -1 ? args[udIdx + 1] : null,
+    };
+    console.log(`\n🔒 AD-HOC UNLISTED: ${unlistedUrl} → _unlisted/`);
+    const channel = new ChannelQueue(null, baseOutputDir, null, opts);
+    while (!channel.isExhausted) {
+      await channel.processBatch(BATCH_SIZE);
+    }
+    console.log("\n✅ GOTOVO (unlisted).");
+    return;
   }
 
   if (!fs.existsSync(LISTS_DIR)) { console.error(`Nema direktorija: ${LISTS_DIR}`); process.exit(1); }

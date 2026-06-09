@@ -169,23 +169,52 @@ async function main() {
         .filter(f => f.endsWith("-lista.txt"))
         .map(f => path.join(LISTS_DIR, f));
 
-    // Filtriraj po kanalu ako je zadan --channel
-    if (channelFilter) {
-        listFiles = listFiles.filter(f => {
-            const filename = path.basename(f).replace("-lista.txt", "").replace(".txt", "");
-            const channelName = sanitizeDescription(filename);
-            return channelName === channelFilter;
-        });
-        if (listFiles.length === 0) {
-            console.error(`❌ Kanal "${channelFilter}" nije pronađen.`);
-            console.error(`   Dostupni kanali:`);
-            fs.readdirSync(LISTS_DIR)
-                .filter(f => f.endsWith("-lista.txt"))
-                .forEach(f => {
-                    const name = sanitizeDescription(path.basename(f).replace("-lista.txt", ""));
-                    console.error(`     - ${name}`);
-                });
+    // Sastavi poslove po kanalu. Normalni kanali dolaze iz *-lista.txt.
+    // "_"-prefiksani kanali (npr. _unlisted iz `fetch.js --unlisted-url`) NEMAJU
+    // listu — videi se čitaju direktno iz {channel}-state.json (completed[]). Time
+    // ad-hoc/unlisted ulaz prolazi kroz konverziju identično, a ostaje neindeksiran.
+    let channelJobs;
+    if (channelFilter && channelFilter.startsWith("_")) {
+        const stateFile = path.join(LISTS_DIR, `${channelFilter}-state.json`);
+        if (!fs.existsSync(stateFile)) {
+            console.error(`❌ Unlisted kanal "${channelFilter}" nema state datoteku: ${stateFile}`);
             process.exit(1);
+        }
+        channelJobs = [{ channelName: channelFilter, listFile: null, stateFile }];
+    } else {
+        if (channelFilter) {
+            listFiles = listFiles.filter(f => {
+                const filename = path.basename(f).replace("-lista.txt", "").replace(".txt", "");
+                return sanitizeDescription(filename) === channelFilter;
+            });
+            if (listFiles.length === 0) {
+                console.error(`❌ Kanal "${channelFilter}" nije pronađen.`);
+                console.error(`   Dostupni kanali:`);
+                fs.readdirSync(LISTS_DIR)
+                    .filter(f => f.endsWith("-lista.txt"))
+                    .forEach(f => {
+                        const name = sanitizeDescription(path.basename(f).replace("-lista.txt", ""));
+                        console.error(`     - ${name}`);
+                    });
+                process.exit(1);
+            }
+        }
+        channelJobs = listFiles.map(f => ({
+            channelName: sanitizeDescription(path.basename(f).replace("-lista.txt", "").replace(".txt", "")),
+            listFile: f,
+            stateFile: f.replace(".txt", "-state.json"),
+        }));
+
+        // Bez --channel (puni nightly/manualni run): pokupi i "_"-prefiksane kanale
+        // (npr. _unlisted iz studio.domovina.ai queuea) koji nemaju listu nego samo
+        // {channel}-state.json. Tako svaki puni run obradi unlisted videe bez da
+        // bridge mora eksplicitno zvati konverziju. (Eksplicitan --channel ih ne dira.)
+        if (!channelFilter && fs.existsSync(baseOutputDir)) {
+            for (const entry of fs.readdirSync(baseOutputDir)) {
+                if (!entry.startsWith("_")) continue;
+                const sf = path.join(LISTS_DIR, `${entry}-state.json`);
+                if (fs.existsSync(sf)) channelJobs.push({ channelName: entry, listFile: null, stateFile: sf });
+            }
         }
     }
 
@@ -196,7 +225,7 @@ async function main() {
     console.log(`   💾 Output: ${baseOutputDir}`);
     if (channelFilter) console.log(`   🎯 Kanal: ${channelFilter}`);
     if (videoIdFilter) console.log(`   🎯 Video ID: ${videoIdFilter}`);
-    console.log(`   📋 Pronađeno lista: ${listFiles.length}`);
+    console.log(`   📋 Kanala za obradu: ${channelJobs.length}`);
     if (dryRun) console.log("   ⚠️  DRY RUN - samo prikaz, bez konverzije");
     console.log("");
 
@@ -205,24 +234,27 @@ async function main() {
     let totalMissing = 0;
     let totalErrors = 0;
 
-    for (const listFile of listFiles) {
-        const filename = path.basename(listFile).replace("-lista.txt", "").replace(".txt", "");
-        const channelName = sanitizeDescription(filename);
+    for (const job of channelJobs) {
+        const { channelName, listFile, stateFile } = job;
         const outputDir = path.join(baseOutputDir, channelName);
-        const stateFile = listFile.replace(".txt", "-state.json");
         const state = loadState(stateFile);
 
-        // Čitaj listu da dobiješ sve video podatke
-        const rawLines = fs.readFileSync(listFile, "utf-8").split("\n");
-        const entries = rawLines
-            .map(line => {
-                const data = extractDataFromLine(line);
-                if (!data) return null;
-                const videoId = extractVideoId(data.url);
-                if (!videoId) return null;
-                return { videoId, title: data.title };
-            })
-            .filter(e => e && e.videoId);
+        // Video podaci: iz liste (normalni kanal) ili iz state.completed (_unlisted).
+        let entries;
+        if (listFile) {
+            const rawLines = fs.readFileSync(listFile, "utf-8").split("\n");
+            entries = rawLines
+                .map(line => {
+                    const data = extractDataFromLine(line);
+                    if (!data) return null;
+                    const videoId = extractVideoId(data.url);
+                    if (!videoId) return null;
+                    return { videoId, title: data.title };
+                })
+                .filter(e => e && e.videoId);
+        } else {
+            entries = state.completed.map(videoId => ({ videoId, title: "unlisted" }));
+        }
 
         // Samo completed video ID-ovi
         let completedEntries = entries.filter(e => state.completed.includes(e.videoId));
