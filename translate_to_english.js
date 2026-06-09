@@ -55,8 +55,17 @@ const GEMINI_CONF = (() => {
 })();
 
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
-const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global,us-central1,us-east1,europe-west1,europe-west4")
+// Default model za EN PRIJEVOD je gemini-3-flash-preview, NE gemini-2.5-flash (koji je default
+// generacijskog pipelinea u gemini.conf). Razlog (empirijski 2026-06-09, vidi
+// docs/translation_throughput_vision_2026-06.md): 2.5-flash je pod Dynamic Shared Quota →
+// efektivno ~1 RPM → 429-storm na bulk backfillu (~16h). 3-flash-preview ima pravu 250-RPM
+// kvotu (sustained 30 poziva: 29 OK / 1 429 vs 2.5-flash 2/10) i jednako/literalnije kvalitete
+// prijevoda. NAPLAĆUJE se (skuplji: $0.50/$3.00) ali ga free-trial krediti pokrivaju kao i 2.5.
+// VAŽNO: preview ID nije vječan — kad Google promovira/povuče, prebaci na nasljednika ili 2.5.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3-flash-preview";
+// Preview modeli su DOSTUPNI SAMO na global endpointu (regionalni vraćaju 404). Global ujedno
+// nosi 250-RPM bazen za preview. Zato global-only ovdje (regional rotacija je no-op za DSQ/preview).
+const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "global")
     .split(",").map(r => r.trim()).filter(Boolean);
 
 if (!VERTEX_PROJECT) {
