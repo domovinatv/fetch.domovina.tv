@@ -2,6 +2,26 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⛔ HARD RULES — READ FIRST
+
+1. **Pipeline rad SAMO iz OVOG repoa.** Sav fetch / transkripcija / diarizacija /
+   summary / article / Magisterium / RAG / R2 / channel backfill posao mora se
+   voditi iz Claude Code sesije pokrenute u `/Users/ms/git/domovinatv/fetch.domovina.tv`.
+   **NIKAD iz `domovina.ai` (Flutter) sesije** — taj projekt ima drugi CLAUDE.md i
+   drugu Claude memoriju, pa se ova pravila tamo NE učitavaju. Backfill pokrenut iz
+   krive sesije (2026-06-12, `muzevni_budite`) zamalo je odradio skupi API put jer
+   pravilo #2 nije bilo u kontekstu. Ako zahtjev stigne iz druge sesije → reci useru
+   da pokrene sesiju ovdje.
+
+2. **Magisterium = MCP only, NIKAD API.** Sva Magisterium obrada ide preko Magisterium
+   MCP-a (`mcp__claude_ai_Magisterium_AI__chat/_search/_fetch`, Pro subscription =
+   unlimited, 15 req/min, sekvencijalno — jedan invoke po messageu). **NE pokretati**
+   `enrich_magisterium.js` / `enrich_magisterium_full.js` / `enrich_magisterium_batch.js`
+   ni `run_pipeline.sh --with-magisterium` — svi koriste `MAGISTERIUM_API_KEY*` (odvojen,
+   vrlo skup per-token plan). Workflow: `magisterium_mcp_prep.js` → Claude-in-the-loop MCP
+   pozivi → `magisterium_mcp_assemble.js`. Detalji: `docs/MAGISTERIUM_MCP_RUN.md`,
+   `docs/adhoc_video_processing.md` (§3.5), `docs/magisterium_ai_integration.md`.
+
 ## Build & Test Commands
 
 ```bash
