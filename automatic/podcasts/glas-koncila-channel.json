@@ -4,7 +4,7 @@
   "channel_id": "UCvsEO1RUe7xFUVJoKyJuYJw",
   "title": "Glas Koncila",
   "availability": null,
-  "channel_follower_count": 590,
+  "channel_follower_count": 589,
   "description": "",
   "tags": [],
   "thumbnails": [
@@ -38,7 +38,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1781226579,
+  "epoch": 1781312773,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
