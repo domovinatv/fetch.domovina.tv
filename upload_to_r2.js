@@ -805,14 +805,19 @@ async function listAllR2Keys(client) {
  * `screenshots/xxx_00-15-30.png`). Re-generacija proizvodi NOVI naziv, ne
  * overwrite starog.
  *
- * Iznimke (mutable basename-i):
+ * Iznimke (mutable):
  *   - `_manifest.json` u `_screenshots/` — dopisuje se kad se doda novi frame
  *   - `manifest.json` u `.og-sections/` — dopisuje se kad se doda nova sekcija
+ *   - `channels/images/{channel}/avatar_*.jpg` — kanal može promijeniti avatar,
+ *     a i naziv ključa je fiksan (nema timestamp/ID). Bez ovoga je avatar
+ *     LIST-once-skipan zauvijek → kriv Content-Type (octet-stream) ili stari
+ *     avatar ostaje zaleđen unatoč reindeksu. Vidi fix_channel_avatar_content_type.js.
  *
- * Za ove dvije kategorije i dalje radimo HEAD + MD5 usporedbu da bismo detektirali
+ * Za ove kategorije i dalje radimo HEAD + MD5 usporedbu da bismo detektirali
  * update. Za sve ostalo: ako ključ postoji u LIST set-u, skipamo bez HEAD-a.
  */
 function isContentMutable(r2Key) {
+    if (r2Key.startsWith("channels/images/")) return true;
     const basename = r2Key.split("/").pop();
     return basename === "_manifest.json" || basename === "manifest.json";
 }
