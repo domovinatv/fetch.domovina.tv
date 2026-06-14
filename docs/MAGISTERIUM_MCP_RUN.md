@@ -110,3 +110,10 @@ Ti si teološki analitičar. Evaluiraj usklađenost sljedećih N odlomaka … Vr
   Holistički score živi u `overall.holistic_score`.
 - NE prepisuj postojeće; piši nove datoteke (`assemble` to i radi).
 - `chat` uvijek doda markdown `References` — `assemble.js` ih robusno parsira (`[^N]`).
+
+## Bulk backfill (više epizoda) — naučeno 2026-06-13
+
+- **NE radi cijelu sekvencu u jednom chatu.** ~17 epizoda u jednom kontekstu = ~724k/1M tokena. Magisterium `chat` je **stateless** (nema server-side miješanja između epizoda), ali sve-u-jednom-chatu pojede kontekst i nosi orkestracijski rizik (LLM drži sav sadržaj). **Bolje: jedan subagent po epizodi, SEKVENCIJALNO** (chat nije parallel-safe, 15 req/min). Svaki subagent: prep→holistic→batches→assemble→publish; vrati samo score+CDN status.
+- **HR-only opcija:** ako se EN preskače (brže pokrivanje), po epizodi: assemble → `publish_hr_episode.sh <VID>` (instant upload+reindex+meta+GET). EN dodaj naknadno (`translate_to_english.js`, ~25-30 min/ep jer je per-field).
+- **Instant vidljivost zahtijeva reindex+R2 po epizodi:** `/v/{id}` čita per-video `article.magisterium.json` s CDN-a; `/c/` badge čita channel index. Bez `generate_channel_index.js` + meta upload magisterium ostaje "nevidljiv".
+- **Leading-dash YouTube ID gotcha:** VID koji počinje crticom (npr. `-bOmDXC7rlA`) bash tretira kao opciju → zovi `bash publish_hr_episode.sh -- <VID>`. `node ... --video-id <VID>` radi ispravno.

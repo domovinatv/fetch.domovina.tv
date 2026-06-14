@@ -1,62 +1,1241 @@
 {
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
-    { "match": "Catechism of the Catholic Church", "uuid": "0583c069-d4bf-42dd-97de-c19f0b80150f" },
-    { "match": "Ecclesia de Eucharistia", "uuid": "6398659f-a241-4e62-b01e-8e185c9b5454" },
-    { "match": "Sacramentum Caritatis", "uuid": "8b928ce6-3588-4a80-be41-c8fc7111288e" },
-    { "match": "Gaudium et Spes", "uuid": "fee9c589-dda1-4445-acce-d6ff95f32b71" },
-    { "match": "Oeconomicae et pecuniariae quaestiones", "uuid": "a2c68650-d269-4c9a-9857-465ac0009d43" },
-    { "match": "Veritatis Splendor", "uuid": "d073ad6f-d216-49d8-9add-639629648741" },
-    { "match": "Centesimus Annus", "uuid": "d5bd5337-11ec-4bf3-80aa-827675b951cd" },
-    { "match": "Caritas in Veritate", "uuid": "e1f225fc-8696-46d2-8270-c7b897221d3b" },
-    { "match": "Compendium of the Social Doctrine of the Church", "uuid": "21d06633-8734-43cd-b8bc-9ab3b84ebc30" },
-    { "match": "Backgounder on Payday Lending", "uuid": "af6ad79a-964c-4e8a-a399-3fb69771e992" },
-    { "match": "Forming Consciences for Faithful Citizenship", "uuid": "e0c2bab8-b9f7-45f5-9fa2-bfc599ab612b" },
-    { "match": "The Common Good and the Catholic Church's Social Teaching", "uuid": "b32012f0-4ac3-4ccc-977a-2836a129c359" },
-    { "match": "The Common Good in the Digital Age", "uuid": "7db2813e-c8ee-47ad-babe-81a79f93aa98" },
-    { "match": "New Sins: Technology and the Frontiers of Catholic Social Teaching", "uuid": "333c42b7-c702-4c4f-89b0-50bc6506b256" },
-    { "match": "The Church as the Defender of Conscience in Our Age", "uuid": "4b92bc95-c8be-4873-829a-c2dfdc6acb98" },
-    { "match": "Impact Investing for the Poor", "uuid": "121922b2-edd8-435b-93d0-4dee54ace95b" },
-    { "match": "Minerva Dialogues", "uuid": "2378b106-e60e-4da9-b3b5-ef28e5019d6a" },
-    { "match": "To the Committee of Experts from the European Council", "uuid": "003cce1d-0a67-416e-b669-f7b6a8dad38f" },
-    { "match": "International Catholic Legislators Network", "uuid": "2528ae1c-07bf-41f2-9b03-361f71d0bae3" },
-    { "match": "Antiqua et Nova", "uuid": "429efa31-df0f-455d-b7e1-c104ed929e3b" },
-    { "match": "Fides et Ratio", "uuid": "06811b47-ea16-42d9-a748-524adbab66da" },
-    { "match": "Fratelli Tutti", "uuid": "c26b52e4-54db-4be5-9095-5b37146afc82" },
-    { "match": "Magnifica Humanitas", "uuid": "ed397808-82f3-43e6-bf35-8f3f09fbdccc" },
-    { "match": "Evangelii Gaudium", "uuid": "7be34cc1-4084-45e7-adac-b583e91e7b83" },
-    { "match": "Verbum Domini", "uuid": "87ef94d9-231c-4fb1-8c9f-8c55d42d8fd1" },
-    { "match": "Christus vivit", "uuid": "f3ed0241-6989-4129-891f-0da4c51b6e7f" },
-    { "match": "Veritatis gaudium", "uuid": "f83d0b8f-c01c-466f-9905-d336e5a5520b" },
-    { "match": "Praedicate Evangelium", "uuid": "dd0f2abe-eb44-44c5-a69b-1ce251a3a8cc" },
-    { "match": "Builders AI Forum 2025", "uuid": "f1e0a6b7-2806-4c43-aa69-d3efbc31d423" },
-    { "match": "Paris Summit on AI", "uuid": "41ffb17f-6a1a-4b10-90ae-32251ce452b2" },
-    { "match": "Care for Our Common Home", "uuid": "dfad7d53-16ad-4b17-9629-04f3ae4f4c3f" },
-    { "match": "G7 Session on Artificial Intelligence", "uuid": "0178be6e-132c-4920-abe1-44a9913ba02a" },
-    { "match": "Pontifical Academy for Life", "uuid": "050472ef-8b76-4c2d-861e-7bb9ca32c15d" },
-    { "match": "LVII World Day of Peace 2024", "uuid": "e05dba75-4523-4a4d-b5a8-3aa5bdda1ef6" },
-    { "match": "Theology Today", "uuid": "90c2d321-f38d-40f7-8a9a-d50d88968c0d" },
-    { "match": "La Inteligencia Artificial", "uuid": "cf5b95bc-783c-43c7-b665-1dbebd65b714" },
-    { "match": "AI Principles and Priorities Letter", "uuid": "0df28672-6345-4207-b8c2-3fa4e8dea167" },
-    { "match": "Reiki", "uuid": "9313a2a2-ec9e-4ebe-9898-e6f63b5abffb" },
-    { "match": "Pastoral Reflection on Engagement with Social Media", "uuid": "515c96dd-584f-4379-8b9b-a346f972373b" },
-    { "match": "General Catechetical Directory", "uuid": "ec19eb0f-943e-4130-9d46-c6f2cfdec8f1" },
-    { "match": "43rd World Communications Day", "uuid": "c06df74e-4574-4e51-886a-1ed7700cc9c5" },
-    { "match": "44th World Communications Day", "uuid": "3d8e2f64-ad7b-46eb-9d4f-9c95aa5a536f" },
-    { "match": "45th World Communications Day", "uuid": "10b1f494-8324-4514-8319-22a210c6c59b" },
-    { "match": "LVIII World Communications Day", "uuid": "3b16e004-40fa-462a-9a4b-dad955fe70b2" },
-    { "match": "58th World Day of Social Communications", "uuid": "1a384f5a-241c-453c-84a7-cc9e5f478361" },
-    { "match": "National Council of Anti-Usury Foundations", "uuid": "a2b0d164-4750-4f13-a9d3-e228f32c630f" },
-    { "match": "Ecclesia in America", "uuid": "30cc6d33-b423-4d9d-ac8e-3d6168c7952b" },
-    { "match": "The Holy Bible", "uuid": "7ab6e175-afab-4262-915a-0e98ce0d133d" },
-    { "match": "Amoris Laetitia", "uuid": "6b01df98-b580-446b-bc46-2fb81333ff6d" },
-    { "match": "Catechesi Tradendae", "uuid": "978a6f0d-52e8-480b-acf1-a55e1504796b" },
-    { "match": "Musicae Sacrae", "uuid": "5a4666f3-aa77-41d3-b50a-a39e7d5d6ccc" },
-    { "match": "Ecclesia in Asia", "uuid": "ce0a9ca1-6f1a-4617-8221-855242d231e8" },
-    { "match": "Ecclesia in Oceania", "uuid": "078e92b6-eeca-4064-ac2f-5ec0e15be694" },
-    { "match": "The Eucharist: Source and Summit of the Life and Mission of the Church", "uuid": "46597b01-2b63-48d1-8027-156116605fdb" },
-    { "match": "The Family and Human Rights", "uuid": "2246d023-c6a2-4ea8-badc-bcb3d6ce13d0" },
-    { "match": "Ethical and Religious Directives for Catholic Health Care Services", "uuid": "43bc8ed0-3286-480f-a538-2fd6bcc44d61" },
-    { "match": "Patris Corde", "uuid": "5f9aefdb-66be-4072-863d-4ac94ffc5083" }
+    {
+      "match": "Evangelium Vitae",
+      "uuid": "afc565fa-7adc-4fe4-8807-20abbd383999"
+    },
+    {
+      "match": "The Vocation to Marriage and Related Observations on Christian Discernment",
+      "uuid": "e61e2edf-bf28-40b8-8404-12fd90100c00"
+    },
+    {
+      "match": "Misericordiae Vultus",
+      "uuid": "1c3a4299-f02c-4937-a167-4cc35b8e3cce"
+    },
+    {
+      "match": "General Audience of 7 July 1999",
+      "uuid": "2ef8244e-c0b5-4dc4-b1c3-0b6e1f53c4a0"
+    },
+    {
+      "match": "Accompanying people in psychological distress",
+      "uuid": "5ff02f9d-6a59-48f6-a293-b93946f6b06b"
+    },
+    {
+      "match": "General Audience of 25 August 1999",
+      "uuid": "86f3bce2-5f19-4e89-ae27-26fcb68b6561"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of the Pacific on their \"Ad Limina\" visit (December 5, 1998)",
+      "uuid": "7a00ae37-dbc9-427f-a268-6ae5ea1977d6"
+    },
+    {
+      "match": "To the World Congress of the Apostolate of the Laity (November 25, 2000)",
+      "uuid": "134e6977-b335-419f-94a1-07e36381c3c2"
+    },
+    {
+      "match": "Male and Female He Created Them: Toward a Path of Dialogue on the Question of Gender Theory in Education",
+      "uuid": "891d9b5d-da74-4d45-bd3a-fdd72c4861a5"
+    },
+    {
+      "match": "A Catechism of Christian Doctrine (The Baltimore Catechism No. 3)",
+      "uuid": "8b7bf85b-c327-43eb-8c2c-85f0272f6ae6"
+    },
+    {
+      "match": "The Extreme Campaign against the Hyde Amendment (2024)",
+      "uuid": "5db347f4-d728-4012-ac24-4f8f0ed98c9c"
+    },
+    {
+      "match": "Declaration on Abortion",
+      "uuid": "5306d9e6-dad0-4ebb-9a1f-f0cf229ccacf"
+    },
+    {
+      "match": "24 September 2000, Closing of the 20th International Marian-Mariological Congress",
+      "uuid": "61dd2058-70ea-4bef-bcb0-4f127b14b5ba"
+    },
+    {
+      "match": "General Audience of 16 October 2002",
+      "uuid": "01d519fa-97a9-456d-80ef-4d6aa3f2fcbe"
+    },
+    {
+      "match": "Giovanni Paolo II (1920-2005) - Beatification homily",
+      "uuid": "dd1b9887-ae43-4b92-8d5a-1a4f07d56c0b"
+    },
+    {
+      "match": "Instruction Concerning the Criteria for the Discernment of Vocations with Regard to Persons with Homosexual Tendencies",
+      "uuid": "e2d22cce-f739-49e8-bb65-f8e5ff1c7c04"
+    },
+    {
+      "match": "Ecclesia in Europa",
+      "uuid": "98c2372a-ab83-46ad-b707-46643a750017"
+    },
+    {
+      "match": "Sacerdotalis Caelibatus",
+      "uuid": "02453394-a85b-4ec6-9ba1-dd4080a5e180"
+    },
+    {
+      "match": "God's Gift of Life and Love: On Marriage and the Eucharist",
+      "uuid": "7d19fb65-8606-44c8-90a9-0cd4d6ba95fe"
+    },
+    {
+      "match": "Perfectae Caritatis",
+      "uuid": "317e1a65-38a0-4695-818a-a0f52b575f32"
+    },
+    {
+      "match": "Adiutricem",
+      "uuid": "16ba15d5-9e37-4dec-bc49-95f8390ff8bd"
+    },
+    {
+      "match": "Co-Workers in the Vineyard of the Lord: A Resource for Guiding the Development of Lay Ecclesial Ministry",
+      "uuid": "4d13e5b9-11c9-4d5a-ab8d-12dce6765d73"
+    },
+    {
+      "match": "To Bishops gathered in the Apostolic Nunciature in Wellington (November 23, 1986) - Speech",
+      "uuid": "a21a1448-bd38-48d7-a339-9456d6500925"
+    },
+    {
+      "match": "The Dignity and Mission of Women: The Anthropological and Theological Foundations",
+      "uuid": "2a95b9d4-6109-4b3b-a554-0be2eddc5cd7"
+    },
+    {
+      "match": "Mensuram Bonam",
+      "uuid": "5930620b-ee40-430e-b309-4d1a9e436cb0"
+    },
+    {
+      "match": "General Audience of 17 November 2021: Catechesis on Saint Joseph - 1. Saint Joseph and the environment in which he lived",
+      "uuid": "01f89e8d-f216-47ec-b550-5fa2b5475cd9"
+    },
+    {
+      "match": "General Audience of 19 January 2022 - Catechesis on Saint Joseph: 8. Saint Joseph, father in tenderness",
+      "uuid": "ba643461-f2a1-43ff-8a84-f2d41151b685"
+    },
+    {
+      "match": "General Audience of 1 December 2021",
+      "uuid": "affaf160-cfd8-4c05-8cf6-4f3245da8506"
+    },
+    {
+      "match": "58th World Day of Prayer for Vocations 2021 - Saint Joseph: The Dream of Vocation",
+      "uuid": "a4bf2cae-71f8-4a87-a6ee-97dcd2d41f06"
+    },
+    {
+      "match": "General Audience of 12 January 2022 - Catechesis on Saint Joseph: 7. Saint Joseph the Carpenter",
+      "uuid": "5df440fa-5ada-48bb-83b7-034a6f65f6d9"
+    },
+    {
+      "match": "Patron Saints in the Catholic Church",
+      "uuid": "32fa4403-6c65-4193-a583-dbc8740ca943"
+    },
+    {
+      "match": "To Labor Consultants (18 December 2025)",
+      "uuid": "a9888325-7794-429d-9d6c-f6e2e4b82c32"
+    },
+    {
+      "match": "To the workers of the municipal enterprises of Rome (March 19, 1999)",
+      "uuid": "d4b0edf7-b14f-4112-8183-37ac00ebfcdd"
+    },
+    {
+      "match": "An Apology for the Religious Orders",
+      "uuid": "f4967b63-d87f-403a-a9d4-d163ddb4ccaa"
+    },
+    {
+      "match": "Message to the President of the Pontifical Council for Justice and Peace on the occasion of the International Seminar on \"Poverty and Globalisation: Financing for Development, including the Millennium Development Goals\" (July 5, 2004)",
+      "uuid": "47622e62-24b5-4336-976f-184ff911b194"
+    },
+    {
+      "match": "To the President of the Former Yugoslav Republic of Macedonia, H.E. Mr. Kiro Gligorov (26 May 1995) - Speech",
+      "uuid": "97fd08cb-558d-4827-95a3-7e4ca696fcd5"
+    },
+    {
+      "match": "To the Korean Bishops on their ad Limina visit (October 16, 1990) - Speech",
+      "uuid": "ef1cc51f-69fe-47f8-b48d-38b749c09ea7"
+    },
+    {
+      "match": "Letter to the Secretary General of the International Conference on Population and Development (March 18, 1994)",
+      "uuid": "37a0a643-afd7-4a01-838b-292e239fb0df"
+    },
+    {
+      "match": "Note on the morality of using some anti-Covid-19 vaccines",
+      "uuid": "ca9be240-1645-48f4-ae83-f9a54cdb3fd4"
+    },
+    {
+      "match": "Vaccine for all. 20 points for a fairer and healthier world",
+      "uuid": "173eef03-0b0b-4ac3-af4c-2241e709525c"
+    },
+    {
+      "match": "Pandemic and Challenges for Education. Children and adolescents dealing with Covid19 (22 December 2021)",
+      "uuid": "bd0ee022-da1f-4c1e-a6f7-c50384f1812b"
+    },
+    {
+      "match": "Persons with disabilities",
+      "uuid": "95e8ea66-1d8b-4f2d-9163-b03354ac76ca"
+    },
+    {
+      "match": "The Way of Salvation and of Perfection",
+      "uuid": "e524707f-0c5c-45a8-89dd-b6b3a770802b"
+    },
+    {
+      "match": "Regarding the Mention of the Divine Name of St. Joseph in the Eucharistic Prayers",
+      "uuid": "ca268f01-bbb5-4cc6-a2c8-a09b7cfbe464"
+    },
+    {
+      "match": "Select Themes of Ecclesiology on the Occasion of the Twentieth Anniversary",
+      "uuid": "84dfc887-7737-41d4-a90d-2f8607d8e476"
+    },
+    {
+      "match": "Pastores Dabo Vobis",
+      "uuid": "f85a4c69-695f-423a-a2ed-ef7b5cb16e99"
+    },
+    {
+      "match": "Meeting with the young Muslims in Casablanca",
+      "uuid": "7a59d1db-e7a4-414c-9ec0-487a0e338e21"
+    },
+    {
+      "match": "Gaspare Del Bufalo (1786-1837) - Biography",
+      "uuid": "42ab5f66-3b48-4c75-8c62-028a9ee395e5"
+    },
+    {
+      "match": "Samaritanus bonus",
+      "uuid": "af9ee05d-de7a-4783-ac0e-737b57662482"
+    },
+    {
+      "match": "Anointing of the Sick: The Sanctification of Human Suffering",
+      "uuid": "78efefb4-d318-449d-ba3c-9d45e0171339"
+    },
+    {
+      "match": "Apostolic Journey to Papua New Guinea: Liturgy of the Word and blessing of the sick at the church of St Joseph in Boroko",
+      "uuid": "9403e629-d5aa-43b9-9dc4-4bcd0e1a27e8"
+    },
+    {
+      "match": "To sick and elderly at the Martyrs",
+      "uuid": "d00dd5b4-344f-4096-8138-b20022eef5e4"
+    },
+    {
+      "match": "The Truth and Meaning of Human Sexuality: Guidelines for Education Within the Family",
+      "uuid": "00f904ea-c962-4481-896b-62ff285c54ed"
+    },
+    {
+      "match": "15 October 2000: Jubilee of Families - Homily",
+      "uuid": "91cfeaaf-fe9b-47a4-a37a-f259068e463d"
+    },
+    {
+      "match": "15 October 2000, Jubilee of Families",
+      "uuid": "4be5b88c-974c-4f34-a8c7-485c80e48aaf"
+    },
+    {
+      "match": "Regarding the Instruction Dignitatis Personae",
+      "uuid": "41d65ef0-c0c3-474b-9b40-3555e08932d4"
+    },
+    {
+      "match": "Refugees Reproductive Health",
+      "uuid": "047e6c8a-fa54-4959-b568-07eec22becd6"
+    },
+    {
+      "match": "Message to the Bishops from North and Central America, the Caribbean and the Philippines (January 20, 1990)",
+      "uuid": "5f0efab4-c889-438c-bd5c-1ab6cb4cd701"
+    },
+    {
+      "match": "To the third group of Bishops of the United States of America on their \"ad Limina\" visit (March 17, 1998)",
+      "uuid": "2ceb8294-d4c4-4b24-83be-12377288a7ad"
+    },
+    {
+      "match": "The Dignity and Duties of the Priest",
+      "uuid": "4d99fbef-b1a8-414a-8bb3-66367a6a9a35"
+    },
+    {
+      "match": "Popular Devotional Practices",
+      "uuid": "5a23f665-2c67-4148-9925-221dc116f288"
+    },
+    {
+      "match": "Letter to the Bishops of the Catholic Church on the Collaboration of Men and Women",
+      "uuid": "983ced3a-4645-424d-985a-35741c299423"
+    },
+    {
+      "match": "General Audience of 6 February 2013",
+      "uuid": "ed51bf99-c482-42f3-8b14-dba021bb1b93"
+    },
+    {
+      "match": "General Audience of 24 November 1999",
+      "uuid": "d9c4a046-1ae2-4746-9247-65c7c7d56cb7"
+    },
+    {
+      "match": "47th World Communications Day, 2013 - Social Networks",
+      "uuid": "855c4bba-7cfd-414d-82f0-f9d140492e92"
+    },
+    {
+      "match": "Message on the occasion of the First National Day of Young Catholics of The Netherlands",
+      "uuid": "06f84704-b64e-4a13-8256-89c7b96c011d"
+    },
+    {
+      "match": "Christifideles Laici",
+      "uuid": "661abe0b-6c39-4c8d-bd46-bbd4a99e4e22"
+    },
+    {
+      "match": "Apostolicam Actuositatem",
+      "uuid": "7364efc4-de29-49b2-a6bf-ada518d90667"
+    },
+    {
+      "match": "Apostolos Suos",
+      "uuid": "e581032b-0aa6-435b-9995-5b4f3b0bd1e6"
+    },
+    {
+      "match": "Code of Canons of the Eastern Churches",
+      "uuid": "664b6063-e929-424c-b4ae-1f32e8ddd5c1"
+    },
+    {
+      "match": "Directory for the Application of Principles and Norms on Ecumenism",
+      "uuid": "3b25a70e-73ed-44d0-85cd-a4b93e408f29"
+    },
+    {
+      "match": "General Audience of 11 May 2011: Man in Prayer",
+      "uuid": "88c54004-b6cb-49e7-a16e-17849c83fa7a"
+    },
+    {
+      "match": "General Audience of 12 May 2021 - Catechesis on prayer: 33. The Struggle of Prayer",
+      "uuid": "b9edf21e-73c8-4f00-9c2a-2b7d90d14854"
+    },
+    {
+      "match": "General Audience of 6 June 2007: Saint Cyprian",
+      "uuid": "d7c859e8-de7e-4740-a2ca-d8f813842013"
+    },
+    {
+      "match": "Butler's Lives of the Saints: Volume IV",
+      "uuid": "27fe0d57-cd5a-44e9-b92b-302d778b1d79"
+    },
+    {
+      "match": "Religious freedom for the good of all",
+      "uuid": "b0e447de-b128-4490-ac76-c1d0da488818"
+    },
+    {
+      "match": "Message of His Holiness Pope Francis for the 50th World Communications Day",
+      "uuid": "81bc3a47-d332-4cea-8668-43720e76789f"
+    },
+    {
+      "match": "Holy Mass at the Aqueduct Racecourse in Brooklyn",
+      "uuid": "b2352af8-ed3e-4e5c-a782-ff3c8cc4228b"
+    },
+    {
+      "match": "To Members of the Demography Intergroup of the European Parliament",
+      "uuid": "adfe6b79-69c0-4685-9cb0-82af5869daa6"
+    },
+    {
+      "match": "Cathedral of Jaro in Iloilo",
+      "uuid": "a7dbac44-7979-46c0-88ca-1d5971753825"
+    },
+    {
+      "match": "Pastoral Theology Congress organized in view of the Second World Meeting of Families",
+      "uuid": "e18761ee-1c4d-4d84-93e8-9b75128244e9"
+    },
+    {
+      "match": "Message on the occasion of the Jubilee celebrations for the 5th centenary of the birth of St Pius V",
+      "uuid": "2bf2cb04-6133-408d-a5ca-fdb3806201b5"
+    },
+    {
+      "match": "Grata Recordatio",
+      "uuid": "a613cc54-35bb-4102-997e-b6c6c93989d1"
+    },
+    {
+      "match": "Diuturni Temporis",
+      "uuid": "de0825bb-9e95-4a53-91d3-49904c22b2a9"
+    },
+    {
+      "match": "General Audience of 12 August 2020 - Catechesis",
+      "uuid": "29856972-e009-4e3e-bd21-16c6597937b5"
+    },
+    {
+      "match": "Apostolic Journey to Angola: Holy Rosary Prayer on the Esplanade in front of the",
+      "uuid": "db7486a8-6074-4de1-9ba7-538706838b35"
+    },
+    {
+      "match": "General Audience of 30 March 2016: 12. Mercy blots out sin at the root",
+      "uuid": "eb9019ca-c07e-4535-bc85-2d0d0dd766f6"
+    },
+    {
+      "match": "Africae Munus",
+      "uuid": "b286d629-6922-4561-a56c-083e2671d3e0"
+    },
+    {
+      "match": "Catechism of the Council of Trent",
+      "uuid": "bca78fa8-4968-4ea8-8522-727db99ffac3"
+    },
+    {
+      "match": "Letter Iuvenescit Ecclesia to the Bishops of the Catholic Church Regarding the Relationship Between Hierarchical and Charismatic Gifts",
+      "uuid": "66060949-9152-4b43-91c8-650ac3784c63"
+    },
+    {
+      "match": "Family, Marriage and \"de Facto\" Unions",
+      "uuid": "aced8413-66a9-4833-82cf-29771832e967"
+    },
+    {
+      "match": "To Participants in the International Day against Drug Abuse and Illicit Trafficking (26 June 2025)",
+      "uuid": "95a8e45c-3a4a-4478-b52e-620f2fc5f919"
+    },
+    {
+      "match": "General Audience of 20 November 2024 - Cycle of Catechesis. The Spirit and the Bride. The Holy Spirit guides the people of God towards Jesus our hope 14. The Bride’s gifts. The charisms, gifts of the Spirit for common use",
+      "uuid": "97d76b52-2561-4724-9e29-b9b075c580c0"
+    },
+    {
+      "match": "To the Moderators of Lay Associations, Ecclesial Movements and New Communities (6 June 2025)",
+      "uuid": "1896a5cd-c6a0-4568-a6f1-d24565c5e0a8"
+    },
+    {
+      "match": "Evangelica Testificatio",
+      "uuid": "55091948-b332-4026-99dd-1bbcd809f847"
+    },
+    {
+      "match": "General Audience of 24 March 1999",
+      "uuid": "e9eebd07-8ddd-4646-b4c5-aa26cfdcedbe"
+    },
+    {
+      "match": "General Audience of 30 January 2013: I believe in God, the almighty Father",
+      "uuid": "45d54526-038d-461c-aedb-1710fe8bb08e"
+    },
+    {
+      "match": "General Audience of 29 November 2023 - Catechesis. The passion for evangelization: the apostolic zeal of the believer. 28. Proclamation is for today",
+      "uuid": "80aa1b61-b5ae-4f7a-bbbf-0f2a3d198a99"
+    },
+    {
+      "match": "Faith and Inculturation",
+      "uuid": "ebb74922-69ac-49f1-8428-ff30d0126fab"
+    },
+    {
+      "match": "To the members of the Antilles Episcopal Conference on their ad Limina visit (January 29, 1994)",
+      "uuid": "511389a5-0c5a-4b68-8f84-d0d4c1f4598a"
+    },
+    {
+      "match": "Commentary on Psalms",
+      "uuid": "be2893f6-b1a5-4193-bf2e-910fd36fc25c"
+    },
+    {
+      "match": "On the Predestination of the Saints",
+      "uuid": "bc0f890d-1321-406d-b8f8-9c0f7e4d2383"
+    },
+    {
+      "match": "The Message of Fatima",
+      "uuid": "6f7fcd27-57f5-442e-9265-48f113eb48ce"
+    },
+    {
+      "match": "Fourth Course for the Formation of Military Chaplains",
+      "uuid": "025f01cb-3e90-4d29-9045-116b577e6668"
+    },
+    {
+      "match": "Apostolic Journey to Fátima: Address of Cardinal Angelo Sodano",
+      "uuid": "5b836901-3c01-4104-8750-f863459dbcf5"
+    },
+    {
+      "match": "General Audience of 11 August 1999",
+      "uuid": "40fcb943-696e-429c-925f-473be55bda79"
+    },
+    {
+      "match": "Redemptoris Mater",
+      "uuid": "2f6fd0c7-953f-46bb-a458-462147552749"
+    },
+    {
+      "match": "Tractatus de gradibus humilitatis et superbi",
+      "uuid": "d9af65ac-c655-41a9-9e4a-df0355a20229"
+    },
+    {
+      "match": "Sermones in Cantica",
+      "uuid": "32a9e90a-eaaf-47f7-8e9e-2bd200505f99"
+    },
+    {
+      "match": "3 June 2010: Solemnity of the Sacred Body and Blood of Christ",
+      "uuid": "9f05b055-6fd5-48f2-a466-507d04b92761"
+    },
+    {
+      "match": "General Audience of 31 August 2022 - Catechesis On Discernment: 1. What does it mean to discern?",
+      "uuid": "feedf7e0-79ea-4e35-94e8-b50efe45af6c"
+    },
+    {
+      "match": "Vices and Virtues. 5. Avarice",
+      "uuid": "7ac8f7db-17c5-4aa6-9966-1ec501c308ac"
+    },
+    {
+      "match": "Vocation of the Business Leader: A Reflection",
+      "uuid": "8e3cd974-267f-404c-b296-dbe1f1a86bf6"
+    },
+    {
+      "match": "Pastoral Visit to Mexico: Message to the sick at Adolfo López Mateos Hospital",
+      "uuid": "c4b46d2c-c837-4089-ac00-ae85977c614f"
+    },
+    {
+      "match": "Dialogue in Truth and Charity (2014)",
+      "uuid": "0f02a33f-e553-485f-9a15-bf014d16128c"
+    },
+    {
+      "match": "Fraternal Life in Community",
+      "uuid": "7efe5330-ef67-4040-86d0-cad8c8ad0bef"
+    },
+    {
+      "match": "Catechism of the Catholic Church",
+      "uuid": "0583c069-d4bf-42dd-97de-c19f0b80150f"
+    },
+    {
+      "match": "Marialis Cultus",
+      "uuid": "c1716af6-053b-489e-a6b0-3e034f6c893c"
+    },
+    {
+      "match": "Saint Joseph and the Indispensable Role of the Holy Family",
+      "uuid": "a23f9141-c06a-4845-b734-040e424db3f3"
+    },
+    {
+      "match": "Apostolica Constitutio",
+      "uuid": "d131eb28-4a58-4f39-b6a9-5943898464bf"
+    },
+    {
+      "match": "Ecclesia in Medio Oriente",
+      "uuid": "d847c61c-100b-48c0-a3d8-817a58d57ec2"
+    },
+    {
+      "match": "To French Catholic entrepreneurs participating in the \"Journey of the Common Good\"",
+      "uuid": "15d5ef20-a2fd-4bc2-85d5-b672517c7417"
+    },
+    {
+      "match": "To the Christian Union of Business Executives [UCID] (31 October 2015)",
+      "uuid": "42254c35-d3c1-47de-832d-7f9fb06f8153"
+    },
+    {
+      "match": "Message to the participants in the Conference on \"The business executive: social responsibility and globalization\" (March 5, 2004) - Speech",
+      "uuid": "9eb69d71-e67a-413f-b4ab-4993d00f19f4"
+    },
+    {
+      "match": "Apostolic Journey to Poland: 7 June 1997, Consecration of the Church of Our Lady of Fatima, Zakopane",
+      "uuid": "418a7e4e-073d-4437-82b7-dcc2b11f8187"
+    },
+    {
+      "match": "General Audience of 5 October 1983",
+      "uuid": "17050807-64c4-4a0a-ae9e-e851d756d6c5"
+    },
+    {
+      "match": "Greeting to pilgrims from Croatia (7 October 2025)",
+      "uuid": "38209e5d-440d-49c9-92b1-628288d80b37"
+    },
+    {
+      "match": "The Queen of Peace",
+      "uuid": "2566d72b-a0b1-4fab-9dca-fda22b4d8e35"
+    },
+    {
+      "match": "Letter to the Archbishop of Prešov",
+      "uuid": "ecd8349d-6f40-44b4-b78b-4050d46600fb"
+    },
+    {
+      "match": "Familiaris Consortio",
+      "uuid": "69656f4f-796f-4e64-b8fe-8c80da84a2c2"
+    },
+    {
+      "match": "Disputed Questions on Evil",
+      "uuid": "6b7ad120-d3b1-4c6e-b452-daf8cf84862b"
+    },
+    {
+      "match": "Ecclesia de Eucharistia",
+      "uuid": "6398659f-a241-4e62-b01e-8e185c9b5454"
+    },
+    {
+      "match": "Sacramentum Caritatis",
+      "uuid": "8b928ce6-3588-4a80-be41-c8fc7111288e"
+    },
+    {
+      "match": "Gaudium et Spes",
+      "uuid": "fee9c589-dda1-4445-acce-d6ff95f32b71"
+    },
+    {
+      "match": "Oeconomicae et pecuniariae quaestiones",
+      "uuid": "a2c68650-d269-4c9a-9857-465ac0009d43"
+    },
+    {
+      "match": "Veritatis Splendor",
+      "uuid": "d073ad6f-d216-49d8-9add-639629648741"
+    },
+    {
+      "match": "Centesimus Annus",
+      "uuid": "d5bd5337-11ec-4bf3-80aa-827675b951cd"
+    },
+    {
+      "match": "Caritas in Veritate",
+      "uuid": "e1f225fc-8696-46d2-8270-c7b897221d3b"
+    },
+    {
+      "match": "Compendium of the Social Doctrine of the Church",
+      "uuid": "21d06633-8734-43cd-b8bc-9ab3b84ebc30"
+    },
+    {
+      "match": "Backgounder on Payday Lending",
+      "uuid": "af6ad79a-964c-4e8a-a399-3fb69771e992"
+    },
+    {
+      "match": "Forming Consciences for Faithful Citizenship",
+      "uuid": "e0c2bab8-b9f7-45f5-9fa2-bfc599ab612b"
+    },
+    {
+      "match": "The Common Good and the Catholic Church's Social Teaching",
+      "uuid": "b32012f0-4ac3-4ccc-977a-2836a129c359"
+    },
+    {
+      "match": "The Common Good in the Digital Age",
+      "uuid": "7db2813e-c8ee-47ad-babe-81a79f93aa98"
+    },
+    {
+      "match": "New Sins: Technology and the Frontiers of Catholic Social Teaching",
+      "uuid": "333c42b7-c702-4c4f-89b0-50bc6506b256"
+    },
+    {
+      "match": "The Church as the Defender of Conscience in Our Age",
+      "uuid": "4b92bc95-c8be-4873-829a-c2dfdc6acb98"
+    },
+    {
+      "match": "Impact Investing for the Poor",
+      "uuid": "121922b2-edd8-435b-93d0-4dee54ace95b"
+    },
+    {
+      "match": "Minerva Dialogues",
+      "uuid": "2378b106-e60e-4da9-b3b5-ef28e5019d6a"
+    },
+    {
+      "match": "To the Committee of Experts from the European Council",
+      "uuid": "003cce1d-0a67-416e-b669-f7b6a8dad38f"
+    },
+    {
+      "match": "International Catholic Legislators Network",
+      "uuid": "2528ae1c-07bf-41f2-9b03-361f71d0bae3"
+    },
+    {
+      "match": "Antiqua et Nova",
+      "uuid": "429efa31-df0f-455d-b7e1-c104ed929e3b"
+    },
+    {
+      "match": "Fides et Ratio",
+      "uuid": "06811b47-ea16-42d9-a748-524adbab66da"
+    },
+    {
+      "match": "Fratelli Tutti",
+      "uuid": "c26b52e4-54db-4be5-9095-5b37146afc82"
+    },
+    {
+      "match": "Magnifica Humanitas",
+      "uuid": "ed397808-82f3-43e6-bf35-8f3f09fbdccc"
+    },
+    {
+      "match": "Evangelii Gaudium",
+      "uuid": "7be34cc1-4084-45e7-adac-b583e91e7b83"
+    },
+    {
+      "match": "Verbum Domini",
+      "uuid": "87ef94d9-231c-4fb1-8c9f-8c55d42d8fd1"
+    },
+    {
+      "match": "Christus vivit",
+      "uuid": "f3ed0241-6989-4129-891f-0da4c51b6e7f"
+    },
+    {
+      "match": "Veritatis gaudium",
+      "uuid": "f83d0b8f-c01c-466f-9905-d336e5a5520b"
+    },
+    {
+      "match": "Praedicate Evangelium",
+      "uuid": "dd0f2abe-eb44-44c5-a69b-1ce251a3a8cc"
+    },
+    {
+      "match": "Builders AI Forum 2025",
+      "uuid": "f1e0a6b7-2806-4c43-aa69-d3efbc31d423"
+    },
+    {
+      "match": "Paris Summit on AI",
+      "uuid": "41ffb17f-6a1a-4b10-90ae-32251ce452b2"
+    },
+    {
+      "match": "Care for Our Common Home",
+      "uuid": "dfad7d53-16ad-4b17-9629-04f3ae4f4c3f"
+    },
+    {
+      "match": "G7 Session on Artificial Intelligence",
+      "uuid": "0178be6e-132c-4920-abe1-44a9913ba02a"
+    },
+    {
+      "match": "Pontifical Academy for Life",
+      "uuid": "050472ef-8b76-4c2d-861e-7bb9ca32c15d"
+    },
+    {
+      "match": "LVII World Day of Peace 2024",
+      "uuid": "e05dba75-4523-4a4d-b5a8-3aa5bdda1ef6"
+    },
+    {
+      "match": "Theology Today",
+      "uuid": "90c2d321-f38d-40f7-8a9a-d50d88968c0d"
+    },
+    {
+      "match": "La Inteligencia Artificial",
+      "uuid": "cf5b95bc-783c-43c7-b665-1dbebd65b714"
+    },
+    {
+      "match": "AI Principles and Priorities Letter",
+      "uuid": "0df28672-6345-4207-b8c2-3fa4e8dea167"
+    },
+    {
+      "match": "Reiki",
+      "uuid": "9313a2a2-ec9e-4ebe-9898-e6f63b5abffb"
+    },
+    {
+      "match": "Pastoral Reflection on Engagement with Social Media",
+      "uuid": "515c96dd-584f-4379-8b9b-a346f972373b"
+    },
+    {
+      "match": "General Catechetical Directory",
+      "uuid": "ec19eb0f-943e-4130-9d46-c6f2cfdec8f1"
+    },
+    {
+      "match": "43rd World Communications Day",
+      "uuid": "c06df74e-4574-4e51-886a-1ed7700cc9c5"
+    },
+    {
+      "match": "44th World Communications Day",
+      "uuid": "3d8e2f64-ad7b-46eb-9d4f-9c95aa5a536f"
+    },
+    {
+      "match": "45th World Communications Day",
+      "uuid": "10b1f494-8324-4514-8319-22a210c6c59b"
+    },
+    {
+      "match": "LVIII World Communications Day",
+      "uuid": "3b16e004-40fa-462a-9a4b-dad955fe70b2"
+    },
+    {
+      "match": "58th World Day of Social Communications",
+      "uuid": "1a384f5a-241c-453c-84a7-cc9e5f478361"
+    },
+    {
+      "match": "National Council of Anti-Usury Foundations",
+      "uuid": "a2b0d164-4750-4f13-a9d3-e228f32c630f"
+    },
+    {
+      "match": "Ecclesia in America",
+      "uuid": "30cc6d33-b423-4d9d-ac8e-3d6168c7952b"
+    },
+    {
+      "match": "The Holy Bible",
+      "uuid": "7ab6e175-afab-4262-915a-0e98ce0d133d"
+    },
+    {
+      "match": "Amoris Laetitia",
+      "uuid": "6b01df98-b580-446b-bc46-2fb81333ff6d"
+    },
+    {
+      "match": "Catechesi Tradendae",
+      "uuid": "978a6f0d-52e8-480b-acf1-a55e1504796b"
+    },
+    {
+      "match": "Musicae Sacrae",
+      "uuid": "5a4666f3-aa77-41d3-b50a-a39e7d5d6ccc"
+    },
+    {
+      "match": "Ecclesia in Asia",
+      "uuid": "ce0a9ca1-6f1a-4617-8221-855242d231e8"
+    },
+    {
+      "match": "Ecclesia in Oceania",
+      "uuid": "078e92b6-eeca-4064-ac2f-5ec0e15be694"
+    },
+    {
+      "match": "The Eucharist: Source and Summit of the Life and Mission of the Church",
+      "uuid": "46597b01-2b63-48d1-8027-156116605fdb"
+    },
+    {
+      "match": "The Family and Human Rights",
+      "uuid": "2246d023-c6a2-4ea8-badc-bcb3d6ce13d0"
+    },
+    {
+      "match": "Ethical and Religious Directives for Catholic Health Care Services",
+      "uuid": "43bc8ed0-3286-480f-a538-2fd6bcc44d61"
+    },
+    {
+      "match": "Patris Corde",
+      "uuid": "5f9aefdb-66be-4072-863d-4ac94ffc5083"
+    },
+    {
+      "match": "Dignitas Infinita",
+      "uuid": "1d5a60c0-0f44-45ff-9101-74468ab449e1"
+    },
+    {
+      "match": "Rerum Novarum",
+      "uuid": "1a1638bd-a833-44df-8d49-dd6897784bd4"
+    },
+    {
+      "match": "Salvifici Doloris",
+      "uuid": "f3b8cfcb-7c7b-405a-b88d-8e2b34348d91"
+    },
+    {
+      "match": "54th World Day of Peace 2021",
+      "uuid": "ad3b48ce-4f1f-4921-973d-ab201b9356d0"
+    },
+    {
+      "match": "Evangelii Nuntiandi",
+      "uuid": "e20dda2b-9362-42c3-98a2-85e21060afc8"
+    },
+    {
+      "match": "Lumen Gentium",
+      "uuid": "5e832a8b-f1b9-4740-9bf4-8209f9910f2f"
+    },
+    {
+      "match": "Presbyterorum Ordinis",
+      "uuid": "d819bf8a-8ea2-4609-806d-d8d815f2f2a8"
+    },
+    {
+      "match": "Code of Canon Law",
+      "uuid": "927224e3-8c2d-44ed-a9fb-dc736030081d"
+    },
+    {
+      "match": "Reconciliatio et Paenitentia",
+      "uuid": "f2d5e9c3-6a2c-4625-9366-985e90487d50"
+    },
+    {
+      "match": "Create in Me a Pure Heart",
+      "uuid": "9b702fe8-99e9-4760-a47e-fb6a769b0e2c"
+    },
+    {
+      "match": "Mysterium Fidei",
+      "uuid": "90224a98-cba7-455e-93a6-9dbe907166f9"
+    },
+    {
+      "match": "The Gift of the Priestly Vocation: Ratio Fundamentalis Institutionis Sacerdotalis",
+      "uuid": "12c635ea-5060-47cf-88d0-2024e27d6c1d"
+    },
+    {
+      "match": "Apostolic Exhortation Dilexi te",
+      "uuid": "c42f736e-f7dd-4a81-9e6e-02c7bb9d6520"
+    },
+    {
+      "match": "Letter to Seminarians (October 18, 2010)",
+      "uuid": "27660256-1e90-4e0d-a4ce-5960fd5a43c5"
+    },
+    {
+      "match": "To participants in the Meeting sponsored by the Pontifical Academy of Sciences on: “Narcotics",
+      "uuid": "15d3e793-8aff-4100-9773-85bd644a1628"
+    },
+    {
+      "match": "Drugs and Addictions: an Obstacle to Integral Human Development",
+      "uuid": "43a67002-f529-449a-92a3-950f3e545b49"
+    },
+    {
+      "match": "Summi Dei Verbum",
+      "uuid": "155648cd-8582-4b6a-a560-fe4beb517a7b"
+    },
+    {
+      "match": "Letter to Priests for Holy Thursday (April 8, 1979)",
+      "uuid": "e4f15822-dff7-49ff-a8cf-b25162b54ebd"
+    },
+    {
+      "match": "Catechism of the Ukrainian Catholic Church: Christ – Our Pascha",
+      "uuid": "5c0fb401-3c71-494e-bfce-ac8641dafd3b"
+    },
+    {
+      "match": "General Audience of 13 February 2002",
+      "uuid": "ab4cc41a-e22b-46c4-86de-a62da53e4b33"
+    },
+    {
+      "match": "Note on the banalization of sexuality",
+      "uuid": "a691c2bd-ded1-4230-b622-9617c9bac8f8"
+    },
+    {
+      "match": "Christian Faith and Demonology",
+      "uuid": "4cc53983-803d-4b09-9b26-1c9ed3be56dc"
+    },
+    {
+      "match": "Letter to Ordinaries regarding norms on Exorcism",
+      "uuid": "f59d0c4b-c37e-4442-a657-adc98242d22e"
+    },
+    {
+      "match": "Mater Populi fidelis",
+      "uuid": "6466cd6e-9de4-4d68-91bc-4250614925ad"
+    },
+    {
+      "match": "31st International Institute for the Prevention and Treatment of Alcoholism",
+      "uuid": "b34f09a3-bde2-4c99-876b-95d5e4f033a2"
+    },
+    {
+      "match": "General Audience of 25 September 2024",
+      "uuid": "62a12c9d-5368-4989-8621-9ffc1c2558e1"
+    },
+    {
+      "match": "To the Catechists and Priests of the Neocatechumenal Way (September 21, 2002)",
+      "uuid": "d4d3ad04-cc4b-4b5a-8a4f-1b8b66d49b51"
+    },
+    {
+      "match": "The Reciprocity between Faith and Sacraments in the Sacramental Economy",
+      "uuid": "9f1b2394-79b9-448a-ab2a-f6e4d0a1372c"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1984",
+      "uuid": "40d3c5f5-4b69-4b8f-9d71-34edc269913d"
+    },
+    {
+      "match": "Humanae Vitae",
+      "uuid": "b0af4608-879a-40ad-8856-1abb7bc7e71b"
+    },
+    {
+      "match": "Laborem Exercens",
+      "uuid": "945c2d98-f278-4377-8365-d162c8836a19"
+    },
+    {
+      "match": "Gaudete et exsultate",
+      "uuid": "da76abf0-a155-4583-b9c7-bfa17a86f4f8"
+    },
+    {
+      "match": "Catechumenal Pathways for Married Life",
+      "uuid": "ddc4d839-48f7-4ed8-98bc-ed5d9953bf21"
+    },
+    {
+      "match": "Rosarium Virginis Mariae on the Most Holy Rosary",
+      "uuid": "cb8242d1-5d58-41d8-9e25-906abcc1a93f"
+    },
+    {
+      "match": "Directory on Popular Piety and the Liturgy: Principles and Guidelines",
+      "uuid": "4fba701f-fda0-47a5-a2de-2e210d81f770"
+    },
+    {
+      "match": "Directory on Popular Piety and Liturgy (9 April 2002)",
+      "uuid": "c3db4362-44df-43c0-ba26-eb53d17bb438"
+    },
+    {
+      "match": "Married Love and the Gift of Life",
+      "uuid": "240fa446-4ed3-40df-9453-c47e0607a691"
+    },
+    {
+      "match": "The Co-responsibility of the lay Faithful in the Church and the World",
+      "uuid": "63bab51b-108e-41dc-b826-93b566aba6ba"
+    },
+    {
+      "match": "Dialogue and Proclamation (1991)",
+      "uuid": "d2d1ef13-7d49-448d-b265-9605b7fafca3"
+    },
+    {
+      "match": "Handbook for Liturgical Studies: The Eucharist (Volume II)",
+      "uuid": "aeb1433f-abfc-45c0-bfe4-23296bcf7f11"
+    },
+    {
+      "match": "Handbook for Liturgical Studies: The Eucharist (Volume I)",
+      "uuid": "0b8a517a-c222-41e3-ac22-998512585d0d"
+    },
+    {
+      "match": "To participants in the Plenary of the Congregation for the Doctrine of the Faith (January 28, 2000)",
+      "uuid": "f6d7911f-f4de-4347-a429-0db6f8fd6f97"
+    },
+    {
+      "match": "To Sick on the 11th World Day of the Sick (February 11, 2003)",
+      "uuid": "e3dc899d-f7fd-42ad-8fb8-ff061d83846a"
+    },
+    {
+      "match": "To participants of a Meeting for Formators of Consecrated Men and Women",
+      "uuid": "ac51486c-9362-452d-81bd-e1861b81324c"
+    },
+    {
+      "match": "Final Document of the Congress on Vocations to the Priesthood and to Consecrated Life (1998)",
+      "uuid": "4cc1fdf5-eb75-4ca3-8197-3c5bddf88061"
+    },
+    {
+      "match": "General Audience of 25 March 2020",
+      "uuid": "54f3a21b-f00d-4bad-94f3-9d449258a466"
+    },
+    {
+      "match": "General Audience of 4 November 2020",
+      "uuid": "d4ad9a96-0067-42a9-a78e-0e86f9be3634"
+    },
+    {
+      "match": "Compendium of Theology (Compendium Theologiae)",
+      "uuid": "627e2ffb-8c05-4912-aaff-c0d44c38ad81"
+    },
+    {
+      "match": "Augustissimae Virginis Mariae",
+      "uuid": "bf86847c-1b12-4491-b37b-7e38096b2ce2"
+    },
+    {
+      "match": "Catholic Encyclopedia",
+      "uuid": "f2c979a8-871d-4f46-a059-320d3b837a76"
+    },
+    {
+      "match": "The Contemplative Dimension In Religious Life",
+      "uuid": "e0edc1cb-832d-4f88-b1d5-8d82f64f9801"
+    },
+    {
+      "match": "Mulieris Dignitatem",
+      "uuid": "2f0b9bfe-6987-4c97-9df0-27d38bee6980"
+    },
+    {
+      "match": "The Sources of Catholic Dogma (Enchiridion Symbolorum)",
+      "uuid": "17f50f07-de81-4bf5-997c-f41ee830c033"
+    },
+    {
+      "match": "Message of His Holiness Pope Leo XIV on the occasion of the Tenth Anniversary of the Post-Synodal Apostolic Exhortation Amoris laetitia (19 March 2026)",
+      "uuid": "e4ae2717-e48e-4365-b640-e309ae5ce8fe"
+    },
+    {
+      "match": "Message of the Holy Father to Participants in the World Meeting of",
+      "uuid": "62d663a8-6bdd-4084-a820-03eb93b76a62"
+    },
+    {
+      "match": "Message of the Holy Father Leo XIV, signed by Cardinal Secretary of State Pietro Parolin, on the occasion of the 2nd National Meeting of Territorial Representatives for the Protection of Minors and Vulnerable Adults",
+      "uuid": "08debc16-b46f-48c5-aa3e-82599dd99102"
+    },
+    {
+      "match": "To the Tribunal of the Roman Rota (January 30, 2003)",
+      "uuid": "ea58ed86-c9f4-49e3-8d4c-07467752f2a1"
+    },
+    {
+      "match": "The Spiritual Exercises",
+      "uuid": "7912717c-f041-48e0-bf8a-51b5f72220c1"
+    },
+    {
+      "match": "Priesthood: A Sacrament of the Father",
+      "uuid": "5dd99602-d670-45da-8b52-7583b482218f"
+    },
+    {
+      "match": "The City of God",
+      "uuid": "aa14d474-556e-4bf6-94fc-819608afbb3c"
+    },
+    {
+      "match": "Redemptoris Missio",
+      "uuid": "4c57429b-d2a1-4a1c-8f32-82e24a4e69a2"
+    },
+    {
+      "match": "Pacem in Terris",
+      "uuid": "b41416da-668e-44be-b298-58b1673890aa"
+    },
+    {
+      "match": "Mary in the Dominican Tradition",
+      "uuid": "5534d594-36a7-4c43-85a5-2cd8a4e85795"
+    },
+    {
+      "match": "Celebration of the Sacrament of Penance and Act of Consecration to the Immaculate Heart of Mary (25 March 2022)",
+      "uuid": "e6216196-ce89-4644-bd03-d1db5ac89b02"
+    },
+    {
+      "match": "General Audience of 22 March 2023 - Catechesis. The passion for evangelization: the apostolic zeal of the believer 8. The first way of evangelization: witness",
+      "uuid": "3f1ce5d7-cd32-4b82-a3f6-030f4f4501d5"
+    },
+    {
+      "match": "Presentation of the book written by Cardinal Tarcisio Bertone entitled \"The Last Seer of Fatima\" (February 22, 2007)",
+      "uuid": "2d34ab8f-b142-4917-bfdb-bac9e2c70e9f"
+    },
+    {
+      "match": "Divini Redemptoris",
+      "uuid": "92bec014-e542-4f2f-9eed-34ed136bef15"
+    },
+    {
+      "match": "Mystici Corporis Christi",
+      "uuid": "e5d1e66c-c7d6-4be0-acaa-82ff27a71a1d"
+    },
+    {
+      "match": "25 January 1997, Mass celebrated with His Holiness Aram I",
+      "uuid": "cb47edc1-978a-4a8d-ac51-e079a306d04e"
+    },
+    {
+      "match": "Ubi Arcano Dei Consilio",
+      "uuid": "609c5a1e-b7af-4e66-b58f-49f2aa9cb7df"
+    },
+    {
+      "match": "Towards a Pastoral Approach to Culture",
+      "uuid": "29dc59b3-1668-434b-a6ad-d0fea8322cfc"
+    },
+    {
+      "match": "The Identity of the Catholic School for a Culture of Dialogue",
+      "uuid": "5bab6aaa-b4dc-49fd-95e1-7fbcc659a267"
+    },
+    {
+      "match": "Guidelines for Decommissioning and Ecclesial Management of a Former Church",
+      "uuid": "299855ee-3230-4024-924c-5d0a10d314d7"
+    },
+    {
+      "match": "17 December 2009: Eucharistic Celebration with the Community of the \"Centro Aletti\" of Rome",
+      "uuid": "23d7ecb2-dade-4980-a622-b6eba9bea6fd"
+    },
+    {
+      "match": "Letter to Senator Graham and Congressman Smith",
+      "uuid": "c62d9d81-554f-4c75-9cc6-71c0a3bd78af"
+    },
+    {
+      "match": "To the participants in the Plenary Assembly of the Pontifical Commission for the Cultural Heritage of the Church (October 19, 2002)",
+      "uuid": "1ea99308-36c5-497d-b4a5-dec3c7396cba"
+    },
+    {
+      "match": "To the participants in the Plenary of the Pontifical Commission for the Cultural Heritage of the Church (March 31, 2000)",
+      "uuid": "0b686705-d67f-4c39-b390-3550fc7ea917"
+    },
+    {
+      "match": "Dives in Misericordia",
+      "uuid": "812ef5a5-3839-4073-bd95-8a3c73a49840"
+    },
+    {
+      "match": "Apostolic Letter for the Fourth Centenary of the Union of Brest",
+      "uuid": "b060180f-bd0e-41d5-81dc-5ecc9cee0e25"
+    },
+    {
+      "match": "To participants in the International Symposium on the Alliance of the Hearts of Jesus and Mary",
+      "uuid": "dab47fd4-c1da-47be-a452-8bbdb3217bef"
+    },
+    {
+      "match": "Message to the Montfortian Religious Family on the celebrations of the 50th anniversary of the Canonization of St Louis Marie Grignion de Montfort",
+      "uuid": "f9098a23-5e6f-4a96-a546-7f0bd0724a21"
+    },
+    {
+      "match": "13 May 1982: Mass in the Shrine of Our Lady of Fatima - Homily",
+      "uuid": "6e81c5a7-d096-4cf3-8206-f1830701abc8"
+    },
+    {
+      "match": "General Audience of 5 November 1997",
+      "uuid": "7fa1440c-e6c9-4b99-9bee-5ca4913caa47"
+    },
+    {
+      "match": "Mary,Woman and Mother in God",
+      "uuid": "8a5334b2-82cc-4c25-9ba9-14cb87c2c55a"
+    },
+    {
+      "match": "To a German delegation from Bad Säckingen (December 19, 1998) - Speech",
+      "uuid": "b62371b3-ef83-4b7b-9130-da902879a038"
+    },
+    {
+      "match": "Penance and Reconciliation",
+      "uuid": "32d783a5-8d9d-4270-a7a5-ead41e38b141"
+    },
+    {
+      "match": "Quadragesimo Anno",
+      "uuid": "24d07d91-9e56-4c7c-8f13-c27432505124"
+    },
+    {
+      "match": "Letter of Pope John Paul II to Women",
+      "uuid": "1991ef21-affa-45fd-abdd-8ee14f7c20e8"
+    },
+    {
+      "match": "General Audience of 13 May 2020 - Catechesis on prayer: 2. The prayer of a Christian",
+      "uuid": "961cf90c-9941-42ab-8ae6-02fb50b88030"
+    },
+    {
+      "match": "\"Rejoice!\" - Letter to consecrated men and women",
+      "uuid": "a678269c-2579-4983-a79c-8a167222ed1f"
+    },
+    {
+      "match": "The Ethical Indefensibility of an EU Fundamental Right to Abortion",
+      "uuid": "27d0242a-c67a-40e0-926a-d569cf0022d4"
+    },
+    {
+      "match": "Lay Catholics in Schools: Witnesses to Faith",
+      "uuid": "bfef3fa8-1e83-4159-a2ba-6b1843d93af4"
+    },
+    {
+      "match": "General Audience of 17 May 1995",
+      "uuid": "7ac6bf20-3a22-4c10-a5d2-d99920d57b19"
+    },
+    {
+      "match": "To the participants in the European Convention on the Church’s Social Doctrine promoted by the Pontifical Council for Justice and Peace",
+      "uuid": "3d54ae5a-8304-4ac2-a7a1-b662c98d5621"
+    },
+    {
+      "match": "General Audience of 8 March 2023 - Catechesis. The passion for evangelization: the apostolic zeal of the believer. 6. The Second Vatican Ecumenical Council. 1. Evangelization as ecclesial service",
+      "uuid": "765a29fb-463e-49f6-a6f9-8aba6d443ade"
+    },
+    {
+      "match": "Synodality in the life and mission of the Church",
+      "uuid": "15bddb34-88d3-448c-818c-f969f1e1d44e"
+    },
+    {
+      "match": "Caritate Christi Compulsi",
+      "uuid": "ce98c7de-f670-497e-b2ed-b2e1bedfb959"
+    },
+    {
+      "match": "Graves Ac Diuturnae",
+      "uuid": "d0435981-164a-42be-9475-167d8a2a50f3"
+    },
+    {
+      "match": "Synodality, Sociologism, and the Judgment of History",
+      "uuid": "0780148d-eb7d-4947-be06-aaa816bdb924"
+    },
+    {
+      "match": "Populorum Progressio",
+      "uuid": "a9d39e4b-96f5-4736-a893-9fa995b5c14d"
+    },
+    {
+      "match": "Backgrounder on Protecting Workers and Promoting the Dignity of Work",
+      "uuid": "615e2a08-5574-4b13-8e3f-12a2eb7f0bbe"
+    },
+    {
+      "match": "Redemptoris Custos",
+      "uuid": "e19cad25-5d44-4a4d-be7c-992c3b507b88"
+    },
+    {
+      "match": "General Audience of 19 March 2014",
+      "uuid": "b57fc978-ba03-4125-bcf1-96e8d724e771"
+    },
+    {
+      "match": "General Audience of 1st May 2013",
+      "uuid": "992bfef1-5425-4479-a41f-0f9b2c60a2ea"
+    },
+    {
+      "match": "Respect Life Month Statement",
+      "uuid": "eea3a8d5-0879-4002-b3ab-4c2677188ea1"
+    },
+    {
+      "match": "Book Reviews (Nova et Vetera, Vol. 18, No. 4)",
+      "uuid": "927b9908-9484-417b-8139-29de4f9c4953"
+    },
+    {
+      "match": "Le voci che da tutti",
+      "uuid": "70e62e30-ea58-4f9c-8fe5-1a72170f2007"
+    },
+    {
+      "match": "The Church and Internet",
+      "uuid": "0a33ee35-3ed7-4e90-b750-e881a71e1f0c"
+    },
+    {
+      "match": "Dei Verbum",
+      "uuid": "4a72892b-0a56-4371-a138-ff4aea2b0093"
+    },
+    {
+      "match": "Message to participants at the recitation of Holy Rosary on the occasion of the Sixth World Meeting of Families held in Mexico City",
+      "uuid": "36be53c3-e60c-4285-a38c-a2429ca7a461"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Meeting with the members of the Episcopal Conference of Croatia",
+      "uuid": "f736656e-c07e-49bc-84f9-58cb14e33a87"
+    },
+    {
+      "match": "Rerum Ecclesiae",
+      "uuid": "0e9f4255-907e-4ce6-accc-48499d528336"
+    },
+    {
+      "match": "Vademecum for Confessors Concerning Some Aspects of the Morality of Conjugal Life",
+      "uuid": "a9bc7202-ef73-49a0-aa1b-5ffbd2875e1a"
+    },
+    {
+      "match": "To the Bishops of France (Midi-Pyrénées Region) on their \"ad Limina\" visit (March 15, 1997)",
+      "uuid": "4171a111-6c12-40bf-bc61-c65aa186dc61"
+    },
+    {
+      "match": "To the Bishops of the United States of America from Regions VII, VIII and IX on their ad Limina Visit (March 9, 2012)",
+      "uuid": "482a84bc-99b6-4b85-b5ea-738488822ae9"
+    },
+    {
+      "match": "To Directors of the Federation of Catholic Family Associations in Europe",
+      "uuid": "f357c6a6-870a-4112-99af-4315e913e5ec"
+    },
+    {
+      "match": "Sacra Virginitas",
+      "uuid": "c2f265ed-c546-4a67-96d5-4f8d7f429991"
+    },
+    {
+      "match": "Banquet of the Ten Virgins",
+      "uuid": "84a7df9a-853b-43b9-9ee5-74adfbaf85e3"
+    },
+    {
+      "match": "The Shrine: Memory, Presence and Prophecy of the Living God",
+      "uuid": "e666e9ed-361c-470f-a19d-7e6db31d8bad"
+    },
+    {
+      "match": "General Audience of 9 August 2000",
+      "uuid": "90b6dfaf-4d34-4ae8-849a-a167136a4cc4"
+    },
+    {
+      "match": "Jesus Christ the Bearer of the Water of Life",
+      "uuid": "a9102909-fe48-4f4b-aeea-b9cf3de289e8"
+    },
+    {
+      "match": "To the Sick on the Tenth World Day of the Sick (February 11, 2002)",
+      "uuid": "45381e46-e83c-46da-9af4-31f6d6dcbe40"
+    }
   ]
 }
