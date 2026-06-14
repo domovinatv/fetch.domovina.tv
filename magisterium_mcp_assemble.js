@@ -92,9 +92,11 @@ function scoreInterpretation(score) {
 // --- Robusno izvlačenje JSON bloka iz sirovog MCP odgovora ---
 
 // "References:" header marker. MCP zna vratiti blok zalijepljen na zatvarajući
-// code-fence (```References:) BEZ newlinea — zato prihvaćamo i fence i početak
-// retka/stringa, uz proizvoljan whitespace ispred "References:".
-const REFS_MARKER = /(?:^|\n|```)\s*References:/i;
+// code-fence (```References:) ILI direktno na zatvarajuću JSON vitičastu zagradu
+// (}References:) BEZ newlinea — zato prihvaćamo fence, početak retka/stringa, i
+// `}` (kao zero-width lookbehind da split NE proguta zagradu i ne pokvari
+// balanced-brace JSON parse u extractJson), uz proizvoljan whitespace ispred.
+const REFS_MARKER = /(?:^|\n|```|(?<=}))\s*References:/i;
 
 function extractJson(raw) {
     // 1) ```json ... ``` fenced blok
