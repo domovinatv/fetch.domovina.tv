@@ -72,6 +72,22 @@ set -e  # Prekini na prvoj grešci
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# --- PYTHON INTERPRETER ---
+# Pod launchd-om bare `python3` resolva na /usr/bin/python3 (Xcode CLT) koji NEMA
+# torch/pyannote → KORAK 6 (diarize_canary.py) pukne s ModuleNotFoundError, a faza B
+# stane (nema .diarized.srt → nema summary/article/RAG). Zato eksplicitno biramo
+# interpreter koji vidi torch (framework python3.13), s fallbackom na default python3.
+PYTHON_BIN="$(command -v python3)"
+for _py_cand in \
+    /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 \
+    "$PYTHON_BIN"; do
+    if [ -x "$_py_cand" ] && "$_py_cand" -c "import torch" 2>/dev/null; then
+        PYTHON_BIN="$_py_cand"
+        break
+    fi
+done
+echo "   🐍 Python interpreter: $PYTHON_BIN"
+
 # --- GCP PROJEKT ZA GEMINI (Vertex AI) ---
 # VERTEX_PROJECT env var ima PREDNOST nad gemini.conf u summarize_gemini.js /
 # generate_article_gemini.js (proces.env.VERTEX_PROJECT || conf || default).
@@ -467,13 +483,13 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
 fi
 
 if [ -n "$HF_TOKEN" ]; then
-    python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
     # Bez CLI tokena — diarize_canary.py sam resolve-a token (env HF_TOKEN ili
     # cached ~/.cache/huggingface/token). Omogućava nightly diarizaciju bez da
     # token stoji na command-lineu. Ako baš nema tokena nigdje, skripta sama
     # izađe s uputama (get_hf_token sys.exit).
-    python3 "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" $CANARY_DRY_RUN
 fi
 else
     echo ""
@@ -518,21 +534,21 @@ run_speaker_embedding_for_source() {
         # Provjera dependency-ja po modelu
         case "$model_key" in
             titanet)
-                if ! python3 -c "import nemo.collections.asr" 2>/dev/null; then
+                if ! "$PYTHON_BIN" -c "import nemo.collections.asr" 2>/dev/null; then
                     echo "   ⚠️  NeMo nije instaliran — preskačem $model_key."
                     echo "      Instaliraj: pip3 install 'nemo_toolkit[asr]==2.0.0' soundfile librosa"
                     continue
                 fi
                 ;;
             pyannote_wespeaker34)
-                if ! python3 -c "import pyannote.audio" 2>/dev/null; then
+                if ! "$PYTHON_BIN" -c "import pyannote.audio" 2>/dev/null; then
                     echo "   ⚠️  pyannote.audio nije instaliran — preskačem $model_key."
                     continue
                 fi
                 ;;
         esac
 
-        python3 "$SCRIPT_DIR/colab_speaker_embeddings/extract_speaker_embeddings.py" \
+        "$PYTHON_BIN" "$SCRIPT_DIR/colab_speaker_embeddings/extract_speaker_embeddings.py" \
             --input-dir "$OUTPUT_DIR" --source "$source_label" --model "$model_key" \
             $SPEAKER_EMB_CHANNEL_ARG $SPEAKER_EMB_DRY_RUN || {
             echo "   ⚠️  Greška pri $model_key/$source_label, nastavljam s idućim modelom..."
@@ -702,7 +718,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     OG_SECTIONS_ARGS+=("--dry-run")
 fi
 
-python3 "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" || {
+"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
 }
 
