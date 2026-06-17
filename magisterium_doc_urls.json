@@ -2,6 +2,2034 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "Message to Mr René Maheu, General Director of UNESCO on the occasion of the 25th anniversary of its foundation (1 November 1971)",
+      "uuid": "567db313-d439-4e47-9e1d-ba430d62265e"
+    },
+    {
+      "match": "to mark the 102nd \"Catholic University Day\" (12 April 2026)",
+      "uuid": "a96bed11-40a3-4560-b524-d5257d7238df"
+    },
+    {
+      "match": "To the International Real Estate Union (March 4, 1995)",
+      "uuid": "12f7d2ea-ea3f-4226-b3f4-5f662aaf9986"
+    },
+    {
+      "match": "Conference of Parties to the United Nations Framework Convention on Climate Change (COP28)",
+      "uuid": "5c6765d6-7e57-4e02-ac4e-c5a0d513080c"
+    },
+    {
+      "match": "To Bishops of the Episcopal Conference of Indonesia on their ad Liminavisit (September 13, 1996)",
+      "uuid": "22266be5-41b5-4ce5-95dd-eeb80ca9eb2a"
+    },
+    {
+      "match": "To the Diplomatic Corps accredited to the Holy See (January 10, 1972)",
+      "uuid": "7c306d80-4661-4ed8-b0a4-76f9f14a4de7"
+    },
+    {
+      "match": "To the Plenary Assembly of the Pontifical Council for Interreligious Dialogue (November 9, 2001)",
+      "uuid": "b0f9eb92-c844-4c9d-82b7-87d2172ce098"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 2001",
+      "uuid": "2ae8aac9-3327-4792-95c1-2e5bab9b0fc8"
+    },
+    {
+      "match": "Epistles of St. Gregory the Great",
+      "uuid": "5e93eb8a-d124-4bf3-89f7-04238ef0ae0f"
+    },
+    {
+      "match": "To the 6th Plenary Session of the Pontifical Academy of Social Sciences (February 23, 2000)",
+      "uuid": "916596bb-ac16-462e-8f26-324571721292"
+    },
+    {
+      "match": "Joint Letter on Funding the Affordable Connectivity Program (26 April 2024)",
+      "uuid": "e36e9641-6305-4f14-96ba-38224b9a04a2"
+    },
+    {
+      "match": "Message of His Holiness Benedict XVI for Lent 2008",
+      "uuid": "4e8d6ce1-a4e1-4857-8933-dc121d2ed864"
+    },
+    {
+      "match": "To the Italian Catholic Schools (October 30, 1999)",
+      "uuid": "b9ffece6-2d9c-4f9b-9c29-a4f16ad89c86"
+    },
+    {
+      "match": "General Audience of 26 August 2020 - Catechesis “Healing the world”: 4. The universal destination of goods and the virtue of hope",
+      "uuid": "c99f2663-109c-4b01-a4a1-6bb81d34923a"
+    },
+    {
+      "match": "To the members of the Agency of the United Nations, 18 August 1985",
+      "uuid": "8d85139b-085c-4c74-878d-4d3d54a76716"
+    },
+    {
+      "match": "Letter of the Holy Father to the participants in the 2021 Spring Meetings of the World Bank Group and International Monetary Fund",
+      "uuid": "d454b315-d95d-421d-a979-7785e246e62a"
+    },
+    {
+      "match": "Address of Pope Leo XIV to Participants in the MINDS International Association Conference",
+      "uuid": "f2a48994-5ac0-4fd2-88e1-b98084ac3487"
+    },
+    {
+      "match": "To Leaders and Officials of the Italian Intelligence Agencies (12 December 2025)",
+      "uuid": "8c509e55-61c5-4d1e-96bd-6169ef3afe2b"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of Colombia, on their \"ad Limina\" visit (September 30, 2004)",
+      "uuid": "5ca63745-91e0-4ef3-906b-a4b0e27d8e61"
+    },
+    {
+      "match": "Instruction on prayers for healing",
+      "uuid": "519ae3c5-c969-435b-8083-faf9e5f0f09f"
+    },
+    {
+      "match": "General Audience of 10 June 2015: The family - 18. Family and illness",
+      "uuid": "71b4bca0-0d87-4746-af3a-3f8fe26dbd74"
+    },
+    {
+      "match": "Man-Woman: Image of God. Towards an Anthropology of Vocations",
+      "uuid": "6a538d9e-7e22-45c5-9156-9d8741b0a7b1"
+    },
+    {
+      "match": "Considerations Regarding Proposals to Give Legal Recognition to Unions Between Homosexual Persons",
+      "uuid": "1667e222-dcfa-4703-9356-3d5dbd609323"
+    },
+    {
+      "match": "9 February 1986, Eucharistic Concelebration at Shivaji Park in Bombay",
+      "uuid": "880a0547-80ec-4e62-8cf1-4185c2d32b9c"
+    },
+    {
+      "match": "7 March 2010: Pastoral Visit to the Parish of St John of the Cross",
+      "uuid": "a67b6f0c-a32c-46f9-9f02-3ee60f49f82b"
+    },
+    {
+      "match": "General Instruction of the Roman Missal",
+      "uuid": "db52efa7-5906-412d-b27c-ca92e0ce6c86"
+    },
+    {
+      "match": "Experience, Feminism, and the Need for Christian Witnesses",
+      "uuid": "e9f0c70c-9c5c-479b-b33d-ee27e5edef77"
+    },
+    {
+      "match": "Essential Elements in the Church's Teaching on Religious Life (1983)",
+      "uuid": "f1d37dab-e824-4899-a655-d16c9c01dcc9"
+    },
+    {
+      "match": "General Audience of 7 March 2007: Saint Clement, Bishop of Rome",
+      "uuid": "b756c6fb-19c9-4582-aa97-4a59571a62a8"
+    },
+    {
+      "match": "To a group of priests from the Archdiocese of Bologna (April 19, 1979)",
+      "uuid": "e305d6f3-fe66-4c44-8847-261123b9029f"
+    },
+    {
+      "match": "Religious Freedom and the Global Clash of Values",
+      "uuid": "d25229b5-2a42-4d8a-a5b2-9c857238a881"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, August, 1989",
+      "uuid": "2b9ae398-8f26-43eb-94af-914707ff2cdd"
+    },
+    {
+      "match": "To Presidents of the Parliaments of the European Union (September 23, 2000)",
+      "uuid": "ea46b046-1f5c-4440-8a43-9c7f4467bb92"
+    },
+    {
+      "match": "Letter to the Bishops of the United States of America (June 11, 1993)",
+      "uuid": "bc80dee3-c28c-4fb8-8fc1-3e082d4f9bc8"
+    },
+    {
+      "match": "General Audience of 2 November 2011: Commemoration of All the Faithful Departed",
+      "uuid": "e0a23941-5f31-4fa4-adb8-dd98829bb407"
+    },
+    {
+      "match": "Message of the Holy Father for the 9th World Day of the Poor [16 November 2025] (13 June 2025)",
+      "uuid": "ab4b3fc9-f025-4735-b395-7c0a4b01c88c"
+    },
+    {
+      "match": "52th World Day of Prayer for Vocations 2015 - Theme: Exodus, a fundamental experience of vocation",
+      "uuid": "645a3fe4-21b6-427e-ac6f-796e1026eb25"
+    },
+    {
+      "match": "General Audience of 16 February 2000",
+      "uuid": "b84f6bb9-6a42-431e-ad62-cdf130ad3a3f"
+    },
+    {
+      "match": "To the new Ambassador of Malawi to the Holy See (November 14, 1992) - Speech",
+      "uuid": "8bff9ca9-9e81-4479-96e9-1e06a2f0dc19"
+    },
+    {
+      "match": "44th World Day of Peace - RELIGIOUS FREEDOM, THE PATH TO PEACE",
+      "uuid": "04e05f64-9c0e-417d-9859-a183e942af52"
+    },
+    {
+      "match": "On the Morals of the Manichaeans",
+      "uuid": "5078530a-fbe5-4a4a-a7b3-16f187c4ace0"
+    },
+    {
+      "match": "Commentary on the Sentences",
+      "uuid": "aefa032e-e87d-4339-abf0-764cc23d6ec6"
+    },
+    {
+      "match": "Speech of Holy Father Pope John Paul II to His Excellency Mr. Carlos Saul Melem, President of the Republic of Argentina (December 16, 1993)",
+      "uuid": "61b6a6a0-aeb0-4ad7-91e2-630fe0611c10"
+    },
+    {
+      "match": "To the French Bishops of France (Central-East) on their \"ad Limina\" visit (April 12, 1997)",
+      "uuid": "a6db7af3-8945-4ae8-8803-46c73e5c2260"
+    },
+    {
+      "match": "Message to the President of the Italian Republic on the occasion of the 150th anniversary of the unification of Italy (March 17, 2011)",
+      "uuid": "e18d3127-3d2a-44f0-92ba-8709f8b9009e"
+    },
+    {
+      "match": "7 June 1999: Apostolic Journey to Poland, Bydgoszcz - Homily",
+      "uuid": "97015735-42a0-4dfd-92bb-3685651d8791"
+    },
+    {
+      "match": "Apostolic Journey to Papua New Guinea: Rite of Beatification of Peter To Rot at Sir John Guise Stadium in Port Moresby (17 January 1995)",
+      "uuid": "a672d44c-8bb1-487f-9c2f-4ea5489ceb61"
+    },
+    {
+      "match": "To the new Ambassador of Trinidad and Tobago accredited to the Holy See (May 15, 2003)",
+      "uuid": "d2de0f8a-3651-4ce1-afaa-1d062f810bb1"
+    },
+    {
+      "match": "To the Jagiellonian University of Krakow (September 11, 2000)",
+      "uuid": "85488038-42b4-4e39-bb97-db41413ecda5"
+    },
+    {
+      "match": "19 September 1999, Slovenia: Beatification of the Venerable Servant of God Bishop Anton Martin Slomšek in Maribor - Homily",
+      "uuid": "9466f2e5-170c-4418-8550-a07cf043d21d"
+    },
+    {
+      "match": "From the Discourse on the Resurrection",
+      "uuid": "b70ec079-8cac-472e-a835-ea30e6d59f53"
+    },
+    {
+      "match": "Pacem, Dei Munus Pulcherrimum",
+      "uuid": "a1da03a6-d897-4f7b-bb43-1a23d60c272b"
+    },
+    {
+      "match": "To the Ambassador of Kuwait accredited to the Holy See on the occasion of the presentation of Credentials (May 25, 2000)",
+      "uuid": "924f1ea6-d533-40f2-ac4a-723017fd91b7"
+    },
+    {
+      "match": "Apostolic Journey - Malawi: Meeting with the representatives of the lay movements at Our Lady of the Wisdom School in Blantyre",
+      "uuid": "865151cc-1965-4965-b833-6262b5144f74"
+    },
+    {
+      "match": "To the Bishops of Egypt on the occasion of their ad Limina visit (August 30, 2003)",
+      "uuid": "09b50b67-90bd-4c18-9790-86caee8e0ab1"
+    },
+    {
+      "match": "To Bishops of Australia on their ad Limina visit (November 11, 1983)",
+      "uuid": "fe916c38-76d1-4838-afc4-e514c47b015f"
+    },
+    {
+      "match": "1998 Official response of the Catholic Church to JDDJ",
+      "uuid": "0678b087-5262-47dd-a2d6-ddb83aaec067"
+    },
+    {
+      "match": "9th World Communications Day, 1975",
+      "uuid": "098023bd-0110-4c8d-b054-56acab7e1e11"
+    },
+    {
+      "match": "8 May 1980, Apostolic Journey to Africa, Accra",
+      "uuid": "30ae1b3e-3839-4f1c-91ac-f0a734aedcf6"
+    },
+    {
+      "match": "Editors' Introduction to the Just War Symposium",
+      "uuid": "b1d255d5-7d88-4e9f-adef-0b58f111eaf6"
+    },
+    {
+      "match": "General Audience of 1 December 1999",
+      "uuid": "58448901-6158-4fd0-b58d-8de987466dd0"
+    },
+    {
+      "match": "Sexual Difference and the Catholic Tradition: Challenges and Resources",
+      "uuid": "891d9b5d-da74-4d45-bd3a-fdd72c4861a5"
+    },
+    {
+      "match": "General Audience of 5 January 2022 - Catechesis on Saint Joseph: 6. Saint Joseph",
+      "uuid": "daa83175-30d7-48f8-97c3-cdd6124698f3"
+    },
+    {
+      "match": "An Examination of the Role of Faith in Matrimonial Consent and the Consequences for the Sacrament of Marriage",
+      "uuid": "4c3aade3-7893-429a-9965-9b4c4cd764c0"
+    },
+    {
+      "match": "The Cultural and Ecclesial Situation 1964 to 1967: Paving the Way for Dissent From Church Teaching on Contraception",
+      "uuid": "d9c6e768-0433-4a22-b94e-9187c55226b2"
+    },
+    {
+      "match": "Rite of Marriage, Introduction",
+      "uuid": "43fb1388-1c51-4bf7-b1cf-51d872f5b083"
+    },
+    {
+      "match": "To a group of Bishops of the United States of America on their ad Limina visit (September 24, 1983)",
+      "uuid": "ecded7e1-1ce1-4e7d-a1f3-731329302cff"
+    },
+    {
+      "match": "Message on the Freedom of Conscience and of Religion",
+      "uuid": "1287140d-9842-4f54-95c9-67b5a0e8daa6"
+    },
+    {
+      "match": "General Audience of 11 August 2010",
+      "uuid": "5fce2a98-ff34-4dab-9672-874089e4e812"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 1992",
+      "uuid": "81a16e5a-b108-43cd-9a66-02c663de81d3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2008",
+      "uuid": "d4cf45fc-b44c-448a-aa33-0cc5ef3bc072"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 2004",
+      "uuid": "f394f98a-c523-4db3-86a2-a0df05b7f957"
+    },
+    {
+      "match": "General Audience of 4 February 2015: The family - 3. The father (Second part)",
+      "uuid": "30557cad-ce0b-4178-b8ad-cb0036b5594c"
+    },
+    {
+      "match": "Preparation for the sacrament of marriage",
+      "uuid": "e6a2728c-9189-4eed-8f12-215bafde6e47"
+    },
+    {
+      "match": "To Participants in the General Assembly and Conference of the European Parents' Association (EPA) (11 November 2023)",
+      "uuid": "1d6dde75-c211-4bb9-9306-d52571d689c7"
+    },
+    {
+      "match": "4 July 1986: Concelebration for Christian families at the Stadium of Cali - Homily",
+      "uuid": "304ca976-110c-4c0f-80a5-0508fb240f0e"
+    },
+    {
+      "match": "General Audience of 9 September 2015: The family - 26.Community",
+      "uuid": "f979ca15-865f-4c1c-9ae9-e4b0931b1e8c"
+    },
+    {
+      "match": "Introduction to the Devout Life",
+      "uuid": "1953555e-1ab9-4127-b086-d15df1b35be8"
+    },
+    {
+      "match": "General Audience of 9 January 1980",
+      "uuid": "b9650bc9-02c8-4994-ba75-e490b324a3d4"
+    },
+    {
+      "match": "Ad Petri Cathedram",
+      "uuid": "c8adff82-bb52-479f-bef7-ad1857114d0a"
+    },
+    {
+      "match": "To the Bishops of California, Nevada and Hawaii (U.S.A.) on their \"ad Limina\" visit (October 2, 1998)",
+      "uuid": "b40cbe2a-76c8-4462-b676-cbf519ba581a"
+    },
+    {
+      "match": "7 October 1979: Mass at the Capitol Mall in Washington - Homily",
+      "uuid": "2a3da5bd-dd4c-4094-b734-a7e7631cad67"
+    },
+    {
+      "match": "Discovering the Unity of Life and Love",
+      "uuid": "f74299b1-580f-442d-ada7-ef268429b344"
+    },
+    {
+      "match": "Doctrinal Note on the Moral Limits to Technological Manipulation of the Human Body",
+      "uuid": "a688109b-e1e5-4bbb-ad19-937ecef8ceab"
+    },
+    {
+      "match": "Bishop of Santo Amaro, Brazil, Regarding Participation in the Sacraments of Baptism and Matrimony by Transgender Persons and Homosexual Persons",
+      "uuid": "112c52c8-4f7d-41cd-a7e1-87ec343e7561"
+    },
+    {
+      "match": "Declaration Fiducia Supplicans On the Pastoral Meaning of Blessings",
+      "uuid": "f02190f0-9699-4418-a4cb-6e38b6261319"
+    },
+    {
+      "match": "Press release concerning the reception of Fiducia supplicans",
+      "uuid": "292a83e1-5529-4d71-ad33-2f6967a7b266"
+    },
+    {
+      "match": "28th World Communications Day, 1994",
+      "uuid": "b717fe19-db44-41b0-8ddf-40f2b3bd5c5a"
+    },
+    {
+      "match": "General Audience of 17 April 2024",
+      "uuid": "96999aac-e1d7-4fdc-9911-a909daa1ac17"
+    },
+    {
+      "match": "General Audience of 22 November 1978",
+      "uuid": "1c339833-225c-451c-b6d9-16c72254e226"
+    },
+    {
+      "match": "Message to the President of the Catholic Union of the Italian Press (April 20, 2002)",
+      "uuid": "a0b4e0fa-596c-47d8-98fd-21c80f66a035"
+    },
+    {
+      "match": "To the President of the Federal Republic of Germany (March 3, 1994)",
+      "uuid": "4a4c699d-3497-4996-be57-ff3e8137eb99"
+    },
+    {
+      "match": "To the participants in the 1st International Congress of Psychology of the Sport (April 22, 1965)",
+      "uuid": "ab171c50-f2e6-451b-9c1e-105d457c5cf1"
+    },
+    {
+      "match": "Commentary on 1 Timothy",
+      "uuid": "31957b05-2973-4b0b-9187-8c162c619cd4"
+    },
+    {
+      "match": "In Search of a Universal Ethic: A New Look at the Natural Law",
+      "uuid": "8b411d6d-45e5-4374-a2cd-998b87b3f071"
+    },
+    {
+      "match": "We Remember. A Reflection on the Shoah",
+      "uuid": "f90a323b-ad38-47cd-9882-55ad11c7caec"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Welcome Ceremony in Zagreb (October 2, 1998)",
+      "uuid": "657106ab-2602-4502-866d-e87644f96b80"
+    },
+    {
+      "match": "Musicam Sacram",
+      "uuid": "857faf5c-ae87-4f31-83f7-d9db0edeb858"
+    },
+    {
+      "match": "sponsored by the Focolare Movement (4 February 2017)",
+      "uuid": "78a38dab-cb08-45b2-8aa9-acdfeeb21a50"
+    },
+    {
+      "match": "To the international meeting on the subject During the time of the Jubilee: the face and soul of sport (October 28, 2000)",
+      "uuid": "b2ee6801-b8a4-487d-84d9-8f7b667af7a4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 2004",
+      "uuid": "fda713f9-5f4c-4fde-8a47-cd72fec26c46"
+    },
+    {
+      "match": "To participants in the meeting of the Executive Council of Unicef (April 26, 1984)",
+      "uuid": "0cd84e9f-b875-4c62-b0f5-04191c92c010"
+    },
+    {
+      "match": "Pastoral Orientations on Human Trafficking (2019)",
+      "uuid": "eb839220-7630-4932-bac9-830dedfecb86"
+    },
+    {
+      "match": "To the Bishops of New Zealand on their \"ad Limina\" visit (November 21, 1998)",
+      "uuid": "3989a38c-3494-4cb3-826d-6b080f7f3a62"
+    },
+    {
+      "match": "To the 6th group of Bishops of the United States on their \"ad Limina\" visit (May 30, 1998)",
+      "uuid": "e2930601-7ad1-4d3b-ac31-3d62c622345e"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 1998",
+      "uuid": "770213bb-0562-4656-947d-13b8609352e2"
+    },
+    {
+      "match": "On the protection of minors and vulnerable persons",
+      "uuid": "8ef637d9-1439-4f02-9704-470b8a44eed7"
+    },
+    {
+      "match": "Commentary on Matthew",
+      "uuid": "be02a7c9-d3bc-4dff-8b43-2e04e1331da2"
+    },
+    {
+      "match": "To teachers and students of Saint Andrew's College of Education in Glasgow (June 1, 1982)",
+      "uuid": "6bfecd7c-2289-46d3-b1a6-4fc6f6c8bdfc"
+    },
+    {
+      "match": "To the Bishops of Australia on their ad Limina visit (October 13, 1988)",
+      "uuid": "79650c95-5fb8-4339-9b19-fde33f380ee0"
+    },
+    {
+      "match": "To Participants in the Uniservitate Global Symposium",
+      "uuid": "de578f79-16f2-41bf-856a-333d45e94973"
+    },
+    {
+      "match": "To the participants in the 52nd National Assembly of FIDAE (November 24, 1998)",
+      "uuid": "3cac3369-41f6-4ee8-b9da-cff56f2f6989"
+    },
+    {
+      "match": "Pastoral Visit to Pompeii: Meeting with some ill people and people with disabilities (8 May 2026)",
+      "uuid": "30863154-4907-45e1-80b2-5f4daf4b68c4"
+    },
+    {
+      "match": "To a Delegation of the Board Managing Catholic Education in France (OGEC) (10 January 2025)",
+      "uuid": "98c2c078-eeae-498b-a06d-4a3481e64c6f"
+    },
+    {
+      "match": "To a group of disabled people on the occasion of the International Day of Persons with Disabilities (3rd December 2022)",
+      "uuid": "3f1b7213-9f7c-4922-bd15-12e588c1d32e"
+    },
+    {
+      "match": "World Day of the Poor: Holy Mass (19 November 2017)",
+      "uuid": "bbe7c7a2-ec29-46f8-bbc1-861d5482a282"
+    },
+    {
+      "match": "Visit to the Pontifical Major Roman Seminary on the Feast of Our Lady of the Trust (8 February 2013)",
+      "uuid": "0b275a2d-05d3-4b75-9a79-5ce5ffb86b50"
+    },
+    {
+      "match": "Spes non confundit",
+      "uuid": "e43c1a9c-b0ed-441b-9515-62daaf973976"
+    },
+    {
+      "match": "The Jewish People and Their Sacred Scriptures in the Christian Bible",
+      "uuid": "00a1de35-98f1-481a-956f-e98e2b52331d"
+    },
+    {
+      "match": "To the Pontifical Commission for Social Communications (February 24, 1989)",
+      "uuid": "1314ec45-7e35-42eb-b248-97b408c0ae74"
+    },
+    {
+      "match": "Sports, education, faith: for a new season for the Catholic sports movement",
+      "uuid": "b30d52c9-29a3-46c6-8f67-ff193e95e5da"
+    },
+    {
+      "match": "General Audience of 28 January 2015: The family - 3. The father (First part)",
+      "uuid": "3b564313-92e7-4f6a-b81f-6e406d4f18f6"
+    },
+    {
+      "match": "To the 14th Plenary Assembly of the Pontifical Council for the Family (June 4, 1999)",
+      "uuid": "41663349-8a24-48a3-8a56-31aad55a218f"
+    },
+    {
+      "match": "To the pilgrims who had come for the beatification of Pier Giorgio Frassati (May 20, 1990)",
+      "uuid": "7c87de7d-e4ea-4006-8a02-d98e8294e4b5"
+    },
+    {
+      "match": "To the Jubilee of the agricultural world (November 11, 2000)",
+      "uuid": "856b1e6b-1860-4112-89c0-6bd6cb823b53"
+    },
+    {
+      "match": "The Presence of the Church in the University and University Culture",
+      "uuid": "d23a2946-a47a-46ff-9bc2-6d113d2467a3"
+    },
+    {
+      "match": "Pornography and violence in the communications media",
+      "uuid": "2c18d4a6-1d68-42cd-8c70-56476d36e22b"
+    },
+    {
+      "match": "To teachers and students of Catholic Schools of Melbourne (November 28, 1986)",
+      "uuid": "160c1f40-7ed2-4586-8579-aea23260cdca"
+    },
+    {
+      "match": "Statement to the Third Committee on Agenda Item 69",
+      "uuid": "2222c51a-8175-4480-a200-d4ff910f3986"
+    },
+    {
+      "match": "Mulungushi Congress Centre in Lusaka (May 3, 1989)",
+      "uuid": "8e9cf507-5f0e-4b0c-ac4e-0433dcbe1b4c"
+    },
+    {
+      "match": "commemorative Convention on Leo XIII and the historical studies",
+      "uuid": "573f9598-aba6-4cac-b314-0e3f40ae91d9"
+    },
+    {
+      "match": "Order of Christian Funerals, General Introduction",
+      "uuid": "3d220e66-7234-440a-966d-169484c63632"
+    },
+    {
+      "match": "Spe Salvi",
+      "uuid": "a97ab68b-95d2-42e6-9254-ed638dcbae1e"
+    },
+    {
+      "match": "Redemptionis Sacramentum",
+      "uuid": "5d47641a-f054-4e39-8237-8f08869eaf66"
+    },
+    {
+      "match": "V Plenary Assembly 1999, Concluding Document",
+      "uuid": "46a91f7c-e5ad-46c3-a728-ca54c5e898a3"
+    },
+    {
+      "match": "5 November 2009: Mass in suffrage for Cardinals and Bishops who have died in the past year",
+      "uuid": "846a541c-71db-4b66-b317-50cf66e1414f"
+    },
+    {
+      "match": "Miscere colloquia",
+      "uuid": "1fa343be-eea7-4518-ab9c-73840bf5405a"
+    },
+    {
+      "match": "Statement By Archbishop Caccia On The International Day For The Elimination Of Racial Discrimination (New York, 21 March 2024)",
+      "uuid": "e405a048-30f7-4a8c-b4de-b64d61632e35"
+    },
+    {
+      "match": "Apostolic Journey to Luxembourg and Belgium: Press Conference on the return flight to Rome (29 September 2024)",
+      "uuid": "eaeb5336-6658-4832-9af9-d21c77c250ef"
+    },
+    {
+      "match": "To the Daughters of Mary, Our Help during the visit to the Pontifical Faculty of Educational Sciences \"Auxilium\" (January 31, 1992)",
+      "uuid": "159d7051-5242-45d2-b79f-45cfd8a1cc1c"
+    },
+    {
+      "match": "Letter in support of the Pregnant Workers Fairness Act, S. 1486",
+      "uuid": "0103c762-c801-4656-a699-a9a2e9bb15dd"
+    },
+    {
+      "match": "To Prelate Auditors, Officials and Advocates of the Tribunal of the Roman Rota on the occasion of the inauguration of the Judicial Year (January 22, 2011)",
+      "uuid": "d2dee697-8632-4c10-97d2-836f6f9021ee"
+    },
+    {
+      "match": "Address to the Tribunal of the Roman Rota (27 January 1997)",
+      "uuid": "00205ccc-bd63-49c5-9c9f-b9577abb9d77"
+    },
+    {
+      "match": "Propositions on the Doctrine of Christian Marriage",
+      "uuid": "32f8e9b3-6172-40e0-a56c-f2fddf469285"
+    },
+    {
+      "match": "A Call for Media Education",
+      "uuid": "cf3732b1-8ca7-42f3-bf34-9cc90ebc5ab8"
+    },
+    {
+      "match": "Blessing and Imposition of the Ashes at the Basilica of St Sabina on the Aventine Hill",
+      "uuid": "682c6ab5-bd51-4dab-b59a-07901bb73db0"
+    },
+    {
+      "match": "General Audience of 3 April 2019",
+      "uuid": "c8967414-cde9-4669-93c6-0e672307e5d9"
+    },
+    {
+      "match": "General Audience of 7 March 2018",
+      "uuid": "c3c092e1-52a0-4b87-8456-74da5f801c41"
+    },
+    {
+      "match": "Opening of the International Conference on Nutrition (December 5, 1992)",
+      "uuid": "c20e3cbf-8d13-47ec-a3f0-906b8b35c916"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 1990",
+      "uuid": "fcd5cdf2-5272-4efb-86aa-f12c12a9ad37"
+    },
+    {
+      "match": "General Audience of 2 September 2020 - Catechesis: “Healing the world” - 5. Solidarity and the virtue of faith",
+      "uuid": "eb03d487-d7bc-4c5b-a5fe-adf535766f61"
+    },
+    {
+      "match": "General Audience of 16 January 1980",
+      "uuid": "bdaa14ee-4ddf-4a8b-ba94-833e39b32d7c"
+    },
+    {
+      "match": "Directives on Formation in Religious Institutes",
+      "uuid": "a6c6be90-0a04-476f-9d3e-a296db6ff879"
+    },
+    {
+      "match": "Holy Mass near the ancient Lutheran church of Uppsala, Sweden - Homily",
+      "uuid": "2a67bcc0-0d8d-4e11-9f34-fea27628ea46"
+    },
+    {
+      "match": "General Audience of 19 February 2014",
+      "uuid": "920693e7-59bc-4cb0-a7f8-deb13513922c"
+    },
+    {
+      "match": "International Conference on the scientific, social and moral aspects of alcoholism (June 22, 1984)",
+      "uuid": "de4b0994-dd7a-4e9b-8c57-09d83fc1278f"
+    },
+    {
+      "match": "To the Italian Federation of Therapeutic Communities (June 26, 1995) - Speech",
+      "uuid": "420eb7d0-25c4-4991-9371-e414062daca6"
+    },
+    {
+      "match": "International Council of Christians and Jews (July 6, 1984)",
+      "uuid": "769fbf1b-a709-44aa-85c1-1126a0c94d21"
+    },
+    {
+      "match": "The human genome\" (November 19, 2005)",
+      "uuid": "5d0e51c5-b623-4e93-9397-ce9df83e9b8c"
+    },
+    {
+      "match": "The Catholic School",
+      "uuid": "29126a61-2b8c-41b8-8f64-5932399347d8"
+    },
+    {
+      "match": "Statement of the COMECE Social Affairs Commission – Listen to the cry of the poor in the context of the COVID 19 pandemic and its recovery",
+      "uuid": "b0659a41-00fd-44d0-9452-ee38b19029a7"
+    },
+    {
+      "match": "To the members of the Executive Committee Bureau and General Secretariat of Caritas Internationalis (May 11, 1989) - Speech",
+      "uuid": "73abb48e-c805-4272-a459-4f25aa63c7c8"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 1989",
+      "uuid": "b164f706-c319-49ea-a7ac-1fbf4d816931"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 2006",
+      "uuid": "a793d552-4ade-494d-8b6e-98f2735faa5f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2011",
+      "uuid": "530f9583-266f-4809-9a0e-bd7d911db294"
+    },
+    {
+      "match": "Visit to Geneva: Celebration of the 50th anniversary of the International Labour Organization (June 10, 1969)",
+      "uuid": "65a4312b-97b7-448c-ad4a-56c96e38ec54"
+    },
+    {
+      "match": "Message to the participants in the Conference on \"The business executive: social responsibility and globalization\" (March 5, 2004) - Speech",
+      "uuid": "9eb69d71-e67a-413f-b4ab-4993d00f19f4"
+    },
+    {
+      "match": "9 July 2006: Holy Mass in Valencia on the occasion of the Fifth World Meeting of Families",
+      "uuid": "c53a71d8-3d25-4ea4-9dfa-ae37cec1d273"
+    },
+    {
+      "match": "Pastoral Visit to the Netherlands: Address of Pope John Paul II To the Prime Minister The Hague - 13 May 1985 - Speech",
+      "uuid": "7ab3a881-bd2a-403c-8ba4-068cddc67d74"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Meeting with the Ecclesial Movements (October 4, 1998) - Speech",
+      "uuid": "ff477207-fbfa-4e4b-a210-fa90f6c18403"
+    },
+    {
+      "match": "Letter of the Holy Father on the Role of Literature in Formation",
+      "uuid": "2ba01c7c-fabe-49c8-8cfd-f2ea297e7ab6"
+    },
+    {
+      "match": "The Religious Dimension of Education in a Catholic School: Guidelines for Reflection and Renewal",
+      "uuid": "59b0f775-a6a8-4108-9822-f3d354a1933f"
+    },
+    {
+      "match": "Educating Today and Tomorrow: A Renewing Passion",
+      "uuid": "5db354c2-3efa-47f3-a381-36678e95274d"
+    },
+    {
+      "match": "To the Plenary Assembly of the Congregation for Catholic Education (October 26, 1998) - Speech",
+      "uuid": "23b98b19-53ae-4760-a287-866927230e34"
+    },
+    {
+      "match": "To the members of the Schönstatt Family Association (April 17, 1998) - Speech",
+      "uuid": "b270b004-11b0-4d30-97ce-e66c42770c11"
+    },
+    {
+      "match": "IV World Day for Grandparents and the Elderly, 2024",
+      "uuid": "8f3255fe-7ee2-4b9b-9faf-357f2fc032d3"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of Netherlands on their \"ad Limina\" Visit (June 18, 1998) - Speech",
+      "uuid": "0bb72398-537c-4d2c-ac91-3e8d672d8041"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of France on their \"ad Limina\" visit (February 13, 2004)",
+      "uuid": "a62bf688-c57e-4f0b-8a57-673fba875aaa"
+    },
+    {
+      "match": "Message to Mr. Rend Maheu, Director-General of UNESCO, to mark the closing of the International Year of Education (8 December 1970)",
+      "uuid": "e8edf9f6-ffbd-4000-a23e-57ab92cfe29f"
+    },
+    {
+      "match": "To a group of former-combatants of the Première Division Française Libre (May 26, 1986) - Speech",
+      "uuid": "179de19a-0e18-48cd-a762-db3fb2a39869"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 1985",
+      "uuid": "7a777367-9fd9-482f-9b89-dbe8ce7ac7c0"
+    },
+    {
+      "match": "Prayer Vigil for the World Congress of Ecclesial Movements and New Communities (May 30, 1998) - Speech",
+      "uuid": "ca66b830-9cfb-4412-82a7-3d5b497cace9"
+    },
+    {
+      "match": "To the participants in the Eighth International Meeting of the Catholic Fraternity of Charismatic Covenant Communities and Fellowships (June 1, 1998) - Speech",
+      "uuid": "c9c83fdf-9b0d-493f-87d6-523a26c79ba2"
+    },
+    {
+      "match": "Doctrinal Note on some Aspects of Evangelization",
+      "uuid": "8d8537b7-2308-43b6-a5e6-1edc48d9291d"
+    },
+    {
+      "match": "The Bishop and Christian Unity: An Ecumenical Vademecum",
+      "uuid": "17f3587f-b211-4224-be33-d6e9820977b8"
+    },
+    {
+      "match": "To the new Ambassador of Bosnia and Herzegovina accredited to the Holy See (November 30, 2002) - Speech",
+      "uuid": "b9bc83ec-e9fe-4a91-9777-d707443eff0d"
+    },
+    {
+      "match": "To the pilgrims from Zadar on the 6th centenary of the foundation of the Dominican Order (January 31, 1997) - Speech",
+      "uuid": "7e5de7d9-b043-49a0-b096-69a5d5d9a752"
+    },
+    {
+      "match": "Letter to the People of God (20 August 2018)",
+      "uuid": "f9f66e72-7f7e-48ab-90c5-270c545132d0"
+    },
+    {
+      "match": "2018 Joint Statement on Climate Justice by presidents of continental Bishops Conferences",
+      "uuid": "ceadb4df-5bc6-4e2a-9fa5-a128ecb6379e"
+    },
+    {
+      "match": "To the Bishops of Puerto Rico in their ad Limina Visit (September 11, 1999) - Speech",
+      "uuid": "67371012-fc2a-49f2-bec2-e8ac9ef5e59a"
+    },
+    {
+      "match": "To the Ambassador of Congo accredited to the Holy See on the occasion of the presentation of Credentials (May 25, 2000) - Speech",
+      "uuid": "457750e3-af60-4c24-83f9-1b3e59a29898"
+    },
+    {
+      "match": "Message of the Holy Father to the Youth of the Amalfi Coast on the occasion of the Meeting “Instruments of Peace” in Scala (Salerno) (30 August 2024)",
+      "uuid": "bbb62203-1ff5-485a-b5ef-fcd319249133"
+    },
+    {
+      "match": "To the second group of Bishops of the Episcopal Conference of Spain on their \"ad Limina\" visit (November 15, 1997) - Speech",
+      "uuid": "1e520469-15b4-4a12-aa61-d4ea23d0936e"
+    },
+    {
+      "match": "General Audience of 15 November 1978",
+      "uuid": "33b902d6-03b7-4742-ad6f-c46eb53ac7af"
+    },
+    {
+      "match": "General Audience of 27 November 2024 - Cycle of Catechesis. The Spirit and the Bride. The Holy Spirit guides the people of God towards Jesus our hope 15. The fruits of the Holy Spirit. Joy",
+      "uuid": "88c368e2-6a65-47d7-97ea-9c105eb8c446"
+    },
+    {
+      "match": "To the Bishops of Malaysia, Singapore and Brunei on their ad Limina visit (June 16, 1990) - Speech",
+      "uuid": "a8498fb3-8080-44d0-9f55-82b3478a8fb4"
+    },
+    {
+      "match": "To the Bishops from Turkey on their ad Limina visit (February 19, 2001) - Speech",
+      "uuid": "a8d1816a-e425-4f35-a82e-b5d231e19db7"
+    },
+    {
+      "match": "Address to the Professors and Students of The Pontifical Institute of Sacred Music",
+      "uuid": "1a3b28e8-315f-4077-ac38-3312d1a746bf"
+    },
+    {
+      "match": "Chirograph for the Centenary of the Motu Proprio Tra le Sollecitudini On Sacred Music (December 3, 2003)",
+      "uuid": "0e078001-d8bd-4679-aa03-3d1d989f08ab"
+    },
+    {
+      "match": "To Participants in the International Conference on Sacred Music (4 March 2017)",
+      "uuid": "54368309-2e85-4fa5-b555-7dcc436ded1f"
+    },
+    {
+      "match": "General Audience of 7 September 2022 - Catechesis On Discernment: 2. An example: Ignatius of Loyola",
+      "uuid": "91733791-db35-4602-aa10-001d0d94ca78"
+    },
+    {
+      "match": "General Audience of 16 November 2022 - Catechesis on Discernment. 8.",
+      "uuid": "dc0a460f-1694-4edc-adce-3726f3478fa4"
+    },
+    {
+      "match": "General Audience of 28 March 2018",
+      "uuid": "03f039ef-0300-4cd3-a592-c01eb3a4112a"
+    },
+    {
+      "match": "General Audience of 4 April 2018",
+      "uuid": "43ac8b7e-6f9a-4dd5-a238-93472810f31f"
+    },
+    {
+      "match": "General Audience of 21 February 2007: Ash Wednesday",
+      "uuid": "84b963ee-2c9c-4ca1-ab34-17d7745db994"
+    },
+    {
+      "match": "Pastoral Visit to St. Louis, USA: Address to youth (Kiel Center, January 26, 1999)",
+      "uuid": "936c9fab-0db4-449c-94dd-f32d34d5e271"
+    },
+    {
+      "match": "Homiletic Directory (29 June 2014)",
+      "uuid": "b96d4f48-1926-4e21-8eee-f1124596a0bc"
+    },
+    {
+      "match": "Select Questions on the Theology of God the Redeemer",
+      "uuid": "772f08f1-765f-4eec-8b56-4e8c110aa348"
+    },
+    {
+      "match": "Quanta Cura (December 8, 1864)",
+      "uuid": "1fa299ea-bfa8-469c-9664-0ab9daa35efa"
+    },
+    {
+      "match": "Message for the 110th World Day of Migrants and Refugees 2024",
+      "uuid": "ea334165-5015-455e-9282-739b1499c1ca"
+    },
+    {
+      "match": "Apostolic Journey to Sarajevo: Holy Mass at Koševo Stadium (6 June 2015)",
+      "uuid": "7816fccc-dcab-4f06-a2bc-2728ce8ff5be"
+    },
+    {
+      "match": "Backgrounder on Arms Control (February 2008)",
+      "uuid": "42d44bfc-bce9-4de4-bfc1-1bec3a53d2fd"
+    },
+    {
+      "match": "Pro Eligendo Romano Pontifice",
+      "uuid": "6576401b-748f-4012-9017-c7a3551c4c8c"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Departure Ceremony (October 4, 1998)",
+      "uuid": "a6e0212a-f019-40ed-a34f-e9b18d51fcf0"
+    },
+    {
+      "match": "To the Bishops of Croatia on their \"ad limina\" visit (March 13, 1999)",
+      "uuid": "c3d34c00-ad01-42c4-a158-64874b07c147"
+    },
+    {
+      "match": "To the Plenary Assembly of the Pontifical Council \"Cor Unum\" (February 7, 2002)",
+      "uuid": "703774b1-d044-4b4d-91f2-a8b089a69a6c"
+    },
+    {
+      "match": "To the volunteers of the Rome Diocese (November 10, 2001)",
+      "uuid": "1ece6bf6-01b7-483b-a8c4-1dd16fbf8579"
+    },
+    {
+      "match": "Preaching the Mystery of Faith",
+      "uuid": "c5a74b6b-b75f-4b63-96d6-0f227e3441cb"
+    },
+    {
+      "match": "Immortale Dei",
+      "uuid": "6269a040-1635-4f48-bf06-74c28dee2e20"
+    },
+    {
+      "match": "To Diplomatic Corps accredited to the Holy See (January 12, 1979)",
+      "uuid": "0eee587a-65da-4999-bb27-b91c0204d549"
+    },
+    {
+      "match": "Backgrounder on Nuclear Weapons (February 2018)",
+      "uuid": "c2cb0983-dd8d-49f6-996b-e122d0012ed5"
+    },
+    {
+      "match": "Backgrounder on Nuclear Disarmament and Challenging Increases in Military Spending (January 2020)",
+      "uuid": "1b53730d-2755-4b38-b224-e38087a0a330"
+    },
+    {
+      "match": "To the Heads of State and Government of the European Union (24 March 2017)",
+      "uuid": "a00dd860-9a11-4c49-b767-b2d7b9f4284d"
+    },
+    {
+      "match": "Holy Rosary for Peace (11 April 2026)",
+      "uuid": "7ccaa1ef-45cf-4eea-9887-ecb692c26004"
+    },
+    {
+      "match": "To the new Ambassador of Morocco accredited to the Holy See (May 3, 2002)",
+      "uuid": "0fe6d182-1f6c-460b-8522-fe23233a5475"
+    },
+    {
+      "match": "To the new Ambassador of Israel to the Holy See (April 10, 1997)",
+      "uuid": "62ea0496-c708-4dd3-867d-b31fa611767a"
+    },
+    {
+      "match": "COMECE statement on poverty and social exclusion in Europe",
+      "uuid": "9ad9c81f-4013-43e0-8668-b23ca20754ac"
+    },
+    {
+      "match": "40th World Day of Peace - THE HUMAN PERSON, THE HEART OF PEACE",
+      "uuid": "54d0ca55-9b31-4f1d-9a17-635d165470b8"
+    },
+    {
+      "match": "Editors’ Introduction to the Just War Symposium",
+      "uuid": "b1d255d5-7d88-4e9f-adef-0b58f111eaf6"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2002",
+      "uuid": "c8f4fbdc-2fe0-4f99-a9ca-d55701db2218"
+    },
+    {
+      "match": "Francisco Coll y Guitart (1812-1875) - Beatification homily",
+      "uuid": "962c8d8a-2df7-4172-af79-5a702d4ff558"
+    },
+    {
+      "match": "Instruction on Respect for Human Life in Its Origin and on the Dignity of Procreation",
+      "uuid": "8749ff24-d62b-4213-a237-0f3713f286a3"
+    },
+    {
+      "match": "General Audience of 28 December 2005: Psalm 139 [138] - The wonder of my being",
+      "uuid": "dc4cc0dc-c83d-41b4-91e5-3010e06228b8"
+    },
+    {
+      "match": "International Conference on \"Women's Health Issues\" (February 20, 1998)",
+      "uuid": "26886811-d6c4-4022-b32f-2a6cc9fb5a3b"
+    },
+    {
+      "match": "Backgrounder on Nuclear Arms and Landmines (February 2007)",
+      "uuid": "248767ab-f5e3-4d8c-8e7f-e220fd5ff863"
+    },
+    {
+      "match": "To the Diplomatic Corps accredited to the Holy See (January 8, 1968)",
+      "uuid": "79fab4c3-42a2-4a30-9418-6d6c092773b3"
+    },
+    {
+      "match": "World Congress on the Pastoral Care of Tourism [Cancún, 23-27 April 2012]",
+      "uuid": "f3f71780-85b9-4ed8-aabd-fa1468282819"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2002",
+      "uuid": "f9bf9079-56f9-4074-a8ea-c5f483fa36c1"
+    },
+    {
+      "match": "Backgrounder on the Root Causes of Migration",
+      "uuid": "01be03be-9917-4f0d-947e-85e470b03ca2"
+    },
+    {
+      "match": "Episcopal Conference of France on their \"ad Limina\" visit (February 27, 2004)",
+      "uuid": "e77a715e-1c19-4cd1-9098-1bcd45557c16"
+    },
+    {
+      "match": "Redemptionis Donum",
+      "uuid": "5c5b1c0a-7437-433b-96fc-746b606a1679"
+    },
+    {
+      "match": "Ethics in Advertising",
+      "uuid": "7f292ac4-4dbf-427c-aefd-02c49fadc6e6"
+    },
+    {
+      "match": "Letter to the Elderly, 1999",
+      "uuid": "d66436b3-8642-4c46-a4f5-f3c2e0d2f831"
+    },
+    {
+      "match": "To participants in Catholic-inspired Non-governmental Organizations (December 1, 2007)",
+      "uuid": "5c84e2b4-3f34-45a6-b918-eaa38e86cd9d"
+    },
+    {
+      "match": "Statement on the current situation in the European Union",
+      "uuid": "892d49a6-d3bb-4866-80f7-bdba6a3afc8e"
+    },
+    {
+      "match": "To the Ambassador of Zambia accredited to the Holy See on the occasion of the presentation of Credentials (May 18, 2001)",
+      "uuid": "3f2a7901-0ee0-4b9d-8336-123b859e7f75"
+    },
+    {
+      "match": "Backgrounder on Trade (2020)",
+      "uuid": "24cf4dd2-abe4-4611-a5b5-0a760572ff84"
+    },
+    {
+      "match": "5 November 2000: Jubilee of Government Leaders, Members of Parliament and Politicians - Homily",
+      "uuid": "1369feea-b976-4922-a799-9e8bfc983c50"
+    },
+    {
+      "match": "To the Ambassador of Ecuador accredited to the Holy See (March 11, 2002)",
+      "uuid": "ab4d16e5-e59e-400b-b3ea-2d8af09560e3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 1984",
+      "uuid": "e66ff5f0-5c01-4318-b08a-bf77ff88d371"
+    },
+    {
+      "match": "To the first group of Bishops of Poland on their ad Limina visit (January 16, 1998)",
+      "uuid": "6032709c-a625-4de5-a7c7-d74f01efba6c"
+    },
+    {
+      "match": "Against the Fundamental Epistle of Manichaeus",
+      "uuid": "b56c81e0-2585-4aaf-83ee-543bd95737cf"
+    },
+    {
+      "match": "To the Bishops of Japan on their ad Limina visit (March 3, 1990)",
+      "uuid": "8364202c-8f79-48a6-966b-57097a875516"
+    },
+    {
+      "match": "To representatives of the Union of Industrial Entrepreneurs and Enterprises of Rome (March 18, 2010)",
+      "uuid": "f91c2c59-abc9-4729-9072-94dc3157ef51"
+    },
+    {
+      "match": "General Audience of 30 December 2020: Catechesis on prayer - 20. The prayer of thanksgiving",
+      "uuid": "52b43647-6226-489e-8e05-dda9dfb98562"
+    },
+    {
+      "match": "General Audience of 24 April 2013",
+      "uuid": "4884bcae-5c7a-4d56-9965-57eaa6ea26b6"
+    },
+    {
+      "match": "Letter on certain questions concerning eschatology",
+      "uuid": "36e4f4b1-89b4-43cb-9c05-02f702d716c5"
+    },
+    {
+      "match": "Message to Archbishop Rino Fisichella, Rector of the Pontifical Lateran University, on the occasion of the Conference on the theme: \"From Galilei's Telescope to Evolutionary Cosmology. Science, Philosophy and Theology in Dialogue\"",
+      "uuid": "a7fafa1a-07c6-489c-b428-56cf8cec57a6"
+    },
+    {
+      "match": "General Audience of 14 April 1999",
+      "uuid": "c5a28b72-e764-445e-96b0-574f9166e90d"
+    },
+    {
+      "match": "To the International Theological Commission (December 3, 2010)",
+      "uuid": "6d160279-e241-49b8-81d1-cf71ff3c0e9e"
+    },
+    {
+      "match": "To a group of Nobel Prize-winners (December 22, 1980)",
+      "uuid": "ef4220d8-be6d-4856-9d0c-ab1610a2f098"
+    },
+    {
+      "match": "To participants in the meeting organized by the Pontifical Council for Social Communications (May 23, 2008)",
+      "uuid": "d567311b-ee58-4e09-87f0-5d9f41b361c8"
+    },
+    {
+      "match": "To Members of the Diplomatic Corps (16 May 2025)",
+      "uuid": "396d7ee3-7ffe-48fd-bb41-5e8a61cc83ae"
+    },
+    {
+      "match": "Message to the Salesians (February 26, 2002)",
+      "uuid": "07e8c521-bba1-4fdf-a54f-760f89b438ec"
+    },
+    {
+      "match": "Message to Young Prisoners",
+      "uuid": "441b5156-51a2-4d92-a7b9-e5c50d581043"
+    },
+    {
+      "match": "Evangelii Praecones",
+      "uuid": "f2df6fe3-6299-4c60-8dc8-8ee76a042337"
+    },
+    {
+      "match": "Pastoral Visit to Milan: Meeting with the candidates for confirmation",
+      "uuid": "fee869df-375b-46ee-8ab2-1b070181d008"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, July, 1988",
+      "uuid": "30c6eaec-0327-405a-8fe0-05df1b462047"
+    },
+    {
+      "match": "General Audience of 30 October 2024 - Cycle of CatecThe Spirit and the Bride",
+      "uuid": "ce4882a4-9054-47ce-b60b-8f7ef6577c7c"
+    },
+    {
+      "match": "To the 7th group of Bishops from the United States on their \"ad Limina\" visit (June 6, 1998)",
+      "uuid": "b129591e-c0a6-4ce9-a061-739079265ac3"
+    },
+    {
+      "match": "Video Message of the Holy Father to the Participants in the Australian Catholic Youth Festival 2025",
+      "uuid": "f90d23c7-0886-453d-b7dc-3aa67891e6fb"
+    },
+    {
+      "match": "General Audience of 26 November 2025 - Cycle of Catechesis",
+      "uuid": "bcbd6adb-d307-4012-a91a-4b77f8a92a92"
+    },
+    {
+      "match": "Statement by Archbishop Caccia at the 56th Commission for Population and Development (New York, 10-14 April 2023)",
+      "uuid": "204cf34d-5949-46fa-83ce-0ea3dd0350aa"
+    },
+    {
+      "match": "To the Bishops of Westminster on their ad Limina visit (February 29, 1988)",
+      "uuid": "dd143134-e7b3-4fca-b5f8-5133707042a1"
+    },
+    {
+      "match": "Visit to the European Parliament (Strasbourg, 25 November 2014)",
+      "uuid": "84f2ec07-99a9-4361-8d2e-847256209328"
+    },
+    {
+      "match": "To the participants in the meeting of Deloitte Global",
+      "uuid": "28cfc2f5-5402-4e66-8333-7f64b34939eb"
+    },
+    {
+      "match": "Letter of the Holy Father Francis to the participants in the International Conference “From Populorum progressio to Laudato si’”",
+      "uuid": "2f5e993f-7084-48c8-aa29-825722fb0d0f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 1970",
+      "uuid": "c2f979ee-0112-40a3-8f84-79cc0b22be79"
+    },
+    {
+      "match": "General Audience of 24 October 2012",
+      "uuid": "6eb95dd2-53ec-4a60-8b90-4b99a1ded1fc"
+    },
+    {
+      "match": "Lumen Fidei",
+      "uuid": "0b20f1b8-493c-4d6e-bafb-0b917fa516c9"
+    },
+    {
+      "match": "\"Laudate Deum\": Apostolic Exhortation to all people of good will on the climate crisis (4 October 2023)",
+      "uuid": "603221bb-9ef2-4262-9780-c865bb536779"
+    },
+    {
+      "match": "Global Climate Change Background",
+      "uuid": "24aeeff9-70be-4193-94d4-a46001945c2f"
+    },
+    {
+      "match": "Resources for Taking Action",
+      "uuid": "fdd79c05-a2bd-43a6-b3f1-4bbb97969c5d"
+    },
+    {
+      "match": "On the Pastoral Care of Homosexual Persons",
+      "uuid": "2d563e15-0541-43b8-9328-cacd5a791b19"
+    },
+    {
+      "match": "Some Considerations Concerning the Response to Legislative Proposals on the Non-Discrimination of Homosexual Persons",
+      "uuid": "dd5df63b-9940-464f-94c3-b19945a02d90"
+    },
+    {
+      "match": "Article of Commentary on the Responsum ad dubium",
+      "uuid": "5ae5d48e-ed0b-4b78-b4a7-e694246f3442"
+    },
+    {
+      "match": "To the Ambassador of the Kingdom of The Netherlands accredited to the Holy See on the occasion of the presentation of Credentials (October 23, 2000) - Speech",
+      "uuid": "2803d047-0e1e-43c9-8c9f-59123481c054"
+    },
+    {
+      "match": "52nd World Day of Peace 2019 - Good politics is at the service of peace",
+      "uuid": "fb173dae-be8f-4016-b726-87b1319f82d3"
+    },
+    {
+      "match": "To Participants in the Meeting promoted by the Pontifical Academies of Sciences and Social Sciences (16 May 2024)",
+      "uuid": "27252ed4-69c0-4b5d-b264-39aa6a5ed38c"
+    },
+    {
+      "match": "Statement By The Holy See Mission On Agenda Item 69: Promotion And Protection Of The Rights Of Children",
+      "uuid": "a412c5d7-910e-45ac-a5bd-8df165289f4e"
+    },
+    {
+      "match": "Meeting with the participants in the Plenary Assembly of the Pontifical Academy of Life",
+      "uuid": "dadf3481-13fe-44e6-81d0-c3071ae9cbb2"
+    },
+    {
+      "match": "To Participants in the Jubilee of Italian Diplomacy (13 December 2025)",
+      "uuid": "74a42a62-6ede-4f4b-ac3e-66051f07b6cb"
+    },
+    {
+      "match": "To the Delegations of the Italian Federation of Catholic Weeklies; the Italian Periodical Press Union; the Coral Association; and the AIART Media Citizens Association (23 November 2023)",
+      "uuid": "3f1a35d0-d5cd-4a9e-8a53-2f04b50a8e30"
+    },
+    {
+      "match": "Video Message of the Holy Father for the 7th National Conference on Addictions",
+      "uuid": "cda53b6c-2f33-499a-88f0-e98c5d501de9"
+    },
+    {
+      "match": "Message of the Holy Father, signed by the Cardinal Secretary of State Pietro Parolin, on the occasion of the AI for Good Summit 2025, Geneva",
+      "uuid": "b25e73de-0c69-4874-ad8d-eda6a6524544"
+    },
+    {
+      "match": "To the Plenary Meeting of the Pontifical Council for Social Communications (March 16, 2001)",
+      "uuid": "156e0790-1f76-4d3f-bd73-befe8d55552a"
+    },
+    {
+      "match": "Decisiones seu Sententiae, Tomus XC (Annus Decisionum: 1998)",
+      "uuid": "de1057de-7140-494a-8a05-905a28b61224"
+    },
+    {
+      "match": "Guidelines for the Use of Psychology in the Admission and Formation of Candidates for the Priesthood",
+      "uuid": "1dacddf7-1cce-4372-a55d-8832f81881b4"
+    },
+    {
+      "match": "To the Bishops of Quebec (Canada) on their \"ad Limina\" visit (April 22, 1999)",
+      "uuid": "339a21de-4525-42da-9c19-5d5d6dc1cc49"
+    },
+    {
+      "match": "Third International and Interdenominational Conference of Chief Military Chaplains of Europe and North America (February 6, 1992)",
+      "uuid": "6f571bfe-67df-48fe-b7bb-a68d612083c1"
+    },
+    {
+      "match": "Sertum Laetitiae",
+      "uuid": "c1153865-6c65-488a-83f3-ebbc0eeddd90"
+    },
+    {
+      "match": "Plenary Assembly of the Pontifical Commission for the Pastoral Care of Migration and Tourism (November 26, 1987)",
+      "uuid": "e59091b7-33cd-4b60-9fe2-3b6bbfc91a84"
+    },
+    {
+      "match": "Madre Teresa di Calcutta (1910-1997) - Beatification homily",
+      "uuid": "088013d8-9f1f-4ac5-8cf9-92ddb7d7d21a"
+    },
+    {
+      "match": "Message to Msgr. Francesco Follo, Permanent Observer of the Holy See to the UNESCO (November 25, 2002)",
+      "uuid": "497394e8-2d8e-4281-98f4-58cbfefb060e"
+    },
+    {
+      "match": "Declaration on procured abortion – Quaestio de abortu",
+      "uuid": "316cb7ec-a168-46af-be92-150590f93bc6"
+    },
+    {
+      "match": "Meeting with the youth in Nakivubo Stadium in Kampala (February 6, 1993) - Speech",
+      "uuid": "9e4f6f86-14c4-4953-aa90-aec38f4423e5"
+    },
+    {
+      "match": "Christmas Message (December 23, 1959)",
+      "uuid": "f8194316-1f58-49f3-8262-487fd852c0d3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2004",
+      "uuid": "4bf23c2e-612d-4e8d-adf8-6ea03e2ae8fb"
+    },
+    {
+      "match": "To the Ambassador of Bosnia and Herzegovina accredited to the Holy See (February 27, 2004)",
+      "uuid": "4754464d-bebb-4e1b-ab8a-4e0d2fa70c38"
+    },
+    {
+      "match": "1700th Anniversary of the Ecumenical Council of Nicaea",
+      "uuid": "128cafaa-6f54-4d89-b1c7-5454a56db3f2"
+    },
+    {
+      "match": "Mass at St Joseph Latin-Rite Cathedral in Bucharest - Homily",
+      "uuid": "e89ccc8a-037c-4177-b72a-b0fdca023f1c"
+    },
+    {
+      "match": "To the new Ambassadors to the Holy See (April 24, 1997) - Speech",
+      "uuid": "2833b263-8f34-4cbe-a76e-079becb6dfe1"
+    },
+    {
+      "match": "To the Ambassador of the United States of America to the Holy See (January 8, 1987) - Speech",
+      "uuid": "d6a03634-7415-4d34-b1e9-f1d09ed9e32a"
+    },
+    {
+      "match": "Message to the young people of the Diocese of Willemstad (May 13, 1990) - Speech",
+      "uuid": "86c22b0d-7887-4657-ad50-32eee9b7f402"
+    },
+    {
+      "match": "Instruction Ad resurgendum cum Christo",
+      "uuid": "6fcd8080-7b64-49bd-b4c1-a04ff9f40a0f"
+    },
+    {
+      "match": "Catholic Culture for True Humanism",
+      "uuid": "51d43199-93fe-4fac-b1be-bf095a3ed7f9"
+    },
+    {
+      "match": "The Catholic School on the Threshold of the Third Millenniu",
+      "uuid": "a0cf65f4-23f1-4c21-9864-3cd9a1204fc2"
+    },
+    {
+      "match": "To the Bishops of the Netherlands on their \"ad Limina\" visit (March 12, 2004) - Speech",
+      "uuid": "400efafc-1b76-420b-ad11-cd7a83be40e1"
+    },
+    {
+      "match": "City Stories of Nature and Grace: An Urban Pilgrim's Progress",
+      "uuid": "a3c47c38-409a-4fbf-a945-6826e7d5128e"
+    },
+    {
+      "match": "Handbook for Liturgical Studies: The Eucharist (Volume V)",
+      "uuid": "852016fb-8d25-457b-9100-73edf6e598a0"
+    },
+    {
+      "match": "On the Proper Disposition of Bodily Remains",
+      "uuid": "0520a935-7ab3-4028-980b-89eb5c116c63"
+    },
+    {
+      "match": "Subsidiarity and virtue of hope",
+      "uuid": "5ea5a921-c595-4f7f-a757-383d9cd1e873"
+    },
+    {
+      "match": "Backgrounder on the Federal Budget Domestic Antipoverty Programs (February 2015)",
+      "uuid": "03f94202-6e34-49b5-8dd1-e421d783e30a"
+    },
+    {
+      "match": "Anointing of the Sick in the Cathedral of Southwark (May 28, 1982) - Speech",
+      "uuid": "ff447bb9-ad9f-4eb4-9ab5-567c1ad9aa72"
+    },
+    {
+      "match": "Listening to the cry of the earth and of the poor",
+      "uuid": "13479a1b-1bf4-46de-a562-222e2104d104"
+    },
+    {
+      "match": "Letter to the President of the Pontifical Academy of Social Sciences on the occasion of the thirteenth Plenary Session (April 28, 2007)",
+      "uuid": "a2d725e8-d68e-4211-81ec-83c356451188"
+    },
+    {
+      "match": "The Christian conscience in support of the right to life",
+      "uuid": "53b0faeb-0639-4864-9de5-e57ef9edcb14"
+    },
+    {
+      "match": "Jubilee of Government Leaders, Members of Parliament and Politicians (November 4, 2000) - Speech",
+      "uuid": "3eb28ab5-e59e-4c5f-9cab-e601e4e263d9"
+    },
+    {
+      "match": "Letter to Congress Regarding Yes in God's Backyard Act (July 12, 2024)",
+      "uuid": "d606fc02-8062-434d-848e-85f46f2d200f"
+    },
+    {
+      "match": "To the Diplomatic Corps accredited to Uganda (Kampala, February 8, 1993)",
+      "uuid": "e75d520e-65ac-4e7b-a514-356c2b5f488c"
+    },
+    {
+      "match": "Congress organized for the International Diplomatic Academy (November 13, 1998)",
+      "uuid": "70914609-b67f-44a6-976c-d2f3faa8ab87"
+    },
+    {
+      "match": "To the Editor: On the Distribution of Property",
+      "uuid": "80d7b3ef-388d-43b9-a49b-5cc1d49a7bcf"
+    },
+    {
+      "match": "National Association of Italian Municipalities (ANCI) (29 December 2025)",
+      "uuid": "15078cc6-4cff-4474-9f47-132d73911c26"
+    },
+    {
+      "match": "Ambassador of Croatia accredited to the Holy See on the occasion of the presentation of Credentials (December 15, 2000)",
+      "uuid": "2636c0c9-367c-4814-b121-f79c3202fbc7"
+    },
+    {
+      "match": "Visit to the President of the Republic of Sudan in \"Friendship Hall\", Khartoum (February 10, 1993)",
+      "uuid": "5b4a950f-39c2-436d-9c45-42f4d196f0d0"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 1993",
+      "uuid": "020f95a9-0cf6-4dfa-8b8f-aab30743406d"
+    },
+    {
+      "match": "new Ambassador of Estonia to the Holy See (January 11, 1997)",
+      "uuid": "d2bd2fad-c1a7-447e-9129-2254b7aec1d2"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2006",
+      "uuid": "6fa4e8cb-ed18-48b3-8f77-93b3b78d76d5"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 1941",
+      "uuid": "57aba09e-fb50-40bf-9d87-df8ed537dbb8"
+    },
+    {
+      "match": "General Audience of 5 June 2013",
+      "uuid": "09ceffcf-b8e5-4aaa-8e41-e529a6937ff4"
+    },
+    {
+      "match": "Letter to the participants of the Plenary Session of the Congregation for the Causes of Saints (April 24, 2006)",
+      "uuid": "81e8426c-aca5-4d89-88e8-e0ebbf06e0ce"
+    },
+    {
+      "match": "3 February 1986, Mass for the  workers at Ranchi",
+      "uuid": "bb7ce056-93b3-4b47-93e4-3ae3d96184fe"
+    },
+    {
+      "match": "Statement «Solidarity is the soul of the European Union»",
+      "uuid": "ffd2bcda-75f7-4000-b4c5-39d4c522577b"
+    },
+    {
+      "match": "Best Practices Migrants and Refugees 2023: Africa Booklet",
+      "uuid": "0a869e92-bdbc-474f-819b-e311f93acae8"
+    },
+    {
+      "match": "A plea for a European strategy in favour of families",
+      "uuid": "c83c2bed-8bce-446e-8956-e2eb99ed6473"
+    },
+    {
+      "match": "2 September 2007: Eucharistic Concelebration on the occasion of the Agorà of the Italian youth held in Loreto",
+      "uuid": "92feb3f7-03c1-482a-8876-4b094d13fe1c"
+    },
+    {
+      "match": "General Audience of 2 May 1979",
+      "uuid": "7267587f-7a65-428d-b0de-0ba10eb5b203"
+    },
+    {
+      "match": "Le Pèlerinage de Lourdes",
+      "uuid": "73593467-254c-48ff-b602-af40e3b3074a"
+    },
+    {
+      "match": "Apostolic Journey - Cuba: Meeting with the representatives of the world of culture in the University of La Habana",
+      "uuid": "f5744c94-d53c-4368-a6c9-2d2c6e0f62bb"
+    },
+    {
+      "match": "To the Bishops of the Dominican Republic on their \"Ad Limina\" visit (December 11, 1999)",
+      "uuid": "3aa678ff-095d-4a9e-a99b-96fde8355907"
+    },
+    {
+      "match": "Dialogue Between His Holiness Pope Leo XIV and Young People During the Jubilee Vigil",
+      "uuid": "46dd82be-7a47-402f-ae49-8d6069c986bb"
+    },
+    {
+      "match": "To the International Congress of Sacred Music, organized by the Pontifical Council for Culture (January 27, 2001)",
+      "uuid": "56bee22f-304a-403c-9bf1-ad8b712339f3"
+    },
+    {
+      "match": "To the new Ambassador of Latvia accredited to the Holy See (May 15, 2003)",
+      "uuid": "9ce17c29-0fb5-41c7-9e05-5523e4996d4d"
+    },
+    {
+      "match": "Speech to the Ambassador of Argentina, His Excellency Mr. Don Francisco Eduardo Trusso (March 23, 1992)",
+      "uuid": "073b3c67-6d77-4e0f-878b-85b931076821"
+    },
+    {
+      "match": "To the International Union of Institutes of Archaeology, History and History of Art in Rome (May 26, 2000)",
+      "uuid": "7656e065-2995-4ca7-bcc0-55d7516e1cb1"
+    },
+    {
+      "match": "Human Development and Christian Salvation",
+      "uuid": "31203ec9-d428-43a3-85d8-95b1744a57a0"
+    },
+    {
+      "match": "To a group of European politicians (October 23, 1998)",
+      "uuid": "d57fdb0c-02e6-4bd5-b5d6-73c3f84338b8"
+    },
+    {
+      "match": "General Audience of 6 March 2024 - Cycle of Catechesis. Vices and Virtues. 10. Pride",
+      "uuid": "0e009605-d7ce-4eb8-b1b1-4b770aeab853"
+    },
+    {
+      "match": "The Via Pulchritudinis: Privileged Pathway for Evangelisation and Dialogue",
+      "uuid": "55992303-d34c-405c-959f-38c49057f211"
+    },
+    {
+      "match": "Ecclesia in Africa",
+      "uuid": "6a150a7a-a22a-498f-a004-2c6dc09abbab"
+    },
+    {
+      "match": "Dilecti Amici",
+      "uuid": "4ec1bc31-883d-4cc8-ac22-03d02a29d2e3"
+    },
+    {
+      "match": "General Audience of 8 January 2025",
+      "uuid": "177a179d-11b1-4688-9dd3-6092f2706949"
+    },
+    {
+      "match": "General Audience of 8 September 2021 - Catechesis on the Letter to the Galatians: 8. We are children of God",
+      "uuid": "c7eb012d-c9dd-4e3f-84c6-6ebbdbaebafe"
+    },
+    {
+      "match": "Sapientia Christiana",
+      "uuid": "edaa8a33-5e13-483a-8c85-13ec0710dfe3"
+    },
+    {
+      "match": "Message on the occasion of the Second Plenary Assembly of the Pontifical Commission for the Cultural Heritage of the Church (September 25, 1997)",
+      "uuid": "c27521f5-08dc-49b0-bd3d-380de51e5df5"
+    },
+    {
+      "match": "Message to the participants in the 9th International Youth Forum, Rocca di Papa 28-31 March 2007",
+      "uuid": "088467f1-1e0a-486a-8ffa-af8315745da0"
+    },
+    {
+      "match": "To a Delegation of the Association of Catholic Colleges and Universities (3 June 2026)",
+      "uuid": "3680cdad-1a5a-4eee-ae8d-a8be23f75cb1"
+    },
+    {
+      "match": "To the Bishops of Cameroon on their \"ad Limina Apostolorum\" visit (June 1, 1999)",
+      "uuid": "d18dba31-760f-42a8-9237-a59fb11ca825"
+    },
+    {
+      "match": "55th World Day of Prayer for Vocations 2018",
+      "uuid": "dd2d9583-107a-46b6-a579-80edd5256b05"
+    },
+    {
+      "match": "Reflections on Some Recent Norms on Priestly Formation, 2009, Issue 1, pp. 1–32",
+      "uuid": "61e96fb3-7f8b-426f-9eff-6fb5b9ed43ca"
+    },
+    {
+      "match": "To people of Tasmania gathered in the Willson Training Centre in Hobart (November 27, 1986)",
+      "uuid": "a66621d0-7655-48ba-9f7a-37f3bab92a72"
+    },
+    {
+      "match": "To the Ambassador of Canada accredited to the Holy See on the occasion of the presentation of Credentials (October 12, 2000)",
+      "uuid": "0802ffaa-577e-4543-b4b9-73d8d971f012"
+    },
+    {
+      "match": "Pre-Synodal meeting with young people at the International Pontifical College \"Maria Mater Ecclesiae\" (19 March 2018)",
+      "uuid": "178dd1ff-5fc6-474f-a2cf-17e632660698"
+    },
+    {
+      "match": "General Audience of 4 September 2013",
+      "uuid": "7b1fc368-e582-43e7-a893-938630e6942a"
+    },
+    {
+      "match": "46th European meeting of young people organized by the Taizé Community in Ljubljana",
+      "uuid": "44a2c7f3-bbf2-4912-bba0-d13d4d873b8c"
+    },
+    {
+      "match": "To participants in the Plenary Assembly of the Pontifical Council for Social Communications (21 September 2013)",
+      "uuid": "c363f836-a039-41cb-b1e3-cb78bfebc214"
+    },
+    {
+      "match": "To the Delegation of the Italian National Youth Council (16 November 2024)",
+      "uuid": "67c9efc1-a4af-4c3a-89e7-69f7afb4fa0d"
+    },
+    {
+      "match": "Bishops of the Episcopal Conference of Angola, São Tomé and Principe on their \"Ad Limina\" visit (October 22, 2004)",
+      "uuid": "813234e6-4c08-47f7-a021-7c88c2fc084b"
+    },
+    {
+      "match": "To the participants in the Plenary Assembly of the Pontifical Council for Culture (March 16, 2002)",
+      "uuid": "17b3cd64-dac5-4e52-9e9d-34d220ecfe88"
+    },
+    {
+      "match": "Definitio fidei (The Council of Chalcedon)",
+      "uuid": "3bbe3506-c305-41ec-a4eb-6ef7deb5c094"
+    },
+    {
+      "match": "To Cardinals and heads of the Roman Curia for Christmas (December 22, 2001)",
+      "uuid": "7e27697a-3141-4d0b-8e60-c53607596a4d"
+    },
+    {
+      "match": "To members of the Diplomatic Corps accredited to the Holy See (9 January 2025)",
+      "uuid": "17c5ccee-5cdb-4061-9a2f-4cce8663f3e4"
+    },
+    {
+      "match": "To Participants in the Conference Promoted by the Vatican Apostolic Library (16 November 2024)",
+      "uuid": "1deed921-dec9-45e3-973f-082964f7bf5d"
+    },
+    {
+      "match": "To Members of the DIALOP Association (Transversal Dialogue Project) (10 January 2024)",
+      "uuid": "a44b1c58-4566-4992-9d62-c01a360259a3"
+    },
+    {
+      "match": "Dialogue with Students, Teachers and Parents of Collegio San Carlo of Milan",
+      "uuid": "d73ccd9e-6713-4fe7-b879-0481aa77d98f"
+    },
+    {
+      "match": "The rapid development",
+      "uuid": "f930951f-914b-4087-b5da-cca93af56ff8"
+    },
+    {
+      "match": "The Bishop of Rome",
+      "uuid": "37bcdae2-ecb3-4552-a84f-4f347976eb1b"
+    },
+    {
+      "match": "To participants in the World Congress on Migrations (March 15, 1979)",
+      "uuid": "39a7f2ae-42e4-4993-a7dd-c24807aa9730"
+    },
+    {
+      "match": "To the Bishops of the Church in the States of Texas, Oklahoma and Arkansas",
+      "uuid": "ba0e0ce3-e0fc-44f8-8cfb-be8b4ebd8e06"
+    },
+    {
+      "match": "General Audience of 28 June 2000",
+      "uuid": "59d46aaa-fa4c-42a1-822c-a620a6dba8a3"
+    },
+    {
+      "match": "Apostolic Journey to the United States of America: To the United Nations Organization (New York, October 5, 1995)",
+      "uuid": "6d65ae44-35cc-4999-b9ab-f7d7e6ae2f32"
+    },
+    {
+      "match": "Message to the participants in the plenary of the Pontifical Council for Culture (November 19, 1999)",
+      "uuid": "69b98b3e-2ada-4935-a38c-1d4120ddd1f8"
+    },
+    {
+      "match": "The Attitude of the Church towards the Followers of Other Religions",
+      "uuid": "aba4c535-37b1-44dc-98f3-a434fd36c35b"
+    },
+    {
+      "match": "To participants in the Sixth World Congress on the Pastoral Care of Migrants and Refugees (November 9, 2009)",
+      "uuid": "8b301ee6-aad5-40cb-b75d-dc4304c464d8"
+    },
+    {
+      "match": "To the President of the Republic of Argentina (April 5, 2001)",
+      "uuid": "0b175381-7154-40a3-a733-6f13459923d6"
+    },
+    {
+      "match": "Pastoral Orientations on Intercultural Migrant Ministry (3 March 2022)",
+      "uuid": "9ee09d77-7540-45c8-913e-b00e15f35e80"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2001",
+      "uuid": "bd8ff59b-00df-4199-a5fd-9e2afc4cb796"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2004",
+      "uuid": "d9d269bf-2048-4c56-acff-0ac16af753f0"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1991",
+      "uuid": "1534924b-e00e-4a7c-b3bd-e5ecd64ef140"
+    },
+    {
+      "match": "Sacrosanctum Concilium",
+      "uuid": "f3bd930d-74b4-46ee-86ed-06d79db364a9"
+    },
+    {
+      "match": "Ad Gentes",
+      "uuid": "bf2d96db-a480-4e04-a6ab-86a0da727f71"
+    },
+    {
+      "match": "Nostra Aetate",
+      "uuid": "df458187-b9b6-466d-a333-9d936a3f2ce4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2008",
+      "uuid": "45d66a56-043a-4668-bc8b-d4faba3a3809"
+    },
+    {
+      "match": "Meeting with the Muslim leaders, Nairobi (Kenya), 7 May 1980",
+      "uuid": "2a272d7d-0ba4-47bc-a583-0cbc2d88233a"
+    },
+    {
+      "match": "To Muslim leaders, Nairobi, Kenya (May 7, 1980)",
+      "uuid": "1a3b2c53-5c15-4ded-b613-5322c3393cd1"
+    },
+    {
+      "match": "To Bishops of Indonesia on their ad Limina visit (June 7, 1980)",
+      "uuid": "a54315b5-dba4-4670-85f9-9d34d70ee663"
+    },
+    {
+      "match": "Clarification on procured abortion",
+      "uuid": "0642f665-399e-458b-947a-f8f0bd5dfe77"
+    },
+    {
+      "match": "Apostolic Letter of the Holy Father Pope Leo XIV on the importance of Archaeology",
+      "uuid": "132134d1-ad1b-4c04-9caa-cf10eaef0eef"
+    },
+    {
+      "match": "To the Diplomatic Corps Accredited to the Holy See (15 January 1994)",
+      "uuid": "de2c0441-bf8e-4659-9ea1-a6234b4db856"
+    },
+    {
+      "match": "Misericors Dei Filius",
+      "uuid": "8221371a-889a-4c87-bf11-37ea0739febe"
+    },
+    {
+      "match": "To the Secretary of Foreign Affairs of Yugoslavia (July 13, 1980)",
+      "uuid": "6bbb0bc2-1958-4736-a8ae-bd1769d3a685"
+    },
+    {
+      "match": "Ivan Merz: Il miracolo (22 giugno 2003)",
+      "uuid": "850397fa-5377-46c7-911a-d05be7b5f2a2"
+    },
+    {
+      "match": "Ivan Merz: Omelia di beatificazione (22 giugno 2003)",
+      "uuid": "3a8e45f6-0d2c-4fff-b4cb-7966d05f03b0"
+    },
+    {
+      "match": "Encyclopedic Dictionary of the Christian East",
+      "uuid": "2cb86786-6b8e-4ddd-b5fe-d1ebaccb869c"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Mass and Beatification of Sr. Marija Petkovic - Harbour Square in Dubrovnik (June 6, 2003)",
+      "uuid": "9c574e88-e965-4613-b4f4-0e2c95740083"
+    },
+    {
+      "match": "To the Officials of the Congregation for Catholic Education (for Seminaries and Educational Institutions) (April 27, 2004)",
+      "uuid": "7d3a5705-dfad-47de-9384-4f570e92b54c"
+    },
+    {
+      "match": "Meminisse Iuvat",
+      "uuid": "ae9cff7c-3d07-4573-9902-8eaaee7b23b0"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, July, 2011",
+      "uuid": "abe35d4d-f539-483b-a274-d48431959083"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2005",
+      "uuid": "3e54481a-00c7-40a8-b049-39875a7d234d"
+    },
+    {
+      "match": "Mit Brennender Sorge",
+      "uuid": "30ba83a6-8e83-4976-bb73-b2078fa90563"
+    },
+    {
+      "match": "Letter of His Holiness Pope Francis on the Renewal of the Study of Church History",
+      "uuid": "44a813b9-dca1-44c0-9bec-6b9ae3bf9453"
+    },
+    {
+      "match": "To the new Ambassador of Croatia accredited to the Holy See (October 12, 1998)",
+      "uuid": "491dca46-3947-41f8-bf04-60a7682177b9"
+    },
+    {
+      "match": "General Audience of 7 October 1998",
+      "uuid": "975d906f-5590-441d-b788-4c61b5d3fca1"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Welcoming Ceremony at the International Airport Adrija Riviera Kvarner of Rijeka/Krk (June 5, 2003)",
+      "uuid": "0d911bff-95b0-4150-8304-caac988188af"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 1999",
+      "uuid": "40397292-99fc-4d34-a62c-dd0d69b35973"
+    },
+    {
+      "match": "Apostolic Journey to Romania: Welcome ceremony in Bucarest (May 7, 1999)",
+      "uuid": "7b6a963f-455b-44ae-b7d5-17242cbacfe1"
+    },
+    {
+      "match": "Apostolic Journey to Türkiye: Prayer Meeting with Bishops, Priests, Deacons, Consecrated Men and Women, and Pastoral Workers at the Cathedral of the Holy Spirit",
+      "uuid": "159c7470-36ee-4794-baca-28722d044d15"
+    },
+    {
+      "match": "Persona Humana",
+      "uuid": "90bc4188-9810-4f17-bf3b-20bb31dd678d"
+    },
+    {
+      "match": "Orientale Lumen",
+      "uuid": "9dd6c1aa-a507-4c8c-84fe-08d9636b4161"
+    },
+    {
+      "match": "Octogesima Adveniens",
+      "uuid": "c2653535-1108-49d6-8db6-ebffd090edec"
+    },
+    {
+      "match": "General Audience of 20 March 2024 - Cycle of Catechesis. Vices and Virtues. 12. Prudence",
+      "uuid": "77417f4f-99f3-4b4c-80bb-07fe3c6f0cf4"
+    },
+    {
+      "match": "Towards a Better Distribution of Land, the Challenge of Agrarian Reform (23 November 1997)",
+      "uuid": "43ab4552-508b-460a-8ba7-a2c5b364db7d"
+    },
+    {
+      "match": "Towards Reforming the International Financial and Monetary Systems in the Context of Global Public Authority",
+      "uuid": "e8a27066-9335-492c-9b5c-faccbc19ab0b"
+    },
+    {
+      "match": "USCCB Procedures for Resolving Conflict",
+      "uuid": "2a754ed0-a627-4308-95c9-cb0d33464591"
+    },
+    {
+      "match": "General Audience of 24 February 2016: 8. Mercy and power",
+      "uuid": "5e8d33c1-caaa-43bb-96f8-c7797b6cc84c"
+    },
+    {
+      "match": "Gratissimam Sane: Letter to Families",
+      "uuid": "1744b76a-bdd8-4c71-8b25-e45bbbd7f2fe"
+    },
+    {
+      "match": "Apostolic Journey to Uganda: Message to the sick and disabled of Uganda at Saint Francis Hospital in Nsambya",
+      "uuid": "26855bef-48cd-4f83-afe1-bfb678174434"
+    },
+    {
+      "match": "The Dark Night of the Soul",
+      "uuid": "a2a9cb6b-a345-4678-9059-0d44655a1c84"
+    },
+    {
+      "match": "General Audience of 4 December 2002",
+      "uuid": "e5e644a0-1fda-46f2-acbc-f380fd63af9d"
+    },
+    {
+      "match": "Apostolic Journey to Malta: Holy Mass (Floriana, 3 April 2022)",
+      "uuid": "be071ef8-f4b9-42b7-9bd3-a20275e3858c"
+    },
+    {
+      "match": "48th World Communications Day: Communication at the Service of an Authentic Culture of Encounter",
+      "uuid": "2396b374-d424-4434-b008-be35687aa1fb"
+    },
+    {
+      "match": "34th World Communications Day: “Proclaiming Christ in the Media at the Dawn of the New Millennium”",
+      "uuid": "72888a4f-d0ef-4a5c-97f9-658b55cff4b5"
+    },
+    {
+      "match": "24th World Communications Day: \"The Christian Message in a Computer Culture\"",
+      "uuid": "920e8e2c-fb7a-4208-bc7e-589a66c6521d"
+    },
+    {
+      "match": "Ut Unum Sint",
+      "uuid": "b3aa438e-26d1-452d-be27-f22bc8d1288a"
+    },
+    {
+      "match": "Novo Millennio Ineunte",
+      "uuid": "f3aa01c0-ae03-4fca-bf84-f5657695a493"
+    },
+    {
+      "match": "Laudato Si",
+      "uuid": "9bd648d0-8024-4283-ba42-69bc601f9ba0"
+    },
+    {
+      "match": "Christian Perspective on Sport and the Human Person",
+      "uuid": "23b36a02-e341-4038-924e-2e3ce9367bde"
+    },
+    {
+      "match": "Giving the best of yourself. A document on the Christian perspective on sport and the human person",
+      "uuid": "cda3736e-d0f6-4fbc-9ac2-5a7376773cac"
+    },
+    {
+      "match": "Letter of the Holy Father for the Celebration of the 25th Winter Olympic Games (6 February 2026)",
+      "uuid": "c0a32f8f-d17c-4c86-b569-85aecbeeaac6"
+    },
+    {
+      "match": "To Participants in the International Conference on Media and Digital Literacy (22 May 2026)",
+      "uuid": "e80a24bb-bfd1-4111-bb79-133dfbe0cee8"
+    },
+    {
+      "match": "Catechesis “Healing the world”: 6. Love and the common good",
+      "uuid": "f57e16df-61d7-44a8-af86-9289f27ed694"
+    },
+    {
+      "match": "Pastoral Visit to Rebibbia Prison - Rome (December 18, 2011)",
+      "uuid": "c6f72192-f643-4311-8443-15334be43092"
+    },
+    {
+      "match": "The Common Good as a Relational Good",
+      "uuid": "7eda6110-2e09-4a0a-b1e0-ec5342620bb4"
+    },
+    {
+      "match": "To participants in the fourteenth Plenary Session of the Pontifical Academy of Social Sciences (May 3, 2008)",
+      "uuid": "9418c57e-c862-4e61-8d8f-9b58cb2e985f"
+    },
+    {
+      "match": "Address to the Polish Parliament (Warsaw, 11 June 1999)",
+      "uuid": "95177c0d-f6e5-4f60-a3f8-1f6704056113"
+    },
+    {
+      "match": "Welcome ceremony at the International Airport of Denver (August 12, 1993)",
+      "uuid": "d4f3e799-d36e-4d3b-955d-650fbace089d"
+    },
+    {
+      "match": "Gravissimum Educationis",
+      "uuid": "b9313938-d668-4f10-817e-70ea9ed93237"
+    },
+    {
+      "match": "Papal Chapel with the Rite of Canonization of Blesseds Pier Giorgio Frassati and Carlo Acutis",
+      "uuid": "692532e0-917b-4dde-8269-038b67b9e098"
+    },
+    {
+      "match": "Holy Mass with Canonizations (7 September 2025)",
+      "uuid": "06966356-3338-4140-ab73-7543fd6d588e"
+    },
+    {
+      "match": "To participants in the Plenary Assembly of the International Union of Superiors General",
+      "uuid": "6c531e67-3d30-404c-afe0-2a9a2ee74c6c"
+    },
+    {
+      "match": "General Audience of 25 August 1982",
+      "uuid": "999e2bc5-969a-422d-b570-e0491afdfb36"
+    },
+    {
+      "match": "Message to Card. Peter Kodwo Appiah Turkson",
+      "uuid": "c69a94c0-0a9f-48bf-bbd1-e237608ad85f"
+    },
+    {
+      "match": "LII World Communications Day, 2018",
+      "uuid": "4cb98934-2cbb-4871-8ab1-c93160912973"
+    },
+    {
+      "match": "Apostolic Journey to Lebanon: Meeting with the Authorities, Civil Society and the Diplomatic Corps (Beirut, 30 November 2025)",
+      "uuid": "fa089d52-5877-4301-a8c4-09b14d6eefba"
+    },
+    {
+      "match": "To Participants in the Plenary Session of the Pontical Academy of Social Sciences (2 May 2019)",
+      "uuid": "69c6aac7-f504-427d-9eba-4b8693f3736c"
+    },
+    {
+      "match": "Videomessage for the 39th World Youth Day, 2024",
+      "uuid": "204d2478-82db-4129-a8e4-c6a4c68366de"
+    },
+    {
+      "match": "Sollicitudo Rei Socialis",
+      "uuid": "817203c6-2d70-4bf5-8b12-8ab60b986bec"
+    },
+    {
+      "match": "Casti Connubii",
+      "uuid": "dd595a71-3483-4f87-abba-b3275a897e0c"
+    },
+    {
+      "match": "Inter Mirifica",
+      "uuid": "317d3bd9-0486-4ebf-aeda-905f9f4664a6"
+    },
+    {
+      "match": "The Participation of Catholics in Political Life",
+      "uuid": "f5cf19bb-ba97-4894-a330-4ea661a7c7f5"
+    },
+    {
+      "match": "Communio et Progressio",
+      "uuid": "930ac052-52a0-4edc-8f80-718dda92f253"
+    },
+    {
+      "match": "Toward a Proposal for Responding to the Transgender Movement",
+      "uuid": "51b2c878-e5d6-4bcb-8959-6fe690dd5d99"
+    },
+    {
+      "match": "The Bible and Morality: Biblical Roots of Christian Conduct",
+      "uuid": "8aaabe5c-ac95-4280-aba3-eabc9d164719"
+    },
+    {
+      "match": "45th World Day of Peace - EDUCATING YOUNG PEOPLE IN JUSTICE AND PEACE",
+      "uuid": "c89cb859-06fc-42fc-850d-1de015b12ec6"
+    },
+    {
+      "match": "Dominum et vivificantem",
+      "uuid": "0e8e9822-2a0f-4e81-8d2f-4e08b5dc33ae"
+    },
+    {
+      "match": "Where Is Your God? Responding to the Challenge of Unbelief and Religious Indifference Today",
+      "uuid": "d0200f0c-b104-4612-aba6-e21d1362abcb"
+    },
+    {
+      "match": "Healing the world 4. The universal destination of goods and the virtue of hope",
+      "uuid": "c99f2663-109c-4b01-a4a1-6bb81d34923a"
+    },
+    {
+      "match": "to participants at the International Conference on Human Trafficking",
+      "uuid": "dfb78c18-971f-405a-ad15-336d986b8d3a"
+    },
+    {
+      "match": "Ceremony for the Signing of the Faith Leaders' Universal Declaration against Slavery",
+      "uuid": "a91333c4-903c-4e01-bbe7-d76b05639427"
+    },
+    {
+      "match": "To the delegates of the International Association of Penal Law (23 October 2014)",
+      "uuid": "e3884986-0940-4471-9725-3c6343e23884"
+    },
+    {
+      "match": "Letter to the Second World Assembly on Ageing (April 3, 2002)",
+      "uuid": "eb0d9a6a-9568-41cb-b07a-27e363513144"
+    },
+    {
+      "match": "Archbishop Caccia on Rebuilding a Sustainable Future (7 October 2022)",
+      "uuid": "d2ac8cc1-3907-4cfd-b29a-9ab307339a14"
+    },
+    {
+      "match": "Speech by John Paul II to the Members of the Executive Council of the World Tourism Organization (November 26, 1992)",
+      "uuid": "82900229-4326-47ab-846a-627089bbe430"
+    },
+    {
+      "match": "Statement By The Holy See To The Second Committee On Building A Sustainable Recovery For All",
+      "uuid": "fa100d20-9d13-42d5-85a2-ad9fddf9a650"
+    },
+    {
+      "match": "General Audience of 19 March 1997",
+      "uuid": "f3095151-4599-4b0c-8079-94977ba9a583"
+    },
+    {
+      "match": "Letter of the Holy Father for the Jubilee to Parish Priests, Religious and Clergy (8 November 2024)",
+      "uuid": "9fd7f9d9-79f7-45e2-a47c-9657e72306ad"
+    },
+    {
+      "match": "Listen, Teach, Send: A National Pastoral Framework for Ministries with Youth and with Young Adults",
+      "uuid": "89f45a9b-4e3d-4367-aa41-e43a23bbd288"
+    },
+    {
+      "match": "Sanctorum Mater",
+      "uuid": "59e2c03d-37f4-4800-9f08-4267447584dd"
+    },
+    {
+      "match": "fifteenth Plenary Session of the Pontifical Academy of Social Sciences",
+      "uuid": "2af84f26-5aa0-424c-bb14-189e44872e2b"
+    },
+    {
+      "match": "Educating to Fraternal Humanism",
+      "uuid": "8e76c5ab-df49-4287-b792-8486008812e5"
+    },
+    {
+      "match": "Archbishop Caccia Addresses General Assembly on the International Day for the Elimination of Racial Discrimination",
+      "uuid": "c8943e56-479e-4181-8f1f-59e57826bca6"
+    },
+    {
+      "match": "Holy See Statement During Dialogue On Culture And Sustainable Development",
+      "uuid": "a629169e-a300-4acb-b175-34ff9f0e3024"
+    },
+    {
+      "match": "Welcoming Ceremony at the International Airport of Banja Luka",
+      "uuid": "34448d9b-bc76-47f7-bbcb-a291d0c0ae5e"
+    },
+    {
+      "match": "Ivan Merz: Biografia",
+      "uuid": "d1977fb2-70e6-454a-af7f-a950d356adc8"
+    },
+    {
+      "match": "Firmissimam Constantiam",
+      "uuid": "05f7869c-8351-4a4e-961b-fafffb9c6786"
+    },
+    {
+      "match": "Il Fermo Proposito",
+      "uuid": "51d48f98-270a-4ce5-94df-02ebc9717462"
+    },
+    {
+      "match": "Second Annual Conference on Artificial Intelligence, Ethics, and Corporate Governance",
+      "uuid": "3e65e8c7-d32e-41c8-96c7-b9a8e3375009"
+    },
+    {
+      "match": "Controversies of the Christian Faith (Disputationes de Controversiis)",
+      "uuid": "188b96b1-0c0c-43f1-b0ca-46ad1dd9c5ec"
+    },
+    {
+      "match": "To the Bishops of the United States of America on their ad Limina visit (September 21, 1993)",
+      "uuid": "f4cf1cee-e10d-4990-8aa2-028a3c3fb2f9"
+    },
+    {
+      "match": "Final Document of the XVI Ordinary General Assembly of the Synod of Bishops",
+      "uuid": "ae322b2b-105d-4a2f-aaea-337feaa7627c"
+    },
+    {
+      "match": "Homily of His Holiness Pope Francis at the Holy Mass and Canonization of Blessed Mother Teresa of Calcutta",
+      "uuid": "ff70bda8-eae6-4a7d-b012-ffe0a3d5b735"
+    },
+    {
+      "match": "To Participants in the Workshop on Changing Relations among Market, State and Civil Society (20 October 2017)",
+      "uuid": "57356ba9-0dee-4187-a059-5d4412d5be6f"
+    },
+    {
+      "match": "General Audience of 19 August 2020 - Catechesis",
+      "uuid": "1327bd1c-f4e2-4625-842b-f242600b43a6"
+    },
+    {
+      "match": "The Coherence of the Four Basic Principles of Catholic Social Doctrine: An Interpretation",
+      "uuid": "edda8110-5b89-4356-bc3c-cc3600b14dab"
+    },
+    {
+      "match": "To Participants in the Jubilee of Governments (21 June 2025)",
+      "uuid": "10b043ab-7fa4-4d41-b559-64595640191b"
+    },
+    {
+      "match": "Deus Caritas Est",
+      "uuid": "4f629b78-9113-4798-a413-84f0e5d594f7"
+    },
+    {
+      "match": "Summi Pontificatus",
+      "uuid": "8894484e-bade-4cb0-8440-35b6c8d05633"
+    },
+    {
       "match": "Evangelium Vitae",
       "uuid": "afc565fa-7adc-4fe4-8807-20abbd383999"
     },
@@ -1236,6 +3264,1082 @@
     {
       "match": "To the Sick on the Tenth World Day of the Sick (February 11, 2002)",
       "uuid": "45381e46-e83c-46da-9af4-31f6d6dcbe40"
+    },
+    {
+      "match": "Theological Foundations, the Sometime Hidden Background of Catholic Bioethics",
+      "uuid": "d8dec2ae-c00e-4eb1-a85b-79815f4ed588"
+    },
+    {
+      "match": "To the International Congress promoted by the Department of Gynecology and Obstetrics of the University La Sapienza in Rome (April 3, 2000)",
+      "uuid": "29a7362d-4a3c-4f6f-970e-d4e06f050c70"
+    },
+    {
+      "match": "To the Ambassador of the Federal Republic of Germany accredited to the Holy See on the occasion of the presentation of Credentials (October 19, 2000)",
+      "uuid": "0f26e166-686e-43b0-89b2-91825bd31a3c"
+    },
+    {
+      "match": "To the fourth group of Bishops of the United States of America on their \"ad Limina\" visit (October 24, 1998)",
+      "uuid": "266b0655-b8ef-4376-8fc3-b3b07fc8f87e"
+    },
+    {
+      "match": "The role of the magisterium in bioethics",
+      "uuid": "7a3be5c2-b574-400b-8826-0ac706c66e89"
+    },
+    {
+      "match": "Apostolic Journey to Equatorial Guinea: Press Conference during the Flight to Malabo (Papal Flight, 21 April 2026)",
+      "uuid": "5b3e7409-5887-4435-a5be-4f382e62a08c"
+    },
+    {
+      "match": "Message to the President of the United States Conference of Catholic Bishops (August 6, 2001)",
+      "uuid": "95c34b07-b4b6-4955-8215-44a8bd6291f6"
+    },
+    {
+      "match": "Message to Card. Alfonso López Trujillo, President of the Pontifical Council for the Family (November 22, 2001)",
+      "uuid": "cd487b00-be6d-4a30-8169-f2fe0e7295ab"
+    },
+    {
+      "match": "General Audience of 7 December 2022 - Catechesis on Discernment. 11. The confirmation of the good choice",
+      "uuid": "ca020e74-0ec9-4ab2-bd4a-2524af6d141a"
+    },
+    {
+      "match": "Mass with Beatification of Ivan Merz - Homily",
+      "uuid": "06dee44b-5fba-4078-8f4c-2dfd03450766"
+    },
+    {
+      "match": "Ivan Merz: Omelia di beatificazione",
+      "uuid": "3a8e45f6-0d2c-4fff-b4cb-7966d05f03b0"
+    },
+    {
+      "match": "Singulari quadam",
+      "uuid": "d6330022-4a60-4d7b-8582-15a6ee522280"
+    },
+    {
+      "match": "Working Group on Intercultural and Interreligious Dialogue' (September 29, 2025)",
+      "uuid": "fde5ba33-f7d6-4712-ae7b-209f560bf0a3"
+    },
+    {
+      "match": "Memory and Reconciliation: The Church and the Faults of the Past",
+      "uuid": "25848f79-0d2e-45dc-b3ff-378971388cc9"
+    },
+    {
+      "match": "To the participants in the Symposium on Inquisition (October 31, 1998)",
+      "uuid": "364ec167-5d0d-4a79-ad11-0c88871408d3"
+    },
+    {
+      "match": "To the participants in the International Symposium on Jan Hus (December 17, 1999)",
+      "uuid": "5729fd9c-5557-4547-8b28-950c97f9b7b1"
+    },
+    {
+      "match": "The Millennial Challenges Facing Catholic Intellectual Life",
+      "uuid": "a9d4c51a-6de1-4663-9099-b04bca1d4607"
+    },
+    {
+      "match": "Aeterni Patris",
+      "uuid": "e6af861b-e10a-4473-bbca-c710b355427a"
+    },
+    {
+      "match": "Address to the Plenary Session on",
+      "uuid": "24a4d1fe-5fc4-477c-b99b-201e9b6b2d1f"
+    },
+    {
+      "match": "Television Network \"TV 2000\" (15 December 2014)",
+      "uuid": "6d491859-1dda-4609-9010-9f538444142c"
+    },
+    {
+      "match": "Fourth Centenary of the arrival in Beijing of Father Matteo Ricci",
+      "uuid": "777e1c8c-4cf2-44cd-a904-e50c291c82e8"
+    },
+    {
+      "match": "Ethics in Communications",
+      "uuid": "8c12d36c-ed4e-495b-8f57-67e0963c14c8"
+    },
+    {
+      "match": "To participants in the Plenary Assembly of the Pontifical Council for the Laity (May 21, 2010)",
+      "uuid": "d48a459c-b28a-4e53-8f3a-2c07f6ce63d8"
+    },
+    {
+      "match": "Farewell ceremony at Baltimore-Washington International Airport (Baltimore, October 8, 1995)",
+      "uuid": "2340e030-6ba5-4e74-819e-13724860ae81"
+    },
+    {
+      "match": "General Audience of 1 August 2018",
+      "uuid": "c5af1708-0691-47f3-8574-4eb489507bca"
+    },
+    {
+      "match": "On Idolatry",
+      "uuid": "7ff66e45-c0f3-4e08-adf8-8e1e9c026372"
+    },
+    {
+      "match": "dedication of the church of the Sagrada Familia and the altar in Barcelona",
+      "uuid": "471cec07-c9a2-415b-82bc-24ae929e3e6b"
+    },
+    {
+      "match": "25th International Conference of the Pontifical Council for Health Care Workers (November 15, 2010)",
+      "uuid": "b297138d-7d3e-4cb3-9054-cfbff7637bca"
+    },
+    {
+      "match": "To Members of the European People",
+      "uuid": "961a75e3-440c-48b2-b062-2e9eb02ca993"
+    },
+    {
+      "match": "European Conservatives and Reformists Group",
+      "uuid": "cbf987e3-a83d-4586-be76-79b8dcacd3db"
+    },
+    {
+      "match": "Divini Illius Magistri",
+      "uuid": "adabbc24-6ea7-4f48-af16-35e74ba1e360"
+    },
+    {
+      "match": "Apostolic Voyage in Azerbaijan and Bulgaria: Meeting with representatives of the world of Culture, Science and Art, Palace of Culture, Sofia (May 24, 2002)",
+      "uuid": "6d59b13a-5b18-44b4-98d8-5a96d60b47c0"
+    },
+    {
+      "match": "To the new Ambassador of Slovenia accredited to the Holy See (September 5, 2002)",
+      "uuid": "59563a11-d2a8-458b-803f-180dbe6dad52"
+    },
+    {
+      "match": "Address of John Paul II during the visit to the European Parliament, Palace of Europe, Strasbourg (France) (October 11, 1988)",
+      "uuid": "ab4292bf-1970-4a2b-8776-aaac6ccc53f0"
+    },
+    {
+      "match": "Apostolic Journey to Hungary: Ecumenical meeting with the representatives of the Protestant and Orthodox Hungarian Community in Debrecen (August 18, 1991)",
+      "uuid": "01804b76-5e38-4d5b-b305-7a862b5f7244"
+    },
+    {
+      "match": "Apostolic Journey to Türkiye and Lebanon: Press Conference during the flight to Rome (Papal Flight, 2 December 2025)",
+      "uuid": "d1a03661-5787-4874-9a88-f13d2f53c2b9"
+    },
+    {
+      "match": "Video Message of His Holiness Pope Leo XIV to the Young People Gathered in Front of the Cathedral of Košice (8 November 2025)",
+      "uuid": "0d5e7f34-5390-4b66-a045-e194defd3455"
+    },
+    {
+      "match": "To members of the Federal Council of the Swiss Confederation (June 14, 1984)",
+      "uuid": "98970135-9e66-43b2-8a53-1c69f24850dd"
+    },
+    {
+      "match": "Message to the Bishop of Rottenburg-Stuttgart and to the participants in the 95th German Katholikentag (June 10, 2004)",
+      "uuid": "efad6bf0-bc88-4862-99e3-911d95531b25"
+    },
+    {
+      "match": "Educational Guidance in Human Love: Outlines for Sex Education",
+      "uuid": "c5e5ae5f-73d8-4f74-82ec-d674326add00"
+    },
+    {
+      "match": "To the Jubilee celebration for the Bank of Rome (November 11, 2000)",
+      "uuid": "eb42528d-1220-4dba-b632-9dd56e315099"
+    },
+    {
+      "match": "Letter to Mrs. Gertrude Mongella, Secretary General of the Fourth World Conference on Women",
+      "uuid": "3d908275-7824-4cc3-a9b6-85ad3c40ebe6"
+    },
+    {
+      "match": "Mens Nostra",
+      "uuid": "3587f24f-fefe-4ec0-b634-c88401137703"
+    },
+    {
+      "match": "Pastores gregis",
+      "uuid": "7355c383-a7e6-43bf-9acd-dfc193ecc052"
+    },
+    {
+      "match": "Intima Ecclesiae Natura",
+      "uuid": "d492f2e2-17ee-49a9-8b26-90a112ed4ab0"
+    },
+    {
+      "match": "To the Fathers of the General Congregation of the Society of Jesus (February 21, 2008)",
+      "uuid": "c65b87ca-9f98-495c-a282-917055ee25b0"
+    },
+    {
+      "match": "To the Bishops from the ecclesiastical provinces of San Antonio and Oklahoma City",
+      "uuid": "39271bb4-dec6-4809-bff9-252c7b3a4061"
+    },
+    {
+      "match": "General Audience of 13 October 1976",
+      "uuid": "bb3ba7ad-03b1-4df5-9d1e-ec40a30ad1c8"
+    },
+    {
+      "match": "To the Reformed Cistercians Order (Trappists) (March 29, 1969)",
+      "uuid": "8e4a1ac2-c6b0-4bef-9d61-64c646c50381"
+    },
+    {
+      "match": "Butler's Lives of the Saints: Volume III",
+      "uuid": "27b2019e-dfde-455f-9831-d0458ff162e3"
+    },
+    {
+      "match": "Arcanum Divinae",
+      "uuid": "5d15e65e-281b-4be2-add4-6ea124f09820"
+    },
+    {
+      "match": "Letter to Priests on occasion of Holy Thursday (March 25, 1988)",
+      "uuid": "1b82b926-2e6b-4a77-a0e5-ae9db94d5ee8"
+    },
+    {
+      "match": "General Audience of 18 March 2015: The family - 8. The children (I)",
+      "uuid": "dfd24579-b3bd-475f-93dd-958711a130f2"
+    },
+    {
+      "match": "To the Daughters of Charity in the",
+      "uuid": "7f2ee368-66d9-4409-b13d-e5734700b883"
+    },
+    {
+      "match": "International Colloquium on the complementarity between man and woman sponsored by the Congregation for the Doctrine of the Faith (17 November 2014)",
+      "uuid": "3b9d0475-a304-43e4-a8b0-a26dfd7800c3"
+    },
+    {
+      "match": "Toward the Renewal of Mariology",
+      "uuid": "871b9b5b-c302-4844-ba34-f3a7f31a84d3"
+    },
+    {
+      "match": "To the new Ambassador of Slovenia accredited to the Holy See (September 7, 1998)",
+      "uuid": "66865e61-f6e9-4782-a595-239a5a49e668"
+    },
+    {
+      "match": "To the Latin Bishops in the Arab Regions (C.E.L.R.A.) on their ad Limina visit (March 17, 2001)",
+      "uuid": "f3030d18-ae07-4d0d-a078-4ce1dc4f3cc9"
+    },
+    {
+      "match": "Apostolic Journey to Romania: Holy Mass in the Catholic Saint Joseph Cathedral (Bucarest, 31 May 2019)",
+      "uuid": "a5553e45-b852-487c-b0c0-c93ecb7a10af"
+    },
+    {
+      "match": "27 July 2013: Holy Mass with the Bishops of the 28th WYD",
+      "uuid": "d69ec250-1f87-4c74-b370-6390d50d44e0"
+    },
+    {
+      "match": "Ex Corde Ecclesiae",
+      "uuid": "32b47e37-6132-474a-a850-b87725824726"
+    },
+    {
+      "match": "The Confessions",
+      "uuid": "6b28eaae-ab0c-4199-8989-b5b056150ea2"
+    },
+    {
+      "match": "Non Abbiamo Bisogno",
+      "uuid": "013ca3ea-8480-4459-bfdb-0edd1e78a062"
+    },
+    {
+      "match": "The Universality of Natural Law and the Irreducibility of Personalism",
+      "uuid": "3d7ef691-5545-41b7-b939-8b2546b5cb10"
+    },
+    {
+      "match": "Propositions on the Dignity and Rights of the Human Person",
+      "uuid": "f9fadf32-b597-4c6b-91f3-f5a4e3af661f"
+    },
+    {
+      "match": "The Foundations of the Church's Doctrine Concerning the Principles of Conjugal Life",
+      "uuid": "ac8797f2-572c-4cd2-a070-035c2a9bb3cc"
+    },
+    {
+      "match": "Message of the Holy Father for the 59th World Day of Peace 2026",
+      "uuid": "6cdb3fb3-b0bc-4cba-b4a6-cb6b7c077551"
+    },
+    {
+      "match": "To the Bishops of the Provinces of Portland in Oregon, Seattle and Anchorage",
+      "uuid": "ce113905-8fec-4b72-8b5e-1dc1f31c899d"
+    },
+    {
+      "match": "To the UN Secretary General and to the Administrative Committee on Coordination of the United Nations",
+      "uuid": "89ac421a-87ba-463e-a44e-cc0c7d28b321"
+    },
+    {
+      "match": "Liturgy of Vespers with Bishops, Priests, Religious People, and Seminarians and prayer at the tomb of Blessed Alojzije Viktor Stepinac",
+      "uuid": "1b38f793-4243-4508-8456-ddf7ee472887"
+    },
+    {
+      "match": "General Audience of 12 October 2005: Psalm 122[121] - Peace upon you!",
+      "uuid": "e8275883-764c-4602-be10-e605a91d5777"
+    },
+    {
+      "match": "Catena Aurea on Matthew",
+      "uuid": "fc19ca0d-2ad5-4369-b4d2-1de4942345c4"
+    },
+    {
+      "match": "Redemptor Hominis",
+      "uuid": "4e4ffc7d-6ffd-495b-9500-ea6f0702e5a0"
+    },
+    {
+      "match": "General Audience of 13 December 2000",
+      "uuid": "49892994-062c-4dcd-b310-695f6a563b18"
+    },
+    {
+      "match": "sugar cane plantations in Bacolod City",
+      "uuid": "fa4f3339-8fa3-4a2a-997c-ec451e610a27"
+    },
+    {
+      "match": "Atma Jaya Catholic University of Jakarta",
+      "uuid": "6e4034a0-f28e-4d18-bd78-f279fe8076d6"
+    },
+    {
+      "match": "Pontifical Commission for the Pastoral Care of Migration and Tourism on occasion of their Plenary Assembly (October 25, 1988)",
+      "uuid": "ff962148-7ce8-4ef4-b67b-0d946e789798"
+    },
+    {
+      "match": "Bishops of Ecuador on their ad Limina visit (May 20, 2002)",
+      "uuid": "44fc9f5d-5a6e-4eb2-a1ed-7e3d6676ab80"
+    },
+    {
+      "match": "Bishops of the United States of America (10 February 2025)",
+      "uuid": "8869b6a9-5e20-4991-8fc9-0d8fc8edeb72"
+    },
+    {
+      "match": "symposium on the roots of anti-Judaism (October 31, 1997)",
+      "uuid": "e2da05b7-3b8c-4064-8e9b-c4221aa8f97d"
+    },
+    {
+      "match": "Visit to the Yad Vashem Museum, Jerusalem (March 23, 2000)",
+      "uuid": "187cf227-ce08-4868-bea6-809113c31274"
+    },
+    {
+      "match": "Holy Land (2011)",
+      "uuid": "21fda6a7-8e20-4581-86d7-2ea0be7d772d"
+    },
+    {
+      "match": "Letter of the Holy Father to Jewish brothers and sisters in Israel (2 February 2024)",
+      "uuid": "acd6fe10-f75e-42ae-8f37-d1a71f7a8dc0"
+    },
+    {
+      "match": "Episcopal Conference of the Philippines on their ad Limina visit (October 30, 2003)",
+      "uuid": "f8a9a8af-887d-4b0d-8d07-9433b90a5b25"
+    },
+    {
+      "match": "To representatives of the Jewish community in Sydney (November 26, 1986)",
+      "uuid": "268d7470-443f-4698-8252-55a24fae4197"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, April, 1979",
+      "uuid": "6b5e2ecd-df11-457b-8e10-38dc5540c0a4"
+    },
+    {
+      "match": "Address of Pope Leo XIV to Members of the Diplomatic Corps Accredited to the Holy See",
+      "uuid": "00cdb8f1-d9b0-44a9-9a10-bc0c4616913b"
+    },
+    {
+      "match": "General Audience of 15 March 2023 - Catechesis. The passion for evangelization: the apostolic zeal of the believer 7. The Second Vatican Council. 2. Being apostles in an apostolic Church",
+      "uuid": "c79abc9f-3576-4960-b3aa-423c0935616a"
+    },
+    {
+      "match": "To a group of Bishops from the United States of America on their ad Limina visit (October 28, 1983)",
+      "uuid": "ddaabd7d-ecdf-40e6-ae0e-d5f37784bf2c"
+    },
+    {
+      "match": "To the Bishops of the United States of America (Regions X-XIII) on their ad Limina visit (5 May 2012)",
+      "uuid": "d26368bf-bfdb-4cae-91a1-85f9f3894721"
+    },
+    {
+      "match": "Humani Generis",
+      "uuid": "d8b37939-1f3e-458d-81c4-a47920f792f5"
+    },
+    {
+      "match": "Mater et Magistra",
+      "uuid": "c3ebe0ee-8d61-4c18-a40d-fcfb2afb6403"
+    },
+    {
+      "match": "The Divine Institutes",
+      "uuid": "70bb8812-8311-40f1-9b09-b0308bfc857e"
+    },
+    {
+      "match": "Refugees: A challenge to Solidarity",
+      "uuid": "d6a82b79-b24a-406f-9c0c-926f49a82697"
+    },
+    {
+      "match": "World Conference on \"Xenophobia, Racism and Populist Nationalism in the Context of Global Migration\"",
+      "uuid": "8b7cd0ec-c591-4834-bf36-c79e66937256"
+    },
+    {
+      "match": "To the Ambassador of the former Yugoslav Republic of Macedonia accredited to the Holy See (June 28, 2002)",
+      "uuid": "e68fdfd1-3371-4820-8c7e-3fec8a4dbb34"
+    },
+    {
+      "match": "To the Ambassador of the Republic of Uganda accredited to the Holy See (May 28, 1998)",
+      "uuid": "b4ae69f7-ee05-4a17-bb6a-d16c92953884"
+    },
+    {
+      "match": "Statement By Archbishop Gallagher At The High-Level Meeting \"Peace Day Effort: An Effort For Middle East Peace\" (18 September 2023)",
+      "uuid": "347360ec-766f-4377-b65b-3cc742ace26e"
+    },
+    {
+      "match": "Apostolic Journey to Türkiye and Lebanon: Pope Leo XIV's press conference on the flight from Istanbul to Beirut (Papal Flight, 30 November 2025)",
+      "uuid": "5adefdac-905b-4df6-a247-144d5a0c448c"
+    },
+    {
+      "match": "To His Excellency Mr. Gijsbert Nicolaas Westerouen van Meeteren, new ambassador of the Netherlands (October 4, 1996) - Speech",
+      "uuid": "a0463f86-72f9-4163-8162-b616cc1b6793"
+    },
+    {
+      "match": "Address of His Holiness John Paul II to the diplomatic corps accredited to the Holy See (January 12, 1991) - Speech",
+      "uuid": "7d7ba598-00be-4ce6-ab37-16f3723c462a"
+    },
+    {
+      "match": "Backgrounder on Christians of the Middle East (September 2017)",
+      "uuid": "37d9c7c7-5ea3-4b50-8374-300fb7c928fc"
+    },
+    {
+      "match": "32th World Day of the Sick 2024",
+      "uuid": "9176c52d-e2ae-45b5-b30d-09b7fcf972c1"
+    },
+    {
+      "match": "Cherishing Life",
+      "uuid": "aaca131a-4666-44c4-9ae0-3d5492d261a6"
+    },
+    {
+      "match": "General Audience of 24 August 2022 - Catechesis On Old Age: 18. The labour pains of creation",
+      "uuid": "a3151893-8fb4-412c-aacd-7a559b1bf9a4"
+    },
+    {
+      "match": "General Audience of 19 February 2025: Cycle of Catechesis, Jubilee 2025",
+      "uuid": "15f79e8f-8d99-4e72-bd8a-5e1007902666"
+    },
+    {
+      "match": "Ad Apostolorum principis",
+      "uuid": "65704c7c-f321-4704-9db2-20513dd31008"
+    },
+    {
+      "match": "Catholic Ministries Serving Migrants and Refugees",
+      "uuid": "256cdb74-bd28-4183-9b9c-b24db83a7b28"
+    },
+    {
+      "match": "Message on the occasion of the 70th anniversary of Holodomor in Ukraine (November 23, 2003)",
+      "uuid": "0da8e335-322f-4c66-bb9a-bfa8f7b626e0"
+    },
+    {
+      "match": "Handbook for Liturgical Studies: The Eucharist (Volume III)",
+      "uuid": "e68620ac-a451-4adc-b527-8b772c560e10"
+    },
+    {
+      "match": "Dilectissima Nobis",
+      "uuid": "46a6e2d5-4865-42d3-a40e-428ea2aea4cd"
+    },
+    {
+      "match": "The Way of Perfection",
+      "uuid": "bef50e0e-e806-48e6-9b2d-a0e32f600852"
+    },
+    {
+      "match": "The Letters of Saint Teresa",
+      "uuid": "758153d8-94d6-4707-9fe6-f52680ef5671"
+    },
+    {
+      "match": "The Twelve Degrees of Humility and of Pride",
+      "uuid": "2d72ccf6-fa66-4780-a4f7-22f19a4297fd"
+    },
+    {
+      "match": "Vitis Mystica",
+      "uuid": "a2c22c77-7c53-4fa2-b477-cf1d534c4055"
+    },
+    {
+      "match": "Haerent Animo",
+      "uuid": "bde8b371-420b-404c-ab3f-8392cb03babe"
+    },
+    {
+      "match": "On the Sermon on the Mount, Book I",
+      "uuid": "117426a4-9f57-4241-9a74-d0787ad25bac"
+    },
+    {
+      "match": "To the new Ambassador of the Dominican Republic to the Holy See (May 26, 1997) - Speech",
+      "uuid": "4a644ef4-d4ca-4b5e-887d-9eacf40d6fb8"
+    },
+    {
+      "match": "Apostolic Journey to Malta: Meeting with young people at the Grand Harbour of Valletta (Valletta, 18 April 2010)",
+      "uuid": "d8d0654c-2568-4b15-964b-b7261c66e07a"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of Pakistan on their ad Limina visit (October 18, 1994) - Speech",
+      "uuid": "afa740b0-636c-4809-9aec-369b9d2279c0"
+    },
+    {
+      "match": "Maria Colón Gullón Yturriaga and 2 Companions: Homily",
+      "uuid": "7706b938-52de-4635-9d17-854cf07263c3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1983",
+      "uuid": "00c317d4-313a-4c54-b2e2-b4180c6ca31d"
+    },
+    {
+      "match": "Stella Maris",
+      "uuid": "d99c201a-667a-4312-bc5d-06505c273014"
+    },
+    {
+      "match": "General Audience of 31 January 1940",
+      "uuid": "cba4d778-c494-4170-9664-ef3237ae16e7"
+    },
+    {
+      "match": "Essential Elements in the Church's Teaching on Religious Life as Applied to Institutes Dedicated to Works of the Apostolate",
+      "uuid": "016c1b2b-0ee6-4ae8-a59e-2affc6c2aa50"
+    },
+    {
+      "match": "Letter to Fr. Pascual Chávez Villanueva, S.D.B., Rector Major, on the occasion of the 26th General Chapter of the Salesians of Don Bosco (March 1st, 2008)",
+      "uuid": "af9d77a3-44af-4976-9e16-17439b577990"
+    },
+    {
+      "match": "To the participants in the 18th International Conference promoted by the Pontifical Council for Health Pastoral Care (November 14, 2003)",
+      "uuid": "29066850-de74-4a99-8765-601c127b84a2"
+    },
+    {
+      "match": "The Nucleus of the New Evangelization",
+      "uuid": "67b94646-f023-4bdf-b45a-813358d41024"
+    },
+    {
+      "match": "The Priestly Ministry",
+      "uuid": "2debb701-2165-4d40-aa3b-ae64930f37d3"
+    },
+    {
+      "match": "Statement «Truth, Memory and Solidarity – Keys to Peace and Reconciliation»",
+      "uuid": "d50f8f82-2afb-4f42-acb8-a1ddedf8252e"
+    },
+    {
+      "match": "To members of the Diplomatic Corps accredited to the Holy See (8 January 2024)",
+      "uuid": "4e766b1a-bfd5-41ce-b316-94b732327030"
+    },
+    {
+      "match": "To the new Ambassador of Israel accredited to the Holy See (June 2, 2003) - Speech",
+      "uuid": "7d2be490-42cc-4557-840b-96a658d4efbc"
+    },
+    {
+      "match": "Health Pastoral Care (October 31, 1998) - Speech",
+      "uuid": "03f03440-76ce-4109-844c-b8cdf2903dd5"
+    },
+    {
+      "match": "Health Pastoral Care (October 31, 1998)",
+      "uuid": "b660ffc8-7084-4266-bbf5-d73010e097ad"
+    },
+    {
+      "match": "Apostolic Journey to New Delhi: Meeting with the representatives of other religions (Vigyan Bhawan, 7 November 1999)",
+      "uuid": "27874d23-b68c-4a80-8dd0-15af10cdd6ee"
+    },
+    {
+      "match": "Christian witness in a multi-religious world",
+      "uuid": "ff318291-5505-40aa-a3e6-a3edab720342"
+    },
+    {
+      "match": "Letter to the President of the Italian Episcopal Conference, H.E. Msgr. Angelo Bagnasco, on the occasion of the centenary of the First Italian Catholic Social Week (October 12, 2007)",
+      "uuid": "c5717491-6f41-4c8b-a94e-0a96c8b0dceb"
+    },
+    {
+      "match": "To the Parliamentary Assembly of the Organization for Security and Cooperation in Europe (O.S.C.E.) (October 10, 2003)",
+      "uuid": "3a8cf674-5b7d-4e49-939d-a15eb77e1741"
+    },
+    {
+      "match": "To the Bishops of the Episcopal Conference of Australia on their ad Limina visit (October 9, 1993)",
+      "uuid": "8b9e43db-7376-4d44-94e7-de52f1375dfc"
+    },
+    {
+      "match": "To the third group of Bishops of Poland on their \"ad Limina\" visit (February 14, 1998)",
+      "uuid": "94073cd1-cf02-4058-911b-d6e38890bd60"
+    },
+    {
+      "match": "To the representatives of the Catholic Lay People of America (September 18, 1987)",
+      "uuid": "c8853c78-74ef-4398-b060-10385037d682"
+    },
+    {
+      "match": "Dignitatis Humanae",
+      "uuid": "166f5223-5e80-4091-a78c-baf394b05bb5"
+    },
+    {
+      "match": "Parishes-of-choice. Canonical, Theological and Pastoral Considerations",
+      "uuid": "3d6f32c7-fad0-453e-98af-4f8017f47ad4"
+    },
+    {
+      "match": "Apostolic Journey to Uganda: To the Bishops of the Uganda Episcopal Conference in Kampala (February 7, 1993)",
+      "uuid": "8058f235-b64f-4a20-9123-c82958928637"
+    },
+    {
+      "match": "Guida per le Grandi Celebrazioni",
+      "uuid": "0f84c7dc-d13c-4d2d-a65a-2292c2eebc85"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 1924",
+      "uuid": "27b10bb8-04a4-4d6b-9996-5dde9ca4d528"
+    },
+    {
+      "match": "To the Pontifical Urban University (November 29, 2002)",
+      "uuid": "70c151f5-9846-4a40-9fe8-30c52353a825"
+    },
+    {
+      "match": "National Directory for the Formation, Ministry, and Life of Permanent Deacons",
+      "uuid": "3d88fedf-c289-4e98-9323-d3087112ca40"
+    },
+    {
+      "match": "Mutuae Relationes",
+      "uuid": "92d91fe6-6059-4f94-9038-f4b206a5d1df"
+    },
+    {
+      "match": "Exiit qui seminat",
+      "uuid": "3cd626f4-8619-41e4-a1ee-df7944e23486"
+    },
+    {
+      "match": "Dilexit nos (24 October 2024)",
+      "uuid": "74522552-a8bc-4c59-9666-d17f50df83bd"
+    },
+    {
+      "match": "In Unitate Fidei on the 1700th Anniversary of the Council of Nicaea",
+      "uuid": "6b5d9161-0f94-41e8-9dab-db7df1f1d7da"
+    },
+    {
+      "match": "Scripturae sacrae affectus",
+      "uuid": "758c7274-d3e7-4cb4-96c5-ff30673fb5e4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, August, 1970",
+      "uuid": "40b6e452-5502-4e80-b9cd-a753b9621546"
+    },
+    {
+      "match": "Letter to the Latin-rite Diocese of Jerusalem (November 28, 1997)",
+      "uuid": "9d2f96b1-3a4f-4d26-af8f-7e567d027727"
+    },
+    {
+      "match": "HIV and Condoms Within Marriage",
+      "uuid": "a691c2bd-ded1-4230-b622-9617c9bac8f8"
+    },
+    {
+      "match": "To the Bishops of Uganda on their ad Limina Visit (May 11, 1992)",
+      "uuid": "e3f54c15-6562-4363-a370-3994e41d73b9"
+    },
+    {
+      "match": "Special Session on HIV/AIDS (June 21, 2001) - Speech",
+      "uuid": "712ea99e-e273-4824-b90d-49f473cb97f7"
+    },
+    {
+      "match": "General Assembly Special Session on HIV/AIDS",
+      "uuid": "7c504f00-29dc-498b-b154-c5ada288dca6"
+    },
+    {
+      "match": "42nd World Day of Peace - FIGHTING POVERTY TO BUILD PEACE",
+      "uuid": "9255d86a-de58-4844-bfd6-2537b1427601"
+    },
+    {
+      "match": "To the Catholic Union of the Italian Press (September 22, 1999)",
+      "uuid": "65e4d621-64f2-4a9f-80b7-838caef43a51"
+    },
+    {
+      "match": "How Should Catholic Social Teaching Be Taught to Seminarians?",
+      "uuid": "21d06633-8734-43cd-b8bc-9ab3b84ebc30"
+    },
+    {
+      "match": "Propositions on the Doctrine of Christian Marriage - Christological Theses on the Sacrament of Marriage",
+      "uuid": "32f8e9b3-6172-40e0-a56c-f2fddf469285"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 1985",
+      "uuid": "116b2e2a-f458-4146-ad0a-4c644256c1a4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2006",
+      "uuid": "1adb4253-a5df-4e1d-8bc3-ce0da45b7841"
+    },
+    {
+      "match": "27 November 1986, Hobart",
+      "uuid": "b4b44b6b-4ee8-4f5b-a22c-5aa591746d3c"
+    },
+    {
+      "match": "Letter to Artists",
+      "uuid": "b073c446-8f3e-49ea-adba-2fac9bb18bac"
+    },
+    {
+      "match": "Vita Consecrata",
+      "uuid": "26b56e4e-87bb-4e19-8f55-5faaa4a88268"
+    },
+    {
+      "match": "Biography and Beatification of Carlo Acutis",
+      "uuid": "7b12835c-240e-4da0-aecc-e62adf8aa7f1"
+    },
+    {
+      "match": "Norms for Proceeding in the Discernment of Alleged Supernatural Phenomena",
+      "uuid": "76978af5-0981-4655-bd22-3a4e1d1b251d"
+    },
+    {
+      "match": "General Audience of 26 May 2021 - Catechesis on prayer: 35. The certainty of being heard",
+      "uuid": "ebe878fa-af97-4bb6-b71a-a8a305d3fefa"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 1999",
+      "uuid": "e53e8d3b-6254-4f7c-a4aa-25ce02acc07e"
+    },
+    {
+      "match": "Guide to the training of future priests concerning the instruments of social communication",
+      "uuid": "80e6c38b-0af8-4b3b-98d9-49bc377ed096"
+    },
+    {
+      "match": "Recovering Aquinas's Common-Good-Oriented Right of Rebellion",
+      "uuid": "39486010-56d0-4ff0-b90e-294fe0828c4b"
+    },
+    {
+      "match": "13 September 1984, Celebration of the Word with priests, religious and laity",
+      "uuid": "a2022b56-d9b4-4558-a18f-ca97a73495da"
+    },
+    {
+      "match": "Most Holy Body and Blood of Christ – Holy Mass, Procession and Eucharistic Blessing",
+      "uuid": "db0ac757-8f44-4ae5-9248-de2b353e903f"
+    },
+    {
+      "match": "Apostolic Journey to Lebanon: Holy Mass at the “Beirut Waterfront”",
+      "uuid": "df129780-4a25-49db-a459-13a666ea0c8b"
+    },
+    {
+      "match": "COMMENT ON NOTE: on the “Doctrine of Discovery”",
+      "uuid": "24c4ef3b-e681-4dc5-893a-d545a41c12a9"
+    },
+    {
+      "match": "Letter to Congress Regarding Statement on Political and Ideological Violence (June 18, 2024)",
+      "uuid": "8f989684-d06d-4d62-bc95-7f8194e36d54"
+    },
+    {
+      "match": "To the Bishops of Canada (Ontario) on their ad Limina visit (November 19, 1993)",
+      "uuid": "94c670d6-a422-4711-96ac-cc6048f501b5"
+    },
+    {
+      "match": "Magnum Bullarium Romanum: Tomus II",
+      "uuid": "1b2dd337-b2d4-44ea-979f-7f5eb254a7aa"
+    },
+    {
+      "match": "In Defense of the Catholic Doctrine on the Church Against Certain Errors of the Present Day",
+      "uuid": "013bdd03-4831-4300-b446-8a8fc8a435c7"
+    },
+    {
+      "match": "Apostolic Journey to Lebanon: Welcome ceremony (May 10, 1997)",
+      "uuid": "21e6248e-01fb-468f-8b07-23e66a75b4f8"
+    },
+    {
+      "match": "41st World Communications Day, 2007 - Children and the Media: A Challenge for Education",
+      "uuid": "305deac8-e6fc-499d-8f1a-eaaae6b0ef24"
+    },
+    {
+      "match": "Catechism of the Ukrainian Catholic Church: Christ",
+      "uuid": "5c0fb401-3c71-494e-bfce-ac8641dafd3b"
+    },
+    {
+      "match": "Apostolic Journey to Jamaica: Eucharistic Concelebration at the national stadium of Kingston (10 August 1993)",
+      "uuid": "276d8be4-d326-4e32-a2e2-77cab84c1d26"
+    },
+    {
+      "match": "Apostolic Journey to Equatorial Guinea: Meeting with the Authorities, Civil Society and the Diplomatic Corps (Malabo, 21 April 2026)",
+      "uuid": "fe5fc52f-db8a-4332-98f2-ca712ccca7ab"
+    },
+    {
+      "match": "To the Delegation of the Ecumenical Patriarchate of Constantinople (28 June 2024)",
+      "uuid": "8ee90f52-2466-4b96-a546-ba864f5e0c01"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2007",
+      "uuid": "caf8d9dc-ae19-4c11-810a-aa7fb250e357"
+    },
+    {
+      "match": "Dies Domini",
+      "uuid": "567558f7-813f-42f5-8c89-0bb8e79bea4e"
+    },
+    {
+      "match": "To the staff of the Bank of Italy (November 26, 1999)",
+      "uuid": "7e53fc8b-cb82-4ceb-9dac-ed86f761f6a1"
+    },
+    {
+      "match": "Letter to Congress Regarding Budget Reconciliation (June 26, 2025)",
+      "uuid": "5d2afee9-9d17-46b9-964d-a746a0ff981e"
+    },
+    {
+      "match": "National Convention promoted by the International Christian Business Executives (UCID) (March 7, 1997)",
+      "uuid": "02abeeb9-1d83-4a98-91f9-12af54461f9d"
+    },
+    {
+      "match": "Common Asylum and Immigration Policy of the European Union",
+      "uuid": "18f90fdc-b32a-41cb-9abe-e333ed184562"
+    },
+    {
+      "match": "Holy Mass for the Congolese Community (1 December 2019)",
+      "uuid": "3b1a692e-1209-4f84-a8b0-874390b707de"
+    },
+    {
+      "match": "General Audience of 6 May 2020 - Catechesis on prayer: 1. The mystery of prayer",
+      "uuid": "5f3f4a11-ffa2-4320-b1b8-c10c6de14928"
+    },
+    {
+      "match": "The General Instruction on the Liturgy of the Hours",
+      "uuid": "6dabf215-26a6-416e-9356-e85952fa84a4"
+    },
+    {
+      "match": "To the Bishops from Malaysia, Singapore and Brunei on their ad Limina visit (November 10, 2001)",
+      "uuid": "8b4678a9-1aef-412e-906c-743e4938b363"
+    },
+    {
+      "match": "COMECE Statement on EU Corporate Sustainability Due Diligence Directive",
+      "uuid": "e2aaa3c4-0e57-4663-9284-4f104d5750cc"
+    },
+    {
+      "match": "To the Bishops of Brazil (Nordeste I-IV) on their ad Limina visit (October 26, 2002)",
+      "uuid": "58cb26f4-b5bf-46ed-b7db-c88439706d75"
+    },
+    {
+      "match": "The Gift of Scripture",
+      "uuid": "13723aa7-2955-4fb5-ab72-302504020af5"
+    },
+    {
+      "match": "General Audience of 27 January 2021",
+      "uuid": "d744bca3-1454-4494-8170-80cdcc5d572a"
+    },
+    {
+      "match": "Princeps Pastorum",
+      "uuid": "a772d39b-01d1-4ed4-91d2-012ed9883e6d"
+    },
+    {
+      "match": "Sensus fidei in the life of the Church",
+      "uuid": "e7aedd0b-2573-4102-826e-6e5fd69ed86f"
+    },
+    {
+      "match": "Archbishop Caccia Addresses the Crisis of Work at the Commission for Social Development (New York, 13 February 2023)",
+      "uuid": "d4ad08d5-06a1-4ce4-85d8-ea0d0bb0e3e7"
+    },
+    {
+      "match": "Communion and Stewardship: Human Persons Created in the Image of God",
+      "uuid": "67b1d762-1684-452d-a15e-a9d2ed3e7184"
+    },
+    {
+      "match": "Apostolic Journey to Luxembourg and Belgium: Meeting with University Students in the Aula Magna of the Université Catholique de Louvain (28 September 2024)",
+      "uuid": "a6d39ace-8b28-47d2-8e93-a62388216492"
+    },
+    {
+      "match": "Libertas",
+      "uuid": "0ea0fd4e-85d3-42a9-97b1-7a5dbeecdb4d"
+    },
+    {
+      "match": "Paternae",
+      "uuid": "5d714e1d-15e0-42ac-97e8-46350dcab2b4"
+    },
+    {
+      "match": "To the Plenary Assembly of the Pontifical Council for Social Communications (March 12, 1993)",
+      "uuid": "991d5d46-aa73-4f91-a5b7-1c8916de12a5"
+    },
+    {
+      "match": "To participants in a conference sponsored by the Clinical Medicine Institute of the Catholic University of the Sacred Heart (November 25, 1995)",
+      "uuid": "c0ac7c42-ffa8-4a45-a51b-e342b76be676"
+    },
+    {
+      "match": "To the Diplomatic Corps accredited to the Holy See (January 13, 2003)",
+      "uuid": "ad9675ee-126b-4f57-81a2-234ef8ded6f7"
+    },
+    {
+      "match": "Apostolic Journey to Spain: Meeting with Members of the Spanish Parliament at the Congress of Deputies (Madrid, 8 June 2026)",
+      "uuid": "2b001e0b-410c-486d-87ca-8f79b57f2839"
+    },
+    {
+      "match": "General Audience of 20 September 2017",
+      "uuid": "e0830fa6-1007-4ea0-9698-37e36bd85ce7"
+    },
+    {
+      "match": "Pastoral Visit to L'Aquila: Holy Mass (28 August 2022)",
+      "uuid": "1f18b69e-8f31-468f-a21c-614750ebc7b8"
+    },
+    {
+      "match": "Address of His Holiness Pope Francis to the Association of Hispanic Priests in the United States of America",
+      "uuid": "2e06c3c9-3f2e-4bca-bb12-81565c6af826"
+    },
+    {
+      "match": "Dominus Iesus",
+      "uuid": "cc79bc8e-5fce-4368-80dc-71a6811340e7"
+    },
+    {
+      "match": "Dei Filius",
+      "uuid": "e1a07ee5-0122-4396-a9db-862ea3b90918"
+    },
+    {
+      "match": "Message to the participants in the Congress on Prenatal Education (March 20, 1998)",
+      "uuid": "f27e0d70-530c-4fae-b169-ea2622dbba5d"
+    },
+    {
+      "match": "To representatives of the communications media in Canberra (November 25, 1986)",
+      "uuid": "8b22ccbc-83c2-4ba5-8c53-b9d50157f42e"
+    },
+    {
+      "match": "To the Participants of the Meeting of Moderators of Lay Associations, Ecclesial Movements and New Communities Sponsored by the Dicastery for the Laity, the Family and Life (13 June 2024)",
+      "uuid": "cdec8361-342d-4f2f-a391-babf0b80c475"
+    },
+    {
+      "match": "Message of the Holy Father for the 111th World Day of Migrants and Refugees 2025",
+      "uuid": "bf8a9235-deaa-4d2f-bb5b-641ee59bf058"
+    },
+    {
+      "match": "Message of the Holy Father Leo XIV to Participants in the 115th Annual Meeting of the Catholic Charities USA Network",
+      "uuid": "7055d0db-0d98-45bb-957b-bbaf3c8b37e5"
+    },
+    {
+      "match": "Refugees & Migrants in Our Common Home",
+      "uuid": "b2a86b2a-4cf9-4afb-b9c7-244d1a4bc10f"
+    },
+    {
+      "match": "Towards a Narrative of Hope",
+      "uuid": "a4726b93-e13a-4990-a618-66ce4ae384bf"
+    },
+    {
+      "match": "Declaration on Euthanasia",
+      "uuid": "7adb6b56-3a43-4b3b-ac07-17af19d566c9"
+    },
+    {
+      "match": "Letter to the Superior General of the Congregation of the Brothers of Charity",
+      "uuid": "88d49cec-da9a-4f3d-9c44-ac9e10389dca"
+    },
+    {
+      "match": "To the participants in the International Conference sponsored by the Pontifical Council for Health Pastoral Care (November 12, 2004)",
+      "uuid": "2999c004-a950-4201-ac3a-43e20bb47e49"
+    },
+    {
+      "match": "Saint Joseph, patron of good death",
+      "uuid": "8f41bb82-12d9-4a47-8f24-013f7ec12344"
+    },
+    {
+      "match": "Address to the scientists of the Pontifical Academy of Sciences, 21 October 1985",
+      "uuid": "d3040d94-9799-436f-a31a-4e177d609344"
+    },
+    {
+      "match": "Longevity: symbol and opportunity",
+      "uuid": "084cd8ce-ef66-4240-a9fd-36d9d3411d97"
+    },
+    {
+      "match": "love for the gift of life",
+      "uuid": "b3e579b3-9a6f-4f1f-9071-dc29c4897fc7"
+    },
+    {
+      "match": "Responses to Certain Questions of the United States Conference of Catholic Bishops Concerning Artificial Nutrition and Hydration",
+      "uuid": "973b3eb6-2e52-4fd5-a723-00985f1732b8"
+    },
+    {
+      "match": "The grace of time and the bond between age and life",
+      "uuid": "21d1b3e1-b6b0-4093-b0f3-a2fed978b862"
+    },
+    {
+      "match": "Nicodemus. “How can a man be born when he is old?",
+      "uuid": "2a0e009a-0819-4d4d-97db-df049e047294"
+    },
+    {
+      "match": "10th Congress of the European Academy of Anaesthesiology",
+      "uuid": "fb621e9a-5898-414e-a6b4-7b0686dc1d26"
+    },
+    {
+      "match": "1st Anniversary of the death of Pope Francis",
+      "uuid": "f7b6f583-2a0c-4b31-ab49-1610d188f759"
+    },
+    {
+      "match": "Brain Death and Organ Removal",
+      "uuid": "844c5c7d-a81d-44a0-b1a2-5561b48562a1"
+    },
+    {
+      "match": "Life-Sustaining Treatments and Vegetative State",
+      "uuid": "2670e0bc-d497-47ec-8bda-da66ff70fa0c"
+    },
+    {
+      "match": "Letter to the President of the Republic of Hungary on the Fiftieth Anniversary of the Budapest uprising (October 7, 2006)",
+      "uuid": "f501248a-f374-4e18-9096-c2e01688b8fe"
+    },
+    {
+      "match": "To journalists on their Jubilee (June 4, 2000)",
+      "uuid": "c72faffd-2438-427b-be7b-cba054c51e87"
+    },
+    {
+      "match": "General Audience of 7 November 2018",
+      "uuid": "89966c2d-c814-4988-84a1-b66183aa53c7"
+    },
+    {
+      "match": "General Audience of 9 September 2020 - Catechesis “Healing the world”: 6. Love and the common good",
+      "uuid": "f57e16df-61d7-44a8-af86-9289f27ed694"
+    },
+    {
+      "match": "General Audience of 16 March 2022 - Catechesis on Old Age – 3. Old Age, A Resource for Lighthearted Youth",
+      "uuid": "8e6e68ef-a204-4f0d-888b-52dae4e15abe"
+    },
+    {
+      "match": "General Audience of 7 December 2016: Christian hope - 1. Isaiah 40",
+      "uuid": "70e149d2-768a-4f96-93c4-e87a7ebb2906"
+    },
+    {
+      "match": "Eucharistic Communions as a Christian Contribution to Society",
+      "uuid": "0fb35aeb-d355-4b25-8a0b-45217f31f5c4"
+    },
+    {
+      "match": "Backgrounder on Criminal Justice and Restorative Justice and Sentencing Reform (January, 2016)",
+      "uuid": "3f7e9e73-e35c-4347-9ea6-30a2df5c7b23"
+    },
+    {
+      "match": "Pascendi Dominici Gregis",
+      "uuid": "294d715e-0a33-4008-b77f-6aad96d79cac"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1994",
+      "uuid": "c45d0ea1-6b5b-4329-a695-2ff3ff1cf78e"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 1994",
+      "uuid": "60959224-1725-43a7-a646-15f2a83c909a"
+    },
+    {
+      "match": "At the conclusion of the Jubilee of Government Leaders, members of Parliament and Politicians (November 5, 2000) - Speech",
+      "uuid": "22e5723f-ae75-438c-946a-3453a9ade77a"
+    },
+    {
+      "match": "Address of John Paul II to the delegates of the Economic Commission for Latin America and the Caribbean (ECLAC) Santiago, Chile (April 3, 1987) - Speech",
+      "uuid": "2f75ec07-c199-463b-b010-43aafdec92aa"
+    },
+    {
+      "match": "To Young People of the Diocese of Willemstad (May, 1990) - Speech",
+      "uuid": "79f87e0e-d47a-4733-9201-1a0bbb998c93"
+    },
+    {
+      "match": "Pastoral Visit to Trieste: Eucharistic Concelebration (7 July 2024)",
+      "uuid": "c55ec381-e084-470b-b5ac-e342cb21a95b"
+    },
+    {
+      "match": "4 October 2013: Holy Mass in Saint Francis of Assisi Square",
+      "uuid": "4f0d9f30-f7af-4b5e-bc11-3de9105d40fe"
+    },
+    {
+      "match": "Message of His Holiness Pope Francis for the World Day of Prayer for the Care of Creation [1st September 2024]",
+      "uuid": "71016530-7cfe-4482-9629-29c6d9e0600b"
+    },
+    {
+      "match": "Apostolic Exhortation Dilexi te of the Holy Father Leo XIV on Love for the Poor",
+      "uuid": "c42f736e-f7dd-4a81-9e6e-02c7bb9d6520"
+    },
+    {
+      "match": "To participants in the General Chapter of the Missionaries of St. Charles (Scalabrinians) (28 October 2024)",
+      "uuid": "84978ead-5eba-4dc8-8bcc-72084ed170e0"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2022",
+      "uuid": "eb6aa324-87cc-4480-9236-f554db2e3a81"
+    },
+    {
+      "match": "General Audience of 28 August 2024: Catechesis. Sea and desert",
+      "uuid": "9a08b38c-8563-4420-8c9b-340f31653c66"
+    },
+    {
+      "match": "Presentation and promulgation of the Encyclical Letter \"Magnifica humanitas\" (25 May 2026)",
+      "uuid": "e053b030-7998-4c4d-96cb-1fe261db5d6c"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2003",
+      "uuid": "ae9725a2-70d9-4d72-9638-ceffac3d77b3"
+    },
+    {
+      "match": "A Stable Monetary Union",
+      "uuid": "b9c5e367-9d73-46ff-bb8d-bcd7224cbc99"
+    },
+    {
+      "match": "To the new Ambassadors accredited to the Holy See on the occasion of the presentation of Credentials (December 16, 1999)",
+      "uuid": "ee0ef539-f8ce-4e56-bb7a-74d104aeeee1"
+    },
+    {
+      "match": "Message of the Holy Father to participants in the meeting of Latin American priests, religious sisters, religious brothers, and seminarians who are studying in Rome (9 December 2025)",
+      "uuid": "d19ae7da-c44a-4d34-b865-eca92642cea2"
+    },
+    {
+      "match": "General Audience of 3rd April 2024 - Cycle of Catechesis. Vices and Virtues. 13. Justice",
+      "uuid": "1a08715b-74ce-4b15-8e34-689e5b50b658"
+    },
+    {
+      "match": "General Audience of 18 February 2015: The family - 5. Siblings",
+      "uuid": "abb36a0a-4599-441b-b15f-cef4a5be58c9"
+    },
+    {
+      "match": "To participants in the World Meeting of Popular Movements (28 October 2014)",
+      "uuid": "8f4db6d6-6efa-4242-8205-2499626b4114"
+    },
+    {
+      "match": "General Audience of 2 October 1968",
+      "uuid": "e21f6937-bd21-4709-a5dc-d8c17e2bcc5f"
     }
   ]
 }
