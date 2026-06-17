@@ -352,6 +352,12 @@ if command -v rclone &> /dev/null; then
     # rclone bypass-a HTTPS_PROXY (telefon-residential-proxy) jer Drive traffic
     # ne treba i ne smije ići kroz cellular tunel — kvari throughput i nije
     # ono što proxy postoji da pruža (proxy je za yt-dlp YouTube IP fingerprint).
+    # PERFORMANCE (nightly): --fast-list radi jedno rekurzivno listanje umjesto
+    # poziva-po-direktoriju (drastično manje Drive API round-tripova na ~50k objekata).
+    # --max-age 30d: nightly samo popunjava NAJNOVIJE (svježi Colab diarized output);
+    # stare već-lokalne fajlove ni ne gledamo (nema checking/transfer faze za njih).
+    # ZA BACKFILL starijih epizoda: pokreni ručno s RCLONE_MAX_AGE=100y (efektivno
+    # bez gornje granice, gleda cijeli Drive).
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy google_drive_ms:domovina_fetch_data/canary_wav "$OUTPUT_DIR" \
       -L --filter "- ._*" \
@@ -360,6 +366,7 @@ if command -v rclone &> /dev/null; then
       --filter "+ **.sortformer.**" \
       --filter "+ **.embeddings.*.json" \
       --filter "- *" \
+      --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
       --drive-shared-with-me --progress \
       || echo "   ⚠️ rclone Drive DOWNLOAD nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Publish put (H.264 + reindex) ne smije ovisiti o Colab/Drive syncu."
 else
@@ -406,6 +413,7 @@ if command -v rclone &> /dev/null; then
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
+      --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
       --drive-shared-with-me --progress \
       || echo "   ⚠️ rclone Drive UPLOAD (WAV za Colab) nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Svježi videi svejedno dobiju video_h264.mp4 + reindex u ovom prolazu (Colab Canary samo kasni dok se Drive ne oslobodi)."
 else
@@ -573,6 +581,7 @@ if command -v rclone &> /dev/null; then
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "+ **.embeddings.*.json" --filter "- *" \
+      --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
       --drive-shared-with-me --progress
 fi
 else
