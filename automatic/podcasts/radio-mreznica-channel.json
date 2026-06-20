@@ -88,7 +88,7 @@
   "uploader_url": "https://www.youtube.com/@radiomreznica2174",
   "modified_date": null,
   "view_count": null,
-  "playlist_count": 3,
+  "playlist_count": 2,
   "uploader": "Radio Mrežnica",
   "channel_url": "https://www.youtube.com/channel/UCI6pKljX81g3vuK2SYj62rQ",
   "_type": "playlist",
@@ -101,7 +101,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1781830894,
+  "epoch": 1781917271,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
