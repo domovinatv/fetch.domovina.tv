@@ -391,6 +391,18 @@ cd "$SCRIPT_DIR" || exit 1
 
 node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
 
+# --- KORAK 1b: beamly direct-MP3 izvori (Sub Club, Launched) ---
+# Ovi RevenueCat podcasti nisu na YouTubeu (slaba pokrivenost), pa idu mimo
+# fetch.js: ingest_beamly.mjs čita kataloge iz ~/git/revenuecat/subclub i skida
+# direktni MP3 (soundLink) u storage/output/{subclub,launched} u IDENTIČNOM
+# formatu kao yt-dlp, pa ostatak pipelinea (od KORAK 2) radi nepromijenjeno.
+# NE-FATALNO: ako padne (mreža/repo nedostupan), nastavi s ostalim kanalima.
+if [ -f "$SCRIPT_DIR/ingest_beamly.mjs" ]; then
+  echo ""
+  echo "   📥 KORAK 1b: beamly direct-MP3 (Sub Club, Launched)"
+  node "$SCRIPT_DIR/ingest_beamly.mjs" || echo "   ⚠️ ingest_beamly nije uspio — NE-FATALNO, nastavljam."
+fi
+
 echo ""
 
 # --- KORAK 2: MP3 → WAV ---

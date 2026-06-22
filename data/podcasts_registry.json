@@ -6310,6 +6310,68 @@
         "github-issues-2026-05"
       ],
       "notes": "Osnivaci hrvatskih startupa dijele uspjehe i padove; cilj inspirirati studente i poduzetnistvo na sveucilistima. 5 epizoda, prosjek ~47 min. Prijavljeno kroz GitHub issue #5."
+    },
+    {
+      "slug": "subclub",
+      "display_name": "Sub Club by RevenueCat",
+      "source_type": "audio-direct",
+      "source": {
+        "provider": "beamly",
+        "domain": "subclub.com",
+        "homepage": "https://subclub.com",
+        "ingest": "ingest_beamly.mjs"
+      },
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF",
+        "type": "playlist"
+      },
+      "tags": [
+        "technology",
+        "business",
+        "english"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "language": "en"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "full",
+      "notes": "RevenueCat podcast o subscription/app monetizaciji. Engleski (Canary EN->HR). Ingestira se preko direktnog MP3 (beamly soundLink), ne YouTube. ~167 epizoda."
+    },
+    {
+      "slug": "launched",
+      "display_name": "Launched by RevenueCat",
+      "source_type": "audio-direct",
+      "source": {
+        "provider": "beamly",
+        "domain": "launchedfm.com",
+        "homepage": "https://launchedfm.com",
+        "ingest": "ingest_beamly.mjs"
+      },
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLeRhggrXOh5EXa01b_9GN2cZXZagWEEv7",
+        "type": "playlist"
+      },
+      "tags": [
+        "technology",
+        "indie-dev",
+        "english"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "language": "en"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "full",
+      "notes": "RevenueCat podcast (indie app devs). Engleski (Canary EN->HR). Ingestira se preko direktnog MP3 (beamly soundLink), ne YouTube. ~98 epizoda."
     }
   ],
   "philosophy": {
