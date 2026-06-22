@@ -1,0 +1,18 @@
+{
+  "id": "beamly_subclub",
+  "channel": "Sub Club by RevenueCat",
+  "channel_id": "beamly_subclub",
+  "title": "Sub Club by RevenueCat - Episodes",
+  "availability": null,
+  "channel_follower_count": 0,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://sites.beamly.com/60d3642fe958040017f73064/media/7191766464294d87e823.png",
+      "id": "0"
+    }
+  ],
+  "_source": "beamly",
+  "_homepage": "https://subclub.com"
+}

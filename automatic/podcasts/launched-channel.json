@@ -1,0 +1,18 @@
+{
+  "id": "beamly_launched",
+  "channel": "Launched by RevenueCat",
+  "channel_id": "beamly_launched",
+  "title": "Launched by RevenueCat - Episodes",
+  "availability": null,
+  "channel_follower_count": 0,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://img.transistorcdn.com/InSchcY1Zqhphh_528hq1uOkUghiMiTFwM1nDRtkvPs/rs:fill:0:0:1/w:1400/h:1400/q:60/mb:500000/aHR0cHM6Ly9pbWct/dXBsb2FkLXByb2R1/Y3Rpb24udHJhbnNp/c3Rvci5mbS9lYzJk/NDMyMmIwYmE2YzYz/ZTJjYWFjMWU1YzJi/ODRmZi5wbmc.jpg",
+      "id": "0"
+    }
+  ],
+  "_source": "beamly",
+  "_homepage": "https://launchedfm.com"
+}

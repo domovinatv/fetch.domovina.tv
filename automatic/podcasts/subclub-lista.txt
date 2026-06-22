@@ -1,0 +1,167 @@
+20260615 | WWDC 2026: What Subscription Apps Need To Know | https://youtu.be/52442b1807a
+20260527 | How Removing the Free Trial Grew Monthly Subs 2000% – Nancy Anderson, Natal | https://youtu.be/029f40c8ee9
+20260513 | Freemium at Scale: Why Life360 Protects its Free Users – Giordano Contestabile | https://youtu.be/6dcab9c9837
+20260429 | Why Opal Stopped Chasing Revenue – Kenneth Schlenker, Opal | https://youtu.be/tJnJflSXaE4
+20260415 | 12 AI Growth Lessons for Subscription Apps – Phil Carter, Elemental Growth | https://youtu.be/UYIgu02h8cs
+20260401 | How the World's #1 VPN App Reached 1 Billion Downloads – Tanuj Chatterjee, Super Unlimited | https://youtu.be/Y16aBkMc6hk
+20260318 | Bootstrapped to $6.7M ARR and an Exit to Quizlet in 2 Years – Brett Bauman & Zack Hargett, Coconote | https://youtu.be/Wg70HlO-5gY
+20260309 | How ElevenLabs Turns Feature Launches Into a Growth Engine – Luke Harries | https://youtu.be/fp_ld0mrNMg
+20260308 | Why App Economy Disruption Won’t Happen As Fast As Everyone Thinks – Eric Seufert | https://youtu.be/eKVHg2z3E_8
+20260307 | The Art of Driving Retention Through Product – Ben Gammon, Ladder | https://youtu.be/UCiGz2aBUhU
+20260306 | The 2026 State of Subscription Apps Report | https://youtu.be/24da409c883
+20260306 | How To Repurpose Offline Events Into Millions Of Online Impressions – Larissa Morimoto, PhotoRoom | https://youtu.be/_HnZIIf8H2o
+20260305 | Why Web Onboarding Should Sell The Problem, Instead Of The Solution – Leon Sasson, Rise Science | https://youtu.be/0Rx4S-TvZdI
+20260304 | Dynamic Paywalls That Drove Millions in New Revenue – Shawn Gong, Tinder | https://youtu.be/sckREcCQQys
+20260303 | The Hidden Cost of Underpricing Your Subscription – Patrick Rills, Lose It! | https://youtu.be/Vv2h5If8gGU
+20260302 | How Clarity and Personalization Help Drive Duolingo’s Growth – Anmol Tiwari, Duolingo | https://youtu.be/ml2ofz2TfIU
+20260301 | How Mojo Increased ARPU 60% In Just Five Months – Michal Parizek, Mojo | https://youtu.be/plEgbUsVzV8
+20260228 | Stop Celebrating Conversion Wins Before Checking Renewals – Sara Grana, Yousician | https://youtu.be/f_pNVYDlaBc
+20260227 | The Boom In Non-Game App Revenue And What's Driving It – Olivia Moore, Andreessen Horowitz | https://youtu.be/VPtNcQ2ySHg
+20260218 | How Skylight Balances Growth and Profit for Sustainable Success – Michael Segal & Mark Ungerer, Skylight | https://youtu.be/AilakPuHdf4
+20260204 | How ElevenLabs Builds, Prices, and Grows AI Consumer Apps | https://youtu.be/504108acd60
+20260121 | Why Your Free Users Are Your Real Growth Engine – Cem Kansu, Duolingo CPO | https://youtu.be/pqbbyRMssbQ
+20260107 | How a Single Paywall Experiment Generated $50M – Jeff Morris, Chapter One, Ex-Tinder | https://youtu.be/5qWhNLUR3MA
+20251224 | Creative Misfires, False Positives, and Meta's Auction Flaws — Alper Taner, Stealth-Mode App Studio | https://youtu.be/FF2GKgBi6ZI
+20251210 | Pivots, Funding, and Building Apps That Last – Greg Cohn, Burner | https://youtu.be/PSu9ZrwKHLo
+20251126 | How Tinder Captures More Value With Tiered Pricing and Consumables — Ravi Mehta | https://youtu.be/AWI3rofh0BA
+20251112 | Why AI Probably Won’t Kill Your App (But Ignoring It Will) — Eric Crowley, GP Bullhound | https://youtu.be/IGxuXkPXEco
+20251029 | How Condé Nast Experiments, Bundles, and Wins — Michael Ribero, Condé Nast | https://youtu.be/0qt-wHxiFMY
+20251015 | Buying vs. Building: Scaling Beyond a Single App — Josh Peleg, BlueThrone | https://youtu.be/T3YIc-clWo0
+20251001 | What Subscription Apps Can Learn About Monetization From Gaming — Mathias Gredal Nørvig, Subway Surfers | https://youtu.be/nKBjv5viero
+20250917 | Value-Driven Growth: LinkedIn's Billion-Dollar Subscription Strategy — Ora Levit, LinkedIn | https://youtu.be/CdlajgDk_tw
+20250903 | The Post-Attribution Playbook for Growth — Eric Seufert, Mobile Dev Memo | https://youtu.be/0dZ-wwsNLWY
+20250820 | Signal Engineering: Strategic Data Filtering for Better Ad Performance — Thomas Petit, Independent Consultant | https://youtu.be/RgSs-hZ8M6M
+20250806 | Optimizing Funnels, Pricing, and Retention at Zumba — Nicole Page & Lucy Levy, Zumba | https://youtu.be/-GHpDJm8MgY
+20250723 | The Past, Present, and Future of Building on Apple — John Gruber, Daring Fireball | https://youtu.be/4h2x6DMgVzU
+20250709 | Turning a Side Project into a Six-Figure Subscription Business – Eric Duffett, Shot Pattern | https://youtu.be/V04KKC-s_cQ
+20250618 | WWDC 2025: What Subscription Apps Need to Know | https://youtu.be/3d911197f80
+20250611 | Building Apps Faster: How AI and React Native are Changing the Game – Charlie Cheever, Expo | https://youtu.be/1AX89fxL5FU
+20250528 | What Reading.com Learned Testing Prices and Funnels — Tim Dikun, Teaching.com | https://youtu.be/gk2YqZuGP9g
+20250514 | Freemium Done Right: Lessons From a Multi-Billion-Dollar App — Chris Hulls, Life360 | https://youtu.be/nlSS7uFb2XI
+20250502 | Boost Conversion and Retention with Jobs to Be Done — Daphne Tideman, Growth Advisor | https://youtu.be/6aRgV8ntAnc
+20250416 | The Subscription Growth Formula: Churn Math, Retention Wins, and Smart Product Bets — Dan Layfield, Subscription Index | https://youtu.be/XfcY_SdZaH8
+20250402 | Fueling Growth with AI and Viral Product Features — Ajay Mehta, Portola | https://youtu.be/p4C6i3xJKV0
+20250317 | The 2025 State of Subscription Apps Report | https://youtu.be/NWT7wIxDkLY
+20250314 | How to Build More Successful Paywalls — Sylvain Gauchet | https://youtu.be/zza9ZIB8jyk
+20250313 | How to Optimize User Acquisition Across Major Ad Channels — Shane Ly, AppsFlyer | https://youtu.be/j2Drz5BRTbo
+20250312 | How to Maximize Web Subscriptions for Sustainable Growth — Lucas Lovell, Paddle | https://youtu.be/4cg-cFP3zJs
+20250311 | How to Unlock Revenue Growth on Google Play — Tammy Taw, Google | https://youtu.be/DHD3SnHR2oM
+20250310 | How to Succeed on iOS vs. Android — Matt Rouif, Photoroom | https://youtu.be/glwYYVsCNPM
+20250309 | How to Use Segmentation to Maximize LTV — Greg Stewart, Ladder | https://youtu.be/H70Kcp83Oxs
+20250308 | How to Re-Engage Churned Users — Caroline Walthall, Quizlet | https://youtu.be/kPcedpX1LOw
+20250307 | How to Increase Monetization with Targeted Upsells — Brandon Gador, onX Maps | https://youtu.be/kaA-7OQz07c
+20250306 | How to Time Reactivation Campaigns for Maximum Impact — Jackson Shuttleworth, Duolingo | https://youtu.be/mplRJHyNn60
+20250305 | How to Turn Gamification Into a Retention Powerhouse — Anton Derlyatka, Sweatcoin | https://youtu.be/dITpBPf66NM
+20250304 | How to Maximize Revenue with Regional Pricing — Dmitry Gurski, Flo | https://youtu.be/EenRStcmZvw
+20250303 | How to Optimize Trial-to-Paid Conversions — Rachel Chukura, The Weather Company | https://youtu.be/CUUPVF6LK5Q
+20250219 | The Right (and Wrong) Way to Grow with Google App Campaigns — Ashley Black, Candid Consulting  | https://youtu.be/0ZrKNzakTLk
+20250205 | Level Up Your App Marketing: Measurement, Brand-Building, and Taking Risks — Sherina Khalidi, Deezer | https://youtu.be/G_NFsGVtejU
+20250122 | Bootstrapping a Subscription App to 5M MAU and 2X+ Revenue Growth — Bruno Virlet, Genius Scan | https://youtu.be/vGQUPvDHB_4
+20250108 | Making Web2App Work: From Basic Landing Pages to Complex Sales Funnels — Nathan Hudson, Perceptycs | https://youtu.be/f8E5GoWbTKo
+20241223 | Using Subscription App Benchmarks to Make Better Growth Decisions — Phil Carter, Elemental Growth | https://youtu.be/7QA-UtGCGJY
+20241211 | Why Most Apps Hit a Revenue Ceiling (and How to Plan for It) — Patrick Falzon, The App Shop | https://youtu.be/hQ3Sbnrr3FM
+20241127 | How V1 Sports Doubled Revenue with Bold Bets — Alex Prasad, V1 Sports | https://youtu.be/GiZ_xBcAMVs
+20241113 | How to Go Viral on TikTok (and Profit From It) — Joseph Choi, Viral App Founders | https://youtu.be/Woz2m8b8wno
+20241030 | Building Trust with Users to Drive Revenue and Retention – Ryan Beck, Pray.com | https://youtu.be/un0t53BDKXs
+20241016 | How to Reduce Churn & Boost Growth with Fast, Empathetic Customer Support — Eli Winderbaum, Captions | https://youtu.be/XVfcICd2jok
+20241002 | The Subscription App Industry Rebound — Eric Crowley, GP Bullhound | https://youtu.be/z8gqzjefXmk
+20240918 | The Advantages of Working On an App You Care About — Christian Selig, Apollo | https://youtu.be/Zutp27WEYd0
+20240904 | Marketing Your App More Efficiently with Apple Search Ads — Dilip Reddy, Search Ads Optimization | https://youtu.be/86etr70XVJU
+20240821 | Understanding When to Use Web2App and How to Do It Well — Thomas Petit, Independent App Consultant | https://youtu.be/SsFIj8IVJwI
+20240807 | Marketing an Award-Winning Language Learning App through Offline Channels — Steven Meyers, Babbel | https://youtu.be/bRQUlMpdDfI
+20240724 | Building an Effective Data Product Strategy — Taylor Wells, News Corp | https://youtu.be/d2e55616aa5
+20240710 | Growing to $1M MRR with Paywall and Pricing Experiments — Francescu Santoni, Mojo | https://youtu.be/wlNbb4veyfM
+20240626 | From Corporate Web Developer to Full-Time Indie Hacker — Sebastian Röhl, HabitKit | https://youtu.be/RGUh3odS8wY
+20240617 | WWDC 2024: What Subscription Apps Need to Know — David Barnard, Jacob Eiting, & Charlie Chapman, RevenueCat | https://youtu.be/ZH3jkj2WbM8
+20240529 | Why Duolingo’s Engagement Strategy Won’t Work For Every App — Asya Paloni, Welltory | https://youtu.be/fLcgyUS4qjU
+20240520 | Insider Tips for Building Better, More Profitable Android Apps — Sarah Karam, Google | https://youtu.be/3k4C4JqG44M
+20240515 | Optimizing your Keywords and Monetization ― Part 2 with Ramit Arora, Microsoft | https://youtu.be/fPenDf1Wj2I
+20240501 | Operating Like a Start-up inside the World’s Biggest Company — Ramit Arora, Microsoft | https://youtu.be/ClaqLrboX2I
+20240417 | Learning and Profiting from Black Swan Events — Val Agostino, Monarch Money | https://youtu.be/ikMjQ-asevU
+20240403 | Scaling Your Subscription App with Meta Ads – Marcus Burke, Independent Consultant | https://youtu.be/Pb5TuG77O7M
+20240320 | Lessons from a Lackluster Launch — David Barnard, Weather Up | https://youtu.be/p15schrqNzo
+20240311 | The Future of Subscription Apps (Why We’re So Excited For 2024) | https://youtu.be/uo5EjSoQhUg
+20240221 | Building a Content Marketing Flywheel — Fares Ksebati, MySwimPro | https://youtu.be/HALDkO4UiLQ
+20240129 | Apple’s Response to the EU’s DMA: What Developers Need to Know | https://youtu.be/TM7g8ZK6kc8
+20240124 | How to Succeed with Freemium and Hybrid Monetization — Paul Ganev, Surfline | https://youtu.be/3HqbctsBrCw
+20240110 | Lessons from 121 A/B Tests - Kenneth Schlenker, Opal | https://youtu.be/4le1GR2BF6M
+20231227 | How to Pitch Your App to the Press – Matthew Panzarino, Formerly TechCrunch | https://youtu.be/CXiVgq0X4x8
+20231213 | The Subscription Value Loop: A Formula for Growth – Phil Carter, Elemental Growth | https://youtu.be/Zi1PREAhrFw
+20231129 | How Ladder Cracked TikTok and Grew 500% — Greg Stewart, Ladder | https://youtu.be/rVUi0yFno5I
+20231115 | Navigating App Growth Through Strategic Partnerships and Media Wins — Adam Allore, Wavve Boating | https://youtu.be/TWnS7Fegf7s
+20231101 | From Idea to 8-Figure Exit in 10 Years Flat — Aaron Foss, Nomorobo | https://youtu.be/x5fcgrSp9s0
+20231018 | App Optimization Through Experimentation — Hannah Parvaz, Aperture | https://youtu.be/uQEXTUuHOZU
+20231004 | VC Funding vs. Bootstrapping for Subscription Apps — Martín Siniawski, Podcast App | https://youtu.be/e8GJ1XnIKOc
+20230920 | Building the Berkshire Hathaway of Consumer Subscriptions — Eric Crowley, GP Bullhound | https://youtu.be/1gbJPWlAPLE
+20230906 | How To Raise Prices (the Right Way) — Reid DeRamus, Substack | https://youtu.be/-7LdgMnxG5M
+20230823 | App Store Ethics, Dark Patterns, and Rule-Breakers — Steve P. Young, App Masters | https://youtu.be/w9HAwvWKJQc
+20230809 | From Consultancy to $10M in ARR — Vince Mayfield, TalkingParents | https://youtu.be/RJbtWjEgN4g
+20230726 | What it Takes to Succeed with Paid User Acquisition — Thomas Petit, App Growth Consultant | https://youtu.be/i_XoG6I2RiM
+20230712 | Achieving Mission & Profit with Freemium — Erin Webster-Shaller and Paul Apollo, Lose It! | https://youtu.be/195094fddf7
+20230628 | Cultivating Organic Growth with Viral Loops — Guillem Ros Salvador, Hevy | https://youtu.be/19509af0c9f
+20230614 | How Headspace Optimized Revenue by Gating Content — Shreya Oswal and Keya Patel, Headspace | https://youtu.be/40f95d8c644
+20230531 | Hitting 2M Downloads Without Funding, Employees, or Learning to Code — Ania Wysocka, Rootd | https://youtu.be/40f951d84bc
+20230517 | Product Lessons From a Profitable, $20M ARR Subscription App — Jesse Venticinque, Fitbod | https://youtu.be/0a477fd0f64
+20230503 | How Freemium Can Outperform Free Trials – Shaun Steingold, Momentum Labs | https://youtu.be/b964b0b103b
+20230419 | Maximizing Organic Growth with App Store Optimization — Ariel Michaeli, Appfigures | https://youtu.be/6ed8bca24bc
+20230405 | How to Boost Retention with Subscription Lifecycle Messaging — Alice Muir, Phiture | https://youtu.be/3e963b98c23
+20230322 | Lessons From Building a 70 Person Growth Team — Jason van der Merwe, Strava | https://youtu.be/3e963b98c28
+20230308 | Channel Experimentation and the Tiktokification of Video Ads — Ryan Watson, onX | https://youtu.be/3e963b98c29
+20230222 | Top Growth and Monetization Insights for Subscription Apps — Sylvain Gauchet, Babbel and Growth Gems | https://youtu.be/3e963b98c25
+20230208 | The Key Trends and Opportunities for Apps in 2023 — Lexi Sydow, data.ai | https://youtu.be/3e963b98c24
+20230125 | How to Build a Great Kids App with Minimal Data — Brennan Clark, Sago Mini | https://youtu.be/3e963b98c27
+20230117 | How’s Your App Really Doing? The State of Subscription Apps 2023 | https://youtu.be/3e963b98c26
+20230104 | Why You Should Test Everything and How To Do It — Osman Mansur, Duolingo | https://youtu.be/3e963b98c2c
+20221221 | How Will Apple Play the Digital Markets Act? — John Gruber, Daring Fireball | https://youtu.be/3e963b98c2f
+20221207 | Why You Shouldn’t Let Perfect Be the Enemy of Experimentation — Dan Pannasch, RevenueCat | https://youtu.be/3e963b98c4b
+20221123 | Why More Apps Need To Be More Than Just Apps — Melissa Cash & Félix Boudreau, Pok Pok | https://youtu.be/3e963b98c35
+20221109 | How Ethical Design at Blinkist Led to 23% Growth – Jaycee Day | https://youtu.be/3e963b98c34
+20221026 | How Consumer Subscriptions May Perform in a Recession — Eric Crowley, GP Bullhound | https://youtu.be/3e963b98c40
+20221012 | How Elevate Labs Hit Cash Flow Positive in 2022 — Andrew Maguire, Elevate Labs | https://youtu.be/3e963b98c41
+20220928 | From Spreadsheets to Data Science: Tools for Apps of Any Size — Adam Landis, AdLibertas | https://youtu.be/3e963b98c3a
+20220914 | From Zero Revenue to a Full-Time Gig in Less Than a Year — Emmanuel Crouvisier, CardPointers | https://youtu.be/3e963b98c44
+20220831 | Building a Product Improvement Loop — Darrell Stone, Citizen | https://youtu.be/3e963b98c3b
+20220810 | Tinder: From Free App to $1B in Revenue — Phil Schwarz, Corazon Capital | https://youtu.be/3e963b98d26
+20220727 | Brand Marketing, Product-Market Fit, & App Growth — Gessica Bicego, Paired | https://youtu.be/3e963b98d22
+20220713 | Running Effective In-App Experiments — Giancarlo Musetti, Ad Hoc Labs | https://youtu.be/3e963b98d42
+20220629 | A Systematic Approach to Paywall Optimization — Live at App Promotion Summit NYC | https://youtu.be/3e963b98d23
+20220615 | Building a Community that Demands an App — Mark Kennedy & Jeff Bailey, None to Run | https://youtu.be/3e963b98d4c
+20220525 | 8 Principles for Sustainable Growth — Sean Ellis & Ethan Garr, Breakout Growth | https://youtu.be/3e963b98d50
+20220511 | Scaling Without a Marketing Budget — Mike Overell, ClassDojo | https://youtu.be/3e963b98d45
+20220427 | Creative App Marketing Strategies — Cliff Weitzman, Speechify | https://youtu.be/hhSRx2p2COQ
+20220413 | The Rise of Consumer SaaS — Eric Stromberg, Bedrock | https://youtu.be/3e963b98c6f
+20220330 | From Indie Side Project to $1M in ARR — Curtis Herbert, Slopes | https://youtu.be/3e963b98c70
+20220316 | Operating a Portfolio of 40 Apps — Michael Ritter, Maple Media | https://youtu.be/3e963b98c7d
+20220302 | Subscription App Trends and How To Grow in 2022 | https://youtu.be/3e963b98c7e
+20220216 | Lessons From an Unlimited Marketing Budget — Colette Nataf, MileIQ & Lightning AI | https://youtu.be/3e963b98c83
+20220119 | Growth, Revenue, and Marketing Strategies for Your App — Lisa Kennelly, Fishbrain | https://youtu.be/3e963b98c84
+20220105 | How To Not Screw Up Switching Your App to Subscriptions — Matt Ronge, Astropad | https://youtu.be/3e963b98d4a
+20211213 | The 4 Foundational Frameworks of Consumer SaaS — Robbie Kellman Baxter, Peninsula Strategies | https://youtu.be/3e963b98cab
+20211201 | How to Thrive Despite Apple’s ATT — Eric Seufert, Mobile Dev Memo | https://youtu.be/3e963b98cae
+20211117 | Growing an App to 1M Paid Subscribers — Ron Schneidermann, AllTrails | https://youtu.be/3e963b98ccd
+20211027 | Optimizing Your Subscription App for Growth — Eric Crowley, GP Bullhound | https://youtu.be/3e963b98ca8
+20211006 | From Bootstrapping to Partnering With Sony — Seth Miller, Rapchat | https://youtu.be/n_1ruMSNh9E
+20210915 | Finding Product Market Fit by Unbundling Photoshop — Matthieu Rouif, PhotoRoom | https://youtu.be/3e963b98cb3
+20210907 | Apple’s App Store Conundrum — Ben Thompson, Stratechery | https://youtu.be/3e963b98c8f
+20210825 | How Apple’s App Tracking Transparency Affects Developers — Shamanth Rao, RocketShip HQ | https://youtu.be/Sbz8pvKZwLI
+20210811 | The TikTok Marketing Playbook — Maddie Kirby, 1 Second Everyday | https://youtu.be/3e963b98cb4
+20210728 | Growth Tactics from the Top Apps in the App Store — Andy Carvell, Phiture | https://youtu.be/3e963b98cb9
+20210714 | Next-Level App Marketing Tips and Strategies — Alex Ross, Greg | https://youtu.be/wzzNG1ye_xw
+20210630 | Lessons Learned From 50 Million Downloads — David Smith, Widgetsmith | https://youtu.be/3e963b98ce0
+20210623 | Quantifying Apple’s Developer Sentiment Problem — Ben Bajarin, Creative Strategies | https://youtu.be/3e963b98c97
+20210519 | How to Sell Your App — Eric Owens, App Business Brokers | https://youtu.be/3e963b98c99
+20210505 | From Sleep Devices for NFL Athletes to a $500k ARR Subscription App — Leon Sasson, Rise Science | https://youtu.be/3e963b98cc7
+20210422 | Revisiting the Fundamentals of App Marketing Post IDFA — Thomas Petit | https://youtu.be/3e963b98cbf
+20210408 | Building an Apple Design Award-Winning Photo Editing App — Majd Taby & Jasper Hauser, Darkroom | https://youtu.be/3e963b98cc1
+20210324 | Going All-In on Indie App Development — Ryan Jones, Weather Line & Flighty | https://youtu.be/3e963b98cd2
+20210310 | How to Pitch Your App to Tech Journalists — Ed Zitron, EZPR | https://youtu.be/3e963b98cc3
+20210217 | Pioneering a New Genre of Audio App — Faye Keegan, Dipsea | https://youtu.be/3e963b98ccb
+20210202 | The Next Big Opportunity in Software — Eric Crowley, GP Bullhound | https://youtu.be/3e963b98cd3
+20210120 | Building a Lean Growth Machine for the World’s Largest Journaling App — Darius Mora, Reflectly | https://youtu.be/3e963b98ce6
+20210112 | Transitioning a Free App with Millions of Users to Subscriptions — Vu Pham & Nick Robinson, Zero | https://youtu.be/3e963b98ceb
+20201216 | Building a $100k App Business in 6 Months — Zach Shakked, Hashtag Expert | https://youtu.be/3e963b98cfe
+20201202 | Performance Marketing in a Post-IDFA World — Eric Seufert, Mobile Dev Memo | https://youtu.be/3e963b98d12
+20201118 | Hot Takes — The New App Store Small Business Program | https://youtu.be/3e963b98d13
+20201113 | Taking a Fitness App to Y Combinator and Beyond — Jake Mor, FitnessAI | https://youtu.be/3e963b98d1d
+20201030 | The Trillion-Dollar Subscription App Opportunity — Nico Wittenborn, Adjacent | https://youtu.be/3e963b98d1a
+20201029 | Introducing the Sub Club Podcast — Jacob Eiting & David Barnard | https://youtu.be/3e963b98d1b
