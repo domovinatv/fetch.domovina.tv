@@ -134,6 +134,14 @@ Primjeri:
         "--limit", type=int, default=None,
         help="Ograniči broj datoteka za obradu (korisno za testiranje)"
     )
+    parser.add_argument(
+        "--shard-index", type=int, default=0,
+        help="0-based indeks ovog workera za paralelno pokretanje više procesa"
+    )
+    parser.add_argument(
+        "--shard-count", type=int, default=1,
+        help="Ukupan broj paralelnih workera; svaki obrađuje disjunktan podskup (i::N)"
+    )
 
     return parser.parse_args()
 
@@ -321,6 +329,19 @@ def main():
 
     if already_done > 0:
         print(f"   ⏭️  Preskočeno (transkript već postoji): {already_done}")
+
+    # Sharding: za paralelno pokretanje N procesa na istom GPU-u (G4 ima ~70 GB
+    # slobodne VRAM nakon ~27 GB modela → stane 2-3 instance). Svaki worker uzima
+    # interleave-an podskup (i::N) pa se različite veličine fajlova ravnomjerno
+    # raspodijele. Idempotentnost + provjera postojanja SRT-a štite od kolizija.
+    if args.shard_count > 1:
+        if not (0 <= args.shard_index < args.shard_count):
+            print(f"❌ --shard-index mora biti 0..{args.shard_count - 1}")
+            sys.exit(1)
+        before = len(to_process)
+        to_process = to_process[args.shard_index::args.shard_count]
+        print(f"   🧩 Shard {args.shard_index + 1}/{args.shard_count}: {len(to_process)} od {before} pending")
+
     if args.limit and args.limit < len(to_process):
         to_process = to_process[:args.limit]
         print(f"   🔢 Ograničeno na: {args.limit} datoteka (--limit)")
