@@ -18,8 +18,9 @@
  * ID shema: 11-znakasti id (kao YouTube), jer convert_to_wav.js izvlači id iz
  * lista.txt URL-a preko extractVideoId koji prima točno 11 znakova. Gdje
  * youtube/{slug}.json ima high-confidence match koristi se pravi YouTube
- * videoId, inače prvih 11 znakova beamly id-a. Literal `_yt_` u imenu je nužan
- * jer ga nizvodni koraci traže.
+ * videoId, inače zadnjih 11 znakova beamly id-a (ObjectId — zadnjih 11 su
+ * jedinstveni, prvih 8 su timestamp). Literal `_yt_` u imenu je nužan jer ga
+ * nizvodni koraci traže.
  *
  * Idempotentno: epizode već u completed[] se preskaču; postojeći .mp3 se ne
  * skida ponovno.
@@ -100,9 +101,10 @@ function ymd(iso) {
 const log = (msg) => console.log(`[${new Date().toISOString()}] ${msg}`);
 
 // 11-char id (YouTube-shaped) so convert_to_wav.js:extractVideoId can recover it
-// from the lista.txt URL. beamly ids are 24-hex; first 11 chars are unique enough
-// across a few hundred episodes and stay within [a-z0-9].
-const synthId = (beamlyId) => String(beamlyId).slice(0, 11);
+// from the lista.txt URL. beamly ids are MongoDB ObjectIds (24-hex): the first 8
+// hex are a timestamp, so episodes published together share a prefix → the LAST
+// 11 chars (random + counter) are the high-entropy part and are fully unique.
+const synthId = (beamlyId) => String(beamlyId).slice(-11);
 
 async function exists(p) {
   try {
