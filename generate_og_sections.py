@@ -335,7 +335,10 @@ def discover_channels(input_dir, channel_filter=None):
     """Vraća listu (name, path) channel direktorija."""
     result = []
     for entry in sorted(os.listdir(input_dir)):
-        if entry.startswith('.') or entry.startswith('_'):
+        # Samo hidden (.) preskačemo. `_`-kanale (npr. _unlisted = ad-hoc videi
+        # koji se publishaju na /v/{id}) MORAMO obraditi — KORAK 10 screenshot i
+        # KORAK 12 upload ih već uključuju, pa im inače fale per-section og slike.
+        if entry.startswith('.'):
             continue
         full = os.path.join(input_dir, entry)
         if not os.path.isdir(full) and not os.path.islink(full):

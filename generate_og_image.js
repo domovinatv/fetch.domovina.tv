@@ -157,7 +157,10 @@ function discoverChannels(inputDir, channelFilter) {
     for (const entry of entries) {
         // Symlinks su channel dirs na drugim diskovima (storage.conf)
         if (!entry.isDirectory() && !entry.isSymbolicLink()) continue;
-        if (entry.name.startsWith(".") || entry.name.startsWith("_")) continue;
+        // Samo hidden (.) preskačemo. `_`-kanale (npr. _unlisted = ad-hoc videi
+        // koji se publishaju na /v/{id}) MORAMO obraditi — KORAK 10 screenshot i
+        // KORAK 12 upload ih već uključuju, pa im inače fali og-share.jpg.
+        if (entry.name.startsWith(".")) continue;
         if (channelFilter && entry.name !== channelFilter) continue;
         channels.push({ name: entry.name, dir: path.join(inputDir, entry.name) });
     }
