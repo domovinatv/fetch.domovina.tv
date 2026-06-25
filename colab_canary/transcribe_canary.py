@@ -142,6 +142,16 @@ Primjeri:
         "--shard-count", type=int, default=1,
         help="Ukupan broj paralelnih workera; svaki obrađuje disjunktan podskup (i::N)"
     )
+    # RAZLOG (2026-06-25): HuggingFace download canary-1b-v2.nemo (6.36 GB) zna zapeti
+    # nasred preuzimanja na Colabu (viđeno zaglavljivanje na ~6%), što ubije cijeli batch.
+    # Zato model držimo i kao cache na vlastitom R2 (models.domovina.ai). Ako je --model-path
+    # zadan (notebook ga skine s R2 prije pokretanja), učitavamo lokalnu .nemo kopiju
+    # preko restore_from i potpuno preskačemo HF. Bez --model-path → fallback na HF (vidi load_model).
+    parser.add_argument(
+        "--model-path", type=str, default=None,
+        help="Lokalna putanja do canary-1b-v2.nemo (npr. skinuta s R2 cachea models.domovina.ai). "
+             "Ako je zadana, učitava se preko restore_from umjesto HF from_pretrained."
+    )
 
     return parser.parse_args()
 
@@ -176,8 +186,13 @@ def install_dependencies():
         print("   ✅ NeMo instaliran")
 
 
-def load_model():
-    """Učitava Canary 1B v2 model s BF16 optimizacijom."""
+def load_model(model_path=None):
+    """Učitava Canary 1B v2 model s BF16 optimizacijom.
+
+    Ako je `model_path` zadan (lokalna .nemo datoteka, npr. skinuta s R2 cachea
+    models.domovina.ai), učitava se preko restore_from i HF download se preskače.
+    Inače fallback na HF from_pretrained.
+    """
     import torch
     from nemo.collections.asr.models import ASRModel
 
@@ -188,8 +203,16 @@ def load_model():
         print("   ⚠️  UPOZORENJE: GPU nije dostupan! Transkripcija će biti JAKO spora.")
         print("      💡 Na Colab/Kaggle: Runtime → Change runtime type → T4 GPU")
 
-    print("   📥 Učitavam nvidia/canary-1b-v2 model (ovo traje ~1-2min prvi put)...")
-    model = ASRModel.from_pretrained(model_name="nvidia/canary-1b-v2")
+    if model_path and os.path.isfile(model_path):
+        # RAZLOG (2026-06-25): HF preuzimanje .nemo (6.36 GB) zna zapeti na Colabu i
+        # ubiti batch → primarni put je lokalna kopija s R2 cachea (models.domovina.ai).
+        print(f"   📦 Učitavam model iz lokalne .nemo kopije (R2 cache): {model_path}")
+        model = ASRModel.restore_from(restore_path=model_path)
+    else:
+        # Fallback: izravni HF download (zadržano namjerno — radi i bez R2 cachea,
+        # samo je nepouzdanije na Colabu jer download zna zapeti nasred preuzimanja).
+        print("   📥 Učitavam nvidia/canary-1b-v2 model s HuggingFace (ovo traje ~1-2min prvi put)...")
+        model = ASRModel.from_pretrained(model_name="nvidia/canary-1b-v2")
     model.eval()
 
     # BF16 optimizacija — pola memorije, brži compute na modernim GPU-ima
@@ -366,7 +389,7 @@ def main():
 
     # ─── Instaliraj dependencies i učitaj model ───
     install_dependencies()
-    model, device = load_model()
+    model, device = load_model(args.model_path)
     print("")
 
     total_transcribed = 0
