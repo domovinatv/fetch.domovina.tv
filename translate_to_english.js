@@ -55,6 +55,9 @@ const GEMINI_CONF = (() => {
 })();
 
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT;
+// Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
+// account flipne na drugi SA. Prazno → fallback na aktivni account.
+const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";
 // Default model za EN PRIJEVOD je gemini-3-flash-preview, NE gemini-2.5-flash (koji je default
 // generacijskog pipelinea u gemini.conf). Razlog (empirijski 2026-06-09, vidi
 // docs/translation_throughput_vision_2026-06.md): 2.5-flash je pod Dynamic Shared Quota →
@@ -85,7 +88,8 @@ let tokenExpiry = 0;
 function getOrRefreshAccessToken() {
     if (cachedAccessToken && Date.now() < tokenExpiry) return cachedAccessToken;
     try {
-        cachedAccessToken = execSync("gcloud auth print-access-token", { encoding: "utf-8" }).trim();
+        const acct = VERTEX_ACCOUNT ? ` --account=${VERTEX_ACCOUNT}` : "";
+        cachedAccessToken = execSync(`gcloud auth print-access-token${acct}`, { encoding: "utf-8" }).trim();
         tokenExpiry = Date.now() + 50 * 60 * 1000; // 50 min cache
         return cachedAccessToken;
     } catch (err) {

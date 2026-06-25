@@ -65,6 +65,9 @@ const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
+// Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
+// account flipne na drugi SA. Prazno → fallback na aktivni account.
+const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";
 
 // ─── GEMINI USAGE / TROŠAK TRACKING ───────────────────────────────
 // Vertex vraća usageMetadata (token brojevi) po pozivu. Procjenjujemo trošak iz
@@ -216,7 +219,8 @@ function startElapsedTimer(prefix) {
 // Dohvaća OAuth2 access token koristeći gcloud CLI
 function getAccessToken() {
     try {
-        return execSync("gcloud auth print-access-token", { encoding: "utf-8" }).trim();
+        const acct = VERTEX_ACCOUNT ? ` --account=${VERTEX_ACCOUNT}` : "";
+        return execSync(`gcloud auth print-access-token${acct}`, { encoding: "utf-8" }).trim();
     } catch (err) {
         console.error("❌ Ne mogu dohvatiti access token. Pokreni: gcloud auth login");
         process.exit(1);
