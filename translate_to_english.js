@@ -58,16 +58,16 @@ const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT;
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
 const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";
-// Default model za EN PRIJEVOD je gemini-3-flash-preview, NE gemini-2.5-flash (koji je default
-// generacijskog pipelinea u gemini.conf). Razlog (empirijski 2026-06-09, vidi
-// docs/translation_throughput_vision_2026-06.md): 2.5-flash je pod Dynamic Shared Quota →
-// efektivno ~1 RPM → 429-storm na bulk backfillu (~16h). 3-flash-preview ima pravu 250-RPM
-// kvotu (sustained 30 poziva: 29 OK / 1 429 vs 2.5-flash 2/10) i jednako/literalnije kvalitete
-// prijevoda. NAPLAĆUJE se (skuplji: $0.50/$3.00) ali ga free-trial krediti pokrivaju kao i 2.5.
-// VAŽNO: preview ID nije vječan — kad Google promovira/povuče, prebaci na nasljednika ili 2.5.
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3-flash-preview";
-// Preview modeli su DOSTUPNI SAMO na global endpointu (regionalni vraćaju 404). Global ujedno
-// nosi 250-RPM bazen za preview. Zato global-only ovdje (regional rotacija je no-op za DSQ/preview).
+// Default model za EN PRIJEVOD je gemini-3.5-flash (GA), prebačeno 2026-06-27 s
+// gemini-3-flash-preview. Povijest (vidi docs/translation_throughput_vision_2026-06.md):
+// 2.5-flash je pod Dynamic Shared Quota → ~1 RPM → 429-storm na bulk backfillu (~16h); zato se
+// 2026-06-09 prešlo na 3-flash-preview (prava 250-RPM kvota). Sad kad je 3.5-flash GA prelazimo
+// na njega: GA (trajniji od preview-a koji "nije vječan") + isti pipeline koristi 3.5-flash i za
+// generaciju (gemini.conf), pa je model konzistentan. SKUPLJI: $1.50 in / $9.00 out (global) vs
+// preview $0.50/$3.00 — free-trial krediti pokrivaju. Treba re-test sustained RPM-a na 3.5-flash.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+// Ovi modeli (3.x flash) DOSTUPNI su SAMO na global endpointu (regionalni vraćaju 404). Zato
+// global-only ovdje (regional rotacija je no-op). Override preko VERTEX_REGIONS env ako treba.
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "global")
     .split(",").map(r => r.trim()).filter(Boolean);
 
