@@ -311,6 +311,22 @@ https://cdn.domovina.ai/data/{youtube_id}/article.json
 https://cdn.domovina.ai/data/{youtube_id}/summary.json
 ```
 
+### 8.1 Media assets (video / audio)
+
+| Ključ | Kada postoji | Producer |
+|---|---|---|
+| `data/{id}/video_h264.mp4` | Epizoda IMA video (YouTube ili YT-matchana beamly). H.264 Main, univerzalno HW-dekodira. | `backfill_video_h264.js` (KORAK 12.5) |
+| `data/{id}/audio.mp3` | **AUDIO-ONLY** epizoda (nema YouTube video → nema video_h264). beamly subclub/launched s `_yt_matched===false`. | `upload_audio_only.js` (KORAK 12.6) |
+| `images/{id}/thumbnail.png` | Sve epizode (YT thumbnail; audio-only dobiju iz beamly itunesImage ako postoji). | `upload_to_r2.js` |
+
+**CONSUMER (domovina.ai) — media resolution mora biti:**
+1. HEAD `data/{id}/video_h264.mp4` → 200 ⇒ video playback (`CdnConfig.videoH264Url`).
+2. inače HEAD `data/{id}/audio.mp3` → 200 ⇒ **audio playback** (`CdnConfig.audioUrl`, preko `background_audio` servisa).
+3. inače (legacy) `data/{id}/video.mp4`.
+
+Audio-only epizoda ima `video_h264.mp4`=404 I `video.mp4`=404 → bez koraka (2) player nema što svirati.
+`audio.mp3` je `audio/mpeg`, `Cache-Control: immutable` (ID jednoznačno određuje sadržaj).
+
 **Note:** R2 namespace **NE koristi basename**, samo `youtube_id` kao ključ — kraći URL-ovi,
 deterministički cache key. Downstream koji želi koristiti CDN kao izvor mora moći mapirati
 `youtube_id → basename` (npr. preko fetch.domovina.tv `state.json` datoteka u svakom kanalu).

@@ -884,6 +884,36 @@ node "$SCRIPT_DIR/backfill_video_h264.js" "${H264_ARGS[@]}" || {
 }
 fi
 
+# --- KORAK 12.6: AUDIO-ONLY .mp3 UPLOAD (uz --with-r2-upload) ---
+# Audio-only epizode (info.json _yt_matched===false — beamly subclub/launched bez
+# YouTube matcha) NEMAJU video → backfill_video_h264 im ne može napraviti video_h264.mp4.
+# Da player ima što svirati, ova skripta uploada izvorni .mp3 → data/{id}/audio.mp3.
+# Idempotentno (keys-cache skip). No-op za YouTube kanale (nemaju _yt_matched===false).
+# CONSUMER (domovina.ai): treba audio fallback u data_service.dart. Vidi docs/data_contract.md.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 12.6: Audio-only .mp3 upload (data/{id}/audio.mp3)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+AUDIO_ONLY_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        AUDIO_ONLY_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    AUDIO_ONLY_ARGS+=("--dry-run")
+fi
+
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/upload_audio_only.js" "${AUDIO_ONLY_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri audio-only uploadu, nastavljam..."
+}
+fi
+
 # --- KORAK 13: CHANNEL INDEX REGEN + META UPLOAD (uz --with-r2-upload) ---
 # Bez ovog koraka novi videi (s kompletiranim article.json-om) ne ulaze u
 # channels/data/*.json pa se ne pojavljuju na www.domovina.ai/c/<channel>.
