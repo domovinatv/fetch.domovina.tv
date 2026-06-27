@@ -290,6 +290,33 @@ async function computeMd5Cached(filePath, diskCache, memCache) {
     return md5;
 }
 
+// ─── DISK R2-KEYS CACHE ──────────────────────────────────────────
+//
+// LIST svih R2 ključeva (listAllR2Keys) je ~1 Class A op / 1000 objekata —
+// jeftino po pozivu, ali kako bucket raste (73k+ → ~73 stranice) postaje sve
+// sporiji DIO SVAKOG RUN-a. Ovaj cache pamti skup R2 ključeva lokalno pa
+// default run NE radi LIST: zna unaprijed što je već na R2 (i dopisuje nove
+// ključeve nakon svakog uploada). `--verify-r2` (ili nepostojeći cache) radi
+// pravi LIST i rebuilda cache iz stvarnog stanja bucketa.
+// Format: JSON array stringova (R2 ključevi).
+const KEYS_CACHE_PATH = path.join(__dirname, ".r2_keys_cache.json");
+
+function loadKeysCache() {
+    try {
+        if (fs.existsSync(KEYS_CACHE_PATH)) {
+            const arr = JSON.parse(fs.readFileSync(KEYS_CACHE_PATH, "utf-8"));
+            if (Array.isArray(arr)) return new Set(arr);
+        }
+    } catch { /* corrupt cache — tretiraj kao da ne postoji */ }
+    return null;
+}
+
+function saveKeysCache(keySet) {
+    try {
+        fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify([...keySet]), "utf-8");
+    } catch { /* disk full ili permissions — nije kritično */ }
+}
+
 // ─── CONCURRENT UTILITY ───────────────────────────────────────────
 
 /**
@@ -1143,6 +1170,7 @@ if (inputDir) {
     const forceFullHead = hasFlag("--full-head");
 
     let newFiles, existingImmutable, existingMutable;
+    let remoteKeySet = null;       // skup R2 ključeva (iz keys-cache-a ili LIST-a) — za save nakon uploada
     const remoteEtags = new Map(); // r2Key → etag (string) ili null/undefined
 
     if (forceFullHead) {
@@ -1171,9 +1199,22 @@ if (inputDir) {
             return e !== null && e !== undefined;
         });
     } else {
-        log("📋", `LIST svih R2 ključeva (paginirano)...`);
-        const remoteKeySet = await listAllR2Keys(client);
-        log("📊", `R2 sadrži ${remoteKeySet.size} ključeva ukupno`);
+        // DEFAULT: čitaj skup R2 ključeva iz lokalnog cache-a (bez LIST-a — ne raste s
+        // veličinom bucketa). `--verify-r2` (ili nepostojeći/corrupt cache) radi pravi LIST
+        // i rebuilda cache iz stvarnog stanja. Cache se dopunjava novouploadanim ključevima niže.
+        const verifyR2 = hasFlag("--verify-r2");
+        const cached = verifyR2 ? null : loadKeysCache();
+        if (cached) {
+            remoteKeySet = cached;
+            log("⚡", `R2 ključevi iz lokalnog cache-a: ${remoteKeySet.size} (BEZ LIST-a). Prava provjera: --verify-r2.`);
+        } else {
+            log("📋", verifyR2
+                ? `--verify-r2: LIST svih R2 ključeva (rebuild cache, paginirano)...`
+                : `Nema keys-cache-a — LIST svih R2 ključeva (seed cache, paginirano)...`);
+            remoteKeySet = await listAllR2Keys(client);
+            saveKeysCache(remoteKeySet);   // seed je čisti R2-read → spremi i u dry-run
+            log("📊", `R2 sadrži ${remoteKeySet.size} ključeva ukupno (cache osvježen)`);
+        }
 
         newFiles = [];
         existingImmutable = [];
@@ -1235,6 +1276,7 @@ if (inputDir) {
     const diskMd5Cache = loadMd5Cache();
     const memMd5Cache  = new Map(); // in-memory, dijeli MD5 za isti localPath
     let diskCacheDirty = false;
+    const uploadedKeys = new Set(); // novouploadani ključevi → dopis u keys-cache
 
     log("🚀", `Upload (${R2_UPLOAD_CONCURRENCY} paralelno)...`);
 
@@ -1250,6 +1292,7 @@ if (inputDir) {
                 await uploadToR2(client, f.localPath, f.r2Key);
                 uploaded++;
                 uploadedBytes += f.size;
+                uploadedKeys.add(f.r2Key);
                 log("⬆️", `[${uploaded + updated}] NOVO ${f.r2Key} (${humanSize(f.size)})`);
             } catch (err) {
                 log("❌", `Upload neuspješan za ${f.r2Key}: ${err.message}`);
@@ -1290,6 +1333,13 @@ if (inputDir) {
 
     // Spremi disk MD5 cache ako se promijenio
     if (diskCacheDirty) saveMd5Cache(diskMd5Cache);
+
+    // Dopiši novouploadane ključeve u keys-cache da default put (bez LIST-a) ostane točan.
+    // (remoteKeySet je null samo u --full-head modu — tada cache ne diramo.)
+    if (!dryRun && remoteKeySet && uploadedKeys.size) {
+        for (const k of uploadedKeys) remoteKeySet.add(k);
+        saveKeysCache(remoteKeySet);
+    }
 
     // FAZA 3: purge CDN za prepisane .mp4 (immutable cache, inače stari servira 1god).
     if (forceMp4 && !dryRun) {
