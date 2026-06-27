@@ -68,6 +68,7 @@ const ONLY_PUBLISHED= hasFlag("--only-published");   // procesiraj samo ako vide
 const RM_LOCAL      = hasFlag("--rm-local-after-upload"); // štedi disk (memory: ENOSPC rizik)
 const KEEP_GOING    = hasFlag("--keep-going") || true;    // nastavi na greškama (default da)
 const FORCE         = hasFlag("--force");
+const VERIFY_R2     = hasFlag("--verify-r2");  // pravi LIST + rebuild video keys-cache (umjesto čitanja cachea)
 
 // EQ_IZRAZENIJI (high-pass 100 + low-shelf −4@200 + presence +2@3.2k) PRIJE loudnorm-a.
 const AUDIO_FILTER =
@@ -126,6 +127,19 @@ async function r2Delete(key) { await s3().send(new _S3.DeleteObjectCommand({ Buc
 // upload_to_r2.js listAllR2Keys. LIST vraća SAMO metapodatke (ključ+veličina), NE
 // skida sadržaj. R2_INDEX=null → processEpisode fallback-a na r2Head (npr. no-creds).
 let R2_INDEX = null;
+let cacheDirty = false;
+// Lokalni cache R2 video ključeva (key→size) — isti princip kao upload_to_r2 .r2_keys_cache.json,
+// ali ovdje treba i VELIČINU (size-skip). Default run čita cache (BEZ data/ LIST-a koji raste s
+// katalogom); --verify-r2 radi pravi LIST + rebuild. Novi video_h264 ključevi se dopisuju.
+const VIDEO_CACHE_PATH = path.join(__dirname, ".r2_video_cache.json");
+function loadVideoCache() {
+    try { if (fs.existsSync(VIDEO_CACHE_PATH)) { const o = JSON.parse(fs.readFileSync(VIDEO_CACHE_PATH, "utf-8"));
+        if (o && typeof o === "object") return new Map(Object.entries(o).map(([k, v]) => [k, Number(v)])); } } catch {}
+    return null;
+}
+function saveVideoCache(map) {
+    try { fs.writeFileSync(VIDEO_CACHE_PATH, JSON.stringify(Object.fromEntries(map)), "utf-8"); } catch {}
+}
 async function prefetchR2Index() {
     const client = s3();   // inicijalizira i _S3
     const map = new Map();
@@ -275,6 +289,7 @@ async function processEpisode(ep, idx, total) {
     } else {
         await r2Put(ep.keyNew, ep.webMp4);
         console.log(`${tag} ✓ upload → ${R2_PUBLIC}/${ep.keyNew}`);
+        if (R2_INDEX) { R2_INDEX.set(ep.keyNew, localSize); cacheDirty = true; }  // dopuni keys-cache
     }
 
     // 3. Delete starog (gateano: tek ako je novi POTVRĐEN na R2)
@@ -327,17 +342,27 @@ async function runPool(items, worker, n) {
     // R2 prefetch: jedan LIST umjesto ~N HEAD-ova (Class B → Class A). Preskoči ako
     // nema R2 interakcije (--transcode-only) ili nema R2 credsa → fallback na HEAD.
     if (!TRANSCODE_ONLY && R2_ACCOUNT_ID && process.env.R2_ACCESS_KEY_ID) {
-        console.log("📋 LIST R2 (data/ video ključevi) — 1 Class A/1000 umjesto HEAD-a po epizodi...");
-        try {
-            R2_INDEX = await prefetchR2Index();
-            console.log(`📊 R2 ima ${R2_INDEX.size} video ključeva (video_h264.mp4 + legacy video.mp4)`);
-        } catch (e) {
-            console.log(`⚠️  R2 LIST nije uspio (${e.message}) — fallback na per-epizodi HEAD`);
-            R2_INDEX = null;
+        const cached = VERIFY_R2 ? null : loadVideoCache();
+        if (cached) {
+            R2_INDEX = cached;
+            console.log(`⚡ R2 video ključevi iz cache-a: ${R2_INDEX.size} (BEZ data/ LIST-a). Prava provjera: --verify-r2.`);
+        } else {
+            console.log(`📋 ${VERIFY_R2 ? "--verify-r2: " : ""}LIST R2 (data/ video ključevi) — paginirano...`);
+            try {
+                R2_INDEX = await prefetchR2Index();
+                saveVideoCache(R2_INDEX);   // seed je čisti R2-read → spremi i u dry-run
+                console.log(`📊 R2 ima ${R2_INDEX.size} video ključeva (cache osvježen)`);
+            } catch (e) {
+                console.log(`⚠️  R2 LIST nije uspio (${e.message}) — fallback na per-epizodi HEAD`);
+                R2_INDEX = null;
+            }
         }
     }
 
     const res = await runPool(eps, processEpisode, CONCURRENCY);
+
+    // Dopiši novouploadane video ključeve u cache (default put bez LIST-a ostaje točan).
+    if (cacheDirty && !DRY_RUN && R2_INDEX) saveVideoCache(R2_INDEX);
 
     const by = res.reduce((a, r) => (a[r.status] = (a[r.status] || 0) + 1, a), {});
     console.log("\n=== SAŽETAK ===");
