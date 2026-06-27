@@ -687,6 +687,43 @@ node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR"
 node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR"
 node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR"
 
+# --- KORAK 9.4: BEAMLY VIDEO DOWNLOAD (matchane subclub/launched epizode) ---
+# Beamly epizode dolaze kao direktni MP3 (audio), bez videa. Matchane (info.json
+# _yt_matched===true → _yt_ u imenu je PRAVI YouTube ID) trebaju biti kao normalne
+# nightly epizode: video_h264.mp4 + thumbnail.png + og-share. Ova skripta yt-dlp-om
+# skine YouTube {base}.mp4 (cap 360p) + {base}.png thumbnail za nove matchane.
+#
+# RANO (prije 9.5) namjerno: .png/.mp4 moraju postojati prije og-share (9.5),
+# thumbnail uploada (12) i H.264 transcode-a (12.5) → SVE u JEDNOM nightlyju (bez
+# 1-dnevnog laga). Gateano --with-r2-upload (kao 12.5/12.6) — bez R2 nema smisla.
+# Idempotentno (R2 video keys-cache skip + lokalni .mp4 skip + self-clean stale source).
+# yt-dlp anti-bot: noću bez tethera očekuj poneki fail — NE-FATALNO (exit 0), retry sutra.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 9.4: Beamly video download (matchane subclub/launched)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+BEAMLY_DL_ARGS=("--input-dir" "$OUTPUT_DIR" "--max-height" "360")
+
+# Proslijedi --channel ako postoji (no-op za ne-beamly kanale: nemaju _yt_matched===true)
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        BEAMLY_DL_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    BEAMLY_DL_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/download_matched_beamly_video.js" "${BEAMLY_DL_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri beamly video downloadu, nastavljam..."
+}
+fi
+
 # --- KORAK 9.5: OG-SHARE IMAGE GENERIRANJE (social sharing thumbnail varijanta) ---
 # Generira {base}.og-share.jpg (1200×630 progressive JPEG q=85, 4:2:0, sRGB, stripped)
 # iz postojećeg {base}.png thumbnaila. WhatsApp odbija og:image > 600 KB;
@@ -863,7 +900,12 @@ echo ""
 
 # --rm-local-after-upload: web.mp4 je tranzijentan (R2 je durable); briše se odmah po
 # uploadu da ne napuni disk (DOMOVINA1TB je tijesan). Re-run idempotentan preko R2 HEAD-skipa.
-H264_ARGS=("--input-dir" "$OUTPUT_DIR" "--rm-local-after-upload")
+# --web-output-dir: transcode piše web.mp4 na LOKALNI SSD, ne pored sourcea na DOMOVINA*TB
+# (USB). Source čitanje s USB + web pisanje na USB pri concurrency 2 = I/O thrashing (memory
+# ffmpeg_batch_low_concurrency_on_usb); pisanje na SSD to izbjegava. Transijentan (--rm-local).
+H264_WEB_TMP="${H264_WEB_TMP_DIR:-$HOME/.cache/domovina_web_mp4_tmp}"
+mkdir -p "$H264_WEB_TMP"
+H264_ARGS=("--input-dir" "$OUTPUT_DIR" "--rm-local-after-upload" "--web-output-dir" "$H264_WEB_TMP")
 
 # Proslijedi --channel ako postoji (isti pattern kao KORAK 12)
 for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do

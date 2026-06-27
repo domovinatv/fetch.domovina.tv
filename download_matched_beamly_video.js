@@ -12,16 +12,33 @@
  * Ova skripta popunjava taj korak za matchane epizode (info.json `_yt_matched===true`),
  * čiji `_yt_` u imenu JE pravi YouTube ID.
  *
- * IDEMPOTENTNO:
- *   - LIST-once R2 (data/ prefix) → preskoči ako `data/{id}/video_h264.mp4` već postoji.
+ * IDEMPOTENTNO (bez skupog data/ LIST-a):
+ *   - R2 skip preko LOKALNOG cache-a `.r2_video_cache.json` (dijeli ga backfill_video_h264.js,
+ *     KORAK 12.5; key→size, ali ovdje treba samo postojanje `data/{id}/video_h264.mp4`).
+ *     Default čita cache (BEZ data/ LIST-a koji raste 146k+ ključeva); `--verify-r2` ili
+ *     nepostojeći cache → jednokratni LIST kao fallback. Cache je READ-ONLY ovdje — vlasnik
+ *     pisanja je backfill_video_h264 (drži key→size + legacy video.mp4 ključeve).
  *   - preskoči ako lokalni `{base}.mp4` ili `{base}.web.mp4` već postoji.
- * Sekvencijalno (concurrency 1) by default — 117 yt-dlp downloada paralelno bi povećalo
+ *
+ * SELF-CLEANING (drži disk omeđen — DOMOVINA1TB je tijesan):
+ *   Kad je `data/{id}/video_h264.mp4` već na R2 (durable) a lokalni source `{base}.mp4`
+ *   još leži (KORAK 12.5 --rm-local briše SAMO web.mp4, NE source), download ga obriše.
+ *   Source YT .mp4 je tranzijentan (arhivski master beamlyja je .mp3); reproducibilan
+ *   re-downloadom. Posljedica: beamly source .mp4 leži najviše ~1 noć (do sljedećeg runa).
+ *
+ * Sekvencijalno (concurrency 1) by default — paralelni yt-dlp downloadi povećavaju
  * anti-bot rizik. Cookies preko `--cookies-from-browser brave` (kao fetch.js).
+ * REZOLUCIJA: default 360p (katalog je 640×360; backfill_video_h264 NE skalira →
+ * download rezolucija = finalna; 720p bi bio 4× veći/sporiji bez koristi). Vidi memory.
+ *
+ * Uvezan kao KORAK 9.4 u run_pipeline.sh (prije 9.5 og-share, gateano --with-r2-upload) →
+ * nova matchana beamly epizoda dobije video_h264.mp4 + thumbnail.png + og-share u JEDNOM
+ * nightlyju (download .png/.mp4 → 9.5 og → 12 thumbnail upload → 12.5 transcode→R2).
  *
  * Primjeri:
  *   node download_matched_beamly_video.js --dry-run
  *   node download_matched_beamly_video.js --channel subclub --video-id 5qWhNLUR3MA   # jedan (test)
- *   node download_matched_beamly_video.js --max-height 720                            # cijeli backfill
+ *   node download_matched_beamly_video.js --verify-r2                                # rebuild skip-set iz LIST-a
  *   node download_matched_beamly_video.js --channel launched
  *
  * Nakon ovoga (transcode + R2 upload):
@@ -55,10 +72,14 @@ const hasFlag = (n) => args.includes(n);
 const OUTPUT_DIR  = getArg("--input-dir", path.join(__dirname, "storage", "output"));
 const CHANNELS    = (getArg("--channel") || "subclub,launched").split(",").map(s => s.trim()).filter(Boolean);
 const ONLY_VID    = getArg("--video-id");
-const MAX_HEIGHT  = parseInt(getArg("--max-height", "720"), 10);
+const MAX_HEIGHT  = parseInt(getArg("--max-height", "360"), 10);   // katalog je 360p; backfill NE skalira (memory)
 const LIMIT       = parseInt(getArg("--limit", "0"), 10);
 const DRY_RUN     = hasFlag("--dry-run");
+const VERIFY_R2   = hasFlag("--verify-r2");   // jednokratni LIST + rebuild skip-set (umjesto čitanja cache-a)
 const BROWSER     = "brave";
+
+// Dijeljeni R2 video keys-cache (vlasnik pisanja = backfill_video_h264.js, KORAK 12.5).
+const VIDEO_CACHE_PATH = path.join(__dirname, ".r2_video_cache.json");
 
 // _yt_<11>  (last-match — naslovi epizoda mogu sami sadržavati _yt_; vidi memory)
 function extractVideoId(name) {
@@ -74,12 +95,27 @@ function s3() {
     });
 }
 
-// LIST-once: skup videoId-eva koji već imaju data/{id}/video_h264.mp4 na R2.
+// Skup videoId-eva koji već imaju data/{id}/video_h264.mp4 na R2.
+// DEFAULT: čita dijeljeni `.r2_video_cache.json` (key→size; treba samo postojanje
+// /video_h264.mp4 ključa) → BEZ mrežnog data/ LIST-a (146k+ ključeva, raste dnevno).
+// Cache je READ-ONLY ovdje — vlasnik pisanja je backfill_video_h264 (KORAK 12.5), koji ga
+// seeda i osvježava svake noći, pa je nakon prvog nightlyja uvijek prisutan i autoritativan.
+// FALLBACK (cache nema ili --verify-r2): jednokratni LIST (ne piše cache da ne pokvari
+// backfill-ov format s key→size + legacy video.mp4 ključevima).
+function idsFromCache() {
+    try {
+        if (!fs.existsSync(VIDEO_CACHE_PATH)) return null;
+        const o = JSON.parse(fs.readFileSync(VIDEO_CACHE_PATH, "utf-8"));
+        if (!o || typeof o !== "object") return null;
+        const ids = new Set();
+        for (const key of Object.keys(o)) {
+            if (key.endsWith("/video_h264.mp4")) ids.add(key.split("/")[1]);
+        }
+        return ids;
+    } catch { return null; }
+}
+
 async function listR2VideoIds() {
-    if (!R2_ACCOUNT_ID || !process.env.R2_ACCESS_KEY_ID) {
-        console.log("   ⚠️  Nema R2 credentials — preskačem R2 skip-provjeru (sve će se downloadati).");
-        return null;
-    }
     const client = s3();
     const ids = new Set();
     let token;
@@ -93,6 +129,24 @@ async function listR2VideoIds() {
         token = resp.IsTruncated ? resp.NextContinuationToken : undefined;
     } while (token);
     return ids;
+}
+
+// Skip-set videoId-eva s video_h264.mp4 na R2 (cache → fallback LIST). null = nema provjere.
+async function loadR2VideoIds() {
+    if (!R2_ACCOUNT_ID || !process.env.R2_ACCESS_KEY_ID) {
+        console.log("   ⚠️  Nema R2 credentials — preskačem R2 skip-provjeru (sve će se downloadati).");
+        return null;
+    }
+    if (!VERIFY_R2) {
+        const cached = idsFromCache();
+        if (cached) {
+            console.log(`   ⚡ R2 video ključevi iz cache-a: ${cached.size} (BEZ data/ LIST-a). Rebuild: --verify-r2.`);
+            return cached;
+        }
+    }
+    console.log(`   📋 ${VERIFY_R2 ? "--verify-r2: " : "cache nedostupan → "}LIST R2 (data/ prefix), paginirano...`);
+    try { return await listR2VideoIds(); }
+    catch (e) { console.log(`   ⚠️  R2 LIST nije uspio (${e.message}) — bez R2 skip-seta.`); return null; }
 }
 
 function ytdlp(videoId, outPath) {
@@ -124,8 +178,7 @@ function isAntiBot(s) {
 
 (async () => {
     console.log(`\n🎬 Beamly video download — kanali: ${CHANNELS.join(", ")} | max ${MAX_HEIGHT}p${DRY_RUN ? " | DRY-RUN" : ""}`);
-    const r2Ids = await listR2VideoIds();
-    if (r2Ids) console.log(`   📋 R2 već ima video_h264.mp4 za ${r2Ids.size} videa (skip set).`);
+    const r2Ids = await loadR2VideoIds();
 
     // Discovery: matchane beamly epizode.
     const tasks = [];
@@ -148,15 +201,24 @@ function isAntiBot(s) {
         }
     }
 
-    // Filtriraj skip (već na R2 ili lokalno).
+    // Filtriraj skip (već na R2 ili lokalno) + self-cleaning stale source .mp4.
     const pending = [];
-    let skipR2 = 0, skipLocal = 0;
+    let skipR2 = 0, skipLocal = 0, cleaned = 0;
     for (const t of tasks) {
-        if (r2Ids && r2Ids.has(t.videoId)) { skipR2++; continue; }
-        if (fs.existsSync(t.mp4) || fs.existsSync(t.web)) { skipLocal++; continue; }
+        if (r2Ids && r2Ids.has(t.videoId)) {
+            // video_h264.mp4 je durable na R2 → lokalni source .mp4 je stale leftover
+            // (KORAK 12.5 --rm-local briše web.mp4, NE source). Obriši da disk ostane omeđen.
+            if (fs.existsSync(t.mp4)) {
+                const mb = (fs.statSync(t.mp4).size / 1e6).toFixed(0);
+                if (DRY_RUN) { console.log(`   [dry] 🧹 obrisao bi stale source ${path.basename(t.mp4)} (${mb} MB; na R2)`); }
+                else { try { fs.unlinkSync(t.mp4); console.log(`   🧹 obrisan stale source ${path.basename(t.mp4)} (${mb} MB; na R2)`); cleaned++; } catch {} }
+            }
+            skipR2++; continue;
+        }
+        if (fs.existsSync(t.mp4) || fs.existsSync(t.web)) { skipLocal++; continue; }   // KORAK 12.5 će ga transkodirati
         pending.push(t);
     }
-    console.log(`   🔎 Matchanih: ${tasks.length} | već na R2: ${skipR2} | lokalno već: ${skipLocal} | ZA DOWNLOAD: ${pending.length}`);
+    console.log(`   🔎 Matchanih: ${tasks.length} | već na R2: ${skipR2} | lokalno već: ${skipLocal} | očišćeno: ${cleaned} | ZA DOWNLOAD: ${pending.length}`);
 
     const todo = LIMIT > 0 ? pending.slice(0, LIMIT) : pending;
     let ok = 0, fail = 0, n = 0;
