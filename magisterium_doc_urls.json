@@ -2,6 +2,30 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "The Passion and the Death of Jesus Christ",
+      "uuid": "f90b4519-ca5c-496a-9812-d8c51a5adedf"
+    },
+    {
+      "match": "Diary of Saint Maria Faustina Kowalska: Divine Mercy in My Soul",
+      "uuid": "9910e3fa-486d-424f-84c7-d601948a33aa"
+    },
+    {
+      "match": "Message for all the sick in Mexico (January, 1999)",
+      "uuid": "9c2b1aa3-1cc3-41f8-88ad-a7f593eda947"
+    },
+    {
+      "match": "Messages of the Council: To all the poor, the sick and the suffering",
+      "uuid": "35e221ee-5290-4620-ae24-e075d280259c"
+    },
+    {
+      "match": "Narcotics: problems and solutions to this global issue",
+      "uuid": "15d3e793-8aff-4100-9773-85bd644a1628"
+    },
+    {
+      "match": "General Audience of 26 June 2024 - Catechesis. On the occasion of the International Day Against Drug Abuse and Illicit Trafficking",
+      "uuid": "94acc110-524f-48ed-ae6b-acd3179b971d"
+    },
+    {
       "match": "The celebration of St. Mary Magdalene raised to a feast in the General Roman Calendar (3 June 2016)",
       "uuid": "24e6d966-971f-48a4-be27-68d555a547a9"
     },
