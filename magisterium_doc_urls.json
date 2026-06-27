@@ -2,6 +2,30 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "The celebration of St. Mary Magdalene raised to a feast in the General Roman Calendar (3 June 2016)",
+      "uuid": "24e6d966-971f-48a4-be27-68d555a547a9"
+    },
+    {
+      "match": "General Audience of 17 May 2017",
+      "uuid": "0395d318-3a68-4578-9524-7f364c4d2df5"
+    },
+    {
+      "match": "To the Italian Federation of the Ball-game \"Bocce\" (20 December 2024)",
+      "uuid": "dc5b8374-b4bf-4342-8b89-023dc02c86da"
+    },
+    {
+      "match": "Message of the Holy Father for the centenary of the Corriere dello Sport-Stadio (19 October 2024)",
+      "uuid": "b902cbd3-f6a9-4b46-9a93-9930066b05ca"
+    },
+    {
+      "match": "General Audience of 18 January 2023 - Catechesis. The passion for evangelization: The apostolic zeal of the believer. 2. Jesus, model of evangelization",
+      "uuid": "66ac201f-cff4-4645-87ef-e9bbf8e57324"
+    },
+    {
+      "match": "Cardinal Vinko Puljić: Biography",
+      "uuid": "96b3d387-e92e-41d5-9753-830b714ff4e4"
+    },
+    {
       "match": "Message to Mr René Maheu, General Director of UNESCO on the occasion of the 25th anniversary of its foundation (1 November 1971)",
       "uuid": "567db313-d439-4e47-9e1d-ba430d62265e"
     },
@@ -4340,6 +4364,10 @@
     {
       "match": "General Audience of 2 October 1968",
       "uuid": "e21f6937-bd21-4709-a5dc-d8c17e2bcc5f"
+    },
+    {
+      "match": "Pastoral Visit to San Giovanni Rotondo: Eucharistic Concelebration",
+      "uuid": "89e56abc-3b72-4556-a854-931100fdf7c7"
     }
   ]
 }
