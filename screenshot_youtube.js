@@ -380,6 +380,23 @@ async function processArticle(articlePath) {
         return { total: 0, captured: 0, skipped: 0, failed: 0 };
     }
 
+    // Audio-only (beamly direct-MP3: subclub, launched) epizode nemaju pravi YouTube video —
+    // _yt_ je sintetički ID (npr. 3e963b98XXX), pa yt-dlp vrati "Video unavailable" za svaku.
+    // info.json marker `_yt_matched === false` pouzdano ih razlikuje (verificirano 2026-06-27:
+    // matched=true → 112 ep imaju screenshote, false → 154 nemaju — 100% korelacija). Preskoči
+    // PRIJE yt-dlp poziva da ne hammeramo YouTube s ~150+ beskorisnih lookupa po runu (rizik
+    // anti-bot fingerprinta + bačeno vrijeme). Matchane beamly epizode (_yt_matched=true) prolaze normalno.
+    const infoPath = path.join(dir, `${videoBase}.info.json`);
+    if (fs.existsSync(infoPath)) {
+        try {
+            const info = JSON.parse(fs.readFileSync(infoPath, "utf-8"));
+            if (info._yt_matched === false) {
+                console.log(`   🎧 Audio-only (beamly, _yt_matched=false) — preskačem screenshote: ${videoBase}`);
+                return { total: 0, captured: 0, skipped: 0, failed: 0 };
+            }
+        } catch (_) { /* nevažeći info.json — nastavi normalno (yt-dlp put) */ }
+    }
+
     // Parsiraj article.json
     let article;
     try {
