@@ -235,10 +235,20 @@ async function ingestSource(source) {
   for (const ep of episodes) {
     if (processed >= LIMIT) break;
 
-    const videoId = ytMap.get(ep.slug) || synthId(ep.id);
+    const synth = synthId(ep.id);
+    const videoId = ytMap.get(ep.slug) || synth;
     if (ytMap.has(ep.slug)) stats.ytMatched++;
 
-    if (done.has(videoId)) {
+    // Dedup OTPORAN NA synth→real prijelaz ID-a. Epizoda je već ingestirana ako je u
+    // `done` pod BILO KOJIM ID-em — pravim (matched) ILI sintetičkim. Bez `done.has(synth)`
+    // dijela: kad enrich-youtube osvježi YT mapping (npr. novi launchd @02:00), epizoda
+    // dosad ingestirana sa sintetičkim ID-em odjednom dobije pravi videoId →
+    // `done.has(videoId)` je false → re-ingest kao "nova" = DUPLIKAT + full re-procesiranje
+    // (Canary+Gemini). synthId je deterministički iz ep.id (stabilan identitet), pa hvata taj
+    // slučaj. NAPOMENA: ovo NE radi backlog re-match (postojeće synth epizode OSTAJU synth, bez
+    // screenshotova) — to je zaseban, odgođen rename-migracijski posao; ovdje ga samo NE
+    // pokrećemo slučajno. Vidi memory: beamly-refresh-architecture-and-enrich-gap.
+    if (done.has(videoId) || done.has(synth)) {
       stats.skipped++;
       continue;
     }
