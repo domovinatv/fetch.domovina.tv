@@ -117,3 +117,30 @@ Ti si teološki analitičar. Evaluiraj usklađenost sljedećih N odlomaka … Vr
 - **HR-only opcija:** ako se EN preskače (brže pokrivanje), po epizodi: assemble → `publish_hr_episode.sh <VID>` (instant upload+reindex+meta+GET). EN dodaj naknadno (`translate_to_english.js`, ~25-30 min/ep jer je per-field).
 - **Instant vidljivost zahtijeva reindex+R2 po epizodi:** `/v/{id}` čita per-video `article.magisterium.json` s CDN-a; `/c/` badge čita channel index. Bez `generate_channel_index.js` + meta upload magisterium ostaje "nevidljiv".
 - **Leading-dash YouTube ID gotcha:** VID koji počinje crticom (npr. `-bOmDXC7rlA`) bash tretira kao opciju → zovi `bash publish_hr_episode.sh -- <VID>`. `node ... --video-id <VID>` radi ispravno.
+
+## Backfill cijelog kanala — operativni recept (najkraći prompt)
+
+Kad backfillaš **cijeli kanal** (HR-only), ovo je minimalni tok. Interni naziv kanala (npr. `bozja_pobjeda`) = ime fajla u `storage/meta/channels/data/<CH>.json` i mape `storage/output/<CH>`; izvedi ga iz slug-a na `/c/<slug>` (crtice → underscore).
+
+**1. Recompute todo-liste (SOURCE OF TRUTH — nikad ne vjeruj memoriji za brojeve):**
+```bash
+CH=bozja_pobjeda
+python3 -c "import json,sys; d=json.load(open(f'storage/meta/channels/data/{sys.argv[1]}.json')); v=d.get('videos') or d.get('episodes') or []; todo=[(x.get('id') or x.get('youtube_id')) for x in v if not (x.get('pipeline') or {}).get('has_magisterium')]; print(len(todo)); print(' '.join([t for t in todo if t]))" "$CH"
+```
+Redoslijed u meta je **newest-first** → obrađuj tim redom. Provjeri da je svaka **Magisterium-ready** (`*.article.json` + `*.canary.diarized.srt` u `storage/output/<CH>`); ako fali article/diarized → epizoda treba uzvodni pipeline prvo, **isključi je** iz queuea.
+
+**2. Spawn JEDAN subagent po VID-u, SEKVENCIJALNO** (chat nije parallel-safe). Doslovan najkraći prompt:
+```
+Radi iz /Users/ms/git/domovinatv/fetch.domovina.tv. Odradi docs/MAGISTERIUM_MCP_RUN.md
+za kanal {CH}, video {VID}, HR-only, pa publish.
+- Magisterium ISKLJUČIVO preko MCP-a (učitaj: ToolSearch select:mcp__claude_ai_Magisterium_AI__chat,
+  mcp__claude_ai_Magisterium_AI__search,mcp__claude_ai_Magisterium_AI__fetch). chat SEKVENCIJALNO, search parallel.
+- prep → holistic+batch chat → search (citat-UUID) → assemble → CH={CH} bash publish_hr_episode.sh {VID}
+- NE diraj memoriju (memory/*.md). NE mijenjaj score ručno. NE pokreći Vertex/Gemini ni EN.
+- Verificiraj CDN GET 200. Vrati SAMO: VID, overall_score, broj sekcija, CDN 200 (da/ne).
+```
+Leading-dash/underscore VID → u promptu reci subagentu `... publish_hr_episode.sh -- {VID}`.
+
+**3. Verify pa next:** pričekaj subagentov "CDN 200: da" prije sljedećeg VID-a. Checkpointaj queue-recompute u memoriju svakih ~5 ep (`<CH>_hr_backfill_state.md`).
+
+**4. ETA:** `trajanje ≈ 354s + 18.5s × broj_sekcija` po epizodi, prosjek ~14 min/ep. Cijeli kanal ≈ Σ(epizode)×14 min. **Cost driver = broj sekcija, ne broj epizoda** (vidi `magisterium_mcp_bulk_backfill_metrics_2026-06.md`). Robusnost: Claude API "Overloaded" ubije subagent ~3×/150 → samo ponovno pokreni isti VID (prep idempotentan).
