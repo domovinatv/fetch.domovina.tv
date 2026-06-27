@@ -1,6 +1,6 @@
 20260615 | WWDC 2026: What Subscription Apps Need To Know | https://youtu.be/52442b1807a
 20260527 | How Removing the Free Trial Grew Monthly Subs 2000% – Nancy Anderson, Natal | https://youtu.be/029f40c8ee9
-20260513 | Freemium at Scale: Why Life360 Protects its Free Users – Giordano Contestabile | https://youtu.be/6dcab9c9837
+20260513 | Freemium at Scale: Why Life360 Protects its Free Users – Giordano Contestabile | https://youtu.be/hPwt12zZMCY
 20260429 | Why Opal Stopped Chasing Revenue – Kenneth Schlenker, Opal | https://youtu.be/tJnJflSXaE4
 20260415 | 12 AI Growth Lessons for Subscription Apps – Phil Carter, Elemental Growth | https://youtu.be/UYIgu02h8cs
 20260401 | How the World's #1 VPN App Reached 1 Billion Downloads – Tanuj Chatterjee, Super Unlimited | https://youtu.be/Y16aBkMc6hk
@@ -165,4 +165,4 @@
 20201113 | Taking a Fitness App to Y Combinator and Beyond — Jake Mor, FitnessAI | https://youtu.be/3e963b98d1d
 20201030 | The Trillion-Dollar Subscription App Opportunity — Nico Wittenborn, Adjacent | https://youtu.be/3e963b98d1a
 20201029 | Introducing the Sub Club Podcast — Jacob Eiting & David Barnard | https://youtu.be/3e963b98d1b
-20260624 | How Simply Finally Cracked Facebook Ads with Web Funnels – Yoav Sharon, Simply | https://youtu.be/cd7ac05aabf
+20260624 | How Simply Finally Cracked Facebook Ads with Web Funnels – Yoav Sharon, Simply | https://youtu.be/Xv04J1cr16Q

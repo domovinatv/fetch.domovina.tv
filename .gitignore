@@ -41,3 +41,7 @@ loudness_report.json
 loudness_report.xlsx
 loudness_before_after.json
 .firecrawl/
+
+# Per-machine R2 keys caches (regenerabilni, --verify-r2)
+.r2_keys_cache.json
+.r2_video_cache.json
