@@ -2,6 +2,50 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "19 September 1987, Eucharistic celebration at Pontiac Silverdome in Detroit",
+      "uuid": "57f07a2e-3899-4f77-a3e6-add91338f5e3"
+    },
+    {
+      "match": "The Interpretation of the Bible in the Church",
+      "uuid": "43cc28ae-92db-4495-bf65-9dbfe0eab5d3"
+    },
+    {
+      "match": "Vultum Dei quaerere",
+      "uuid": "67b6f918-c17a-4401-96a7-bc9324cd768b"
+    },
+    {
+      "match": "Apostolic Journey in Poland: 2 June 1997, Airport of Legnica",
+      "uuid": "c1862622-32d4-461e-a6b2-5bd8b494a6a6"
+    },
+    {
+      "match": "Child Dignity in the Digital World",
+      "uuid": "3e4459a4-4dc7-4c96-9251-ec874bcb6272"
+    },
+    {
+      "match": "General Audience of 26 August 2020",
+      "uuid": "c99f2663-109c-4b01-a4a1-6bb81d34923a"
+    },
+    {
+      "match": "The business executive: social responsibility and globalization",
+      "uuid": "df76a6e1-e088-4c97-a341-6a0916707d72"
+    },
+    {
+      "match": "Meeting with the port workers on the banks of the Rhine in Strasburg",
+      "uuid": "7501c70d-463e-4615-8191-25b916f97591"
+    },
+    {
+      "match": "Message of His Holiness Pope Francis for the 53rd World Communications Day",
+      "uuid": "57be85aa-31e8-42cf-a0e8-10117c2efba1"
+    },
+    {
+      "match": "Statement of the COMECE Social Affairs Commission on the EU recovery package",
+      "uuid": "72f01172-def7-4c8a-bd95-8c5600cc975f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 2022",
+      "uuid": "2982649e-0855-43f4-8ea1-282d034fcb8b"
+    },
+    {
       "match": "The Passion and the Death of Jesus Christ",
       "uuid": "f90b4519-ca5c-496a-9812-d8c51a5adedf"
     },
