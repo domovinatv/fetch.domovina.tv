@@ -2,6 +2,14 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "General Audience of 14 December 2005: Psalm 139[138] - O where can I go?",
+      "uuid": "3259deec-b366-48f4-9d7f-a46cb4f650a6"
+    },
+    {
+      "match": "Pro-Life Constitutional Amendment",
+      "uuid": "5717bbcb-9f78-40f1-99c6-677ec0157907"
+    },
+    {
       "match": "19 September 1987, Eucharistic celebration at Pontiac Silverdome in Detroit",
       "uuid": "57f07a2e-3899-4f77-a3e6-add91338f5e3"
     },

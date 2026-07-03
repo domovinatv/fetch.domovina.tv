@@ -165,6 +165,30 @@ If "src" is empty or whitespace only, return {"en": ""}.`;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+// Robusni parser: gemini-3.5-flash zna (deterministički, temp=0) vratiti valjani
+// {"en":"…"} objekt pa NAKON njega nadovezati dodatni sadržaj (npr. drugi objekt ili
+// ponovljeni tekst) → JSON.parse baca "Unexpected non-whitespace character after JSON".
+// Izvučemo PRVI balansirani JSON objekt (poštujući stringove i escape-ove) i parsiramo samo njega.
+function parseFirstJsonObject(str) {
+    try { return JSON.parse(str); } catch (_) { /* padni na balansirano izvlačenje */ }
+    const start = str.indexOf("{");
+    if (start === -1) throw new Error("Nema JSON objekta u odgovoru");
+    let depth = 0, inStr = false, esc = false;
+    for (let i = start; i < str.length; i++) {
+        const c = str[i];
+        if (esc) { esc = false; continue; }
+        if (c === "\\") { esc = true; continue; }
+        if (c === '"') { inStr = !inStr; continue; }
+        if (inStr) continue;
+        if (c === "{") depth++;
+        else if (c === "}") {
+            depth--;
+            if (depth === 0) return JSON.parse(str.slice(start, i + 1));
+        }
+    }
+    throw new Error("Nezatvoren JSON objekt u odgovoru");
+}
+
 async function translateOne(croatianText, dryRun) {
     if (!croatianText || typeof croatianText !== "string" || croatianText.trim() === "") {
         return croatianText || "";
@@ -232,7 +256,7 @@ async function translateOne(croatianText, dryRun) {
             if (!text) throw new Error("Prazan response.candidates[0].content");
 
             let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim();
-            const parsed = JSON.parse(cleaned);
+            const parsed = parseFirstJsonObject(cleaned);
             if (typeof parsed.en !== "string") throw new Error(`Missing "en" field in response: ${cleaned.substring(0, 200)}`);
             return parsed.en;
         } catch (err) {
