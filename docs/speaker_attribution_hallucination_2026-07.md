@@ -69,21 +69,34 @@ Za `vq65cKlbMjs` korekcija je napravljena ručno (Opus 4.8), uz očuvanje **iste
 Zaostaje (istog uzroka, popraviti po potrebi): `summary.json`/`summary.en`, OG-section slike,
 `rag_combined.jsonl`.
 
-## Poluge za trajni fix pipelinea (redom po vrijednosti)
+## Poluge za trajni fix pipelinea — IMPLEMENTIRANO (`generate_article_gemini.js`, 2026-07-04)
 
-1. **Injektiraj `.description` chapter-listu kao ground-truth** u prompt: pre-poravnaj svaki
-   `[SPEAKER_XX]` turn na chapter po timestampu i daj modelu eksplicitnu tablicu
-   "SPEAKER_01 = Petar Buljan (03:05)…". Najveća poluga — točna imena su već u repou.
-2. **Tvrdi constraint u promptu:** "NIKAD ne navodi osobno ime ili naziv benda osim ako se
-   doslovno pojavljuje u transkriptu ILI u priloženoj chapter-mapi; inače koristi neutralnu
-   ulogu. Zabranjeno izvoditi imena iz općeg znanja." Sam bi eliminirao sve izmišljene identitete.
-3. **Post-hoc name-allowlist validacija:** izvuci PERSON/ORG entitete iz `entities/subtitle/
-   content/screenshot_description` i provjeri protiv `{chapter imena} ∪ {doslovni SRT tokeni}
-   ∪ {summary.mentioned_people}`; sve izvan liste flag/zamijeni ulogom.
+Sve tri poluge su ugrađene u `generate_article_gemini.js` i **uvjetno aktivirane** da ne
+pokvare dobru podcast-atribuciju. Aktivacija (`strictAttribution`) uključi se kad postoji
+upotrebljiva izdavačeva mapa (**≥3 chapter-unosa**) **ILI** kad diarizacija vrati puno
+govornika (**> `STRICT_SPEAKER_THRESHOLD` = 8**). Za obični podcast bez mape s malo govornika
+ponašanje je **bajt-identično** kao prije (prazan chapter-block + nepromijenjeni system prompt).
 
-Napomena: highlights/multi-speaker (20+ govornika) je različit režim od podcasta. Fix treba
-biti **uvjetovan** (npr. aktiviraj strogi constraint kad diarizacija vrati > N govornika ili
-kad postoji chapter-lista), da ne pokvari dobru podcast atribuciju.
+1. **Injektirana `.description`/`.info.json` chapter-lista kao ground-truth**
+   (`loadPublisherChapters` → `buildChapterMapBlock`). Preferira strukturirani
+   `.info.json` `chapters` (`{start_time, title}`), fallback na `.description` tekst
+   (`MM:SS`/`HH:MM:SS Naslov`). Blok "SLUŽBENA MAPA GOVORNIKA" dodaje se u prompt Faze 1 i
+   Faze 2; model poravnava vrijeme nastupa govornika s oznakama iz mape.
+2. **Tvrdi constraint u promptu** (`STRICT_NAMING_CLAUSE`): "NIKAD ne izmišljaj ime; koristi
+   ga samo ako je doslovno u transkriptu ILI u mapi; inače neutralna uloga; ne pretpostavljaj
+   uloge/spol; stavke-pjesme nisu imena." Dodaje se na `SYSTEM_PROMPT_1/2` samo u strict-modeu.
+3. **Post-hoc name-audit** (`auditNames`): izvuče PERSON/ORG kandidate (bolded `**X**`,
+   `subtitle`, `screenshot_description`, `entities`; heuristika ≥2 uzastopne Velike riječi ili
+   titula mons./fra/dr./sv.), provjeri protiv allowliste `{chapter tokeni} ∪ {SRT tokeni} ∪
+   {summary.mentioned_people}` s **deklinacijski-tolerantnim** prefiks-matchom (Marko→Marka→
+   Markom). Nepotvrđena imena → `console.warn` + sidecar **`*.article.name_audit.json`**.
+   Audit je **dijagnostički** (ne mutira članak) — prevencija dolazi iz poluga 1+2; audit je
+   safety-net za ljudski pregled. Empirijski (video `vq65cKlbMjs`): na haluciniranom članku
+   flag-a točno 6 izmišljenih identiteta (Alen Hržica, Klaudija Popović, Tiho Orlić, Marija
+   Husar Rimac, Ivana Husar Mlinac, Opća Opasnost), na ispravljenom 0.
+
+Testovi: `node --test generate_article_gemini.test.js` (suite "atribucija govornika —
+chapter-mapa i strict-mode").
 
 ## Novi/izmijenjeni alati iz ove sesije
 

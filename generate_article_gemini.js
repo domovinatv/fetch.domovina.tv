@@ -195,6 +195,168 @@ STRUKTURA JSON-a: Odgovor mora biti JSON objekt koji sadrži niz "sections". Sva
 - "keywords": Niz (array) od 3 do 5 ključnih pojmova ili koncepata koji se spominju u ovom odlomku (npr. ["radna terapija", "nasilje u obitelji", "molitva"]).
 - "entities": Niz (array) vlastitih imenica, lokacija ili ustanova koje se spominju (npr. ["Međugorje", "Sveti Ante", "Mostar"]).`;
 
+// ─── ATRIBUCIJA GOVORNIKA: chapter-mapa + strict-mode + name-audit ───────
+// Rješava halucinaciju imena govornika u multi-speaker / highlights videima.
+// Pozadina i poluge: docs/speaker_attribution_hallucination_2026-07.md.
+//   Poluga 1 — inject izdavačeve chapter-liste (.info.json chapters ILI .description
+//              "MM:SS Ime") kao AUTORITATIVNE mape govornik↔ime↔vrijeme u promptove.
+//   Poluga 2 — strict constraint: model NE smije izmišljati imena; samo iz transkripta
+//              ili priložene mape, inače neutralna uloga.
+//   Poluga 3 — post-hoc name-audit: nepotvrđena imena → warning + `.article.name_audit.json`.
+// Aktivacija je UVJETNA (da ne pokvari dobru podcast-atribuciju): uključi se samo kad
+// postoji upotrebljiva chapter-mapa (>=3 unosa) ILI kad diarizacija vrati puno govornika.
+const STRICT_SPEAKER_THRESHOLD = 8;   // > ovoga = highlights/panel režim → strict
+
+const STRICT_NAMING_CLAUSE = `
+
+⚠️ STROGO PRAVILO ATRIBUCIJE IMENA (obavezno — ova snimka ima službenu mapu govornika i/ili velik broj kratkih govornika; diarizacijske oznake [SPEAKER_XX] NE nose imena):
+- NIKAD ne izmišljaj ni ne pogađaj osobno ime, ime izvođača ili naziv benda/sastava. Strogo je zabranjeno izvoditi imena iz općeg znanja o temi ili poznatih javnih osoba.
+- Konkretno ime smiješ upotrijebiti ISKLJUČIVO ako se (a) doslovno pojavljuje u transkriptu, ILI (b) je navedeno u priloženoj SLUŽBENOJ MAPI GOVORNIKA. Ime pridijeli govorniku tako da uskladiš vrijeme njegova nastupa (iz vremenskih oznaka transkripta) s vremenskom oznakom iz mape.
+- Ako ime NIJE potvrđeno ni transkriptom ni mapom, koristi NEUTRALNU ulogu ("izvođač", "izvođačica", "predstavnik udruge", "svećenik", "posjetiteljica", "sudionik", "gost") — nikad izmišljeno ime.
+- Uloge i spol izvodi samo iz sadržaja; ne pretpostavljaj (npr. ne nazivaj pjevačicu "svećenikom", niti bend nasumičnim poznatim imenom).
+- Stavke iz mape koje su nazivi pjesama (ne osobe) ne pridjeljuj kao imena govornika.`;
+
+// Deakcentiraj + normaliziraj za usporedbu tokena (č→c, ž→z, lowercase, samo alnum+razmak).
+function normalizeNameTokens(s) {
+    return (s || "").toLowerCase()
+        .replace(/č/g, "c").replace(/ć/g, "c").replace(/đ/g, "d").replace(/š/g, "s").replace(/ž/g, "z")
+        .replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function secToHMS(sec) {
+    const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+    return [h, m, s].map(n => String(n).padStart(2, "0")).join(":");
+}
+
+// POLUGA 1 — izdavačeva mapa: .info.json `chapters` (strukturirano, pouzdanije) ili
+// .description tekst ("MM:SS Naslov" / "HH:MM:SS Naslov"). Vraća [{seconds, label}].
+function loadPublisherChapters(baseDir, epBase) {
+    try {
+        const infoPath = path.join(baseDir, `${epBase}.info.json`);
+        if (fs.existsSync(infoPath)) {
+            const info = JSON.parse(fs.readFileSync(infoPath, "utf-8"));
+            if (Array.isArray(info.chapters) && info.chapters.length) {
+                return info.chapters
+                    .filter(c => c && c.title != null && c.start_time != null)
+                    .map(c => ({ seconds: Math.round(Number(c.start_time)), label: String(c.title).trim() }));
+            }
+        }
+    } catch (_) { /* fallthrough na .description */ }
+    try {
+        const descPath = path.join(baseDir, `${epBase}.description`);
+        if (fs.existsSync(descPath)) {
+            const out = [];
+            for (const line of fs.readFileSync(descPath, "utf-8").split("\n")) {
+                const m = line.match(/^\s*(\d{1,2}):(\d{2})(?::(\d{2}))?\s+(\S.*?)\s*$/);
+                if (!m) continue;
+                const hasH = m[3] != null;
+                const h = hasH ? parseInt(m[1], 10) : 0;
+                const mm = hasH ? parseInt(m[2], 10) : parseInt(m[1], 10);
+                const ss = hasH ? parseInt(m[3], 10) : parseInt(m[2], 10);
+                out.push({ seconds: h * 3600 + mm * 60 + ss, label: m[4].trim() });
+            }
+            return out;
+        }
+    } catch (_) { /* nema mape */ }
+    return [];
+}
+
+function buildChapterMapBlock(chapters) {
+    const lines = chapters.map(c => ` - ${secToHMS(c.seconds)}  ${c.label}`).join("\n");
+    return `\n\nSLUŽBENA MAPA GOVORNIKA / POGLAVLJA (od izdavača — AUTORITATIVNO za imena; poravnaj vrijeme nastupa govornika s ovim oznakama; stavke koje su nazivi pjesama ne odnose se na osobe):\n${lines}\n`;
+}
+
+function countSpeakers(srt) {
+    const set = new Set();
+    const re = /\[SPEAKER_(\d+)\]/g;
+    let m;
+    while ((m = re.exec(srt)) !== null) set.add(m[1]);
+    return set.size;
+}
+
+// mentioned_people / speakers[].suggested_name iz summary sidecar-a (pomoćni signal za audit).
+function loadSummaryMentioned(baseDir, epBase) {
+    const names = [];
+    try {
+        const p = path.join(baseDir, `${epBase}.wav.canary.summary.json`);
+        if (fs.existsSync(p)) {
+            const s = JSON.parse(fs.readFileSync(p, "utf-8"));
+            const push = v => { if (typeof v === "string") names.push(v); };
+            (s.mentioned_people || s.people || []).forEach(push);
+            (s.speakers || []).forEach(sp => push(sp && (sp.suggested_name || sp.name)));
+        }
+    } catch (_) { /* best-effort */ }
+    return names;
+}
+
+// POLUGA 3 — allowlist tokena (deakcentirano): sve riječi transkripta + imena iz chaptera + summary.
+function buildNameTokenSet(chapters, srt, summaryNames) {
+    const set = new Set();
+    const add = str => normalizeNameTokens(str).split(" ").forEach(t => { if (t.length >= 3) set.add(t); });
+    add(srt);
+    chapters.forEach(c => add(c.label));
+    summaryNames.forEach(add);
+    return set;
+}
+
+// Uvijek-OK (religijski/geografski pojmovi, ne osobna imena) — ne flag-aj.
+const NAME_AUDIT_STOP = new Set(
+    ["bog", "isus", "krist", "gospodin", "duh sveti", "sveti duh", "hrvatska", "crkva", "evandelje", "biblija", "marko perkovic thompson"]
+        .map(normalizeNameTokens)
+);
+
+// Kandidati PERSON/ORG imena iz izlaza: bolded **X**, subtitle, screenshot_description, entities.
+// Heuristika: >=2 uzastopne Velike riječi ILI titula (mons./fra/dr./sv.). Time se izbjegavaju
+// jednorječni religijski/geografski pojmovi (Bog, Isus, Hrvatska), a hvataju "Tiho Orlić",
+// "Opća Opasnost", "Marija Husar Rimac" itd.
+function extractNameCandidates(article) {
+    const cands = new Set();
+    const titleRe = /\b(?:mons\.?|fra|dr\.?|sv\.?|pater|o\.)\s+[A-ZČĆĐŠŽ][\wčćđšž]+/g;
+    const multiCapRe = /\b[A-ZČĆĐŠŽ][a-zčćđšž]+(?:\s+[A-ZČĆĐŠŽ][a-zčćđšž]+)+\b/g;
+    const scan = txt => {
+        if (!txt) return;
+        (String(txt).match(multiCapRe) || []).forEach(x => cands.add(x.trim()));
+        (String(txt).match(titleRe) || []).forEach(x => cands.add(x.trim()));
+    };
+    for (const it of (article.iterations || [])) {
+        for (const sec of (it.sections || [])) {
+            scan(sec.subtitle);
+            scan(sec.screenshot_description);
+            (String(sec.content || "").match(/\*\*([^*]+)\*\*/g) || []).forEach(b => scan(b.replace(/\*\*/g, "")));
+            (sec.entities || []).forEach(scan);
+        }
+    }
+    return [...cands];
+}
+
+// Token je "poznat" ako je u allowlisti ili dijeli osnovu (prefiks ≥4) s nekim tokenom —
+// hrvatski jako sklanja imena (Marko→Marka→Markom, Thompson→Thompsona), pa exact-match
+// daje lažne pozitive. Prefiks ≥4 + ograničena razlika duljine hvata deklinaciju bez
+// da spaja nepovezane riječi.
+function tokenKnown(t, set) {
+    if (set.has(t)) return true;
+    if (t.length < 4) return false;
+    const tp = t.slice(0, 4);
+    for (const a of set) {
+        if (a.length >= 4 && a.slice(0, 4) === tp && Math.abs(a.length - t.length) <= 3) return true;
+    }
+    return false;
+}
+
+function auditNames(article, tokenSet) {
+    const flagged = [];
+    for (const name of extractNameCandidates(article)) {
+        const norm = normalizeNameTokens(name);
+        if (NAME_AUDIT_STOP.has(norm)) continue;
+        const toks = norm.split(" ").filter(t => t.length >= 3);
+        if (!toks.length) continue;
+        const known = toks.filter(t => tokenKnown(t, tokenSet)).length;
+        // Potvrđeno ako je bar polovica značajnih tokena u allowlisti; inače nepotvrđeno.
+        if (known < Math.ceil(toks.length / 2)) flagged.push(name);
+    }
+    return [...new Set(flagged)];
+}
+
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
 function sleep(ms) {
@@ -884,6 +1046,19 @@ async function processFile(file, { exitOnError = true } = {}) {
     const epBase = basename.replace(/\.wav\.(canary|sortformer)\.diarized$/, "");
     const _usage0 = snapshotUsage();   // za per-epizodu trošak diff (zbroj svih poziva ove epizode)
 
+    // ── ATRIBUCIJA GOVORNIKA: uvjetni strict-mode (vidi docs/speaker_attribution_hallucination_2026-07.md) ──
+    const pubChapters = loadPublisherChapters(baseDir, epBase);
+    const speakerCount = countSpeakers(srtContent);
+    const hasChapterMap = pubChapters.length >= 3;
+    const manySpeakers = speakerCount > STRICT_SPEAKER_THRESHOLD;
+    const strictAttribution = hasChapterMap || manySpeakers;
+    const chapterBlock = hasChapterMap ? buildChapterMapBlock(pubChapters) : "";
+    const systemPrompt1 = SYSTEM_PROMPT_1 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
+    const systemPrompt2 = SYSTEM_PROMPT_2 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
+    if (strictAttribution) {
+        console.log(`   🧭 Strict-atribucija AKTIVNA (govornika: ${speakerCount}, chapter-unosa: ${pubChapters.length}${hasChapterMap ? ", mapa injektirana" : ""}) — imena samo iz transkripta/mape.`);
+    }
+
     const today = new Date();
     const dateStr = today.toISOString().split('T')[0];
 
@@ -935,10 +1110,10 @@ async function processFile(file, { exitOnError = true } = {}) {
             console.log(`   🚀 [FAZA 1] Generiram semantički outline...`);
             const startTime1 = Date.now();
 
-            const userMessage1 = `Evo cijelog diariziranog transkripta:\n\n${srtContent}`;
+            const userMessage1 = `Evo cijelog diariziranog transkripta:${chapterBlock}\n\n${srtContent}`;
 
             try {
-                const result1 = await callGemini(SYSTEM_PROMPT_1, userMessage1, "FAZA 1 — Outline", rawPath1);
+                const result1 = await callGemini(systemPrompt1, userMessage1, "FAZA 1 — Outline", rawPath1);
                 outlineJson = result1.parsed;
                 if (Array.isArray(outlineJson)) {
                     console.log(`   ℹ️  [FAZA 1] Gemini vratio goli JSON niz (${outlineJson.length} elemenata) — omotavam u {iterations: [...]}.`);
@@ -1028,12 +1203,13 @@ async function processFile(file, { exitOnError = true } = {}) {
             `Vremenski okvir: od ${iter.start_time} do ${iter.end_time}.\n` +
             `Tema: ${iter.theme}\n` +
             `Poglavlja u ovoj iteraciji:\n` +
-            `${iter.chapters.map(c => ` - ${c.timestamp}: ${c.topic}`).join("\n")}\n\n` +
-            `Transkript cijelog razgovora (iskoristi za kontekst i prepoznavanje imena, ali PIŠI SAMO O VREMENSKOM OKVIRU ${iter.start_time} - ${iter.end_time}):\n\n${srtContent}`;
+            `${iter.chapters.map(c => ` - ${c.timestamp}: ${c.topic}`).join("\n")}\n` +
+            chapterBlock +
+            `\nTranskript cijelog razgovora (iskoristi za kontekst i prepoznavanje imena, ali PIŠI SAMO O VREMENSKOM OKVIRU ${iter.start_time} - ${iter.end_time}):\n\n${srtContent}`;
 
         try {
             const rawPath2 = path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.raw.txt`);
-            const result2 = await callGemini(SYSTEM_PROMPT_2, iterDetails, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
+            const result2 = await callGemini(systemPrompt2, iterDetails, `FAZA 2 — Iteracija ${iter.iteration_number}`, rawPath2);
             const sectionResult = result2.parsed;
 
             let sections;
@@ -1087,6 +1263,30 @@ async function processFile(file, { exitOnError = true } = {}) {
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
             if (exitOnError) process.exit(1);
             return false;
+        }
+    }
+
+    // ── POLUGA 3: post-hoc name-audit (nepotvrđena imena → warning + sidecar, NE mutira članak) ──
+    if (strictAttribution) {
+        try {
+            const tokenSet = buildNameTokenSet(pubChapters, srtContent, loadSummaryMentioned(baseDir, epBase));
+            const flagged = auditNames(finalArticle, tokenSet);
+            const auditPath = articlePath.replace(/\.article\.json$/, ".article.name_audit.json");
+            fs.writeFileSync(auditPath, JSON.stringify({
+                generated_at: new Date().toISOString(),
+                speaker_count: speakerCount,
+                chapters_count: pubChapters.length,
+                strict_attribution: true,
+                flagged_names: flagged,
+                note: "Kandidati imena koji NISU potvrđeni transkriptom/chapter-mapom/summaryjem (moguća halucinacija). Ručno provjeriti. Vidi docs/speaker_attribution_hallucination_2026-07.md."
+            }, null, 2), "utf-8");
+            if (flagged.length) {
+                console.warn(`   ⚠️  [AUDIT IMENA] ${flagged.length} nepotvrđenih imena: ${flagged.join(", ")} → ${path.basename(auditPath)}`);
+            } else {
+                console.log(`   ✅ [AUDIT IMENA] sva imena potvrđena transkriptom/mapom.`);
+            }
+        } catch (e) {
+            console.warn(`   ⚠️  [AUDIT IMENA] preskočen: ${e.message}`);
         }
     }
 
@@ -1234,6 +1434,15 @@ module.exports = {
     processFile,
     callGemini,
     DIARIZED_SRT_SUFFIX,
+    // Atribucija govornika (chapter-mapa + strict-mode + name-audit)
+    loadPublisherChapters,
+    buildChapterMapBlock,
+    countSpeakers,
+    buildNameTokenSet,
+    extractNameCandidates,
+    auditNames,
+    normalizeNameTokens,
+    STRICT_SPEAKER_THRESHOLD,
     // Za testiranje: postavi cached token da se izbjegne poziv gcloud auth
     _setTestToken(token) {
         cachedAccessToken = token;

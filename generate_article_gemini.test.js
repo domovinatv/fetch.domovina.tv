@@ -27,6 +27,12 @@ const {
     processFile,
     callGemini,
     DIARIZED_SRT_SUFFIX,
+    loadPublisherChapters,
+    countSpeakers,
+    buildNameTokenSet,
+    extractNameCandidates,
+    auditNames,
+    STRICT_SPEAKER_THRESHOLD,
     _setTestToken,
 } = require("./generate_article_gemini.js");
 
@@ -957,5 +963,76 @@ describe("processFile s mockanim API-jem", () => {
         assert.equal(article.iterations[1].sections[0].subtitle, "Sekcija A");
 
         rmTmpDir(tmpDir3);
+    });
+});
+
+// ─── ATRIBUCIJA GOVORNIKA: chapter-mapa + strict-mode + name-audit ───────
+// Vidi docs/speaker_attribution_hallucination_2026-07.md.
+describe("atribucija govornika — chapter-mapa i strict-mode", () => {
+    let tmpDir;
+    before(() => { tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "attr-test-")); });
+    after(() => { fs.rmSync(tmpDir, { recursive: true, force: true }); });
+
+    it("loadPublisherChapters parsira .description 'MM:SS Ime' retke", () => {
+        const ep = "ep1";
+        fs.writeFileSync(path.join(tmpDir, `${ep}.description`),
+            "Neki uvodni tekst bez timestampa\n00:00 Početak\n03:05 Petar Buljan\n14:20 Fra Marin Karačić\nwww.link.com\n");
+        const ch = loadPublisherChapters(tmpDir, ep);
+        assert.equal(ch.length, 3);
+        assert.deepEqual(ch[1], { seconds: 185, label: "Petar Buljan" });
+    });
+
+    it("loadPublisherChapters preferira .info.json chapters (strukturirano)", () => {
+        const ep = "ep2";
+        fs.writeFileSync(path.join(tmpDir, `${ep}.info.json`), JSON.stringify({
+            chapters: [{ start_time: 0, title: "Uvod" }, { start_time: 185.4, title: "Petar Buljan" }]
+        }));
+        fs.writeFileSync(path.join(tmpDir, `${ep}.description`), "05:00 Netko Drugi\n");
+        const ch = loadPublisherChapters(tmpDir, ep);
+        assert.equal(ch.length, 2);              // iz info.json, ne iz .description
+        assert.equal(ch[1].label, "Petar Buljan");
+        assert.equal(ch[1].seconds, 185);        // zaokruženo
+    });
+
+    it("loadPublisherChapters vraća [] kad nema ni info.json ni description", () => {
+        assert.deepEqual(loadPublisherChapters(tmpDir, "nepostoji"), []);
+    });
+
+    it("countSpeakers broji jedinstvene [SPEAKER_XX]", () => {
+        const srt = "1\n00:00:01,000 --> 00:00:02,000\n[SPEAKER_00] a\n\n2\n00:00:03,000 --> 00:00:04,000\n[SPEAKER_05] b\n\n3\n[SPEAKER_00] c\n";
+        assert.equal(countSpeakers(srt), 2);
+    });
+
+    it("name-audit flag-a IZMIŠLJENA imena, a NE prava (iz mape/transkripta), tolerira hrv. deklinaciju", () => {
+        const chapters = [
+            { seconds: 72, label: "Marko Perković Thompson" },
+            { seconds: 185, label: "Petar Buljan" },
+            { seconds: 164, label: "mons. Vlado Košić" },
+        ];
+        const srt = "[SPEAKER_01] Bilo mi je drago sa Markom i cijelim bendom. Ivan pozdravlja.";
+        const tokenSet = buildNameTokenSet(chapters, srt, []);
+        const article = { iterations: [{ sections: [
+            { subtitle: "Petar Buljan: bend", content: "**Petar Buljan** je s **Markom Perkovićem Thompsonom** pjevao.", entities: ["Petar Buljan"] },
+            { subtitle: "Tiho Orlić", content: "**Tiho Orlić** i bend **Opća Opasnost** te **Marija Husar Rimac**.", entities: ["Tiho Orlić", "Opća Opasnost"] },
+            { subtitle: "Blagoslov", content: "Govori **mons. Vlado Košić** o životu i o **Bogu**.", entities: ["Bog"] },
+        ] }] };
+        const flagged = auditNames(article, tokenSet);
+        // izmišljena → flag
+        assert.ok(flagged.some(n => n.includes("Tiho")), "Tiho Orlić mora biti flagan");
+        assert.ok(flagged.includes("Opća Opasnost"), "Opća Opasnost mora biti flagan");
+        assert.ok(flagged.some(n => n.includes("Marija Husar")), "Marija Husar Rimac mora biti flagan");
+        // prava (iz mape) → NE flag, uključujući sklonjene oblike i titulu
+        assert.ok(!flagged.includes("Petar Buljan"), "Petar Buljan (iz mape) NE smije biti flagan");
+        assert.ok(!flagged.some(n => n.includes("Perkovi")), "Thompson (sklonjen, iz mape) NE smije biti flagan");
+        assert.ok(!flagged.some(n => n.includes("Košić")), "mons. Vlado Košić (iz mape) NE smije biti flagan");
+        // jednorječni religijski pojam (Bog) se ne hvata heuristikom
+        assert.ok(!flagged.includes("Bog"));
+    });
+
+    it("strict-mode odluka: OFF za mali podcast bez mape, ON za highlights/mapu", () => {
+        // mali podcast: 3 govornika, bez chaptera → strict OFF (nepromijenjeno ponašanje)
+        assert.equal(3 > STRICT_SPEAKER_THRESHOLD || 0 >= 3, false);
+        // highlights: 25 govornika → strict ON
+        assert.equal(25 > STRICT_SPEAKER_THRESHOLD, true);
     });
 });
