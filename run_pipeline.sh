@@ -174,6 +174,13 @@ echo ""
 #                            Independent od transkripcije za starije epizode (one koje već imaju
 #                            article output) — siguran za "Faza A" catch-up pass uz --with-screenshots.
 #   --with-magisterium    → uključuje korak 8.5 (Magisterium AI teološko obogaćivanje, zahtijeva MAGISTERIUM_API_KEY)
+#   --with-modal-transcribe → NADOGRADNJA (single-pass): uključuje KORAK 2.6 — transkribira lokalne
+#                            WAV-ove na Modal serverless A100-40 GPU-u (modal_canary/canary_modal.py) i
+#                            piše .canary.srt lokalno, pa KORAK 6 diarizira odmah u istom runu (bez
+#                            Colab/rclone round-tripa). SCOPE = samo _unlisted (ad-hoc pipeline.domovina.ai
+#                            jobovi); bulk ostaje na Colab G4. Cap MODAL_MAX_FILES (default 20). Override
+#                            scope: MODAL_TRANSCRIBE_DIR=... Setup: pip install modal && modal setup &&
+#                            modal run modal_canary/canary_modal.py::download_model. Bez flaga = stari put.
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
 #                            Use case: Ethernet je primarni link (gigabit za rad), ali
@@ -205,6 +212,7 @@ WITH_SCREENSHOTS=false
 WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
+WITH_MODAL_TRANSCRIBE=false
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
@@ -251,6 +259,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-magisterium" ]; then
         WITH_MAGISTERIUM=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-modal-transcribe" ]; then
+        WITH_MODAL_TRANSCRIBE=true
         i=$((i + 1))
     elif [ "$arg" = "--proxy" ]; then
         # --proxy ide ISTODOBNO u screenshot_youtube.js (preko SCREENSHOT_ARGS)
@@ -430,6 +441,72 @@ if command -v rclone &> /dev/null; then
       || echo "   ⚠️ rclone Drive UPLOAD (WAV za Colab) nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Svježi videi svejedno dobiju video_h264.mp4 + reindex u ovom prolazu (Colab Canary samo kasni dok se Drive ne oslobodi)."
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
+fi
+
+# --- KORAK 2.6: MODAL ON-DEMAND CANARY TRANSKRIPCIJA (opcionalno --with-modal-transcribe) ---
+# NADOGRADNJA (2026-07-07), potpuno backward-compatible: bez ovog flaga ništa se ne
+# mijenja (default false → korak se preskače, postojeći Colab/rclone put ostaje netaknut).
+#
+# Svrha: SINGLE-PASS ad-hoc obrada. Umjesto Colab/rclone round-tripa (upload WAV na
+# Drive → čekaj Colab → rclone SRT natrag → sljedeći run), transkribira lokalne WAV-ove
+# na Modal serverless A100-40 GPU-u (modal_canary/canary_modal.py) i piše .canary.srt
+# POKRAJ WAV-a. KORAK 6 (diarizacija) ga odmah nađe → cijeli run je jednoprolazan.
+#
+# SIGURNOST OD TROŠKA (bitno): default scope je SAMO _unlisted poddir — ondje slijeću
+# pipeline.domovina.ai ad-hoc jobovi (bridge: fetch.js --unlisted-url). Bulk backlog
+# (tisuće WAV-ova po kanalima) se NE dira — taj ostaje na Colab G4 (jeftinije za mase).
+# Tvrdi cap MODAL_MAX_FILES sprječava slučajni fan-out. Override scope: MODAL_TRANSCRIBE_DIR.
+if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 2.6: Modal on-demand Canary transkripcija [--with-modal-transcribe]"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+MODAL_TRANSCRIBE_DIR="${MODAL_TRANSCRIBE_DIR:-$OUTPUT_DIR/_unlisted}"
+MODAL_APP="$SCRIPT_DIR/modal_canary/canary_modal.py"
+MODAL_MAX_FILES="${MODAL_MAX_FILES:-20}"
+
+if ! command -v modal &> /dev/null; then
+    echo "   ⚠️ 'modal' CLI nije dostupan — preskačem Modal transkripciju."
+    echo "      Setup: pip install modal && modal setup && modal run $MODAL_APP::download_model"
+elif [ ! -f "$MODAL_APP" ]; then
+    echo "   ⚠️ Nema $MODAL_APP — preskačem Modal transkripciju."
+elif [ ! -d "$MODAL_TRANSCRIBE_DIR" ]; then
+    echo "   ⏭️  Nema $MODAL_TRANSCRIBE_DIR — ništa za Modal transkribirati."
+else
+    # WAV-ovi bez .canary.srt (idempotentno), preskoči loudnorm-izvedene i ._ resource-forkove.
+    # -L slijedi symlinkane kanale (storage/output symlink arhitektura, vidi CLAUDE.md).
+    MODAL_PENDING=()
+    while IFS= read -r w; do
+        [ -z "$w" ] && continue
+        [ -f "${w}.canary.srt" ] && continue
+        MODAL_PENDING+=("$w")
+    done < <(find -L "$MODAL_TRANSCRIBE_DIR" -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' 2>/dev/null | sort)
+
+    MODAL_N=${#MODAL_PENDING[@]}
+    echo "   📋 WAV-ova bez .canary.srt u ${MODAL_TRANSCRIBE_DIR}: $MODAL_N (cap: $MODAL_MAX_FILES)"
+    if [ "$MODAL_N" -eq 0 ]; then
+        echo "   ✅ Ništa za transkribirati (svi već imaju .canary.srt)."
+    elif [ "$MODAL_N" -gt "$MODAL_MAX_FILES" ]; then
+        echo "   🛑 $MODAL_N > MODAL_MAX_FILES ($MODAL_MAX_FILES) — ABORT Modal koraka radi zaštite od troška."
+        echo "      Modal je za AD-HOC (par fajlova). Za bulk koristi Colab G4 (colab_canary/)."
+        echo "      Ako baš želiš: MODAL_MAX_FILES=$MODAL_N ./run_pipeline.sh --with-modal-transcribe ..."
+    elif [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        echo "   ⚠️ DRY RUN — bili bi transkribirani (bez Modal poziva):"
+        for w in "${MODAL_PENDING[@]}"; do echo "      🔄 $(basename "$w")"; done
+    else
+        for w in "${MODAL_PENDING[@]}"; do
+            echo "   ⬆️  Modal transkripcija: $(basename "$w")"
+            modal run "$MODAL_APP" --wav "$w" --source-lang hr --target-lang hr \
+              || echo "   ⚠️ Modal nije uspio za $(basename "$w") — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
+        done
+        echo "   ✅ Modal transkripcija gotova — .canary.srt su lokalno, KORAK 6 (diarize) ih hvata."
+    fi
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.6 (Modal transkripcija) — nije zadan --with-modal-transcribe (default: Colab/rclone put)"
 fi
 
 # --- KORACI 3+4: WHISPER PROMPT + TRANSKRIPCIJA (legacy, opcionalno --with-whisper) ---
