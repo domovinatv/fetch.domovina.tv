@@ -32,7 +32,9 @@ import csv
 import datetime
 import gc
 import os
+import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -85,6 +87,121 @@ def format_duration(seconds: float) -> str:
     m = int((seconds % 3600) // 60)
     s = int(seconds % 60)
     return f"{h}h {m}m {s}s"
+
+
+# ─── GPU utilizacija (mjerenje bottlenecka) ───
+#
+# RAZLOG (2026-07-07): na G4 (96 GB VRAM) peak VRAM je ~26 GB → ~70 GB neiskorišteno.
+# Pitanje je isplati li se paralelno obrađivati više WAV-ova (--shard-count) ili je
+# GPU COMPUTE (SM) već zasićen pa bi paralelizacija samo trošila VRAM bez dobitka na
+# throughputu. To se ne može znati bez mjerenja: SM utilization je metrika koja to
+# razrješava. Uzorkujemo u pozadinskoj niti (NVML ako je dostupan, inače nvidia-smi)
+# i izvještavamo po fajlu + globalno, s interpretacijom na kraju.
+
+class GpuSampler:
+    """Uzorkuje GPU SM utilizaciju (%) i VRAM (MB) u pozadinskoj niti.
+
+    Backend: pynvml (NVML) ako je importabilan, inače `nvidia-smi` subprocess.
+    Low-overhead (~interval s). Ako ni jedno nije dostupno (npr. CPU-only),
+    tiho se deaktivira (start/stop/window su no-op → None)."""
+
+    def __init__(self, interval: float = 0.5):
+        self.interval = interval
+        self._samples = []            # lista (sm_util_pct, mem_used_mb); index-based window
+        self._stop = threading.Event()
+        self._thread = None
+        self._backend = None          # "nvml" | "smi" | None
+        self._nvml = None
+        self._handle = None
+        self.mem_total_mb = None
+        self._init_backend()
+
+    def _init_backend(self):
+        try:
+            import pynvml
+            pynvml.nvmlInit()
+            self._handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+            self._nvml = pynvml
+            self._backend = "nvml"
+            self.mem_total_mb = pynvml.nvmlDeviceGetMemoryInfo(self._handle).total / (1024 * 1024)
+            return
+        except Exception:
+            pass
+        # Fallback: nvidia-smi (uvijek prisutan na Colab GPU runtimeu)
+        try:
+            import shutil
+            if shutil.which("nvidia-smi"):
+                self._backend = "smi"
+                out = subprocess.check_output(
+                    ["nvidia-smi", "--query-gpu=memory.total",
+                     "--format=csv,noheader,nounits"], timeout=5
+                ).decode().strip().splitlines()[0]
+                self.mem_total_mb = float(out.strip())
+        except Exception:
+            self._backend = None
+
+    def _read(self):
+        """Vrati (sm_util_pct, mem_used_mb) ili None."""
+        if self._backend == "nvml":
+            u = self._nvml.nvmlDeviceGetUtilizationRates(self._handle)
+            m = self._nvml.nvmlDeviceGetMemoryInfo(self._handle)
+            return float(u.gpu), m.used / (1024 * 1024)
+        if self._backend == "smi":
+            out = subprocess.check_output(
+                ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used",
+                 "--format=csv,noheader,nounits"], timeout=5
+            ).decode().strip().splitlines()[0]
+            gpu, mem = [p.strip() for p in out.split(",")]
+            return float(gpu), float(mem)
+        return None
+
+    def _loop(self):
+        while not self._stop.wait(self.interval):
+            try:
+                r = self._read()
+                if r is not None:
+                    self._samples.append(r)
+            except Exception:
+                pass
+
+    def start(self):
+        if self._backend is None:
+            return self
+        self._thread = threading.Thread(target=self._loop, daemon=True)
+        self._thread.start()
+        return self
+
+    def stop(self):
+        self._stop.set()
+        if self._thread:
+            self._thread.join(timeout=2)
+
+    @property
+    def active(self) -> bool:
+        return self._backend is not None
+
+    def mark(self) -> int:
+        """Vrati index trenutnog kraja liste — početak prozora za jedan fajl.
+        (Nit samo append-a → slice od ovog indexa je thread-safe.)"""
+        return len(self._samples)
+
+    def window(self, start_idx: int):
+        """Statistika (sm_avg, sm_peak, mem_peak_mb, n) za uzorke od start_idx nadalje."""
+        s = self._samples[start_idx:]
+        if not s:
+            return None
+        sm = [x[0] for x in s]
+        mem = [x[1] for x in s]
+        return {"sm_avg": sum(sm) / len(sm), "sm_peak": max(sm),
+                "mem_peak": max(mem), "n": len(s)}
+
+    def overall(self):
+        """Globalna statistika preko svih uzoraka (svaki uzorak = jednak vremenski odsječak)."""
+        return self.window(0)
+
+
+def _gb(mb):
+    return mb / 1024.0 if mb is not None else None
 
 
 # ─── Glavni program ───
@@ -392,6 +509,13 @@ def main():
     model, device = load_model(args.model_path)
     print("")
 
+    # GPU sampler — mjeri SM utilizaciju + VRAM da odgovori "isplati li se paralelizirati".
+    gpu = GpuSampler(interval=0.5).start()
+    if gpu.active:
+        mt = f"{_gb(gpu.mem_total_mb):.1f} GB" if gpu.mem_total_mb else "?"
+        print(f"   📈 GPU metrics ON (backend: {gpu._backend}, VRAM total {mt})")
+        print("")
+
     total_transcribed = 0
     total_skipped = 0
     total_errors = 0
@@ -402,6 +526,7 @@ def main():
         print(f"   ─────────────────────────────────────────────")
         print(f"   [{i+1}/{len(to_process)}] 🎙️  {basename}")
 
+        win0 = gpu.mark()
         result = transcribe_single_file(model, wav_file, output_dir,
                                         source_lang, target_lang)
 
@@ -409,6 +534,12 @@ def main():
             total_transcribed += 1
             total_elapsed += result["elapsed"]
             print(f"      ⏱️  Trajalo: {format_duration(result['elapsed'])}")
+            st = gpu.window(win0)
+            if st:
+                mem_g = _gb(st["mem_peak"])
+                mtot = f"/{_gb(gpu.mem_total_mb):.0f}" if gpu.mem_total_mb else ""
+                print(f"      📈 GPU: SM avg {st['sm_avg']:.0f}% / peak {st['sm_peak']:.0f}% "
+                      f"| VRAM peak {mem_g:.1f}{mtot} GB")
         elif result["status"] == "skipped":
             total_skipped += 1
             print(f"      ⏭️  Preskočeno: {result['reason']}")
@@ -430,6 +561,29 @@ def main():
         if total_transcribed > 0:
             avg = total_elapsed / total_transcribed
             print(f"   📊 Prosjek po datoteci: {format_duration(avg)}")
+
+    # ─── GPU utilizacija: interpretacija (paralelizacija da/ne) ───
+    gpu.stop()
+    ov = gpu.overall() if gpu.active else None
+    if ov and ov["n"] >= 3:
+        sm = ov["sm_avg"]
+        mem_g = _gb(ov["mem_peak"])
+        mtot = _gb(gpu.mem_total_mb) if gpu.mem_total_mb else None
+        head = f"{mem_g:.1f} GB" + (f" / {mtot:.0f} GB ({mem_g/mtot*100:.0f}%)" if mtot else "")
+        print("")
+        print("   ── GPU utilizacija (cijeli run) ──────────────")
+        print(f"   📈 SM avg {sm:.0f}% / peak {ov['sm_peak']:.0f}%  |  VRAM peak {head}")
+        if sm >= 85:
+            print("   → COMPUTE-BOUND (SM ~zasićen). Paralelizacija više WAV-ova NEMA smisla:")
+            print("     druge instance samo time-slice-aju isti compute + troše VRAM. Ostani na 1.")
+        elif sm < 60:
+            print("   → GPU ČESTO IDLE (I/O / dataloader bubbles). Slobodni VRAM se ISPLATI iskoristiti.")
+            print("     Redoslijed poteza (od najjeftinijeg): 1) pre-stage WAV-ove na lokalni /content")
+            print("     disk umjesto čitanja s Drive FUSE mounta; 2) batch više fajlova po transcribe()")
+            print("     pozivu; tek 3) --shard-count 2-3 (pazi na Drive I/O kontenciju).")
+        else:
+            print("   → DJELOMIČNO iskorišten. Marginalan dobitak: prvo probaj lokalni staging + batching,")
+            print("     shardanje tek ako SM ostane < 60% (inače Drive I/O postane usko grlo).")
     print("")
 
 
