@@ -85,6 +85,12 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 LOG_DIR="$REPO_DIR/automatic/logs"
 mkdir -p "$LOG_DIR"
 
+# Dijeljeni mutex s prioritetnim fast-pathom (priority_pipeline.sh) — da dva run_pipeline
+# procesa ne rade istovremeno nad _unlisted/. Noćni bulk čeka (wait) ako prioritet drži lock.
+PIPELINE_LOCK="$LOG_DIR/.pipeline.lock.d"
+# shellcheck source=/dev/null
+. "$SCRIPT_DIR/pipeline_lock.sh"
+
 DATESTAMP="$(date +%Y-%m-%d)"
 LOG_FILE="$LOG_DIR/nightly_${DATESTAMP}.log"
 
@@ -258,8 +264,11 @@ fi
 # Diarize ide PRIJE summary/article u istom prolazu → nove epizode s pristiglim
 # .canary.srt (Colab) dobiju .canary.diarized.srt pa odmah idu kroz AI sloj.
 # PROXY_ARGS je prazan ako probe nije našao živ iPhone proxy (guard za set -u + bash 3).
+# Dijeljeni mutex: pričekaj da prioritetni fast-path (ako radi) završi run_pipeline, pa preuzmi.
+acquire_pipeline_lock wait
 run_step "run_pipeline.sh (faza A + faza B)" \
     "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload || true
+release_pipeline_lock
 
 # ─── 2. CHANNEL INDEX REGEN ───────────────────────────────────────
 run_step "generate_channel_index.js" \

@@ -1,28 +1,33 @@
 #!/bin/bash
 #
-# uninstall.sh — Skini tv.domovina.fetch.nightly iz launchd
+# uninstall.sh — Skini DOMOVINA launchd jobove (nightly + priority)
+#
+# Uporaba:  ./uninstall.sh [all|nightly|priority]   (default: all)
 #
 
 set -euo pipefail
 
-LABEL="tv.domovina.fetch.nightly"
-DST_PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
 GUI_DOMAIN="gui/$(id -u)"
 
-if launchctl print "${GUI_DOMAIN}/${LABEL}" >/dev/null 2>&1; then
-    launchctl bootout "${GUI_DOMAIN}/${LABEL}"
-    echo "✅ Unload-an iz launchd"
-else
-    echo "ℹ️  Nije boot-an u launchd-u, preskačem unload"
-fi
+case "${1:-all}" in
+    nightly)  LABELS=("tv.domovina.fetch.nightly") ;;
+    priority) LABELS=("tv.domovina.fetch.priority") ;;
+    all|"")   LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority") ;;
+    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority)" >&2; exit 1 ;;
+esac
 
-if [ -f "$DST_PLIST" ]; then
-    rm -f "$DST_PLIST"
-    echo "✅ Plist obrisan: $DST_PLIST"
-else
-    echo "ℹ️  Plist ne postoji: $DST_PLIST"
-fi
+for LABEL in "${LABELS[@]}"; do
+    DST_PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
+    if launchctl print "${GUI_DOMAIN}/${LABEL}" >/dev/null 2>&1; then
+        launchctl bootout "${GUI_DOMAIN}/${LABEL}"
+        echo "✅ Unload-an: ${LABEL}"
+    else
+        echo "ℹ️  ${LABEL} nije boot-an, preskačem"
+    fi
+    if [ -f "$DST_PLIST" ]; then rm -f "$DST_PLIST"; echo "✅ Plist obrisan: $DST_PLIST"; fi
+done
 
 echo ""
-echo "Nightly pipeline više se ne pokreće automatski."
-echo "Manualno pokretanje uvijek dostupno: ./automatic/nightly_pipeline.sh"
+echo "Manualno pokretanje uvijek dostupno:"
+echo "  ./automatic/nightly_pipeline.sh    (bulk)"
+echo "  ./automatic/priority_pipeline.sh   (prioritetni tick)"

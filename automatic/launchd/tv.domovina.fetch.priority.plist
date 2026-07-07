@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    launchd plist za PRIORITETNI fast-path poller (svakih 90s).
+
+    Claima prioritetne jobove iz pipeline.domovina.ai i odmah ih obradi kroz Modal
+    (single-video pipeline, ~10-15 min). Standard jobovi ostaju na nightly bulku (03:00).
+
+    Lokacija: ~/Library/LaunchAgents/tv.domovina.fetch.priority.plist
+    Install:  automatic/launchd/install.sh
+    Logs:     automatic/logs/priority_YYYY-MM-DD.log
+
+    StartInterval (ne StartCalendarInterval): launchd ponovno pokreće svakih 90s.
+    priority_pipeline.sh ustupa noćnom bulku preko dijeljenog mutexa (pipeline_lock.sh),
+    a i sam se re-entrancy štiti (nowait lock) — preklapajući tick se preskoči.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>tv.domovina.fetch.priority</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/priority_pipeline.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv</string>
+
+    <key>StartInterval</key>
+    <integer>90</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.priority.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.priority.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/ms</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <!-- StartInterval već re-launcha; ne treba respawn-on-exit. -->
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

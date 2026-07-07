@@ -213,6 +213,7 @@ WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 WITH_MODAL_TRANSCRIBE=false
+MODAL_ONLY_ID=""
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
@@ -263,6 +264,11 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--with-modal-transcribe" ]; then
         WITH_MODAL_TRANSCRIBE=true
         i=$((i + 1))
+    elif [ "$arg" = "--modal-only" ]; then
+        # Prioritetni fast-path: Modal transkribira SAMO ovaj youtube_id (single-video),
+        # a Drive-exclude izuzima točno taj WAV (ostali _unlisted i dalje idu na Colab).
+        MODAL_ONLY_ID="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
     elif [ "$arg" = "--proxy" ]; then
         # --proxy ide ISTODOBNO u screenshot_youtube.js (preko SCREENSHOT_ARGS)
         # I u fetch.js (preko COMMON_ARGS) jer obje yt-dlp pozive treba proxy-jati
@@ -438,7 +444,11 @@ if command -v rclone &> /dev/null; then
     # ih Colab fizički ni ne vidi (uz D1 transcribe claim). Bez flaga: default put nepromijenjen.
     # Filter mora doći PRIJE "+ *.wav" (rclone: prvi match pobjeđuje).
     RCLONE_MODAL_FILTER=()
-    if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
+    if [ -n "$MODAL_ONLY_ID" ]; then
+        # Prioritetni single-video run: izuzmi SAMO taj video (ostali _unlisted → Colab kao inače).
+        RCLONE_MODAL_FILTER=(--filter "- *_yt_${MODAL_ONLY_ID}*")
+        echo "   🔒 --modal-only ${MODAL_ONLY_ID}: izuzimam samo taj WAV iz Drive uploada (drži ga Modal)."
+    elif [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
         RCLONE_MODAL_FILTER=(--filter "- _unlisted/**")
         echo "   🔒 --with-modal-transcribe: izuzimam _unlisted/ iz Drive uploada (drži ih Modal)."
     fi
@@ -505,6 +515,11 @@ else
     while IFS= read -r w; do
         [ -z "$w" ] && continue
         [ -f "${w}.canary.srt" ] && continue
+        # --modal-only: prioritetni single-video run → transkribiraj SAMO taj youtube_id.
+        # Time nema MODAL_MAX_FILES abort rizika i ne diramo ostale _unlisted WAV-ove.
+        if [ -n "$MODAL_ONLY_ID" ] && [[ "$(basename "$w")" != *"_yt_${MODAL_ONLY_ID}"* ]]; then
+            continue
+        fi
         MODAL_PENDING+=("$w")
     done < <(find -L "$MODAL_TRANSCRIBE_DIR" -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' 2>/dev/null | sort)
 

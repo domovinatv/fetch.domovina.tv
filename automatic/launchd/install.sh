@@ -1,55 +1,53 @@
 #!/bin/bash
 #
-# install.sh — Registriraj tv.domovina.fetch.nightly u launchd
+# install.sh — Registriraj DOMOVINA launchd jobove
+#   • tv.domovina.fetch.nightly   — noćni bulk pipeline (03:00)
+#   • tv.domovina.fetch.priority  — prioritetni fast-path poller (svakih 90s)
 #
-# Kopira plist u ~/Library/LaunchAgents/ i bootstrap-a ga u GUI launchd domenu.
+# Kopira plistove u ~/Library/LaunchAgents/ i bootstrap-a ih u GUI launchd domenu.
 # Idempotentno — ako je već instaliran, prvo unload-a pa ponovo load-a.
 #
 # Uporaba:
-#   ./automatic/launchd/install.sh
+#   ./automatic/launchd/install.sh              # oba
+#   ./automatic/launchd/install.sh priority     # samo prioritet
+#   ./automatic/launchd/install.sh nightly      # samo nightly
 #
 
 set -euo pipefail
 
-LABEL="tv.domovina.fetch.nightly"
-SRC_PLIST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/${LABEL}.plist"
-DST_PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
+SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GUI_DOMAIN="gui/$(id -u)"
-
-if [ ! -f "$SRC_PLIST" ]; then
-    echo "❌ Plist ne postoji: $SRC_PLIST" >&2
-    exit 1
-fi
-
 mkdir -p "$HOME/Library/LaunchAgents"
 
-# Ako već boot-an, prvo unload (zanemari grešku ako nije).
-if launchctl print "${GUI_DOMAIN}/${LABEL}" >/dev/null 2>&1; then
-    echo "ℹ️  Već boot-an — unload-am prije reinstall-a"
-    launchctl bootout "${GUI_DOMAIN}/${LABEL}" 2>/dev/null || true
-fi
+case "${1:-all}" in
+    nightly)  LABELS=("tv.domovina.fetch.nightly") ;;
+    priority) LABELS=("tv.domovina.fetch.priority") ;;
+    all|"")   LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority") ;;
+    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority)" >&2; exit 1 ;;
+esac
 
-cp "$SRC_PLIST" "$DST_PLIST"
-echo "✅ Kopirano: $DST_PLIST"
-
-launchctl bootstrap "$GUI_DOMAIN" "$DST_PLIST"
-echo "✅ Boot-an u launchd: ${GUI_DOMAIN}/${LABEL}"
-
-# Provjeri status
-if launchctl print "${GUI_DOMAIN}/${LABEL}" >/dev/null 2>&1; then
-    echo ""
-    echo "Sljedeći run:"
+for LABEL in "${LABELS[@]}"; do
+    SRC_PLIST="$SRC_DIR/${LABEL}.plist"
+    DST_PLIST="$HOME/Library/LaunchAgents/${LABEL}.plist"
+    if [ ! -f "$SRC_PLIST" ]; then
+        echo "❌ Plist ne postoji: $SRC_PLIST" >&2
+        exit 1
+    fi
+    if launchctl print "${GUI_DOMAIN}/${LABEL}" >/dev/null 2>&1; then
+        echo "ℹ️  ${LABEL} već boot-an — unload-am prije reinstall-a"
+        launchctl bootout "${GUI_DOMAIN}/${LABEL}" 2>/dev/null || true
+    fi
+    cp "$SRC_PLIST" "$DST_PLIST"
+    launchctl bootstrap "$GUI_DOMAIN" "$DST_PLIST"
+    echo "✅ Boot-an: ${GUI_DOMAIN}/${LABEL}"
     launchctl print "${GUI_DOMAIN}/${LABEL}" | grep -E "state|next run|last exit code" || true
-else
-    echo "⚠️  Bootstrap prijavio uspjeh ali launchctl print ne vidi job — provjeri ručno." >&2
-    exit 1
-fi
+done
 
 echo ""
-echo "Pokreni odmah (jednom, ne čekajući 03:00):"
-echo "  launchctl kickstart -k ${GUI_DOMAIN}/${LABEL}"
+echo "Pokreni odmah (jednom):"
+for LABEL in "${LABELS[@]}"; do echo "  launchctl kickstart -k ${GUI_DOMAIN}/${LABEL}"; done
 echo ""
 echo "Logovi:"
-echo "  automatic/logs/nightly_YYYY-MM-DD.log    (pipeline output)"
-echo "  automatic/logs/launchd.out.log           (launchd capture)"
-echo "  automatic/logs/launchd.err.log"
+echo "  automatic/logs/nightly_YYYY-MM-DD.log     (bulk pipeline)"
+echo "  automatic/logs/priority_YYYY-MM-DD.log    (prioritetni fast-path)"
+echo "  automatic/logs/launchd.{,priority.}{out,err}.log  (launchd capture)"
