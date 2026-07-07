@@ -433,9 +433,18 @@ echo ""
 
 if command -v rclone &> /dev/null; then
     echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
+    # BELT-AND-SUSPENDERS (2026-07-07): kad je Modal transkripcija aktivna, _unlisted/ WAV-ove
+    # transkribira Modal (lokalni A100), a NE Colab batch. Zato ih ISKLJUČI iz Drive uploada da
+    # ih Colab fizički ni ne vidi (uz D1 transcribe claim). Bez flaga: default put nepromijenjen.
+    # Filter mora doći PRIJE "+ *.wav" (rclone: prvi match pobjeđuje).
+    RCLONE_MODAL_FILTER=()
+    if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
+        RCLONE_MODAL_FILTER=(--filter "- _unlisted/**")
+        echo "   🔒 --with-modal-transcribe: izuzimam _unlisted/ iz Drive uploada (drži ih Modal)."
+    fi
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
-      -L --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
+      -L "${RCLONE_MODAL_FILTER[@]}" --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
       --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
       --drive-shared-with-me --progress \
       || echo "   ⚠️ rclone Drive UPLOAD (WAV za Colab) nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Svježi videi svejedno dobiju video_h264.mp4 + reindex u ovom prolazu (Colab Canary samo kasni dok se Drive ne oslobodi)."
@@ -467,6 +476,21 @@ MODAL_TRANSCRIBE_DIR="${MODAL_TRANSCRIBE_DIR:-$OUTPUT_DIR/_unlisted}"
 MODAL_APP="$SCRIPT_DIR/modal_canary/canary_modal.py"
 MODAL_MAX_FILES="${MODAL_MAX_FILES:-20}"
 
+# TRANSCRIBE CLAIM (2026-07-07): prije Modala uzmi lock u pipeline.domovina.ai (D1) da Colab
+# Canary batch ne transkribira isti _unlisted WAV paralelno. Sve NE-fatalno: bez key-a ili
+# nedostupnog queuea → ponaša se točno kao dosad (transkribira sve pending WAV-ove).
+PIPELINE_QUEUE_BASE="${PIPELINE_QUEUE_BASE:-https://pipeline.domovina.ai}"
+# Token: isti PIPELINE_QUEUE_INGEST_KEY koji koristi bridge (claim_and_dispatch.js). Prazan → bez claima.
+
+# Zadnji _yt_<id> u imenu fajla (naslov SAM može sadržavati _yt_ → greedy .* forsira ZADNJI;
+# ekvivalent JS extractVideoIdFromFilename, konvencija iz CLAUDE.md).
+_yt_id_from_name() {
+    local name="$1"
+    if [[ "$name" =~ .*_yt_([A-Za-z0-9_-]{11})([._]|$) ]]; then
+        printf '%s' "${BASH_REMATCH[1]}"
+    fi
+}
+
 if ! command -v modal &> /dev/null; then
     echo "   ⚠️ 'modal' CLI nije dostupan — preskačem Modal transkripciju."
     echo "      Setup: pip install modal && modal setup && modal run $MODAL_APP::download_model"
@@ -497,9 +521,26 @@ else
         for w in "${MODAL_PENDING[@]}"; do echo "      🔄 $(basename "$w")"; done
     else
         for w in "${MODAL_PENDING[@]}"; do
-            echo "   ⬆️  Modal transkripcija: $(basename "$w")"
+            bn="$(basename "$w")"
+            # Claim transcribe lock (samo ako je queue key konfiguriran). Ako ga drži drugi
+            # backend (Colab) → preskoči ovaj WAV da izbjegnemo dupli GPU trošak.
+            if [ -n "$PIPELINE_QUEUE_INGEST_KEY" ]; then
+                yid="$(_yt_id_from_name "$bn")"
+                if [ -n "$yid" ]; then
+                    claim_resp="$(curl -sS -m 15 -X POST "$PIPELINE_QUEUE_BASE/api/transcription/claim" \
+                        -H "Authorization: Bearer $PIPELINE_QUEUE_INGEST_KEY" \
+                        -H "content-type: application/json" \
+                        -d "{\"youtube_id\":\"$yid\",\"backend\":\"modal\"}" 2>/dev/null || true)"
+                    # Preskoči SAMO na eksplicitni claimed:false (Colab drži). Prazan/greška → nastavi (fallback).
+                    if printf '%s' "$claim_resp" | grep -q '"claimed":false'; then
+                        echo "   ⏭️  Preskačem $bn — transcribe lock drži drugi backend (Colab). [$yid]"
+                        continue
+                    fi
+                fi
+            fi
+            echo "   ⬆️  Modal transkripcija: $bn"
             modal run "$MODAL_APP" --wav "$w" --source-lang hr --target-lang hr \
-              || echo "   ⚠️ Modal nije uspio za $(basename "$w") — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
+              || echo "   ⚠️ Modal nije uspio za $bn — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
         done
         echo "   ✅ Modal transkripcija gotova — .canary.srt su lokalno, KORAK 6 (diarize) ih hvata."
     fi

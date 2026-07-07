@@ -31,17 +31,72 @@ import argparse
 import csv
 import datetime
 import gc
+import json
 import os
+import re
 import subprocess
 import sys
 import threading
 import time
+import urllib.request
 from pathlib import Path
 
 
 # ─── Sufiksi za output (nikada ne prepiši postojeće datoteke) ───
 CANARY_SRT_SUFFIX = ".canary.srt"
 CANARY_CSV_SUFFIX = ".canary.csv"
+
+# Zadnji _yt_<id> u imenu (naslov SAM može sadržavati _yt_ → greedy .* forsira ZADNJI;
+# ekvivalent JS extractVideoIdFromFilename, konvencija iz CLAUDE.md).
+_YT_ID_RE = re.compile(r".*_yt_([A-Za-z0-9_-]{11})(?:[._]|$)")
+
+
+def extract_video_id(name: str):
+    """Izvuci 11-znakovni YouTube ID iz imena fajla (_yt_<id>), ili None."""
+    m = _YT_ID_RE.match(os.path.basename(name))
+    return m.group(1) if m else None
+
+
+def fetch_modal_claimed_ids(claims_url: str, claims_key: str) -> set:
+    """Povuci youtube_id-eve koje Modal trenutno drži (transcribe claim u pipeline.domovina.ai).
+    Colab batch preskače te WAV-ove. Sve NE-fatalno: greška/nedostupno → prazan set (radi kao dosad)."""
+    if not claims_url:
+        return set()
+    url = claims_url + ("&" if "?" in claims_url else "?") + "backend=modal"
+    try:
+        req = urllib.request.Request(url)
+        if claims_key:
+            req.add_header("Authorization", "Bearer " + claims_key)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        ids = {c.get("youtube_id") for c in data.get("claims", []) if c.get("youtube_id")}
+        print(f"   🔒 Modal drži {len(ids)} transkripcija — preskačem ih (transcribe claim).")
+        return ids
+    except Exception as e:  # noqa: BLE001 — namjerno non-fatal
+        print(f"   ⚠️ Ne mogu dohvatiti Modal claimove ({e}) — nastavljam bez skip-liste.")
+        return set()
+
+
+def claim_own_transcription(claims_url: str, claims_key: str, youtube_id: str) -> bool:
+    """POST colab claim za queue-tracked video (simetrija). Vrati True ako smijemo transkribirati
+    (claimed:true ILI tracked:false ILI greška→fallback), False ako Modal drži (claimed:false)."""
+    if not (claims_url and youtube_id):
+        return True
+    # claims_url je .../api/transcription/claims → claim endpoint je .../api/transcription/claim
+    # (robusno na završnu kosu crtu: .../claims i .../claims/ → .../claim)
+    base = claims_url.split("?", 1)[0]
+    claim_url = re.sub(r"/claims/?$", "/claim", base)
+    try:
+        body = json.dumps({"youtube_id": youtube_id, "backend": "colab"}).encode("utf-8")
+        req = urllib.request.Request(claim_url, data=body, method="POST")
+        req.add_header("content-type", "application/json")
+        if claims_key:
+            req.add_header("Authorization", "Bearer " + claims_key)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        return bool(data.get("claimed", True))
+    except Exception:  # noqa: BLE001 — non-fatal: ako queue ne radi, transkribiraj kao dosad
+        return True
 
 
 # ─── SRT formatiranje (isto kao u HF Space app.py) ───
@@ -269,6 +324,22 @@ Primjeri:
         help="Lokalna putanja do canary-1b-v2.nemo (npr. skinuta s R2 cachea models.domovina.ai). "
              "Ako je zadana, učitava se preko restore_from umjesto HF from_pretrained."
     )
+    # TRANSCRIBE CLAIM (2026-07-07): koordinacija s Modal serverless GPU-om preko
+    # pipeline.domovina.ai/api/transcription. Bez ovih argova → radi točno kao dosad.
+    parser.add_argument(
+        "--claims-url", type=str, default=None,
+        help="URL GET /api/transcription/claims (pipeline.domovina.ai). Ako je zadan, preskaču se "
+             "WAV-ovi koje Modal drži (backend=modal). Bez njega → nema koordinacije (staro ponašanje)."
+    )
+    parser.add_argument(
+        "--claims-key", type=str, default=None,
+        help="Bearer token za /api/transcription/* (TRANSCRIBE_KEY, Colab userdata). NE hardkodirati."
+    )
+    parser.add_argument(
+        "--claim-own", action="store_true",
+        help="Simetrija: prije transkripcije POST-aj colab claim za queue-tracked video (1 poziv "
+             "po obrađenom fajlu). Preskoči ako Modal drži. OPT-IN — izbjegava tisuće poziva na bulk run."
+    )
 
     return parser.parse_args()
 
@@ -470,6 +541,16 @@ def main():
     if already_done > 0:
         print(f"   ⏭️  Preskočeno (transkript već postoji): {already_done}")
 
+    # Transcribe claim: preskoči WAV-ove koje Modal (serverless GPU) trenutno drži.
+    # Untracked fajlovi (glavni korpus, nisu u D1 queueu) nisu u listi → obrađuju se normalno.
+    modal_claimed = fetch_modal_claimed_ids(args.claims_url, args.claims_key) if args.claims_url else set()
+    if modal_claimed:
+        before_claim = len(to_process)
+        to_process = [f for f in to_process if extract_video_id(f) not in modal_claimed]
+        skipped_claim = before_claim - len(to_process)
+        if skipped_claim > 0:
+            print(f"   🔒 Preskočeno (Modal drži transkripciju): {skipped_claim}")
+
     # Sharding: za paralelno pokretanje N procesa na istom GPU-u (G4 ima ~70 GB
     # slobodne VRAM nakon ~27 GB modela → stane 2-3 instance). Svaki worker uzima
     # interleave-an podskup (i::N) pa se različite veličine fajlova ravnomjerno
@@ -525,6 +606,14 @@ def main():
         basename = os.path.basename(wav_file)
         print(f"   ─────────────────────────────────────────────")
         print(f"   [{i+1}/{len(to_process)}] 🎙️  {basename}")
+
+        # Simetrični claim (opt-in): za queue-tracked video uzmi colab lock; ako ga Modal drži, preskoči.
+        if args.claim_own and args.claims_url:
+            yid = extract_video_id(wav_file)
+            if yid and not claim_own_transcription(args.claims_url, args.claims_key, yid):
+                total_skipped += 1
+                print(f"      ⏭️  Preskočeno — transcribe lock drži Modal. [{yid}]")
+                continue
 
         win0 = gpu.mark()
         result = transcribe_single_file(model, wav_file, output_dir,
