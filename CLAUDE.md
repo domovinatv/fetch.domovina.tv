@@ -124,6 +124,11 @@ Do not "optimize" by combining both phases into a single Colab notebook for bulk
 
 ### 🐤 Canary Transcription on Colab G4 — Empirical Numbers (2026-05-06)
 
+> **Colab batch (dvoprolazni) vs Modal ad-hoc (jednoprolazni) — proces + trošak/break-even:** vidi
+> `docs/transcription_colab_vs_modal_cost_2026-07.md` (mermaid dijagrami + analiza) i `modal_canary/README.md`.
+> Kratko: bulk/backlog (≳20 ep) → Colab G4 batch (~$0.003/ep); pojedinačni ad-hoc → Modal A100-40
+> (`run_pipeline.sh --with-modal-transcribe`, često $0 pod free tierom). Odluka je operativna (latencija), ne financijska.
+
 **G4 GPU is mandatory** — T4 is **not** an option. Empirically observed in a real production run (96 backlog WAVs):
 
 | Resource | Observed value | Note |
