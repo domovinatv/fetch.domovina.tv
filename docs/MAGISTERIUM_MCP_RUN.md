@@ -5,6 +5,13 @@
 > cijeli hibridni Magisterium MCP workflow za taj video i objavi rezultat na CDN.
 > Ne pitaj korisnika kako nastaviti; stani samo na pravom blockeru (nema article.json,
 > GCP/R2 auth fail, ili svi `chat` pozivi time-outaju i nakon retry-ja).
+>
+> **⚙️ DEFAULT = HR-only.** Standardni tok je **samo hrvatski** Magisterium
+> (`article.magisterium.json`). **Engleski prijevod (`.en.json`) je OPCIONALAN i mora se
+> EKSPLICITNO zatražiti svaki put** (npr. `@docs/MAGISTERIUM_MCP_RUN.md <VID> +EN` ili
+> "i engleski"). Ako korisnik NIJE izričito tražio EN → **preskoči korak 6 u cijelosti** i
+> ne uploadaj nikakav `.en.json`. EN se uvijek može dodati naknadno (korak 6) bez ponavljanja
+> HR koraka.
 
 Ovo je izvršni runbook. Pozadina/arhitektura: [`magisterium_ai_integration.md`](./magisterium_ai_integration.md).
 Detaljni nalazi: [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_2026-05.md).
@@ -62,7 +69,10 @@ node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" \
 > `.json` + `.en.json` overlay. Holistički sadržaj ostaje u `overall` bloku per-section
 > datoteke (podatkovni ugovor). `--out-full` postoji samo za HR-only ad-hoc preglede.
 
-### 6. Engleski overlay (dvojezičnost)
+### 6. Engleski overlay (dvojezičnost) — ⚠️ OPCIONALNO, samo na eksplicitni zahtjev
+> **PRESKOČI OVAJ KORAK po defaultu.** Pokreni ga **samo** ako je korisnik izričito tražio
+> engleski (npr. `+EN`, "i engleski", "bilingual"). Inače idi ravno na korak 7 i uploadaj
+> isključivo HR `article.magisterium.json`.
 ```bash
 node translate_to_english.js --input-dir storage/output --video-id "$VID"
 ```
@@ -75,19 +85,27 @@ učita kao EN overlay kad je jezik engleski. Idempotentno (preskače ako `.en.js
 ### 7. Channel index + R2 + verifikacija
 ```bash
 node generate_channel_index.js --channel <channel>
-node upload_to_r2.js --input-dir storage/output --video-id "$VID"   # .magisterium.json + .en.json
+node upload_to_r2.js --input-dir storage/output --video-id "$VID"   # HR .magisterium.json (+ .en.json SAMO ako je korak 6 pokrenut)
 node upload_to_r2.js --meta-dir storage/meta                         # channel index
 # GET-verifikacija (NE HEAD — CDN cache-ira 404):
-for f in article.magisterium.json article.magisterium.en.json; do
-  curl -s -o /dev/null -w "%{http_code} $f\n" "https://cdn.domovina.ai/data/$VID/$f"; done
+curl -s -o /dev/null -w "%{http_code} article.magisterium.json\n" "https://cdn.domovina.ai/data/$VID/article.magisterium.json"
+# EN verificiraj SAMO ako je korak 6 pokrenut:
+# curl -s -o /dev/null -w "%{http_code} article.magisterium.en.json\n" "https://cdn.domovina.ai/data/$VID/article.magisterium.en.json"
 ```
+> **HR-only oprez:** `upload_to_r2.js --video-id` pokupi SVE lokalne `.en.json` datoteke za taj
+> video (regex-match, izvan `UPLOAD_SUFFIXES`). Ako postoje zaostali/parcijalni `.en.json`
+> (npr. od prekinutog `translate_to_english.js`) a EN NIJE tražen → **skloni ih** (`mv … .bak`)
+> prije uploada da ne objaviš neželjeni engleski. Dry-run (`--dry-run`) prvo pokaže popis
+> ključeva za upload — provjeri da je samo HR.
 
 ## Kriterij uspjeha
 - `assemble` prijavi **sve sekcije ocijenjene** (X/X), root `overall_score` postavljen.
 - Channel index: video ima `pipeline.has_magisterium=true` i `magisterium_score`.
-- CDN GET vraća **200** za `article.magisterium.json` **i** `article.magisterium.en.json`.
+- CDN GET vraća **200** za `article.magisterium.json` (HR — uvijek).
 - Vidljivo na `https://domovina.ai/v/<VID>` — per-section prikaz (score+citati po sekciji)
-  na hrvatskom, te isti prikaz na engleskom kad je jezik EN.
+  na hrvatskom.
+- **Samo ako je EN eksplicitno tražen (korak 6):** CDN GET vraća **200** i za
+  `article.magisterium.en.json`, te se isti per-section prikaz vidi na engleskom kad je jezik EN.
 
 ## Prompt-predlošci (referenca — generira ih `prep.js`, ne tipkaj ručno)
 
@@ -114,7 +132,7 @@ Ti si teološki analitičar. Evaluiraj usklađenost sljedećih N odlomaka … Vr
 ## Bulk backfill (više epizoda) — naučeno 2026-06-13
 
 - **NE radi cijelu sekvencu u jednom chatu.** ~17 epizoda u jednom kontekstu = ~724k/1M tokena. Magisterium `chat` je **stateless** (nema server-side miješanja između epizoda), ali sve-u-jednom-chatu pojede kontekst i nosi orkestracijski rizik (LLM drži sav sadržaj). **Bolje: jedan subagent po epizodi, SEKVENCIJALNO** (chat nije parallel-safe, 15 req/min). Svaki subagent: prep→holistic→batches→assemble→publish; vrati samo score+CDN status.
-- **HR-only opcija:** ako se EN preskače (brže pokrivanje), po epizodi: assemble → `publish_hr_episode.sh <VID>` (instant upload+reindex+meta+GET). EN dodaj naknadno (`translate_to_english.js`, ~25-30 min/ep jer je per-field).
+- **HR-only je DEFAULT** (i za bulk): po epizodi assemble → `publish_hr_episode.sh <VID>` (instant upload+reindex+meta+GET). EN se radi **samo ako je izričito tražen**, i može se dodati naknadno (`translate_to_english.js`, ~25-30 min/ep jer je per-field) bez ponavljanja HR koraka.
 - **Instant vidljivost zahtijeva reindex+R2 po epizodi:** `/v/{id}` čita per-video `article.magisterium.json` s CDN-a; `/c/` badge čita channel index. Bez `generate_channel_index.js` + meta upload magisterium ostaje "nevidljiv".
 - **Leading-dash YouTube ID gotcha:** VID koji počinje crticom (npr. `-bOmDXC7rlA`) bash tretira kao opciju → zovi `bash publish_hr_episode.sh -- <VID>`. `node ... --video-id <VID>` radi ispravno.
 
