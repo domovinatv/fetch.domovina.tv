@@ -356,6 +356,32 @@ for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
     fi
 done
 
+# ─── PRIORITETNI FAST-PATH (single-video ad-hoc) ───────────────────────────────
+# MODAL_ONLY_ID postavlja ISKLJUČIVO priority_poller.js (pipeline.domovina.ai bridge)
+# za JEDAN enqueani video — nightly bulk ga NIKAD ne postavlja. Kad je aktivan,
+# cijeli run je O(1) u tom videu umjesto O(n) skeniranja cijelog kataloga:
+#   • preskačemo batch-wide rclone Drive round-tripove (KORAK 0 download, KORAK 2.5
+#     upload) — za Modal single-video SRT nastaje lokalno, Drive nema što dati ni primiti
+#     (KORAK 2.5 uz --modal-only ionako izuzima baš taj WAV → bio je čista praznina);
+#   • preskačemo refresh_podcasts.sh + git commit (KORAK 1) i beamly ingest (1b) —
+#     URL je već poznat, 43-kanalni yt-dlp playlist scan je irelevantan;
+#   • SVE downstream korake scope-amo na _unlisted/<video-id> (--video-id / --file /
+#     --channel _unlisted) → diarize/summary/article/rag/screenshot/r2 diraju 1 fajl,
+#     ne stat-aju ~3000.
+# Nightly (bez MODAL_ONLY_ID) prolazi kroz sve grane nepromijenjeno.
+PRIORITY_FAST_PATH=false
+PRIORITY_SCOPE_ARGS=()      # za skripte koje podržavaju --video-id (+ --channel)
+PRIORITY_CHANNEL_ARGS=()    # za skripte koje scope-aju samo po --channel
+if [ -n "$MODAL_ONLY_ID" ]; then
+    PRIORITY_FAST_PATH=true
+    PRIORITY_SCOPE_ARGS=(--channel _unlisted --video-id "$MODAL_ONLY_ID")
+    PRIORITY_CHANNEL_ARGS=(--channel _unlisted)
+    echo ""
+    echo "   ⚡ PRIORITETNI FAST-PATH: single-video ad-hoc ($MODAL_ONLY_ID)"
+    echo "      → preskačem batch rclone Drive round-tripove + refresh_podcasts (O(n))"
+    echo "      → scope-am sve korake na _unlisted/$MODAL_ONLY_ID (O(1))"
+fi
+
 if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
 
 # --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
@@ -364,7 +390,9 @@ echo "   📢 KORAK 0/10: Skidanje novih diarisation fajlova s Google Drive-a"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-if command -v rclone &> /dev/null; then
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+    echo "   ⏭️  FAST-PATH: preskačem Drive download (Modal SRT nastaje lokalno; ~60s + 676 remote checkova za 0 B)."
+elif command -v rclone &> /dev/null; then
     echo "   ⏬ Preuzimam .canary.* i .sortformer.* s Google Drive-a..."
     # rclone bypass-a HTTPS_PROXY (telefon-residential-proxy) jer Drive traffic
     # ne treba i ne smije ići kroz cellular tunel — kvari throughput i nije
@@ -397,15 +425,20 @@ echo "   📢 KORAK 1/10: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-cd "$SCRIPT_DIR/automatic" || exit 1
-./refresh_podcasts.sh
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+    echo "   ⏭️  FAST-PATH: preskačem refresh_podcasts.sh + git commit (43-kanalni yt-dlp playlist scan irelevantan za poznati ad-hoc URL)."
+else
+    cd "$SCRIPT_DIR/automatic" || exit 1
+    ./refresh_podcasts.sh
 
-# Scope-aj git add SAMO na podcast liste — inače bi se launchd plistovi, logovi
-# i drugi runtime artefakti unutar automatic/ kupili u "podcast refresh" commit.
-git add podcasts/
-git commit -m "chore(podcasts): refresh podcast lists" || true
-cd "$SCRIPT_DIR" || exit 1
+    # Scope-aj git add SAMO na podcast liste — inače bi se launchd plistovi, logovi
+    # i drugi runtime artefakti unutar automatic/ kupili u "podcast refresh" commit.
+    git add podcasts/
+    git commit -m "chore(podcasts): refresh podcast lists" || true
+    cd "$SCRIPT_DIR" || exit 1
+fi
 
+# fetch.js radi u OBA moda: fast-path preuzima taj jedan --unlisted-url video.
 node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
 
 # --- KORAK 1b: beamly direct-MP3 izvori (Sub Club, Launched) ---
@@ -414,7 +447,10 @@ node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
 # direktni MP3 (soundLink) u storage/output/{subclub,launched} u IDENTIČNOM
 # formatu kao yt-dlp, pa ostatak pipelinea (od KORAK 2) radi nepromijenjeno.
 # NE-FATALNO: ako padne (mreža/repo nedostupan), nastavi s ostalim kanalima.
-if [ -f "$SCRIPT_DIR/ingest_beamly.mjs" ]; then
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+  echo ""
+  echo "   ⏭️  FAST-PATH: preskačem KORAK 1b beamly ingest (ad-hoc job je jedan YouTube URL)."
+elif [ -f "$SCRIPT_DIR/ingest_beamly.mjs" ]; then
   echo ""
   echo "   📥 KORAK 1b: beamly direct-MP3 (Sub Club, Launched)"
   node "$SCRIPT_DIR/ingest_beamly.mjs" || echo "   ⚠️ ingest_beamly nije uspio — NE-FATALNO, nastavljam."
@@ -428,7 +464,7 @@ echo "   📢 KORAK 2/10: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}"
+node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}"
 
 echo ""
 # --- POST-KORAK 2: UPLOAD NOVIH WAV I SRT NA DRIVE (rclone) ---
@@ -437,7 +473,9 @@ echo "   📢 KORAK 2.5: Upload WAV datoteka na Google Drive"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-if command -v rclone &> /dev/null; then
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+    echo "   ⏭️  FAST-PATH: preskačem WAV upload na Drive (Colab ne obrađuje ovaj video; --modal-only ga je ionako izuzimao → ~60s scan za 0 korisnog transfera)."
+elif command -v rclone &> /dev/null; then
     echo "   ⏫ Uploadam nove .wav datoteke na Google Drive..."
     # BELT-AND-SUSPENDERS (2026-07-07): kad je Modal transkripcija aktivna, _unlisted/ WAV-ove
     # transkribira Modal (lokalni A100), a NE Colab batch. Zato ih ISKLJUČI iz Drive uploada da
@@ -635,14 +673,27 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     CANARY_DRY_RUN="--dry-run"
 fi
 
+# FAST-PATH: diariziraj SAMO taj jedan WAV (--file) umjesto os.walk cijelog storage/output
+# (u batchu "Već diarized: 3047" — stat-a tisuće fajlova samo da nađe jedan novi).
+DIARIZE_SCOPE_ARGS=()
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+    PRIORITY_WAV=$(find -L "$OUTPUT_DIR/_unlisted" -maxdepth 1 -type f -name "*_yt_${MODAL_ONLY_ID}*.wav" ! -name '._*' ! -name '*.loudnorm.*' 2>/dev/null | head -1)
+    if [ -n "$PRIORITY_WAV" ]; then
+        DIARIZE_SCOPE_ARGS=(--file "$PRIORITY_WAV")
+        echo "   ⚡ FAST-PATH: diariziram samo $(basename "$PRIORITY_WAV") (--file, bez skeniranja stabla)."
+    else
+        echo "   ⚠️ FAST-PATH: nisam našao WAV za $MODAL_ONLY_ID u _unlisted — fallback na puni scan."
+    fi
+fi
+
 if [ -n "$HF_TOKEN" ]; then
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
     # Bez CLI tokena — diarize_canary.py sam resolve-a token (env HF_TOKEN ili
     # cached ~/.cache/huggingface/token). Omogućava nightly diarizaciju bez da
     # token stoji na command-lineu. Ako baš nema tokena nigdje, skripta sama
     # izađe s uputama (get_hf_token sys.exit).
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" $CANARY_DRY_RUN
 fi
 else
     echo ""
@@ -758,7 +809,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     SUMMARIZE_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/summarize_gemini.js" "${SUMMARIZE_ARGS[@]}"
+node "$SCRIPT_DIR/summarize_gemini.js" "${SUMMARIZE_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}"
 
 if [ "$ONLY_SUMMARIES" = true ]; then
     echo ""
@@ -779,7 +830,7 @@ echo ""
 
 # Vertex AI koristi gcloud OAuth token — ne treba API key
 # Round-robin obrada: najnoviji videi prvo, ravnomjerno po kanalima
-node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" || {
+node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri batch generiranju članaka, nastavljam..."
 }
 
@@ -816,9 +867,9 @@ echo "   📢 KORAK 9/11: RAG priprema (chunkanje i import)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR"
-node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR"
-node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR"
+node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"
+node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"
+node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"
 
 # --- KORAK 9.4: BEAMLY VIDEO DOWNLOAD (matchane subclub/launched epizode) ---
 # Beamly epizode dolaze kao direktni MP3 (audio), bez videa. Matchane (info.json
@@ -852,7 +903,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     BEAMLY_DL_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/download_matched_beamly_video.js" "${BEAMLY_DL_ARGS[@]}" || {
+node "$SCRIPT_DIR/download_matched_beamly_video.js" "${BEAMLY_DL_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri beamly video downloadu, nastavljam..."
 }
 fi
@@ -880,7 +931,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     OG_IMAGE_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" || {
+node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG image varijanti, nastavljam..."
 }
 
@@ -909,7 +960,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     OG_SECTIONS_ARGS+=("--dry-run")
 fi
 
-"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" || {
+"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
 }
 
@@ -943,7 +994,7 @@ if [ -n "$SCREENSHOT_SOURCE_ADDR" ]; then
     SCREENSHOT_ARGS+=("--source-address" "$SCREENSHOT_SOURCE_ADDR")
 fi
 
-node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" || {
+node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri screenshotanju, nastavljam..."
 }
 fi
@@ -1010,7 +1061,7 @@ fi
 # ionako ne honora HTTPS_PROXY env var po defaultu, ali ako se ikad zamijeni
 # transport sloj, ovaj env -u garantira da R2 put nije ovisan o proxyju.
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
-node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" || {
+node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri R2 uploadu, nastavljam..."
 }
 fi
@@ -1054,7 +1105,7 @@ fi
 
 # Isti proxy-bypass kao R2 upload (S3 PUT ne smije kroz telefon-residential-proxy).
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
-node "$SCRIPT_DIR/backfill_video_h264.js" "${H264_ARGS[@]}" || {
+node "$SCRIPT_DIR/backfill_video_h264.js" "${H264_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri H.264 transcode/uploadu, nastavljam..."
 }
 fi
@@ -1084,7 +1135,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
 fi
 
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
-node "$SCRIPT_DIR/upload_audio_only.js" "${AUDIO_ONLY_ARGS[@]}" || {
+node "$SCRIPT_DIR/upload_audio_only.js" "${AUDIO_ONLY_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri audio-only uploadu, nastavljam..."
 }
 fi
@@ -1093,7 +1144,16 @@ fi
 # Bez ovog koraka novi videi (s kompletiranim article.json-om) ne ulaze u
 # channels/data/*.json pa se ne pojavljuju na www.domovina.ai/c/<channel>.
 # Idempotentno: ako se ništa nije promijenilo, upload je no-op (HEAD-skip).
-if [ "$WITH_R2_UPLOAD" = true ]; then
+if [ "$PRIORITY_FAST_PATH" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 13: Channel index regen + meta upload"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   ⏭️  FAST-PATH: preskačem channel index regen + meta upload."
+echo "      _unlisted je neindeksiran (memory: unlisted_adhoc_ingestion) — video je već"
+echo "      per-video na CDN (KORAK 12), reconcile.js ga flipa u done preko article.json"
+echo "      detail_url-a. Puni index rebuild čita ~3000 videa (O(n)) i tu ništa ne dodaje."
+elif [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   📢 KORAK 13: Channel index regen + meta upload"
