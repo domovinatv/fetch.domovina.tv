@@ -4484,6 +4484,14 @@
     {
       "match": "To the participants in the meeting sponsored by the Young Entrepreneurs of the Italian Manufacturers' Association (May 26, 2007)",
       "uuid": "456a94ce-826e-4d4f-bb3f-0421016efac1"
+    },
+    {
+      "match": "COMECE Statement on the EU Artificial Intelligence Act",
+      "uuid": "270b92cf-1837-4498-aee6-a7d15830ef2f"
+    },
+    {
+      "match": "Rome Call for AI Ethics",
+      "uuid": "072405d2-37c4-4b0a-8fa4-d774fac7cafd"
     }
   ]
 }
