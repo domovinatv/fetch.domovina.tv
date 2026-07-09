@@ -376,10 +376,17 @@ if [ -n "$MODAL_ONLY_ID" ]; then
     PRIORITY_FAST_PATH=true
     PRIORITY_SCOPE_ARGS=(--channel _unlisted --video-id "$MODAL_ONLY_ID")
     PRIORITY_CHANNEL_ARGS=(--channel _unlisted)
+    # Screenshotovi su UVIJEK dio single-video fast-patha: članak (KORAK 8) generira
+    # timestamp-ove sekcija, a KORAK 10 im vadi frame-ove — bez toga video ide live bez
+    # slika. Bulk gate --with-screenshots je opt-in zbog diska/anti-bota na tisućama videa;
+    # za JEDAN ad-hoc video taj trošak je zanemariv, pa ga ovdje prisilno palimo (bridge
+    # priority_poller.js ne šalje --with-screenshots). Vidi KORAK 10 gate ~L968.
+    WITH_SCREENSHOTS=true
     echo ""
     echo "   ⚡ PRIORITETNI FAST-PATH: single-video ad-hoc ($MODAL_ONLY_ID)"
     echo "      → preskačem batch rclone Drive round-tripove + refresh_podcasts (O(n))"
     echo "      → scope-am sve korake na _unlisted/$MODAL_ONLY_ID (O(1))"
+    echo "      → screenshotovi (KORAK 10) prisilno ON za ovaj video"
 fi
 
 if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
