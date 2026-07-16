@@ -6372,6 +6372,36 @@
       "tier": 3,
       "data_quality": "full",
       "notes": "RevenueCat podcast (indie app devs). Engleski (Canary EN->HR). Ingestira se preko direktnog MP3 (beamly soundLink), ne YouTube. ~98 epizoda."
+    },
+    {
+      "slug": "mladifest-hrvatska",
+      "display_name": "Mladifest Hrvatska",
+      "youtube": {
+        "url": "https://www.youtube.com/@MladifestHrvatska/videos",
+        "handle": "@MladifestHrvatska",
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "evangelization",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2019-03",
+        "last_episode": "2026-07",
+        "average_duration_minutes": 35,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current"
+      ],
+      "notes": "Katolički susret mladih (Sisak, godišnji festival); kateheze, propovijedi, svjedočanstva i razgovori. ~6.3k pretplatnika, 184 videa (62 duljih od 15 min). Onboardan 2026-07-16."
     }
   ],
   "philosophy": {

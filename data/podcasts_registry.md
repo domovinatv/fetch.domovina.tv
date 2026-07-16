@@ -2,24 +2,24 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-05-28
+**Generirano:** 2026-07-16
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
 
-- **Ukupno unosa:** 139
-- **Trenutno se prati:** 63
+- **Ukupno unosa:** 142
+- **Trenutno se prati:** 66
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 0
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
 - **Ostali kandidati** (sekularni / dijaspora / istražiti): 68
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 25 · tier 3: 67 · tier 2: 17 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 25 · tier 3: 70 · tier 2: 17 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 64 · unverified ❓: 9
+**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 65 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 82 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
+**Distribucija po status-u:** 🟢 aktivan: 85 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -35,7 +35,7 @@
 
 ---
 
-## 🟢 Trenutno se prati (63)
+## 🟢 Trenutno se prati (66)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -66,12 +66,14 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **IKRA Institut** | [@ikra-institut](https://www.youtube.com/@ikra-institut/videos) | 3 | — | — | ⚪ nepoznato | — | `education` | ⚠️ |
 | **Iva Kraljević** | [@ivakraljevic.](https://www.youtube.com/@ivakraljevic./videos) | 3 | — | — | ⚪ nepoznato | Iva Kraljević | `religious-catholic` | ⚠️ |
 | **KKO.hr** | [@kkohr](https://www.youtube.com/@kkohr/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
+| **Launched by RevenueCat** | [playlist](https://www.youtube.com/playlist?list=PLeRhggrXOh5EXa01b_9GN2cZXZagWEEv7) | 3 | — | — | 🟢 aktivan | — | `technology` `indie-dev` `english` | — |
 | **LOOD** | [@lood](https://www.youtube.com/@lood/videos) | 1 | 70K | 170 | 🟢 aktivan | Vinko Mihaljević | `personal-development` | ✅ |
 | **Marijanski zavjet** | [@marijanskizavjet](https://www.youtube.com/@marijanskizavjet/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Marin Miletić** | [@MileticMarin_](https://www.youtube.com/@MileticMarin_/videos) | 3 | — | — | ⚪ nepoznato | Marin Miletić | `religious-catholic` `political-conservative` | ⚠️ |
 | **Merz Institut (Za vječnu slavu)** | [@zavjecnuslavu6073](https://www.youtube.com/@zavjecnuslavu6073/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `education` | ⚠️ |
 | **Mislav Kolakušić** | [@mislavkolakusichr](https://www.youtube.com/@mislavkolakusichr/videos) | 3 | 60K | — | 🟢 aktivan | Mislav Kolakušić | `political` | ✅ |
 | **Mladi za Domovinu** | [@mladizadomovinu1074](https://www.youtube.com/@mladizadomovinu1074/videos) | 3 | — | — | 🟢 aktivan | — | `religious-catholic` `domoljubni` `society` | ⚠️ |
+| **Mladifest Hrvatska** | [@MladifestHrvatska](https://www.youtube.com/@MladifestHrvatska/videos) | 3 | — | — | 🟢 aktivan | — | `religious-catholic` `evangelization` `testimonies` | ⚠️ |
 | **Mreže Riječi** | [@mrezerijeci](https://www.youtube.com/@mrezerijeci/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Muževni budite!** | [@muzevnibudite](https://www.youtube.com/@muzevnibudite/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `masculinity` | ⚠️ |
 | **Na novo rođeni** | [@nanovoroeni3392](https://www.youtube.com/@nanovoroeni3392/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
@@ -89,6 +91,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | — | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | — | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
 | **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | — | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Sub Club by RevenueCat** | [playlist](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | — | — | 🟢 aktivan | — | `technology` `business` `english` | — |
 | **Tribina — 1 na 1 s Vladom na ti** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
 | **Tribina — Europski nogomet** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq) | 3 | — | 52 | 🟢 aktivan | — | `sport` `football` | ✅ |
 | **Tribina — Fantasy** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx) | 3 | — | 100 | 🟢 aktivan | — | `sport` `football` `fantasy` | ✅ |
