@@ -2,6 +2,26 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "General Audience of 14 December 2011",
+      "uuid": "8917067b-50f2-451f-8634-c0a5cbc75c9c"
+    },
+    {
+      "match": "General Audience of 17 January 2001",
+      "uuid": "4ff3806a-b77d-4a07-a341-66a3e22eeda2"
+    },
+    {
+      "match": "Instruction on Christian freedom and liberation",
+      "uuid": "946724d1-e6de-48cc-959f-9ea64f1a1337"
+    },
+    {
+      "match": "Apostolic Journey to Poland: 4 June 1997, Shrine of Saint Joseph, Kalisz",
+      "uuid": "a4ae90c4-3368-4fbf-9a64-fadd5003feba"
+    },
+    {
+      "match": "Not a Miracle: Our Knowledge of God's Signs and Wonders",
+      "uuid": "7a7e220b-7d24-4d12-9789-9d6f2b3d57e9"
+    },
+    {
       "match": "General Audience of 14 December 2005: Psalm 139[138] - O where can I go?",
       "uuid": "3259deec-b366-48f4-9d7f-a46cb4f650a6"
     },
@@ -4492,6 +4512,42 @@
     {
       "match": "Rome Call for AI Ethics",
       "uuid": "072405d2-37c4-4b0a-8fa4-d774fac7cafd"
+    },
+    {
+      "match": "Movistar Arena",
+      "uuid": "3cb0b251-1f1f-498a-ba15-ff5d5376909e"
+    },
+    {
+      "match": "General Audience of 30 May 2018",
+      "uuid": "eaf4739e-ad1d-4a13-8794-58fb4dd7b577"
+    },
+    {
+      "match": "General Audience of 14 October 1998",
+      "uuid": "325a2fd0-9d96-4ab1-8589-c6e973d51050"
+    },
+    {
+      "match": "Order of Confirmation",
+      "uuid": "99675614-9fd3-4690-b0ec-725fc0e62d14"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2020",
+      "uuid": "b2ca6e7a-e6c5-4be2-b8c7-e2893f5d6e0c"
+    },
+    {
+      "match": "pastoral conversion of the Parish community",
+      "uuid": "06ed4109-072d-490c-b2be-0f281b240ca5"
+    },
+    {
+      "match": "Best Practices Migrants and Refugees 2023: Booklet Africa",
+      "uuid": "a66d763b-b6ff-439f-9457-fdf098375196"
+    },
+    {
+      "match": "Milan's Government Authorities",
+      "uuid": "9fcb2a7e-bc36-42af-9731-15ba62a8fbdc"
+    },
+    {
+      "match": "To the workers of Malta in Cottonera",
+      "uuid": "8f27c5f4-0976-4044-9ee7-42dba6b927d6"
     }
   ]
 }

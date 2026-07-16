@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # magisterium_pipeline.sh — Magisterium (re)obrada tick (launchd StartInterval, npr. 600s).
 #
-# Claima `magisterium_jobs` zahtjeve iz pipeline.domovina.ai (admin gumb "🕊 Mag HR/EN" ili
-# cron auto-enqueue za done jobove s uključenim Magisteriumom) i za svaki pokrene PUNI hibridni
+# Claima `magisterium_jobs` zahtjeve iz pipeline.domovina.ai (admin gumb "🕊 Mag HR/EN",
+# cron auto-enqueue za done jobove s uključenim Magisteriumom, ili full-backfill kanali iz
+# automatic/full_backfill_channels.txt preko enqueue_magisterium_backfill.js — vidi dolje)
+# i za svaki pokrene PUNI hibridni
 # Magisterium MCP workflow (docs/MAGISTERIUM_MCP_RUN.md) headless preko Claude Code CLI, pa
 # verificira artefakt na CDN-u. Idempotentno: već obrađeni videi (artefakt 200) → odmah done.
 #
@@ -53,6 +55,15 @@ export MAG_MAX="${MAG_MAX:-1}"
 
 echo ""
 echo "$(date '+%F %T') 🕊 ─── MAGISTERIUM TICK START ───"
+
+# Praćeni kanali (automatic/full_backfill_channels.txt): NOVE epizode (post-baseline)
+# s objavljenim HR člankom a bez Magisteriuma → auto-enqueue u magisterium_jobs (dedupe
+# radi worker). Stare rupe NIKAD automatski — puni backfill je ručni na zahtjev.
+# Non-fatalno: greška enqueuea ne smije srušiti tick (poller svejedno obrađuje postojeće).
+if [ -f "$SCRIPT_DIR/enqueue_magisterium_backfill.js" ]; then
+    node "$SCRIPT_DIR/enqueue_magisterium_backfill.js" || echo "   ⚠️ enqueue_magisterium_backfill greška (non-fatal)."
+fi
+
 if [ -f "$BRIDGE/magisterium_poller.js" ]; then
     node "$BRIDGE/magisterium_poller.js"
 else

@@ -1,0 +1,18 @@
+# full_backfill_channels.txt — kanali kojima se NOVE epizode automatski Magisterium-obrađuju.
+#
+# SEMANTIKA: automatika pokriva SAMO epizode koje se u channel indexu pojave NAKON
+# uvrštenja kanala ovdje (baseline snapshot u automatic/full_backfill_state.json,
+# machine-local/gitignored). Stare rupe se NIKAD ne enqueueaju automatski — puni
+# povijesni backfill uvijek ide RUČNO na zahtjev (admin gumb ili in-session).
+#
+# Tok: nightly (03:00) objavi HR članak nove epizode → Magisterium tick (10 min,
+# launchd tv.domovina.fetch.magisterium) je enqueuea → poller je headless obradi.
+#
+# Format: jedan channel id po retku (= ime direktorija u storage/output/).
+# Opcionalno "+EN" iza imena → uz HR enqueuea i englesku Magisterium obradu
+# (samo za nove epizode koje već imaju has_article_en). '#' = komentar.
+#
+# Čita: automatic/enqueue_magisterium_backfill.js (tick u automatic/magisterium_pipeline.sh)
+
+mladi_za_domovinu
+iva_kraljevic
