@@ -7,19 +7,19 @@
 
 ## Sažetak
 
-- **Ukupno unosa:** 145
+- **Ukupno unosa:** 146
 - **Trenutno se prati:** 69
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 0
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
-- **Ostali kandidati** (sekularni / dijaspora / istražiti): 68
+- **Ostali kandidati** (sekularni / dijaspora / istražiti): 69
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 70 · tier 2: 17 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 71 · tier 2: 17 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 68 · unverified ❓: 9 · full —: 2
+**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 69 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 86 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
+**Distribucija po status-u:** 🟢 aktivan: 86 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -178,7 +178,7 @@ Veliki kanali s puno shorts/clipova/izjava. Trebaju custom `MIN_DURATION` per-ka
 
 ---
 
-## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (68)
+## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (69)
 
 Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (širenje na cijeli hrvatski podcast ekosustav). Neki su bez verificiranog YouTube URL-a — treba istraživanje.
 
@@ -251,6 +251,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Turizam24** | [link](https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA) | 2 | — | — | ⚪ nepoznato | — | `tourism` | ❓ |
 | **Utakmicu po utakmicu** | [playlist](https://www.youtube.com/playlist?list=PL279H2ix-v5XSH6m_QxPD2mygdBRXS-i5) | 1 | — | 365 | 🟢 aktivan | M. Pukšar, I. Ljubić | `sport` `football` | ✅ |
 | **Vatrena obitelj** | — | 3 | — | — | 🟢 aktivan | — | `sport` `football` `institutional` | ⚠️ |
+| **Well Founded Podcast (CroStartup)** | — | 3 | — | — | ⚪ nepoznato | — | `entrepreneurship` `business` `technology` | ⚠️ |
 | **Zapozorje Podcast** | [@zapozorjepodcast6776](https://www.youtube.com/@zapozorjepodcast6776) | 2 | — | — | ⚪ nepoznato | — | — | ❓ |
 
 

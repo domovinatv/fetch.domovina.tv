@@ -6501,6 +6501,41 @@
         "current"
       ],
       "notes": "Snimke 2. konferencije o liderstvu 'Slijedi svoj poziv' (Centar Ignacije); 9 predavanja >15 min od 10 videa, objave 2025-10 – 2026-02. Zaključena playlista. Onboardano 2026-07-16."
+    },
+    {
+      "slug": "well-founded-podcast",
+      "display_name": "Well Founded Podcast (CroStartup)",
+      "youtube": {
+        "url": null,
+        "handle": null,
+        "type": "audio-only"
+      },
+      "platforms": {
+        "spotify": "https://open.spotify.com/show/1lkF0cX60PldN0Qn8EmnDH",
+        "web": "https://crostartup.org/podcast/"
+      },
+      "tags": [
+        "entrepreneurship",
+        "business",
+        "technology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": null,
+        "last_episode": "2024",
+        "average_duration_minutes": null,
+        "status": "dormant"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Audio-only (Spotify), nema YouTube — čeka audio-only ingestion put. Neaktivan ~2 godine (zadnje epizode ~2024). Strateški backlog — ubaciti kad audio-only ingest bude spreman."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "current"
+      ],
+      "notes": "Podcast Croatian Startup Assoc. (CroStartup) & CISEx, pretežno na hrvatskom. Audio-only distribucija (Spotify + crostartup.org/podcast), bez YouTube kanala. Dormant od ~2024, ali strateški relevantan za startup/tech vertikalu. Backlog unos 2026-07-16."
     }
   ],
   "philosophy": {
