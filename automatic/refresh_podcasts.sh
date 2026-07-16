@@ -56,6 +56,7 @@ KANALI=(
     "hcpi-podcast|https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn"
     "cryptoverse-kripto-caffe|https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb"
     "founder-talks|https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS"
+    "mladifest-hrvatska|https://www.youtube.com/@MladifestHrvatska/videos"
 
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda

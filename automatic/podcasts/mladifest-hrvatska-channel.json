@@ -1,0 +1,102 @@
+{
+  "id": "@MladifestHrvatska",
+  "channel": "Mladifest Hrvatska",
+  "channel_id": "UCc4tNmsij59QsM36bal0ZPg",
+  "title": "Mladifest Hrvatska",
+  "availability": null,
+  "channel_follower_count": 6280,
+  "description": "Službena stranica Mladifesta Hrvatska. Official site of Youth festival Croatia.",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 175,
+      "width": 1060,
+      "preference": -10,
+      "id": "0",
+      "resolution": "1060x175"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 188,
+      "width": 1138,
+      "preference": -10,
+      "id": "1",
+      "resolution": "1138x188"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 283,
+      "width": 1707,
+      "preference": -10,
+      "id": "2",
+      "resolution": "1707x283"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 351,
+      "width": 2120,
+      "preference": -10,
+      "id": "3",
+      "resolution": "2120x351"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 377,
+      "width": 2276,
+      "preference": -10,
+      "id": "4",
+      "resolution": "2276x377"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+      "height": 424,
+      "width": 2560,
+      "preference": -10,
+      "id": "5",
+      "resolution": "2560x424"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/-2K-KmSal7IA0RJ0KB6_FoR6rYKuYlebyLoTqPRlZSEvkThoCKqWq0PXJcfLWWuxEpq1gu1O9WY=s0",
+      "id": "banner_uncropped",
+      "preference": -5
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/vSOo6EJiiBrcmFIiXY7DNlnAPf5Z-VH421HXACtRBUMTjg-Y6Zfwgunc6Bm09cWN-LY92bxvPQ=s900-c-k-c0x00ffffff-no-rj",
+      "height": 900,
+      "width": 900,
+      "id": "7",
+      "resolution": "900x900"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/vSOo6EJiiBrcmFIiXY7DNlnAPf5Z-VH421HXACtRBUMTjg-Y6Zfwgunc6Bm09cWN-LY92bxvPQ=s0",
+      "id": "avatar_uncropped",
+      "preference": 1
+    }
+  ],
+  "uploader_id": "@MladifestHrvatska",
+  "uploader_url": "https://www.youtube.com/@MladifestHrvatska",
+  "modified_date": null,
+  "view_count": null,
+  "playlist_count": 3,
+  "uploader": "Mladifest Hrvatska",
+  "channel_url": "https://www.youtube.com/channel/UCc4tNmsij59QsM36bal0ZPg",
+  "_type": "playlist",
+  "entries": [],
+  "webpage_url": "https://www.youtube.com/@MladifestHrvatska",
+  "original_url": "https://www.youtube.com/@MladifestHrvatska",
+  "webpage_url_basename": "@MladifestHrvatska",
+  "webpage_url_domain": "youtube.com",
+  "extractor": "youtube:tab",
+  "extractor_key": "YoutubeTab",
+  "release_year": null,
+  "requested_entries": [],
+  "epoch": 1784207930,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.06.06.234447",
+    "current_git_head": null,
+    "release_git_head": "5faffa999fd33b373d47773e8ee639d072accec2",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}
