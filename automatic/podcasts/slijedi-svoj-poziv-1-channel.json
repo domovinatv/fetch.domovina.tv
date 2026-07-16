@@ -1,0 +1,49 @@
+{
+  "id": "UCuk9D5H9mx7birJ1-S22nyQ",
+  "channel": "Centar Ignacije",
+  "channel_id": "UCuk9D5H9mx7birJ1-S22nyQ",
+  "title": "Centar Ignacije - Videos",
+  "availability": null,
+  "channel_follower_count": 474,
+  "description": "",
+  "tags": [],
+  "thumbnails": [
+    {
+      "url": "https://yt3.googleusercontent.com/bFX0vz8XmJ9HyD44_samjEiIYJNnlglahDXOeCs4jdS2I9s40Zod-6rpUTUt0whjy1ijZJxi=s900-c-k-c0x00ffffff-no-rj",
+      "height": 900,
+      "width": 900,
+      "id": "0",
+      "resolution": "900x900"
+    },
+    {
+      "url": "https://yt3.googleusercontent.com/bFX0vz8XmJ9HyD44_samjEiIYJNnlglahDXOeCs4jdS2I9s40Zod-6rpUTUt0whjy1ijZJxi=s0",
+      "id": "avatar_uncropped",
+      "preference": 1
+    }
+  ],
+  "uploader_id": "@ignacijehr",
+  "uploader_url": "https://www.youtube.com/@ignacijehr",
+  "modified_date": null,
+  "view_count": null,
+  "playlist_count": null,
+  "uploader": "Centar Ignacije",
+  "channel_url": "https://www.youtube.com/channel/UCuk9D5H9mx7birJ1-S22nyQ",
+  "_type": "playlist",
+  "entries": [],
+  "extractor_key": "YoutubeTab",
+  "extractor": "youtube:tab",
+  "webpage_url": "https://www.youtube.com/channel/UCuk9D5H9mx7birJ1-S22nyQ/videos",
+  "original_url": "https://www.youtube.com/channel/UCuk9D5H9mx7birJ1-S22nyQ/videos",
+  "webpage_url_basename": "videos",
+  "webpage_url_domain": "youtube.com",
+  "release_year": null,
+  "requested_entries": [],
+  "epoch": 1784208648,
+  "__files_to_move": {},
+  "_version": {
+    "version": "2026.06.06.234447",
+    "current_git_head": null,
+    "release_git_head": "5faffa999fd33b373d47773e8ee639d072accec2",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
+  }
+}

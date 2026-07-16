@@ -57,6 +57,10 @@ KANALI=(
     "cryptoverse-kripto-caffe|https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb"
     "founder-talks|https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS"
     "mladifest-hrvatska|https://www.youtube.com/@MladifestHrvatska/videos"
+    # Centar Ignacije (@ignacijehr) — tri playliste vođene kao odvojeni "kanali"
+    "na-kavi-sa-svetim-ignacijem|https://www.youtube.com/playlist?list=PLxkKGjCBwZTIHoy-VRgCjF7rgSyOJVeNm"
+    "slijedi-svoj-poziv-1|https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm"
+    "slijedi-svoj-poziv-2|https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY"
 
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda
