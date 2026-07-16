@@ -6402,6 +6402,105 @@
         "current"
       ],
       "notes": "Katolički susret mladih (Sisak, godišnji festival); kateheze, propovijedi, svjedočanstva i razgovori. ~6.3k pretplatnika, 184 videa (62 duljih od 15 min). Onboardan 2026-07-16."
+    },
+    {
+      "slug": "na-kavi-sa-svetim-ignacijem",
+      "display_name": "Na kavi sa svetim Ignacijem",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLxkKGjCBwZTIHoy-VRgCjF7rgSyOJVeNm",
+        "playlist_id": "PLxkKGjCBwZTIHoy-VRgCjF7rgSyOJVeNm",
+        "handle": "@ignacijehr",
+        "type": "playlist",
+        "parent_channel": "Centar Ignacije",
+        "channel_id": "UCuk9D5H9mx7birJ1-S22nyQ"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology",
+        "evangelization"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2025-10",
+        "last_episode": "2026-02",
+        "average_duration_minutes": 49,
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "current"
+      ],
+      "notes": "Emisija Centra Ignacije (isusovci) o ignacijanskoj duhovnosti; 5 epizoda ~49 min. Playlista matičnog kanala @ignacijehr vođena kao zaseban kanal. Onboardano 2026-07-16."
+    },
+    {
+      "slug": "slijedi-svoj-poziv-1",
+      "display_name": "Slijedi svoj poziv — 1. konferencija o liderstvu",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm",
+        "playlist_id": "PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm",
+        "handle": "@ignacijehr",
+        "type": "playlist",
+        "parent_channel": "Centar Ignacije",
+        "channel_id": "UCuk9D5H9mx7birJ1-S22nyQ"
+      },
+      "tags": [
+        "leadership",
+        "business",
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2025-03",
+        "last_episode": "2025-03",
+        "average_duration_minutes": 27,
+        "status": "concluded"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "current"
+      ],
+      "notes": "Snimke 1. konferencije o liderstvu 'Slijedi svoj poziv' (Centar Ignacije); 10 predavanja >15 min od 11 videa, ožujak 2025. Zaključena playlista. Onboardano 2026-07-16."
+    },
+    {
+      "slug": "slijedi-svoj-poziv-2",
+      "display_name": "Slijedi svoj poziv — 2. konferencija o liderstvu",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY",
+        "playlist_id": "PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY",
+        "handle": "@ignacijehr",
+        "type": "playlist",
+        "parent_channel": "Centar Ignacije",
+        "channel_id": "UCuk9D5H9mx7birJ1-S22nyQ"
+      },
+      "tags": [
+        "leadership",
+        "business",
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2025-10",
+        "last_episode": "2026-02",
+        "average_duration_minutes": 27,
+        "status": "concluded"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "current"
+      ],
+      "notes": "Snimke 2. konferencije o liderstvu 'Slijedi svoj poziv' (Centar Ignacije); 9 predavanja >15 min od 10 videa, objave 2025-10 – 2026-02. Zaključena playlista. Onboardano 2026-07-16."
     }
   ],
   "philosophy": {

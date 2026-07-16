@@ -7,19 +7,19 @@
 
 ## Sažetak
 
-- **Ukupno unosa:** 142
-- **Trenutno se prati:** 66
+- **Ukupno unosa:** 145
+- **Trenutno se prati:** 69
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 0
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
 - **Ostali kandidati** (sekularni / dijaspora / istražiti): 68
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 25 · tier 3: 70 · tier 2: 17 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 70 · tier 2: 17 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 65 · unverified ❓: 9 · full —: 2
+**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 68 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 85 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
+**Distribucija po status-u:** 🟢 aktivan: 86 · ⚪ nepoznato: 39 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 1 · ⚪ nepoznato: 4
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -35,7 +35,7 @@
 
 ---
 
-## 🟢 Trenutno se prati (66)
+## 🟢 Trenutno se prati (69)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -76,6 +76,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Mladifest Hrvatska** | [@MladifestHrvatska](https://www.youtube.com/@MladifestHrvatska/videos) | 3 | — | — | 🟢 aktivan | — | `religious-catholic` `evangelization` `testimonies` | ⚠️ |
 | **Mreže Riječi** | [@mrezerijeci](https://www.youtube.com/@mrezerijeci/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Muževni budite!** | [@muzevnibudite](https://www.youtube.com/@muzevnibudite/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `masculinity` | ⚠️ |
+| **Na kavi sa svetim Ignacijem** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTIHoy-VRgCjF7rgSyOJVeNm) | 4 | — | — | 🟢 aktivan | — | `religious-catholic` `theology` `evangelization` | ⚠️ |
 | **Na novo rođeni** | [@nanovoroeni3392](https://www.youtube.com/@nanovoroeni3392/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
 | **Netokracija — 1on1** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk) | 4 | — | 1 | 🟢 aktivan | — | `technology` `digital` `interview` | ✅ |
 | **Netokracija — Ladies of New Business** | [playlist](https://www.youtube.com/playlist?list=PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff) | 3 | — | 34 | 🟢 aktivan | — | `technology` `digital` `business` `women` | ✅ |
@@ -91,6 +92,8 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | — | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | — | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
 | **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | — | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Slijedi svoj poziv — 1. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm) | 4 | — | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
+| **Slijedi svoj poziv — 2. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY) | 4 | — | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Sub Club by RevenueCat** | [playlist](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | — | — | 🟢 aktivan | — | `technology` `business` `english` | — |
 | **Tribina — 1 na 1 s Vladom na ti** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
 | **Tribina — Europski nogomet** | [playlist](https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq) | 3 | — | 52 | 🟢 aktivan | — | `sport` `football` | ✅ |
