@@ -132,6 +132,20 @@ function loadChannelMeta(channelId) {
     return readJson(metaPath);
 }
 
+// Display-name override iz data/podcasts_registry.json za playlist-kanale.
+// Kod playlisti je info.uploader matični YT kanal (npr. "Centar Ignacije" za sve
+// tri njegove playliste), pa ime uzimamo iz registry unosa (youtube.type=playlist).
+function loadPlaylistNameOverrides() {
+    const registry = readJson(path.join(__dirname, 'data', 'podcasts_registry.json'));
+    const map = {};
+    for (const p of registry?.podcasts || []) {
+        if (p?.youtube?.type === 'playlist' && p.slug && p.display_name) {
+            map[p.slug.replace(/-/g, '_')] = p.display_name;
+        }
+    }
+    return map;
+}
+
 // Normalizira naziv kanala iz uploader stringa (title case, cleanup)
 function channelDisplayName(uploaderId, uploader) {
     if (uploader && uploader.trim()) return uploader.trim();
@@ -297,6 +311,7 @@ async function main() {
 
     console.log(`  Kanali pronađeni: ${channelIds.length}\n`);
 
+    const playlistNames = loadPlaylistNameOverrides();
     const channelIndex = [];   // za channels/data/index.json (sažetak)
     const channelDetails = []; // za channels/data/index_bundle.json (kompletni podaci)
     const avatarDownloads = []; // {url, dest} — skupljaju se u petlji, izvršavaju paralelno
@@ -311,7 +326,7 @@ async function main() {
             continue;
         }
 
-        const displayName = channelDisplayName(channelId, channelName);
+        const displayName = playlistNames[channelId] || channelDisplayName(channelId, channelName);
         const latestVideo = videos[0]; // vec sortirani kronoloski
         const totalDuration = videos.reduce((sum, v) => sum + (v.duration_seconds || 0), 0);
         const avgMagisterium = (() => {
