@@ -4,7 +4,7 @@
   "channel_id": "UCkA1mEWmqGLxXfKrRbfqaFQ",
   "title": "Franjina Ekonomija Hrvatska",
   "availability": null,
-  "channel_follower_count": 82,
+  "channel_follower_count": 83,
   "description": "Temeljne vrijednosti Franjine ekonomije:\n1. Briga za stvoreno\n2. Briga za siromašne duhom\n3. Zajedništvo\n",
   "tags": [],
   "thumbnails": [
@@ -38,7 +38,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1784250162,
+  "epoch": 1784336554,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
