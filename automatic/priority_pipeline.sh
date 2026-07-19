@@ -46,6 +46,9 @@ trap 'release_pipeline_lock' EXIT INT TERM
 
 echo ""
 echo "$(date '+%F %T') ⚡ ─── PRIORITY TICK START ───"
+# Poller po uspješnom jobu poziva i auto_reuse_adhoc.js --video-id (reuse ad-hoc
+# obrade u channel dir praćenog kanala + reindex SAMO kad je nešto kopirano) —
+# sve unutar ovog ticka, tj. pod pipeline lockom koji već držimo.
 [ -f "$BRIDGE/priority_poller.js" ] && node "$BRIDGE/priority_poller.js" || echo "   ⚠️ nema priority_poller.js — preskačem."
 # Javi gotove (article.json live na CDN → done + detail_url) odmah.
 [ -f "$BRIDGE/reconcile.js" ] && node "$BRIDGE/reconcile.js" || true

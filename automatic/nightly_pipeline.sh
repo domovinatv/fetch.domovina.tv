@@ -268,6 +268,17 @@ fi
 acquire_pipeline_lock wait
 run_step "run_pipeline.sh (faza A + faza B)" \
     "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload || true
+
+# ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
+# Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego
+# što nightly fetcha video u channel dir → reuse u trenutku obrade nema kamo
+# kopirati. Ovaj sweep (nakon fetch.js gore, prije KORAKA 2/3 dolje) pokupi
+# takve videe čim su fetchani: dovršene _unlisted obrade → reuse u channel dir.
+# No-op u <1s kad ad-hoc obrada nema; publish ne radi — KORAK 2 (channel index)
+# i KORAK 3 (meta upload) slijede odmah ispod. Pod istim pipeline lockom kao
+# run_pipeline jer piše u channel direktorije.
+run_step "auto_reuse_adhoc.js --sweep" \
+    node "$REPO_DIR/auto_reuse_adhoc.js" --sweep || true
 release_pipeline_lock
 
 # ─── 2. CHANNEL INDEX REGEN ───────────────────────────────────────
