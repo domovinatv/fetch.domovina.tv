@@ -2,6 +2,10 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "Norms regarding the manner of proceedings in the discernment of presumed apparitions or revelations",
+      "uuid": "9a6cebfd-71ed-4676-9f22-1c03c7e23ab2"
+    },
+    {
       "match": "General Audience of 14 December 2011",
       "uuid": "8917067b-50f2-451f-8634-c0a5cbc75c9c"
     },
@@ -4616,6 +4620,34 @@
     {
       "match": "Pier Giorgio Frassati: Biografia",
       "uuid": "1c3ce378-156b-4a2e-8411-455daf77d77d"
+    },
+    {
+      "match": "World Day of the Poor: Holy Mass (15 November 2020)",
+      "uuid": "6318bb6a-a082-4cee-a93f-9d7d1baed9af"
+    },
+    {
+      "match": "12 September 2009: Cappella Papale for the Episcopal Ordination of five new Bishops",
+      "uuid": "f7bb121a-d194-4612-90f7-584a433d3b54"
+    },
+    {
+      "match": "Apostolic Journey to Japan: Address on Nuclear Weapons",
+      "uuid": "10aca9eb-209e-4dc0-900b-92993c53a056"
+    },
+    {
+      "match": "Addresses the Security Council on Human Fraternity and Peace",
+      "uuid": "e00c5543-da42-402e-be8f-d4a1d24e3d79"
+    },
+    {
+      "match": "Conversion of Nuclear Warheads for Peaceful Purposes",
+      "uuid": "f3bcbc52-8d69-4f56-b990-f2bc3a395826"
+    },
+    {
+      "match": "Message of the Holy Father to Participants in the 44th Session of the FAO Conference (30 June 2025)",
+      "uuid": "9347d320-10dc-4a4f-8398-0e61bae4d3ed"
+    },
+    {
+      "match": "Message for World Food Day 2024 (16 October 2024)",
+      "uuid": "4c5a0433-2767-4029-8725-511bd4f0e441"
     }
   ]
 }
