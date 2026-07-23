@@ -4,7 +4,7 @@
   "channel_id": "UCjcOht-_CO43oETQOo4tRMA",
   "title": "CHARIS - Katolička Karizmatska Obnova",
   "availability": null,
-  "channel_follower_count": 9600,
+  "channel_follower_count": 9610,
   "description": "Na ovom kanalu su video zapisi molitvenih susreta KKODS-a namijenjeni javnosti. Neka budu na blagoslov svima koji sudjeluju u njima ili ih gledaju u živo.",
   "tags": [
     "KKODS",
@@ -53,7 +53,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1784682289,
+  "epoch": 1784768474,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
