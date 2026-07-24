@@ -4648,6 +4648,14 @@
     {
       "match": "Message for World Food Day 2024 (16 October 2024)",
       "uuid": "4c5a0433-2767-4029-8725-511bd4f0e441"
+    },
+    {
+      "match": "To Representatives of Leaders and Employees from the Italian Banca Etica",
+      "uuid": "cbf61f0a-2d4b-4dba-9eda-e120baa2224a"
+    },
+    {
+      "match": "To the delegation of \"The Economy of Francesco\"",
+      "uuid": "1d5abd47-27bf-4069-9a3f-2ff918bf4e45"
     }
   ]
 }
