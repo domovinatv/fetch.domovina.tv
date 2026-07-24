@@ -386,6 +386,11 @@ async function processArticle(articlePath) {
     // matched=true → 112 ep imaju screenshote, false → 154 nemaju — 100% korelacija). Preskoči
     // PRIJE yt-dlp poziva da ne hammeramo YouTube s ~150+ beskorisnih lookupa po runu (rizik
     // anti-bot fingerprinta + bačeno vrijeme). Matchane beamly epizode (_yt_matched=true) prolaze normalno.
+    // localOnly: ne-YouTube izvor (npr. X/Twitter, info.json `_source` != 'youtube').
+    // Takav video IMA pravi video track (skinut lokalno), ali `_yt_<id>` je sintetički
+    // synthId pa `yt-dlp --get-url https://youtube.com/watch?v=<synthId>` ne postoji.
+    // → idi ODMAH na lokalni-file (ffmpeg) put, bez uzaludnog YouTube stream pokušaja.
+    let localOnly = false;
     const infoPath = path.join(dir, `${videoBase}.info.json`);
     if (fs.existsSync(infoPath)) {
         try {
@@ -393,6 +398,9 @@ async function processArticle(articlePath) {
             if (info._yt_matched === false) {
                 console.log(`   🎧 Audio-only (beamly, _yt_matched=false) — preskačem screenshote: ${videoBase}`);
                 return { total: 0, captured: 0, skipped: 0, failed: 0 };
+            }
+            if (info._source && info._source !== "youtube") {
+                localOnly = true;
             }
         } catch (_) { /* nevažeći info.json — nastavi normalno (yt-dlp put) */ }
     }
@@ -440,7 +448,9 @@ async function processArticle(articlePath) {
     let source = null;
     let sourceLabel = "";
 
-    if (!antiBotOfflineMode) {
+    if (localOnly) {
+        console.log(`   📁 Ne-YouTube izvor (_source) — koristim lokalni video file (ffmpeg), bez YouTube streama.`);
+    } else if (!antiBotOfflineMode) {
         // Dohvati stream URL (jednom za sve screenshotove istog videa)
         console.log(`   🔗 Dohvaćam stream URL za ${videoId} (best quality)...`);
         try {

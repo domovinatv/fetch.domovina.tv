@@ -133,9 +133,40 @@ function saveState(stateFile, state) {
   fs.renameSync(tempFile, stateFile);
 }
 
-function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCookies = false) {
+// Nakon downloada ne-YouTube izvora, upiši markere u yt-dlp-ov info.json:
+//   `_source`  → ostatak pipelinea (screenshot_youtube.js) zna da nije YouTube video
+//                pa ide lokalni-file (ffmpeg) put umjesto `yt-dlp --get-url` streama.
+//   `id`       → postavi na NAŠ synthId (yt-dlp upiše svoj media-id koji se razlikuje
+//                od status-id-a; downstream ionako koristi filename `_yt_<id>`, ali
+//                držimo info.json.id dosljednim radi čišćih metapodataka).
+// NAPOMENA: NE postavljamo `_yt_matched:false` — to je Beamly audio-only marker koji
+// skipa screenshote; X ima pravi video track pa screenshote ŽELIMO (lokalni ffmpeg).
+function augmentUnlistedInfoJson(outputDir, videoId, source) {
+  try {
+    const f = fs
+      .readdirSync(outputDir)
+      .find((x) => x.includes(`_yt_${videoId}`) && x.endsWith(".info.json") && !x.startsWith("._"));
+    if (!f) {
+      console.warn(`   ⚠️  info.json za ${videoId} nije nađen — preskačem _source marker.`);
+      return;
+    }
+    const p = path.join(outputDir, f);
+    const info = JSON.parse(fs.readFileSync(p, "utf-8"));
+    info._source = source;
+    info.id = videoId;
+    fs.writeFileSync(p, JSON.stringify(info));
+    console.log(`   🏷️  info.json označen _source=${source} (id=${videoId})`);
+  } catch (e) {
+    console.warn(`   ⚠️  Ne mogu augmentirati info.json za ${videoId}: ${e.message}`);
+  }
+}
+
+// targetUrl: kad je zadan, yt-dlp skida TOČNO taj URL (npr. X/Twitter post). Kad je
+// null (stari pozivi), rekonstruira se kanonski YouTube watch URL iz videoId.
+function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCookies = false, targetUrl = null) {
   fs.mkdirSync(outputDir, { recursive: true });
   const finalTemplate = path.join(outputDir, filenameTemplate + ".%(ext)s");
+  const dlUrl = targetUrl || `https://www.youtube.com/watch?v=${videoId}`;
 
   // Per-video fallback na live brave cookies za age-restricted videe.
   // cookies.txt nema age-verification token (yt-dlp serializacija Brave-ove
@@ -153,13 +184,13 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
       ...stripped,
       "--cookies-from-browser", BROWSER_NAME,
       "-o", finalTemplate,
-      `https://www.youtube.com/watch?v=${videoId}`,
+      dlUrl,
     ];
   } else {
     args = [
       ...YT_DLP_BASE_ARGS,
       "-o", finalTemplate,
-      `https://www.youtube.com/watch?v=${videoId}`,
+      dlUrl,
     ];
   }
 
@@ -231,7 +262,7 @@ class ChannelQueue {
       this.outputDir = path.join(baseOutputDir, "_unlisted");
       this.stateFile = path.join(LISTS_DIR, "_unlisted-state.json");
       this.state = loadState(this.stateFile);
-      this.initUnlisted(opts.unlistedUrl, opts.unlistedTitle, opts.unlistedDate);
+      this.initUnlisted(opts.unlistedUrl, opts.unlistedTitle, opts.unlistedDate, opts.unlistedId, opts.unlistedSource);
       return;
     }
 
@@ -245,12 +276,24 @@ class ChannelQueue {
   }
 
   // Pripremi jednu pending stavku iz proizvoljnog URL-a (ad-hoc unlisted ulaz).
-  initUnlisted(url, title, date) {
+  // explicitId: 11-znakovni ID koji je već izmintan uzvodno (queue servis) — obavezan
+  //   za ne-YouTube izvore (X status ID nije 11 znakova, pa ga NE izvodimo iz URL-a).
+  // source: 'youtube' (default) | 'x' — određuje skida li download originalni URL i
+  //   dobiva li info.json marker `_source` (screenshot ide lokalni-file put).
+  initUnlisted(url, title, date, explicitId = null, source = null) {
     const trimmed = (url || "").trim();
-    const videoId = extractVideoId(trimmed) ||
+    const src = (source || "youtube").toLowerCase();
+    const isYouTube = src === "youtube";
+    const videoId =
+      (explicitId && /^[A-Za-z0-9_-]{11}$/.test(explicitId) ? explicitId : null) ||
+      extractVideoId(trimmed) ||
       (/^[a-zA-Z0-9_-]{11}$/.test(trimmed) ? trimmed : null);
     if (!videoId) {
-      console.error(`[GREŠKA] Ne mogu izvući YouTube ID iz: "${url}"`);
+      console.error(
+        isYouTube
+          ? `[GREŠKA] Ne mogu izvući YouTube ID iz: "${url}"`
+          : `[GREŠKA] Ne-YouTube izvor (${src}) traži eksplicitni --unlisted-id (11 znakova): "${url}"`,
+      );
       this.isExhausted = true;
       return;
     }
@@ -270,10 +313,13 @@ class ChannelQueue {
 
     this.pendingVideos = [{
       line: `unlisted|${title || ""}|${trimmed}`,
-      url: `https://www.youtube.com/watch?v=${videoId}`,
+      // YouTube: rekonstruiraj kanonski watch URL (kompatibilnost sa starim ponašanjem).
+      // Ne-YouTube: zadrži ORIGINALNI URL — yt-dlp ga zna skinuti (npr. X/Twitter ekstraktor).
+      url: isYouTube ? `https://www.youtube.com/watch?v=${videoId}` : trimmed,
       videoId,
       title: title || "unlisted",
       filenameTemplate,
+      source: src,
     }];
   }
 
@@ -332,19 +378,29 @@ class ChannelQueue {
 
       console.log(`   ➡️  [${i + 1}/${batch.length}] Cilj: "${logName}"`);
 
+      // Ne-YouTube izvor (npr. X): yt-dlp skida ORIGINALNI URL; YouTube: rekonstrukcija iz ID-a.
+      const isNonYouTube = video.source && video.source !== "youtube";
+      const dlTarget = isNonYouTube ? video.url : null;
+
       try {
         try {
-          await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate);
+          await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate, false, dlTarget);
         } catch (firstErr) {
           // Age-restriction fallback: cookies.txt nedostaje session-age token,
-          // ali `--cookies-from-browser brave` ima. Retry samo jednom.
+          // ali `--cookies-from-browser brave` ima. Retry samo jednom. (Samo YouTube.)
           if (firstErr.isAgeRestricted) {
             console.log(`   🔞  [AGE-RESTRICTED] ${video.videoId}: fallback na --cookies-from-browser ${BROWSER_NAME}`);
-            await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate, true);
+            await downloadVideo(video.videoId, this.outputDir, video.filenameTemplate, true, dlTarget);
             console.log(`   🔞✅ Download OK preko --cookies-from-browser`);
           } else {
             throw firstErr;
           }
+        }
+
+        // Ne-YouTube: upiši marker u info.json da ostatak pipelinea zna izvor
+        // (screenshot_youtube.js → lokalni-file put; kanonski ID = naš synthId).
+        if (isNonYouTube) {
+          augmentUnlistedInfoJson(this.outputDir, video.videoId, video.source);
         }
 
         if (globalConsecutiveErrors > 0) {
@@ -438,18 +494,27 @@ async function main() {
 
   // --- AD-HOC UNLISTED ULAZ ---
   // node fetch.js --unlisted-url "https://www.youtube.com/watch?v=ID" [--unlisted-title "Naziv"] [--unlisted-date YYYYMMDD]
+  //   [--unlisted-id <11-znakovni ID>] [--unlisted-source youtube|x]
   // Skine jedan proizvoljni URL u storage/output/_unlisted/ (neindeksiran, ali servira /v/{id}).
+  // Za ne-YouTube izvore (npr. X/Twitter) queue servis (pipeline.domovina.ai) minta
+  // deterministički 11-znakovni ID i prosljeđuje ga preko --unlisted-id (fetch.js ga NE
+  // izvodi iz URL-a jer X status ID nije 11 znakova). --unlisted-source vodi ostatak
+  // pipelinea (screenshot lokalni-file put umjesto YouTube streama).
   const unlistedUrlIdx = args.indexOf("--unlisted-url");
   const unlistedUrl = unlistedUrlIdx !== -1 ? args[unlistedUrlIdx + 1] : null;
   if (unlistedUrl) {
     const utIdx = args.indexOf("--unlisted-title");
     const udIdx = args.indexOf("--unlisted-date");
+    const uidIdx = args.indexOf("--unlisted-id");
+    const usrcIdx = args.indexOf("--unlisted-source");
     const opts = {
       unlistedUrl,
       unlistedTitle: utIdx !== -1 ? args[utIdx + 1] : null,
       unlistedDate: udIdx !== -1 ? args[udIdx + 1] : null,
+      unlistedId: uidIdx !== -1 ? args[uidIdx + 1] : null,
+      unlistedSource: usrcIdx !== -1 ? args[usrcIdx + 1] : null,
     };
-    console.log(`\n🔒 AD-HOC UNLISTED: ${unlistedUrl} → _unlisted/`);
+    console.log(`\n🔒 AD-HOC UNLISTED: ${unlistedUrl} → _unlisted/${opts.unlistedSource ? ` (izvor: ${opts.unlistedSource})` : ""}`);
     const channel = new ChannelQueue(null, baseOutputDir, null, opts);
     while (!channel.isExhausted) {
       await channel.processBatch(BATCH_SIZE);
