@@ -197,6 +197,32 @@ For this project's pipeline (96+ file batches arriving weekly), batch-no-chunkin
 
 **Workhorse script structure mirrors `transcribe_canary.py`**: idempotent (skips files with existing `.sortformer.diarized.srt`), heartbeat every 60s, ETA from running average, partial-failure tolerant. The diarization+merge logic is the same best-overlap algorithm as `diarize_canary.py:assign_speakers`.
 
+### LLM backend za korake 7+8: `--gemini-backend vertex|cli|claude`
+
+Koraci 7 (sažetak) i 8 (članak) imaju zamjenjiv backend, čitan iz env vara `GEMINI_BACKEND`:
+
+| Backend | Što koristi | Kada |
+|---|---|---|
+| `vertex` (default) | Vertex AI REST, `gemini-3.5-flash`, global endpoint | Nightly batch, backlog |
+| `cli` | `gemini` CLI (user-level google login) | Fallback kad Vertex zapinje |
+| `claude` | **`claude -p --model opus` pod Claude Code PRETPLATOM** | Prioritetni / ad-hoc videi — kvaliteta |
+
+**`claude` backend — obavezno pročitati `docs/claude_code_backend_2026-07.md` prije diranja.**
+Tri stvari koje tiho pucaju:
+
+1. **`--tools ''` je obavezan** — bez njega tool definicije uđu u kontekst svakog poziva
+   (overhead 21 000 → 233 tokena). Isto tako `cwd` mora biti neutralan dir, inače `claude`
+   učita ovaj CLAUDE.md u svaki poziv.
+2. **NIKAD `--bare`** — forsira `ANTHROPIC_API_KEY` i tiho prebacuje s pretplate na
+   per-token naplatu.
+3. **Model slug u imenu datoteke mora ostati goli alias** (`opus`, ne `claude-opus`).
+   Downstream dedupa po leksikografski najvećem `_{date}_{model}.article.json`; `'o' > 'g'`
+   pa Opus pobjeđuje `gemini-*`, dok bi `'c' < 'g'` značilo da se Opus članak nikad ne servira.
+   Puna provenance (`claude-code:opus`) ide u JSON metadata, ne u filename.
+
+Ne pokretati na cijelom nightly batchu: tipična epizoda ≈ 5 poziva / ~430k input tokena
+(dvofazni članak resenda transkript po iteraciji), pa 13 epizoda ≈ 2.8M tokena kvote.
+
 ### Two-Phase Article Generation (generate_article_gemini.js)
 
 The most complex script. Phase 1 creates a semantic outline splitting the podcast into 35-45min thematic iterations. Phase 2 writes detailed journalistic sections per iteration. Both output JSON. Raw API responses saved in `*_raw/` dirs for recovery.

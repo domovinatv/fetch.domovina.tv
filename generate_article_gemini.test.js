@@ -33,6 +33,8 @@ const {
     extractNameCandidates,
     auditNames,
     STRICT_SPEAKER_THRESHOLD,
+    MODEL_SLUG,
+    sectionsMissingFields,
     _setTestToken,
 } = require("./generate_article_gemini.js");
 
@@ -424,11 +426,11 @@ describe("findLatestFile", () => {
     before(() => {
         tmpDir = makeTmpDir();
         // Kreiraj testne datoteke s različitim datumima
-        fs.writeFileSync(path.join(tmpDir, "test_2026-03-10_gemini-2.5-flash.outline.json"), "{}");
-        fs.writeFileSync(path.join(tmpDir, "test_2026-03-15_gemini-2.5-flash.outline.json"), "{}");
-        fs.writeFileSync(path.join(tmpDir, "test_2026-03-15_gemini-2.5-flash.article.json"), "{}");
+        fs.writeFileSync(path.join(tmpDir, `test_2026-03-10_${MODEL_SLUG}.outline.json`), "{}");
+        fs.writeFileSync(path.join(tmpDir, `test_2026-03-15_${MODEL_SLUG}.outline.json`), "{}");
+        fs.writeFileSync(path.join(tmpDir, `test_2026-03-15_${MODEL_SLUG}.article.json`), "{}");
         // macOS resource fork datoteka — treba biti ignorirana
-        fs.writeFileSync(path.join(tmpDir, "._test_2026-03-20_gemini-2.5-flash.outline.json"), "{}");
+        fs.writeFileSync(path.join(tmpDir, `._test_2026-03-20_${MODEL_SLUG}.outline.json`), "{}");
     });
 
     after(() => rmTmpDir(tmpDir));
@@ -475,11 +477,11 @@ describe("hasCompleteArticle", () => {
     it("vraća true za kompletiran članak s ispravnim brojem iteracija", () => {
         const basename = "complete_test.wav.canary.diarized";
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.outline.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.outline.json`),
             JSON.stringify(FIXTURE_OUTLINE)
         );
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.article.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.article.json`),
             JSON.stringify(FIXTURE_ARTICLE)
         );
         assert.equal(hasCompleteArticle(tmpDir, basename + ".srt"), true);
@@ -488,7 +490,7 @@ describe("hasCompleteArticle", () => {
     it("vraća false kad članak ima manje iteracija nego outline", () => {
         const basename = "incomplete_iter.wav.canary.diarized";
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.outline.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.outline.json`),
             JSON.stringify(FIXTURE_OUTLINE) // 2 iteracije
         );
         const partialArticle = {
@@ -496,7 +498,7 @@ describe("hasCompleteArticle", () => {
             iterations: [FIXTURE_ARTICLE.iterations[0]], // samo 1 iteracija
         };
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.article.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.article.json`),
             JSON.stringify(partialArticle)
         );
         assert.equal(hasCompleteArticle(tmpDir, basename + ".srt"), false);
@@ -512,11 +514,11 @@ describe("hasCompleteArticle", () => {
             ],
         };
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.outline.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.outline.json`),
             JSON.stringify(FIXTURE_OUTLINE)
         );
         fs.writeFileSync(
-            path.join(tmpDir, `${basename}_2026-03-15_gemini-2.5-flash.article.json`),
+            path.join(tmpDir, `${basename}_2026-03-15_${MODEL_SLUG}.article.json`),
             JSON.stringify(articleEmptySections)
         );
         assert.equal(hasCompleteArticle(tmpDir, basename + ".srt"), false);
@@ -545,11 +547,11 @@ describe("discoverPendingFiles", () => {
         const baseDone = "20260101_done_yt_abc123.wav.canary.diarized";
         fs.writeFileSync(path.join(chA, baseDone + ".srt"), FIXTURE_SRT);
         fs.writeFileSync(
-            path.join(chA, `${baseDone}_2026-03-15_gemini-2.5-flash.outline.json`),
+            path.join(chA, `${baseDone}_2026-03-15_${MODEL_SLUG}.outline.json`),
             JSON.stringify({ iterations: [FIXTURE_OUTLINE.iterations[0]] })
         );
         fs.writeFileSync(
-            path.join(chA, `${baseDone}_2026-03-15_gemini-2.5-flash.article.json`),
+            path.join(chA, `${baseDone}_2026-03-15_${MODEL_SLUG}.article.json`),
             JSON.stringify({
                 metadata: {},
                 iterations: [{
@@ -714,10 +716,17 @@ describe("regresija na stvarnim podacima s diska", () => {
 
     it("hasCompleteArticle potvrđuje stvarni kompletiran članak", () => {
         if (skipIfNoData()) return;
-        const result = hasCompleteArticle(
-            REAL_DATA_DIR,
-            "20190411_40_dana_40_days_yt_AAzm0ftoqsg.wav.canary.diarized.srt"
-        );
+        const srtName = "20190411_40_dana_40_days_yt_AAzm0ftoqsg.wav.canary.diarized.srt";
+        const basename = srtName.replace(/\.srt$/, "");
+
+        // hasCompleteArticle je scopean na MODEL_SLUG (promjena modela = regeneracija).
+        // Fikstura na disku sadrži članke starijih modela, pa test ima smisla samo ako
+        // postoji članak za TRENUTNO konfigurirani model — inače nema što potvrditi.
+        const hasFixture = fs.readdirSync(REAL_DATA_DIR)
+            .some(f => f.startsWith(`${basename}_`) && f.endsWith(`_${MODEL_SLUG}.article.json`) && !f.startsWith("._"));
+        if (!hasFixture) return;
+
+        const result = hasCompleteArticle(REAL_DATA_DIR, srtName);
         assert.equal(result, true, "Stvarni kompletiran članak bi trebao biti prepoznat");
     });
 });
@@ -835,7 +844,7 @@ describe("processFile s mockanim API-jem", () => {
         // Spremi outline unaprijed
         const basename = "20260201_resume_yt_xyz789.wav.canary.diarized";
         const today = new Date().toISOString().split("T")[0];
-        const outlinePath = path.join(tmpDir2, `${basename}_${today}_gemini-2.5-flash.outline.json`);
+        const outlinePath = path.join(tmpDir2, `${basename}_${today}_${MODEL_SLUG}.outline.json`);
         const simpleOutline = {
             iterations: [{
                 iteration_number: 1,
@@ -1034,5 +1043,47 @@ describe("atribucija govornika — chapter-mapa i strict-mode", () => {
         assert.equal(3 > STRICT_SPEAKER_THRESHOLD || 0 >= 3, false);
         // highlights: 25 govornika → strict ON
         assert.equal(25 > STRICT_SPEAKER_THRESHOLD, true);
+    });
+});
+
+
+// ═══════════════════════════════════════════════════════════════
+// TESTOVI: schema guard za obavezna polja sekcija
+// (Vertex responseMimeType forsira samo JSON sintaksu, ne shemu —
+//  Opus je 2026-07-25 u jednom runu ispustio keywords + entities.)
+// ═══════════════════════════════════════════════════════════════
+
+describe("sectionsMissingFields", () => {
+    const full = {
+        subtitle: "Podnaslov",
+        screenshot_timestamp: "00:01:23",
+        screenshot_description: "opis",
+        content: "Tekst odlomka.",
+        keywords: ["a", "b"],
+        entities: ["Zagreb"],
+    };
+
+    it("vraća prazan niz kad su sva obavezna polja prisutna", () => {
+        assert.deepEqual(sectionsMissingFields([full]), []);
+    });
+
+    it("detektira polje koje potpuno nedostaje", () => {
+        const { entities, ...bezEntities } = full;
+        assert.deepEqual(sectionsMissingFields([bezEntities]), ["entities"]);
+    });
+
+    it("prazan niz i prazan string tretira kao nedostajuće", () => {
+        const missing = sectionsMissingFields([{ ...full, keywords: [], subtitle: "   " }]);
+        assert.deepEqual(missing.sort(), ["keywords", "subtitle"]);
+    });
+
+    it("prijavljuje polje ako fali u BAR JEDNOJ sekciji", () => {
+        const { keywords, ...bezKeywords } = full;
+        assert.deepEqual(sectionsMissingFields([full, bezKeywords, full]), ["keywords"]);
+    });
+
+    it("ne prijavljuje ništa za prazan ulaz (nema sekcija = drugi problem)", () => {
+        assert.deepEqual(sectionsMissingFields([]), []);
+        assert.deepEqual(sectionsMissingFields(null), []);
     });
 });

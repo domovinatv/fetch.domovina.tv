@@ -37,6 +37,7 @@
  */
 
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const { execSync, spawn } = require("child_process");
 
@@ -97,9 +98,53 @@ function diffUsage(before) {
     return d;
 }
 
-// Backend: "vertex" (default, Vertex AI REST API + region rotacija) ili "cli" (gemini CLI, non-interactive).
-// Postavi preko env vara GEMINI_BACKEND=cli (run_pipeline.sh --gemini-backend cli).
+// Backend: "vertex" (default, Vertex AI REST API + region rotacija), "cli" (gemini CLI, non-interactive)
+// ili "claude" (Claude Code CLI pod pretplatom — vidi niže).
+// Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
+
+// ─── CLAUDE CODE CLI BACKEND (GEMINI_BACKEND=claude) ──────────────
+// Koristi lokalno prijavljeni `claude` CLI preko Claude Code PRETPLATE (OAuth), NE API keya.
+// Namjena: kvalitetnija obrada aktualnih/prioritetnih videa. Batch backlog ostaje na Vertexu
+// jer pretplata ima rate limit, a jedna epizoda troši ~50-400k input tokena.
+//
+// Kritični flagovi (empirijski izmjereno 2026-07-25):
+//   --tools ""            → bez tool definicija u kontekstu: overhead 21k → 233 tokena po pozivu
+//   --setting-sources ""  → ne učitava user/project settings, hookove ni pluginove
+//   cwd = neutralni dir   → inače `claude` auto-discovera repo CLAUDE.md u SVAKI poziv
+//   --output-format json  → daje `result` (tekst) + `usage` + `total_cost_usd` za sidecar
+//   NIKAD --bare          → forsira ANTHROPIC_API_KEY, tj. per-token naplatu umjesto pretplate
+const CLAUDE_MODEL     = process.env.CLAUDE_MODEL  || GEMINI_CONF.CLAUDE_MODEL  || "opus";
+const CLAUDE_EFFORT    = process.env.CLAUDE_EFFORT || GEMINI_CONF.CLAUDE_EFFORT || "high";
+// Opus 5 cjenik (USD/1M) — koristi se samo kao fallback ako CLI ne vrati total_cost_usd.
+const CLAUDE_PRICE_IN  = parseFloat(process.env.CLAUDE_PRICE_IN  || GEMINI_CONF.CLAUDE_PRICE_IN  || "5.00");
+const CLAUDE_PRICE_OUT = parseFloat(process.env.CLAUDE_PRICE_OUT || GEMINI_CONF.CLAUDE_PRICE_OUT || "25.00");
+const CLAUDE_MAX_RETRIES = parseInt(process.env.CLAUDE_MAX_RETRIES || "3", 10);
+const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
+
+const USING_CLAUDE = GEMINI_BACKEND === "claude";
+// Oznake koje idu u {base}.gemini_usage.json sidecar (dijeli ga s korakom 8).
+// GEMINI_MODEL se može prepisati preko --model, pa se čita lijeno (funkcija, ne const).
+function usageModelName() { return USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : GEMINI_MODEL; }
+const USAGE_PRICE_IN  = USING_CLAUDE ? CLAUDE_PRICE_IN  : PRICE_IN_PER_M;
+const USAGE_PRICE_OUT = USING_CLAUDE ? CLAUDE_PRICE_OUT : PRICE_OUT_PER_M;
+
+// Claude CLI vraća usage u Anthropic formatu — mapiraj u isti sessionUsage akumulator.
+// prompt = svježi input + cache write + cache read (sve troši kvotu pretplate).
+function recordClaudeUsage(u, costUsd) {
+    if (!u) return;
+    const p = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+    const o = u.output_tokens || 0;
+    sessionUsage.calls++;
+    sessionUsage.prompt += p;
+    sessionUsage.output += o;
+    sessionUsage.total  += p + o;
+    // CLI-jev total_cost_usd je točniji od flat in/out računice jer uračunava
+    // cache-write (2×) i cache-read (0.1×) cijene. Na pretplati je to "ekvivalentni" trošak.
+    sessionUsage.usd += (typeof costUsd === "number" && isFinite(costUsd))
+        ? costUsd
+        : (p / 1e6 * CLAUDE_PRICE_IN + o / 1e6 * CLAUDE_PRICE_OUT);
+}
 
 // Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region)
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "").split(",").filter(Boolean).length > 0
@@ -394,6 +439,95 @@ function callGeminiCli(systemPrompt, userMessage) {
     });
 }
 
+// ─── CLAUDE CODE CLI (non-interactive, koristi subscription OAuth) ───
+
+/**
+ * Poziva `claude -p` u headless modu. System prompt ide preko --system-prompt,
+ * korisnička poruka (metapodaci + transkript) preko stdina — izbjegava ARG_MAX
+ * za transkripte od 100-500 KB.
+ *
+ * @returns {Promise<{text: string, usage: Object|null, costUsd: number|null}>}
+ */
+function callClaudeCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        try { fs.mkdirSync(CLAUDE_CWD, { recursive: true }); } catch (_) {}
+
+        const args = [
+            "-p",
+            "--model", CLAUDE_MODEL,
+            "--effort", CLAUDE_EFFORT,
+            "--output-format", "json",
+            "--setting-sources", "",
+            "--strict-mcp-config",
+            "--max-turns", "1",
+            "--tools", "",            // variadic: MORA biti praćen sljedećim flagom
+            "--system-prompt", systemPrompt,
+        ];
+
+        const proc = spawn("claude", args, { stdio: ["pipe", "pipe", "pipe"], cwd: CLAUDE_CWD });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`claude CLI spawn failed: ${err.message}`)));
+        proc.stdin.on("error", (err) => reject(new Error(`claude CLI stdin: ${err.message}`)));
+
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`claude CLI exit ${code}: ${(stderr || stdout).substring(0, 400) || "(bez outputa)"}`));
+                return;
+            }
+            let env;
+            try {
+                env = JSON.parse(stdout);
+            } catch (_) {
+                reject(new Error(`claude CLI nije vratio JSON envelope. Prvih 300: ${stdout.substring(0, 300)}`));
+                return;
+            }
+            if (env.is_error || env.subtype !== "success") {
+                reject(new Error(`claude CLI greška (subtype=${env.subtype}, api_status=${env.api_error_status}): ${String(env.result || "").substring(0, 300)}`));
+                return;
+            }
+            resolve({
+                text: env.result || "",
+                usage: env.usage || null,
+                costUsd: typeof env.total_cost_usd === "number" ? env.total_cost_usd : null,
+            });
+        });
+
+        proc.stdin.write(userMessage);
+        proc.stdin.end();
+    });
+}
+
+/**
+ * Skida markdown fenceove i sanitizira kontrolne znakove prije JSON.parse.
+ * Claude ne podržava responseMimeType kao Vertex, pa se oslanjamo na prompt + ovaj repair.
+ */
+function parseJsonLoose(responseText, sourceLabel) {
+    let cleaned = String(responseText).trim();
+    cleaned = cleaned.replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```\s*$/, "");
+    // Ako model doda uvodnu rečenicu, izvuci od prve { do zadnje }
+    if (!cleaned.startsWith("{")) {
+        const first = cleaned.indexOf("{");
+        const last = cleaned.lastIndexOf("}");
+        if (first !== -1 && last > first) cleaned = cleaned.slice(first, last + 1);
+    }
+    try {
+        return JSON.parse(cleaned);
+    } catch (parseErr) {
+        if (parseErr.message.includes("control character") || parseErr.message.includes("Bad control")) {
+            const sanitized = cleaned
+                .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, "")
+                .replace(/\t/g, "\\t");
+            const result = JSON.parse(sanitized);
+            console.error(`      🔧 JSON automatski popravljen (uklonjeni kontrolni znakovi).`);
+            return result;
+        }
+        throw new Error(`${sourceLabel} vratio neispravan JSON: ${parseErr.message}. Prvih 200 znakova: ${cleaned.substring(0, 200)}`);
+    }
+}
+
 // ─── GEMINI API (Vertex AI — OAuth Bearer token) ────────────────
 
 /**
@@ -425,6 +559,33 @@ async function callGemini(transcript, metadata) {
 
     userMessage += "=== DIARIZIRANI TRANSKRIPT ===\n";
     userMessage += transcript;
+
+    // ── CLAUDE CODE backend grana ──
+    // Kvalitetnija obrada preko `claude -p` (Opus, subscription OAuth).
+    // Nema region rotacije; retry s backoffom jer pretplata zna vratiti rate-limit.
+    if (USING_CLAUDE) {
+        let lastErr = null;
+        for (let attempt = 1; attempt <= CLAUDE_MAX_RETRIES; attempt++) {
+            try {
+                const t0 = Date.now();
+                const res = await callClaudeCli(SYSTEM_PROMPT, userMessage);
+                recordClaudeUsage(res.usage, res.costUsd);
+                const secs = ((Date.now() - t0) / 1000).toFixed(1);
+                const u = res.usage || {};
+                const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+                console.error(`      🧠 Claude (${CLAUDE_MODEL}/${CLAUDE_EFFORT}): ${inTok}→${u.output_tokens || 0} tok, ${secs}s`);
+                return parseJsonLoose(res.text, "claude CLI");
+            } catch (err) {
+                lastErr = err;
+                if (attempt < CLAUDE_MAX_RETRIES) {
+                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                    console.error(`      ⏳ claude CLI pokušaj ${attempt}/${CLAUDE_MAX_RETRIES} pao (${err.message.substring(0, 160)}) — čekam ${waitMs / 1000}s`);
+                    await sleep(waitMs);
+                }
+            }
+        }
+        throw lastErr;
+    }
 
     // ── CLI backend grana ──
     // Kad je GEMINI_BACKEND=cli, koristi gemini CLI umjesto Vertex API-ja.
@@ -589,7 +750,7 @@ function buildSummaryJson(geminiResult, srtFilename, channel, metadata) {
     return {
         version: SCHEMA_VERSION,
         generated_at: new Date().toISOString(),
-        model: GEMINI_MODEL,
+        model: usageModelName(),   // "gemini-3.5-flash" ili "claude-code:opus" — provenance ide downstream
 
         // Izvorni podaci o datoteci
         source: {
@@ -857,16 +1018,22 @@ async function main() {
     console.log("║   📝 GEMINI SUMARIZACIJA TRANSKRIPATA           ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Input:   ${inputDir}`);
-    console.log(`   🤖 Model:   ${GEMINI_MODEL}`);
-    console.log(`   🌐 Endpoint: Vertex AI (OAuth Bearer)`);
-    console.log(`   📋 Projekt:  ${VERTEX_PROJECT}`);
-    const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
-    if (gcloudProject !== VERTEX_PROJECT) {
-        console.log(`   ⚠️  gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD VERTEX_PROJECT!)`);
+    if (USING_CLAUDE) {
+        console.log(`   🧠 Model:   ${CLAUDE_MODEL} (effort=${CLAUDE_EFFORT})`);
+        console.log(`   🌐 Endpoint: Claude Code CLI -p (subscription OAuth, bez API keya)`);
+        console.log(`   📋 Kontekst: --tools "" --setting-sources "" cwd=${CLAUDE_CWD}`);
     } else {
-        console.log(`   ✅ gcloud projekt: ${gcloudProject}`);
+        console.log(`   🤖 Model:   ${GEMINI_MODEL}`);
+        console.log(`   🌐 Endpoint: Vertex AI (OAuth Bearer)`);
+        console.log(`   📋 Projekt:  ${VERTEX_PROJECT}`);
+        const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
+        if (gcloudProject !== VERTEX_PROJECT) {
+            console.log(`   ⚠️  gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD VERTEX_PROJECT!)`);
+        } else {
+            console.log(`   ✅ gcloud projekt: ${gcloudProject}`);
+        }
+        console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     }
-    console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     if (channel) console.log(`   🎯 Kanal:   ${channel}`);
     if (videoId) console.log(`   🎯 Video ID: ${videoId}`);
     if (limit) console.log(`   🔢 Limit:   ${limit}`);
@@ -1006,17 +1173,18 @@ async function main() {
                     let prevRuns = [];
                     try { prevRuns = JSON.parse(fs.readFileSync(usagePath, "utf-8")).runs || []; } catch (_) {}
                     const rec = {
-                        step: "summary", model: GEMINI_MODEL, project: VERTEX_PROJECT,
+                        step: "summary", model: usageModelName(),
+                        project: USING_CLAUDE ? "claude-code-subscription" : VERTEX_PROJECT,
                         prompt_tokens: _epUsage.prompt, output_tokens: _epUsage.output,
                         total_tokens: _epUsage.total, calls: _epUsage.calls,
                         est_usd: _epUsage.usd,
-                        price_in_per_m: PRICE_IN_PER_M, price_out_per_m: PRICE_OUT_PER_M,
+                        price_in_per_m: USAGE_PRICE_IN, price_out_per_m: USAGE_PRICE_OUT,
                         at: new Date().toISOString(),
                     };
                     prevRuns = prevRuns.filter(r => r.step !== "summary").concat(rec);
                     const totUsd = Math.round(prevRuns.reduce((s, r) => s + (r.est_usd || 0), 0) * 1e6) / 1e6;
                     fs.writeFileSync(usagePath, JSON.stringify({ base, total_est_usd: totUsd, runs: prevRuns }, null, 2), "utf-8");
-                    console.log(`      💳 Gemini (summary): ${_epUsage.prompt}+${_epUsage.output} tok ≈ $${_epUsage.usd.toFixed(5)}`);
+                    console.log(`      💳 ${USING_CLAUDE ? "Claude" : "Gemini"} (summary): ${_epUsage.prompt}+${_epUsage.output} tok ≈ $${_epUsage.usd.toFixed(5)}${USING_CLAUDE ? " (ekvivalent; pretplata)" : ""}`);
                 }
 
                 const elapsed = (Date.now() - startTime) / 1000;
@@ -1049,7 +1217,7 @@ async function main() {
                     } catch (_) { /* prvi put blokirano */ }
                     const blockedData = {
                         blocked_at: new Date().toISOString(),
-                        model: GEMINI_MODEL,
+                        model: usageModelName(),
                         reason: err.blockReason,
                         retry_count: prevRetryCount,
                         source_file: basename,
@@ -1086,7 +1254,7 @@ async function main() {
         }
     }
     if (sessionUsage.calls > 0) {
-        console.log(`   💳 Gemini ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${VERTEX_PROJECT})`);
+        console.log(`   💳 ${USING_CLAUDE ? "Claude" : "Gemini"} ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${USING_CLAUDE ? `pretplata, ekvivalentni trošak, model=${CLAUDE_MODEL}` : VERTEX_PROJECT})`);
     }
     console.log("");
 }

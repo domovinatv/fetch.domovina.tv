@@ -196,6 +196,11 @@ echo ""
 #                            "cli"             — gemini CLI non-interactive (`gemini -p ...`); koristi
 #                                                user-level google login (browser auth). Nema region rotacije.
 #                                                Bez 429/5xx retry petlje — CLI ima vlastiti.
+#                            "claude"          — Claude Code CLI (`claude -p --model opus`) pod PRETPLATOM.
+#                                                Znatno kvalitetniji članci/sažeci, ali sporije i troši
+#                                                subscription kvotu (~50-400k input tok/epizoda).
+#                                                Koristi za prioritetne/ad-hoc videe, NE za nightly batch.
+#                                                Override: CLAUDE_MODEL=opus CLAUDE_EFFORT=high
 #   ostalo                → svima (--channel, --dry-run, --output-dir)
 
 COMMON_ARGS=()
@@ -321,9 +326,9 @@ if [ "$VIA_IPHONE" = true ]; then
     fi
 fi
 
-# Validacija --gemini-backend (samo "vertex" ili "cli")
-if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ]; then
-    echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli)"
+# Validacija --gemini-backend ("vertex", "cli" ili "claude")
+if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ] && [ "$GEMINI_BACKEND" != "claude" ]; then
+    echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli, claude)"
     exit 1
 fi
 
@@ -335,12 +340,29 @@ if [ "$GEMINI_BACKEND" = "cli" ]; then
         exit 1
     fi
     echo "   🤖 Gemini backend: CLI (gemini $(gemini --version 2>/dev/null | head -1))"
+elif [ "$GEMINI_BACKEND" = "claude" ]; then
+    # Koraci 7+8 idu preko lokalno prijavljenog Claude Code CLI-ja (PRETPLATA, ne API key).
+    # Namijenjeno prioritetnim/ad-hoc videima — jedna epizoda troši ~50-400k input tokena,
+    # pa cijeli nightly batch na ovome pojede tjednu kvotu.
+    if ! command -v claude &> /dev/null; then
+        echo "❌ --gemini-backend claude traži 'claude' CLI u PATH-u, ali ga nema."
+        exit 1
+    fi
+    if [ -n "$ANTHROPIC_API_KEY" ]; then
+        echo '   ⚠️  ANTHROPIC_API_KEY je postavljen — claude CLI bi mogao naplaćivati per-token'
+        echo '      umjesto da koristi pretplatu. Ukloni ga: unset ANTHROPIC_API_KEY'
+    fi
+    echo "   🧠 LLM backend: Claude Code CLI ($(claude --version 2>/dev/null | head -1)), model=${CLAUDE_MODEL:-opus}"
+    echo "      Kvaliteta > brzina. Preporuka: koristi s --priority-video-id / ad-hoc scopeom."
 else
     echo "   🤖 Gemini backend: Vertex AI REST (multi-region rotacija)"
 fi
 
 # Skripte koraka 7+8 čitaju GEMINI_BACKEND iz okoliša
 export GEMINI_BACKEND
+# Opcionalni override modela/efforta za --gemini-backend claude (default: opus / high)
+[ -n "$CLAUDE_MODEL" ]  && export CLAUDE_MODEL
+[ -n "$CLAUDE_EFFORT" ] && export CLAUDE_EFFORT
 
 # Whisper dobiva common + threads
 WHISPER_ARGS=("${COMMON_ARGS[@]}" "${WHISPER_ARGS[@]}")

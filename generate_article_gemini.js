@@ -34,6 +34,7 @@
  */
 
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const { execSync, spawn } = require("child_process");
 
@@ -59,9 +60,37 @@ const GEMINI_CONF = loadGeminiConf();
 
 const GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 
-// Backend: "vertex" (default) ili "cli" (gemini CLI non-interactive).
-// Postavi preko env vara GEMINI_BACKEND=cli (run_pipeline.sh --gemini-backend cli).
+// Backend: "vertex" (default), "cli" (gemini CLI non-interactive) ili "claude" (Claude Code CLI).
+// Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
+
+// ─── CLAUDE CODE CLI BACKEND (GEMINI_BACKEND=claude) ──────────────
+// Vidi opsežni komentar u summarize_gemini.js. Ukratko: `claude -p` pod Claude Code
+// PRETPLATOM (OAuth), NE API key. `--tools ""` je kritičan (overhead 21k → 233 tok/poziv),
+// cwd mora biti neutralan (inače se repo CLAUDE.md učitava u svaki poziv), NIKAD `--bare`.
+//
+// ⚠️ Članak je DVOFAZAN (outline + N iteracija) i svaka iteracija resenda transkript.
+// Tipična epizoda = 5 poziva / ~430k input tokena. Na pretplati to je znatna kvota,
+// zato je ovaj backend namijenjen prioritetnim/ad-hoc videima, ne nightly batchu.
+const CLAUDE_MODEL     = process.env.CLAUDE_MODEL  || GEMINI_CONF.CLAUDE_MODEL  || "opus";
+const CLAUDE_EFFORT    = process.env.CLAUDE_EFFORT || GEMINI_CONF.CLAUDE_EFFORT || "high";
+const CLAUDE_PRICE_IN  = parseFloat(process.env.CLAUDE_PRICE_IN  || GEMINI_CONF.CLAUDE_PRICE_IN  || "5.00");
+const CLAUDE_PRICE_OUT = parseFloat(process.env.CLAUDE_PRICE_OUT || GEMINI_CONF.CLAUDE_PRICE_OUT || "25.00");
+const CLAUDE_MAX_RETRIES = parseInt(process.env.CLAUDE_MAX_RETRIES || "3", 10);
+const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
+const USING_CLAUDE = GEMINI_BACKEND === "claude";
+
+// Slug koji ide u IMENA datoteka: {basename}_{date}_{MODEL_SLUG}.article.json
+// ⚠️ Downstream (channel_index, CDN manifest) dedupa po LEKSIKOGRAFSKI NAJVEĆEM imenu.
+// Zato slug za Claude namjerno ostaje goli alias ("opus"/"sonnet"/"haiku") — svi počinju
+// slovom > 'g', pa uvijek pobjeđuju "gemini-*" pri istom datumu. Puna provenance
+// ("claude-code:opus") ide u JSON metadata, ne u ime datoteke (dvotočka u imenu = problem).
+const MODEL_SLUG = USING_CLAUDE ? CLAUDE_MODEL : GEMINI_MODEL;
+// Puno ime modela za provenance polja unutar JSON-a.
+const PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : GEMINI_MODEL;
+// Aliasi Claude modela — koristi ih hasCompleteArticle da gemini pass NE regenerira
+// (i time efektivno ne degradira) članak koji je već podignut na Claude kvalitetu.
+const CLAUDE_SLUGS = ["opus", "sonnet", "haiku", "fable"];
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
@@ -87,6 +116,21 @@ function recordUsage(um) {
     sessionUsage.total  += (um.totalTokenCount || (p + o));
     sessionUsage.usd    += p / 1e6 * PRICE_IN_PER_M + o / 1e6 * PRICE_OUT_PER_M;
 }
+// Claude CLI usage (Anthropic format) → isti sessionUsage akumulator.
+// prompt = svježi input + cache write + cache read (sve troši kvotu pretplate).
+function recordClaudeUsage(u, costUsd) {
+    if (!u) return;
+    const p = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+    const o = u.output_tokens || 0;
+    sessionUsage.calls++;
+    sessionUsage.prompt += p;
+    sessionUsage.output += o;
+    sessionUsage.total  += p + o;
+    // CLI-jev total_cost_usd uračunava cache-write (2×) / cache-read (0.1×) cijene.
+    sessionUsage.usd += (typeof costUsd === "number" && isFinite(costUsd))
+        ? costUsd
+        : (p / 1e6 * CLAUDE_PRICE_IN + o / 1e6 * CLAUDE_PRICE_OUT);
+}
 function snapshotUsage() { return { ...sessionUsage }; }
 function diffUsage(before) {
     const d = {
@@ -106,15 +150,19 @@ function writeUsageDiff(baseDir, epBase, step, ep) {
     let prevRuns = [];
     try { prevRuns = JSON.parse(fs.readFileSync(usagePath, "utf-8")).runs || []; } catch (_) {}
     const rec = {
-        step, model: GEMINI_MODEL, project: VERTEX_PROJECT,
+        step,
+        model: PROVENANCE_MODEL,
+        project: USING_CLAUDE ? "claude-code-subscription" : VERTEX_PROJECT,
         prompt_tokens: ep.prompt, output_tokens: ep.output, total_tokens: ep.total, calls: ep.calls,
-        est_usd: ep.usd, price_in_per_m: PRICE_IN_PER_M, price_out_per_m: PRICE_OUT_PER_M,
+        est_usd: ep.usd,
+        price_in_per_m: USING_CLAUDE ? CLAUDE_PRICE_IN  : PRICE_IN_PER_M,
+        price_out_per_m: USING_CLAUDE ? CLAUDE_PRICE_OUT : PRICE_OUT_PER_M,
         at: new Date().toISOString(),
     };
     prevRuns = prevRuns.filter(r => r.step !== step).concat(rec);
     const totUsd = Math.round(prevRuns.reduce((s, r) => s + (r.est_usd || 0), 0) * 1e6) / 1e6;
     fs.writeFileSync(usagePath, JSON.stringify({ base: epBase, total_est_usd: totUsd, runs: prevRuns }, null, 2), "utf-8");
-    console.log(`   💳 Gemini (${step}): ${ep.prompt}+${ep.output} tok u ${ep.calls} poziva ≈ $${ep.usd.toFixed(5)}`);
+    console.log(`   💳 ${USING_CLAUDE ? "Claude" : "Gemini"} (${step}): ${ep.prompt}+${ep.output} tok u ${ep.calls} poziva ≈ $${ep.usd.toFixed(5)}${USING_CLAUDE ? " (ekvivalent; pretplata)" : ""}`);
 }
 
 // Multi-region rotacija: svaki region ima nezavisnu kvotu (per-project per-region).
@@ -194,6 +242,27 @@ STRUKTURA JSON-a: Odgovor mora biti JSON objekt koji sadrži niz "sections". Sva
 - "content": Bogat, detaljan novinarski tekst koji obrađuje tu temu (više paragrafa, dozvoljen Markdown).
 - "keywords": Niz (array) od 3 do 5 ključnih pojmova ili koncepata koji se spominju u ovom odlomku (npr. ["radna terapija", "nasilje u obitelji", "molitva"]).
 - "entities": Niz (array) vlastitih imenica, lokacija ili ustanova koje se spominju (npr. ["Međugorje", "Sveti Ante", "Mostar"]).`;
+
+// Obavezni ključevi svake sekcije (vidi STRUKTURA JSON-a u SYSTEM_PROMPT_2).
+// `keywords` i `entities` konzumira downstream (RAG chunking, channel index), pa se
+// nedostatak tretira kao greška sheme, ne kao kozmetika.
+const SECTION_REQUIRED_FIELDS = ["subtitle", "screenshot_timestamp", "content", "keywords", "entities"];
+
+/** Vraća popis obaveznih polja koja nedostaju u BAR JEDNOJ sekciji (prazan niz = sve OK). */
+function sectionsMissingFields(sections) {
+    if (!Array.isArray(sections) || sections.length === 0) return [];
+    const missing = new Set();
+    for (const sec of sections) {
+        for (const f of SECTION_REQUIRED_FIELDS) {
+            const v = sec ? sec[f] : undefined;
+            const empty = v === undefined || v === null
+                || (Array.isArray(v) && v.length === 0)
+                || (typeof v === "string" && v.trim() === "");
+            if (empty) missing.add(f);
+        }
+    }
+    return [...missing];
+}
 
 // ─── ATRIBUCIJA GOVORNIKA: chapter-mapa + strict-mode + name-audit ───────
 // Rješava halucinaciju imena govornika u multi-speaker / highlights videima.
@@ -643,7 +712,7 @@ function saveBlockedMarker(srtPath, err) {
     } catch (_) { /* prvi put blokirano */ }
     const blockedData = {
         blocked_at: new Date().toISOString(),
-        model: GEMINI_MODEL,
+        model: PROVENANCE_MODEL,
         reason: err.blockReason,
         retry_count: prevRetryCount,
         source_file: path.basename(srtPath),
@@ -659,7 +728,7 @@ function saveBlockedMarker(srtPath, err) {
  */
 function findLatestFile(dir, basename, type) {
     const prefix = `${basename}_`;
-    const suffix = `_${GEMINI_MODEL}.${type}.json`;
+    const suffix = `_${MODEL_SLUG}.${type}.json`;
     try {
         const matches = fs.readdirSync(dir)
             .filter(f => f.startsWith(prefix) && f.endsWith(suffix) && !f.startsWith("._"))
@@ -677,7 +746,22 @@ function findLatestFile(dir, basename, type) {
 function hasCompleteArticle(channelDir, srtFilename) {
     const basename = srtFilename.replace(/\.(srt|txt)$/i, "");
 
-    const articlePath = findLatestFile(channelDir, basename, "article");
+    let articlePath = findLatestFile(channelDir, basename, "article");
+
+    // Ne-degradiraj: ako smo na gemini backendu, a epizoda već ima kompletan članak
+    // generiran Claudeom (ručni quality upgrade), tretiraj je kao gotovu i preskoči.
+    // Bez ovoga bi nightly gemini pass svaki put uzalud regenerirao takve epizode.
+    if (!articlePath && !USING_CLAUDE) {
+        for (const slug of CLAUDE_SLUGS) {
+            const suffix = `_${slug}.article.json`;
+            try {
+                const m = fs.readdirSync(channelDir)
+                    .filter(f => f.startsWith(`${basename}_`) && f.endsWith(suffix) && !f.startsWith("._"))
+                    .sort();
+                if (m.length > 0) { articlePath = path.join(channelDir, m[m.length - 1]); break; }
+            } catch { /* dir nedostupan */ }
+        }
+    }
     if (!articlePath) return false;
 
     try {
@@ -883,7 +967,97 @@ function callGeminiCli(systemPrompt, userMessage) {
     });
 }
 
+/**
+ * Poziva `claude -p` headless. System prompt kroz --system-prompt, user poruka
+ * (transkript + outline kontekst) kroz stdin — izbjegava ARG_MAX.
+ *
+ * @returns {Promise<{text: string, usage: Object|null, costUsd: number|null}>}
+ */
+function callClaudeCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        try { fs.mkdirSync(CLAUDE_CWD, { recursive: true }); } catch (_) {}
+
+        const args = [
+            "-p",
+            "--model", CLAUDE_MODEL,
+            "--effort", CLAUDE_EFFORT,
+            "--output-format", "json",
+            "--setting-sources", "",
+            "--strict-mcp-config",
+            "--max-turns", "1",
+            "--tools", "",            // variadic: MORA biti praćen sljedećim flagom
+            "--system-prompt", systemPrompt,
+        ];
+
+        const proc = spawn("claude", args, { stdio: ["pipe", "pipe", "pipe"], cwd: CLAUDE_CWD });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`claude CLI spawn failed: ${err.message}`)));
+        proc.stdin.on("error", (err) => reject(new Error(`claude CLI stdin: ${err.message}`)));
+
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`claude CLI exit ${code}: ${(stderr || stdout).substring(0, 400) || "(bez outputa)"}`));
+                return;
+            }
+            let env;
+            try {
+                env = JSON.parse(stdout);
+            } catch (_) {
+                reject(new Error(`claude CLI nije vratio JSON envelope. Prvih 300: ${stdout.substring(0, 300)}`));
+                return;
+            }
+            if (env.is_error || env.subtype !== "success") {
+                reject(new Error(`claude CLI greška (subtype=${env.subtype}, api_status=${env.api_error_status}): ${String(env.result || "").substring(0, 300)}`));
+                return;
+            }
+            resolve({
+                text: env.result || "",
+                usage: env.usage || null,
+                costUsd: typeof env.total_cost_usd === "number" ? env.total_cost_usd : null,
+            });
+        });
+
+        proc.stdin.write(userMessage);
+        proc.stdin.end();
+    });
+}
+
 async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv", rawSavePath = null) {
+    // ── CLAUDE CODE backend grana ──
+    // Kvalitetnija generacija preko `claude -p` (Opus, subscription OAuth).
+    // Retry s backoffom; JSON ide kroz isti extractJsonFromText repair pipeline kao Vertex.
+    if (USING_CLAUDE) {
+        let lastErr = null;
+        for (let attempt = 1; attempt <= CLAUDE_MAX_RETRIES; attempt++) {
+            const timer = startElapsedTimer(`${label} (claude ${CLAUDE_MODEL}/${CLAUDE_EFFORT}, pokušaj ${attempt}/${CLAUDE_MAX_RETRIES})`);
+            try {
+                const res = await callClaudeCli(systemPrompt, userMessage);
+                timer.stop();
+                recordClaudeUsage(res.usage, res.costUsd);
+                if (rawSavePath) {
+                    try { fs.writeFileSync(rawSavePath, res.text, "utf-8"); } catch (_) {}
+                }
+                const u = res.usage || {};
+                const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+                console.log(`      🧠 Claude: ${inTok}→${u.output_tokens || 0} tok`);
+                const parsed = extractJsonFromText(res.text);
+                return { parsed, raw: res.text };
+            } catch (err) {
+                timer.stop();
+                lastErr = err;
+                if (attempt < CLAUDE_MAX_RETRIES) {
+                    const waitMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                    console.error(`      ⏳ claude CLI pao (${err.message.substring(0, 160)}) — čekam ${waitMs / 1000}s`);
+                    await sleep(waitMs);
+                }
+            }
+        }
+        throw lastErr;
+    }
+
     // ── CLI backend grana ──
     // Kad je GEMINI_BACKEND=cli, koristi gemini CLI umjesto Vertex API-ja.
     // Nema region rotacije ni retry petlje — CLI ima vlastiti auth/retry.
@@ -1076,9 +1250,9 @@ async function processFile(file, { exitOnError = true } = {}) {
         if (m) effectiveDateStr = m[1];
     }
 
-    const outlinePath = existingOutline || path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}.outline.json`);
-    const articlePath = existingArticle || path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}.article.json`);
-    const rawDir = path.join(baseDir, `${basename}_${effectiveDateStr}_${GEMINI_MODEL}_raw`);
+    const outlinePath = existingOutline || path.join(baseDir, `${basename}_${effectiveDateStr}_${MODEL_SLUG}.outline.json`);
+    const articlePath = existingArticle || path.join(baseDir, `${basename}_${effectiveDateStr}_${MODEL_SLUG}.article.json`);
+    const rawDir = path.join(baseDir, `${basename}_${effectiveDateStr}_${MODEL_SLUG}_raw`);
     if (!fs.existsSync(rawDir)) fs.mkdirSync(rawDir, { recursive: true });
 
     // --- FAZA 1: OUTLINE ---
@@ -1181,7 +1355,7 @@ async function processFile(file, { exitOnError = true } = {}) {
             metadata: {
                 source_file: path.basename(file),
                 generated_at: new Date().toISOString(),
-                model: GEMINI_MODEL
+                model: PROVENANCE_MODEL
             },
             iterations: []
         };
@@ -1229,6 +1403,34 @@ async function processFile(file, { exitOnError = true } = {}) {
                     } else {
                         sections = [];
                     }
+                }
+            }
+
+            // ── SCHEMA GUARD: keywords/entities su obavezni, ali ih model zna ispustiti ──
+            // Vertex forsira samo JSON *sintaksu* (responseMimeType), ne i shemu; Opus je
+            // 2026-07-25 u jednom runu izostavio oba polja, a downstream RAG/index ih koristi.
+            // Jedan korektivni retry s eksplicitnim popisom; ako i dalje fali → glasan warning,
+            // ne blokiramo objavu (sadržaj članka je i dalje ispravan).
+            const missingFields = sectionsMissingFields(sections);
+            if (missingFields.length > 0) {
+                console.error(`      ⚠️  Iteracija ${iter.iteration_number}: nedostaju polja u sekcijama: ${missingFields.join(", ")} — 1 korektivni pokušaj...`);
+                try {
+                    const fixPrompt = systemPrompt2 +
+                        `\n\nKRITIČNO: U prethodnom pokušaju izostavio si obavezna polja: ${missingFields.join(", ")}.` +
+                        ` SVAKA sekcija u "sections" MORA sadržavati SVIH šest ključeva:` +
+                        ` "subtitle", "screenshot_timestamp", "screenshot_description", "content", "keywords", "entities".` +
+                        ` Nijedan ključ se ne smije izostaviti ni ostaviti prazan.`;
+                    const retryRaw = path.join(rawDir, `faza2_iteracija_${iter.iteration_number}.schemafix.raw.txt`);
+                    const fixed = await callGemini(fixPrompt, iterDetails, `FAZA 2 — Iteracija ${iter.iteration_number} (schema fix)`, retryRaw);
+                    const fixedSections = Array.isArray(fixed.parsed) ? fixed.parsed : fixed.parsed.sections;
+                    if (Array.isArray(fixedSections) && fixedSections.length > 0 && sectionsMissingFields(fixedSections).length === 0) {
+                        console.log(`      🔧 Schema fix uspio (${fixedSections.length} sekcija, sva polja prisutna).`);
+                        sections = fixedSections;
+                    } else {
+                        console.error(`      ⚠️  Schema fix nije popravio sva polja — zadržavam originalne sekcije.`);
+                    }
+                } catch (fixErr) {
+                    console.error(`      ⚠️  Schema fix pao: ${fixErr.message.substring(0, 160)} — zadržavam originalne sekcije.`);
                 }
             }
 
@@ -1304,15 +1506,21 @@ async function main() {
     console.log("╔══════════════════════════════════════════════════╗");
     console.log("║   📰 GEMINI ARTICLE GENERATOR (2 FAZE)          ║");
     console.log("╚══════════════════════════════════════════════════╝");
-    console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
-    console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT}`);
-    const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
-    if (gcloudProject !== VERTEX_PROJECT) {
-        console.log(`   ⚠️  gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD VERTEX_PROJECT!)`);
+    if (USING_CLAUDE) {
+        console.log(`   🧠 Model:    ${CLAUDE_MODEL} (effort=${CLAUDE_EFFORT})`);
+        console.log(`   🌐 Backend:  Claude Code CLI -p (subscription OAuth, bez API keya)`);
+        console.log(`   📋 Kontekst: --tools "" --setting-sources "" cwd=${CLAUDE_CWD}`);
     } else {
-        console.log(`   ✅ gcloud projekt: ${gcloudProject}`);
+        console.log(`   🤖 Model:    ${GEMINI_MODEL}`);
+        console.log(`   🌐 Vertex AI: ${VERTEX_PROJECT}`);
+        const gcloudProject = (() => { try { return execSync("gcloud config get-value project 2>/dev/null", { encoding: "utf-8" }).trim(); } catch { return "N/A"; } })();
+        if (gcloudProject !== VERTEX_PROJECT) {
+            console.log(`   ⚠️  gcloud projekt: ${gcloudProject} (RAZLIKUJE SE OD VERTEX_PROJECT!)`);
+        } else {
+            console.log(`   ✅ gcloud projekt: ${gcloudProject}`);
+        }
+        console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     }
-    console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
 
     // ── Način 1: Pojedinačna datoteka ──
     if (opts.mode === "single") {
@@ -1408,7 +1616,7 @@ async function main() {
     if (failed > 0) console.log(`   ❌ Neuspješno: ${failed}`);
     console.log(`   💾 Done cache: ${doneSet.size} epizoda`);
     if (sessionUsage.calls > 0) {
-        console.log(`   💳 Gemini ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${VERTEX_PROJECT})`);
+        console.log(`   💳 ${USING_CLAUDE ? "Claude" : "Gemini"} ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${USING_CLAUDE ? `pretplata, ekvivalentni trošak, model=${CLAUDE_MODEL}` : VERTEX_PROJECT})`);
     }
     console.log("");
 }
@@ -1434,6 +1642,10 @@ module.exports = {
     processFile,
     callGemini,
     DIARIZED_SRT_SUFFIX,
+    // Slug koji ulazi u imena outline/article datoteka — testovi ga MORAJU koristiti
+    // umjesto hardkodiranog imena modela (inače pucaju čim se promijeni GEMINI_MODEL).
+    MODEL_SLUG,
+    sectionsMissingFields,
     // Atribucija govornika (chapter-mapa + strict-mode + name-audit)
     loadPublisherChapters,
     buildChapterMapBlock,
