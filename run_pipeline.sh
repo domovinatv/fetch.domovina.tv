@@ -942,34 +942,10 @@ node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_CHANNE
     echo "   ⚠️  Greška pri generiranju OG image varijanti, nastavljam..."
 }
 
-# --- KORAK 9.6: OG-SECTIONS COMPOSITE GENERIRANJE (Tier B per-section social images) ---
-# Generira {channel}/{base}.og-sections/og-t-{sec}.jpg za svaki section iz article.json.
-# Worker u domovina.ai (web/_worker.js) koristi ih za /v/<ytId>/t/<sec> share URL-ove —
-# bira section-start ključ <= tSec iz og-sections.json manifest-a i override-a og:image.
-# Reuse-a postojeće {base}_screenshots/{base}_{HH-MM-SS}.png frame-ove (KORAK 10 output);
-# composite dodaje gradient + section subtitle + episode title + DOMOVINA brand bar.
-# 1200×630 progressive JPEG q=85, idempotent (mtime check vs article.json + source PNG).
-# Skip kriteriji: no article, no sections, duration<5min, >50 sections, missing source PNG.
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9.6: Generiranje OG-sections composite-a (per-section Tier B)"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-
-OG_SECTIONS_ARGS=("--input-dir" "$OUTPUT_DIR")
-for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
-    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
-        OG_SECTIONS_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
-        break
-    fi
-done
-if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
-    OG_SECTIONS_ARGS+=("--dry-run")
-fi
-
-"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
-    echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
-}
+# NAPOMENA: KORAK 9.6 (OG-sections) PREMJEŠTEN je NAKON KORAK 10 (screenshotovi) jer
+# og-t sekcije reuse-aju screenshot frame-ove. Na single-pass ad-hoc runu 9.6 je prije
+# radio PRIJE nego što KORAK 10 proizvede frame-ove → sve sekcije "no-png" → prazan
+# manifest → nema og-sections. Sada 9.6 ide poslije 10 pa radi u istom prolazu. Vidi niže.
 
 # --- KORAK 10: YOUTUBE SCREENSHOTOVI (opcionalno, --with-screenshots) ---
 if [ "$WITH_SCREENSHOTS" = true ]; then
@@ -1005,6 +981,36 @@ node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" "${PRIORITY_SCO
     echo "   ⚠️  Greška pri screenshotanju, nastavljam..."
 }
 fi
+
+# --- KORAK 9.6: OG-SECTIONS COMPOSITE GENERIRANJE (Tier B per-section social images) ---
+# (Premješteno NAKON KORAK 10 — vidi napomenu gore.) Generira
+# {channel}/{base}.og-sections/og-t-{sec}.jpg za svaki section iz article.json.
+# Worker u domovina.ai (web/_worker.js) koristi ih za /v/<ytId>/t/<sec> share URL-ove —
+# bira section-start ključ <= tSec iz og-sections.json manifest-a i override-a og:image.
+# Reuse-a {base}_screenshots/{base}_{HH-MM-SS}.png frame-ove (KORAK 10 output, sada gotovi);
+# composite dodaje gradient + section subtitle + episode title + DOMOVINA brand bar.
+# 1200×630 progressive JPEG q=85, idempotent (mtime check vs article.json + source PNG).
+# Skip kriteriji: no article, no sections, duration<60s, >250 sections, missing source PNG.
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   📢 KORAK 9.6: Generiranje OG-sections composite-a (per-section Tier B)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+OG_SECTIONS_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        OG_SECTIONS_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    OG_SECTIONS_ARGS+=("--dry-run")
+fi
+
+"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
+}
 
 # --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---
 # Zahtijeva konfiguriran GCS bucket i Vertex AI Data Store.

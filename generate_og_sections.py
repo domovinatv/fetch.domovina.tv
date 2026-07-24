@@ -82,8 +82,14 @@ WHITE = (255, 255, 255)
 LIGHT_GRAY = (220, 220, 220)
 GRADIENT_MAX_ALPHA = 220  # 0..255; ~0.86
 
-MIN_DURATION_SEC = 300
-MAX_SECTIONS = 50
+# Whole-video skip pragovi. Namjerno labavi: og-t sekcije se generiraju IZ article
+# sekcija + postojećih screenshot frame-ova, pa se vežemo uz njih, ne uz trajanje.
+# - MIN_DURATION_SEC 60: preskoči samo mikro-klipove; ad-hoc/X videi (npr. 245s) prolaze.
+#   (prije 300 → blokiralo legit kratke videe kao CUJmOc91C64 4min).
+# - MAX_SECTIONS 250: guard protiv korumpiranog article.json-a, ne protiv dugih videa.
+#   (prije 50 → blokiralo legit duge videe s puno sekcija, npr. 74min → 68 sekcija).
+MIN_DURATION_SEC = 60
+MAX_SECTIONS = 250
 
 # Font paths (macOS standard) — Helvetica.ttc index 0=Regular, 1=Bold po default-u
 FONT_PATH = '/System/Library/Fonts/Helvetica.ttc'
