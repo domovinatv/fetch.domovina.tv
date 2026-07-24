@@ -148,6 +148,22 @@ GEMINI_BACKEND=claude node generate_article_gemini.js --input-dir storage/output
 Za publish je relevantna **channel kopija** (channel index čita nju). `_unlisted` kopija je
 izvor za reuse; kad je već obrađena, nema je potrebe podizati na Opus.
 
+## ⚠️ Zadnja milja: sam re-run NE objavljuje ništa
+
+Ovo je najlakše previdjeti. Nadogradnja članka na Opus **neće doći do CDN-a** običnim
+`upload_to_r2.js` runom: ključevi `data/{videoId}/*.json` su **write-once immutable**
+(LIST-once → postojeći ključ se preskače bez ikakve greške), a Cache-Control je 1 godina.
+Regeneriran članak tako ostane samo na disku, a `domovina.ai` i dalje servira stari gemini tekst.
+
+Za objavu nadograđene epizode treba **`force_upload.js`** (direktan S3 PutObject preko
+postojećeg ključa + Cloudflare purge; verifikacija **GET**-om, ne HEAD-om — vidi
+`docs/pipeline_publish_egress_r2_2026-06.md`). Redoslijed:
+
+1. `--gemini-backend claude` re-run (channel kopija, vidi scoping niže)
+2. `node generate_channel_index.js` → osvježi manifest
+3. `node force_upload.js …` za `data/{videoId}/` ključeve + purge
+4. Verificiraj **GET**-om da edge servira novi sadržaj
+
 ## Verifikacija (2026-07-25)
 
 | Što | Rezultat |
