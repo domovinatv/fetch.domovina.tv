@@ -130,6 +130,41 @@ u par dana. Zato: `--gemini-backend claude` za prioritetne/ad-hoc videe, Vertex 
 
 ---
 
+## Scoping: `--video-id` obrađuje OBJE kopije videa
+
+Video praćenog kanala koji je prošao ad-hoc obradu postoji na **dva mjesta** —
+`storage/output/_unlisted/` i `storage/output/<kanal>/` (vidi `reuse_unlisted_into_channel.js`).
+Run scopean samo na `--video-id` zato obradi **obje kopije**, tj. dvostruko poziva i dvostruko
+troši kvotu:
+
+```bash
+# 2× outline + 2× iteracije (_unlisted + kanal) — ~13 min, ~2× kvota
+GEMINI_BACKEND=claude node generate_article_gemini.js --input-dir storage/output --video-id <VID>
+
+# samo objavljena kopija — dodaj --channel
+GEMINI_BACKEND=claude node generate_article_gemini.js --input-dir storage/output --channel <kanal> --video-id <VID>
+```
+
+Za publish je relevantna **channel kopija** (channel index čita nju). `_unlisted` kopija je
+izvor za reuse; kad je već obrađena, nema je potrebe podizati na Opus.
+
+## Verifikacija (2026-07-25)
+
+| Što | Rezultat |
+|---|---|
+| Sažetak, 36 KB transkript | 39 s, valjan JSON, govornik ispravno atribuiran iz transkripta |
+| Članak (outline + 1 iteracija) | ~6.5 min po kopiji |
+| A/B vs `gemini-2.5-flash`, isti transkript | Opus 24 706 znakova vs 14 857; gemini je napisao krivo prezime ("Beselić"), Opus točno ("Bešlić") |
+| Schema guard | Opalio i uspio: `⚠️ nedostaju polja: keywords, entities` → korektivni poziv → `🔧 Schema fix uspio (21 sekcija, sva polja prisutna)`, 51 jedinstveni entitet |
+| Test suite | 60/60 (prije: 7 padova, vidi niže) |
+
+**Zatečeni pad testova (popravljen u istom commitu):** `generate_article_gemini.test.js` je
+hardkodirao `gemini-2.5-flash` u imenima fikstura, a `gemini.conf` je od 2026-06-27 na
+`gemini-3.5-flash` → `findLatestFile` suffix se nije poklapao i 7 testova je padalo od tada.
+Testovi sada uvoze `MODEL_SLUG` iz modula. **Pouka: sve što je vezano uz ime modela
+(imena datoteka, fiksture) puca pri promjeni `GEMINI_MODEL` — nakon takve promjene pokreni
+`node --test generate_article_gemini.test.js`.**
+
 ## Poznata ponašanja
 
 - **Done cache.** `summarize-done.json` / `articles-done.json` su O(1) skip cache i **ne**
@@ -139,3 +174,8 @@ u par dana. Zato: `--gemini-backend claude` za prioritetne/ad-hoc videe, Vertex 
 - **Resume.** `findLatestFile()` je scopean na `MODEL_SLUG`, pa Claude run nastavlja samo
   vlastite outline/article datoteke — isto ponašanje kao kod promjene Gemini modela.
 - **Blocked content.** `PROHIBITED_CONTENT` marker fajlovi bilježe `model: claude-code:opus`.
+- **Opus često ispusti `keywords`/`entities`.** Izmjereno **2 od 3 runa** na istom transkriptu
+  (2026-07-25). Schema guard u FAZI 2 zato **nije kozmetika nego nosivi dio** ovog backenda —
+  bez njega bi članci povremeno išli u RAG/index bez entiteta, i to bez ijedne greške u logu.
+  Korektivni poziv gotovo udvostruči trošak iteracije (698 s / 2 poziva umjesto ~350 s / 1),
+  što je uračunato u procjenu kvote.
