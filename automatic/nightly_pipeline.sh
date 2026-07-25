@@ -296,6 +296,16 @@ if [ -f "$PIPELINE_QUEUE_BRIDGE/reconcile.js" ]; then
         node "$PIPELINE_QUEUE_BRIDGE/reconcile.js" || true
 fi
 
+# ─── 5. OTKRIVENI VIDEI (dnevna podlista u pipeline.domovina.ai) ────
+# Prijavi što je OVAJ run novo povukao (info.json mlađi od prozora) kao "otkrivene videe".
+# NE queuea obradu — samo vidljivost: /admin/discovered pokaže podlistu po danu, a klik
+# "⚡ Prioritet" tek tada stvori pravi job i pokrene punu prioritetnu obradu.
+# Ide ZADNJE, nakon reconcilea, da `stage` odražava finalno stanje diska poslije runa.
+if [ -f "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" ]; then
+    run_step "pipeline discovered (dnevna podlista novih videa)" \
+        node "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" || true
+fi
+
 # ─── SAŽETAK ──────────────────────────────────────────────────────
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
