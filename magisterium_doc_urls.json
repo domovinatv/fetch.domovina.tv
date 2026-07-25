@@ -2,6 +2,10 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "To the Clergy of Rome (February 14, 2002)",
+      "uuid": "78cfbfa0-80f0-4e0e-b58e-4657303a0e28"
+    },
+    {
       "match": "Norms regarding the manner of proceedings in the discernment of presumed apparitions or revelations",
       "uuid": "9a6cebfd-71ed-4676-9f22-1c03c7e23ab2"
     },
@@ -4656,6 +4660,10 @@
     {
       "match": "To the delegation of \"The Economy of Francesco\"",
       "uuid": "1d5abd47-27bf-4069-9a3f-2ff918bf4e45"
+    },
+    {
+      "match": "To the Pontifical Commission for Social Communications, 7 March 1985",
+      "uuid": "021133de-1ed1-4c09-907a-854b4cda9a9b"
     }
   ]
 }
