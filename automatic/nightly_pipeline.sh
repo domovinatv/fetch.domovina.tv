@@ -306,6 +306,15 @@ if [ -f "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" ]; then
         node "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" || true
 fi
 
+# ─── 6. POTROŠNJA TOKENA (Claude Code sesije → pipeline queue) ──────
+# Zbroji tokene headless `claude -p` runova po videu (Magisterium MCP runbook,
+# --gemini-backend claude) iz ~/.claude/projects i pošalji u queue servis, gdje se
+# prikazuju uz pipeline korake. Čita samo session logove — ne dira obradu.
+if [ -f "$PIPELINE_QUEUE_BRIDGE/report_token_usage.js" ]; then
+    run_step "pipeline token usage (Claude Code sesije)" \
+        node "$PIPELINE_QUEUE_BRIDGE/report_token_usage.js" || true
+fi
+
 # ─── SAŽETAK ──────────────────────────────────────────────────────
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
