@@ -139,6 +139,23 @@ gate je `.canary.diarized.srt` kao strogi preduvjet za korake 7-12.
 `mladifest_hrvatska` je faktički mrtav kanal — 64 videa, nula članaka; sam nosi 62 % ove rupe.
 **Otvorena odluka: oživjeti kanal ili preskočiti?**
 
+**Puni popis (103, bez Beamly audio-only):**
+
+- **mladifest_hrvatska** (64): `0Zjmi5JPJRg 0u62xIiiYIM 25UpXC6twXE 54dp1u4ZbcE 74FQKjhHYlw 7eOOXWVrWcY 8-YVYO_4_Gg 8618wjHfNJk 88kdogRurhQ AadE1mCYTm4 AubdH_l8sJ0 B6dr3pKLckY C2xKiLPvsUM DJoSYNL4Qa8 DS6GeeUTA3I DkHLWIfwaCo E-pO06WQaZs HtA64UaTOMs Hy4f_mtARKk KOnGBxb6NeU KSa0I1Ux1b4 LrJYJgJ5NLo N2tFtrCYZpw Na7JkiWjfqQ Nf2Cm_GS8gQ Ot4m1n4CRiA PFvsQO08bPs QGVPIgx08a0 R0JiXGpgiy8 S9BiF-EXtsU TyC1HJYTqfo VGOlyt6cZ5I WC5K32qbTd0 WGFfOkD7YB4 ZZ56veagaX8 aDySkjBkjGk dPQIjuERDC4 ebEpSfMzXfw fYP4zUU3Uv0 g6w-Oyvgoqg hqPMGBSnLjE iJ2RAwdczTM igIZFnvzlYk j20Ihr1rLkk jUapazXQABM k39RG7Tc6dE kcgjJXJ59yA l0FDDdIObWM luDw_7z7eJ4 m1JIZ82_Vsw mTr06o9XqF0 nLQSrHhLECQ oGTKpQHKw-s oHmS7g36KGs oxmFxDLtvt0 pqUe2hx0vyE qCjDbNzEwcY uBDcMg72sac usPuHgAr7RE vGiBQ4M1RkI w2OA60B8BzU w3KapbdcXhI wkeOsqMv-XI yb5rw_rpSs8`
+- **slijedi_svoj_poziv_1** (8): `5ACdWaOubgU LT5hVmrLMjQ TfMw-f2vRhc XkqhHTjYCNg cqkVl91aZIc f0bq8BVuWY8 m50-bWAY1vo wqw25tuJAxM`
+- **slijedi_svoj_poziv_2** (6): `7db0JE6uMTE BUXMT0NATHU E_ohJLD26ec QwIkHfJPAJE oyoo29JF-0o vtVwsyxBB_g`
+- **na_kavi_sa_svetim_ignacijem** (5): `ANZyjFp9dq8 ZsfJEml5pqQ b_4qTvFwOkI jl3ZQ8ISpgo tPgj080jO3w`
+- **_unlisted/adhoc** (3): `-8NKsgpKWMQ QCy9NWod_ZE zDTF3z8ZFa4`
+- **muzevni_budite** (3): `ZkMcSRvajCw iG2G9tLSyzs tIUwvVfbPbI`
+- **podcast_cuspajz** (3): `DaBAjGOEZhI EpEc9IBwrGA q5JjrUJQeyo`
+- **zeljka_markic_i_narod_hr** (3): `AlTBrBsOqRU c5KTzxlZ4U4 srKt-n3oAaA`
+- **lood_podcast** (2): `-4BwTllbMIQ sIsWpuKiaQw`
+- **catholic_futurist** (1): `biRibr8NByE` · **iva_kraljevic** (1): `0PHqPy1Khrs` · **mladi_za_domovinu** (1): `M_Qiu7MX7Fc`
+- **radio_mreznica** (1): `K02OpWeQKyY` · **rastuci_s_djecom** (1): `QY_ZaFbpTeM` · **subclub** (1): `1R1_ZbmLyJI`
+
+Zadnjih 6 ID-eva označenih po kanalima catholic_futurist / iva_kraljevic / mladi_za_domovinu /
+muzevni_budite su ujedno i Magisterium blockeri iz Bloka 3.
+
 Procjena punog puta: ~$0.30 Colab transkripcija + ~8.5 h lokalne diarizacije (103 × ~5 min)
 + ~$4 Gemini (103 × ~$0.039) + screenshoti + og-sections + upload. Otključava i 6 zaostalih
 Magisterium epizoda iz Bloka 3.
