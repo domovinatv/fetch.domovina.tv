@@ -36,6 +36,18 @@ const SUFFIXES = {
     ragCombined: ".rag_combined.jsonl"
 };
 
+// ─── DETEKCIJA TIHOG GUBITKA TRANSKRIPTA (2026-07) ───────────────
+// Canary zna ispustiti cijele chunkove zvuka bez ijedne poruke o grešci —
+// .canary.srt izgleda potpuno normalno, samo mu nedostaju minute sadržaja.
+// Otkriveno na engleskim kanalima, gdje Canary radi EN→HR speech-translation
+// (run_pipeline.sh forsira --source-lang hr): catholic_futurist gubi 8.9%,
+// launched 7.7%, dok su hrvatski kanali na 0.4–1.9% (stvarna tišina/špice).
+// Mjeri se zbroj rupa između SRT cue-ova + rep do kraja zvuka, protiv
+// `duration` iz .info.json. Vidi docs/transcript_coverage_gap_2026-07.md.
+const GAP_MIN_SECONDS = 10;    // kraće pauze su normalne (disanje, špica, glazba)
+const GAP_WARN_RATIO = 0.05;   // >5% izgubljeno → warn
+const GAP_ERROR_RATIO = 0.15;  // >15% izgubljeno → error
+
 // Minimalne očekivane veličine datoteka (u bajtovima)
 const MIN_SIZES = {
     mp3: 10000,           // 10 KB — najmanji podcast
@@ -63,6 +75,73 @@ function parseArgs() {
         verbose: args.includes("--verbose"),
         fixSuggestions: args.includes("--fix-suggestions")
     };
+}
+
+// ─── POKRIVENOST TRANSKRIPTA ─────────────────────────────────────
+
+// Podnosi oba formata koja u repou koegzistiraju: HH:MM:SS,mmm i HH:MM:SS.mmm
+function srtTimestampToSeconds(ts) {
+    const m = ts.trim().match(/^(\d+):(\d{2}):(\d{2})[,.](\d{1,3})$/);
+    if (!m) return null;
+    return Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]) + Number(m[4].padEnd(3, "0")) / 1000;
+}
+
+// Vraća [{ start, end }] — tekst nas ovdje ne zanima, samo vremenska pokrivenost.
+function parseSrtCueTimes(srtPath) {
+    const raw = fs.readFileSync(srtPath, "utf-8");
+    const cues = [];
+    for (const block of raw.trim().split(/\n\n+/)) {
+        const line = block.split("\n").find(l => l.includes(" --> "));
+        if (!line) continue;
+        const [a, b] = line.split(" --> ");
+        const start = srtTimestampToSeconds(a);
+        const end = srtTimestampToSeconds(b);
+        if (start !== null && end !== null) cues.push({ start, end });
+    }
+    return cues;
+}
+
+/**
+ * Koliko zvuka nije završilo u transkriptu.
+ * Zbraja rupe > GAP_MIN_SECONDS između uzastopnih cue-ova plus rep od zadnjeg
+ * cue-a do kraja zvuka. Vraća null ako se ne može izmjeriti (nema durationa
+ * ili je SRT prazan) — bolje šutjeti nego lažno prijaviti.
+ */
+function analyzeTranscriptCoverage(srtPath, durationSeconds) {
+    if (!durationSeconds || durationSeconds <= 0) return null;
+
+    let cues;
+    try {
+        cues = parseSrtCueTimes(srtPath);
+    } catch {
+        return null;
+    }
+    if (cues.length === 0) return null;
+
+    const gaps = [];
+    for (let i = 1; i < cues.length; i++) {
+        const gap = cues[i].start - cues[i - 1].end;
+        if (gap > GAP_MIN_SECONDS) gaps.push({ from: cues[i - 1].end, to: cues[i].start, length: gap });
+    }
+
+    const tail = Math.max(0, durationSeconds - cues[cues.length - 1].end);
+    const lost = gaps.reduce((s, g) => s + g.length, 0) + (tail > GAP_MIN_SECONDS ? tail : 0);
+
+    return {
+        lost,
+        ratio: lost / durationSeconds,
+        gapCount: gaps.length,
+        tail,
+        duration: durationSeconds,
+        // najveća rupa — najkorisniji podatak za ručnu provjeru protiv izvora
+        biggest: gaps.length ? gaps.reduce((a, b) => (b.length > a.length ? b : a)) : null
+    };
+}
+
+function formatClock(seconds) {
+    const s = Math.round(seconds);
+    const m = Math.floor(s / 60);
+    return `${m}:${String(s % 60).padStart(2, "0")}`;
 }
 
 // ─── INSPEKCIJA ──────────────────────────────────────────────────
@@ -93,7 +172,9 @@ function inspectChannel(channelDir, channelName, verbose) {
             { key: "canarySrt", file: `${base}.wav.canary.srt` },
             { key: "canaryDiarized", file: `${base}.wav.canary.diarized.srt` },
             { key: "summary", file: `${base}.wav.canary.summary.json` },
-            { key: "ragChunks", file: `${base}.rag_chunks.jsonl` }
+            { key: "ragChunks", file: `${base}.rag_chunks.jsonl` },
+            // Nije pipeline korak — treba nam `duration` za provjeru pokrivenosti transkripta.
+            { key: "infoJson", file: `${base}.info.json` }
         ];
 
         for (const { key, file } of checks) {
@@ -134,6 +215,33 @@ function inspectChannel(channelDir, channelName, verbose) {
                 file: `${base}.wav.canary.srt`,
                 detail: "Postoji canary.diarized.srt ali nema canary.srt"
             });
+        }
+
+        // Pokrivenost transkripta — hvata Canaryjeve tiho ispuštene chunkove.
+        // Gleda .canary.srt (izvor istine za tekst); .canary.diarized.srt je
+        // izveden iz njega pa bi prijavio istu rupu dvaput.
+        if (fileMap.canarySrt.exists && fileMap.infoJson.exists) {
+            let duration = null;
+            try {
+                duration = JSON.parse(fs.readFileSync(fileMap.infoJson.path, "utf-8")).duration;
+            } catch {
+                // Neispravan info.json već hvata druga provjera — ovdje samo odustajemo.
+            }
+
+            const cov = analyzeTranscriptCoverage(fileMap.canarySrt.path, duration);
+            if (cov && cov.ratio > GAP_WARN_RATIO) {
+                const pct = (cov.ratio * 100).toFixed(1);
+                const where = cov.biggest
+                    ? `, najveća ${formatClock(cov.biggest.from)}–${formatClock(cov.biggest.to)}`
+                    : "";
+                videoAnomalies.push({
+                    type: "TRANSCRIPT_GAP",
+                    severity: cov.ratio > GAP_ERROR_RATIO ? "error" : "warn",
+                    file: `${base}.wav.canary.srt`,
+                    detail: `Nedostaje ${pct}% zvuka (${Math.round(cov.lost)}s od ${Math.round(cov.duration)}s, ` +
+                            `${cov.gapCount} rupa${where}) — transkripcija je ispustila sadržaj`
+                });
+            }
         }
 
         if (fileMap.summary.exists && !fileMap.canaryDiarized.exists) {

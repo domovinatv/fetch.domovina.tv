@@ -38,7 +38,14 @@ const YT_DLP_BASE_ARGS = [
   "--write-info-json",
   "--write-description",
   "--write-subs",
+  // ADITIVNO (2026-07): povuci i YouTube auto-generated captions kao referencu.
+  // Ne ulazi ni u jedan pipeline korak — čisti artefakt za usporedbu s .canary.srt
+  // (engleski kanali: Canary radi EN→HR speech-translation, pa je YT EN caption
+  // jedini zapis izvornog engleskog teksta). Bez wildcarda ("en.*" povuče i
+  // identičan "en-orig" duplikat). srt prije vtt — YouTube servira oboje nativno.
+  "--write-auto-subs",
   "--sub-lang", "hr,en",
+  "--sub-format", "srt/vtt",
   "--write-thumbnail",
   "--convert-thumbnails", "png",
 
