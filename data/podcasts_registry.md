@@ -7,19 +7,19 @@
 
 ## Sažetak
 
-- **Ukupno unosa:** 272
+- **Ukupno unosa:** 273
 - **Trenutno se prati:** 69
   - od toga `review_needed`: 5 (vidi sekciju dolje)
-- **Kandidati Faza 1** (postojeća niša, brzi dodaci): 126
+- **Kandidati Faza 1** (postojeća niša, brzi dodaci): 127
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
 - **Ostali kandidati** (sekularni / dijaspora / istražiti): 69
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 197 · tier 2: 17 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 197 · tier 2: 18 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 194 · unverified ❓: 9 · full —: 2 · complete —: 1
+**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 194 · complete —: 2 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 169 · ⚪ nepoznato: 65 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⚪ nepoznato: 18 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 170 · ⚪ nepoznato: 65 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⚪ nepoznato: 18 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -154,7 +154,7 @@ Kanali koje pratimo, ali Gemini istraživanje 03/2026 sugerira da nisu pravi pod
 
 ---
 
-## 🚀 Kandidati Faza 1 — postojeća niša (126)
+## 🚀 Kandidati Faza 1 — postojeća niša (127)
 
 Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVINA.tv (katoličko / domoljubno / hrvatski identitet / povijest). Treba samo potvrditi YouTube URL i dodati u `KANALI` array.
 
@@ -183,6 +183,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Društvo za promociju znanosti i kritičkog mišljenja** | [UCoAi8zK4SAxBP3hgzD7el9g](https://www.youtube.com/channel/UCoAi8zK4SAxBP3hgzD7el9g/videos) | 3 | 5K | — | 🟢 aktivan | — | `science` `education` | ⚠️ |
 | **Duhovna Obnova** | [UCpj2LQ0SuCuoHJEU7_0Za6Q](https://www.youtube.com/channel/UCpj2LQ0SuCuoHJEU7_0Za6Q/videos) | 3 | 63K | — | 🟢 aktivan | — | `religious-catholic` | ⚠️ |
 | **Evanđeosko teološko veleučilište u Osijeku** | [UCQsbGN8gkx7NB3RxHBZLglw](https://www.youtube.com/channel/UCQsbGN8gkx7NB3RxHBZLglw/videos) | 3 | 222 | — | 🟢 aktivan | — | `religious-other` `theology` `institutional` | ⚠️ |
+| **Explora (HRT)** | [@explorahrt](https://www.youtube.com/@explorahrt/videos) | 2 | 17K | — | 🟢 aktivan | Elvis Mileta, Korado Korlević | `science` `technology` `education` `institutional` | — |
 | **Felix Contras** | [UCRrn5SObn87AoejwDkh7bEA](https://www.youtube.com/channel/UCRrn5SObn87AoejwDkh7bEA/videos) | 3 | 4K | — | 🟢 aktivan | — | `geopolitics` `political` | ⚠️ |
 | **FIMA** | [UCiKExDrDuOZcD-EBs05QW4w](https://www.youtube.com/channel/UCiKExDrDuOZcD-EBs05QW4w/videos) | 3 | 3K | — | 🟢 aktivan | — | `finance` `business` | ⚠️ |
 | **FIRE Podcast (Tetka & Škrti Otočanin)** | [UCvPVzHKlfYkq5ij9te0maiw](https://www.youtube.com/channel/UCvPVzHKlfYkq5ij9te0maiw/videos) | 3 | 9K | — | 🟢 aktivan | — | `finance` `personal-development` | ⚠️ |
