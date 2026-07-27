@@ -161,6 +161,29 @@ samo preskoči. Backoff (60/180/420s uz retry ISTOG videa) ostaje kao mreža.
   („Anthropic" → „entropic" → „entropija").
 - YouTube servira `srt` nativno za auto-captions — nema konverzije iz vtt.
 
+## 5b. Stanje backfilla (2026-07-27, ZAVRŠEN)
+
+Referenca je povučena za **130 od 138** epizoda s pravim YouTube ID-om. Preostalih 8
+(sve `launched`) **nema auto-captions na YouTubeu** — dvaput provjereno, nije greška:
+`ulKpAAv5GJ4`, `553qajdB_HU`, `71s5sl68Fgo`, `VBYA6gO8weg`, `Dcqg4tPtMfw`,
+`kE-DTun0CbM`, `cohtMYKXKYE`, `wXDqhhSNJQ4`.
+
+| kanal | referenci | epizoda s rupom >5% | izgubljeno | riječi u rupama |
+|---|---|---|---|---|
+| catholic_futurist | 18 | 7 | 66 min | 12 087 |
+| subclub | 98 | 13 | 84 min | 17 745 |
+| launched | 12 | 3 | 29 min | 6 787 |
+| **ukupno** | **130** | **23** | **~3 h** | **~36 600** |
+
+Dakle ~36 600 riječi izgovorenog sadržaja koje nisu ušle u `.canary.srt` — a time ni u
+članke, RAG chunkove ni Magisterium — sada postoje lokalno kao engleski tekst.
+
+**Dvije konvencije imenovanja na disku.** Prvih 17 epizoda (catholic_futurist) skinuto je
+prije `-orig` ispravka, pa imaju `.en.srt` **i** `.hr.srt`. Ostalih 113 ima samo
+`.en-orig.srt`. `hasSubtitles()` priznaje obje varijante pa se ne skidaju iznova. Onih 17
+`.hr.srt` su strojni prijevodi engleskog ASR-a — mala vrijednost, nisu obrisani; ako
+smetaju, `mv` u `.bak`, ne `rm`.
+
 ## 6. Ograničenja nalaza — pročitati prije djelovanja
 
 - **Puni scan flaga 285 od 5875 videa (4.9%), ne samo engleske.** Najviše: hnb 34,
@@ -183,9 +206,11 @@ samo preskoči. Backoff (60/180/420s uz retry ISTOG videa) ostaje kao mreža.
 
 ## 7. Otvoreno — NIJE napravljeno
 
-1. **Sanacija postojećeg sadržaja.** 138 epizoda je objavljeno s nepotpunim
-   transkriptom. Članci, RAG chunkovi i Magisterium obogaćivanje za njih su
-   generirani nad tekstom kojem nedostaje sadržaj. Ništa od toga nije regenerirano.
+1. **Sanacija postojećeg sadržaja.** 23 epizode imaju rupu >5%; sve engleske epizode su
+   objavljene s transkriptom iz lossy puta. Članci, RAG chunkovi i Magisterium
+   obogaćivanje za njih su generirani nad tekstom kojem nedostaje sadržaj. Ništa nije
+   regenerirano. **Nije samo re-transkripcija** — sve izvedeno iz transkripta mora ići
+   ponovno, što je bitno veći posao od povlačenja titlova.
 2. **Odluka o smjeru prijevoda za engleske kanale.** Opcija A: EN transkript je
    master, HR nastaje prijevodom (traži novu granu u koracima 7+8 i obrće
    `translate_to_english.js`). Opcija B: HR ostaje master, EN caption samo kao
