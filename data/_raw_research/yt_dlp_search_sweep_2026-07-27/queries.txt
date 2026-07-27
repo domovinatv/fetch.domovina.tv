@@ -1,0 +1,40 @@
+religious-catholic|podcast razgovor vjera Bog svećenik
+religious-catholic|katolički podcast duhovnost molitva
+religious-catholic|podcast obraćenje Isus svjedočanstvo
+comedy|hrvatski podcast humor komedija smijeh
+comedy|stand up komičar podcast Hrvatska razgovor
+science|znanstveni podcast Hrvatska istraživanje profesor
+science|podcast psihologija mentalno zdravlje Hrvatska
+history|povijesni podcast Hrvatska povjesničar razgovor
+history|podcast Domovinski rat svjedočanstvo branitelj
+true-crime|true crime podcast Hrvatska slučaj ubojstvo
+mystery|podcast misterij neobjašnjivo Hrvatska
+regional|podcast Dalmacija razgovor gost
+regional|podcast Slavonija Osijek razgovor
+regional|podcast Istra Rijeka razgovor gost
+regional|podcast Zadar Split Šibenik intervju
+sport|hrvatski sportski podcast analiza nogomet
+sport|podcast sportaš intervju Hrvatska karijera
+mma|podcast borilački sportovi Hrvatska MMA
+business|poduzetnički podcast Hrvatska biznis osnivač
+finance|podcast financije investiranje Hrvatska burza
+technology|tehnološki podcast Hrvatska programiranje AI
+health|podcast zdravlje prehrana liječnik Hrvatska
+fitness|podcast trening fitness Hrvatska sportaš
+parenting|podcast roditeljstvo odgoj djece Hrvatska
+women|podcast žene karijera majčinstvo Hrvatska
+culture|podcast kultura umjetnost književnost Hrvatska
+music|podcast glazba glazbenik intervju Hrvatska
+film|podcast film serije recenzija Hrvatska
+political|politički podcast Hrvatska analiza aktualno
+geopolitics|podcast geopolitika svijet analiza hrvatski
+diaspora|podcast hrvatska dijaspora iseljeništvo razgovor
+philosophy|podcast filozofija razgovor Hrvatska
+education|obrazovni podcast Hrvatska učitelj škola
+personal-development|podcast osobni razvoj motivacija Hrvatska
+travel|podcast putovanja Hrvatska avantura razgovor
+gaming|hrvatski gaming podcast razgovor
+media|podcast novinar mediji Hrvatska intervju
+lifestyle|podcast lifestyle razgovor gost Hrvatska
+agriculture|podcast poljoprivreda selo Hrvatska razgovor
+law|podcast pravo odvjetnik Hrvatska razgovor
