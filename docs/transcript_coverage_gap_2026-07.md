@@ -115,9 +115,8 @@ bolji zapisničar.
 
 | # | Promjena | Datoteka |
 |---|---|---|
-| 1 | `--write-auto-subs` + `--sub-format srt/vtt` uz svaki novi download | `fetch.js` |
-| 2 | `TRANSCRIPT_GAP` detektor (warn >5%, error >15%) | `inspect_pipeline.js` |
-| 3 | Backfill titlova za već preuzete epizode, bez re-downloada zvuka | `backfill_youtube_subs.js` |
+| 1 | `TRANSCRIPT_GAP` detektor (warn >5%, error >15%) | `inspect_pipeline.js` |
+| 2 | Backfill auto-captiona, bez re-downloada zvuka | `backfill_youtube_subs.js` |
 
 ```bash
 node inspect_pipeline.js --channel catholic_futurist   # nađi rupe
@@ -125,11 +124,41 @@ node backfill_youtube_subs.js --english-only           # povuci reference
 node backfill_youtube_subs.js --video-id <VID>         # jedna epizoda
 ```
 
-### Napomene o `--sub-lang`
+### Zašto auto-captioni NISU u `fetch.js`
 
-- **Bez wildcarda.** `en.*` povuče i `en-orig`, koji je bajt-identičan `en`.
-- `hr` na engleskom videu **nije** hrvatski ASR nego strojni prijevod engleskog
-  auto-captiona. Nasljeđuje sve ASR greške i dodaje svoje.
+`--write-auto-subs` je bio dodan u `fetch.js` pa **maknut isti dan**. Razlog:
+**yt-dlp izlazi s kodom 1 ako dohvat titla padne, i onda kad su zvuk i video uredno
+preuzeti.** `fetch.js` taj exit tumači kao neuspjeh i upisuje video u `failed[]`, pa bi
+se mediji skidali iznova u nedogled — ista klasa greške kao AppleDouble rename race.
+
+Uz to, hrvatski videi u ovom korpusu **uglavnom nemaju auto-captions** (provjereno:
+`M_Qiu7MX7Fc` mladi_za_domovinu, `AoXN-3Mkmew` domovina_tv, `Pxp9YlVhg-w` glas_koncila,
+hnb 2017 — nijedan nema nikakve). Feature bi u produkcijskom putu nosio rizik bez koristi.
+
+Auto-captione zato dohvaća `backfill_youtube_subs.js`, izvan produkcijskog puta.
+
+### Što stvarno uzrokuje HTTP 429
+
+**Nije dohvat titlova nego traženje jezika koji NIJE izvorni.** Takav track YouTube
+generira prijevodom na zahtjev i agresivno limitira. Izmjereno na `biRibr8NByE` (engleski
+video), u istoj minuti:
+
+| zahtjev | ishod |
+|---|---|
+| `--sub-lang en` | ✅ exit 0 |
+| `--sub-lang hr` | ❌ HTTP 429 |
+| `--sub-lang hr,en` | ❌ exit 1 (`en` se zapiše, `hr` obori exit) |
+| `--sub-langs en-orig,hr-orig` | ✅ exit 0, samo `en-orig` |
+
+Prvi run je zato pao nakon 17 epizoda: tražio je `hr,en`, dakle jedan prijevodni track po
+epizodi. Default je sad `en-orig,hr-orig` — nedostupan `-orig` jezik nije greška, yt-dlp ga
+samo preskoči. Backoff (60/180/420s uz retry ISTOG videa) ostaje kao mreža.
+
+### Ostale napomene
+
+- **Bez wildcarda.** `en.*` povuče i `en` i `en-orig`, koji su bajt-identični.
+- Prijevodni track je ionako slab: nasljeđuje ASR greške i dodaje svoje
+  („Anthropic" → „entropic" → „entropija").
 - YouTube servira `srt` nativno za auto-captions — nema konverzije iz vtt.
 
 ## 6. Ograničenja nalaza — pročitati prije djelovanja
@@ -142,9 +171,12 @@ node backfill_youtube_subs.js --video-id <VID>         # jedna epizoda
 - **Hrvatska bazna linija nije nezavisno verificirana.** Nema pouzdanog HR
   referentnog transkripta. Kontrast prema engleskim kanalima je jasan, ali tvrdnja
   „hrvatski kanali su zdravi" počiva na razlici u redu veličine, ne na provjeri.
-- **YouTube auto-captions ne postoje uvijek.** Provjereni hnb videi iz 2017
-  (`UNl-tEsAM0E`, `sNgK9dYO680`) nemaju **nikakve** auto-captions. Backfill na
-  starijim hrvatskim kanalima vratit će mnogo „nema titlova".
+- **YouTube auto-captions za hrvatski praktički ne postoje u ovom korpusu.** Nijedan
+  provjereni hrvatski video nema **nikakve** auto-captions — ni stari (hnb 2017:
+  `UNl-tEsAM0E`, `sNgK9dYO680`) ni najnoviji (`M_Qiu7MX7Fc` mladi_za_domovinu,
+  `AoXN-3Mkmew` domovina_tv, `Pxp9YlVhg-w` glas_koncila). Uzorak je malen (5 videa) pa
+  to nije dokaz da ih nema nigdje, ali je dovoljno da se na hrvatske kanale ne računa.
+  YouTube auto-captioni su, praktički, feature za engleske kanale.
 - **Beamly epizode nemaju YouTube izvor.** 169 od 307 epizoda na subclub/launched
   ima sintetički `_yt_` ID (`_yt_matched: false`) — za njih referenca ne postoji.
   Backfill ih preskače. Ostaje 138 epizoda s pravim YouTube ID-om.

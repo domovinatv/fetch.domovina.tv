@@ -38,13 +38,17 @@ const YT_DLP_BASE_ARGS = [
   "--write-info-json",
   "--write-description",
   "--write-subs",
-  // ADITIVNO (2026-07): povuci i YouTube auto-generated captions kao referencu.
-  // Ne ulazi ni u jedan pipeline korak — čisti artefakt za usporedbu s .canary.srt
-  // (engleski kanali: Canary radi EN→HR speech-translation, pa je YT EN caption
-  // jedini zapis izvornog engleskog teksta). Bez wildcarda ("en.*" povuče i
-  // identičan "en-orig" duplikat). srt prije vtt — YouTube servira oboje nativno.
-  "--write-auto-subs",
   "--sub-lang", "hr,en",
+  // NAMJERNO BEZ `--write-auto-subs` (odluka 2026-07-27, nakon što je bio dodan pa maknut):
+  // yt-dlp izlazi s kodom 1 ako dohvat titla padne, ČAK I kad su zvuk i video uredno
+  // preuzeti — a fetch.js taj exit tumači kao neuspjeh i upisuje video u failed[],
+  // pa bi se mediji skidali iznova u nedogled. Auto-captioni to lako izazovu: za jezik
+  // koji NIJE izvorni YouTube generira prijevod na zahtjev i agresivno ga limitira
+  // (HTTP 429 nakon ~17 epizoda). Uz to, hrvatski videi u ovom korpusu uglavnom nemaju
+  // auto-captions, pa ovdje ionako ne bi ništa donijeli.
+  // Auto-captione dohvaća `backfill_youtube_subs.js` — izvan produkcijskog puta, s
+  // backoffom, i traži samo izvorne trackove (`-orig`). Vidi
+  // docs/transcript_coverage_gap_2026-07.md.
   "--sub-format", "srt/vtt",
   "--write-thumbnail",
   "--convert-thumbnails", "png",

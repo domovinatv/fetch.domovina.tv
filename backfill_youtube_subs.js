@@ -35,9 +35,16 @@ const BROWSER_NAME = "brave";
 // Kanali na engleskom — za njih je YT caption jedini zapis izvornog jezika.
 const ENGLISH_CHANNELS = ["catholic_futurist", "subclub", "launched"];
 
-// Anti-bot. Titlovni endpoint je OSJETLJIVIJI od download endpointa: svaki poziv radi
-// player API request + jedan dohvat po jeziku, pa 2s razmaka (kao u fetch.js) udari u
-// HTTP 429 već nakon ~17 epizoda. Izmjereno 2026-07-27. 5s drži liniju.
+// Traži SAMO izvorne caption trackove (`-orig`), ne prijevode.
+// Uzrok 429-a nije dohvat titlova nego traženje jezika koji NIJE izvorni: takav track
+// YouTube generira prijevodom na zahtjev i agresivno limitira. Izmjereno 2026-07-27 na
+// biRibr8NByE — `--sub-lang en` prolazi uredno, `--sub-lang hr` na istom (engleskom)
+// videu vraća HTTP 429 i kad je sve ostalo mirno. Prijevodni track je ionako slab:
+// nasljeđuje ASR greške i dodaje svoje ("Anthropic" → "entropic" → "entropija").
+// Nedostupan `-orig` jezik nije greška — yt-dlp ga samo preskoči (exit 0).
+const DEFAULT_SUB_LANGS = "en-orig,hr-orig";
+
+// Razmak između epizoda. 2s (kao u fetch.js) je premalo i za izvorne trackove.
 const DEFAULT_SLEEP_MS = 5000;
 const ERROR_THRESHOLD = 5;
 const COOL_DOWN_MS = 60000;
@@ -58,7 +65,7 @@ const OPTS = {
     videoId: getArg("--video-id"),
     limit: getArg("--limit") ? parseInt(getArg("--limit"), 10) : Infinity,
     sleepMs: getArg("--sleep") ? parseInt(getArg("--sleep"), 10) : DEFAULT_SLEEP_MS,
-    subLangs: getArg("--sub-langs") || "hr,en",
+    subLangs: getArg("--sub-langs") || DEFAULT_SUB_LANGS,
     englishOnly: args.includes("--english-only"),
     dryRun: args.includes("--dry-run"),
     force: args.includes("--force")
@@ -91,10 +98,16 @@ function hasRealYoutubeId(infoJsonPath) {
     }
 }
 
-/** Postoji li već ijedan .srt/.vtt titl za ovaj base (bilo koji jezik)? */
+/**
+ * Postoji li već ijedan .srt/.vtt titl za ovaj base?
+ * Provjerava i goli jezični kod uz `-orig` varijantu: prvi runovi (2026-07-27) tražili
+ * su `hr,en` pa su na disku `.en.srt`/`.hr.srt`, a default je otad `en-orig,hr-orig`.
+ * Bez ovoga bi ih skripta ponovno skidala.
+ */
 function hasSubtitles(channelDir, base) {
     const langs = OPTS.subLangs.split(",").map(s => s.trim()).filter(Boolean);
-    return langs.some(lang =>
+    const variants = new Set(langs.flatMap(lang => [lang, lang.replace(/-orig$/, "")]));
+    return [...variants].some(lang =>
         [".srt", ".vtt"].some(ext => fs.existsSync(path.join(channelDir, `${base}.${lang}${ext}`)))
     );
 }
