@@ -44,8 +44,11 @@
     <dict>
         <key>HOME</key>
         <string>/Users/ms</string>
+        <!-- ~/.local/bin je NUŽAN: od 2026-07-27 prioritetni job može tražiti
+             `--gemini-backend claude` (izbor modela po videu iz pipeline.domovina.ai),
+             a `claude` CLI živi baš tamo. Bez toga run_pipeline.sh abortira na validaciji. -->
         <key>PATH</key>
-        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
         <key>LANG</key>
         <string>en_US.UTF-8</string>
     </dict>
