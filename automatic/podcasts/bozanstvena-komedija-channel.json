@@ -4,7 +4,7 @@
   "channel_id": "UCS3vLKEA8z6d0OdWveB4qAg",
   "title": "Božanstvena Komedija",
   "availability": null,
-  "channel_follower_count": 25800,
+  "channel_follower_count": 25900,
   "description": "\"Napustite svaku nadu, vi koji ulazite\"",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1785027655,
+  "epoch": 1785114066,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
