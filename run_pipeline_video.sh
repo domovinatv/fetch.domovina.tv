@@ -180,7 +180,12 @@ if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
     # convert_to_wav.js koristi --output-dir umjesto --input-dir
     CONVERT_ARGS=("--output-dir" "$OUTPUT_DIR" "--video-id" "$VIDEO_ID")
     [ "$DRY_RUN" = true ] && CONVERT_ARGS+=("--dry-run")
-    node "$SCRIPT_DIR/convert_to_wav.js" "${CONVERT_ARGS[@]}"
+    if ! node "$SCRIPT_DIR/convert_to_wav.js" "${CONVERT_ARGS[@]}"; then
+        # Skripta obrađuje točno jedan video — bez WAV-a nema smisla nastavljati
+        # (incident 2026-07-28: pun disk → krnji WAV → odrezan transkript i article).
+        echo "❌ KORAK 2 nije uspio (konverzija u WAV) — prekidam." >&2
+        exit 1
+    fi
 
     # Korak 6: Lokalna Canary diarizacija (opt-in)
     if [ "$WITH_LOCAL_CANARY_DIARIZE" = true ]; then

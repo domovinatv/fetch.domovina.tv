@@ -493,7 +493,16 @@ echo "   📢 KORAK 2/10: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}"
+if ! node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}"; then
+    # Fast-path obrađuje točno jedan video — bez njegovog WAV-a svi daljnji
+    # koraci su besmisleni (incident 2026-07-28: pun disk → krnji WAV → odrezan
+    # transkript i article). U punom runu ne rušimo ostale kanale zbog jednog videa.
+    if [ "$PRIORITY_FAST_PATH" = true ]; then
+        echo "❌ KORAK 2 nije uspio (konverzija u WAV) — prekidam fast-path run." >&2
+        exit 1
+    fi
+    echo "   ⚠️ KORAK 2 imao grešaka — pogođeni videi neće ići na transkripciju, nastavljam s ostalima."
+fi
 
 echo ""
 # --- POST-KORAK 2: UPLOAD NOVIH WAV I SRT NA DRIVE (rclone) ---

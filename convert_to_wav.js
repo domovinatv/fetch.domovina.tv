@@ -112,15 +112,51 @@ function findAudioFile(outputDir, videoId) {
 }
 
 /**
+ * Trajanje WAV-a u sekundama, izvedeno iz veličine datoteke.
+ * Vrijedi samo za naš fiksni format (16kHz mono s16 = 32000 B/s).
+ */
+function wavDurationSec(wavFile) {
+    return (fs.statSync(wavFile).size - 44) / 32000;
+}
+
+/**
+ * Očekivano trajanje iz yt-dlp .info.json (polje `duration`), ili null.
+ */
+function expectedDurationSec(mp3File) {
+    const infoFile = mp3File.replace(/\.mp3$/, ".info.json");
+    try {
+        const dur = JSON.parse(fs.readFileSync(infoFile, "utf-8")).duration;
+        return typeof dur === "number" && dur > 0 ? dur : null;
+    } catch {
+        return null;
+    }
+}
+
+// Krnji WAV = kraći od videa za više od ovoga (mp3 vs video zna odstupiti <1s).
+const DURATION_TOLERANCE_SEC = 15;
+
+function isTruncated(wavFile, mp3File) {
+    const expected = expectedDurationSec(mp3File);
+    if (expected === null) return false; // bez info.json ne možemo suditi
+    return wavDurationSec(wavFile) < expected - DURATION_TOLERANCE_SEC;
+}
+
+/**
  * Konvertira audio datoteku u WAV koristeći ffmpeg.
  * Vraća put do WAV datoteke ako je uspješno, ili null.
  */
 function convertToWav(inputFile) {
     const wavFile = inputFile.replace(/\.mp3$/, ".wav");
 
-    // Preskoči ako WAV već postoji
+    // Preskoči ako WAV već postoji — ali krnji WAV (npr. ffmpeg ubijen ili pun
+    // disk usred konverzije) NE smije proći kao gotov: nizvodno bi nastao
+    // odrezan transkript i article. Obriši ga i konvertiraj ispočetka.
     if (fs.existsSync(wavFile)) {
-        return { wavFile, skipped: true };
+        if (!isTruncated(wavFile, inputFile)) {
+            return { wavFile, skipped: true };
+        }
+        console.warn(`   ⚠️ Krnji WAV (${Math.round(wavDurationSec(wavFile))}s < video) — brišem i konvertiram ponovno: ${path.basename(wavFile)}`);
+        fs.unlinkSync(wavFile);
     }
 
     const args = [
@@ -130,13 +166,32 @@ function convertToWav(inputFile) {
         wavFile
     ];
 
+    // Na grešci obriši parcijalni output — ostatak pipelinea provjerava samo
+    // postojanje WAV-a, pa bi ga krnji ostatak trajno trovao.
+    const cleanupPartial = () => {
+        try { if (fs.existsSync(wavFile)) fs.unlinkSync(wavFile); } catch {}
+    };
+
     return new Promise((resolve, reject) => {
         const proc = spawn("ffmpeg", args, { stdio: "inherit" });
         proc.on("close", (code) => {
-            if (code === 0) resolve({ wavFile, skipped: false });
-            else reject(new Error(`ffmpeg exit code: ${code} za ${inputFile}`));
+            if (code !== 0) {
+                cleanupPartial();
+                return reject(new Error(`ffmpeg exit code: ${code} za ${inputFile}`));
+            }
+            // ffmpeg zna izaći s 0 iako je izlaz kraći (npr. oštećen izvor) —
+            // trajanje mora odgovarati videu prije nego što ide na transkripciju.
+            if (isTruncated(wavFile, inputFile)) {
+                const got = Math.round(wavDurationSec(wavFile));
+                cleanupPartial();
+                return reject(new Error(`WAV kraći od videa (${got}s) — obrisan, provjeri disk/izvor: ${inputFile}`));
+            }
+            resolve({ wavFile, skipped: false });
         });
-        proc.on("error", reject);
+        proc.on("error", (err) => {
+            cleanupPartial();
+            reject(err);
+        });
     });
 }
 
@@ -332,6 +387,10 @@ async function main() {
     // TODO: Ovdje dodati Whisper transkripciju
     // Npr. za svaki .wav -> pokreni whisper i spremi .txt/.srt
     // whisper <file.wav> --model large-v3 --language hr --output_format txt
+
+    // Exit kod ≠ 0 da pozivatelji (run_pipeline*.sh) mogu fatalno reagirati
+    // u single-video fast-pathu umjesto da nastave bez WAV-a.
+    if (totalErrors > 0) process.exit(1);
 }
 
-main().catch((err) => console.error("Fatal error:", err));
+main().catch((err) => { console.error("Fatal error:", err); process.exit(1); });
