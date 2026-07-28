@@ -445,12 +445,48 @@ function discoverArtifacts(inputDir, channelFilter, videoIdFilter) {
 
 // ─── MAIN ─────────────────────────────────────────────────────────
 
+const USAGE = `
+Usage:
+  node translate_to_english.js --input-dir storage/output --video-id 6ueR_Leq6uE
+  node translate_to_english.js --input-dir storage/output --channel mladi_za_domovinu --limit 5
+  node translate_to_english.js --input-dir storage/output --video-id ... --dry-run
+
+Opcije:
+  --input-dir <dir>   korijen stabla (default: storage/output)
+  --video-id <id>     prevedi SAMO taj video
+  --channel <kanal>   prevedi SAMO taj kanal
+  --limit <n>         maksimalno n videa
+  --dry-run           ništa ne zove Vertex i NIŠTA ne zapisuje na disk
+  --force             prevedi i ako .en.json već postoji
+  --help, -h          ovaj ispis
+
+BEZ --video-id/--channel prevodi se CIJELO stablo (sati rada, 1 RPM po polju).
+`;
+
+// Prepoznate zastavice — sve ostalo je greška. ZAŠTO: bez --video-id skripta prevodi
+// CIJELO stablo, pa je tipfeler (ili `--help` prije nego je postojao) značio slučajni
+// sat+ Vertex poziva. Bolje pasti odmah nego "uspješno" krenuti na krivi posao.
+const KNOWN_FLAGS = new Set([
+    "--input-dir", "--channel", "--video-id", "--limit", "--dry-run", "--force", "--help", "-h"
+]);
+
 function parseArgs() {
     const args = process.argv.slice(2);
+    if (args.includes("--help") || args.includes("-h")) {
+        console.log(USAGE);
+        process.exit(0);
+    }
     const getArg = (n) => {
         const i = args.indexOf(n);
         return i !== -1 && i + 1 < args.length ? args[i + 1] : null;
     };
+    // Vrijednosti (npr. "storage/output") preskačemo — provjeravamo samo `--`/`-` tokene.
+    const unknown = args.filter((a) => a.startsWith("-") && !KNOWN_FLAGS.has(a));
+    if (unknown.length) {
+        console.error(`❌ Nepoznata opcija: ${unknown.join(", ")}`);
+        console.error(USAGE);
+        process.exit(1);
+    }
     return {
         inputDir: getArg("--input-dir") || "storage/output",
         channel: getArg("--channel"),
@@ -509,9 +545,16 @@ async function main() {
             try {
                 const croatian = JSON.parse(fs.readFileSync(srcPath, "utf-8"));
                 const translated = await t.translate(croatian, opts.dryRun);
-                fs.writeFileSync(outPath, JSON.stringify(translated, null, 2), "utf-8");
                 const sec = ((Date.now() - start) / 1000).toFixed(1);
-                console.log(`✅ (${sec}s, ${(fs.statSync(outPath).size/1024).toFixed(1)}KB) → ${outFile}`);
+                // DRY-RUN NIŠTA NE ZAPISUJE. Prije je zapisivao stub `[dry-run en] …`
+                // datoteke koje `upload_to_r2.js --video-id` pokupi regexom i objavi kao
+                // pravi EN overlay — dry-run mora biti bez posljedica.
+                if (opts.dryRun) {
+                    console.log(`🧪 dry-run (${sec}s, ne zapisujem) → ${outFile}`);
+                } else {
+                    fs.writeFileSync(outPath, JSON.stringify(translated, null, 2), "utf-8");
+                    console.log(`✅ (${sec}s, ${(fs.statSync(outPath).size/1024).toFixed(1)}KB) → ${outFile}`);
+                }
                 totalOk++;
                 if (!opts.dryRun) await sleep(REQUEST_DELAY_MS);
             } catch (err) {

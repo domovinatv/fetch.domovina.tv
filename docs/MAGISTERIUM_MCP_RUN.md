@@ -73,8 +73,26 @@ node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" \
 > **PRESKOČI OVAJ KORAK po defaultu.** Pokreni ga **samo** ako je korisnik izričito tražio
 > engleski (npr. `+EN`, "i engleski", "bilingual"). Inače idi ravno na korak 7 i uploadaj
 > isključivo HR `article.magisterium.json`.
+
+> 🚫 **NIKAD ne pokreći ovaj korak u pozadini** (`&`, `nohup`, background bash, "javit ću se
+> kad završi"). Traje **25–30 min** i mora se čekati u **foregroundu** do kraja. Ovaj runbook
+> se vrti headless (`claude -p` iz `magisterium_poller.js`) — kad agent vrati finalnu poruku,
+> proces izlazi i **ubija svako dijete**. Backgroundan prijevod ne napiše ni jednu datoteku,
+> a poller onda vidi 404 na CDN-u i označi zahtjev `failed`.
+> Presedan: `biRibr8NByE [en]`, 2026-07-27 — run od 6 min umjesto 30, nula `.en.json`.
+> Timeout pollera je 60 min (`MAG_RUN_TIMEOUT_MS`) — ima mjesta za čekanje.
+> ⚠️ **Prvo provjeri ima li video DVIJE kopije.** Arhivirani videi žive i u
+> `storage/output/<channel>` (symlink na `/Volumes/DOMOVINA1TB/…`) i u `storage/output/_unlisted`.
+> `--video-id` sam po sebi pokupi **obje** → dvostruko vrijeme (~60 min) i probijanje
+> `MAG_RUN_TIMEOUT_MS`. Suzi s `--channel` ako `--dry-run` prijavi više od 1 videa.
 ```bash
+# 0) Koliko kopija? (dry-run ne zapisuje ništa i ne zove Vertex)
+node translate_to_english.js --input-dir storage/output --video-id "$VID" --dry-run
+
+# 1) FOREGROUND, čekaj do kraja (~25-30 min po kopiji). Bez & / nohup / background.
 node translate_to_english.js --input-dir storage/output --video-id "$VID"
+# …ili, ako dry-run pokaže 2+ kopije, samo ona iz koje ide upload:
+# node translate_to_english.js --input-dir storage/output --channel _unlisted --video-id "$VID"
 ```
 Generira `*.article.magisterium.en.json` (+ summary.en, article.en) — puni mirror s `_en`
 poljima (`assessment_en`, `enrichment_en`, `concerns_en`, `theme_en`, `subtitle_en`, …),

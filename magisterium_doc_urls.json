@@ -2,6 +2,38 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "Intervention by His Excellency Mons. Diarmuid Martin to the Plenary Council of the World Trade Organization",
+      "uuid": "ebfaf943-f073-4e6b-a591-d0954548b091"
+    },
+    {
+      "match": "Meeting with the labourers in the hall of Civita Castellana",
+      "uuid": "881fa1bb-4459-41e4-ad8a-f7ad074af6d2"
+    },
+    {
+      "match": "To participants in the Plenary Assembly of the Pontifical Academy of Sciences (23 Septembre 2024)",
+      "uuid": "7ffd1cba-8e7d-42ec-b707-84ff21215404"
+    },
+    {
+      "match": "Message to Rev. Camilo Maccise, Father General of the Discalced Carmelite Order",
+      "uuid": "d3d55d4f-4306-41c4-848a-4b53984dfabf"
+    },
+    {
+      "match": "Message to the Bishop of Ávila (Spain) on the occasion of the 450th anniversary",
+      "uuid": "a74998d1-93e3-4467-b68b-459eb07f9ed2"
+    },
+    {
+      "match": "To the participants in the General Chapter of the Discalced Carmelites (June 22, 1967)",
+      "uuid": "caaf749a-aec1-460a-8879-12c258903115"
+    },
+    {
+      "match": "General Audience of 19 October 2022 - Catechesis on Discernment",
+      "uuid": "bc03b820-b6f7-40fc-b92f-7328e97bda64"
+    },
+    {
+      "match": "General Audience of 21 December 2022 - Catechesis on Discernment",
+      "uuid": "7dee2386-5dc6-4a2a-8716-31f3f49080a6"
+    },
+    {
       "match": "To the Clergy of Rome (February 14, 2002)",
       "uuid": "78cfbfa0-80f0-4e0e-b58e-4657303a0e28"
     },
@@ -4664,6 +4696,130 @@
     {
       "match": "To the Pontifical Commission for Social Communications, 7 March 1985",
       "uuid": "021133de-1ed1-4c09-907a-854b4cda9a9b"
+    },
+    {
+      "match": "Fifth World Congress promoted by the Pontifical Council for the Pastoral Care of Migrants",
+      "uuid": "e59acf39-8342-4007-9764-5fc7a83146a6"
+    },
+    {
+      "match": "Plenary Assembly of the Pontifical Council for the Laity (November 15, 2008)",
+      "uuid": "d48a459c-b28a-4e53-8f3a-2c07f6ce63d8"
+    },
+    {
+      "match": "Congregation for Catholic Education (for Seminaries and Educational Institutions) (February 7, 2011)",
+      "uuid": "255efa14-5360-4b8f-afc7-999fdef32c4b"
+    },
+    {
+      "match": "27th Congress of the World Association of Women Entrepreneurs (June 1, 1979)",
+      "uuid": "bcbb2455-4052-453a-b2ea-5f88180701a0"
+    },
+    {
+      "match": "\"Wholesale Development Center\" of Nola",
+      "uuid": "69cccc35-4e37-4461-ace2-b39d57fb12dd"
+    },
+    {
+      "match": "To a Delegation of French Catholic entrepreneurs",
+      "uuid": "fa1daf7e-0f1d-4ff2-97b4-3d9d512eaa78"
+    },
+    {
+      "match": "German Association of Catholic Entrepreneurs (May 29, 1989)",
+      "uuid": "b89b90c2-5fca-4a2f-a729-b73f1a2b6bee"
+    },
+    {
+      "match": "Catholic Union of Entrepreneurs of Portugal (November 25, 1966)",
+      "uuid": "e1f8983b-a2cc-4a7b-b6b4-d298f3dcfc0a"
+    },
+    {
+      "match": "Christian Union of Entrepreneurs Managers (UCID) (February 7, 1966)",
+      "uuid": "4ccfcbd7-25c4-4c15-b29c-c8056a00720d"
+    },
+    {
+      "match": "General Audience of 23 November 1966",
+      "uuid": "3dd44ba7-7194-45f9-b32c-927f8f9ab76d"
+    },
+    {
+      "match": "Humana communitas in the age of pandemic",
+      "uuid": "4fa8e30b-e72c-48e4-a252-d5f1edbe8002"
+    },
+    {
+      "match": "To participants in the Plenary session of the Pontifical Council for Culture (18 November 2017)",
+      "uuid": "2aeb7920-f919-462f-96db-9b15515d07fa"
+    },
+    {
+      "match": "An itinerary of biblical anthropology",
+      "uuid": "d9cdb0bf-8c22-4558-bc4f-100ad2ebc614"
+    },
+    {
+      "match": "X General Assembly - Final Communiqué on \"The dignity of human procreation and reproductive technologies. Anthropological and ethical aspects\" (February 21, 2004)",
+      "uuid": "cc917c92-c55f-4344-a6df-052792f55f49"
+    },
+    {
+      "match": "To participants in the Plenary Session of the Congregation for the Doctrine of the Faith (January 31, 2008)",
+      "uuid": "7b4b075b-37fd-4b72-8895-9ca7aca5651f"
+    },
+    {
+      "match": "Message to the President of the Social Weeks of France (November 15, 2001)",
+      "uuid": "fc4c1b69-8974-435f-9b1f-8e0c2af5462e"
+    },
+    {
+      "match": "Old age: our future. The Elderly after the pandemic (2 February 2021)",
+      "uuid": "df67b85a-3ad5-4d1f-b2a9-a7e1030ebbf4"
+    },
+    {
+      "match": "III Plenary Assembly 1997, Concluding Document",
+      "uuid": "ce53dad3-26dd-4017-a310-2d13cd37f2ef"
+    },
+    {
+      "match": "Statement on the \"morning-after pill'",
+      "uuid": "1b070250-23bf-4eb2-86dc-28785b134658"
+    },
+    {
+      "match": "Technology and Our Relationship with God",
+      "uuid": "915da592-38af-4461-9370-7cb6a0f89fc2"
+    },
+    {
+      "match": "Meeting with the world of work in \"Piazza Cavalli\", Piacenza (June 5, 1988)",
+      "uuid": "5e106349-e9f9-43c6-b205-59169335c08f"
+    },
+    {
+      "match": "To the women workers of the Confezioni di Matelica factory (March 19, 1991)",
+      "uuid": "66d88fe9-13bf-4946-b84f-9a247fc87483"
+    },
+    {
+      "match": "National Congress entitled Digital Witnesses sponsored by the Italian Episcopal Conference",
+      "uuid": "555d013b-df31-4d32-89e5-27b1a524756a"
+    },
+    {
+      "match": "Comments on EEOC's Proposed Updated Compliance Manual",
+      "uuid": "a612e272-514b-4e1b-a0d7-e68444bf7141"
+    },
+    {
+      "match": "Sedes Sapientiae (May 31, 1956)",
+      "uuid": "9bd13c9e-ed4d-4d61-a394-4857bf77ac6f"
+    },
+    {
+      "match": "To the Bishops from Slovenia on their ad Limina visit (April 26, 2001)",
+      "uuid": "72b68a32-94aa-4b3e-881c-e3849248f02b"
+    },
+    {
+      "match": "Together for Peace” Foundation (May 22, 1989)",
+      "uuid": "766c995d-32e3-4943-9234-a673f3f8d355"
+    },
+    {
+      "match": "To the Delegation of the \"Manos Unidas\" Commission (9 December 2024)",
+      "uuid": "d68a2d70-4934-4821-b10e-517bb7b56dce"
+    },
+    {
+      "match": "Holy See Statement on the Advancement of Women (4 October 2022)",
+      "uuid": "80ddf4d1-d2d1-4800-8ee3-2a127ba5298e"
+    },
+    {
+      "match": "Catena Aurea on Luke",
+      "uuid": "252e7281-bd1a-4a42-9f7e-1ec6b4d50a7b"
+    },
+    {
+      "match": "To Consentius, Against Lying",
+      "uuid": "be8e9608-3a5e-4e7b-a122-6756da5dd22f"
     }
   ]
 }
