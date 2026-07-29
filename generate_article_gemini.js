@@ -282,6 +282,7 @@ const STRICT_NAMING_CLAUSE = `
 - NIKAD ne izmišljaj ni ne pogađaj osobno ime, ime izvođača ili naziv benda/sastava. Strogo je zabranjeno izvoditi imena iz općeg znanja o temi ili poznatih javnih osoba.
 - Konkretno ime smiješ upotrijebiti ISKLJUČIVO ako se (a) doslovno pojavljuje u transkriptu, ILI (b) je navedeno u priloženoj SLUŽBENOJ MAPI GOVORNIKA, ILI (c) je navedeno u SLUŽBENOM KONTEKSTU EPIZODE. Ime pridijeli govorniku tako da uskladiš vrijeme njegova nastupa (iz vremenskih oznaka transkripta) s vremenskom oznakom iz mape.
 - Transkript je automatski (ASR) i zna KRIVO ČUTI imena (npr. spojiti ili izobličiti prezime). Ako SLUŽBENI KONTEKST EPIZODE navodi govornika za neku diarizacijsku oznaku, taj podatak POBJEĐUJE svaki suprotan zaključak iz transkripta.
+- ZAPIS IMENA JE DOSLOVAN: ime iz službenog konteksta ili naslova epizode prepiši TOČNO takvim zapisom u nominativu — bez pravopisne "korekcije" ili pohrvaćivanja (npr. "Lucia" NE postaje "Lucija"; "Mia" ostaje "Mia"). Padežne oblike tvori pravilno od tog izvornog zapisa.
 - Ako ime NIJE potvrđeno ni transkriptom ni mapom ni službenim kontekstom, koristi NEUTRALNU ulogu ("izvođač", "izvođačica", "predstavnik udruge", "svećenik", "posjetiteljica", "sudionik", "gost") — nikad izmišljeno ime.
 - Uloge i spol izvodi samo iz sadržaja; ne pretpostavljaj (npr. ne nazivaj pjevačicu "svećenikom", niti bend nasumičnim poznatim imenom).
 - Stavke iz mape koje su nazivi pjesama (ne osobe) ne pridjeljuj kao imena govornika.`;
@@ -396,7 +397,7 @@ function buildOfficialContextBlock(baseDir, epBase) {
             .join("\n");
         lines.push(` - Govornici (mapirani na diarizacijske oznake, izvedeno iz službenog opisa epizode):\n${sp}`);
     }
-    return `\n\nSLUŽBENI KONTEKST EPIZODE (autoritativno — iz metapodataka izdavača i službenog opisa; POBJEĐUJE suprotne zaključke iz ASR transkripta):\n${lines.join("\n")}\n`;
+    return `\n\nSLUŽBENI KONTEKST EPIZODE (autoritativno — iz metapodataka izdavača i službenog opisa; POBJEĐUJE suprotne zaključke iz ASR transkripta. Zapis imena preuzmi DOSLOVNO — bez pravopisne korekcije; ako se zapis u naslovu epizode i mapi razlikuje, mjerodavan je NASLOV):\n${lines.join("\n")}\n`;
 }
 
 // POLUGA 3 — allowlist tokena (deakcentirano): sve riječi transkripta + imena iz chaptera + summary.

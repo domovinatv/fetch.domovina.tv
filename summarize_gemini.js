@@ -228,6 +228,7 @@ STROGA PRAVILA:
 1. PIŠI ISKLJUČIVO NA HRVATSKOM JEZIKU s ispravnom gramatikom i pravopisom.
 2. ZABRANJENO JE HALUCINIRATI — svaka informacija u sažetku MORA se temeljiti isključivo na sadržaju transkripta. Ako nešto nije jasno iz transkripta, napiši "nije navedeno" umjesto da izmišljaš.
 3. Za identifikaciju govornika: koristi kontekstualne tragove iz razgovora (npr. "ja sam voditelj", obraćanje imenom). Ako ne možeš pouzdano identificirati govornika, koristi generične oznake ("Voditelj", "Gost 1", "Gost 2"). NIKADA ne izmišljaj imena govornika.
+3b. ZAPIS IMENA JE DOSLOVAN: ako je ime navedeno u naslovu ili opisu epizode (metapodaci), prepiši ga TOČNO takvim zapisom — bez pravopisne "korekcije" ili pohrvaćivanja (npr. ako u naslovu piše "Lucia", NE piši "Lucija"; "Mia" ostaje "Mia"). Metapodaci izdavača su autoritativniji izvor zapisa imena od ASR transkripta, koji imena često krivo čuje.
 4. Ključni zaključci moraju biti PARAFRAZE stvarnih izjava iz transkripta, ne tvoje interpretacije.
 
 VRATI ISKLJUČIVO VALJAN JSON OBJEKT (bez markdown formatiranja, bez \`\`\`json blokova) u ovom formatu:

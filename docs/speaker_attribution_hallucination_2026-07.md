@@ -111,3 +111,67 @@ chapter-mapa i strict-mode").
   EN prijevod članka/magisteriuma nije prolazio.
 - **`magisterium_doc_urls.json`** — +2 keš unosa (Psalam 139 "O where can I go", Pro-Life
   Constitutional Amendment).
+
+## Slučaj 2 (2026-07-29): `cb4CsFDCDho` — "Ivan Voras" umjesto Saše Tenodija (2-speaker podcast!)
+
+Dokaz da problem NIJE ograničen na highlights videe s 20+ govornika: klasičan 1-na-1
+podcast (Moć komunikacije E066), diarizacija savršena (2 govornika), strict-atribucija
+AKTIVNA s injektiranom chapter mapom — i Gemini 3.5 Flash je svejedno voditelja kroz
+cijeli članak imenovao **"Ivan Voras"** umjesto **Saša Tenodi**.
+
+### Uzročni lanac (svaka karika nužna)
+
+1. **ASR trigger**: Canary je `00:00:31` krivo čuo *"…moj **i Vorasov** podcast, Surove
+   strasti…"* kao *"…moj **VORASO** podcast, SURVE strasti…"* — iz krivog transkripta
+   se čita kao da govornik kaže "moj Voraso podcast".
+2. **Parametarsko znanje**: model zna da je "Surove strasti" podcast Ivana Vorasa →
+   zaključio da je govornik Voras i **dopisao ime "Ivan" kojeg nema nigdje u ulazima**
+   (direktno kršenje strict klauzule).
+3. **Informacijska rupa**: summary korak (koji vidi opis epizode) je točno napisao
+   "voditelj Saša Tenodi" — ali article korak opis/summary **uopće nije dobivao**.
+4. **Audit rupa**: pravilo "bar polovica tokena potvrđena" — "voras" stem-matcha krivo
+   čuti "VORASO" iz transkripta → 1/2 tokena = prolaz. Flagan samo "Good Will Hunting".
+
+### Empirijski test modela (slijepi, identični ulazi kao produkcija)
+
+Strict klauzula + chapter mapa + početak transkripta (s zamkom), bez ikakvog spomena
+problema: **Claude Opus (2 runa) i Claude Haiku (1 run) svi točno** — gošća Lucija
+Adžić iz mape, voditelj = neutralno "voditelj" uz eksplicitno obrazloženje da ime nije
+potvrđeno. Zaključak: Flash je i prekršio uputu i upao u zamku; Claude modeli (čak i
+fast tier) nisu. → Odluka: **Claude Opus default za korake 7+8** (nightly
+`--gemini-backend claude` + `CLAUDE_MODEL=opus`; pipeline.domovina.ai v0.15.0 default
+`claude:opus` za nove jobove). Haiku je prošao test ATRIBUCIJE, ali kvaliteta pisanja
+dugog članka nije testirana — ne koristiti bez A/B usporedbe.
+
+### Poluga 4 — SLUŽBENI KONTEKST EPIZODE (implementirano 2026-07-29, f712a1f)
+
+`buildOfficialContextBlock()`: naslov+kanal iz `.info.json` + mapa govornika **po
+diarizacijskim oznakama** iz summary sidecar-a (`summary.speakers[]: {id,
+suggested_name, role}` — summary vidi opis epizode pa je pouzdan izvor). Blok ide u
+OBA prompta (outline + iteracije), eksplicitno POBJEĐUJE ASR transkript i aktivira
+strict mod. Usput popravljen bug: `loadSummaryMentioned` je čitao polja s vrha
+sidecar-a, a stvarna struktura ih gnijezdi pod `summary` — signal je bio tiho prazan.
+
+### Audit: SVI tokeni (ne "bar polovica")
+
+`auditNames()` sada traži da SVAKI značajni token imena bude u allowlisti. Trošak:
+pokoji benigni lažni pozitiv (npr. "Good Will Hunting" — film stvarno spomenut u
+razgovoru); audit samo upozorava, ne blokira.
+
+### Doslovni zapis imena (2026-07-29, druga iteracija)
+
+Opus je "Lucia Adžić" (točan zapis iz naslova/opisa!) normalizirao u "Lucija" —
+uslužno "pohrvaćivanje" koje je krivo jer se osoba stvarno zove Lucia. Fix u OBA
+prompta (summary 3b + strict klauzula): ime iz metapodataka izdavača prepisuje se
+DOSLOVNO u nominativu, bez pravopisne korekcije; padeži se tvore od izvornog zapisa.
+U official bloku: kod razlike zapisa naslov > mapa.
+
+### Runbook: ručna regeneracija epizode (tri sloja cachea)
+
+Brisanje artefakata NIJE dovoljno — treba očistiti:
+1. done-cache liste `storage/output/*-done.json` (articles, summarize, rag-{chunks,combined,import})
+2. `.r2_keys_cache.json` u rootu repoa (upload preskače postojeće ključeve; `data/{id}/*.json` je immutable 1y)
+3. Cloudflare edge purge (API token `DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE` u `.env`; skripta sama purga samo .mp4)
+Plus: browseri koji su stranicu već otvorili drže stari `article.json` (immutable) do
+hard refresha. Magisterium artefakt regeneriranog članka obrisati s R2 i re-triggerati
+iz admina.
