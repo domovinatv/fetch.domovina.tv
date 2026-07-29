@@ -266,8 +266,14 @@ fi
 # PROXY_ARGS je prazan ako probe nije našao živ iPhone proxy (guard za set -u + bash 3).
 # Dijeljeni mutex: pričekaj da prioritetni fast-path (ako radi) završi run_pipeline, pa preuzmi.
 acquire_pipeline_lock wait
+# --gemini-backend claude + CLAUDE_MODEL=opus (2026-07-29): koraci 7+8 za SVE nove
+# epizode idu preko Claude Opusa (pretplata) umjesto Gemini Flasha — odluka nakon
+# incidenta atribucije imena (Ivan Voras / cb4CsFDCDho): Flash je prekršio strict
+# uputu i imenovao voditelja iz općeg znanja; Opus/Haiku u slijepom testu nisu.
+# Epizoda je trajni statični sadržaj → premium output. PREDUVJET: claude CLI u
+# PATH-u launchd job-a (~/.local/bin u tv.domovina.fetch.nightly.plist).
 run_step "run_pipeline.sh (faza A + faza B)" \
-    "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload || true
+    env CLAUDE_MODEL=opus "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego

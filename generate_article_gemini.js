@@ -280,8 +280,9 @@ const STRICT_NAMING_CLAUSE = `
 
 ⚠️ STROGO PRAVILO ATRIBUCIJE IMENA (obavezno — ova snimka ima službenu mapu govornika i/ili velik broj kratkih govornika; diarizacijske oznake [SPEAKER_XX] NE nose imena):
 - NIKAD ne izmišljaj ni ne pogađaj osobno ime, ime izvođača ili naziv benda/sastava. Strogo je zabranjeno izvoditi imena iz općeg znanja o temi ili poznatih javnih osoba.
-- Konkretno ime smiješ upotrijebiti ISKLJUČIVO ako se (a) doslovno pojavljuje u transkriptu, ILI (b) je navedeno u priloženoj SLUŽBENOJ MAPI GOVORNIKA. Ime pridijeli govorniku tako da uskladiš vrijeme njegova nastupa (iz vremenskih oznaka transkripta) s vremenskom oznakom iz mape.
-- Ako ime NIJE potvrđeno ni transkriptom ni mapom, koristi NEUTRALNU ulogu ("izvođač", "izvođačica", "predstavnik udruge", "svećenik", "posjetiteljica", "sudionik", "gost") — nikad izmišljeno ime.
+- Konkretno ime smiješ upotrijebiti ISKLJUČIVO ako se (a) doslovno pojavljuje u transkriptu, ILI (b) je navedeno u priloženoj SLUŽBENOJ MAPI GOVORNIKA, ILI (c) je navedeno u SLUŽBENOM KONTEKSTU EPIZODE. Ime pridijeli govorniku tako da uskladiš vrijeme njegova nastupa (iz vremenskih oznaka transkripta) s vremenskom oznakom iz mape.
+- Transkript je automatski (ASR) i zna KRIVO ČUTI imena (npr. spojiti ili izobličiti prezime). Ako SLUŽBENI KONTEKST EPIZODE navodi govornika za neku diarizacijsku oznaku, taj podatak POBJEĐUJE svaki suprotan zaključak iz transkripta.
+- Ako ime NIJE potvrđeno ni transkriptom ni mapom ni službenim kontekstom, koristi NEUTRALNU ulogu ("izvođač", "izvođačica", "predstavnik udruge", "svećenik", "posjetiteljica", "sudionik", "gost") — nikad izmišljeno ime.
 - Uloge i spol izvodi samo iz sadržaja; ne pretpostavljaj (npr. ne nazivaj pjevačicu "svećenikom", niti bend nasumičnim poznatim imenom).
 - Stavke iz mape koje su nazivi pjesama (ne osobe) ne pridjeljuj kao imena govornika.`;
 
@@ -344,18 +345,58 @@ function countSpeakers(srt) {
 }
 
 // mentioned_people / speakers[].suggested_name iz summary sidecar-a (pomoćni signal za audit).
+// NB: stvarna struktura sidecar-a gnijezdi polja pod `summary` ({version, model, summary:{...}}) —
+// čitanje samo s vrha je do 2026-07-29 tiho vraćalo prazno (incident Ivan Voras / cb4CsFDCDho).
 function loadSummaryMentioned(baseDir, epBase) {
     const names = [];
     try {
         const p = path.join(baseDir, `${epBase}.wav.canary.summary.json`);
         if (fs.existsSync(p)) {
-            const s = JSON.parse(fs.readFileSync(p, "utf-8"));
+            const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
+            const s = (raw && typeof raw.summary === "object" && raw.summary) ? raw.summary : raw;
             const push = v => { if (typeof v === "string") names.push(v); };
             (s.mentioned_people || s.people || []).forEach(push);
             (s.speakers || []).forEach(sp => push(sp && (sp.suggested_name || sp.name)));
         }
     } catch (_) { /* best-effort */ }
     return names;
+}
+
+// POLUGA 4 — SLUŽBENI KONTEKST EPIZODE za prompt: summary korak (koji vidi opis epizode)
+// već proizvodi mapu govornika po diarizacijskim oznakama ({id, suggested_name, role});
+// uz naslov i kanal iz .info.json to je autoritativan identitet koji article korak do
+// 2026-07-29 uopće nije dobivao — pa je model imena voditelja pogađao iz transkripta
+// (incident Ivan Voras: ASR krivo čuo "moj i Vorasov podcast" → model imenovao voditelja
+// tuđim imenom iz općeg znanja). Ovaj blok POBJEĐUJE zaključke iz transkripta.
+function buildOfficialContextBlock(baseDir, epBase) {
+    let title = null, channel = null, speakers = [];
+    try {
+        const infoPath = path.join(baseDir, `${epBase}.info.json`);
+        if (fs.existsSync(infoPath)) {
+            const info = JSON.parse(fs.readFileSync(infoPath, "utf-8"));
+            title = info.title || info.fulltitle || null;
+            channel = info.channel || info.uploader || null;
+        }
+    } catch (_) { /* best-effort */ }
+    try {
+        const p = path.join(baseDir, `${epBase}.wav.canary.summary.json`);
+        if (fs.existsSync(p)) {
+            const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
+            const s = (raw && typeof raw.summary === "object" && raw.summary) ? raw.summary : raw;
+            speakers = (s.speakers || []).filter(sp => sp && (sp.suggested_name || sp.name));
+        }
+    } catch (_) { /* best-effort */ }
+    if (!title && !channel && !speakers.length) return "";
+    const lines = [];
+    if (title) lines.push(` - Naslov epizode: ${title}`);
+    if (channel) lines.push(` - Kanal/emisija: ${channel}`);
+    if (speakers.length) {
+        const sp = speakers
+            .map(x => ` - ${x.id ? `[${x.id}] = ` : ""}${x.suggested_name || x.name}${x.role ? ` (${x.role})` : ""}`)
+            .join("\n");
+        lines.push(` - Govornici (mapirani na diarizacijske oznake, izvedeno iz službenog opisa epizode):\n${sp}`);
+    }
+    return `\n\nSLUŽBENI KONTEKST EPIZODE (autoritativno — iz metapodataka izdavača i službenog opisa; POBJEĐUJE suprotne zaključke iz ASR transkripta):\n${lines.join("\n")}\n`;
 }
 
 // POLUGA 3 — allowlist tokena (deakcentirano): sve riječi transkripta + imena iz chaptera + summary.
@@ -420,8 +461,12 @@ function auditNames(article, tokenSet) {
         const toks = norm.split(" ").filter(t => t.length >= 3);
         if (!toks.length) continue;
         const known = toks.filter(t => tokenKnown(t, tokenSet)).length;
-        // Potvrđeno ako je bar polovica značajnih tokena u allowlisti; inače nepotvrđeno.
-        if (known < Math.ceil(toks.length / 2)) flagged.push(name);
+        // SVI značajni tokeni moraju biti u allowlisti. Ranije pravilo "bar polovica"
+        // je propustilo "Ivan Voras" (cb4CsFDCDho): "voras" je stem-matchao krivo čuti
+        // "VORASO" iz transkripta, a dopisani "Ivan" nije postojao nigdje u ulazima —
+        // 1/2 tokena je prolazilo. Audit samo upozorava (ne blokira objavu), pa je
+        // trošak strožeg pravila pokoji lažni pozitiv više, a hvata dopisana imena.
+        if (known < toks.length) flagged.push(name);
     }
     return [...new Set(flagged)];
 }
@@ -1225,12 +1270,13 @@ async function processFile(file, { exitOnError = true } = {}) {
     const speakerCount = countSpeakers(srtContent);
     const hasChapterMap = pubChapters.length >= 3;
     const manySpeakers = speakerCount > STRICT_SPEAKER_THRESHOLD;
-    const strictAttribution = hasChapterMap || manySpeakers;
-    const chapterBlock = hasChapterMap ? buildChapterMapBlock(pubChapters) : "";
+    const officialBlock = buildOfficialContextBlock(baseDir, epBase);
+    const strictAttribution = hasChapterMap || manySpeakers || !!officialBlock;
+    const chapterBlock = (hasChapterMap ? buildChapterMapBlock(pubChapters) : "") + officialBlock;
     const systemPrompt1 = SYSTEM_PROMPT_1 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
     const systemPrompt2 = SYSTEM_PROMPT_2 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
     if (strictAttribution) {
-        console.log(`   🧭 Strict-atribucija AKTIVNA (govornika: ${speakerCount}, chapter-unosa: ${pubChapters.length}${hasChapterMap ? ", mapa injektirana" : ""}) — imena samo iz transkripta/mape.`);
+        console.log(`   🧭 Strict-atribucija AKTIVNA (govornika: ${speakerCount}, chapter-unosa: ${pubChapters.length}${hasChapterMap ? ", mapa injektirana" : ""}${officialBlock ? ", službeni kontekst injektiran" : ""}) — imena samo iz transkripta/mape/konteksta.`);
     }
 
     const today = new Date();
@@ -1649,6 +1695,8 @@ module.exports = {
     // Atribucija govornika (chapter-mapa + strict-mode + name-audit)
     loadPublisherChapters,
     buildChapterMapBlock,
+    buildOfficialContextBlock,
+    loadSummaryMentioned,
     countSpeakers,
     buildNameTokenSet,
     extractNameCandidates,

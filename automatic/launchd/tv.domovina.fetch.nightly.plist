@@ -47,7 +47,7 @@
         <key>HOME</key>
         <string>/Users/ms</string>
         <key>PATH</key>
-        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
         <key>LANG</key>
         <string>en_US.UTF-8</string>
     </dict>
