@@ -808,6 +808,25 @@ function hasCompleteArticle(channelDir, srtFilename) {
             } catch { /* dir nedostupan */ }
         }
     }
+
+    // SIMETRIČNA ZAŠTITA (2026-07-31) — obrnuti smjer od gornje "ne-degradiraj":
+    // na Claude backendu prihvati POSTOJEĆI kompletan članak bilo kojeg modela.
+    // Bez ovoga findLatestFile traži samo `_<claude_slug>.article.json`, pa cijeli
+    // korpus s `gemini-*` člancima izgleda neobrađeno i nightly ga krene regenerirati.
+    // To se stvarno dogodilo 2026-07-31: done-cache je bio jedina brana, a kad je
+    // pao (rebuild scope-an na kanal prepisao je globalni articles-done.json),
+    // article korak je javio 3097 videa za obradu na Opusu. Vidi
+    // docs/operativne_zamke_2026-07-31.md §6.
+    // Namjerni re-run boljim modelom i dalje je moguć preko --video-id / --channel
+    // scopea uz brisanje odgovarajućeg zapisa iz articles-done.json.
+    if (!articlePath && USING_CLAUDE) {
+        try {
+            const m = fs.readdirSync(channelDir)
+                .filter(f => f.startsWith(`${basename}_`) && f.endsWith(".article.json") && !f.startsWith("._"))
+                .sort();
+            if (m.length > 0) articlePath = path.join(channelDir, m[m.length - 1]);
+        } catch { /* dir nedostupan */ }
+    }
     if (!articlePath) return false;
 
     try {

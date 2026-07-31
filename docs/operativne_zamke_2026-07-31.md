@@ -89,6 +89,46 @@ backfilla dao je 167/167 ispravnih.
 
 ---
 
+## 6. ⚠️ NAJOPASNIJA: `hasCompleteArticle` je bio model-scoped samo u jednom smjeru
+
+**Što se dogodilo:** nakon što je zamka #1 oštetila `storage/output/articles-done.json`
+(rebuild scope-an na kanal **prepisuje globalnu datoteku** — ostalo je 46 zapisa umjesto
+~3,200), nightly je u article koraku javio:
+
+```
+📊 Kanala s neobrađenim videima:  46
+📊 Ukupno videa za obradu:        3097
+```
+
+i krenuo regenerirati **cijeli korpus na Opusu**. Uhvaćeno nakon ~50 min i 8 članaka.
+Neprekinuto bi to bilo ~24 dana i reda veličine milijarda tokena.
+
+**Pravi uzrok nije cache nego `hasCompleteArticle()`:** koristi
+`findLatestFile(channelDir, basename, "article")` koji traži članak **trenutnog model
+sluga**. Postojala je zaštita "ne-degradiraj" za smjer *gemini backend → nađen Claude
+članak* (`if (!articlePath && !USING_CLAUDE)`), ali **ne i obrnuta**. Otkad nightly ide
+`--gemini-backend claude` (2026-07-29), svaka epizoda s `gemini-*` člankom izgleda
+nedovršeno — a jedino što je to skrivalo bio je done-cache.
+
+Dakle cache je bio **jedina brana**, a trebao bi biti samo O(1) optimizacija.
+
+**Ispravak (2026-07-31):** dodana simetrična zaštita — na Claude backendu prihvati
+postojeći kompletan članak **bilo kojeg** modela. Provjereno: s namjerno praznim cacheom
+red je pao s 3097 na 2, uz `Preskočeno (FS check): 3199`.
+
+**Sanacija cachea** (ako se opet ošteti) — rekonstrukcija s diska je brža i sigurnija od
+ponovnog pokretanja alata:
+
+```js
+// za svaki *.wav.canary.diarized.srt provjeri postoji li ijedan <base>_*.article.json
+// → upiši baseKey u {"completed":[...]} u storage/output/articles-done.json
+```
+
+**Namjerni re-run boljim modelom** i dalje radi: scope-aj `--video-id`/`--channel` i obriši
+odgovarajući zapis iz `articles-done.json`.
+
+---
+
 ## 5. `setsid` ne postoji na macOS-u
 
 Za pozadinski posao koji mora preživjeti pad sesije: `nohup ... &` + `disown`. Log piši u
