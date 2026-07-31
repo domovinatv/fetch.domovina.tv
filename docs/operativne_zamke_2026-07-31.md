@@ -129,6 +129,43 @@ odgovarajući zapis iz `articles-done.json`.
 
 ---
 
+## 7. Dodavanje entrypointa u Modal app slomi sve `modal run <file>` pozive
+
+**Što se dogodilo:** dodan je `batch` local entrypoint u `modal_canary/canary_modal.py`.
+Time datoteka ima **više** local entrypointa (`main`, `batch`, `download_model`), pa
+`modal run <file> --wav ...` više ne može sam odabrati koji pokrenuti:
+
+```
+Error: Specify a Modal Function or local entrypoint to run. E.g.
+> modal run modal_canary/canary_modal.py::my_function [..args]
+```
+
+Poziv u KORAKU 2.6 je non-fatal (`|| echo "⚠️ Modal nije uspio..."`), pa je **padao bez
+ikakvog vidljivog učinka**: single-pass logika je uredno našla kandidate, izuzela ih iz
+Drive uploada i ostavila ih netranskribirane. Slomljen je time i `_unlisted` ad-hoc put
+koji je radio od 2026-07-07 — regresija šira od promjene koja ju je izazvala.
+
+**Pravilo:** kad dodaješ `@app.local_entrypoint()` u postojeći Modal app, **odmah** prođi
+kroz sve pozivatelje (`grep -rn "modal run"`) i dopiši `::<entrypoint>`. Jedan entrypoint
+radi bez njega, dva ne rade nikad.
+
+**Ispravljeno:** `run_pipeline.sh` i `modal_canary/README.md` sada koriste `::main`.
+Provjereno stvarnim pozivom: 200 MB WAV → 559 segmenata, inference 46s.
+
+---
+
+## 8. `| tail -N` na dugotrajnom runu sakrije log do samog kraja
+
+Tri puta u ovoj sesiji izlaz pipelinea je proveden kroz `| tail -70` "da log ne naraste".
+Posljedica: dok proces radi, log je **prazan** — nema načina vidjeti gdje je i što je
+puklo. Dijagnostika zamke #7 zbog toga je trajala sat vremena umjesto sekunde: poruka o
+grešci je cijelo vrijeme postojala, samo je bila zarobljena u bufferu.
+
+**Pravilo:** izlaz dugotrajnog runa piši **direktno u datoteku** (`> log 2>&1`), pa filtriraj
+pri čitanju (`grep -aE "KORAK|GREŠKA" log`). Skraćuj na čitanju, nikad na pisanju.
+
+---
+
 ## 5. `setsid` ne postoji na macOS-u
 
 Za pozadinski posao koji mora preživjeti pad sesije: `nohup ... &` + `disown`. Log piši u
