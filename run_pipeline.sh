@@ -713,7 +713,10 @@ else
             fi
             src_lang="$(_source_lang_for_path "$w")"
             echo "   ⬆️  Modal transkripcija: $bn [${src_lang}→hr]"
-            modal run "$MODAL_APP" --wav "$w" --source-lang "$src_lang" --target-lang hr \
+            # ::main je OBAVEZAN — canary_modal.py ima više local entrypointa (main/batch/
+            # download_model), pa `modal run <file>` bez njega puca s "Specify a Modal Function
+            # or local entrypoint". Poziv je non-fatal (|| echo), pa bi inače tiho padao.
+            modal run "$MODAL_APP"::main --wav "$w" --source-lang "$src_lang" --target-lang hr \
               || echo "   ⚠️ Modal nije uspio za $bn — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
         done
         echo "   ✅ Modal transkripcija gotova — .canary.srt su lokalno, KORAK 6 (diarize) ih hvata."

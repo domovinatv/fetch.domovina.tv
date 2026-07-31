@@ -20,7 +20,8 @@ modal run modal_canary/canary_modal.py::download_model   # napuni Volume s R2 (6
 ## Ad-hoc transkripcija
 
 ```bash
-modal run modal_canary/canary_modal.py --wav /put/do/file.wav   # → file.wav.canary.srt/.csv pokraj WAV-a
+# ::main je OBAVEZAN — datoteka ima više entrypointa (main/batch/download_model)
+modal run modal_canary/canary_modal.py::main --wav /put/do/file.wav   # → file.wav.canary.srt/.csv pokraj WAV-a
 ```
 
 ## Bulk batch (jedan topli container)
