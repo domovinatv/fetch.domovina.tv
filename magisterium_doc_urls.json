@@ -2,6 +2,14 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "General Audience of 19 August 2015: The family - 23. Work",
+      "uuid": "4955e22f-1287-4ca3-8478-4bbb5fe0570c"
+    },
+    {
+      "match": "General Audience of 8 July 2009: Caritas in veritate",
+      "uuid": "a43d99ea-e31a-4a18-86e3-dcfa596cc9c0"
+    },
+    {
       "match": "Intervention by His Excellency Mons. Diarmuid Martin to the Plenary Council of the World Trade Organization",
       "uuid": "ebfaf943-f073-4e6b-a591-d0954548b091"
     },
@@ -4820,6 +4828,50 @@
     {
       "match": "To Consentius, Against Lying",
       "uuid": "be8e9608-3a5e-4e7b-a122-6756da5dd22f"
+    },
+    {
+      "match": "To the participants in the Study Week organized by the Pontifical Academy of Sciences (October 27, 1989)",
+      "uuid": "6b0c872f-2705-4c08-8998-7146d0ecfd37"
+    },
+    {
+      "match": "General Audience of 16 February 2022 - Catechesis on Saint Joseph: 12. Saint Joseph, Patron of the Church",
+      "uuid": "f5dc6c9f-2f88-4447-a2d2-4ac4d13bcbba"
+    },
+    {
+      "match": "General Audience of 19 March 2003",
+      "uuid": "654c49e5-5fbc-49d4-91c7-55a70f2c8515"
+    },
+    {
+      "match": "Quamquam Pluries",
+      "uuid": "279a1d7e-95b5-4610-ac52-a9898574b50d"
+    },
+    {
+      "match": "Address on moral and religious dictates concerning natural painless childbirth",
+      "uuid": "31b7d140-a4a7-4e76-9857-7edb31689a3b"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1956",
+      "uuid": "dff29ad8-236e-41b9-b8f8-aa959e252aa6"
+    },
+    {
+      "match": "Letter to Congress on Maternal Health (May 8, 2024)",
+      "uuid": "96712102-c49f-4b11-98de-dbd6bfdcbf67"
+    },
+    {
+      "match": "General Audience of 20 July 1994",
+      "uuid": "7640ff59-625e-4a9f-93b5-cd667cce4803"
+    },
+    {
+      "match": "General Audience of 12 March 1980",
+      "uuid": "2585af25-ade8-40df-99d6-187fcf93e43f"
+    },
+    {
+      "match": "Statement By Archbishop Caccia During The 68th Commission On The Status Of Women",
+      "uuid": "ea50720d-9630-4ea2-82b7-14922aed99c1"
+    },
+    {
+      "match": "General Audience of 3 January 1979",
+      "uuid": "fa1d5cb8-5dc9-4d9e-a1a5-926a40e77e6b"
     }
   ]
 }

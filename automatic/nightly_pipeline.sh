@@ -272,8 +272,16 @@ acquire_pipeline_lock wait
 # uputu i imenovao voditelja iz općeg znanja; Opus/Haiku u slijepom testu nisu.
 # Epizoda je trajni statični sadržaj → premium output. PREDUVJET: claude CLI u
 # PATH-u launchd job-a (~/.local/bin u tv.domovina.fetch.nightly.plist).
+# --with-modal-transcribe --modal-scope channels (2026-07-31): SINGLE-PASS.
+# Nove epizode se transkribiraju na Modalu u istom prolazu umjesto da čekaju ručno
+# pokretanje Colab notebooka (dvoprolazni put: WAV → Drive → notebook → rclone natrag).
+# Odluka od 2026-07-25 ("nightly ostaje Colab") počivala je na procjeni $0.06/ep za Modal;
+# izmjereno u batch režimu 2026-07-29 je $0.0087-0.0116/ep, pa za dnevni priljev od 1-5
+# epizoda ovo košta centе po noći. Vidi docs/transcription_colab_vs_modal_cost_2026-07.md §4.6.
+# Trostruka ograda protiv troška: MODAL_FRESH_DAYS=2 (nikad backlog), MODAL_MAX_FILES=20
+# (iznad → soft-skip na Colab), rclone exclude po videu (Colab ne vidi iste WAV-ove).
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude || true
+    env CLAUDE_MODEL=opus "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego

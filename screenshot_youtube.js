@@ -184,8 +184,16 @@ function getStreamUrl(videoId, allowRefreshRetry = true, useLiveBrowserCookies =
         ? ["--cookies-from-browser", BROWSER_NAME]
         : COOKIE_ARGS;
 
+    // FORMAT LANAC (ispravljeno 2026-07-30) — RANIJE: "96/95/94/93/18/bestvideo[ext=mp4]/…"
+    // Zamka: 96/95/94/93 su HLS formati koji postoje SAMO za live streamove, pa je za
+    // obični VOD lanac padao na "18" = 640x360 progressive (uvijek postoji) i do
+    // "bestvideo" se nikad nije došlo. Rezultat: 360p screenshotovi kroz cijeli korpus,
+    // koji se onda još i upscale-aju u og-share (1200x630) → mutno.
+    // Sada bestvideo ide PRVI, s avc1 preferencom (hardverski dekod u ffmpegu; AV1/VP9
+    // bi radili softverski i bili bitno sporiji). Cap 1080p — 4K ne donosi ništa za
+    // 1200x630 og-share, a troši bandwidth i disk.
     const args = [
-        "-f", "96/95/94/93/18/bestvideo[ext=mp4]/bestvideo/best",
+        "-f", "bestvideo[height<=1080][vcodec^=avc1]/bestvideo[height<=1080]/96/95/94/93/bestvideo/18/best",
         "--get-url",
         ...PROXY_ARGS,
         ...SOURCE_ADDR_ARGS,

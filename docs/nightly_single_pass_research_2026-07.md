@@ -13,7 +13,38 @@ round-tripa) i Magisterium MCP na hrvatskom — jer pri malom broju novih epizod
 Colab round-tripa (upload WAV na Drive → ručno pokreni notebook → rclone sync natrag) više
 ne izgleda isplativo?
 
-## Odluka (2026-07-25)
+## ⚠️ ODLUKA PROMIJENJENA (2026-07-31) — plan iz §"Plan koji NIJE izveden" je IZVEDEN
+
+Nightly sada radi **single-pass**: `--with-modal-transcribe --modal-scope channels`.
+
+**Što je promijenilo odluku:** originalna računica (dolje) uzimala je **$0.06/ep** za Modal,
+jer je pretpostavljala ad-hoc režim gdje svaka epizoda plaća vlastiti cold start. Mjerenje na
+stvarnom backlogu (2026-07-29, 115 epizoda / 82 h audia) pokazalo je da **batch režim s jednim
+toplim containerom košta $0.0087-0.0116/ep** — 5× jeftinije. Za dnevni priljev od 1-5 epizoda
+to je **nekoliko centi po noći**, pa argument "čekaj Colab jer je jeftiniji" pada: razlika je
+manja od cijene jednog ručnog pokretanja notebooka. Brojke: `docs/transcription_colab_vs_modal_cost_2026-07.md` §4.6.
+
+**Što je izvedeno** (koraci 1-5 iz skice niže, uz jedan dodatak):
+
+| # | Što | Gdje |
+|---|---|---|
+| 1 | Scan pending WAV-ova izdvojen u blok **prije** KORAKA 2.5 → `MODAL_PENDING` je jedini izvor istine | `run_pipeline.sh` |
+| 2 | KORAK 2.5 gradi rclone exclude **po videu** iz te liste (`- *_yt_<id>*`) umjesto paušalnog `- _unlisted/**` | `run_pipeline.sh` |
+| 3 | `--modal-scope unlisted\|channels\|all` (default `unlisted` = nula regresije) + `MODAL_FRESH_DAYS` (default 2) | `run_pipeline.sh` |
+| 4 | Soft-skip na Colab umjesto ABORT-a kad svježih > `MODAL_MAX_FILES` | `run_pipeline.sh` |
+| 5 | `--with-modal-transcribe --modal-scope channels` | `automatic/nightly_pipeline.sh` |
+| +6 | **Jezik po kanalu** — Canary nema auto-detect, a `launched`/`subclub`/`catholic_futurist` su EN | `automatic/channel_languages.conf` |
+
+Dodatak #6 nije bio u skici, a bio je nužan: KORAK 2.6 je hardkodirao `--source-lang hr`, pa bi
+engleski kanali dobili krivu pretpostavku o izvornom jeziku.
+
+**Colab put ostaje netaknut** za sve što Modal ne uzme: bulk backlog, sve starije od
+`MODAL_FRESH_DAYS`, i sve iznad capa. Ne mijenja se ni prioritetni fast-path preko
+`pipeline.domovina.ai` — on i dalje radi za hitne epizode izvan nightly ciklusa.
+
+---
+
+## Odluka (2026-07-25) — POVIJESNO, više ne vrijedi
 
 **Nightly ostaje nepromijenjen.** Colab G4 batch ostaje transkripcijski put za sve što
 nightly pokupi, jer je **batch transkripcija i dalje najisplativija** (~$0.003/ep na skali).

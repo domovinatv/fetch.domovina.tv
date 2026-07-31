@@ -1,0 +1,96 @@
+# Operativne zamke — sesija 2026-07-29/31
+
+Zamke koje su stvarno pukle tijekom backfilla 115 epizoda i prelaska na single-pass nightly.
+Sve su reproducibilne i nijedna nije očita iz koda, pa su zapisane ovdje.
+
+---
+
+## 1. `--rebuild-state` NIJE "popravi zapelu epizodu" — re-queue-a cijeli kanal
+
+**Što se dogodilo:** 5 epizoda je imalo `.canary.diarized.srt` ali ne i `.canary.summary.json`,
+a skripta ih je javljala kao `⏭️ preskočeno (cache)`. Done-cache je bio stale. Pokrenuto je
+`--rebuild-state` nad cijelim `_unlisted` kanalom da se to popravi.
+
+**Posljedica:** rebuild briše cijeli state i gradi ga ispočetka, a kao "gotov" priznaje samo
+članak koji odgovara **trenutnom model slugu**. Svih 58 `_unlisted` epizoda imalo je članke od
+`gemini-3.5-flash`, što pod `GEMINI_BACKEND=claude` izgleda kao "nema članka" → 35 epizoda je
+regenerirano na Opusu prije prekida. ~7.5 h i ≈15 M tokena kvote na posao koji nije trebao.
+
+**Kako ispravno:** scope-aj na konkretan video, ne na kanal:
+
+```bash
+node summarize_gemini.js --input-dir storage/output --channel launched \
+    --video-id 029f40caafc --rebuild-state        # BEZ --dry-run
+```
+
+**Druga zamka u istom potezu:** `--rebuild-state` **s** `--dry-run` ne zapiše rebuildani state,
+pa ghost preživi i izgleda kao da ispravak ne radi. Potvrđeno empirijski: isti video s
+`--rebuild-state` bez `--dry-run` prošao je iz prve (22.8 s).
+
+**Nije bilo štete na podacima** — regenerirani članci su valjani. Dedup uzima leksikografski
+najveći `_{datum}_{model}`, pa `2026-07-31_opus` pobjeđuje `2026-07-27_gemini-3.5-flash`.
+Posljedica je da ti članci imaju **nove timestampove**, pa im trebaju i novi screenshotovi —
+sljedeći prolaz s `--with-screenshots` to sanira sam.
+
+---
+
+## 2. Dugotrajni ručni driver koji drži `PIPELINE_LOCK` blokira nightly
+
+**Što se dogodilo:** driver pokrenut u 00:24 uzeo je `PIPELINE_LOCK` i držao ga 7.5 h.
+Nightly je startao u 03:00, uredno čekao (`acquire_pipeline_lock wait`) — i stajao 5 sati.
+Nova epizoda `domovina_tv` ostala je neobrađena, što je izgledalo kao kvar nightlyja.
+
+**Zaključak:** lock radi točno kako treba; problem je bio što ručni posao nije bio ograničen.
+Prije pokretanja bilo čega što drži lock preko 03:00, procijeni trajanje. Ako posao može
+prijeći u nightly prozor, ili ga rasporedi da završi prije, ili ga svjesno pusti bez locka
+(uz rizik od race-a nad state datotekama), ili ga prekini prije 03:00.
+
+**Dijagnostika:** `cat automatic/logs/.pipeline.lock.d/pid` daje PID holdera. Ako je holder
+mrtav, sljedeći `acquire` ga sam detektira kao stale i preuzima.
+
+---
+
+## 3. Diarizacija s `--workers 4` je srušila stroj (OOM)
+
+Mac Mini M4 Pro, **24 GB RAM**. Svaki pyannote worker troši ~3 GB + 2 threada. `--workers 4`
+uz paralelni Modal upload i node procese potrošio je memoriju i ubio Claude Code sesiju.
+
+**Praktično pravilo na 24 GB:** `--workers 2` kad išta drugo radi, `--workers 4` samo ako je
+stroj inače prazan. Izmjereno: 115 epizoda / `--workers 4` ≈ 30 min, `--workers 2` ≈ 8.5 min
+za 4 epizode — diarizacija nije usko grlo, pa agresivan paralelizam ne donosi dovoljno da bi
+se isplatio rizik.
+
+---
+
+## 4. Stvarni ključevi u `article.json` / `outline.json` — za skripte koje ih validiraju
+
+Tri puta u istoj sesiji ad-hoc provjera dala je **lažni rezultat** zbog krivo pogođenih
+ključeva ili regexa. Ovo je stvarna struktura:
+
+```jsonc
+// *.article.json
+{
+  "metadata": { "source_file": "...", "generated_at": "...", "model": "claude-code:opus" },
+  "iterations": [ { "iteration_number": 1, "start_time": "00:00:04", ... } ]
+}
+```
+
+- Ključ je **`iterations`** (engleski), **ne** `iteracije`. Skener koji gleda samo hrvatsku
+  varijantu vrati 0 i svaki članak prijavi kao prazan.
+- Model slug u imenu datoteke **sadrži točke** (`gemini-3.5-flash`), pa regex
+  `_(\d{4}-\d{2}-\d{2})_([^.]+)\.article\.json$` **ne matcha** — ispadne da su svi članci
+  `opus`. Koristi `(.+)` ili matchaj s kraja.
+- `storage/output/*` su **symlinkovi**, pa `find` bez `-L` propusti ~95% korpusa
+  (62,308 PNG-ova vs 621 bez `-L`).
+
+Validator koji ovo poštuje: usporedi `iterations.length` u članku s istim brojem u pripadajućem
+`outline.json` i provjeri da svaka iteracija ima tekstualni sadržaj. Nad 167 članaka iz
+backfilla dao je 167/167 ispravnih.
+
+---
+
+## 5. `setsid` ne postoji na macOS-u
+
+Za pozadinski posao koji mora preživjeti pad sesije: `nohup ... &` + `disown`. Log piši u
+repo (`automatic/logs/`), **ne** u scratchpad — scratchpad se briše sa sesijom i s njim sav
+trag o tome što je run radio.

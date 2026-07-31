@@ -177,10 +177,12 @@ echo ""
 #   --with-modal-transcribe → NADOGRADNJA (single-pass): uključuje KORAK 2.6 — transkribira lokalne
 #                            WAV-ove na Modal serverless A100-40 GPU-u (modal_canary/canary_modal.py) i
 #                            piše .canary.srt lokalno, pa KORAK 6 diarizira odmah u istom runu (bez
-#                            Colab/rclone round-tripa). SCOPE = samo _unlisted (ad-hoc pipeline.domovina.ai
-#                            jobovi); bulk ostaje na Colab G4. Cap MODAL_MAX_FILES (default 20). Override
-#                            scope: MODAL_TRANSCRIBE_DIR=... Setup: pip install modal && modal setup &&
+#                            Colab/rclone round-tripa). Cap MODAL_MAX_FILES (default 20).
+#                            Setup: pip install modal && modal setup &&
 #                            modal run modal_canary/canary_modal.py::download_model. Bez flaga = stari put.
+#   --modal-scope <s>     → što Modal smije uzeti: unlisted (default, ad-hoc jobovi) |
+#                            channels (praćeni kanali, samo svježe ≤MODAL_FRESH_DAYS dana) | all.
+#                            channels = single-pass nightly. Iznad capa → soft-skip na Colab.
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
 #                            Use case: Ethernet je primarni link (gigabit za rad), ali
@@ -219,6 +221,14 @@ WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
+# --modal-scope (2026-07-31): koje WAV-ove Modal smije transkribirati.
+#   unlisted → samo _unlisted/ (ad-hoc jobovi) — DEFAULT, staro ponašanje, nula regresije
+#   channels → praćeni kanali (svježi WAV-ovi, vidi MODAL_FRESH_DAYS) — single-pass nightly
+#   all      → oboje
+MODAL_SCOPE="${MODAL_SCOPE:-unlisted}"
+# Koliko dana unatrag WAV smije biti da ga Modal uzme u scope=channels. Štiti od toga da
+# jednokratni backlog (npr. novi kanal sa 60 epizoda) povuče cijeli disk na Modal.
+MODAL_FRESH_DAYS="${MODAL_FRESH_DAYS:-2}"
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
@@ -269,6 +279,10 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--with-modal-transcribe" ]; then
         WITH_MODAL_TRANSCRIBE=true
         i=$((i + 1))
+    elif [ "$arg" = "--modal-scope" ]; then
+        # unlisted (default, staro ponašanje) | channels (praćeni kanali) | all
+        MODAL_SCOPE="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
     elif [ "$arg" = "--modal-only" ]; then
         # Prioritetni fast-path: Modal transkribira SAMO ovaj youtube_id (single-video),
         # a Drive-exclude izuzima točno taj WAV (ostali _unlisted i dalje idu na Colab).
@@ -505,6 +519,70 @@ if ! node "$SCRIPT_DIR/convert_to_wav.js" "${COMMON_ARGS[@]}" "${PRIORITY_SCOPE_
 fi
 
 echo ""
+
+# ─── PRE-2.5: SKUPLJANJE MODAL KANDIDATA (jedini izvor istine) ──────────────────
+# RAZLOG (2026-07-31): lista se gradi JEDNOM, prije KORAKA 2.5, pa je koriste i
+# rclone exclude (2.5) i Modal petlja (2.6). Bez toga bi 2.5 i 2.6 radili dva
+# neovisna scana → WAV koji Modal uzme može u međuvremenu otići i na Drive →
+# Colab ga transkribira paralelno (dupli GPU trošak). D1 transcribe claim NE
+# pokriva videe praćenih kanala, pa je ovaj filter jedina stvarna zaštita.
+
+# Zadnji _yt_<id> u imenu (naslov SAM može sadržavati _yt_ → greedy .* forsira ZADNJI).
+_yt_id_from_name() {
+    local name="$1"
+    if [[ "$name" =~ .*_yt_([A-Za-z0-9_-]{11})([._]|$) ]]; then
+        printf '%s' "${BASH_REMATCH[1]}"
+    fi
+}
+
+MODAL_PENDING=()
+MODAL_SOFT_SKIP=false
+if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
+    MODAL_MAX_FILES="${MODAL_MAX_FILES:-20}"
+    _modal_scan_dirs=()
+    case "$MODAL_SCOPE" in
+        unlisted) _modal_scan_dirs=("$OUTPUT_DIR/_unlisted") ;;
+        channels|all)
+            for _d in "$OUTPUT_DIR"/*/; do
+                _bn="$(basename "$_d")"
+                [ "$_bn" = "_unlisted" ] && [ "$MODAL_SCOPE" = "channels" ] && continue
+                _modal_scan_dirs+=("$_d")
+            done
+            ;;
+        *) echo "   ⚠️ Nepoznat --modal-scope '$MODAL_SCOPE' — koristim 'unlisted'."
+           _modal_scan_dirs=("$OUTPUT_DIR/_unlisted") ;;
+    esac
+
+    # mtime gate: u scope=channels uzmi samo SVJEŽE WAV-ove. Bez toga bi jednokratni
+    # backlog (novi kanal, 60 epizoda) probio cap i ugasio Modal korak zauvijek.
+    _mtime_args=()
+    [ "$MODAL_SCOPE" != "unlisted" ] && _mtime_args=(-mtime "-${MODAL_FRESH_DAYS}")
+
+    for _d in "${_modal_scan_dirs[@]}"; do
+        [ -d "$_d" ] || continue
+        while IFS= read -r w; do
+            [ -z "$w" ] && continue
+            [ -f "${w}.canary.srt" ] && continue
+            if [ -n "$MODAL_ONLY_ID" ] && [[ "$(basename "$w")" != *"_yt_${MODAL_ONLY_ID}"* ]]; then
+                continue
+            fi
+            MODAL_PENDING+=("$w")
+        done < <(find -L "$_d" -maxdepth 1 -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' \
+                    "${_mtime_args[@]}" 2>/dev/null | sort)
+    done
+
+    # SOFT-SKIP (ne ABORT): ako je svježih više od capa, cijeli posao prepusti Colabu.
+    # Stari ABORT je bio all-or-nothing i pretvrd za unattended nightly.
+    if [ "${#MODAL_PENDING[@]}" -gt "$MODAL_MAX_FILES" ]; then
+        echo "   ⏭️  Modal scope='$MODAL_SCOPE': ${#MODAL_PENDING[@]} kandidata > cap ($MODAL_MAX_FILES)"
+        echo "      → prepuštam Colab batch putu (jeftiniji za bulk); WAV-ovi idu na Drive kao inače."
+        MODAL_PENDING=()
+        MODAL_SOFT_SKIP=true
+    elif [ "${#MODAL_PENDING[@]}" -gt 0 ]; then
+        echo "   🎯 Modal scope='$MODAL_SCOPE': ${#MODAL_PENDING[@]} kandidata (cap $MODAL_MAX_FILES, svježe ≤${MODAL_FRESH_DAYS}d)"
+    fi
+fi
+
 # --- POST-KORAK 2: UPLOAD NOVIH WAV I SRT NA DRIVE (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   📢 KORAK 2.5: Upload WAV datoteka na Google Drive"
@@ -519,14 +597,26 @@ elif command -v rclone &> /dev/null; then
     # transkribira Modal (lokalni A100), a NE Colab batch. Zato ih ISKLJUČI iz Drive uploada da
     # ih Colab fizički ni ne vidi (uz D1 transcribe claim). Bez flaga: default put nepromijenjen.
     # Filter mora doći PRIJE "+ *.wav" (rclone: prvi match pobjeđuje).
+    # EXCLUDE SE GRADI IZ MODAL_PENDING (ista lista koju 2.6 stvarno obrađuje) —
+    # po videu, ne paušalno po direktoriju. Colab tako fizički ne vidi WAV koji Modal drži.
     RCLONE_MODAL_FILTER=()
     if [ -n "$MODAL_ONLY_ID" ]; then
         # Prioritetni single-video run: izuzmi SAMO taj video (ostali _unlisted → Colab kao inače).
         RCLONE_MODAL_FILTER=(--filter "- *_yt_${MODAL_ONLY_ID}*")
         echo "   🔒 --modal-only ${MODAL_ONLY_ID}: izuzimam samo taj WAV iz Drive uploada (drži ga Modal)."
-    elif [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
-        RCLONE_MODAL_FILTER=(--filter "- _unlisted/**")
-        echo "   🔒 --with-modal-transcribe: izuzimam _unlisted/ iz Drive uploada (drži ih Modal)."
+    elif [ "$WITH_MODAL_TRANSCRIBE" = true ] && [ "${#MODAL_PENDING[@]}" -gt 0 ]; then
+        for _w in "${MODAL_PENDING[@]}"; do
+            _yid="$(_yt_id_from_name "$(basename "$_w")")"
+            if [ -n "$_yid" ]; then
+                RCLONE_MODAL_FILTER+=(--filter "- *_yt_${_yid}*")
+            else
+                # Bez _yt_ ID-a (npr. sintetički beamly nazivi) → izuzmi po punom imenu.
+                RCLONE_MODAL_FILTER+=(--filter "- $(basename "$_w")")
+            fi
+        done
+        echo "   🔒 Izuzimam ${#MODAL_PENDING[@]} WAV-ova iz Drive uploada (drži ih Modal, scope='$MODAL_SCOPE')."
+    elif [ "$WITH_MODAL_TRANSCRIBE" = true ] && [ "$MODAL_SOFT_SKIP" = true ]; then
+        echo "   ↩️  Modal je soft-skipan (iznad capa) → svi WAV-ovi idu na Drive za Colab."
     fi
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
@@ -547,10 +637,12 @@ fi
 # na Modal serverless A100-40 GPU-u (modal_canary/canary_modal.py) i piše .canary.srt
 # POKRAJ WAV-a. KORAK 6 (diarizacija) ga odmah nađe → cijeli run je jednoprolazan.
 #
-# SIGURNOST OD TROŠKA (bitno): default scope je SAMO _unlisted poddir — ondje slijeću
-# pipeline.domovina.ai ad-hoc jobovi (bridge: fetch.js --unlisted-url). Bulk backlog
-# (tisuće WAV-ova po kanalima) se NE dira — taj ostaje na Colab G4 (jeftinije za mase).
-# Tvrdi cap MODAL_MAX_FILES sprječava slučajni fan-out. Override scope: MODAL_TRANSCRIBE_DIR.
+# SIGURNOST OD TROŠKA (bitno): default scope je i dalje SAMO _unlisted (ad-hoc jobovi).
+# `--modal-scope channels` (2026-07-31) proširuje ga na praćene kanale, ali TROSTRUKO ograđeno:
+#   1. mtime gate MODAL_FRESH_DAYS (default 2) — samo svježi priljev, nikad backlog
+#   2. cap MODAL_MAX_FILES (default 20) — iznad toga SOFT-SKIP na Colab (ne ABORT)
+#   3. rclone exclude iz iste MODAL_PENDING liste (KORAK 2.5) — Colab fizički ne vidi te WAV-ove
+# Bulk backlog (tisuće WAV-ova) i dalje ide na Colab G4 — jeftiniji po fajlu na skali.
 if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -558,23 +650,28 @@ echo "   📢 KORAK 2.6: Modal on-demand Canary transkripcija [--with-modal-tran
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-MODAL_TRANSCRIBE_DIR="${MODAL_TRANSCRIBE_DIR:-$OUTPUT_DIR/_unlisted}"
 MODAL_APP="$SCRIPT_DIR/modal_canary/canary_modal.py"
-MODAL_MAX_FILES="${MODAL_MAX_FILES:-20}"
 
 # TRANSCRIBE CLAIM (2026-07-07): prije Modala uzmi lock u pipeline.domovina.ai (D1) da Colab
 # Canary batch ne transkribira isti _unlisted WAV paralelno. Sve NE-fatalno: bez key-a ili
 # nedostupnog queuea → ponaša se točno kao dosad (transkribira sve pending WAV-ove).
+# NAPOMENA: claim NE pokriva videe praćenih kanala (tracked:false → uvijek claimed), pa je
+# za scope=channels stvarna zaštita rclone exclude iz KORAKA 2.5 (ista MODAL_PENDING lista).
 PIPELINE_QUEUE_BASE="${PIPELINE_QUEUE_BASE:-https://pipeline.domovina.ai}"
 # Token: isti PIPELINE_QUEUE_INGEST_KEY koji koristi bridge (claim_and_dispatch.js). Prazan → bez claima.
 
-# Zadnji _yt_<id> u imenu fajla (naslov SAM može sadržavati _yt_ → greedy .* forsira ZADNJI;
-# ekvivalent JS extractVideoIdFromFilename, konvencija iz CLAUDE.md).
-_yt_id_from_name() {
-    local name="$1"
-    if [[ "$name" =~ .*_yt_([A-Za-z0-9_-]{11})([._]|$) ]]; then
-        printf '%s' "${BASH_REMATCH[1]}"
+# Izvorni jezik po kanalu (automatic/channel_languages.conf). Canary NEMA auto-detect —
+# default hr→hr; engleski kanali moraju ići en→hr, inače model dobije krivu pretpostavku.
+CHANNEL_LANG_CONF="$SCRIPT_DIR/automatic/channel_languages.conf"
+_source_lang_for_path() {
+    local chan; chan="$(basename "$(dirname "$1")")"
+    local lang="hr"
+    if [ -f "$CHANNEL_LANG_CONF" ]; then
+        local hit
+        hit="$(grep -E "^${chan}=" "$CHANNEL_LANG_CONF" 2>/dev/null | head -1 | cut -d= -f2 | tr -d '[:space:]')"
+        [ -n "$hit" ] && lang="$hit"
     fi
+    printf '%s' "$lang"
 }
 
 if ! command -v modal &> /dev/null; then
@@ -582,31 +679,16 @@ if ! command -v modal &> /dev/null; then
     echo "      Setup: pip install modal && modal setup && modal run $MODAL_APP::download_model"
 elif [ ! -f "$MODAL_APP" ]; then
     echo "   ⚠️ Nema $MODAL_APP — preskačem Modal transkripciju."
-elif [ ! -d "$MODAL_TRANSCRIBE_DIR" ]; then
-    echo "   ⏭️  Nema $MODAL_TRANSCRIBE_DIR — ništa za Modal transkribirati."
 else
-    # WAV-ovi bez .canary.srt (idempotentno), preskoči loudnorm-izvedene i ._ resource-forkove.
-    # -L slijedi symlinkane kanale (storage/output symlink arhitektura, vidi CLAUDE.md).
-    MODAL_PENDING=()
-    while IFS= read -r w; do
-        [ -z "$w" ] && continue
-        [ -f "${w}.canary.srt" ] && continue
-        # --modal-only: prioritetni single-video run → transkribiraj SAMO taj youtube_id.
-        # Time nema MODAL_MAX_FILES abort rizika i ne diramo ostale _unlisted WAV-ove.
-        if [ -n "$MODAL_ONLY_ID" ] && [[ "$(basename "$w")" != *"_yt_${MODAL_ONLY_ID}"* ]]; then
-            continue
-        fi
-        MODAL_PENDING+=("$w")
-    done < <(find -L "$MODAL_TRANSCRIBE_DIR" -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' 2>/dev/null | sort)
-
+    # MODAL_PENDING je izgrađen PRIJE koraka 2.5 (jedini izvor istine — vidi ondje).
     MODAL_N=${#MODAL_PENDING[@]}
-    echo "   📋 WAV-ova bez .canary.srt u ${MODAL_TRANSCRIBE_DIR}: $MODAL_N (cap: $MODAL_MAX_FILES)"
+    echo "   📋 Modal kandidata (scope='$MODAL_SCOPE'): $MODAL_N"
     if [ "$MODAL_N" -eq 0 ]; then
-        echo "   ✅ Ništa za transkribirati (svi već imaju .canary.srt)."
-    elif [ "$MODAL_N" -gt "$MODAL_MAX_FILES" ]; then
-        echo "   🛑 $MODAL_N > MODAL_MAX_FILES ($MODAL_MAX_FILES) — ABORT Modal koraka radi zaštite od troška."
-        echo "      Modal je za AD-HOC (par fajlova). Za bulk koristi Colab G4 (colab_canary/)."
-        echo "      Ako baš želiš: MODAL_MAX_FILES=$MODAL_N ./run_pipeline.sh --with-modal-transcribe ..."
+        if [ "$MODAL_SOFT_SKIP" = true ]; then
+            echo "   ⏭️  Soft-skip — posao je prepušten Colab batchu (iznad capa)."
+        else
+            echo "   ✅ Ništa za transkribirati (svi već imaju .canary.srt)."
+        fi
     elif [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         echo "   ⚠️ DRY RUN — bili bi transkribirani (bez Modal poziva):"
         for w in "${MODAL_PENDING[@]}"; do echo "      🔄 $(basename "$w")"; done
@@ -629,8 +711,9 @@ else
                     fi
                 fi
             fi
-            echo "   ⬆️  Modal transkripcija: $bn"
-            modal run "$MODAL_APP" --wav "$w" --source-lang hr --target-lang hr \
+            src_lang="$(_source_lang_for_path "$w")"
+            echo "   ⬆️  Modal transkripcija: $bn [${src_lang}→hr]"
+            modal run "$MODAL_APP" --wav "$w" --source-lang "$src_lang" --target-lang hr \
               || echo "   ⚠️ Modal nije uspio za $bn — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
         done
         echo "   ✅ Modal transkripcija gotova — .canary.srt su lokalno, KORAK 6 (diarize) ih hvata."

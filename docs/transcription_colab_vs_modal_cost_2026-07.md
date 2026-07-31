@@ -163,6 +163,43 @@ Modal je dakle **efektivno $0**, dok Colab traži kupnju credita. Tek kad ad-hoc
 free tier (~500/mj) — a to je već "bulk" režim — Colab batch postaje i nominalno i operativno
 pravi izbor. (Napomena: uvjeti free tiera se mogu promijeniti — provjeri modal.com/pricing.)
 
+### 4.6 IZMJERENO 2026-07-29: Modal **batch** (treći režim, nije bio u modelu)
+
+§4.1-4.5 modeliraju samo **Modal ad-hoc** (jedan `modal run` po epizodi → svaka plaća svoj cold
+start + keep-warm → ~$0.06/ep). Eksperiment na stvarnom backlogu pokazao je da postoji **treći
+režim**: `modal run modal_canary/canary_modal.py::batch` drži JEDAN ephemeral app kroz cijeli run,
+model se učita jednom, a `MODAL_CANARY_MAX_CONTAINERS=1` drži točno jedan GPU. Time per-epizodni
+cold start nestaje i cijena padne **~5×** u odnosu na ad-hoc pretpostavku.
+
+**Backlog od 115 epizoda / 82.1 h audia / 8.7 GB WAV-ova, A100-40 @ $0.000583/s:**
+
+| Run | Fajlova | Upload | Wall clock | Σ inference | s/fajl |
+|---|---:|---:|---:|---:|---:|
+| Pilot (`--limit 5 --concurrency 1`) | 5 | 0.1 GB | 2.3 min | 0.6 min | 7 s |
+| EN (`launched,subclub`, en→hr) | 15 | 1.8 GB | 8.0 min | 6.2 min | 25 s |
+| HR (ostalo, hr→hr) | 95 | 6.8 GB | 27.9 min | 21.9 min | 14 s |
+| **Ukupno** | **115** | **8.7 GB** | **38.2 min** | **28.7 min** | — |
+
+- **Trošak:** donja granica (samo inference) **$1.00**, gornja (cijeli wall clock naplaćen kao GPU)
+  **$1.34** → **$0.0087–0.0116/ep**. Colab za isti N: `0.0245 + 0.00354×115` = **$0.43**.
+  Dakle Modal batch ≈ **3× Colab**, apsolutna razlika **~$0.90** na 115 epizoda.
+- **Throughput:** 82.1 h audia u 38.2 min wall = **~129× realtime**, end-to-end (uključivo upload).
+- **Nula ručnog rada:** bez Drive round-tripa, bez otvaranja notebooka, `.canary.srt` slijeće
+  odmah pokraj WAV-a → sljedeći `run_pipeline.sh` ga diarizira.
+
+**Gdje ide novac:** inference je ~$0.01/ep i praktički nebitan; plaća se **uptime containera**.
+Usko grlo je **upload s Maca** (8.7 GB), a dok se uploada, topli GPU stoji i naplaćuje se — to je
+cijela razlika između donje i gornje granice ($1.00 vs $1.34). Zato `MODAL_CANARY_MAX_CONTAINERS=1`:
+više containera na upload-bound poslu znači samo više GPU-a koji čeka.
+
+**Revidirano pravilo:** za backlog **20-150 epizoda** razlika Modal-batch vs Colab je **ispod $1**,
+pa odluka i dalje nije financijska nego operativna — Modal batch pobjeđuje kad želiš da se dogodi
+**sada i bez tebe**, Colab kad ionako radiš bulk pass i imaš credite. Tek na **N ≳ 500** (Δ ≳ $4)
+Colab-ova prednost postaje iznos koji se isplati optimizirati.
+
+> Točan iznos se očitava s modal.com dashboarda (billing = uptime containera + sitno CPU/mem),
+> ne iz ove tablice — gornja/donja granica su izračun iz izmjerenih sekundi.
+
 ---
 
 ## 5. Preporuka (pravilo palca)

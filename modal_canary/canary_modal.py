@@ -60,6 +60,14 @@ DOWNLOAD_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
 # GPU: A100-40GB pokriva 3h WAV (~28 GB peak). Za 5h+ → "A100-80GB".
 GPU_SPEC = "A100-40GB"
 
+# MODAL_CANARY_MAX_CONTAINERS (2026-07-29): tvrdi strop broja GPU containera.
+# Modal naplaćuje UPTIME containera, ne inference — pa kod bulk runa gdje je uzak
+# grlo upload s Maca, više containera znači više GPU-a koji čeka na input (skuplje
+# za istu količinu posla). Postavi na 1 za najjeftiniji bulk (upload se preklapa s
+# inferenceom jednog toplog containera). Nepostavljeno = Modal default (autoscale),
+# tj. ad-hoc/pipeline put ostaje nepromijenjen.
+_MAX_CONTAINERS = int(os.environ.get("MODAL_CANARY_MAX_CONTAINERS", "0")) or None
+
 # ─── Image ───────────────────────────────────────────────────────────────────
 # Isti pinovi kao colab_canary cell 4 (potvrđeno da rade 2026-07-07): numpy<2.0 +
 # numba 0.60.x rješava "numba.cuda.types has no attribute NPDatetime" skew.
@@ -154,6 +162,7 @@ def download_model():
     volumes={MODEL_VOL_PATH: model_vol},
     timeout=3600,          # do 1h po pozivu (3h WAV se transkribira za ~35s, ovo je margin)
     scaledown_window=120,  # ostani topao 120s nakon poziva → back-to-back fajlovi reuse-aju model
+    max_containers=_MAX_CONTAINERS,
 )
 class Canary:
     @modal.enter()
@@ -251,3 +260,119 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
     print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s")
     print(f"   → {srt_out}")
     print(f"   → {csv_out}")
+
+
+# ─── Bulk eksperiment: modal run ...::batch --input-dir storage/output ────────
+# DODANO 2026-07-29 (eksperiment "koliko Modal STVARNO košta za backlog"):
+# batch entrypoint drži JEDAN ephemeral app kroz cijeli run → container ostaje
+# topao (scaledown_window=120s) i model se učita jednom, umjesto jednom po fajlu
+# kao kod `::main`. Ovo je jedina razlika u odnosu na ad-hoc put; sve ostalo
+# (SRT/CSV logika, idempotencija, imenovanje) je identično.
+#
+# Scope je EKSPLICITAN (--input-dir/--channels) — nema defaulta na cijeli disk
+# bez limita: `--limit 0` znači "svi pronađeni", pa uvijek prvo pokreni s
+# --dry-run da vidiš popis i procjenu.
+@app.local_entrypoint()
+def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
+          concurrency: int = 2, source_lang: str = "hr", target_lang: str = "hr",
+          max_mb: float = 320.0, stats_out: str = "", dry_run: bool = False,
+          gpu_usd_per_hour: float = 2.10):
+    """Bulk transkripcija svih WAV-ova bez .canary.srt (idempotentno, warm container)."""
+    import json
+    from collections import deque
+
+    root = os.path.abspath(input_dir)
+    wanted = [c.strip() for c in channels.split(",") if c.strip()]
+
+    pending = []
+    for chan in sorted(os.listdir(root)):
+        if chan.startswith("."):
+            continue
+        cdir = os.path.join(root, chan)
+        if not os.path.isdir(cdir):          # isdir slijedi symlink (storage arhitektura)
+            continue
+        if wanted and chan not in wanted:
+            continue
+        for name in sorted(os.listdir(cdir)):
+            if not name.endswith(".wav") or name.startswith("._") or ".loudnorm." in name:
+                continue
+            wav_path = os.path.join(cdir, name)
+            if os.path.exists(wav_path + ".canary.srt"):
+                continue
+            size_mb = os.path.getsize(wav_path) / (1024 * 1024)
+            pending.append((size_mb, chan, wav_path))
+
+    pending.sort()                            # najmanji prvi → rane greške su jeftine
+    skipped_big = [p for p in pending if p[0] > max_mb]
+    pending = [p for p in pending if p[0] <= max_mb]
+    if limit > 0:
+        pending = pending[:limit]
+
+    total_mb = sum(p[0] for p in pending)
+    print(f"📋 Za transkripciju: {len(pending)} WAV-ova | {total_mb / 1024:.1f} GB uploada")
+    if skipped_big:
+        print(f"   ⚠️ Preskačem {len(skipped_big)} > {max_mb:.0f} MB (OOM rizik na {GPU_SPEC}):")
+        for mb, chan, p in skipped_big:
+            print(f"      {mb:6.0f} MB  {chan}/{os.path.basename(p)[:70]}")
+    if dry_run or not pending:
+        for mb, chan, p in pending:
+            print(f"   {mb:6.0f} MB  {chan}/{os.path.basename(p)[:70]}")
+        return
+
+    stats, t_start = [], time.time()
+    inflight = deque()
+    queue = list(pending)
+
+    def _drain_one():
+        handle, mb, chan, wav_path, t_sub = inflight.popleft()
+        res = handle.get()
+        wall = time.time() - t_sub
+        if res.get("status") != "transcribed":
+            print(f"   ❌ {os.path.basename(wav_path)[:60]}: {res.get('reason')}")
+            stats.append({"file": wav_path, "channel": chan, "mb": round(mb, 1),
+                          "status": "error", "reason": res.get("reason"),
+                          "wall_s": round(wall, 1)})
+            return
+        with open(wav_path + ".canary.srt", "w", encoding="utf-8") as f:
+            f.write(res["srt"])
+        with open(wav_path + ".canary.csv", "w", encoding="utf-8") as f:
+            f.write(res["csv"])
+        done = len([s for s in stats if s["status"] == "transcribed"]) + 1
+        infer = res["elapsed"]
+        print(f"   ✅ [{done}/{len(pending)}] {mb:6.0f} MB  {infer:5.0f}s infer / {wall:5.0f}s wall  "
+              f"{res['segments']:4d} seg  {chan}/{os.path.basename(wav_path)[:50]}")
+        stats.append({"file": wav_path, "channel": chan, "mb": round(mb, 1),
+                      "status": "transcribed", "segments": res["segments"],
+                      "infer_s": round(infer, 1), "wall_s": round(wall, 1)})
+
+    while queue or inflight:
+        while queue and len(inflight) < max(1, concurrency):
+            mb, chan, wav_path = queue.pop(0)
+            data = open(wav_path, "rb").read()
+            handle = Canary().transcribe.spawn(data, os.path.basename(wav_path),
+                                               source_lang, target_lang)
+            inflight.append((handle, mb, chan, wav_path, time.time()))
+        if inflight:
+            _drain_one()
+
+    ok = [s for s in stats if s["status"] == "transcribed"]
+    infer_total = sum(s["infer_s"] for s in ok)
+    wall_total = time.time() - t_start
+    print("\n" + "─" * 66)
+    print(f"   ✅ Transkribirano: {len(ok)}/{len(pending)}   ❌ Grešaka: {len(stats) - len(ok)}")
+    print(f"   ⏱️  Wall clock:     {wall_total / 60:.1f} min")
+    print(f"   🔥 Suma inference: {infer_total / 60:.1f} min "
+          f"({infer_total / max(len(ok), 1):.0f}s po fajlu)")
+    print(f"   💵 Donja granica troška (samo inference @ ${gpu_usd_per_hour}/h GPU): "
+          f"${infer_total / 3600 * gpu_usd_per_hour:.2f}")
+    print(f"      Gornja granica (cijeli wall clock naplaćen kao GPU): "
+          f"${wall_total / 3600 * gpu_usd_per_hour:.2f}")
+    print("      → Stvarni iznos očitaj s modal.com dashboarda (billing = uptime containera,")
+    print("        uključuje cold start i čekanje na upload, ne samo inference).")
+
+    if stats_out:
+        with open(stats_out, "w", encoding="utf-8") as f:
+            json.dump({"files": stats, "wall_s": round(wall_total, 1),
+                       "infer_s": round(infer_total, 1), "gpu": GPU_SPEC,
+                       "concurrency": concurrency}, f, ensure_ascii=False, indent=2)
+        print(f"   📄 Statistika: {stats_out}")
