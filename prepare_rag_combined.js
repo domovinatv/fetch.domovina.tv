@@ -250,6 +250,84 @@ function extractDateFromFilename(filename) {
  * Rezultat: svaki chunk pokriva jednu temu, sa speaker imenima umjesto SPEAKER_XX,
  * i preciznim start/end timestampovima za video seeking.
  */
+// Gornja granica za JEDAN topic chunk. Chapter iz outlinea je semantička
+// jedinica, ne veličinska — LLM zna proizvesti chapter koji pokriva pola sata
+// razgovora, pa je bez ove granice nastajao chunk od 30 710 znakova
+// (00:20:30–00:50:00 u jednom komadu).
+//
+// Zašto 8000: dvije neovisne granice se poklapaju.
+//   1. Embedder (domovina-rag) prima do ~4295 tokena; za hrvatski je to ~16 700
+//      znakova, pa 8000 ostavlja dvostruku rezervu.
+//   2. Sve što je ikad prošlo ingest bilo je ≤8192 znaka (stari limit), pa ovaj
+//      prag ne mijenja granice 99,9 % postojećih chunkova — dijeli samo one koji
+//      nikad nisu ni ušli u korpus.
+// Uz to je polusatni chunk loš rezultat pretrage i kad stane u model: pogodak
+// vrati blok u kojem korisnik mora ručno tražiti mjesto.
+const MAX_TOPIC_CHUNK_CHARS = 8000;
+
+/**
+ * Segmenti → čitljiv tekst, uzastopni segmenti istog govornika spojeni
+ * (da se ne ponavlja "[Voditelj]" za svaku rečenicu).
+ */
+function renderSegments(segments, speakerMap) {
+    const textParts = [];
+    let lastSpeaker = null;
+    let currentParts = [];
+
+    for (const seg of segments) {
+        const speakerName = speakerMap[seg.speaker] || seg.speaker;
+        if (speakerName !== lastSpeaker) {
+            if (currentParts.length > 0) {
+                textParts.push(`[${lastSpeaker}] ${currentParts.join(" ")}`);
+            }
+            lastSpeaker = speakerName;
+            currentParts = [seg.text];
+        } else {
+            currentParts.push(seg.text);
+        }
+    }
+    if (currentParts.length > 0) {
+        textParts.push(`[${lastSpeaker}] ${currentParts.join(" ")}`);
+    }
+
+    return textParts.join("\n\n");
+}
+
+/**
+ * Podijeli segmente chaptera u dijelove ispod MAX_TOPIC_CHUNK_CHARS.
+ *
+ * Dijeli se na granicama SEGMENATA, nikad unutar rečenice — tako start/end
+ * vrijeme svakog dijela ostaje stvarni timestamp iz SRT-a, pa deep-linkovi i
+ * dalje vode na točno mjesto.
+ *
+ * Cilja se ravnomjerna podjela (ceil(ukupno / MAX) dijelova) umjesto punjenja
+ * do vrha — inače zadnji dio ispadne patuljak od par stotina znakova, koji je
+ * kao rezultat pretrage bezvrijedan.
+ */
+function splitChapterSegments(segments, speakerMap) {
+    const total = renderSegments(segments, speakerMap).length;
+    if (total <= MAX_TOPIC_CHUNK_CHARS) return [segments];
+
+    const nParts = Math.ceil(total / MAX_TOPIC_CHUNK_CHARS);
+    const target = Math.ceil(total / nParts);
+
+    const parts = [];
+    let cur = [];
+    for (const seg of segments) {
+        cur.push(seg);
+        // zadnji dio skuplja ostatak — bez toga zaokruživanje zna otvoriti
+        // prazan ili patuljasti dio viška
+        if (parts.length < nParts - 1 &&
+            renderSegments(cur, speakerMap).length >= target) {
+            parts.push(cur);
+            cur = [];
+        }
+    }
+    if (cur.length > 0) parts.push(cur);
+
+    return parts.length > 0 ? parts : [segments];
+}
+
 function buildTopicChunks(segments, outlineJson, speakerMap) {
     // Izvuci sve chaptere iz svih iteracija, sortirane po vremenu
     const chapters = [];
@@ -295,47 +373,41 @@ function buildTopicChunks(segments, outlineJson, speakerMap) {
     for (const b of boundaries) {
         if (b.segments.length === 0) continue;
 
-        // Grupiraj uzastopne segmente istog govornika unutar chaptera
-        // za čitljiviji tekst (ne ponavljaj [Voditelj] za svaki segment)
-        const textParts = [];
-        let lastSpeaker = null;
-        let currentParts = [];
-
-        for (const seg of b.segments) {
-            const speakerName = speakerMap[seg.speaker] || seg.speaker;
-            if (speakerName !== lastSpeaker) {
-                if (currentParts.length > 0) {
-                    textParts.push(`[${lastSpeaker}] ${currentParts.join(" ")}`);
-                }
-                lastSpeaker = speakerName;
-                currentParts = [seg.text];
-            } else {
-                currentParts.push(seg.text);
-            }
-        }
-        if (currentParts.length > 0) {
-            textParts.push(`[${lastSpeaker}] ${currentParts.join(" ")}`);
-        }
-
-        const transcriptText = textParts.join("\n\n");
-
-        // Prikupi sve govornike u ovom chunku
-        const chunkSpeakers = [...new Set(
-            b.segments.map(seg => speakerMap[seg.speaker] || seg.speaker)
-        )];
-
-        const actualEnd = b.endTime || secondsToTime(
+        const chapterEnd = b.endTime || secondsToTime(
             Math.round(b.segments[b.segments.length - 1].endSec)
         );
 
-        chunks.push({
-            type: "topic_transcript",
-            text: `Tema: ${b.topic}\n\n${transcriptText}`,
-            topic: b.topic,
-            speakers: chunkSpeakers,
-            startTime: b.startTime,
-            endTime: actualEnd
-        });
+        const parts = splitChapterSegments(b.segments, speakerMap);
+        for (let p = 0; p < parts.length; p++) {
+            const segs = parts[p];
+            const first = segs[0];
+            const last = segs[segs.length - 1];
+
+            // Govornici se broje PO DIJELU, ne po chapteru — inače bi dio u kojem
+            // gost uopće ne govori tvrdio da govori, a to bi izravno iskrivilo
+            // person hub i mapu osoba u domovina-rag.
+            const chunkSpeakers = [...new Set(
+                segs.map(seg => speakerMap[seg.speaker] || seg.speaker)
+            )];
+
+            // Prvi dio zadržava timestamp chaptera iz outlinea (usklađen s
+            // poglavljima u opisu videa); ostali dobivaju stvarni SRT timestamp.
+            const startTime = p === 0 ? b.startTime : secondsToTime(Math.round(first.startSec));
+            const endTime = p === parts.length - 1 ? chapterEnd : secondsToTime(Math.round(last.endSec));
+
+            // Naslov teme ostaje IDENTIČAN na svim dijelovima — broj dijela ide u
+            // metadata, ne u tekst, jer bi "(2/3)" bio šum u embeddingu.
+            chunks.push({
+                type: "topic_transcript",
+                text: `Tema: ${b.topic}\n\n${renderSegments(segs, speakerMap)}`,
+                topic: b.topic,
+                speakers: chunkSpeakers,
+                startTime,
+                endTime,
+                topicPart: p + 1,
+                topicParts: parts.length
+            });
+        }
     }
 
     return chunks;
@@ -646,7 +718,13 @@ function main() {
                         topics: summary?.topics || [],
                         chunk_index: i + 1,
                         total_chunks: totalForEpisode,
-                        has_speaker_names: hasSpeakerNames
+                        has_speaker_names: hasSpeakerNames,
+                        // Samo kad je chapter doista razdijeljen — nerazdijeljeni
+                        // chunkovi zadržavaju točno dosadašnji oblik zapisa.
+                        ...(chunk.topicParts > 1 && {
+                            topic_part: chunk.topicPart,
+                            topic_parts: chunk.topicParts
+                        })
                     }
                 };
 

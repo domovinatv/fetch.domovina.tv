@@ -329,12 +329,37 @@ Grace retry: after `GRACE_RETRY_HOURS` (24h), marker is deleted and video re-que
 ### RAG Chunking Constants
 
 ```javascript
+// prepare_rag.js — fixed-size strategy
 const DEFAULT_CHUNK_TARGET_CHARS = 2000;  // ~500 tokens for Croatian (1 token ≈ 4 chars)
 const MIN_CHUNK_CHARS = 400;              // Merge with previous if smaller
 const MAX_CHUNK_CHARS = 5000;             // Safety limit
+
+// prepare_rag_combined.js — topic strategy
+const MAX_TOPIC_CHUNK_CHARS = 8000;       // Split an outline chapter above this
 ```
 
 Three RAG strategies: `prepare_rag.js` (speaker-aware fixed-size), `prepare_rag_import.js` (outline chapter boundaries), `prepare_rag_combined.js` (hybrid — recommended).
+
+**These constants are per-strategy, not global.** `MAX_CHUNK_CHARS` lives only in
+`prepare_rag.js`; it never applied to `prepare_rag_combined.js`, whose topic
+chunks follow outline chapters and were therefore unbounded. An LLM-generated
+chapter can span half an hour, and one did: a single **30 710-char** chunk
+covering `00:20:30–00:50:00`.
+
+The consumer (`domovina-rag`) rejected it and, because one bad chunk failed the
+whole episode, **75 episodes never entered the corpus between 14.07. and 03.08.**
+`MAX_TOPIC_CHUNK_CHARS` closes that: oversized chapters are split at **segment
+boundaries** (never mid-sentence), so each part keeps a real SRT timestamp and
+deep links still land correctly. Parts are sized evenly rather than filled to the
+brim, so the tail is never a useless 200-char fragment.
+
+Split parts carry `topic_part` / `topic_parts` in metadata; the `Tema:` header
+stays identical across parts (a "(2/3)" in the text would be embedding noise).
+Speakers are recomputed **per part** — otherwise a part where the guest never
+speaks would still claim they do, which would corrupt the person hub downstream.
+
+A 30-minute chunk is also a bad retrieval unit regardless of any size limit: the
+hit returns a block the user then has to search by hand.
 
 ### File Naming Convention
 
