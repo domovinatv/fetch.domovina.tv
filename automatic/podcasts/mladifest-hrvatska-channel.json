@@ -4,7 +4,7 @@
   "channel_id": "UCc4tNmsij59QsM36bal0ZPg",
   "title": "Mladifest Hrvatska",
   "availability": null,
-  "channel_follower_count": 6370,
+  "channel_follower_count": 6380,
   "description": "Službena stranica Mladifesta Hrvatska. Official site of Youth festival Croatia.",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1785805437,
+  "epoch": 1785891795,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
