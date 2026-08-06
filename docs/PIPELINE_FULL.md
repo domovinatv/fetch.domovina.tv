@@ -225,6 +225,7 @@ bio **~3,5 h** umjesto ~10 h.
 | [`MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md) | Turnkey hibridni Magisterium runbook (korak 8.5) |
 | [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_2026-05.md) | Detaljni dizajn hibrida |
 | [`diarization_research_2026-05.md`](./diarization_research_2026-05.md) | Zašto pyannote ide lokalno |
+| [`2026-08-05-homily-extraction-nova-eva.md`](./2026-08-05-homily-extraction-nova-eva.md) | Rez propovijedi iz prijenosa sv. mise: zašto 83.7 % mise ne smije u RAG, `extract_homily.js`, gate u koracima 7-9 |
 | `gemini.conf` | `VERTEX_PROJECT=project-a275a620-...` (cementirano 2026-06-08) |
 | `magisterium_doc_urls.json` | Cache citat→UUID (raste sa svakim runom) |
 
