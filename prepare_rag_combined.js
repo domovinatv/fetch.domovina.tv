@@ -108,10 +108,32 @@ const path = require("path");
 const DIARIZED_SRT_SUFFIX = ".canary.diarized.srt";
 const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
 
+const HOMILY_SRT_SUFFIX = ".homily.srt";
+const HOMILY_META_SUFFIX = ".homily.json";
+
 // Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
-// Ako uz canary postoji i .sortformer.diarized.srt (eksperimentalna pipeline),
-// preferira sortformer. Discovery i izlazna imena fajlova ostaju canary-anchored.
+// Prioritet: homily → sortformer → canary. Discovery i izlazna imena fajlova
+// ostaju canary-anchored.
+//
+// HOMILY: kod prijenosa svetih misa `extract_homily.js` izdvaja SAMO propovijed.
+// Ovdje je učinak najveći — izmjereno na misi 24.7.2026. puna misa daje 43 chunka
+// od kojih 36 (83.7%) otpada na Red mise, isti u cijelom svijetu. Gate na
+// confidence "high"; gasi se s DOMOVINA_IGNORE_HOMILY=1. Isti helper postoji u
+// summarize_gemini.js i generate_article_gemini.js — mijenjaj u SVE TRI kopije.
 function resolveDiarizedSrt(canarySrtPath) {
+    if (process.env.DOMOVINA_IGNORE_HOMILY !== "1") {
+        const homilyPath = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, HOMILY_SRT_SUFFIX);
+        const metaPath = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, HOMILY_META_SUFFIX);
+        if (homilyPath !== canarySrtPath && fs.existsSync(homilyPath) && fs.existsSync(metaPath)) {
+            try {
+                const meta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
+                if (meta && meta.detection && meta.detection.confidence === "high"
+                    && meta.timestamps_preserved === true) {
+                    return { path: homilyPath, source: "homily" };
+                }
+            } catch (_) { /* neispravan meta → padaj na puni transkript */ }
+        }
+    }
     const sortformerPath = canarySrtPath.replace(
         /\.canary\.diarized\.srt$/,
         SORTFORMER_DIARIZED_SRT_SUFFIX
@@ -666,6 +688,7 @@ function main() {
             // Čitaj SRT — sortformer ima prioritet ako postoji
             const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
             if (_diarSource === "sortformer") console.log(`   🎭 Dijarizacija: sortformer (override canary)`);
+            if (_diarSource === "homily") console.log(`   ⛪ Izvor: SAMO PROPOVIJED (.homily.srt) — liturgija izostavljena`);
             const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
             const segments = parseSrt(srtContent);
 
