@@ -103,6 +103,50 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `generate_article_vertexai_express.js` | Vertex AI Express variant (`gemini-2.5-flash-lite`) |
 | `setup_storage.sh` | Create `storage/output/` symlinks from `storage.conf` |
 | `move_to_disk.sh` | Safely move a channel to another disk: rsync + verify + update `storage.conf` + recreate symlinks |
+| `sync_voting_candidates.mjs` | Registar → glasački bazen „Izbornog dana" (vidi ispod) |
+
+### `sync_voting_candidates.mjs` — registar → glasački bazen
+
+Puni `domovina_ai.vote_candidates` u domovina-api Supabaseu iz
+`data/podcasts_registry.json` i uploada avatare na
+`cdn.domovina.ai/registry/avatars/<slug>.jpg`. Podloga feature-a „Izborni dan"
+(domovina.ai `docs/plans/2026-08-08-glasanje-o-kanalima.md`, §3 i §9.1);
+shema je u `domovina-api/supabase/migrations/20260808120000_channel_voting.sql`.
+
+```bash
+node sync_voting_candidates.mjs --dry-run                  # default — ne piše ništa
+node sync_voting_candidates.mjs --commit                   # baza + CDN
+node sync_voting_candidates.mjs --commit --no-avatars      # samo baza (bez yt-dlp/R2)
+node sync_voting_candidates.mjs --commit --force-avatars   # prepiši avatare + CF purge
+```
+
+Env u `.env`: `SUPABASE_URL` (default `https://api.domovina.ai`),
+`SUPABASE_SERVICE_ROLE_KEY`, plus postojeći `R2_*` i
+`DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE`.
+
+Filtar kandidata (registar v1.2 → **181**): `tracking.enabled === false` AND
+ima `youtube.url` AND `metadata.status ∈ {active, active-slowing, unknown}`.
+Filtar je namjerno **samo tehnički** — registar je „free speech aggregator" i
+bazen se ne smije ideološki predfiltrirati, inače glasanje nema legitimitet.
+
+**Rule**: skript NIKAD ne briše retke iz `vote_candidates` — glasovi ih
+referenciraju preko FK-a. Kandidat koji ispadne iz registra ili filtra dobiva
+`status = 'withdrawn'`; ako se vrati, vraća se i u bazen. `status` se **ne šalje
+u upsertu**, pa pobjednik kola (`winner` / `onboarding` / `onboarded`) nikad ne
+padne natrag u bazen.
+
+**Rule**: `--limit` ograničava samo upsert i razrješavanje avatara —
+popis „tko je još kandidat" računa se uvijek nad punih 181. (Prva verzija je
+gradila taj popis iz ograničenog skupa, pa je `--commit --limit 1` povlačio
+preostalih 180.)
+
+Avatari: dizajn spominje `yt-dlp --print thumbnail`, ali to na URL-u kanala
+vrati **banner** (1060×175). Zato čitamo playlist-razinu (`-J --flat-playlist
+--playlist-items 0`) i biramo kvadratni thumbnail (`avatar_uncropped` /
+najveći `width == height ≤ 1024`), uz fallback na najveći thumbnail za
+playliste (nemaju avatar). URL s `yt3.googleusercontent.com` se prepiše na
+`=s400-c-k-c0x00ffffff-no-rj` (260 KB → 100 KB). Slike se **nikad** ne serviraju
+direktno s YouTubea — CORS puca u Flutter webu.
 
 ### ⚠️ Diarization Cost/Performance Note — DO NOT diarize on Colab
 
