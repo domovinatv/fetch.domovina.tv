@@ -4,7 +4,7 @@
   "channel_id": "UC-ccA52yiqR6BTmaqRxrTcg",
   "title": "PodcastbyNiko",
   "availability": null,
-  "channel_follower_count": 4160,
+  "channel_follower_count": 4150,
   "description": "Pogledajte inspirativne priče o hrabrosti, odlučnosti i uspjehu. S gostima razgovara Niko Tokić Kartelo, poduzetnik, konzultant i bivši kandidat za predsjednika RH.\n",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786684036,
+  "epoch": 1786755712,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
