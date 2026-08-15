@@ -29,6 +29,13 @@
  *      Ili putem env vara: HTTPS_PROXY=socks5://... node screenshot_youtube.js ...
  *      (CLI --proxy ima prednost nad HTTPS_PROXY/HTTP_PROXY/ALL_PROXY env varima.)
  *
+ *   4. Forsiraj re-snimanje i onoga što je već na R2:
+ *      node screenshot_youtube.js --input-dir ... --ignore-r2
+ *
+ * R2-AWARE SKIP: frame koji postoji na R2 (`.r2_keys_cache.json`) se NE snima
+ * ponovno ni kad lokalnog PNG-a nema. Vidi komentar uz R2_KEYS niže — bez toga
+ * brisanje lokalnih izvedenih fajlova znači 62.000 uzaludnih yt-dlp poziva.
+ *
  * Preduvjeti:
  *   - yt-dlp (brew install yt-dlp)
  *   - ffmpeg (brew install ffmpeg)
@@ -78,6 +85,47 @@ let PROXY_ARGS = [];
 // --source-address: bind yt-dlp socket na konkretnu lokalnu IP-u (npr. iPhone USB tether
 // 172.20.10.x) bez diranja default route. Postavlja se preko `./run_pipeline.sh --via-iphone`.
 let SOURCE_ADDR_ARGS = [];
+
+// ─── R2-AWARE SKIP ───────────────────────────────────────────────
+//
+// Do 2026-08 je "je li ovaj frame gotov?" bilo odgovoreno ISKLJUČIVO preko
+// `fs.existsSync(lokalniPNG)`. To vrijedi samo dok su lokalni PNG-ovi tu — a
+// APFS migracija 14.08.2026. obrisala ih je sve (klasa DERIVED_ON_R2, ~51 GiB,
+// verificirano na R2 prije brisanja; manifesti su ostali). Sljedeći run bi zato
+// pokušao ponovno snimiti ~62.000 frameova s YouTubea za sadržaj koji već stoji
+// na cdn.domovina.ai — dani rada i siguran anti-bot ban, oboje bez ikakve koristi.
+//
+// Zato: frame koji već postoji na R2 se NE snima ponovno, neovisno o lokalnom disku.
+//
+// Izvor istine je `.r2_keys_cache.json` — isti fajl koji `upload_to_r2.js` održava
+// (LIST-once pattern; on ga dopisuje nakon svakog uploada, a `--verify-r2` ga
+// rebuilda iz stvarnog stanja bucketa). Ako ga nema, ponašanje je identično
+// starom (samo lokalna provjera) i nema mrežnih poziva.
+//
+// NAMJERNO se NE gleda `_manifest.json`: on se zapisuje za SVE timestampove iz
+// članka i onda kad je snimanje palo (vidi kraj processArticle). Manifest-based
+// skip bi zato trajno oslijepio baš one videe kojima frameovi stvarno fale —
+// npr. KvJlt9ewgTQ / e9CzkhTD43M, kojima je 14.08. manifest zapisan uz 0 uhvaćenih
+// frameova. R2 ključ je jedini dokaz da slika STVARNO postoji.
+const R2_KEYS_CACHE_PATH = path.join(__dirname, ".r2_keys_cache.json");
+let R2_KEYS = null;        // Set<string> | null (null = provjera isključena)
+
+function loadR2KeysCache() {
+    try {
+        if (!fs.existsSync(R2_KEYS_CACHE_PATH)) return null;
+        const arr = JSON.parse(fs.readFileSync(R2_KEYS_CACHE_PATH, "utf-8"));
+        return Array.isArray(arr) ? new Set(arr) : null;
+    } catch {
+        return null;   // corrupt cache → tretiraj kao da ga nema (fail-safe: radi kao prije)
+    }
+}
+
+/** R2 ključ za jedan frame — mora pratiti mapiranje iz upload_to_r2.js:mapToAppKey. */
+function r2ScreenshotKey(videoId, timestamp) {
+    return `images/${videoId}/screenshots/${sanitizeTimestamp(timestamp)}.png`;
+}
+
+let r2SkippedTotal = 0;    // brojač za završni sažetak
 
 // ─── POMOĆNE FUNKCIJE ────────────────────────────────────────────
 
@@ -442,14 +490,39 @@ async function processArticle(articlePath) {
         }
     }
 
-    if (pending.length === 0) {
-        console.log(`   ✅ Svi screenshotovi već postoje (${skipped}/${screenshots.length})`);
-        return { total: screenshots.length, captured: 0, skipped, failed: 0 };
+    // Frame kojeg lokalno nema, ali JE na R2 — ne snimaj ponovno (vidi R2-AWARE SKIP
+    // gore). Filtrira se PRIJE dohvata stream URL-a, jer je cijela poanta ne zvati
+    // yt-dlp za video kojemu ništa stvarno ne fali.
+    let r2Skipped = 0;
+    if (R2_KEYS) {
+        for (let i = pending.length - 1; i >= 0; i--) {
+            if (R2_KEYS.has(r2ScreenshotKey(videoId, pending[i].timestamp))) {
+                pending.splice(i, 1);
+                r2Skipped++;
+            }
+        }
+        r2SkippedTotal += r2Skipped;
     }
 
-    if (skipped > 0) {
-        console.log(`   ⏭️  ${skipped} screenshotova već postoji, ${pending.length} preostalo`);
+    if (pending.length === 0) {
+        if (r2Skipped > 0) {
+            console.log(`   ☁️  Svi screenshotovi postoje (${skipped} lokalno, ${r2Skipped} na R2) — preskačem yt-dlp`);
+        } else {
+            console.log(`   ✅ Svi screenshotovi već postoje (${skipped}/${screenshots.length})`);
+        }
+        return { total: screenshots.length, captured: 0, skipped: skipped + r2Skipped, failed: 0 };
     }
+
+    if (skipped > 0 || r2Skipped > 0) {
+        const parts = [];
+        if (skipped > 0) parts.push(`${skipped} lokalno`);
+        if (r2Skipped > 0) parts.push(`${r2Skipped} na R2`);
+        console.log(`   ⏭️  ${parts.join(" + ")} već postoji, ${pending.length} preostalo`);
+    }
+
+    // Od ovdje nadalje "skipped" znači "nije trebalo snimiti", neovisno o razlogu —
+    // da svi return-ovi ispod broje isto.
+    skipped += r2Skipped;
 
     // Odredi izvor frame-ova: yt-dlp stream (best quality) ili — ako yt-dlp
     // padne na anti-bot — lokalni već skinuti .mp4/.mkv (ffmpeg iz lokalnog filea).
@@ -635,6 +708,12 @@ function parseArgs() {
         SOURCE_ADDR_ARGS = ["--source-address", sourceAddr];
     }
 
+    // --ignore-r2: forsiraj re-snimanje i onoga što je na R2 (npr. kad su frameovi
+    // na R2 loši/360p pa ih namjerno želiš prepisati). Default je R2-aware skip.
+    if (!args.includes("--ignore-r2")) {
+        R2_KEYS = loadR2KeysCache();
+    }
+
     if (!file && !inputDir) {
         console.error("❌ Obavezan argument: --file <putanja> ili --input-dir <putanja>");
         console.error("");
@@ -682,6 +761,11 @@ async function main() {
     }
     if (SOURCE_ADDR_ARGS.length) {
         console.log(`   📡 Bind IP: ${SOURCE_ADDR_ARGS[1]}`);
+    }
+    if (R2_KEYS) {
+        console.log(`   ☁️  R2 skip:  ${R2_KEYS.size} ključeva iz .r2_keys_cache.json (frame na R2 se ne snima ponovno)`);
+    } else {
+        console.log(`   ☁️  R2 skip:  ISKLJUČEN — snima se sve što lokalno fali`);
     }
 
     // ── Single file mode ──
@@ -805,6 +889,9 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📸 Novih screenshotova:  ${totalCaptured}`);
     console.log(`   ⏭️  Preskočenih:         ${totalSkipped}`);
+    if (r2SkippedTotal > 0) {
+        console.log(`      od toga s R2:        ${r2SkippedTotal} (lokalno ih nema, ali su na cdn.domovina.ai)`);
+    }
     if (totalFailed > 0) console.log(`   ❌ Neuspjelih:           ${totalFailed}`);
     console.log(`   🎬 Videa obrađenih:      ${videosProcessed}`);
     console.log("");
