@@ -341,8 +341,8 @@ if [ "$VIA_IPHONE" = true ]; then
 fi
 
 # Validacija --gemini-backend ("vertex", "cli" ili "claude")
-if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ] && [ "$GEMINI_BACKEND" != "claude" ]; then
-    echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli, claude)"
+if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ] && [ "$GEMINI_BACKEND" != "claude" ] && [ "$GEMINI_BACKEND" != "agy" ]; then
+    echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli, claude, agy)"
     exit 1
 fi
 
@@ -368,6 +368,12 @@ elif [ "$GEMINI_BACKEND" = "claude" ]; then
     fi
     echo "   🧠 LLM backend: Claude Code CLI ($(claude --version 2>/dev/null | head -1)), model=${CLAUDE_MODEL:-opus}"
     echo "      Kvaliteta > brzina. Preporuka: koristi s --priority-video-id / ad-hoc scopeom."
+elif [ "$GEMINI_BACKEND" = "agy" ]; then
+    if ! command -v agy &> /dev/null; then
+        echo "❌ --gemini-backend agy traži 'agy' CLI u PATH-u, ali ga nema."
+        exit 1
+    fi
+    echo "   🧠 LLM backend: Antigravity CLI, model=${AGY_MODEL:-Gemini 3.1 Pro (High)}"
 else
     echo "   🤖 Gemini backend: Vertex AI REST (multi-region rotacija)"
 fi

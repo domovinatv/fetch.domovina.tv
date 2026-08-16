@@ -123,9 +123,11 @@ const CLAUDE_MAX_RETRIES = parseInt(process.env.CLAUDE_MAX_RETRIES || "3", 10);
 const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
 
 const USING_CLAUDE = GEMINI_BACKEND === "claude";
+const USING_AGY = GEMINI_BACKEND === "agy";
+const AGY_MODEL = process.env.AGY_MODEL || "Gemini 3.1 Pro (High)";
 // Oznake koje idu u {base}.gemini_usage.json sidecar (dijeli ga s korakom 8).
 // GEMINI_MODEL se može prepisati preko --model, pa se čita lijeno (funkcija, ne const).
-function usageModelName() { return USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : GEMINI_MODEL; }
+function usageModelName() { return USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : (USING_AGY ? `agy:${AGY_MODEL}` : GEMINI_MODEL); }
 const USAGE_PRICE_IN  = USING_CLAUDE ? CLAUDE_PRICE_IN  : PRICE_IN_PER_M;
 const USAGE_PRICE_OUT = USING_CLAUDE ? CLAUDE_PRICE_OUT : PRICE_OUT_PER_M;
 
@@ -528,6 +530,55 @@ function callClaudeCli(systemPrompt, userMessage) {
 }
 
 /**
+ * Poziva `agy -p` headless uz preskakanje provjere dozvola.
+ */
+function callAgyCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        const args = [
+            "-p",
+            "--model", AGY_MODEL,
+            "--output-format", "json",
+            "--dangerously-skip-permissions"
+        ];
+        
+        const proc = spawn("agy", args, { stdio: ["pipe", "pipe", "pipe"] });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`agy CLI spawn failed: ${err.message}`)));
+        proc.stdin.on("error", (err) => reject(new Error(`agy CLI stdin: ${err.message}`)));
+
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`agy CLI exit ${code}: ${(stderr || stdout).substring(0, 400) || "(bez outputa)"}`));
+                return;
+            }
+            let env;
+            try {
+                env = JSON.parse(stdout);
+            } catch (_) {
+                reject(new Error(`agy CLI nije vratio JSON envelope. Prvih 300: ${stdout.substring(0, 300)}`));
+                return;
+            }
+            if (env.status !== "SUCCESS") {
+                reject(new Error(`agy CLI greška (status=${env.status}): ${String(env.error || env.response || "").substring(0, 300)}`));
+                return;
+            }
+            resolve({
+                text: env.response || "",
+                usage: env.usage || null,
+                costUsd: null,
+            });
+        });
+
+        const combinedMessage = `[SYSTEM INSTRUCTIONS]\n${systemPrompt}\n\n[USER INPUT]\n${userMessage}`;
+        proc.stdin.write(combinedMessage);
+        proc.stdin.end();
+    });
+}
+
+/**
  * Skida markdown fenceove i sanitizira kontrolne znakove prije JSON.parse.
  * Claude ne podržava responseMimeType kao Vertex, pa se oslanjamo na prompt + ovaj repair.
  */
@@ -611,7 +662,35 @@ async function callGemini(transcript, metadata) {
                 }
             }
         }
-        throw lastErr;
+        throw new Error(`Claude backend propao nakon ${CLAUDE_MAX_RETRIES} pokušaja. Zadnja greška: ${lastErr.message}`);
+    }
+
+    if (USING_AGY) {
+        let lastErr = null;
+        for (let i = 1; i <= CLAUDE_MAX_RETRIES; i++) {
+            try {
+                const startMs = Date.now();
+                const res = await callAgyCli(SYSTEM_PROMPT, userMessage);
+                if (res.usage) {
+                    sessionUsage.calls++;
+                    sessionUsage.prompt += res.usage.input_tokens || 0;
+                    sessionUsage.output += res.usage.output_tokens || 0;
+                    sessionUsage.total += res.usage.total_tokens || 0;
+                }
+                const sec = ((Date.now() - startMs) / 1000).toFixed(1);
+                console.log(`    ✓ [Agy ${i}/${CLAUDE_MAX_RETRIES}] (${sec}s) Gemini API poziv`);
+                return parseJsonLoose(res.text, "agy CLI");
+            } catch (err) {
+                lastErr = err;
+                console.log(`    ⚠️ [Agy ${i}/${CLAUDE_MAX_RETRIES}] Greška: ${err.message.split("\n")[0]}`);
+                if (i < CLAUDE_MAX_RETRIES) {
+                    const backoff = i * 4000;
+                    console.log(`      ...čekam ${backoff}ms za retry...`);
+                    await new Promise(r => setTimeout(r, backoff));
+                }
+            }
+        }
+        throw new Error(`Agy backend propao nakon ${CLAUDE_MAX_RETRIES} pokušaja. Zadnja greška: ${lastErr.message}`);
     }
 
     // ── CLI backend grana ──

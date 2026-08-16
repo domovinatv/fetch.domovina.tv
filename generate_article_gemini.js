@@ -80,14 +80,17 @@ const CLAUDE_MAX_RETRIES = parseInt(process.env.CLAUDE_MAX_RETRIES || "3", 10);
 const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
 const USING_CLAUDE = GEMINI_BACKEND === "claude";
 
+const USING_AGY = GEMINI_BACKEND === "agy";
+const AGY_MODEL = process.env.AGY_MODEL || "Gemini 3.1 Pro (High)";
+
 // Slug koji ide u IMENA datoteka: {basename}_{date}_{MODEL_SLUG}.article.json
 // ⚠️ Downstream (channel_index, CDN manifest) dedupa po LEKSIKOGRAFSKI NAJVEĆEM imenu.
 // Zato slug za Claude namjerno ostaje goli alias ("opus"/"sonnet"/"haiku") — svi počinju
 // slovom > 'g', pa uvijek pobjeđuju "gemini-*" pri istom datumu. Puna provenance
 // ("claude-code:opus") ide u JSON metadata, ne u ime datoteke (dvotočka u imenu = problem).
-const MODEL_SLUG = USING_CLAUDE ? CLAUDE_MODEL : GEMINI_MODEL;
+const MODEL_SLUG = USING_CLAUDE ? CLAUDE_MODEL : (USING_AGY ? "agy" : GEMINI_MODEL);
 // Puno ime modela za provenance polja unutar JSON-a.
-const PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : GEMINI_MODEL;
+const PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : (USING_AGY ? `agy:${AGY_MODEL}` : GEMINI_MODEL);
 // Aliasi Claude modela — koristi ih hasCompleteArticle da gemini pass NE regenerira
 // (i time efektivno ne degradira) članak koji je već podignut na Claude kvalitetu.
 const CLAUDE_SLUGS = ["opus", "sonnet", "haiku", "fable"];
@@ -1112,6 +1115,55 @@ function callClaudeCli(systemPrompt, userMessage) {
     });
 }
 
+/**
+ * Poziva `agy -p` headless uz preskakanje provjere dozvola.
+ */
+function callAgyCli(systemPrompt, userMessage) {
+    return new Promise((resolve, reject) => {
+        const args = [
+            "-p",
+            "--model", AGY_MODEL,
+            "--output-format", "json",
+            "--dangerously-skip-permissions"
+        ];
+        
+        const proc = spawn("agy", args, { stdio: ["pipe", "pipe", "pipe"] });
+        let stdout = "";
+        let stderr = "";
+        proc.stdout.on("data", (d) => { stdout += d; });
+        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.on("error", (err) => reject(new Error(`agy CLI spawn failed: ${err.message}`)));
+        proc.stdin.on("error", (err) => reject(new Error(`agy CLI stdin: ${err.message}`)));
+
+        proc.on("close", (code) => {
+            if (code !== 0) {
+                reject(new Error(`agy CLI exit ${code}: ${(stderr || stdout).substring(0, 400) || "(bez outputa)"}`));
+                return;
+            }
+            let env;
+            try {
+                env = JSON.parse(stdout);
+            } catch (_) {
+                reject(new Error(`agy CLI nije vratio JSON envelope. Prvih 300: ${stdout.substring(0, 300)}`));
+                return;
+            }
+            if (env.status !== "SUCCESS") {
+                reject(new Error(`agy CLI greška (status=${env.status}): ${String(env.error || env.response || "").substring(0, 300)}`));
+                return;
+            }
+            resolve({
+                text: env.response || "",
+                usage: env.usage || null,
+                costUsd: null,
+            });
+        });
+
+        const combinedMessage = `[SYSTEM INSTRUCTIONS]\n${systemPrompt}\n\n[USER INPUT]\n${userMessage}`;
+        proc.stdin.write(combinedMessage);
+        proc.stdin.end();
+    });
+}
+
 async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv", rawSavePath = null) {
     // ── CLAUDE CODE backend grana ──
     // Kvalitetnija generacija preko `claude -p` (Opus, subscription OAuth).
@@ -1142,10 +1194,45 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
                 }
             }
         }
-        throw lastErr;
+        throw new Error(`Claude backend propao nakon ${CLAUDE_MAX_RETRIES} pokušaja. Zadnja greška: ${lastErr.message}`);
     }
 
-    // ── CLI backend grana ──
+    if (USING_AGY) {
+        let lastErr = null;
+        for (let i = 1; i <= CLAUDE_MAX_RETRIES; i++) {
+            try {
+                const startMs = Date.now();
+                const res = await callAgyCli(systemPrompt, userMessage);
+                if (res.usage) {
+                    sessionUsage.calls++;
+                    sessionUsage.prompt += res.usage.input_tokens || 0;
+                    sessionUsage.output += res.usage.output_tokens || 0;
+                    sessionUsage.total += res.usage.total_tokens || 0;
+                }
+                const sec = ((Date.now() - startMs) / 1000).toFixed(1);
+                console.log(`    ✓ [Agy ${i}/${CLAUDE_MAX_RETRIES}] (${sec}s) ${label}`);
+                
+                // Spremi sirovi odgovor ako je zadano
+                if (rawSavePath) {
+                    try { fs.writeFileSync(rawSavePath, res.text, "utf8"); } catch (e) {
+                        console.error(`    ⚠️ Greška pri spremanju sirovog Agy odgovora: ${e.message}`);
+                    }
+                }
+                
+                return extractJsonFromText(res.text, label);
+            } catch (err) {
+                lastErr = err;
+                console.log(`    ⚠️ [Agy ${i}/${CLAUDE_MAX_RETRIES}] Greška: ${err.message.split("\n")[0]}`);
+                if (i < CLAUDE_MAX_RETRIES) {
+                    const backoff = i * 4000;
+                    console.log(`      ...čekam ${backoff}ms za retry...`);
+                    await new Promise(r => setTimeout(r, backoff));
+                }
+            }
+        }
+        throw new Error(`Agy backend propao nakon ${CLAUDE_MAX_RETRIES} pokušaja. Zadnja greška: ${lastErr.message}`);
+    }
+
     // Kad je GEMINI_BACKEND=cli, koristi gemini CLI umjesto Vertex API-ja.
     // Nema region rotacije ni retry petlje — CLI ima vlastiti auth/retry.
     if (GEMINI_BACKEND === "cli") {
