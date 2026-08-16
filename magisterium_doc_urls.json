@@ -4872,6 +4872,58 @@
     {
       "match": "General Audience of 3 January 1979",
       "uuid": "fa1d5cb8-5dc9-4d9e-a1a5-926a40e77e6b"
+    },
+    {
+      "match": "The Roman Missal (English Translation According to the Third Typical Edition)",
+      "uuid": "3f204803-62dd-4467-9edb-8b46db283e8a"
+    },
+    {
+      "match": "The New Evangelisation and the Sacrament of Penance",
+      "uuid": "aa166dc6-0546-4a00-a9d3-2d4d841047e4"
+    },
+    {
+      "match": "General Audience of 5 October 2011: Psalm 23",
+      "uuid": "3f86f168-ffa0-47f3-b66f-debfa641455f"
+    },
+    {
+      "match": "Mass for those taking part in the Youth Forum",
+      "uuid": "06dbe7ff-c9fa-4d96-b8cd-f11e3b06624e"
+    },
+    {
+      "match": "General Audience of 10 October 2001",
+      "uuid": "cfcec907-cb87-4d57-87b1-5485095bb650"
+    },
+    {
+      "match": "An Answer to the Jews",
+      "uuid": "7d96d4f7-3e21-459f-a0e2-3499ba52d193"
+    },
+    {
+      "match": "General Audience of 6 June 2001",
+      "uuid": "80225d4b-0cab-45dc-aa9b-0ce609cffc45"
+    },
+    {
+      "match": "The Eucharist: Communion with Christ and with one another",
+      "uuid": "e7c10e68-2522-4251-9740-601fc93346a7"
+    },
+    {
+      "match": "Letter to Priests, 1999",
+      "uuid": "e62acfe1-3811-4c72-b1f6-bc22da010632"
+    },
+    {
+      "match": "Universal Norms on the Liturgical Year and the General Roman Calendar",
+      "uuid": "5bc955ce-8abf-48f7-829c-f53f899190ad"
+    },
+    {
+      "match": "Catena Aurea on Mark",
+      "uuid": "f398d793-c892-44d0-be97-5a3acca83567"
+    },
+    {
+      "match": "Römisches Messbuch",
+      "uuid": "085deb56-1809-4933-a0a5-34e93717f1ef"
+    },
+    {
+      "match": "The Roman Missal (Missale Romanum)",
+      "uuid": "6c499d17-83df-470e-8558-6c60ebcf2814"
     }
   ]
 }
