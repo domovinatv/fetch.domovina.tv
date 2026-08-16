@@ -219,14 +219,48 @@ function sanitizeLLMOutput(raw) {
 
 // --- PRONAĐI .info.json ZA VIDEO ID ---
 
+// Indeks .info.json po direktoriju kanala — readdirSync JEDNOM po kanalu, ne
+// po videu. Isti popravak i isti razlog kao u convert_to_wav.js: na kanalu s
+// 50k datoteka i 316 epizoda readdir-po-videu znači 15,8 mil. pročitanih
+// zapisa. Cache je siguran jer ova skripta stvara _whisper_prompt.txt, ne
+// .info.json — indeks ne može ustajati unutar jednog prolaza.
+const _infoIndexCache = new Map();
+
+function getInfoIndex(outputDir) {
+    let cached = _infoIndexCache.get(outputDir);
+    if (cached) return cached;
+
+    let files;
+    try {
+        files = fs.readdirSync(outputDir);
+    } catch {
+        files = [];
+    }
+    const candidates = files.filter(f => !f.startsWith("._") && f.endsWith(".info.json"));
+
+    const byId = new Map();
+    for (const f of candidates) {
+        const i = f.lastIndexOf("_yt_");
+        if (i === -1) continue;
+        const id = f.slice(i + 4, f.length - ".info.json".length);
+        if (!byId.has(id)) byId.set(id, path.join(outputDir, f));
+    }
+
+    cached = { byId, candidates };
+    _infoIndexCache.set(outputDir, cached);
+    return cached;
+}
+
 function findInfoJson(outputDir, videoId) {
     if (!fs.existsSync(outputDir)) return null;
 
-    const files = fs.readdirSync(outputDir);
-    const match = files.find(f =>
-        !f.startsWith("._") && f.includes(`_yt_${videoId}`) && f.endsWith(".info.json")
-    );
+    const { byId, candidates } = getInfoIndex(outputDir);
 
+    const exact = byId.get(videoId);
+    if (exact) return exact;
+
+    // Fallback na izvorno ponašanje (podniz bilo gdje u imenu).
+    const match = candidates.find(f => f.includes(`_yt_${videoId}`));
     return match ? path.join(outputDir, match) : null;
 }
 

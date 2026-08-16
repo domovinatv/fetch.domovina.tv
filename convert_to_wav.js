@@ -90,6 +90,48 @@ function loadState(stateFile) {
 
 // --- KONVERZIJA ---
 
+// Indeks MP3-ova po direktoriju kanala — readdirSync JEDNOM po kanalu.
+//
+// Prije ovoga je findAudioFile radio readdir za SVAKI video. Na kanalu s 50k
+// datoteka i 316 epizoda to je 15,8 milijuna pročitanih direktorijskih zapisa;
+// preko svih 49 kanala 74,2 milijuna po nightly prolazu (izmjereno 2026-08-14).
+// Na exFAT-u preko USB-a to je bilo ~0,2 s po videu — otud "Provjeravam… N/M"
+// koji traje minutama iako se ništa ne konvertira.
+//
+// Cache je siguran jer ova skripta NE stvara .mp3 datoteke tijekom rada
+// (proizvodi .wav); indeks se ne može ustajati unutar jednog prolaza.
+const _mp3IndexCache = new Map();
+
+function getMp3Index(outputDir) {
+    let cached = _mp3IndexCache.get(outputDir);
+    if (cached) return cached;
+
+    let files;
+    try {
+        files = fs.readdirSync(outputDir);
+    } catch {
+        files = [];
+    }
+    // Ignoriraj macOS ._ resource fork datoteke i izvedene namespace-ove
+    // (.loudnorm.mp3 = normalizirani audio, NIJE izvor za transkripciju —
+    //  inače nastaje .loudnorm.wav koji Canary lažno transkribira).
+    const candidates = files.filter(f =>
+        !f.startsWith("._") && !f.includes(".loudnorm.") && f.endsWith(".mp3")
+    );
+
+    const byId = new Map();
+    for (const f of candidates) {
+        const i = f.lastIndexOf("_yt_");
+        if (i === -1) continue;
+        const id = f.slice(i + 4, f.length - 4); // između _yt_ i .mp3
+        if (!byId.has(id)) byId.set(id, path.join(outputDir, f));
+    }
+
+    cached = { byId, candidates };
+    _mp3IndexCache.set(outputDir, cached);
+    return cached;
+}
+
 /**
  * Pronađe MP3 datoteku za dani videoId u outputDir.
  * Traži datoteke koje sadrže _yt_{videoId} u imenu.
@@ -97,17 +139,14 @@ function loadState(stateFile) {
 function findAudioFile(outputDir, videoId) {
     if (!fs.existsSync(outputDir)) return null;
 
-    const files = fs.readdirSync(outputDir);
-    // Tražimo datoteku koja sadrži _yt_{videoId} i završava na .mp3
-    // Ignoriraj macOS ._ resource fork datoteke i izvedene namespace-ove
-    // (.loudnorm.mp3 = normalizirani audio, NIJE izvor za transkripciju —
-    //  inače nastaje .loudnorm.wav koji Canary lažno transkribira).
-    const match = files.find(f =>
-        !f.startsWith("._") &&
-        !f.includes(".loudnorm.") &&
-        f.includes(`_yt_${videoId}`) && f.endsWith(".mp3")
-    );
+    const { byId, candidates } = getMp3Index(outputDir);
 
+    const exact = byId.get(videoId);
+    if (exact) return exact;
+
+    // Fallback na izvorno ponašanje (podniz bilo gdje u imenu) — za slučaj
+    // nestandardnog imenovanja koje indeks po točnom ID-u ne pokrije.
+    const match = candidates.find(f => f.includes(`_yt_${videoId}`));
     return match ? path.join(outputDir, match) : null;
 }
 
