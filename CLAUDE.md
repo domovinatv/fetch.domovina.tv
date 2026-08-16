@@ -241,7 +241,7 @@ For this project's pipeline (96+ file batches arriving weekly), batch-no-chunkin
 
 **Workhorse script structure mirrors `transcribe_canary.py`**: idempotent (skips files with existing `.sortformer.diarized.srt`), heartbeat every 60s, ETA from running average, partial-failure tolerant. The diarization+merge logic is the same best-overlap algorithm as `diarize_canary.py:assign_speakers`.
 
-### LLM backend za korake 7+8: `--gemini-backend vertex|cli|claude`
+### LLM backend za korake 7+8: `--gemini-backend vertex|cli|claude|agy`
 
 Koraci 7 (sažetak) i 8 (članak) imaju zamjenjiv backend, čitan iz env vara `GEMINI_BACKEND`:
 
@@ -250,6 +250,12 @@ Koraci 7 (sažetak) i 8 (članak) imaju zamjenjiv backend, čitan iz env vara `G
 | `vertex` (default) | Vertex AI REST, `gemini-3.5-flash`, global endpoint | Nightly batch, backlog |
 | `cli` | `gemini` CLI (user-level google login) | Fallback kad Vertex zapinje |
 | `claude` | **`claude -p --model opus` pod Claude Code PRETPLATOM** | Prioritetni / ad-hoc videi — kvaliteta |
+| `agy` | `agy -p` (Antigravity CLI), model iz `AGY_MODEL` | Eksperimentalno / usporedba kvalitete |
+
+⚠️ **Slug u imenu datoteke odlučuje tko pobjeđuje.** Downstream dedupa po leksikografski
+najvećem `_{date}_{model}.article.json`, pa je poredak `opus` > `gemini-*` > `agy`
+(`'o' > 'g' > 'a'`). `agy` je namjerno slabiji od oba — agy prolaz ne može degradirati
+postojeći gemini ni Opus članak. Ne preimenuj slugove bez provjere ovog poretka.
 
 **`claude` backend — obavezno pročitati `docs/claude_code_backend_2026-07.md` prije diranja.**
 Tri stvari koje tiho pucaju:
