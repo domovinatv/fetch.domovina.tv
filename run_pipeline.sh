@@ -72,6 +72,18 @@ set -e  # Prekini na prvoj grešci
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# ─── VREMENSKA OS LOGA ────────────────────────────────────────────
+# Svaki KORAK banner nosi sat + proteklo vrijeme od početka prolaza.
+# Bez ovoga log nema vremensku os pa se ne može utvrditi koji korak troši
+# vrijeme: 2026-08-14 su KORAK 0+1 zajedno uzeli 2 h 24 min, a to se moglo
+# samo naslutiti iz broja redaka jer timestampa nije bilo.
+PIPELINE_T0=$(date +%s)
+korak() {
+    local el=$(( $(date +%s) - PIPELINE_T0 ))
+    printf '   📢 [%s +%02d:%02d:%02d] %s\n' "$(date '+%H:%M:%S')" \
+        $((el/3600)) $((el%3600/60)) $((el%60)) "$1"
+}
+
 # --- PYTHON INTERPRETER ---
 # Pod launchd-om bare `python3` resolva na /usr/bin/python3 (Xcode CLT) koji NEMA
 # torch/pyannote → KORAK 6 (diarize_canary.py) pukne s ModuleNotFoundError, a faza B
@@ -435,7 +447,7 @@ if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
 
 # --- PRE-KORAK: DOWNLOAD NOVIH DIARIZIRANIH TRANSKRIPATA (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 0/10: Skidanje novih diarisation fajlova s Google Drive-a"
+korak "KORAK 0/10: Skidanje novih diarisation fajlova s Google Drive-a"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -461,7 +473,7 @@ elif command -v rclone &> /dev/null; then
       --filter "+ **.embeddings.*.json" \
       --filter "- *" \
       --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
-      --drive-shared-with-me --progress \
+      --drive-shared-with-me --stats 30s --stats-one-line --stats-log-level NOTICE \
       || echo "   ⚠️ rclone Drive DOWNLOAD nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Publish put (H.264 + reindex) ne smije ovisiti o Colab/Drive syncu."
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem download..."
@@ -470,7 +482,7 @@ echo ""
 
 # --- KORAK 1: PREUZIMANJE I OSVJEŽAVANJE PODCASTA ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 1/10: Osvježavanje i preuzimanje podcasta"
+korak "KORAK 1/10: Osvježavanje i preuzimanje podcasta"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -509,7 +521,7 @@ echo ""
 
 # --- KORAK 2: MP3 → WAV ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2/10: Konverzija MP3 → WAV"
+korak "KORAK 2/10: Konverzija MP3 → WAV"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -591,7 +603,7 @@ fi
 
 # --- POST-KORAK 2: UPLOAD NOVIH WAV I SRT NA DRIVE (rclone) ---
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2.5: Upload WAV datoteka na Google Drive"
+korak "KORAK 2.5: Upload WAV datoteka na Google Drive"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -628,7 +640,7 @@ elif command -v rclone &> /dev/null; then
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L "${RCLONE_MODAL_FILTER[@]}" --filter "- ._*" --filter "- **.loudnorm.**" --filter "+ *.wav" --filter "- *" \
       --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
-      --drive-shared-with-me --progress \
+      --drive-shared-with-me --stats 30s --stats-one-line --stats-log-level NOTICE \
       || echo "   ⚠️ rclone Drive UPLOAD (WAV za Colab) nije uspio (kvota/mreža?) — NE-FATALNO (2026-06-08): nastavljam. Svježi videi svejedno dobiju video_h264.mp4 + reindex u ovom prolazu (Colab Canary samo kasni dok se Drive ne oslobodi)."
 else
     echo "   ⚠️ Rclone nije instaliran/dostupan, preskačem upload..."
@@ -652,7 +664,7 @@ fi
 if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 2.6: Modal on-demand Canary transkripcija [--with-modal-transcribe]"
+korak "KORAK 2.6: Modal on-demand Canary transkripcija [--with-modal-transcribe]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -740,7 +752,7 @@ fi
 if [ "$WITH_WHISPER" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 3/10: Generiranje Whisper promptova (LLM) [--with-whisper]"
+korak "KORAK 3/10: Generiranje Whisper promptova (LLM) [--with-whisper]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -749,7 +761,7 @@ if curl -s --max-time 3 http://localhost:1234/v1/models > /dev/null 2>&1; then
 
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "   📢 KORAK 4/10: Whisper transkripcija [--with-whisper]"
+    korak "KORAK 4/10: Whisper transkripcija [--with-whisper]"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 
@@ -769,7 +781,7 @@ fi
 if [ "$WITH_LOCAL_WHISPER_DIARIZE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 5/10: Lokalna Whisper diarizacija (pyannote MPS) [--with-local-whisper-diarize]"
+korak "KORAK 5/10: Lokalna Whisper diarizacija (pyannote MPS) [--with-local-whisper-diarize]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -785,7 +797,7 @@ fi
 if [ "$WITH_LOCAL_CANARY_DIARIZE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6/10: Canary Diarizacija govornika (pyannote) [--with-local-canary-diarize]"
+korak "KORAK 6/10: Canary Diarizacija govornika (pyannote) [--with-local-canary-diarize]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -839,7 +851,7 @@ fi
 if [ "$WITH_SPEAKER_EMBEDDINGS" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 6.5: Speaker embedding extraction (TitaNet-Large) [--with-speaker-embeddings]"
+korak "KORAK 6.5: Speaker embedding extraction (TitaNet-Large) [--with-speaker-embeddings]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -908,7 +920,7 @@ if command -v rclone &> /dev/null; then
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
       -L --filter "- ._*" --filter "+ **.embeddings.*.json" --filter "- *" \
       --fast-list --max-age "${RCLONE_MAX_AGE:-30d}" \
-      --drive-shared-with-me --progress
+      --drive-shared-with-me --stats 30s --stats-one-line --stats-log-level NOTICE
 fi
 else
     echo ""
@@ -920,7 +932,7 @@ fi # Kraj ONLY_ARTICLES=false && ONLY_SUMMARIES=false bloka
 # --- KORAK 7: GEMINI SUMARIZACIJA (Vertex AI OAuth) ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 7/10: Gemini Sumarizacija transkripata"
+korak "KORAK 7/10: Gemini Sumarizacija transkripata"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -954,7 +966,7 @@ fi
 # --- KORAK 8: GEMINI GENERIRANJE ČLANAKA (Vertex AI OAuth) ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 8/10: Gemini Generiranje članaka"
+korak "KORAK 8/10: Gemini Generiranje članaka"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -968,7 +980,7 @@ node "$SCRIPT_DIR/generate_article_gemini.js" --input-dir "$OUTPUT_DIR" "${PRIOR
 if [ "$WITH_MAGISTERIUM" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 8.5: Magisterium AI — teološko obogaćivanje"
+korak "KORAK 8.5: Magisterium AI — teološko obogaćivanje"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -993,7 +1005,7 @@ fi
 # --- KORAK 9: RAG PRIPREMA ---
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9/11: RAG priprema (chunkanje i import)"
+korak "KORAK 9/11: RAG priprema (chunkanje i import)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1015,7 +1027,7 @@ node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_AR
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9.4: Beamly video download (matchane subclub/launched)"
+korak "KORAK 9.4: Beamly video download (matchane subclub/launched)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1046,7 +1058,7 @@ fi
 # Zahtijeva ImageMagick (`magick` binary). Idempotentno.
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9.5: Generiranje OG-share varijante (1200×630 progressive JPEG q=85)"
+korak "KORAK 9.5: Generiranje OG-share varijante (1200×630 progressive JPEG q=85)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1074,7 +1086,7 @@ node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_CHANNE
 if [ "$WITH_SCREENSHOTS" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 10/11: YouTube screenshotovi (yt-dlp + ffmpeg)"
+korak "KORAK 10/11: YouTube screenshotovi (yt-dlp + ffmpeg)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1116,7 +1128,7 @@ fi
 # Skip kriteriji: no article, no sections, duration<60s, >250 sections, missing source PNG.
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 9.6: Generiranje OG-sections composite-a (per-section Tier B)"
+korak "KORAK 9.6: Generiranje OG-sections composite-a (per-section Tier B)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1141,7 +1153,7 @@ fi
 if [ "$WITH_VERTEX_IMPORT" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 11/11: Vertex AI RAG import (Discovery Engine) [--with-vertex-import]"
+korak "KORAK 11/11: Vertex AI RAG import (Discovery Engine) [--with-vertex-import]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1175,7 +1187,7 @@ fi
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 12: Cloudflare R2 upload (cdn.domovina.ai)"
+korak "KORAK 12: Cloudflare R2 upload (cdn.domovina.ai)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1214,7 +1226,7 @@ fi
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 12.5: H.264 cross-platform video (video_h264.mp4)"
+korak "KORAK 12.5: H.264 cross-platform video (video_h264.mp4)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1255,7 +1267,7 @@ fi
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 12.6: Audio-only .mp3 upload (data/{id}/audio.mp3)"
+korak "KORAK 12.6: Audio-only .mp3 upload (data/{id}/audio.mp3)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1283,7 +1295,7 @@ fi
 if [ "$PRIORITY_FAST_PATH" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 13: Channel index regen + meta upload"
+korak "KORAK 13: Channel index regen + meta upload"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "   ⏭️  FAST-PATH: preskačem channel index regen + meta upload."
 echo "      _unlisted je neindeksiran (memory: unlisted_adhoc_ingestion) — video je već"
@@ -1292,7 +1304,7 @@ echo "      detail_url-a. Puni index rebuild čita ~3000 videa (O(n)) i tu ništ
 elif [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "   📢 KORAK 13: Channel index regen + meta upload"
+korak "KORAK 13: Channel index regen + meta upload"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
