@@ -3,7 +3,7 @@
   "channel": "Ad Deum Podcast",
   "channel_id": "UCnekAGEPTcDzgkRiODg6sJA",
   "title": "Ad Deum Podcast",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 12200,
   "description": "Ad Deum znači \"Prema Bogu\" - a to je naš smjer i cilj.\n\nRazgovori. Svjedočanstva. Vjera.\n\nAd Deum Podcast je katolički podcast mladih koji žele slušati Riječ i ići prema Njemu. U želji da se Bog nama služi kao svojim instrumentima, kroz iskrene razgovore i svjedočanstva vjere nadamo se približiti srca Bogu.\n\nZapratite nas i pridružite nam se na zajedničkom putu prema Njemu. Ad Deum. 🙏🕊✝",
   "tags": [
@@ -118,12 +118,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928476,
+  "epoch": 1786993452,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

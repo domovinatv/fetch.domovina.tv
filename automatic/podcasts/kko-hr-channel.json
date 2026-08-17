@@ -3,7 +3,7 @@
   "channel": "CHARIS - Katolička Karizmatska Obnova",
   "channel_id": "UCjcOht-_CO43oETQOo4tRMA",
   "title": "CHARIS - Katolička Karizmatska Obnova",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 9610,
   "description": "Na ovom kanalu su video zapisi molitvenih susreta KKODS-a namijenjeni javnosti. Neka budu na blagoslov svima koji sudjeluju u njima ili ih gledaju u živo.",
   "tags": [
@@ -53,12 +53,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928465,
+  "epoch": 1786993449,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

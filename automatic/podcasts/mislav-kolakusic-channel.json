@@ -3,7 +3,7 @@
   "channel": "Mislav Kolakušić",
   "channel_id": "UCrOF0wrN-xV2j-4x85cR0lg",
   "title": "Mislav Kolakušić",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 59900,
   "description": "\nMislav Kolakušić, dugogodišnji sudac Trgovačkog suda u Zagrebu do 2019. godine te zastupnik u Europskom parlamentu iz Republike Hrvatske u mandatu 2019-2024. Mislav Kolakušić je najpoznatiji borac protiv korupcije u Republici Hrvatskoj, a kao sudac je stopirao brojne protuustavne i protuzakonite sudske procese te dugi niz godina upozoravao na pogubne učinke Zakona o predstečajnoj nagodbi, Ovršnog zakona i tzv. Lex Agrokora te na važnost radikalnog obračuna sa korupcijom. U Europskom parlamentu održao je preko stotinu govora na temu antiglobalizma, suverenizma i nužnosti političkih i ekonomskih promjena u Europi te stekao podršku stotina milijuna građana diljem svijeta.\n\nDanas je najčitaniji, najpraćeniji i najutjecajniji hrvatski europarlamentarac sa preko 330.000 pratitelja na društvenim mrežama i milijunskim mjesečnim dosegom.\n\n\n\n\n",
   "tags": [
@@ -102,12 +102,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928492,
+  "epoch": 1786993457,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

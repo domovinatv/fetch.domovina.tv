@@ -3,7 +3,7 @@
   "channel": "budiFRAjer",
   "channel_id": "UCzGUbyv4QoACDY7EF_fcVEA",
   "title": "budiFRAjer",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 62000,
   "description": "Centar za promicanje duhovnih zvanja\nProvincija sv. Jeronima franjevaca konventualaca\nSveti Duh 31, 10000 Zagreb\n\nPutem kanala želimo približiti našu karizmu svima, a posebno onima koji razmišljaju o svećeničkom i/ili redovničkom pozivu.\nstjepan.brcina@gmail.com\n#budiFRAjer",
   "tags": [],
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928462,
+  "epoch": 1786993448,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

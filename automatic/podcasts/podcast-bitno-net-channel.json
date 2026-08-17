@@ -3,7 +3,7 @@
   "channel": "Bitnonet",
   "channel_id": "UCdeWIIyVKdg9Nq3CK5amFYA",
   "title": "Bitnonet - Videos",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 10500,
   "description": "Youtube kanal portal Bitno.net gdje redovito objavljujemo naš podcast te s vremena na vrijeme aktualne videozapise.\r\n",
   "tags": [
@@ -101,12 +101,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928535,
+  "epoch": 1786993470,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

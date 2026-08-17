@@ -3,7 +3,7 @@
   "channel": "Marijanski zavjet za Domovinu",
   "channel_id": "UCHVBt4MVcNe9vqIh2usONzA",
   "title": "Marijanski zavjet za Domovinu",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 3180,
   "description": "Bratovština Marijanski zavjet za Domovinu je neprofitna udruga nastala 2015. godine na inicijativu mladih i branitelja-veterana Domovinskog rata sa željom da Bratovština i njeni članovi budu inicijatori promjena i stvaratelji novih zajedničkih vrijednosti u kršćanskom duhu. Projekte i inicijative Bratovštine od početka vode ljudi koji su motivirani i voljni mijenjati sadašnje stanje u domovini na bolje. Glavni cilj je kroz razne aktivnosti uz duhovnu podršku raditi na boljoj budućnosti za mlade. Danas u radu Bratovštine sudjeluje preko 200 volontera različitih profila čiji je broj u stalnom rastu. Svim članovima je zajednička misija vraćanje vrijednosti i dostojanstva hrvatskog čovjeka u današnje vrijeme.\n \nZajedničkim radom smo 2015. godine pokrenuli Zavjetno hodočašće za Domovinu, na kojem je do sada sudjelovalo više od 5000 sudionika.\n",
   "tags": [],
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928516,
+  "epoch": 1786993464,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

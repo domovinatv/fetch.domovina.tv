@@ -3,7 +3,7 @@
   "channel": "Miletić Marin",
   "channel_id": "UC3pytUSwwvUuiksKZ-EzfQQ",
   "title": "Miletić Marin",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 54600,
   "description": "Kao klinca vukli su me za kosu u školi  i govorili mi \"Miletić, od tebe neće biti ništa u životu, zapamti to!\"\nSva sreća pa se pitalo tu nešto i mene i Onoga koji me htjede.\n\novaj kanal je priča o mom životu i o svemu što radim, što živim i što jesam.\n\npratite me na:",
   "tags": [
@@ -97,12 +97,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786928451,
+  "epoch": 1786993445,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }
