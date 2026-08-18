@@ -3,7 +3,7 @@
   "channel": "Gorica TV",
   "channel_id": "UCQPqUIJq_9Bl2RY4K3Trx1Q",
   "title": "Gorica TV - Videos",
-  "availability": "public",
+  "availability": null,
   "channel_follower_count": 147,
   "description": "",
   "tags": [
@@ -41,12 +41,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786996620,
+  "epoch": 1787014893,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.03.17",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

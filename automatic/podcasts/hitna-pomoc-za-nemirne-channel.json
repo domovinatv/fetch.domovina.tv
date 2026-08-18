@@ -3,7 +3,7 @@
   "channel": "HITNA POMOĆ ZA NEMIRNE",
   "channel_id": "UCnxBjaDEOk_sKtOLp8IM7DA",
   "title": "HITNA POMOĆ ZA NEMIRNE",
-  "availability": "public",
+  "availability": null,
   "channel_follower_count": 12700,
   "description": "Počeo sam ovaj kanal kad su nam zatvorili crkve tako da živa Riječ može barem na ovaj način doći do duša. Iako imam jaki  otpor prema kamerama i snimanju, s vremenom sam razumio da je ovo ipak jedan od načina da se dođe do duša pa sam se prelomio. Na kanalu su nagovori, kateheze koje snimim samo za youtube ili propovijedi koje redovito imam u župi gdje sam župnik. Ponekad stavim tekstove od svećenika don Šimuna Doljanina koji ima jaka nadahnuća i zna ih prenijeti s mnogo jednostavnosti i ljubavi prema dušama. \nU zadnje vrijeme počeo sam stavljati i neke glazbene uradke koji su također evangelizacijskog karaktera. \nZovem se Antun Nižetić, iz Splita sam, rođen 1978. Trenutno sam župnik u Istri. Spomenite me u molitvama. Mir Kristov!",
   "tags": [
@@ -112,12 +112,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786996631,
+  "epoch": 1787014927,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.03.17",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

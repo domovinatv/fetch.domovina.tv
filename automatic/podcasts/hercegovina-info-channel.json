@@ -3,7 +3,7 @@
   "channel": "Hercegovina.info",
   "channel_id": "UCHqOpHIEveT_cRSPElzyOEw",
   "title": "Hercegovina.info",
-  "availability": "public",
+  "availability": null,
   "channel_follower_count": 3770,
   "description": "Donosimo vijesti, priče i analize koje oblikuju svakodnevicu.\nZajedno gradimo informiranu i odgovornu zajednicu.\n",
   "tags": [
@@ -98,12 +98,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786996623,
+  "epoch": 1787014902,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.03.17",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

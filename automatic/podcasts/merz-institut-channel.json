@@ -3,7 +3,7 @@
   "channel": "Merz-Institut",
   "channel_id": "UCN8IwiyTm_68wtgEXz6VLWQ",
   "title": "Merz-Institut",
-  "availability": "public",
+  "availability": null,
   "channel_follower_count": 11700,
   "description": "Merz - Institut djeluje od svibnja 2023. Proizišao je iz projekta istoimene inicijative Akademije kršćanskog aktivizma i pravni je sljednik Udruge Krunice Hrvata svega svijeta. Predsjednik Instituta je pater Ivan Ike Mandurić, DI. Institut je osnovan s ciljem oživljavanja kulture civilnog društva utemeljene na kršćanskim vrijednostima, a inspiriran je povijesnom Katoličkom akcijom blaženog Ivana Merza te njegovim primjerom. \n\nAkademijq Merz-Instituta na Pašmanu usmjerena je na pokretanje novih kršćanskih inicijativa, njihovo osnaživanje i povezivanje. Duhovnost i duhovni sadržaji temelj su programa Akademije, a nadopunjeni su programima edukacije o alatima civilnog angažmana utemeljenog na kršćanskim vrijednostima. Tijekom dosadašnjih programa Akademije Merz-Instituta pokrenuto je  6 inicijativa a jedna od njih je MERZpodcast.\n\nKrunica Hrvata svega svijeta moli se uživo svaki dan u 21 h na Facebook stranici KHSS i svake subote u 14 h na YouTube prema hrvatskom vremenu (UTC+2).",
   "tags": [],
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786996631,
+  "epoch": 1787014929,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.03.17",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "repository": "yt-dlp/yt-dlp"
   }
 }

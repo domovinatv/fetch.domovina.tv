@@ -3,7 +3,7 @@
   "channel": "Horizonti Liderstva",
   "channel_id": "UCi4cKxUl4MMUBO4vXbe1nkA",
   "title": "Horizonti Liderstva - Videos",
-  "availability": "public",
+  "availability": null,
   "channel_follower_count": 109,
   "description": "Podcast Horizonti Liderstva je kreiran od strane studenata za studente s misijom da stvori novu generaciju lidera kroz priče o inovacijama, tehnologijama i biznisu. Svaka epizoda donosi razgovore sa liderima i vizionarima koji dijele svoja iskustva, izazove i uspjehe.\n\nPridružite nam se i pronađite inspiraciju za stvaranje promjena koje oblikuju svijet!\n",
   "tags": [],
@@ -38,12 +38,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1786996617,
+  "epoch": 1787014881,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.03.17",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
