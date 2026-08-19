@@ -12642,6 +12642,131 @@
           "recency": 5
         }
       }
+    },
+    {
+      "slug": "abbacast",
+      "display_name": "AbbaCast",
+      "youtube": {
+        "url": "https://www.youtube.com/@AbbaCastPodcast",
+        "handle": "@AbbaCastPodcast",
+        "type": "channel"
+      },
+      "tags": [
+        "religion",
+        "entrepreneurship",
+        "lifestyle"
+      ],
+      "voditelji": [
+        "Antonio Culej",
+        "Marija Culej"
+      ],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "complete",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Katolički podcast brenda AbbaWear (Antonio i Marija Culej). Svjedočanstva, vjera i poduzetništvo.",
+      "quality_score": {
+        "total": 55,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 10,
+          "audience": 5,
+          "format": 10,
+          "substance": 5,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "vjera-i-nada-varazdinska-biskupija",
+      "display_name": "Vjera i nada",
+      "youtube": {
+        "url": "https://www.youtube.com/@VarazdinskaBiskupijaMediji",
+        "handle": "@VarazdinskaBiskupijaMediji",
+        "type": "playlist"
+      },
+      "tags": [
+        "religion",
+        "society"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active"
+      },
+      "tracking": {
+        "enabled": true
+      },
+      "tier": 4,
+      "data_quality": "complete",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Serijal / podcast Varaždinske biskupije sa svjedočanstvima, emitiran na VTV-u, Laudato TV-u i YouTube-u.",
+      "quality_score": {
+        "total": 40,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 20,
+          "catalog": 10,
+          "audience": 3,
+          "format": 5,
+          "substance": 2,
+          "verification": 0,
+          "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "dan-za-podcast-kontra",
+      "display_name": "Dan za podcast (Kontra)",
+      "youtube": {
+        "url": null,
+        "handle": "Kontra Agency",
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "technology"
+      ],
+      "voditelji": [
+        "Petar Bogdan",
+        "Tibor Trupec"
+      ],
+      "metadata": {
+        "status": "inactive"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Završen u listopadu 2025. Nema novih epizoda."
+      },
+      "tier": 4,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Poslovni podcast digitalne agencije Kontra. Ugašen krajem 2025.",
+      "quality_score": {
+        "total": 35,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "activity": 0,
+          "catalog": 15,
+          "audience": 5,
+          "format": 10,
+          "substance": 5,
+          "verification": 0,
+          "recency": 0
+        }
+      }
     }
   ],
   "philosophy": {

@@ -2,24 +2,24 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-07-27
+**Generirano:** 2026-08-18
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
 
-- **Ukupno unosa:** 273
-- **Trenutno se prati:** 69
+- **Ukupno unosa:** 276
+- **Trenutno se prati:** 71
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 127
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
-- **Ostali kandidati** (sekularni / dijaspora / istražiti): 69
+- **Ostali kandidati** (sekularni / dijaspora / istražiti): 70
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 4: 28 · tier 3: 197 · tier 2: 18 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 4: 31 · tier 3: 197 · tier 2: 18 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 194 · complete —: 2 · unverified ❓: 9 · full —: 2
+**Distribucija po data_quality:** verified ✅: 66 · partial ⚠️: 195 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 170 · ⚪ nepoznato: 65 · ⚪ nepoznato: 2 · 🔴 neaktivan: 4 · ⚪ nepoznato: 18 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 172 · ⚪ nepoznato: 65 · ⚪ nepoznato: 2 · 🔴 neaktivan: 5 · ⚪ nepoznato: 18 · ⏸ pauziran: 4 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -36,7 +36,7 @@
 
 ---
 
-## 🟢 Trenutno se prati (69)
+## 🟢 Trenutno se prati (71)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -44,6 +44,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **(Ne)uspjeh prvaka** | [@neuspjehprvaka](https://www.youtube.com/@neuspjehprvaka/videos) | 1 | 70K | 186 | 🟢 aktivan | Slaven Bilić, Mirza Džomba, Mario Stanić | `sport` `football` `personal-development` | ✅ |
 | **40 dana za život - Hrvatska za Život** | [@40danazaživot-HrvatskazaŽivot](https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos) | 3 | — | — | ⚪ nepoznato | — | `pro-life` `religious-catholic` | ⚠️ |
+| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast) | 4 | — | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religion` `entrepreneurship` `lifestyle` | — |
 | **Ad Deum Podcast** | [@AdDeumPodcast](https://www.youtube.com/@AdDeumPodcast/videos) | 3 | — | 20 | 🟢 aktivan | Fra Andrija Majić, Fra Ivo Rastočić | `religious-catholic` | ✅ |
 | **Božanstvena Komedija** | [@BožanstvenaKomedija](https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `domoljubni` | ⚠️ |
 | **Božja pobjeda** | [@Božjapobjeda](https://www.youtube.com/@Bo%C5%BEjapobjeda/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
@@ -110,6 +111,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Tribina — Robert Knjaz** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr) | 3 | — | 4 | 🟢 aktivan | — | `sport` `interview` | ✅ |
 | **Tribina — Tenis** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9) | 3 | — | 15 | 🟢 aktivan | — | `sport` `tennis` | ✅ |
 | **Tribina — WeitzerMania** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
+| **Vjera i nada** | [@VarazdinskaBiskupijaMediji](https://www.youtube.com/@VarazdinskaBiskupijaMediji) | 4 | — | — | 🟢 aktivan | — | `religion` `society` | — |
 | **Željka Markić i Narod.hr** | [@zeljkamarkicinarod](https://www.youtube.com/@zeljkamarkicinarod/videos) | 3 | — | — | ⚪ nepoznato | Željka Markić | `political-conservative` | ⚠️ |
 
 
@@ -307,7 +309,7 @@ Veliki kanali s puno shorts/clipova/izjava. Trebaju custom `MIN_DURATION` per-ka
 
 ---
 
-## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (69)
+## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (70)
 
 Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (širenje na cijeli hrvatski podcast ekosustav). Neki su bez verificiranog YouTube URL-a — treba istraživanje.
 
@@ -328,6 +330,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Croatian/American** | — | 4 | — | — | 🟢 aktivan | Gaj Tomaš, C.M. Brown | `diaspora` `culture` | ⚠️ |
 | **CroatianSports Podcast** | [@croatiansports](https://www.youtube.com/@croatiansports) | 4 | — | — | 🟢 aktivan | Lovre Nikolac | `sport` `diaspora` | ⚠️ |
 | **Dalmacija Podcast** | [UCAYpITaR1fJnM-JdPuO19Ew](https://www.youtube.com/channel/UCAYpITaR1fJnM-JdPuO19Ew) | 2 | 3K | 50 | 🟢 aktivan | — | `regional-media` `lifestyle` `culture` | ✅ |
+| **Dan za podcast (Kontra)** | — | 4 | — | — | 🔴 neaktivan | Petar Bogdan, Tibor Trupec | `business` `technology` | ⚠️ |
 | **Eduza Show** | [UCKPBjmgFMFR_WufZs3GLQwA](https://www.youtube.com/channel/UCKPBjmgFMFR_WufZs3GLQwA) | 2 | 2K | 50 | 🟢 aktivan | Višnja Željeznjak, Saša Matijašić | `business` `education` | ✅ |
 | **Extra Runda** | [@podcastinkubator](https://www.youtube.com/playlist?list=PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU) | 1 | — | 134 | 🟢 aktivan | Marko Petrak, Hamby | `sport` `mma` | ✅ |
 | **Fakat Podcast** | [UCKrBWYif4EuYSE2RCnv_S3Q](https://www.youtube.com/channel/UCKrBWYif4EuYSE2RCnv_S3Q) | 2 | — | — | ⚪ nepoznato | — | — | ❓ |
