@@ -340,6 +340,68 @@ function buildChapterMapBlock(chapters) {
     return `\n\nSLUŽBENA MAPA GOVORNIKA / POGLAVLJA (od izdavača — AUTORITATIVNO za imena; poravnaj vrijeme nastupa govornika s ovim oznakama; stavke koje su nazivi pjesama ne odnose se na osobe):\n${lines}\n`;
 }
 
+// Zadnji cue u SRT-u = stvarni kraj transkripta. Sve iznad toga je izvan snimke.
+// Bez ovoga FAZA 1 dobiva pravilo "iteracija traje 35-45 min" bez ijednog podatka o
+// stvarnom trajanju, pa za kratke epizode izmišlja sadržaj da popuni blok (incident
+// iG2G9tLSyzs: 14-minutni transkript → outline do 01:01:20, 18 nepostojećih sekcija).
+function lastCueSeconds(srt) {
+    let last = 0;
+    const re = /(\d{2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{2}):(\d{2}):(\d{2})[,.](\d{3})/g;
+    let m;
+    while ((m = re.exec(srt)) !== null) {
+        const end = (+m[5]) * 3600 + (+m[6]) * 60 + (+m[7]);
+        if (end > last) last = end;
+    }
+    return last;
+}
+
+function buildDurationBlock(lastSec) {
+    const hms = secToHMS(lastSec);
+    return `\n\nSTVARNO TRAJANJE TRANSKRIPTA: zadnji cue završava na ${hms}. ` +
+        `Transkript NEMA sadržaja nakon tog vremena.\n` +
+        `- Nijedan "start_time", "end_time" ni "timestamp" ne smije biti veći od ${hms}.\n` +
+        `- Pravilo o 35-45 minuta je GORNJA granica, ne cilj koji treba popuniti. ` +
+        `Ako transkript traje kraće, vrati onoliko iteracija koliko sadržaj stvarno pokriva ` +
+        `(za transkript kraći od 35 minuta to je TOČNO JEDNA iteracija).\n` +
+        `- Strogo je zabranjeno izmišljati teme, poglavlja ili nastavak razgovora kojih nema u transkriptu.\n`;
+}
+
+// Obrana ako model ipak prekorači: režemo poglavlja i iteracije izvan snimke.
+function clampOutlineToTranscript(outlineJson, lastSec) {
+    const hms = secToHMS(lastSec);
+    const toSec = (t) => {
+        const m = /^(\d{1,2}):(\d{2}):(\d{2})/.exec(String(t || ""));
+        return m ? (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3]) : null;
+    };
+    let droppedChapters = 0, droppedIters = 0;
+    const kept = [];
+    for (const iter of outlineJson.iterations || []) {
+        const start = toSec(iter.start_time);
+        if (start !== null && start > lastSec) { droppedIters++; continue; }
+        const chapters = (iter.chapters || []).filter(c => {
+            const t = toSec(c.timestamp);
+            if (t !== null && t > lastSec) { droppedChapters++; return false; }
+            return true;
+        });
+        if (chapters.length === 0 && (iter.chapters || []).length > 0) { droppedIters++; continue; }
+        iter.chapters = chapters;
+        if (toSec(iter.end_time) > lastSec) iter.end_time = hms;
+        kept.push(iter);
+    }
+    if (droppedChapters || droppedIters) {
+        console.warn(`   ⚠️  [FAZA 1] Outline je prelazio kraj transkripta (${hms}) — odbačeno ${droppedChapters} poglavlja i ${droppedIters} iteracija.`);
+        // NAMJERNO ne renumeriramo. FAZA 2 resume mapira već napisane iteracije iz
+        // postojećeg article.json po `iteration_number` (`completedIterations`), a raw
+        // fajlovi se zovu `faza2_iteracija_N.raw.txt`. Da pomaknemo numeraciju nakon
+        // ispuštanja iteracije, djelomični run bi tiho zalijepio sadržaj stare
+        // iteracije N+1 na novu N — točan JSON s krivim vremenskim okvirom.
+        // Downstream (screenshot_youtube.js, magisterium_*) broj koristi samo kao
+        // oznaku, pa rupa u nizu (1, 2, 4) ne smeta.
+        outlineJson.iterations = kept;
+    }
+    return outlineJson;
+}
+
 function countSpeakers(srt) {
     const set = new Set();
     const re = /\[SPEAKER_(\d+)\]/g;
@@ -1403,6 +1465,8 @@ async function processFile(file, { exitOnError = true } = {}) {
     const officialBlock = buildOfficialContextBlock(baseDir, epBase);
     const strictAttribution = hasChapterMap || manySpeakers || !!officialBlock;
     const chapterBlock = (hasChapterMap ? buildChapterMapBlock(pubChapters) : "") + officialBlock;
+    const lastCueSec = lastCueSeconds(srtContent);
+    const durationBlock = lastCueSec > 0 ? buildDurationBlock(lastCueSec) : "";
     const systemPrompt1 = SYSTEM_PROMPT_1 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
     const systemPrompt2 = SYSTEM_PROMPT_2 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
     if (strictAttribution) {
@@ -1460,7 +1524,7 @@ async function processFile(file, { exitOnError = true } = {}) {
             console.log(`   🚀 [FAZA 1] Generiram semantički outline...`);
             const startTime1 = Date.now();
 
-            const userMessage1 = `Evo cijelog diariziranog transkripta:${chapterBlock}\n\n${srtContent}`;
+            const userMessage1 = `Evo cijelog diariziranog transkripta:${chapterBlock}${durationBlock}\n\n${srtContent}`;
 
             try {
                 const result1 = await callGemini(systemPrompt1, userMessage1, "FAZA 1 — Outline", rawPath1);
@@ -1490,6 +1554,10 @@ async function processFile(file, { exitOnError = true } = {}) {
 
     if (Array.isArray(outlineJson)) {
         outlineJson = { iterations: outlineJson };
+    }
+
+    if (outlineJson && Array.isArray(outlineJson.iterations) && lastCueSec > 0) {
+        clampOutlineToTranscript(outlineJson, lastCueSec);
     }
 
     if (!outlineJson || !outlineJson.iterations || outlineJson.iterations.length === 0) {
@@ -1641,6 +1709,24 @@ async function processFile(file, { exitOnError = true } = {}) {
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
             if (exitOnError) process.exit(1);
             return false;
+        }
+    }
+
+    // ── AUDIT VREMENA: sekcije izvan snimke (screenshot ih nikad ne može uhvatiti) ──
+    if (lastCueSec > 0) {
+        const over = [];
+        for (const it of finalArticle.iterations || []) {
+            for (const sec of it.sections || []) {
+                const m = /^(\d{1,2}):(\d{2}):(\d{2})/.exec(String(sec.screenshot_timestamp || ""));
+                if (!m) continue;
+                const t = (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3]);
+                if (t > lastCueSec) over.push(sec.screenshot_timestamp);
+            }
+        }
+        if (over.length) {
+            console.warn(`   ⚠️  [AUDIT VREMENA] ${over.length} sekcija ima timestamp izvan transkripta (kraj ${secToHMS(lastCueSec)}): ${over.slice(0, 5).join(", ")}${over.length > 5 ? " …" : ""} — screenshotovi za njih NIKAD neće uspjeti.`);
+        } else {
+            console.log(`   ✅ [AUDIT VREMENA] svi timestampovi unutar snimke (kraj ${secToHMS(lastCueSec)}).`);
         }
     }
 
@@ -1833,6 +1919,9 @@ module.exports = {
     auditNames,
     normalizeNameTokens,
     STRICT_SPEAKER_THRESHOLD,
+    // Zaštita od outlinea koji prelazi kraj transkripta (halucinirane sekcije)
+    lastCueSeconds,
+    clampOutlineToTranscript,
     // Za testiranje: postavi cached token da se izbjegne poziv gcloud auth
     _setTestToken(token) {
         cachedAccessToken = token;

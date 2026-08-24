@@ -35,6 +35,8 @@ const {
     STRICT_SPEAKER_THRESHOLD,
     MODEL_SLUG,
     sectionsMissingFields,
+    lastCueSeconds,
+    clampOutlineToTranscript,
     _setTestToken,
 } = require("./generate_article_gemini.js");
 
@@ -1085,5 +1087,86 @@ describe("sectionsMissingFields", () => {
     it("ne prijavljuje ništa za prazan ulaz (nema sekcija = drugi problem)", () => {
         assert.deepEqual(sectionsMissingFields([]), []);
         assert.deepEqual(sectionsMissingFields(null), []);
+    });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Kraj transkripta: outline ne smije prelaziti zadnji cue
+// ─────────────────────────────────────────────────────────────────────────────
+describe("lastCueSeconds / clampOutlineToTranscript", () => {
+    const srt = [
+        "1",
+        "00:00:01,000 --> 00:00:04,500",
+        "[SPEAKER_00] Prva rečenica.",
+        "",
+        "2",
+        "00:13:40,000 --> 00:14:02,120",
+        "[SPEAKER_01] Zadnja rečenica.",
+        "",
+    ].join("\n");
+
+    it("lastCueSeconds vraća kraj ZADNJEG cuea, ne prvog", () => {
+        assert.equal(lastCueSeconds(srt), 14 * 60 + 2);
+    });
+
+    it("lastCueSeconds prihvaća i točku kao decimalni separator", () => {
+        assert.equal(lastCueSeconds("1\n00:00:00.000 --> 00:05:00.000\ntekst\n"), 300);
+    });
+
+    it("lastCueSeconds vraća 0 kad nema nijednog cuea", () => {
+        assert.equal(lastCueSeconds("nema ovdje ničega"), 0);
+    });
+
+    it("odbacuje iteracije koje počinju nakon kraja transkripta (incident iG2G9tLSyzs)", () => {
+        const outline = {
+            iterations: [
+                { iteration_number: 1, start_time: "00:00:00", end_time: "00:45:00", chapters: [{ timestamp: "00:02:00", topic: "stvarno" }] },
+                { iteration_number: 2, start_time: "00:45:00", end_time: "01:01:20", chapters: [{ timestamp: "00:50:00", topic: "izmišljeno" }] },
+            ],
+        };
+        clampOutlineToTranscript(outline, 14 * 60 + 2);
+        assert.equal(outline.iterations.length, 1);
+        assert.equal(outline.iterations[0].iteration_number, 1);
+        // end_time se steže na stvarni kraj snimke
+        assert.equal(outline.iterations[0].end_time, "00:14:02");
+    });
+
+    it("odbacuje pojedinačna poglavlja izvan snimke, a iteraciju zadržava", () => {
+        const outline = {
+            iterations: [
+                {
+                    iteration_number: 1, start_time: "00:00:00", end_time: "00:40:00",
+                    chapters: [{ timestamp: "00:01:00", topic: "ok" }, { timestamp: "00:30:00", topic: "izvan" }],
+                },
+            ],
+        };
+        clampOutlineToTranscript(outline, 14 * 60 + 2);
+        assert.equal(outline.iterations.length, 1);
+        assert.deepEqual(outline.iterations[0].chapters.map(c => c.topic), ["ok"]);
+    });
+
+    it("NE renumerira preostale iteracije — FAZA 2 resume mapira po iteration_number", () => {
+        // Ako bi se numeracija pomaknula, već napisana iteracija 3 iz article.json
+        // bila bi zamijenjena za iteraciju 2 → točan JSON, krivi vremenski okvir.
+        const outline = {
+            iterations: [
+                { iteration_number: 1, start_time: "00:00:00", end_time: "00:05:00", chapters: [{ timestamp: "00:01:00", topic: "a" }] },
+                { iteration_number: 2, start_time: "00:05:00", end_time: "00:10:00", chapters: [{ timestamp: "00:50:00", topic: "izvan" }] },
+                { iteration_number: 3, start_time: "00:10:00", end_time: "00:14:00", chapters: [{ timestamp: "00:11:00", topic: "c" }] },
+            ],
+        };
+        clampOutlineToTranscript(outline, 14 * 60 + 2);
+        assert.deepEqual(outline.iterations.map(it => it.iteration_number), [1, 3]);
+    });
+
+    it("ne dira outline koji cijeli stane unutar snimke", () => {
+        const outline = {
+            iterations: [
+                { iteration_number: 1, start_time: "00:00:00", end_time: "00:10:00", chapters: [{ timestamp: "00:01:00", topic: "a" }] },
+            ],
+        };
+        const prije = JSON.stringify(outline);
+        clampOutlineToTranscript(outline, 14 * 60 + 2);
+        assert.equal(JSON.stringify(outline), prije);
     });
 });
