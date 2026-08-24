@@ -4924,6 +4924,30 @@
     {
       "match": "The Roman Missal (Missale Romanum)",
       "uuid": "6c499d17-83df-470e-8558-6c60ebcf2814"
+    },
+    {
+      "match": "Apostolic Journey - Cuba: Meeting with the sick and suffering in the Shrine of St Lazarus",
+      "uuid": "ee350993-99a1-42a7-b381-d87aeaefef77"
+    },
+    {
+      "match": "General Audience of 9 November 2016: 35. To visit the sick and the imprisoned",
+      "uuid": "f5c97722-1302-49cc-bcd8-6fbed9df7cab"
+    },
+    {
+      "match": "To the Martyrs",
+      "uuid": "d7c6df6c-3f8b-4b1e-a314-17d0142d0660"
+    },
+    {
+      "match": "The Only Cross of Salvation",
+      "uuid": "df1915c8-b793-4c50-ba3f-d1783d4da0f0"
+    },
+    {
+      "match": "To chaplains of Italian prisons",
+      "uuid": "c4186bf4-0925-4073-8df5-72b50f162038"
+    },
+    {
+      "match": "Message to prisoners in Colombian jails",
+      "uuid": "f83ee16b-9c15-4cb8-b7a8-cd25004911e7"
     }
   ]
 }
