@@ -360,9 +360,11 @@ function buildDurationBlock(lastSec) {
     return `\n\nSTVARNO TRAJANJE TRANSKRIPTA: zadnji cue završava na ${hms}. ` +
         `Transkript NEMA sadržaja nakon tog vremena.\n` +
         `- Nijedan "start_time", "end_time" ni "timestamp" ne smije biti veći od ${hms}.\n` +
-        `- Pravilo o 35-45 minuta je GORNJA granica, ne cilj koji treba popuniti. ` +
-        `Ako transkript traje kraće, vrati onoliko iteracija koliko sadržaj stvarno pokriva ` +
-        `(za transkript kraći od 35 minuta to je TOČNO JEDNA iteracija).\n` +
+        `- Pravilo o 35-45 minuta vrijedi NEPROMIJENJENO za snimke dulje od 45 minuta: ` +
+        `dugu snimku i dalje dijeli na blokove od cca 35-45 minuta (4 sata ≈ 6 iteracija).\n` +
+        `- Ono NIJE kvota koju treba popuniti kad je snimka kraća od jednog bloka. Tada vrati ` +
+        `onoliko iteracija koliko sadržaj stvarno pokriva (za transkript kraći od 35 minuta ` +
+        `to je TOČNO JEDNA iteracija).\n` +
         `- Strogo je zabranjeno izmišljati teme, poglavlja ili nastavak razgovora kojih nema u transkriptu.\n`;
 }
 
