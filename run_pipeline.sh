@@ -106,6 +106,32 @@ echo "   🐍 Python interpreter: $PYTHON_BIN"
 # Postavljen ovdje da koraci 7+8 (sumarizacija + članci) koriste ovaj projekt.
 export VERTEX_PROJECT="project-a275a620-ef0c-45ae-99e"
 
+# --- PROVJERA STAROSTI yt-dlp ---
+# yt-dlp se mijenja ~mjesečno prateći YouTube promjene. Zastarjela verzija ne pada
+# čitljivo — 2026-08-17 je verzija stara 72 dana davala `HTTP Error 403: Forbidden`
+# na video streamu DOK je metadata prolazila normalno. To ne odgovara nijednoj klasi
+# u anti-bot dijagnostici i lako se pogrešno pripiše IP bloku (potrošeno vrijeme na
+# iPhone tether, koji nije pomogao — update yt-dlp-a je riješio iz prve).
+# Zato: provjeri starost PRIJE bilo kakve mrežne dijagnoze.
+YT_DLP_MAX_AGE_DAYS="${YT_DLP_MAX_AGE_DAYS:-30}"
+YT_DLP_VER="$(yt-dlp --version 2>/dev/null | head -1)"
+if [ -n "$YT_DLP_VER" ]; then
+    # Verzija je datumska: YYYY.MM.DD[.HHMMSS] → uzmi prva 3 polja.
+    YT_DLP_DATE="$(echo "$YT_DLP_VER" | cut -d. -f1-3 | tr '.' '-')"
+    YT_DLP_EPOCH="$(date -j -f "%Y-%m-%d" "$YT_DLP_DATE" "+%s" 2>/dev/null || echo "")"
+    if [ -n "$YT_DLP_EPOCH" ]; then
+        YT_DLP_AGE=$(( ( $(date "+%s") - YT_DLP_EPOCH ) / 86400 ))
+        if [ "$YT_DLP_AGE" -gt "$YT_DLP_MAX_AGE_DAYS" ]; then
+            echo ""
+            echo "   ⚠️  yt-dlp je star $YT_DLP_AGE dana (verzija $YT_DLP_VER, prag ${YT_DLP_MAX_AGE_DAYS}d)."
+            echo "      Zastarjeli yt-dlp daje 403 na video stream uz ISPRAVNU metadata —"
+            echo "      izgleda kao anti-bot, ali NIJE. Ako KORAK 1/10 padaju, prvo:"
+            echo "      /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 -m pip install -U --pre 'yt-dlp[default]'"
+            echo ""
+        fi
+    fi
+fi
+
 # --- PROVJERA STORAGE KONFIGURACIJE ---
 if [ ! -f "$SCRIPT_DIR/storage/.storage_ready" ]; then
     echo ""

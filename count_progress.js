@@ -140,6 +140,10 @@ for (const channel of channels) {
         const videosWithMagisterium = new Set();
         const videosWithMkv = new Set();
         const videosWithMp4 = new Set();
+        // Baze videa (iz .info.json) + koje imaju screenshot dir — potrebno da se
+        // audio-only epizode izbace iz screenshot NAZIVNIKA (vidi computeAudioOnly nize).
+        const infoBases = [];
+        const screenshotBases = new Set();
 
         for (const file of files) {
             if (file.startsWith('._')) continue;
@@ -152,6 +156,7 @@ for (const channel of channels) {
             // Manifest je jedini pouzdan signal "screenshot batch završen za ovaj video".
             if (file.endsWith('_screenshots')) {
                 const ssPath = path.join(channelPath, file);
+                screenshotBases.add(file.slice(0, -'_screenshots'.length));
                 try {
                     if (fs.statSync(ssPath).isDirectory()) {
                         if (fs.existsSync(path.join(ssPath, '_manifest.json'))) {
@@ -171,6 +176,10 @@ for (const channel of channels) {
             const key = classify(file);
             if (key) {
                 stats[key] = (stats[key] || 0) + 1;
+
+                if (key === 'infoJson') {
+                    infoBases.push(file.slice(0, -'.info.json'.length));
+                }
 
                 // Track blocked reasons and retry status
                 if (key === 'summaryBlocked' || key === 'articleBlocked') {
@@ -227,6 +236,20 @@ for (const channel of channels) {
             }
         }
 
+        // Audio-only epizode (beamly direct-MP3 bez YT matcha) NIKAD ne dobiju
+        // screenshote — `screenshot_youtube.js` ih preskace na `_yt_matched === false`.
+        // Drzati ih u nazivniku znaci trajno prikazivati laznu rupu (2026-08-17: 170
+        // takvih je izgledalo kao 131-video zaostatak). Citamo .info.json SAMO za videe
+        // BEZ screenshot dira — audio-only su svi u tom skupu, pa je rezultat potpun,
+        // a trosak ostaje na ~stotinu fajlova umjesto na cijelom katalogu.
+        for (const base of infoBases) {
+            if (screenshotBases.has(base)) continue;
+            try {
+                const info = JSON.parse(fs.readFileSync(path.join(channelPath, base + '.info.json'), 'utf-8'));
+                if (info._yt_matched === false) stats.audioOnly = (stats.audioOnly || 0) + 1;
+            } catch { /* neispravan/nedostupan info.json — tretiraj kao obican video */ }
+        }
+
         totalOutlineVideos += videosWithOutline.size;
         totalArticleVideos += videosWithArticle.size;
         totalMagisteriumVideos += videosWithMagisterium.size;
@@ -247,8 +270,13 @@ const g = (k) => stats[k] || 0;
 // Fallback na broj .mp3 ako direktorij nije dostupan (npr. pokretano izvan repoa).
 const listaTotal = countTotalListaEntries();
 const mp3Count   = g('mp3');
-const total      = listaTotal || mp3Count;
-const backlog    = listaTotal ? listaTotal - mp3Count : 0;
+// "Preuzeto" se MORA mjeriti .info.json-om, ne .mp3-om: `convert_to_wav.js` brise .mp3
+// nakon konverzije, pa je .mp3 tranzijentan i mjeri samo "jos nije konvertirano".
+// Racunanje backloga iz njega je prijavljivalo 3119 zaostalih dok ih je stvarno bilo 6
+// (2026-08-17). .info.json se pise pri downloadu i nikad se ne brise → trajni signal.
+const fetchedCount = g('infoJson');
+const total      = listaTotal || fetchedCount;
+const backlog    = listaTotal ? Math.max(0, listaTotal - fetchedCount) : 0;
 
 const BAR_WIDTH = 20;
 
@@ -279,16 +307,23 @@ function line(label, count, base, opts = {}) {
 }
 
 if (listaTotal) {
-    console.log(`\n  Pipeline progress (${listaTotal} u listama, ${mp3Count} preuzeto, ${backlog} u backlogu)\n`);
+    console.log(`\n  Pipeline progress (${listaTotal} u listama, ${fetchedCount} preuzeto, ${backlog} u backlogu)\n`);
 } else {
     console.log(`\n  Pipeline progress (${total} preuzetih videa)\n`);
 }
 
 console.log('    -- Download & konverzija --');
-line('Preuzeto (.mp3)', g('mp3'), total);
+line('Preuzeto (.info.json)', g('infoJson'), total);
+// .mp3 je medukorak prema .wav i brise se nakon konverzije — nizak postotak je OCEKIVAN
+// i NIJE zaostatak. Ostaje vidljiv samo kao "koliko ceka convert_to_wav.js".
+line('  └─ .mp3 ceka WAV konverziju', g('mp3'), total);
 line('WAV konverzija (.wav)', g('wav'), total);
-line('Video MKV (yt-dlp merge)', g('mkv'), total);
-line('Metadata (.info.json)', g('infoJson'), total);
+// NIJE delivery signal: `backfill_video_h264.js --rm-local-after-upload` NAMJERNO brise
+// lokalni .mkv nakon uspjesnog H.264 uploada (DOMOVINA1TB je tijesan), pa nedostatak
+// .mkv najcesce znaci "vec isporuceno", a ne "rupa". 2026-08-17 je ovaj redak izgledao
+// kao 678 videa zaostatka, a uzorak 20/20 je vec bio live na CDN-u.
+// Za stvarnu isporuku: node count_progress.js --with-r2-video
+line('Lokalni MKV master (≠isporuka)', g('mkv'), total);
 line('Opisi (.description)', g('description'), total);
 
 console.log('\n    -- Whisper (OpenAI) --');
@@ -361,7 +396,14 @@ line('RAG combined', g('ragCombined'), total);
 // `-c:v copy`) je DEPRECATED: legacy lokalni .mp4 su mrtvi artefakti (kandidati za disk
 // cleanup), više NISU publish-ready. Lokalni .mkv ostaju masteri (izvor za H.264 transcode).
 console.log('\n    -- Screenshots & H.264 publish --');
-line('Screenshot dirovi (po videu)', g('screenshots'), total, { extra: g('screenshotPng'), extraLabel: 'PNG' });
+// Nazivnik iskljucuje audio-only (beamly `_yt_matched:false`) — one se preskacu po
+// dizajnu, pa bi ih drzanje u nazivniku prikazivalo kao trajnu rupu.
+const audioOnly = g('audioOnly');
+const screenshotBase = Math.max(0, total - audioOnly);
+line('Screenshot dirovi (po videu)', g('screenshots'), screenshotBase, { extra: g('screenshotPng'), extraLabel: 'PNG' });
+if (audioOnly) {
+    console.log(`      └─ ${audioOnly} audio-only epizoda izuzeto (bez YT videa, skip po dizajnu)`);
+}
 console.log('    H.264 delivery se mjeri IZ R2 → node count_progress.js --with-r2-video');
 if (g('mp4Final')) {
     console.log(`    Legacy lokalni .mp4 (VP9/AV1 layer C): ${g('mp4Final')} — DEPRECATED, kandidati za disk cleanup`);
