@@ -12670,7 +12670,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Kandidat za glasanje — nije onboardan u pipeline (nema KANALI[] unos, lista fajl ni storage.conf)."
       },
       "tier": 4,
       "data_quality": "complete",
@@ -12709,7 +12710,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Kandidat za glasanje — nije onboardan u pipeline (nema KANALI[] unos, lista fajl ni storage.conf)."
       },
       "tier": 4,
       "data_quality": "complete",
