@@ -45,7 +45,13 @@
       "year_month": "2026-05",
       "method": "GitHub issue forma 'registry' label -> manualna yt-dlp verifikacija playlist metadata + klasifikacija"
     },
-    "yt-dlp-search-sweep-2026-07"
+    "yt-dlp-search-sweep-2026-07",
+    {
+      "id": "deep-research-micro-2026-08",
+      "label": "Deep Research — Istraživanje Hrvatskih Mikronišnih Podcasta (vjerski, B2B brand extension, regionalni)",
+      "type": "external-research",
+      "date": "2026-08"
+    }
   ],
   "tag_legend": {
     "religious-catholic": "Katolički sadržaj, vjera, duhovnost",
@@ -12673,15 +12679,15 @@
       ],
       "notes": "Katolički podcast brenda AbbaWear (Antonio i Marija Culej). Svjedočanstva, vjera i poduzetništvo.",
       "quality_score": {
-        "total": 55,
+        "total": 57,
         "tier": "👀 moderate",
         "breakdown": {
           "activity": 25,
-          "catalog": 10,
-          "audience": 5,
-          "format": 10,
-          "substance": 5,
-          "verification": 0,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 5,
           "recency": 0
         }
       }
@@ -12712,15 +12718,15 @@
       ],
       "notes": "Serijal / podcast Varaždinske biskupije sa svjedočanstvima, emitiran na VTV-u, Laudato TV-u i YouTube-u.",
       "quality_score": {
-        "total": 40,
+        "total": 57,
         "tier": "👀 moderate",
         "breakdown": {
-          "activity": 20,
-          "catalog": 10,
-          "audience": 3,
-          "format": 5,
-          "substance": 2,
-          "verification": 0,
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 5,
           "recency": 0
         }
       }
@@ -12755,16 +12761,718 @@
       ],
       "notes": "Poslovni podcast digitalne agencije Kontra. Ugašen krajem 2025.",
       "quality_score": {
-        "total": 35,
-        "tier": "👀 moderate",
+        "total": 28,
+        "tier": "📦 weak",
         "breakdown": {
           "activity": 0,
-          "catalog": 15,
-          "audience": 5,
-          "format": 10,
-          "substance": 5,
-          "verification": 0,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 1,
           "recency": 0
+        }
+      }
+    },
+    {
+      "slug": "duhovno-duhoviti-poziv",
+      "display_name": "Duhovno duhoviti poziv",
+      "youtube": {
+        "url": "https://www.youtube.com/@frastjepanbrcina",
+        "handle": "@frastjepanbrcina",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "youth",
+        "personal-development"
+      ],
+      "voditelji": [
+        "fra Stjepan Brčina"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2020",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 1,
+        "reason_disabled": "Kandidat Faza 1 — katolički duhovni format za mlade."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Katolički duhovni podcast usmjeren na mladu publiku pod vodstvom fra Stjepana Brčine (Svetište Sv. Antuna Padovanskog na Svetom Duhu).",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "verbum-podcast",
+      "display_name": "Verbum Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@VerbumHR",
+        "handle": "@VerbumHR",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "culture",
+        "education"
+      ],
+      "voditelji": [
+        "Nakladnička kuća Verbum"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2021",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 1,
+        "reason_disabled": "Kandidat Faza 1 — katolička nakladnička kuća."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Edukativni serijal razgovora o kršćanskoj literaturi, teologiji i obiteljskim vrijednostima nakladne kuće Verbum.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "rijec-zivota-podcast",
+      "display_name": "Riječ Života Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@RijecZivotaHR",
+        "handle": "@RijecZivotaHR",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious",
+        "protestant",
+        "ethics"
+      ],
+      "voditelji": [
+        "Damir Šićko Alić"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2019",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Protestantsko-evanđeoski format."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Protestantsko-evanđeosko-karizmatski podcast usmjeren na tumačenje Biblije i kršćansku etiku crkve Riječ Života.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "srce-isusovo-podcast",
+      "display_name": "Srce Isusovo Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@srceisusovo",
+        "handle": "@srceisusovo",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "religious-catholic",
+        "spirituality"
+      ],
+      "voditelji": [
+        "Alan Hržica"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2018",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 1,
+        "reason_disabled": "Kandidat Faza 1 — katolička molitvena zajednica."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Duhovna svjedočanstva, molitveni život i razgovori o vjeri laičke molitvene zajednice Srce Isusovo.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "stanarica-podcast",
+      "display_name": "Stanarica podcast o nekretninama",
+      "youtube": {
+        "url": "https://www.youtube.com/@Stanarica",
+        "handle": "@Stanarica",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "realestate",
+        "finance"
+      ],
+      "voditelji": [
+        "Ivana Alfier"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022-03",
+        "last_episode": "2024-08"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Sekularni B2B/B2C nekretninski podcast."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Edukativni podcast posvećen analizi hrvatskog tržišta nekretnina, kreditima, arhitekturi i iznajmljivanju.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "arbona-podcast",
+      "display_name": "Arbona podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@arbona-agency",
+        "handle": "@arbona-agency",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "business",
+        "marketing"
+      ],
+      "voditelji": [
+        "Agencija Arbona"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022-05",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "B2B agencijski podcast o marketingu."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Agencijski podcast za digitalni marketing, SEO, Google Ads i e-commerce strategije.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "async-podcast",
+      "display_name": "Async Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@async_platform",
+        "handle": "@async_platform",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "technology",
+        "leadership",
+        "entrepreneurship"
+      ],
+      "voditelji": [
+        "Bornfight / Async"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2021",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "B2B tech podcast o razvoju softvera."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Tehnološki brand-extension podcast tvrtke Bornfight o razvoju softvera i vođenju IT timova.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "split-tech-city-podcast",
+      "display_name": "Split Tech City Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@splittechcity",
+        "handle": "@splittechcity",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "technology",
+        "entrepreneurship",
+        "domoljubni"
+      ],
+      "voditelji": [
+        "Split Tech City"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2020",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Regionalni poduzetnički/tech podcast."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Regionalni poduzetnički podcast koji promovira dalmatinske tehnološke tvrtke i mlade inovatore.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "speck-speaks",
+      "display_name": "Speck Speaks",
+      "youtube": {
+        "url": "https://www.youtube.com/@speckspeaks",
+        "handle": "@speckspeaks",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "technology",
+        "design"
+      ],
+      "voditelji": [
+        "Speck"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "B2B IT/dizajn podcast."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Agencijski podcast agencije Speck o UI/UX dizajnu, razvoju softvera i agencijskoj kulturi.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "druga-strana-medalje",
+      "display_name": "Druga strana medalje",
+      "youtube": {
+        "url": "https://www.youtube.com/@DSM_Podcast",
+        "handle": "@DSM_Podcast",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "culture",
+        "sports",
+        "domoljubni"
+      ],
+      "voditelji": [
+        "Autorski tim Šibenik"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022-09",
+        "last_episode": "2024-08",
+        "episodes_estimate": 170
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Lokalni šibenski podcast."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Autentični šibenski podcast posvećen pričama ljudi iz društvenog, sportskog i kulturnog života Šibenika (170+ epizoda).",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "gimnazijska-spica",
+      "display_name": "Gimnazijska špica",
+      "youtube": {
+        "url": "https://www.youtube.com/@gimnazijskaspica",
+        "handle": "@gimnazijskaspica",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "education",
+        "youth"
+      ],
+      "voditelji": [
+        "Učenici i profesori Gimnazije Karlovac"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022-10",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Školski/edukativni podcast."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Prvi školski podcast u Karlovačkoj županiji posvećen medijskoj pismenosti i mladim talentima.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "zadarski-podcast",
+      "display_name": "Zadarski podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@noviradiozadar5838",
+        "handle": "@noviradiozadar5838",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "culture",
+        "domoljubni"
+      ],
+      "voditelji": [
+        "Novi radio Zadar"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2022",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Regionalni zadarski podcast."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Regionalni podcast Novog radija Zadar s težištem na razgovore sa zadarskim obrtnicima i kulturnjacima.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "kisobran-uniri-podcast",
+      "display_name": "Kišobran UNIRI Podcast",
+      "youtube": {
+        "url": "https://www.youtube.com/@kisobranuniri",
+        "handle": "@kisobranuniri",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "education",
+        "youth",
+        "culture"
+      ],
+      "voditelji": [
+        "Portal Kišobran UNIRI"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2021",
+        "last_episode": "2024",
+        "episodes_estimate": 130
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Studentski riječki podcast."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Riječki studentski podcast Sveučilišta u Rijeci koji pokriva akademski život i nezavisnu kulturnu scenu (130+ epizoda).",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "podcast-centra-tic",
+      "display_name": "Podcast Centra Tić",
+      "youtube": {
+        "url": "https://www.youtube.com/@CentarTi%C4%87",
+        "handle": "@CentarTić",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "personal-development",
+        "education"
+      ],
+      "voditelji": [
+        "Centar Tić Rijeka"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2021",
+        "last_episode": "2024"
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Podcast o mentalnom zdravlju i djeci."
+      },
+      "tier": 4,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Specijalizirani podcast javne ustanove iz Rijeke posvećen mentalnom zdravlju djece i podršci roditeljstvu.",
+      "quality_score": {
+        "total": 60,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 4,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
+        }
+      }
+    },
+    {
+      "slug": "podcast-s-barbarom",
+      "display_name": "Podcast s Barbarom",
+      "youtube": {
+        "url": "https://www.youtube.com/@dulist9341",
+        "handle": "@dulist9341",
+        "channel_id": null,
+        "type": "channel"
+      },
+      "tags": [
+        "culture",
+        "domoljubni",
+        "business"
+      ],
+      "voditelji": [
+        "Barbara Đurasović"
+      ],
+      "metadata": {
+        "status": "active",
+        "first_episode": "2021",
+        "last_episode": "2024",
+        "episodes_estimate": 110
+      },
+      "tracking": {
+        "enabled": false,
+        "candidate_phase": 3,
+        "reason_disabled": "Lokalni dubrovački podcast."
+      },
+      "tier": 3,
+      "data_quality": "verified",
+      "sources": [
+        "deep-research-micro-2026-08"
+      ],
+      "notes": "Dubrovački podcast tjednika DuList s razgovorima o turizmu, nekretninama i baštini juga Dalmacije (110+ epizoda).",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "activity": 25,
+          "catalog": 12,
+          "audience": 4,
+          "format": 15,
+          "substance": 4,
+          "verification": 7,
+          "recency": 1
         }
       }
     }
