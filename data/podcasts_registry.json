@@ -2387,7 +2387,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -6530,7 +6531,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Netokracija (Office Talks)\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 4,
       "data_quality": "verified",
@@ -6671,7 +6673,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Netokracija (Office Talks)\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -6718,7 +6721,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Netokracija (Office Talks)\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 1,
       "data_quality": "verified",
@@ -6765,7 +6769,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Netokracija (Office Talks)\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 1,
       "data_quality": "verified",
@@ -6811,7 +6816,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Netokracija (Office Talks)\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -10946,7 +10952,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11038,7 +11045,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11084,7 +11092,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11130,7 +11139,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 2,
       "data_quality": "verified",
@@ -11176,7 +11186,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 2,
       "data_quality": "verified",
@@ -11222,7 +11233,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11267,7 +11279,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11312,7 +11325,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11358,7 +11372,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 2,
       "data_quality": "verified",
@@ -11403,7 +11418,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 2,
       "data_quality": "verified",
@@ -11449,7 +11465,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11494,7 +11511,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11633,7 +11651,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
@@ -11725,7 +11744,8 @@
         "status": "active"
       },
       "tracking": {
-        "enabled": true
+        "enabled": false,
+        "reason_disabled": "Playlista roditeljskog kanala „Tribina\" — nikad ozicana u pipeline (nema KANALI[] unos, lista fajl ni output dir). Kandidat za glasanje."
       },
       "tier": 3,
       "data_quality": "verified",
