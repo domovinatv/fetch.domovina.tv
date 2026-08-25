@@ -150,7 +150,7 @@ Mjerenje koje to zaključava: isti `part_04_16k.wav` starom metodom (putanja je 
 
 ---
 
-## 4. Tko drži swap (P5, mjereno 2026-08-25)
+## 3A. Tko drži swap (P5, mjereno 2026-08-25)
 
 `top -l 1 -o mem -stats pid,command,mem,cmprs` daje jednoznačan odgovor — jedan proces
 nosi praktički cijeli bazni pritisak:
@@ -210,15 +210,32 @@ polugu 1 ili 3, a ne da treba popustiti prag.
 
 ---
 
-## 5. Stanje prijedloga
+## 3B. Što je od P1–P5 doista u kodu
 
-| | Status | Gdje |
+Tablica je **konačno stanje**, usklađeno s ispravcima iz §4, §5 i §6 koji slijede.
+Čitaj je zajedno s §4.4 („Što ovo mijenja u prijedlozima").
+
+| | Status | Gdje u kodu |
 |---|---|---|
-| P1 putanja umjesto waveforma | zastavica `--audio-input path\|waveform`, default i dalje `waveform`; A/B alat `tools/ab_diarize_audio_input.py` | `diarize.py`, `colab_diarize/diarize_canary.py` |
-| P2 indikator napretka | ✅ | `LogProgressHook` u sve tri diarizacijske skripte |
-| P3 nadzornik u nightlyju | ✅ | `MachineGuard` + predpolet; `--guard/--min-free-disk-gb/--rss-cap-gb`, provučeno kroz `run_pipeline.sh` KORAK 6 |
-| P4 auto-ruta na Modal volume | ✅ | `modal_canary/canary_modal.py::main`, prag `MODAL_VOLUME_THRESHOLD_MB` (1024 MB) |
-| P5 bazni pritisak na swap | ✅ utvrđeno (§4), poluge nisu povučene | — |
+| **P1** putanja umjesto waveforma | ❌ **POVUČEN** — smjer je bio pogrešan (§4.1, §5.3). Zastavica `--audio-input` postoji, default je `waveform`, `path` ispisuje upozorenje. Zadržana samo radi ponovljivosti mjerenja. | `diarize.py`, `colab_diarize/diarize_canary.py`, env `DIARIZE_AUDIO_INPUT` u `transcribe_diarized.js` |
+| **P2** indikator napretka | ✅ isporučeno | `LogProgressHook` u `diarize.py`, `colab_diarize/diarize_canary.py`, `sabor_pipeline/02_diarize.py` |
+| **P3** nadzornik u nightlyju | ⚠️ isporučeno, ali **nepotpuno po §5.8** — mjeri `df` i RSS, a RSS je na MPS-u slijep (§4.2, §5.7) i nedostaju swap-omjer i `phys_footprint`. `torch.mps.set_per_process_memory_fraction(0.55)` (§5.6) važniji je od cijelog nadzornika i **još nije ugrađen**. | `MachineGuard` + predpolet u `colab_diarize/diarize_canary.py`; `--guard/--min-free-disk-gb/--rss-cap-gb` provučeni kroz `run_pipeline.sh` KORAK 6 (env `DIARIZE_GUARD`, `DIARIZE_MIN_FREE_DISK_GB`, `DIARIZE_RSS_CAP_GB`); test `colab_diarize/test_guard.py` |
+| **P4** auto-ruta na Modal volume | ✅ isporučeno | `modal_canary/canary_modal.py::main` — iznad `MODAL_VOLUME_THRESHOLD_MB` (default 1024) ide `modal volume put` + `transcribe_volume`, pa brisanje u `finally` |
+| **P5** bazni pritisak na swap | ✅ utvrđeno (§3A), poluge **nisu** povučene | — (konfiguracija Docker Desktopa, ne kod) |
+
+### Što je ostalo neprovjereno
+
+- **A/B `--audio-input` nikad nije dovršen.** `tools/ab_diarize_audio_input.py` odigrao je
+  samo prvu epizodu (17.5 min, `mreze_rijeci`): **100 % poklapanje** govornika po SRT
+  retku, 211 vs 211 segmenata, 2 vs 2 govornika — dakle putanja i waveform daju **istu
+  particiju**. Ali već ondje je putanja bila sporija (0.9 vs 0.7 min) i s nešto više RSS-a
+  (1.51 vs 1.45 GB), na snimci gdje ušteda uopće nije mogla doći do izražaja. Run je
+  prekinut jer je pitanje u međuvremenu zatvoreno uzvodnom provjerom (§5.1–§5.3).
+  Zaključak koji vrijedi zadržati: **izbor audio ulaza ne mijenja rezultat, samo cijenu.**
+- **20-satna diarizacija od 2026-08-25 09:23 završila je bez izlaza** — nema
+  `diarization.json`, nema crash reporta za Python (dakle uredan izlaz, ne SIGKILL).
+  Razlog je ispisan u terminalu iz kojeg je pokrenuta i nije sačuvan. Uzrok je ionako
+  objašnjen u §5.4/§6.1: klasteriranje je O(n²) i 20 h ne prolazi na 24 GB.
 
 ---
 
