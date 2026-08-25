@@ -26,7 +26,7 @@ Međutim, **saborske sjednice** imaju specifičnosti koje podcast pipeline ne po
 | **02a** | ✅ Implementirano | [`02_global_diarization.md`](./02_global_diarization.md) (⚠️ ispravljeno) | `02_diarize.py` — diarizacija po komadima od ~2 h s preklapanjem od 90 s, rezovi u tišini. Lokalne oznake + centroidi po komadu. |
 | **02b** | ✅ Implementirano | isto | `02b_merge_speakers.py` — globalno spajanje centroida (average/cosine + **cannot-link**) → `diarization.json` s globalnim `SPEAKER_001…`. |
 | **03** | ✅ Implementirano | [`03_asr_and_protocol_parser.md`](./03_asr_and_protocol_parser.md) (⚠️ ispravljeno) | `03_transcribe_and_align.js` — poravnanje Canary SRT-a s globalnom diarizacijom, post-ASR rječnik, protokolarno sidrenje nad **scrapeanim** registrom sa `sabor.hr` → `aligned_transcript.json` + `speaker_map.json`. |
-| **04** | ⏳ Na čekanju | [`04_llm_structuring_and_export.md`](./04_llm_structuring_and_export.md) | Vertex AI `gemini-3.5-flash` / Claude Opus semantičko strukturiranje, debatna stabla, RAG chunking (`MAX_TOPIC_CHUNK_CHARS = 8000`) i export. |
+| **04** | 🟡 Djelomično (prolaz A) | [`04_llm_structuring_and_export.md`](./04_llm_structuring_and_export.md) (⚠️ nepregledana) | Vertex AI `gemini-3.5-flash` / Claude Opus semantičko strukturiranje, debatna stabla, RAG chunking (`MAX_TOPIC_CHUNK_CHARS = 8000`) i export. |
 
 ---
 
@@ -40,6 +40,37 @@ Docker VM drži 14 GiB). **Ne pokušavati ponovno.**
 
 Mjerenja, izvori iz literature i ispravan postupak:
 `docs/pipeline_memorija_i_propusnost_2026-08.md` §5–§6 (§6.8 je postupak).
+
+### Kako se pokreće — SVE ODJEDNOM
+
+```bash
+# cijela sjednica, od konfiguracije do članka
+sabor_pipeline/run_sabor_session.sh --session sabor_11_izvanredna_11_gospic
+
+# što bi se dogodilo, bez ijedne izmjene
+sabor_pipeline/run_sabor_session.sh --session <id> --dry-run
+
+# samo dio lanca / drugi backend za članak
+sabor_pipeline/run_sabor_session.sh --session <id> --from 03
+sabor_pipeline/run_sabor_session.sh --session <id> --article-backend claude --article-model opus
+```
+
+Orkestrator **provodi** četiri pravila, ne samo ih dokumentira:
+
+| Pravilo | Kako se provodi |
+|---|---|
+| Diarizacija je striktan preduvjet za korak 03 | nema `diarization.json` → ABORT |
+| Nikad dva pyannote posla paralelno | `ps` provjera prije koraka 02 → ABORT |
+| Prag spajanja se MJERI, ne prepisuje | nema `merge_threshold.json` → 02b se ne pokreće |
+| Transkripcija je Canary i radi se IZVANA | nedostaje `.canary.srt` → ABORT s uputom za Colab/Modal |
+
+Registar zastupnika se osvježava pri svakom prolazu — sastav Sabora se mijenja
+(zamjene, mandati u mirovanju), a stari popis tiho imenuje krivu osobu.
+
+⚠️ Slijepa provjera (`tools/blind_speaker_check.js`) **nije** u lancu jer troši
+LLM kvotu; orkestrator ju ispiše kao preporučeni sljedeći korak. Na pilotu je
+u pet prozora našla šest defekata koje deterministički pristup ne vidi
+(`docs/sabor_faza03_protokol_i_registar_2026-08.md` §7).
 
 ### Kako se pokreće — faza 03
 
@@ -110,6 +141,11 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 | `utils/asr_dictionary.js` | post-ASR rječnik — samo pravila s izmjerenim brojem pojava |
 | `tools/verify_speaker_count.js` | donja granica broja govornika iz protokola (neovisna o klasteriranju) |
 | `tools/test_protocol_parser.js` | testovi faze 03 nad doslovnim citatima iz transkripta |
+| `run_sabor_session.sh` | **orkestrator** — jedan ulaz od konfiguracije do članka, s tvrdim preduvjetima |
+| `04_article_sliding_window.js` | faza 04 (prolaz A) — dugi članak map-reduce kliznim prozorom |
+| `tools/blind_speaker_check.js` | slijepa provjera imenovanja modelom (gole oznake, bez registra) |
+| `tools/audit_article.js` | revizija članka — izmišljena imena i timestampovi |
+| `tools/crosscheck_speakers.js` | usporedba bilježaka faze 04 s fazom 03 (⚠️ kružno, vidi §7.1) |
 
 ---
 

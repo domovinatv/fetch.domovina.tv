@@ -174,9 +174,41 @@ TVRDA PRAVILA:
 4. Svaka tvrdnja MORA imati timestamp iz uglatih zagrada u kojem je izrečena.
 5. Vraćaš ISKLJUČIVO valjan JSON, bez ikakvog teksta izvan njega.`;
 
-function mapUser(win, idx, total, blocks) {
-    return `Ovo je prozor ${idx + 1} od ${total} transkripta 11. izvanredne sjednice Hrvatskoga sabora
-(20.–21. kolovoza 2026., tema: odlaganje opasnog otpada na području Gospića; sjednicu je zatražio Predsjednik Republike).
+/**
+ * Opis sjednice za promptove — ČITA SE IZ MANIFESTA, nikad se ne upisuje u kod.
+ *
+ * ⚠️ Prva verzija je imala naslov, temu, datume i trajanje pilot-sjednice
+ * ušivene na pet mjesta u promptovima. Za sljedeću sjednicu to ne bi puknulo
+ * nego LAGALO: model bi u svakom prozoru dobio kontekst „opasni otpad u
+ * Gospiću, 20.–21. 8. 2026." i uredno napisao članak o krivoj sjednici.
+ * Tiha greška je gora od pada, pa kod o sjednici ne smije znati ništa.
+ */
+function sessionContext(manifest) {
+    const parts = manifest.parts || [];
+    const dates = [...new Set(parts.map((p) => p.upload_date).filter(Boolean))].sort();
+    const fmt = (d) => `${Number(d.slice(6, 8))}. ${Number(d.slice(4, 6))}. ${d.slice(0, 4)}.`;
+    const raspon = dates.length === 0 ? (manifest.date || "")
+        : dates.length === 1 ? fmt(dates[0])
+        : `${fmt(dates[0])} – ${fmt(dates[dates.length - 1])}`;
+    const kratko = `${manifest.title || manifest.session_id}` +
+        `${raspon ? `, ${raspon}` : ""}` +
+        `${manifest.total_duration_hms ? `, ukupno ${manifest.total_duration_hms}` : ""}`;
+    return {
+        naslov: manifest.title || manifest.session_id,
+        tema: manifest.topic || "",
+        raspon,
+        trajanje: manifest.total_duration_hms || "",
+        dijelova: parts.length,
+        /** Jedna rečenica konteksta koja ide u svaki prompt. */
+        kratko,
+        /** Prošireno — s temom, za outline i pisanje poglavlja. */
+        puno: kratko + (manifest.topic ? `\nTema: ${manifest.topic}` : ""),
+    };
+}
+
+function mapUser(ctx, win, idx, total, blocks) {
+    return `Ovo je prozor ${idx + 1} od ${total} transkripta sjednice Hrvatskoga sabora.
+${ctx.puno}
 
 Vremenski raspon prozora: ${blocks[0].start_hms} – ${blocks[blocks.length - 1].start_hms}.
 
@@ -202,12 +234,12 @@ ${win}`;
 const OUTLINE_SYSTEM = `Ti si urednik koji od bilježaka sastavlja plan dugog novinarskog članka o cjelodnevnoj saborskoj sjednici.
 Piši na hrvatskom. Vraćaš ISKLJUČIVO valjan JSON.`;
 
-function outlineUser(notes) {
-    return `Ovo su strukturirane bilješke iz ${notes.length} uzastopnih prozora transkripta 11. izvanredne sjednice
-Hrvatskoga sabora (20 h 01 min, 20.–21. 8. 2026., tema: opasni otpad u Gospiću).
+function outlineUser(ctx, notes) {
+    return `Ovo su strukturirane bilješke iz ${notes.length} uzastopnih prozora transkripta sjednice Hrvatskoga sabora.
+${ctx.puno}
 
 Sastavi plan članka od 8 do 12 poglavlja. Poglavlja moraju pokriti CIJELU sjednicu, ne samo početak.
-Neka barem dva poglavlja budu tematska (ne kronološka) — npr. "Tko je što znao i kada" ili "Sukob oko odgovornosti Fonda".
+Neka barem dva poglavlja budu tematska (ne kronološka) — npr. "Tko je što znao i kada" ili "Sukob oko odgovornosti".
 
 Vrati JSON:
 {
@@ -234,9 +266,9 @@ TVRDA PRAVILA:
 4. Piši tekućim novinarskim jezikom, bez natuknica. Ne ponavljaj naslov poglavlja u prvoj rečenici.
 5. Vraćaš ISKLJUČIVO Markdown tekst poglavlja, bez ikakvog uvoda o tome što radiš.`;
 
-function writeUser(ch, notes, citati) {
-    return `Napiši poglavlje ${ch.broj}: „${ch.naslov}" dugog članka o 11. izvanrednoj sjednici Hrvatskoga sabora
-(20 h 01 min, 20.–21. 8. 2026., opasni otpad u Gospiću, sjednicu zatražio Predsjednik Republike).
+function writeUser(ctx, ch, notes, citati) {
+    return `Napiši poglavlje ${ch.broj}: „${ch.naslov}" dugog članka o sjednici Hrvatskoga sabora.
+${ctx.puno}
 
 Težište poglavlja: ${ch.teziste}
 Ključni govornici: ${(ch.kljucni_govornici || []).join(", ") || "(nije određeno)"}
@@ -256,8 +288,13 @@ async function main() {
     const alignedPath = path.join(sessionDir, "aligned_transcript.json");
     if (!fs.existsSync(alignedPath)) { console.error(`GREŠKA: nedostaje ${alignedPath} (pokreni fazu 03)`); process.exit(1); }
     const aligned = JSON.parse(fs.readFileSync(alignedPath, "utf8"));
+    // Kontekst sjednice dolazi iz manifesta, ne iz koda (vidi `sessionContext`).
+    const manifestPath = path.join(sessionDir, "session_manifest.json");
+    if (!fs.existsSync(manifestPath)) { console.error(`GREŠKA: nedostaje ${manifestPath}`); process.exit(1); }
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
     fs.mkdirSync(windowsDir, { recursive: true });
 
+    const ctx = sessionContext(manifest);
     const windows = buildWindows(aligned.blocks, WINDOW_CHARS);
     const totalChars = aligned.blocks.reduce((s, b) => s + renderBlock(b).length, 0);
     log(`Sjednica ${SESSION}: ${aligned.blocks.length} blokova, ${totalChars.toLocaleString("hr")} znakova`);
@@ -275,7 +312,7 @@ async function main() {
         const text = blocks.map(renderBlock).join("\n\n");
         const started = Date.now();
         try {
-            const raw = await callLlm(MAP_SYSTEM, mapUser(text, i, windows.length, blocks));
+            const raw = await callLlm(MAP_SYSTEM, mapUser(ctx, text, i, windows.length, blocks));
             const json = extractJson(raw);
             json._window = i;
             json._blocks = blocks.length;
@@ -309,7 +346,7 @@ async function main() {
     } else {
         // Za outline se šalju bilješke bez punih citata — plan ne treba navode.
         const lean = notes.map((n) => ({ ...n, citati: undefined }));
-        outline = extractJson(await callLlm(OUTLINE_SYSTEM, outlineUser(lean)));
+        outline = extractJson(await callLlm(OUTLINE_SYSTEM, outlineUser(ctx, lean)));
         fs.writeFileSync(outlinePath, JSON.stringify(outline, null, 2) + "\n", "utf8");
         log(`OUTLINE: „${outline.naslov}" — ${outline.poglavlja.length} poglavlja`);
     }
@@ -324,7 +361,7 @@ async function main() {
         const citati = (idxs.length ? idxs.map((i) => notes[i]) : notes).flatMap((n) => n.citati || []);
         const started = Date.now();
         try {
-            const md = (await callLlm(WRITE_SYSTEM, writeUser(ch, chNotes, citati))).trim();
+            const md = (await callLlm(WRITE_SYSTEM, writeUser(ctx, ch, chNotes, citati))).trim();
             fs.writeFileSync(out, md + "\n", "utf8");
             parts.push(md);
             log(`  pogl. ${ch.broj} „${ch.naslov}": ${md.split(/\s+/).length} riječi (${((Date.now() - started) / 1000).toFixed(0)}s)`);
@@ -338,8 +375,8 @@ async function main() {
         `# ${outline.naslov}`, "",
         `*${outline.podnaslov || ""}*`, "",
         outline.sazetak || "", "",
-        `> Izvor: 11. izvanredna sjednica Hrvatskoga sabora, 20.–21. kolovoza 2026., ` +
-        `4 videozapisa, ukupno 20 h 01 min. Transkripcija NVIDIA Canary 1B v2, ` +
+        `> Izvor: ${ctx.naslov}${ctx.raspon ? `, ${ctx.raspon}` : ""}, ` +
+        `${ctx.dijelova} videozapisa, ukupno ${ctx.trajanje}. Transkripcija NVIDIA Canary 1B v2, ` +
         `dijarizacija pyannote community-1 (${aligned.total_speakers} govornika), ` +
         `imenovanje protokolarnim sidrenjem nad registrom sa sabor.hr ` +
         `(${aligned.stats.distinct_mps_named} imenovanih zastupnika, ` +
