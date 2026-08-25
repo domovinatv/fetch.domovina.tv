@@ -784,6 +784,92 @@ mora ostati ponovljivo), ali sada **odbija snimke dulje od 2 h** osim uz
 na 20 h je to 8–15 h samo dekodiranja. Ograda je u `diarize.py` i
 `colab_diarize/diarize_canary.py`.
 
+### 8.9 Rezultat punog prolaza nad 20 h
+
+**10 komada, 49.4 min ukupno** (+ 5.3 min za `part_04` odvojeno). Ni jedan prag
+nadzornika nije opalio.
+
+| | |
+|---|---|
+| komada | 10 (3+3+3+1), svaki 1.91–2.11 h |
+| trajanje po komadu | 5.1–5.5 min (**22.5–24.8× realtime**) |
+| vrsni `phys_footprint` | 4.96 GB (dio 1) → **5.95 GB** (dio 3) |
+| najmanje slobodno na `/` | 13.1 GB (start 14.5) |
+| vrsni rast swapa | +1.5 GB (prag 3.0) |
+| lokalnih govornika | **288** |
+| **globalnih nakon spajanja** | **118** |
+| slaganje u preklapanjima | **98.8 %** (3823/3869 okvira po 0.1 s) |
+
+Slaganje po granici: 100.0 / 98.0 / 99.8 / 100.0 / **96.1** / 100.0 %. Najslabija
+je `p03_c00↔p03_c01`; sve su iznad 96 %.
+
+Za usporedbu, jedan prolaz nad istim materijalom: **prekinut nakon 146 min bez
+rezultata**, i po §6.1 ne bi prosao ni da je ostavljen do kraja.
+
+### 8.10 ⚠️ Ispravak kriterija validacije iz §6.8 t.5
+
+§6.8 kaze: *„Predsjedavajuci mora ispasti JEDAN govornik kroz svih 20 h — ako
+ispadne dva, prag je pretijesan."*
+
+**Pretpostavka je kriva za Sabor**: sjednicom naizmjence predsjedaju predsjednik
+i potpredsjednici. Na pilot-sjednici ih je **troje**. Broj predsjedavajucih zato
+nije mjera nicega.
+
+Ispravan kriterij je stroziji, i pilot ga **prolazi**:
+
+**1. Rotacija, ne rascjep** — blokovi predsjedanja moraju poplocati vremensku
+os. Izmjereno: **nula preklapanja blokova, sest cistih primopredaja**:
+
+```
+ 4.25 h SPEAKER_004 →  4.27 h SPEAKER_015   (prekid  1.2 min)
+ 8.12 h SPEAKER_015 →  8.13 h SPEAKER_037   (prekid  0.7 min)
+11.98 h SPEAKER_037 → 12.15 h SPEAKER_004   (prekid 10.1 min)
+15.14 h SPEAKER_004 → 15.28 h SPEAKER_015   (prekid  8.9 min)
+18.08 h SPEAKER_015 → 18.33 h SPEAKER_037   (prekid 15.4 min)
+19.16 h SPEAKER_037 → 19.42 h SPEAKER_004   (prekid 15.9 min)
+```
+
+Da je prag pretijesan, jedna osoba bi se rascijepila na dvije oznake koje se
+**isprepliecu unutar istog bloka**. Toga nema nigdje.
+
+**2. Kontinuitet preko dijelova** — svaki predsjedavajuci je ISTA oznaka u svim
+dijelovima u kojima predsjeda:
+
+| oznaka | dijelovi | napomena |
+|---|---|---|
+| SPEAKER_004 | 1, 3, 4 | **razliciti videi i razliciti DANI** (20. i 21. 8.) |
+| SPEAKER_015 | 1, 2, 3 | tri razlicita videa |
+| SPEAKER_037 | 2, 3, 4 | tri razlicita videa |
+
+To je cijela svrha faze 02b i sad je dokazana na podacima, ne pretpostavljena.
+
+Predsjedavajuci se prepoznaju **bez ijedne rucne oznake**, po gustoci
+protokolarnih fraza na 1000 rijeci: **51.2 / 35.2 / 23.9** naspram **≤ 5.5** kod
+svih ostalih. Razdvajanje je za red velicine. Alat: `tools/validate_chair.py`.
+
+### 8.11 Prag: treca neovisna potvrda iz pune pretrage
+
+Pretraga po pragu nad svih 288 centroida:
+
+| prag | globalnih govornika |
+|---|---|
+| 0.15 | 122 |
+| **0.20–0.30** | **118** (plato) |
+| 0.35 | 117 |
+| 0.40 | 115 |
+| 0.45 | 107 |
+| 0.50 | 93 |
+| 0.70 | 69 |
+
+Kalibrirani **0.263 pada u sredinu platoa**, a plato zavrsava tocno ondje gdje
+neovisna kontrola „razliciti govornici unutar istog komada" kaze da bi trebao
+(min 0.279, p1 0.462). Tri neovisna mjerenja — kalibracija (§8.6), plato, i
+kontrola unutar komada — pokazuju istu vrijednost.
+
+⚠️ Slaganje u preklapanjima je **98.8 % na svakom pragu** i zato se **ne smije
+citati samo**: prag koji sve spoji u jednog govornika dao bi 100 %. Cita se
+iskljucivo zajedno s brojem globalnih govornika.
+
 ---
 
 ## Vezani dokumenti
@@ -791,6 +877,8 @@ na 20 h je to 8–15 h samo dekodiranja. Ograda je u `diarize.py` i
 - `docs/PIPELINE_FULL.md` — cjelovit pipeline, koraci 0→13
 - `docs/diarization_research_2026-05.md` — zašto pyannote ostaje (Sortformer cap = 4 govornika)
 - `docs/transcription_colab_vs_modal_cost_2026-07.md` — Colab batch vs Modal ad-hoc
+- `sabor_pipeline/README.md` — kako se faza 02 pokreće (02a → kalibracija → 02b)
 - `sabor_pipeline/02_global_diarization.md` — izvorna specifikacija; §6.8 ovog dokumenta
-  je ispravlja u tri točke (2 h umjesto 30 min prozora, centroidi iz pyannotea umjesto
-  drugog prolaza, prag mjeren umjesto prepisanog 0.68)
+  je ispravlja u četiri točke (2 h umjesto 30 min prozora, centroidi iz pyannotea umjesto
+  drugog prolaza, prag mjeren umjesto prepisanog 0.68, cannot-link u spajanju).
+  Sam taj dokument nosi ispravak u zaglavlju.

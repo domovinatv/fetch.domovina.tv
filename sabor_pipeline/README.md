@@ -55,6 +55,9 @@ python3 sabor_pipeline/tools/calibrate_threshold.py --session sabor_11_izvanredn
 python3 sabor_pipeline/02b_merge_speakers.py --session sabor_11_izvanredna_11_gospic --sweep-only
 python3 sabor_pipeline/02b_merge_speakers.py --session sabor_11_izvanredna_11_gospic
 
+# 4) validiraj protokolom (predsjedavajući: rotacija, ne rascjep)
+python3 sabor_pipeline/tools/validate_chair.py --session sabor_11_izvanredna_11_gospic
+
 # provjera ograničenog AHC-a (mora biti identičan scipy-ju bez ograničenja)
 python3 sabor_pipeline/tools/test_merge_speakers.py
 ```
@@ -69,6 +72,7 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 | `utils/diar_runner.py` | pokretanje PyAnnotea nad isječkom (waveform, MPS cap) |
 | `utils/machine_guard.py` | mjerenje pritiska (`phys_footprint`, swap-rast, disk) + nadzornik |
 | `tools/calibrate_threshold.py` | mjerenje praga po §6.7 → `merge_threshold.json` |
+| `tools/validate_chair.py` | validacija protokolom — rotacija predsjedavajućih + kontinuitet preko videa |
 | `tools/test_merge_speakers.py` | test ograničenog AHC-a i post-obrade |
 
 ---
