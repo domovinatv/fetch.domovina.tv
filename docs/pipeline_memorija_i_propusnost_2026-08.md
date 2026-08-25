@@ -425,3 +425,132 @@ Od najranijeg signala prema najkasnijem:
 `vm.memory_pressure` **ne koristiti** — na ovom stroju vraća konstantnu 0.
 `memory_pressure` 53 % nas nije lagao: sustav nije bio pod pritiskom **jer je macOS
 pritisak već preselio u swap na disku**. Zato je swap rani, a memorystatus kasni signal.
+
+---
+
+## 6. Long-form diarizacija — literatura, mjerenja i ispravan postupak
+
+Treće istraživanje, neovisno o §5, dolazi do istog zaključka i dodaje kanonsku referencu.
+
+### 6.1 Presuda: jedan prolaz nad 20 h nije praksa i fizički ne prolazi
+
+Izmjereno na ovom stroju (community-1, MPS, 900 s govora):
+`RTF ≈ 0.099` (~10× realtime), **1099 embeddinga po sekundi zvuka**, korak 1 s.
+
+Ekstrapolacija na 20 h 01 min (72 074 s):
+
+| Faza | 20 h |
+|---|---|
+| chunkova (prozor 10 s, korak 1 s) | **72 065** |
+| embeddinga u klasteriranje | **≈ 79 200** |
+| AHC `scipy.linkage` (condensed float64) | **≈ 25.1 GB** ⛔ |
+| `reconstruct()` `(chunks, 589, K)` float64, K=42–60 | **14.3–20.4 GB** ⛔ |
+| …alocira se kao `np.nan * np.zeros(...)` → 2 kopije | **28–41 GB** ⛔ |
+| …i poziva se **dvaput** (regularna + `exclusive`) | ⛔ |
+
+Fatalno na **dva neovisna mjesta**, i to za faktor — nije rubno.
+
+### 6.2 Granica u praksi je 1.5–4 h, i to na 32–64 GB strojevima
+
+- pyannote **#1165**: pad na 3.5 h; prošlo tek prelaskom 16 → 32 GB RAM-a.
+- pyannote **#1819**: 4 h / ~50 govornika → ~12 GB u embeddinzima. Zatvoreno kao
+  **`wontfix` + `enhancement`** — priznato ograničenje, ne bug.
+- NeMo **#7912**: 4 h → OOM na **64 GB**. Odgovara Taejin Park (autor NeMo diarizacije):
+  *„I suppose 64GB RAM is not enough to handle 4 hours of diarization in an offline manner."*
+- NVIDIA **PR #7737** uzima **1 h kao referentnu točku pucanja** naivnog klasteriranja.
+
+### 6.3 Kanonska referenca je točno naš scenarij
+
+**Huijbregts & van Leeuwen**, *Large-Scale Speaker Diarization for Long Recordings and
+Small Collections*, IEEE TASLP 20(2):404–413, 2012 — duge snimke se sijeku, svaka se
+diarizira zasebno, pa se klasteri **povezuju** u jedinstvene oznake. Primijenjeno na ~15 h.
+
+Isto na arhivskoj skali: frizijska/nizozemska radijska arhiva, 3000 h — diarizacija po
+traci pa cross-tape linking x-vektorima + PLDA (arXiv:1906.07955).
+
+### 6.4 pyannote 4 daje centroide besplatno
+
+`DiarizeOutput.speaker_embeddings` je `(num_speakers, 256)`, **poredan po
+`speaker_diarization.labels()`** (`speaker_diarization.py:745-780`).
+
+**Korak 2 iz `02_global_diarization.md` (drugi prolaz s `pyannote/embedding`) je
+nepotreban.** Isti WeSpeaker model kojim je pyannote klasterirao → skale pragova se
+poklapaju. Napomena: to su težinske sredine **nenormaliziranih** embeddinga →
+L2-normalizirati prije usporedbe.
+
+### 6.5 Ako ikad zatreba veliki AHC: `fastcluster.linkage_vector`
+
+Drop-in za `scipy.linkage`, Θ(N) memorije umjesto Θ(N²), podržava `centroid`+`euclidean`
+— točno potpis koji community-1 zove. Izmjereno:
+
+| n | scipy | fastcluster peak RSS |
+|---|---|---|
+| 3 000 | 0.31 s | razlika visina **9.3e-15**, ARI = 1.0 (numerički identično) |
+| 20 000 | 16.5 s / 3.61 GB | 72 s / **0.21 GB** |
+
+Ekstrapolirano na n≈79 200: ~19 min, **~0.16 GB** umjesto 25.1 GB.
+
+### 6.6 Pragovi — objavljene vrijednosti i zamka
+
+| Sustav | Metrika | Prag |
+|---|---|---|
+| `speaker-diarization-3.1` | cosine, AHC centroid | **0.7045654963945799**, `min_cluster_size: 12` |
+| `speaker-diarization-community-1` | euclidean na L2-normaliziranima → VBx | **0.6** (⇒ cosine distance **0.18**) |
+| DiariZen (BUT) | PLDA/LDA-128 AHC → VBx | `ahc_threshold=0.6` |
+
+⚠️ **Zamka**: te vrijednosti vrijede za **pojedinačne 10-sekundne** embeddinge. Naši
+centroidi su prosjeci preko minuta govora i znatno su čišći → očekivani prag je
+**bitno niži (0.3–0.5)**. Ne prepisivati 0.68 iz specifikacije.
+
+⚠️ AHC prag u VBx pipelineima namjerno **pod-klasterira** da bi VBx imao slobodu spajanja.
+Bez VBx-a treba vrijednost koja *direktno* razdvaja.
+
+### 6.7 Samokalibracija praga bez ručnih oznaka
+
+Imamo savršen izvor same/different parova:
+
+1. Diariziraj **cijeli** `part_04` (1 h 56 m, najjeftiniji) → referenca.
+2. Prepolovi isti dio na A i B, diariziraj **zasebno** → `speaker_embeddings` za A i B.
+3. Iz reference znamo koji A-govornik = koji B-govornik → stvarni **cross-chunk
+   same-speaker** parovi centroida, i different-speaker parovi.
+4. Histogram kosinusnih udaljenosti dviju populacija → prag u sredini praznine (ili EER).
+
+Mjereno na *našem* zvuku (mikrofoni Sabora, hrvatski, isti kodek). Naša ranija mjerenja
+prepoznavanja govornika po glasu (same 0.82–0.85 cos-sim ⇒ dist 0.15–0.18; kontrola 0.09
+⇒ dist 0.91) sugeriraju ogromnu prazninu — iskoristiti ju.
+
+### 6.8 ISPRAVAN POSTUPAK za saborske sjednice
+
+1. **Reži na ~2 h komade, ne 6 h.** Dijelovi od 6 h su tijesni: n ≈ 24 000 → `pdist`
+   2.3 GB, `reconstruct` 8.6 GB tranzijentno × 2 poziva. Na 2 h: n ≈ 7 900,
+   `pdist` 250 MB, `reconstruct` ≈ 1.4 GB. Udobno.
+2. **Preklapanje 60–120 s**, rezovi u tišini (VAD). Preklapanje daje **besplatne
+   same-speaker parove** za kalibraciju i sidra za sigurno spajanje.
+3. **Centroide uzmi iz pyannotea** (§6.4), ne drugim modelom.
+4. **Globalno spajanje**: ~50 centroida × 9 komada ≈ 450 vektora, `pdist` 0.8 MB —
+   trivijalno. `linkage(method='average', metric='cosine')` + `fcluster`.
+   **Nametni cannot-link**: dva centroida iz istog komada su po konstrukciji različite
+   osobe i ne smiju se spojiti.
+5. **Validiraj protokolom**: postotak globalnih `SPEAKER_XX` koji se 1:1 mapiraju na ime
+   iz najave predsjedavajućeg. **Predsjedavajući mora ispasti JEDAN govornik kroz svih
+   20 h** — ako ispadne dva, prag je pretijesan. To je end-to-end metrika, bolja od
+   svakog proxyja.
+
+### 6.9 Alternative — pregled
+
+| Alat | Višesatno bez OOM-a? |
+|---|---|
+| NeMo `LongFormSpeakerClustering` | **Da, dizajnirano za 20 h** (over-klasteriraj po prozoru → reduciraj → globalno) |
+| pyannote 4.x | **Ne** bez patcheva |
+| whisperX | Ne — wrapper oko pyannotea |
+| DiariZen | Ne — isto VBx klasteriranje |
+| Sortformer | Ne — i dalje **max 4 govornika**, mi očekujemo 40–60 |
+| diart | Da (konstantna memorija), ali online → niža točnost |
+| pyannoteAI cloud | Da, do 24 h — plaćeno i zatvoreno |
+
+### 6.10 Što NIJE nađeno
+
+- Objavljen benchmark diarizacije **jedne** snimke od 20 h.
+- Objavljen prag specifično za **linkanje centroida** (svi se odnose na per-chunk embeddinge).
+- Održavana open-source biblioteka „chunkaj pyannote + spoji govornike" — pisati sami
+  (~100 linija uz §6.4).
