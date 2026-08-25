@@ -379,32 +379,52 @@ je odbacila promašeni. **Pravilo većine je ovdje radilo točno ono zbog čega 
 uvedeno** (§4, zamjena za „trajno mapiranje iz prve najave"). Model je vidio
 samo prozor u kojem je pao krivi glas.
 
-### 9.2 🔴 Prvi dokaz PRESPOJENE oznake — pitanje iz §6.1 se okreće
+### 9.2 ⚠️ Hipoteza o prespojenoj oznaci — POSTAVLJENA pa OBORENA
 
 `SPEAKER_042` je u prozoru 4 dobio **Mišo Krstičević**, a u prozoru 14
 **Martina Vlašić Iljkić** — model sam sebi proturječi za istu oznaku, oba puta
-s visokom sigurnošću. Pogled u podatke potvrđuje sumnju:
+s visokom sigurnošću. Podaci su na prvi pogled išli u prilog sumnji: tri kratka
+istupa (21 s, 41 s, 482 s) u **dva različita dijela** pod jednom oznakom.
+
+Zaključeno je da je oznaka **prespojena** i da se time pitanje iz §6.1 okreće —
+da 118 ponegdje može biti *premalo*, a ne previše.
+
+**Taj je zaključak bio preuranjen i mjerenje ga je oborilo.**
+
+`tools/audit_merge_cohesion.py` rekonstruira mapiranje lokalna → globalna
+oznaka i za svaku globalnu mjeri **promjer**: najveću kosinusnu udaljenost
+između bilo koja dva njezina lokalna centroida. Promjer hvata upravo ono čega
+smo se bojali — *lančano spajanje*, gdje prosječno povezivanje spoji A i C
+preko B iako su A i C daleko:
+
+```
+A ─0.20─ B ─0.20─ C        prosjek ostaje ispod praga
+└────── 0.45 ──────┘       iako A i C nisu ista osoba
+```
+
+Izmjereno nad svih 118 oznaka (70 ih je nastalo spajanjem):
 
 | | |
 |---|---|
-| blokova | 3, u **dva različita dijela** (1 i 3) |
-| 04:29:34 | 21 s — pitanje o praćenju zdravstvenih pokazatelja |
-| 13:56:31 | 41 s — „…danas smo čuli od državne tajnice MUP-a…" |
-| 16:39:20 | 482 s — „Zahvaljujem poštovani potpredsjedniče…" |
+| **najveći promjer u cijeloj sjednici** | **0.230** |
+| prag spajanja | 0.2628 |
+| medijan promjera | 0.087 |
+| oznaka s promjerom > 2× prag | **0** |
+| **promjer `SPEAKER_042`** | **0.058** (4 lokalna centroida) |
 
-Tri kratka, međusobno udaljena istupa spojena pod jednu oznaku. To je
-**prespajanje**, ne nadsegmentacija.
+Promjer 0.058 je unutar SAME populacije izmjerene u §8.6 memorijskog dokumenta
+(ista osoba, različit zvuk: max 0.077). Ta četiri centroida su **isti glas**.
+Nijedna oznaka u cijeloj sjednici ne prelazi prag.
 
-Time se pitanje iz §6.1 okreće. Cijelo dosadašnje ispitivanje pitalo je „je li
-118 previše?" i tražilo donju granicu. Ovaj nalaz kaže da barem ponegdje 118
-može biti **premalo**: dvije osobe dijele jedan `SPEAKER_` id, pa bi stvaran
-broj bio veći. Prag 0.263 je kalibriran nad `part_04` (§8.6 memorijskog
-dokumenta), gdje većina zastupnika govori jednom; kratki istupi drugdje očito
-nisu jednako dobro razdvojeni.
+Dakle: model je pogriješio u barem jednom od dva imena, najvjerojatnije na
+bloku od 21 s gdje je konteksta premalo. **Lančano spajanje nije se dogodilo**,
+a spajanje iz faze 02b je kohezivno.
 
-**Nije istraženo koliko je takvih oznaka.** Slijepa provjera ih nalazi samo
-slučajno — kad ista oznaka padne u dva prozora i model za nju da dva imena.
-Sustavan test bi usporedio glasovne centroide unutar svake oznake.
+**Pouka:** proturječnost modela je bila valjan signal *da nešto treba pogledati*,
+ali ne i dokaz o tome ŠTO. Akustička mjera je bila dostupna cijelo vrijeme i
+odgovorila je izravno; hipoteza je trebala biti provjerena prije nego zapisana.
+Pitanje iz §6.1 ostaje otvoreno **u izvornom smjeru** — koliko oznaka nije
+nitko, a ne koliko ih je dvoje.
 
 ### 9.3 Što slijepa provjera ne može
 
