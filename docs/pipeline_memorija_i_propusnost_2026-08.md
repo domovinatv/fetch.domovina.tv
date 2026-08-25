@@ -554,3 +554,18 @@ prepoznavanja govornika po glasu (same 0.82–0.85 cos-sim ⇒ dist 0.15–0.18;
 - Objavljen prag specifično za **linkanje centroida** (svi se odnose na per-chunk embeddinge).
 - Održavana open-source biblioteka „chunkaj pyannote + spoji govornike" — pisati sami
   (~100 linija uz §6.4).
+
+### 6.11 Reproducibilnost mjerenja iz §6.1
+
+Probe ponovljen. Što je stabilno, a što nije:
+
+| Veličina | 1. pokretanje | 2. pokretanje | Upotrebljivo? |
+|---|---|---|---|
+| broj embeddinga (900 s) | 989 | 989 | ✅ **bit-identično** → konstanta 1099/s i n≈79 200 stoje |
+| RTF | 0.099 (hladno) | 0.074 (toplo) | ⚠️ raspon ~10–13.5× realtime → 20 h = **1.5–2 h**, ne fiksnih 2 h |
+| peak RSS | 0.78 GB | 1.41 GB | ❌ **ne koristiti za ekstrapolaciju** — MPS alokator ne daje stabilan RSS |
+
+Zadnji redak je treća neovisna potvrda §4.2/§5.7: RSS je na MPS-u neupotrebljiv i za
+mjerenje i za pragove. Procjene memorije u §6.1 zato **ne ovise o RSS-u** — izvedene su
+iz oblika nizova pročitanih iz koda (`pdist` = n²/2 × 8 B, `reconstruct` =
+chunks × 589 × K × 8 B), što je egzaktno.
