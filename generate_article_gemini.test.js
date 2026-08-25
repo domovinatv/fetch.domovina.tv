@@ -620,7 +620,7 @@ describe("discoverPendingFiles", () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe("regresija na stvarnim podacima s diska", () => {
-    const REAL_DATA_DIR = "/Volumes/DOMOVINA1TB/fetch_domovina_tv_output/40_dana_za_zivot";
+    const REAL_DATA_DIR = "/Volumes/DOMOVINA2TB/fetch_domovina_tv_output/40_dana_za_zivot";
     const REAL_RAW_DIR = path.join(
         REAL_DATA_DIR,
         "20190411_40_dana_40_days_yt_AAzm0ftoqsg.wav.canary.diarized_2026-03-16_gemini-3-flash-preview_raw"

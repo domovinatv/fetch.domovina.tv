@@ -20,7 +20,7 @@
  *      node generate_article_gemini.js --file /path/to/transcript.srt
  *
  *   2. Batch (round-robin po kanalima, najnoviji videi prvo):
- *      node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *      node generate_article_gemini.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *      node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10
  *      node generate_article_gemini.js --input-dir ... --dry-run
  *
@@ -592,7 +592,7 @@ function parseArgs() {
         console.error("");
         console.error("Primjeri:");
         console.error("  node generate_article_gemini.js --file /path/to/transcript.srt");
-        console.error("  node generate_article_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node generate_article_gemini.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output");
         console.error("  node generate_article_gemini.js --input-dir ... --channel domovina_tv --limit 10");
         console.error("  node generate_article_gemini.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node generate_article_gemini.js --input-dir ... --dry-run");

@@ -30,7 +30,7 @@
  * Koristi GCP kredite (free trial / GenAI krediti), ne naplaćuje karticu direktno.
  *
  * Primjeri:
- *   node summarize_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *   node summarize_gemini.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *   node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5
  *   node summarize_gemini.js --input-dir ... --model gemini-2.5-flash
  *   node summarize_gemini.js --input-dir ... --dry-run
@@ -997,7 +997,7 @@ function parseArgs() {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
         console.error("");
         console.error("Primjeri:");
-        console.error("  node summarize_gemini.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node summarize_gemini.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output");
         console.error("  node summarize_gemini.js --input-dir ... --channel bozanstvena_komedija --limit 5");
         console.error("  node summarize_gemini.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node summarize_gemini.js --input-dir ... --model gemini-2.5-flash");

@@ -24,7 +24,7 @@
  *
  * Primjeri:
  *   node import_to_vertex.js ./path/to/episode.rag_combined.jsonl
- *   node import_to_vertex.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *   node import_to_vertex.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *   node import_to_vertex.js --input-dir ... --channel domovina_tv
  *   node import_to_vertex.js --input-dir ... --dry-run
  *   node import_to_vertex.js --input-dir ... --limit 10

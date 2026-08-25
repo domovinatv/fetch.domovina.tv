@@ -50,7 +50,7 @@
  *     (chunking radi i bez summary.json, ali metapodaci su siromašniji)
  *
  * Primjeri:
- *   node prepare_rag.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *   node prepare_rag.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *   node prepare_rag.js --input-dir ... --channel bozanstvena_komedija
  *   node prepare_rag.js --input-dir ... --dry-run
  *   node prepare_rag.js --input-dir ... --output-dir ./rag_export
@@ -390,7 +390,7 @@ function parseArgs() {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
         console.error("");
         console.error("Primjeri:");
-        console.error("  node prepare_rag.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node prepare_rag.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag.js --input-dir ... --output-dir ./rag_export");
         console.error("  node prepare_rag.js --input-dir ... --channel bozanstvena_komedija");
         console.error("  node prepare_rag.js --input-dir ... --video-id dQw4w9WgXcQ");

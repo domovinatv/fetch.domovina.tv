@@ -93,7 +93,7 @@
  *   }
  *
  * Primjeri:
- *   node prepare_rag_combined.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *   node prepare_rag_combined.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *   node prepare_rag_combined.js --input-dir ... --channel domovina_tv
  *   node prepare_rag_combined.js --input-dir ... --dry-run
  *   node prepare_rag_combined.js --input-dir ... --output-dir ./rag_export
@@ -580,7 +580,7 @@ function parseArgs() {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
         console.error("");
         console.error("Primjeri:");
-        console.error("  node prepare_rag_combined.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node prepare_rag_combined.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output");
         console.error("  node prepare_rag_combined.js --input-dir ... --output-dir ./rag_export");
         console.error("  node prepare_rag_combined.js --input-dir ... --channel domovina_tv");
         console.error("  node prepare_rag_combined.js --input-dir ... --video-id dQw4w9WgXcQ");

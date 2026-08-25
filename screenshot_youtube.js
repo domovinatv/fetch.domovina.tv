@@ -19,7 +19,7 @@
  *      node screenshot_youtube.js --file /path/to/video.article.json
  *
  *   2. Batch (svi videi koji imaju article.json):
- *      node screenshot_youtube.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output
+ *      node screenshot_youtube.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output
  *      node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5
  *      node screenshot_youtube.js --input-dir ... --dry-run
  *
@@ -719,7 +719,7 @@ function parseArgs() {
         console.error("");
         console.error("Primjeri:");
         console.error("  node screenshot_youtube.js --file /path/to/video.article.json");
-        console.error("  node screenshot_youtube.js --input-dir /Volumes/DOMOVINA1TB/fetch_domovina_tv_output");
+        console.error("  node screenshot_youtube.js --input-dir /Volumes/DOMOVINA2TB/fetch_domovina_tv_output");
         console.error("  node screenshot_youtube.js --input-dir ... --channel domovina_tv --limit 5");
         console.error("  node screenshot_youtube.js --input-dir ... --video-id dQw4w9WgXcQ");
         console.error("  node screenshot_youtube.js --input-dir ... --dry-run");
