@@ -119,6 +119,13 @@ function runDiarization(wavFile, srtFile, outputFile, hfToken) {
         "--hf-token", hfToken,
     ];
 
+    // P1 (2026-08-25): "path" daje pyannoteu putanju umjesto cijele snimke u RAM-u,
+    // pa memorija prestaje ovisiti o duljini. Default ostaje "waveform" dok A/B ne
+    // potvrdi — vidi docs/pipeline_memorija_i_propusnost_2026-08.md.
+    if (process.env.DIARIZE_AUDIO_INPUT) {
+        args.push("--audio-input", process.env.DIARIZE_AUDIO_INPUT);
+    }
+
     const startTime = Date.now();
 
     return new Promise((resolve, reject) => {
