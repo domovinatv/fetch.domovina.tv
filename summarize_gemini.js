@@ -61,7 +61,8 @@ function loadGeminiConf() {
 
 const GEMINI_CONF = loadGeminiConf();
 
-let GEMINI_MODEL = GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
+// env > gemini.conf > default (--model i dalje prepisuje oboje, vidi main()).
+let GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
@@ -531,11 +532,37 @@ function callClaudeCli(systemPrompt, userMessage) {
 
 /**
  * Poziva `agy -p` headless uz preskakanje provjere dozvola.
+ *
+ * ⚠️ ISPRAVAK 2026-08-25 (agy 1.1.20): agy **NE čita prompt sa stdina**.
+ * `-p` je string-zastavica i uzima SLJEDEĆI argument kao svoju vrijednost, pa
+ * je raniji poziv (`-p` pa prompt kroz stdin) padao odmah, prije ijednog
+ * tokena, s porukom:
+ *
+ *     -p took "--model" as its prompt, so the intended prompt was left as an
+ *     argument and ignored.
+ *
+ * `--gemini-backend agy` je zbog toga bio potpuno neupotrebljiv. Prompt sada
+ * ide kao vrijednost odmah iza `-p`.
+ *
+ * Posljedica koju treba znati: prompt putuje kroz **argv**, a `ARG_MAX` je na
+ * macOS-u 1 048 576 B. Dvofazna generacija članka resenda cijeli transkript po
+ * iteraciji, pa dulje epizode taj strop mogu probiti — zato se provjerava
+ * unaprijed i puca s jasnom porukom umjesto s „Argument list too long".
  */
 function callAgyCli(systemPrompt, userMessage) {
     return new Promise((resolve, reject) => {
+        const combinedMessage = `[SYSTEM INSTRUCTIONS]\n${systemPrompt}\n\n[USER INPUT]\n${userMessage}`;
+        // ARG_MAX je zajednički za argv I okoliš — ostavljamo 15 % rezerve.
+        const ARG_MAX_SAFE = 890000;
+        const promptBytes = Buffer.byteLength(combinedMessage, "utf8");
+        if (promptBytes > ARG_MAX_SAFE) {
+            reject(new Error(
+                `agy CLI: prompt je ${promptBytes} B, iznad sigurnog ARG_MAX-a (${ARG_MAX_SAFE} B). ` +
+                `agy prima prompt samo kroz argv. Koristi --gemini-backend vertex ili claude.`));
+            return;
+        }
         const args = [
-            "-p",
+            "-p", combinedMessage,
             "--model", AGY_MODEL,
             "--output-format", "json",
             "--dangerously-skip-permissions"
@@ -572,8 +599,6 @@ function callAgyCli(systemPrompt, userMessage) {
             });
         });
 
-        const combinedMessage = `[SYSTEM INSTRUCTIONS]\n${systemPrompt}\n\n[USER INPUT]\n${userMessage}`;
-        proc.stdin.write(combinedMessage);
         proc.stdin.end();
     });
 }

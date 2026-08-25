@@ -17,9 +17,11 @@
 >
 > Uz to: §1 traži transkripte u `transcripts/part_NN.canary.srt`, a na disku su
 > `audio/part_NN_16k.wav.canary.srt` (konvencija `{wav}.canary.srt` iz cijelog
-> repoa). §2 nabraja pojmove za rječnik od kojih dio (`HZJZ`, `Bilajska`,
+> repoa). §2 nabraja pojmove za rječnik od kojih dio (`Bilajska`,
 > `perfluorirane tvari`) u ovom transkriptu **ne postoji** — dodana su samo
-> pravila s izmjerenim brojem pojava.
+> pravila s izmjerenim brojem pojava. (`HZJZ` je prvo krivo odbačen: kratica se
+> ne izgovara, ali „Hrvatski zavod za javno zdravstvo" stoji 4× — specifikacija
+> je tu bila u pravu, mjerenje je bilo krivo.)
 >
 > Ono što specifikacija pogađa i što je zadržano: dvofazna podjela na
 > post-ASR rječnik + protokolarni parser, sidrenje „najava → sljedeći govornik",

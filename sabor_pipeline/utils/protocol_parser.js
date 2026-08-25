@@ -79,8 +79,23 @@ const CONTEXT_PATTERNS = [
 const ORDINAL_RE =
     /\b(?:prvi|prva|prvo|sljedeć[iaeu]|slijedeć[iaeu])\b[^.?!]{0,40}?\bna\s+redu\b/iu;
 
-/** Fraze kojima predsjedavajući poziva na govor — jak signal predaje riječi. */
-const HANDOVER_RE = /\bizvolite\b|\bna\s+redu\b|\bgovorit\s+će\b|\bprelazimo\s+na\b/iu;
+/**
+ * Fraze kojima predsjedavajući poziva na govor — jak signal predaje riječi.
+ *
+ * Popis je IZMJEREN nad ovim transkriptom, ne pretpostavljen. Zadnjih pet
+ * dodano je nakon slijepe provjere modelom (`tools/blind_speaker_check.js`),
+ * koja je našla govornike koje sidrenje nije uhvatilo. Najskuplji propust:
+ *
+ *   „…pa onda ćemo sad **dati riječ** poštovanom zastupniku Josipu Boriću."
+ *
+ * — 31 minuta govora u 12 blokova ostalo je bezimeno jer „dati riječ" nije
+ * bilo na popisu. Fraza se u 20 h pojavljuje samo jednom, pa je nijedno
+ * brojanje učestalosti ne bi izdvojilo; našla ju je tek provjera po ishodu.
+ */
+const HANDOVER_RE = new RegExp(
+    /\bizvolite\b|\bna\s+redu\b|\bgovorit\s+će\b|\bprelazimo\s+na\b|/.source +
+    /\bda(?:ti|je|jem|o)\s+riječ\b|\briječ\s+(?:poštovanom|uvaženom|zastupni|predstavnic)|/.source +
+    /\b(?:se\s+javio|javio\s+se)\b|\breplikuje\b|\bidemo\s+(?:na|dalje)\b|\bkrećemo\b/.source, "iu");
 
 /**
  * Razbij tekst na riječi zadržavajući podatak je li iza riječi interpunkcija
@@ -222,14 +237,14 @@ function findAnnouncements(text, matcher, opts = {}) {
     for (const { idx, trigger, gender } of triggers) {
         const words = collectNameWords(tokens, idx);
         if (!words.length) continue;
-        // Probaj od najdužeg prozora prema kraćem — „Anka Mrak Taritaš" prije „Anka".
+        // Od najdužeg prozora prema kraćem, i uzima se PRVI koji se razriješi —
+        // ne onaj s najvišim rezultatom. Kraći prozor je uvijek manje podataka,
+        // pa mu viši rezultat ne znači veću sigurnost nego manju provjerljivost.
         let best = null;
         for (let n = words.length; n >= 1; n--) {
             const cand = words.slice(0, n).join(" ");
             const r = matcher.resolve(cand, { titleGender: gender });
-            if (r.mp && (!best || r.score > best.score)) {
-                best = { name: cand, mp: r.mp, score: r.score };
-            }
+            if (r.mp) { best = { name: cand, mp: r.mp, score: r.score }; break; }
         }
         if (!best) continue;
         if (seen.has(best.mp.id)) continue;

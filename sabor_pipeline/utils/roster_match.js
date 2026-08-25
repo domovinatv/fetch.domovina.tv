@@ -117,7 +117,17 @@ function tokenSim(a, b) {
 // --- razrješavanje ---
 
 const MIN_TOKEN_SIM = 0.86;   // prag po tokenu (kalibriran nad ovom sjednicom)
+const NEAR_TOKEN_SIM = 0.75;  // „gotovo pogođen" token — pola težine u pokrivenosti
 const MIN_SCORE = 0.86;       // prag ukupnog rezultata kandidata
+/**
+ * Golo prezime nema ničim potkrijepljen kontekst, pa mu je prag viši.
+ * Izmjereno: `ĆORIĆ ~ ĆOSIĆ` = 0.8607 — jedno slovo razlike u prezimenu od pet
+ * znakova, taman iznad općeg praga. Tomislav Ćorić je bivši ministar i NIJE u
+ * registru; da ga predsjedavajući spomene kao govornika, sjednica bi dobila
+ * istupe Pere Ćosića. Puno ime („Tomislav Ćorić") ispravno pada i bez ovoga,
+ * jer drugi token nema partnera — opasno je isključivo jednorječno ime.
+ */
+const MIN_SCORE_SINGLE_TOKEN = 0.90;
 const MIN_MARGIN = 0.06;      // razmak do drugoplasiranog; ispod → dvosmisleno
 
 /**
@@ -127,8 +137,27 @@ const MIN_MARGIN = 0.06;      // razmak do drugoplasiranog; ispod → dvosmislen
  */
 function scoreCandidate(spokenTokens, mp) {
     if (!spokenTokens.length) return { score: 0, matched: 0 };
+    // ASR lomi granicu riječi u OBA smjera. „Selak Raspudić" → „Sela Kraspudić"
+    // (pomak granice), a „Anamarija" → „Ana Marija" (umetnuta granica). Zato se
+    // uz izgovorene tokene probaju i SPOJENI susjedni parovi.
+    const merged = [];
+    for (let i = 0; i + 1 < spokenTokens.length; i++) {
+        merged.push({ tok: spokenTokens[i] + spokenTokens[i + 1], from: [i, i + 1] });
+    }
+    const best = scoreTokens(spokenTokens, mp);
+    for (const m of merged) {
+        const alt = spokenTokens.slice(0, m.from[0]).concat([m.tok], spokenTokens.slice(m.from[1] + 1));
+        const r = scoreTokens(alt, mp);
+        if (r.score > best.score) { best.score = r.score; best.matched = r.matched; best.surnameHit = r.surnameHit; }
+    }
+    return best;
+}
+
+/** Jezgra bodovanja nad zadanim skupom izgovorenih tokena. */
+function scoreTokens(spokenTokens, mp) {
     const pool = mp.tokens.slice();
-    let sum = 0, matched = 0;
+    const surnameTokens = new Set(nameTokens(mp.prezime));
+    let sum = 0, matched = 0, near = 0, surnameHit = false;
     for (const t of spokenTokens) {
         let bestIdx = -1, best = 0;
         for (let i = 0; i < pool.length; i++) {
@@ -138,14 +167,25 @@ function scoreCandidate(spokenTokens, mp) {
         if (best >= MIN_TOKEN_SIM) {
             matched++;
             sum += best;
+            if (surnameTokens.has(pool[bestIdx])) surnameHit = true;
             pool.splice(bestIdx, 1);          // token zastupnika troši se jednom
+        } else if (best >= NEAR_TOKEN_SIM && bestIdx !== -1) {
+            // „Gotovo pogođen" token nosi POLA težine u pokrivenosti, umjesto da
+            // padne na nulu. Bez toga jedno krivo slovo usred prezimena sруши
+            // cijelo podudaranje: ASR piše „Vlašić Ilikić" za „Vlašić Iljkić",
+            // MARTINA i VLASIC se poklope savršeno, a ILIKIC~ILJKIC = 0.849
+            // (pogreška pada u prefiks pa gasi Winklerov bonus). Ukupno 0.850,
+            // prag 0.86 — promašaj za jednu stotinku, i zastupnica ispadne
+            // „izvan registra". Stranac i dalje pada: njegov token je < 0.75.
+            near++;
+            pool.splice(bestIdx, 1);
         }
     }
-    if (matched === 0) return { score: 0, matched: 0 };
+    if (matched === 0) return { score: 0, matched: 0, surnameHit: false };
     // Nepodudarene izgovorene tokene kažnjavamo — „Ivan Matić" protiv zastupnika
     // koji je samo „Matić" mora biti slabiji od zastupnika „Ivan Matić".
-    const coverage = matched / spokenTokens.length;
-    return { score: (sum / matched) * (0.55 + 0.45 * coverage), matched };
+    const coverage = (matched + 0.5 * near) / spokenTokens.length;
+    return { score: (sum / matched) * (0.55 + 0.45 * coverage), matched, surnameHit };
 }
 
 /**
@@ -211,6 +251,11 @@ class RosterMatcher {
         const scored = this.mps
             .map((mp) => ({ mp, ...scoreCandidate(tokens, mp) }))
             .filter((c) => c.score > 0)
+            // ⚠️ Golo OSOBNO ime nikoga ne identificira. Predsjedavajući je rekao
+            // „kolegica Ana Marija Blažević"; bez ovog uvjeta token „Ana" savršeno
+            // pogodi Anu Puž Kukuljan (rezultat 1.0) i faza 03 pripiše repliku
+            // krivoj zastupnici. Traži se pogodak u PREZIMENU.
+            .filter((c) => c.surnameHit)
             .sort((a, b) => b.score - a.score || b.matched - a.matched);
 
         if (!scored.length) {
@@ -218,10 +263,11 @@ class RosterMatcher {
         }
         const top = scored[0];
         const second = scored[1] || null;
-        if (top.score < MIN_SCORE) {
+        const floor = tokens.length === 1 ? MIN_SCORE_SINGLE_TOKEN : MIN_SCORE;
+        if (top.score < floor) {
             return {
                 mp: null, score: round4(top.score), runnerUp: null,
-                reason: `ispod praga (${round4(top.score)} < ${MIN_SCORE}), najbliži ${top.mp.puno_ime}`,
+                reason: `ispod praga (${round4(top.score)} < ${floor}), najbliži ${top.mp.puno_ime}`,
             };
         }
         if (second && top.score - second.score < MIN_MARGIN) {
@@ -266,5 +312,6 @@ module.exports = {
     levRatio,
     MIN_TOKEN_SIM,
     MIN_SCORE,
+    MIN_SCORE_SINGLE_TOKEN,
     MIN_MARGIN,
 };

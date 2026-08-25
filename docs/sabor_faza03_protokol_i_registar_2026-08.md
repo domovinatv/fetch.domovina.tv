@@ -94,14 +94,15 @@ flowchart TD
 | SRT redaka | 5513 (nepridruženih **10**) |
 | blokova | **802** |
 | predsjedavajućih | **3** — isti kao u §8.10 memorijskog dokumenta |
-| sidrenih najava | **103** |
-| oznaka s glasovima | 63 → **razriješeno 61** |
-| različitih imenovanih zastupnika | **61** |
-| imenovanih blokova | 276 / 802 |
-| **imenovanog govornog vremena** | **58.5 %** |
+| sidrenih najava | **110** |
+| oznaka s glasovima | 66 → **razriješeno 65** |
+| različitih imenovanih zastupnika | **65** |
+| imenovanih blokova | 306 / 802 |
+| **imenovanog govornog vremena** | **65.7 %** |
 
-Razine pouzdanosti: **18 visoka** (≥ 2 složne najave), **43 srednja** (jedna
-najava), **4 nerazriješeno**. Najniži prihvaćeni rezultat podudaranja imena je
+Brojke su iz stanja NAKON šest popravaka iz §7. Prva verzija je davala 103
+sidra i 58.5 % — razlika nije podešavanje nego uklonjene pogreške i zatvorene
+rupe. Najniži prihvaćeni rezultat podudaranja imena je
 **0.861**, medijan **1.0**.
 
 Vrste sidara: rasprava 36, replika 23, povreda poslovnika 20, klupska rasprava
@@ -198,9 +199,18 @@ pada na 0.70 i ispravno odbija. Rječnik popravlja ASR, matcher ostaje strog.
 **Rječnik nosi izmjerene brojeve pojava**, ne hipoteze: `erha` → RH (169×),
 `hadeze*` → HDZ (210×), `esdepe*` → SDP (69×), `pefas*` → PFAS (21×),
 `uskok`/`dorh` malim slovima (24× / 19×), `andrija štampa` → Andrija Štampar
-(4×). Pojmovi iz specifikacije bez ijednog pogotka (`HZJZ`, `Bilajska`,
-`perfluorirane tvari`) **nisu** dodani — tiha zamjena teksta koji nitko nije
-provjerio je rizik bez koristi.
+(4×). Pojmovi bez ijednog pogotka nisu dodani — tiha zamjena teksta koji nitko
+nije provjerio je rizik bez koristi.
+
+⚠️ **Ispravak vlastitog mjerenja (isti dan).** Prvo brojanje je odbacilo `HZJZ`
+kao „nepostojeći u transkriptu". To je bila greška metode: brojana je **doslovna
+kratica**, a govornici je nikad ne izgovaraju kraticom — u transkriptu stoji
+„Hrvatski zavod za javno zdravstvo" (4×) i „Zavod za javno zdravstvo
+Ličko-senjske županije". Pojam postoji, samo ne u obliku u kojem se tražio.
+
+Pouka vrijedi šire od ovog retka: **odsutnost niza nije odsutnost pojma.** Za
+kratice se mora brojati razvijeni oblik, inače rječnik ispadne prekratak upravo
+ondje gdje govornici govore formalno.
 
 ---
 
@@ -252,6 +262,74 @@ Od 182 bloka predsjedavajućeg koji sadrže poziv, 103 daju sidro, 6 daju ulogu,
 „Izvolite odgovor.", „Izvolite nastaviti.", „Odgovor na repliku, izvolite." —
 riječ se vraća osobi koja već govori, pa ime nije ni izgovoreno. Nije mjereno
 koliko ih je stvarno propušteno.
+
+---
+
+## 7. 🔬 Slijepa provjera modelom — šest defekata koje deterministički pristup ne vidi
+
+Faza 03 nema nikakvu unutarnju provjeru: kad sidrenje pogodi, „siguran" je 1.0,
+a kad promaši, jednako je siguran. Nijedan test koji sam napiše ne može uhvatiti
+grešku koju sam nije predvidio.
+
+### 7.1 Prvo mjerenje je bilo kružno i bezvrijedno
+
+Prva usporedba uzela je bilješke faze 04 (klizni prozor) i usporedila imena u
+njima s fazom 03: **98.9 % slaganja**. Brojka ne znači ništa — prozori koje faza
+04 šalje modelu **već sadrže imena iz faze 03**:
+
+```
+[02:12:42 | SPEAKER_001] Sandra Benčić (Možemo!): Hvala lijepa…
+```
+
+Model nije provjerio ništa nego prepisao odgovor koji mu je dan.
+
+### 7.2 Ispravan postupak: gole oznake
+
+`tools/blind_speaker_check.js` daje modelu transkript s oznakama `SPEAKER_042`,
+**bez imena, bez uloge i bez registra** (popis imena bio bi navođenje), i traži
+da identitet izvede iz konteksta uz doslovan dokaz i timestamp. Mjereno na pet
+prozora razbacanih kroz 20 h (≈ 0 h, 4 h, 9 h, 14 h, 19 h):
+
+| | |
+|---|---|
+| usporedivih (obje strane imenovale) | 38 |
+| **slaganje** | **37 (97.4 %)** |
+| neslaganje | **1** — i to je bio stvaran bug faze 03 |
+| model imenovao gdje faza 03 nije | **11 oznaka ≈ 98 min** |
+| „ime izvan registra" | 3 — **nijedno nije halucinacija** |
+
+Ona tri „izvan registra": `Irena Hrstić` i `Damir Habijan` su **ministri** (nisu
+u rasporedu sjedenja, §1.1), a `Martina Vlašić Ilikić` **jest zastupnica** koju
+je matcher promašio za 0.01. Model nije izmislio nijedno ime.
+
+### 7.3 Šest defekata
+
+| # | Defekt | Kako se očitovao |
+|---|---|---|
+| 1 | golo **osobno** ime identificira osobu | „kolegica **Ana** Marija Blažević" → token „Ana" savršeno pogodi Anu Puž Kukuljan (1.0); replika pripisana krivoj zastupnici. Sada se traži pogodak u **prezimenu**. |
+| 2 | kraći prozor imena pobjeđuje duži | Kod je uzimao najviši *rezultat*, protivno vlastitom komentaru. Kraći prozor je manje podataka — viši rezultat ondje znači manju provjerljivost. |
+| 3 | ASR **umeće** granicu riječi | `Anamarija` → „Ana Marija". Poznat je bio samo suprotan smjer (`Selak Raspudić` → „Sela Kraspudić"). Sada se probavaju i spojeni susjedni tokeni. |
+| 4 | jedno krivo slovo ruši podudaranje | `ILIKIC~ILJKIC` = 0.849 uz prag 0.86 — pogreška pada u prefiks i gasi Winklerov bonus. „Gotovo pogođen" token sada nosi **pola težine**; stranci i dalje padaju (< 0.75). |
+| 5 | `HANDOVER_RE` ne zna za **„dati riječ"** | „…sad **dati riječ** poštovanom zastupniku Josipu Boriću" — **31 minuta u 12 blokova** bezimeno. Fraza se u 20 h javlja **jednom**, pa je nikakvo brojanje učestalosti ne bi izdvojilo. |
+| 6 | golo **prezime** prolazi prenisko | `ĆORIĆ~ĆOSIĆ` = 0.8607, taman iznad praga. Tomislav Ćorić je bivši ministar i nije u registru; njegov bi spomen postao istup Pere Ćosića. Jednorječno ime sada traži **0.90**. |
+
+Učinak: sidara 103 → **110**, imenovanih zastupnika 61 → **65**, imenovanog
+govornog vremena 57.9 → **65.7 %**, donja granica govornika 70 → **72**. Od 11
+oznaka koje je model našao, faza 03 sada sama vraća tri — **uz nula konflikata**:
+gdje god obje metode daju ime, daju isto.
+
+### 7.4 Pouka o metodi
+
+Defekt 5 je najvažniji jer se ne da naći brojanjem. Cijela faza 03 građena je na
+mjerenju učestalosti fraza — postupak koji je ispravno srušio specifikacijsku
+frazu „riječ ima" (0 pogodaka). Ali fraza koja se javlja **jednom** i nosi
+31 minutu govora u tom postupku izgleda kao šum. Nju nalazi samo provjera **po
+ishodu**: tko je ostao bezimen, i zašto.
+
+Isto vrijedi za `HZJZ` (§5): brojanje doslovne kratice reklo je „ne postoji",
+a institucija se u transkriptu spominje četiri puta punim imenom.
+
+**Odsutnost niza nije odsutnost pojma, a niska učestalost nije niska važnost.**
 
 ---
 

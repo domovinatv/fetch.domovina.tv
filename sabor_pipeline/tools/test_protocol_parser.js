@@ -175,3 +175,52 @@ test("rod se ne izvodi iz rodovno dvoznačnog imena", () => {
     assert.equal(inferGender("Jelena"), "z");
     assert.equal(inferGender("Josip"), "m");
 });
+
+test("golo osobno ime ne identificira nikoga (regresija: Ana Marija Blažević)", { skip }, () => {
+    // Predsjedavajući: „Sljedeća na redu za repliku je kolegica Ana Marija Blažević."
+    // Bez ovog pravila token „Ana" savršeno pogodi Anu Puž Kukuljan (1.0) i
+    // replika se pripiše krivoj zastupnici. Nalaz je došao iz SLIJEPE provjere
+    // modelom (tools/blind_speaker_check.js), ne iz determinističkog testa.
+    assert.equal(matcher.resolve("Ana").mp, null);
+    assert.equal(matcher.resolve("Marija").mp, null);
+    assert.deepEqual(
+        names("Sljedeća na redu za repliku je kolegica Ana Marija Blažević."),
+        ["Anamarija Blažević"]);
+});
+
+test("ASR umetnuta granica riječi se premošćuje spajanjem tokena", { skip }, () => {
+    // „Anamarija" → „Ana Marija". Isti razred pogreške kao „Selak Raspudić" →
+    // „Sela Kraspudić", samo u suprotnom smjeru.
+    assert.equal(matcher.resolve("Ana Marija Blažević").mp.puno_ime, "Anamarija Blažević");
+});
+
+test("duži prozor imena pobjeđuje kraći, i kad kraći ima viši rezultat", { skip }, () => {
+    // Kraći prozor je manje podataka; viši rezultat ondje znači manju
+    // provjerljivost, ne veću sigurnost.
+    assert.deepEqual(names("Kolegica Anka Mrak Taritaš, izvolite."), ["Anka Mrak-Taritaš"]);
+});
+
+test("jedno krivo slovo u prezimenu ne ruši podudaranje (regresija: Vlašić Iljkić)", { skip }, () => {
+    // ASR piše „Vlašić Ilikić" za „Vlašić Iljkić". Pogreška pada u prefiks pa
+    // gasi Winklerov bonus: ILIKIC~ILJKIC = 0.849, ukupno 0.850 uz prag 0.86.
+    // Promašaj za jednu stotinku pretvarao je zastupnicu u osobu „izvan registra".
+    assert.equal(matcher.resolve("Martina Vlašić Ilikić").mp.puno_ime, "Martina Vlašić Iljkić");
+});
+
+test("djelomični pogodak NE otvara vrata strancima", { skip }, () => {
+    // Ublažavanje iz prethodnog testa ne smije oslabiti glavno jamstvo.
+    for (const q of ["Vučković", "Ivan Izmišljeni", "Andrej Plenković", "Bukušić"]) {
+        assert.equal(matcher.resolve(q).mp, null, `„${q}" ne smije proći`);
+    }
+});
+
+test("golo prezime ima viši prag (regresija: Ćorić ≠ Ćosić)", { skip }, () => {
+    // ĆORIĆ~ĆOSIĆ = 0.8607, taman iznad općeg praga 0.86. Tomislav Ćorić je
+    // bivši ministar i nije u registru; bez višeg praga za jednorječno ime
+    // njegov bi spomen postao istup Pere Ćosića.
+    assert.equal(matcher.resolve("Ćorić").mp, null);
+    // Ali stvarne ASR distorzije prezimena i dalje prolaze:
+    assert.equal(matcher.resolve("Troskut").mp.puno_ime, "Zvonimir Troskot");
+    assert.equal(matcher.resolve("Kukavic").mp.puno_ime, "Ivica Kukavica");
+    assert.equal(matcher.resolve("Raukard").mp.puno_ime, "Urša Raukar-Gamulin");
+});
