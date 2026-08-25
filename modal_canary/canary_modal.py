@@ -50,6 +50,11 @@ APP_NAME             = "domovina-canary"
 MODEL_R2_URL         = "https://models.domovina.ai/canary-1b-v2.nemo"
 MODEL_EXPECTED_BYTES = 6358958080          # točna veličina .nemo (integ. provjera)
 MODEL_VOL_PATH       = "/models"
+# AUDIO VOLUME (2026-08-25): za snimke koje ne stanu u argument funkcije. Modalov
+# klijent serijalizira bytes-argument s ~15× memory overheadom (mjereno: 2.3 GB WAV
+# → 34 GB peak footprint → proces ubijen na 24 GB Macu). `modal volume put` streama
+# datoteku, pa je jedini put za višesatne snimke.
+AUDIO_VOL_PATH       = "/audio"
 MODEL_LOCAL          = f"{MODEL_VOL_PATH}/canary-1b-v2.nemo"
 
 # RAZLOG (kopirano iz colab_canary notebooka, cell 4.6): Cloudflare bot-zaštita na
@@ -58,7 +63,11 @@ DOWNLOAD_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
 
 # GPU: A100-40GB pokriva 3h WAV (~28 GB peak). Za 5h+ → "A100-80GB".
-GPU_SPEC = "A100-40GB"
+# MODAL_CANARY_GPU (2026-08-24): override bez editiranja koda — potreban za mjerenje
+# gdje je stvarni strop na dugim snimkama (saborske sjednice, 6h po dijelu). Utječe
+# SAMO na `modal run` (ephemeral app); deployani "domovina-canary" ostaje na svom
+# GPU-u dok ga se eksplicitno ne re-deploya.
+GPU_SPEC = os.environ.get("MODAL_CANARY_GPU", "A100-40GB")
 
 # MODAL_CANARY_MAX_CONTAINERS (2026-07-29): tvrdi strop broja GPU containera.
 # Modal naplaćuje UPTIME containera, ne inference — pa kod bulk runa gdje je uzak
@@ -86,6 +95,7 @@ image = (
 # svaki poziv čita s brzog Modal diska (nema per-call downloada). Ovo je razlog
 # zašto je cold start sekunde, ne minute.
 model_vol = modal.Volume.from_name("domovina-canary-model", create_if_missing=True)
+audio_vol = modal.Volume.from_name("domovina-audio", create_if_missing=True)
 
 app = modal.App(APP_NAME)
 
@@ -159,8 +169,8 @@ def download_model():
 @app.cls(
     image=image,
     gpu=GPU_SPEC,
-    volumes={MODEL_VOL_PATH: model_vol},
-    timeout=3600,          # do 1h po pozivu (3h WAV se transkribira za ~35s, ovo je margin)
+    volumes={MODEL_VOL_PATH: model_vol, AUDIO_VOL_PATH: audio_vol},
+    timeout=7200,   # 20h snimka: ~6 min inference, ali volume reload + margin          # do 1h po pozivu (3h WAV se transkribira za ~35s, ovo je margin)
     scaledown_window=120,  # ostani topao 120s nakon poziva → back-to-back fajlovi reuse-aju model
     max_containers=_MAX_CONTAINERS,
 )
@@ -185,18 +195,53 @@ class Canary:
         print(f"✅ Model učitan za {time.time() - t0:.0f}s")
 
     @modal.method()
+    def transcribe_volume(self, rel_path: str,
+                          source_lang: str = "hr", target_lang: str = "hr") -> dict:
+        """Transkribira WAV koji već leži na audio Volumeu (bez bytes argumenta).
+
+        Put za snimke koje ne stanu u argument funkcije — datoteka se uploada
+        `modal volume put`-om, a ovdje se samo čita s mounta. Nema serijalizacije,
+        pa nema ni memorijskog šiljka na klijentu.
+        """
+        import torch
+
+        wav_path = rel_path if rel_path.startswith(AUDIO_VOL_PATH) else f"{AUDIO_VOL_PATH}/{rel_path.lstrip('/')}"
+        audio_vol.reload()   # vidi zapise nastale nakon što je container startao
+        if not os.path.isfile(wav_path):
+            listing = ", ".join(sorted(os.listdir(AUDIO_VOL_PATH))[:20]) or "(prazno)"
+            return {"status": "error", "reason": f"Nema {wav_path} na volumeu. Sadrži: {listing}"}
+
+        size_mb = os.path.getsize(wav_path) / (1024 * 1024)
+        return self._run(wav_path, os.path.basename(wav_path), size_mb, source_lang, target_lang)
+
+    @modal.method()
     def transcribe(self, wav_bytes: bytes, filename: str,
                    source_lang: str = "hr", target_lang: str = "hr") -> dict:
         """Transkribira jedan WAV (bytes) → vraća {'srt','csv','segments','elapsed'}."""
         import tempfile
-        import torch
 
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tf:
             tf.write(wav_bytes)
             wav_path = tf.name
+        try:
+            return self._run(wav_path, filename, len(wav_bytes) / (1024 * 1024),
+                             source_lang, target_lang)
+        finally:
+            try:
+                os.remove(wav_path)
+            except OSError:
+                pass
 
-        size_mb = len(wav_bytes) / (1024 * 1024)
+    def _run(self, wav_path: str, filename: str, size_mb: float,
+             source_lang: str, target_lang: str) -> dict:
+        """Zajednička inference jezgra za oba ulazna puta (bytes i volume)."""
+        import torch
+
         print(f"🎙️  {filename} ({size_mb:.1f} MB) | {source_lang}→{target_lang}")
+        # Peak se mjeri od NULE po pozivu: zanima nas koliko traži OVA snimka povrh
+        # već učitanog modela, jer po tome se predviđa strop za duže snimke.
+        if torch.cuda.is_available():
+            torch.cuda.reset_peak_memory_stats()
         t0 = time.time()
         try:
             with torch.inference_mode():
@@ -212,25 +257,30 @@ class Canary:
                 return {"status": "error", "reason": "Unexpected output format", "elapsed": elapsed}
 
             segments = out[0].timestamp["segment"]
-            print(f"📊 {len(segments)} segmenata za {elapsed:.0f}s")
+            peak_gb = (torch.cuda.max_memory_allocated() / 2**30) if torch.cuda.is_available() else None
+            total_gb = (torch.cuda.get_device_properties(0).total_memory / 2**30) if torch.cuda.is_available() else None
+            print(f"📊 {len(segments)} segmenata za {elapsed:.0f}s"
+                  + (f" | peak VRAM {peak_gb:.1f} / {total_gb:.1f} GB ({GPU_SPEC})" if peak_gb else ""))
             return {
                 "status": "transcribed",
                 "srt": _generate_srt(segments),
                 "csv": _generate_csv(segments),
                 "segments": len(segments),
                 "elapsed": elapsed,
+                "peak_vram_gb": round(peak_gb, 2) if peak_gb else None,
+                "total_vram_gb": round(total_gb, 1) if total_gb else None,
+                "gpu": GPU_SPEC,
             }
         except torch.cuda.OutOfMemoryError:
             import gc
             gc.collect(); torch.cuda.empty_cache()
-            return {"status": "error", "reason": "CUDA OOM — probaj A100-80GB", "elapsed": time.time() - t0}
+            peak_gb = torch.cuda.max_memory_allocated() / 2**30
+            return {"status": "error",
+                    "reason": f"CUDA OOM na {GPU_SPEC} (peak {peak_gb:.1f} GB) — probaj MODAL_CANARY_GPU=A100-80GB",
+                    "peak_vram_gb": round(peak_gb, 2), "gpu": GPU_SPEC,
+                    "elapsed": time.time() - t0}
         except Exception as e:
             return {"status": "error", "reason": str(e), "elapsed": time.time() - t0}
-        finally:
-            try:
-                os.remove(wav_path)
-            except OSError:
-                pass
 
 
 # ─── Lokalni CLI: modal run ... --wav /put/do/file.wav ────────────────────────
@@ -257,7 +307,40 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
         f.write(res["srt"])
     with open(csv_out, "w", encoding="utf-8") as f:
         f.write(res["csv"])
-    print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s")
+    vram = (f" | peak VRAM {res['peak_vram_gb']} / {res['total_vram_gb']} GB na {res['gpu']}"
+            if res.get("peak_vram_gb") else "")
+    print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
+    print(f"   → {srt_out}")
+    print(f"   → {csv_out}")
+
+
+# ─── Volume put: modal run ...::from_volume --remote full_session_16k.wav ────
+# Za snimke koje ne stanu u argument funkcije (mjereno: 2.3 GB WAV → 34 GB peak
+# footprint na klijentu → kill). Workflow:
+#   modal volume put domovina-audio /put/do/file.wav /file.wav
+#   modal run modal_canary/canary_modal.py::from_volume --remote /file.wav --out /put/do/file.wav
+@app.local_entrypoint()
+def from_volume(remote: str, out: str = "", source_lang: str = "hr",
+                target_lang: str = "hr", force: bool = False):
+    """Transkribira WAV s audio Volumea; SRT/CSV zapisuje uz `--out` (lokalni WAV)."""
+    srt_out = (out or os.path.basename(remote)) + ".canary.srt"
+    csv_out = (out or os.path.basename(remote)) + ".canary.csv"
+    if os.path.exists(srt_out) and not force:
+        print(f"⏭️  Već postoji {srt_out} (koristi --force). Izlazim.")
+        return
+
+    print(f"🎬 Transkribiram s volumea: {remote} ({GPU_SPEC})")
+    res = Canary().transcribe_volume.remote(remote, source_lang, target_lang)
+    if res.get("status") != "transcribed":
+        raise SystemExit(f"❌ Transkripcija nije uspjela: {res.get('reason')}")
+
+    with open(srt_out, "w", encoding="utf-8") as f:
+        f.write(res["srt"])
+    with open(csv_out, "w", encoding="utf-8") as f:
+        f.write(res["csv"])
+    vram = (f" | peak VRAM {res['peak_vram_gb']} / {res['total_vram_gb']} GB na {res['gpu']}"
+            if res.get("peak_vram_gb") else "")
+    print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
     print(f"   → {srt_out}")
     print(f"   → {csv_out}")
 
