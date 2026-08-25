@@ -130,7 +130,12 @@ def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_sp
 
     # Učitaj audio putem soundfile (nativno čita WAV, ne treba FFmpeg)
     print(f"   🔊 Učitavam audio s soundfile...")
-    data, sample_rate = sf.read(wav_path)
+    # dtype="float32" NIJE kozmetika: bez njega sf.read vraća float64, pa .float()
+    # radi drugu kopiju — 3× memorije (za 3h WAV ~2 GB umjesto 0.7 GB, za 20h ~14 GB
+    # umjesto 4.6 GB). Kad to prelije RAM, macOS raste swap na SISTEMSKOM disku i ruši
+    # nevezane procese (Docker). Mjereno 2026-08-25. S float32 je from_numpy bez kopije
+    # i .float() no-op.
+    data, sample_rate = sf.read(wav_path, dtype="float32")
     waveform = torch.from_numpy(data).float().unsqueeze(0)  # (1, num_samples)
 
     print(f"   🔊 Pokrećem diarizaciju...")

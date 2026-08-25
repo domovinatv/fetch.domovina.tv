@@ -204,7 +204,9 @@ def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None):
     import soundfile as sf
 
     # Učitaj audio
-    data, sample_rate = sf.read(wav_file)
+    # dtype="float32" — bez njega sf.read vraća float64 pa .float() radi drugu kopiju
+    # (3× memorije). Vidi isti komentar u diarize.py; mjereno 2026-08-25.
+    data, sample_rate = sf.read(wav_file, dtype="float32")
     waveform = torch.from_numpy(data).float().unsqueeze(0)
 
     # Parametri
