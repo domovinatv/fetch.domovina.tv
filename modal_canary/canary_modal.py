@@ -28,6 +28,9 @@ GPU: A100-40GB (40 GB VRAM). 3h WAV ima ~28 GB peak → ~12 GB headroom. Za 5h+
   modal run modal_canary/canary_modal.py --wav /put/do/file.wav
     → zapiše file.wav.canary.srt i file.wav.canary.csv POKRAJ WAV-a (lokalno),
       identično kao transcribe_canary.py. Idempotentno (preskače ako SRT postoji).
+    → Iznad 1024 MB (MODAL_VOLUME_THRESHOLD_MB) automatski ide preko audio Volumea
+      umjesto bytes-argumenta, pa i višesatne snimke prolaze automatskim putem.
+      Bez toga klijent umre TIHO na velikom argumentu (2.3 GB WAV → 34 GB peak).
 
   # drugi jezici / prijevod (Canary podržava)
   modal run modal_canary/canary_modal.py --wav file.wav --source-lang en --target-lang hr
@@ -55,7 +58,16 @@ MODEL_VOL_PATH       = "/models"
 # → 34 GB peak footprint → proces ubijen na 24 GB Macu). `modal volume put` streama
 # datoteku, pa je jedini put za višesatne snimke.
 AUDIO_VOL_PATH       = "/audio"
+AUDIO_VOL_NAME       = "domovina-audio"
 MODEL_LOCAL          = f"{MODEL_VOL_PATH}/canary-1b-v2.nemo"
+
+# AUTO-RUTA NA VOLUME (P4, 2026-08-25). Do ovog praga bytes-argument je dokazano
+# siguran (714 MB dijelovi saborske sjednice prošli su bez problema); iznad njega
+# klijent umire TIHO — bez tracebacka, EXITCODE=1 nakon ~65 s (mjereno: 2.3 GB WAV
+# → 34 GB peak footprint na 24 GB Macu). Automatski put (run_pipeline.sh KORAK 2.6,
+# priority poller) zove `::main`, pa prag mora živjeti OVDJE, a ne u pozivatelju —
+# inače duga snimka i dalje pada tiho. Override: MODAL_VOLUME_THRESHOLD_MB.
+VOLUME_ROUTE_THRESHOLD_MB = float(os.environ.get("MODAL_VOLUME_THRESHOLD_MB", "1024"))
 
 # RAZLOG (kopirano iz colab_canary notebooka, cell 4.6): Cloudflare bot-zaštita na
 # zoni domovina.ai vraća 403 za default Python-urllib UA. Browser UA prolazi.
@@ -95,7 +107,7 @@ image = (
 # svaki poziv čita s brzog Modal diska (nema per-call downloada). Ovo je razlog
 # zašto je cold start sekunde, ne minute.
 model_vol = modal.Volume.from_name("domovina-canary-model", create_if_missing=True)
-audio_vol = modal.Volume.from_name("domovina-audio", create_if_missing=True)
+audio_vol = modal.Volume.from_name(AUDIO_VOL_NAME, create_if_missing=True)
 
 app = modal.App(APP_NAME)
 
@@ -283,6 +295,56 @@ class Canary:
             return {"status": "error", "reason": str(e), "elapsed": time.time() - t0}
 
 
+# ─── Auto-ruta na Volume (P4) ────────────────────────────────────────────────
+# `modal volume put` streama datoteku umjesto da je serijalizira u argument, pa
+# klijentu ne treba ~15× veličine snimke u RAM-u. Zauzeće volumea se NAPLAĆUJE →
+# datoteka se briše čim inference završi (i kad padne).
+
+def _volume_remote_name(wav: str) -> str:
+    """Jedinstveno ime na volumeu — dva paralelna runa ne smiju gaziti isti zapis."""
+    stamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    return f"/auto_{stamp}_{os.getpid()}_{os.path.basename(wav)}"
+
+
+def _volume_put(wav: str, remote: str) -> None:
+    import subprocess
+    print(f"⬆️  modal volume put {AUDIO_VOL_NAME} → {remote}")
+    subprocess.run(["modal", "volume", "put", AUDIO_VOL_NAME, wav, remote],
+                   check=True)
+
+
+def _volume_rm(remote: str) -> None:
+    import subprocess
+    r = subprocess.run(["modal", "volume", "rm", AUDIO_VOL_NAME, remote],
+                       capture_output=True, text=True)
+    if r.returncode == 0:
+        print(f"🧹 Obrisano s volumea: {remote}")
+    else:
+        # Ne rušimo run zbog čišćenja — ali ISPIŠI, jer zaostatak se naplaćuje.
+        print(f"⚠️  Nisam uspio obrisati {remote} s volumea (naplaćuje se zauzeće): "
+              f"{(r.stderr or r.stdout or '').strip()[:200]}")
+
+
+def _transcribe_local_wav(wav: str, source_lang: str, target_lang: str) -> dict:
+    """Šalje WAV na Modal — bytes-argumentom ili preko volumea, ovisno o veličini."""
+    size_mb = os.path.getsize(wav) / (1024 * 1024)
+
+    if size_mb <= VOLUME_ROUTE_THRESHOLD_MB:
+        data = open(wav, "rb").read()
+        print(f"⬆️  Šaljem {len(data) / 1e6:.0f} MB na Modal ({GPU_SPEC})...")
+        return Canary().transcribe.remote(data, os.path.basename(wav),
+                                          source_lang, target_lang)
+
+    print(f"📦 {size_mb:.0f} MB > prag {VOLUME_ROUTE_THRESHOLD_MB:.0f} MB → "
+          f"idem preko volumea (bytes-argument bi ubio klijent).")
+    remote = _volume_remote_name(wav)
+    try:
+        _volume_put(wav, remote)
+        return Canary().transcribe_volume.remote(remote, source_lang, target_lang)
+    finally:
+        _volume_rm(remote)
+
+
 # ─── Lokalni CLI: modal run ... --wav /put/do/file.wav ────────────────────────
 @app.local_entrypoint()
 def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool = False):
@@ -296,9 +358,7 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
         print(f"⏭️  Već postoji {srt_out} (koristi --force za override). Izlazim.")
         return
 
-    data = open(wav, "rb").read()
-    print(f"⬆️  Šaljem {len(data) / 1e6:.0f} MB na Modal ({GPU_SPEC})...")
-    res = Canary().transcribe.remote(data, os.path.basename(wav), source_lang, target_lang)
+    res = _transcribe_local_wav(wav, source_lang, target_lang)
 
     if res.get("status") != "transcribed":
         raise SystemExit(f"❌ Transkripcija nije uspjela: {res.get('reason')}")
@@ -397,6 +457,8 @@ def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
         print(f"   ⚠️ Preskačem {len(skipped_big)} > {max_mb:.0f} MB (OOM rizik na {GPU_SPEC}):")
         for mb, chan, p in skipped_big:
             print(f"      {mb:6.0f} MB  {chan}/{os.path.basename(p)[:70]}")
+        print(f"      → Ovi NISU izgubljeni: `::main --wav <put>` ih automatski ruta preko"
+              f" volumea iznad {VOLUME_ROUTE_THRESHOLD_MB:.0f} MB (jedan po jedan).")
     if dry_run or not pending:
         for mb, chan, p in pending:
             print(f"   {mb:6.0f} MB  {chan}/{os.path.basename(p)[:70]}")

@@ -24,6 +24,19 @@ modal run modal_canary/canary_modal.py::download_model   # napuni Volume s R2 (6
 modal run modal_canary/canary_modal.py::main --wav /put/do/file.wav   # → file.wav.canary.srt/.csv pokraj WAV-a
 ```
 
+### Velike snimke: auto-ruta na Volume
+
+`::main` sam bira put po veličini datoteke:
+
+| Veličina | Put | Zašto |
+|---|---|---|
+| ≤ 1024 MB | bytes-argument (`transcribe`) | dokazano radi (714 MB dijelovi prošli) |
+| > 1024 MB | `modal volume put` + `transcribe_volume`, pa brisanje | Modalov klijent serijalizira bytes s ~15× overheadom: 2.3 GB WAV → **34 GB peak footprint** → macOS ubije proces TIHO, bez tracebacka (mjereno 2026-08-25) |
+
+Prag se mijenja s `MODAL_VOLUME_THRESHOLD_MB`. Datoteka se s volumea briše i kad
+inference padne — zauzeće volumea se naplaćuje. `::from_volume` ostaje za ručni
+put (kad je WAV već gore, ili se upload želi odvojiti od transkripcije).
+
 ## Bulk batch (jedan topli container)
 
 ```bash
