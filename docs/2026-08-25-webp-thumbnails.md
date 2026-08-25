@@ -51,6 +51,28 @@ Razmatrane su četiri opcije:
 | Cloudflare Image Transformations | ❌ nepotrebno |
 | **Pre-generirane varijante na R2** | ✅ **odabrano** |
 
+```mermaid
+flowchart LR
+    subgraph ODBACENO["❌ On-the-fly resize servis"]
+        direction LR
+        B1[Browser/App] --> CF1[Cloudflare edge]
+        CF1 -->|cache miss| TUN[CF Tunnel]
+        TUN --> COO["Coolify @ OCI<br/>weserv / imgproxy<br/>24-7, CPU, SPOF"]
+        COO --> R2A[(R2 original PNG)]
+    end
+
+    subgraph ODABRANO["✅ Pre-generirane varijante"]
+        direction LR
+        B2[Browser/App] --> CF2[Cloudflare edge]
+        CF2 -->|cache miss| R2B[(R2<br/>thumb-320/640/1280.webp)]
+    end
+
+    PIPE["pipeline KORAK 9.7<br/>generate_webp_thumbs.js"] -.->|jednom, unaprijed| R2B
+```
+
+Desna grana nema ničega što bi se moglo srušiti, preopteretiti ili zloupotrijebiti:
+između edgea i bajtova stoji samo R2.
+
 On-the-fly resizing rješava **nepredvidive** transformacije: user-generated
 sadržaj, proizvoljne dimenzije, slike koje se mijenjaju. Naš slučaj je suprotan:
 
@@ -163,6 +185,22 @@ trajanje:                 212 s  (concurrency 8, lokalno na Macu)
 
 R2 zauzeće +254 MB (free tier je 10 GB → 2,5%).
 
+### Provjereno na produkciji nakon uploada
+
+Nasumični uzorak 40 epizoda: 40/40 dostupno, `content-type: image/webp`,
+`cache-control: immutable`, edge cache `MISS → HIT`.
+
+Stvarni bajtovi povučeni s CDN-a za listu od 20 nasumičnih epizoda:
+
+| | Veličina |
+|---|---|
+| prije (`thumbnail.png`) | **13,73 MB** |
+| sada (`thumb-320.webp`) | **0,19 MB** |
+| | **73× manje (−98,6 %)** |
+
+(73× naspram 61× iz tablice gore jer prosječna epizoda ima nešto veći PNG od
+onoga na kojem je mjerenje prvi put rađeno.)
+
 Audio-only epizode su beamly/transistor kanali bez YouTube videa
 (`_yt_matched === false`) — imaju `audio.mp3`, nemaju i nikad neće imati
 `thumbnail.png`.
@@ -192,3 +230,13 @@ vrijedi (provjereno: `/zones/{id}/rulesets` → 10000 Authentication error).
   više po epizodi nego thumbnailova. Isti postupak bi se primijenio, ali je
   volumen bitno veći pa nije rađen u ovom prolazu.
 - **Cache Rule za JSON** — čeka token s odgovarajućom ovlašću.
+
+## Vezani dokumenti
+
+- [`data_contract.md`](data_contract.md) — §8 ključevi na CDN-u
+- [`../../domovina-wsrv/README.md`](../../domovina-wsrv/README.md) — napušteni
+  weserv plan i razlog (amd64 image na ARM serveru)
+- [`../../domovina-infra/docs/01-overview.md`](../../domovina-infra/docs/01-overview.md)
+  — OCI instanca. Ondje piše „Shape 4 OCPU / 24 GB (ARM/x86 — provjeri u
+  konzoli)"; provjereno preko SSH-a: **`aarch64`**, Ampere Altra
+  (Neoverse-N1, CPU part `0xd0c`), bez qemu u `binfmt_misc`.

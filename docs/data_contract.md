@@ -318,6 +318,12 @@ https://cdn.domovina.ai/data/{youtube_id}/summary.json
 | `data/{id}/video_h264.mp4` | Epizoda IMA video (YouTube ili YT-matchana beamly). H.264 Main, univerzalno HW-dekodira. | `backfill_video_h264.js` (KORAK 12.5) |
 | `data/{id}/audio.mp3` | **AUDIO-ONLY** epizoda (nema YouTube video → nema video_h264). beamly subclub/launched s `_yt_matched===false`. | `upload_audio_only.js` (KORAK 12.6) |
 | `images/{id}/thumbnail.png` | Sve epizode (YT thumbnail; audio-only dobiju iz beamly itunesImage ako postoji). | `upload_to_r2.js` |
+| `images/{id}/thumb-{320,640,1280}.webp` | Epizode koje IMAJU `thumbnail.png` (dakle ne audio-only bez slike). In-app responsive varijante, q80. Vidi [`2026-08-25-webp-thumbnails.md`](2026-08-25-webp-thumbnails.md). | `generate_webp_thumbs.js` (KORAK 9.7) |
+| `images/{id}/og-share.jpg` | Kao thumbnail. 1200×630 JPEG za `og:image` — **namjerno NIJE WebP** (link-preview crawleri ga ne dokumentiraju). | `generate_og_image.js` (KORAK 9.5) |
+
+**CONSUMER (domovina.ai) — slike:** `CachedThumbnail` sam nadograđuje kanonski
+`images/{id}/thumbnail.png` na `thumb-{w}.webp` prema render-širini, s tihim
+fallbackom na PNG ako varijanta 404-a. Call-siteovi ne znaju za varijante.
 
 **CONSUMER (domovina.ai) — media resolution mora biti:**
 1. HEAD `data/{id}/video_h264.mp4` → 200 ⇒ video playback (`CdnConfig.videoH264Url`).
