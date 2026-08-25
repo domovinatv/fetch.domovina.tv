@@ -43,6 +43,17 @@
  *   node sync_voting_candidates.mjs --commit --no-avatars    # samo baza
  *   node sync_voting_candidates.mjs --commit --force-avatars # prepiši + CF purge
  *   node sync_voting_candidates.mjs --limit 5 --json
+ *   node sync_voting_candidates.mjs --check            # samo diff, exit 1 na drift
+ *
+ * ── --check (tripwire) ──────────────────────────────────────────────────────
+ * `vote_candidates` je SNIMKA registra, ne živi pogled na njega: dodavanje u
+ * `data/podcasts_registry.json` ne stigne do baze dok se ne pokrene `--commit`.
+ * Izmjereno 25.8.2026.: registar je 17 dana nosio 37 kandidata (među njima
+ * AbbaCast) kojih u bazi nije bilo, a ništa to nije javilo — korisnici jednostavno
+ * nisu mogli glasati za njih.
+ * `--check` je zato jeftin: preskače yt-dlp i CDN, čita samo registar i bazu,
+ * ispiše razliku i vrati **exit 1** kad postoji drift (0 = poravnato, 2 = greška).
+ * Vozi ga `domovina.ai/scripts/voting-drift-check.sh` preko launchda.
  *
  * ── Env (.env u korijenu repoa) ─────────────────────────────────────────────
  *   SUPABASE_URL                (default https://api.domovina.ai)
@@ -82,9 +93,12 @@ const getFlag = (n) => {
 };
 
 const COMMIT = hasFlag("commit");
-const WITH_AVATARS = !hasFlag("no-avatars");
+// `--check` je read-only tripwire — yt-dlp nad 218 kanala traje minutama i nema
+// nikakve veze s time je li bazen poravnat s registrom.
+const WITH_AVATARS = !hasFlag("no-avatars") && !hasFlag("check");
 const FORCE_AVATARS = hasFlag("force-avatars");
 const AS_JSON = hasFlag("json");
+const CHECK = hasFlag("check");
 const LIMIT = getFlag("limit") ? parseInt(getFlag("limit"), 10) : Infinity;
 const REGISTRY_PATH = getFlag("registry") || join(HERE, "data", "podcasts_registry.json");
 
@@ -390,6 +404,10 @@ async function main() {
   } else if (COMMIT) {
     console.error("❌  SUPABASE_SERVICE_ROLE_KEY nije postavljen — --commit nije moguć.");
     process.exit(1);
+  } else if (CHECK) {
+    // Exit 2, ne 1: tripwire mora razlikovati „ima drifta" od „ne mogu provjeriti".
+    console.error("❌  SUPABASE_SERVICE_ROLE_KEY nije postavljen — --check nije moguć.");
+    process.exit(2);
   } else {
     warn("SUPABASE_SERVICE_ROLE_KEY nije postavljen — diff prema bazi se preskače.");
   }
@@ -444,7 +462,7 @@ async function main() {
     });
   } else {
     for (const row of scoped) row.avatar_url = byExisting.get(row.slug)?.avatar_url ?? null;
-    log("🖼", "Avatari preskočeni (--no-avatars).");
+    log("🖼", CHECK ? "Avatari preskočeni (--check je read-only)." : "Avatari preskočeni (--no-avatars).");
   }
 
   const razrijeseni = avatarStats.naCdn + avatarStats.izYtDlp;
@@ -468,6 +486,40 @@ async function main() {
   const zamrznuti = (existing || [])
     .filter((r) => ["winner", "onboarding", "onboarded"].includes(r.status))
     .map((r) => r.slug);
+
+  // ── --check: samo izvijesti o driftu i izađi ──────────────────────────────
+  if (CHECK) {
+    const izvjestaj = {
+      registry_path: REGISTRY_PATH,
+      registry_version: registry.version || null,
+      registry_zapisa: all.length,
+      registry_kandidata: rows.length,
+      baza_redova: existing.length,
+      novi,
+      povuceni: zaPovlacenje,
+      vraceni: zaVracanje,
+      zamrznuti: zamrznuti.length,
+      drift: novi.length + zaPovlacenje.length + zaVracanje.length,
+    };
+    if (AS_JSON) {
+      console.log(JSON.stringify(izvjestaj, null, 2));
+    } else {
+      console.log("");
+      console.log("─".repeat(64));
+      console.log(`  Registar:  ${rows.length} kandidata (v${izvjestaj.registry_version ?? "?"}, ${all.length} zapisa)`);
+      console.log(`  Baza:      ${existing.length} redova (${SUPABASE_URL})`);
+      console.log(`  DRIFT:     ${izvjestaj.drift}`);
+      if (novi.length) console.log(`    fali u bazi (${novi.length}): ${novi.join(", ")}`);
+      if (zaPovlacenje.length) console.log(`    za povući (${zaPovlacenje.length}): ${zaPovlacenje.join(", ")}`);
+      if (zaVracanje.length) console.log(`    za vratiti (${zaVracanje.length}): ${zaVracanje.join(", ")}`);
+      console.log("─".repeat(64));
+      console.log(izvjestaj.drift === 0
+        ? "  ✅ Registar i bazen su poravnati."
+        : "  ⚠️  Pokreni: node sync_voting_candidates.mjs --commit");
+      console.log("");
+    }
+    process.exit(izvjestaj.drift === 0 ? 0 : 1);
+  }
 
   // ── pisanje ───────────────────────────────────────────────────────────────
   if (COMMIT) {
