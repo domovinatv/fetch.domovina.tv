@@ -737,6 +737,36 @@ Plan je 10 komada (3+3+3+1), svaki 1.91–2.11 h. Planiranje traje 0.1 s po dije
 (`sf.read(start=, stop=, dtype="float32")`) i predaje kao waveform. Nula
 dodatnih bajtova na disku koji je usko grlo.
 
+### 8.5a Geometrija komada — rez je i granica vlasnistva
+
+Ovo je jedini dio implementacije koji se ne vidi iz koda na prvi pogled. Rezovi
+`c_1..c_{n-1}` (pomaknuti u tisinu) sluze DVJEMA stvarima odjednom: mjesto su
+gdje se snimka lomi, i granica su **vlasnistva** nad segmentima.
+
+```
+dio:   c_0=0                 c_1                  c_2               c_3=kraj
+         |                    |                    |                    |
+komad 0  [====== cita =========]                   |                    |
+         |<--- posjeduje ----->|                   |                    |
+komad 1              [========= cita ==============]                    |
+         |           |<---- posjeduje ------------>|                    |
+komad 2                          [========== cita =====================]
+         |           |            |<------- posjeduje ---------------->|
+                     |<-- 90 s -->|
+                      preklapanje
+```
+
+Svaki komad **cita** `[c_i − 45 s, c_{i+1} + 45 s]`, a **posjeduje** `[c_i,
+c_{i+1}]`. Zato je razrjesavanje dvostrukih segmenata trivijalno: segment se
+obreze na vlasnistvo i isti govor se nikad ne broji dvaput. Preklapanje susjeda
+je tocno `overlap_s`.
+
+⚠️ Posljedica koju treba znati: buduci da rezovi padaju u **tisinu**, prozor
+preklapanja je po konstrukciji tih. Od 90 s prozora izmedu `p01_c00` i `p01_c01`
+samo **34.4 s** sadrzi govor u OBA komada. To je dovoljno za validaciju
+(344 usporedena okvira po 0.1 s), ali objasnjava zasto preklapanje nije izdasan
+izvor same-speaker parova za kalibraciju — za to sluzi postupak iz §6.7.
+
 ### 8.6 🎯 Prag JE izmjeren: **0.263**, i praznina je golema
 
 Postupak iz §6.7 (referenca `p04_c00` + dvije **disjunktne** polovice; disjunktne
