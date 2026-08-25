@@ -333,6 +333,73 @@ a institucija se u transkriptu spominje četiri puta punim imenom.
 
 ---
 
+## 8. Faza 04 — dugi članak kliznim prozorom: Opus 5 vs Gemini 3.7 Flash
+
+Isti ulaz (802 bloka, 819 000 znakova), isti postupak (MAP po 21 prozoru →
+OUTLINE → WRITE po poglavlju), dva backenda.
+
+| | **Opus 5** (`claude -p`) | **Gemini 3.7 Flash** (`agy`) |
+|---|---|---|
+| riječi | **13 468** | 10 320 |
+| poglavlja | 13 *(traženo 8–12)* | 10 |
+| jedinstvenih timestampova | **189** | 161 |
+| redaka s doslovnim citatom | **81** | 57 |
+| pokrivenost sjednice | 20/21 sat | 20/21 sat |
+| nepokrivenih prozora | 0 | 0 |
+| **provjereno izmišljenih imena** | **0** | **0** |
+| sumnjivih timestampova | 0 | 0 |
+| trajanje WRITE faze | ~78 s/poglavlje | ~58 s/poglavlje |
+
+### 8.1 Gdje je razlika stvarna
+
+**Sinteza.** Gemini slaže poglavlja uglavnom kronološki (2–4 prozora po
+poglavlju, tri tematska). Opusova tematska poglavlja presijecaju **8–9 prozora**
+— „SUKOB OKO ODGOVORNOSTI: inspektor kojeg nema" povlači materijal iz prozora
+0, 1, 2, 5, 9, 11, 15 i 16, dakle iz raspona od petnaest sati. To je posao koji
+klizni prozor treba omogućiti, a jedan prolaz nad 264 000 tokena ne bi.
+
+**Preciznost pod šumom.** Opusovo poglavlje 13 nosi u naslovu „78 protiv 64".
+U transkriptu to stoji riječima usred nepunktuiranog odsječka — *„Glasovalo je
+sto četrdeset dva zastupnica i zastupnika, šezdeset četiri je bilo za,
+sedamdeset osam protiv"* — a u istoj sjednici postoji i drugo glasovanje
+(139 glasovalo, 81 za, 58 protiv) koje je **prošlo**. Opus je izvukao točan par
+brojeva, točnu orijentaciju i točan ishod.
+
+### 8.2 ⚠️ Opus ispravlja izvor iz vlastitog znanja
+
+Revizija je Opusu prijavila „Prijatelji Gacke" kao izmišljeno. Nije: ASR je
+napisao **„prijatelji Gatske"**, a Opus je ime udruge ispravio na stvarno.
+
+Ovdje je pomoglo. Ali to je ista sposobnost koja drugdje izmišlja — model koji
+smije popraviti izvor prema svijetu smije ga i prepisati. Za tu klasu nema
+strojne provjere: ispravak i halucinacija izgledaju identično dok se ne usporedi
+s transkriptom. **Zato revizija ostaje obavezna, a ne opcionalna.**
+
+### 8.3 Poznati lažni pozitivi `audit_article.js`
+
+Alat prijavljuje kao „izmišljeno" i ovo, a nije:
+
+| Slučaj | Zašto promaši |
+|---|---|
+| `Ivanu Dabi` | hrvatski dativ; u transkriptu stoji „Dabo" (12×) |
+| `Prijatelji Gacke` | članak ispravlja ASR distorziju („Gatske") |
+| `Ćorić → Pero Ćosić` | matcher poveže dva različita prezimena (0.8607) |
+
+Izvještaj se **ne čita kao presuda** nego kao popis mjesta za pogledati. Nulti
+rezultat znači „nije pao na ove tri provjere", ne „članak je točan" — alat to i
+ispisuje.
+
+### 8.4 Koji backend
+
+Za produkciju: **Gemini 3.7 Flash** je dovoljan i jeftiniji — pokriva cijelu
+sjednicu, nema izmišljenih imena, i po prozoru je 2–3× brži.
+
+**Opus** se isplati kad se traži sinteza kroz cijelu sjednicu, gušća citiranost
+i preciznost na brojkama izgovorenim riječima. Cijena je kvota (≈ 34 poziva po
+sjednici) i sklonost tihom ispravljanju izvora iz §8.2.
+
+---
+
 ## Vezani dokumenti
 
 * `sabor_pipeline/03_asr_and_protocol_parser.md` — izvorna specifikacija sa zaglavljem ispravaka
