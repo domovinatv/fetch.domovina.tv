@@ -28,6 +28,7 @@ import argparse
 import re
 import sys
 import os
+import time
 from datetime import timedelta
 
 def parse_args():
@@ -39,6 +40,11 @@ def parse_args():
     parser.add_argument("--device", default="auto", help="PyTorch device: auto, mps, cpu (default: auto)")
     parser.add_argument("--min-speakers", type=int, default=None, help="Minimalan broj govornika")
     parser.add_argument("--max-speakers", type=int, default=None, help="Maksimalan broj govornika")
+    parser.add_argument("--audio-input", choices=["waveform", "path"], default="waveform",
+                        help="Kako se audio predaje pyannoteu: 'waveform' (cijela snimka u RAM, "
+                             "povijesni default) ili 'path' (pyannote cita prozore lijeno s diska)")
+    parser.add_argument("--progress-interval", type=int, default=60,
+                        help="Razmak ispisa napretka diarizacije u sekundama (default: 60)")
     return parser.parse_args()
 
 
@@ -101,7 +107,71 @@ def seconds_to_timestamp(sec):
 
 # --- DIARIZACIJA ---
 
-def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_speakers=None):
+class LogProgressHook:
+    """pyannote hook koji pise obicne log retke (bez ANSI-ja).
+
+    Knjiznicni `ProgressHook` crta `rich` progress bar; ovaj ispis zavrsava u
+    pipeline logu koji se cita grepom, pa ANSI escape sekvence ondje smetaju.
+    `completed`/`total` za korak "segmentation" su prozori nad snimkom, pa je
+    pozicija stvarna; za ostale korake (embeddings) su batchevi — samo postotak.
+    """
+
+    def __init__(self, prefix="   ", duration_s=None, min_interval_s=60):
+        self.prefix = prefix
+        self.duration_s = duration_s
+        self.min_interval_s = min_interval_s
+        self.t0 = time.time()
+        self._step = None
+        self._step_t0 = self.t0
+        self._last_print = 0.0
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    @staticmethod
+    def _hms(sec):
+        sec = max(0, int(sec))
+        return f"{sec // 3600}:{(sec % 3600) // 60:02d}:{sec % 60:02d}"
+
+    def __call__(self, step_name, step_artifact, file=None, total=None, completed=None):
+        now = time.time()
+        if step_name != self._step:
+            self._step = step_name
+            self._step_t0 = now
+            self._last_print = 0.0
+            print(f"{self.prefix}   ▶ korak: {step_name} "
+                  f"(+{self._hms(now - self.t0)} od starta)", flush=True)
+        if not total or completed is None:
+            return
+        frac = min(1.0, max(0.0, completed / total))
+        if frac < 1.0 and (now - self._last_print) < self.min_interval_s:
+            return
+        self._last_print = now
+        step_elapsed = now - self._step_t0
+        eta = (step_elapsed / frac - step_elapsed) if frac > 0 else 0
+        where = ""
+        if step_name == "segmentation" and self.duration_s:
+            where = (f" | pozicija ≈ {self._hms(frac * self.duration_s)} / "
+                     f"{self._hms(self.duration_s)}")
+        print(f"{self.prefix}     {step_name} {frac * 100:5.1f}% ({completed}/{total})"
+              f"{where} | ETA koraka {self._hms(eta)}", flush=True)
+
+
+def wav_duration_s(wav_path):
+    """Trajanje WAV-a iz zaglavlja (bez ucitavanja uzoraka). None ako ne uspije."""
+    try:
+        import soundfile as sf
+        info = sf.info(wav_path)
+        return info.frames / float(info.samplerate)
+    except Exception:
+        return None
+
+
+def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_speakers=None,
+                    audio_input_mode="waveform", progress_interval=60):
     """Pokreće pyannote diarizaciju na MPS (Metal GPU) ili CPU."""
     import torch
     import soundfile as sf
@@ -128,18 +198,6 @@ def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_sp
     )
     pipeline.to(torch.device(device))
 
-    # Učitaj audio putem soundfile (nativno čita WAV, ne treba FFmpeg)
-    print(f"   🔊 Učitavam audio s soundfile...")
-    # dtype="float32" NIJE kozmetika: bez njega sf.read vraća float64, pa .float()
-    # radi drugu kopiju — 3× memorije (za 3h WAV ~2 GB umjesto 0.7 GB, za 20h ~14 GB
-    # umjesto 4.6 GB). Kad to prelije RAM, macOS raste swap na SISTEMSKOM disku i ruši
-    # nevezane procese (Docker). Mjereno 2026-08-25. S float32 je from_numpy bez kopije
-    # i .float() no-op.
-    data, sample_rate = sf.read(wav_path, dtype="float32")
-    waveform = torch.from_numpy(data).float().unsqueeze(0)  # (1, num_samples)
-
-    print(f"   🔊 Pokrećem diarizaciju...")
-    
     # Parametri za diarizaciju
     diarize_params = {}
     if min_speakers is not None:
@@ -147,9 +205,34 @@ def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_sp
     if max_speakers is not None:
         diarize_params["max_speakers"] = max_speakers
 
-    # Proslijedi waveform dict umjesto file patha (zaobilazi AudioDecoder)
-    audio_input = {"waveform": waveform, "sample_rate": sample_rate}
-    result = pipeline(audio_input, **diarize_params)
+    hook = LogProgressHook(duration_s=wav_duration_s(wav_path),
+                           min_interval_s=progress_interval)
+
+    if audio_input_mode == "path":
+        # PUTANJA: pyannote cita prozore lijeno s diska, pa memorija ne ovisi o
+        # duljini snimke (mjereno na 1 h 56 m: ravno 0.7 GB RSS kroz cijeli prolaz).
+        # Povijesni komentar nize tvrdi da waveform "zaobilazi AudioDecoder"; zato je
+        # putanja iza zastavice i tek nakon A/B-a smije postati default.
+        print(f"   🔊 Pokrećem diarizaciju (audio ulaz: PATH, bez učitavanja u RAM)...")
+        with hook:
+            result = pipeline(wav_path, hook=hook, **diarize_params)
+    else:
+        # Učitaj audio putem soundfile (nativno čita WAV, ne treba FFmpeg)
+        print(f"   🔊 Učitavam audio s soundfile...")
+        # dtype="float32" NIJE kozmetika: bez njega sf.read vraća float64, pa .float()
+        # radi drugu kopiju — 3× memorije (za 3h WAV ~2 GB umjesto 0.7 GB, za 20h ~14 GB
+        # umjesto 4.6 GB). Kad to prelije RAM, macOS raste swap na SISTEMSKOM disku i ruši
+        # nevezane procese (Docker). Mjereno 2026-08-25. S float32 je from_numpy bez kopije
+        # i .float() no-op.
+        data, sample_rate = sf.read(wav_path, dtype="float32")
+        waveform = torch.from_numpy(data).float().unsqueeze(0)  # (1, num_samples)
+
+        print(f"   🔊 Pokrećem diarizaciju (audio ulaz: WAVEFORM)...")
+        # Proslijedi waveform dict umjesto file patha (zaobilazi AudioDecoder)
+        audio_input = {"waveform": waveform, "sample_rate": sample_rate}
+        with hook:
+            result = pipeline(audio_input, hook=hook, **diarize_params)
+        del waveform, data, audio_input
 
     # pyannote 4.x vraća DiarizeOutput, starije verzije vraćaju Annotation
     # DiarizeOutput ima .speaker_diarization atribut koji je Annotation
@@ -241,7 +324,9 @@ def main():
         args.hf_token,
         device=args.device,
         min_speakers=args.min_speakers,
-        max_speakers=args.max_speakers
+        max_speakers=args.max_speakers,
+        audio_input_mode=args.audio_input,
+        progress_interval=args.progress_interval
     )
 
     # 3. Pridruži govornika svakom SRT segmentu

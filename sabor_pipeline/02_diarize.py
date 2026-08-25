@@ -79,6 +79,106 @@ def swap_usage():
     return tot, used
 
 
+# Napredak djeteta vidljiv roditelju kroz shared memory. Namjerno GOLI
+# sharedctypes objekti, a ne vlastita klasa: pod `spawn`-om se argumenti procesa
+# pickleaju, a klasa definirana u `__main__` skripte s vodecom znamenkom u imenu
+# ("02_diarize.py") nije uvijek razrjesiva u djetetu. Gole Array/Value imaju
+# vlastitu ForkingPickler redukciju i uvijek prolaze.
+
+def _make_progress(ctx):
+    """(step_arr, frac_val) — dijeljeno stanje napretka."""
+    import ctypes
+    return ctx.Array(ctypes.c_char, 64, lock=False), ctx.Value("d", 0.0, lock=False)
+
+
+def _progress_write(step_arr, frac_val, step_name, frac):
+    step_arr.value = step_name.encode("utf-8")[:63]
+    frac_val.value = frac
+
+
+def _progress_read(step_arr, frac_val):
+    return step_arr.value.decode("utf-8", "replace"), frac_val.value
+
+
+class LogProgressHook:
+    """pyannote hook koji pise OBICNE log retke (bez ANSI-ja).
+
+    Zasto ne knjiznicni `ProgressHook`: on crta `rich` progress bar, a ovaj se
+    ispis cita iz nadzornickog loga (i iz launchd nightly loga) — ANSI escape
+    sekvence ondje su smece.
+
+    `completed`/`total` za korak "segmentation" su redni brojevi PROZORA nad
+    snimkom, pa je iz njih citljiva stvarna pozicija u snimci. Za ostale korake
+    (embeddings) to su batchevi — postotak da, pozicija ne.
+    """
+
+    def __init__(self, prefix="", duration_s=None, min_interval_s=60, sink=None):
+        self.prefix = prefix
+        self.duration_s = duration_s
+        self.min_interval_s = min_interval_s
+        self.sink = sink
+        self.t0 = time.time()
+        self._step = None
+        self._step_t0 = self.t0
+        self._last_print = 0.0
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    @staticmethod
+    def _hms(sec):
+        sec = max(0, int(sec))
+        return f"{sec // 3600}:{(sec % 3600) // 60:02d}:{sec % 60:02d}"
+
+    def __call__(self, step_name, step_artifact, file=None, total=None, completed=None):
+        now = time.time()
+        if step_name != self._step:
+            self._step = step_name
+            self._step_t0 = now
+            self._last_print = 0.0
+            if self.sink:
+                self.sink(step_name, 0.0)
+            print(f"{self.prefix}   ▶ korak: {step_name} "
+                  f"(+{self._hms(now - self.t0)} od starta)", flush=True)
+
+        if not total or completed is None:
+            return
+
+        frac = min(1.0, max(0.0, completed / total))
+        if self.sink:
+            self.sink(step_name, frac)
+
+        if frac < 1.0 and (now - self._last_print) < self.min_interval_s:
+            return
+        self._last_print = now
+        step_elapsed = now - self._step_t0
+        eta = (step_elapsed / frac - step_elapsed) if frac > 0 else 0
+        where = ""
+        if step_name == "segmentation" and self.duration_s:
+            where = (f" | pozicija ≈ {self._hms(frac * self.duration_s)} / "
+                     f"{self._hms(self.duration_s)}")
+        print(f"{self.prefix}     {step_name} {frac * 100:5.1f}% ({completed}/{total})"
+              f"{where} | ETA koraka {self._hms(eta)}", flush=True)
+
+
+def wav_duration_s(wav_path):
+    """Trajanje WAV-a iz zaglavlja (bez ucitavanja uzoraka). None ako ne uspije."""
+    try:
+        import soundfile as sf
+        info = sf.info(str(wav_path))
+        return info.frames / float(info.samplerate)
+    except Exception:
+        return None
+
+
+def hms(sec):
+    sec = max(0, int(sec))
+    return f"{sec // 3600}:{(sec % 3600) // 60:02d}:{sec % 60:02d}"
+
+
 def rss_gb(pid):
     try:
         out = subprocess.run(["ps", "-o", "rss=", "-p", str(pid)],
@@ -90,7 +190,8 @@ def rss_gb(pid):
 
 # ─── Child: sve što troši memoriju živi ovdje ────────────────────────────────
 
-def _diarize_child(wav_path, hf_token, device, min_spk, max_spk, out_queue):
+def _diarize_child(wav_path, hf_token, device, min_spk, max_spk, out_queue,
+                   step_arr=None, frac_val=None, progress_interval=60):
     """Pokreće pyannote nad PUTANJOM (ne waveformom) i vraća segmente kroz queue."""
     try:
         import torch
@@ -114,8 +215,20 @@ def _diarize_child(wav_path, hf_token, device, min_spk, max_spk, out_queue):
         print(f"   ▶️  pyannote čita s diska: {wav_path}", flush=True)
         t0 = time.time()
 
+        # Indikator napretka (P2): bez njega se na 20-satnoj snimci desecima minuta
+        # ne moze razlikovati "radi" od "zaglavilo", a projekcija trajanja je bila
+        # linearna ekstrapolacija — a zavrsno klasteriranje NE skalira linearno.
+        sink = None
+        if step_arr is not None:
+            def sink(name, frac):
+                _progress_write(step_arr, frac_val, name, frac)
+        hook = LogProgressHook(duration_s=wav_duration_s(wav_path),
+                               min_interval_s=progress_interval,
+                               sink=sink)
+
         # KLJUČNO: putanja, ne {"waveform": ...} — pyannote tada čita prozore lijeno.
-        result = pipeline(str(wav_path), **kwargs)
+        with hook:
+            result = pipeline(str(wav_path), hook=hook, **kwargs)
 
         diar = getattr(result, "exclusive_speaker_diarization", None) \
             or getattr(result, "speaker_diarization", None) or result
@@ -132,12 +245,15 @@ def _diarize_child(wav_path, hf_token, device, min_spk, max_spk, out_queue):
 
 
 def run_guarded(wav_path, hf_token, device, min_spk, max_spk,
-                min_free_disk_gb, rss_cap_gb, interval_s):
+                min_free_disk_gb, rss_cap_gb, interval_s, progress_interval=60,
+                duration_s=None):
     """Pokreće diarizaciju u child procesu i nadzire disk/RAM. Vraća dict rezultata."""
     ctx = mp.get_context("spawn")
     q = ctx.Queue()
+    step_arr, frac_val = _make_progress(ctx)
     proc = ctx.Process(target=_diarize_child,
-                       args=(wav_path, hf_token, device, min_spk, max_spk, q))
+                       args=(wav_path, hf_token, device, min_spk, max_spk, q,
+                             step_arr, frac_val, progress_interval))
     proc.start()
     print(f"   🛡️  Nadzornik aktivan (PID {proc.pid}) — prag: disk ≥ {min_free_disk_gb:.0f} GB, "
           f"RSS ≤ {rss_cap_gb:.0f} GB, provjera svakih {interval_s}s", flush=True)
@@ -155,8 +271,17 @@ def run_guarded(wav_path, hf_token, device, min_spk, max_spk,
         min_disk = min(min_disk, disk)
         sw_tot, sw_used = swap_usage()
         mins = (time.time() - t0) / 60
+        step, frac = _progress_read(step_arr, frac_val)
+        # Pozicija u snimci je stvarna SAMO za korak "segmentation" (prozori idu
+        # redom kroz snimku); za ostale korake postotak je napredak batcheva.
+        if step == "segmentation" and duration_s:
+            where = f" | {step} {frac*100:4.1f}% ≈ {hms(frac*duration_s)}/{hms(duration_s)}"
+        elif step:
+            where = f" | {step} {frac*100:4.1f}%"
+        else:
+            where = " | ucitavam model"
         print(f"   ⏱️  {mins:6.1f} min | RSS {rss:5.1f} GB (peak {peak_rss:5.1f}) | "
-              f"disk / {disk:5.1f} GB | swap {sw_used:.1f}/{sw_tot:.1f} GB", flush=True)
+              f"disk / {disk:5.1f} GB | swap {sw_used:.1f}/{sw_tot:.1f} GB{where}", flush=True)
 
         if disk < min_free_disk_gb:
             killed = f"slobodan prostor na / pao na {disk:.1f} GB (prag {min_free_disk_gb:.0f} GB)"
@@ -193,6 +318,8 @@ def main():
     ap.add_argument("--min-free-disk-gb", type=float, default=MIN_FREE_DISK_GB)
     ap.add_argument("--rss-cap-gb", type=float, default=CHILD_RSS_CAP_GB)
     ap.add_argument("--check-interval", type=int, default=CHECK_INTERVAL_S)
+    ap.add_argument("--progress-interval", type=int, default=60,
+                    help="razmak ispisa pyannote napretka iz djeteta (sekunde)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -251,7 +378,9 @@ def main():
     for wav, offset in targets:
         print(f"\n▶️  Diariziram {wav.name}")
         res = run_guarded(wav, hf_token, args.device, args.min_speakers, args.max_speakers,
-                          args.min_free_disk_gb, args.rss_cap_gb, args.check_interval)
+                          args.min_free_disk_gb, args.rss_cap_gb, args.check_interval,
+                          progress_interval=args.progress_interval,
+                          duration_s=wav_duration_s(wav))
 
         if res["status"] != "ok":
             print(f"\n❌ {res['status'].upper()}: {res.get('reason')}")

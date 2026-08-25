@@ -841,6 +841,19 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     CANARY_DRY_RUN="--dry-run"
 fi
 
+# Nadzornik stroja (P3, 2026-08-25). Nightly diarizira u 03:00 bez ikoga za
+# tipkovnicom; kad pyannoteova alokacija prelije RAM, macOS raste swap NA
+# SISTEMSKOM DISKU i s njim padaju nevezani procesi (Docker daemon zna ostati u
+# stanju iz kojeg se diže samo restartom stroja). Nadzornik pretvara najgori
+# ishod u "epizoda nije diarizirana". Pragove mijenja env, ne edit koda:
+#   DIARIZE_GUARD=off|on|auto   DIARIZE_MIN_FREE_DISK_GB=..   DIARIZE_RSS_CAP_GB=..
+# --audio-input (P1) je iza zastavice dok A/B ne potvrdi putanju kao default:
+#   DIARIZE_AUDIO_INPUT=path
+CANARY_GUARD_ARGS=(--guard "${DIARIZE_GUARD:-auto}")
+[ -n "$DIARIZE_MIN_FREE_DISK_GB" ] && CANARY_GUARD_ARGS+=(--min-free-disk-gb "$DIARIZE_MIN_FREE_DISK_GB")
+[ -n "$DIARIZE_RSS_CAP_GB" ] && CANARY_GUARD_ARGS+=(--rss-cap-gb "$DIARIZE_RSS_CAP_GB")
+[ -n "$DIARIZE_AUDIO_INPUT" ] && CANARY_GUARD_ARGS+=(--audio-input "$DIARIZE_AUDIO_INPUT")
+
 # FAST-PATH: diariziraj SAMO taj jedan WAV (--file) umjesto os.walk cijelog storage/output
 # (u batchu "Već diarized: 3047" — stat-a tisuće fajlova samo da nađe jedan novi).
 DIARIZE_SCOPE_ARGS=()
@@ -855,13 +868,13 @@ if [ "$PRIORITY_FAST_PATH" = true ]; then
 fi
 
 if [ -n "$HF_TOKEN" ]; then
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
 else
     # Bez CLI tokena — diarize_canary.py sam resolve-a token (env HF_TOKEN ili
     # cached ~/.cache/huggingface/token). Omogućava nightly diarizaciju bez da
     # token stoji na command-lineu. Ako baš nema tokena nigdje, skripta sama
     # izađe s uputama (get_hf_token sys.exit).
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" $CANARY_DRY_RUN
 fi
 else
     echo ""

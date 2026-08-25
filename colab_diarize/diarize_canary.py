@@ -28,6 +28,7 @@ import argparse
 import multiprocessing
 import os
 import re
+import signal
 import sys
 import time
 from datetime import timedelta
@@ -102,6 +103,197 @@ def format_duration(seconds):
     m = int((seconds % 3600) // 60)
     s = int(seconds % 60)
     return f"{h}h {m}m {s}s"
+
+
+# ─── Indikator napretka (P2) + nadzornik stroja (P3) ───
+# SSOT obrasca: sabor_pipeline/02_diarize.py. Ovdje je kopiran namjerno — ova
+# skripta se pokreće standalone (Colab, GCP VM, Mac Mini), pa ne smije ovisiti
+# o drugom modulu iz repoa.
+
+class LogProgressHook:
+    """pyannote hook koji piše OBIČNE log retke (bez ANSI-ja).
+
+    Zašto ne `pyannote.audio.pipelines.utils.hook.ProgressHook`: on crta `rich`
+    progress bar, a nightly ide u launchd log koji se poslije čita grepom — ANSI
+    escape sekvence ondje su smeće (docs/pipeline_observability_2026-07.md).
+
+    `completed`/`total` za korak "segmentation" su redni brojevi PROZORA nad
+    snimkom, pa se iz njih čita stvarna pozicija u snimci. Za ostale korake
+    (embeddings) to su batchevi, pa se ispisuje samo postotak — nije pozicija i
+    ne smije se tako predstaviti.
+    """
+
+    def __init__(self, prefix="", duration_s=None, min_interval_s=60, sink=None):
+        self.prefix = prefix
+        self.duration_s = duration_s
+        self.min_interval_s = min_interval_s
+        self.sink = sink                  # callback(step_name, fraction) — za nadzornika
+        self.t0 = time.time()
+        self._step = None
+        self._step_t0 = self.t0
+        self._last_print = 0.0
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    @staticmethod
+    def _hms(sec):
+        sec = max(0, int(sec))
+        return f"{sec // 3600}:{(sec % 3600) // 60:02d}:{sec % 60:02d}"
+
+    def __call__(self, step_name, step_artifact, file=None, total=None, completed=None):
+        now = time.time()
+
+        if step_name != self._step:
+            self._step = step_name
+            self._step_t0 = now
+            self._last_print = 0.0
+            print(f"{self.prefix}   ▶ korak: {step_name} "
+                  f"(+{self._hms(now - self.t0)} od starta)", flush=True)
+
+        if not total or completed is None:
+            return
+
+        frac = min(1.0, max(0.0, completed / total))
+        if self.sink:
+            try:
+                self.sink(step_name, frac)
+            except Exception:
+                pass
+
+        if frac < 1.0 and (now - self._last_print) < self.min_interval_s:
+            return
+        self._last_print = now
+
+        step_elapsed = now - self._step_t0
+        eta = (step_elapsed / frac - step_elapsed) if frac > 0 else 0
+        where = ""
+        if step_name == "segmentation" and self.duration_s:
+            where = f" | pozicija ≈ {self._hms(frac * self.duration_s)} / {self._hms(self.duration_s)}"
+        print(f"{self.prefix}     {step_name} {frac * 100:5.1f}% "
+              f"({completed}/{total}){where} | ETA koraka {self._hms(eta)}", flush=True)
+
+
+def wav_duration_s(wav_file):
+    """Trajanje WAV-a iz zaglavlja (bez učitavanja uzoraka). None ako ne uspije."""
+    try:
+        import soundfile as sf
+        info = sf.info(wav_file)
+        return info.frames / float(info.samplerate)
+    except Exception:
+        return None
+
+
+# ─── Nadzornik stroja (P3) ───
+# Nightly diarizira u 03:00 bez ikoga za tipkovnicom. Kad alokacija prelije RAM,
+# macOS raste swap NA SISTEMSKOM DISKU; kad se on napuni, ruše se i nevezani
+# procesi (Docker daemon zna ostati u stanju iz kojeg se diže samo restartom
+# stroja). Obrana ne mijenja rezultat — samo pretvara najgori ishod iz
+# "stroj traži restart" u "epizoda nije diarizirana".
+# Obrazac je preuzet iz sabor_pipeline/02_diarize.py (ondje je SSOT).
+
+GUARD_MIN_FREE_DISK_GB = 12.0     # ispod ovoga slobodno na `/` → prekid
+GUARD_RSS_CAP_GB = 15.0           # RSS nadziranih procesa iznad ovoga → prekid
+GUARD_CHECK_INTERVAL_S = 30
+PROGRESS_INTERVAL_S = 60          # postavlja main() / _worker_init iz --progress-interval
+
+
+def free_disk_gb(path="/"):
+    import shutil
+    return shutil.disk_usage(path).free / 2**30
+
+
+def rss_gb(pid):
+    """RSS procesa u GB. 0.0 ako proces više ne postoji."""
+    import subprocess
+    try:
+        out = subprocess.run(["ps", "-o", "rss=", "-p", str(pid)],
+                             capture_output=True, text=True, timeout=5)
+        return int(out.stdout.strip()) / 2**20   # ps daje KB
+    except Exception:
+        return 0.0
+
+
+def swap_usage():
+    """(total_gb, used_gb) na macOS-u; (0, 0) drugdje — nije fatalno."""
+    import subprocess
+    if sys.platform != "darwin":
+        return 0.0, 0.0
+    try:
+        out = subprocess.run(["sysctl", "-n", "vm.swapusage"],
+                             capture_output=True, text=True, timeout=5)
+        tot = used = 0.0
+        parts = out.stdout.replace("=", " ").split()
+        for i, part in enumerate(parts):
+            if part == "total" and i + 1 < len(parts):
+                tot = float(parts[i + 1].rstrip("M")) / 1024
+            if part == "used" and i + 1 < len(parts):
+                used = float(parts[i + 1].rstrip("M")) / 1024
+        return tot, used
+    except Exception:
+        return 0.0, 0.0
+
+
+class MachineGuard:
+    """Dretva koja mjeri disk i RSS, pa ispod praga prekida posao.
+
+    `pids_fn()` vraća listu PID-ova koje treba mjeriti (self kod sekvencijalnog
+    puta, workeri kod paralelnog). `abort_fn(reason)` obavlja stvarni prekid —
+    razlikuje se po putu, pa ga zna samo pozivatelj.
+    """
+
+    def __init__(self, pids_fn, abort_fn, min_free_disk_gb=GUARD_MIN_FREE_DISK_GB,
+                 rss_cap_gb=GUARD_RSS_CAP_GB, interval_s=GUARD_CHECK_INTERVAL_S):
+        import threading
+        self.pids_fn = pids_fn
+        self.abort_fn = abort_fn
+        self.min_free_disk_gb = min_free_disk_gb
+        self.rss_cap_gb = rss_cap_gb
+        self.interval_s = interval_s
+        self.peak_rss_gb = 0.0
+        self.min_free_disk_seen_gb = free_disk_gb()
+        self._stop = threading.Event()
+        self._thread = threading.Thread(target=self._loop, daemon=True)
+
+    def start(self):
+        print(f"   Nadzornik stroja: disk >= {self.min_free_disk_gb:.0f} GB, "
+              f"RSS <= {self.rss_cap_gb:.0f} GB, provjera svakih {self.interval_s}s", flush=True)
+        self._thread.start()
+        return self
+
+    def stop(self):
+        self._stop.set()
+
+    def _loop(self):
+        while not self._stop.wait(self.interval_s):
+            disk = free_disk_gb()
+            self.min_free_disk_seen_gb = min(self.min_free_disk_seen_gb, disk)
+            rss_total = sum(rss_gb(pid) for pid in self.pids_fn())
+            self.peak_rss_gb = max(self.peak_rss_gb, rss_total)
+
+            if disk < self.min_free_disk_gb:
+                sw_tot, sw_used = swap_usage()
+                self.abort_fn(
+                    f"slobodno na / palo na {disk:.1f} GB (prag {self.min_free_disk_gb:.0f} GB)"
+                    f" | RSS {rss_total:.1f} GB | swap {sw_used:.1f}/{sw_tot:.1f} GB")
+                return
+            if rss_total > self.rss_cap_gb:
+                self.abort_fn(
+                    f"RSS diarizacije {rss_total:.1f} GB premasio prag {self.rss_cap_gb:.0f} GB"
+                    f" | slobodno na / {disk:.1f} GB")
+                return
+
+
+def guard_enabled(mode):
+    """auto = ukljuceno na macOS-u (ondje swap ide na sistemski disk)."""
+    if mode == "on":
+        return True
+    if mode == "off":
+        return False
+    return sys.platform == "darwin"
 
 
 # ─── Diarizacija ───
@@ -194,20 +386,25 @@ def load_diarization_pipeline(hf_token):
     return pipeline, device
 
 
-def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None):
+def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None,
+                    audio_input_mode="waveform", progress_prefix="",
+                    progress_interval=None):
     """Pokreće pyannote community-1 diarizaciju na jednom WAV fajlu.
 
     Koristi exclusive_speaker_diarization mode koji daje točno jednog govornika
     u svakom trenutku (bez overlapa), idealno za alignment s SRT titlovima.
+
+    `audio_input_mode` (P1, 2026-08-25):
+      "waveform" — cijela snimka se učita u RAM pa preda pyannoteu kao dict.
+                   Povijesni default: komentar u diarize.py kaže da to "zaobilazi
+                   AudioDecoder". Memorija raste s duljinom snimke.
+      "path"     — pyannoteu se preda putanja, pa on čita prozore lijeno s diska.
+                   Memorija postaje neovisna o duljini (mjereno na 1 h 56 m:
+                   ravno 0.7 GB RSS kroz cijeli prolaz). Default će postati ovo
+                   tek kad A/B na stvarnim epizodama potvrdi isti rezultat.
     """
     import torch
     import soundfile as sf
-
-    # Učitaj audio
-    # dtype="float32" — bez njega sf.read vraća float64 pa .float() radi drugu kopiju
-    # (3× memorije). Vidi isti komentar u diarize.py; mjereno 2026-08-25.
-    data, sample_rate = sf.read(wav_file, dtype="float32")
-    waveform = torch.from_numpy(data).float().unsqueeze(0)
 
     # Parametri
     diarize_params = {}
@@ -216,9 +413,25 @@ def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None):
     if max_speakers is not None:
         diarize_params["max_speakers"] = max_speakers
 
-    # Pokreni diarizaciju
-    audio_input = {"waveform": waveform, "sample_rate": sample_rate}
-    result = pipeline(audio_input, **diarize_params)
+    hook = LogProgressHook(prefix=progress_prefix,
+                           duration_s=wav_duration_s(wav_file),
+                           min_interval_s=progress_interval or PROGRESS_INTERVAL_S)
+
+    if audio_input_mode == "path":
+        with hook:
+            result = pipeline(wav_file, hook=hook, **diarize_params)
+        data = waveform = audio_input = None
+    else:
+        # Učitaj audio
+        # dtype="float32" — bez njega sf.read vraća float64 pa .float() radi drugu kopiju
+        # (3× memorije). Vidi isti komentar u diarize.py; mjereno 2026-08-25.
+        data, sample_rate = sf.read(wav_file, dtype="float32")
+        waveform = torch.from_numpy(data).float().unsqueeze(0)
+
+        # Pokreni diarizaciju
+        audio_input = {"waveform": waveform, "sample_rate": sample_rate}
+        with hook:
+            result = pipeline(audio_input, hook=hook, **diarize_params)
 
     # Oslobodi waveform iz memorije (100+ MB za velike fajlove)
     del waveform, data, audio_input
@@ -290,19 +503,22 @@ def write_diarized_srt(segments, output_path):
 _worker_pipeline = None
 _worker_min_speakers = None
 _worker_max_speakers = None
+_worker_audio_input_mode = "waveform"
 _worker_rclone_dest = None
 _worker_drive_mount = None
 _worker_input_dir = None
 
 
 def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2,
-                 rclone_dest=None, drive_mount=None, input_dir=None):
+                 rclone_dest=None, drive_mount=None, input_dir=None,
+                 audio_input_mode="waveform", progress_interval=PROGRESS_INTERVAL_S):
     """Inicijalizacija worker procesa — svaki učitava vlastiti pyannote pipeline.
 
     Na CPU-only stroju, ograničava PyTorch/MKL/OMP threadove po workeru
     da spriječi oversubscription (npr. 40 workera × 80 threadova = 3200 threadova na 80 CPU).
     """
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
+    global _worker_audio_input_mode
 
     # Suppress torchcodec/pyannote warnings u worker procesima
     import warnings
@@ -337,6 +553,9 @@ def _worker_init(hf_token, min_speakers, max_speakers, threads_per_worker=2,
     _worker_pipeline = pipeline
     _worker_min_speakers = min_speakers
     _worker_max_speakers = max_speakers
+    _worker_audio_input_mode = audio_input_mode
+    global PROGRESS_INTERVAL_S
+    PROGRESS_INTERVAL_S = progress_interval
     global _worker_rclone_dest, _worker_drive_mount, _worker_input_dir
     _worker_rclone_dest = rclone_dest
     _worker_drive_mount = drive_mount
@@ -347,6 +566,7 @@ def _worker_diarize(wav_file):
     """Worker funkcija: diarizira jedan fajl. Vraća (wav_file, result)."""
     global _worker_pipeline, _worker_min_speakers, _worker_max_speakers
     global _worker_rclone_dest, _worker_drive_mount, _worker_input_dir
+    global _worker_audio_input_mode
     import threading
 
     wav_dir = os.path.dirname(wav_file)
@@ -408,7 +628,9 @@ def _worker_diarize(wav_file):
         speaker_segments, num_speakers = run_diarization(
             _worker_pipeline, wav_file,
             min_speakers=_worker_min_speakers,
-            max_speakers=_worker_max_speakers
+            max_speakers=_worker_max_speakers,
+            audio_input_mode=_worker_audio_input_mode,
+            progress_prefix=f"      [W{pid}]"
         )
 
         srt_segments = assign_speakers(srt_segments, speaker_segments)
@@ -618,7 +840,8 @@ def has_diarized_transcript(wav_file):
     return os.path.exists(os.path.join(wav_dir, basename + DIARIZED_SRT_SUFFIX))
 
 
-def diarize_single_file(pipeline, wav_file, min_speakers=None, max_speakers=None):
+def diarize_single_file(pipeline, wav_file, min_speakers=None, max_speakers=None,
+                        audio_input_mode="waveform"):
     """Diarizira jednu WAV datoteku. NIKADA ne prepisuje postojeće datoteke."""
     import torch
     import gc
@@ -651,7 +874,9 @@ def diarize_single_file(pipeline, wav_file, min_speakers=None, max_speakers=None
         speaker_segments, num_speakers = run_diarization(
             pipeline, wav_file,
             min_speakers=min_speakers,
-            max_speakers=max_speakers
+            max_speakers=max_speakers,
+            audio_input_mode=audio_input_mode,
+            progress_prefix="   "
         )
         print(f"      Pronađeno {num_speakers} govornika, {len(speaker_segments)} exclusive segmenata")
 
@@ -745,6 +970,33 @@ Primjeri:
         "--drive-mount", default=None,
         help="Path do mountanog Google Drive-a za distributed lock (npr. /content/drive/MyDrive/domovina_fetch_data/canary_wav). Za Colab."
     )
+    parser.add_argument(
+        "--audio-input", choices=["waveform", "path"], default="waveform",
+        help="Kako se audio predaje pyannoteu: 'waveform' (cijela snimka u RAM, "
+             "povijesni default) ili 'path' (pyannote cita prozore lijeno s diska, "
+             "memorija neovisna o duljini). Default ostaje 'waveform' dok A/B ne potvrdi."
+    )
+    parser.add_argument(
+        "--guard", choices=["auto", "on", "off"], default="auto",
+        help="Nadzornik stroja (disk + RSS). auto = ukljucen na macOS-u, gdje swap "
+             "raste na sistemskom disku i rusi nevezane procese."
+    )
+    parser.add_argument(
+        "--min-free-disk-gb", type=float, default=GUARD_MIN_FREE_DISK_GB,
+        help=f"Prag slobodnog prostora na / (default: {GUARD_MIN_FREE_DISK_GB:.0f} GB)"
+    )
+    parser.add_argument(
+        "--rss-cap-gb", type=float, default=GUARD_RSS_CAP_GB,
+        help=f"Prag RSS-a diarizacije (default: {GUARD_RSS_CAP_GB:.0f} GB)"
+    )
+    parser.add_argument(
+        "--guard-interval", type=int, default=GUARD_CHECK_INTERVAL_S,
+        help=f"Razmak provjera nadzornika u sekundama (default: {GUARD_CHECK_INTERVAL_S})"
+    )
+    parser.add_argument(
+        "--progress-interval", type=int, default=60,
+        help="Razmak ispisa napretka diarizacije u sekundama (default: 60)"
+    )
 
     return parser.parse_args()
 
@@ -770,9 +1022,27 @@ def main():
     use_distributed_lock = bool(args.rclone_dest or args.drive_mount)
     if use_distributed_lock:
         print(f"   Distributed lock: AKTIVAN (stale timeout: {LOCK_STALE_SECONDS//3600}h)")
+    if args.audio_input == "path":
+        print("   Audio ulaz: PATH (pyannote cita s diska; memorija neovisna o duljini)")
+    guard_on = guard_enabled(args.guard)
+    if guard_on:
+        print(f"   Nadzornik stroja: AKTIVAN (disk >= {args.min_free_disk_gb:.0f} GB, "
+              f"RSS <= {args.rss_cap_gb:.0f} GB)")
     if args.dry_run:
         print("   DRY RUN — samo prikaz, bez diarizacije")
     print("")
+
+    # Predpolet: ako je disk vec ispod praga, ne krecemo uopce. Diarizacija bi
+    # napunila swap na sistemskom disku i srusila nevezane procese.
+    if guard_on and not args.dry_run:
+        _free = free_disk_gb()
+        if _free < args.min_free_disk_gb:
+            _swt, _swu = swap_usage()
+            print(f"   PREKID PRIJE STARTA: samo {_free:.1f} GB slobodno na / "
+                  f"(prag {args.min_free_disk_gb:.0f} GB), swap {_swu:.1f}/{_swt:.1f} GB.")
+            print("   macOS ovdje drzi swap — diarizacija bi ga napunila i srusila druge procese.")
+            print("   Oslobodi prostor pa pokreni ponovno.")
+            sys.exit(2)
 
     # Provjeri direktorij
     if not os.path.isdir(input_dir):
@@ -834,6 +1104,9 @@ def main():
     install_dependencies()
     hf_token = get_hf_token(args.hf_token)
 
+    global PROGRESS_INTERVAL_S
+    PROGRESS_INTERVAL_S = args.progress_interval
+
     total_diarized = 0
     total_skipped = 0
     total_errors = 0
@@ -860,8 +1133,30 @@ def main():
             mp_context=ctx,
             initializer=_worker_init,
             initargs=(hf_token, args.min_speakers, args.max_speakers, threads_per_worker,
-                      args.rclone_dest, args.drive_mount, input_dir)
+                      args.rclone_dest, args.drive_mount, input_dir,
+                      args.audio_input, args.progress_interval)
         ) as executor:
+            # Nadzornik mjeri ZBROJ RSS-a svih workera — na 24 GB stroju granicu
+            # probija ukupna alokacija, ne pojedini worker.
+            if guard_on:
+                def _abort_pool(reason):
+                    print(f"\n   PREKID: {reason}", flush=True)
+                    print("   Ubijam diarizacijske workere da stroj ne ode u swap-thrash.", flush=True)
+                    for _p in list(executor._processes.values()):
+                        try:
+                            os.kill(_p.pid, signal.SIGKILL)
+                        except Exception:
+                            pass
+                    print("   Vec zavrsene epizode su zapisane na disk; ova nije.", flush=True)
+                    os._exit(3)
+
+                _guard = MachineGuard(
+                    pids_fn=lambda: list(executor._processes.keys()),
+                    abort_fn=_abort_pool,
+                    min_free_disk_gb=args.min_free_disk_gb,
+                    rss_cap_gb=args.rss_cap_gb,
+                    interval_s=args.guard_interval).start()
+
             futures = {executor.submit(_worker_diarize, f): f for f in to_process}
             done_count = 0
 
@@ -896,6 +1191,24 @@ def main():
         pipeline, device = load_diarization_pipeline(hf_token)
         print("")
 
+        # Ovdje diarizacija tece U OVOM procesu, pa je "ubij dijete" nemoguce —
+        # prekid je izlazak samog procesa. Vec zapisani .canary.diarized.srt
+        # ostaju; gubi se samo epizoda u letu. To je i cilj obrane.
+        if guard_on:
+            def _abort_serial(reason):
+                print(f"\n   PREKID: {reason}", flush=True)
+                print("   Izlazim da stroj ne ode u swap-thrash. Vec zavrsene epizode "
+                      "su zapisane; ova nije.", flush=True)
+                sys.stdout.flush()
+                os._exit(3)
+
+            MachineGuard(
+                pids_fn=lambda: [os.getpid()],
+                abort_fn=_abort_serial,
+                min_free_disk_gb=args.min_free_disk_gb,
+                rss_cap_gb=args.rss_cap_gb,
+                interval_s=args.guard_interval).start()
+
         for i, wav_file in enumerate(to_process):
             basename = os.path.basename(wav_file)
             print(f"   ─────────────────────────────────────────────")
@@ -927,7 +1240,8 @@ def main():
             result = diarize_single_file(
                 pipeline, wav_file,
                 min_speakers=args.min_speakers,
-                max_speakers=args.max_speakers
+                max_speakers=args.max_speakers,
+                audio_input_mode=args.audio_input
             )
 
             if result["status"] == "diarized":
