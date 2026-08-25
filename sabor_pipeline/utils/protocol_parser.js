@@ -95,7 +95,14 @@ const ORDINAL_RE =
 const HANDOVER_RE = new RegExp(
     /\bizvolite\b|\bna\s+redu\b|\bgovorit\s+će\b|\bprelazimo\s+na\b|/.source +
     /\bda(?:ti|je|jem|o)\s+riječ\b|\briječ\s+(?:poštovanom|uvaženom|zastupni|predstavnic)|/.source +
-    /\b(?:se\s+javio|javio\s+se)\b|\breplikuje\b|\bidemo\s+(?:na|dalje)\b|\bkrećemo\b/.source, "iu");
+    /\b(?:se\s+javio|javio\s+se)\b|\bidemo\s+(?:na|dalje)\b|\bkrećemo\b|/.source +
+    // Replika je vlastita porodica najava i prva je verzija hvatala samo
+    // „replikuje". Puna presuda nalaza slijepe provjere (tools/adjudicate_blind.js)
+    // pokazala je jos tri oblika: „Repliku ima kolega Lalovac", „replikuju
+    // kolegice Tanja Sokolic", „Sljedeca replika kolegica Magdalena Komes".
+    // `replicira` se u 20 h javlja 29×, dakle nije rub nego glavni tok.
+    /\brepliku\s+ima\b|\breplicira(?:ju)?\b|\brepliku(?:je|ju)\b|/.source +
+    /\b(?:sljedeć|slijedeć)[aiu]\s+replika\b|\bima\s+koleg(?:a|ica|ice)\b/.source, "iu");
 
 /**
  * Razbij tekst na riječi zadržavajući podatak je li iza riječi interpunkcija

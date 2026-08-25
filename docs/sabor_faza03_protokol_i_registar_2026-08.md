@@ -333,6 +333,91 @@ a institucija se u transkriptu spominje četiri puta punim imenom.
 
 ---
 
+## 9. Puna slijepa provjera (svih 21 prozor) — i jedan nalaz koji mijenja sliku
+
+Nakon prvih pet prozora (§7) provjera je puštena na preostalih šesnaest.
+Ukupno kroz cijelu sjednicu:
+
+| | |
+|---|---|
+| usporedivih (obje strane imenovale) | 125 |
+| **slaganje** | **123 (98.4 %)** |
+| neslaganje | **2** |
+| model imenovao gdje faza 03 nije | **28 oznaka** |
+
+`tools/adjudicate_blind.js` te nalaze razvrstava tako da za svaki dovede pred
+oči ono što je predsjedavajući rekao neposredno prije:
+
+| kategorija | broj | značenje |
+|---|---|---|
+| **propušteno sidro** | 4 | najava POSTOJI i imenuje osobu → rupa u kodu, popravljivo |
+| **nema najave** | 19 | predsjedavajući tu osobu nikad nije imenovao → protokol je nijem |
+| **sukob** | 1 | najava imenuje nekoga trećeg → ljudska odluka |
+
+⚠️ Prva verzija tog alata prijavila je **nula** propuštenih sidara jer je
+`matcher.resolve()` puštala na cijelu rečenicu umjesto na ime — pa je „Repliku
+ima kolega Lalovac." svrstala pod „nema najave". Ime iz rečenice vadi
+`findAnnouncements`, ne matcher.
+
+Sva četiri propuštena sidra bila su **oblici replike** koje `HANDOVER_RE` nije
+poznavao: „**Repliku ima** kolega Lalovac", „**replikuju** kolegice Tanja
+Sokolic", „**Sljedeća replika** kolegica Magdalena Komes". Oblik `replicira` se
+u 20 h javlja **29×** — dakle nije rub nego glavni tok, a promakao je jer je
+prva verzija hvatala samo `replikuje`.
+
+Stanje nakon toga: sidara **117**, imenovanih zastupnika **68**, imenovanog
+govornog vremena **66 %**, donja granica govornika **75**.
+
+### 9.1 Sukob koji je faza 03 dobila
+
+`SPEAKER_005` (35.5 min): model tvrdi Miroslav Marković, faza 03 Dalibor Paus.
+Najava je nedvosmislena — *„Idemo na četvrtu raspravu. **Kolega Dalibor Paus**
+u ime Kluba zastupnika IDS-a, PGS-a, Unije i ISU-PIP-a. Izvolite."*
+
+Faza 03 je za tu oznaku imala **4 glasa: 3 za Pausa, 1 za Markovića**, i većina
+je odbacila promašeni. **Pravilo većine je ovdje radilo točno ono zbog čega je
+uvedeno** (§4, zamjena za „trajno mapiranje iz prve najave"). Model je vidio
+samo prozor u kojem je pao krivi glas.
+
+### 9.2 🔴 Prvi dokaz PRESPOJENE oznake — pitanje iz §6.1 se okreće
+
+`SPEAKER_042` je u prozoru 4 dobio **Mišo Krstičević**, a u prozoru 14
+**Martina Vlašić Iljkić** — model sam sebi proturječi za istu oznaku, oba puta
+s visokom sigurnošću. Pogled u podatke potvrđuje sumnju:
+
+| | |
+|---|---|
+| blokova | 3, u **dva različita dijela** (1 i 3) |
+| 04:29:34 | 21 s — pitanje o praćenju zdravstvenih pokazatelja |
+| 13:56:31 | 41 s — „…danas smo čuli od državne tajnice MUP-a…" |
+| 16:39:20 | 482 s — „Zahvaljujem poštovani potpredsjedniče…" |
+
+Tri kratka, međusobno udaljena istupa spojena pod jednu oznaku. To je
+**prespajanje**, ne nadsegmentacija.
+
+Time se pitanje iz §6.1 okreće. Cijelo dosadašnje ispitivanje pitalo je „je li
+118 previše?" i tražilo donju granicu. Ovaj nalaz kaže da barem ponegdje 118
+može biti **premalo**: dvije osobe dijele jedan `SPEAKER_` id, pa bi stvaran
+broj bio veći. Prag 0.263 je kalibriran nad `part_04` (§8.6 memorijskog
+dokumenta), gdje većina zastupnika govori jednom; kratki istupi drugdje očito
+nisu jednako dobro razdvojeni.
+
+**Nije istraženo koliko je takvih oznaka.** Slijepa provjera ih nalazi samo
+slučajno — kad ista oznaka padne u dva prozora i model za nju da dva imena.
+Sustavan test bi usporedio glasovne centroide unutar svake oznake.
+
+### 9.3 Što slijepa provjera ne može
+
+19 od 28 nalaza je „nema najave": upadice, dobacivanja, odgovori na repliku
+(„Izvolite odgovor.", „Hvala."). Predsjedavajući tu osobu nikad ne imenuje, pa
+faza 03 **po konstrukciji** ne može doći do imena — koliko god se `HANDOVER_RE`
+proširivao. Za njih bi trebao drugi mehanizam (glasovni otisak s imenovane
+sjednice), ne bolji regex.
+
+Zato je 66 % imenovanog vremena vjerojatno blizu stropa ovog pristupa.
+
+---
+
 ## 8. Faza 04 — dugi članak kliznim prozorom: Opus 5 vs Gemini 3.7 Flash
 
 Isti ulaz (802 bloka, 819 000 znakova), isti postupak (MAP po 21 prozoru →
