@@ -26,6 +26,7 @@
  *   - .og-sections/manifest.json  (map sec → filename za worker)
  *   - .png (thumbnail, full-res)
  *   - .og-share.jpg (social-sharing varijanta, 1200×630 progressive JPEG q=85, < 600 KB za WhatsApp)
+ *   - .thumb-{320,640,1280}.webp (in-app responsive varijante, q80 — vidi generate_webp_thumbs.js)
  *   - .mkv (originalni video, 360p)
  *   - .mp4 (remuxed video, H.264+AAC, faststart)
  *   - .info.json (YouTube metapodaci)
@@ -67,6 +68,7 @@
  *   Pipeline: {channel}/{base}.info.json            →  App: data/{videoId}/info.json
  *   Pipeline: {channel}/{base}.png                  →  App: images/{videoId}/thumbnail.png
  *   Pipeline: {channel}/{base}.og-share.jpg         →  App: images/{videoId}/og-share.jpg
+ *   Pipeline: {channel}/{base}.thumb-{w}.webp       →  App: images/{videoId}/thumb-{w}.webp
  *   Pipeline: {channel}/{base}.mp4                  →  App: data/{videoId}/video.mp4
  *   Pipeline: {channel}/{base}_screenshots/{ts}.png →  App: images/{videoId}/screenshots/{ts}.png
  *   Pipeline: {channel}/{base}_screenshots/_manifest →  App: images/{videoId}/screenshots/manifest.json
@@ -138,6 +140,12 @@ const UPLOAD_SUFFIXES = [
     // ".mp4",                  // remuxed video (H.264+AAC, faststart) — LEGACY, vidi gore
     ".png",                     // thumbnail (full-res)
     ".og-share.jpg",            // social-sharing OG image (1200×630 progressive JPEG q=85, < 600 KB)
+    // In-app responsive WebP varijante (generate_webp_thumbs.js). thumbnail.png je
+    // 1280×720 PNG ~800 KB — lista od 20 epizoda = ~16 MB. WebP q80 @320px je ~13 KB
+    // (61× manje). PNG ostaje kao original + fallback dok backfill ne pokrije katalog.
+    ".thumb-320.webp",          // lista        ~13 KB
+    ".thumb-640.webp",          // grid/kartice ~33 KB
+    ".thumb-1280.webp",         // fullscreen   ~71 KB
     ".rag_combined.jsonl",
 ];
 
@@ -166,6 +174,7 @@ const CONTENT_TYPES = {
     ".mp4": "video/mp4",
     ".png": "image/png",
     ".jpg": "image/jpeg",
+    ".webp": "image/webp",
 };
 
 // Cache-Control za per-video artefakte koji se generiraju jednom (article.json, video.mp4,
@@ -503,6 +512,11 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.og-share.jpg`)
         return `images/${videoId}/og-share.jpg`;
 
+    // Responsive WebP varijante → images/{id}/thumb-{w}.webp
+    const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
+    if (webpMatch && webpMatch[1] === videoBase)
+        return `images/${videoId}/thumb-${webpMatch[2]}.webp`;
+
     // LEGACY (ugašeno 2026-06-06): legacy `video.mp4` mapping. H.264 migracija gotova
     // (2026-06-05) → delivery je `video_h264.mp4` (KORAK 12.5). Mrtav kod dok je `.mp4`
     // izvan UPLOAD_SUFFIXES, ali ostavljen zakomentiran za buduće iteracije / vraćanje.
@@ -600,6 +614,7 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
                 // .og-share.jpg PRIJE .png check (jer ".og-share.jpg".endsWith(".png") je false, ali držimo ekspl. radi jasnoće)
                 if (suffix === ".png" && filename !== `${videoBase}.png`) continue;
                 if (suffix === ".og-share.jpg" && filename !== `${videoBase}.og-share.jpg`) continue;
+                if (suffix.endsWith(".webp") && filename !== `${videoBase}${suffix}`) continue;
                 if (suffix === ".mkv" && filename !== `${videoBase}.mkv`) continue;
                 if (suffix === ".mp4" && filename !== `${videoBase}.mp4`) continue;
                 shouldUpload = true;

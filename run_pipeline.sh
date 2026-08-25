@@ -59,7 +59,8 @@
 #                       --with-screenshots --with-vertex-import --with-r2-upload
 #
 #       Korak 0 rclone povuče SRT-ove → korak 6 lokalno diarizira → 7+8 generiraju
-#       summary i article → 10 thumbnails → 11 RAG u Vertex Agent Builder → 12 R2 publish.
+#       summary i article → 9.5 og-share + 9.7 WebP varijante → 10 thumbnails
+#       → 11 RAG u Vertex Agent Builder → 12 R2 publish.
 #       Sve idempotentno.
 #
 # NAPOMENA: korak 1 (refresh + fetch) radi `git add . && git commit -m "chore(podcasts):
@@ -1114,6 +1115,38 @@ fi
 
 node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG image varijanti, nastavljam..."
+}
+
+# --- KORAK 9.7: IN-APP WEBP THUMBNAIL VARIJANTE ---
+# thumbnail.png je 1280×720 PNG (~800 KB) — lista od 20 epizoda u Flutter appu
+# povlači ~16 MB. Ista slika kao WebP q80 @320px je ~13 KB (61× manje, mjereno).
+# Generiramo 3 fiksne širine unaprijed umjesto on-the-fly resize servisa: katalog
+# je fiksan, slike su immutable, a trebaju nam samo 3 dimenzije.
+# Vidi docs/2026-08-25-webp-thumbnails.md.
+#
+# Za razliku od KORAK 9.5 (og-share.jpg) ovo je ISKLJUČIVO za in-app prikaz —
+# og:image NAMJERNO ostaje JPEG jer link-preview crawleri WebP ne dokumentiraju.
+#
+# Zahtijeva ImageMagick (`magick`). Idempotentno.
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 9.7: WebP thumbnail varijante (320/640/1280 q80)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+WEBP_THUMB_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        WEBP_THUMB_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    WEBP_THUMB_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/generate_webp_thumbs.js" "${WEBP_THUMB_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri generiranju WebP thumbnail varijanti, nastavljam..."
 }
 
 # NAPOMENA: KORAK 9.6 (OG-sections) PREMJEŠTEN je NAKON KORAK 10 (screenshotovi) jer
