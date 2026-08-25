@@ -569,3 +569,49 @@ Zadnji redak je treća neovisna potvrda §4.2/§5.7: RSS je na MPS-u neupotreblj
 mjerenje i za pragove. Procjene memorije u §6.1 zato **ne ovise o RSS-u** — izvedene su
 iz oblika nizova pročitanih iz koda (`pdist` = n²/2 × 8 B, `reconstruct` =
 chunks × 589 × K × 8 B), što je egzaktno.
+
+---
+
+## 7. Ispravna arhitektura — dijagram
+
+Zašto jedan prolaz pada i što ide umjesto njega:
+
+```mermaid
+flowchart TD
+    A["full_session_16k.wav<br/>20h01m · 2.3 GB"] --> B{"jedan prolaz?"}
+
+    B -->|"putanja"| C["Audio.crop → novi AudioDecoder<br/>×72 000 poziva"]
+    C --> D["torchcodec &lt;0.14 premotava<br/>na početak datoteke"]
+    D --> E["8–15 h samo dekodiranja"]
+
+    B -->|"waveform float32<br/>4.6 GB"| F["dekodiranje riješeno<br/>~45 s"]
+    F --> G["AHC: 79 200 embeddinga<br/>pdist = 25.1 GB"]
+    F --> H["reconstruct ×2<br/>28–41 GB tranzijentno"]
+    G --> I["24 GB stroj — ne prolazi"]
+    H --> I
+
+    A --> J["reži na ~2 h komade<br/>preklapanje 60–120 s"]
+    J --> K["diariziraj svaki<br/>n≈7 900 · pdist 250 MB"]
+    K --> L["out.speaker_embeddings<br/>centroidi, besplatno"]
+    L --> M["globalno spajanje<br/>~450 vektora · cannot-link"]
+    M --> N["prag izmjeren<br/>samokalibracijom 0.3–0.5"]
+    N --> O["validacija protokolom:<br/>predsjedavajući = JEDAN govornik"]
+
+    E --> X["❌ odbačeno"]
+    I --> X
+    O --> Y["✅ ispravan put"]
+```
+
+Ključ: gornje dvije grane padaju iz **različitih** razloga (I/O vs memorija), pa
+popravak jedne ne spašava drugu. Donja grana zaobilazi oba zida.
+
+---
+
+## Vezani dokumenti
+
+- `docs/PIPELINE_FULL.md` — cjelovit pipeline, koraci 0→13
+- `docs/diarization_research_2026-05.md` — zašto pyannote ostaje (Sortformer cap = 4 govornika)
+- `docs/transcription_colab_vs_modal_cost_2026-07.md` — Colab batch vs Modal ad-hoc
+- `sabor_pipeline/02_global_diarization.md` — izvorna specifikacija; §6.8 ovog dokumenta
+  je ispravlja u tri točke (2 h umjesto 30 min prozora, centroidi iz pyannotea umjesto
+  drugog prolaza, prag mjeren umjesto prepisanog 0.68)
