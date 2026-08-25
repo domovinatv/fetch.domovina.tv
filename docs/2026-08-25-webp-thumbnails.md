@@ -285,3 +285,71 @@ zato tražio širi token nego što posao zahtijeva.
   — OCI instanca. Ondje piše „Shape 4 OCPU / 24 GB (ARM/x86 — provjeri u
   konzoli)"; provjereno preko SSH-a: **`aarch64`**, Ampere Altra
   (Neoverse-N1, CPU part `0xd0c`), bez qemu u `binfmt_misc`.
+
+---
+
+## Potrošačka strana je isporučena tek 25.8.2026. popodne
+
+Gornji tekst opisuje kontrakt kao da je gotov, ali **kontrakt nije bio ožičen**.
+`CachedThumbnail` u `domovina.ai` jest znao birati varijante — samo su ga
+koristili isključivo TV ekrani. Web home, kanali, pretraga i favoriti su i dalje
+išli na goli `Image.network` s kanonskim `thumbnail.png`.
+
+Posljedica: nakon backfilla od 9042 varijante korisnik na `domovina.ai` nije
+vidio **nikakvu** razliku ni nakon hard reloada, a naslovnica je i dalje vukla
+~20 MB. Ispravljeno u `domovina.ai` commitom `0848eb8` (v2.0.140): 16 od 22
+`Image.network` poziva prebačeno na `CachedThumbnail`, izmjereno 25 slika
+naslovnice ~20 MB → ~0,9 MB.
+
+**Pouka za data contract**: red u `data_contract.md` koji opisuje ponašanje
+POTROŠAČA ("`CachedThumbnail` sam nadograđuje…") opisuje namjeru, ne stanje.
+Producent ne može verificirati potrošača. Kad se doda novi ključ na CDN,
+provjeri i da ga klijent doista traži — mjerenjem mreže, ne čitanjem koda.
+
+## Otvoreno: avatari kanala nisu dirani i veći su nego što itko misli
+
+WebP posao je pokrio `images/{id}/thumbnail.png`. **Avatari kanala
+(`channels/images/{id}/avatar_square.jpg` i `avatar_cover.jpg`) nisu dirani.**
+
+Izmjereno 25.8.2026. preko svih 48 kanala iz `channels/data/index.json`
+(96 slika, `curl -o /dev/null -w %{size_download}`):
+
+| | |
+|---|---|
+| ukupno svih 96 avatara | **12,7 MB** |
+| najveći pojedinačni (`ad_deum_podcast/avatar_square.jpg`) | **5,8 MB** |
+| drugi po veličini (`rastuci_s_djecom`) | 0,60 MB |
+| treći (`lood_podcast`) | 0,40 MB |
+
+Onih 5,8 MB crta se u aplikaciji kao kvadratić od **56 dp** (kartica kanala) i
+**40 dp** (redak u pretrazi). Distribucija je vrlo neravnomjerna — jedan kanal
+nosi 46 % ukupnih bajtova, pa i samo taj jedan popravak vrijedi.
+
+Klijent je u međuvremenu dobio `memCacheWidth` (ne dekodira original u punoj
+rezoluciji u RAM), ali **download ostaje** — to se popravlja ovdje, u pipelineu.
+
+Reprodukcija mjerenja:
+
+```bash
+curl -s "https://cdn.domovina.ai/channels/data/index.json?v=1" -o /tmp/ch.json
+node -e 'const d=JSON.parse(require("fs").readFileSync("/tmp/ch.json","utf8"));
+const a=Array.isArray(d)?d:(d.channels||Object.values(d)[0]);
+for(const c of a){if(c.avatar_square)console.log(c.avatar_square);
+if(c.avatar_cover)console.log(c.avatar_cover);}' > /tmp/urls.txt
+xargs -P 12 -I{} sh -c 'printf "%s %s\n" "$(curl -s -o /dev/null -w "%{size_download}" {})" {}' \
+  < /tmp/urls.txt | sort -rn | head
+```
+
+**Zamke za taj posao:**
+
+- Avatari NEMAJU `?v=` cache-buster u `index.json` (URL-ovi su goli), ali
+  `CdnConfig.channelAvatarUrl()` u Flutteru ga dodaje s 5-minutnim bucketom.
+  Ako varijante budu vezane uz URL, provjeri OBA puta — jedan bi inače stalno
+  promašivao cache.
+- `thumbnailUrlPattern` na klijentu je **anchored na kraj** i namjerno NE hvata
+  URL s `?v=` (`test/cdn_thumbnail_variants_test.dart`). Avatari trebaju svoj
+  obrazac, ne proširenje postojećeg.
+- `avatar_cover` je već malen (1060×175, ~20–50 KB) — problem je gotovo isključivo
+  `avatar_square`.
+- Isto pravilo kao za `og-share.jpg`: ako avatar ikad ide u link preview,
+  ta varijanta ostaje JPEG.
