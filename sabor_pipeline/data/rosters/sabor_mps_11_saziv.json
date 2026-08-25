@@ -1,0 +1,2845 @@
+{
+  "saziv": 11,
+  "source_url": "https://www.sabor.hr/api/interaktivna-sabornica-new?_format=json",
+  "source_page": "https://www.sabor.hr/interaktivni-raspored-zastupnika-u-hrvatskome-saboru/",
+  "fetched_at": "2026-08-25T12:42:19Z",
+  "counts": {
+    "seats_in_payload": 150,
+    "mps_parsed": 150,
+    "seats_expected": 151,
+    "skipped": 0
+  },
+  "ambiguous_surnames": [
+    {
+      "prezime": "BORIC",
+      "nositelji": [
+        "Josip Borić",
+        "Rada Borić"
+      ]
+    },
+    {
+      "prezime": "MARKOVIC",
+      "nositelji": [
+        "Ivana Marković",
+        "Miroslav Marković"
+      ]
+    },
+    {
+      "prezime": "MILOS",
+      "nositelji": [
+        "Anteo Milos",
+        "Jelena Miloš"
+      ]
+    }
+  ],
+  "clubs": [
+    {
+      "id": "145685",
+      "naziv": "Klub zastupnika Hrvatske demokratske zajednice",
+      "broj_clanova": 58,
+      "boja": "#1700FF"
+    },
+    {
+      "id": "145607",
+      "naziv": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "broj_clanova": 35,
+      "boja": "#FE0000"
+    },
+    {
+      "id": "145593",
+      "naziv": "Klub zastupnika Možemo!",
+      "broj_clanova": 10,
+      "boja": "#02FF02"
+    },
+    {
+      "id": "145552",
+      "naziv": "Klub zastupnika Domovinskog pokreta",
+      "broj_clanova": 8,
+      "boja": "#CA6000"
+    },
+    {
+      "id": "145786",
+      "naziv": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "broj_clanova": 8,
+      "boja": "#5D438A"
+    },
+    {
+      "id": "-1",
+      "naziv": "Zastupnici nacionalnih manjina",
+      "broj_clanova": 8,
+      "boja": "#FFFFFF"
+    },
+    {
+      "id": "145576",
+      "naziv": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "broj_clanova": 5,
+      "boja": "#a6a6a6"
+    },
+    {
+      "id": "0",
+      "naziv": "Zastupnici izvan klubova političkih stranaka",
+      "broj_clanova": 4,
+      "boja": "#FFFFFF"
+    },
+    {
+      "id": "152128",
+      "naziv": "Klub zastupnika Dom i nacionalno okupljanje i Hrvatski suverenisti",
+      "broj_clanova": 4,
+      "boja": "#000000"
+    },
+    {
+      "id": "145570",
+      "naziv": "Klub zastupnika Istarskog demokratskog sabora (IDS), Primorsko-goranskog saveza (PGS), Unije Kvarnera (UNIJA) i Istarske stranke umirovljenika - Partito Istriano dei pensionati (ISU - PIP)",
+      "broj_clanova": 3,
+      "boja": "#0CB14B"
+    },
+    {
+      "id": "145583",
+      "naziv": "Klub zastupnika Hrvatske socijalno-liberalne stranke i nezavisnog zastupnika Vladimira Bileka",
+      "broj_clanova": 3,
+      "boja": "#FFFC01"
+    },
+    {
+      "id": "145587",
+      "naziv": "Klub zastupnika Samostalne demokratske srpske stranke",
+      "broj_clanova": 3,
+      "boja": "#bd000d"
+    },
+    {
+      "id": "145746",
+      "naziv": "Klub zastupnika Hrvatske narodne stranke i nezavisnih zastupnika",
+      "broj_clanova": 3,
+      "boja": "#FFA800"
+    },
+    {
+      "id": "145780",
+      "naziv": "Klub nezavisnih zastupnika",
+      "broj_clanova": 3,
+      "boja": "#01478D"
+    },
+    {
+      "id": "147043",
+      "naziv": "Klub zastupnika Nezavisni i HSU",
+      "broj_clanova": 3,
+      "boja": "#793300"
+    }
+  ],
+  "mps": [
+    {
+      "id": "145046",
+      "ime": "Krešimir",
+      "prezime": "Ačkar",
+      "puno_ime": "Krešimir Ačkar",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "60",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ackar-kresimir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/A%C4%8Dkar%2C%20Kre%C5%A1imir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ACKAR",
+        "KRESIMIR"
+      ]
+    },
+    {
+      "id": "145048",
+      "ime": "Mirela",
+      "prezime": "Ahmetović",
+      "puno_ime": "Mirela Ahmetović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "32",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ahmetovic-mirela-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ahmetovi%C4%87%2C%20Mirela.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "AHMETOVIC",
+        "MIRELA"
+      ]
+    },
+    {
+      "id": "145055",
+      "ime": "Barbara",
+      "prezime": "Antolić Vupora",
+      "puno_ime": "Barbara Antolić Vupora",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "136",
+      "profile": "http://www.sabor.hr/hr/zastupnici/antolic-vupora-barbara-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Antoli%C4%87%20Vupora%2C%20Barbara.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTOLIC",
+        "BARBARA",
+        "VUPORA"
+      ]
+    },
+    {
+      "id": "145086",
+      "ime": "Jasenka",
+      "prezime": "Auguštan",
+      "puno_ime": "Jasenka Auguštan",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "56",
+      "profile": "http://www.sabor.hr/hr/zastupnici/augustan-pentek-jasenka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Augu%C5%A1tan-Pentek%2C%20Jasenka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "AUGUSTAN",
+        "JASENKA",
+        "PENTEK"
+      ]
+    },
+    {
+      "id": "145796",
+      "ime": "Ante",
+      "prezime": "Babić",
+      "puno_ime": "Ante Babić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "99",
+      "profile": "http://www.sabor.hr/hr/zastupnici/babic-ante-11-saziv-0",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Babi%C4%87%2C%20Ante.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTE",
+        "BABIC"
+      ]
+    },
+    {
+      "id": "145098",
+      "ime": "Damir",
+      "prezime": "Bakić",
+      "puno_ime": "Damir Bakić",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "92",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bakic-damir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Baki%C4%87%2C%20Damir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BAKIC",
+        "DAMIR"
+      ]
+    },
+    {
+      "id": "145437",
+      "ime": "Ivica",
+      "prezime": "Baksa",
+      "puno_ime": "Ivica Baksa",
+      "klub": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "stranka": "NPS",
+      "manjine": false,
+      "seat": "154",
+      "profile": "http://www.sabor.hr/hr/zastupnici/baksa-ivica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Baksa%2C%20Ivica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BAKSA",
+        "IVICA"
+      ]
+    },
+    {
+      "id": "145107",
+      "ime": "Boška",
+      "prezime": "Ban",
+      "puno_ime": "Boška Ban",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "68",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ban-vlahek-boska-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ban%20Vlahek%2C%20Bo%C5%A1ka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BAN",
+        "BOSKA",
+        "VLAHEK"
+      ]
+    },
+    {
+      "id": "145495",
+      "ime": "Nikolina",
+      "prezime": "Baradić",
+      "puno_ime": "Nikolina Baradić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "102",
+      "profile": "http://www.sabor.hr/hr/zastupnici/baradic-nikolina-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Baradi%C4%87%2C%20Nikolina.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BARADIC",
+        "NIKOLINA"
+      ]
+    },
+    {
+      "id": "149787",
+      "ime": "Nevenko",
+      "prezime": "Barbarić",
+      "puno_ime": "Nevenko Barbarić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "140",
+      "profile": "http://www.sabor.hr/hr/zastupnici/barbaric-nevenko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-09-20/122702/Barbaric%2C%2BNevenko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BARBARIC",
+        "NEVENKO"
+      ]
+    },
+    {
+      "id": "156822",
+      "ime": "Damir",
+      "prezime": "Barbir",
+      "puno_ime": "Damir Barbir",
+      "klub": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "stranka": "Centar",
+      "manjine": false,
+      "seat": "152",
+      "profile": "http://www.sabor.hr/hr/zastupnici/barbir-damir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-10-28/125802/Barbir_Damir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BARBIR",
+        "DAMIR"
+      ]
+    },
+    {
+      "id": "145909",
+      "ime": "Danica",
+      "prezime": "Baričević",
+      "puno_ime": "Danica Baričević",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "62",
+      "profile": "http://www.sabor.hr/hr/zastupnici/baricevic-danica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bari%C4%8Devi%C4%87%2C%20Danica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BARICEVIC",
+        "DANICA"
+      ]
+    },
+    {
+      "id": "145111",
+      "ime": "Arsen",
+      "prezime": "Bauk",
+      "puno_ime": "Arsen Bauk",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "34",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bauk-arsen-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bauk%2C%20Arsen.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ARSEN",
+        "BAUK"
+      ]
+    },
+    {
+      "id": "145487",
+      "ime": "Vesna",
+      "prezime": "Bedeković",
+      "puno_ime": "Vesna Bedeković",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "41",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bedekovic-vesna-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bedekovi%C4%87%2C%20Vesna.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BEDEKOVIC",
+        "VESNA"
+      ]
+    },
+    {
+      "id": "145125",
+      "ime": "Sandra",
+      "prezime": "Benčić",
+      "puno_ime": "Sandra Benčić",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "91",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bencic-sandra-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ben%C4%8Di%C4%87%2C%20Sandra.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BENCIC",
+        "SANDRA"
+      ]
+    },
+    {
+      "id": "145137",
+      "ime": "Vladimir",
+      "prezime": "Bilek",
+      "puno_ime": "Vladimir Bilek",
+      "klub": "Klub zastupnika Hrvatske socijalno-liberalne stranke i nezavisnog zastupnika Vladimira Bileka",
+      "stranka": "NZ",
+      "manjine": true,
+      "seat": "104",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bilek-vladimir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bilek%2C%20Vladimir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BILEK",
+        "VLADIMIR"
+      ]
+    },
+    {
+      "id": "145143",
+      "ime": "Dubravko",
+      "prezime": "Bilić",
+      "puno_ime": "Dubravko Bilić",
+      "klub": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "stranka": "NPS",
+      "manjine": false,
+      "seat": "151",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bilic-dubravko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bili%C4%87%2C%20Dubravko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BILIC",
+        "DUBRAVKO"
+      ]
+    },
+    {
+      "id": "145149",
+      "ime": "Damir",
+      "prezime": "Biloglav",
+      "puno_ime": "Damir Biloglav",
+      "klub": "Klub zastupnika Dom i nacionalno okupljanje i Hrvatski suverenisti",
+      "stranka": "DOMINO",
+      "manjine": false,
+      "seat": "161",
+      "profile": "http://www.sabor.hr/hr/zastupnici/biloglav-damir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Biloglav%2C%20Damir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BILOGLAV",
+        "DAMIR"
+      ]
+    },
+    {
+      "id": "145153",
+      "ime": "Sanja",
+      "prezime": "Bježančević",
+      "puno_ime": "Sanja Bježančević",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "95",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bjezancevic-sanja-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bje%C5%BEan%C4%8Devi%C4%87%2C%20Sanja.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BJEZANCEVIC",
+        "SANJA"
+      ]
+    },
+    {
+      "id": "145523",
+      "ime": "Danijela",
+      "prezime": "Blažanović",
+      "puno_ime": "Danijela Blažanović",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "83",
+      "profile": "http://www.sabor.hr/hr/zastupnici/blazanovic-danijela-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bla%C5%BEanovi%C4%87%2C%20Danijela.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BLAZANOVIC",
+        "DANIJELA"
+      ]
+    },
+    {
+      "id": "145503",
+      "ime": "Anamarija",
+      "prezime": "Blažević",
+      "puno_ime": "Anamarija Blažević",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "121",
+      "profile": "http://www.sabor.hr/hr/zastupnici/blazevic-anamarija-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bla%C5%BEevi%C4%87%2C%20Anamarija.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANAMARIJA",
+        "BLAZEVIC"
+      ]
+    },
+    {
+      "id": "156124",
+      "ime": "Maria",
+      "prezime": "Blažina",
+      "puno_ime": "Maria Blažina",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "116",
+      "profile": "http://www.sabor.hr/hr/zastupnici/blazina-maria-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-09-26/115102/Bla%C5%BEina%20Maria.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BLAZINA",
+        "MARIA"
+      ]
+    },
+    {
+      "id": "145529",
+      "ime": "Josip",
+      "prezime": "Borić",
+      "puno_ime": "Josip Borić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "26",
+      "profile": "http://www.sabor.hr/hr/zastupnici/boric-josip-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bori%C4%87%2C%20Josip.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BORIC",
+        "JOSIP"
+      ]
+    },
+    {
+      "id": "145396",
+      "ime": "Rada",
+      "prezime": "Borić",
+      "puno_ime": "Rada Borić",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "72",
+      "profile": "http://www.sabor.hr/hr/zastupnici/boric-rada-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bori%C4%87%2C%20Rada.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BORIC",
+        "RADA"
+      ]
+    },
+    {
+      "id": "145461",
+      "ime": "Ivan",
+      "prezime": "Budalić",
+      "puno_ime": "Ivan Budalić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "119",
+      "profile": "http://www.sabor.hr/hr/zastupnici/budalic-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Budali%C4%87%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BUDALIC",
+        "IVAN"
+      ]
+    },
+    {
+      "id": "145218",
+      "ime": "Ivan",
+      "prezime": "Bugarin",
+      "puno_ime": "Ivan Bugarin",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "80",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bugarin-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bugarin%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BUGARIN",
+        "IVAN"
+      ]
+    },
+    {
+      "id": "145222",
+      "ime": "Miro",
+      "prezime": "Bulj",
+      "puno_ime": "Miro Bulj",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "108",
+      "profile": "http://www.sabor.hr/hr/zastupnici/bulj-miro-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bulj%2C%20Miro.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BULJ",
+        "MIRO"
+      ]
+    },
+    {
+      "id": "145441",
+      "ime": "Majda",
+      "prezime": "Burić",
+      "puno_ime": "Majda Burić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "65",
+      "profile": "http://www.sabor.hr/hr/zastupnici/buric-majda-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Buri%C4%87%2C%20Majda.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BURIC",
+        "MAJDA"
+      ]
+    },
+    {
+      "id": "145498",
+      "ime": "Zdravka",
+      "prezime": "Bušić",
+      "puno_ime": "Zdravka Bušić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "67",
+      "profile": "http://www.sabor.hr/hr/zastupnici/busic-zdravka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Bu%C5%A1i%C4%87%2C%20Zdravka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BUSIC",
+        "ZDRAVKA"
+      ]
+    },
+    {
+      "id": "160883",
+      "ime": "Marin",
+      "prezime": "Corva",
+      "puno_ime": "Marin Corva",
+      "klub": "Klub zastupnika Istarskog demokratskog sabora (IDS), Primorsko-goranskog saveza (PGS), Unije Kvarnera (UNIJA) i Istarske stranke umirovljenika - Partito Istriano dei pensionati (ISU - PIP)",
+      "stranka": "NZ",
+      "manjine": true,
+      "seat": "106",
+      "profile": "http://www.sabor.hr/hr/zastupnici/corva-marin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2026-06-30/114902/Corva%2CMarin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "CORVA",
+        "MARIN"
+      ]
+    },
+    {
+      "id": "145404",
+      "ime": "Anita",
+      "prezime": "Curiš Krok",
+      "puno_ime": "Anita Curiš Krok",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "96",
+      "profile": "http://www.sabor.hr/hr/zastupnici/curis-krok-anita-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Curi%C5%A1%20Krok%2C%20Anita.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANITA",
+        "CURIS",
+        "KROK"
+      ]
+    },
+    {
+      "id": "145424",
+      "ime": "Krešimir",
+      "prezime": "Čabaj",
+      "puno_ime": "Krešimir Čabaj",
+      "klub": "Klub zastupnika Dom i nacionalno okupljanje i Hrvatski suverenisti",
+      "stranka": "DOMINO",
+      "manjine": false,
+      "seat": "160",
+      "profile": "http://www.sabor.hr/hr/zastupnici/cabaj-kresimir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/abaj%2C%20Kre%C5%A1imir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "CABAJ",
+        "KRESIMIR"
+      ]
+    },
+    {
+      "id": "145233",
+      "ime": "Pero",
+      "prezime": "Ćosić",
+      "puno_ime": "Pero Ćosić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "20",
+      "profile": "http://www.sabor.hr/hr/zastupnici/cosic-pero-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/osi%C4%87%2C%20Pero.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "COSIC",
+        "PERO"
+      ]
+    },
+    {
+      "id": "145467",
+      "ime": "Ivan",
+      "prezime": "Dabo",
+      "puno_ime": "Ivan Dabo",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "142",
+      "profile": "http://www.sabor.hr/hr/zastupnici/dabo-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Dabo%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DABO",
+        "IVAN"
+      ]
+    },
+    {
+      "id": "145235",
+      "ime": "Josip",
+      "prezime": "Dabro",
+      "puno_ime": "Josip Dabro",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "50",
+      "profile": "http://www.sabor.hr/hr/zastupnici/dabro-josip-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Dabro_Josip_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DABRO",
+        "JOSIP"
+      ]
+    },
+    {
+      "id": "145242",
+      "ime": "Ante",
+      "prezime": "Deur",
+      "puno_ime": "Ante Deur",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "66",
+      "profile": "http://www.sabor.hr/hr/zastupnici/deur-ante-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Deur%2C%20Ante.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTE",
+        "DEUR"
+      ]
+    },
+    {
+      "id": "145248",
+      "ime": "Dalibor",
+      "prezime": "Domitrović",
+      "puno_ime": "Dalibor Domitrović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "97",
+      "profile": "http://www.sabor.hr/hr/zastupnici/domitrovic-dalibor-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Domitrovi%C4%87%2C%20Dalibor.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DALIBOR",
+        "DOMITROVIC"
+      ]
+    },
+    {
+      "id": "145252",
+      "ime": "Irena",
+      "prezime": "Dragić",
+      "puno_ime": "Irena Dragić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "98",
+      "profile": "http://www.sabor.hr/hr/zastupnici/dragic-irena-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Dragi%C4%87%2C%20Irena.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DRAGIC",
+        "IRENA"
+      ]
+    },
+    {
+      "id": "145240",
+      "ime": "Josip",
+      "prezime": "Đakić",
+      "puno_ime": "Josip Đakić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "43",
+      "profile": "http://www.sabor.hr/hr/zastupnici/dakic-josip-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/aki%C4%87%2C%20Josip.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DAKIC",
+        "JOSIP"
+      ]
+    },
+    {
+      "id": "145258",
+      "ime": "Saša",
+      "prezime": "Đujić",
+      "puno_ime": "Saša Đujić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "33",
+      "profile": "http://www.sabor.hr/hr/zastupnici/dujic-sasa-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-11-25/103612/Duji%C4%87%2C%20Sa%C5%A1a.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DUJIC",
+        "SASA"
+      ]
+    },
+    {
+      "id": "145266",
+      "ime": "Mato",
+      "prezime": "Franković",
+      "puno_ime": "Mato Franković",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "107",
+      "profile": "http://www.sabor.hr/hr/zastupnici/frankovic-mato-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Frankovi%C4%87%2C%20Mato.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "FRANKOVIC",
+        "MATO"
+      ]
+    },
+    {
+      "id": "145280",
+      "ime": "Veselko",
+      "prezime": "Gabričević",
+      "puno_ime": "Veselko Gabričević",
+      "klub": "Klub zastupnika Nezavisni i HSU",
+      "stranka": "HSU",
+      "manjine": false,
+      "seat": "126",
+      "profile": "http://www.sabor.hr/hr/zastupnici/gabricevic-veselko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Gabri%C4%8Devi%C4%87%2C%20Veselko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GABRICEVIC",
+        "VESELKO"
+      ]
+    },
+    {
+      "id": "145286",
+      "ime": "Sabina",
+      "prezime": "Glasovac",
+      "puno_ime": "Sabina Glasovac",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "17",
+      "profile": "http://www.sabor.hr/hr/zastupnici/glasovac-sabina-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Glasovac%2C%20Sabina.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GLASOVAC",
+        "SABINA"
+      ]
+    },
+    {
+      "id": "145290",
+      "ime": "Željko",
+      "prezime": "Glavić",
+      "puno_ime": "Željko Glavić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "122",
+      "profile": "http://www.sabor.hr/hr/zastupnici/glavic-zeljko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Glavi%C4%87%2C%20%C5%BDeljko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GLAVIC",
+        "ZELJKO"
+      ]
+    },
+    {
+      "id": "145302",
+      "ime": "Zoran",
+      "prezime": "Gregurović",
+      "puno_ime": "Zoran Gregurović",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "45",
+      "profile": "http://www.sabor.hr/hr/zastupnici/gregurovic-zoran-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Gregurovi%C4%87%2C%20Zoran.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GREGUROVIC",
+        "ZORAN"
+      ]
+    },
+    {
+      "id": "145309",
+      "ime": "Nikola",
+      "prezime": "Grmoja",
+      "puno_ime": "Nikola Grmoja",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "128",
+      "profile": "http://www.sabor.hr/hr/zastupnici/grmoja-nikola-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Grmoja%2C%20Nikola.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GRMOJA",
+        "NIKOLA"
+      ]
+    },
+    {
+      "id": "145319",
+      "ime": "Siniša",
+      "prezime": "Hajdaš Dončić",
+      "puno_ime": "Siniša Hajdaš Dončić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "16",
+      "profile": "http://www.sabor.hr/hr/zastupnici/hajdas-doncic-sinisa-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Hajda%C5%A1%20Don%C4%8Di%C4%87%2C%20Sini%C5%A1a.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DONCIC",
+        "HAJDAS",
+        "SINISA"
+      ]
+    },
+    {
+      "id": "145323",
+      "ime": "Mislav",
+      "prezime": "Herman",
+      "puno_ime": "Mislav Herman",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "22",
+      "profile": "http://www.sabor.hr/hr/zastupnici/herman-mislav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Herman%2C%20Mislav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "HERMAN",
+        "MISLAV"
+      ]
+    },
+    {
+      "id": "145042",
+      "ime": "Armin",
+      "prezime": "Hodžić",
+      "puno_ime": "Armin Hodžić",
+      "klub": "Klub zastupnika Hrvatske narodne stranke i nezavisnih zastupnika",
+      "stranka": "NZ",
+      "manjine": true,
+      "seat": "105",
+      "profile": "http://www.sabor.hr/hr/zastupnici/hodzic-armin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Hod%C5%BEi%C4%87%2C%20Armin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ARMIN",
+        "HODZIC"
+      ]
+    },
+    {
+      "id": "145044",
+      "ime": "Dario",
+      "prezime": "Hrebak",
+      "puno_ime": "Dario Hrebak",
+      "klub": "Klub zastupnika Hrvatske socijalno-liberalne stranke i nezavisnog zastupnika Vladimira Bileka",
+      "stranka": "HSLS",
+      "manjine": false,
+      "seat": "90",
+      "profile": "http://www.sabor.hr/hr/zastupnici/hrebak-dario-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Hrebak%2C%20Dario.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARIO",
+        "HREBAK"
+      ]
+    },
+    {
+      "id": "145049",
+      "ime": "Kristina",
+      "prezime": "Ikić Baniček",
+      "puno_ime": "Kristina Ikić Baniček",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "36",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ikic-banicek-kristina-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Iki%C4%87%20Bani%C4%8Dek%2C%20Kristina.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BANICEK",
+        "IKIC",
+        "KRISTINA"
+      ]
+    },
+    {
+      "id": "145057",
+      "ime": "Mišel",
+      "prezime": "Jakšić",
+      "puno_ime": "Mišel Jakšić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "31",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jaksic-misel-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Jak%C5%A1i%C4%87%2C%20Mi%C5%A1el.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JAKSIC",
+        "MISEL"
+      ]
+    },
+    {
+      "id": "145062",
+      "ime": "Gordan",
+      "prezime": "Jandroković",
+      "puno_ime": "Gordan Jandroković",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "1",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jandrokovic-gordan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/gordan_jandrokovic_10_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GORDAN",
+        "JANDROKOVIC"
+      ]
+    },
+    {
+      "id": "145064",
+      "ime": "Robert",
+      "prezime": "Jankovics",
+      "puno_ime": "Robert Jankovics",
+      "klub": "Zastupnici izvan klubova političkih stranaka",
+      "stranka": "NZ",
+      "manjine": true,
+      "seat": "103",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jankovics-robert-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Jankovics%2C%20Robert.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JANKOVICS",
+        "ROBERT"
+      ]
+    },
+    {
+      "id": "145066",
+      "ime": "Dragana",
+      "prezime": "Jeckov",
+      "puno_ime": "Dragana Jeckov",
+      "klub": "Klub zastupnika Samostalne demokratske srpske stranke",
+      "stranka": "SDSS",
+      "manjine": true,
+      "seat": "148",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jeckov-dragana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Jeckov%2C%20Dragana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DRAGANA",
+        "JECKOV"
+      ]
+    },
+    {
+      "id": "145485",
+      "ime": "Ljubica",
+      "prezime": "Jembrih",
+      "puno_ime": "Ljubica Jembrih",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "120",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jembrih-ljubica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Jembrih%2C%20Ljubica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JEMBRIH",
+        "LJUBICA"
+      ]
+    },
+    {
+      "id": "145068",
+      "ime": "Tomislav",
+      "prezime": "Josić",
+      "puno_ime": "Tomislav Josić",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "48",
+      "profile": "http://www.sabor.hr/hr/zastupnici/josic-tomislav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Josi%C4%87%2C%20Tomislav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JOSIC",
+        "TOMISLAV"
+      ]
+    },
+    {
+      "id": "145072",
+      "ime": "Josip",
+      "prezime": "Jurčević",
+      "puno_ime": "Josip Jurčević",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "164",
+      "profile": "http://www.sabor.hr/hr/zastupnici/jurcevic-josip-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Jur%C4%8Devi%C4%87%2C%20Josip.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JOSIP",
+        "JURCEVIC"
+      ]
+    },
+    {
+      "id": "145074",
+      "ime": "Branka",
+      "prezime": "Juričev-Martinčev",
+      "puno_ime": "Branka Juričev-Martinčev",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "25",
+      "profile": "http://www.sabor.hr/hr/zastupnici/juricev-martincev-branka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Juri%C4%8Dev-Martin%C4%8Dev%2C%20Branka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BRANKA",
+        "JURICEV",
+        "MARTINCEV"
+      ]
+    },
+    {
+      "id": "145076",
+      "ime": "Veljko",
+      "prezime": "Kajtazi",
+      "puno_ime": "Veljko Kajtazi",
+      "klub": "Klub zastupnika Hrvatske narodne stranke i nezavisnih zastupnika",
+      "stranka": "NZ",
+      "manjine": true,
+      "seat": "86",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kajtazi-veljko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kajtazi%2C%20Veljko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KAJTAZI",
+        "VELJKO"
+      ]
+    },
+    {
+      "id": "145474",
+      "ime": "Goran",
+      "prezime": "Kaniški",
+      "puno_ime": "Goran Kaniški",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "139",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kaniski-goran-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kani%C5%A1ki%2C%20Goran.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GORAN",
+        "KANISKI"
+      ]
+    },
+    {
+      "id": "145078",
+      "ime": "Krunoslav",
+      "prezime": "Katičić",
+      "puno_ime": "Krunoslav Katičić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "23",
+      "profile": "http://www.sabor.hr/hr/zastupnici/katicic-krunoslav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kati%C4%8Di%C4%87%2C%20Krunoslav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KATICIC",
+        "KRUNOSLAV"
+      ]
+    },
+    {
+      "id": "145082",
+      "ime": "Ivana",
+      "prezime": "Kekin",
+      "puno_ime": "Ivana Kekin",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "93",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kekin-ivana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kekin%2C%20Ivana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVANA",
+        "KEKIN"
+      ]
+    },
+    {
+      "id": "145090",
+      "ime": "Tomislav",
+      "prezime": "Klarić",
+      "puno_ime": "Tomislav Klarić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "82",
+      "profile": "http://www.sabor.hr/hr/zastupnici/klaric-tomislav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Klari%C4%87%2C%20Tomislav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KLARIC",
+        "TOMISLAV"
+      ]
+    },
+    {
+      "id": "145094",
+      "ime": "Darko",
+      "prezime": "Klasić",
+      "puno_ime": "Darko Klasić",
+      "klub": "Klub zastupnika Hrvatske socijalno-liberalne stranke i nezavisnog zastupnika Vladimira Bileka",
+      "stranka": "HSLS",
+      "manjine": false,
+      "seat": "89",
+      "profile": "http://www.sabor.hr/hr/zastupnici/klasic-darko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Klasi%C4%87%2C%20Darko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARKO",
+        "KLASIC"
+      ]
+    },
+    {
+      "id": "145100",
+      "ime": "Anton",
+      "prezime": "Kliman",
+      "puno_ime": "Anton Kliman",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "39",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kliman-anton-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kliman%2C%20Anton.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTON",
+        "KLIMAN"
+      ]
+    },
+    {
+      "id": "145113",
+      "ime": "Ljubomir",
+      "prezime": "Kolarek",
+      "puno_ime": "Ljubomir Kolarek",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "21",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kolarek-ljubomir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kolarek%2C%20Ljubomir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KOLAREK",
+        "LJUBOMIR"
+      ]
+    },
+    {
+      "id": "145117",
+      "ime": "Branko",
+      "prezime": "Kolarić",
+      "puno_ime": "Branko Kolarić",
+      "klub": "Zastupnici izvan klubova političkih stranaka",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "73",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kolaric-branko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kolari%C4%87%2C%20Branko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BRANKO",
+        "KOLARIC"
+      ]
+    },
+    {
+      "id": "145126",
+      "ime": "Zlatko",
+      "prezime": "Komadina",
+      "puno_ime": "Zlatko Komadina",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "35",
+      "profile": "http://www.sabor.hr/hr/zastupnici/komadina-zlatko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-06-16/144001/Komadina%2C%20Zlatko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KOMADINA",
+        "ZLATKO"
+      ]
+    },
+    {
+      "id": "145453",
+      "ime": "Magdalena",
+      "prezime": "Komes",
+      "puno_ime": "Magdalena Komes",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "123",
+      "profile": "http://www.sabor.hr/hr/zastupnici/komes-magdalena-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Komes%2C%20Magdalena.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KOMES",
+        "MAGDALENA"
+      ]
+    },
+    {
+      "id": "157378",
+      "ime": "Martin",
+      "prezime": "Kordić",
+      "puno_ime": "Martin Kordić",
+      "klub": "Klub zastupnika Dom i nacionalno okupljanje i Hrvatski suverenisti",
+      "stranka": "Hrvatski suverenisti",
+      "manjine": false,
+      "seat": "163",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kordic-martin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-11-21/104902/Kordic%2CMartin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KORDIC",
+        "MARTIN"
+      ]
+    },
+    {
+      "id": "154786",
+      "ime": "Denis",
+      "prezime": "Kralj",
+      "puno_ime": "Denis Kralj",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "115",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kralj-denis-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-06-06/125602/Kralj_Denis_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DENIS",
+        "KRALJ"
+      ]
+    },
+    {
+      "id": "145131",
+      "ime": "Sandra",
+      "prezime": "Krpan",
+      "puno_ime": "Sandra Krpan",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "74",
+      "profile": "http://www.sabor.hr/hr/zastupnici/krpan-sandra-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Krpan%2C%20Sandra.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KRPAN",
+        "SANDRA"
+      ]
+    },
+    {
+      "id": "145139",
+      "ime": "Mišo",
+      "prezime": "Krstičević",
+      "puno_ime": "Mišo Krstičević",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "37",
+      "profile": "http://www.sabor.hr/hr/zastupnici/krsticevic-miso-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Krsti%C4%8Devi%C4%87%2C%20Mi%C5%A1o.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "KRSTICEVIC",
+        "MISO"
+      ]
+    },
+    {
+      "id": "145141",
+      "ime": "Andro",
+      "prezime": "Krstulović Opara",
+      "puno_ime": "Andro Krstulović Opara",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "42",
+      "profile": "http://www.sabor.hr/hr/zastupnici/krstulovic-opara-andro-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Krstulovi%C4%87%20Opara%2C%20Andro.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANDRO",
+        "KRSTULOVIC",
+        "OPARA"
+      ]
+    },
+    {
+      "id": "145145",
+      "ime": "Ante",
+      "prezime": "Kujundžić",
+      "puno_ime": "Ante Kujundžić",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "109",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kujundzic-ante-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kujund%C5%BEi%C4%87%2C%20Ante.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTE",
+        "KUJUNDZIC"
+      ]
+    },
+    {
+      "id": "145147",
+      "ime": "Ivica",
+      "prezime": "Kukavica",
+      "puno_ime": "Ivica Kukavica",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "28",
+      "profile": "http://www.sabor.hr/hr/zastupnici/kukavica-ivica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Kukavica%2C%20Ivica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVICA",
+        "KUKAVICA"
+      ]
+    },
+    {
+      "id": "145169",
+      "ime": "Željko",
+      "prezime": "Lacković",
+      "puno_ime": "Željko Lacković",
+      "klub": "Klub zastupnika Nezavisni i HSU",
+      "stranka": "stranka Nezavisni",
+      "manjine": false,
+      "seat": "124",
+      "profile": "http://www.sabor.hr/hr/zastupnici/lackovic-zeljko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Lackovi%C4%87%2C%20%C5%BDeljko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "LACKOVIC",
+        "ZELJKO"
+      ]
+    },
+    {
+      "id": "145171",
+      "ime": "Boris",
+      "prezime": "Lalovac",
+      "puno_ime": "Boris Lalovac",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "38",
+      "profile": "http://www.sabor.hr/hr/zastupnici/lalovac-boris-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Lalovac%2C%20Boris.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BORIS",
+        "LALOVAC"
+      ]
+    },
+    {
+      "id": "145173",
+      "ime": "Dubravka",
+      "prezime": "Lipovac Pehar",
+      "puno_ime": "Dubravka Lipovac Pehar",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "49",
+      "profile": "http://www.sabor.hr/hr/zastupnici/lipovac-pehar-dubravka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Lipovac%20Pehar%2C%20Dubravka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DUBRAVKA",
+        "LIPOVAC",
+        "PEHAR"
+      ]
+    },
+    {
+      "id": "145175",
+      "ime": "Marija",
+      "prezime": "Lugarić",
+      "puno_ime": "Marija Lugarić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "51",
+      "profile": "http://www.sabor.hr/hr/zastupnici/lugaric-marija-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Lugari%C4%87%2C%20Marija.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "LUGARIC",
+        "MARIJA"
+      ]
+    },
+    {
+      "id": "145443",
+      "ime": "Ljubica",
+      "prezime": "Lukačić",
+      "puno_ime": "Ljubica Lukačić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "13",
+      "profile": "http://www.sabor.hr/hr/zastupnici/lukacic-ljubica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Luka%C4%8Di%C4%87%2C%20Ljubica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "LJUBICA",
+        "LUKACIC"
+      ]
+    },
+    {
+      "id": "145509",
+      "ime": "Sanda Livia",
+      "prezime": "Maduna",
+      "puno_ime": "Sanda Livia Maduna",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "101",
+      "profile": "http://www.sabor.hr/hr/zastupnici/maduna-sanda-livia-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Maduna%2C%20Sanda%20Livia.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "LIVIA",
+        "MADUNA",
+        "SANDA"
+      ]
+    },
+    {
+      "id": "145178",
+      "ime": "Ivan",
+      "prezime": "Malenica",
+      "puno_ime": "Ivan Malenica",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "40",
+      "profile": "http://www.sabor.hr/hr/zastupnici/malenica-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Malenica%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVAN",
+        "MALENICA"
+      ]
+    },
+    {
+      "id": "145472",
+      "ime": "Marin",
+      "prezime": "Mandarić",
+      "puno_ime": "Marin Mandarić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "146",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mandaric-marin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mandari%C4%87%2C%20Marin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MANDARIC",
+        "MARIN"
+      ]
+    },
+    {
+      "id": "145463",
+      "ime": "Damir",
+      "prezime": "Mandić",
+      "puno_ime": "Damir Mandić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "145",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mandic-damir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mandi%C4%87%2C%20Damir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DAMIR",
+        "MANDIC"
+      ]
+    },
+    {
+      "id": "145182",
+      "ime": "Ivana",
+      "prezime": "Marković",
+      "puno_ime": "Ivana Marković",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "57",
+      "profile": "http://www.sabor.hr/hr/zastupnici/markovic-ivana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Markovi%C4%87%2C%20Ivana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVANA",
+        "MARKOVIC"
+      ]
+    },
+    {
+      "id": "145180",
+      "ime": "Miroslav",
+      "prezime": "Marković",
+      "puno_ime": "Miroslav Marković",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "55",
+      "profile": "http://www.sabor.hr/hr/zastupnici/markovic-miroslav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Markovi%C4%87%2C%20Miroslav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARKOVIC",
+        "MIROSLAV"
+      ]
+    },
+    {
+      "id": "145185",
+      "ime": "Ivan",
+      "prezime": "Matić",
+      "puno_ime": "Ivan Matić",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "127",
+      "profile": "http://www.sabor.hr/hr/zastupnici/matic-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mati%C4%87%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVAN",
+        "MATIC"
+      ]
+    },
+    {
+      "id": "145188",
+      "ime": "Nikola",
+      "prezime": "Mažar",
+      "puno_ime": "Nikola Mažar",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "64",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mazar-nikola-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ma%C5%BEar%2C%20Nikola.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MAZAR",
+        "NIKOLA"
+      ]
+    },
+    {
+      "id": "147780",
+      "ime": "Ivica",
+      "prezime": "Mesić",
+      "puno_ime": "Ivica Mesić",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "70",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mesic-ivica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mesic_Ivica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVICA",
+        "MESIC"
+      ]
+    },
+    {
+      "id": "145521",
+      "ime": "Dalibor",
+      "prezime": "Milan",
+      "puno_ime": "Dalibor Milan",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "144",
+      "profile": "http://www.sabor.hr/hr/zastupnici/milan-dalibor-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Milan%2C%20Dalibor.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DALIBOR",
+        "MILAN"
+      ]
+    },
+    {
+      "id": "145192",
+      "ime": "Marin",
+      "prezime": "Miletić",
+      "puno_ime": "Marin Miletić",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "130",
+      "profile": "http://www.sabor.hr/hr/zastupnici/miletic-marin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mileti%C4%87%2C%20Marin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIN",
+        "MILETIC"
+      ]
+    },
+    {
+      "id": "145198",
+      "ime": "Mario",
+      "prezime": "Milinković",
+      "puno_ime": "Mario Milinković",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "58",
+      "profile": "http://www.sabor.hr/hr/zastupnici/milinkovic-mario-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Milinkovi%C4%87%2C%20Mario.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIO",
+        "MILINKOVIC"
+      ]
+    },
+    {
+      "id": "158995",
+      "ime": "Anteo",
+      "prezime": "Milos",
+      "puno_ime": "Anteo Milos",
+      "klub": "Klub zastupnika Istarskog demokratskog sabora (IDS), Primorsko-goranskog saveza (PGS), Unije Kvarnera (UNIJA) i Istarske stranke umirovljenika - Partito Istriano dei pensionati (ISU - PIP)",
+      "stranka": "IDS",
+      "manjine": false,
+      "seat": "132",
+      "profile": "http://www.sabor.hr/hr/zastupnici/milos-anteo-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2026-01-30/083302/Milos_Anteo.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTEO",
+        "MILOS"
+      ]
+    },
+    {
+      "id": "145392",
+      "ime": "Jelena",
+      "prezime": "Miloš",
+      "puno_ime": "Jelena Miloš",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "112",
+      "profile": "http://www.sabor.hr/hr/zastupnici/milos-jelena-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Milo%C5%A1%2C%20Jelena.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JELENA",
+        "MILOS"
+      ]
+    },
+    {
+      "id": "149803",
+      "ime": "Predrag",
+      "prezime": "Mišić",
+      "puno_ime": "Predrag Mišić",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "69",
+      "profile": "http://www.sabor.hr/hr/zastupnici/misic-predrag-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-09-25/102003/Misic_Predrag.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MISIC",
+        "PREDRAG"
+      ]
+    },
+    {
+      "id": "145200",
+      "ime": "Stipo",
+      "prezime": "Mlinarić",
+      "puno_ime": "Stipo Mlinarić",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "30",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mlinaric-stipo-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mlinari%C4%87%2C%20Stipo.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MLINARIC",
+        "STIPO"
+      ]
+    },
+    {
+      "id": "154784",
+      "ime": "Matej",
+      "prezime": "Mostarac",
+      "puno_ime": "Matej Mostarac",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "75",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mostarac-matej-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-06-06/124804/Mostarac_Matej_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MATEJ",
+        "MOSTARAC"
+      ]
+    },
+    {
+      "id": "145204",
+      "ime": "Anka",
+      "prezime": "Mrak-Taritaš",
+      "puno_ime": "Anka Mrak-Taritaš",
+      "klub": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "stranka": "GLAS",
+      "manjine": false,
+      "seat": "134",
+      "profile": "http://www.sabor.hr/hr/zastupnici/mrak-taritas-anka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Mrak-Tarita%C5%A1%2C%20Anka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANKA",
+        "MRAK",
+        "TARITAS"
+      ]
+    },
+    {
+      "id": "145408",
+      "ime": "Dubravka",
+      "prezime": "Novak",
+      "puno_ime": "Dubravka Novak",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "114",
+      "profile": "http://www.sabor.hr/hr/zastupnici/novak-dubravka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Novak%2C%20Dubravka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DUBRAVKA",
+        "NOVAK"
+      ]
+    },
+    {
+      "id": "145214",
+      "ime": "Dalija",
+      "prezime": "Orešković",
+      "puno_ime": "Dalija Orešković",
+      "klub": "Zastupnici izvan klubova političkih stranaka",
+      "stranka": "DO i SIP",
+      "manjine": false,
+      "seat": "133",
+      "profile": "http://www.sabor.hr/hr/zastupnici/oreskovic-dalija-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ore%C5%A1kovi%C4%87%2C%20Dalija.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DALIJA",
+        "ORESKOVIC"
+      ]
+    },
+    {
+      "id": "145080",
+      "ime": "Ranko",
+      "prezime": "Ostojić",
+      "puno_ime": "Ranko Ostojić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "18",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ostojic-ranko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ostoji%C4%87%2C%20Ranko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "OSTOJIC",
+        "RANKO"
+      ]
+    },
+    {
+      "id": "145084",
+      "ime": "Josip",
+      "prezime": "Ostrogović",
+      "puno_ime": "Josip Ostrogović",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "79",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ostrogovic-josip-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ostrogovi%C4%87%2C%20Josip.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JOSIP",
+        "OSTROGOVIC"
+      ]
+    },
+    {
+      "id": "145088",
+      "ime": "Dalibor",
+      "prezime": "Paus",
+      "puno_ime": "Dalibor Paus",
+      "klub": "Klub zastupnika Istarskog demokratskog sabora (IDS), Primorsko-goranskog saveza (PGS), Unije Kvarnera (UNIJA) i Istarske stranke umirovljenika - Partito Istriano dei pensionati (ISU - PIP)",
+      "stranka": "IDS",
+      "manjine": false,
+      "seat": "131",
+      "profile": "http://www.sabor.hr/hr/zastupnici/paus-dalibor-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Paus%2C%20Dalibor.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DALIBOR",
+        "PAUS"
+      ]
+    },
+    {
+      "id": "145513",
+      "ime": "Marko",
+      "prezime": "Pavić",
+      "puno_ime": "Marko Pavić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "84",
+      "profile": "http://www.sabor.hr/hr/zastupnici/pavic-marko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Pavi%C4%87%2C%20Marko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARKO",
+        "PAVIC"
+      ]
+    },
+    {
+      "id": "145102",
+      "ime": "Ivan",
+      "prezime": "Penava",
+      "puno_ime": "Ivan Penava",
+      "klub": "Klub zastupnika Domovinskog pokreta",
+      "stranka": "DP",
+      "manjine": false,
+      "seat": "29",
+      "profile": "http://www.sabor.hr/hr/zastupnici/penava-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Penava%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVAN",
+        "PENAVA"
+      ]
+    },
+    {
+      "id": "145115",
+      "ime": "Igor",
+      "prezime": "Peternel",
+      "puno_ime": "Igor Peternel",
+      "klub": "Klub zastupnika Dom i nacionalno okupljanje i Hrvatski suverenisti",
+      "stranka": "DOMINO",
+      "manjine": false,
+      "seat": "162",
+      "profile": "http://www.sabor.hr/hr/zastupnici/peternel-igor-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2026-04-20/163301/Peternel_Igor.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IGOR",
+        "PETERNEL"
+      ]
+    },
+    {
+      "id": "145119",
+      "ime": "Marijana",
+      "prezime": "Petir",
+      "puno_ime": "Marijana Petir",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "27",
+      "profile": "http://www.sabor.hr/hr/zastupnici/petir-marijana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Petir%2C%20Marijana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIJANA",
+        "PETIR"
+      ]
+    },
+    {
+      "id": "145123",
+      "ime": "Božo",
+      "prezime": "Petrov",
+      "puno_ime": "Božo Petrov",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "110",
+      "profile": "http://www.sabor.hr/hr/zastupnici/petrov-bozo-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Petrov%2C%20Bo%C5%BEo.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BOZO",
+        "PETROV"
+      ]
+    },
+    {
+      "id": "145155",
+      "ime": "Marin",
+      "prezime": "Piletić",
+      "puno_ime": "Marin Piletić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "85",
+      "profile": "http://www.sabor.hr/hr/zastupnici/piletic-marin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2026-03-03/110302/Piletic_Marin_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIN",
+        "PILETIC"
+      ]
+    },
+    {
+      "id": "145157",
+      "ime": "Boris",
+      "prezime": "Piližota",
+      "puno_ime": "Boris Piližota",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "118",
+      "profile": "http://www.sabor.hr/hr/zastupnici/pilizota-boris-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Pili%C5%BEota%2C%20Boris.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "BORIS",
+        "PILIZOTA"
+      ]
+    },
+    {
+      "id": "145160",
+      "ime": "Draženka",
+      "prezime": "Polović",
+      "puno_ime": "Draženka Polović",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "113",
+      "profile": "http://www.sabor.hr/hr/zastupnici/polovic-drazenka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Polovi%C4%87%2C%20Dra%C5%BEenka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DRAZENKA",
+        "POLOVIC"
+      ]
+    },
+    {
+      "id": "145163",
+      "ime": "Marijana",
+      "prezime": "Puljak",
+      "puno_ime": "Marijana Puljak",
+      "klub": "Klub zastupnika Centra, Nezavisne platforme Sjevera i Građansko-liberalnog saveza",
+      "stranka": "Centar",
+      "manjine": false,
+      "seat": "153",
+      "profile": "http://www.sabor.hr/hr/zastupnici/puljak-marijana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Puljak%2C%20Marijana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIJANA",
+        "PULJAK"
+      ]
+    },
+    {
+      "id": "145167",
+      "ime": "Milorad",
+      "prezime": "Pupovac",
+      "puno_ime": "Milorad Pupovac",
+      "klub": "Klub zastupnika Samostalne demokratske srpske stranke",
+      "stranka": "SDSS",
+      "manjine": true,
+      "seat": "149",
+      "profile": "http://www.sabor.hr/hr/zastupnici/pupovac-milorad-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Pupovac%2C%20Milorad.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MILORAD",
+        "PUPOVAC"
+      ]
+    },
+    {
+      "id": "145206",
+      "ime": "Dario",
+      "prezime": "Pušić",
+      "puno_ime": "Dario Pušić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "141",
+      "profile": "http://www.sabor.hr/hr/zastupnici/pusic-dario-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Pu%C5%A1i%C4%87%2C%20Dario.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARIO",
+        "PUSIC"
+      ]
+    },
+    {
+      "id": "145220",
+      "ime": "Ana",
+      "prezime": "Puž Kukuljan",
+      "puno_ime": "Ana Puž Kukuljan",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "76",
+      "profile": "http://www.sabor.hr/hr/zastupnici/puz-kukuljan-ana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Pu%C5%BE%20Kukuljan%2C%20Ana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANA",
+        "KUKULJAN",
+        "PUZ"
+      ]
+    },
+    {
+      "id": "145224",
+      "ime": "Ivan",
+      "prezime": "Račan",
+      "puno_ime": "Ivan Račan",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "77",
+      "profile": "http://www.sabor.hr/hr/zastupnici/racan-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ra%C4%8Dan%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVAN",
+        "RACAN"
+      ]
+    },
+    {
+      "id": "145231",
+      "ime": "Ivan",
+      "prezime": "Radić",
+      "puno_ime": "Ivan Radić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "59",
+      "profile": "http://www.sabor.hr/hr/zastupnici/radic-ivan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Radi%C4%87%2C%20Ivan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVAN",
+        "RADIC"
+      ]
+    },
+    {
+      "id": "145244",
+      "ime": "Dušica",
+      "prezime": "Radojčić",
+      "puno_ime": "Dušica Radojčić",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "94",
+      "profile": "http://www.sabor.hr/hr/zastupnici/radojcic-dusica-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Radoj%C4%8Di%C4%87%2C%20Du%C5%A1ica.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DUSICA",
+        "RADOJCIC"
+      ]
+    },
+    {
+      "id": "145250",
+      "ime": "Sanja",
+      "prezime": "Radolović",
+      "puno_ime": "Sanja Radolović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "52",
+      "profile": "http://www.sabor.hr/hr/zastupnici/radolovic-sanja-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Radolovi%C4%87%2C%20Sanja.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "RADOLOVIC",
+        "SANJA"
+      ]
+    },
+    {
+      "id": "145254",
+      "ime": "Nino",
+      "prezime": "Raspudić",
+      "puno_ime": "Nino Raspudić",
+      "klub": "Klub nezavisnih zastupnika",
+      "stranka": "Drito",
+      "manjine": false,
+      "seat": "156",
+      "profile": "http://www.sabor.hr/hr/zastupnici/raspudic-nino-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Raspudi%C4%87%2C%20Nino.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "NINO",
+        "RASPUDIC"
+      ]
+    },
+    {
+      "id": "145256",
+      "ime": "Urša",
+      "prezime": "Raukar-Gamulin",
+      "puno_ime": "Urša Raukar-Gamulin",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "71",
+      "profile": "http://www.sabor.hr/hr/zastupnici/raukar-gamulin-ursa-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Raukar-Gamulin%2C%20Ur%C5%A1a.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "GAMULIN",
+        "RAUKAR",
+        "URSA"
+      ]
+    },
+    {
+      "id": "145264",
+      "ime": "Željko",
+      "prezime": "Reiner",
+      "puno_ime": "Željko Reiner",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "15",
+      "profile": "http://www.sabor.hr/hr/zastupnici/reiner-zeljko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Reiner%2C%20%C5%BDeljko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "REINER",
+        "ZELJKO"
+      ]
+    },
+    {
+      "id": "145270",
+      "ime": "Tonči",
+      "prezime": "Restović",
+      "puno_ime": "Tonči Restović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "53",
+      "profile": "http://www.sabor.hr/hr/zastupnici/restovic-tonci-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Restovi%C4%87%2C%20Ton%C4%8Di.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "RESTOVIC",
+        "TONCI"
+      ]
+    },
+    {
+      "id": "147336",
+      "ime": "Ivana",
+      "prezime": "Ribarić Majanović",
+      "puno_ime": "Ivana Ribarić Majanović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "137",
+      "profile": "http://www.sabor.hr/hr/zastupnici/ribaric-majanovic-ivana-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Ribari%C4%87%20Majanovi%C4%87%2C%20Ivana.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVANA",
+        "MAJANOVIC",
+        "RIBARIC"
+      ]
+    },
+    {
+      "id": "147769",
+      "ime": "Anđelka",
+      "prezime": "Salopek",
+      "puno_ime": "Anđelka Salopek",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "143",
+      "profile": "http://www.sabor.hr/hr/zastupnici/salopek-andelka-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Salopek_Andjelka.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANDELKA",
+        "SALOPEK"
+      ]
+    },
+    {
+      "id": "145274",
+      "ime": "Ante",
+      "prezime": "Sanader",
+      "puno_ime": "Ante Sanader",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "14",
+      "profile": "http://www.sabor.hr/hr/zastupnici/sanader-ante-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Sanader%2C%20Ante.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANTE",
+        "SANADER"
+      ]
+    },
+    {
+      "id": "145276",
+      "ime": "Marija",
+      "prezime": "Selak Raspudić",
+      "puno_ime": "Marija Selak Raspudić",
+      "klub": "Klub nezavisnih zastupnika",
+      "stranka": "Drito",
+      "manjine": false,
+      "seat": "157",
+      "profile": "http://www.sabor.hr/hr/zastupnici/selak-raspudic-marija-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Selak%20Raspudi%C4%87%2C%20Marija.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIJA",
+        "RASPUDIC",
+        "SELAK"
+      ]
+    },
+    {
+      "id": "145288",
+      "ime": "Darko",
+      "prezime": "Sobota",
+      "puno_ime": "Darko Sobota",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "19",
+      "profile": "http://www.sabor.hr/hr/zastupnici/sobota-darko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Sobota%2C%20Darko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARKO",
+        "SOBOTA"
+      ]
+    },
+    {
+      "id": "145292",
+      "ime": "Tanja",
+      "prezime": "Sokolić",
+      "puno_ime": "Tanja Sokolić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "138",
+      "profile": "http://www.sabor.hr/hr/zastupnici/sokolic-tanja-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Sokoli%C4%87%2C%20Tanja.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "SOKOLIC",
+        "TANJA"
+      ]
+    },
+    {
+      "id": "154717",
+      "ime": "Stipan",
+      "prezime": "Šašlin",
+      "puno_ime": "Stipan Šašlin",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "61",
+      "profile": "http://www.sabor.hr/hr/zastupnici/saslin-stipan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-05-23/114602/Saslin_Stipan_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "SASLIN",
+        "STIPAN"
+      ]
+    },
+    {
+      "id": "145278",
+      "ime": "Anja",
+      "prezime": "Šimpraga",
+      "puno_ime": "Anja Šimpraga",
+      "klub": "Klub zastupnika Samostalne demokratske srpske stranke",
+      "stranka": "SDSS",
+      "manjine": true,
+      "seat": "150",
+      "profile": "http://www.sabor.hr/hr/zastupnici/simpraga-anja-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/impraga%2C%20Anja.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ANJA",
+        "SIMPRAGA"
+      ]
+    },
+    {
+      "id": "145455",
+      "ime": "Maksimilijan",
+      "prezime": "Šimrak",
+      "puno_ime": "Maksimilijan Šimrak",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "100",
+      "profile": "http://www.sabor.hr/hr/zastupnici/simrak-maksimilijan-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/imrak%2C%20Maksimilijan.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MAKSIMILIJAN",
+        "SIMRAK"
+      ]
+    },
+    {
+      "id": "145304",
+      "ime": "Predrag",
+      "prezime": "Štromar",
+      "puno_ime": "Predrag Štromar",
+      "klub": "Klub zastupnika Hrvatske narodne stranke i nezavisnih zastupnika",
+      "stranka": "HNS",
+      "manjine": false,
+      "seat": "88",
+      "profile": "http://www.sabor.hr/hr/zastupnici/stromar-predrag-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/tromar%2C%20Predrag.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "PREDRAG",
+        "STROMAR"
+      ]
+    },
+    {
+      "id": "145307",
+      "ime": "Tomislav",
+      "prezime": "Šuta",
+      "puno_ime": "Tomislav Šuta",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "81",
+      "profile": "http://www.sabor.hr/hr/zastupnici/suta-tomislav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/uta%2C%20Tomislav.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "SUTA",
+        "TOMISLAV"
+      ]
+    },
+    {
+      "id": "145313",
+      "ime": "Miro",
+      "prezime": "Totgergeli",
+      "puno_ime": "Miro Totgergeli",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "24",
+      "profile": "http://www.sabor.hr/hr/zastupnici/totgergeli-miro-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Totgergeli%2C%20Miro.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MIRO",
+        "TOTGERGELI"
+      ]
+    },
+    {
+      "id": "145321",
+      "ime": "Zvonimir",
+      "prezime": "Troskot",
+      "puno_ime": "Zvonimir Troskot",
+      "klub": "Klub zastupnika Mosta i nezavisnog zastupnika Josipa Jurčevića",
+      "stranka": "Most",
+      "manjine": false,
+      "seat": "129",
+      "profile": "http://www.sabor.hr/hr/zastupnici/troskot-zvonimir-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Troskot%2C%20Zvonimir.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "TROSKOT",
+        "ZVONIMIR"
+      ]
+    },
+    {
+      "id": "147764",
+      "ime": "Željko",
+      "prezime": "Turk",
+      "puno_ime": "Željko Turk",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "46",
+      "profile": "http://www.sabor.hr/hr/zastupnici/turk-zeljko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Turk_Zeljko.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "TURK",
+        "ZELJKO"
+      ]
+    },
+    {
+      "id": "145327",
+      "ime": "Martina",
+      "prezime": "Vlašić Iljkić",
+      "puno_ime": "Martina Vlašić Iljkić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "78",
+      "profile": "http://www.sabor.hr/hr/zastupnici/vlasic-iljkic-martina-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Vlasic_Iljkic_Martina_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "ILJKIC",
+        "MARTINA",
+        "VLASIC"
+      ]
+    },
+    {
+      "id": "145448",
+      "ime": "Jasna",
+      "prezime": "Vojnić",
+      "puno_ime": "Jasna Vojnić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "87",
+      "profile": "http://www.sabor.hr/hr/zastupnici/vojnic-jasna-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Vojni%C4%87%2C%20Jasna.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "JASNA",
+        "VOJNIC"
+      ]
+    },
+    {
+      "id": "145329",
+      "ime": "Vesna",
+      "prezime": "Vučemilović",
+      "puno_ime": "Vesna Vučemilović",
+      "klub": "Klub zastupnika Nezavisni i HSU",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "125",
+      "profile": "http://www.sabor.hr/hr/zastupnici/vucemilovic-vesna-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Vu%C4%8Demilovi%C4%87%2C%20Vesna.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "VESNA",
+        "VUCEMILOVIC"
+      ]
+    },
+    {
+      "id": "145412",
+      "ime": "Mate",
+      "prezime": "Vukušić",
+      "puno_ime": "Mate Vukušić",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "117",
+      "profile": "http://www.sabor.hr/hr/zastupnici/vukusic-mate-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Vuku%C5%A1i%C4%87%2C%20Mate.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MATE",
+        "VUKUSIC"
+      ]
+    },
+    {
+      "id": "159813",
+      "ime": "Darko",
+      "prezime": "Vuletić",
+      "puno_ime": "Darko Vuletić",
+      "klub": "Zastupnici izvan klubova političkih stranaka",
+      "stranka": "HSS",
+      "manjine": false,
+      "seat": "147",
+      "profile": "http://www.sabor.hr/hr/zastupnici/vuletic-darko-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2026-04-01/120202/Vuletic_Darko_web.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARKO",
+        "VULETIC"
+      ]
+    },
+    {
+      "id": "154782",
+      "ime": "Tomislav",
+      "prezime": "Zadro",
+      "puno_ime": "Tomislav Zadro",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "NZ",
+      "manjine": false,
+      "seat": "44",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zadro-tomislav-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-06-06/123803/Zadro_Tomislav_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "TOMISLAV",
+        "ZADRO"
+      ]
+    },
+    {
+      "id": "145331",
+      "ime": "Hrvoje",
+      "prezime": "Zekanović",
+      "puno_ime": "Hrvoje Zekanović",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDS",
+      "manjine": false,
+      "seat": "47",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zekanovic-hrvoje-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Zekanovi%C4%87%2C%20Hrvoje.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "HRVOJE",
+        "ZEKANOVIC"
+      ]
+    },
+    {
+      "id": "154721",
+      "ime": "Ivo",
+      "prezime": "Zelić",
+      "puno_ime": "Ivo Zelić",
+      "klub": "Klub zastupnika Hrvatske demokratske zajednice",
+      "stranka": "HDZ",
+      "manjine": false,
+      "seat": "63",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zelic-ivo-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2025-05-23/120802/Zelic_Ivo_11.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "IVO",
+        "ZELIC"
+      ]
+    },
+    {
+      "id": "145333",
+      "ime": "Mihael",
+      "prezime": "Zmajlović",
+      "puno_ime": "Mihael Zmajlović",
+      "klub": "Klub zastupnika Socijaldemokratske partije Hrvatske",
+      "stranka": "SDP",
+      "manjine": false,
+      "seat": "54",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zmajlovic-mihael-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Zmajlovi%C4%87%2C%20Mihael.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MIHAEL",
+        "ZMAJLOVIC"
+      ]
+    },
+    {
+      "id": "145335",
+      "ime": "Dario",
+      "prezime": "Zurovec",
+      "puno_ime": "Dario Zurovec",
+      "klub": "Klub nezavisnih zastupnika",
+      "stranka": "Dario Zurovec - NL",
+      "manjine": false,
+      "seat": "159",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zurovec-dario-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Zurovec%2C%20Dario.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "DARIO",
+        "ZUROVEC"
+      ]
+    },
+    {
+      "id": "147799",
+      "ime": "Marin",
+      "prezime": "Živković",
+      "puno_ime": "Marin Živković",
+      "klub": "Klub zastupnika Možemo!",
+      "stranka": "Možemo!",
+      "manjine": false,
+      "seat": "111",
+      "profile": "http://www.sabor.hr/hr/zastupnici/zivkovic-marin-11-saziv",
+      "img": "http://www.sabor.hr/sites/default/files/uploads/sabor/2024-07-19/182044/Zivkovic_Marin.jpeg",
+      "spol": null,
+      "duznost": null,
+      "tokens": [
+        "MARIN",
+        "ZIVKOVIC"
+      ]
+    }
+  ]
+}

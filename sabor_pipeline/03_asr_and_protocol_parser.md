@@ -1,5 +1,31 @@
 # Prompt 03: NVIDIA Canary ASR Alignment & Parliamentary Protocol Parser
 
+> ## ⚠️ ISPRAVLJENO NAKON PROVEDBE (2026-08-25)
+>
+> Ovu je specifikaciju napisao Antigravity (commit `9627a13`) i **nije bila
+> pregledana**. Provedba je pokazala **pet mjesta na kojima ne radi**. Tekst
+> ispod ostaje kao izvorna zamisao; ono što je doista izvedeno opisuje
+> `docs/sabor_faza03_protokol_i_registar_2026-08.md`.
+>
+> | # | Što specifikacija kaže | Što je izmjereno |
+> |---|---|---|
+> | 1 | §3 gradi sve regexe oko fraze **„riječ ima"** | **0 pogodaka** u 20 h transkripta. Stvarna fraza je „Kolega ⟨Prezime⟩, **izvolite**" (234 pogotka). Isto „sljedeći je na redu" → 0. |
+> | 2 | §3 koristi `/iu` uz razred `[A-ZČĆŽŠĐ]` | Zastavica `i` poništava razred — „velikim slovom" ne znači ništa, regex prima proizvoljne riječi. Uz to Canary u dugim odsječcima **gubi velika slova i interpunkciju**, pa je oslanjanje na njih pogrešna osnova. Registar je filtar, ne pravopis. |
+> | 3 | §3 traži **dvije** riječi velikim slovom | Predsjedavajući gotovo uvijek kaže **samo prezime**. Regex bi propustio dominantni obrazac. |
+> | 4 | §4 t.1 govori o **jednom** „Predsjedatelju" | Sjednicom naizmjence predsjedaju predsjednik i potpredsjednici — na ovoj sjednici **troje** (već utvrđeno u §8.10 memorijskog dokumenta). |
+> | 5 | §4 t.2 daje **„trajno mapiranje"** iz PRVE najave | Provjereno na podacima: jedna kriva najava („Kolega Štromar, molim i vas isto tako…" usred ukora) zalijepila je krivo ime na **87 minuta** govora. Najava je **glas**, ne dekret. |
+>
+> Uz to: §1 traži transkripte u `transcripts/part_NN.canary.srt`, a na disku su
+> `audio/part_NN_16k.wav.canary.srt` (konvencija `{wav}.canary.srt` iz cijelog
+> repoa). §2 nabraja pojmove za rječnik od kojih dio (`HZJZ`, `Bilajska`,
+> `perfluorirane tvari`) u ovom transkriptu **ne postoji** — dodana su samo
+> pravila s izmjerenim brojem pojava.
+>
+> Ono što specifikacija pogađa i što je zadržano: dvofazna podjela na
+> post-ASR rječnik + protokolarni parser, sidrenje „najava → sljedeći govornik",
+> oslanjanje na službeni registar sa `sabor.hr`, i oblik izlaznog artefakta.
+
+
 ## 📌 Uloga za Claude Code (Opus 5)
 Implementiraj modul `sabor_pipeline/03_transcribe_and_align.js` (uz prateći protocol parser) koji:
 1. Povezuje i poravnava NVIDIA Canary 1B v2 transkript (`.canary.srt`) s vremenskim segmentima iz `diarization.json`.

@@ -25,7 +25,7 @@ Međutim, **saborske sjednice** imaju specifičnosti koje podcast pipeline ne po
 | **01** | ✅ Implementirano | [`01_ingest_and_stitch.md`](./01_ingest_and_stitch.md) | `01_ingest.js` preuzima 4 dijela, konvertira u 16kHz mono WAV, lossless spaja u `full_session_16k.wav` i generira `session_manifest.json` + `time_mapper.js`. |
 | **02a** | ✅ Implementirano | [`02_global_diarization.md`](./02_global_diarization.md) (⚠️ ispravljeno) | `02_diarize.py` — diarizacija po komadima od ~2 h s preklapanjem od 90 s, rezovi u tišini. Lokalne oznake + centroidi po komadu. |
 | **02b** | ✅ Implementirano | isto | `02b_merge_speakers.py` — globalno spajanje centroida (average/cosine + **cannot-link**) → `diarization.json` s globalnim `SPEAKER_001…`. |
-| **03** | ⏳ Na čekanju | [`03_asr_and_protocol_parser.md`](./03_asr_and_protocol_parser.md) | Canary 1B v2 ASR poravnanje + Post-ASR rječnička korekcija + Parliamentary Protocol Parser nad službenim registrom zastupnika 11. saziva. |
+| **03** | ✅ Implementirano | [`03_asr_and_protocol_parser.md`](./03_asr_and_protocol_parser.md) (⚠️ ispravljeno) | `03_transcribe_and_align.js` — poravnanje Canary SRT-a s globalnom diarizacijom, post-ASR rječnik, protokolarno sidrenje nad **scrapeanim** registrom sa `sabor.hr` → `aligned_transcript.json` + `speaker_map.json`. |
 | **04** | ⏳ Na čekanju | [`04_llm_structuring_and_export.md`](./04_llm_structuring_and_export.md) | Vertex AI `gemini-3.5-flash` / Claude Opus semantičko strukturiranje, debatna stabla, RAG chunking (`MAX_TOPIC_CHUNK_CHARS = 8000`) i export. |
 
 ---
@@ -40,6 +40,35 @@ Docker VM drži 14 GiB). **Ne pokušavati ponovno.**
 
 Mjerenja, izvori iz literature i ispravan postupak:
 `docs/pipeline_memorija_i_propusnost_2026-08.md` §5–§6 (§6.8 je postupak).
+
+### Kako se pokreće — faza 03
+
+```bash
+# 0) registar zastupnika — SCRAPEA se sa sabor.hr, nikad iz modela
+node sabor_pipeline/tools/fetch_sabor_roster.js
+node sabor_pipeline/tools/fetch_sabor_roster.js --dry-run   # samo ispiši
+
+# 1) poravnanje + imenovanje govornika
+node sabor_pipeline/03_transcribe_and_align.js --session sabor_11_izvanredna_11_gospic --dry-run
+node sabor_pipeline/03_transcribe_and_align.js --session sabor_11_izvanredna_11_gospic
+
+# 2) neovisna provjera broja govornika ODOZDO (protokol vs klasteriranje)
+node sabor_pipeline/tools/verify_speaker_count.js --session sabor_11_izvanredna_11_gospic
+
+# testovi (ulazi su doslovni citati iz stvarnog transkripta)
+node --test sabor_pipeline/tools/test_protocol_parser.js
+```
+
+**⛔ Registar se NIKAD ne generira iz modela.** Izvor je javni JSON API
+službenog rasporeda (`sabor.hr/api/interaktivna-sabornica-new`). Izmišljena
+imena i stranke tiho bi zalijepila krivi identitet na govornika kroz cijelu
+sjednicu, a fuzzy matching to ne bi ni prijavio.
+
+**Registar ne sadrži članove Vlade** — ministrica je na pilot-sjednici najveći
+pojedinačni govornik (87 min). Takve oznake dobivaju `role_hint: "clan_vlade"`
+umjesto imena; matcher za njih vraća `null` umjesto „najbližeg" zastupnika.
+
+Mjerenja, ograde i otvorene rupe: `docs/sabor_faza03_protokol_i_registar_2026-08.md`.
 
 ### Kako se pokreće
 
@@ -74,6 +103,13 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 | `tools/calibrate_threshold.py` | mjerenje praga po §6.7 → `merge_threshold.json` |
 | `tools/validate_chair.py` | validacija protokolom — rotacija predsjedavajućih + kontinuitet preko videa |
 | `tools/test_merge_speakers.py` | test ograničenog AHC-a i post-obrade |
+| `03_transcribe_and_align.js` | faza 03 — poravnanje ASR ↔ diarizacija, sidrenje, `aligned_transcript.json` |
+| `tools/fetch_sabor_roster.js` | scrape službenog registra zastupnika sa `sabor.hr` |
+| `utils/protocol_parser.js` | najave predsjedavajućeg — rečenica PREDAJE riječi, ne posljednje ime u bloku |
+| `utils/roster_match.js` | ime iz najave → zastupnik (Jaro-Winkler + Levenshtein, rod titule kao razbijač) |
+| `utils/asr_dictionary.js` | post-ASR rječnik — samo pravila s izmjerenim brojem pojava |
+| `tools/verify_speaker_count.js` | donja granica broja govornika iz protokola (neovisna o klasteriranju) |
+| `tools/test_protocol_parser.js` | testovi faze 03 nad doslovnim citatima iz transkripta |
 
 ---
 
