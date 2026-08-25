@@ -426,6 +426,16 @@ def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None,
                            min_interval_s=progress_interval or PROGRESS_INTERVAL_S)
 
     if audio_input_mode == "path":
+        # ⚠️ POVUCENI put — ista ograda kao u diarize.py. Na 20 h snimci put preko
+        # putanje znaci 8-15 h SAMO dekodiranja (torchcodec < 0.14 premotava na
+        # pocetak datoteke pri svakom cropu), a memoriju ne stedi jer `Inference`
+        # svejedno zove `get_all_samples()`. Vidi §5.1-5.3.
+        _dur = wav_duration_s(wav_file) or 0.0
+        if _dur > PATH_MODE_MAX_DURATION_S and not os.environ.get("DIARIZE_ALLOW_SLOW_PATH"):
+            raise RuntimeError(
+                f"--audio-input path odbijen: snimka je {_dur/3600:.2f} h, granica "
+                f"{PATH_MODE_MAX_DURATION_S/3600:.0f} h. Taj put je POVUCEN — koristi "
+                f"default (waveform). Za ponavljanje mjerenja: DIARIZE_ALLOW_SLOW_PATH=1")
         with hook:
             result = pipeline(wav_file, hook=hook, **diarize_params)
         data = waveform = audio_input = None
@@ -511,6 +521,9 @@ def write_diarized_srt(segments, output_path):
 _worker_pipeline = None
 _worker_min_speakers = None
 _worker_max_speakers = None
+# Iznad ove duljine se povuceni `--audio-input path` odbija.
+PATH_MODE_MAX_DURATION_S = 7200.0   # 2 h
+
 _worker_audio_input_mode = "waveform"
 _worker_rclone_dest = None
 _worker_drive_mount = None

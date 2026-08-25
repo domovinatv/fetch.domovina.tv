@@ -1,5 +1,23 @@
 # Prompt 02: Global Long-Audio Diarization & Cross-Stream Speaker Clustering
 
+> ## ⚠️ ISPRAVLJENO 2026-08-25 — pročitaj prije nego što slijediš ovaj dokument
+>
+> Ovo je **izvorna specifikacija**. Zadržana je kao zapis, ali je mjerenjima
+> ispravljena u **četiri** točke. Mjerodavan je
+> `docs/pipeline_memorija_i_propusnost_2026-08.md` §6.8, a implementacija je
+> `02_diarize.py` + `02b_merge_speakers.py`.
+>
+> | Ovdje piše | Stvarno vrijedi | Zašto |
+> |---|---|---|
+> | diariziraj **po dijelu** (5,7–6,2 h) | reži na **~2 h komade**, preklapanje 60–120 s, rezovi u tišini | 6 h ≈ 24 000 embeddinga → `pdist` 2,3 GB + `reconstruct` 8,6 GB × 2 poziva. Tijesno. Na 2 h je `pdist` 250 MB. (§6.8 t.1) |
+> | korak 2: **drugi prolaz** s `pyannote/embedding` | **ne treba** — `DiarizeOutput.speaker_embeddings` već vraća centroide poravnate s `labels()` | Isti WeSpeaker model kojim je pyannote i klasterirao, pa se skale pragova poklapaju. (§6.4) |
+> | prag **0,68** | prag se **MJERI** (`tools/calibrate_threshold.py`), očekivano 0,3–0,5 | Objavljeni pragovi vrijede za pojedinačne 10-sekundne embeddinge; centroidi su sredine preko minuta i znatno čišći. (§6.6–§6.7) |
+> | `sklearn.AgglomerativeClustering` bez ograničenja | average/cosine **uz cannot-link** | Dva centroida iz istog komada su po konstrukciji različite osobe; bez toga ih AHC zna slijepiti. (§6.8 t.4) |
+>
+> Također: „monolitna diarizacija" iz odjeljka niže nije samo rizična nego
+> **fizički ne prolazi** na ovom stroju — pokušaj je prekinut nakon 146 min, a
+> analiza pokazuje dva neovisna zida (§6.1). Ne pokušavati ponovno.
+
 ## 📌 Uloga za Claude Code (Opus 5)
 Implementiraj skriptu `sabor_pipeline/02_diarize.py` (i/ili `.mjs` wrapper) koja provodi diarizaciju višesatne saborske sjednice (za pilot sjednicu: **72.074 sekundi = 20 h 01 min 14 s**, izvor: `session_manifest.json` izmjeren u Fazi 01).
 

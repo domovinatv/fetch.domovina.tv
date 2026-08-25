@@ -31,6 +31,10 @@ import os
 import time
 from datetime import timedelta
 
+# Iznad ove duljine se povuceni `--audio-input path` odbija (vidi ogradu nize).
+PATH_MODE_MAX_DURATION_S = 7200.0   # 2 h
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Hibridna diarizacija: pyannote + whisper.cpp SRT")
     parser.add_argument("--wav", required=True, help="Putanja do WAV audio datoteke")
@@ -221,6 +225,23 @@ def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_sp
         # Zastavica je zadrzana samo da mjerenje bude ponovljivo. NE koristiti u radu.
         # Detalji: docs/pipeline_memorija_i_propusnost_2026-08.md 5.1-5.3.
         print(f"   ⚠️  audio ulaz PATH je POVUCEN put — sporiji, bez ustede memorije.")
+        # ⚠️ POVUCENI put — ograda protiv tihog gubitka sati.
+        # Sama zastavica ostaje da mjerenje iz §5.1 bude ponovljivo, ali na dugoj
+        # snimci put preko putanje nije "malo sporiji" nego neupotrebljiv:
+        # mjereno na 20 h WAV-u, crop na 0 h = 4.3 ms, na 15 h = 3508 ms →
+        # 8-15 h SAMO dekodiranja (torchcodec < 0.14 premotava na pocetak
+        # datoteke pri svakom od ~72 000 cropova). Bez ove ograde run izgleda
+        # kao da radi i tiho pojede noc.
+        _dur = wav_duration_s(wav_path) or 0.0
+        if _dur > PATH_MODE_MAX_DURATION_S and not os.environ.get("DIARIZE_ALLOW_SLOW_PATH"):
+            sys.exit(
+                f"❌ --audio-input path odbijen: snimka je {_dur/3600:.2f} h, "
+                f"granica je {PATH_MODE_MAX_DURATION_S/3600:.0f} h.\n"
+                f"   Taj put je POVUCEN (§5.1-5.3): ne stedi memoriju, a dekodiranje\n"
+                f"   raste nadlinearno s duljinom — na 20 h je 8-15 h samo I/O-a.\n"
+                f"   Koristi default (waveform). Za ponavljanje mjerenja: "
+                f"DIARIZE_ALLOW_SLOW_PATH=1"
+            )
         with hook:
             result = pipeline(wav_path, hook=hook, **diarize_params)
     else:

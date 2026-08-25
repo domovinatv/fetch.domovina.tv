@@ -220,12 +220,57 @@ Cloudflare po defaultu cachira po **ekstenziji**, iz fiksne liste. `.json` na
 njoj nije, i `Cache-Control` s originea to sam od sebe ne mijenja. Posljedica:
 svako otvaranje appa udara u R2 za svaki JSON.
 
-Fix je Cache Rule — vidi `setup_cdn_cache_rule.sh`. Traži token s
-`Zone → Cache Rules → Edit`; postojeći `..._PURGE_CACHE` je purge-only i ne
-vrijedi (provjereno: `/zones/{id}/rulesets` → 10000 Authentication error).
+**Riješeno isti dan** — `setup_cdn_cache_rule.sh` kreira dva Cache Rulea:
+
+| Putanja | Edge TTL | Razlog |
+|---|---|---|
+| `/data/**.{json,md,srt}` | **1 dan** (override) | Ograničen namjerno, vidi niže |
+| `/channels/**.json` | respect origin (60 s) | Uploader već postavlja ispravno |
+
+Nakon primjene, izmjereno na 50 zahtjeva (10 „korisnika" × 5 fajlova iste
+epizode): **49 HIT s edgea, 1 MISS do R2**. Prije toga svih 50 išlo bi na R2.
+
+### Zašto 1 dan, a ne `respect_origin`
+
+`/data/*` nosi `immutable` (1 godina). Da edge to poštuje doslovno, a artefakt
+se ipak regenerira, edge bi servirao stari sadržaj **godinu dana**. Purge to ne
+bi spasio: `purgeCloudflareCache()` u `upload_to_r2.js` zove se **samo za
+`.mp4`** (`purgeCloudflareCache(mp4Urls)`), JSON nikad. Upravo je ta kombinacija
+i bila razlog zašto je JSON prvotno držan izvan cachea.
+
+Ograničen TTL znači da se zastarjelost sama izliječi u 24 h, bez ijednog purge
+poziva. Kad se pokaže da se ništa ne mijenja, TTL se može dići na 7 dana.
+
+### Što NIJE riješeno: browser TTL
+
+Pravilo sadrži `browser_ttl: override_origin 3600` i Cloudflare ga prihvaća, ali
+**ne prepisuje `Cache-Control` u odgovoru** — provjereno na tri svježa MISS-a,
+i dalje stiže origin `max-age=31536000, immutable`. Vjerojatno ograničenje plana.
+
+Posljedica: klijent može držati `/data/` artefakt godinu dana.
+- **Flutter app nije pogođen** — `package:http` nema HTTP cache, svaki start
+  ponovno dohvaća.
+- **Web build jest.** Ako to postane problem, jedini pouzdan zahvat je
+  promijeniti `CACHE_CONTROL_IMMUTABLE` za `data/` ključeve u `upload_to_r2.js`
+  i re-uploadati da se metapodaci osvježe.
+
+### Zone ID je hardkodiran u skripti
+
+Token skopiran samo na `Zone → Cache Rules → Edit` **nema `Zone:Read`**:
+`/zones?name=…` vrati `success:true` s praznom listom, `/zones/{id}` vrati
+`9109 Unauthorized`, a `/zones/{id}/rulesets` uredno radi. Lookup po imenu bi
+zato tražio širi token nego što posao zahtijeva.
 
 ## Preostalo
 
+- **Purge ne pokriva JSON** — `purgeCloudflareCache()` se zove samo za `.mp4`.
+  Dok je edge TTL 1 dan to nije hitno, ali je preduvjet za dizanje TTL-a na
+  7 dana. Uz to: `isContentMutable()` vraća `false` za `data/*.json`, pa
+  regenerirani artefakt pod istim Flutter ključem uopće **ne bi bio re-uploadan**
+  (preskoči se kao „existing immutable") — vrijedi provjeriti je li to namjerno.
+- **`index_bundle.json` je 5,14 MB**, `max-age=60`, i ne referencira se nigdje u
+  `domovina.ai/lib` ni `web/`. Provjeriti tko ga zove pa ili cachirati ili ugasiti.
+- **`info.json` (85 KB) se dohvaća dvaput** po epizodi — dva call-sitea.
 - **Screenshotovi** (`images/{id}/screenshots/*.png`) imaju isti problem i ima ih
   više po epizodi nego thumbnailova. Isti postupak bi se primijenio, ali je
   volumen bitno veći pa nije rađen u ovom prolazu.

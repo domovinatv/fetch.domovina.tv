@@ -23,9 +23,53 @@ Međutim, **saborske sjednice** imaju specifičnosti koje podcast pipeline ne po
 | Faza | Status | Datoteka prompta | Opis zadatka |
 | :--- | :--- | :--- | :--- |
 | **01** | ✅ Implementirano | [`01_ingest_and_stitch.md`](./01_ingest_and_stitch.md) | `01_ingest.js` preuzima 4 dijela, konvertira u 16kHz mono WAV, lossless spaja u `full_session_16k.wav` i generira `session_manifest.json` + `time_mapper.js`. |
-| **02** | ⏳ Sljedeći korak | [`02_global_diarization.md`](./02_global_diarization.md) | Lokalna diarizacija 20h audija na Mac Mini M4 Pro (part-level PyAnnote + global centroid clustering) bez OOM rušenja. |
+| **02a** | ✅ Implementirano | [`02_global_diarization.md`](./02_global_diarization.md) (⚠️ ispravljeno) | `02_diarize.py` — diarizacija po komadima od ~2 h s preklapanjem od 90 s, rezovi u tišini. Lokalne oznake + centroidi po komadu. |
+| **02b** | ✅ Implementirano | isto | `02b_merge_speakers.py` — globalno spajanje centroida (average/cosine + **cannot-link**) → `diarization.json` s globalnim `SPEAKER_001…`. |
 | **03** | ⏳ Na čekanju | [`03_asr_and_protocol_parser.md`](./03_asr_and_protocol_parser.md) | Canary 1B v2 ASR poravnanje + Post-ASR rječnička korekcija + Parliamentary Protocol Parser nad službenim registrom zastupnika 11. saziva. |
 | **04** | ⏳ Na čekanju | [`04_llm_structuring_and_export.md`](./04_llm_structuring_and_export.md) | Vertex AI `gemini-3.5-flash` / Claude Opus semantičko strukturiranje, debatna stabla, RAG chunking (`MAX_TOPIC_CHUNK_CHARS = 8000`) i export. |
+
+---
+
+## ⚠️ Faza 02 — jedan prolaz nad 20 h je ODBAČEN
+
+Prva implementacija je pokušala **jedan** prolaz PyAnnotea nad spojenim
+`full_session_16k.wav`. Prekinut nakon 146 min; naknadna analiza pokazuje da ne
+prolazi ni teoretski, i to na dva neovisna mjesta (AHC `scipy.linkage` ≈ 25 GB,
+`reconstruct()` 28–41 GB tranzijentno × 2 poziva, na stroju s 24 GB od kojih
+Docker VM drži 14 GiB). **Ne pokušavati ponovno.**
+
+Mjerenja, izvori iz literature i ispravan postupak:
+`docs/pipeline_memorija_i_propusnost_2026-08.md` §5–§6 (§6.8 je postupak).
+
+### Kako se pokreće
+
+```bash
+# 1) diariziraj po komadima (idempotentno — nastavlja gdje je stalo)
+python3 sabor_pipeline/02_diarize.py --session sabor_11_izvanredna_11_gospic --dry-run
+python3 sabor_pipeline/02_diarize.py --session sabor_11_izvanredna_11_gospic
+
+# 2) IZMJERI prag (ne prepisuj 0.68 iz specifikacije!)
+python3 sabor_pipeline/tools/calibrate_threshold.py --session sabor_11_izvanredna_11_gospic
+
+# 3) spoji identitete govornika kroz komade
+python3 sabor_pipeline/02b_merge_speakers.py --session sabor_11_izvanredna_11_gospic --sweep-only
+python3 sabor_pipeline/02b_merge_speakers.py --session sabor_11_izvanredna_11_gospic
+
+# provjera ograničenog AHC-a (mora biti identičan scipy-ju bez ograničenja)
+python3 sabor_pipeline/tools/test_merge_speakers.py
+```
+
+### Datoteke
+
+| Datoteka | Uloga |
+|---|---|
+| `02_diarize.py` | faza 02a — plan rezanja + diarizacija po komadu, u nadziranom djetetu |
+| `02b_merge_speakers.py` | faza 02b — globalno spajanje centroida, `diarization.json` |
+| `utils/audio_chunker.py` | plan komada, rezovi u tišini (RMS VAD), čitanje isječka kao `float32` |
+| `utils/diar_runner.py` | pokretanje PyAnnotea nad isječkom (waveform, MPS cap) |
+| `utils/machine_guard.py` | mjerenje pritiska (`phys_footprint`, swap-rast, disk) + nadzornik |
+| `tools/calibrate_threshold.py` | mjerenje praga po §6.7 → `merge_threshold.json` |
+| `tools/test_merge_speakers.py` | test ograničenog AHC-a i post-obrade |
 
 ---
 

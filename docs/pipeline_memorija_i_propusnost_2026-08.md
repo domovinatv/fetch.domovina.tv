@@ -624,6 +624,168 @@ popravak jedne ne spašava drugu. Donja grana zaobilazi oba zida.
 
 ---
 
+## 8. Provedba §6.8 — implementacija i mjerenja (2026-08-25, kasnije isti dan)
+
+Postupak iz §6.8 je implementiran i pokrenut. Ovo poglavlje biljezi sto je
+implementacija promijenila u odnosu na §5.8 i koje su brojke izmjerene, jer su
+**dvije preporuke iz §5.8 pale na prvom kontaktu sa strojem**.
+
+Kod: `sabor_pipeline/02_diarize.py` (faza 02a), `02b_merge_speakers.py` (02b),
+`utils/{machine_guard,audio_chunker,diar_runner}.py`,
+`tools/{calibrate_threshold,test_merge_speakers}.py`.
+
+### 8.1 ⚠️ Ispravak §5.8, provjera 1 — swap-OMJER je neupotrebljiv, mjeri RAST
+
+§5.8 stavlja `swap_used / swap_total > 0.75` kao najraniju provjeru. Na ovom
+stroju je taj uvjet **ispunjen u mirovanju**:
+
+| Mjera u istom trenutku | Vrijednost |
+|---|---|
+| `vm.swapusage` | 9575 M / 11264 M → **omjer 0.85** |
+| `kern.memorystatus_vm_pressure_level` | **1 (NORMAL)** |
+| `memory_pressure` | **68 % slobodno** |
+
+Uzrok je poznat i nije nas posao: Docker Desktopov VM drzi fiksno rezerviranih
+14 GiB (`MemoryMiB = 14336`). macOS `swap total` raste po potrebi, pa je omjer
+visok kad god swap uopce postoji a nije se bas prosirio. Prag na omjeru bi
+prekinuo svaki posao odmah, na potpuno zdravom stroju.
+
+**Zamjena**: `swap_used − swap_used_na_pocetku_posla > 3.0 GB`. To je jedina
+velicina koja govori o NASEM poslu, a zadrzava svojstvo zbog kojeg je swap
+izabran za prvu provjeru — pojavi se prije nego stroj pocne stucati.
+Izmjereno na 2 h komadu: vrsak rasta **+1.5 GB**, zatim pad na +1.3 GB. Prag od
+3 GB je dobro postavljen — ostavlja dvostruku rezervu, a jos uvijek hvata pravi
+odbjeg.
+
+### 8.2 ⚠️ Ispravak §5.8, provjera 4 — WARN sam je LAZNI POZITIV
+
+Nadzornik je s pragom „`pressure >= 2` → ABORT" **ubio zdrav posao** na prvom
+probnom komadu. Stanje u trenutku prekida:
+
+| Mjera | Vrijednost |
+|---|---|
+| `phys_footprint` djeteta | **4.96 GB** (prag 14) |
+| slobodno na `/` | **13.5 GB** (prag 7) |
+| rast swapa | **−0.1 GB** (swap se SMANJIO) |
+| `memory_pressure` | 63 % slobodno |
+| `kern.memorystatus_vm_pressure_level` | 2 |
+
+Ponovljeno mjerenje pokazuje da razina **stoji na 2 kroz cijelu fazu
+`embeddings`**, dok je footprint ravnih 4.9 GB. Razina 2 (WARN) je macOS-ov
+*nagovjestaj* aplikacijama da otpuste cacheve, a ne najava rusenja — na stroju
+gdje Docker VM drzi 14 GiB, podigne ga svaki iole veci posao.
+
+Signal ipak nije smece: **u mirovanju je razina konstantno 1** (40 uzoraka
+kroz minutu). Problem je osjetljivost, ne valjanost.
+
+**Zamjena**: WARN je KVALIFIKATOR, ne okidac.
+
+```
+pressure >= 4 (CRITICAL)                    → ABORT odmah
+pressure == 2 odrzan N uzoraka  I  swap raste → ABORT
+pressure == 2 sam                            → samo se biljezi
+```
+
+### 8.3 Sto je mjerenje potvrdilo bez izmjene
+
+- **`phys_footprint` je ispravna zamjena za RSS** (§5.7), treca neovisna
+  potvrda: 2 GiB tenzor na MPS-u → RSS **+207 MB**, footprint **+2198 MB**.
+  `proc_pid_rusage(pid, RUSAGE_INFO_V4)`, pomak `ri_phys_footprint` = 72 B,
+  radi cross-process bez sudo.
+- **`df` je ispravan** (§5.7): disk se kroz cijeli run nije spustio ispod
+  13.1 GB. Prag se zadrzava.
+- **Waveform je red velicine ispravan izbor** (§5.2, §5.3): ucitavanje 2 h
+  isjecka kao `float32` = **425 MB u 0.3 s**. Isti taj isjecak preko putanje
+  placa torchcodec seek po svakom cropu.
+
+### 8.4 Trosak komada od 2 h — mjereno
+
+| Velicina | part_04 (1 h 56 m, cijeli dio kao jedan komad) |
+|---|---|
+| trajanje | **5.3 min** (≈ 22× realtime) |
+| vrsni `phys_footprint` | **5.0 GB** |
+| vrsni rast swapa | +1.5 GB |
+| najmanje slobodno na `/` | 13.5 GB (start 14.5) |
+| lokalnih govornika | 28 |
+| centroida | (28, 256) float32, nijedan nula-redak |
+
+Vrhovi su ~3× ispod pragova. Ekstrapolirano na 10 komada: **~55 min** za cijelu
+sjednicu od 20 h, umjesto jednog prolaza koji ne prolazi ni teoretski.
+
+Zbog toga je disk-prag u `02_diarize.py` **7 GB, a ne 12 GB** kao u nightly
+guardu: ondje stiti od NEOGRANICENOG jednoprolaznog runa, a ovdje je vrsak
+omeden konstrukcijom (2 h komad + MPS cap na 0.55). Uz 12 GB skripta na ovom
+stroju ne bi ni krenula (13.5 GB slobodno).
+
+### 8.5 Rez u tisini — svih 6 unutarnjih rezova je pogodilo tisinu
+
+Energetski RMS VAD (okvir 20 ms, adaptivan prag = p20 + 8 dB, najvise −30 dBFS),
+pretraga ±180 s oko nominale:
+
+| dio | rez | duljina tisine | pomak od nominale |
+|---|---|---|---|
+| 1 | 1.940 h | 6.5 s | +90 s |
+| 1 | 3.841 h | 1.1 s | +39 s |
+| 2 | 2.049 h | **15.3 s** | +0 s |
+| 2 | 4.094 h | 2.6 s | −11 s |
+| 3 | 2.066 h | 1.7 s | +7 s |
+| 3 | 4.097 h | 3.4 s | −117 s |
+
+Plan je 10 komada (3+3+3+1), svaki 1.91–2.11 h. Planiranje traje 0.1 s po dijelu.
+
+**Komadi se ne pisu na disk** — isjecak se cita izravno
+(`sf.read(start=, stop=, dtype="float32")`) i predaje kao waveform. Nula
+dodatnih bajtova na disku koji je usko grlo.
+
+### 8.6 🎯 Prag JE izmjeren: **0.263**, i praznina je golema
+
+Postupak iz §6.7 (referenca `p04_c00` + dvije **disjunktne** polovice; disjunktne
+namjerno, jer bi preklapanje dalo lazno male SAME udaljenosti):
+
+| Populacija | n | min | median | max |
+|---|---|---|---|---|
+| **SAME** (ista osoba, razlicit zvuk) | 5 | 0.034 | 0.055 | **0.077** |
+| **DIFFERENT** | 219 | **0.449** | 0.782 | 1.055 |
+
+**Praznina 0.373**, populacije se ne preklapaju uopce → prag = sredina =
+**0.263**. EER je 0.077 uz FNR 0 % / FPR 0 %.
+
+Neovisna kontrola iz drugog smjera, nad svim centroidima iz istog komada (po
+konstrukciji razlicite osobe): **min 0.325, p1 0.475**. Dakle 0.263 je udobno
+ispod tocke na kojoj bi se pocelo lijepiti ljude koje je pyannote unutar komada
+razdvojio. Dva neovisna mjerenja, isti zakljucak.
+
+Napomene:
+- §6.6 je predvidio 0.3–0.5; stvarna vrijednost je **jos niza**. Smjer procjene
+  je bio tocan (bitno ispod objavljenih 0.68 / 0.7046), iznos ne.
+- SAME parova ima samo **5** — u part_04 (klupska stajalista + glasanje) vecina
+  zastupnika govori jednom. Zakljucak ipak stoji jer je praznina 5.8× sira od
+  cijelog raspona SAME populacije; svaki prag u 0.10–0.44 daje istu particiju.
+- Najbolji SAME par je predsjedavajuci (249 s / 169 s govora) uz d = **0.034**.
+
+### 8.7 Ograniceni AHC je dokazano isti kao scipy
+
+`scipy.linkage` ne zna za cannot-link i to se ne moze izraziti u condensed
+matrici, pa je spajanje pisano rucno. Da izmjena ne bi tiho promijenila i sve
+ostalo, `tools/test_merge_speakers.py` provjerava:
+
+- **20 nasumicnih pokusaja bez ogranicenja daje particiju identicnu**
+  `linkage(method='average', metric='cosine')` + `fcluster(criterion='distance')`;
+- cannot-link je **tranzitivan preko klastera** (A1 se ne moze prilijepiti na
+  klaster koji vec sadrzi A0 iz istog komada, ma koliko bio blizu);
+- post-obrada (spoji < 0.7 s, odbaci < 0.3 s, ne spajaj preko granice dijela).
+
+### 8.8 Povuceni `--audio-input path` je dobio ogradu
+
+P1 je povucen (§4.1, §5.3), ali je zastavica vec bila implementirana. Default je
+provjeren i **nigdje nije putanja**. Zastavica je zadrzana (mjerenje iz §5.1
+mora ostati ponovljivo), ali sada **odbija snimke dulje od 2 h** osim uz
+`DIARIZE_ALLOW_SLOW_PATH=1`. Bez toga run izgleda kao da radi i tiho pojede noc:
+na 20 h je to 8–15 h samo dekodiranja. Ograda je u `diarize.py` i
+`colab_diarize/diarize_canary.py`.
+
+---
+
 ## Vezani dokumenti
 
 - `docs/PIPELINE_FULL.md` — cjelovit pipeline, koraci 0→13
