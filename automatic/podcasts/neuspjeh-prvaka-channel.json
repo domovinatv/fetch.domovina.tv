@@ -4,7 +4,7 @@
   "channel_id": "UCixjtLV3xaMi7Clfqm7R_UA",
   "title": "(Ne)uspjeh prvaka ",
   "availability": null,
-  "channel_follower_count": 74000,
+  "channel_follower_count": 74100,
   "description": "",
   "tags": [],
   "thumbnails": [
@@ -38,7 +38,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787274044,
+  "epoch": 1787619666,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",

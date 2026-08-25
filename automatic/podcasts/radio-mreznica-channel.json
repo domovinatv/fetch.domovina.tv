@@ -4,7 +4,7 @@
   "channel_id": "UCI6pKljX81g3vuK2SYj62rQ",
   "title": "Radio Mrežnica",
   "availability": null,
-  "channel_follower_count": 95600,
+  "channel_follower_count": 95800,
   "description": "Dobrodošli na You Tube kanal Radio Mrežnice.\n\n\n",
   "tags": [
     "podcast",
@@ -101,7 +101,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787274046,
+  "epoch": 1787619668,
   "__files_to_move": {},
   "_version": {
     "version": "2026.03.17",
