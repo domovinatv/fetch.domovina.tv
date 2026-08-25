@@ -62,6 +62,26 @@ describe("buildParts", () => {
     });
 });
 
+describe("sample-točni pomaci", () => {
+    it("dodaje kumulativne uzorke kad su poznati", () => {
+        const withSamples = buildParts([
+            { part: 1, video_id: "A", duration_sec: 20681.317, duration_samples: 330901072 },
+            { part: 2, video_id: "B", duration_sec: 22124.66937, duration_samples: 353994727 },
+        ]);
+        assert.equal(withSamples[0].offset_global_samples, 0);
+        assert.equal(withSamples[1].offset_global_samples, 330901072);
+        assert.equal(withSamples[1].end_global_samples, 684895799);
+    });
+
+    it("izostavlja polja kad ijedan dio nema broj uzoraka", () => {
+        const mixed = buildParts([
+            { part: 1, duration_sec: 10, duration_samples: 160000 },
+            { part: 2, duration_sec: 10 },
+        ]);
+        assert.equal(mixed[0].offset_global_samples, undefined);
+    });
+});
+
 describe("totalDuration", () => {
     it("vraća kraj zadnjeg dijela", () => {
         assert.equal(totalDuration(MANIFEST), 72074);

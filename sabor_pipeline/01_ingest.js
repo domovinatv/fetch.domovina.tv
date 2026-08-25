@@ -154,6 +154,42 @@ function runAsync(cmd, cmdArgs) {
     });
 }
 
+/**
+ * Broj uzoraka iz WAV `data` chunka — egzaktno, bez float zaokruživanja ffprobea.
+ *
+ * Ne pretpostavlja 44-bajtno zaglavlje: ffmpeg umeće LIST/JUNK chunkove, pa se lanac
+ * chunkova mora prošetati. Vraća null ako datoteka nije čitljiv PCM WAV.
+ */
+function wavSampleCount(file) {
+    let fd;
+    try {
+        fd = fs.openSync(file, "r");
+        const head = Buffer.alloc(12);
+        if (fs.readSync(fd, head, 0, 12, 0) < 12) return null;
+        if (head.toString("latin1", 0, 4) !== "RIFF" || head.toString("latin1", 8, 12) !== "WAVE") return null;
+
+        let pos = 12;
+        const hdr = Buffer.alloc(8);
+        const fileSize = fs.fstatSync(fd).size;
+        while (pos + 8 <= fileSize) {
+            if (fs.readSync(fd, hdr, 0, 8, pos) < 8) return null;
+            const id = hdr.toString("latin1", 0, 4);
+            const size = hdr.readUInt32LE(4);
+            if (id === "data") {
+                // Zadnji chunk zna imati deklariranu veličinu veću od stvarne (prekinut zapis).
+                const actual = Math.min(size, fileSize - (pos + 8));
+                return Math.floor(actual / 2); // 16-bit mono
+            }
+            pos += 8 + size + (size % 2);
+        }
+        return null;
+    } catch {
+        return null;
+    } finally {
+        if (fd !== undefined) fs.closeSync(fd);
+    }
+}
+
 /** Trajanje medijske datoteke u sekundama (ffprobe), ili null. */
 function probeDuration(file) {
     if (!fs.existsSync(file)) return null;
@@ -259,7 +295,7 @@ async function convertPart(part, srcFile, audioDir) {
         const dur = probeDuration(wavFile);
         if (dur !== null && Math.abs(dur - srcDur) <= DURATION_TOLERANCE_SEC) {
             console.log(`   ⏭️  ${stem}_16k.wav: već konvertiran (${secondsToHms(dur)})`);
-            return { wavFile, duration_sec: dur };
+            return { wavFile, ...exactDuration(wavFile, dur) };
         }
         console.warn(`   ⚠️  ${stem}_16k.wav: krnji — konvertiram ponovno`);
         fs.unlinkSync(wavFile);
@@ -280,7 +316,17 @@ async function convertPart(part, srcFile, audioDir) {
         fs.unlinkSync(wavFile);
         throw new Error(`${stem}_16k.wav kraći od izvora (${dur === null ? "nečitljiv" : Math.round(dur) + "s"} vs ${Math.round(srcDur)}s) — obrisan`);
     }
-    return { wavFile, duration_sec: dur };
+    return { wavFile, ...exactDuration(wavFile, dur) };
+}
+
+/**
+ * Egzaktno trajanje WAV-a iz broja uzoraka; fallback na ffprobe float ako header ne valja.
+ * Broj uzoraka je ono čime faza 02 reže spojeni audio, pa mora biti cjelobrojan.
+ */
+function exactDuration(wavFile, probedSec) {
+    const samples = wavSampleCount(wavFile);
+    if (samples === null) return { duration_sec: probedSec, duration_samples: null };
+    return { duration_sec: samples / 16000, duration_samples: samples };
 }
 
 /**
@@ -401,7 +447,7 @@ async function main() {
 
         console.log(`▶️  Dio ${part.part}/${probed.length} — ${part.label || part.title || ""}`);
         const rawFile = await downloadPart(part, rawDir);
-        const { wavFile, duration_sec } = await convertPart(part, rawFile, audioDir);
+        const { wavFile, duration_sec, duration_samples } = await convertPart(part, rawFile, audioDir);
 
         // Drift = razlika izmjerenog WAV-a i YouTubeove osi. Deep link se računa iz
         // WAV osi, pa drift izravno pomiče svaki link u tom (i svakom sljedećem) dijelu.
@@ -419,7 +465,8 @@ async function main() {
             upload_date: part.upload_date || null,
             raw_file: path.relative(sessionDir, rawFile),
             wav_file: path.relative(sessionDir, wavFile),
-            duration_sec: Math.round(duration_sec * 1000) / 1000,
+            duration_sec,
+            duration_samples,
             yt_duration_sec: part.yt_duration_sec,
             drift_sec: Math.round(drift * 1000) / 1000,
         });
@@ -457,6 +504,9 @@ async function main() {
             full_session_wav: stitched ? path.relative(sessionDir, stitched.file) : null,
         },
         total_duration_sec: totalDuration({ parts }),
+        total_duration_samples: parts.every((p) => Number.isInteger(p.duration_samples))
+            ? parts.reduce((s, p) => s + p.duration_samples, 0)
+            : null,
         total_duration_hms: secondsToHms(totalDuration({ parts })),
         total_drift_sec: Math.round(parts.reduce((s, p) => s + p.drift_sec, 0) * 1000) / 1000,
         parts,
