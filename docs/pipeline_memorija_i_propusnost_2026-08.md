@@ -127,11 +127,11 @@ bytes-argument. Na velikoj datoteci bi umro tiho, bez tracebacka (§1.2).
 **Rizik**: nizak.
 **Dobitak**: dugačke snimke prolaze automatski; nema tihe klase kvarova.
 
-### P5 — Ispitati bazni pritisak na swap
+### P5 — Ispitati bazni pritisak na swap ✅ ODGOVORENO (2026-08-25)
 
 **Problem**: 5 od 6 GB swapa zauzeto dok RAM nije pun. Svaki gornji problem je manji kad
 stroj ne kreće već napola u swapu.
-**Izmjena**: utvrditi tko drži swap; osloboditi prostor na sistemskom disku.
+**Nalaz**: vidi §4 — swap drži Docker Desktopov VM, i to zbog fiksne rezervacije, ne curenja.
 **Rizik**: nema.
 **Dobitak**: veća rezerva za sve ostalo.
 
@@ -147,3 +147,75 @@ pa je na dugim snimkama putanja vjerojatno **brža** ukupno.
 
 Mjerenje koje to zaključava: isti `part_04_16k.wav` starom metodom (putanja je dala
 9.4 min). Ne pokretati paralelno s drugim pyannote poslom.
+
+---
+
+## 4. Tko drži swap (P5, mjereno 2026-08-25)
+
+`top -l 1 -o mem -stats pid,command,mem,cmprs` daje jednoznačan odgovor — jedan proces
+nosi praktički cijeli bazni pritisak:
+
+| PID | Proces | MEM | CMPRS |
+|---|---|---|---|
+| 46691 | `com.apple.Virtualization.VirtualMachine` | **12 GB** | **14 GB** |
+| 23508 | Python (pyannote, 20 h sjednica) | 6.3 GB | 2.6 GB |
+| 174 | WindowServer | 1.3 GB | 284 MB |
+| ostalo (Chrome/Brave helperi, iTerm2, …) | < 800 MB svaki | |
+
+Taj VM je **Docker Desktop** (`lsof` na PID-u pokazuje otvoren
+`~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw`). Uzrok nije curenje
+nego **fiksna rezervacija** u `~/Library/Group Containers/group.com.docker/settings-store.json`:
+
+```
+MemoryMiB   = 14336     ← 14 GiB od 24 GB stroja
+Cpus        = 12
+SwapMiB     = 1024
+DiskSizeMiB = 61035
+```
+
+`docker stats` pokazuje da 11 aktivnih kontejnera unutar tog VM-a troši **~3.75 GiB**
+(ClickHouse 2.05 GiB, pediludium Supabase stack ~1.65 GiB, ostalo sitno). Dakle
+**58 % stroja je rezervirano za VM koji koristi četvrtinu toga.**
+
+**Zašto je to bitno za sve gore**: rezervacija je uzeta prije nego pipeline išta zatraži,
+pa "24 GB unified" u praksi znači ~10 GB za sve ostalo. Zbog toga se swap puni prije nego
+RAM izgleda pun, a swap raste na sistemskom disku — što je točno mehanizam iz §1.5.
+
+**Stanje diska u istom trenutku** (`/` i `/System/Volumes/Data` dijele isti APFS spremnik,
+pa je slobodno mjesto zajedničko):
+
+| | |
+|---|---|
+| slobodno na spremniku | **12.6 GB** (97 % popunjeno) |
+| Docker.raw | 29 GB stvarno (64 GB rijetko alocirano) |
+| Docker reclaimable | ~2.9 GB (1.4 GB build cache — 0 aktivnih, 354 MB exited kontejnera, 656 MB volumea) |
+| WhatsApp group container | 11 GB |
+| `~/Library/Caches` | ~6 GB (Google 1.3 GB, Brave 1.3 GB, WhatsApp 896 MB, Telegram 893 MB) |
+
+**Poluge, po dobitku**:
+
+1. **`MemoryMiB` 14336 → 6144** vraća ~8 GB stroju. Traži restart Docker Desktopa, dakle
+   pad `domovina-rag` ClickHouse/postgres i pediludium Supabase stacka.
+2. Gašenje pediludium Supabase stacka (drugi projekt, 8 kontejnera) — ~1.65 GiB, bez restarta.
+3. `docker builder prune` + brisanje exited kontejnera — ~2.9 GB unutar Docker.raw, ali
+   sama datoteka se ne skuplja dok se Docker ne restarta.
+
+**Odluka 2026-08-25**: ništa se ne dira dok traje 20 h diarizacija; nalaz je zapisan, poluge
+ostaju za trenutak kad stroj nije zauzet.
+
+**Posljedica za P3**: prag nadzornika (12 GB slobodno na `/`) je *iznad* trenutnog stanja s
+rezervom od svega 0.6 GB. To nije razlog za spuštanje praga — prag radi ono zbog čega
+postoji. Ako nightly stane uz poruku "PREKID PRIJE STARTA", to je signal da treba povući
+polugu 1 ili 3, a ne da treba popustiti prag.
+
+---
+
+## 5. Stanje prijedloga
+
+| | Status | Gdje |
+|---|---|---|
+| P1 putanja umjesto waveforma | zastavica `--audio-input path\|waveform`, default i dalje `waveform`; A/B alat `tools/ab_diarize_audio_input.py` | `diarize.py`, `colab_diarize/diarize_canary.py` |
+| P2 indikator napretka | ✅ | `LogProgressHook` u sve tri diarizacijske skripte |
+| P3 nadzornik u nightlyju | ✅ | `MachineGuard` + predpolet; `--guard/--min-free-disk-gb/--rss-cap-gb`, provučeno kroz `run_pipeline.sh` KORAK 6 |
+| P4 auto-ruta na Modal volume | ✅ | `modal_canary/canary_modal.py::main`, prag `MODAL_VOLUME_THRESHOLD_MB` (1024 MB) |
+| P5 bazni pritisak na swap | ✅ utvrđeno (§4), poluge nisu povučene | — |
