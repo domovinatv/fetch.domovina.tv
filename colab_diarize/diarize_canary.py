@@ -394,14 +394,22 @@ def run_diarization(pipeline, wav_file, min_speakers=None, max_speakers=None,
     Koristi exclusive_speaker_diarization mode koji daje točno jednog govornika
     u svakom trenutku (bez overlapa), idealno za alignment s SRT titlovima.
 
-    `audio_input_mode` (P1, 2026-08-25):
-      "waveform" — cijela snimka se učita u RAM pa preda pyannoteu kao dict.
-                   Povijesni default: komentar u diarize.py kaže da to "zaobilazi
-                   AudioDecoder". Memorija raste s duljinom snimke.
-      "path"     — pyannoteu se preda putanja, pa on čita prozore lijeno s diska.
-                   Memorija postaje neovisna o duljini (mjereno na 1 h 56 m:
-                   ravno 0.7 GB RSS kroz cijeli prolaz). Default će postati ovo
-                   tek kad A/B na stvarnim epizodama potvrdi isti rezultat.
+    `audio_input_mode` (P1, uveden i POVUČEN istog dana 2026-08-25):
+      "waveform" — ISPRAVAN put i jedini koji se koristi. Cijela snimka se učita u
+                   RAM (`sf.read(..., dtype="float32")` — bez `dtype` je float64 pa
+                   `.float()` radi drugu kopiju, 3× memorije) i preda kao dict.
+                   To je SLUŽBENA preporuka pyannotea: model card za community-1
+                   („Pre-loading audio files in memory may result in faster
+                   processing") i odgovor tima u issueu #1955, gdje je prijavitelj
+                   izmjerio 1053.9 s → 49.8 s (21×).
+      "path"     — POVUČENO. Izgledalo je kao ušteda memorije; nije. `Inference.
+                   __call__` ionako zove `decoder.get_all_samples()` i učita cijeli
+                   waveform za segmentaciju, pa je memorija ista. Uz to `Audio.crop()`
+                   stvara NOVI AudioDecoder po pozivu, a torchcodec < 0.14 premotava
+                   na početak datoteke (PR #1449; mi imamo 0.10.0) — mjereno na 20 h
+                   WAV-u: crop na 0 h = 4.3 ms, na 15 h = 3508 ms, integrirano 8–15 h
+                   samo dekodiranja. Zastavica ostaje samo radi ponovljivosti mjerenja.
+                   Vidi docs/pipeline_memorija_i_propusnost_2026-08.md §5.1–§5.3.
     """
     import torch
     import soundfile as sf
@@ -972,9 +980,9 @@ Primjeri:
     )
     parser.add_argument(
         "--audio-input", choices=["waveform", "path"], default="waveform",
-        help="Kako se audio predaje pyannoteu: 'waveform' (cijela snimka u RAM, "
-             "povijesni default) ili 'path' (pyannote cita prozore lijeno s diska, "
-             "memorija neovisna o duljini). Default ostaje 'waveform' dok A/B ne potvrdi."
+        help="'waveform' (ISPRAVNO, sluzbena preporuka pyannotea, default) ili 'path' "
+             "(POVUCENO — ne stedi memoriju i 8-15 h sporije na 20 h snimci; zadrzano "
+             "samo radi ponovljivosti mjerenja)"
     )
     parser.add_argument(
         "--guard", choices=["auto", "on", "off"], default="auto",
@@ -1023,7 +1031,7 @@ def main():
     if use_distributed_lock:
         print(f"   Distributed lock: AKTIVAN (stale timeout: {LOCK_STALE_SECONDS//3600}h)")
     if args.audio_input == "path":
-        print("   Audio ulaz: PATH (pyannote cita s diska; memorija neovisna o duljini)")
+        print("   UPOZORENJE: audio ulaz PATH je POVUCEN put — sporiji, bez ustede memorije.")
     guard_on = guard_enabled(args.guard)
     if guard_on:
         print(f"   Nadzornik stroja: AKTIVAN (disk >= {args.min_free_disk_gb:.0f} GB, "

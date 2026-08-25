@@ -41,8 +41,8 @@ def parse_args():
     parser.add_argument("--min-speakers", type=int, default=None, help="Minimalan broj govornika")
     parser.add_argument("--max-speakers", type=int, default=None, help="Maksimalan broj govornika")
     parser.add_argument("--audio-input", choices=["waveform", "path"], default="waveform",
-                        help="Kako se audio predaje pyannoteu: 'waveform' (cijela snimka u RAM, "
-                             "povijesni default) ili 'path' (pyannote cita prozore lijeno s diska)")
+                        help="'waveform' (ISPRAVNO, default) ili 'path' (POVUCENO — sporije i "
+                             "ne stedi memoriju; vidi docs/pipeline_memorija_i_propusnost_2026-08.md 5.1-5.3)")
     parser.add_argument("--progress-interval", type=int, default=60,
                         help="Razmak ispisa napretka diarizacije u sekundama (default: 60)")
     return parser.parse_args()
@@ -209,11 +209,18 @@ def run_diarization(wav_path, hf_token, device="auto", min_speakers=None, max_sp
                            min_interval_s=progress_interval)
 
     if audio_input_mode == "path":
-        # PUTANJA: pyannote cita prozore lijeno s diska, pa memorija ne ovisi o
-        # duljini snimke (mjereno na 1 h 56 m: ravno 0.7 GB RSS kroz cijeli prolaz).
-        # Povijesni komentar nize tvrdi da waveform "zaobilazi AudioDecoder"; zato je
-        # putanja iza zastavice i tek nakon A/B-a smije postati default.
-        print(f"   🔊 Pokrećem diarizaciju (audio ulaz: PATH, bez učitavanja u RAM)...")
+        # ⚠️ POVUCENO 2026-08-25 (isti dan kad je i uvedeno). Putanja je izgledala kao
+        # ustedа memorije, ali NIJE: `Inference.__call__` ionako zove
+        # `decoder.get_all_samples()` i ucita CIJELI waveform za segmentaciju. "Ravan
+        # RSS" bio je waveform kratke datoteke, ne dokaz ustede.
+        # Uz to je dramaticno sporija: `Audio.crop()` stvara NOVI AudioDecoder po
+        # pozivu, a torchcodec < 0.14 premotava na pocetak datoteke (PR #1449; mi
+        # imamo 0.10.0). Mjereno na 20 h WAV-u: crop na 0 h = 4.3 ms, na 15 h =
+        # 3508 ms → 8-15 h samo dekodiranja. Waveform je SLUZBENA preporuka
+        # (model card + pyannote #1955, izmjereno 21x ubrzanje), ne workaround.
+        # Zastavica je zadrzana samo da mjerenje bude ponovljivo. NE koristiti u radu.
+        # Detalji: docs/pipeline_memorija_i_propusnost_2026-08.md 5.1-5.3.
+        print(f"   ⚠️  audio ulaz PATH je POVUCEN put — sporiji, bez ustede memorije.")
         with hook:
             result = pipeline(wav_path, hook=hook, **diarize_params)
     else:

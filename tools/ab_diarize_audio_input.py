@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 """ab_diarize_audio_input.py — A/B: waveform-u-RAM-u vs putanja (P1).
 
+⚠️ PITANJE JE ZATVORENO 2026-08-25 — WAVEFORM POBJEĐUJE, I TO UVJERLJIVO.
+Ovaj alat je odigrao samo prvu epizodu (17.5 min: 100 % poklapanje govornika, ali
+putanja 0.9 vs 0.7 min i 1.51 vs 1.45 GB RSS) prije nego je pun run prekinut.
+Presuda nije stigla odavde nego iz uzvodne provjere: putanja NE štedi memoriju
+(`Inference.__call__` ionako zove `get_all_samples()`), a `Audio.crop()` stvara novi
+AudioDecoder po pozivu uz torchcodec < 0.14 koji premotava na početak datoteke —
+mjereno 4.3 ms na 0 h vs 3508 ms na 15 h, integrirano 8–15 h samo dekodiranja.
+Detalji: docs/pipeline_memorija_i_propusnost_2026-08.md §5.1–§5.3.
+
+Alat je zadržan jer mjeri poklapanje particija govornika između dvije konfiguracije,
+što je i dalje korisno — npr. za validaciju chunk+merge postupka iz §6.8 protiv
+jednoprolaznog referentnog rezultata. Za odabir audio ulaza više ga NE treba pokretati.
+
 Zasto postoji: `diarize.py` je godinama pyannoteu predavao WAVEFORM uz komentar
 da to "zaobilazi AudioDecoder". Putanja je 2026-08-25 dokazano radila na
 pyannote 4.0.4 s community-1 modelom (sabor_pipeline/02_diarize.py), ali to je
