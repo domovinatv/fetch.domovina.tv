@@ -286,6 +286,7 @@ predsjedavajućeg nitko ne najavljuje.
 
 ## Vezani dokumenti
 
+* `docs/2026-08-27-sabor-review-raspored-i-lokalna-snimka.md` — raspored za 16:9, lokalna snimka, četiri tiha kvara playera
 * `docs/2026-08-26-sabor-ocr-imena-s-ekrana.md` — OCR natpisa s ekrana kao sljedeći izvor identiteta
 * `docs/sabor_pilot_zakljucak_2026-08.md` — što pilot daje, četiri provjere
 * `docs/sabor_faza03_protokol_i_registar_2026-08.md` — sedam defekata imenovanja
