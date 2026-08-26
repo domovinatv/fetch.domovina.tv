@@ -88,6 +88,12 @@ ul.q .mins { font-size:12px; color:var(--muted); white-space:nowrap; }
 .hdr .sid { font-family:ui-monospace,Menlo,monospace; font-size:13px; color:var(--muted); }
 
 .cands { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+/* Sličice-dokazi natpisa. Namjerno dovoljno velike da se natpis pročita bez
+   otvaranja slike — dokaz koji se mora povećavati nitko ne provjerava. */
+.ocrshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px; }
+.ocrshots figure { margin:0; }
+.ocrshots img { width:100%; border-radius:var(--radius-sm); border:1px solid var(--border); display:block; }
+.ocrshots figcaption { font-size:12px; color:var(--muted); margin-top:4px; }
 .cand { border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; display:flex; gap:10px; }
 .cand.pick { border-color:var(--navy); background:#eef4ff; }
 .cand img { width:44px; height:44px; border-radius:6px; object-fit:cover; background:var(--surface-2); }
@@ -272,6 +278,12 @@ function badges(r) {
   if (r.blind_conflict) b.push('<span class="tag bad">model si proturječi</span>');
   else if (r.blind_disagrees) b.push('<span class="tag warn">model ✗</span>');
   else if (r.has_blind && !r.name) b.push('<span class="tag warn">model predlaže</span>');
+  // Ekran je TREĆI izvor i mora se vidjeti odvojeno od modela: model nagađa iz
+  // teksta, ekran čita ono što je režija ispisala. „ekran ✓" uz „model ✓" je
+  // slaganje triju neovisnih postupaka, a to nije isto što i dva.
+  if (r.ocr_agrees) b.push('<span class="tag ok">ekran ✓</span>');
+  else if (r.ocr_disagrees) b.push('<span class="tag bad">ekran ✗</span>');
+  else if (r.has_ocr && !r.name) b.push('<span class="tag ok">ekran predlaže</span>');
   if (r.is_chair) b.push('<span class="tag">predsjedatelj</span>');
   if (r.role_hint === "clan_vlade") b.push('<span class="tag">član Vlade</span>');
   return b.join(" ");
@@ -285,12 +297,13 @@ function renderQueue() {
   if (f) rows = rows.filter((r) =>
     r.speaker_id.toLowerCase().includes(f) ||
     (r.name || "").toLowerCase().includes(f) ||
+    (r.ocr_name || "").toLowerCase().includes(f) ||
     r.blind_names.join(" ").toLowerCase().includes(f));
 
   $("queue").innerHTML = rows.map((r) => `
     <li data-id="${r.speaker_id}" class="${S.sel === r.speaker_id ? "on" : ""} ${r.decided ? "done" : ""}">
       <span class="sid">${r.speaker_id.replace("SPEAKER_", "")}</span>
-      <span class="nm ${r.name ? "" : "none"}">${esc(r.name || r.blind_names[0] || "bez imena")}</span>
+      <span class="nm ${r.name ? "" : "none"}">${esc(r.name || r.ocr_name || r.blind_names[0] || "bez imena")}</span>
       <span>${badges(r)}</span>
       <span class="mins">${r.minutes} min</span>
     </li>`).join("") || '<div class="empty">Nema oznaka koje odgovaraju filtru.</div>';
@@ -358,6 +371,18 @@ function renderDetail() {
     <div id="msg"></div>
     <div class="card"><h3>Odluka</h3><div id="form"></div></div>
     <div class="card"><h3>Kandidati (${d.kandidati.length})</h3><div class="cands" id="cands"></div></div>
+    ${d.ocr ? `<div class="card"><h3>Natpis s ekrana</h3>
+      <div class="hint" style="margin-bottom:8px">
+        <b>${esc(d.ocr.ime)}</b>${d.ocr.u_registru ? "" : " <span class=\"tag\">izvan registra</span>"} ·
+        natpis na ${d.ocr.glasova}/${d.ocr.slicica_s_natpisom} sličica ·
+        pokrivenost ${Math.round(d.ocr.pokrivenost * 100)} % · slaganje ${Math.round(d.ocr.udio * 100)} %
+      </div>
+      <div class="ocrshots">${d.ocr.dokazi.map((e) => `
+        <figure>
+          <img loading="lazy" src="/ocr_frame/${encodeURIComponent(S.session)}/${encodeURIComponent(e.slicica.split("/").pop())}" alt="">
+          <figcaption>${esc(hms(e.at_global_sec))}${e.vrsta ? " · " + esc(e.vrsta) : ""}</figcaption>
+        </figure>`).join("")}</div>
+    </div>` : ""}
     <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
     <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
 
@@ -456,7 +481,7 @@ function renderCands() {
       <div style="flex:1;min-width:0">
         <div class="nm">${esc(c.puno_ime)}</div>
         <div class="meta">${esc(c.stranka || (c.u_registru ? "" : "izvan registra"))}
-          ${c.izvori.map((s) => `<span class="tag ${s === "najava" ? "ok" : s === "model" ? "warn" : ""}">${esc(s)}</span>`).join(" ")}</div>
+          ${c.izvori.map((s) => `<span class="tag ${s === "najava" || s === "ekran" ? "ok" : s === "model" ? "warn" : ""}">${esc(s)}</span>`).join(" ")}</div>
         <div class="ev">${c.dokazi.map((e) => esc(e)).join("<br>")}</div>
       </div>
     </div>`).join("") || '<div class="hint">Nema kandidata — koristi pretragu registra ispod.</div>';

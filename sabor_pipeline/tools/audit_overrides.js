@@ -17,6 +17,9 @@
  *   3. IME IZVAN REGISTRA   je li osoba ipak u registru, samo promašena
  *   4. ODLUKA BEZ DOKAZA    unos bez citata i razloga nije provjerljiv
  *   5. SUPROTNO MODELU      slijepa provjera je za tu oznaku rekla nešto drugo
+ *   6. SUPROTNO EKRANU      natpis koji je režija ispisala imenuje drugu osobu
+ *                           (`tools/ocr_captions.js`) — jedini izvor koji ne
+ *                           ovisi ni o čijem govoru, pa je razina VISOKA
  *
  *   node sabor_pipeline/tools/audit_overrides.js --session <id>
  *   node sabor_pipeline/tools/audit_overrides.js --session <id> --json out.json
@@ -73,6 +76,32 @@ function speechSec(sid) {
     return aligned.blocks.filter((b) => b.speaker_id === sid)
         .reduce((s, b) => s + b.duration_sec, 0);
 }
+/**
+ * Što je NATPIS S EKRANA rekao za tu oznaku (`tools/ocr_captions.js`).
+ *
+ * Ovo je najstroži od izvora za provjeru ljudske odluke, jer je jedini koji ne
+ * ovisi ni o čijem govoru: režija ispisuje ime u traci. Mjereno na pilotu —
+ * 100 % slaganja s protokolom ondje gdje oba izvora imenuju osobu (67/67), uz
+ * nula slučajeva u kojima ekran tvrdi drugu osobu. Ljudska odluka koja ide
+ * protiv njega zato traži pogled, a ne prešućivanje.
+ *
+ * Uzima se samo `prijedlog` — ono što je prošlo ogradu protiv tankog dokaza.
+ * Sirovi kandidati bi ovdje proizveli nalaze na temelju jednog očitanja s
+ * oznake koja skuplja upadice, a to je upravo lažna uzbuna koja natjera
+ * čovjeka da prestane čitati reviziju.
+ */
+function ocrFor(sid) {
+    const f = path.join(DIR, "ocr_captions", "prijedlozi.json");
+    if (!fs.existsSync(f)) return null;
+    let j;
+    try { j = readJson(f); } catch { return null; }
+    const p = (j.prijedlozi || []).find((x) => x.speaker_id === sid);
+    if (!p || !p.prijedlog) return null;
+    const st = p.prijedlog.status;
+    if (st !== "predlozi" && st !== "predlozi_izvan_registra") return null;
+    return { ime: p.prijedlog.puno_ime, pokrivenost: p.pokrivenost, udio: p.udio_vodeceg };
+}
+
 /** Što je slijepa provjera (model, bez registra) rekla za tu oznaku. */
 function blindFor(sid) {
     const bdir = path.join(DIR, "blind_check_agy");
@@ -154,6 +183,20 @@ for (const [sid, e] of entries) {
         add("srednji", "suprotno slijepoj provjeri", sid,
             `model je za tu oznaku rekao: ${[...new Set(protivni.map((b) => b.ime))].join(", ")}`,
             { prozori: protivni.map((b) => b.prozor) });
+    }
+
+    // 6. suprotno natpisu s ekrana
+    //
+    // Razina je VISOKA, za razliku od nalaza 5. Model zaključuje iz teksta i zna
+    // pogriješiti; natpis je ono što je režija doslovno ispisala dok je osoba
+    // govorila. Ako čovjek upiše jedno ime a traka je cijelo vrijeme pokazivala
+    // drugo, jedno od toga dvoga je promašaj i mora se pogledati prije objave.
+    const ocr = ocrFor(sid);
+    if (ime && ocr && ocr.ime && !istiIdentitet(ocr.ime, ime)) {
+        add("visok", "suprotno natpisu s ekrana", sid,
+            `natpis je za tu oznaku pokazivao „${ocr.ime}" ` +
+            `(pokrivenost ${(ocr.pokrivenost * 100).toFixed(0)} %, slaganje ${(ocr.udio * 100).toFixed(0)} %)`,
+            { ekran: ocr.ime });
     }
 }
 

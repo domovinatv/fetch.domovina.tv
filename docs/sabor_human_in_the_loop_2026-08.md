@@ -192,6 +192,16 @@ provjere.
 | 3 | ime izvan registra | osobu koja je ipak u registru, samo promašena |
 | 4 | odluka bez dokaza | unos bez citata i razloga |
 | 5 | suprotno modelu | slijepa provjera je za tu oznaku rekla nešto drugo |
+| 6 | suprotno ekranu | natpis koji je režija ispisala imenuje drugu osobu |
+
+Provjera 6 je dodana 2026-08-26 uz natpis s ekrana
+(`docs/sabor_ocr_imena_s_ekrana_2026-08.md`). Razina joj je **visok**, viša od
+provjere 5: model zaključuje iz teksta i zna pogriješiti, dok je natpis ono što
+je režija doslovno ispisala dok je osoba govorila. Izmjereno na pilotu — 100 %
+slaganja s protokolom ondje gdje oba izvora imenuju osobu (67/67), nula
+slučajeva u kojima ekran tvrdi drugu osobu. I ona je puštena na namjerno krivu
+odluku (`SPEAKER_012`, ekran: Milorad Pupovac → pripisan Krešimiru Ačkaru) i
+uhvatila ju je s izlaznim kodom 1.
 
 **Da „0 nalaza" ne bi značilo „provjera je pokvarena", alat je pušten na
 namjerno krivu odluku** — oznaci sa šest složnih najava za Mariju Selak

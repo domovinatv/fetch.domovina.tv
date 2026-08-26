@@ -8,6 +8,15 @@ potpuno neovisan i o protokolarnoj najavi i o modelu.
 Ovo je **priprema, ne izvedba** — feature se radi u zasebnoj sesiji. Ovdje stoji
 samo ono što je već izmjereno, da se ne otkriva dvaput.
 
+> ✅ **IZVEDENO 2026-08-26.** Rezultati, mjerenja i zamke:
+> **`docs/sabor_ocr_imena_s_ekrana_2026-08.md`**. Alat: `sabor_pipeline/tools/ocr_captions.js`.
+>
+> Kritično pitanje iz §5 (pojavljuje li se natpis i bez najave) — **odgovoreno
+> potvrdno**, 19/20 oznaka bez najave dobilo je ime s ekrana. Ostale procjene
+> odavde koje je mjerenje promijenilo: 480p je dovoljno (360p nije), mrežni seek
+> pobjeđuje preuzimanje (269 ms/sličica), Vision **nema** `hr-HR` ali `en-US`
+> ionako čita dijakritiku uz isključenu jezičnu korekciju.
+
 ---
 
 ## 1. Zašto je ovo vrijedno baš ovdje

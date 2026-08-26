@@ -98,11 +98,49 @@ function loadSession(session) {
     const data = {
         dir, aligned, smap, manifest, perSpeaker,
         blind: loadBlind(dir),
+        ocr: loadOcr(dir),
         overrides: humanOverrides.load(dir, session),
         key,
     };
     cache.set(session, { key, data });
     return data;
+}
+
+/**
+ * Prijedlozi iz natpisa s ekrana (`sabor_pipeline/tools/ocr_captions.js`).
+ *
+ * Treći izvor identiteta, neovisan i o najavi predsjedavajućeg i o modelu:
+ * saborska režija ispisuje ime u donjoj traci i kad nitko ništa nije rekao.
+ * Mjereno na pilotu: 100 % slaganja s protokolom ondje gdje oba izvora imenuju
+ * osobu (67/67), uz nula slučajeva u kojima ekran tvrdi drugu osobu.
+ *
+ * Uzima se SAMO `prijedlog` — odluka koja je već prošla ogradu protiv tankog
+ * dokaza. Sirovi `kandidati` ostaju u datoteci kao dokaz, ali ih pregled ne
+ * smije tumačiti sam: oznaka koju je ograda zaustavila („natpis na 13 %
+ * sličica") ovdje mora izgledati kao da prijedloga NEMA, a ne kao slab
+ * prijedlog koji bi netko u žurbi prihvatio.
+ */
+function loadOcr(dir) {
+    const out = new Map();
+    const f = path.join(dir, "ocr_captions", "prijedlozi.json");
+    if (!fs.existsSync(f)) return out;
+    let j;
+    try { j = readJson(f); } catch { return out; }
+    for (const p of j.prijedlozi || []) {
+        const pr = p.prijedlog;
+        if (!pr || (pr.status !== "predlozi" && pr.status !== "predlozi_izvan_registra")) continue;
+        const dokazi = [];
+        for (const k of p.kandidati || []) for (const d of k.dokazi || []) dokazi.push(d);
+        out.set(p.speaker_id, {
+            mp_id: pr.mp_id, ime: pr.puno_ime,
+            u_registru: pr.status === "predlozi",
+            pokrivenost: p.pokrivenost, udio: p.udio_vodeceg,
+            glasova: (p.kandidati[0] || {}).glasova || 0,
+            slicica_s_natpisom: p.slicica_s_natpisom,
+            dokazi: dokazi.slice(0, 4),
+        });
+    }
+    return out;
 }
 
 /** Prijedlozi slijepe provjere, grupirani po oznaci (gotova građa za pregled). */
@@ -193,6 +231,7 @@ function buildQueue(session) {
         const m = S.smap.speakers ? S.smap.speakers[sid] : null;
         const ovr = S.overrides.overrides[sid] || null;
         const blind = S.blind.get(sid) || [];
+        const ocrP = S.ocr.get(sid) || null;
         // Imena modela se razrješavaju kroz registar PRIJE uspoređivanja.
         // ASR ista prezimena piše različito („Habijen"/„Habijan", „Raukar
         // Gamulin"/„Raukar-Gamulin"); bez razrješavanja bi svaka takva
@@ -252,6 +291,16 @@ function buildQueue(session) {
             // Model imenuje, protokol šuti ili kaže drugo — najvrjedniji redak
             // u redu: tu ljudska odluka doista donosi novo ime.
             blind_disagrees: !!e.name && blindIds.size >= 1 && !blindIds.has(currentKey),
+            // Natpis s ekrana — treći izvor. Bitno je da se u redu vidi
+            // odvojeno od modela: model nagađa iz teksta, ekran čita ono što je
+            // režija ispisala, pa „ekran + protokol" nije isto što i
+            // „model + protokol".
+            ocr_name: ocrP ? ocrP.ime : null,
+            has_ocr: !!ocrP,
+            ocr_agrees: !!ocrP && !!currentKey &&
+                (ocrP.mp_id ? `mp:${ocrP.mp_id}` === currentKey : `ime:${norm(ocrP.ime)}` === currentKey),
+            ocr_disagrees: !!ocrP && !!e.name && !(ocrP.mp_id
+                ? `mp:${ocrP.mp_id}` === currentKey : `ime:${norm(ocrP.ime)}` === currentKey),
             decided: !!ovr,
             decision: ovr ? ovr.odluka : null,
             decided_by: ovr ? ovr.odlucio : null,
@@ -385,6 +434,16 @@ function speakerDetail(session, sid) {
         const hit = R.matcher.resolve(c.mp);
         push(hit && hit.mp ? hit.mp : null, c.mp, "natjecatelj", `${c.votes} glas(ova)`, null);
     }
+    // Natpis s ekrana. Dokaz mu je SLIKA, ne citat — pa uz svaki ide sekunda i
+    // putanja sličice, da čovjek može vidjeti isto što je vidio OCR umjesto da
+    // mu vjeruje na riječ.
+    const ocrP = S.ocr.get(sid) || null;
+    if (ocrP) {
+        const mp = ocrP.mp_id ? R.byId.get(ocrP.mp_id) : null;
+        const dokaz = `natpis na ${ocrP.glasova}/${ocrP.slicica_s_natpisom} sličica ` +
+                      `(pokrivenost ${(ocrP.pokrivenost * 100).toFixed(0)} %)`;
+        push(mp, ocrP.ime, "ekran", dokaz, null);
+    }
 
     // Kandidat kojeg potvrđuju dva NEOVISNA izvora (protokol i model) vrijedi
     // više od bilo kojeg pojedinačnog rezultata podudaranja.
@@ -412,6 +471,7 @@ function speakerDetail(session, sid) {
         ime: e.name, izvor: e.source, uloga: e.role,
         is_chair: (S.smap.chairs || []).includes(sid),
         istupi, anchors, blind, kandidati,
+        ocr: ocrP,
         override: S.overrides.overrides[sid] || null,
     };
 }
@@ -810,6 +870,23 @@ const server = http.createServer(async (req, res) => {
         const mm = /^\/media\/([^/]+)\/(\d+)(?:\.[a-z0-9]+)?$/i.exec(u.pathname);
         if (mm) {
             return serveMedia(req, res, decodeURIComponent(mm[1]), mm[2]);
+        }
+
+        // Sličica-dokaz uz prijedlog s ekrana. Prijedlog bez slike koju čovjek
+        // može pogledati je tvrdnja, ne dokaz — zato se dokazne sličice čuvaju
+        // na disku i poslužuju ovdje.
+        const om = /^\/ocr_frame\/([^/]+)\/([A-Za-z0-9_.-]+\.jpg)$/.exec(u.pathname);
+        if (om) {
+            const session = decodeURIComponent(om[1]);
+            // `om[2]` je već ograničen na jednu razinu bez „/", ali putanja se
+            // ipak razrješava i provjerava da leži unutar direktorija sjednice.
+            const p = path.resolve(sessionDir(session), "ocr_captions", "frames", om[2]);
+            const korijen = path.resolve(sessionDir(session), "ocr_captions", "frames");
+            if (!p.startsWith(korijen + path.sep) || !fs.existsSync(p)) {
+                res.writeHead(404); return res.end("nema sličice");
+            }
+            res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "no-cache" });
+            return fs.createReadStream(p).pipe(res);
         }
 
         if (req.method === "POST" && u.pathname === "/api/decision") {

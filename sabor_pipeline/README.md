@@ -123,6 +123,11 @@ node sabor_pipeline/tools/diff_naming.js --session <id> \
 # neovisna revizija ljudskog sloja (ljudska odluka ulazi s pouzdanošću 1.0!)
 node sabor_pipeline/tools/audit_overrides.js --session <id>
 
+# TREĆI izvor identiteta: ime koje režija ispisuje na ekranu (offline OCR)
+# Ne ovisi ni o čijem govoru, pa dohvaća upadice i replike koje protokol ne zna.
+node sabor_pipeline/tools/ocr_captions.js --session <id>              # prijedlozi
+node sabor_pipeline/tools/ocr_captions.js --session <id> --validate   # provjera na 68 poznatih
+
 # je li tvrdnja „ove dvije oznake su ista osoba" akustički održiva
 python3 sabor_pipeline/tools/audit_merge_cohesion.py --session <id> --cross SPEAKER_A,SPEAKER_B
 
@@ -130,6 +135,11 @@ node --test sabor_pipeline/utils/human_overrides.test.js
 ```
 
 Detalji, zamke i mjerenja: `docs/sabor_human_in_the_loop_2026-08.md`.
+Natpis s ekrana kao izvor: `docs/sabor_ocr_imena_s_ekrana_2026-08.md`
+(45 od 49 neimenovanih oznaka dobilo prijedlog; 67/67 slaganja s protokolom).
+
+⚠️ `ocr_captions.js` traži prevedeni `tools/ocr/vision_ocr` — vidi
+`sabor_pipeline/tools/ocr/README.md`. Bez njega ne radi.
 
 ### Kako se pokreće
 
@@ -176,6 +186,8 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 | `tools/blind_speaker_check.js` | slijepa provjera imenovanja modelom (gole oznake, bez registra) |
 | `tools/audit_article.js` | revizija članka — izmišljena imena i timestampovi |
 | `tools/crosscheck_speakers.js` | usporedba bilježaka faze 04 s fazom 03 (⚠️ kružno, vidi §7.1) |
+| `tools/ocr_captions.js` | natpis s ekrana → prijedlozi identiteta (sličice + Vision OCR + registar) |
+| `tools/ocr/vision_ocr.swift` | offline OCR sličica preko macOS Vision frameworka (55 ms/sličica) |
 
 ---
 

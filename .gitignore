@@ -54,3 +54,6 @@ data/podscan_cache/
 data/podscan_firehose.jsonl
 # Izvještaj se regenerira iz zrcala u sekundi, bez API poziva — ne u repo.
 data/podscan_coverage_report.json
+
+# Prevedeni OCR alat (gradi se sa `swiftc`, vidi sabor_pipeline/tools/ocr/README.md)
+sabor_pipeline/tools/ocr/vision_ocr
