@@ -73,21 +73,46 @@ Ispod ~1360 px raspored pada na dva stupca: snimka ide iznad detalja, red
 čekanja zadržava punu visinu. Pogled „Petlja i revizija" nema pojedinačnu
 oznaku pa se desni stupac sklanja (`.layout.noside`).
 
-## Player
+## Snimka
 
-Zaglavlje desnog stupca; svaki `▶` na ekranu ga premota na točan trenutak
-(istup ili najavu), a `↗` otvara isti trenutak na YouTubeu. Popis „Skok na
-istup" u istom stupcu služi uzorkovanju glasa — tekst se čita u srednjem.
+Popis „Skok na istup" u desnom stupcu služi uzorkovanju glasa — tekst se čita
+u srednjem.
 
 | način | što daje | ograničenje |
 |---|---|---|
-| **zvuk (lokalno)** | trenutačan skok, radi bez interneta, `raw/part_NN.m4a` s diska | samo zvuk — `01_ingest.js` skida `bestaudio` |
-| **YouTube (slika)** | **frame** — lice govornika i ime s ekrana | traži internet; premotavanje ponovno učita okvir |
+| **snimka (lokalno)** | slika i zvuk s diska, trenutačan skok, `▶` odmah svira | traži `video/part_NN.mp4` (`tools/fetch_video.js`) |
+| **zvuk (lokalno)** | isto, ali bez slike — `raw/part_NN.m4a` | dio za koji slika nije preuzeta |
+| **YouTube (pričuva)** | slika kad lokalne nema | traži internet; premotavanje ponovno učita okvir i ne pokreće se samo |
 
-Za ručnu klasifikaciju lice je često presudno, pa je YouTube način tu unatoč
-tome što je sporiji. Kad bi se u `01_ingest.js` dodalo skidanje videa, lokalni
-način bi ga preuzeo automatski — poslužitelj već traži `video_file` prije
-`raw_file` i sam prebacuje na `<video>`.
+Lokalna snimka je zadana. Slika se preuzima zasebno:
+
+```bash
+node sabor_pipeline/tools/fetch_video.js --session <id>
+```
+
+Poslužitelj je nalazi po **dogovoru o imenu** (`video/part_NN.*`), pa se vidi
+odmah, bez ponovnog ingesta i bez diranja `session_manifest.json`.
+
+### Tri zamke koje su ovo držale slomljenim
+
+1. **URL snimke mora nositi otisak datoteke.** `/api/media?part=1` je stalna
+   adresa uz `Cache-Control: max-age=3600`; kad dio dobije sliku, preglednik sat
+   vremena servira stari zvuk iz keša — i to **bez ijednog zahtjeva** na
+   poslužitelj, pa u logu nema ni traga. Zato `&v=<veličina>-<mtime>` (+ ETag).
+2. **Stari `<video>` se mora ugasiti prije zamjene.** `innerHTML = …` ga samo
+   otkvači; Chrome mu drži player dok ga ne pokupi GC, a nakon dovoljno skokova
+   novi element više ne krene (`networkState` LOADING, nula zahtjeva).
+   `pause()` → `removeAttribute("src")` → `load()`.
+3. **`#pBody` se ne smije prepisivati pri svakom crtanju.** Prije je
+   `renderPlayer` gradio cijeli player iznova, pa je svaki skok značio novo
+   učitavanje i izgubljen buffer. Sada se osvježava samo traka.
+
+## Player
+
+Zaglavlje desnog stupca; svaki `▶` na ekranu ga premota na točan trenutak
+(istup ili najavu) **i pokrene**, a `↗` otvara isti trenutak na YouTubeu.
+Iznimka je prvo namještanje pri odabiru oznake — ono ne svira samo, jer nitko
+ne želi da mu 20 h sjednice krene uz uho.
 
 ⚠️ Posluživanje snimke **mora** podržavati HTTP Range (`206`), inače preglednik
 vuče cijelih ~350 MB prije prvog skoka. Otvoreni raspon (`bytes=0-`) se namjerno

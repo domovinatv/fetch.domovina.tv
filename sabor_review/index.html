@@ -493,7 +493,14 @@ function renderSide() {
 
 const P = { part: null, sec: 0, mode: "lokalno", label: "", video_id: null };
 
-function renderPlayer() {
+/**
+ * ⚠️ Skelet playera (`#pBar` / `#pBody` / `#pWarn`) gradi se JEDNOM, a poslije
+ * se osvježava samo traka. Prije je `renderPlayer` prepisivao cijeli `#player`,
+ * pa je svaki skok rušio i `#pBody` — snimka se učitavala iznova, gubio se
+ * buffer, a `play()` je padao jer element više nije bio isti. Zato je i
+ * djelovalo da se player „ne pokreće sam".
+ */
+function renderPlayer(autoplay) {
   const d = S.det;
   if (!d) {
     $("player").innerHTML = '<div class="hint" style="padding:6px 2px">Odaberi oznaku — snimka se namjesti na njezin najduži istup.</div>';
@@ -503,67 +510,97 @@ function renderPlayer() {
   const imaLokalno = Object.values(d.mediji || {}).some((x) => x.ima);
   const jeVideo = m && m.video;
 
-  $("player").innerHTML = `
-    <div class="bar">
-      <button id="pLocal" class="${P.mode === "lokalno" ? "primary" : ""}" ${imaLokalno ? "" : "disabled"}>
-        ${jeVideo ? "snimka (lokalno)" : "zvuk (lokalno)"}</button>
-      <button id="pYt" class="${P.mode === "youtube" ? "primary" : ""}">YouTube (slika)</button>
-      <span class="now">${P.part ? `dio ${P.part} · <b>${hms(P.sec)}</b>${P.label ? " · " + esc(P.label) : ""}` : "odaberi trenutak"}</span>
-    </div>
-    <div id="pBody"></div>
-    ${P.mode === "lokalno" && !jeVideo
-      ? '<div class="warn">Lokalno je samo zvuk — <code>01_ingest.js</code> skida <code>bestaudio</code>. Za lice i ime s ekrana koristi YouTube.</div>'
-      : ""}`;
+  if (!$("pBody")) {
+    $("player").innerHTML = '<div class="bar" id="pBar"></div><div id="pBody"></div><div id="pWarn"></div>';
+  }
 
-  $("pLocal").onclick = () => { P.mode = "lokalno"; renderPlayer(); mountPlayer(true); };
-  $("pYt").onclick = () => { P.mode = "youtube"; renderPlayer(); mountPlayer(true); };
-  mountPlayer(false);
+  $("pBar").innerHTML = `
+    <button id="pLocal" class="${P.mode === "lokalno" ? "primary" : ""}" ${imaLokalno ? "" : "disabled"}>
+      ${jeVideo ? "snimka (lokalno)" : "zvuk (lokalno)"}</button>
+    <button id="pYt" class="${P.mode === "youtube" ? "primary" : ""}">
+      ${jeVideo ? "YouTube (pričuva)" : "YouTube (slika)"}</button>
+    <span class="now">${P.part ? `dio ${P.part} · <b>${hms(P.sec)}</b>${P.label ? " · " + esc(P.label) : ""}` : "odaberi trenutak"}</span>`;
+
+  // Upozorenje stoji SAMO dok slike doista nema — kad se dio preuzme
+  // (`tools/fetch_video.js`), poslužitelj sam prebaci na `<video>` i poruka
+  // nestaje bez ijedne izmjene ovdje.
+  $("pWarn").innerHTML = (P.mode === "lokalno" && m && m.ima && !jeVideo)
+    ? '<div class="warn">Lokalno je samo zvuk za ovaj dio. Za sliku: <code>node sabor_pipeline/tools/fetch_video.js --session ' + esc(S.session) + '</code></div>'
+    : "";
+
+  $("pLocal").onclick = () => { P.mode = "lokalno"; renderPlayer(false); mountPlayer(true, false); };
+  $("pYt").onclick = () => { P.mode = "youtube"; renderPlayer(false); mountPlayer(true, false); };
+  mountPlayer(false, autoplay === true);
 }
 
 /**
- * Lokalni player se NE presnimava kad se skače unutar istog dijela — samo mu se
- * pomakne `currentTime`. Ponovno postavljanje `src` znači novo učitavanje i
- * gubitak buffera, a skakanje po istom dijelu je najčešća radnja na ovom ekranu.
+ * Snimka se presnimava samo kad se doista mijenja izvor (drugi dio, druga
+ * sjednica, drugi način). Skok unutar iste datoteke je samo `currentTime` —
+ * a to je najčešća radnja na ovom ekranu.
+ *
+ * `autoplay` se prosljeđuje sve do `loadedmetadata` jer se na svježe postavljen
+ * `src` ne može ni skočiti ni svirati prije nego što je trajanje poznato.
+ * Poziv je uvijek posljedica korisnikovog klika, pa ga politika autoplaya
+ * propušta (za razliku od YouTube `<iframe>`-a, koji je prekogranični okvir).
  */
-function mountPlayer(force) {
+function mountPlayer(force, autoplay) {
   const body = $("pBody");
+  if (!body) return;
   if (!P.part) { body.innerHTML = ""; return; }
 
   if (P.mode === "youtube") {
+    const stari = body.querySelector("audio,video");
+    if (stari) { try { stari.pause(); stari.removeAttribute("src"); stari.load(); } catch (_) {} }
     const id = P.video_id;
     if (!id) { body.innerHTML = '<div class="hint">Nema video ID-a za taj trenutak.</div>'; return; }
     // Bez YouTube IFrame API-ja (vanjska skripta) premotavanje znači novi `src`.
-    const src = `https://www.youtube-nocookie.com/embed/${id}?start=${Math.floor(P.sec)}&rel=0`;
+    const src = `https://www.youtube-nocookie.com/embed/${id}?start=${Math.floor(P.sec)}&rel=0${autoplay ? "&autoplay=1" : ""}`;
     const cur = body.querySelector("iframe");
     if (!cur || cur.src !== src) body.innerHTML = `<div class="frame"><iframe src="${src}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
     return;
   }
 
-  const url = `/api/media?session=${encodeURIComponent(S.session)}&part=${P.part}`;
-  let el = body.querySelector("audio,video");
+  // `&v=` je otisak datoteke (veličina+mtime). Bez njega preglednik uz
+  // `max-age=3600` servira sadržaj koji je ta adresa imala PRIJE — dio koji je
+  // naknadno dobio sliku ostane zvuk, i to bez zahtjeva na poslužitelj.
+  const ver = (S.det.mediji[P.part] && S.det.mediji[P.part].ver) || "";
+  const url = `/api/media?session=${encodeURIComponent(S.session)}&part=${P.part}` +
+              (ver ? `&v=${encodeURIComponent(ver)}` : "");
+  // Ključ nosi i sjednicu: brojevi dijelova se ponavljaju, pa bi sama usporedba
+  // dijela ostavila snimku prethodne sjednice na ekranu.
+  const key = `${S.session}|${P.part}|${ver}`;
   const jeVideo = S.det.mediji[P.part] && S.det.mediji[P.part].video;
-  if (!el || force || el.dataset.part !== String(P.part)) {
+  let el = body.querySelector("audio,video");
+
+  if (!el || force || el.dataset.key !== key) {
+    // ⚠️ Stari element se GASI prije zamjene. Sam `innerHTML = …` ga samo
+    // otkvači iz stabla; Chrome mu drži player i vezu dok ga ne pokupi GC, a
+    // nakon dovoljno skokova po dijelovima novi `<video>` više ne krene —
+    // `networkState` ostane LOADING, a na poslužitelj ne stigne nijedan
+    // zahtjev. Izmjereno upravo tako, dok je snimka bila zvuk pa se rijetko
+    // presnimavala, to se nije vidjelo.
+    if (el) { try { el.pause(); el.removeAttribute("src"); el.load(); } catch (_) {} }
     body.innerHTML = jeVideo
-      ? `<div class="frame"><video controls preload="metadata" data-part="${P.part}" src="${url}"></video></div>`
-      : `<audio controls preload="metadata" data-part="${P.part}" src="${url}"></audio>`;
+      ? `<div class="frame"><video controls preload="metadata" playsinline data-key="${esc(key)}" src="${url}"></video></div>`
+      : `<audio controls preload="metadata" data-key="${esc(key)}" src="${url}"></audio>`;
     el = body.querySelector("audio,video");
     // Skok je moguć tek kad su poznati metapodaci (trajanje).
-    el.addEventListener("loadedmetadata", () => { el.currentTime = P.sec; }, { once: true });
-  } else {
-    el.currentTime = P.sec;
+    el.addEventListener("loadedmetadata", () => {
+      el.currentTime = P.sec;
+      if (autoplay) el.play().catch(() => {});
+    }, { once: true });
+    return;
   }
+
+  el.currentTime = P.sec;
+  if (autoplay) el.play().catch(() => {});
 }
 
+/** Svaki `▶` premota player i pušta ga — osim prvog namještanja pri odabiru oznake. */
 function seekTo(part, sec, label, opts) {
-  const promjena = P.part !== part;
   P.part = part; P.sec = Math.max(0, sec); P.label = label || "";
   if (opts && opts.video_id) P.video_id = opts.video_id;
-  renderPlayer();
-  const el = $("pBody").querySelector("audio,video");
-  if (el && !promjena) {
-    el.currentTime = P.sec;
-    if (!opts || opts.autoplay !== false) el.play().catch(() => {});
-  }
+  renderPlayer(!(opts && opts.autoplay === false));
 }
 
 function hms(sec) {

@@ -128,6 +128,11 @@ node sabor_pipeline/tools/audit_overrides.js --session <id>
 node sabor_pipeline/tools/ocr_captions.js --session <id>              # prijedlozi
 node sabor_pipeline/tools/ocr_captions.js --session <id> --validate   # provjera na 68 poznatih
 
+# slika sjednice za ručni pregled (480p, ~5.5 GB za 20 h u 4 dijela)
+# 01_ingest.js skida samo bestaudio — sve nizvodne faze rade nad zvukom.
+node sabor_pipeline/tools/fetch_video.js --session <id>
+node sabor_pipeline/tools/fetch_video.js --session <id> --part 3   # samo jedan dio
+
 # je li tvrdnja „ove dvije oznake su ista osoba" akustički održiva
 python3 sabor_pipeline/tools/audit_merge_cohesion.py --session <id> --cross SPEAKER_A,SPEAKER_B
 
@@ -187,6 +192,7 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 | `tools/audit_article.js` | revizija članka — izmišljena imena i timestampovi |
 | `tools/crosscheck_speakers.js` | usporedba bilježaka faze 04 s fazom 03 (⚠️ kružno, vidi §7.1) |
 | `tools/ocr_captions.js` | natpis s ekrana → prijedlozi identiteta (sličice + Vision OCR + registar) |
+| `tools/fetch_video.js` | 480p slika sjednice → `video/part_NN.mp4` za pregled (ne dira manifest) |
 | `tools/ocr/vision_ocr.swift` | offline OCR sličica preko macOS Vision frameworka (55 ms/sličica) |
 
 ---

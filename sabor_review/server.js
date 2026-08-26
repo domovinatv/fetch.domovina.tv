@@ -455,7 +455,7 @@ function speakerDetail(session, sid) {
     for (const p of (S.manifest && S.manifest.parts) || []) {
         const f = mediaFileFor(session, p.part);
         mediji[p.part] = f
-            ? { ima: true, datoteka: f.rel, video: /^\.(mp4|m4v|webm|mkv)$/.test(f.ext) }
+            ? { ima: true, datoteka: f.rel, video: VIDEO_EXTS.includes(f.ext), ver: f.ver }
             : { ima: false };
     }
 
@@ -683,17 +683,48 @@ const MEDIA_MIME = { ".m4a": "audio/mp4", ".mp4": "video/mp4", ".m4v": "video/mp
                      ".webm": "video/webm", ".mkv": "video/x-matroska", ".wav": "audio/wav",
                      ".mp3": "audio/mpeg", ".opus": "audio/ogg" };
 
+const VIDEO_EXTS = [".mp4", ".m4v", ".webm", ".mkv"];
+
+/**
+ * Slika se traži po DOGOVORU O IMENU (`video/part_NN.*`), ne iz manifesta.
+ *
+ * `sabor_pipeline/tools/fetch_video.js` namjerno ne dira `session_manifest.json`
+ * — manifest je vremenska os sjednice iz koje se računa svaki deep link, i ne
+ * prepisuje se zbog pomoćnog artefakta koji ne mijenja nijedno trajanje. Zato
+ * slika mora biti pronađiva bez njega: preuzmeš je danas, pregled je vidi
+ * odmah, bez ponovnog ingesta.
+ *
+ * `p.video_file` se i dalje poštuje ako ga sjednica ima — starije sjednice ga
+ * smiju imati, a izričit zapis pobjeđuje nad dogovorom.
+ */
 function mediaFileFor(session, part) {
     const S = loadSession(session);
     if (!S.manifest) throw new Error("sjednica nema session_manifest.json");
     const p = (S.manifest.parts || []).find((x) => x.part === Number(part));
     if (!p) throw new Error(`manifest nema dio ${part}`);
     const dir = path.resolve(sessionDir(session));
-    // Video ako ga ima, inače zvuk — `01_ingest.js` skida samo `bestaudio`.
-    for (const rel of [p.video_file, p.raw_file, p.wav_file].filter(Boolean)) {
+    const stem = `part_${String(Number(part)).padStart(2, "0")}`;
+    const kandidati = [
+        p.video_file,
+        ...VIDEO_EXTS.map((e) => path.join("video", stem + e)),
+        p.raw_file,
+        p.wav_file,
+    ].filter(Boolean);
+
+    for (const rel of kandidati) {
         const abs = path.resolve(dir, rel);
         if (!abs.startsWith(dir + path.sep)) continue;   // izlaz iz direktorija sjednice
-        if (fs.existsSync(abs)) return { abs, rel, ext: path.extname(abs).toLowerCase() };
+        if (!fs.existsSync(abs)) continue;
+        const st = fs.statSync(abs);
+        return {
+            abs, rel, ext: path.extname(abs).toLowerCase(), size: st.size,
+            // Otisak ulazi u URL (`&v=`) i u ETag. `/api/media?part=1` je stalna
+            // adresa, a sadržaj joj se mijenja kad se dio dopuni slikom — bez
+            // otiska preglednik uz `max-age=3600` sat vremena servira stari
+            // zvuk iz keša i `<video>` ostane prazan, BEZ ijednog zahtjeva na
+            // poslužitelj. Izmjereno upravo tako.
+            ver: `${st.size.toString(36)}-${Math.round(st.mtimeMs).toString(36)}`,
+        };
     }
     return null;
 }
@@ -709,11 +740,14 @@ function serveMedia(req, res, session, part) {
     // keširanja svaki skok znova vuče iste bajtove. (`no-store` drugdje u ovoj
     // aplikaciji postoji zbog JSON-a koji se mijenja pri svakoj odluci.)
     const CACHE = "private, max-age=3600";
+    // ETag je druga ograda uz `&v=` u URL-u: keš koji je zapamćen prije nego
+    // što je dio dobio sliku mora otpasti i ako se do te adrese dođe bez `v`.
+    const ETAG = `"${f.ver}"`;
 
     if (!range) {
         res.writeHead(200, {
             "Content-Type": type, "Content-Length": size,
-            "Accept-Ranges": "bytes", "Cache-Control": CACHE,
+            "Accept-Ranges": "bytes", "Cache-Control": CACHE, ETag: ETAG,
         });
         return fs.createReadStream(f.abs).pipe(res);
     }
@@ -739,7 +773,7 @@ function serveMedia(req, res, session, part) {
         "Content-Type": type,
         "Content-Length": end - start + 1,
         "Content-Range": `bytes ${start}-${end}/${size}`,
-        "Accept-Ranges": "bytes", "Cache-Control": CACHE,
+        "Accept-Ranges": "bytes", "Cache-Control": CACHE, ETag: ETAG,
     });
     fs.createReadStream(f.abs, { start, end }).pipe(res);
 }
