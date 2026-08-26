@@ -149,6 +149,16 @@ python3 sabor_pipeline/tools/test_merge_speakers.py
 
 ---
 
+## 📊 Zaključak pilota
+
+Nakon 48 h i jedne cijele sjednice (20 h, 4 streama): **`docs/sabor_pilot_zakljucak_2026-08.md`**
+— što je proizvedeno, četiri neovisne provjere kvalitete, usporedba Opus 5 vs
+Gemini 3.7 Flash i što još nije automatizirano.
+
+Kratko: **68 imenovanih zastupnika, 66 % govornog vremena, 98.4 % slaganja u
+slijepoj provjeri, 0 izmišljenih imena u člancima.** Za produkciju je dovoljan
+Gemini 3.7 Flash; Opus se isplati kad treba sinteza kroz cijelu sjednicu.
+
 ## 🛠️ Ponovna uporaba postojećih alata u `fetch.domovina.tv`
 Novi kod u `sabor_pipeline/` izravno se naslanja na postojeće module i postavke:
 * `convert_to_wav.js` i `yt-dlp` cookie mehanizam iz `fetch.js`.
