@@ -54,7 +54,10 @@ echo "$(date '+%F %T') ⚡ ─── PRIORITY TICK START ───"
 # Poller po uspješnom jobu poziva i auto_reuse_adhoc.js --video-id (reuse ad-hoc
 # obrade u channel dir praćenog kanala + reindex SAMO kad je nešto kopirano) —
 # sve unutar ovog ticka, tj. pod pipeline lockom koji već držimo.
-[ -f "$BRIDGE/priority_poller.js" ] && node "$BRIDGE/priority_poller.js" || echo "   ⚠️ nema priority_poller.js — preskačem."
+# CLAUDE_WINDOW_GUARD se nasljeđuje kroz priority_poller.js (env: {...process.env}) do
+# koraka 7+8. Preko dana arbitar propušta, pa ad-hoc zahtjevi nisu sporiji; blokira samo
+# ~03:20–08:30 da tick u 07:50 ne otvori prozor kvote. Vidi launchd-menubar/SCHEDULING.md.
+[ -f "$BRIDGE/priority_poller.js" ] && CLAUDE_WINDOW_GUARD=1 node "$BRIDGE/priority_poller.js" || echo "   ⚠️ nema priority_poller.js — preskačem."
 # Javi gotove (article.json live na CDN → done + detail_url) odmah.
 [ -f "$BRIDGE/reconcile.js" ] && node "$BRIDGE/reconcile.js" || true
 echo "$(date '+%F %T') ⚡ ─── PRIORITY TICK DONE ───"

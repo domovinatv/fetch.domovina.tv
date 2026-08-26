@@ -64,8 +64,10 @@ if [ -f "$SCRIPT_DIR/enqueue_magisterium_backfill.js" ]; then
     node "$SCRIPT_DIR/enqueue_magisterium_backfill.js" || echo "   ⚠️ enqueue_magisterium_backfill greška (non-fatal)."
 fi
 
+# CLAUDE_WINDOW_GUARD: poller pita `claude-window` prije claima — tick svakih 10 min
+# 24/7 inače može otvoriti nov 5h prozor kvote pred 08:30. Vidi launchd-menubar/SCHEDULING.md.
 if [ -f "$BRIDGE/magisterium_poller.js" ]; then
-    node "$BRIDGE/magisterium_poller.js"
+    CLAUDE_WINDOW_GUARD=1 node "$BRIDGE/magisterium_poller.js"
 else
     echo "   ⚠️ nema magisterium_poller.js — preskačem."
 fi
