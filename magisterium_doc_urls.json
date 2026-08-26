@@ -4948,6 +4948,26 @@
     {
       "match": "Message to prisoners in Colombian jails",
       "uuid": "f83ee16b-9c15-4cb8-b7a8-cd25004911e7"
+    },
+    {
+      "match": "To the prisoners in the regional jail of Płock",
+      "uuid": "f53dfc34-62a1-42ee-9351-6e1338b46c48"
+    },
+    {
+      "match": "To young people of England and Wales at Ninian Park",
+      "uuid": "b39cd065-aecc-400e-a5c5-1d6e5aed17e6"
+    },
+    {
+      "match": "Message to the National Catholic Educational Association of the United States",
+      "uuid": "b2d5cc6c-3267-4375-909b-a1933fc332b6"
+    },
+    {
+      "match": "To the medical students of the Catholic University of the Sacred Heart",
+      "uuid": "1f70bd9d-bd2f-43c8-95e5-dac0a48915b7"
+    },
+    {
+      "match": "Education: the global compact",
+      "uuid": "ee718979-1cab-4a33-968c-d42557d5cadc"
     }
   ]
 }

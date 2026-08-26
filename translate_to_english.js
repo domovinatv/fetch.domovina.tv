@@ -362,6 +362,24 @@ async function translateMagisterium(croatian, dryRun) {
         const sb = out.score_breakdown[i];
         if (sb.theme) sb.theme_en = await translateOne(sb.theme, dryRun);
     }
+
+    // Holistički blok (SLOJ 1). Bez ovoga `overall` ostane hrvatski i Magisterium
+    // tab se u EN-u prikaže dvojezično — sekcije engleske, zaglavlje hrvatsko.
+    const ov = out.overall;
+    if (ov) {
+        if (ov.assessment) ov.assessment_en = await translateOne(ov.assessment, dryRun);
+        if (ov.theological_context) ov.theological_context_en = await translateOne(ov.theological_context, dryRun);
+        if (Array.isArray(ov.seeds_of_logos)) {
+            ov.seeds_of_logos_en = [];
+            for (const s of ov.seeds_of_logos) ov.seeds_of_logos_en.push(await translateOne(s, dryRun));
+        }
+        if (Array.isArray(ov.concerns)) {
+            ov.concerns_en = [];
+            for (const c of ov.concerns) ov.concerns_en.push(await translateOne(c, dryRun));
+        }
+        // citations su već engleski → ostavi
+    }
+
     for (const it of out.iterations) {
         if (it.theme) it.theme_en = await translateOne(it.theme, dryRun);
         for (const sec of (it.sections || [])) {
