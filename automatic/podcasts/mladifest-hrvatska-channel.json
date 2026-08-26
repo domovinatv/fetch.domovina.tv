@@ -3,7 +3,7 @@
   "channel": "Mladifest Hrvatska",
   "channel_id": "UCc4tNmsij59QsM36bal0ZPg",
   "title": "Mladifest Hrvatska",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 6460,
   "description": "Službena stranica Mladifesta Hrvatska. Official site of Youth festival Croatia.",
   "tags": [],
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787706118,
+  "epoch": 1787734042,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.19",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
     "repository": "yt-dlp/yt-dlp"
   }
 }

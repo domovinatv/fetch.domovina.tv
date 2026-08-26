@@ -3,7 +3,7 @@
   "channel": "Centar Ignacije",
   "channel_id": "UCuk9D5H9mx7birJ1-S22nyQ",
   "title": "Centar Ignacije - Videos",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 478,
   "description": "",
   "tags": [],
@@ -38,12 +38,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787706129,
+  "epoch": 1787734047,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.19",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
     "repository": "yt-dlp/yt-dlp"
   }
 }

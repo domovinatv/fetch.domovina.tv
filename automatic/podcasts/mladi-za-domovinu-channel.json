@@ -3,7 +3,7 @@
   "channel": "Mladi za Domovinu",
   "channel_id": "UCAcCn67b3O7b1JSISdQNbwA",
   "title": "Mladi za Domovinu",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 12700,
   "description": "Udruga Mladi za domovinu! 🇭🇷\n\nMi smo zajednica ambicioznih mladih, sa sjedištem u Zagrebu, kojoj je primarni cilj poticati mlade Hrvate u Hrvatskoj i iseljeništvu na:\n\n- očuvanje hrvatskog identiteta, \n- aktivnije uključivanje u društvene procese i\n- osobni rast kroz proaktivno zajedništvo po uzoru na život bl. Ivana Merza \n\nkako bismo izgradili Hrvatsku na zdravim i hrabrim mladim ljudima koji su i bit će temelj naše domovine.\n\nMožete nam se javiti na:\nInstagram: @mladizadomovinu\nFacebook: Mladi za Domovinu\nE-mail: mladizadomovinu@gmail.com\n\nFinancijski nas poduprite za daljnje projekte:\nIBAN: HR2023400091111308014\nBIC/SWIFT: PBZGHR2X\n\nMarketing i prodaja:\nmladizadomovinu@gmail.com \n",
   "tags": [
@@ -43,12 +43,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787706029,
+  "epoch": 1787734004,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.19",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
     "repository": "yt-dlp/yt-dlp"
   }
 }

@@ -3,7 +3,7 @@
   "channel": "Muževni budite",
   "channel_id": "UCW1tLHKzwWJG34Ss1XnZlMw",
   "title": "Muževni budite",
-  "availability": null,
+  "availability": "public",
   "channel_follower_count": 7340,
   "description": "\"Muževni budite\" je YouTube kanal istoimenog hrvatskog portala za katoličke muškarce koji pokušava reafirmirati u današnje vrijeme itekako narušen biblijski koncept muževnosti. Njega se pokušava osvijetliti iz više aspekata, prigodnih rubrika i poticajnih inicijativa od kojih bi istaknuli konferencije \"Budi muškarac\" koje se održavaju diljem Hrvatske.",
   "tags": [
@@ -125,12 +125,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787706040,
+  "epoch": 1787734009,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.03.17",
+    "version": "2026.08.19",
     "current_git_head": null,
-    "release_git_head": "04d6974f502bbdfaed72c624344f262e30ad9708",
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
     "repository": "yt-dlp/yt-dlp"
   }
 }
