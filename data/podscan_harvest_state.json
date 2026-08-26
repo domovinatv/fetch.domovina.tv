@@ -1,0 +1,20 @@
+{
+  "done": {
+    "{\"language\":\"hr\"}|podcast": "complete",
+    "{\"language\":\"hr\"}|o": "complete",
+    "{\"language\":\"hr\"}|se": "complete",
+    "{\"language\":\"hr\"}|je": "complete",
+    "{\"language\":\"hr\"}|u": "complete",
+    "{\"language\":\"hr\"}|na": {
+      "nextPage": 5
+    }
+  },
+  "totals": {
+    "{\"language\":\"hr\"}|podcast": 875,
+    "{\"language\":\"hr\"}|o": 579,
+    "{\"language\":\"hr\"}|se": 297,
+    "{\"language\":\"hr\"}|je": 289,
+    "{\"language\":\"hr\"}|u": 483,
+    "{\"language\":\"hr\"}|na": 366
+  }
+}
