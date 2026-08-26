@@ -73,7 +73,14 @@ info "koraci:   $FROM → $TO   $([ $DRY_RUN -eq 1 ] && echo '(dry-run)')"
 STEP=01
 if want 01; then
     say "KORAK 01 — preuzimanje i spajanje (01_ingest.js)"
-    CONFIG="$REPO_ROOT/sabor_pipeline/data/sessions/$(echo "$SESSION" | sed 's/_gospic$//').json"
+    # Konfiguracija se traži po TOČNOM imenu sjednice; tek ako je nema, pokušava
+    # se bez tematskog sufiksa (pilot je `sabor_11_izvanredna_11_gospic`, a
+    # konfiguracija `sabor_11_izvanredna_11.json`). Prva verzija je skidala
+    # doslovno `_gospic`, pa bi svaka nova sjednica s tematskim sufiksom pala.
+    CONFIG="$REPO_ROOT/sabor_pipeline/data/sessions/$SESSION.json"
+    if [ ! -f "$CONFIG" ]; then
+        CONFIG="$REPO_ROOT/sabor_pipeline/data/sessions/${SESSION%_*}.json"
+    fi
     if [ -f "$SESSION_DIR/session_manifest.json" ]; then
         info "manifest već postoji — preskačem"
     else

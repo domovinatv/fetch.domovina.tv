@@ -20,8 +20,12 @@ a:hover { color:var(--red); }
 .stripe span:nth-child(1){background:var(--red)} .stripe span:nth-child(2){background:#fff}
 .stripe span:nth-child(3){background:var(--navy)}
 
-header.site { padding:14px 20px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+header.site { padding:14px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
   border-bottom:1px solid var(--border); }
+/* Ime sjednice zna biti dugo; bez ograde gura kartice desno izvan ekrana. */
+#sessionSel { max-width:260px; }
+header.site .spacer { min-width:0; }
+header.site button, header.site input { flex-shrink:0; }
 .brand { font-weight:800; letter-spacing:2px; font-size:17px; }
 .brand .ai { color:var(--red); }
 header .sub { color:var(--muted); font-size:13px; }
@@ -147,7 +151,7 @@ pre.log { background:var(--surface-2); padding:10px; border-radius:var(--radius-
 <script>
 "use strict";
 
-const S = { session:null, queue:null, sel:null, det:null, rankFilter:null, view:"queue" };
+const S = { session:null, sessions:[], queue:null, sel:null, det:null, rankFilter:null, view:"queue" };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
@@ -169,15 +173,29 @@ async function boot() {
   const s = await api("/api/sessions");
   $("reviewer").value = localStorage.getItem("sabor_reviewer") || s.reviewer;
   $("reviewer").onchange = () => localStorage.setItem("sabor_reviewer", $("reviewer").value);
+  // Nespremne sjednice se PRIKAZUJU, ali se ne mogu odabrati — da se vidi da
+  // aplikacija zna za njih i zašto još ne idu u pregled.
+  S.sessions = s.sessions;
   $("sessionSel").innerHTML = s.sessions.map((x) =>
-    `<option value="${esc(x.session_id)}">${esc(x.session_id)}</option>`).join("");
+    `<option value="${esc(x.session_id)}" ${x.spremna ? "" : "disabled"}>` +
+    `${esc(x.session_id)}${x.spremna ? "" : `  — čeka fazu ${esc(x.faza)}`}</option>`).join("");
   $("sessionSel").onchange = () => loadSession($("sessionSel").value);
   $("filter").oninput = renderQueue;
   $("showDone").onchange = renderQueue;
   $("tabQueue").onclick = () => { S.view = "queue"; syncTabs(); renderDetail(); };
   $("tabLoop").onclick = () => { S.view = "loop"; syncTabs(); renderLoop(); };
-  if (s.sessions.length) loadSession(s.sessions[0].session_id);
-  else $("detail").innerHTML = '<div class="empty">Nema sjednica u storage/output/sabor.</div>';
+  const spremne = s.sessions.filter((x) => x.spremna);
+  if (spremne.length) {
+    $("sessionSel").value = spremne[0].session_id;
+    loadSession(spremne[0].session_id);
+  } else if (s.sessions.length) {
+    const x = s.sessions[0];
+    $("detail").innerHTML = `<div class="empty">Nijedna sjednica još nije prošla fazu 03.<br><br>
+      <b>${esc(x.session_id)}</b> — ${esc(x.poruka)}<br>
+      <code>${esc(x.naredba)}</code></div>`;
+  } else {
+    $("detail").innerHTML = '<div class="empty">Nema sjednica u storage/output/sabor.</div>';
+  }
 }
 
 function syncTabs() {
@@ -425,7 +443,7 @@ function renderForm() {
   $("f_search").oninput = async (e) => {
     const q = e.target.value.trim();
     if (q.length < 2) { $("f_res").innerHTML = ""; return; }
-    const r = await api(`/api/roster?q=${encodeURIComponent(q)}`);
+    const r = await api(`/api/roster?session=${encodeURIComponent(S.session)}&q=${encodeURIComponent(q)}`);
     $("f_res").innerHTML = r.mps.slice(0, 6).map((m) =>
       `<button data-mp="${m.id}" data-nm="${esc(m.puno_ime)}">${esc(m.puno_ime)}</button>`).join(" ");
     for (const b of $("f_res").children) {

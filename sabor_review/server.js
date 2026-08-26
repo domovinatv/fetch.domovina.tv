@@ -47,7 +47,10 @@ function getArg(name, fallback) {
 
 const PORT = parseInt(getArg("--port", "8788"), 10);
 const OUTPUT_DIR = path.resolve(ROOT, getArg("--output-dir", "storage/output/sabor"));
-const ROSTER_PATH = path.join(PIPE, "data", "rosters", "sabor_mps_11_saziv.json");
+// Zadani registar; STVARNI se čita iz same sjednice (vidi `roster()`), jer
+// svaki saziv ima svoj popis i sjednice iz raznih saziva mogu stajati jedna
+// pored druge na disku.
+const DEFAULT_ROSTER_PATH = path.join(PIPE, "data", "rosters", "sabor_mps_11_saziv.json");
 
 const humanOverrides = require(path.join(PIPE, "utils", "human_overrides.js"));
 const timeMapper = require(path.join(PIPE, "utils", "time_mapper.js"));
@@ -125,13 +128,36 @@ function loadBlind(dir) {
     return out;
 }
 
-let rosterCache = null;
-function roster() {
-    if (!rosterCache) {
-        const r = readJson(ROSTER_PATH);
-        rosterCache = { raw: r, byId: new Map(r.mps.map((m) => [m.id, m])), matcher: new RosterMatcher(r) };
+const rosterCache = new Map();
+
+/**
+ * Registar KOJE JE SJEDNICA STVARNO KORISTILA.
+ *
+ * Faza 03 u `aligned_transcript.json` zapisuje `roster.path`, pa ga ovdje
+ * čitamo umjesto da ga pretpostavimo. Bez toga bi sjednica iz 12. saziva bila
+ * pregledavana registrom 11. saziva — imena bi se razrješavala u krive ljude,
+ * i to bez ijedne poruke.
+ */
+function roster(session = null) {
+    let p = DEFAULT_ROSTER_PATH;
+    if (session) {
+        try {
+            const a = loadSession(session).aligned;
+            if (a.roster && a.roster.path) {
+                const cand = path.resolve(ROOT, a.roster.path);
+                if (fs.existsSync(cand)) p = cand;
+            }
+        } catch { /* sjednica se ne da učitati — ostaje zadani registar */ }
     }
-    return rosterCache;
+    if (!rosterCache.has(p)) {
+        const r = readJson(p);
+        rosterCache.set(p, {
+            path: p, raw: r,
+            byId: new Map(r.mps.map((m) => [m.id, m])),
+            matcher: new RosterMatcher(r),
+        });
+    }
+    return rosterCache.get(p);
 }
 
 // ============================================================================
@@ -158,6 +184,7 @@ const RANG = [
 
 function buildQueue(session) {
     const S = loadSession(session);
+    const R = roster(session);
     const chairs = new Set(S.smap.chairs || []);
     const rows = [];
 
@@ -172,7 +199,7 @@ function buildQueue(session) {
         const blindIds = new Map();
         for (const b of blind) {
             if (!b.ime) continue;
-            const hit = roster().matcher.resolve(b.ime);
+            const hit = R.matcher.resolve(b.ime);
             let key = hit && hit.mp && hit.score >= 0.9 ? `mp:${hit.mp.id}` : `ime:${norm(b.ime)}`;
             if (key.startsWith("ime:")) {
                 // Osobe IZVAN registra (predsjedatelj, ministri) nemaju `mp_id`
@@ -185,7 +212,7 @@ function buildQueue(session) {
             if (!blindIds.has(key)) blindIds.set(key, hit && hit.mp && hit.score >= 0.9 ? hit.mp.puno_ime : b.ime);
         }
         const blindNames = [...blindIds.values()];
-        const currentHit = e.name ? roster().matcher.resolve(e.name) : null;
+        const currentHit = e.name ? R.matcher.resolve(e.name) : null;
         const currentKey = currentHit && currentHit.mp && currentHit.score >= 0.9
             ? `mp:${currentHit.mp.id}` : (e.name ? `ime:${norm(e.name)}` : null);
 
@@ -320,7 +347,7 @@ function speakerDetail(session, sid) {
 
     // ── kandidati, svaki s izvorom i dokazom ──
     const cands = new Map();
-    const R = roster();
+    const R = roster(session);
     const push = (mp, ime, izvor, dokaz, score) => {
         const key = mp ? `mp:${mp.id}` : `ime:${ime}`;
         if (!cands.has(key)) {
@@ -435,7 +462,7 @@ function applyDecision(body) {
             odluceno_at: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
         };
         if (body.dopusti_dijeljenu_oznaku === true) entry.dopusti_dijeljenu_oznaku = true;
-        const bad = humanOverrides.validateEntry(speaker_id, entry, roster().byId);
+        const bad = humanOverrides.validateEntry(speaker_id, entry, roster(session).byId);
         if (bad.length) return { ok: false, errors: bad };
         doc.overrides[speaker_id] = entry;
     }
@@ -470,7 +497,7 @@ function batchConfirm(session, speakerIds, odlucio) {
     const doc = humanOverrides.load(dir, session);
     const prev = JSON.stringify(doc);
     const qrows = new Map(buildQueue(session).queue.map((r) => [r.speaker_id, r]));
-    const R = roster();
+    const R = roster(session);
     const now = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
     const potvrdeno = [];
     const odbijeno = [];
@@ -594,18 +621,43 @@ function readBody(req) {
     });
 }
 
+/**
+ * Sve sjednice na disku — i one koje se JOŠ NE MOGU pregledavati.
+ *
+ * ⚠️ Prva verzija je tiho odbacivala sve bez `aligned_transcript.json`. Nova
+ * sjednica koja je stigla do diarizacije, ali ne i do faze 03, jednostavno se
+ * ne bi pojavila, pa bi izgledalo kao da je aplikacija ne vidi. Sada se vidi,
+ * uz razlog i naredbu koja je gura dalje.
+ *
+ * Symlink se mora izričito propustiti (`isDirectory()` je za njega `false`) —
+ * kanali u ovom repou stoje na drugim diskovima.
+ */
 function listSessions() {
     if (!fs.existsSync(OUTPUT_DIR)) return [];
     return fs.readdirSync(OUTPUT_DIR, { withFileTypes: true })
         .filter((d) => d.isDirectory() || d.isSymbolicLink())
         .map((d) => d.name)
-        .filter((n) => fs.existsSync(path.join(OUTPUT_DIR, n, "aligned_transcript.json")))
+        .sort()
         .map((n) => {
-            const a = readJson(path.join(OUTPUT_DIR, n, "aligned_transcript.json"));
-            const ovrP = path.join(OUTPUT_DIR, n, humanOverrides.FILENAME);
+            const dir = path.join(OUTPUT_DIR, n);
+            const alignedP = path.join(dir, "aligned_transcript.json");
+            if (!fs.existsSync(alignedP)) {
+                const ima = (f) => fs.existsSync(path.join(dir, f));
+                const razlog = !ima("session_manifest.json")
+                    ? { faza: "01", poruka: "nema session_manifest.json — sjednica nije preuzeta" }
+                    : !ima("diarization.json")
+                    ? { faza: "02", poruka: "nema diarization.json — diarizacija nije gotova" }
+                    : { faza: "03", poruka: "diarizacija postoji, faza 03 još nije pokrenuta" };
+                return {
+                    session_id: n, spremna: false, ...razlog,
+                    naredba: `sabor_pipeline/run_sabor_session.sh --session ${n}`,
+                };
+            }
+            const a = readJson(alignedP);
+            const ovrP = path.join(dir, humanOverrides.FILENAME);
             const ovr = fs.existsSync(ovrP) ? Object.keys(readJson(ovrP).overrides || {}).length : 0;
             return {
-                session_id: n,
+                session_id: n, spremna: true,
                 blocks: a.total_blocks,
                 speakers: a.total_speakers,
                 named_pct: a.stats ? a.stats.named_speech_pct : null,
@@ -627,7 +679,7 @@ const server = http.createServer(async (req, res) => {
         if (u.pathname === "/api/diff") return sendJson(res, 200, computeDiff(q.get("session")));
         if (u.pathname === "/api/roster") {
             const s = norm(q.get("q") || "");
-            const mps = roster().raw.mps
+            const mps = roster(q.get("session")).raw.mps
                 .filter((m) => !s || norm(m.puno_ime).includes(s) || norm(m.stranka || "").includes(s))
                 .slice(0, 40);
             return sendJson(res, 200, { mps });
@@ -677,7 +729,7 @@ function norm(s) {
 server.listen(PORT, () => {
     console.log(`\n  Pregled saborskih govornika:  http://localhost:${PORT}\n`);
     console.log(`  Sjednice:   ${OUTPUT_DIR}`);
-    console.log(`  Registar:   ${ROSTER_PATH}`);
+    console.log(`  Registar:   po sjednici (roster.path iz aligned_transcript.json)`);
     console.log(`  Pregledava: ${whoami()}   (promjena: SABOR_REVIEWER=…)\n`);
     console.log(`  Odluke se pišu u ${humanOverrides.FILENAME}; transkript piše ISKLJUČIVO faza 03.\n`);
 });

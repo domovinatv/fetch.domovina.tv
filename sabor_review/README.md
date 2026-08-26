@@ -29,6 +29,23 @@ transkript smije baciti i proizvesti iznova, a ljudski rad preživi.
 
 Unutar razine: po govornom vremenu silazno.
 
+## Nova sjednica
+
+Aplikacija čita disk pri svakom zahtjevu — nova sjednica se pojavi **bez
+ponovnog pokretanja poslužitelja**, dovoljno je osvježiti stranicu.
+
+1. `sabor_pipeline/data/sessions/<session_id>.json` (video ID-ovi po dijelovima)
+2. `sabor_pipeline/run_sabor_session.sh --session <session_id>`
+3. osvježi `localhost:8788` i odaberi sjednicu iz padajućeg izbornika
+
+Sjednice koje još nisu prošle fazu 03 **vide se u izborniku** (onemogućene, uz
+fazu koja nedostaje) — da se ne čini kako ih aplikacija ne vidi.
+
+**Registar se čita po sjednici**, iz `roster.path` koji faza 03 zapisuje u
+`aligned_transcript.json`. Sjednica iz drugog saziva time automatski dobiva svoj
+popis zastupnika; da je registar bio globalan, imena bi se razrješavala u krive
+ljude bez ijedne poruke.
+
 ## Što gdje živi
 
 | datoteka | tko piše |
