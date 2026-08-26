@@ -44,6 +44,12 @@ def main():
     ap.add_argument("--session", required=True)
     ap.add_argument("--output-dir", default=str(REPO_ROOT / "storage" / "output" / "sabor"))
     ap.add_argument("--top", type=int, default=15)
+    ap.add_argument("--cross", action="append", default=[], metavar="A,B",
+                    help="izmjeri udaljenost IZMEDU dvije globalne oznake "
+                         "(ponovljivo); za provjeru ljudske tvrdnje da su "
+                         "dvije oznake ista osoba")
+    ap.add_argument("--cross-json", default=None,
+                    help="zapisi rezultate --cross u JSON umjesto samo na stdout")
     a = ap.parse_args()
 
     d = Path(a.output_dir) / a.session
@@ -107,6 +113,53 @@ def main():
             "medijan": float(np.median(m[iu])),
             "tagovi": [t for t, _ in lst],
         })
+
+    # ── --cross: udaljenost IZMEDU dvije oznake ────────────────────────────
+    #
+    # Promjer odgovara na „drzi li JEDNA oznaka dva glasa". Ljudski sloj
+    # postavlja obrnuto pitanje: kad covjek tvrdi da su DVIJE oznake ista
+    # osoba, jesu li im centroidi doista blizu? Bez toga bi ta tvrdnja bila
+    # jedina u pipelineu koja se nikad ne mjeri.
+    cross_out = []
+    for spec in a.cross:
+        parts = [x.strip() for x in spec.split(",") if x.strip()]
+        if len(parts) != 2:
+            print(f"⚠ --cross ocekuje 'A,B', dobiveno: {spec!r}")
+            continue
+        g1, g2 = parts
+        m1, m2 = members.get(g1, []), members.get(g2, [])
+        if not m1 or not m2:
+            missing = [g for g, m in ((g1, m1), (g2, m2)) if not m]
+            print(f"⚠ nema centroida za: {', '.join(missing)}")
+            cross_out.append({"a": g1, "b": g2, "greska": "nema centroida"})
+            continue
+        x1 = np.stack([v for _, v in m1])
+        x2 = np.stack([v for _, v in m2])
+        n1 = x1 / (np.linalg.norm(x1, axis=1, keepdims=True) + 1e-12)
+        n2 = x2 / (np.linalg.norm(x2, axis=1, keepdims=True) + 1e-12)
+        d = 1.0 - n1 @ n2.T
+        # `min` je najblagonakloniji prema tvrdnji: ako je i on iznad praga,
+        # nijedan par centroida dviju oznaka nije dovoljno blizu.
+        row = {
+            "a": g1, "b": g2,
+            "n_a": len(m1), "n_b": len(m2),
+            "min": float(d.min()), "medijan": float(np.median(d)), "max": float(d.max()),
+            "prag": threshold,
+            "ista_osoba_vjerojatna": bool(d.min() <= threshold),
+        }
+        cross_out.append(row)
+        verdikt = "BLIZU (tvrdnja se drzi)" if row["ista_osoba_vjerojatna"] else "DALEKO (tvrdnja pada)"
+        print(f"{g1} ↔ {g2}   min {row['min']:.3f}  medijan {row['medijan']:.3f}  "
+              f"max {row['max']:.3f}  prag {threshold:.3f}  →  {verdikt}")
+    if cross_out and a.cross_json:
+        Path(a.cross_json).write_text(
+            json.dumps({"threshold": threshold, "parovi": cross_out}, ensure_ascii=False, indent=1) + "\n",
+            encoding="utf-8")
+        print(f"Zapisano: {a.cross_json}")
+    if a.cross:
+        # --cross je zasebno pitanje; rang-lista promjera se ne ispisuje niti
+        # se `merge_cohesion.json` prepisuje usput.
+        return
 
     rows.sort(key=lambda r: r["promjer"], reverse=True)
     sumnjivih = [r for r in rows if r["promjer"] > threshold * 2]

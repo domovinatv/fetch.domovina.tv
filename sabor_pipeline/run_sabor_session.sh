@@ -13,6 +13,9 @@
 #      `merge_threshold.json` ne postoji, korak 02b se ne pokreće.
 #   4. Transkripcija je uvijek NVIDIA Canary, nikad Whisper — i NE radi se
 #      ovdje. `.canary.srt` stiže s Colaba (bulk) ili Modala (ad-hoc).
+#   5. Ljudske odluke o identitetu govornika žive SAMO u `human_overrides.json`.
+#      Faza 03 ih primjenjuje sama; ništa ih ne prepisuje u transkript, pa je
+#      korak 03 slobodno pokretati iznova koliko god puta treba.
 #
 # Uporaba:
 #   sabor_pipeline/run_sabor_session.sh --session <session_id>
@@ -151,7 +154,28 @@ if want 03; then
     fi
 
     say "KORAK 03 — poravnanje i protokolarno imenovanje"
-    run node "$REPO_ROOT/sabor_pipeline/03_transcribe_and_align.js" --session "$SESSION"
+    # `--output-dir` mora ići i ovdje: bez njega bi glavni prolaz pisao u
+    # zadanu putanju, a referentni u $OUTPUT_DIR — pa bi se uspoređivale dvije
+    # različite sjednice.
+    run node "$REPO_ROOT/sabor_pipeline/03_transcribe_and_align.js" \
+        --session "$SESSION" --output-dir "$OUTPUT_DIR"
+
+    # Referentni prolaz BEZ ljudskog sloja — da se poslije zna koliko je
+    # imenovanog vremena donio protokol, a koliko ljudski pregled. Računa se
+    # svaki put iznova; snimak bi nakon idućeg popravka sidrenja zastario.
+    if [ "$DRY_RUN" -eq 0 ]; then
+        run node "$REPO_ROOT/sabor_pipeline/03_transcribe_and_align.js" \
+            --session "$SESSION" --output-dir "$OUTPUT_DIR" --no-human --suffix .protokol
+        if [ -f "$SESSION_DIR/human_overrides.json" ]; then
+            say "REVIZIJA — sloj ljudskih odluka"
+            node "$REPO_ROOT/sabor_pipeline/tools/audit_overrides.js" \
+                --session "$SESSION" --output-dir "$OUTPUT_DIR" || \
+                info "⚠ revizija je našla nalaze — vidi gore"
+            node "$REPO_ROOT/sabor_pipeline/tools/diff_naming.js" --session "$SESSION" \
+                --output-dir "$OUTPUT_DIR" \
+                --before "$SESSION_DIR/aligned_transcript.protokol.json"
+        fi
+    fi
 
     say "PROVJERA — donja granica broja govornika (protokol vs klasteriranje)"
     if [ "$DRY_RUN" -eq 0 ]; then
@@ -189,3 +213,6 @@ info "Članak:       $SESSION_DIR/article_*/clanak.md"
 echo ""
 echo "   Preporučeno nakon toga (nije automatski jer troši LLM kvotu):"
 echo "     node sabor_pipeline/tools/blind_speaker_check.js --session $SESSION --windows 0,4,9,14,19"
+echo ""
+echo "   Ljudski pregled onoga što protokol ne može imenovati (~34 % vremena):"
+echo "     node sabor_review/server.js      → http://localhost:8788"

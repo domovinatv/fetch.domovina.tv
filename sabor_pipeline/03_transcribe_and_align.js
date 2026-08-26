@@ -14,7 +14,12 @@
  *   3. predsjedavajući se prepoznaju po GUSTOĆI protokolarnih fraza
  *      (isti kriterij kao `tools/validate_chair.py`, §8.10 — njih je više!);
  *   4. najava predsjedavajućeg GLASA za identitet sljedećeg bloka;
- *   5. glasovi se zbrajaju po globalnoj oznaci i razrješavaju većinom.
+ *   5. glasovi se zbrajaju po globalnoj oznaci i razrješavaju većinom;
+ *   6. `human_overrides.json` (ako postoji) primjenjuje se kao sidro NAJVIŠEG
+ *      prioriteta — vidi `utils/human_overrides.js`. Ljudska odluka pobjeđuje
+ *      bilo koji broj glasova i pravilo „jedan zastupnik = jedna oznaka".
+ *      Sloj je zaseban upravo zato da ovaj korak ostane ponovljiv: transkript
+ *      se smije baciti i proizvesti iznova, a ljudski rad preživi.
  *
  * ═══ ⚠️ ISPRAVCI SPECIFIKACIJE `03_asr_and_protocol_parser.md` ═══
  *
@@ -36,6 +41,8 @@
  * Uporaba:
  *   node sabor_pipeline/03_transcribe_and_align.js --session sabor_11_izvanredna_11_gospic
  *   node sabor_pipeline/03_transcribe_and_align.js --session <id> --dry-run
+ *   node sabor_pipeline/03_transcribe_and_align.js --session <id> \
+ *        --no-human --suffix .protokol     # referentni prolaz bez ljudskog sloja
  */
 
 "use strict";
@@ -46,6 +53,7 @@ const timeMapper = require("./utils/time_mapper.js");
 const { RosterMatcher } = require("./utils/roster_match.js");
 const { findAnnouncements, hasHandover, handoverRole } = require("./utils/protocol_parser.js");
 const { normalizeText } = require("./utils/asr_dictionary.js");
+const humanOverrides = require("./utils/human_overrides.js");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const DEFAULT_OUTPUT_DIR = path.join(REPO_ROOT, "storage", "output", "sabor");
@@ -67,6 +75,14 @@ function getArg(name) {
 }
 const DRY_RUN = args.includes("--dry-run");
 const VERBOSE = args.includes("--verbose");
+// Referentni prolaz BEZ ljudskog sloja. Petlja pregleda mora znati koliko je
+// dobiveno ljudskim radom, a to je razlika prema onome što bi protokol dao sam.
+// Referenca se PONOVNO IZRAČUNAVA, ne čuva kao snimak: snimak bi nakon svakog
+// popravka sidrenja tiho zastario i ljudskom sloju pripisao tuđu zaslugu.
+const NO_HUMAN = args.includes("--no-human");
+// Sufiks izlaznih datoteka (`aligned_transcript{SUFFIX}.json`) — da referentni
+// prolaz ne prepiše proizvod.
+const SUFFIX = getArg("--suffix") || "";
 
 // ───────────────────────────── SRT ─────────────────────────────
 
@@ -399,9 +415,49 @@ function main() {
 
     const { votes, roleVotes, anchors } = collectVotes(blocks, chairs, matcher);
     const speakerMap = resolveIdentities(votes, roleVotes, mpById);
+
+    // ── Sloj ljudskih odluka — najviši prioritet, primjenjuje se NA KRAJU ──
+    const ovrDoc = NO_HUMAN
+        ? humanOverrides.emptyDoc(session)
+        : humanOverrides.load(sessionDir, session);
+    const ovrCount = Object.keys(ovrDoc.overrides).length;
+    if (NO_HUMAN) log("--no-human — ljudski sloj se NE primjenjuje (referentni prolaz)");
+    let ovrReport = { applied: [], dropped: [], shared: [], errors: [] };
+    if (ovrCount > 0) {
+        const bad = humanOverrides.validateDoc(ovrDoc, mpById);
+        if (bad.length) {
+            console.error(`GREŠKA: ${humanOverrides.FILENAME} nije valjan:`);
+            for (const b of bad) console.error(`  • ${b}`);
+            process.exit(1);
+        }
+        ovrReport = humanOverrides.apply(speakerMap, ovrDoc, mpById);
+        if (ovrReport.errors.length) {
+            console.error("GREŠKA: sukob u sloju ljudskih odluka:");
+            for (const e of ovrReport.errors) console.error(`  • ${e}`);
+            process.exit(1);
+        }
+        log(`Ljudskih odluka: ${ovrCount} (primijenjeno ${ovrReport.applied.length}, ` +
+            `protokolarnih imena povučeno ${ovrReport.dropped.length})`);
+        for (const a of ovrReport.applied) {
+            const prije = a.prije ? ` (prije: ${a.prije})` : "";
+            const izvan = a.izvan_registra ? "  [izvan registra]" : "";
+            log(`   ✋ ${a.speaker} → ${a.ime || "(bez imena)"}${prije}${izvan}`);
+        }
+        for (const d of ovrReport.dropped) {
+            log(`   ↓ ${d.speaker} gubi ime ${d.ime} u korist ${d.u_korist}`);
+        }
+        for (const s of ovrReport.shared) {
+            log(`   ⚠ ${s.osoba} dijeli oznake ${s.oznake.join(", ")} — izričito dopušteno`);
+        }
+    }
+
     const resolvedCount = Object.values(speakerMap).filter((v) => v.resolved).length;
+    // Ključ identiteta, a ne `mp_id`: ljudska odluka smije imenovati osobu koje
+    // u registru NEMA (predsjedatelj, ministri), a takav bi unos s `mp_id: null`
+    // sve neregistrirane osobe stopio u jedan `null` i brojku srušio na 1.
     const namedMps = new Set(
-        Object.values(speakerMap).filter((v) => v.resolved).map((v) => v.mp_id)
+        Object.values(speakerMap).filter((v) => v.resolved)
+            .map((v) => (v.mp_id != null ? `mp:${v.mp_id}` : `ime:${v.puno_ime}`))
     );
     log(`Sidrenih najava: ${anchors.length} → glasova za ${votes.size} oznaka → ` +
         `razriješeno ${resolvedCount} (različitih zastupnika: ${namedMps.size})`);
@@ -422,7 +478,13 @@ function main() {
             party: id && id.resolved ? id.stranka : null,
             klub: id && id.resolved ? id.klub : null,
             identity_confidence: id ? id.confidence : null,
-            role: chairs.has(b.speaker) ? "predsjedatelj"
+            // Nizvodno mora biti vidljivo je li ime dao stroj ili čovjek —
+            // bez toga se kvaliteta protokolarnog imenovanja više ne da mjeriti.
+            identity_source: id && id.identity_source ? id.identity_source : "protokol",
+            // Ljudska uloga pobjeđuje i gustoću: čovjek smije reći da oznaka
+            // JEST predsjedatelj (ili nije), a to detektor gustoće ne zna.
+            role: (id && id.identity_source === "covjek" && id.role_hint) ? id.role_hint
+                : chairs.has(b.speaker) ? "predsjedatelj"
                 : (id && id.role_hint) ? id.role_hint
                 : id && id.resolved ? "zastupnik" : "govornik",
             cue_count: b.cue_count,
@@ -440,8 +502,13 @@ function main() {
     const namedSec = outBlocks.filter((b) => b.speaker_name)
         .reduce((s, b) => s + b.duration_sec, 0);
     const totalSec = outBlocks.reduce((s, b) => s + b.duration_sec, 0);
+    // Udio koji je imenovao ČOVJEK drži se odvojeno: bez toga bi svaki novi
+    // krug pregleda naizgled poboljšao protokolarno sidrenje, a ono stoji.
+    const humanSec = outBlocks.filter((b) => b.speaker_name && b.identity_source === "covjek")
+        .reduce((s, b) => s + b.duration_sec, 0);
     log(`Imenovanih blokova: ${named}/${outBlocks.length} ` +
-        `(${round1((100 * namedSec) / totalSec)} % izgovorenog vremena)`);
+        `(${round1((100 * namedSec) / totalSec)} % izgovorenog vremena` +
+        (humanSec > 0 ? `, od toga ${round1((100 * humanSec) / totalSec)} % ljudskom odlukom` : "") + ")");
 
     const payload = {
         session_id: session,
@@ -466,6 +533,11 @@ function main() {
             distinct_mps_named: namedMps.size,
             named_blocks: named,
             named_speech_pct: round1((100 * namedSec) / totalSec),
+            named_speech_pct_protokol: round1((100 * (namedSec - humanSec)) / totalSec),
+            named_speech_pct_covjek: round1((100 * humanSec) / totalSec),
+            human_overrides: ovrCount,
+            human_overrides_applied: ovrReport.applied.length,
+            total_speech_sec: round3(totalSec),
         },
         blocks: outBlocks,
     };
@@ -473,18 +545,28 @@ function main() {
     const mapPayload = {
         session_id: session,
         generated_at: payload.generated_at,
-        rule: `većina glasova ≥ ${MIN_VOTE_SHARE}, najava vrijedi ≤ ${ANCHOR_MAX_GAP_S} s unaprijed`,
+        rule: `većina glasova ≥ ${MIN_VOTE_SHARE}, najava vrijedi ≤ ${ANCHOR_MAX_GAP_S} s unaprijed` +
+              (ovrCount ? "; ljudska odluka nadjačava glasove" : ""),
         chairs: [...chairs],
+        human_layer: {
+            file: humanOverrides.FILENAME,
+            entries: ovrCount,
+            applied: ovrReport.applied,
+            dropped: ovrReport.dropped,
+            shared: ovrReport.shared,
+        },
         speaker_density: densities,
         speakers: speakerMap,
         anchors,
     };
 
     if (DRY_RUN) { log("--dry-run — ništa nije zapisano"); return; }
-    writeJson(path.join(sessionDir, "aligned_transcript.json"), payload);
-    writeJson(path.join(sessionDir, "speaker_map.json"), mapPayload);
-    log(`Zapisano: ${path.join(sessionDir, "aligned_transcript.json")}`);
-    log(`Zapisano: ${path.join(sessionDir, "speaker_map.json")}`);
+    const alignedOut = path.join(sessionDir, `aligned_transcript${SUFFIX}.json`);
+    const mapOut = path.join(sessionDir, `speaker_map${SUFFIX}.json`);
+    writeJson(alignedOut, payload);
+    writeJson(mapOut, mapPayload);
+    log(`Zapisano: ${alignedOut}`);
+    log(`Zapisano: ${mapOut}`);
 }
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }

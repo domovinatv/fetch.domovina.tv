@@ -98,8 +98,38 @@ sjednicu, a fuzzy matching to ne bi ni prijavio.
 **Registar ne sadrži članove Vlade** — ministrica je na pilot-sjednici najveći
 pojedinačni govornik (87 min). Takve oznake dobivaju `role_hint: "clan_vlade"`
 umjesto imena; matcher za njih vraća `null` umjesto „najbližeg" zastupnika.
+Njih rješava **sloj ljudskih odluka** (dolje): jedan unos za tu ministricu
+podigao je imenovano vrijeme za **8.1 postotni bod**.
 
 Mjerenja, ograde i otvorene rupe: `docs/sabor_faza03_protokol_i_registar_2026-08.md`.
+
+### Sloj ljudskih odluka + aplikacija za pregled
+
+Protokolarno sidrenje staje na ~66 % govornog vremena i to je **strop, ne bug**
+(19 od 28 preostalih govornika predsjedavajući nikad ne imenuje). Ostatak
+zatvara čovjek, ali **nikad upisom u transkript** — odluke idu u zaseban
+`human_overrides.json` koji faza 03 pri svakom prolazu primijeni kao sidro
+najvišeg prioriteta. Zato run ostaje ponovljiv.
+
+```bash
+# aplikacija za pregled — red čekanja po pouzdanosti, odluka, pa faza 03
+node sabor_review/server.js            # → http://localhost:8788
+
+# referentni prolaz BEZ ljudskog sloja (za mjerenje ljudskog doprinosa)
+node sabor_pipeline/03_transcribe_and_align.js --session <id> --no-human --suffix .protokol
+node sabor_pipeline/tools/diff_naming.js --session <id> \
+     --before storage/output/sabor/<id>/aligned_transcript.protokol.json
+
+# neovisna revizija ljudskog sloja (ljudska odluka ulazi s pouzdanošću 1.0!)
+node sabor_pipeline/tools/audit_overrides.js --session <id>
+
+# je li tvrdnja „ove dvije oznake su ista osoba" akustički održiva
+python3 sabor_pipeline/tools/audit_merge_cohesion.py --session <id> --cross SPEAKER_A,SPEAKER_B
+
+node --test sabor_pipeline/utils/human_overrides.test.js
+```
+
+Detalji, zamke i mjerenja: `docs/sabor_human_in_the_loop_2026-08.md`.
 
 ### Kako se pokreće
 

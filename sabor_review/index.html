@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sabor · pregled govornika</title>
+<style>
+:root {
+  --navy:#002F6C; --navy-dark:#00224d; --red:#FF0000; --muted:#5A6570;
+  --border:#E1E5EA; --surface:#F5F7F9; --surface-2:#EDF1F5; --bg:#fff;
+  --radius:12px; --radius-sm:8px; --ok:#2D8F4E; --warn:#C77400; --bad:#B12222;
+  --shadow:0 1px 3px rgba(0,47,108,.08), 0 4px 12px rgba(0,47,108,.05);
+}
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; background:var(--bg); color:var(--navy);
+  font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.5; }
+a { color:var(--navy); text-underline-offset:3px; }
+a:hover { color:var(--red); }
+.stripe { display:flex; height:5px; } .stripe span { flex:1; }
+.stripe span:nth-child(1){background:var(--red)} .stripe span:nth-child(2){background:#fff}
+.stripe span:nth-child(3){background:var(--navy)}
+
+header.site { padding:14px 20px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  border-bottom:1px solid var(--border); }
+.brand { font-weight:800; letter-spacing:2px; font-size:17px; }
+.brand .ai { color:var(--red); }
+header .sub { color:var(--muted); font-size:13px; }
+header .spacer { flex:1; }
+select,input,button,textarea { font:inherit; color:inherit; }
+select,input[type=text],textarea { border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:6px 9px; background:#fff; }
+button { border:1px solid var(--border); background:#fff; border-radius:var(--radius-sm);
+  padding:6px 12px; cursor:pointer; }
+button:hover { border-color:var(--navy); }
+button.primary { background:var(--navy); color:#fff; border-color:var(--navy); }
+button.primary:hover { background:var(--navy-dark); }
+button.danger { color:var(--bad); border-color:#e8c9c9; }
+button:disabled { opacity:.45; cursor:not-allowed; }
+
+.layout { display:grid; grid-template-columns:minmax(340px,420px) 1fr; gap:0; height:calc(100vh - 110px); }
+.pane { overflow-y:auto; padding:16px 18px; }
+.pane.left { border-right:1px solid var(--border); background:var(--surface); }
+
+.card { background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+  padding:14px 16px; margin-bottom:14px; box-shadow:var(--shadow); }
+.card h3 { margin:0 0 10px; font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+
+.metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; }
+.metric { background:var(--surface-2); border-radius:var(--radius-sm); padding:8px 10px; }
+.metric .v { font-size:20px; font-weight:700; }
+.metric .k { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+.delta.up { color:var(--ok); } .delta.down { color:var(--bad); }
+
+.ranks { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
+.rankbar { display:flex; align-items:center; gap:8px; font-size:12.5px; cursor:pointer;
+  padding:5px 8px; border-radius:var(--radius-sm); border:1px solid transparent; }
+.rankbar:hover { background:var(--surface-2); }
+.rankbar.on { border-color:var(--navy); background:#fff; }
+.rankbar .bar { flex:1; height:7px; background:var(--surface-2); border-radius:4px; overflow:hidden; }
+.rankbar .bar i { display:block; height:100%; background:var(--navy); }
+.rankbar .n { font-weight:700; min-width:26px; text-align:right; }
+
+ul.q { list-style:none; margin:0; padding:0; }
+ul.q li { border:1px solid var(--border); background:#fff; border-radius:var(--radius-sm);
+  padding:8px 10px; margin-bottom:6px; cursor:pointer; display:flex; gap:8px; align-items:baseline; }
+ul.q li:hover { border-color:var(--navy); }
+ul.q li.on { border-color:var(--navy); background:#eef4ff; }
+ul.q li.done { opacity:.62; }
+ul.q .sid { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; }
+ul.q .nm { flex:1; font-weight:600; font-size:13.5px; }
+ul.q .nm.none { font-weight:400; color:var(--muted); font-style:italic; }
+ul.q .mins { font-size:12px; color:var(--muted); white-space:nowrap; }
+
+.tag { display:inline-block; font-size:10.5px; padding:1px 6px; border-radius:20px;
+  border:1px solid var(--border); background:var(--surface-2); color:var(--muted);
+  letter-spacing:.3px; white-space:nowrap; }
+.tag.ok { background:#e8f5ec; border-color:#bfe3cb; color:#1d6b38; }
+.tag.warn { background:#fdf3e3; border-color:#f0d9ae; color:#8a5200; }
+.tag.bad { background:#fdecec; border-color:#f0c4c4; color:#8f1c1c; }
+.tag.human { background:#e9eeff; border-color:#c3cff5; color:#26418f; }
+
+.hdr { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+.hdr h2 { margin:0; font-size:20px; }
+.hdr .sid { font-family:ui-monospace,Menlo,monospace; font-size:13px; color:var(--muted); }
+
+.cands { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+.cand { border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; display:flex; gap:10px; }
+.cand.pick { border-color:var(--navy); background:#eef4ff; }
+.cand img { width:44px; height:44px; border-radius:6px; object-fit:cover; background:var(--surface-2); }
+.cand .nm { font-weight:700; font-size:14px; }
+.cand .meta { font-size:11.5px; color:var(--muted); }
+.cand .ev { font-size:11px; color:var(--muted); margin-top:5px; border-left:2px solid var(--border);
+  padding-left:6px; max-height:60px; overflow:auto; }
+
+.blk { border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 12px; margin-bottom:8px; }
+.blk .top { display:flex; gap:10px; align-items:baseline; font-size:12px; color:var(--muted); margin-bottom:5px; }
+.blk .ann { background:var(--surface-2); border-left:3px solid var(--navy); padding:5px 9px;
+  border-radius:4px; font-size:12.5px; margin-bottom:6px; }
+.blk .ann.mute { border-left-color:var(--border); color:var(--muted); font-style:italic; }
+.blk .txt { font-size:13.5px; max-height:150px; overflow:auto; }
+.yt { font-size:11.5px; white-space:nowrap; }
+
+.form { display:grid; gap:9px; }
+.row { display:flex; gap:9px; align-items:center; flex-wrap:wrap; }
+.row label { font-size:12px; color:var(--muted); min-width:76px; }
+.row input[type=text], .row textarea { flex:1; min-width:200px; }
+.hint { font-size:11.5px; color:var(--muted); }
+.err { background:#fdecec; border:1px solid #f0c4c4; color:#8f1c1c; padding:9px 12px;
+  border-radius:var(--radius-sm); font-size:13px; margin-bottom:10px; white-space:pre-wrap; }
+.ok-msg { background:#e8f5ec; border:1px solid #bfe3cb; color:#1d6b38; padding:9px 12px;
+  border-radius:var(--radius-sm); font-size:13px; margin-bottom:10px; }
+pre.log { background:var(--surface-2); padding:10px; border-radius:var(--radius-sm);
+  font-size:11.5px; max-height:280px; overflow:auto; white-space:pre-wrap; margin:0; }
+.empty { color:var(--muted); padding:40px 10px; text-align:center; }
+.tabs { display:flex; gap:6px; margin-bottom:12px; }
+.tabs button.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+</style>
+</head>
+<body>
+<div class="stripe"><span></span><span></span><span></span></div>
+<header class="site">
+  <div class="brand">SABOR<span class="ai">·</span>PREGLED</div>
+  <select id="sessionSel"></select>
+  <span class="sub" id="sessSub"></span>
+  <div class="spacer"></div>
+  <span class="sub">pregledava</span>
+  <input type="text" id="reviewer" style="width:150px" />
+  <button id="tabQueue" class="on">Red čekanja</button>
+  <button id="tabLoop">Petlja i revizija</button>
+</header>
+
+<div class="layout">
+  <div class="pane left">
+    <div id="summary"></div>
+    <div class="ranks" id="ranks"></div>
+    <div class="row" style="margin-bottom:8px">
+      <input type="text" id="filter" placeholder="filtriraj po imenu ili oznaci" style="flex:1" />
+      <label class="hint"><input type="checkbox" id="showDone" /> i riješene</label>
+    </div>
+    <ul class="q" id="queue"></ul>
+  </div>
+  <div class="pane right" id="detail">
+    <div class="empty">Odaberi oznaku iz reda čekanja.</div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+const S = { session:null, queue:null, sel:null, det:null, rankFilter:null, view:"queue" };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+const mins = (sec) => (sec / 60).toFixed(1) + " min";
+
+async function api(p, opts) {
+  const r = await fetch(p, opts);
+  const j = await r.json();
+  if (j.error) throw new Error(j.error);
+  return j;
+}
+const post = (p, body) => api(p, {
+  method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+});
+
+// ───────────────────────────── pokretanje ─────────────────────────────
+
+async function boot() {
+  const s = await api("/api/sessions");
+  $("reviewer").value = localStorage.getItem("sabor_reviewer") || s.reviewer;
+  $("reviewer").onchange = () => localStorage.setItem("sabor_reviewer", $("reviewer").value);
+  $("sessionSel").innerHTML = s.sessions.map((x) =>
+    `<option value="${esc(x.session_id)}">${esc(x.session_id)}</option>`).join("");
+  $("sessionSel").onchange = () => loadSession($("sessionSel").value);
+  $("filter").oninput = renderQueue;
+  $("showDone").onchange = renderQueue;
+  $("tabQueue").onclick = () => { S.view = "queue"; syncTabs(); renderDetail(); };
+  $("tabLoop").onclick = () => { S.view = "loop"; syncTabs(); renderLoop(); };
+  if (s.sessions.length) loadSession(s.sessions[0].session_id);
+  else $("detail").innerHTML = '<div class="empty">Nema sjednica u storage/output/sabor.</div>';
+}
+
+function syncTabs() {
+  $("tabQueue").className = S.view === "queue" ? "on" : "";
+  $("tabLoop").className = S.view === "loop" ? "on" : "";
+}
+
+async function loadSession(id) {
+  S.session = id; S.sel = null; S.det = null;
+  $("detail").innerHTML = '<div class="empty">Učitavam…</div>';
+  S.queue = await api(`/api/queue?session=${encodeURIComponent(id)}`);
+  renderSummary(); renderRanks(); renderQueue();
+  $("detail").innerHTML = '<div class="empty">Odaberi oznaku iz reda čekanja.</div>';
+}
+
+// ───────────────────────────── lijevi panel ─────────────────────────────
+
+function renderSummary() {
+  const q = S.queue, st = q.stats || {};
+  $("sessSub").textContent = `${q.labels_with_speech} oznaka · ${st.named_speech_pct}% imenovano`;
+  $("summary").innerHTML = `<div class="card"><h3>Stanje sjednice</h3><div class="metrics">
+    <div class="metric"><div class="v">${st.named_speech_pct ?? "—"}%</div><div class="k">imenovano vrijeme</div></div>
+    <div class="metric"><div class="v">${st.distinct_mps_named ?? "—"}</div><div class="k">osoba</div></div>
+    <div class="metric"><div class="v">${q.queue.length}</div><div class="k">za pregled</div></div>
+    <div class="metric"><div class="v">${q.done.length}</div><div class="k">odlučeno</div></div>
+  </div></div>`;
+}
+
+function renderRanks() {
+  const q = S.queue;
+  const max = Math.max(1, ...q.per_rank.map((r) => r.sec));
+  $("ranks").innerHTML = q.per_rank.map((r) => `
+    <div class="rankbar ${S.rankFilter === r.rank ? "on" : ""}" data-rank="${r.rank}"
+         title="${esc(r.opis)}">
+      <span class="n">${r.n}</span>
+      <span style="min-width:96px">${esc(r.label)}</span>
+      <span class="bar"><i style="width:${(100 * r.sec) / max}%"></i></span>
+      <span style="color:var(--muted);min-width:52px;text-align:right">${r.pct}%</span>
+    </div>`).join("");
+  for (const el of $("ranks").children) {
+    el.onclick = () => {
+      const r = Number(el.dataset.rank);
+      S.rankFilter = S.rankFilter === r ? null : r;
+      renderRanks(); renderQueue();
+    };
+  }
+}
+
+function badges(r) {
+  const b = [];
+  if (r.decided) b.push(`<span class="tag human">${esc(r.decision)}</span>`);
+  if (r.blind_agrees) b.push('<span class="tag ok">model ✓</span>');
+  if (r.blind_conflict) b.push('<span class="tag bad">model si proturječi</span>');
+  else if (r.blind_disagrees) b.push('<span class="tag warn">model ✗</span>');
+  else if (r.has_blind && !r.name) b.push('<span class="tag warn">model predlaže</span>');
+  if (r.is_chair) b.push('<span class="tag">predsjedatelj</span>');
+  if (r.role_hint === "clan_vlade") b.push('<span class="tag">član Vlade</span>');
+  return b.join(" ");
+}
+
+function renderQueue() {
+  const q = S.queue; if (!q) return;
+  const f = $("filter").value.trim().toLowerCase();
+  let rows = $("showDone").checked ? q.queue.concat(q.done) : q.queue;
+  if (S.rankFilter != null) rows = rows.filter((r) => r.rank === S.rankFilter);
+  if (f) rows = rows.filter((r) =>
+    r.speaker_id.toLowerCase().includes(f) ||
+    (r.name || "").toLowerCase().includes(f) ||
+    r.blind_names.join(" ").toLowerCase().includes(f));
+
+  $("queue").innerHTML = rows.map((r) => `
+    <li data-id="${r.speaker_id}" class="${S.sel === r.speaker_id ? "on" : ""} ${r.decided ? "done" : ""}">
+      <span class="sid">${r.speaker_id.replace("SPEAKER_", "")}</span>
+      <span class="nm ${r.name ? "" : "none"}">${esc(r.name || r.blind_names[0] || "bez imena")}</span>
+      <span>${badges(r)}</span>
+      <span class="mins">${r.minutes} min</span>
+    </li>`).join("") || '<div class="empty">Nema oznaka koje odgovaraju filtru.</div>';
+
+  for (const el of $("queue").children) {
+    if (el.dataset && el.dataset.id) el.onclick = () => selectSpeaker(el.dataset.id);
+  }
+}
+
+// ───────────────────────────── desni panel ─────────────────────────────
+
+async function selectSpeaker(id) {
+  S.sel = id; S.view = "queue"; syncTabs(); renderQueue();
+  $("detail").innerHTML = '<div class="empty">Učitavam…</div>';
+  S.det = await api(`/api/speaker?session=${encodeURIComponent(S.session)}&id=${id}`);
+  renderDetail();
+}
+
+function ytLink(y, label) {
+  if (!y || !y.url) return "";
+  return `<a class="yt" href="${esc(y.url)}" target="_blank" rel="noopener">▶ ${esc(label || "poslušaj")}</a>`;
+}
+
+function renderDetail() {
+  if (S.view === "loop") return renderLoop();
+  const d = S.det;
+  if (!d) { $("detail").innerHTML = '<div class="empty">Odaberi oznaku iz reda čekanja.</div>'; return; }
+  const row = (S.queue.queue.concat(S.queue.done)).find((r) => r.speaker_id === d.speaker_id) || {};
+  const t = d.trenutno || {};
+
+  $("detail").innerHTML = `
+    <div class="hdr">
+      <h2>${esc(d.ime || "bez imena")}</h2>
+      <span class="sid">${d.speaker_id}</span>
+      <span>${badges(row)}</span>
+    </div>
+    <div class="hint" style="margin-bottom:14px">
+      ${d.minutes} min u ${d.n_blocks} istupa · ${d.prvi_hms} → ${d.zadnji_hms} ·
+      izvor imena: <b>${esc(d.izvor || "—")}</b> ·
+      pouzdanost: ${esc(t.confidence_tier || "—")}
+      ${t.votes_total ? ` (${t.votes}/${t.votes_total} glasova)` : ""}
+      ${t.dropped_reason ? `<br><span style="color:var(--bad)">${esc(t.dropped_reason)}</span>` : ""}
+    </div>
+    <div id="msg"></div>
+    <div class="card"><h3>Odluka</h3><div id="form"></div></div>
+    <div class="card"><h3>Kandidati (${d.kandidati.length})</h3><div class="cands" id="cands"></div></div>
+    <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
+    <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
+
+  renderCands(); renderAnchors(); renderBlocks(); renderForm();
+}
+
+function renderCands() {
+  const d = S.det;
+  $("cands").innerHTML = d.kandidati.map((c, i) => `
+    <div class="cand" data-i="${i}">
+      ${c.img ? `<img src="${esc(c.img)}" alt="" onerror="this.style.visibility='hidden'"/>` : '<img alt=""/>'}
+      <div style="flex:1;min-width:0">
+        <div class="nm">${esc(c.puno_ime)}</div>
+        <div class="meta">${esc(c.stranka || (c.u_registru ? "" : "izvan registra"))}
+          ${c.izvori.map((s) => `<span class="tag ${s === "najava" ? "ok" : s === "model" ? "warn" : ""}">${esc(s)}</span>`).join(" ")}</div>
+        <div class="ev">${c.dokazi.map((e) => esc(e)).join("<br>")}</div>
+      </div>
+    </div>`).join("") || '<div class="hint">Nema kandidata — koristi pretragu registra ispod.</div>';
+  for (const el of $("cands").children) {
+    if (!el.dataset || el.dataset.i == null) continue;
+    el.onclick = () => {
+      const c = S.det.kandidati[Number(el.dataset.i)];
+      $("f_mp").value = c.mp_id || "";
+      $("f_ime").value = c.puno_ime;
+      $("f_izvor").value = c.izvori.join("+");
+      if (!$("f_razlog").value) $("f_razlog").value = c.dokazi[0] || "";
+      for (const x of $("cands").children) x.className = "cand";
+      el.className = "cand pick";
+    };
+  }
+}
+
+function renderAnchors() {
+  const d = S.det;
+  $("anch").innerHTML = d.anchors.map((a) => `
+    <div class="blk"><div class="top">
+      <span>${esc(a.hms)}</span><span class="tag">${esc(a.speech_type || "")}</span>
+      <span style="flex:1">izgovoreno „<b>${esc(a.spoken_name)}</b>" → ${esc(a.mp)}
+        (podudaranje ${a.match_score})</span>
+      ${ytLink(a.youtube, "najava")}
+    </div></div>`).join("") ||
+    '<div class="hint">Nijedna najava ne pokazuje na ovu oznaku — protokol je za nju nijem.</div>';
+}
+
+function renderBlocks() {
+  const d = S.det;
+  $("blks").innerHTML = d.istupi.map((b) => `
+    <div class="blk">
+      <div class="top">
+        <span>${esc(b.hms)}</span><span>${mins(b.duration_sec)}</span>
+        <span class="tag">${esc(b.role)}</span>
+        <span style="flex:1"></span>${ytLink(b.youtube, "istup")}
+      </div>
+      ${b.najava
+        ? `<div class="ann ${b.najava.recenica ? "" : "mute"}">
+             ${esc(b.najava.hms)} predsjedatelj:
+             ${esc(b.najava.recenica || ("…" + (b.najava.rep || "")))}
+             ${ytLink(b.najava.youtube, "najava")}
+           </div>`
+        : '<div class="ann mute">nema prethodnog bloka predsjedatelja</div>'}
+      <div class="txt">${esc(b.text)}</div>
+    </div>`).join("");
+}
+
+function renderForm() {
+  const d = S.det, o = d.override;
+  $("form").innerHTML = `
+    <div class="form">
+      <div class="row">
+        <label>odluka</label>
+        <select id="f_odluka">
+          <option value="imenuj">imenuj — pripiši identitet</option>
+          <option value="potvrdi">potvrdi — ovo što piše je točno</option>
+          <option value="odbaci">odbaci — mora ostati bez imena</option>
+          <option value="preskoci">preskoči — pregledano, odluka odgođena</option>
+        </select>
+        ${o ? '<button class="danger" id="f_undo">poništi odluku</button>' : ""}
+      </div>
+      <div class="row"><label>mp_id</label>
+        <input type="text" id="f_mp" style="width:110px" placeholder="iz registra" />
+        <label style="min-width:auto">ime</label>
+        <input type="text" id="f_ime" placeholder="puno ime" />
+      </div>
+      <div class="row"><label>uloga</label>
+        <select id="f_uloga">
+          <option value="">— (iz registra)</option>
+          <option value="zastupnik">zastupnik</option>
+          <option value="predsjedatelj">predsjedatelj</option>
+          <option value="clan_vlade">član Vlade</option>
+          <option value="govornik">govornik</option>
+        </select>
+        <span class="hint">obavezna za osobu koje NEMA u registru (ministri, predsjedatelj)</span>
+      </div>
+      <div class="row"><label>razlog / dokaz</label>
+        <textarea id="f_razlog" rows="2" placeholder="citat iz kojeg se identitet vidi"></textarea></div>
+      <div class="row"><label>izvor</label>
+        <input type="text" id="f_izvor" placeholder="npr. najava, model, slušanje" />
+        <label class="hint" style="min-width:auto">
+          <input type="checkbox" id="f_shared" /> ista osoba je i na drugoj oznaci</label>
+      </div>
+      <div class="row">
+        <button class="primary" id="f_save">Spremi i pokreni fazu 03</button>
+        <span class="hint">pretraga registra:</span>
+        <input type="text" id="f_search" placeholder="prezime" style="width:150px" />
+        <span id="f_res"></span>
+      </div>
+    </div>`;
+
+  if (o) {
+    $("f_odluka").value = o.odluka;
+    $("f_mp").value = o.mp_id || "";
+    $("f_ime").value = o.puno_ime || "";
+    $("f_uloga").value = o.uloga || "";
+    $("f_razlog").value = o.razlog || "";
+    $("f_izvor").value = o.izvor_prijedloga || "";
+    $("f_shared").checked = o.dopusti_dijeljenu_oznaku === true;
+    $("f_undo").onclick = () => save({ odluka: "ponisti" });
+  } else if (d.ime) {
+    $("f_odluka").value = "potvrdi";
+    $("f_mp").value = (d.trenutno && d.trenutno.mp_id) || "";
+    $("f_ime").value = d.ime;
+  }
+
+  $("f_save").onclick = () => save({});
+  $("f_search").oninput = async (e) => {
+    const q = e.target.value.trim();
+    if (q.length < 2) { $("f_res").innerHTML = ""; return; }
+    const r = await api(`/api/roster?q=${encodeURIComponent(q)}`);
+    $("f_res").innerHTML = r.mps.slice(0, 6).map((m) =>
+      `<button data-mp="${m.id}" data-nm="${esc(m.puno_ime)}">${esc(m.puno_ime)}</button>`).join(" ");
+    for (const b of $("f_res").children) {
+      b.onclick = () => { $("f_mp").value = b.dataset.mp; $("f_ime").value = b.dataset.nm; };
+    }
+  };
+}
+
+async function save(extra) {
+  const d = S.det;
+  const body = Object.assign({
+    session: S.session,
+    speaker_id: d.speaker_id,
+    odluka: $("f_odluka").value,
+    mp_id: $("f_mp").value.trim() || null,
+    puno_ime: $("f_ime").value.trim() || null,
+    uloga: $("f_uloga").value || null,
+    razlog: $("f_razlog").value.trim() || null,
+    izvor_prijedloga: $("f_izvor").value.trim() || null,
+    dopusti_dijeljenu_oznaku: $("f_shared").checked,
+    odlucio: $("reviewer").value.trim(),
+    dokaz: { citat: $("f_razlog").value.trim() || null, at_hms: d.prvi_hms,
+             youtube_url: d.istupi[0] ? d.istupi[0].youtube.url : null },
+  }, extra);
+
+  $("f_save").disabled = true;
+  try {
+    const r = await post("/api/decision", body);
+    if (!r.ok) {
+      $("msg").innerHTML = `<div class="err">${esc(r.errors.join("\n"))}${
+        r.rolled_back ? "\n\nSloj je vraćen na prijašnje stanje — ništa nije zapisano." : ""}</div>`;
+      return;
+    }
+    S.queue = r.queue;
+    renderSummary(); renderRanks(); renderQueue();
+    S.det = await api(`/api/speaker?session=${encodeURIComponent(S.session)}&id=${d.speaker_id}`);
+    renderDetail();
+    $("msg").innerHTML = `<div class="ok-msg">${diffLine(r.diff)}</div>`;
+  } catch (e) {
+    $("msg").innerHTML = `<div class="err">${esc(e.message)}</div>`;
+  } finally {
+    const b = $("f_save"); if (b) b.disabled = false;
+  }
+}
+
+function diffLine(d) {
+  const z = (v) => (v > 0 ? "+" + v : String(v));
+  return `Faza 03 ponovno pokrenuta. Prema protokolarnom prolazu: ` +
+    `${z(d.delta.imenovanih_oznaka)} oznaka, ${z(d.delta.razlicitih_osoba)} osoba, ` +
+    `${z(d.delta.imenovano_pct)} pp imenovanog vremena (sada ${d.poslije.imenovano_pct} %).`;
+}
+
+// ───────────────────────────── petlja i revizija ─────────────────────────────
+
+async function renderLoop() {
+  $("detail").innerHTML = `
+    <div class="hdr"><h2>Petlja i revizija</h2></div>
+    <div id="msg"></div>
+    <div class="card"><h3>Razlika prema protokolarnom prolazu</h3>
+      <div class="hint" style="margin-bottom:10px">
+        Referenca se svaki put računa iznova (<code>faza 03 --no-human</code>) — snimak bi
+        nakon idućeg popravka sidrenja zastario i ljudskom sloju pripisao tuđu zaslugu.
+      </div>
+      <div id="diffBox">računam…</div></div>
+    <div class="card"><h3>Skupna potvrda</h3>
+      <div class="hint" style="margin-bottom:10px">
+        Oznake kod kojih se slažu <b>dva neovisna postupka</b>: protokolarna najava i
+        slijepa provjera modelom koji je čitao gole oznake bez registra. Potvrda upisuje
+        točno to u razlog — da snimka nije preslušana.
+      </div>
+      <div id="batchBox"></div></div>
+    <div class="card"><h3>Revizija ljudskog sloja</h3>
+      <div class="hint" style="margin-bottom:10px">
+        Ljudska odluka ulazi s pouzdanošću 1.0 i nadjačava sve — jedini mehanizam
+        imenovanja koji bi inače prošao bez ijedne mjere koja ga može oboriti.
+      </div>
+      <button id="runAudit">Pokreni reviziju</button>
+      <div id="auditBox" style="margin-top:10px"></div></div>
+    <div class="card"><h3>Ponovno pokretanje faze 04 (članak)</h3>
+      <div class="hint" style="margin-bottom:10px">
+        Bilješke i članak nastali su prije ovih ispravaka imenovanja. Prolaz traje
+        ~33 min i troši LLM kvotu, pa se pokreće izričito.
+      </div>
+      <div class="row">
+        <select id="backend">
+          <option value="agy">agy — Gemini 3.7 Flash (produkcija)</option>
+          <option value="claude">claude — Opus 5 (sjednice od posebne važnosti)</option>
+        </select>
+        <button id="run04">Pokreni fazu 04</button>
+      </div>
+      <pre class="log" id="jobLog" style="margin-top:10px;display:none"></pre></div>`;
+
+  $("runAudit").onclick = async () => {
+    $("auditBox").innerHTML = "revidiram…";
+    const r = await api(`/api/audit?session=${encodeURIComponent(S.session)}`);
+    $("auditBox").innerHTML = `<pre class="log">${esc(r.text)}</pre>`;
+  };
+  $("run04").onclick = async () => {
+    if (!confirm("Faza 04 traje ~33 min i troši LLM kvotu. Pokrenuti?")) return;
+    const j = await post("/api/rerun", { session: S.session, steps: ["03", "04"], backend: $("backend").value });
+    $("jobLog").style.display = "block";
+    pollJob(j.id);
+  };
+
+  const d = await api(`/api/diff?session=${encodeURIComponent(S.session)}`);
+  renderDiff(d);
+  renderBatch();
+}
+
+function renderDiff(d) {
+  const z = (v) => (v > 0 ? "+" + v : String(v));
+  const cls = (v) => (v > 0 ? "delta up" : v < 0 ? "delta down" : "");
+  const list = (title, rows, sign) => rows.length ? `<div style="margin-top:12px">
+    <b>${title} (${rows.length})</b><div class="hint">` + rows.slice(0, 30).map((r) =>
+      `${sign} ${r.speaker} · ${mins(r.sec)} · ${esc(r.ime || r.prije + " → " + r.poslije)}` +
+      (r.izvor ? ` [${esc(r.izvor)}]` : "")).join("<br>") + "</div></div>" : "";
+
+  $("diffBox").innerHTML = `<div class="metrics">
+      <div class="metric"><div class="v ${cls(d.delta.imenovanih_oznaka)}">${z(d.delta.imenovanih_oznaka)}</div>
+        <div class="k">oznaka imenovano</div></div>
+      <div class="metric"><div class="v ${cls(d.delta.razlicitih_osoba)}">${z(d.delta.razlicitih_osoba)}</div>
+        <div class="k">osoba</div></div>
+      <div class="metric"><div class="v ${cls(d.delta.imenovano_pct)}">${z(d.delta.imenovano_pct)} pp</div>
+        <div class="k">imenovano vrijeme</div></div>
+      <div class="metric"><div class="v">${d.poslije.imenovano_pct} %</div>
+        <div class="k">sada ukupno</div></div>
+      <div class="metric"><div class="v">${d.poslije.imenovano_pct_protokol} %</div>
+        <div class="k">od toga protokol</div></div>
+      <div class="metric"><div class="v">${d.poslije.imenovano_pct_covjek} %</div>
+        <div class="k">od toga čovjek</div></div>
+    </div>
+    ${list("Novo imenovano", d.novo, "+")}
+    ${list("Promijenjeno ime", d.promijenjeno, "~")}
+    ${list("Izgubilo ime", d.izgubljeno, "−")}`;
+}
+
+function renderBatch() {
+  const cands = S.queue.queue.filter((r) => r.blind_agrees);
+  if (!cands.length) { $("batchBox").innerHTML = '<div class="hint">Nema takvih oznaka.</div>'; return; }
+  const sec = cands.reduce((s, r) => s + r.sec, 0);
+  $("batchBox").innerHTML = `
+    <div class="row"><b>${cands.length} oznaka · ${mins(sec)}</b>
+      <button class="primary" id="doBatch">Potvrdi svih ${cands.length}</button></div>
+    <div class="hint" style="margin-top:8px">${cands.slice(0, 40).map((r) =>
+      esc(r.speaker_id + " " + r.name)).join(" · ")}</div>`;
+  $("doBatch").onclick = async () => {
+    if (!confirm(`Potvrditi ${cands.length} oznaka na temelju slaganja protokola i modela?`)) return;
+    $("doBatch").disabled = true;
+    const r = await post("/api/batch_confirm", {
+      session: S.session, speaker_ids: cands.map((x) => x.speaker_id), odlucio: $("reviewer").value.trim(),
+    });
+    if (!r.ok) { $("msg").innerHTML = `<div class="err">${esc(r.errors.join("\n"))}</div>`; return; }
+    S.queue = r.queue;
+    renderSummary(); renderRanks(); renderQueue();
+    $("msg").innerHTML = `<div class="ok-msg">Potvrđeno ${r.potvrdeno.length}, odbijeno ${r.odbijeno.length}. ${diffLine(r.diff)}</div>`;
+    renderDiff(r.diff); renderBatch();
+  };
+}
+
+async function pollJob(id) {
+  const j = await api(`/api/job?id=${id}`);
+  $("jobLog").textContent = `[${j.status}] ${j.log}\n\n${j.tail}`;
+  if (j.status === "radi") setTimeout(() => pollJob(id), 3000);
+  else if (j.status === "gotovo") loadSession(S.session);
+}
+
+boot().catch((e) => { document.body.innerHTML = `<div class="err">${esc(e.message)}</div>`; });
+</script>
+</body>
+</html>
