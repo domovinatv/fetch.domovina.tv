@@ -14,6 +14,10 @@
 * { box-sizing:border-box; }
 html,body { margin:0; padding:0; background:var(--bg); color:var(--navy);
   font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.5; }
+/* Stranica se NE skrola — skrolaju samo panoi. Na 16:9 desktopu to je razlika
+   između „vidim odluku i snimku odjednom" i „tražim gumb ispod pregiba". */
+html,body { height:100%; }
+body { display:flex; flex-direction:column; overflow:hidden; }
 a { color:var(--navy); text-underline-offset:3px; }
 a:hover { color:var(--red); }
 .stripe { display:flex; height:5px; } .stripe span { flex:1; }
@@ -41,9 +45,46 @@ button.primary:hover { background:var(--navy-dark); }
 button.danger { color:var(--bad); border-color:#e8c9c9; }
 button:disabled { opacity:.45; cursor:not-allowed; }
 
-.layout { display:grid; grid-template-columns:minmax(340px,420px) 1fr; gap:0; height:calc(100vh - 110px); }
-.pane { overflow-y:auto; padding:16px 18px; }
-.pane.left { border-right:1px solid var(--border); background:var(--surface); }
+/* Tri stupca: red čekanja | odluka i dokazi | snimka.
+   Snimka je izvučena iz srednjeg stupca jer je bila prikvačena preko teksta —
+   dok se skrola do istupa, player prekrije ono što se čita. Sada stoji sa
+   strane i ništa ne pokriva. */
+.layout { flex:1; min-height:0; display:grid; gap:0;
+  grid-template-columns:minmax(272px,308px) minmax(420px,1fr) minmax(340px,clamp(340px,26vw,460px));
+  grid-template-areas:"left mid side"; }
+/* „Petlja i revizija" nema pojedinačnu oznaku pa ni snimku — stupac se sklanja. */
+.layout.noside { grid-template-columns:minmax(272px,308px) minmax(0,1fr); grid-template-areas:"left mid"; }
+.layout.noside .pane.side { display:none; }
+
+.pane { min-width:0; min-height:0; overflow-y:auto; padding:14px 16px; }
+.pane.left { grid-area:left; border-right:1px solid var(--border); background:var(--surface);
+  display:flex; flex-direction:column; overflow:hidden; padding-bottom:0; }
+.pane.mid { grid-area:mid; }
+.pane.side { grid-area:side; border-left:1px solid var(--border); background:var(--surface);
+  display:flex; flex-direction:column; overflow:hidden; padding:0; }
+
+/* U lijevom stupcu skrola SAMO red čekanja — brojke i rangovi ostaju na mjestu,
+   inače se filtar izgubi čim se lista pomakne. */
+.qwrap { flex:1; min-height:0; overflow-y:auto; overflow-x:hidden;
+  margin:0 -16px; padding:2px 16px 14px; }
+/* Snimka je zaglavlje desnog stupca; dokazi ispod nje skrolaju. */
+#sidebody { flex:1; min-height:0; overflow-y:auto; padding:12px 14px; }
+
+/* Ispod ~1360 px tri stupca ostavljaju srednjem premalo — snimka ide iznad
+   detalja, red čekanja zadržava punu visinu. */
+@media (max-width:1360px) {
+  .layout { grid-template-columns:minmax(250px,290px) minmax(0,1fr);
+    grid-template-rows:auto minmax(0,1fr); grid-template-areas:"left side" "left mid"; }
+  .pane.side { border-bottom:1px solid var(--border); max-height:42vh; }
+}
+
+/* Brojke stanja u uskom stupcu: četiri u redu, sitnije — inače pojedu tri reda. */
+#summary .card { padding:10px 12px; margin-bottom:10px; }
+#summary .card h3 { margin-bottom:7px; }
+#summary .metrics { grid-template-columns:repeat(4,1fr); gap:6px; }
+#summary .metric { padding:5px 6px; text-align:center; }
+#summary .metric .v { font-size:16px; line-height:1.25; }
+#summary .metric .k { font-size:9px; letter-spacing:0; }
 
 .card { background:#fff; border:1px solid var(--border); border-radius:var(--radius);
   padding:14px 16px; margin-bottom:14px; box-shadow:var(--shadow); }
@@ -65,8 +106,14 @@ button:disabled { opacity:.45; cursor:not-allowed; }
 .rankbar .n { font-weight:700; min-width:26px; text-align:right; }
 
 ul.q { list-style:none; margin:0; padding:0; }
+/* Dva reda: ime i trajanje gore, oznake ispod. Kad su oznake bile u istom
+   retku, dugo ime ih je gurnulo u treći red i svaka je stavka bila druge
+   visine — lista se time nije dala skenirati okom. */
 ul.q li { border:1px solid var(--border); background:#fff; border-radius:var(--radius-sm);
-  padding:8px 10px; margin-bottom:6px; cursor:pointer; display:flex; gap:8px; align-items:baseline; }
+  padding:6px 9px; margin-bottom:5px; cursor:pointer;
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:2px 7px; align-items:baseline; }
+ul.q .bdg { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:3px; }
+ul.q .bdg:empty { display:none; }
 ul.q li:hover { border-color:var(--navy); }
 ul.q li.on { border-color:var(--navy); background:#eef4ff; }
 ul.q li.done { opacity:.62; }
@@ -90,7 +137,7 @@ ul.q .mins { font-size:12px; color:var(--muted); white-space:nowrap; }
 .cands { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
 /* Sličice-dokazi natpisa. Namjerno dovoljno velike da se natpis pročita bez
    otvaranja slike — dokaz koji se mora povećavati nitko ne provjerava. */
-.ocrshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:10px; }
+.ocrshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:8px; }
 .ocrshots figure { margin:0; }
 .ocrshots img { width:100%; border-radius:var(--radius-sm); border:1px solid var(--border); display:block; }
 .ocrshots figcaption { font-size:12px; color:var(--muted); margin-top:4px; }
@@ -110,20 +157,19 @@ ul.q .mins { font-size:12px; color:var(--muted); white-space:nowrap; }
 .blk .txt { font-size:13.5px; max-height:150px; overflow:auto; }
 .yt { font-size:11.5px; white-space:nowrap; }
 
-/* Player je PRIKVAČEN na vrh desnog panela: čovjek sluša dok čita tekst i
-   dokaze, umjesto da skače gore-dolje. */
-.player { position:sticky; top:0; z-index:5; background:var(--bg);
-  border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px;
-  margin-bottom:14px; box-shadow:var(--shadow); }
-.player .bar { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
-.player .now { font-size:12px; color:var(--muted); flex:1; min-width:140px; }
+/* Player je zaglavlje desnog stupca i NE skrola — bio je `position:sticky` u
+   srednjem stupcu, pa je pri skrolanju prekrivao tekst istupa. */
+.player { background:var(--bg); border:0; border-bottom:1px solid var(--border);
+  border-radius:0; padding:10px 12px; margin:0; flex-shrink:0; }
+.player .bar { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+.player .bar button { padding:4px 9px; font-size:12.5px; }
+.player .now { font-size:11.5px; color:var(--muted); flex-basis:100%; }
 .player .now b { color:var(--navy); }
 .player audio { width:100%; height:34px; display:block; }
-/* Slika je ograničena visinom, ne širinom: puna širina panela daje ~660 px
-   visok okvir koji odluku gurne izvan ekrana, a poanta je gledati i odlučivati
-   bez skrolanja. */
+/* Stupac je uzak pa 16:9 sam po sebi daje nizak okvir; `max-height` je ograda
+   za slučaj širokog ekrana i za uski raspored gdje player stoji vodoravno. */
 .player .frame { position:relative; aspect-ratio:16/9; background:#000;
-  max-height:38vh; max-width:100%; width:auto; margin:0 auto;
+  max-height:32vh; max-width:100%; width:auto; margin:0 auto;
   border-radius:var(--radius-sm); overflow:hidden; }
 .player .frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 .player .warn { font-size:11.5px; color:var(--warn); }
@@ -131,7 +177,19 @@ button.seek { border:0; background:none; color:var(--navy); cursor:pointer; padd
   font-size:11.5px; text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
 button.seek:hover { color:var(--red); }
 
-.form { display:grid; gap:9px; }
+/* Popis istupa u desnom stupcu — jedan redak, bez teksta: služi za uzorkovanje
+   glasa, a tekst se čita u srednjem stupcu. */
+.jumps { display:flex; flex-direction:column; gap:3px; }
+.jump { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted);
+  padding:3px 5px; border-radius:6px; }
+.jump:hover { background:var(--surface-2); }
+.jump .t { font-family:ui-monospace,Menlo,monospace; color:var(--navy); }
+.pane.side .card { padding:11px 12px; margin-bottom:10px; }
+
+/* Obrazac se NE rasteže preko cijelog srednjeg stupca — na 1920 px polje
+   „mp_id" bilo je široko 800 px, pa oko putuje pola ekrana između oznake i
+   vrijednosti. */
+.form { display:grid; gap:9px; max-width:780px; }
 .row { display:flex; gap:9px; align-items:center; flex-wrap:wrap; }
 .row label { font-size:12px; color:var(--muted); min-width:76px; }
 .row input[type=text], .row textarea { flex:1; min-width:200px; }
@@ -160,7 +218,7 @@ pre.log { background:var(--surface-2); padding:10px; border-radius:var(--radius-
   <button id="tabLoop">Petlja i revizija</button>
 </header>
 
-<div class="layout">
+<div class="layout" id="layout">
   <div class="pane left">
     <div id="summary"></div>
     <div class="ranks" id="ranks"></div>
@@ -168,11 +226,15 @@ pre.log { background:var(--surface-2); padding:10px; border-radius:var(--radius-
       <input type="text" id="filter" placeholder="filtriraj po imenu ili oznaci" style="flex:1" />
       <label class="hint"><input type="checkbox" id="showDone" /> i riješene</label>
     </div>
-    <ul class="q" id="queue"></ul>
+    <div class="qwrap"><ul class="q" id="queue"></ul></div>
   </div>
-  <div class="pane right" id="detail">
+  <div class="pane mid" id="detail">
     <div class="empty">Odaberi oznaku iz reda čekanja.</div>
   </div>
+  <aside class="pane side" id="side">
+    <div id="player" class="player"></div>
+    <div id="sidebody"></div>
+  </aside>
 </div>
 
 <script>
@@ -223,6 +285,7 @@ async function boot() {
   } else {
     $("detail").innerHTML = '<div class="empty">Nema sjednica u storage/output/sabor.</div>';
   }
+  renderPlayer(); renderSide();
 }
 
 function syncTabs() {
@@ -235,7 +298,9 @@ async function loadSession(id) {
   $("detail").innerHTML = '<div class="empty">Učitavam…</div>';
   S.queue = await api(`/api/queue?session=${encodeURIComponent(id)}`);
   renderSummary(); renderRanks(); renderQueue();
+  P.part = null; P.label = ""; P.video_id = null;
   $("detail").innerHTML = '<div class="empty">Odaberi oznaku iz reda čekanja.</div>';
+  renderPlayer(); renderSide();
 }
 
 // ───────────────────────────── lijevi panel ─────────────────────────────
@@ -304,8 +369,8 @@ function renderQueue() {
     <li data-id="${r.speaker_id}" class="${S.sel === r.speaker_id ? "on" : ""} ${r.decided ? "done" : ""}">
       <span class="sid">${r.speaker_id.replace("SPEAKER_", "")}</span>
       <span class="nm ${r.name ? "" : "none"}">${esc(r.name || r.ocr_name || r.blind_names[0] || "bez imena")}</span>
-      <span>${badges(r)}</span>
       <span class="mins">${r.minutes} min</span>
+      <span class="bdg">${badges(r)}</span>
     </li>`).join("") || '<div class="empty">Nema oznaka koje odgovaraju filtru.</div>';
 
   for (const el of $("queue").children) {
@@ -317,6 +382,7 @@ function renderQueue() {
 
 async function selectSpeaker(id) {
   S.sel = id; S.view = "queue"; syncTabs(); renderQueue();
+  $("layout").classList.remove("noside");
   $("detail").innerHTML = '<div class="empty">Učitavam…</div>';
   S.det = await api(`/api/speaker?session=${encodeURIComponent(S.session)}&id=${id}`);
   renderDetail();
@@ -349,8 +415,13 @@ function bindSeeks(root) {
 
 function renderDetail() {
   if (S.view === "loop") return renderLoop();
+  $("layout").classList.remove("noside");
   const d = S.det;
-  if (!d) { $("detail").innerHTML = '<div class="empty">Odaberi oznaku iz reda čekanja.</div>'; return; }
+  if (!d) {
+    $("detail").innerHTML = '<div class="empty">Odaberi oznaku iz reda čekanja.</div>';
+    renderPlayer(); renderSide();
+    return;
+  }
   const row = (S.queue.queue.concat(S.queue.done)).find((r) => r.speaker_id === d.speaker_id) || {};
   const t = d.trenutno || {};
 
@@ -367,11 +438,32 @@ function renderDetail() {
       ${t.votes_total ? ` (${t.votes}/${t.votes_total} glasova)` : ""}
       ${t.dropped_reason ? `<br><span style="color:var(--bad)">${esc(t.dropped_reason)}</span>` : ""}
     </div>
-    <div id="player" class="player"></div>
     <div id="msg"></div>
     <div class="card"><h3>Odluka</h3><div id="form"></div></div>
     <div class="card"><h3>Kandidati (${d.kandidati.length})</h3><div class="cands" id="cands"></div></div>
-    ${d.ocr ? `<div class="card"><h3>Natpis s ekrana</h3>
+    <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
+    <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
+
+  renderPlayer(); renderSide(); renderCands(); renderAnchors(); renderBlocks(); renderForm();
+  bindSeeks($("detail"));
+  // Prvi (najduži) istup je i najbolji uzorak — player se odmah namjesti na
+  // njega, ali se NE pokreće sam: nitko ne želi da mu 20 h sjednice krene uz uho.
+  const b = d.istupi[0];
+  if (b) seekTo(b.youtube.part, b.youtube.local_sec != null ? b.youtube.local_sec : b.youtube.timestamp_sec,
+                `istup ${b.hms}`, { autoplay: false, video_id: b.youtube.video_id });
+}
+
+/**
+ * Desni stupac ispod snimke: dokazi koji se GLEDAJU, a ne čitaju — sličice
+ * natpisa s ekrana i popis istupa za brzo uzorkovanje glasa. Oboje premota
+ * player koji stoji točno iznad njih, pa provjera „je li to stvarno on" ne
+ * traži ni jedno skrolanje.
+ */
+function renderSide() {
+  const d = S.det;
+  if (!d) { $("sidebody").innerHTML = '<div class="hint">Snimka se namješta kad odabereš oznaku.</div>'; return; }
+
+  const ocr = d.ocr ? `<div class="card"><h3>Natpis s ekrana</h3>
       <div class="hint" style="margin-bottom:8px">
         <b>${esc(d.ocr.ime)}</b>${d.ocr.u_registru ? "" : " <span class=\"tag\">izvan registra</span>"} ·
         natpis na ${d.ocr.glasova}/${d.ocr.slicica_s_natpisom} sličica ·
@@ -382,17 +474,19 @@ function renderDetail() {
           <img loading="lazy" src="/ocr_frame/${encodeURIComponent(S.session)}/${encodeURIComponent(e.slicica.split("/").pop())}" alt="">
           <figcaption>${esc(hms(e.at_global_sec))}${e.vrsta ? " · " + esc(e.vrsta) : ""}</figcaption>
         </figure>`).join("")}</div>
-    </div>` : ""}
-    <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
-    <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
+    </div>` : "";
 
-  renderPlayer(); renderCands(); renderAnchors(); renderBlocks(); renderForm();
-  bindSeeks($("detail"));
-  // Prvi (najduži) istup je i najbolji uzorak — player se odmah namjesti na
-  // njega, ali se NE pokreće sam: nitko ne želi da mu 20 h sjednice krene uz uho.
-  const b = d.istupi[0];
-  if (b) seekTo(b.youtube.part, b.youtube.local_sec != null ? b.youtube.local_sec : b.youtube.timestamp_sec,
-                `istup ${b.hms}`, { autoplay: false, video_id: b.youtube.video_id });
+  const jumps = `<div class="card"><h3>Skok na istup (${d.istupi.length})</h3>
+    <div class="jumps">${d.istupi.map((b) => `
+      <div class="jump">
+        <span class="t">${esc(b.hms)}</span>
+        <span class="d">${mins(b.duration_sec)}</span>
+        <span class="r tag">${esc(b.role)}</span>
+        <span style="flex:1"></span>${ytLink(b.youtube, "istup")}
+      </div>`).join("")}</div></div>`;
+
+  $("sidebody").innerHTML = ocr + jumps;
+  bindSeeks($("sidebody"));
 }
 
 // ───────────────────────────── player ─────────────────────────────
@@ -401,6 +495,10 @@ const P = { part: null, sec: 0, mode: "lokalno", label: "", video_id: null };
 
 function renderPlayer() {
   const d = S.det;
+  if (!d) {
+    $("player").innerHTML = '<div class="hint" style="padding:6px 2px">Odaberi oznaku — snimka se namjesti na njezin najduži istup.</div>';
+    return;
+  }
   const m = (d.mediji && d.mediji[P.part]) || null;
   const imaLokalno = Object.values(d.mediji || {}).some((x) => x.ima);
   const jeVideo = m && m.video;
@@ -650,6 +748,9 @@ function diffLine(d) {
 // ───────────────────────────── petlja i revizija ─────────────────────────────
 
 async function renderLoop() {
+  // Revizija se ne odnosi na jednu oznaku pa snimka nema što prikazivati —
+  // stupac se sklanja da tablice razlika dobiju punu širinu.
+  $("layout").classList.add("noside");
   $("detail").innerHTML = `
     <div class="hdr"><h2>Petlja i revizija</h2></div>
     <div id="msg"></div>

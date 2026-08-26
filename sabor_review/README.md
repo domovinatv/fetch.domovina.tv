@@ -54,10 +54,30 @@ pokrivenost natpisa (oznaka skuplja upadice) i zajednički termin više govornik
 Predsjedatelja režija ne titula uopće. Vidi
 `docs/sabor_ocr_imena_s_ekrana_2026-08.md`.
 
+## Raspored (tri stupca)
+
+Ciljani ekran je 16:9 desktop, a mjera dobrog rasporeda je koliko se odluka
+donese bez skrolanja.
+
+| stupac | sadržaj | skrola |
+|---|---|---|
+| **lijevi** (~300 px) | stanje sjednice, rangovi, filtar, red čekanja | samo red čekanja — brojke i filtar stoje |
+| **srednji** (1fr) | odluka, kandidati, najave-sidra, istupi s tekstom | cijeli |
+| **desni** (~340–460 px) | snimka, dokazi natpisa, skok na istup | sve ispod snimke |
+
+Snimka je prije stajala `position:sticky` na vrhu srednjeg stupca i pri
+skrolanju prekrivala tekst istupa. Sada je zaglavlje zasebnog stupca i ništa ne
+pokriva, a odluka + kandidati + sidra stanu na ekran odjednom.
+
+Ispod ~1360 px raspored pada na dva stupca: snimka ide iznad detalja, red
+čekanja zadržava punu visinu. Pogled „Petlja i revizija" nema pojedinačnu
+oznaku pa se desni stupac sklanja (`.layout.noside`).
+
 ## Player
 
-Prikvačen na vrh desnog panela; svaki `▶` na ekranu ga premota na točan trenutak
-(istup ili najavu), a `↗` otvara isti trenutak na YouTubeu.
+Zaglavlje desnog stupca; svaki `▶` na ekranu ga premota na točan trenutak
+(istup ili najavu), a `↗` otvara isti trenutak na YouTubeu. Popis „Skok na
+istup" u istom stupcu služi uzorkovanju glasa — tekst se čita u srednjem.
 
 | način | što daje | ograničenje |
 |---|---|---|
