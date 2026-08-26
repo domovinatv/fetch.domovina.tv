@@ -67,7 +67,7 @@ node inspect_pipeline.js --input-dir storage/output
 YouTube → fetch.js → convert_to_wav.js → generate_whisper_prompt.js → transcribe.js
   → transcribe_diarized.js / diarize_canary.py → summarize_gemini.js
   → generate_article_gemini.js → prepare_rag_*.js → screenshot_youtube.js
-  → import_to_vertex.js → upload_to_r2.js
+  → generate_ebook.js → import_to_vertex.js → upload_to_r2.js
 ```
 
 Each step is idempotent — checks for existing output before processing. The pipeline can be partially complete (a video can have .wav.srt but no .canary.diarized.srt yet). Scripts are designed for incremental processing, not all-or-nothing.
@@ -87,6 +87,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
+| 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep (`docs/ebook_epub_pipeline.md`) |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 
@@ -410,6 +411,30 @@ speaks would still claim they do, which would corrupt the person hub downstream.
 
 A 30-minute chunk is also a bad retrieval unit regardless of any size limit: the
 hit returns a block the user then has to search by hand.
+
+### EPUB e-knjige (KORAK 9.8) — zašto stoji baš tu
+
+`generate_ebook.js` slaže `{base}.epub` isključivo od artefakata koje su koraci
+7–10 već ostavili na disku. **Ne zove nijedan LLM** — 1.5 s CPU-a i 1.8 MB po
+epizodi, pa je bezuvjetan kao 9.5/9.6/9.7 (`--no-ebook` ga gasi).
+
+Tri stvari koje tiho pucaju:
+
+1. **Mora ići NAKON KORAK 10.** Bez screenshotova knjiga izađe bez slika, ali
+   `.epub` tada postoji → idući run je preskoči kao gotovu. Ista zamka zbog koje
+   je 9.6 premješten iza 10.
+2. **Model slug sadrži točke** (`gemini-3.5-flash`) — regex za `article.json`
+   mora biti `(.+?)`, ne `([^.]+)`. S `[^.]+` skripta tiho nađe nula epizoda.
+3. **Doslovan prijepis je opt-in** (`--with-ebook-transcript`), i to namjerno:
+   poglavlja su izvedena novinarska obrada, a puni prijepis tuđe snimke u
+   distribuiranoj datoteci je druga kategorija. Ne palit' katalog-wide bez
+   dogovora s kanalima.
+
+ZIP se piše ručno (`lib/zip_writer.js`) jer EPUB traži `mimetype` kao prvi zapis,
+nekomprimiran i bez extra-fielda. Naslovnicu radi ImageMagick — **lokalni ffmpeg
+nema `drawtext`** (preveden bez libfreetype).
+
+Detalji, mjerenja i zamke: `docs/ebook_epub_pipeline.md`.
 
 ### File Naming Convention
 

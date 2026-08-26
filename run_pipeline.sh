@@ -258,6 +258,9 @@ WITH_SCREENSHOTS=false
 WITH_VERTEX_IMPORT=false
 WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
+# EPUB e-knjige: default ON (nula API troška, ~1.5 s/ep) — gasi se s --no-ebook.
+WITH_EBOOK=true
+WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
 # --modal-scope (2026-07-31): koje WAV-ove Modal smije transkribirati.
@@ -314,6 +317,14 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-magisterium" ]; then
         WITH_MAGISTERIUM=true
+        i=$((i + 1))
+    elif [ "$arg" = "--no-ebook" ]; then
+        WITH_EBOOK=false
+        i=$((i + 1))
+    elif [ "$arg" = "--with-ebook-transcript" ]; then
+        # Doslovan prijepis kao dodatak knjige. Opt-in: knjiga time prestaje biti
+        # sažetak i postaje potpuni prijepis tuđe snimke.
+        WITH_EBOOK_TRANSCRIPT=true
         i=$((i + 1))
     elif [ "$arg" = "--with-modal-transcribe" ]; then
         WITH_MODAL_TRANSCRIBE=true
@@ -1218,6 +1229,45 @@ fi
 "$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
 }
+
+# --- KORAK 9.8: EPUB E-KNJIGA (generate_ebook.js) ---
+# Slaže {channel}/{base}.epub iz onoga što KORACI 7-10 već ostavili na disku:
+# article.json (poglavlja + sekcije), summary.json (sažetak, govornici),
+# magisterium.json (teološki dodatak) i {base}_screenshots/ (ilustracije).
+# NULA API poziva — čist CPU, ~1.5 s po epizodi, ~1.8 MB izlaza. Zato je
+# bezuvjetan kao 9.5/9.6/9.7, a ne iza --with-* gatea; gasi se s --no-ebook.
+# MORA ići nakon KORAK 10 (screenshotovi) — bez frame-ova knjiga izađe bez slika,
+# a .epub postoji pa se idući run preskoči. Isti razlog zbog kojeg je 9.6 premješten.
+# Doslovan prijepis NIJE u knjizi po defaultu (--with-ebook-transcript) — vidi
+# docs/ebook_epub_pipeline.md §4 zašto je to opt-in.
+if [ "$WITH_EBOOK" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 9.8: EPUB e-knjige (article.json + screenshotovi → .epub)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+EBOOK_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        EBOOK_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    EBOOK_ARGS+=("--dry-run")
+fi
+if [ "$WITH_EBOOK_TRANSCRIPT" = true ]; then
+    EBOOK_ARGS+=("--with-transcript")
+fi
+
+node "$SCRIPT_DIR/generate_ebook.js" "${EBOOK_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri generiranju EPUB-a, nastavljam..."
+}
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 9.8 (EPUB e-knjige) — zadan je --no-ebook"
+fi
 
 # --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---
 # Zahtijeva konfiguriran GCS bucket i Vertex AI Data Store.

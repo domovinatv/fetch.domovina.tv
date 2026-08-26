@@ -147,6 +147,10 @@ const UPLOAD_SUFFIXES = [
     ".thumb-640.webp",          // grid/kartice ~33 KB
     ".thumb-1280.webp",         // fullscreen   ~71 KB
     ".rag_combined.jsonl",
+    // EPUB e-knjiga (generate_ebook.js, KORAK 9.8) — ~1.8 MB/ep, write-once kao
+    // article.json iz kojeg je izvedena. Regeneracija traži `--force` + CF purge
+    // jer data/ ključevi idu s immutable Cache-Controlom.
+    ".epub",
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -175,6 +179,7 @@ const CONTENT_TYPES = {
     ".png": "image/png",
     ".jpg": "image/jpeg",
     ".webp": "image/webp",
+    ".epub": "application/epub+zip",
 };
 
 // Cache-Control za per-video artefakte koji se generiraju jednom (article.json, video.mp4,
@@ -511,6 +516,9 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
 
     if (filename === `${videoBase}.og-share.jpg`)
         return `images/${videoId}/og-share.jpg`;
+
+    if (filename === `${videoBase}.epub`)
+        return `data/${videoId}/book.epub`;
 
     // Responsive WebP varijante → images/{id}/thumb-{w}.webp
     const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
