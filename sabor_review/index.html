@@ -246,7 +246,7 @@ pre.log { background:var(--surface-2); padding:10px; border-radius:var(--radius-
 <script>
 "use strict";
 
-const S = { session:null, sessions:[], queue:null, sel:null, det:null, rankFilter:null, view:"queue" };
+const S = { session:null, sessions:[], queue:null, sel:null, det:null, rankFilter:null, view:"queue", autoplay:false };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
@@ -391,6 +391,11 @@ async function selectSpeaker(id) {
   $("layout").classList.remove("noside");
   $("detail").innerHTML = '<div class="empty">Učitavam…</div>';
   S.det = await api(`/api/speaker?session=${encodeURIComponent(S.session)}&id=${id}`);
+  // Klik na slučaj u redu čekanja je isti postupak kao klik na `▶`: čovjek je
+  // rekao „ovim se sada bavim". Zastavica se postavlja SAMO ovdje jer se
+  // `renderDetail` zove i nakon spremanja odluke — tada snimka ne smije krenuti
+  // iznova.
+  S.autoplay = true;
   renderDetail();
 }
 
@@ -450,13 +455,17 @@ function renderDetail() {
     <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
     <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
 
+  const auto = S.autoplay === true;
+  S.autoplay = false;
+
   renderPlayer(); renderSide(); renderCands(); renderAnchors(); renderBlocks(); renderForm();
   bindSeeks($("detail"));
-  // Prvi (najduži) istup je i najbolji uzorak — player se odmah namjesti na
-  // njega, ali se NE pokreće sam: nitko ne želi da mu 20 h sjednice krene uz uho.
+  // Prvi (najduži) istup je i najbolji uzorak — player se namjesti na njega i,
+  // kad je oznaka upravo odabrana, odmah krene. Bez toga svaki slučaj traži dva
+  // klika za istu stvar, a prvo pitanje je uvijek „tko ovo govori".
   const b = d.istupi[0];
   if (b) seekTo(b.youtube.part, b.youtube.local_sec != null ? b.youtube.local_sec : b.youtube.timestamp_sec,
-                `istup ${b.hms}`, { autoplay: false, video_id: b.youtube.video_id });
+                `istup ${b.hms}`, { autoplay: auto, video_id: b.youtube.video_id });
 }
 
 /**

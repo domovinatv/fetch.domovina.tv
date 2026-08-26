@@ -109,10 +109,12 @@ odmah, bez ponovnog ingesta i bez diranja `session_manifest.json`.
 
 ## Player
 
-Zaglavlje desnog stupca; svaki `▶` na ekranu ga premota na točan trenutak
-(istup ili najavu) **i pokrene**, a `↗` otvara isti trenutak na YouTubeu.
-Iznimka je prvo namještanje pri odabiru oznake — ono ne svira samo, jer nitko
-ne želi da mu 20 h sjednice krene uz uho.
+Zaglavlje desnog stupca. **Svaka radnja kojom čovjek kaže „ovim se sada bavim"
+pokreće snimku**: klik na slučaj u redu čekanja (namjesti se na najduži istup)
+i svaki `▶` uz istup ili najavu. `↗` otvara isti trenutak na YouTubeu.
+
+Ponovno crtanje detalja **nakon spremanja odluke** namjerno NE pokreće snimku —
+zastavica `S.autoplay` postavlja se samo u `selectSpeaker`.
 
 ⚠️ Posluživanje snimke **mora** podržavati HTTP Range (`206`), inače preglednik
 vuče cijelih ~350 MB prije prvog skoka. Otvoreni raspon (`bytes=0-`) se namjerno

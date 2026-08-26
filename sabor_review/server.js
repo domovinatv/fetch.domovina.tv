@@ -749,7 +749,7 @@ function serveMedia(req, res, session, part) {
             "Content-Type": type, "Content-Length": size,
             "Accept-Ranges": "bytes", "Cache-Control": CACHE, ETag: ETAG,
         });
-        return fs.createReadStream(f.abs).pipe(res);
+        return pipeAndCleanUp(fs.createReadStream(f.abs), res);
     }
     const m = /^bytes=(\d*)-(\d*)$/.exec(range.trim());
     if (!m) { res.writeHead(416, { "Content-Range": `bytes */${size}` }); res.end(); return; }
@@ -775,7 +775,23 @@ function serveMedia(req, res, session, part) {
         "Content-Range": `bytes ${start}-${end}/${size}`,
         "Accept-Ranges": "bytes", "Cache-Control": CACHE, ETag: ETAG,
     });
-    fs.createReadStream(f.abs, { start, end }).pipe(res);
+    pipeAndCleanUp(fs.createReadStream(f.abs, { start, end }), res);
+}
+
+/**
+ * Čitanje se GASI čim veza padne. Preglednik napusti učitavanje snimke svaki
+ * put kad se skoči na drugi dio, a bez ovoga tok ostane visjeti na
+ * protupritisku: utičnica se drži zauzetom, Chrome je pokušava ponovno
+ * upotrijebiti za idući zahtjev i novi `<video>` više ne krene — bez ijednog
+ * zahtjeva koji bi se vidio u logu. Uz zvuk se to nije primjećivalo; dio
+ * snimke je 1.5 GB i tok traje dovoljno dugo da se zaglavi.
+ */
+function pipeAndCleanUp(stream, res) {
+    const gasi = () => stream.destroy();
+    res.on("close", gasi);
+    res.on("error", gasi);
+    stream.on("error", () => { gasi(); res.destroy(); });
+    stream.pipe(res);
 }
 
 // ============================================================================
