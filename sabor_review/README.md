@@ -29,6 +29,26 @@ transkript smije baciti i proizvesti iznova, a ljudski rad preživi.
 
 Unutar razine: po govornom vremenu silazno.
 
+## Player
+
+Prikvačen na vrh desnog panela; svaki `▶` na ekranu ga premota na točan trenutak
+(istup ili najavu), a `↗` otvara isti trenutak na YouTubeu.
+
+| način | što daje | ograničenje |
+|---|---|---|
+| **zvuk (lokalno)** | trenutačan skok, radi bez interneta, `raw/part_NN.m4a` s diska | samo zvuk — `01_ingest.js` skida `bestaudio` |
+| **YouTube (slika)** | **frame** — lice govornika i ime s ekrana | traži internet; premotavanje ponovno učita okvir |
+
+Za ručnu klasifikaciju lice je često presudno, pa je YouTube način tu unatoč
+tome što je sporiji. Kad bi se u `01_ingest.js` dodalo skidanje videa, lokalni
+način bi ga preuzeo automatski — poslužitelj već traži `video_file` prije
+`raw_file` i sam prebacuje na `<video>`.
+
+⚠️ Posluživanje snimke **mora** podržavati HTTP Range (`206`), inače preglednik
+vuče cijelih ~350 MB prije prvog skoka. Otvoreni raspon (`bytes=0-`) se namjerno
+ograničava na 4 MB po zahtjevu; sufiksni oblik (`bytes=-N`, za `moov` atom) se
+ne dira.
+
 ## Nova sjednica
 
 Aplikacija čita disk pri svakom zahtjevu — nova sjednica se pojavi **bez

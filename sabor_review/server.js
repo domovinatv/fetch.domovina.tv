@@ -28,6 +28,7 @@
  *   POST /api/decision            zapiši odluku → faza 03 → razlika
  *   POST /api/rerun               ponovno pokreni fazu 03 (i po izboru 04)
  *   GET  /api/job?id=             stanje i log pozadinskog posla
+ *   GET  /media/<session>/<part>  lokalna snimka dijela (HTTP Range)
  */
 
 "use strict";
@@ -318,7 +319,10 @@ function speakerDetail(session, sid) {
                 speaker_id: c.speaker_id,
                 recenica: sentence || null,
                 rep: sentence ? null : c.text.slice(-280),
-                youtube: c.youtube,
+                // Najava se sluša s KRAJA bloka predsjedatelja — ime pada u
+                // zadnjoj rečenici prije nego progovori onaj koga najavljuje,
+                // a taj blok zna trajati minutama.
+                youtube: yt(S, Math.max(c.start_global_sec, c.end_global_sec - 12)) || c.youtube,
             };
         }
         return null;
@@ -332,7 +336,9 @@ function speakerDetail(session, sid) {
         duration_sec: b.duration_sec,
         role: b.role,
         text: b.text,
-        youtube: b.youtube,
+        // Faza 03 u blok zapisuje `timestamp_sec` zaokružen na sekundu; player
+        // dobiva PRECIZAN pomak, jer se identitet često čuje u prve dvije riječi.
+        youtube: yt(S, b.start_global_sec) || b.youtube,
         najava: chairBefore(b),
     }));
 
@@ -384,8 +390,19 @@ function speakerDetail(session, sid) {
     // više od bilo kojeg pojedinačnog rezultata podudaranja.
     const kandidati = [...cands.values()].sort((a, b) => b.izvori.length - a.izvori.length);
 
+    // Ima li sjednica lokalnu snimku i je li to zvuk ili video — UI o tome
+    // ovisi: video pokazuje lice i ime s ekrana, zvuk samo glas.
+    const mediji = {};
+    for (const p of (S.manifest && S.manifest.parts) || []) {
+        const f = mediaFileFor(session, p.part);
+        mediji[p.part] = f
+            ? { ima: true, datoteka: f.rel, video: /^\.(mp4|m4v|webm|mkv)$/.test(f.ext) }
+            : { ima: false };
+    }
+
     return {
         session, speaker_id: sid,
+        mediji,
         sec: Math.round(e.sec),
         minutes: Math.round(e.sec / 6) / 10,
         n_blocks: e.blocks.length,
@@ -586,6 +603,87 @@ function jobStatus(id) {
     return { ...j, tail };
 }
 
+
+// ============================================================================
+// LOKALNA SNIMKA — posluživanje s HTTP Range podrškom
+// ============================================================================
+
+/**
+ * ⚠️ RANGE NIJE NEOBAVEZAN. Dio sjednice je ~350 MB `m4a`. Bez `Accept-Ranges`
+ * i `206 Partial Content` preglednik mora povući CIJELU datoteku prije nego
+ * uopće može skočiti na sekundu — a poanta ovog ekrana je skok na točan
+ * trenutak. Uz Range skok je trenutačan i vuče se samo ono što se sluša.
+ *
+ * ⛔ Putanja se NIKAD ne gradi iz onoga što stigne u zahtjevu. `part` je broj,
+ * a datoteka se čita iz manifesta (`raw_file`) pa se provjerava da je doista
+ * unutar direktorija sjednice — inače bi `?part=` bio put do bilo koje datoteke
+ * na disku.
+ */
+const MEDIA_MIME = { ".m4a": "audio/mp4", ".mp4": "video/mp4", ".m4v": "video/mp4",
+                     ".webm": "video/webm", ".mkv": "video/x-matroska", ".wav": "audio/wav",
+                     ".mp3": "audio/mpeg", ".opus": "audio/ogg" };
+
+function mediaFileFor(session, part) {
+    const S = loadSession(session);
+    if (!S.manifest) throw new Error("sjednica nema session_manifest.json");
+    const p = (S.manifest.parts || []).find((x) => x.part === Number(part));
+    if (!p) throw new Error(`manifest nema dio ${part}`);
+    const dir = path.resolve(sessionDir(session));
+    // Video ako ga ima, inače zvuk — `01_ingest.js` skida samo `bestaudio`.
+    for (const rel of [p.video_file, p.raw_file, p.wav_file].filter(Boolean)) {
+        const abs = path.resolve(dir, rel);
+        if (!abs.startsWith(dir + path.sep)) continue;   // izlaz iz direktorija sjednice
+        if (fs.existsSync(abs)) return { abs, rel, ext: path.extname(abs).toLowerCase() };
+    }
+    return null;
+}
+
+function serveMedia(req, res, session, part) {
+    const f = mediaFileFor(session, part);
+    if (!f) { res.writeHead(404); res.end("nema lokalne snimke za taj dio"); return; }
+    const size = fs.statSync(f.abs).size;
+    const type = MEDIA_MIME[f.ext] || "application/octet-stream";
+    const range = req.headers.range;
+
+    // Snimka se ne mijenja, a ovaj ekran skače po njoj naprijed-natrag — bez
+    // keširanja svaki skok znova vuče iste bajtove. (`no-store` drugdje u ovoj
+    // aplikaciji postoji zbog JSON-a koji se mijenja pri svakoj odluci.)
+    const CACHE = "private, max-age=3600";
+
+    if (!range) {
+        res.writeHead(200, {
+            "Content-Type": type, "Content-Length": size,
+            "Accept-Ranges": "bytes", "Cache-Control": CACHE,
+        });
+        return fs.createReadStream(f.abs).pipe(res);
+    }
+    const m = /^bytes=(\d*)-(\d*)$/.exec(range.trim());
+    if (!m) { res.writeHead(416, { "Content-Range": `bytes */${size}` }); res.end(); return; }
+    // `bytes=-N` znači ZADNJIH N bajtova; MP4 s moov atomom na kraju traži baš
+    // to prije nego išta reproducira, pa taj oblik mora raditi.
+    let start = m[1] === "" ? size - Number(m[2]) : Number(m[1]);
+    let end = m[1] === "" ? size - 1 : (m[2] === "" ? size - 1 : Number(m[2]));
+    start = Math.max(0, Math.min(start, size - 1));
+    end = Math.max(start, Math.min(end, size - 1));
+
+    // Otvoreni raspon (`bytes=0-`) se OGRANIČAVA na komad. Preglednik ga smije
+    // dobiti manjeg nego što je tražio i sam nastavlja tražiti dalje; bez toga
+    // jedan zahtjev drži 350 MB otvorenih i reprodukcija ne krene dok se ne
+    // napuni. Sufiksni oblik (`bytes=-N`, moov atom na kraju) se ne dira.
+    const CHUNK = 4 * 1024 * 1024;
+    if (m[1] !== "" && m[2] === "" && end - start + 1 > CHUNK) {
+        end = start + CHUNK - 1;
+    }
+
+    res.writeHead(206, {
+        "Content-Type": type,
+        "Content-Length": end - start + 1,
+        "Content-Range": `bytes ${start}-${end}/${size}`,
+        "Accept-Ranges": "bytes", "Cache-Control": CACHE,
+    });
+    fs.createReadStream(f.abs, { start, end }).pipe(res);
+}
+
 // ============================================================================
 // HTTP
 // ============================================================================
@@ -703,6 +801,16 @@ const server = http.createServer(async (req, res) => {
             return sendJson(res, 200, { text, nalazi });
         }
         if (u.pathname === "/api/job") return sendJson(res, 200, jobStatus(q.get("id")));
+        if (u.pathname === "/api/media") {
+            return serveMedia(req, res, q.get("session"), q.get("part"));
+        }
+        // Isti sadržaj, ali BEZ query stringa: neki preglednici i proširenja ne
+        // puštaju medijske podzahtjeve s upitnikom, a `<audio>`/`<video>` tada
+        // ostanu u NETWORK_LOADING bez ijednog bajta i bez greške.
+        const mm = /^\/media\/([^/]+)\/(\d+)(?:\.[a-z0-9]+)?$/i.exec(u.pathname);
+        if (mm) {
+            return serveMedia(req, res, decodeURIComponent(mm[1]), mm[2]);
+        }
 
         if (req.method === "POST" && u.pathname === "/api/decision") {
             return sendJson(res, 200, applyDecision(await readBody(req)));

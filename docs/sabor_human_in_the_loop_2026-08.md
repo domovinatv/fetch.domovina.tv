@@ -102,6 +102,25 @@ Za svaku oznaku, bez prebacivanja kartica:
   `natjecatelj`) i doslovnim dokazom;
 * prijedlozi **slijepe provjere** iz `blind_check_agy/w*.json`.
 
+**Player je prikvačen na vrh** i svaki `▶` ga premota na točan trenutak —
+istup ili najavu. Dva načina, jer daju različite stvari:
+
+| način | daje | ograničenje |
+|---|---|---|
+| zvuk (lokalno) | trenutačan skok, bez interneta | **samo zvuk** — `01_ingest.js` skida `bestaudio`, videa na disku nema |
+| YouTube (slika) | **frame** — lice govornika i ime s ekrana | traži internet; premotavanje ponovno učita okvir |
+
+Za ono što protokol ne može imenovati lice je često presudno, pa YouTube način
+postoji unatoč tome što je sporiji. Pomak je provjeren protiv transkripta:
+sekunda koju aplikacija šalje playeru (dio 3, 8100.16 s) pada na SRT redak
+`8100.2 s` s doslovno istim tekstom, a najava (dio 1, 8041.44 s) na
+`„Izvolite odgovor."` — dakle skok pogađa trenutak, ne približno mjesto.
+
+⚠️ Posluživanje lokalne snimke **mora** podržavati HTTP Range. Bez `206` preglednik
+mora povući cijelih ~350 MB prije prvog skoka, a poanta ekrana je skok. Otvoreni
+raspon (`bytes=0-`) ograničava se na 4 MB po zahtjevu; sufiksni oblik (`bytes=-N`,
+kojim MP4 traži `moov` atom) se ne dira.
+
 Odluka → faza 03 → razlika, sve u **~0.4 s** (faza 03 nad 20 h traje 0.19 s),
 pa je petlja „AI → čovjek → AI" doslovno interaktivna.
 

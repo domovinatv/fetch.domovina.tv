@@ -104,6 +104,27 @@ ul.q .mins { font-size:12px; color:var(--muted); white-space:nowrap; }
 .blk .txt { font-size:13.5px; max-height:150px; overflow:auto; }
 .yt { font-size:11.5px; white-space:nowrap; }
 
+/* Player je PRIKVAČEN na vrh desnog panela: čovjek sluša dok čita tekst i
+   dokaze, umjesto da skače gore-dolje. */
+.player { position:sticky; top:0; z-index:5; background:var(--bg);
+  border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px;
+  margin-bottom:14px; box-shadow:var(--shadow); }
+.player .bar { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+.player .now { font-size:12px; color:var(--muted); flex:1; min-width:140px; }
+.player .now b { color:var(--navy); }
+.player audio { width:100%; height:34px; display:block; }
+/* Slika je ograničena visinom, ne širinom: puna širina panela daje ~660 px
+   visok okvir koji odluku gurne izvan ekrana, a poanta je gledati i odlučivati
+   bez skrolanja. */
+.player .frame { position:relative; aspect-ratio:16/9; background:#000;
+  max-height:38vh; max-width:100%; width:auto; margin:0 auto;
+  border-radius:var(--radius-sm); overflow:hidden; }
+.player .frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.player .warn { font-size:11.5px; color:var(--warn); }
+button.seek { border:0; background:none; color:var(--navy); cursor:pointer; padding:0 2px;
+  font-size:11.5px; text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
+button.seek:hover { color:var(--red); }
+
 .form { display:grid; gap:9px; }
 .row { display:flex; gap:9px; align-items:center; flex-wrap:wrap; }
 .row label { font-size:12px; color:var(--muted); min-width:76px; }
@@ -288,9 +309,29 @@ async function selectSpeaker(id) {
   renderDetail();
 }
 
+/**
+ * Gumb koji premota PRIKVAČENI player umjesto da otvara novu karticu.
+ * Vanjska poveznica ostaje uz njega — kad se traži lice, a lokalno imamo
+ * samo zvuk, YouTube je jedini izvor slike.
+ */
 function ytLink(y, label) {
-  if (!y || !y.url) return "";
-  return `<a class="yt" href="${esc(y.url)}" target="_blank" rel="noopener">▶ ${esc(label || "poslušaj")}</a>`;
+  if (!y) return "";
+  // `video_id` ide UZ trenutak, ne izvodi se naknadno iz istupa u tom dijelu:
+  // najava zna pasti u dio u kojem govornik uopće nema istup, pa bi se player
+  // tada nije imao iz čega složiti.
+  const key = `${y.part}|${y.local_sec != null ? y.local_sec : y.timestamp_sec}|${y.video_id || ""}`;
+  return `<button class="seek" data-seek="${esc(key)}" data-lbl="${esc(label || "")}">▶ ${esc(label || "poslušaj")}</button>` +
+    (y.url ? ` <a class="yt" href="${esc(y.url)}" target="_blank" rel="noopener" title="otvori na YouTubeu">↗</a>` : "");
+}
+
+/** Sve `▶` na ekranu premotavaju isti player. */
+function bindSeeks(root) {
+  for (const b of root.querySelectorAll("button.seek")) {
+    b.onclick = () => {
+      const [part, sec, vid] = b.dataset.seek.split("|");
+      seekTo(Number(part), Number(sec), b.dataset.lbl, { video_id: vid || null });
+    };
+  }
 }
 
 function renderDetail() {
@@ -313,13 +354,98 @@ function renderDetail() {
       ${t.votes_total ? ` (${t.votes}/${t.votes_total} glasova)` : ""}
       ${t.dropped_reason ? `<br><span style="color:var(--bad)">${esc(t.dropped_reason)}</span>` : ""}
     </div>
+    <div id="player" class="player"></div>
     <div id="msg"></div>
     <div class="card"><h3>Odluka</h3><div id="form"></div></div>
     <div class="card"><h3>Kandidati (${d.kandidati.length})</h3><div class="cands" id="cands"></div></div>
     <div class="card"><h3>Najave koje su bile sidro (${d.anchors.length})</h3><div id="anch"></div></div>
     <div class="card"><h3>Istupi — tekst, najava i snimka</h3><div id="blks"></div></div>`;
 
-  renderCands(); renderAnchors(); renderBlocks(); renderForm();
+  renderPlayer(); renderCands(); renderAnchors(); renderBlocks(); renderForm();
+  bindSeeks($("detail"));
+  // Prvi (najduži) istup je i najbolji uzorak — player se odmah namjesti na
+  // njega, ali se NE pokreće sam: nitko ne želi da mu 20 h sjednice krene uz uho.
+  const b = d.istupi[0];
+  if (b) seekTo(b.youtube.part, b.youtube.local_sec != null ? b.youtube.local_sec : b.youtube.timestamp_sec,
+                `istup ${b.hms}`, { autoplay: false, video_id: b.youtube.video_id });
+}
+
+// ───────────────────────────── player ─────────────────────────────
+
+const P = { part: null, sec: 0, mode: "lokalno", label: "", video_id: null };
+
+function renderPlayer() {
+  const d = S.det;
+  const m = (d.mediji && d.mediji[P.part]) || null;
+  const imaLokalno = Object.values(d.mediji || {}).some((x) => x.ima);
+  const jeVideo = m && m.video;
+
+  $("player").innerHTML = `
+    <div class="bar">
+      <button id="pLocal" class="${P.mode === "lokalno" ? "primary" : ""}" ${imaLokalno ? "" : "disabled"}>
+        ${jeVideo ? "snimka (lokalno)" : "zvuk (lokalno)"}</button>
+      <button id="pYt" class="${P.mode === "youtube" ? "primary" : ""}">YouTube (slika)</button>
+      <span class="now">${P.part ? `dio ${P.part} · <b>${hms(P.sec)}</b>${P.label ? " · " + esc(P.label) : ""}` : "odaberi trenutak"}</span>
+    </div>
+    <div id="pBody"></div>
+    ${P.mode === "lokalno" && !jeVideo
+      ? '<div class="warn">Lokalno je samo zvuk — <code>01_ingest.js</code> skida <code>bestaudio</code>. Za lice i ime s ekrana koristi YouTube.</div>'
+      : ""}`;
+
+  $("pLocal").onclick = () => { P.mode = "lokalno"; renderPlayer(); mountPlayer(true); };
+  $("pYt").onclick = () => { P.mode = "youtube"; renderPlayer(); mountPlayer(true); };
+  mountPlayer(false);
+}
+
+/**
+ * Lokalni player se NE presnimava kad se skače unutar istog dijela — samo mu se
+ * pomakne `currentTime`. Ponovno postavljanje `src` znači novo učitavanje i
+ * gubitak buffera, a skakanje po istom dijelu je najčešća radnja na ovom ekranu.
+ */
+function mountPlayer(force) {
+  const body = $("pBody");
+  if (!P.part) { body.innerHTML = ""; return; }
+
+  if (P.mode === "youtube") {
+    const id = P.video_id;
+    if (!id) { body.innerHTML = '<div class="hint">Nema video ID-a za taj trenutak.</div>'; return; }
+    // Bez YouTube IFrame API-ja (vanjska skripta) premotavanje znači novi `src`.
+    const src = `https://www.youtube-nocookie.com/embed/${id}?start=${Math.floor(P.sec)}&rel=0`;
+    const cur = body.querySelector("iframe");
+    if (!cur || cur.src !== src) body.innerHTML = `<div class="frame"><iframe src="${src}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
+    return;
+  }
+
+  const url = `/api/media?session=${encodeURIComponent(S.session)}&part=${P.part}`;
+  let el = body.querySelector("audio,video");
+  const jeVideo = S.det.mediji[P.part] && S.det.mediji[P.part].video;
+  if (!el || force || el.dataset.part !== String(P.part)) {
+    body.innerHTML = jeVideo
+      ? `<div class="frame"><video controls preload="metadata" data-part="${P.part}" src="${url}"></video></div>`
+      : `<audio controls preload="metadata" data-part="${P.part}" src="${url}"></audio>`;
+    el = body.querySelector("audio,video");
+    // Skok je moguć tek kad su poznati metapodaci (trajanje).
+    el.addEventListener("loadedmetadata", () => { el.currentTime = P.sec; }, { once: true });
+  } else {
+    el.currentTime = P.sec;
+  }
+}
+
+function seekTo(part, sec, label, opts) {
+  const promjena = P.part !== part;
+  P.part = part; P.sec = Math.max(0, sec); P.label = label || "";
+  if (opts && opts.video_id) P.video_id = opts.video_id;
+  renderPlayer();
+  const el = $("pBody").querySelector("audio,video");
+  if (el && !promjena) {
+    el.currentTime = P.sec;
+    if (!opts || opts.autoplay !== false) el.play().catch(() => {});
+  }
+}
+
+function hms(sec) {
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), x = Math.floor(sec % 60);
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(x).padStart(2, "0")}`;
 }
 
 function renderCands() {
