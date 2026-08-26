@@ -109,3 +109,5 @@ normalno i nakon što se prozor zatvori.
   launchd jobova, revert procedura
 - `docs/claude_code_backend_2026-07.md` — zašto koraci 7+8 uopće idu preko Claude Opusa
 - `docs/adhoc_video_processing.md` — prioritetni fast-path
+- `docs/2026-08-26-backfill-i-baseline.md` — što se dogodi kad se ova ograda zaobiđe:
+  headless run i interaktivna sesija dijele isti prozor, 10 od 11 članaka palo
