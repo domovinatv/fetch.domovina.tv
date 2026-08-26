@@ -29,6 +29,11 @@ exec >> "$LOG_FILE" 2>&1
 # Očisti prioritetne logove starije od 14 dana.
 find "$LOG_DIR" -name 'priority_*.log' -type f -mtime +14 -delete 2>/dev/null || true
 
+# yt-dlp: biraj po verziji, ne po PATH redoslijedu (stari ekstraktor → 403 na
+# medijskom streamu). Isti helper koji koristi nightly.
+# shellcheck source=/dev/null
+. "$SCRIPT_DIR/resolve_ytdlp.sh"
+
 # .env → PIPELINE_QUEUE_INGEST_KEY (isti kao nightly KORAK 0).
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
 

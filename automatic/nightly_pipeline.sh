@@ -103,6 +103,12 @@ else
     exec >> "$LOG_FILE" 2>&1
 fi
 
+# yt-dlp: NE prepuštaj PATH redoslijedu koji od dva installa pobjeđuje — biraj po
+# verziji. (Stari ekstraktor daje 403 na medijskom streamu; vidi resolve_ytdlp.sh.)
+# Ide NAKON exec-redirecta da poruka završi u nightly logu, a ne u launchd.out.
+# shellcheck source=/dev/null
+. "$SCRIPT_DIR/resolve_ytdlp.sh"
+
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
 echo "║   🌙  NIGHTLY PIPELINE                                       ║"
@@ -116,6 +122,7 @@ echo "   Node:         $(command -v node || echo MISSING) $(node --version 2>/de
 echo "   gcloud:       $(command -v gcloud || echo MISSING)"
 echo "   rclone:       $(command -v rclone || echo MISSING)"
 echo "   ffmpeg:       $(command -v ffmpeg || echo MISSING)"
+echo "   yt-dlp:       $(command -v yt-dlp || echo MISSING) $(yt-dlp --version 2>/dev/null || true)"
 echo ""
 
 # ─── LOCKFILE ─────────────────────────────────────────────────────
