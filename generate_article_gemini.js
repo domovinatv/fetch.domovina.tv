@@ -37,6 +37,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const { execSync, spawn } = require("child_process");
+const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -1875,9 +1876,23 @@ async function main() {
     // Obradi redom
     let success = 0;
     let failed = 0;
+    let deferred = 0;
 
     for (let i = 0; i < finalQueue.length; i++) {
         const item = finalQueue[i];
+
+        // ── CLAUDE PROZOR ──
+        // Isto kao u summarize_gemini.js: kad noćni prozor istekne, ostatak reda
+        // ide u sljedeći nightly umjesto da otvara nov 5h prozor pred jutro.
+        // Red je round-robin po kanalima pa odgoda ne gladuje jedan kanal.
+        // Vidi lib/claude_window.js.
+        if (USING_CLAUDE && claudeWindowClosed()) {
+            deferred = finalQueue.length - i;
+            console.log("");
+            console.log(`   ⏸️  ${claudeWindowReason()} — odgađam ${deferred} preostalih u sljedeći nightly`);
+            break;
+        }
+
         console.log("");
         console.log(`   ━━━ [${i + 1}/${finalQueue.length}] [${item.channel}] ${path.basename(item.srtPath)} ━━━`);
 
@@ -1905,6 +1920,7 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   ✅ Uspješno: ${success}`);
     if (failed > 0) console.log(`   ❌ Neuspješno: ${failed}`);
+    if (deferred > 0) console.log(`   ⏸️  Odgođeno (Claude prozor): ${deferred}`);
     console.log(`   💾 Done cache: ${doneSet.size} epizoda`);
     if (sessionUsage.calls > 0) {
         console.log(`   💳 ${USING_CLAUDE ? "Claude" : "Gemini"} ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${USING_CLAUDE ? `pretplata, ekvivalentni trošak, model=${CLAUDE_MODEL}` : VERTEX_PROJECT})`);

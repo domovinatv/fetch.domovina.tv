@@ -40,6 +40,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const { execSync, spawn } = require("child_process");
+const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -1251,6 +1252,17 @@ async function main() {
             if (dryRun) {
                 console.log(`   🔄 [SUMARIZIRAO BI] ${base}`);
                 totalSummarized++;
+                continue;
+            }
+
+            // ── CLAUDE PROZOR ──
+            // Dugi nightly run (zna trajati 6h+) inače spawna Opus sessione u
+            // 07:00-08:30 i otvara svjež 5h prozor tik prije početka radnog dana.
+            // Preostale epizode odgodi za sljedeću noć — dir-driven pipeline ih
+            // pokupi jer bez .summary.json ostaju u redu. Vidi lib/claude_window.js.
+            if (USING_CLAUDE && claudeWindowClosed()) {
+                console.log(`   ⏸️  [ODGOĐENO] ${base} — ${claudeWindowReason()}, ide u sljedeći nightly`);
+                totalSkipped++;
                 continue;
             }
 

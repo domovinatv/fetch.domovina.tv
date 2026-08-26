@@ -287,8 +287,15 @@ acquire_pipeline_lock wait
 # epizoda ovo košta centе po noći. Vidi docs/transcription_colab_vs_modal_cost_2026-07.md §4.6.
 # Trostruka ograda protiv troška: MODAL_FRESH_DAYS=2 (nikad backlog), MODAL_MAX_FILES=20
 # (iznad → soft-skip na Colab), rclone exclude po videu (Colab ne vidi iste WAV-ove).
+# CLAUDE_WINDOW_* (2026-08-26): koraci 7+8 smiju zvati `claude` samo do 02:30.
+# Nightly je pomaknut na 01:00 (bio 03:00), ali trajanje mu je dugorepo — medijan
+# ~20 min, a 14.8. je trajao 6h37m i 16.8. 4h31m. U takvom runu su se Opus sessioni
+# spawnali u 07:35/08:31 i otvarali svjež 5h prozor kvote tik prije 08:30, pa je
+# jutro počinjalo s već potrošenom kvotom. Preko 02:30 preostale epizode se ODGAĐAJU
+# u sljedeći nightly (ne degradiraju na Flash — vidi lib/claude_window.js za razlog).
+# Ne-AI koraci ispod (transcribe, upload, index) nastavljaju normalno.
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels || true
+    env CLAUDE_MODEL=opus CLAUDE_WINDOW_START=00:00 CLAUDE_WINDOW_END=02:30 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego
