@@ -396,6 +396,10 @@ vrijedi proći `node data/count_registry.js --list-ready` — 22 unosa je već t
 
 - `data/_raw_research/yt_dlp_search_sweep_2026-07-27/` — skripte + sirovi artefakti
 - `docs/registry_vision.md` — vizija javnog kataloga
+- `docs/podscan_integration.md` — **treći vektor otkrivanja (2026-08-26)**: RSS
+  indeks Podscan.fm. Komplementaran ovom sweepu jer gleda audio/RSS stranu, ne
+  YouTube: 1 693 feeda kojih nema u registru (121 stvarno hrvatskih i aktivnih).
+  Trijažni popis: `docs/podscan_candidates_2026-08-26.md`.
 - Claude memorije: `yt-dlp-search-sweep-discovery`, `registry-three-layer-model`,
   `registry-as-public-catalog-vision`, `channel-onboarding-checklist`,
   `bulk-category-discovery-workflow`

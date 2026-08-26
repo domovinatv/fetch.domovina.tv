@@ -211,3 +211,14 @@ pokaže da Podscan šalje nešto drugo, promijeni provjeru u `firehose_receiver.
 - **Kandidati nisu ubačeni u registar.** Popis od 120 aktivnih je izlaz izvještaja,
   ne automatska izmjena — registar je [trosloj](../data/podcasts_registry.json)
   i ne smije se puniti automatski.
+
+---
+
+## Povezano
+
+- `docs/registry_discovery_sweep_2026-07-27.md` — yt-dlp search sweep, drugi
+  vektor otkrivanja (YouTube strana; 146 → 273 kanala)
+- `docs/registry_vision.md` — vizija javnog kataloga
+- `docs/podscan_candidates_2026-08-26.md` — trijažni popis kandidata
+- Claude memorije: `podscan-fm-integration`, `registry-three-layer-model`,
+  `bulk-category-discovery-workflow`, `channel-onboarding-checklist`
