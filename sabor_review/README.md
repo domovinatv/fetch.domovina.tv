@@ -18,6 +18,18 @@ Aplikacija **nikad** ne piše u `aligned_transcript.json`. Piše isključivo u
 `human_overrides.json`; transkript proizvodi samo faza 03. Zbog toga se
 transkript smije baciti i proizvesti iznova, a ljudski rad preživi.
 
+## ⚠️ Nakon izmjene `server.js` — restartaj proces
+
+Keš sjednice ide **po mtime-u**, pa se podaci osvježe sami. Aplikacija zato
+izgleda živa dok vrti stari kod, i lako je zaključiti da nova značajka „ne
+radi". Node ne prekapča kod uživo.
+
+```bash
+pkill -f "sabor_review/server.js"; node sabor_review/server.js
+# provjeri poljem koje postoji samo u novom kodu:
+curl -s "localhost:8788/api/queue?session=<id>" | grep -c has_ocr
+```
+
 ## Red čekanja
 
 | razina | značenje |
@@ -28,6 +40,19 @@ transkript smije baciti i proizvesti iznova, a ljudski rad preživi.
 | `visoka` | dvije ili više složnih najava |
 
 Unutar razine: po govornom vremenu silazno.
+
+### Izvori prijedloga — tri, i ne vrijede jednako
+
+| značka | izvor | čemu vjerovati |
+|---|---|---|
+| `najava` | predsjedavajući je izgovorio ime | najjače, ali šuti za ~33 % vremena |
+| `ekran` | natpis koji je režija ispisala | ne ovisi ni o čijem govoru; 67/67 slaganja s protokolom, 0 proturječja |
+| `model` | slijepa provjera modelom | zaključuje iz teksta, zna pogriješiti |
+
+Oznaka bez prijedloga s ekrana nije nužno propust: ogradu pale slaba
+pokrivenost natpisa (oznaka skuplja upadice) i zajednički termin više govornika.
+Predsjedatelja režija ne titula uopće. Vidi
+`docs/sabor_ocr_imena_s_ekrana_2026-08.md`.
 
 ## Player
 
@@ -74,6 +99,8 @@ ljude bez ijedne poruke.
 | `aligned_transcript.json` | **samo** faza 03 |
 | `aligned_transcript.protokol.json` | faza 03 `--no-human` — referenca za mjerenje |
 | `human_review/audit_overrides.json` | `tools/audit_overrides.js` |
+| `ocr_captions/prijedlozi.json` + `frames/` | `tools/ocr_captions.js` (prijedlozi + dokazne sličice) |
 | `human_review/rerun_*.log` | pozadinsko pokretanje faze 03/04 |
 
 Puni opis, mjerenja i zamke: `docs/sabor_human_in_the_loop_2026-08.md`.
+Natpis s ekrana kao izvor: `docs/sabor_ocr_imena_s_ekrana_2026-08.md`.
