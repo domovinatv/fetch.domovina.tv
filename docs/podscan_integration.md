@@ -63,6 +63,16 @@ hrvatskog dijela baze (`data/podscan_hr_corpus.json`), pa se sva analiza vrti
 lokalno i besplatno. `podscan_client.js` broji potrošnju u
 `data/podscan_cache/.podscan_budget.json` i odustane s porukom umjesto da zaradi 429.
 
+⚠️ **Istu dnevnu kvotu troši i Podscan MCP konektor**, i ručni `curl`, i web
+sučelje. Lokalni brojač vidi samo vlastite pozive i zato **podcjenjuje** —
+izmjereno 2026-08-26: lokalno 75, server 100. Klijent se zato poravnava po
+`x-ratelimit-remaining` headeru sa svakog odgovora.
+
+Praktična posljedica: **MCP konektor na trial ključu puca s HTTP 429** čim
+skripte potroše dan. To nije kvar konektora ni "MCP ne radi za free account" —
+to je ista kvota. `retry-after` na dnevnom limitu zna biti **~20 sati**, pa
+klijent tada odustaje odmah umjesto da ponavlja.
+
 ### 3. Search ne prima prazan upit — i chartovi su 30× isplativiji
 
 `query=*` → vodeći wildcard se strippa i vraća 0 rezultata. Ne postoji "izlistaj
@@ -195,8 +205,9 @@ pokaže da Podscan šalje nešto drugo, promijeni provjeru u `firehose_receiver.
 - **Chart kandidatima nedostaje jezik.** Razlučivanje "hrvatski ili strani"
   traži `GET /podcasts/{id}` po showu — 722 poziva, tj. 8 dana trial kvote.
   Jeftinije: trijažirati ručno po imenu, ili nadograditi plan.
-- **Podscan MCP** (dodan u Claude konfiguraciju) nije bio vidljiv u ovoj sesiji —
-  traži restart Claude Code sesije. REST put je ionako reproducibilniji za skripte.
+- **Podscan MCP** dijeli dnevnu kvotu s REST-om i zato je 2026-08-26 vraćao
+  HTTP 429 (`retry-after` ~20 h). Restart sesije to ne rješava — ili se čeka
+  reset, ili se podiže plan. REST put je ionako reproducibilniji za skripte.
 - **Kandidati nisu ubačeni u registar.** Popis od 120 aktivnih je izlaz izvještaja,
   ne automatska izmjena — registar je [trosloj](../data/podcasts_registry.json)
   i ne smije se puniti automatski.

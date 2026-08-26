@@ -141,10 +141,35 @@ async function call(endpoint, opts = {}) {
             body: bodyStr,
         });
 
+        // Server je jedini pouzdan izvor potrošnje: istu dnevnu kvotu troše i
+        // Podscan MCP konektor, i ručni curl, i web sučelje. Naš lokalni brojač
+        // vidi samo vlastite pozive i zato PODCJENJUJE (izmjereno 2026-08-26:
+        // lokalno 75, server 100). Zato ga poravnavamo po svakom odgovoru.
+        const srvLimit = parseInt(res.headers.get("x-ratelimit-limit") || "", 10);
+        const srvRemaining = parseInt(res.headers.get("x-ratelimit-remaining") || "", 10);
+        if (Number.isFinite(srvLimit) && Number.isFinite(srvRemaining) && srvLimit >= DAILY_LIMIT) {
+            const realUsed = srvLimit - srvRemaining;
+            if (realUsed > budget.used) {
+                budget.used = realUsed;
+                saveBudget(budget);
+            }
+        }
+
         if (res.status === 429) {
-            if (attempt >= 4) throw new Error(`429 nakon ${attempt} pokušaja: ${url}`);
-            const wait = 30000 * attempt;
-            console.warn(`   ⏳ 429 — čekam ${wait / 1000}s (pokušaj ${attempt})`);
+            // `retry-after` na dnevnoj kvoti zna biti ~20 SATI. Slijepo ponavljanje
+            // s 30-sekundnim backoffom tu ne pomaže ničemu — bolje odustati s
+            // porukom koja kaže kad se kvota vraća.
+            const retryAfter = parseInt(res.headers.get("retry-after") || "0", 10);
+            if (retryAfter > 300 || attempt >= 4) {
+                budget.used = DAILY_LIMIT;
+                saveBudget(budget);
+                const hrs = retryAfter ? ` Kvota se vraća za ~${(retryAfter / 3600).toFixed(1)}h.` : "";
+                const err = new Error(`429 — dnevna kvota potrošena.${hrs} (${url})`);
+                err.code = "BUDGET_EXHAUSTED";
+                throw err;
+            }
+            const wait = Math.max(retryAfter * 1000, 30000 * attempt);
+            console.warn(`   ⏳ 429 — čekam ${Math.round(wait / 1000)}s (pokušaj ${attempt})`);
             await sleep(wait);
             continue;
         }

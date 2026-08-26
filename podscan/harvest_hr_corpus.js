@@ -134,7 +134,9 @@ async function main() {
         }
     }
 
-    corpus.generated_at = new Date().toISOString();
+    // Ne diraj `generated_at` ako prolaz nije ništa dohvatio — inače svaki
+    // no-op run prikaže 3,5 MB datoteku kao izmijenjenu u gitu.
+    if (spent > 0) corpus.generated_at = new Date().toISOString();
     saveJson(CORPUS_FILE, corpus);
     saveJson(STATE_FILE, state);
 
