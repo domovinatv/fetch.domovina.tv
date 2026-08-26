@@ -259,6 +259,8 @@ najvećem `_{date}_{model}.article.json`, pa je poredak `opus` > `gemini-*` > `a
 postojeći gemini ni Opus članak. Ne preimenuj slugove bez provjere ovog poretka.
 
 **`claude` backend — obavezno pročitati `docs/claude_code_backend_2026-07.md` prije diranja.**
+Uz to, od 2026-08-26 koraci 7+8 znaju **odgoditi** epizodu kad se zatvori prozor kvote
+(`⏸️ [ODGOĐENO]` u logu) — to nije greška, vidi `docs/2026-08-26-claude-window-ograda.md`.
 Tri stvari koje tiho pucaju:
 
 1. **`--tools ''` je obavezan** — bez njega tool definicije uđu u kontekst svakog poziva
