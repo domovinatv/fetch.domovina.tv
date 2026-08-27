@@ -4,7 +4,7 @@
   "channel_id": "UCiXXRMlzoA-MKPHVe5V7YdQ",
   "title": "Nanovo rođeni",
   "availability": "public",
-  "channel_follower_count": 49600,
+  "channel_follower_count": 49700,
   "description": "Youtube kanal zajednice Nanovo rođeni\n\n\nZajednica je osnovana 2012. godine\nVoditelj zajednice Mišo Lukenda\n\nPrimatelj donacije Zaklade Rhema\n",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787785272,
+  "epoch": 1787832757,
   "__files_to_move": {},
   "_version": {
     "version": "2026.08.19",
