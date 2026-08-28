@@ -182,3 +182,12 @@ ruše nightly.
 - Tokeni: 30 videa atribuirano.
 - Za taj backlog je **jedan Colab G4 batch** (~30 min, ~$0.35 za svih 115) i dalje jeftiniji
   od 115 pojedinačnih Modal runova preko `⚡ Prioritet`.
+
+## Vezani dokumenti
+
+- **`2026-08-27-nightly-modal-nula-kandidata.md`** — nastavak ove teme s četiri tiha kvara
+  iz 08/2026, od kojih nijedan ne mijenja `Status: ✅ Svi koraci OK`: Modal scan koji
+  vraća nulu kandidata u svakom runu od 02.08., saborska snimka od 20 h koja preko swapa
+  ruši KORAK 6 (pa koraci 7-12 nikad ne krenu), partial-save članak koji izgleda gotov, i
+  Cloudflare koji servira keširani 404 nakon uspješnog PUT-a. Nosi i runbook: kako u tri
+  naredbe razlučiti je li rupa u transkripciji, LLM sloju, konverziji ili isporuci.

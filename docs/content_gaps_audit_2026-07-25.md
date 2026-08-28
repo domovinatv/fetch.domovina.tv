@@ -177,3 +177,10 @@ Magisterium epizoda iz Bloka 3.
 - Nijedan pipeline nije vrtio (`ps` čist) — nema locka, uvijek provjeriti prije pokretanja.
 - DOMOVINA1TB: 93 GB slobodno (91 % puno) · DOMOVINA2TB: 533 GB slobodno · boot: 31 GB.
 - Oba external volumea montirana (nužno — `storage/output/*` su symlinkovi na njih).
+
+## Vezani dokumenti
+
+- **`2026-08-27-nightly-modal-nula-kandidata.md`** — isti tip audita mjesec dana kasnije
+  (14 epizoda), s gotovim skriptama za triažu i s uzrocima koje ovaj audit nije mogao
+  vidjeti: nightly Modal scan koji nikad ne opali, i predugačak WAV koji ruši KORAK 6 pa
+  s njim i cijeli AI sloj.
