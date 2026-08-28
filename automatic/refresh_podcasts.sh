@@ -62,6 +62,8 @@ KANALI=(
     "slijedi-svoj-poziv-1|https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm"
     "slijedi-svoj-poziv-2|https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY"
 
+    "abbacast|https://www.youtube.com/@AbbaCastPodcast/videos"
+
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda
     # "projekt-velebit|https://www.youtube.com/@projektvelebit6100/videos" # veliki
