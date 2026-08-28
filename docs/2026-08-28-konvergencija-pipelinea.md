@@ -141,6 +141,34 @@ node audit_pipeline.js --json out.json
 Izlazni kod: 0 = nema rupa, 1 = ima, 2 = audit nije mogao teći. Vrti se kao
 korak nightlyja (`|| true` — izlaz 1 je mjera, ne alarm).
 
+## 4.5 Rezultat sanacije (28.08.2026.)
+
+| | prije | poslije |
+|---|---|---|
+| Potpuno ispravnih | 3188 / 3263 (97,70 %) | **3240 / 3263 (99,30 %)** |
+| Krnji/prazni članci na CDN-u | 35 | **0** |
+| Preuzeto ali netranskribirano | 4 | 0 |
+
+Izvedeno: 126 R2 ključeva re-uploadano + CF purge (3,0 MB), pa pun prolaz pipelinea
+za 4 netranskribirane epizode (Modal → pyannote → sažetak → članak/Opus → RAG →
+screenshotovi → EPUB → R2, 1 h 47 min). Sva četiri nova članka nose
+`metadata.complete: true` — žig radi kroz cijeli lanac.
+
+Dvije stvari vrijedne bilježenja:
+
+- **`wF0ctR3DJp4` je nakon uploada i dalje 404-ao na GET**, dok je HEAD vraćao 200 s
+  točnim `content-length`. To je već zabilježeni obrazac (MEMORY `cloudflare_cdn_caches_404s`):
+  edge je keširao 404 od ranije provjere. Riješeno purge-om. **Verificiraj GET-om, ne HEAD-om.**
+- **Četiri članka su nakon popravka MANJA nego prije** (65–92 % stare veličine).
+  Provjereno: sva četiri su cjelovita (`iteracija == outline`, nula praznih sekcija) —
+  razlika je model (`gemini-3.5-flash` piše gušće sekcije od `gemini-2.5-flash`). Popravak
+  je primijenio postojeće pravilo dedupa („najnoviji lokalni mtime pobjeđuje"), CDN je samo
+  bio zaglavljen na starijem uploadu. Nijedna epizoda nije skraćena.
+
+Preostalih 23 epizoda s rupom: 4 osirotjela medija bez `.info.json`, 4 bez screenshotova
+(Beamly, nema lokalnog videa), 15 s driftom koji je kozmetički (`samo drugi model`,
+`magisterium`, `epub`).
+
 ## 5. Što ostaje ručno
 
 - **Otrovani preglednici.** `immutable` znači da preglednik koji je jednom dobio
