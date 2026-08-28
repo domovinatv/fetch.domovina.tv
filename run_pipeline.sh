@@ -614,18 +614,46 @@ if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
     _mtime_args=()
     [ "$MODAL_SCOPE" != "unlisted" ] && _mtime_args=(-mtime "-${MODAL_FRESH_DAYS}")
 
+    # DIJAGNOSTIKA (2026-08-27): scan je od 02.08. do 27.08. vraćao 0 kandidata u SVAKOM
+    # nightlyju — i u noćima kad je KORAK 2 dvadesetak sekundi ranije napravio svjež WAV.
+    # Ručni replay istog bloka nalazi kandidata, pa uzrok nije u vidljivoj logici i mora
+    # ga prijaviti sam noćni run. Brojači ispod ne koštaju ništa (obična aritmetika), a
+    # `find` stderr više NE ide u /dev/null nego u temp fajl — dosad je tihi `find` error
+    # (prava permisija, neispravan -mtime argument) bio nerazlučiv od "nema fajlova".
+    # Vidi docs/2026-08-27-nightly-modal-nula-kandidata.md.
+    _modal_seen=0; _modal_have_srt=0; _modal_skip_id=0; _modal_dirs_scanned=0
+    _modal_find_err="$(mktemp -t modal_find_err)"
     for _d in "${_modal_scan_dirs[@]}"; do
         [ -d "$_d" ] || continue
+        _modal_dirs_scanned=$((_modal_dirs_scanned + 1))
         while IFS= read -r w; do
             [ -z "$w" ] && continue
-            [ -f "${w}.canary.srt" ] && continue
+            _modal_seen=$((_modal_seen + 1))
+            if [ -f "${w}.canary.srt" ]; then
+                _modal_have_srt=$((_modal_have_srt + 1))
+                continue
+            fi
             if [ -n "$MODAL_ONLY_ID" ] && [[ "$(basename "$w")" != *"_yt_${MODAL_ONLY_ID}"* ]]; then
+                _modal_skip_id=$((_modal_skip_id + 1))
                 continue
             fi
             MODAL_PENDING+=("$w")
         done < <(find -L "$_d" -maxdepth 1 -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' \
-                    "${_mtime_args[@]}" 2>/dev/null | sort)
+                    "${_mtime_args[@]}" 2>>"$_modal_find_err" | sort)
     done
+
+    # Ispisuje se SAMO kad je rezultat prazan — tj. točno u kvaru koji lovimo. U zdravom
+    # runu (kandidata ima) nema ni retka viška.
+    if [ "${#MODAL_PENDING[@]}" -eq 0 ]; then
+        echo "   🔍 Modal scan prazan: dirova=${_modal_dirs_scanned}/${#_modal_scan_dirs[@]}" \
+             "| find pogodaka=${_modal_seen} (vec .canary.srt=${_modal_have_srt}, van --modal-only=${_modal_skip_id})" \
+             "| filter=[${_mtime_args[*]:-bez mtime gatea}]"
+        if [ -s "$_modal_find_err" ]; then
+            echo "      ⚠️ find stderr (prve 3 linije):"
+            head -3 "$_modal_find_err" | sed 's/^/         /'
+        fi
+    fi
+    rm -f "$_modal_find_err"
 
     # SOFT-SKIP (ne ABORT): ako je svježih više od capa, cijeli posao prepusti Colabu.
     # Stari ABORT je bio all-or-nothing i pretvrd za unattended nightly.

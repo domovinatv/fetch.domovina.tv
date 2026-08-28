@@ -173,6 +173,14 @@ Do not "optimize" by combining both phases into a single Colab notebook for bulk
 > `docs/transcription_colab_vs_modal_cost_2026-07.md` (mermaid dijagrami + analiza) i `modal_canary/README.md`.
 > Kratko: bulk/backlog (≳20 ep) → Colab G4 batch (~$0.003/ep); pojedinačni ad-hoc → Modal A100-40
 > (`run_pipeline.sh --with-modal-transcribe`, često $0 pod free tierom). Odluka je operativna (latencija), ne financijska.
+>
+> ⚠️ **Ne pretpostavljaj da nightly single-pass radi.** `KORAK 2.6` je od 02.08. do 27.08.2026.
+> u SVAKOM nightlyju javio `Modal kandidata (scope='channels'): 0` — nijedna epizoda praćenog
+> kanala nikad nije transkribirana automatski, a rupa se gomilala tiho jer `MODAL_FRESH_DAYS=2`
+> nema re-queue. Uzrok neutvrđen; u scan je ugrađena dijagnostika (`🔍 Modal scan prazan: …`)
+> koja se ispisuje samo kad je scan prazan. Prije nego zaključiš da je katalog kompletan,
+> provjeri taj redak. Runbook za praznu epizodu (triaža transkripcija vs LLM vs krnji MP3,
+> provjera pokrivenosti SRT-a): `docs/2026-08-27-nightly-modal-nula-kandidata.md`.
 
 **G4 GPU is mandatory** — T4 is **not** an option. Empirically observed in a real production run (96 backlog WAVs):
 
