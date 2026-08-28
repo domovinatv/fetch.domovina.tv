@@ -12673,32 +12673,36 @@
       "slug": "abbacast",
       "display_name": "AbbaCast",
       "youtube": {
-        "url": "https://www.youtube.com/@AbbaCastPodcast",
+        "url": "https://www.youtube.com/@AbbaCastPodcast/videos",
         "handle": "@AbbaCastPodcast",
-        "type": "channel"
+        "type": "channel",
+        "channel_id": "UCCLmXuMmUwOlcE829aTUjsQ"
       },
       "tags": [
-        "religion",
+        "religious-catholic",
         "entrepreneurship",
-        "lifestyle"
+        "testimonies"
       ],
       "voditelji": [
         "Antonio Culej",
         "Marija Culej"
       ],
       "metadata": {
+        "first_episode": "2025-02",
+        "last_episode": "2026-02",
+        "average_duration_minutes": 89,
         "status": "active"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Kandidat za glasanje — nije onboardan u pipeline (nema KANALI[] unos, lista fajl ni storage.conf)."
+        "enabled": true
       },
       "tier": 4,
       "data_quality": "complete",
       "sources": [
-        "manual"
+        "manual",
+        "current"
       ],
-      "notes": "Katolički podcast brenda AbbaWear (Antonio i Marija Culej). Svjedočanstva, vjera i poduzetništvo.",
+      "notes": "Katolički podcast brenda AbbaWear (Antonio i Marija Culej). Svjedočanstva, vjera i poduzetništvo. ~819 pretplatnika, 9 epizoda (sve dulje od 15 min, prosjek ~89 min). Onboardan 2026-08-28.",
       "quality_score": {
         "total": 57,
         "tier": "👀 moderate",

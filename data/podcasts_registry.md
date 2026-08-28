@@ -2,17 +2,17 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-08-24
+**Generirano:** 2026-08-28
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
 
 - **Ukupno unosa:** 291
-- **Trenutno se prati:** 49
+- **Trenutno se prati:** 50
   - od toga `review_needed`: 5 (vidi sekciju dolje)
 - **Kandidati Faza 1** (postojeća niša, brzi dodaci): 130
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
-- **Ostali kandidati** (sekularni / dijaspora / istražiti): 104
+- **Ostali kandidati** (sekularni / dijaspora / istražiti): 103
 - **Rejected** (permanentno isključeni): 2
 
 **Distribucija po tier-u:** tier 1: 27 · tier 4: 38 · tier 3: 205 · tier 2: 18 · —: 3
@@ -37,7 +37,7 @@
 
 ---
 
-## 🟢 Trenutno se prati (49)
+## 🟢 Trenutno se prati (50)
 
 Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 
@@ -45,6 +45,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **(Ne)uspjeh prvaka** | [@neuspjehprvaka](https://www.youtube.com/@neuspjehprvaka/videos) | 1 | 70K | 186 | 🟢 aktivan | Slaven Bilić, Mirza Džomba, Mario Stanić | `sport` `football` `personal-development` | ✅ |
 | **40 dana za život - Hrvatska za Život** | [@40danazaživot-HrvatskazaŽivot](https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos) | 3 | — | — | ⚪ nepoznato | — | `pro-life` `religious-catholic` | ⚠️ |
+| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | — | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
 | **Ad Deum Podcast** | [@AdDeumPodcast](https://www.youtube.com/@AdDeumPodcast/videos) | 3 | — | 20 | 🟢 aktivan | Fra Andrija Majić, Fra Ivo Rastočić | `religious-catholic` | ✅ |
 | **Božanstvena Komedija** | [@BožanstvenaKomedija](https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `domoljubni` | ⚠️ |
 | **Božja pobjeda** | [@Božjapobjeda](https://www.youtube.com/@Bo%C5%BEjapobjeda/videos) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
@@ -291,7 +292,7 @@ Veliki kanali s puno shorts/clipova/izjava. Trebaju custom `MIN_DURATION` per-ka
 
 ---
 
-## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (104)
+## 📚 Ostali kandidati — sekularni mainstream / dijaspora / istražiti (103)
 
 Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (širenje na cijeli hrvatski podcast ekosustav). Neki su bez verificiranog YouTube URL-a — treba istraživanje.
 
@@ -299,7 +300,6 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **0800-DEVOPS** | — | 4 | — | — | 🟢 aktivan | Ivan Krnić | `technology` | ⚠️ |
 | **A1 Nogometni Podcast** | [@podcastinkubator](https://www.youtube.com/playlist?list=PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv) | 1 | — | 325 | 🟢 aktivan | Marko Petrak, M. Pukšar | `sport` `football` | ✅ |
-| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast) | 4 | — | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religion` `entrepreneurship` `lifestyle` | — |
 | **All Things Croatia** | [@allthingscroatia](https://www.youtube.com/@allthingscroatia) | 4 | — | — | 🟢 aktivan | Stanko Zovak | `diaspora` `culture` | ⚠️ |
 | **Ana Radišić Podcast** | [@ana.radisic](https://www.youtube.com/@ana.radisic) | 2 | 10K | 145 | 🟢 aktivan | Ana Radišić | `talk-show` `personal-development` | ⚠️ |
 | **Arbona podcast** | [@arbona-agency](https://www.youtube.com/@arbona-agency) | 4 | — | — | 🟢 aktivan | Agencija Arbona | `business` `marketing` | ✅ |
