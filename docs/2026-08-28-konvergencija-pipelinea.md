@@ -156,9 +156,25 @@ screenshotovi → EPUB → R2, 1 h 47 min). Sva četiri nova članka nose
 
 Dvije stvari vrijedne bilježenja:
 
-- **`wF0ctR3DJp4` je nakon uploada i dalje 404-ao na GET**, dok je HEAD vraćao 200 s
-  točnim `content-length`. To je već zabilježeni obrazac (MEMORY `cloudflare_cdn_caches_404s`):
-  edge je keširao 404 od ranije provjere. Riješeno purge-om. **Verificiraj GET-om, ne HEAD-om.**
+- **CDN purge je godinu dana bio poluučinkovit — `Vary: Origin`.** R2 odgovara s
+  `Vary: Origin`, pa Cloudflare drži **odvojen cache zapis po vrijednosti `Origin`
+  headera**. Purge po golom URL-u čisti samo zapis bez Origina — točno onaj koji
+  gađa `curl`. Preglednik (Flutter web `fetch`) uvijek šalje
+  `Origin: https://domovina.ai` i dobiva **drugi zapis, koji purge nije dirao**.
+  Zato je nakon uspješnog popravka i „uspješnog" purge-a `curl` vraćao 200 s
+  ispravnim sadržajem, a stranica je i dalje bila prazna: `wF0ctR3DJp4` je
+  preglednicima 404-ao, a `QO6S_aCVt3Y` im je i dalje servirao `iterations: []`.
+  Reproducirano jednom naredbom:
+
+  ```bash
+  curl -so /dev/null -w '%{http_code}\n' URL                          # 200
+  curl -so /dev/null -w '%{http_code}\n' -H 'Origin: https://domovina.ai' URL   # 404
+  ```
+
+  `purgeCloudflareCache()` (`upload_to_r2.js`) i `force_upload.js` sada svaki URL
+  purge-aju u **obje varijante**. Stara memorijska bilješka „HEAD=200 ali GET=stari
+  404" je bila simptom ovoga. **Verificiraj GET-om i s `Origin` headerom** — goli
+  `curl` gađa cache zapis koji nijedan korisnik nikad ne vidi.
 - **Četiri članka su nakon popravka MANJA nego prije** (65–92 % stare veličine).
   Provjereno: sva četiri su cjelovita (`iteracija == outline`, nula praznih sekcija) —
   razlika je model (`gemini-3.5-flash` piše gušće sekcije od `gemini-2.5-flash`). Popravak

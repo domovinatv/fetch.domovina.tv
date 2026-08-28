@@ -130,11 +130,17 @@ async function main() {
     const r = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
         method: "POST",
         headers: { Authorization: `Bearer ${CF_PURGE_TOKEN}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ files: purgeUrls }),
+        // R2 vraća `Vary: Origin` → Cloudflare drži ODVOJEN cache zapis po Originu.
+        // Purge po golom URL-u čisti samo zapis bez Origina (onaj koji vidi curl);
+        // preglednik šalje `Origin: https://domovina.ai` i dobiva drugi, netaknut.
+        // Zato svaki URL ide u obje varijante. Vidi upload_to_r2.js purgeCloudflareCache.
+        body: JSON.stringify({
+            files: purgeUrls.flatMap(u => [u, { url: u, headers: { Origin: `https://${CF_ZONE_NAME}` } }]),
+        }),
     });
     const j = await r.json().catch(() => ({}));
     console.log(j && j.success
-        ? `🧹 CDN purge OK: ${purgeUrls.length} URL-ova (verificiraj GET-om, ne HEAD-om)`
+        ? `🧹 CDN purge OK: ${purgeUrls.length} URL-ova × 2 Vary varijante (verificiraj GET-om S Origin headerom)`
         : `⚠️  CDN purge greška: ${JSON.stringify(j.errors || j).slice(0, 200)}`);
 }
 

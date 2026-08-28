@@ -962,9 +962,25 @@ async function purgeCloudflareCache(urls) {
         log("💡", `Purge-aj ručno ${urls.length} .mp4 URL-ova ili Purge Everything preko dashboarda.`);
         return;
     }
+    // ── SVAKI URL SE PURGE-A U DVIJE VARIJANTE ────────────────────────────
+    // R2 odgovara s `Vary: Origin`, pa Cloudflare drži ODVOJEN cache zapis po
+    // vrijednosti `Origin` headera. Purge po golom URL-u čisti samo zapis bez
+    // Origina — onaj koji vidi `curl`. Preglednik (Flutter web fetch) uvijek
+    // šalje `Origin: https://domovina.ai` i dobiva DRUGI zapis, koji ostaje
+    // netaknut. 2026-08-28 se to očitovalo kao: curl 200 s ispravnim sadržajem,
+    // a stranica i dalje prazna — i za 404 (`wF0ctR3DJp4`) i za stari body
+    // (`QO6S_aCVt3Y` je preglednicima još servirao `iterations: []` nakon
+    // uspješnog popravka i "uspješnog" purge-a). Vidi MEMORY cloudflare_cdn_caches_404s.
+    const SITE_ORIGIN = `https://${CF_ZONE_NAME}`;
+    const entries = [];
+    for (const u of urls) {
+        entries.push(u);                                    // varijanta bez Origina
+        entries.push({ url: u, headers: { Origin: SITE_ORIGIN } });  // varijanta koju vidi preglednik
+    }
+
     let purged = 0;
-    for (let i = 0; i < urls.length; i += 30) {   // CF limit: 30 file-ova po pozivu
-        const batch = urls.slice(i, i + 30);
+    for (let i = 0; i < entries.length; i += 30) {   // CF limit: 30 file-ova po pozivu
+        const batch = entries.slice(i, i + 30);
         try {
             const r = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
                 method: "POST",
@@ -978,7 +994,8 @@ async function purgeCloudflareCache(urls) {
             log("⚠️", `CF purge batch iznimka: ${e.message}`);
         }
     }
-    log("🧹", `CDN purge: ${purged}/${urls.length} URL-ova (GET-verify, ne HEAD).`);
+    log("🧹", `CDN purge: ${urls.length} URL-ova × 2 Vary varijante = ${purged}/${entries.length} zapisa.`);
+    log("💡", `Verificiraj GET-om S \`Origin: ${SITE_ORIGIN}\` — goli curl gađa drugi cache zapis.`);
 }
 
 // ─── MAIN ─────────────────────────────────────────────────────────
