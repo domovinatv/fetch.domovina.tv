@@ -524,6 +524,31 @@ _worker_max_speakers = None
 # Iznad ove duljine se povuceni `--audio-input path` odbija.
 PATH_MODE_MAX_DURATION_S = 7200.0   # 2 h
 
+# Direktoriji koje batch scan NE dira (`--file` ih i dalje prihvaca — rucni rad ostaje moguc).
+#
+# `sabor/` (2026-08-27): saborske sjednice su zaseban proizvod s vlastitim orkestratorom
+# (`run_sabor_session.sh`) koji radi chunked diarizaciju pod nadzorom. Njihove snimke NISU
+# podcast epizode: `sabor_11_izvanredna_11_gospic/audio/full_session_16k.wav` je 2.2 GB /
+# 20 h 01 min. Batch scan ga je pokupio (ima `.canary.srt` pokraj sebe), krenuo u
+# segmentaciju u jednom prolazu, RAM je otisao u swap (6 GB -> 15 GB), swap je pojeo
+# prostor u APFS kontejneru i nadzornik je prekinuo run s exit 3 — pa koraci 7-12
+# nightlyja NIKAD nisu krenuli. Trajalo od 26.08. do 27.08.2026., svaki run.
+# Vidi docs/2026-08-27-nightly-modal-nula-kandidata.md.
+EXCLUDED_TREES = {"sabor"}
+
+
+def _in_excluded_tree(filename, root, input_dir):
+    """Je li datoteka unutar direktorija koji je batch scan duzan preskociti?"""
+    if os.environ.get("DIARIZE_INCLUDE_EXCLUDED_TREES"):
+        return False
+    try:
+        rel = os.path.relpath(os.path.join(root, filename), input_dir)
+    except ValueError:
+        return False
+    top = rel.split(os.sep)[0]
+    return top in EXCLUDED_TREES
+
+
 _worker_audio_input_mode = "waveform"
 _worker_rclone_dest = None
 _worker_drive_mount = None
@@ -1084,6 +1109,7 @@ def main():
             for root, _, files in os.walk(input_dir, followlinks=True)
             for f in files
             if f.endswith(".wav") and not f.startswith("._")
+            and not _in_excluded_tree(f, root, input_dir)
         ])
         total_wav = len(all_wav)
 
