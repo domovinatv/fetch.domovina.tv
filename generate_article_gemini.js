@@ -1635,6 +1635,23 @@ async function processFile(file, { exitOnError = true } = {}) {
         };
     }
 
+    // ── ŽIG DOVRŠENOSTI (2026-08-28) ───────────────────────────────────────
+    // Faza 2 sprema progres na SVAKU grešku (niže u catch granama). Do sada je
+    // takva datoteka bila nerazlučiva od dovršene: isti naziv, ista struktura,
+    // samo manje iteracija. Uploader ju je slao na CDN, `generate_channel_index.js`
+    // je dizao `has_article: true`, a korisnik je dobivao epizodu bez pola
+    // poglavlja — što se 2026-08-28 mjerilo na 35 epizoda. Žig ispod čini razliku
+    // eksplicitnom, pa je uzvodni potrošač može poštovati umjesto pogađati.
+    // `iterations_expected` dolazi iz outlinea, koji je ugovor faze 1.
+    finalArticle.metadata.iterations_expected = outlineJson.iterations.length;
+    const stampCompleteness = () => {
+        const its = finalArticle.iterations || [];
+        finalArticle.metadata.complete =
+            its.length === outlineJson.iterations.length &&
+            its.every(it => Array.isArray(it.sections) && it.sections.length > 0);
+    };
+    stampCompleteness();
+
     const pendingCount = outlineJson.iterations.length - completedIterations.size;
     console.log(`\n   🚀 [FAZA 2] Generiranje članka po iteracijama (${pendingCount} preostalo od ${outlineJson.iterations.length})...`);
 
@@ -1719,6 +1736,7 @@ async function processFile(file, { exitOnError = true } = {}) {
             const elapsed = ((Date.now() - startTime2) / 1000).toFixed(1);
             console.log(`      ✅ Iteracija ${iter.iteration_number} završena (${elapsed}s)`);
 
+            stampCompleteness();
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
 
             await sleep(REQUEST_DELAY_MS);
@@ -1730,12 +1748,14 @@ async function processFile(file, { exitOnError = true } = {}) {
                 console.error(`      🚫 [FAZA 2] Blokirano u iteraciji ${iter.iteration_number}: ${err.blockReason} — pokušaj ${retryCount}/${MAX_BLOCKED_RETRIES}${permanent}`);
                 // Spremi dosadašnji progress članka
                 if (finalArticle.iterations.length > 0) {
+                    stampCompleteness();
                     fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
                 }
                 return false;
             }
             console.error(`      ❌ Greška u iteraciji ${iter.iteration_number}: ${err.message}`);
             console.log("   Spremam dosadašnji progress...");
+            stampCompleteness();
             fs.writeFileSync(articlePath, JSON.stringify(finalArticle, null, 2), "utf-8");
             if (exitOnError) process.exit(1);
             return false;
