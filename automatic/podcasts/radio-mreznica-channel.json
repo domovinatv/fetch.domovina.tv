@@ -4,7 +4,7 @@
   "channel_id": "UCI6pKljX81g3vuK2SYj62rQ",
   "title": "Radio Mrežnica",
   "availability": "public",
-  "channel_follower_count": 95800,
+  "channel_follower_count": 95900,
   "description": "Dobrodošli na You Tube kanal Radio Mrežnice.\n\n\n",
   "tags": [
     "podcast",
@@ -101,12 +101,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1787909126,
+  "epoch": 1787958065,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.17.073947",
+    "version": "2026.08.19",
     "current_git_head": null,
-    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
-    "repository": "yt-dlp/yt-dlp-nightly-builds"
+    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
+    "repository": "yt-dlp/yt-dlp"
   }
 }
