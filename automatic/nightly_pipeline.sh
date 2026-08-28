@@ -319,6 +319,17 @@ run_step "generate_channel_index.js" \
 run_step "upload_to_r2.js --meta-dir storage/meta" \
     node "$REPO_DIR/upload_to_r2.js" --meta-dir storage/meta || true
 
+# ─── 3.5 KONVERGENCIJSKI AUDIT (disk vs R2, samo izvještaj) ─────────
+# `count_progress.js` broji datoteke i zato je 26 noći pokazivao 100 % dok je
+# CDN servirao krnje članke. Ovaj korak provjerava SADRŽAJ (ima li članak sve
+# iteracije koje outline traži) i ISPORUKU (je li ono na R2 isto što i na disku).
+# Izlaz 1 znači "ima rupa" — to NIJE greška noćnog runa, nego mjera koliko je
+# ostalo do 100 %; zato `|| true`. Sljedeći run te rupe ionako sam pokuša
+# zatvoriti (Modal scan po stanju, uploader po driftu), pa je ovo ogledalo
+# konvergencije, a ne alarm.
+run_step "audit_pipeline.js (konvergencija disk↔CDN)" \
+    node "$REPO_DIR/audit_pipeline.js" --limit 15 || true
+
 # ─── 4. PIPELINE RECONCILE (javi gotove unlisted jobove) ────────────
 # Za jobove u transcribing/processing: CDN data/{id}/article.json 200 → done + /v/{id}.
 if [ -f "$PIPELINE_QUEUE_BRIDGE/reconcile.js" ]; then

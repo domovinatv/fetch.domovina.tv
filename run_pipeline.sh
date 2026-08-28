@@ -220,8 +220,9 @@ echo ""
 #                            Setup: pip install modal && modal setup &&
 #                            modal run modal_canary/canary_modal.py::download_model. Bez flaga = stari put.
 #   --modal-scope <s>     → što Modal smije uzeti: unlisted (default, ad-hoc jobovi) |
-#                            channels (praćeni kanali, samo svježe ≤MODAL_FRESH_DAYS dana) | all.
-#                            channels = single-pass nightly. Iznad capa → soft-skip na Colab.
+#                            channels (praćeni kanali: SVAKI WAV bez .canary.srt) | all.
+#                            channels = single-pass nightly. Iznad capa → najnovijih MODAL_MAX_FILES
+#                            sada, ostatak sljedeći run ili Colab (konvergira, ne odustaje).
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
 #                            Use case: Ethernet je primarni link (gigabit za rad), ali
@@ -265,11 +266,12 @@ WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
 # --modal-scope (2026-07-31): koje WAV-ove Modal smije transkribirati.
 #   unlisted → samo _unlisted/ (ad-hoc jobovi) — DEFAULT, staro ponašanje, nula regresije
-#   channels → praćeni kanali (svježi WAV-ovi, vidi MODAL_FRESH_DAYS) — single-pass nightly
+#   channels → praćeni kanali, svaki WAV bez .canary.srt — single-pass nightly
 #   all      → oboje
 MODAL_SCOPE="${MODAL_SCOPE:-unlisted}"
-# Koliko dana unatrag WAV smije biti da ga Modal uzme u scope=channels. Štiti od toga da
-# jednokratni backlog (npr. novi kanal sa 60 epizoda) povuče cijeli disk na Modal.
+# DEPRECATED (2026-08-28): mtime prozor je zamijenjen kriterijem stanja ("nema .canary.srt")
+# jer je propuštena noć bila trajna — pipeline se nikad nije vraćao na vlastite rupe.
+# Varijabla ostaje samo da stari pozivi ne puknu; scan je više ne čita.
 MODAL_FRESH_DAYS="${MODAL_FRESH_DAYS:-2}"
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
@@ -592,78 +594,39 @@ _yt_id_from_name() {
 }
 
 MODAL_PENDING=()
-MODAL_SOFT_SKIP=false
 if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
     MODAL_MAX_FILES="${MODAL_MAX_FILES:-20}"
-    _modal_scan_dirs=()
-    case "$MODAL_SCOPE" in
-        unlisted) _modal_scan_dirs=("$OUTPUT_DIR/_unlisted") ;;
-        channels|all)
-            for _d in "$OUTPUT_DIR"/*/; do
-                _bn="$(basename "$_d")"
-                [ "$_bn" = "_unlisted" ] && [ "$MODAL_SCOPE" = "channels" ] && continue
-                _modal_scan_dirs+=("$_d")
-            done
-            ;;
-        *) echo "   ⚠️ Nepoznat --modal-scope '$MODAL_SCOPE' — koristim 'unlisted'."
-           _modal_scan_dirs=("$OUTPUT_DIR/_unlisted") ;;
-    esac
 
-    # mtime gate: u scope=channels uzmi samo SVJEŽE WAV-ove. Bez toga bi jednokratni
-    # backlog (novi kanal, 60 epizoda) probio cap i ugasio Modal korak zauvijek.
-    _mtime_args=()
-    [ "$MODAL_SCOPE" != "unlisted" ] && _mtime_args=(-mtime "-${MODAL_FRESH_DAYS}")
+    # SKEN IDE KROZ NODE, NE KROZ `find` (2026-08-28). Shell `find` je pod launchd-om
+    # vraćao `Operation not permitted` na SVAKOM kanalskom direktoriju — macOS TCC ne
+    # da `/bin/bash` agentu na vanjske volumene na koje kanali pokazuju symlinkovima.
+    # Rezultat: `Modal kandidata: 0` u 26 uzastopnih nightlyja (02.08.–27.08.), a korak
+    # je non-fatal pa se rupa tiho gomilala. Node (nvm binary) te iste direktorije čita
+    # bez problema — `convert_to_wav.js` ih je cijelo vrijeme uredno skenirao u istom runu.
+    #
+    # Uz to je maknut mtime gate: kriterij je sada STANJE ("WAV bez .canary.srt"), ne
+    # VRIJEME. Stari `-mtime -${MODAL_FRESH_DAYS}` značio je da je propuštena noć trajna —
+    # epizoda starija od dva dana više se nikad nije ponudila, pa se pipeline nikad nije
+    # vraćao na vlastite rupe. Trošak i dalje ograničava cap (najnovije prvo), a vječno
+    # ponavljanje na neispravnom fajlu ograničava brojač pokušaja u storage/.modal_attempts.json.
+    # Vidi tools/scan_modal_candidates.js i docs/2026-08-27-nightly-modal-nula-kandidata.md.
+    _modal_only_args=()
+    [ -n "$MODAL_ONLY_ID" ] && _modal_only_args=(--only-id "$MODAL_ONLY_ID")
+    while IFS= read -r w; do
+        [ -z "$w" ] && continue
+        MODAL_PENDING+=("$w")
+    done < <(node "$SCRIPT_DIR/tools/scan_modal_candidates.js" \
+                --output-dir "$OUTPUT_DIR" --scope "$MODAL_SCOPE" \
+                --max "$MODAL_MAX_FILES" "${_modal_only_args[@]+"${_modal_only_args[@]}"}")
 
-    # DIJAGNOSTIKA (2026-08-27): scan je od 02.08. do 27.08. vraćao 0 kandidata u SVAKOM
-    # nightlyju — i u noćima kad je KORAK 2 dvadesetak sekundi ranije napravio svjež WAV.
-    # Ručni replay istog bloka nalazi kandidata, pa uzrok nije u vidljivoj logici i mora
-    # ga prijaviti sam noćni run. Brojači ispod ne koštaju ništa (obična aritmetika), a
-    # `find` stderr više NE ide u /dev/null nego u temp fajl — dosad je tihi `find` error
-    # (prava permisija, neispravan -mtime argument) bio nerazlučiv od "nema fajlova".
-    # Vidi docs/2026-08-27-nightly-modal-nula-kandidata.md.
-    _modal_seen=0; _modal_have_srt=0; _modal_skip_id=0; _modal_dirs_scanned=0
-    _modal_find_err="$(mktemp -t modal_find_err)"
-    for _d in "${_modal_scan_dirs[@]}"; do
-        [ -d "$_d" ] || continue
-        _modal_dirs_scanned=$((_modal_dirs_scanned + 1))
-        while IFS= read -r w; do
-            [ -z "$w" ] && continue
-            _modal_seen=$((_modal_seen + 1))
-            if [ -f "${w}.canary.srt" ]; then
-                _modal_have_srt=$((_modal_have_srt + 1))
-                continue
-            fi
-            if [ -n "$MODAL_ONLY_ID" ] && [[ "$(basename "$w")" != *"_yt_${MODAL_ONLY_ID}"* ]]; then
-                _modal_skip_id=$((_modal_skip_id + 1))
-                continue
-            fi
-            MODAL_PENDING+=("$w")
-        done < <(find -L "$_d" -maxdepth 1 -type f -name '*.wav' ! -name '._*' ! -name '*.loudnorm.*' \
-                    "${_mtime_args[@]}" 2>>"$_modal_find_err" | sort)
-    done
-
-    # Ispisuje se SAMO kad je rezultat prazan — tj. točno u kvaru koji lovimo. U zdravom
-    # runu (kandidata ima) nema ni retka viška.
-    if [ "${#MODAL_PENDING[@]}" -eq 0 ]; then
-        echo "   🔍 Modal scan prazan: dirova=${_modal_dirs_scanned}/${#_modal_scan_dirs[@]}" \
-             "| find pogodaka=${_modal_seen} (vec .canary.srt=${_modal_have_srt}, van --modal-only=${_modal_skip_id})" \
-             "| filter=[${_mtime_args[*]:-bez mtime gatea}]"
-        if [ -s "$_modal_find_err" ]; then
-            echo "      ⚠️ find stderr (prve 3 linije):"
-            head -3 "$_modal_find_err" | sed 's/^/         /'
+    if [ "${#MODAL_PENDING[@]}" -gt 0 ]; then
+        echo "   🎯 Modal scope='$MODAL_SCOPE': ${#MODAL_PENDING[@]} kandidata (cap $MODAL_MAX_FILES)"
+        # Pokušaj se broji PRIJE poziva: run koji padne ili bude prekinut mora se
+        # svejedno pribrojiti, inače bi crash vječno resetirao brojač.
+        # --dry-run ne smije dirati brojač (inače tri dry-runa iscrpe kandidata).
+        if [[ ! " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+            node "$SCRIPT_DIR/tools/scan_modal_candidates.js" --record "${MODAL_PENDING[@]}" || true
         fi
-    fi
-    rm -f "$_modal_find_err"
-
-    # SOFT-SKIP (ne ABORT): ako je svježih više od capa, cijeli posao prepusti Colabu.
-    # Stari ABORT je bio all-or-nothing i pretvrd za unattended nightly.
-    if [ "${#MODAL_PENDING[@]}" -gt "$MODAL_MAX_FILES" ]; then
-        echo "   ⏭️  Modal scope='$MODAL_SCOPE': ${#MODAL_PENDING[@]} kandidata > cap ($MODAL_MAX_FILES)"
-        echo "      → prepuštam Colab batch putu (jeftiniji za bulk); WAV-ovi idu na Drive kao inače."
-        MODAL_PENDING=()
-        MODAL_SOFT_SKIP=true
-    elif [ "${#MODAL_PENDING[@]}" -gt 0 ]; then
-        echo "   🎯 Modal scope='$MODAL_SCOPE': ${#MODAL_PENDING[@]} kandidata (cap $MODAL_MAX_FILES, svježe ≤${MODAL_FRESH_DAYS}d)"
     fi
 fi
 
@@ -699,8 +662,8 @@ elif command -v rclone &> /dev/null; then
             fi
         done
         echo "   🔒 Izuzimam ${#MODAL_PENDING[@]} WAV-ova iz Drive uploada (drži ih Modal, scope='$MODAL_SCOPE')."
-    elif [ "$WITH_MODAL_TRANSCRIBE" = true ] && [ "$MODAL_SOFT_SKIP" = true ]; then
-        echo "   ↩️  Modal je soft-skipan (iznad capa) → svi WAV-ovi idu na Drive za Colab."
+    elif [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
+        echo "   ↩️  Modal nema kandidata → svi WAV-ovi idu na Drive za Colab kao inače."
     fi
     env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
     rclone copy "$OUTPUT_DIR/" google_drive_ms:domovina_fetch_data/canary_wav \
@@ -723,10 +686,15 @@ fi
 #
 # SIGURNOST OD TROŠKA (bitno): default scope je i dalje SAMO _unlisted (ad-hoc jobovi).
 # `--modal-scope channels` (2026-07-31) proširuje ga na praćene kanale, ali TROSTRUKO ograđeno:
-#   1. mtime gate MODAL_FRESH_DAYS (default 2) — samo svježi priljev, nikad backlog
-#   2. cap MODAL_MAX_FILES (default 20) — iznad toga SOFT-SKIP na Colab (ne ABORT)
-#   3. rclone exclude iz iste MODAL_PENDING liste (KORAK 2.5) — Colab fizički ne vidi te WAV-ove
-# Bulk backlog (tisuće WAV-ova) i dalje ide na Colab G4 — jeftiniji po fajlu na skali.
+#   1. cap MODAL_MAX_FILES (default 20) po runu — bulk nikad ne prođe odjednom
+#   2. najnovije-prvo — svjež priljev ima prednost, backlog se troši ostatkom capa
+#   3. brojač pokušaja (storage/.modal_attempts.json, 3) — fajl na kojem Modal uvijek
+#      puca ispada iz igre umjesto da svaku noć troši mjesto u capu
+#   4. rclone exclude iz iste MODAL_PENDING liste (KORAK 2.5) — Colab fizički ne vidi te WAV-ove
+# Bulk backlog (tisuće WAV-ova) i dalje ide na Colab G4 — jeftiniji po fajlu na skali;
+# Modal ga grize po 20 po runu dok Colab batch ne odradi ostatak.
+# PROMJENA 2026-08-28: prije je ovdje bio mtime gate (samo WAV mlađi od 2 dana). Kriterij je
+# sada stanje ("nema .canary.srt"), pa svaki run ponovno pokuša ono što prethodni nije uspio.
 if [ "$WITH_MODAL_TRANSCRIBE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -768,11 +736,7 @@ else
     MODAL_N=${#MODAL_PENDING[@]}
     echo "   📋 Modal kandidata (scope='$MODAL_SCOPE'): $MODAL_N"
     if [ "$MODAL_N" -eq 0 ]; then
-        if [ "$MODAL_SOFT_SKIP" = true ]; then
-            echo "   ⏭️  Soft-skip — posao je prepušten Colab batchu (iznad capa)."
-        else
-            echo "   ✅ Ništa za transkribirati (svi već imaju .canary.srt)."
-        fi
+        echo "   ✅ Ništa za transkribirati (svi WAV-ovi imaju .canary.srt ili su iscrpili pokušaje)."
     elif [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         echo "   ⚠️ DRY RUN — bili bi transkribirani (bez Modal poziva):"
         for w in "${MODAL_PENDING[@]}"; do echo "      🔄 $(basename "$w")"; done

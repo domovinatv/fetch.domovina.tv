@@ -315,19 +315,34 @@ async function computeMd5Cached(filePath, diskCache, memCache) {
 // Format: JSON array stringova (R2 ključevi).
 const KEYS_CACHE_PATH = path.join(__dirname, ".r2_keys_cache.json");
 
+// KEYS CACHE v2 (2026-08-28): uz ključ pamtimo i VELIČINU objekta na R2.
+// LIST je veličinu ionako vraćao i mi smo je bacali. S njom drift disk→R2
+// postaje besplatno mjerljiv: lokalna datoteka koja se razlikuje po veličini
+// od one na R2 se re-uploada, bez ijednog dodatnog HEAD zahtjeva. Bez toga je
+// `data/*` ključ bio doslovno write-once (immutable → skip → nikad ispravak),
+// pa je 35 epizoda mjesecima serviralo krnji article.json dok je disk imao
+// potpun. Format v1 (goli niz ključeva) se i dalje čita — tada su veličine
+// nepoznate i drift-provjera se preskače dok `--verify-r2` ne osvježi cache.
 function loadKeysCache() {
     try {
         if (fs.existsSync(KEYS_CACHE_PATH)) {
-            const arr = JSON.parse(fs.readFileSync(KEYS_CACHE_PATH, "utf-8"));
-            if (Array.isArray(arr)) return new Set(arr);
+            const raw = JSON.parse(fs.readFileSync(KEYS_CACHE_PATH, "utf-8"));
+            if (Array.isArray(raw)) {
+                const m = new Map();
+                for (const k of raw) m.set(k, null);   // v1: veličina nepoznata
+                return m;
+            }
+            if (raw && raw.v === 2 && raw.sizes) return new Map(Object.entries(raw.sizes));
         }
     } catch { /* corrupt cache — tretiraj kao da ne postoji */ }
     return null;
 }
 
-function saveKeysCache(keySet) {
+function saveKeysCache(keyMap) {
     try {
-        fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify([...keySet]), "utf-8");
+        const sizes = {};
+        for (const [k, v] of keyMap) sizes[k] = v;
+        fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify({ v: 2, sizes }), "utf-8");
     } catch { /* disk full ili permissions — nije kritično */ }
 }
 
@@ -827,7 +842,7 @@ async function getRemoteEtag(client, key) {
  */
 async function listAllR2Keys(client) {
     const { ListObjectsV2Command } = require("@aws-sdk/client-s3");
-    const keys = new Set();
+    const keys = new Map();   // ključ → veličina (v2 cache, vidi loadKeysCache)
     let continuationToken;
     let pages = 0;
     do {
@@ -836,7 +851,7 @@ async function listAllR2Keys(client) {
             ContinuationToken: continuationToken,
             MaxKeys: 1000,
         }));
-        for (const obj of resp.Contents || []) keys.add(obj.Key);
+        for (const obj of resp.Contents || []) keys.set(obj.Key, obj.Size);
         continuationToken = resp.NextContinuationToken;
         pages++;
         if (pages % 10 === 0) {
@@ -870,6 +885,32 @@ function isContentMutable(r2Key) {
     if (r2Key.startsWith("channels/images/")) return true;
     const basename = r2Key.split("/").pop();
     return basename === "_manifest.json" || basename === "manifest.json";
+}
+
+/**
+ * Smije li se ovaj ključ prepisati kad se sadržaj na disku razlikuje od onoga na R2?
+ *
+ * Naziv ključa ovdje NE određuje sadržaj, iako izgleda kao da određuje: lokalna
+ * datoteka iza `data/{id}/article.json` je `..._{datum}_{model}.article.json`, pa
+ * novi model ili dovršen prekinuti run daju NOVU lokalnu datoteku pod ISTIM R2
+ * ključem. Immutable-skip je zato značio "prva verzija koja je stigla na R2 je
+ * konačna" — uključujući parcijalni članak koji je uploader zatekao usred faze 2.
+ *
+ * Ograničeno na male derivirane JSON-ove (desetak KB): njih je jeftino prepisati i
+ * njih korisnik vidi kao tekst epizode. Video, EPUB, slike i SRT ostaju immutable —
+ * veliki su, a mijenjaju se samo kroz namjenske backfill alate koji rade svoj purge.
+ */
+// `info.json` NAMJERNO nije na popisu: yt-dlp pri svakom re-fetchu vrati drukčiji
+// popis formata, pa bi drift bio trajan i svaki bi run slao ~100 KB × N + purge,
+// a sadržaj koji korisnik vidi (naslov, trajanje, brojači) se ne mijenja.
+const REPAIRABLE_BASENAMES = new Set([
+    "article.json", "outline.json", "summary.json",
+    "article.en.json", "summary.en.json",
+    "article.magisterium.json", "article.magisterium.en.json",
+]);
+function isRepairable(r2Key) {
+    if (!r2Key.startsWith("data/")) return false;
+    return REPAIRABLE_BASENAMES.has(r2Key.split("/").pop());
 }
 
 /**
@@ -998,7 +1039,9 @@ async function main() {
     let failed = 0;
     let uploadedBytes = 0;
     let remuxStats = null;
-    const client = dryRun ? null : createR2Client();
+    // U dry-runu klijent normalno nije potreban, ALI `--dry-run --verify-r2` radi
+    // pravi LIST (čist R2 read) da bi prikazao drift — pa mu klijent treba.
+    const client = (dryRun && !hasFlag("--verify-r2")) ? null : createR2Client();
 
 if (inputDir) {
     log("📂", `Input:    ${inputDir}`);
@@ -1131,8 +1174,29 @@ if (inputDir) {
             dedupMap.set(f.r2Key, candidate);
         }
     }
-    const allFiles = Array.from(dedupMap.values());
-    const droppedDups = appFiles.length - allFiles.length;
+    // ── ZADRŽI KRNJE ČLANKE ───────────────────────────────────────────────
+    // `generate_article_gemini.js` sprema parcijalni progres na svaku grešku pod
+    // konačnim imenom i od 2026-08-28 ga žigoše `metadata.complete === false`.
+    // Takva datoteka NE smije na CDN: izgleda kao gotov članak, a nedostaje joj
+    // dio poglavlja, i pod `immutable` Cache-Controlom ostaje takva do sljedeće
+    // popravke. Radije nema članka nego tihi polovični — sljedeći run ga dovrši
+    // i uploada normalno. Stariji članci (bez žiga) prolaze nepromijenjeno.
+    let heldIncomplete = 0;
+    const allFiles = Array.from(dedupMap.values()).filter(f => {
+        if (!f.r2Key.startsWith("data/") || !f.r2Key.endsWith("/article.json")) return true;
+        try {
+            const meta = JSON.parse(fs.readFileSync(f.localPath, "utf-8")).metadata || {};
+            if (meta.complete === false) {
+                heldIncomplete++;
+                return false;
+            }
+        } catch { /* nečitljiv JSON — pusti kroz, stara logika */ }
+        return true;
+    });
+    if (heldIncomplete) {
+        log("⏸️", `${heldIncomplete} krnjih article.json zadržano (metadata.complete=false) — ide na CDN tek kad se dovrši.`);
+    }
+    const droppedDups = appFiles.length - allFiles.length - heldIncomplete;
 
     log("📊", `Ukupno za provjeru: ${allFiles.length} (od ${discoveredFiles.length} otkrivenih, ${droppedDups} duplikata po R2 ključu)`);
     const totalSize = allFiles.reduce((sum, f) => sum + f.size, 0);
@@ -1144,8 +1208,12 @@ if (inputDir) {
         return;
     }
 
-    // Dry run: prikaži što bi se uploadalo
-    if (dryRun) {
+    // Dry run: prikaži što bi se uploadalo.
+    // Uz `--verify-r2` NE izlazimo ovdje nego pustimo klasifikaciju da odradi pravi
+    // LIST — tako `--dry-run --verify-r2` daje preview "što je novo, a što je drift"
+    // umjesto popisa svih 164k lokalnih kandidata, i usput osvježi v2 keys-cache
+    // (LIST je čist R2 read, ništa se ne piše na R2).
+    if (dryRun && !hasFlag("--verify-r2")) {
         if (appFiles.length > 0) {
             log("🏜️", "Datoteke za upload (R2 keyevi):");
             console.log("");
@@ -1193,6 +1261,7 @@ if (inputDir) {
     const forceFullHead = hasFlag("--full-head");
 
     let newFiles, existingImmutable, existingMutable;
+    let driftFiles = [];   // isti ključ, druga veličina → R2 zaostaje za diskom
     let remoteKeySet = null;       // skup R2 ključeva (iz keys-cache-a ili LIST-a) — za save nakon uploada
     const remoteEtags = new Map(); // r2Key → etag (string) ili null/undefined
 
@@ -1243,17 +1312,25 @@ if (inputDir) {
         existingImmutable = [];
         existingMutable = [];
 
+        driftFiles = [];
         for (const f of allFiles) {
             if (!remoteKeySet.has(f.r2Key)) {
                 newFiles.push(f);
             } else if (isContentMutable(f.r2Key)) {
                 existingMutable.push(f);
+            } else if (isRepairable(f.r2Key) && remoteKeySet.get(f.r2Key) != null
+                       && remoteKeySet.get(f.r2Key) !== f.size) {
+                // Isti ključ, drukčija veličina → lokalna verzija je ispravljena
+                // (dovršen krnji članak, popravljena atribucija, novi model) a R2 je
+                // ostao na staroj. Immutable-skip bi je zamrznuo zauvijek, pa je
+                // ovdje šaljemo i niže purge-amo s edgea.
+                driftFiles.push(f);
             } else {
                 existingImmutable.push(f);
             }
         }
 
-        log("📊", `Klasifikacija: ${newFiles.length} novih, ${existingImmutable.length} postojećih immutable (skip), ${existingMutable.length} postojećih mutable (HEAD+MD5)`);
+        log("📊", `Klasifikacija: ${newFiles.length} novih, ${existingImmutable.length} postojećih immutable (skip), ${existingMutable.length} postojećih mutable (HEAD+MD5)${driftFiles.length ? `, ${driftFiles.length} s driftom disk≠R2 (re-upload + purge)` : ""}`);
 
         // HEAD samo za mutable
         if (existingMutable.length > 0) {
@@ -1301,15 +1378,48 @@ if (inputDir) {
     let diskCacheDirty = false;
     const uploadedKeys = new Set(); // novouploadani ključevi → dopis u keys-cache
 
+    if (dryRun) {
+        log("🏜️", `DRY RUN (--verify-r2): ${newFiles.length} novih, ${driftFiles.length} za popravak, ${existingMutable.length} za MD5 provjeru.`);
+        if (driftFiles.length) {
+            log("🏜️", "Ključevi s driftom disk≠R2 (prvih 40):");
+            for (const f of driftFiles.slice(0, 40)) {
+                const was = remoteKeySet ? remoteKeySet.get(f.r2Key) : null;
+                console.log(`         ${f.r2Key}  R2 ${was == null ? "?" : humanSize(was)} → disk ${humanSize(f.size)}`);
+            }
+            if (driftFiles.length > 40) console.log(`         … i još ${driftFiles.length - 40}`);
+        }
+        log("🏜️", "Pokreni bez --dry-run za stvarni upload + CDN purge.");
+        return;
+    }
+
     log("🚀", `Upload (${R2_UPLOAD_CONCURRENCY} paralelno)...`);
 
     // Combined task list: nove file-ove gore (najveći prioritet), pa mutable koje treba verify-ati
     const uploadCandidates = [
         ...newFiles.map(f => ({ f, kind: "NEW" })),
+        ...driftFiles.map(f => ({ f, kind: "DRIFT" })),
         ...existingMutable.map(f => ({ f, kind: "VERIFY" })),
     ];
 
     const uploadTasks = uploadCandidates.map(({ f, kind }) => async () => {
+        if (kind === "DRIFT") {
+            // Prepisivanje postojećeg immutable ključa. Sam PUT nije dovoljan: ključ
+            // je na edgeu keširan `max-age=31536000, immutable`, pa bi CDN i dalje
+            // servirao staru verziju (MEMORY: cloudflare_cdn_caches_404s). Purge ide
+            // skupno nakon petlje, iz `driftUrls`.
+            try {
+                await uploadToR2(client, f.localPath, f.r2Key);
+                updated++;
+                uploadedBytes += f.size;
+                uploadedKeys.add(f.r2Key);
+                log("🔁", `[${uploaded + updated}] POPRAVAK ${f.r2Key} (${humanSize(f.size)})`);
+            } catch (err) {
+                log("❌", `Popravak neuspješan za ${f.r2Key}: ${err.message}`);
+                failed++;
+            }
+            return;
+        }
+
         if (kind === "NEW") {
             try {
                 await uploadToR2(client, f.localPath, f.r2Key);
@@ -1360,8 +1470,17 @@ if (inputDir) {
     // Dopiši novouploadane ključeve u keys-cache da default put (bez LIST-a) ostane točan.
     // (remoteKeySet je null samo u --full-head modu — tada cache ne diramo.)
     if (!dryRun && remoteKeySet && uploadedKeys.size) {
-        for (const k of uploadedKeys) remoteKeySet.add(k);
+        const sizeByKey = new Map(allFiles.map(f => [f.r2Key, f.size]));
+        for (const k of uploadedKeys) remoteKeySet.set(k, sizeByKey.get(k) ?? null);
         saveKeysCache(remoteKeySet);
+    }
+
+    // Purge prepisanih immutable ključeva — bez ovoga popravak stoji na R2, a
+    // korisnik i dalje dobiva staru verziju s edgea.
+    if (!dryRun && driftFiles.length) {
+        const driftUrls = driftFiles.map(f => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${f.r2Key}`);
+        log("🧹", `CDN purge za ${driftUrls.length} popravljenih ključeva ...`);
+        await purgeCloudflareCache(driftUrls);
     }
 
     // FAZA 3: purge CDN za prepisane .mp4 (immutable cache, inače stari servira 1god).

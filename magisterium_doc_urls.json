@@ -2,6 +2,26 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "To the new Ambassador of Australia to the Holy See, January 11, 1997",
+      "uuid": "c2439449-5f9c-45ee-a0d3-bc30aead5406"
+    },
+    {
+      "match": "To the Delegations of the Italian Federation of Catholic Weeklies",
+      "uuid": "3f1a35d0-d5cd-4a9e-8a53-2f04b50a8e30"
+    },
+    {
+      "match": "To the National Association of Italian Municipalities",
+      "uuid": "3a5b7e83-2281-4662-8198-7c11263c90c9"
+    },
+    {
+      "match": "To the participants in the Assembly of the National Association of Italian Municipalities",
+      "uuid": "396ca606-df8f-4986-ba4c-0a8c4251ddfa"
+    },
+    {
+      "match": "\"Laudate Deum\": Apostolic Exhortation to all people of good will on the climate crisis",
+      "uuid": "603221bb-9ef2-4262-9780-c865bb536779"
+    },
+    {
       "match": "General Audience of 19 August 2015: The family - 23. Work",
       "uuid": "4955e22f-1287-4ca3-8478-4bbb5fe0570c"
     },
@@ -4968,6 +4988,38 @@
     {
       "match": "Education: the global compact",
       "uuid": "ee718979-1cab-4a33-968c-d42557d5cadc"
+    },
+    {
+      "match": "Eucharist, Communion and Solidarity",
+      "uuid": "dc07ea21-a9dc-4088-a999-7ddf1df4f92c"
+    },
+    {
+      "match": "General Audience of 16 September 2020",
+      "uuid": "0f7d5e8f-0610-4a4d-ad11-8cda0736616d"
+    },
+    {
+      "match": "General Audience of 22 April 2020",
+      "uuid": "45aea034-9d83-42bb-8a06-5dd99908d8c3"
+    },
+    {
+      "match": "Letter to Priests for Holy Thursday, 2005",
+      "uuid": "b15854d5-d8cd-43b7-a017-572b9bd370d2"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 2011",
+      "uuid": "0e164dc6-c9f6-4659-976b-d869bdf7e589"
+    },
+    {
+      "match": "To the entrepreneurs in Durando",
+      "uuid": "e15dabe0-4c6c-4082-85cb-0568dfc9ac04"
+    },
+    {
+      "match": "17 June 1979: Solemnity of the Body and Blood of Christ",
+      "uuid": "67004f26-4b14-458d-8d35-bf56be8ad674"
+    },
+    {
+      "match": "16 February 1982: Mass for the workers, Lagos",
+      "uuid": "ab1e494d-5ed6-458f-97cc-6754856ee246"
     }
   ]
 }
