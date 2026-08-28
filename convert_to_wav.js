@@ -173,11 +173,24 @@ function expectedDurationSec(mp3File) {
 
 // Krnji WAV = kraći od videa za više od ovoga (mp3 vs video zna odstupiti <1s).
 const DURATION_TOLERANCE_SEC = 15;
+// …ali apsolutni prag od 15 s vrijedi samo za yt-dlp izvore, gdje `duration` dolazi iz
+// samog medija. Kod Beamly epizoda `duration` dolazi iz RSS feeda i zna odstupiti za
+// promil-postotak trajanja. `subclub / DnzG2OvRflI` (72 min) je tako svaku noć od
+// 21.08.2026. padao na manjku od 34 s (0,8 %): konverzija obriše WAV, sutradan isto,
+// a epizoda ostane bez transkripta i bez članka — u logu se vidi samo kao `❌ Grešaka: 1`.
+// Relativni prag hvata pravi kvar (ubijen ffmpeg, pun disk → manjak reda veličine
+// desetaka posto) bez lažnih pozitiva na metapodacima iz feeda.
+// Vidi docs/2026-08-27-nightly-modal-nula-kandidata.md.
+const DURATION_TOLERANCE_FRACTION = 0.02;
+
+function durationToleranceSec(expected) {
+    return Math.max(DURATION_TOLERANCE_SEC, expected * DURATION_TOLERANCE_FRACTION);
+}
 
 function isTruncated(wavFile, mp3File) {
     const expected = expectedDurationSec(mp3File);
     if (expected === null) return false; // bez info.json ne možemo suditi
-    return wavDurationSec(wavFile) < expected - DURATION_TOLERANCE_SEC;
+    return wavDurationSec(wavFile) < expected - durationToleranceSec(expected);
 }
 
 /**
