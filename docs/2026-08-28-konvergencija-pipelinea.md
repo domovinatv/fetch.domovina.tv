@@ -210,3 +210,10 @@ node tools/scan_modal_candidates.js --scope channels          # očekivano: 4 ka
 node upload_to_r2.js --input-dir storage/output --verify-r2 --dry-run   # prikaz drifta
 node audit_pipeline.js --deep
 ```
+
+## 7. Vezani dokumenti
+
+- [`2026-08-28-abbacast-onboarding-backfill.md`](./2026-08-28-abbacast-onboarding-backfill.md)
+  — prvi onboarding nakon ovog popravka; potvrđuje da scan po stanju radi na svježem
+  kanalu, uz mjerenja po fazama (dijarizacija 12,4 h zvuka u 28 min, ~22× realtime) i
+  zamku „svaki korak nabraja datoteke jednom, na startu".
