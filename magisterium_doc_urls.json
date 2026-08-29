@@ -5124,6 +5124,50 @@
     {
       "match": "Santa Messa nella giornata del ringraziamento",
       "uuid": "01e29cba-2f78-43e1-a3d9-79bb75286337"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2023",
+      "uuid": "1f45dd57-1c91-4b90-bd9d-3cf70fe29aef"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 2008",
+      "uuid": "067961a1-c910-4752-9852-b275f22213a6"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 14, October, 1979",
+      "uuid": "6c91733c-3078-49bb-8eb9-7cb97c0647a0"
+    },
+    {
+      "match": "World Youth Day in Santiago de Compostela",
+      "uuid": "e3b4d527-0f96-43c9-a6f9-b340ab6168b3"
+    },
+    {
+      "match": "De sacra Scriptura et christologia",
+      "uuid": "74b4ff21-c0af-436e-981c-195a7ec3c3fd"
+    },
+    {
+      "match": "Una caro. In Praise of Monogamy",
+      "uuid": "6102efc6-f378-464a-8125-04feacb0a30b"
+    },
+    {
+      "match": "General Audience of 24 June 1992",
+      "uuid": "df832427-99a6-4947-9a46-484162e5847b"
+    },
+    {
+      "match": "General Audience of 14 May 1986",
+      "uuid": "7efb272a-da28-4243-abae-23bbb5115780"
+    },
+    {
+      "match": "General Audience of 23 July 2003",
+      "uuid": "882e2218-a85c-4288-92f4-3a8433c50560"
+    },
+    {
+      "match": "Liturgy of the Word in Explanada del Barrio La Concordia",
+      "uuid": "84fffcc8-8167-4d28-bbca-e3fb0a37cb91"
+    },
+    {
+      "match": "Meeting with the world of work in the workshops of Reggio Calabria",
+      "uuid": "a6ec73b3-f05a-4b09-af44-c7e303e3d53f"
     }
   ]
 }
