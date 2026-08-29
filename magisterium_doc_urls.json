@@ -2,6 +2,38 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "General Audience of 3 August 1988",
+      "uuid": "1d0e69f5-0845-4675-9765-c307dfc0c419"
+    },
+    {
+      "match": "General Audience of 15 April 1992",
+      "uuid": "6b81e0ea-8f56-46a4-8908-800d81ff8cbd"
+    },
+    {
+      "match": "General Audience of 29 April 1992",
+      "uuid": "68866f7e-55c7-44fd-a9c9-dd0fb8e5c10b"
+    },
+    {
+      "match": "Message to H. E. Msgr. Luigi De Magistris",
+      "uuid": "6740729b-e1e4-4bdd-9cb8-6e3d5f311ee6"
+    },
+    {
+      "match": "General Audience of 5 October 2022 - Catechesis On Discernment: 4. The elements of discernment. Self-knowledge",
+      "uuid": "ca303268-240b-4c28-b72e-4d924127d006"
+    },
+    {
+      "match": "21 April 2011: Chrism Mass",
+      "uuid": "9c8fef73-a960-48d7-a90e-4575f4802dc8"
+    },
+    {
+      "match": "Instruction \"The service of authority and obedience\"",
+      "uuid": "375ab4d4-dcfe-4343-84dc-28666ba6a8ab"
+    },
+    {
+      "match": "False Misticism and Spiritual Abuse",
+      "uuid": "2183a0e2-29d5-48bc-af26-57f796f21742"
+    },
+    {
       "match": "To the new Ambassador of Australia to the Holy See, January 11, 1997",
       "uuid": "c2439449-5f9c-45ee-a0d3-bc30aead5406"
     },
@@ -5020,6 +5052,78 @@
     {
       "match": "16 February 1982: Mass for the workers, Lagos",
       "uuid": "ab1e494d-5ed6-458f-97cc-6754856ee246"
+    },
+    {
+      "match": "Some Current Questions in Eschatology",
+      "uuid": "9bd4382a-6f15-4114-aeb3-e239692329d3"
+    },
+    {
+      "match": "The Truth and Meaning of Human Sexuality",
+      "uuid": "00f904ea-c962-4481-896b-62ff285c54ed"
+    },
+    {
+      "match": "General Audience of 30 December 2020",
+      "uuid": "52b43647-6226-489e-8e05-dda9dfb98562"
+    },
+    {
+      "match": "General Audience of 27 November 2013",
+      "uuid": "e3bd946d-c39d-4b83-90dd-5d4418a09517"
+    },
+    {
+      "match": "General Audience of 22 September 1999",
+      "uuid": "44a9b721-8a42-45a7-8db3-3aefadb1eefb"
+    },
+    {
+      "match": "General Audience of 13 April 1994",
+      "uuid": "77e0a481-d078-41d6-9f51-06ff69095726"
+    },
+    {
+      "match": "General Audience of 26 January 1994",
+      "uuid": "e4b9624b-4143-4cd2-9c32-5ffee3ba585e"
+    },
+    {
+      "match": "General Audience of 1 February 2012",
+      "uuid": "48fdca54-165c-4971-802c-1631e2f9e534"
+    },
+    {
+      "match": "Discourse of the Holy Father Leo XIV to Professors and Students of the Pontifical Theological Institute",
+      "uuid": "042f1dfa-860c-4b0b-a255-c35e353bbd6b"
+    },
+    {
+      "match": "Tenth Anniversary of the Post-Synodal Apostolic Exhortation Amoris laetitia",
+      "uuid": "e4ae2717-e48e-4365-b640-e309ae5ce8fe"
+    },
+    {
+      "match": "To participants in the meeting promoted by the Pontifical John Paul II Institute for Studies on Marriage and Family",
+      "uuid": "7b7a557d-2902-4559-838a-9f8c2e7d5cb1"
+    },
+    {
+      "match": "Address to the representatives of Malta",
+      "uuid": "2c2f5fb7-d3e3-4d8a-9ec9-e6dd1ef335e7"
+    },
+    {
+      "match": "Plenary Assembly of the Pontifical Council for Pastoral Assistance to Health Care Workers",
+      "uuid": "e1364fe9-72cd-4551-834c-b598b6ec17cf"
+    },
+    {
+      "match": "Eucharistic Celebration for the dedication of the Shrine of Our Lady of Tears",
+      "uuid": "f3fa8a97-976c-4cd6-a416-92ba80ca6f67"
+    },
+    {
+      "match": "Message to workers during a visit to the Tele-Space Centre in Avezzano",
+      "uuid": "240d2a9b-689d-4d0c-a93a-ceb50678130d"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, 2016",
+      "uuid": "336669a2-78ae-4888-a6d2-a4ff5ec5f6fe"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, August, 2007",
+      "uuid": "d1ad7c78-70fa-4b09-a06e-c411ed53cce0"
+    },
+    {
+      "match": "Santa Messa nella giornata del ringraziamento",
+      "uuid": "01e29cba-2f78-43e1-a3d9-79bb75286337"
     }
   ]
 }
