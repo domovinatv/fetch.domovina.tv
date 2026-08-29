@@ -43,8 +43,12 @@ node -c <file.js>
 # Dry run (preview without API calls)
 ./run_pipeline.sh --hf-token <TOKEN> --dry-run
 
-# Check pipeline progress + disk usage across all channels
+# Check pipeline progress + disk usage across all channels (broji DATOTEKE)
 node count_progress.js
+
+# Konvergencijski audit — sadrzaj + isporuka (disk vs R2/CDN). Ovo, ne count_progress,
+# odgovara na "je li katalog stvarno kompletan". Exit 1 = ima rupa.
+node audit_pipeline.js --deep
 
 # Detect anomalies and corrupt files
 node inspect_pipeline.js --input-dir storage/output
@@ -95,7 +99,8 @@ Each step is idempotent — checks for existing output before processing. The pi
 
 | Script | Purpose |
 |--------|---------|
-| `count_progress.js` | Pipeline progress bars + per-channel disk usage (`du -skL`, follows symlinks) |
+| `count_progress.js` | Pipeline progress bars + per-channel disk usage (`du -skL`, follows symlinks). **Broji DATOTEKE — ne odgovara na „je li katalog kompletan"** |
+| `audit_pipeline.js` | **Konvergencijski audit: SADRŽAJ + ISPORUKA.** Provjerava ima li članak sve iteracije koje outline traži i je li ono na R2 isto što i na disku. `--deep` razlučuje „CDN KRNJI" od „samo drugi model". Vrti se u nightlyju; vidi `docs/2026-08-28-konvergencija-pipelinea.md` |
 | `inspect_pipeline.js` | Detect anomalies, zero-byte files, corrupt JSON |
 | `archive_videos.js` | Move video IDs from `completed[]` → `archived[]` in state files (pipeline skips archived) |
 | `test_gemini_keys.js` | Validate Gemini API key list |
@@ -174,13 +179,23 @@ Do not "optimize" by combining both phases into a single Colab notebook for bulk
 > Kratko: bulk/backlog (≳20 ep) → Colab G4 batch (~$0.003/ep); pojedinačni ad-hoc → Modal A100-40
 > (`run_pipeline.sh --with-modal-transcribe`, često $0 pod free tierom). Odluka je operativna (latencija), ne financijska.
 >
-> ⚠️ **Ne pretpostavljaj da nightly single-pass radi.** `KORAK 2.6` je od 02.08. do 27.08.2026.
-> u SVAKOM nightlyju javio `Modal kandidata (scope='channels'): 0` — nijedna epizoda praćenog
-> kanala nikad nije transkribirana automatski, a rupa se gomilala tiho jer `MODAL_FRESH_DAYS=2`
-> nema re-queue. Uzrok neutvrđen; u scan je ugrađena dijagnostika (`🔍 Modal scan prazan: …`)
-> koja se ispisuje samo kad je scan prazan. Prije nego zaključiš da je katalog kompletan,
-> provjeri taj redak. Runbook za praznu epizodu (triaža transkripcija vs LLM vs krnji MP3,
-> provjera pokrivenosti SRT-a): `docs/2026-08-27-nightly-modal-nula-kandidata.md`.
+> ✅ **RIJEŠENO 28.08.2026.** `KORAK 2.6` je od 02.08. do 27.08. u SVAKOM nightlyju javio
+> `Modal kandidata (scope='channels'): 0` — 26 noći bez ijedne automatski transkribirane
+> epizode praćenog kanala. Uzrok: **macOS TCC.** launchd pokreće `/bin/bash`, koji nema
+> pristup vanjskim volumenima na koje kanali pokazuju symlinkovima, pa je shell `find`
+> na svih 50 direktorija vraćao `Operation not permitted`. `[ -d ]` (stat) prolazi,
+> `opendir()` ne — zato je diag javljao `dirova=50/50 | find pogodaka=0`. **Node nema taj
+> problem** (`convert_to_wav.js` je u istom runu čitao iste direktorije), pa sken sada ide
+> kroz `tools/scan_modal_candidates.js`.
+>
+> ⚠️ **Ne piši nove shell `find`/`ls` petlje nad `storage/output/` koje moraju raditi iz
+> nightlyja** — past će isto i jednako tiho. Piši ih u Nodeu.
+>
+> Uz to je maknut `MODAL_FRESH_DAYS` prozor: kriterij je sada STANJE („WAV bez
+> `.canary.srt`”), pa svaki run ponovno pokuša ono što prethodni nije uspio. Analiza i
+> mehanizam konvergencije: `docs/2026-08-28-konvergencija-pipelinea.md`. Runbook za praznu
+> epizodu (triaža transkripcija vs LLM vs krnji MP3, provjera pokrivenosti SRT-a):
+> `docs/2026-08-27-nightly-modal-nula-kandidata.md`.
 
 **G4 GPU is mandatory** — T4 is **not** an option. Empirically observed in a real production run (96 backlog WAVs):
 

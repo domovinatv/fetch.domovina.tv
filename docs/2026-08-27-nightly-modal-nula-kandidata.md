@@ -362,10 +362,16 @@ done
 
 ## 6. Otvoreno
 
-- **Uzrok `0 kandidata` u launchd kontekstu.** Čeka ispis nove dijagnostike.
-- **Re-queue za promašeni prozor.** Dok `MODAL_FRESH_DAYS` gate nema fallback, svaka
-  epizoda koju nightly propusti ostaje zauvijek vani. Kandidat: tjedni sweep koji
-  traži `*.wav` bez `.canary.srt` i, ispod praga (npr. ≤20), pušta ih na Modal batch.
+> **RIJEŠENO 28.08.2026. — prve dvije stavke.** Dijagnostika iz §5 je prvom noći ispisala
+> `find: …/storage/output/40_dana_za_zivot/: Operation not permitted` na svih 50
+> direktorija: **macOS TCC** ne da launchd `/bin/bash`-u na vanjske volumene na koje
+> kanali pokazuju symlinkovima. Sken je prebačen u Node
+> (`tools/scan_modal_candidates.js`), a `MODAL_FRESH_DAYS` prozor zamijenjen kriterijem
+> stanja („WAV bez `.canary.srt`”, cap 20/run, 3 pokušaja po videu). Puna analiza,
+> mjerenja i mehanizam konvergencije: [`2026-08-28-konvergencija-pipelinea.md`](2026-08-28-konvergencija-pipelinea.md).
+
+- ~~**Uzrok `0 kandidata` u launchd kontekstu.**~~ → macOS TCC, vidi gore.
+- ~~**Re-queue za promašeni prozor.**~~ → kriterij je sada stanje, ne mtime prozor.
 - **Dvojezične epizode.** Canary ima jedan `source_lang` po prolazu; `Fwh_jUh-lX0` je
   najbolji dobiveni rezultat 64,9 % (`it→hr`). Ako se takve epizode pojave češće, treba
   segmentacija po jeziku prije transkripcije, ne bolji `--source-lang`.
