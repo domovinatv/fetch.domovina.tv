@@ -74,13 +74,24 @@ node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" \
 > engleski (npr. `+EN`, "i engleski", "bilingual"). Inače idi ravno na korak 7 i uploadaj
 > isključivo HR `article.magisterium.json`.
 
+> ⏱ **Trajanje skalira ~100 s PO SEKCIJI članka, ne fiksnih 25-30 min.** Izmjereno 29.08.2026.
+> na `RoNGBEoqx_g` (34 sekcije): summary 160 s + article 1287 s + magisterium 1964 s =
+> **3412 s ≈ 57 min** za jednu kopiju. Ranije mjerenje od ~20 min bilo je na epizodi s 11
+> sekcija. **Prebroji sekcije prije nego pokreneš.**
+>
+> ⛔ **Za ≳25 sekcija NE pokretati kroz poller.** `MAG_RUN_TIMEOUT_MS` je 60 min, a HR dio
+> (~20 min) + EN (~57 min) = ~80 min → prekid i `failed`, iako je HR već gotov na disku.
+> Umjesto toga: HR kroz poller, pa EN naknadno ručno (idempotentno je, HR se ne ponavlja).
+> Analiza: `docs/2026-08-29-magisterium-en-overlay-trosak.md`.
+>
 > 🚫 **NIKAD ne pokreći ovaj korak u pozadini** (`&`, `nohup`, background bash, "javit ću se
-> kad završi"). Traje **25–30 min** i mora se čekati u **foregroundu** do kraja. Ovaj runbook
+> kad završi"). Traje **20-60 min ovisno o broju sekcija** i mora se čekati u **foregroundu** do kraja. Ovaj runbook
 > se vrti headless (`claude -p` iz `magisterium_poller.js`) — kad agent vrati finalnu poruku,
 > proces izlazi i **ubija svako dijete**. Backgroundan prijevod ne napiše ni jednu datoteku,
 > a poller onda vidi 404 na CDN-u i označi zahtjev `failed`.
 > Presedan: `biRibr8NByE [en]`, 2026-07-27 — run od 6 min umjesto 30, nula `.en.json`.
-> Timeout pollera je 60 min (`MAG_RUN_TIMEOUT_MS`) — ima mjesta za čekanje.
+> Timeout pollera je 60 min (`MAG_RUN_TIMEOUT_MS`) — dovoljno za kratke epizode, ali NE za
+> 34-sekcijsku (vidi ogradu gore).
 > ⚠️ **Prvo provjeri ima li video DVIJE kopije.** Arhivirani videi žive i u
 > `storage/output/<channel>` (symlink na `/Volumes/DOMOVINA1TB/…`) i u `storage/output/_unlisted`.
 > `--video-id` sam po sebi pokupi **obje** → dvostruko vrijeme (~60 min) i probijanje
