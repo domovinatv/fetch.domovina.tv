@@ -4,7 +4,7 @@
   "channel_id": "UCmsRVrpRrDpYYhIaCbh58sA",
   "title": "Božja pobjeda",
   "availability": "public",
-  "channel_follower_count": 64300,
+  "channel_follower_count": 64400,
   "description": "Karizmatska zajednica \"Božja pobjeda\" osnovana je 2007. godine u župi Duha Svetoga (Jarun│Zagreb). Danas broji oko 50 aktivnih članova i pod duhovnim vodstvom don Damira Stojića organizira molitvene susrete, seminare, večeri slavljenja Gospodina, animira duhovne obnove, a svaku zadnju subotu u mjesecu za mlade organizira klanjanje pred Presvetim Oltarskim Sakramentom u crkvi Sveta Mati Slobode.\nZajednica njeguje karizmatsku duhovnost kao članica Katoličke karizmatske Obnove u Duhu Svetom Zagrebačke nadbiskupije, a susreti se sastoje od slavljenja, molitve, pouke, svjedočanstava i klanjanja pred Presvetim Oltarskim Sakramentom. Vizija zajednice je mlade ljude dovesti do susreta sa živom osobom Isusa Krista koji preobražava naše živote i koji je jedini Put, Istina i Život.",
   "tags": [],
   "thumbnails": [
@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1788217259,
+  "epoch": 1788287888,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.19",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

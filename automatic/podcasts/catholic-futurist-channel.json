@@ -4,7 +4,7 @@
   "channel_id": "UChAEWwrEQc07pft2NDb9_-A",
   "title": "Catholic Futurist - Videos",
   "availability": "public",
-  "channel_follower_count": 180,
+  "channel_follower_count": 181,
   "description": "For all those curious about the world of tomorrow and how to navigate the crucial choices presented by emerging technology, guided by the practical and timeless wisdom of the Catholic faith, join Matthew Harvey Sanders on the Catholic Futurist Podcast.",
   "tags": [],
   "thumbnails": [
@@ -91,12 +91,12 @@
   "webpage_url_domain": "youtube.com",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1788217253,
+  "epoch": 1788287886,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.19",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }

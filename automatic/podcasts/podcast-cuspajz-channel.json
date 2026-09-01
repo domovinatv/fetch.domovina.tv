@@ -4,7 +4,7 @@
   "channel_id": "UCaqCX-pMk_RXhs4EQnP4VuQ",
   "title": "PODCAST  ČUŠPAJZ ",
   "availability": "public",
-  "channel_follower_count": 5740,
+  "channel_follower_count": 5750,
   "description": "",
   "tags": [
     "#politics",
@@ -48,12 +48,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1788217337,
+  "epoch": 1788287920,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.19",
+    "version": "2026.08.17.073947",
     "current_git_head": null,
-    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
-    "repository": "yt-dlp/yt-dlp"
+    "release_git_head": "f1896c57f5ba4b92741bb509790837d6838ec99e",
+    "repository": "yt-dlp/yt-dlp-nightly-builds"
   }
 }
