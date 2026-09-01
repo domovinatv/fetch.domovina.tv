@@ -223,6 +223,13 @@ echo ""
 #                            channels (praćeni kanali: SVAKI WAV bez .canary.srt) | all.
 #                            channels = single-pass nightly. Iznad capa → najnovijih MODAL_MAX_FILES
 #                            sada, ostatak sljedeći run ili Colab (konvergira, ne odustaje).
+#   --with-speechmatics   → EKSPERIMENT (KORAK 2.7): cloud transkripcija + diarizacija u
+#                            JEDNOM pozivu preko Speechmatics Batch API-ja, iz .mp3.
+#                            Izlaz je odvojen namespace (.speechmatics.*) — produkcijski
+#                            .canary.* put se ne dira, korak je non-fatal. Ograđen prozorom
+#                            svježine (SPEECHMATICS_FRESH_DAYS=3) i capom
+#                            (SPEECHMATICS_MAX_FILES=3). Traži SPEECHMATICS_API_KEY u .env.
+#                            Mjerenja: docs/speechmatics_evaluation_2026-09.md
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
 #                            Use case: Ethernet je primarni link (gigabit za rad), ali
@@ -264,6 +271,15 @@ WITH_EBOOK=true
 WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
+# --with-speechmatics (2026-09-01): EKSPERIMENTALNI cloud ASR+diarizacija (KORAK 2.7).
+# Default OFF. Izlaz ide u odvojen namespace (.speechmatics.*) i NE dira produkciju.
+# Dvije tvrde financijske ograde, jer je ovo evaluacija a ne obavezan korak:
+#   SPEECHMATICS_FRESH_DAYS (3) — samo svjež priljev; NAMJERNO ne konvergira nad katalogom
+#   SPEECHMATICS_MAX_FILES  (3) — pokriva tipičnu noć (medijan priljeva je 2-3 epizode)
+# Worst case ≈ 3 × 45 min × $0.80/h ≈ $1.80/noć.
+WITH_SPEECHMATICS=false
+SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
+SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-3}"
 # --modal-scope (2026-07-31): koje WAV-ove Modal smije transkribirati.
 #   unlisted → samo _unlisted/ (ad-hoc jobovi) — DEFAULT, staro ponašanje, nula regresije
 #   channels → praćeni kanali, svaki WAV bez .canary.srt — single-pass nightly
@@ -330,6 +346,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-modal-transcribe" ]; then
         WITH_MODAL_TRANSCRIBE=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-speechmatics" ]; then
+        WITH_SPEECHMATICS=true
         i=$((i + 1))
     elif [ "$arg" = "--modal-scope" ]; then
         # unlisted (default, staro ponašanje) | channels (praćeni kanali) | all
@@ -773,6 +792,58 @@ fi
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 2.6 (Modal transkripcija) — nije zadan --with-modal-transcribe (default: Colab/rclone put)"
+fi
+
+# --- KORAK 2.7: SPEECHMATICS CLOUD ASR + DIARIZACIJA (eksperiment, --with-speechmatics) ---
+# Speechmatics radi transkripciju I diarizaciju u JEDNOM HTTP pozivu, iz .mp3 (bez WAV
+# konverzije, bez lokalnog GPU/CPU tereta). Ovo je jedini korak koji bi Mac Mini mogao
+# osloboditi kao obavezan stroj — pyannote diarizacija je CPU-bound i vezana za njega.
+#
+# ⚠️ OVO JE MJERNI INSTRUMENT, NE PRODUKCIJSKI PUT.
+#   • Izlaz ide u odvojen namespace .speechmatics.* — `upload_to_r2.js` mapira samo
+#     `.canary.diarized.srt`, pa ništa od ovoga ne može završiti na CDN-u.
+#   • Korak je NON-FATAL i ne blokira nijedan sljedeći korak.
+#   • Nema li SPEECHMATICS_API_KEY → tiho se preskače.
+#
+# 💰 DVIJE OGRADE, obje financijske (Speechmatics naplaćuje ~$0.80 po satu zvuka):
+#   1. prozor svježine (SPEECHMATICS_FRESH_DAYS=3) — NAMJERNO ne konvergira nad
+#      katalogom. Bez njega bi po 3 epizode/noć progrizao svih 3 200 epizoda ≈ $2 500.
+#      (Suprotno od KORAKA 2.6, gdje je mtime prozor ukinut jer transkripcija MORA
+#      konvergirati — vidi docs/2026-08-28-konvergencija-pipelinea.md.)
+#   2. cap (SPEECHMATICS_MAX_FILES=3) — medijan noćnog priljeva je 2-3 epizode, pa cap
+#      pokriva tipičnu noć i omeđuje skok kad se vuče backlog (viđeno 11-12/dan).
+#
+# Sken kandidata je u NODEU, ne u shell `find`-u — pod launchd-om `opendir()` na
+# vanjskim volumenima pada na macOS TCC-u i tiho vraća nula pogodaka.
+# Vidi CLAUDE.md "Ne piši nove shell find/ls petlje nad storage/output/".
+if [ "$WITH_SPEECHMATICS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 2.7: Speechmatics cloud ASR + diarizacija [--with-speechmatics] (EKSPERIMENT)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SM_SCRIPT="$SCRIPT_DIR/transcribe_speechmatics.js"
+# Ključ dolazi iz .env (skripta ga sama učita); ovdje samo provjeravamo postoji li,
+# da korak ne bi svaku noć besmisleno prijavljivao grešku na stroju bez ključa.
+if ! grep -qE '^\s*SPEECHMATICS_API_KEY\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null; then
+    echo "   ⏭️  Nema SPEECHMATICS_API_KEY u .env — preskačem (eksperiment nije konfiguriran)."
+elif [ ! -f "$SM_SCRIPT" ]; then
+    echo "   ⚠️ Nema $SM_SCRIPT — preskačem."
+else
+    SM_ARGS=(--input-dir "$OUTPUT_DIR"
+             --fresh-days "$SPEECHMATICS_FRESH_DAYS"
+             --limit "$SPEECHMATICS_MAX_FILES")
+    if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        SM_ARGS+=(--dry-run)
+    fi
+    echo "   🧪 Prozor ${SPEECHMATICS_FRESH_DAYS}d, cap ${SPEECHMATICS_MAX_FILES} epizoda (~\$0.60/ep pri 45 min)"
+    node "$SM_SCRIPT" "${SM_ARGS[@]}" \
+      || echo "   ⚠️ Speechmatics korak nije uspio — nastavljam (non-fatal, produkcija ne ovisi o njemu)."
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.7 (Speechmatics) — nije zadan --with-speechmatics (eksperiment, default OFF)"
 fi
 
 # --- KORACI 3+4: WHISPER PROMPT + TRANSKRIPCIJA (legacy, opcionalno --with-whisper) ---

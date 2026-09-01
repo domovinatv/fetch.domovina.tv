@@ -87,6 +87,10 @@ const matchers = [
     ['.sortformer.diarized.srt', 'sortformerDiarized'],
     ['.sortformer.srt', 'sortformerSrt'],
     ['.sortformer.csv', 'sortformerCsv'],
+    // Speechmatics (eksperiment, transcribe_speechmatics.js) — MORA biti prije
+    // općeg '.diarized.srt', inače se broji kao legacy whisper diarizacija.
+    ['.speechmatics.diarized.srt', 'speechmaticsDiarized'],
+    ['.speechmatics.srt', 'speechmaticsSrt'],
     ['.diarized.srt', 'diarized'],
     ['.wav.srt', 'srt'],
     ['.info.json', 'infoJson'],
