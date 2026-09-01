@@ -212,3 +212,124 @@ morfologija, interpunkcija), **jednaku pokrivenost**, **poravnate timestampove**
 
 Ovo je dovoljno dobar rezultat da migracija bude ozbiljna opcija, ali odluka
 čeka točke 1-3 gore.
+
+---
+
+# Dodatak: prvi stvarni nightly run, 01.09.2026.
+
+Gore su mjerenja iz ručnih poziva. Ovo je što se dogodilo kad je korak pušten
+u pravi nightly (`--with-speechmatics`, run 22:15, PID 57761).
+
+## Rezultat koraka 2.7
+
+```
+🧪 Prozor 3d, cap 3 epizoda, timeout 30 min/ep
+🗓️  Prozor svježine 3d: 3277 → 2 kandidata
+   ⏳ Mrežna greška (fetch failed) — čekam 5s…      ← retry ju je progutao
+   ✅ 104 segmenata, 2 govornika | 22.41× realtime | ~$0.21
+   ✅ 116 segmenata, 1 govornika | 25.58× realtime | ~$0.25
+📊 Uspješnih: 2 | Neuspjelih: 0
+```
+
+Cijeli korak **87 s / $0.46**. Dvije mrežne greške dogodile su se same od sebe i
+retry ih je progutao — neplanirana potvrda da put otpornosti radi.
+Propovijed je točno prepoznata kao 1 govornik, razgovor kao 2.
+
+## Head-to-head na identičnom zvuku
+
+Nightly 30.08. obradio je točno 3 epizode koje su naknadno prošle Speechmatics
+(89 min zvuka ukupno). Isti fajlovi, obje putanje:
+
+| | vrijeme | gdje se troši |
+|---|---|---|
+| KORAK 2.6 Modal A100 | 4m 52s | cloud GPU |
+| KORAK 6 pyannote | 7m 16s | **Mac Mini, 100% zauzet** |
+| **stari put ukupno** | **12m 08s** | |
+| **Speechmatics** (jedan poziv) | **4m 01s** | čekanje na socketu |
+
+**3.0× brže** — i večerašnja kontrolna točka na istoj epizodi kroz oba puta daje
+isto (157 s → 41 s = 3.8×).
+
+⚠️ **Brzina nije argument za migraciju.** Nightly 30.08. trajao je ukupno **1h 28m**;
+8 minuta uštede je šum, jer koraci 7/8 (Claude članci) pojedu većinu. Prava razlika
+je *gdje* se posao odvija: `7m 16s` punog zauzeća Mac Minija postaje `0`.
+
+Dvije napomene koje sprječavaju krivi zaključak:
+- Modalovih 4m52s uključuje ~39 s hladnog učitavanja modela. Pri 1-3 epizode po
+  noći hladni start je **pravilo**, ne iznimka — ne amortizira se kao u batchu.
+- 25.08. je diarizacija trajala **1h 50min**, ali to je bila saborska sjednica
+  chunkana na 4 dijela (`part_01_16k.wav`) — drugi proizvod, nije reprezentativno
+  za podcast nightly. Pokazuje ipak gdje lokalni pyannote stvarno boli.
+
+```mermaid
+flowchart LR
+  A[".mp3 / .wav"] --> B["KORAK 2.6<br/>Modal A100<br/>4m52s · cloud GPU"]
+  B --> C["KORAK 6<br/>pyannote MPS<br/>7m16s · MAC ZAUZET"]
+  C --> D[".canary.diarized.srt"]
+  A --> E["KORAK 2.7<br/>Speechmatics<br/>4m01s · samo cekanje"]
+  E --> F[".speechmatics.diarized.srt"]
+  D --> G["koraci 7-12<br/>(produkcija)"]
+  F --> H["samo evaluacija<br/>NE ide na CDN"]
+```
+
+## Ekonomika — ispravak ranije procjene
+
+Prosječna epizoda u katalogu je **57.4 min** (medijan 55.1), izmjereno nad 3206
+`.info.json`. Ranija procjena od 45 min bila je preniska, pa je stvarni trošak
+**~$0.77/ep**, ne $0.60.
+
+| | |
+|---|---|
+| Katalog | 3068 h → pun rekat **$2454** |
+| Krediti $98.69 (01.09.) | 123 h ≈ **128 epizoda** |
+| Pri 2 ep/noć | $1.53/noć → **~64 noći (2.1 mj)** |
+| Pri 3 ep/noć | $2.30/noć → **~42 noći (1.4 mj)** |
+
+**Posljedica: migracija može biti samo forward-only.** $2454 za retroaktivni rekat
+se ne isplati. Ako se ikad poželi popraviti stare epizode, ciljano — samo one gdje
+`TRANSCRIPT_GAP` javlja rupu ili su imena gostiju očito promašena.
+
+## Zamke pronađene pri uključivanju
+
+1. **`automatic/nightly_pipeline.sh` nije prosljeđivao `--with-speechmatics`.**
+   Flag u `run_pipeline.sh` sam po sebi ne znači ništa — nightly ima vlastiti
+   popis flagova (linija ~305). Bez ovoga bi ujutro izgledalo kao da eksperiment
+   ne radi, **bez ijedne poruke o grešci**. Vrijedi za svaki budući korak.
+
+2. **Timeout je bio 90 min PO EPIZODI** → zaglavljen servis držao bi nightly
+   3 × 90 = 4.5 h. Spušteno na `SPEECHMATICS_TIMEOUT_MIN=30`.
+
+3. **Selekcija je hvatala yt-dlp orphan fragmente** (`.f396.mp4`, video-only) —
+   plaćen upload bez ijednog zvučnog uzorka. I nudila već obrađenu epizodu ponovno
+   kao `.wav`; „gotovo" je sada svojstvo **epizode**, ne datoteke.
+
+4. **Nightly je u 01:00, ne 03:00** (`plutil -p` na plistu: `Hour => 1`).
+   Memory je godinama nosio krivu brojku.
+
+5. **Log je po DANU, ne po runu.** `nightly_YYYY-MM-DD.log` drži i zakazani 01:00
+   run i svaki ručni run istog dana. Monitor s `tail -f -n +1` preigrao je
+   jutrošnji run i javio „KORAK 6/10" kao tekući — lažni alarm. Koristi goli
+   `tail -f` i provjeri timestamp prije nego zaključiš.
+
+## Provjere sigurnosti (empirijske, ne iz čitanja koda)
+
+| Provjera | Rezultat |
+|---|---|
+| `run_pipeline.sh` ima `set -e` — ruši li pad 2.7 run? | `node … \|\| echo` preživi |
+| Izlazni kod na API grešci | 1, s čistom porukom |
+| Ostavlja li pad parcijalni `.speechmatics.diarized.srt`? | Ne — idempotencija čista |
+| Mogu li fajlovi na CDN? | Ne — nijedan `.speechmatics.*` ne matcha nijedan od 13 `UPLOAD_SUFFIXES` |
+| Sudar ručnog runa s launchd 01:00 | `.nightly.lock` s provjerom PID-a → launchd čisto izađe |
+
+## Stanje backloga na kraju sesije
+
+Pipeline je **potpuno sustignut** na praćenim kanalima: 3210 WAV-ova, **0** bez
+`.canary.srt`, **0** bez diarizacije, **0** mp3 koji čeka konverziju, **0**
+Speechmatics kandidata u prozoru. Run u 01:00 obradit će samo ono što YouTube
+objavi u međuvremenu.
+
+## Vezani dokumenti
+
+- `docs/transcription_colab_vs_modal_cost_2026-07.md` — Colab batch vs Modal ad-hoc
+- `docs/diarization_research_2026-05.md` — zašto je pyannote CPU-bound
+- `docs/2026-08-28-konvergencija-pipelinea.md` — zašto KORAK 2.6 NEMA prozor svježine
