@@ -280,6 +280,10 @@ MODAL_ONLY_ID=""
 WITH_SPEECHMATICS=false
 SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
 SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-3}"
+# Timeout PO EPIZODI. Default skripte je 90 min — u nightlyju bi zaglavljen servis
+# držao run 3 × 90 min = 4.5 h. Izmjereno je 2:29 za 50 min zvuka (20× realtime), pa
+# je 30 min ~6× headroom i za dugu epizodu, a worst case pada na 1.5 h.
+SPEECHMATICS_TIMEOUT_MIN="${SPEECHMATICS_TIMEOUT_MIN:-30}"
 # --modal-scope (2026-07-31): koje WAV-ove Modal smije transkribirati.
 #   unlisted → samo _unlisted/ (ad-hoc jobovi) — DEFAULT, staro ponašanje, nula regresije
 #   channels → praćeni kanali, svaki WAV bez .canary.srt — single-pass nightly
@@ -833,11 +837,12 @@ elif [ ! -f "$SM_SCRIPT" ]; then
 else
     SM_ARGS=(--input-dir "$OUTPUT_DIR"
              --fresh-days "$SPEECHMATICS_FRESH_DAYS"
-             --limit "$SPEECHMATICS_MAX_FILES")
+             --limit "$SPEECHMATICS_MAX_FILES"
+             --timeout-minutes "$SPEECHMATICS_TIMEOUT_MIN")
     if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         SM_ARGS+=(--dry-run)
     fi
-    echo "   🧪 Prozor ${SPEECHMATICS_FRESH_DAYS}d, cap ${SPEECHMATICS_MAX_FILES} epizoda (~\$0.60/ep pri 45 min)"
+    echo "   🧪 Prozor ${SPEECHMATICS_FRESH_DAYS}d, cap ${SPEECHMATICS_MAX_FILES} epizoda, timeout ${SPEECHMATICS_TIMEOUT_MIN} min/ep (~\$0.60/ep pri 45 min)"
     node "$SM_SCRIPT" "${SM_ARGS[@]}" \
       || echo "   ⚠️ Speechmatics korak nije uspio — nastavljam (non-fatal, produkcija ne ovisi o njemu)."
 fi

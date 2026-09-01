@@ -9,6 +9,11 @@
 #     • fetch.js                       (KORAK 1, novi videi s YouTube-a)
 #     • convert_to_wav.js              (KORAK 2, MP3 → WAV 16kHz mono)
 #     • upload WAV-ova na Google Drive (KORAK 2.5, za Colab batch)
+#     • transcribe_speechmatics.js     (KORAK 2.7, EKSPERIMENT — cloud ASR+diarizacija)
+#         Odvojen namespace .speechmatics.*, non-fatal, NE ide na CDN. Ograđen s
+#         FRESH_DAYS=3 / MAX_FILES=3 / TIMEOUT=30min per ep → worst case ~$1.80/noc.
+#         Skuplja usporedne podatke za odluku o migraciji u oblak.
+#         Vidi docs/speechmatics_evaluation_2026-09.md
 #
 #   FAZA B — post-Colab catch-up za prethodno transkribirane videe:
 #     • diarize_canary.py              (KORAK 6, pyannote lokalno na M4 Pro)
@@ -297,7 +302,7 @@ acquire_pipeline_lock wait
 # ODGAĐAJU u sljedeći nightly (ne degradiraju na Flash — vidi lib/claude_window.js).
 # Ne-AI koraci ispod (transcribe, upload, index) nastavljaju normalno.
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels || true
+    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-speechmatics || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego
