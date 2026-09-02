@@ -19,9 +19,27 @@
  * Filtar je NAMJERNO samo tehnički — registar je „free speech aggregator" i
  * bazen ne smije biti ideološki predfiltriran, inače glasanje nema legitimitet.
  *
+ * ── Rekoncilijacija, ne „drugi korak" ───────────────────────────────────────
+ * Registar je jedini izvor istine; `vote_candidates` je njegova projekcija.
+ * Ovaj skript je zato REKONCILIJATOR: idempotentan je i konvergentan, pa je
+ * svejedno koliko se puta pokrene i gdje je zadnji put stao. Git commit u
+ * registar je točka odluke — sve nakon njega je konvergencija. (Transakcija
+ * preko git+Postgres granice ne postoji: git ne zna prepare/commit protokol.)
+ *
+ * Nakon `--commit` skript SAM provjeri je li konvergirao (`verifyConverged`) i
+ * padne s exit 2 ako nije. Pisanje je i dalje 7 odvojenih HTTP poziva pa nije
+ * atomarno — puna atomarnost traži jednu Postgres funkciju koja primi cijeli
+ * payload (95,8 kB za 217 kandidata; stane u jedan RPC). Dotad: provjereno, ne
+ * atomarno.
+ *
  * ── Što ovaj skript NIKAD ne radi ───────────────────────────────────────────
- *   * NE briše retke iz `vote_candidates` — kandidat koji nestane iz registra
- *     dobiva `status = 'withdrawn'` (glasovi ga referenciraju preko FK-a).
+ *   * NE briše retke iz `vote_candidates` — kandidat koji ispadne iz §3 filtra
+ *     dobiva status po RAZLOGU (glasovi ga referenciraju preko FK-a):
+ *       `tracking.enabled === true` u registru → `onboarded` (mi smo ga uzeli)
+ *       sve ostalo (zapis nestao, status ugašen) → `withdrawn`
+ *   * NE vraća `onboarded` kanal u bazen ni ako se `tracking.enabled` vrati na
+ *     false — već ga imamo, glasanje o njemu nema smisla. Samo `withdrawn` se
+ *     vraća.
  *   * NE dira `status` postojećih redova pri upsertu — inače bi pobjednik kola
  *     (`winner` / `onboarding` / `onboarded`) bio vraćen u bazen. Promociju radi
  *     zaseban promote_winner tok (§9), ne ovaj skript.
@@ -53,7 +71,13 @@
  * nisu mogli glasati za njih.
  * `--check` je zato jeftin: preskače yt-dlp i CDN, čita samo registar i bazu,
  * ispiše razliku i vrati **exit 1** kad postoji drift (0 = poravnato, 2 = greška).
- * Vozi ga `domovina.ai/scripts/voting-drift-check.sh` preko launchda.
+ * Vozi ga `domovina.ai/scripts/voting-drift-check.sh` preko launchda, s `--sync`
+ * — tripwire na drift sam pokrene `--commit`.
+ *
+ * ⚠ Exit kodovi su ugovor s tripwireom i moraju se držati: 0 = poravnato,
+ * 1 = IMA drifta, 2 = NE MOGU provjeriti. Do 2.9.2026. je nečitljiva baza
+ * rušila `existing.length` s TypeErrorom i izlazila s 1, pa je tripwire prolaznu
+ * mrežnu grešku javljao kao drift — a pod `--sync` bi na nju i pisao.
  *
  * ── Env (.env u korijenu repoa) ─────────────────────────────────────────────
  *   SUPABASE_URL                (default https://api.domovina.ai)
@@ -183,11 +207,30 @@ function pgHeaders(extra = {}) {
   };
 }
 
-async function fetchExistingRows() {
+/**
+ * Prvi `fetch` iz svježeg node procesa zna pasti s golim „fetch failed" (mjereno
+ * 2.9.2026.: dva puta zaredom na prvom pokušaju, dok 6/6 poziva u već zagrijanom
+ * procesu prođe za 52–765 ms). Bez retryja to pod launchdom znači ili lažna
+ * uzbuna, ili — s `--sync` — cijeli dan drifta zbog jedne prolazne greške.
+ */
+async function fetchExistingRows(pokusaja = 3) {
   const url = `${SUPABASE_URL}/rest/v1/vote_candidates?select=slug,status,avatar_url&limit=5000`;
-  const res = await fetch(url, { headers: pgHeaders() });
-  if (!res.ok) throw new Error(`GET vote_candidates ${res.status}: ${await res.text()}`);
-  return res.json();
+  let zadnja;
+  for (let i = 1; i <= pokusaja; i++) {
+    try {
+      const res = await fetch(url, { headers: pgHeaders() });
+      if (!res.ok) throw new Error(`GET vote_candidates ${res.status}: ${await res.text()}`);
+      return await res.json();
+    } catch (e) {
+      zadnja = e;
+      // HTTP status je odgovor servera i ponavljanje ga neće promijeniti;
+      // ponavlja se samo mrežni pad (`fetch failed`, ECONNRESET, timeout).
+      if (/^GET vote_candidates \d/.test(e.message) || i === pokusaja) break;
+      warn(`čitanje baze palo (${e.message}) — pokušaj ${i + 1}/${pokusaja}…`);
+      await new Promise((r) => setTimeout(r, 500 * i));
+    }
+  }
+  throw zadnja;
 }
 
 async function upsertRows(rows) {
@@ -347,6 +390,39 @@ async function purgeCdn(urls) {
   log("🧹", `CDN purge: ${urls.length} URL-ova.`);
 }
 
+/**
+ * Post-uvjet nakon pisanja: PONOVO pročitaj bazu i potvrdi da je poravnata s
+ * registrom.
+ *
+ * Zašto uopće: pisanje nije jedan poziv nego SEDAM odvojenih HTTP zahtjeva
+ * (5 upsert batcheva po 50 + 3 PATCH-a), pa pad između bilo koja dva ostavlja
+ * bazu polupisanu — najgori slučaj je da kandidat prođe kao upsert, a PATCH koji
+ * ga miče iz bazena ne prođe, i on ostane u glasanju s osvježenim podacima.
+ * Do 2.9.2026. je `--commit` u tom slučaju svejedno ispisao „ZAPISANO" i nitko
+ * to ne bi vidio do sutrašnjeg tripwirea.
+ *
+ * Ovo NE čini pisanje atomarnim — čini ga provjerenim. Pravu atomarnost daje tek
+ * jedna Postgres funkcija koja primi cijeli payload (izmjereno: 95,8 kB za 217
+ * kandidata, stane u jedan RPC poziv); dotad je ovo mreža ispod.
+ */
+async function verifyConverged(liveSlugs) {
+  const poslije = await fetchExistingRows();
+  const bySlug = new Map(poslije.map((r) => [r.slug, r]));
+  const problemi = [];
+
+  for (const slug of liveSlugs) {
+    const r = bySlug.get(slug);
+    if (!r) problemi.push(`${slug}: kandidat iz registra nije u bazi`);
+    else if (r.status === "withdrawn") problemi.push(`${slug}: kandidat je ostao withdrawn`);
+  }
+  for (const r of poslije) {
+    if (r.status === "candidate" && !liveSlugs.has(r.slug)) {
+      problemi.push(`${r.slug}: nije kandidat po registru, a u bazi je 'candidate'`);
+    }
+  }
+  return problemi;
+}
+
 // ─── mali concurrency pool ───────────────────────────────────────────────────
 async function runPool(items, limit, worker) {
   const results = new Array(items.length);
@@ -372,6 +448,9 @@ async function main() {
   const registry = JSON.parse(readFileSync(REGISTRY_PATH, "utf-8"));
   const all = registry.podcasts || [];
   const candidates = all.filter(isCandidate);
+  // SVI zapisi po slugu — treba za razlikovanje „onboardan" od „nestao" kod
+  // redova koji su ispali iz §3 filtra (v. `ispali` niže).
+  const byRegistry = new Map(all.map((p) => [p.slug, p]));
 
   log("📖", `Registar v${registry.version || "?"} — ${all.length} zapisa, ${candidates.length} kandidata (§3 filtar).`);
 
@@ -399,6 +478,15 @@ async function main() {
       log("🗄", `Baza: ${existing.length} postojećih redova (${SUPABASE_URL}).`);
     } catch (e) {
       if (COMMIT) throw e;
+      if (CHECK) {
+        // Exit 2, ne 1: prolazna mrežna greška NIJE drift. Bez ovoga `existing`
+        // ostane null, `existing.length` u --check izvještaju pukne s
+        // TypeError, main() izađe s 1 i tripwire pošalje lažnu uzbunu „bazen
+        // zaostaje za registrom" — a pod `--sync` bi na tu lažnu uzbunu i
+        // PISAO. (Izmjereno 2.9.2026.: `fetch failed` na prvom pokušaju.)
+        console.error(`❌  Ne mogu pročitati bazu (${e.message}) — --check ne može zaključiti ništa.`);
+        process.exit(2);
+      }
       warn(`Ne mogu pročitati bazu (${e.message}) — nastavljam bez diffa.`);
     }
   } else if (COMMIT) {
@@ -474,11 +562,24 @@ async function main() {
   const liveSlugs = new Set(rows.map((r) => r.slug));
   const novi = existing ? scoped.filter((r) => !byExisting.has(r.slug)).map((r) => r.slug) : [];
   const azurirani = existing ? scoped.filter((r) => byExisting.has(r.slug)).map((r) => r.slug) : [];
-  // ispali iz registra/filtra → withdrawn (NIKAD delete: glasovi ih referenciraju)
-  const zaPovlacenje = (existing || [])
-    .filter((r) => r.status === "candidate" && !liveSlugs.has(r.slug))
+  // Ispali iz filtra → status po RAZLOGU (NIKAD delete: glasovi ih referenciraju).
+  // Do 2.9.2026. su oba razloga završavala kao `withdrawn`, pa je baza šutjela o
+  // tome je li kandidat NESTAO ili smo ga MI onboardali u pipeline. Registar to
+  // zna: `tracking.enabled === true` je onboardan kanal, sve ostalo (zapis
+  // obrisan, status ugašen, url maknut) je pravo povlačenje.
+  const ispali = (existing || []).filter(
+    (r) => r.status === "candidate" && !liveSlugs.has(r.slug)
+  );
+  const zaOnboardane = ispali
+    .filter((r) => byRegistry.get(r.slug)?.tracking?.enabled === true)
     .map((r) => r.slug);
-  // vratili se u filtar dok su bili withdrawn → natrag u bazen
+  const zaPovlacenje = ispali
+    .filter((r) => byRegistry.get(r.slug)?.tracking?.enabled !== true)
+    .map((r) => r.slug);
+  // Vratili se u filtar dok su bili withdrawn → natrag u bazen.
+  // ⚠ NAMJERNO samo `withdrawn`: onboardan kanal koji netko kasnije makne iz
+  // praćenja NE smije natrag u glasanje — već ga imamo, glasanje o njemu nema
+  // smisla. Zato je `onboarded` u zamrznutom skupu ispod.
   const zaVracanje = (existing || [])
     .filter((r) => r.status === "withdrawn" && liveSlugs.has(r.slug))
     .map((r) => r.slug);
@@ -497,9 +598,10 @@ async function main() {
       baza_redova: existing.length,
       novi,
       povuceni: zaPovlacenje,
+      onboardani: zaOnboardane,
       vraceni: zaVracanje,
       zamrznuti: zamrznuti.length,
-      drift: novi.length + zaPovlacenje.length + zaVracanje.length,
+      drift: novi.length + zaPovlacenje.length + zaOnboardane.length + zaVracanje.length,
     };
     if (AS_JSON) {
       console.log(JSON.stringify(izvjestaj, null, 2));
@@ -511,6 +613,7 @@ async function main() {
       console.log(`  DRIFT:     ${izvjestaj.drift}`);
       if (novi.length) console.log(`    fali u bazi (${novi.length}): ${novi.join(", ")}`);
       if (zaPovlacenje.length) console.log(`    za povući (${zaPovlacenje.length}): ${zaPovlacenje.join(", ")}`);
+      if (zaOnboardane.length) console.log(`    za označiti onboardanima (${zaOnboardane.length}): ${zaOnboardane.join(", ")}`);
       if (zaVracanje.length) console.log(`    za vratiti (${zaVracanje.length}): ${zaVracanje.join(", ")}`);
       console.log("─".repeat(64));
       console.log(izvjestaj.drift === 0
@@ -525,9 +628,28 @@ async function main() {
   if (COMMIT) {
     await upsertRows(scoped);
     await patchStatus(zaPovlacenje, "withdrawn");
+    await patchStatus(zaOnboardane, "onboarded");
     await patchStatus(zaVracanje, "candidate");
     if (FORCE_AVATARS) await purgeCdn(uploadedUrls);
-    log("✅", `Zapisano: ${scoped.length} upsertano, ${zaPovlacenje.length} withdrawn, ${zaVracanje.length} vraćeno, ${avatarStats.uploadano} avatara na CDN.`);
+    log("✅", `Zapisano: ${scoped.length} upsertano, ${zaPovlacenje.length} withdrawn, ` +
+              `${zaOnboardane.length} onboarded, ${zaVracanje.length} vraćeno, ` +
+              `${avatarStats.uploadano} avatara na CDN.`);
+
+    // `--limit` NAMJERNO ostavlja bazu u driftu (upsertan je samo dio kandidata),
+    // pa bi provjera nad njim uvijek pala — to je debug flag, ne pravi prolaz.
+    if (LIMIT === Infinity) {
+      const problemi = await verifyConverged(liveSlugs);
+      if (problemi.length) {
+        console.error(`❌  Pisanje NIJE konvergiralo — ${problemi.length} odstupanja nakon --commit:`);
+        for (const x of problemi.slice(0, 20)) console.error(`     ${x}`);
+        if (problemi.length > 20) console.error(`     … i još ${problemi.length - 20}`);
+        console.error("    Ponovi --commit; ako se ponavlja, baza i registar se ne slažu strukturno.");
+        process.exit(2);
+      }
+      log("🔎", "Provjera nakon pisanja: baza je poravnata s registrom.");
+    } else {
+      warn("Provjera nakon pisanja preskočena — `--limit` namjerno ostavlja drift.");
+    }
   }
 
   // ── izvještaj ─────────────────────────────────────────────────────────────
@@ -538,7 +660,8 @@ async function main() {
     avatari: { razrijeseni, ...avatarStats },
     baza: existing
       ? { postojecih: existing.length, novih: novi.length, azuriranih: azurirani.length,
-          za_povlacenje: zaPovlacenje.length, za_vracanje: zaVracanje.length, zamrznutih: zamrznuti.length }
+          za_povlacenje: zaPovlacenje.length, za_onboardane: zaOnboardane.length,
+          za_vracanje: zaVracanje.length, zamrznutih: zamrznuti.length }
       : null,
     committed: COMMIT,
   };
@@ -556,9 +679,11 @@ async function main() {
               `${avatarStats.bezIzvora} bez izvora, ${avatarStats.greske} grešaka`);
   if (existing) {
     console.log(`  Baza:      ${novi.length} novih, ${azurirani.length} ažuriranih, ` +
-                `${zaPovlacenje.length} → withdrawn, ${zaVracanje.length} → natrag u bazen, ` +
+                `${zaPovlacenje.length} → withdrawn, ${zaOnboardane.length} → onboarded, ` +
+                `${zaVracanje.length} → natrag u bazen, ` +
                 `${zamrznuti.length} zamrznutih (winner/onboarding/onboarded)`);
     if (zaPovlacenje.length) console.log(`             withdrawn: ${zaPovlacenje.join(", ")}`);
+    if (zaOnboardane.length) console.log(`             onboarded: ${zaOnboardane.join(", ")}`);
   } else {
     console.log("  Baza:      preskočena (nema SUPABASE_SERVICE_ROLE_KEY)");
   }
