@@ -455,7 +455,13 @@ async function processArticle(articlePath) {
                 console.log(`   🎧 Audio-only (beamly, _yt_matched=false) — preskačem screenshote: ${videoBase}`);
                 return { total: 0, captured: 0, skipped: 0, failed: 0 };
             }
-            if (info._source && info._source !== "youtube") {
+            // `_yt_matched === true` znači da epizoda IMA pravi YouTube video (beamly
+            // matchan na YT), pa je stream put ispravan — `_source` sam po sebi nije
+            // dokaz sintetičkog ID-a. Bez ove ograde su 4 matchane subclub epizode
+            // (1R1_ZbmLyJI, jzlPf100vy4, sKonOtcJFTU, DnzG2OvRflI) trajno padale na
+            // "ne mogu dohvatiti ni stream URL ni lokalni video" — lokalni .mp4 ne
+            // postoji jer se za matchane epizode i ne skida.
+            if (info._source && info._source !== "youtube" && info._yt_matched !== true) {
                 localOnly = true;
             }
         } catch (_) { /* nevažeći info.json — nastavi normalno (yt-dlp put) */ }
