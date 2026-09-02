@@ -213,6 +213,9 @@ node audit_pipeline.js --deep
 
 ## 7. Vezani dokumenti
 
+- [`2026-09-02-audit-nula-rupa.md`](./2026-09-02-audit-nula-rupa.md) — prvi put kad je
+  ovaj audit doveden na 0 rupa (3276/3276). Ključno: `force_upload` preporuka iz audita
+  je smjerno slijepa — kod 13 od 15 driftanih epizoda CDN je bio bogatiji od diska.
 - [`2026-08-28-abbacast-onboarding-backfill.md`](./2026-08-28-abbacast-onboarding-backfill.md)
   — prvi onboarding nakon ovog popravka; potvrđuje da scan po stanju radi na svježem
   kanalu, uz mjerenja po fazama (dijarizacija 12,4 h zvuka u 28 min, ~22× realtime) i
