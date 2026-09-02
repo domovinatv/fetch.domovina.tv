@@ -30,9 +30,10 @@
  *   node ingest_beamly.js --source subclub     # samo jedan
  *   node ingest_beamly.js --limit 2 --dry-run  # proba na 2 epizode, bez pisanja
  *   node ingest_beamly.js --repo /path/to/subclub
+ *   node ingest_beamly.js --repair-info        # dopiši .info.json postojećim epizodama
  */
 
-import { mkdir, writeFile, readFile, rename, access, appendFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile, readdir, rename, access, appendFile } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
@@ -54,6 +55,13 @@ const SUBCLUB_REPO =
 const ONLY_SOURCE = getFlag("source"); // "subclub" | "launched" | null
 const LIMIT = getFlag("limit") ? parseInt(getFlag("limit"), 10) : Infinity;
 const DRY_RUN = hasFlag("dry-run");
+// Epizode ingestirane prije nego je skripta pisala .info.json (ili kojima je taj
+// artefakt naknadno nestao) ostaju zauvijek bez njega: glavna petlja ih preskoči
+// jer su u completed[]. `--repair-info` dopisuje SAMO taj nedostajući artefakt —
+// ne dira mp3, listu ni state. Bez njega `audit_pipeline.js` te epizode trajno
+// prijavljuje kao blocker=fetch („nema .info.json"), a screenshot korak ne zna da
+// su audio-only pa ih uzalud šalje na YouTube.
+const REPAIR_INFO = hasFlag("repair-info");
 
 const OUTPUT_ROOT = join(HERE, "storage", "output");
 const PODCASTS_DIR = join(HERE, "automatic", "podcasts");
@@ -200,6 +208,27 @@ function buildChannelJson(source, episodes) {
   };
 }
 
+// Dopiši .info.json epizodi koja je već ingestirana. Base se NE računa iz naslova
+// (sanitizeTitle se s vremenom mijenjao) nego čita s diska po `_yt_<id>` u imenu,
+// a `_yt_matched` se izvodi iz ID-a koji je u tom imenu stvarno završio.
+async function repairInfoJson({ ep, videoId, synth, source, outDir, stats }) {
+  let files;
+  try { files = await readdir(outDir); } catch { return; }
+  for (const id of [videoId, synth]) {
+    const media = files.find((f) => f.includes(`_yt_${id}.`) && (f.endsWith(".mp3") || f.endsWith(".wav")));
+    if (!media) continue;
+    const base = media.replace(/\.(mp3|wav)$/, "");
+    if (files.includes(`${base}.info.json`)) return;
+    const info = buildInfoJson({ ep, videoId: id, source });
+    info._yt_matched = id !== synth;
+    if (DRY_RUN) { log(`  [dry] repair-info ${base}.info.json`); return; }
+    await writeFile(join(outDir, `${base}.info.json`), JSON.stringify(info, null, 2) + "\n");
+    stats.repaired = (stats.repaired || 0) + 1;
+    log(`  REPAIR-INFO ${base}.info.json (_yt_matched=${info._yt_matched})`);
+    return;
+  }
+}
+
 // ---- per-source ingest -----------------------------------------------------
 async function ingestSource(source) {
   log(`=== ${source.display} (${source.slug}) ===`);
@@ -250,6 +279,7 @@ async function ingestSource(source) {
     // pokrećemo slučajno. Vidi memory: beamly-refresh-architecture-and-enrich-gap.
     if (done.has(videoId) || done.has(synth)) {
       stats.skipped++;
+      if (REPAIR_INFO) await repairInfoJson({ ep, videoId, synth, source, outDir, stats });
       continue;
     }
     if (!ep.soundLink) {
