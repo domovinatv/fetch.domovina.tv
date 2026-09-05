@@ -4,7 +4,7 @@
   "channel_id": "UCHqOpHIEveT_cRSPElzyOEw",
   "title": "Hercegovina.info",
   "availability": "public",
-  "channel_follower_count": 3810,
+  "channel_follower_count": 3820,
   "description": "Donosimo vijesti, priče i analize koje oblikuju svakodnevicu.\nZajedno gradimo informiranu i odgovornu zajednicu.\n",
   "tags": [
     "Hercegovina",
@@ -98,7 +98,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1788562903,
+  "epoch": 1788649306,
   "__files_to_move": {},
   "_version": {
     "version": "2026.08.19",
