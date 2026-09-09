@@ -4,6 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## ⛔ HARD RULES — READ FIRST
 
+0. **🛑 PIPELINE JE PAUZIRAN (09.09.2026.) — GCP krediti istekli.** Free-trial
+   krediti na billing accountu `016BE2-D24293-12968B` prestali su **31.08.2026.**,
+   od tada Vertex ide na karticu. Svi launchd jobovi koji troše Vertex su
+   `bootout`+`disable`-ani: `tv.domovina.fetch.nightly`, `tv.domovina.fetch.priority`,
+   `tv.domovina.fetch.magisterium`, `tv.domovina.rag.sync`.
+   **NE odpauziravati i ne pokretati `run_pipeline.sh` s `--gemini-backend vertex`**
+   dok novi GCP projekt nije napravljen i `gemini.conf` prebačen na njega.
+   Naredbe za pauzu/odpauzu, popis što troši a što ne, i zamke:
+   `docs/2026-09-09-launchd-pauza-gcp-billing.md`.
+
 1. **Pipeline rad SAMO iz OVOG repoa.** Sav fetch / transkripcija / diarizacija /
    summary / article / Magisterium / RAG / R2 / channel backfill posao mora se
    voditi iz Claude Code sesije pokrenute u `/Users/ms/git/domovinatv/fetch.domovina.tv`.
