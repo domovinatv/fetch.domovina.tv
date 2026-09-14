@@ -23,7 +23,7 @@ flowchart TB
         K6["KORAK 6 — diarize_canary.py (pyannote, MPS)<br/>→ {base}.wav.canary.diarized.srt"]
     end
 
-    subgraph VERTEX["🤖 Vertex AI (project-a275a620, OAuth)"]
+    subgraph VERTEX["🤖 Vertex AI (bimbo-sync-prod, OAuth)"]
         K7["KORAK 7 — summarize_gemini.js → summary.json"]
         K8["KORAK 8 — generate_article_gemini.js<br/>faza1 outline.json + faza2 article.json"]
         K65["KORAK 6.5 — translate_to_english.js<br/>(REGIONAL-ONLY, bez global) → *.en.json"]
@@ -76,23 +76,38 @@ flowchart TB
 
 ## 2. Tri stvari naučene u runu 2026-06-08 (NOVO)
 
-### 2.1 Naplatni projekt: `domovina-sync-ms` je u dunningu → `project-a275a620`
+### 2.1 Naplatni projekt: aktualan je **`bimbo-sync-prod`** (od 14.09.2026.)
 
 ```mermaid
 flowchart LR
     A["standalone poziv skripte<br/>(bez env override)"] --> B{"VERTEX_PROJECT?"}
-    B -->|"gemini.conf<br/>(STARO: domovina-sync-ms)"| C["403 'Lightning dunning<br/>decision is deny'<br/>na SVIM regijama"]
-    B -->|"project-a275a620<br/>(billing 016BE2)"| D["200 OK"]
+    B -->|"domovina-sync-ms<br/>(MRTAV, dunning)"| C["403 'Lightning dunning<br/>decision is deny'"]
+    B -->|"project-a275a620<br/>(MRTAV, krediti potroseni 31.08.)"| E["200 OK ali se NAPLACUJE<br/>s kartice"]
+    B -->|"bimbo-sync-prod<br/>(billing 01FAEA, free trial)"| D["200 OK"]
     style C fill:#f8d7da
+    style E fill:#fff3cd
     style D fill:#d4edda
 ```
 
-- `domovina-sync-ms` (billing `0140D3-08E99F-E8C697`) je u **dunningu**: Vertex vraća
-  `403 PERMISSION_DENIED "Lightning dunning decision is deny for project: projects/1091687353506"`.
-- Ispravan projekt: **`project-a275a620-ef0c-45ae-99e`** (billing `016BE2-D24293-12968B`).
-- **Cementirano:** `gemini.conf VERTEX_PROJECT=project-a275a620-...` + hardkodirani fallbacks u
-  `summarize_gemini.js`, `generate_article_gemini.js`. `run_pipeline.sh:79` već je imao `export` override —
-  ali standalone pozivi (bez run_pipeline) padali su na stari projekt. Sada rade out-of-the-box.
+**Aktualan projekt: `bimbo-sync-prod`** (projectNumber `984390019987`, billing
+`01FAEA-72A278-819B25`, novi free-trial krediti). Prebačeno 14.09.2026.;
+`aiplatform.googleapis.com` enableana istog dana, `gemini-3.5-flash` i
+`gemini-3-flash-preview` na global endpointu vraćaju 200.
+
+Dva ranija projekta **se više ne koriste** — ne vraćaj ih iz starih dokumenata:
+
+| Projekt | Billing | Zašto je mrtav | Razdoblje |
+|---|---|---|---|
+| `domovina-sync-ms` | `0140D3-08E99F-E8C697` | Dunning — `403 PERMISSION_DENIED "Lightning dunning decision is deny for project: projects/1091687353506"` | do 08.06.2026. |
+| `project-a275a620-ef0c-45ae-99e` | `016BE2-D24293-12968B` | Free-trial krediti potrošeni **31.08.2026.** → svaki poziv ide na karticu. Zbog toga je 09.09. pauziran cijeli launchd (`2026-09-09-launchd-pauza-gcp-billing.md`) | 08.06.–14.09.2026. |
+
+- **Cementirano na 4 mjesta** (svako mora pokazivati na isti projekt):
+  `gemini.conf VERTEX_PROJECT`, hardkodirani fallbacks u `summarize_gemini.js` i
+  `generate_article_gemini.js`, te `export VERTEX_PROJECT` u `run_pipeline.sh`.
+  Fallbacks postoje jer standalone pozivi (bez `run_pipeline.sh`) inače padnu na default.
+- **Izvan ovog repoa** projekt drže još: `../domovina-rag/.env` (job `tv.domovina.rag.sync`)
+  i `../ecosystem-brain/.state/llm.env` + `bin/llm`. Migracija koja preskoči njih ostavlja
+  pola sustava da gađa mrtav projekt.
 
 ### 2.2 EN prijevod: izbaci `global` endpoint iz rotacije
 
@@ -226,7 +241,7 @@ bio **~3,5 h** umjesto ~10 h.
 | [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_2026-05.md) | Detaljni dizajn hibrida |
 | [`diarization_research_2026-05.md`](./diarization_research_2026-05.md) | Zašto pyannote ide lokalno |
 | [`2026-08-05-homily-extraction-nova-eva.md`](./2026-08-05-homily-extraction-nova-eva.md) | Rez propovijedi iz prijenosa sv. mise: zašto 83.7 % mise ne smije u RAG, `extract_homily.js`, gate u koracima 7-9 |
-| `gemini.conf` | `VERTEX_PROJECT=project-a275a620-...` (cementirano 2026-06-08) |
+| `gemini.conf` | `VERTEX_PROJECT=bimbo-sync-prod` (prebačeno 14.09.2026.; prije toga `project-a275a620-...`) |
 | `magisterium_doc_urls.json` | Cache citat→UUID (raste sa svakim runom) |
 
 **Stvoreno:** 2026-06-08 kao capstone produkcijskog runa od 12 epizoda (od Colab transkripcije do CDN-a),

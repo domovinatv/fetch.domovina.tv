@@ -4,15 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## ⛔ HARD RULES — READ FIRST
 
-0. **🛑 PIPELINE JE PAUZIRAN (09.09.2026.) — GCP krediti istekli.** Free-trial
-   krediti na billing accountu `016BE2-D24293-12968B` prestali su **31.08.2026.**,
-   od tada Vertex ide na karticu. Svi launchd jobovi koji troše Vertex su
-   `bootout`+`disable`-ani: `tv.domovina.fetch.nightly`, `tv.domovina.fetch.priority`,
-   `tv.domovina.fetch.magisterium`, `tv.domovina.rag.sync`.
-   **NE odpauziravati i ne pokretati `run_pipeline.sh` s `--gemini-backend vertex`**
-   dok novi GCP projekt nije napravljen i `gemini.conf` prebačen na njega.
-   Naredbe za pauzu/odpauzu, popis što troši a što ne, i zamke:
-   `docs/2026-09-09-launchd-pauza-gcp-billing.md`.
+0. **☁️ GCP PROJEKT = `bimbo-sync-prod`. SAMO TAJ.** (od 14.09.2026.)
+   Billing `01FAEA-72A278-819B25`, novi free-trial krediti. Svi Vertex pozivi —
+   summary, članak, EN prijevod, RAG vector/person map — idu na njega.
+   **Stari `project-a275a620-ef0c-45ae-99e` se VIŠE NE KORISTI** (krediti potrošeni
+   31.08.2026., dalje bi išlo na karticu); `domovina-sync-ms` je prije toga pao u
+   dunning. Ne vraćaj ih ni iz jednog starijeg dokumenta ili `daily/` zapisa.
+   Projekt je pinan na 6 mjesta i sva moraju biti ista: `gemini.conf`,
+   `run_pipeline.sh`, fallback u `summarize_gemini.js` i `generate_article_gemini.js`,
+   `../domovina-rag/.env`, `../ecosystem-brain/.state/llm.env`.
+   Pipeline je odpauziran 14.09.2026. (launchd jobovi `enable`+`bootstrap`).
+   Povijest pauze i popis što troši Vertex: `docs/2026-09-09-launchd-pauza-gcp-billing.md`,
+   migracija: `docs/2026-09-14-migracija-na-bimbo-sync-prod.md`.
 
 1. **Pipeline rad SAMO iz OVOG repoa.** Sav fetch / transkripcija / diarizacija /
    summary / article / Magisterium / RAG / R2 / channel backfill posao mora se

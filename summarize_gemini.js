@@ -64,7 +64,7 @@ const GEMINI_CONF = loadGeminiConf();
 
 // env > gemini.conf > default (--model i dalje prepisuje oboje, vidi main()).
 let GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
 const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";

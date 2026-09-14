@@ -157,7 +157,7 @@ Za više vremena (npr. 03:00 **i** 15:00), promijeni `<dict>` u `<array>` s dva 
 ## Trošak
 
 Pipeline na "tipičnom" run-u kad ima 1-2 nova videa:
-- Vertex AI Gemini (summary + article): ~$0.05–$0.20 per video, billing na `domovina-sync-ms` (memory `gcp_project_domovina_sync_ms.md`)
+- Vertex AI Gemini (summary + article): ~$0.05–$0.20 per video, billing na `bimbo-sync-prod` (od 14.09.2026.; prije `project-a275a620-...`)
 - R2 upload: free egress, storage ~$0.015/GB/mjesec
 - Colab G4 (kad ručno trigger-aš): ~$0.003 per file (memory `transcription_only_g4_colab.md`)
 

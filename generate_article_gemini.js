@@ -100,7 +100,7 @@ const PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : (USING_A
 const CLAUDE_SLUGS = ["opus", "sonnet", "haiku", "fable"];
 
 // Vertex AI endpoint s Bearer tokenom (koristi GCP kredite, ne naplaćuje karticu)
-const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "project-a275a620-ef0c-45ae-99e";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
 const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";

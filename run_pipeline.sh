@@ -105,7 +105,7 @@ echo "   🐍 Python interpreter: $PYTHON_BIN"
 # VERTEX_PROJECT env var ima PREDNOST nad gemini.conf u summarize_gemini.js /
 # generate_article_gemini.js (proces.env.VERTEX_PROJECT || conf || default).
 # Postavljen ovdje da koraci 7+8 (sumarizacija + članci) koriste ovaj projekt.
-export VERTEX_PROJECT="project-a275a620-ef0c-45ae-99e"
+export VERTEX_PROJECT="bimbo-sync-prod"
 
 # --- PROVJERA STAROSTI yt-dlp ---
 # yt-dlp se mijenja ~mjesečno prateći YouTube promjene. Zastarjela verzija ne pada
@@ -152,7 +152,10 @@ echo "║   🚀 DOMOVINA.TV AUDIO PIPELINE                 ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo "   ⏱️  Početak: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "   📂 Argumenti: $*"
-echo "   ☁️  GCP projekt: $(gcloud config get-value project 2>/dev/null || echo 'N/A')"
+# Mjerodavan je VERTEX_PROJECT (export gore / gemini.conf), NE `gcloud config`.
+# Globalni gcloud config namjerno pokazuje drugdje — ispiši oboje da log ne laže.
+echo "   ☁️  Vertex projekt: ${VERTEX_PROJECT} (mjerodavno)"
+echo "   ℹ️  gcloud config:  $(gcloud config get-value project 2>/dev/null || echo 'N/A') (nebitno za pipeline)"
 echo ""
 
 # --- PARSIRANJE ARGUMENATA ---
