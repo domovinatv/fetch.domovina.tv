@@ -10,12 +10,14 @@ Tier B: zasebna og-t-{sec}.jpg po section-u (ovaj script, KORAK 9.6) — worker
 
 Input per video:
   {channel}/{base}.article.json                     subtitle + screenshot_timestamp
+  {channel}/{base}.article.en.json                  subtitle_en (opcionalno, za -en varijantu)
   {channel}/{base}.info.json                        title, uploader, channel, duration
   {channel}/{base}_screenshots/{base}_{HH-MM-SS}.png  postojeci frame (REUSE)
 
 Output:
-  {channel}/{base}.og-sections/og-t-{sec}.jpg       composite per section
-  {channel}/{base}.og-sections/manifest.json        map sec -> filename
+  {channel}/{base}.og-sections/og-t-{sec}.jpg       composite per section (HR)
+  {channel}/{base}.og-sections/og-t-{sec}-en.jpg    isto, subtitle_en iz article.en.json
+  {channel}/{base}.og-sections/manifest.json        {sections, sections_en} -> filename
 
 Composite specs (jednako Tier A za WhatsApp/FB/LinkedIn kompatibilnost):
   - 1200x630 (OG canonical 1.91:1)
@@ -26,7 +28,7 @@ Layout:
   +-------------------------------------------+
   | [ frame iz videa cover-crop 1200x630   ] |
   | [ tamni gradijent na donja ~60% visine ] |
-  | ⏱ HH:MM:SS                                |
+  | (sat) HH:MM:SS  ●                         |
   | Subtitle iz article.json (max 2 linije)   |
   | ─── (CRO navy linija)                     |
   | Episode title (truncate na ~70 chara)     |
@@ -175,6 +177,27 @@ def get_font(size, bold=False):
     return font
 
 
+def draw_clock_icon(draw, x, y, size, color, stroke=2):
+    """Vektorska ikona sata (brojčanik + dvije kazaljke + krunica).
+
+    NE crtamo znak ⏱ (U+23F1): Helvetica.ttc ga nema, pa ga Pillow renderira kao
+    .notdef — prazan kvadratić. Bilo je vidljivo na SVAKOJ og-t slici u
+    WhatsApp/FB previewu (izmjereno 15.9.2026. na og-t-1185.jpg). Vektor nema
+    ovisnost o fontu pa ne može tiho pasti na isti način.
+    """
+    r = size / 2.0
+    cx, cy = x + r, y + r
+    # Krunica (stopwatch stem) — kratka crtica iznad brojčanika.
+    draw.line(
+        [(cx, y - max(stroke, 2)), (cx, y + stroke * 0.5)],
+        fill=color, width=stroke,
+    )
+    draw.ellipse((x, y, x + size, y + size), outline=color, width=stroke)
+    # Minutna kazaljka gore, satna dolje-desno (čitljivo i na 20 px).
+    draw.line([(cx, cy), (cx, cy - r * 0.58)], fill=color, width=stroke)
+    draw.line([(cx, cy), (cx + r * 0.44, cy + r * 0.30)], fill=color, width=stroke)
+
+
 def cover_crop(img, target_w, target_h):
     """Resize image to cover target dim, center-crop overflow (kao CSS background-size: cover)."""
     src_w, src_h = img.size
@@ -265,9 +288,13 @@ def generate_composite(src_png_path, out_jpg_path, *, subtitle, timestamp_str,
     subtitle_lines = wrap_text(subtitle, subtitle_font, inner_w, max_lines=2)
 
     # --- Timestamp badge ---
+    # Ikona se CRTA (draw_clock_icon), ne piše kao ⏱ — Helvetica nema taj glyph.
     ts_font = get_font(28, bold=True)
-    ts_label = f"⏱ {timestamp_str}"
-    ts_w = ts_font.getbbox(ts_label)[2]
+    ts_label = timestamp_str
+    digit_top, digit_bottom = ts_font.getbbox('0')[1], ts_font.getbbox('0')[3]
+    icon_size = max(digit_bottom - digit_top, 8)
+    icon_gap = 10
+    ts_w = icon_size + icon_gap + ts_font.getbbox(ts_label)[2]
 
     # --- Episode title (donji manji red) ---
     title_font = get_font(22, bold=False)
@@ -286,19 +313,20 @@ def generate_composite(src_png_path, out_jpg_path, *, subtitle, timestamp_str,
     subtitle_block_h = subtitle_line_h * len(subtitle_lines)
     divider_gap = 16
     divider_h = 3  # CRO navy linija
-    ts_h = ts_font.getbbox(ts_label)[3] + 8  # padding ispod
+    ts_h = max(ts_font.getbbox(ts_label)[3], digit_top + icon_size) + 8  # padding ispod
     block_gap = 12
 
     total_h = ts_h + subtitle_block_h + divider_gap + divider_h + divider_gap + title_h + 8 + brand_h
     start_y = OG_HEIGHT - bottom_margin - total_h
     y = max(start_y, int(OG_HEIGHT * 0.45))  # ne preko gornje polovice
 
-    # Timestamp
-    draw.text((margin_x, y), ts_label, font=ts_font, fill=WHITE)
+    # Timestamp — vektorska ikona sata + brojke, poravnate po visini znamenki
+    draw_clock_icon(draw, margin_x, y + digit_top, icon_size, WHITE)
+    draw.text((margin_x + icon_size + icon_gap, y), ts_label, font=ts_font, fill=WHITE)
     # Mali CRO red dot pored timestampa
     dot_r = 5
     dot_x = margin_x + ts_w + 14
-    dot_y = y + ts_font.getbbox(ts_label)[3] // 2 + 2
+    dot_y = y + digit_top + icon_size // 2
     draw.ellipse((dot_x - dot_r, dot_y - dot_r, dot_x + dot_r, dot_y + dot_r), fill=CRO_RED)
     y += ts_h + block_gap
 
@@ -436,6 +464,7 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
         'sections_skipped': 0,
         'sections_skipped_no_png': 0,
         'sections_skipped_empty_subtitle': 0,
+        'sections_generated_en': 0,
         'errors': 0,
         'oversized': 0,
     }
@@ -492,67 +521,99 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
     og_dir = Path(channel_dir) / f"{video_base}.og-sections"
     screenshots_dir = Path(channel_dir) / f"{video_base}_screenshots"
 
-    # Process sections
-    manifest_sections = {}
-    for section in all_sections:
-        subtitle = (section.get('subtitle') or '').strip()
-        ts_str = section.get('screenshot_timestamp', '').strip()
+    def run_sections(sections, *, subtitle_key, filename_suffix, source_path):
+        """Generira composite po sekciji. Vraća {sec: filename}.
 
-        if not subtitle:
-            result['sections_skipped_empty_subtitle'] += 1
-            continue
-        if not ts_str:
-            result['sections_skipped_empty_subtitle'] += 1
-            continue
+        `subtitle_key` je 'subtitle' (HR) ili 'subtitle_en' (EN prijevod iz
+        article.en.json). Sekcija bez tog ključa se preskoči — worker tada
+        padne na HR sliku, što je bolje od prazne.
+        """
+        out_map = {}
+        for section in sections:
+            subtitle = (section.get(subtitle_key) or '').strip()
+            ts_str = (section.get('screenshot_timestamp') or '').strip()
 
+            if not subtitle or not ts_str:
+                result['sections_skipped_empty_subtitle'] += 1
+                continue
+
+            try:
+                sec = timestamp_to_seconds(ts_str)
+            except ValueError:
+                result['errors'] += 1
+                continue
+
+            # Source PNG mora postojati
+            png_name = f"{video_base}_{sanitize_ts_for_filename(ts_str)}.png"
+            src_png = screenshots_dir / png_name
+            if not src_png.exists():
+                result['sections_skipped_no_png'] += 1
+                continue
+
+            out_filename = f"og-t-{sec}{filename_suffix}.jpg"
+            out_path = og_dir / out_filename
+
+            # Idempotency
+            if not should_regenerate(out_path, source_path, str(src_png), force=force):
+                result['sections_skipped'] += 1
+                out_map[str(sec)] = out_filename
+                continue
+
+            if dry_run:
+                log('🧪', f'[DRY] {video_base[:60]} t={ts_str} → {out_filename}')
+                out_map[str(sec)] = out_filename
+                continue
+
+            try:
+                size, oversized = generate_composite(
+                    src_png, out_path,
+                    subtitle=subtitle,
+                    timestamp_str=ts_str,
+                    episode_title=episode_title,
+                    channel_name=channel_name,
+                )
+                result['sections_generated'] += 1
+                if oversized:
+                    result['oversized'] += 1
+                out_map[str(sec)] = out_filename
+            except Exception as e:
+                log('❌', f'{video_base[:60]} t={ts_str}: {e}')
+                result['errors'] += 1
+                continue
+        return out_map
+
+    # Process sections (HR)
+    manifest_sections = run_sections(
+        all_sections, subtitle_key='subtitle',
+        filename_suffix='', source_path=article_path,
+    )
+
+    # Process sections (EN) — samo ako postoji paralelni article.en.json.
+    # Bez ovoga /v/<id>/t/<sec>/en share nosi hrvatski ispisan subtitle u slici
+    # čak i kad je epizoda prevedena (izmjereno 15.9.2026.).
+    manifest_sections_en = {}
+    article_en_path = article_path[: -len('.article.json')] + '.article.en.json'
+    if os.path.exists(article_en_path):
         try:
-            sec = timestamp_to_seconds(ts_str)
-        except ValueError:
-            result['errors'] += 1
-            continue
-
-        # Source PNG mora postojati
-        png_name = f"{video_base}_{sanitize_ts_for_filename(ts_str)}.png"
-        src_png = screenshots_dir / png_name
-        if not src_png.exists():
-            result['sections_skipped_no_png'] += 1
-            continue
-
-        out_filename = f"og-t-{sec}.jpg"
-        out_path = og_dir / out_filename
-
-        # Idempotency
-        if not should_regenerate(out_path, article_path, str(src_png), force=force):
-            result['sections_skipped'] += 1
-            manifest_sections[str(sec)] = out_filename
-            continue
-
-        if dry_run:
-            log('🧪', f'[DRY] {video_base[:60]} t={ts_str} → {out_filename}')
-            manifest_sections[str(sec)] = out_filename
-            continue
-
-        try:
-            size, oversized = generate_composite(
-                src_png, out_path,
-                subtitle=subtitle,
-                timestamp_str=ts_str,
-                episode_title=episode_title,
-                channel_name=channel_name,
-            )
-            result['sections_generated'] += 1
-            if oversized:
-                result['oversized'] += 1
-            manifest_sections[str(sec)] = out_filename
+            article_en = load_article_json(article_en_path)
+            en_sections = [
+                sec for it in article_en.get('iterations', [])
+                for sec in it.get('sections', [])
+            ]
+            if en_sections and len(en_sections) <= MAX_SECTIONS:
+                manifest_sections_en = run_sections(
+                    en_sections, subtitle_key='subtitle_en',
+                    filename_suffix='-en', source_path=article_en_path,
+                )
         except Exception as e:
-            log('❌', f'{video_base[:60]} t={ts_str}: {e}')
-            result['errors'] += 1
-            continue
+            log('⚠️ ', f'{video_base[:60]} article.en.json: {e}')
+
+    result['sections_generated_en'] = len(manifest_sections_en)
 
     # Manifest
     if manifest_sections and not dry_run:
         manifest = {
-            'version': '1.0',
+            'version': '1.1',
             'generated_at': datetime.now(timezone.utc).isoformat(),
             'video_id': video_id,
             'video_base': video_base,
@@ -560,6 +621,7 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
             'channel': channel_name,
             'duration_sec': duration_sec or None,
             'sections': dict(sorted(manifest_sections.items(), key=lambda kv: int(kv[0]))),
+            'sections_en': dict(sorted(manifest_sections_en.items(), key=lambda kv: int(kv[0]))),
         }
         manifest_path = og_dir / 'manifest.json'
         manifest_path.parent.mkdir(parents=True, exist_ok=True)

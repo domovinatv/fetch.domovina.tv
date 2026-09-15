@@ -22,7 +22,7 @@
  *   - .rag_combined.jsonl        (RAG chunkovi)
  *   - _screenshots/*.png         (screenshotovi iz videa)
  *   - _screenshots/_manifest.json
- *   - .og-sections/og-t-{sec}.jpg (Tier B per-section composite, 1200×630 progressive JPEG q=85)
+ *   - .og-sections/og-t-{sec}[-en].jpg (Tier B per-section composite, 1200×630 progressive JPEG q=85)
  *   - .og-sections/manifest.json  (map sec → filename za worker)
  *   - .png (thumbnail, full-res)
  *   - .og-share.jpg (social-sharing varijanta, 1200×630 progressive JPEG q=85, < 600 KB za WhatsApp)
@@ -72,7 +72,7 @@
  *   Pipeline: {channel}/{base}.mp4                  →  App: data/{videoId}/video.mp4
  *   Pipeline: {channel}/{base}_screenshots/{ts}.png →  App: images/{videoId}/screenshots/{ts}.png
  *   Pipeline: {channel}/{base}_screenshots/_manifest →  App: images/{videoId}/screenshots/manifest.json
- *   Pipeline: {channel}/{base}.og-sections/og-t-{sec}.jpg → App: images/{videoId}/og-t-{sec}.jpg
+ *   Pipeline: {channel}/{base}.og-sections/og-t-{sec}[-en].jpg → App: images/{videoId}/og-t-{sec}[-en].jpg
  *   Pipeline: {channel}/{base}.og-sections/manifest.json → App: images/{videoId}/og-sections.json
  *
  * Preduvjeti:
@@ -198,7 +198,9 @@ const CACHE_CONTROL_MUTABLE = "public, max-age=60, must-revalidate";
 function cacheControlFor(r2Key) {
     if (r2Key.startsWith("channels/")) return CACHE_CONTROL_MUTABLE;
     const basename = r2Key.split("/").pop();
-    if (basename === "_manifest.json" || basename === "manifest.json") return CACHE_CONTROL_MUTABLE;
+    // Isti popis kao `isContentMutable` — vidi ondje zašto je og-sections.json tu.
+    if (basename === "_manifest.json" || basename === "manifest.json"
+        || basename === "og-sections.json") return CACHE_CONTROL_MUTABLE;
     return CACHE_CONTROL_IMMUTABLE;
 }
 
@@ -591,8 +593,8 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (r2Key.includes(".og-sections/")) {
         if (filename === "manifest.json")
             return `images/${videoId}/og-sections.json`;
-        // og-t-{sec}.jpg → images/{videoId}/og-t-{sec}.jpg (na top level images dir-a)
-        if (/^og-t-\d+\.jpg$/.test(filename))
+        // og-t-{sec}[-en].jpg → images/{videoId}/og-t-{sec}[-en].jpg (na top level images dir-a)
+        if (/^og-t-\d+(-en)?\.jpg$/.test(filename))
             return `images/${videoId}/${filename}`;
     }
 
@@ -711,8 +713,8 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
 
         for (const ogFile of ogFiles) {
             if (ogFile.startsWith("._")) continue;
-            // Prihvati samo og-t-{sec}.jpg i manifest.json — ignoriraj sve drugo
-            if (!/^og-t-\d+\.jpg$/.test(ogFile) && ogFile !== "manifest.json") continue;
+            // Prihvati samo og-t-{sec}[-en].jpg i manifest.json — ignoriraj sve drugo
+            if (!/^og-t-\d+(-en)?\.jpg$/.test(ogFile) && ogFile !== "manifest.json") continue;
 
             const ogLocalPath = path.join(ogSectionsDir, ogFile);
             let stat;
@@ -884,7 +886,15 @@ async function listAllR2Keys(client) {
 function isContentMutable(r2Key) {
     if (r2Key.startsWith("channels/images/")) return true;
     const basename = r2Key.split("/").pop();
-    return basename === "_manifest.json" || basename === "manifest.json";
+    // `og-sections.json` je og-sections MANIFEST nakon flutter-key mapiranja
+    // ({base}.og-sections/manifest.json → images/{id}/og-sections.json). Bez
+    // njega u ovom popisu manifest je prvim uploadom postao immutable na godinu
+    // dana: nove sekcije i cijela `sections_en` mapa (manifest v1.1) nikad ne
+    // stignu do workera, iako su slike na R2. Izmjereno 15.9.2026. na
+    // pNSblshqEuU — R2 je držao v1.0 dok su -en.jpg slike već bile gore.
+    return basename === "_manifest.json"
+        || basename === "manifest.json"
+        || basename === "og-sections.json";
 }
 
 /**
@@ -1014,6 +1024,10 @@ async function main() {
     // normalize implicira force (normalizirani .mp4 mora prepisati postojeći na R2).
     const normalizeAudio = hasFlag("--normalize-audio");
     const forceMp4 = hasFlag("--force-mp4") || normalizeAudio;
+    // --force-og → prisili re-upload og-t-{sec}[-en].jpg ključeva. Iste su
+    // immutable kao .mp4, pa bi regenerirana slika (npr. popravljen layout)
+    // ostala nevidljiva na CDN-u: lokalno nova, na R2 stara, upload "0 novih".
+    const forceOg = hasFlag("--force-og");
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -1383,6 +1397,17 @@ if (inputDir) {
         }
     }
 
+    // --force-og: isto za og-t-{sec}[-en].jpg (vidi komentar uz flag gore).
+    if (forceOg) {
+        const isOgKey = (k) => /\/og-t-\d+(-en)?\.jpg$/.test(k);
+        const forced = existingImmutable.filter(f => isOgKey(f.r2Key));
+        if (forced.length) {
+            existingImmutable = existingImmutable.filter(f => !isOgKey(f.r2Key));
+            newFiles.push(...forced);
+            log("🔁", `--force-og: ${forced.length} postojećih og-t ključeva → re-upload`);
+        }
+    }
+
     // Immutable file-ovi koji već postoje na R2 = automatski skip
     skipped += existingImmutable.length;
 
@@ -1498,6 +1523,18 @@ if (inputDir) {
         const driftUrls = driftFiles.map(f => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${f.r2Key}`);
         log("🧹", `CDN purge za ${driftUrls.length} popravljenih ključeva ...`);
         await purgeCloudflareCache(driftUrls);
+    }
+
+    // --force-og: purge prepisanih og-t slika. Bez ovoga popravljena slika sjedi
+    // na R2, a WhatsApp/FB i dalje dobivaju staru s edgea (immutable, 1 god).
+    if (forceOg && !dryRun) {
+        const ogUrls = newFiles
+            .filter(f => /\/og-t-\d+(-en)?\.jpg$/.test(f.r2Key))
+            .map(f => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${f.r2Key}`);
+        if (ogUrls.length) {
+            log("🧹", `Pokrećem CDN purge za ${ogUrls.length} prepisanih og-t slika ...`);
+            await purgeCloudflareCache(ogUrls);
+        }
     }
 
     // FAZA 3: purge CDN za prepisane .mp4 (immutable cache, inače stari servira 1god).
