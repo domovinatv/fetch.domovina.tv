@@ -76,8 +76,21 @@ if (!VERTEX_PROJECT) {
     process.exit(1);
 }
 
-const MAX_RETRIES = 5;
+// 429 na `global` endpointu zna doći u naletima (kvota je dijeljena i ne ovisi o
+// nama). Linearni backoff 3-6-9-12s u 5 pokušaja daje ukupno ~45 s čekanja — kraće
+// od tipičnog naleta, pa epizoda padne na MAX_RETRIES iako bi za minutu prošla.
+// Mjereno 15.09.2026. na gemini-3.8-flash: epizoda Is7ZDbWCu0k izgubljena nakon
+// 390 s, dok je prethodna (isti model, isti endpoint) prošla u cijelosti.
+// Zato 429 ima VLASTITI, eksponencijalni backoff, a ostale greške zadržavaju stari.
+const MAX_RETRIES = parseInt(process.env.TRANSLATE_MAX_RETRIES || "8", 10);
 const RETRY_BASE_DELAY_MS = 3000;
+const RETRY_MAX_DELAY_MS = parseInt(process.env.TRANSLATE_RETRY_MAX_MS || "60000", 10);
+
+/** 3s → 6 → 12 → 24 → 48 → 60 … uz jitter, da paralelni pozivi ne udare u isti trenutak. */
+function backoff429(attempt) {
+    const base = Math.min(RETRY_BASE_DELAY_MS * 2 ** (attempt - 1), RETRY_MAX_DELAY_MS);
+    return Math.round(base * (0.8 + Math.random() * 0.4));
+}
 const REQUEST_DELAY_MS = 200;
 
 // ─── OAuth TOKEN ──────────────────────────────────────────────────
@@ -227,7 +240,7 @@ async function translateOne(croatianText, dryRun) {
                     cachedAccessToken = null; tokenExpiry = 0; continue;
                 }
                 if (response.status === 429) {
-                    const waitMs = Math.min(RETRY_BASE_DELAY_MS * attempt, 30000);
+                    const waitMs = backoff429(attempt);
                     process.stderr.write(`\n      ⏳ 429 ${region}, čekam ${waitMs/1000}s (${attempt}/${MAX_RETRIES})`);
                     await sleep(waitMs); continue;
                 }

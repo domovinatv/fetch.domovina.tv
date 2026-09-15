@@ -123,3 +123,10 @@ Dvije stvari koje je backfill otkrio:
   kanalska epizoda (`_unlisted` nije indeksiran), pa kanalska kopija pobjeđuje.
 - **3 knjige na CDN-u nemaju lokalni izvor** (`6dcab9c9837`, `cd7ac05aabf`,
   `eab99cbaefd`) — sintetički Beamly ID-evi; ostaju sa starim linkovima.
+
+## Vezani dokumenti
+
+- `docs/2026-09-15-en-prijevod-mjerenja.md` — sve izmjerene brojke istog dana:
+  trajanja i broj poziva po epizodi, anatomija per-field prijevoda, stvarna Vertex
+  kvota (`effectiveLimit: None` = DSQ), trošak po epizodi i za katalog, mjerenja
+  cache hit-a i analiza alternativa.
