@@ -188,8 +188,11 @@ Navigacija: `nav.xhtml` (EPUB 3) **i** `toc.ncx` (stariji čitači, Kindle konve
 - **Nema `.mobi`/`.pdf`** varijante. PDF bi tražio rendering engine; ako zatreba,
   `pandoc` je već instaliran i može uzeti isti EPUB kao ulaz.
 - **Nema kataloga knjiga** — knjiga se ne pojavljuje nigdje u
-  `channels/data/index*.json`. Frontend je zasad ne zna prikazati; potreban je
-  `has_ebook` flag po uzoru na `has_article`.
+  `channels/data/index*.json`. Frontend je od 15.9.2026. ipak **zna prikazati**
+  (domovina.ai v2.0.152): ne čeka `has_ebook` flag nego radi HEAD probe na
+  `data/<id>/book.epub` s cache-busterom, pa nudi točno ona izdanja koja postoje.
+  Flag bi uštedio dva HEAD-a po epizodi, ali bi uveo zastavicu koja može lagati —
+  vidi `domovina.ai/docs/2026-09-15-ebook-epub-na-frontendu.md` §4.
 - **Backfill nije pokrenut.** Katalog ima ~2 500 epizoda s člankom → ~4,5 GB
   EPUB-ova i ~1 h CPU-a. Prije toga provjeri headroom diska i CDN plan
   (vidi memory: `confirm_delivery_target_before_long_backfill`).
