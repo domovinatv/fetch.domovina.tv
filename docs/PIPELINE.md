@@ -408,9 +408,19 @@ Output: `{basename}_screenshots/{basename}_{HH-MM-SS}.png` + `_manifest.json`
 
 #### 9.6. `generate_og_sections.py` — Tier B social slike
 
-Per-section 1200×630 JPEG-ovi za share URL-ove `domovina.ai/v/{VID}/t/{section}`. Reuse-a PNG-ove iz koraka 10, ImageMagick compositing (NE ffmpeg jer ne podržava progressive JPEG — memory `ffmpeg_no_progressive_jpeg`).
+Per-section 1200×630 JPEG-ovi za share URL-ove `domovina.ai/v/{VID}/t/{section}`. Reuse-a PNG-ove iz koraka 10, compositing kroz **Pillow** (`PIL.Image`/`ImageDraw`; NE ffmpeg jer ne podržava progressive JPEG — memory `ffmpeg_no_progressive_jpeg`).
 
-Output: `{basename}.og-sections/og-t-{section_id}.jpg` + manifest
+Postoji li `{basename}*.article.en.json`, uz svaku se sliku generira i `-en`
+varijanta iz `subtitle_en` (za `domovina.ai/v/{VID}/t/{section}/en`). EN članak
+se traži NEOVISNO o odabranom HR članku — prijevod je često rađen nad starijom
+generacijom, pa derivacija putanje iz HR promašuje.
+
+**Nikad emoji u kompozitu**: `⏱` nije bio u Helvetici i izlazio je kao prazan
+kvadratić na svih 65 759 slika (popravljeno 15.9.2026.). Ikone se crtaju
+vektorski (`draw_clock_icon`).
+
+Output: `{basename}.og-sections/og-t-{section_id}[-en].jpg` + manifest v1.1
+(`sections` + `sections_en`)
 
 #### 11. `generate_channel_index.js` — channel manifest
 
@@ -456,7 +466,8 @@ Mapira lokalne fajlove na CDN R2 key-eve:
 | `{basename}.png` | `images/{VID}/thumbnail.png` |
 | `{basename}.og-share.jpg` | `images/{VID}/og-share.jpg` |
 | `{basename}_screenshots/...{HH-MM-SS}.png` | `images/{VID}/screenshots/{HH-MM-SS}.png` |
-| `{basename}.og-sections/og-t-{N}.jpg` | `images/{VID}/og-t-{N}.jpg` |
+| `{basename}.og-sections/og-t-{N}[-en].jpg` | `images/{VID}/og-t-{N}[-en].jpg` |
+| `{basename}.og-sections/manifest.json` | `images/{VID}/og-sections.json` (mutable — vidi `isContentMutable`) |
 | `storage/meta/channels/data/{channel}.json` | `channels/data/{channel}.json` |
 
 **Optimizacije**:
