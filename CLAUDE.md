@@ -39,7 +39,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Run tests (Node.js built-in test runner, no external deps)
-node --test generate_article_gemini.test.js
+node --test                                  # svi testovi
+node --test generate_article_gemini.test.js  # jedan modul
 
 # Syntax check any JS file
 node -c <file.js>
@@ -104,7 +105,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
-| 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep (`docs/ebook_epub_pipeline.md`) |
+| 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep. Gradi i `{base}.en.epub` kad postoji `.article.en.json` (`docs/ebook_epub_pipeline.md`) |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 
@@ -123,6 +124,8 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `setup_storage.sh` | Create `storage/output/` symlinks from `storage.conf` |
 | `move_to_disk.sh` | Safely move a channel to another disk: rsync + verify + update `storage.conf` + recreate symlinks |
 | `sync_voting_candidates.mjs` | Registar → glasački bazen „Izbornog dana" (vidi ispod) |
+| `tools/rebuild_summary_md.js` | Ponovno složi `.canary.summary.md` iz postojećeg `.summary.json` — **nula API poziva** (npr. kad se promijeni format linkova) |
+| `tools/force_upload_epubs.js` | Bulk re-upload `data/{id}/book.epub` + CF purge (immutable ključevi). Šalje SAMO knjige koje su već objavljene — objavljivanje novih je posao nightlyja |
 
 ### `sync_voting_candidates.mjs` — registar → glasački bazen
 
@@ -456,7 +459,7 @@ hit returns a block the user then has to search by hand.
 7–10 već ostavili na disku. **Ne zove nijedan LLM** — 1.5 s CPU-a i 1.8 MB po
 epizodi, pa je bezuvjetan kao 9.5/9.6/9.7 (`--no-ebook` ga gasi).
 
-Tri stvari koje tiho pucaju:
+Tri zamke i jedno pravilo:
 
 1. **Mora ići NAKON KORAK 10.** Bez screenshotova knjiga izađe bez slika, ali
    `.epub` tada postoji → idući run je preskoči kao gotovu. Ista zamka zbog koje
@@ -467,6 +470,15 @@ Tri stvari koje tiho pucaju:
    poglavlja su izvedena novinarska obrada, a puni prijepis tuđe snimke u
    distribuiranoj datoteci je druga kategorija. Ne palit' katalog-wide bez
    dogovora s kanalima.
+4. **Svi klikabilni linkovi vode na domovina.ai, NIKAD na YouTube** (15.09.2026.).
+   EPUB je jedini artefakt koji putuje sam (WhatsApp, mail) — ako timestampovi u
+   njemu vode na `youtube.com/watch?v=…&t=Ns`, knjigu smo poklonili YouTubeu.
+   Format: `https://domovina.ai/v/:id/t/:sec` (stvarna Flutter ruta, ista koju
+   koriste og-share slike). YouTube smije ostati SAMO kao neklikabilan navod
+   izvora. Isto vrijedi za svaki budući offline artefakt (PDF, DOCX, export).
+   Regeneracija preko postojeće knjige ima ogradu `--allow-shrink` (bez
+   screenshotova bi nova knjiga tiho pregazila bogatu). Vidi
+   `docs/2026-09-15-linkovi-kroz-domovina-ai.md`.
 
 ZIP se piše ručno (`lib/zip_writer.js`) jer EPUB traži `mimetype` kao prvi zapis,
 nekomprimiran i bez extra-fielda. Naslovnicu radi ImageMagick — **lokalni ffmpeg

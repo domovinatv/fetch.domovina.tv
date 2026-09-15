@@ -150,7 +150,7 @@ const UPLOAD_SUFFIXES = [
     // EPUB e-knjiga (generate_ebook.js, KORAK 9.8) — ~1.8 MB/ep, write-once kao
     // article.json iz kojeg je izvedena. Regeneracija traži `--force` + CF purge
     // jer data/ ključevi idu s immutable Cache-Controlom.
-    ".epub",
+    ".epub",                    // uključuje i `{base}.en.epub` (endsWith) → data/{id}/book.en.epub
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -533,6 +533,11 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
 
     if (filename === `${videoBase}.og-share.jpg`)
         return `images/${videoId}/og-share.jpg`;
+
+    // Englesko izdanje knjige (generate_ebook.js gradi ga kad postoji .article.en.json).
+    // Mora doći PRIJE `.epub` grane radi jasnoće — provjere su egzaktne, pa se ne sudaraju.
+    if (filename === `${videoBase}.en.epub`)
+        return `data/${videoId}/book.en.epub`;
 
     if (filename === `${videoBase}.epub`)
         return `data/${videoId}/book.epub`;

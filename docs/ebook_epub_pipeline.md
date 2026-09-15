@@ -97,8 +97,60 @@ biti `(.+?)`, ne `([^.]+)`. Prva verzija je s `[^.]+` tiho našla **nula** epizo
 `_{date}_{model}.article.json` (`opus` > `gemini-*` > `agy`), pa knjiga uvijek
 prati onaj članak koji se i servira.
 
-**YouTube deep linkovi** u knjizi (`&t=NNNs`) traže **cijele** sekunde — SRT
-timestampovi su decimalni, pa ide `Math.floor`. `t=41.679s` YouTube ignorira.
+**Svi klikabilni linkovi vode na domovina.ai, nikad na YouTube** (od
+15.09.2026.). EPUB je jedini artefakt pipelinea koji putuje sam — netko ga
+pošalje na WhatsApp i on dalje živi izvan našeg kanala. Ako timestampovi u njemu
+vode na `youtube.com/watch?v=…&t=NNNs`, knjigu smo poklonili YouTubeu: čitatelj
+nikad ne vidi transkript, prijevod, teološku prosudbu ni pretragu, a promet ide
+nekom drugom. Format je `https://domovina.ai/v/:id/t/:sec` — stvarna ruta Flutter
+aplikacije (`domovina.ai/lib/router/app_router.dart`, ista koju koriste og-share
+slike). Bazu mijenja `EBOOK_SITE_BASE`.
+
+Deep link traži **cijele** sekunde (`/t/92`, ne `/t/92.4`) — SRT timestampovi su
+decimalni, pa ide `Math.floor`. Isto ograničenje koje je imao YouTube `&t=`.
+
+YouTube smije ostati **samo kao neklikabilan navod izvora** (`Izvornik:
+youtube.com/watch?v=…` na naslovnici i u kolofonu, `<dc:relation>` u OPF-u) —
+atribucija nakladniku se ne gubi, ali nigdje nema `<a href>` prema njemu. Beamly
+audio-only epizode (`_yt_matched === false`) imaju sintetički ID pa taj navod
+nemaju uopće.
+
+## Englesko izdanje (`{base}.en.epub`)
+
+Kad uz članak postoji i `{prefix}.article.en.json`, `generate_ebook.js` složi i
+**drugu knjigu**: `{base}.en.epub` → CDN `data/{videoId}/book.en.epub`. Gradi se
+automatski (kao EN og-sections u 9.6), gasi ga `--no-en`, a `--only-en` preskače
+hrvatsko izdanje.
+
+Radi zato što je `translate_to_english.js` **aditivan**: `.article.en.json` ima i
+`theme` i `theme_en`, i `content` i `content_en`. Knjizi zato ne treba drugi
+format — treba joj samo birati sufiks (`pickLang()`), pa poglavlja, timestampovi
+i screenshotovi ostaju identični hrvatskom izdanju.
+
+Što ide u EN izdanje:
+
+| Izvor | HR | EN |
+|---|---|---|
+| Poglavlja | `.article.json` | `.article.en.json` (`theme_en`, `subtitle_en`, `content_en`, `keywords_en`) |
+| Sažetak, ključne točke | `.canary.summary.json` | `.canary.summary.en.json` (`title_en`, `abstract_en`, …) |
+| Teološka prosudba | `.article.magisterium.json` | `.article.magisterium.en.json` (`assessment_en`, `concerns_en`, …) |
+| Linkovi | `/v/:id/t/:sec` | `/v/:id/t/:sec/en` |
+| `dc:language`, `xml:lang` | `hr` | `en` |
+
+Tri stvari koje bi inače tiho pukle:
+
+1. **`dc:identifier` mora biti različit** (`stableUuid(videoId + ":en")`), inače
+   čitač dvije knjige smatra istim naslovom i drugu ne uveze.
+2. **`upload_to_r2.js` treba eksplicitan mapping.** `.epub` u `UPLOAD_SUFFIXES`
+   hvata i `.en.epub` (endsWith), ali `getFlutterKey()` radi egzaktnu usporedbu —
+   bez grane za `{base}.en.epub` englesko izdanje nikad ne bi dobilo ključ, a u
+   bulk uploaderu bi (bez iste grane) pregazilo `book.epub`.
+3. **Uloge govornika se ne prevode.** `summary.speakers[].role` nema `_en`
+   varijantu; mali rječnik (`ROLE_EN`) pokriva `gost`/`voditelj`/`sugovornik` i
+   još ~20 čestih, ostalo ostaje u originalu. Bez LLM poziva, namjerno.
+
+Transkript u EN izdanju ostaje **na hrvatskom** (to je izvorni govor) i označen
+je kao „Full transcript (original language)". I dalje je opt-in.
 
 **Idempotencija:** postojeći `.epub` = gotov posao, preskače se bez `--force`.
 Ne vodi se zaseban state file — izvedena datoteka *jest* signal.
@@ -116,13 +168,13 @@ staru. Za pilot je to u redu jer se knjiga i mijenja samo kad se mijenja članak
 
 ```
 Naslovnica (1600×2400, thumbnail + naslov + kanal + datum)
-O ovoj epizodi   — sažetak, sudionici, teme, linkovi na YouTube i domovina.ai
+O ovoj epizodi   — sažetak, sudionici, teme, link na domovina.ai (+ navod izvora)
 Ključne točke    — key_points iz summary.json
 Poglavlje 1..N   — jedno po iteraciji članka
   └ sekcija: podnaslov → screenshot s deep linkom → tekst → ključne riječi
 Teološka prosudba — Magisterium (ocjena, sjemenke istine, ograde, izvori)  [ako postoji]
 Cjeloviti transkript — po govornicima, s deep linkovima                    [opt-in]
-Kolofon          — izvor, prava, kojim je alatima obrađeno
+Kolofon          — link na domovina.ai, navod izvora, prava, alati obrade
 ```
 
 Navigacija: `nav.xhtml` (EPUB 3) **i** `toc.ncx` (stariji čitači, Kindle konverzija).
