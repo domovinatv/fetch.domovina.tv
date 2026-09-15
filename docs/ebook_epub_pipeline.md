@@ -193,3 +193,9 @@ Navigacija: `nav.xhtml` (EPUB 3) **i** `toc.ncx` (stariji čitači, Kindle konve
 - **Backfill nije pokrenut.** Katalog ima ~2 500 epizoda s člankom → ~4,5 GB
   EPUB-ova i ~1 h CPU-a. Prije toga provjeri headroom diska i CDN plan
   (vidi memory: `confirm_delivery_target_before_long_backfill`).
+
+## Vezani dokumenti
+
+- `docs/2026-09-15-linkovi-kroz-domovina-ai.md` — zašto svi klikabilni linkovi u
+  offline artefaktima idu kroz domovina.ai, audit svih artefakata, runbook za
+  backfill i brojke izvedenog prolaza (3 331 knjiga, 3 277 na CDN).
