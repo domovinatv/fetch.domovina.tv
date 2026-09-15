@@ -431,6 +431,27 @@ def discover_videos(channel_dir):
     ]
 
 
+def find_article_en(channel_dir, video_base):
+    """Najnoviji `{video_base}*.article.en.json` u kanalu, ili None.
+
+    Ista leksikografska konvencija kao `discover_videos` za HR članak, ali
+    NEOVISNO o njemu — EN prijevod često postoji samo uz stariju generaciju.
+    """
+    best = None
+    try:
+        entries = os.listdir(channel_dir)
+    except OSError:
+        return None
+    for entry in entries:
+        if entry.startswith('.') or not entry.endswith('.article.en.json'):
+            continue
+        if not entry.startswith(video_base + '.'):
+            continue
+        if best is None or entry > best:
+            best = entry
+    return os.path.join(channel_dir, best) if best else None
+
+
 # --- IDEMPOTENCY ---
 
 def should_regenerate(out_path, *deps, force=False):
@@ -592,8 +613,14 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
     # Bez ovoga /v/<id>/t/<sec>/en share nosi hrvatski ispisan subtitle u slici
     # čak i kad je epizoda prevedena (izmjereno 15.9.2026.).
     manifest_sections_en = {}
-    article_en_path = article_path[: -len('.article.json')] + '.article.en.json'
-    if os.path.exists(article_en_path):
+    # EN članak NE mora pripadati istoj generaciji kao odabrani HR članak:
+    # `discover_videos` bira leksikografski najveći `*.article.json`, a prijevod
+    # je često rađen nad starijim (drugi datum/model) i drugi run ga nije
+    # ponovio. Deriviranje EN putanje iz odabrane HR promašilo je 8 od 47
+    # prevedenih epizoda (izmjereno 15.9.2026.). Tražimo zato BILO KOJI
+    # `{video_base}*.article.en.json`, najnoviji po istoj konvenciji.
+    article_en_path = find_article_en(channel_dir, video_base)
+    if article_en_path:
         try:
             article_en = load_article_json(article_en_path)
             en_sections = [
