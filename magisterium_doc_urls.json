@@ -2,6 +2,34 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "29 January 1985: Eucharistic celebration for workers in Ciudad Guayana",
+      "uuid": "773a89d6-8606-4800-aa63-61a5a45d8a6f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, July, 2012",
+      "uuid": "7fe0dbd2-5520-454a-8ff1-75d1f578d624"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, July, 1985",
+      "uuid": "a8f4c017-e1c2-420d-aeb5-f378544f8417"
+    },
+    {
+      "match": "Homily 16 on Ephesians",
+      "uuid": "f49e2a03-9c5c-47e9-a3cd-819a7f6a4077"
+    },
+    {
+      "match": "13 August 1985: Eucharistic liturgy in Douala, Cameroon",
+      "uuid": "4cdedabb-3be7-4295-9093-842135443c97"
+    },
+    {
+      "match": "To pilgrims from the Dioceses of Terni, Narni and Amelia",
+      "uuid": "9fea36a4-3aa6-4781-af11-f20ef5ce2636"
+    },
+    {
+      "match": "To a group of artisans taking part in a congress",
+      "uuid": "662ba4c9-236a-445a-a2a0-3f967aa969c3"
+    },
+    {
       "match": "General Audience of 3 August 1988",
       "uuid": "1d0e69f5-0845-4675-9765-c307dfc0c419"
     },
