@@ -92,6 +92,8 @@ done
 
 ## Vezani dokumenti
 
+- `docs/2026-09-15-disk-ograda-i-cdn-404.md` — što je blokiralo prvi run nakon odpauze
+  (ograda diska, Docker fiksna rezervacija, keširani CDN 404)
 - `docs/2026-09-09-launchd-pauza-gcp-billing.md` — pauza, popis što troši Vertex
 - `docs/PIPELINE_FULL.md` §2.1 — naplatni projekt u kontekstu cijelog pipelinea
 - `docs/claude_code_backend_2026-07.md` — `--gemini-backend claude` (put bez GCP troška)
