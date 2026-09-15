@@ -58,14 +58,14 @@ const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT;
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
 const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";
-// Default model za EN PRIJEVOD je gemini-3.5-flash (GA), prebačeno 2026-06-27 s
+// Default model za EN PRIJEVOD je gemini-3.8-flash (15.09.2026.); prije 3.5-flash, a prije toga
 // gemini-3-flash-preview. Povijest (vidi docs/translation_throughput_vision_2026-06.md):
 // 2.5-flash je pod Dynamic Shared Quota → ~1 RPM → 429-storm na bulk backfillu (~16h); zato se
 // 2026-06-09 prešlo na 3-flash-preview (prava 250-RPM kvota). Sad kad je 3.5-flash GA prelazimo
 // na njega: GA (trajniji od preview-a koji "nije vječan") + isti pipeline koristi 3.5-flash i za
 // generaciju (gemini.conf), pa je model konzistentan. SKUPLJI: $1.50 in / $9.00 out (global) vs
 // preview $0.50/$3.00 — free-trial krediti pokrivaju. Treba re-test sustained RPM-a na 3.5-flash.
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
 // Ovi modeli (3.x flash) DOSTUPNI su SAMO na global endpointu (regionalni vraćaju 404). Zato
 // global-only ovdje (regional rotacija je no-op). Override preko VERTEX_REGIONS env ako treba.
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "global")

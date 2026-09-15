@@ -62,7 +62,7 @@ const GEMINI_CONF = loadGeminiConf();
 // env > gemini.conf > default — isti uzorak kao VERTEX_PROJECT/CLAUDE_MODEL/cijene.
 // Env override postoji da se A/B novog modela može pustiti bez diranja produkcijskog
 // gemini.conf (u repou zna raditi druga sesija paralelno).
-const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
 
 // Backend: "vertex" (default), "cli" (gemini CLI non-interactive) ili "claude" (Claude Code CLI).
 // Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).

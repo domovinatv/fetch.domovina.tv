@@ -63,7 +63,7 @@ function loadGeminiConf() {
 const GEMINI_CONF = loadGeminiConf();
 
 // env > gemini.conf > default (--model i dalje prepisuje oboje, vidi main()).
-let GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-2.5-flash";
+let GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";
 // Pinani gcloud identitet (vidi gemini.conf). Sprječava 403 kad globalni aktivni
 // account flipne na drugi SA. Prazno → fallback na aktivni account.
@@ -183,6 +183,9 @@ function buildEndpointUrl(region) {
 }
 
 // Rate limiting
+// Baza za linkove u .md sažetku koji ide na CDN i dijeli se kao datoteka.
+const SITE_BASE = process.env.EBOOK_SITE_BASE || process.env.SITE_BASE || "https://domovina.ai";
+
 const REQUEST_DELAY_MS = 2000;     // 2 sekunde između zahtjeva
 const MAX_RETRIES = 10;            // Broj pokušaja pri 429/5xx greškama
 const RETRY_BASE_DELAY_MS = 5000;  // Bazno čekanje (smanjeno jer rotiramo regije)
@@ -934,7 +937,13 @@ function buildSummaryMarkdown(summaryJson) {
         const mins = Math.floor(src.duration_seconds / 60);
         md += `**Trajanje:** ${mins} min  \n`;
     }
-    if (src.youtube_id) md += `**YouTube:** https://youtu.be/${src.youtube_id}  \n`;
+    // Ovaj .md ide na CDN (`data/{id}/summary.md`) i dijeli se kao datoteka —
+    // link mora voditi na domovina.ai, ne na YouTube. YouTube ostaje samo kao
+    // neklikabilan navod izvora (atribucija nakladniku); ID je i dalje u JSON-u.
+    if (src.youtube_id) {
+        md += `**Epizoda:** ${SITE_BASE}/v/${src.youtube_id}  \n`;
+        md += `**Izvornik:** youtube.com/watch?v=${src.youtube_id}  \n`;
+    }
     md += `**Model:** ${summaryJson.model}  \n`;
     md += "\n";
 
@@ -1403,7 +1412,13 @@ async function main() {
     console.log("");
 }
 
-main().catch((err) => {
-    console.error("Fatal error:", err);
-    process.exit(1);
-});
+// Guard: `tools/rebuild_summary_md.js` requirea ovu datoteku samo zbog
+// buildSummaryMarkdown() — bez guarda bi mu import pokrenuo cijelu sumarizaciju.
+if (require.main === module) {
+    main().catch((err) => {
+        console.error("Fatal error:", err);
+        process.exit(1);
+    });
+}
+
+module.exports = { buildSummaryMarkdown };
