@@ -237,9 +237,10 @@ na katalog, **D** za prioritetne epizode.
 - tri prijevoda nedovršena: `Is7ZDbWCu0k` (pao na 429), `ZkMcSRvajCw` (prekinut na
   ~29 min), `h_6vqQEL2uc` (nije započet). Prekid nije ostavio krnje datoteke —
   skripta zapisuje `.en.json` tek kad je epizoda cijela prevedena.
-- četiri gotova prijevoda još nemaju EN knjigu (`pDrMN_ysSDA`, `CUJmOc91C64`,
-  `biRibr8NByE`, `fO7iltytw0I`) — nightly u 01:00 sagradit će ih u KORAKU 9.8 i
-  objaviti u KORAKU 12.
+- ~~četiri gotova prijevoda još nemaju EN knjigu~~ **RIJEŠENO**: nightly 16.09. u
+  01:00 (kraj 01:46, svi koraci OK) sagradio ih je u KORAKU 9.8 i objavio u KORAKU 12.
+  Provjereno: `pDrMN_ysSDA`, `CUJmOc91C64`, `biRibr8NByE`, `fO7iltytw0I`, `6ueR_Leq6uE`
+  → svih pet `data/{id}/book.en.epub` vraća **200** s CDN-a. Lokalno 44 EN knjige.
 - batchanje (A + H) nije izvedeno — čeka odluku.
 - `.canary.summary.md` i dalje nema R2 mapping u `getFlutterKey()`.
 - tri CDN knjige sa sintetičkim ID-evima ostaju sa starim linkovima.
