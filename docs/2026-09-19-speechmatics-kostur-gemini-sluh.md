@@ -4,6 +4,7 @@
 **Kod:** `refine_diarized_gemini.js`, `tools/compare_transcripts.js`, `run_pipeline.sh` (KORAK 2.8)
 **Izvor arhitekture:** `../../adria-analytics/adria-brainstormer/experiments/gemini-audio/studio_asr.py`
 (`--engine skeleton --skeleton speechmatics`) + `docs/2026-09-11-gemini-skeleton-poravnanje.md` tamo
+**Vezani dokumenti:** [launchd QoS i transkodiranje](2026-09-19-launchd-qos-i-transkodiranje.md)
 **Povod:** dvije epizode zapele u nightlyju 19.09. + primjedba da Canary zna ispisati istu riječ 30+ puta
 
 ---
