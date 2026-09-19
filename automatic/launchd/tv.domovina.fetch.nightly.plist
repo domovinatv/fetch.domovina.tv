@@ -53,11 +53,16 @@
     </dict>
 
     <!--
-        ProcessType=Background: launchd ne ubija proces zbog QoS-a, ali ga ni ne forsira
-        prioritetom. Za dugotrajne pipeline jobove.
+        ProcessType (2026-09-19): Background -> Standard.
+        Background NE stiti od gasenja — on je QoS klasa koja na Apple Siliconu
+        vezuje proces I SVU NJEGOVU DJECU na efficiency jezgre. Izmjereno na
+        istom ffmpeg poslu: normalni QoS 27.9x realtime, `taskpolicy -b` 2.2x.
+        12.7x razlike. Posljedica u logovima: KORAK 12.5 (H.264) 98 min umjesto
+        ~8, KORAK 6 (pyannote) 39 min umjesto ~3. Tako je bilo od 2026-05-26.
+        Standard = normalno raspodjeljivanje; jobovi ionako idu nocu.
     -->
     <key>ProcessType</key>
-    <string>Background</string>
+    <string>Standard</string>
 
     <!--
         Ako neka iteracija crashne, NE restart-aj odmah (sljedeća iteracija dolazi 24h kasnije).

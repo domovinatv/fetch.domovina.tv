@@ -290,7 +290,11 @@ WITH_SPEECHMATICS=false
 #   Prozor/cap kao 2.7: prati priljev, NE konvergira nad katalogom (v. komentar uz korak).
 WITH_GEMINI_REFINE=false
 GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
-GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-3}"
+# Cap 3 -> 1 (2026-09-19): korak je BLOKIRAJUCI — koraci 7-12 cekaju da zavrsi.
+# 19.09. je s capom 3 drzao dvije gotove epizode sat vremena iza trece kojoj
+# promocija ionako nije trebala. Medijan nocnog priljeva je 2-3 epizode, pa rep
+# pokupi sljedeca noc; korak je idempotentan i nista se ne gubi.
+GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-1}"
 GEMINI_REFINE_PROMOTE="${GEMINI_REFINE_PROMOTE:-false}"
 SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
 SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-3}"

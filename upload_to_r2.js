@@ -1530,6 +1530,31 @@ if (inputDir) {
         await purgeCloudflareCache(driftUrls);
     }
 
+    // Purge NOVIH data/ ključeva (2026-09-19).
+    //
+    // Protuintuitivno: nov ključ nema sto purgati — osim ako je edge vec zapamtio
+    // 404 za njega. A to se dogada redovito: korisnik (ili admin UI) otvori
+    // /v/<id> DOK epizoda jos nije gotova, CDN vrati 404 i zapamti ga. Buduci da
+    // se data/* servira s `immutable, max-age=31536000`, taj 404 vrijedi GODINU
+    // DANA i nas kasniji upload ga ne izlijeci.
+    //
+    // Izmjereno 19.09. na aue1GuuMsbA: objekt u bucketu (123 413 B), HEAD 200,
+    // GET s cache-busterom 200, a GET bez bustera 404. Epizoda je bila gotova i
+    // nevidljiva dok nije rucno purgana.
+    //
+    // Zato purgeamo svaki NOVI data/ kljuc. Purge je besplatan i brz; jedina
+    // alternativa je nadati se da nitko nije pogledao prerano.
+    // Slike izostavljamo namjerno — ima ih na stotine po epizodi, a one se ne
+    // sondiraju prije vremena kao article.json.
+    if (!dryRun && uploadedKeys && uploadedKeys.size) {
+        const freshData = [...uploadedKeys].filter(k => k.startsWith("data/"));
+        if (freshData.length) {
+            const urls = freshData.map(k => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${k}`);
+            log("🧹", `CDN purge za ${urls.length} novih data/ ključeva (obrana od zapamćenog 404) ...`);
+            await purgeCloudflareCache(urls);
+        }
+    }
+
     // --force-og: purge prepisanih og-t slika. Bez ovoga popravljena slika sjedi
     // na R2, a WhatsApp/FB i dalje dobivaju staru s edgea (immutable, 1 god).
     if (forceOg && !dryRun) {

@@ -96,7 +96,11 @@ const CHANNEL = getArg("--channel");
 const VIDEO_ID = getArg("--video-id");
 const LIMIT = parseInt(getArg("--limit", "1"), 10);
 const WINDOW_MIN = parseFloat(getArg("--window-min", "10"));
-const MAX_SEGS_PER_WINDOW = parseInt(getArg("--max-segments", "35"), 10);
+// 35 → 70 (2026-09-19): cap je vezao PRIJE 10-minutnog limita, pa su prozori bili
+// ~4,5 min umjesto 10 i epizoda od 17 min trosila 15 poziva. Vertexov 429 je DSQ
+// (dijeljena kvota, nema RPM buseta koji bi se podigao) — jedini lijek je MANJE
+// poziva. Vidi docs/2026-09-19-speechmatics-kostur-gemini-sluh.md §5.
+const MAX_SEGS_PER_WINDOW = parseInt(getArg("--max-segments", "70"), 10);
 const COVERAGE_MIN = parseFloat(getArg("--coverage-min", "0.65"));
 const MAX_REPAIRS = parseInt(getArg("--max-repairs", "40"), 10);
 const FRESH_DAYS = parseInt(getArg("--fresh-days", "0"), 10);
@@ -116,8 +120,11 @@ const PRICE_OUT_PER_M = parseFloat(process.env.GEMINI_PRICE_OUT || GEMINI_CONF.G
 
 const MAX_RETRIES = 7;
 const RETRY_BASE_DELAY_MS = 4000;
-// Kvadratni rast: 15s, 60s, 135s, 240s… ukupno ~10 min prije predaje.
-const RATE_LIMIT_BASE_DELAY_MS = 15000;
+// 429 backoff: linearan, NE kvadratni. Kvadratna verzija (15s x n^2) je 19.09.
+// drzala jedan poziv 12+ minuta i zaustavila cijeli nightly — proces je u 67 min
+// potrosio 8,6 s CPU-a, dakle samo je spavao. Kod DSQ-a cekanje ne pomaze; zato
+// kratak rep (10/20/30/40/50/60/70 s = ~4 min ukupno) pa predaja na sigurnosni pod.
+const RATE_LIMIT_BASE_DELAY_MS = 10000;
 const REQUEST_DELAY_MS = 1000;
 
 // Sufiksi
@@ -361,7 +368,7 @@ Kao orijentaciju imaš raniji, moguće netočan prijepis: "%HINT%"
 IZLAZ: JSON niz s jednim objektom {"id": %ID%, "text": "<doslovan govor>"}. Ništa drugo.
 `;
 
-const usage = { calls: 0, prompt: 0, output: 0, usd: 0, blocked: 0 };
+const usage = { calls: 0, prompt: 0, output: 0, usd: 0, blocked: 0, retries: 0 };
 function recordUsage(um) {
     if (!um) return;
     const p = um.promptTokenCount || 0;
@@ -421,8 +428,10 @@ async function callGemini(audioBuf, promptText, maxOut) {
                     // paralelna runa su iscrpila svih 6 pokušaja u ~84 s i cijeli prozor
                     // (35 segmenata) pao na sigurnosni pod. Zato 429 dobiva svoj raspored.
                     const delay = res.status === 429
-                        ? RATE_LIMIT_BASE_DELAY_MS * attempt * attempt
+                        ? RATE_LIMIT_BASE_DELAY_MS * attempt
                         : RETRY_BASE_DELAY_MS * attempt;
+                    usage.retries++;
+                    process.stdout.write(` [${res.status}·retry ${attempt}/${MAX_RETRIES}, ${Math.round(delay / 1000)}s]`);
                     await sleep(delay);
                     continue;
                 }
@@ -682,6 +691,7 @@ async function processFile(audioPath, work) {
         output_tokens: usage.output,
         est_usd: Math.round(usage.usd * 1e6) / 1e6,
         blocked_windows: usage.blocked,
+        retries: usage.retries,
         elapsed_seconds: Math.round(elapsed),
         at: new Date().toISOString(),
     };
@@ -768,8 +778,20 @@ function findCandidates(root) {
         }
     };
     walk(root);
-    // Najnovije prvo — svjež priljev je vrjedniji od backloga.
-    return out.sort((a, b) => fs.statSync(b + SPEECHMATICS_JSON).mtimeMs - fs.statSync(a + SPEECHMATICS_JSON).mtimeMs);
+    // Poredak (2026-09-19): PRVO epizode kojima kanonski `.canary.diarized.srt`
+    // NEDOSTAJE — samo one od ovog koraka imaju stvarnu korist, jer samo njih
+    // promocija moze otkljucati za korake 7-12. Epizoda koja ga vec ima obraduje
+    // se iskljucivo radi usporedbe i ne smije trositi nocni cap.
+    //   Naucено na tezi nacin: 19.09. je cap od 3 potrosen na epizodu koja je vec
+    //   imala kanonski transkript (~$0,30) dok su dvije koje su ga cekale stajale
+    //   iza nje sat vremena.
+    // Unutar iste skupine: najnovije prvo — svjez priljev je vrjedniji od backloga.
+    const needsCanonical = (a) => !fs.existsSync(a.replace(/\.[^.]+$/, "") + CANONICAL_SRT);
+    return out.sort((a, b) => {
+        const na = needsCanonical(a), nb = needsCanonical(b);
+        if (na !== nb) return na ? -1 : 1;
+        return fs.statSync(b + SPEECHMATICS_JSON).mtimeMs - fs.statSync(a + SPEECHMATICS_JSON).mtimeMs;
+    });
 }
 
 async function main() {

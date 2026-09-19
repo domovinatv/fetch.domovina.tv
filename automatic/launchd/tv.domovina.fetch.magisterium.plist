@@ -52,7 +52,7 @@
     </dict>
 
     <key>ProcessType</key>
-    <string>Background</string>
+    <string>Standard</string>
 
     <!-- StartInterval već re-launcha; ne treba respawn-on-exit. -->
     <key>KeepAlive</key>
