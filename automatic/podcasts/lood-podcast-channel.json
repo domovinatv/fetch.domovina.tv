@@ -108,6 +108,7 @@
   ],
   "uploader_id": "@lood",
   "uploader_url": "https://www.youtube.com/@lood",
+  "channel_is_verified": true,
   "modified_date": null,
   "view_count": null,
   "playlist_count": 2,
@@ -123,7 +124,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1789772478,
+  "epoch": 1789838575,
   "__files_to_move": {},
   "_version": {
     "version": "2026.08.19",
