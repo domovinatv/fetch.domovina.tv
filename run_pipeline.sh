@@ -367,8 +367,10 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-speechmatics" ]; then
         WITH_SPEECHMATICS=true
+        i=$((i + 1))
     elif [ "$arg" = "--with-gemini-refine" ]; then
         WITH_GEMINI_REFINE=true
+        i=$((i + 1))
     elif [ "$arg" = "--gemini-refine-promote" ]; then
         WITH_GEMINI_REFINE=true
         GEMINI_REFINE_PROMOTE=true
