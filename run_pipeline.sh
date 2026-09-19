@@ -226,6 +226,10 @@ echo ""
 #                            channels (praćeni kanali: SVAKI WAV bez .canary.srt) | all.
 #                            channels = single-pass nightly. Iznad capa → najnovijih MODAL_MAX_FILES
 #                            sada, ostatak sljedeći run ili Colab (konvergira, ne odustaje).
+#   --with-gemini-refine  → KORAK 2.8: Gemini 3.8 Flash čuje zvuk i prepisuje tekst preko
+#                            Speechmatics kostura (segmenti/govornici ostaju). Traži 2.7.
+#   --gemini-refine-promote → isto + smije popuniti .wav.canary.diarized.srt gdje ga nema
+#                            (postojeći canary se NIKAD ne pregazi automatski).
 #   --with-speechmatics   → EKSPERIMENT (KORAK 2.7): cloud transkripcija + diarizacija u
 #                            JEDNOM pozivu preko Speechmatics Batch API-ja, iz .mp3.
 #                            Izlaz je odvojen namespace (.speechmatics.*) — produkcijski
@@ -281,6 +285,13 @@ MODAL_ONLY_ID=""
 #   SPEECHMATICS_MAX_FILES  (3) — pokriva tipičnu noć (medijan priljeva je 2-3 epizode)
 # Worst case ≈ 3 × 45 min × $0.80/h ≈ $1.80/noć.
 WITH_SPEECHMATICS=false
+# --with-gemini-refine (2026-09-19): KORAK 2.8 — Gemini sluh nad Speechmatics kosturom.
+#   GEMINI_REFINE_PROMOTE=true  → smije popuniti .wav.canary.diarized.srt (nikad prepisati)
+#   Prozor/cap kao 2.7: prati priljev, NE konvergira nad katalogom (v. komentar uz korak).
+WITH_GEMINI_REFINE=false
+GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
+GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-3}"
+GEMINI_REFINE_PROMOTE="${GEMINI_REFINE_PROMOTE:-false}"
 SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
 SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-3}"
 # Timeout PO EPIZODI. Default skripte je 90 min — u nightlyju bi zaglavljen servis
@@ -356,6 +367,11 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-speechmatics" ]; then
         WITH_SPEECHMATICS=true
+    elif [ "$arg" = "--with-gemini-refine" ]; then
+        WITH_GEMINI_REFINE=true
+    elif [ "$arg" = "--gemini-refine-promote" ]; then
+        WITH_GEMINI_REFINE=true
+        GEMINI_REFINE_PROMOTE=true
         i=$((i + 1))
     elif [ "$arg" = "--modal-scope" ]; then
         # unlisted (default, staro ponašanje) | channels (praćeni kanali) | all
@@ -852,6 +868,54 @@ fi
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 2.7 (Speechmatics) — nije zadan --with-speechmatics (eksperiment, default OFF)"
+fi
+
+# --- KORAK 2.8: GEMINI SLUH NAD SPEECHMATICS KOSTUROM (--with-gemini-refine) ---
+# Speechmatics dade kostur (TKO govori, KADA — akustika, word-level vremena), a
+# Gemini 3.8 Flash preko Vertexa ČUJE zvuk unutar tih granica i napiše ŠTO je rečeno.
+# Gemini pritom ne smije dirati segmente, govornike ni vremena — samo puni tekst.
+#
+# 🎯 ZAŠTO POSTOJI: ASR collapse. Canary zna izgubiti poravnanje i mljeti istu riječ
+#    ("nije, nije, nije…" 30×). Tekstualni prolaz to ne može popraviti — vidi 30 "nije"
+#    i nema od čega zaključiti koliko ih je stvarno bilo. Model koji ČUJE ima.
+#
+# ⚠️ OVAJ KORAK MOŽE PISATI KANONSKO IME. S `--promote` napravi
+#    `{base}.wav.canary.diarized.srt` — ono što koraci 7-12 čitaju — ali SAMO ako
+#    ga nema. Postojeći canary se ne pregazi bez `--force-promote`.
+#    Bez `--promote` izlaz ostaje u vlastitom namespaceu i ništa ne mijenja.
+#
+# 💰 Mjereno na epizodi od 161 min: ~29 prozora, ~$0.45, ~20 min wall clock.
+#    Jeftino po epizodi, ali NIJE za katalog-wide backfill bez računice (3 200 ep ≈ $1 400).
+#    Zato isti prozor svježine kao 2.7 — ovaj korak prati priljev, ne konvergira.
+if [ "$WITH_GEMINI_REFINE" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 2.8: Gemini sluh nad Speechmatics kosturom [--with-gemini-refine]"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+REFINE_SCRIPT="$SCRIPT_DIR/refine_diarized_gemini.js"
+if [ ! -f "$REFINE_SCRIPT" ]; then
+    echo "   ⚠️ Nema $REFINE_SCRIPT — preskačem."
+else
+    REFINE_ARGS=(--input-dir "$OUTPUT_DIR"
+                 --fresh-days "$GEMINI_REFINE_FRESH_DAYS"
+                 --limit "$GEMINI_REFINE_MAX_FILES")
+    if [ "$GEMINI_REFINE_PROMOTE" = true ]; then
+        REFINE_ARGS+=(--promote)
+        echo "   ⬆️  Promocija UKLJUČENA — popunjava .wav.canary.diarized.srt gdje ga nema."
+    else
+        echo "   🧪 Promocija isključena — izlaz ostaje u .speechmatics.gemini.* namespaceu."
+    fi
+    if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        REFINE_ARGS+=(--dry-run)
+    fi
+    node "$REFINE_SCRIPT" "${REFINE_ARGS[@]}" \
+      || echo "   ⚠️ Gemini refine korak nije uspio — nastavljam (non-fatal)."
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.8 (Gemini refine) — nije zadan --with-gemini-refine (default OFF)"
 fi
 
 # --- KORACI 3+4: WHISPER PROMPT + TRANSKRIPCIJA (legacy, opcionalno --with-whisper) ---
