@@ -1014,14 +1014,39 @@ if [ "$PRIORITY_FAST_PATH" = true ]; then
     fi
 fi
 
+# ⚠️ GRESKA OVDJE NE SMIJE UBITI PIPELINE (2026-09-19).
+# Skripta ima `set -e`, a nadzornik stroja u diarize_canary.py izlazi s 2 (malo
+# diska) ili 3 (RSS cap). To je OBRANA, ne kvar — ali je do sada rusila CIJELI
+# run_pipeline, pa koraci 7-12 nikad ne bi krenuli. Tako je 19.09. nightly stao
+# na "samo 10.2 GB slobodno" i dvije epizode su ostale bez clanka iako im za
+# sazetak i clanak disk uopce ne treba.
+#
+# Koraci 7-12 su idempotentni i obraduju SAMO epizode koje vec imaju
+# .canary.diarized.srt — ako diarizacija nije odradena, one se jednostavno
+# preskoce. Nastavak je zato siguran, a prekid je cista steta.
+#
+# Izlaz se pamti u DIARIZE_EXIT i prijavljuje u sazetku na kraju.
+DIARIZE_EXIT=0
 if [ -n "$HF_TOKEN" ]; then
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" --hf-token "$HF_TOKEN" $CANARY_DRY_RUN || DIARIZE_EXIT=$?
 else
     # Bez CLI tokena — diarize_canary.py sam resolve-a token (env HF_TOKEN ili
     # cached ~/.cache/huggingface/token). Omogućava nightly diarizaciju bez da
     # token stoji na command-lineu. Ako baš nema tokena nigdje, skripta sama
     # izađe s uputama (get_hf_token sys.exit).
-    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" $CANARY_DRY_RUN
+    "$PYTHON_BIN" "$SCRIPT_DIR/colab_diarize/diarize_canary.py" --input-dir "$OUTPUT_DIR" "${DIARIZE_SCOPE_ARGS[@]}" "${CANARY_GUARD_ARGS[@]}" $CANARY_DRY_RUN || DIARIZE_EXIT=$?
+fi
+
+if [ "$DIARIZE_EXIT" = "2" ] || [ "$DIARIZE_EXIT" = "3" ]; then
+    if [ "$DIARIZE_EXIT" = "2" ]; then GUARD_WHY="premalo diska"; else GUARD_WHY="RSS cap"; fi
+    echo ""
+    echo "   ⚠️  KORAK 6 prekinut ogradom stroja (exit $DIARIZE_EXIT: $GUARD_WHY)."
+    echo "      To je OBRANA, ne kvar. NASTAVLJAM — koraci 7-12 ne trebaju disk i"
+    echo "      obradit ce epizode koje vec imaju .canary.diarized.srt."
+    echo "      Nediarizirane ce biti pokupljene kad se oslobodi prostor."
+elif [ "$DIARIZE_EXIT" != "0" ]; then
+    echo ""
+    echo "   ❌ KORAK 6 pao (exit $DIARIZE_EXIT) — nastavljam, koraci 7-12 rade nad vec diariziranima."
 fi
 else
     echo ""
