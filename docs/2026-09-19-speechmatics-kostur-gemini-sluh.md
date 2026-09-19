@@ -34,6 +34,12 @@ Medijan je **3**, aritmetička sredina **9,5**. Raspodjela je **bimodalna**, ne
 kontinuirana: 65 % datoteka s `max_run ≥ 10` ima ga ≥ 50. Transkript je ili
 uredan ili eksplodira — nema blagog pogoršanja.
 
+> 🔴 **ISPRAVAK ISTOG DANA: 4,8 % je bilo 2,5× podcijenjeno.** `max_run` gleda
+> samo identične UZASTOPNE tokene, pa mu izmiče **ciklički** collapse gdje se
+> ponavlja fraza: `"on je vodio on, on je vodio on…" (×42)` daje `max_run = 8`.
+> Uhvaćeno slučajno, na epizodi koju smo držali urednom. Mjera `cyclicDegeneracy`
+> dodana u `tools/compare_transcripts.js`; ponovni sken u §1.2.
+
 > ⚠️ Prag 3–5 je najvećim dijelom **legitiman**. Hrvatski govorni jezik ima
 > stvarna trostruka ponavljanja ("da da da"). Tek ≥ 30 je siguran signal kvara —
 > nijedan čovjek ne ponovi riječ trideset puta.
@@ -47,6 +53,53 @@ Najgori slučaj, `bozja_pobjeda` / `_yt_Cu3N9THrw0A`, **419× „ono"** u jednom
 Najpogođeniji kanali (stopa `max_run ≥ 10` naspram kataloškog prosjeka 7,3 %):
 `bozja_pobjeda` 26 %, `bozanstvena_komedija` 23 %, `podcast_cuspajz` 21 %,
 `neuspjeh_prvaka` 18 %.
+
+### 1.2 Ciklički collapse — prava stopa je 12 %, ne 4,8 %
+
+Ponovni sken svih **3303** transkripta s mjerom `cycle_reps` (najviše uzastopnih
+ponavljanja bloka duljine 2–8 riječi):
+
+| prag `cycle_reps` | datoteka |
+|---|---|
+| ≥ 5 | 525 |
+| **≥ 10** | **395** |
+| ≥ 40 | 234 |
+| ≥ 100 | 39 |
+
+| | staro (`max_run ≥ 30`) | novo (`cycle_reps ≥ 10`) |
+|---|---|---|
+| pogođenih | 157 | **395** |
+| % kataloga | 4,8 % | **11,96 %** |
+
+**238 datoteka (7,2 %) bilo je dosadašnjoj mjeri potpuno nevidljivo.**
+
+> 📌 `max_run ≥ 30` je **strogi podskup** od `cycle_reps ≥ 10` — nula datoteka ima
+> jedno bez drugog. Matematički nužno: 30 identičnih riječi JE period-2 ciklus s
+> ~15 ponavljanja. Dakle `cycle_reps` nije komplementaran signal nego **nadmjera**,
+> i stari prag treba povući iz upotrebe, ne držati uz novi.
+
+Primjeri koje je stara mjera proglasila urednima:
+
+```
+max_run=6   podcast_cuspajz       "da li"  ×129
+max_run=3   zeljka_markic…        "da ti"  ×128
+max_run=2   hnb                   "ja mogu" ×121
+max_run=2   popcast_pavicic       "da je"  ×120
+```
+
+```
+[SPEAKER_01] Ja znam tu po Karlovcu kužeš, ma kaže, kaže, da li, kaže,
+             da li, da li, da li, da li, da li, da li, da li, da li, …
+```
+
+Najpogođeniji kanali po udjelu (n ≥ 20): `bozanstvena_komedija` **40,0 %**,
+`bozja_pobjeda` 35,2 %, `podcast_cuspajz` 28,9 %, `hercegovina_info` 22,0 %,
+`neuspjeh_prvaka` 21,1 %, `popcast_pavicic` 20,7 %, `catholic_futurist` 20,0 %.
+
+Najveći pomak zbog nove mjere: **`launched` 2 → 20 (10×)**, `radio_mreznica`
+8 → 28, `lood_podcast` 11 → 33. Pet kanala koji su po staroj mjeri imali **nulu**
+sada imaju pogodaka (`podcast_bitno_net`, `merz_institut`, `marijanski_zavjet`,
+`marin_miletic`, `sapere_aude`).
 
 ### 1.1 Što collapse košta — i što NE košta
 
@@ -329,9 +382,18 @@ GEMINI        A sad nek stave u montaži neki pljesak sa strane.
 Trošak se knjiži u zajednički `{base}.gemini_usage.json` pod `step: "refine"`,
 uz korake `summary` i `article`.
 
-> 💰 **Katalog-wide backfill nije očito isplativ.** 3 200 epizoda ≈ $1 400.
-> Ali collapse pogađa **157** epizoda, a ciljani backfill na njih je **≈ $70** i
-> hvata gotovo cijelu korist. Zato korak ima isti prozor svježine kao 2.7
+> 💰 **ISPRAVAK.** Ranija računica „3 200 epizoda ≈ $1 400" brojala je SAMO Gemini,
+> a Speechmatics je dominantan trošak (~$0,80/h zvuka). Uz prosječnu epizodu od
+> ~1–1,5 h to je ~$1,25/ep ukupno:
+>
+> | opseg | epizoda | ≈ trošak |
+> |---|---|---|
+> | cijeli katalog | 3 303 | **~$4 100** |
+> | svi s collapseom (`cycle_reps ≥ 10`) | 395 | **~$500** |
+> | samo najteži (`cycle_reps ≥ 40`) | 234 | **~$290** |
+>
+> Ciljani backfill i dalje hvata gotovo cijelu korist za osminu cijene, ali brojka
+> je 395 epizoda, ne 157. Zato korak ima isti prozor svježine kao 2.7
 > (`GEMINI_REFINE_FRESH_DAYS=3`, cap 3) — prati priljev, NE konvergira nad katalogom.
 
 ---
@@ -388,5 +450,8 @@ Otvoreno:
    „što je stvarno rečeno". Treba čovjek, na 2-3 izdvojena mjesta.
 2. **Ciljani backfill 157 collapse epizoda** (~$70) — najbolji omjer koristi i troška.
 3. **644 datoteke s `end ≤ start`** — neistražena anomalija.
+5. **Prag za `cycle_reps` nije kalibriran.** Uzeo sam 10 jer razdvaja poznate
+   slučajeve, ali granica legitimnog govora nije izmjerena — hrvatski ima stvarna
+   ponavljanja fraza ("da da da", "ne ne ne"). Između 3 i 10 je siva zona.
 4. **Gemini kao arbitar za Canary vs Speechmatics.** Za prosudbu Geminijeve
    VLASTITE verzije je pristran i ne vrijedi kao nezavisna potvrda.
