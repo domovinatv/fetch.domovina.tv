@@ -92,6 +92,40 @@ function degeneracy(words) {
     return { max_run: maxRun, runs_3plus: runs3, repeated_trigram_ratio: total ? repeated / total : 0 };
 }
 
+/**
+ * CIKLIČKI collapse — ponavlja se FRAZA, ne jedna riječ.
+ *
+ * `degeneracy().max_run` gleda samo identične uzastopne tokene, pa mu ovo
+ * potpuno izmakne:
+ *   "on je vodio on, on je vodio on, on je vodio on…" (×14)  → max_run = 1
+ * Izmjereno 19.09. na `70uXR4DDZiE`, epizodi kojoj je max_run javio bezopasnih 8.
+ *
+ * Mjera: najdulji niz uzastopnih ponavljanja istog bloka duljine 2..8 riječi.
+ * Vraća broj ponavljanja i sam blok, da se u ispisu vidi ŠTO se melje.
+ */
+function cyclicDegeneracy(words) {
+    let best = { cycle_reps: 1, cycle_len: 0, cycle: "" };
+    for (let period = 2; period <= 8; period++) {
+        let i = 0;
+        while (i + period * 2 <= words.length) {
+            let reps = 1;
+            while (i + period * (reps + 1) <= words.length) {
+                let same = true;
+                for (let k = 0; k < period; k++) {
+                    if (words[i + k] !== words[i + period * reps + k]) { same = false; break; }
+                }
+                if (!same) break;
+                reps++;
+            }
+            if (reps > best.cycle_reps) {
+                best = { cycle_reps: reps, cycle_len: period, cycle: words.slice(i, i + period).join(" ") };
+            }
+            i += reps > 1 ? period * reps : 1;
+        }
+    }
+    return best;
+}
+
 function analyze(file) {
     const segs = parseSrt(fs.readFileSync(file, "utf-8"));
     const words = normWords(segs.map((s) => s.text).join(" "));
@@ -118,6 +152,7 @@ function analyze(file) {
         gaps_over_15s: gaps,
         gap_seconds: Math.round(gapSec),
         ...degeneracy(words),
+        ...cyclicDegeneracy(words),
         _tri: trigrams(words),
     };
 }
@@ -199,19 +234,19 @@ function main() {
     const num = (s, n) => String(s).padStart(n);
 
     console.log("\n╔═══ USPOREDBA TRANSKRIPATA ═══════════════════════════════════════════════════════╗\n");
-    console.log(pad("izvor", 34) + num("riječi", 8) + num("r/min", 7) + num("seg", 6) + num("gov", 5) + num("maxRun", 8) + num("3+×", 6) + num("rep3g", 8));
+    console.log(pad("izvor", 34) + num("riječi", 8) + num("r/min", 7) + num("seg", 6) + num("gov", 5) + num("maxRun", 8) + num("3+×", 6) + num("ciklus", 7) + num("rep3g", 8));
     console.log("─".repeat(82));
     for (const r of rows) {
         console.log(
             pad(label(r.file).slice(0, 33), 34) +
             num(r.words, 8) + num(r.words_per_min, 7) + num(r.segments, 6) +
-            num(r.speakers || "-", 5) + num(r.max_run, 8) + num(r.runs_3plus, 6) +
+            num(r.speakers || "-", 5) + num(r.max_run, 8) + num(r.runs_3plus, 6) + num(r.cycle_reps, 7) +
             num((r.repeated_trigram_ratio * 100).toFixed(1) + "%", 8)
         );
     }
 
     console.log("\n  maxRun = najdulji niz iste riječi zaredom · 3+× = mjesta s 3+ ponavljanja");
-    console.log("  rep3g  = udio trigrama koji se javljaju više puta (visok ⇒ ASR collapse)\n");
+    console.log("  ciklus = najviše ponavljanja iste FRAZE zaredom (maxRun ovo ne vidi)\n  rep3g  = udio trigrama koji se javljaju više puta (visok ⇒ ASR collapse)\n");
 
     if (rows.length > 1) {
         console.log("── Preklapanje (Jaccard nad trigramima) ──");
@@ -230,4 +265,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { parseSrt, normWords, degeneracy, analyze, sample };
+module.exports = { parseSrt, normWords, degeneracy, cyclicDegeneracy, analyze, sample };
