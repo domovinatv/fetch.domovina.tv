@@ -28,6 +28,8 @@
 #   ZAVRŠNI KORACI (samostalni, run_pipeline.sh ih ne zove):
 #     • generate_channel_index.js                       — refresh channels/data/index.json
 #     • upload_to_r2.js --meta-dir storage/meta         — upload index na CDN
+#     • linkedin-poster/scripts/draft-episodes.ts       — prijedlog LinkedIn objave za
+#                                                         svaku novu epizodu → Telegram
 #
 # Sve je idempotentno — script može se vrtjeti svaki dan, svaki korak skipa već dovršeno.
 #
@@ -301,8 +303,36 @@ acquire_pipeline_lock wait
 # ~05:10) i odbija poziv koji bi otvorio nov prozor živ u 08:30. Odbijene epizode se
 # ODGAĐAJU u sljedeći nightly (ne degradiraju na Flash — vidi lib/claude_window.js).
 # Ne-AI koraci ispod (transcribe, upload, index) nastavljaju normalno.
+# --gemini-refine-promote (2026-09-19): KORAK 2.8 — Speechmatics kostur + Gemini sluh.
+# Nove epizode dobivaju .wav.canary.diarized.srt iz Speechmaticsa (segmenti, govornici,
+# vremena) + Gemini 3.8 Flash koji ČUJE zvuk i piše tekst. Mjereno na 2 epizode 19.09.:
+# 810/810 i 993/993 segmenata prihvaćeno, ~$0.44/ep, ~20 min/ep.
+# Vidi docs/2026-09-19-speechmatics-kostur-gemini-sluh.md.
+#
+# ⚠️ CANARY OSTAJE FALLBACK, i to BEZ ijedne dodatne linije koda:
+#   • 2.8 promovira SAMO ako .wav.canary.diarized.srt ne postoji (nikad ne pregazi)
+#   • diarize_canary.py (KORAK 6) preskače WAV koji već ima taj fajl
+#   → promovirala 2.8 ⇒ pyannote ne radi; nije promovirala ⇒ pyannote radi kao i dosad
+#   → CDN ključ je data/{id}/diarized.srt u oba slučaja, pa Flutter ne vidi razliku
+#
+# 🎯 META CILJA (19.09.): maknuti LOKALNI Mac Mini iz obaveznog puta, ne maknuti Canary.
+#   • pyannote (KORAK 6) je jedino što traži Mac → njega 2.8 istiskuje promocijom
+#   • Modal Canary (KORAK 2.6) NAMJERNO OSTAJE: vrti se na modal.com, dakle može ga
+#     pokrenuti i cloud cron, a košta ~$0.01/ep. Uz to daje drugi, nezavisan transkript
+#     za usporedbu dok je ovo još development.
+#   ⚠️ Ne "optimiziraj" tako da Modal preskoči epizode koje 2.8 pokrije — to je bila
+#     prva verzija ove promjene i odbačena je 19.09. baš zato što je Modal cloud-native.
+#
+# 🔙 POVRATAK NA STARO = makni --gemini-refine-promote iz ove linije. Ništa drugo.
+#   Ovo je development; ako se pojavi bolji open-source ASR, mijenja se samo KORAK 2.7/2.8.
+#
+# 💰 Speechmatics je dominantan trošak (~$0.80/h zvuka ⇒ $1.75-2.15 po epizodi), ne Gemini.
+#   Ograde su u run_pipeline.sh: SPEECHMATICS_FRESH_DAYS/MAX_FILES i GEMINI_REFINE_*.
+#   Jeftinija alternativa koja NIJE izabrana: pusti Canary pa 2.8 okini samo kad
+#   detektor collapsea (max_run >= 30, tools/compare_transcripts.js) plane — ~20x jeftinije,
+#   ali zadržava Mac kao obavezan stroj. Odluka 19.09. je cloud-readiness, ne cijena.
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-speechmatics || true
+    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-speechmatics --gemini-refine-promote || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego
@@ -359,6 +389,27 @@ fi
 if [ -f "$PIPELINE_QUEUE_BRIDGE/report_token_usage.js" ]; then
     run_step "pipeline token usage (Claude Code sesije)" \
         node "$PIPELINE_QUEUE_BRIDGE/report_token_usage.js" || true
+fi
+
+# ─── 7. LINKEDIN DRAFTOVI (nove epizode → Telegram) ────────────────
+# Za svaku epizodu koja je OVE noći stigla do kraja (summary + article + CDN)
+# napiši prijedlog LinkedIn objave i parkiraj ga na li.domovina.ai, koji ga
+# lintira i pošalje u Telegram grupu ms-social-poster. NIŠTA se ne objavljuje
+# automatski — objava je ručna, preko `linkedin_publish_draft` iz Claude Codea.
+#
+# Ide ZADNJE, nakon KORAKA 3 (meta upload na R2): skripta traži da
+# cdn.domovina.ai stvarno servira data/{id}/article.json, jer objava koja vodi
+# na 404 je gora od objave koja kasni dan.
+#
+# Drži vlastito stanje (linkedin-poster/.state/drafted.json) pa epizoda dobije
+# točno jedan draft, bez obzira koliko puta se nightly vrti. CLAUDE_WINDOW_GUARD
+# vrijedi i ovdje — draftovi ne smiju potrošiti jutarnju kvotu; odgođena epizoda
+# nije zapisana u stanje, pa je sljedeći nightly pokupi.
+LINKEDIN_POSTER_DIR="${LINKEDIN_POSTER_DIR:-$HOME/git/stepanic/linkedin-poster}"
+if [ -f "$LINKEDIN_POSTER_DIR/scripts/draft-episodes.ts" ]; then
+    run_step "linkedin draftovi (nove epizode → Telegram)" \
+        env CLAUDE_WINDOW_GUARD=1 FETCH_REPO="$REPO_DIR" \
+        node --experimental-strip-types "$LINKEDIN_POSTER_DIR/scripts/draft-episodes.ts" || true
 fi
 
 # ─── SAŽETAK ──────────────────────────────────────────────────────
