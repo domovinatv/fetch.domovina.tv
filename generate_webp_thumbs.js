@@ -230,8 +230,20 @@ function discoverLocal(inputDir, channelFilter, videoIdFilter) {
     const out = [];
     let channels;
     try {
+        // ⚠️ SYMLINK ZAMKA (CLAUDE.md, "Symlink gotchas"): kanali u storage/output/
+        // su symlinkovi na vanjske diskove, a `withFileTypes` za symlink vraca
+        // isDirectory() === false. Bez `|| isSymbolicLink()` ovdje je lista
+        // kanala bila PRAZNA i KORAK 9.7 je svaku noc javljao "Nema nicega za
+        // obraditi" — otkriveno 19.09. kad je `thumb-1280.webp` vracao 404 za
+        // epizodu koja je inace bila kompletna. Nijedna thumb-* varijanta
+        // vjerojatno nikad nije generirana za symlinkane kanale.
         channels = fs.readdirSync(inputDir, { withFileTypes: true })
-            .filter((e) => e.isDirectory())
+            .filter((e) => {
+                if (e.isDirectory()) return true;
+                if (!e.isSymbolicLink()) return false;
+                try { return fs.statSync(path.join(inputDir, e.name)).isDirectory(); }
+                catch { return false; }
+            })
             .map((e) => e.name);
     } catch (e) {
         log("❌", `Ne mogu čitati --input-dir: ${e.message}`);
