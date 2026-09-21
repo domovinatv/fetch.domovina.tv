@@ -483,3 +483,73 @@ Otvoreno:
    ponavljanja fraza ("da da da", "ne ne ne"). Između 3 i 10 je siva zona.
 4. **Gemini kao arbitar za Canary vs Speechmatics.** Za prosudbu Geminijeve
    VLASTITE verzije je pristran i ne vrijedi kao nezavisna potvrda.
+
+---
+
+## 7. Verifikacija u produkciji (21.09.2026.)
+
+Dvije noći nakon uključenja, iz logova (`automatic/logs/nightly_*.log`), ne iz
+pretpostavke.
+
+### 7.1 Noći se skratile s pola dana na pola sata
+
+| noć | trajanje | status |
+|---|---|---|
+| 15.09. | **5h53m** | ✅ |
+| 18.09. | 3h30m | ✅ |
+| 19.09. | 31m | ⚠️ 2 koraka nenula (2.8 još nije bio u nightlyju u 01:00) |
+| 20.09. | 38m | ✅ |
+| **21.09.** | **18m** | ✅ |
+
+`audit_pipeline.js` u istoj noći: **3302/3302 (100,00 %), rupa 0.**
+
+Zasluga je podijeljena: QoS fix (`ProcessType Background → Standard`, 12,7× na
+CPU koracima — `docs/2026-09-19-launchd-qos-i-transkodiranje.md`) i ovaj korak,
+koji pyannote miče s kritičnog puta.
+
+Sitnice koje **nisu** regresije, ali se ponavljaju svake noći:
+
+- `ingest_beamly` ENOENT na `../revenuecat/subclub/subclub-episodes.json` (non-fatal)
+- 3 neuspjela screenshota od 65 263 — klasa „stale article timestamps"
+- 429 na Vertexu u 2.8 — DSQ, retry ih pojede, pokrivenost ostaje 103–109 %
+
+### 7.2 Utrka koju je fallback dobio
+
+Vidi §5.x za mjerenje. Mehanizam:
+
+```mermaid
+flowchart TD
+    A["KORAK 2.7 — cap 5<br/>proizvodi kostur"] --> B{"KORAK 2.8 — cap N<br/>stigao do ove epizode?"}
+    B -- da --> C["refine + promote<br/>.wav.canary.diarized.srt"]
+    C --> D["KORAK 6 pyannote<br/>preskače — fajl postoji"]
+    B -- "ne (cap odrezao)" --> E["kostur ostaje nerafiniran"]
+    E --> F["KORAK 6 pyannote<br/>popuni fajl U ISTOM RUNU"]
+    F --> G["iduća noć: refine odradi posao<br/>pa odbije promociju"]
+    G --> H["platio oba puta,<br/>Mac ostao na kritičnom putu"]
+```
+
+Zato **cap 2.8 ≥ cap 2.7**. Od 21.09. su oba **5**.
+
+### 7.3 Što još veže nightly za Mac
+
+Nakon što 2.8 istisne pyannote, **računski** dio više ne traži ovaj stroj — run
+21.09. nije taknuo Mac za računanje. Ostaje četvero, i nijedno nije CPU nego
+**pristup**:
+
+| | što veže | koliko tvrdo |
+|---|---|---|
+| KORAK 1 + 10 | `yt-dlp --cookies-from-browser brave` | 🔴 najtvrđe — datacentar IP dobije anti-bot, kolačići traže lokalni browser i tty |
+| KORACI 7+8 | `claude -p --model opus` pod **pretplatom** | 🟡 vezano za sesiju, ne stroj; ali `CLAUDE_WINDOW_GUARD` je pisan za lokalni ritam |
+| storage | 3302 epizode na vanjskim diskovima | 🟡 CDN je već R2; cloud treba radni prostor, ne katalog |
+| 12.5 + 9.5/9.6/9.7 | ffmpeg / ImageMagick | 🟢 trivijalno prenosivo, pitanje egressa |
+
+Realan put, **ako** se ide: cloud cron vrti 2.6/2.7/2.8 + 7/8 + 9.x/12.x, a doma
+ostane tanki fetch agent s Brave kolačićima koji gura MP3 na R2.
+
+⚠️ Odluka o selidbi **nije donesena**. Ovo je procjena, ne plan.
+
+## Vezani dokumenti
+
+- `docs/2026-09-19-launchd-qos-i-transkodiranje.md` — QoS fix, drugi razlog skraćenja noći
+- `docs/speechmatics_evaluation_2026-09.md` — evaluacija 2.7
+- `docs/2026-08-28-konvergencija-pipelinea.md` — zašto 2.6 nema prozor svježine, a 2.7 ima
