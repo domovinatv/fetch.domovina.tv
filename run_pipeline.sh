@@ -235,7 +235,7 @@ echo ""
 #                            Izlaz je odvojen namespace (.speechmatics.*) — produkcijski
 #                            .canary.* put se ne dira, korak je non-fatal. Ograđen prozorom
 #                            svježine (SPEECHMATICS_FRESH_DAYS=3) i capom
-#                            (SPEECHMATICS_MAX_FILES=3). Traži SPEECHMATICS_API_KEY u .env.
+#                            (SPEECHMATICS_MAX_FILES=5). Traži SPEECHMATICS_API_KEY u .env.
 #                            Mjerenja: docs/speechmatics_evaluation_2026-09.md
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
@@ -282,8 +282,8 @@ MODAL_ONLY_ID=""
 # Default OFF. Izlaz ide u odvojen namespace (.speechmatics.*) i NE dira produkciju.
 # Dvije tvrde financijske ograde, jer je ovo evaluacija a ne obavezan korak:
 #   SPEECHMATICS_FRESH_DAYS (3) — samo svjež priljev; NAMJERNO ne konvergira nad katalogom
-#   SPEECHMATICS_MAX_FILES  (3) — pokriva tipičnu noć (medijan priljeva je 2-3 epizode)
-# Worst case ≈ 3 × 45 min × $0.80/h ≈ $1.80/noć.
+#   SPEECHMATICS_MAX_FILES  (5) — medijan priljeva je 2-3 epizode, 5 pokriva i špicu
+# Worst case ≈ 5 × 45 min × $0.80/h ≈ $3.00/noć.
 WITH_SPEECHMATICS=false
 # --with-gemini-refine (2026-09-19): KORAK 2.8 — Gemini sluh nad Speechmatics kosturom.
 #   GEMINI_REFINE_PROMOTE=true  → smije popuniti .wav.canary.diarized.srt (nikad prepisati)
@@ -292,12 +292,22 @@ WITH_GEMINI_REFINE=false
 GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
 # Cap 3 -> 1 (2026-09-19): korak je BLOKIRAJUCI — koraci 7-12 cekaju da zavrsi.
 # 19.09. je s capom 3 drzao dvije gotove epizode sat vremena iza trece kojoj
-# promocija ionako nije trebala. Medijan nocnog priljeva je 2-3 epizode, pa rep
-# pokupi sljedeca noc; korak je idempotentan i nista se ne gubi.
-GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-1}"
+# promocija ionako nije trebala.
+#
+# Cap 1 -> 5 (2026-09-21): "rep pokupi sljedeca noc" je bilo krivo. Cap 1 uz
+# SPEECHMATICS_MAX_FILES 3 znaci da visak kostura ostane nerafiniran, pa ga
+# pyannote (KORAK 6) u ISTOM runu popuni, a iduca noc odradi refine i onda odbije
+# promociju ("vec postoji — NE diram"). Mjereno 20.09.: od 2 epizode jedna je
+# otisla novim putem, druga na Mac, uz ~$1.36 placeno za artefakt koji nikad nije
+# usao u produkciju. Cap 2.8 mora biti >= cap 2.7, inace fallback pobjeduje utrku.
+# Cijena je latencija: ~0.14 min obrade po minuti zvuka (79 min → 11:26), dakle
+# 5 epizoda ≈ 30-55 min prije nego koraci 7-12 uopce krenu. Ako to pocne gurati
+# Opus pozive u novi prozor kvote (lib/claude_window.js), spusti cap, ne razdvajaj
+# ga od 2.7.
+GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-5}"
 GEMINI_REFINE_PROMOTE="${GEMINI_REFINE_PROMOTE:-false}"
 SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
-SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-3}"
+SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-5}"
 # Timeout PO EPIZODI. Default skripte je 90 min — u nightlyju bi zaglavljen servis
 # držao run 3 × 90 min = 4.5 h. Izmjereno je 2:29 za 50 min zvuka (20× realtime), pa
 # je 30 min ~6× headroom i za dugu epizodu, a worst case pada na 1.5 h.
@@ -836,11 +846,13 @@ fi
 #
 # 💰 DVIJE OGRADE, obje financijske (Speechmatics naplaćuje ~$0.80 po satu zvuka):
 #   1. prozor svježine (SPEECHMATICS_FRESH_DAYS=3) — NAMJERNO ne konvergira nad
-#      katalogom. Bez njega bi po 3 epizode/noć progrizao svih 3 200 epizoda ≈ $2 500.
+#      katalogom. Bez njega bi po 5 epizoda/noć progrizao svih 3 200 epizoda ≈ $2 500.
 #      (Suprotno od KORAKA 2.6, gdje je mtime prozor ukinut jer transkripcija MORA
 #      konvergirati — vidi docs/2026-08-28-konvergencija-pipelinea.md.)
-#   2. cap (SPEECHMATICS_MAX_FILES=3) — medijan noćnog priljeva je 2-3 epizode, pa cap
-#      pokriva tipičnu noć i omeđuje skok kad se vuče backlog (viđeno 11-12/dan).
+#   2. cap (SPEECHMATICS_MAX_FILES=5, 3→5 dana 21.09.) — medijan noćnog priljeva je
+#      2-3 epizode, pa 5 pokriva i špicu te omeđuje skok kad se vuče backlog
+#      (viđeno 11-12/dan). KORAK 2.8 mora imati JEDNAK ILI VEĆI cap, inače višak
+#      kostura ostane nerafiniran i pyannote ga pregazi u istom runu.
 #
 # Sken kandidata je u NODEU, ne u shell `find`-u — pod launchd-om `opendir()` na
 # vanjskim volumenima pada na macOS TCC-u i tiho vraća nula pogodaka.

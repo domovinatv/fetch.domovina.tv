@@ -395,7 +395,34 @@ uz korake `summary` i `article`.
 >
 > Ciljani backfill i dalje hvata gotovo cijelu korist za osminu cijene, ali brojka
 > je 395 epizoda, ne 157. Zato korak ima isti prozor svježine kao 2.7
-> (`GEMINI_REFINE_FRESH_DAYS=3`, cap 3) — prati priljev, NE konvergira nad katalogom.
+> (`GEMINI_REFINE_FRESH_DAYS=3`) — prati priljev, NE konvergira nad katalogom.
+
+### 5.x Cap 2.8 mora pratiti cap 2.7 (ispravak 21.09.)
+
+Cap je 19.09. spušten na 1 jer je korak blokirajući, uz obrazloženje „rep pokupi
+sljedeća noć". To je bilo krivo, i mjerenje je to pokazalo u prve dvije noći.
+
+Kad 2.7 proizvede više kostura nego što ih 2.8 smije obraditi, višak ostane
+nerafiniran → **pyannote (KORAK 6) popuni `.wav.canary.diarized.srt` u istom
+runu** → iduća noć uredno odradi refine i onda odbije promociju
+(„već postoji — NE diram"). Rep se ne pokupi; on se preda.
+
+Noć 20.09., 2 epizode:
+
+| epizoda | izvor `diarized.srt` | trošak |
+|---|---|---|
+| `aSV2T6DO-Ls` (29 min) | ✅ Speechmatics + Gemini, promovirano 03:11 | $0.40 + $0.08 |
+| `Y9BWTDMNH8w` (79 min) | ❌ **pyannote na Macu** 03:11→03:15 | $1.05 + $0.31 → **u prazno** |
+
+Zato je 21.09. `GEMINI_REFINE_MAX_FILES` 1 → 5, a `SPEECHMATICS_MAX_FILES` 3 → 5.
+
+**Pravilo: cap 2.8 ≥ cap 2.7.** Ako ih razdvojiš, fallback pobjeđuje utrku i
+plaćaš oba puta.
+
+Cijena tog pravila je latencija — obrada traje ≈ 0,14 min po minuti zvuka
+(79 min zvuka → 11:26), pa 5 epizoda znači 30-55 min prije nego koraci 7-12
+uopće krenu. Ako to počne gurati Opus pozive u nov prozor kvote
+(`lib/claude_window.js`), spusti **oba** capa, ne samo 2.8.
 
 ---
 
