@@ -126,6 +126,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `sync_voting_candidates.mjs` | Registar → glasački bazen „Izbornog dana" (vidi ispod) |
 | `tools/rebuild_summary_md.js` | Ponovno složi `.canary.summary.md` iz postojećeg `.summary.json` — **nula API poziva** (npr. kad se promijeni format linkova) |
 | `tools/force_upload_epubs.js` | Bulk re-upload `data/{id}/book.epub` + CF purge (immutable ključevi). Šalje SAMO knjige koje su već objavljene — objavljivanje novih je posao nightlyja |
+| `share_to_whatsapp.js` | Epizoda + sva poglavlja u WhatsApp grupu, jedan link po poruci (preview lijepi most). Default **suho pokretanje**, treba `--commit`; već poslano se preskače. Vidi `docs/whatsapp_share_epizode.md` |
 
 ### `sync_voting_candidates.mjs` — registar → glasački bazen
 
