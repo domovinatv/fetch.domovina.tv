@@ -130,3 +130,6 @@ Dvije stvari koje je backfill otkrio:
   trajanja i broj poziva po epizodi, anatomija per-field prijevoda, stvarna Vertex
   kvota (`effectiveLimit: None` = DSQ), trošak po epizodi i za katalog, mjerenja
   cache hit-a i analiza alternativa.
+- `docs/whatsapp_share_epizode.md` — `share_to_whatsapp.js`: isto pravilo
+  primijenjeno na WhatsApp share (svako poglavlje kao `/v/:id/t/:sec`, nikad
+  YouTube), plus `GET /api/groups` na mostu i mjerenja stvarnog prolaza.

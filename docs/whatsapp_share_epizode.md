@@ -161,3 +161,53 @@ curl -s "http://127.0.0.1:8080/api/groups?query=domovina.ai" | python3 -m json.t
 5. **Tempo.** Default 3 s daje ~2,5 min za 47 poruka. Ispod 1 s nema smisla
    dirati; WhatsApp ne voli rafal, a i preview svake poruke traži dohvat
    stranice.
+
+## Mjereno na stvarnom prolazu (22.09.2026.)
+
+Epizoda `aue1GuuMsbA`, 46 poglavlja + uvodni link = **47 poruka**, grupa
+`DOMOVINA.ai#001`:
+
+| Što | Vrijednost |
+|---|---|
+| Uspješnost | **47/47**, nula grešaka |
+| Tempo | ~3,5 s po poruci (3 s pauza + ~0,5 s dohvat preview-a) |
+| Ukupno | ~2 min 45 s |
+| Inline sličica | 5,7–10,7 KB (putuje unutar E2E poruke) |
+| Hi-res preview | 1200×630 kod svih 47 |
+
+Isti set je dan prije otišao i u `Matija Only` (42 u zadnjem batchu, također bez
+greške). Dakle dva puta zaredom 100 % — tempo od 3 s je dovoljno konzervativan i
+nema razloga ga snižavati.
+
+Preview se potvrđuje iz loga mosta, ne iz izlaza skripte (skripta vidi samo
+`success: true`):
+
+```
+Message sent true Message sent to 120363427325603807@g.us \
+  [preview: naslov="2:39:30 · Podcast za pet godina i oproštaj…" sicica=8483B hi-res=1200x630]
+```
+
+## Zatečena struktura zajednice „DOMOVINA"
+
+Otkriveno tek kad je `/api/groups` proradio — u `messages.db` se sve troje vidi
+kao obične grupe, dvije od njih čak pod istim imenom:
+
+```mermaid
+flowchart TD
+    C["Zajednica DOMOVINA<br/>120363425206409260@g.us<br/><i>is_community: true</i>"]
+    G["DOMOVINA (General)<br/>120363406559228204@g.us<br/><i>default subgroup, samo admini pišu</i>"]
+    A["DOMOVINA.ai#001<br/>120363427325603807@g.us<br/><i>ovdje je otišao share</i>"]
+
+    C --> G
+    C --> A
+```
+
+Zato `--group DOMOVINA` namjerno puca: pogodio bi i zajednicu i njezinu
+announce-podgrupu, a u drugu ionako ne bismo smjeli pisati da nismo admin.
+
+## Vezani dokumenti
+
+- `docs/2026-09-15-linkovi-kroz-domovina-ai.md` — zašto offline artefakt nikad ne
+  linka na YouTube; isti razlog vrijedi za svaku poruku koju šalje ova skripta
+- `docs/ebook_epub_pipeline.md` — drugi artefakt koji putuje sam (EPUB)
+- `~/git/mcps/whatsapp-mcp/SETUP-ms.md` — most: link preview, `/api/groups`, launchd
