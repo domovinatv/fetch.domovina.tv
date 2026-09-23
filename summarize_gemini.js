@@ -199,8 +199,33 @@ const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
 const HOMILY_SRT_SUFFIX = ".homily.srt";
 const HOMILY_META_SUFFIX = ".homily.json";
 
+// KORAK 2.8 (`refine_diarized_gemini.js --promote`) piše kanonski
+// `.wav.canary.diarized.srt` kao BAJT-IDENTIČNU kopiju svog izlaza
+// `{base}.{audio}.speechmatics.gemini.diarized.srt`. Takav transkript (Speechmatics
+// kostur + Gemini sluh) je bolji od svibanjskog Sortformer eksperimenta, koji nosi
+// STARI Canary tekst — pa ga Sortformer ne smije zasjeniti. Bez ove provjere
+// reobrada stare epizode (1947 ih ima .sortformer.diarized.srt) tiho piše članak
+// iz starog transkripta. Vidi docs/2026-09-23-reobrada-NamKWyUNrbU.md.
+// Isti helper postoji u summarize_gemini.js, generate_article_gemini.js i
+// prepare_rag{,_combined,_import}.js — mijenjaj u SVIH PET kopija.
+const REFINED_AUDIO_EXTS = [".mp3", ".wav", ".m4a", ".opus", ".ogg", ".flac"];
+function isPromotedRefine(canarySrtPath) {
+    const base = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, "");
+    if (base === canarySrtPath || !fs.existsSync(canarySrtPath)) return false;
+    let canonical = null;
+    for (const ext of REFINED_AUDIO_EXTS) {
+        const refined = base + ext + ".speechmatics.gemini.diarized.srt";
+        if (!fs.existsSync(refined)) continue;
+        try {
+            if (!canonical) canonical = fs.readFileSync(canarySrtPath);
+            if (canonical.equals(fs.readFileSync(refined))) return true;
+        } catch (_) { /* nečitljivo → nije dokaz promocije */ }
+    }
+    return false;
+}
+
 // Razrješava koji se dijarizirani SRT stvarno čita za dani canary path.
-// Prioritet: homily → sortformer → canary. Discovery i izlazna imena fajlova
+// Prioritet: homily → gemini-refine (2.8) → sortformer → canary. Discovery i izlazna imena fajlova
 // ostaju canary-anchored (count_progress, R2 putanje, downstream tooling se ne
 // mijenja) — pomiče se samo izvor čitanja sadržaja transkripta.
 //
@@ -227,6 +252,9 @@ function resolveDiarizedSrt(canarySrtPath) {
                 }
             } catch (_) { /* neispravan meta → padaj na puni transkript */ }
         }
+    }
+    if (isPromotedRefine(canarySrtPath)) {
+        return { path: canarySrtPath, source: "gemini-refine" };
     }
     const sortformerPath = canarySrtPath.replace(
         /\.canary\.diarized\.srt$/,
@@ -1281,6 +1309,7 @@ async function main() {
                 // 1. Čitaj SRT transkript — sortformer ima prioritet ako postoji
                 const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
                 if (_diarSource === "sortformer") console.log(`      🎭 Dijarizacija: sortformer (override canary)`);
+                if (_diarSource === "gemini-refine") console.log(`      🎧 Transkript: Speechmatics + Gemini sluh (KORAK 2.8, promoviran)`);
                 if (_diarSource === "homily") console.log(`      ⛪ Izvor: SAMO PROPOVIJED (.homily.srt, confidence=high) — liturgija izostavljena`);
                 const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
                 const transcriptText = srtToText(srtContent);

@@ -14,7 +14,7 @@
  *
  * Uporaba:
  *   node force_upload.js --video-id VID --channel CH \
- *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en]
+ *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,epub]
  *   (default targets: article,magisterium,article-en,magisterium-en)
  */
 
@@ -64,6 +64,10 @@ const TARGET_MAP = {
     "magisterium-en": { suffix: ".article.magisterium.en.json", r2: "article.magisterium.en.json" },
     "summary":        { suffix: ".canary.summary.json",         r2: "summary.json" },
     "summary-en":     { suffix: ".canary.summary.en.json",      r2: "summary.en.json" },
+    // Reobrada epizode (novi ASR + novi članak) mijenja i ove immutable ključeve.
+    "outline":        { suffix: ".outline.json",                r2: "outline.json" },
+    "diarized":       { suffix: ".wav.canary.diarized.srt",     r2: "diarized.srt", contentType: "text/plain; charset=utf-8" },
+    "epub":           { suffix: ".epub",                        r2: "book.epub", contentType: "application/epub+zip" },
 };
 
 const dir = path.join("storage/output", channel);
@@ -110,7 +114,7 @@ async function main() {
             Bucket: R2_BUCKET_NAME,
             Key: key,
             Body: body,
-            ContentType: "application/json",
+            ContentType: map.contentType || "application/json",
             CacheControl: CACHE_CONTROL_IMMUTABLE,
         }));
         console.log(`⬆️  PUT ${key}  (${(body.length / 1024).toFixed(1)} KB)  ← ${path.basename(local)}`);
