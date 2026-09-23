@@ -226,15 +226,64 @@ def load_wav_16k_mono(wav_path):
 
 # ─── EMBEDDING EXTRACTION ───────────────────────────────────────────
 
-def extract_embeddings_for_file(srt_path, wav_path, model_wrapper, source_label):
+def sample_evenly(segments, max_speech_sec):
+    """
+    Ravnomjerno raspoređen uzorak segmenata kroz cijelu epizodu, do max_speech_sec.
+
+    Otisku glasa ne treba sav govor: 45-60 s daje sličnost 0.82-0.85 prema istom
+    čovjeku u drugoj snimci i 0.94-0.96 unutar iste (mjereno 23.09.2026., vidi
+    docs/2026-09-23-sponzori-u-snimci.md). Ravnomjerno, a ne „prvih N", da uvod,
+    mikrofon koji se zagrijava ili jedna tema ne dominiraju otiskom. Duži segmenti
+    imaju prednost (čišći govor, manje preklapanja).
+    """
+    if max_speech_sec is None:
+        return segments
+    total = sum(e - s for s, e in segments)
+    if total <= max_speech_sec:
+        return segments
+    solid = [seg for seg in segments if seg[1] - seg[0] >= 3.0] or segments
+    avg = sum(e - s for s, e in solid) / len(solid)
+    n = max(1, min(len(solid), int(round(max_speech_sec / max(avg, 0.1)))))
+    step = len(solid) / n
+    picked = [solid[int(i * step)] for i in range(n)]
+    out, acc = [], 0.0
+    for seg in picked:
+        if acc >= max_speech_sec:
+            break
+        out.append(seg)
+        acc += seg[1] - seg[0]
+    return out
+
+
+def read_segment_16k(wav_path, start, end):
+    """Čita SAMO [start, end) iz 16 kHz WAV-a — bez učitavanja cijele datoteke (USB disk)."""
+    info = sf.info(str(wav_path))
+    x, _ = sf.read(str(wav_path), start=int(start * info.samplerate),
+                   stop=int(end * info.samplerate), dtype="float32", always_2d=False)
+    if x.ndim > 1:
+        x = x.mean(axis=-1)
+    return x
+
+
+def extract_embeddings_for_file(srt_path, wav_path, model_wrapper, source_label, max_speech_sec=None):
     """
     Glavna logika: parsira SRT, ekstrahira embeddinge po speakeru, vraća dict za JSON spremanje.
+
+    max_speech_sec: None = sav govor (izvorno ponašanje, ~2.5 min za epizodu od 2h40
+    na USB disku jer čita cijeli WAV i embedda svaki segment). Broj = ravnomjeran uzorak
+    po govorniku, čitaju se samo ti komadi WAV-a.
     """
     speaker_segments = parse_srt_for_speakers(srt_path)
     if not speaker_segments:
         return None
 
-    wav, sr = load_wav_16k_mono(wav_path)
+    # Uzorkovanje čita komade izravno (seek); treba soundfile i 16 kHz WAV.
+    seek_mode = max_speech_sec is not None and sf is not None \
+        and sf.info(str(wav_path)).samplerate == TARGET_SR
+    if seek_mode:
+        wav, sr = None, TARGET_SR
+    else:
+        wav, sr = load_wav_16k_mono(wav_path)
 
     speaker_embeddings = {}
     for speaker_tag, segments in speaker_segments.items():
@@ -243,14 +292,20 @@ def extract_embeddings_for_file(srt_path, wav_path, model_wrapper, source_label)
         if total_sec < MIN_TOTAL_SPEECH_SEC:
             continue
 
+        chosen = sample_evenly(usable, max_speech_sec)
         embeds = []
-        for start, end in usable:
-            i0 = int(start * sr)
-            i1 = min(int(end * sr), len(wav))
-            if i1 - i0 < sr * 0.5:  # safety: pre-kratak segment u praksi
+        sampled_sec = 0.0
+        for start, end in chosen:
+            if seek_mode:
+                segment_audio = read_segment_16k(wav_path, start, end)
+            else:
+                i0 = int(start * sr)
+                i1 = min(int(end * sr), len(wav))
+                segment_audio = wav[i0:i1]
+            if len(segment_audio) < sr * 0.5:  # safety: pre-kratak segment u praksi
                 continue
-            segment_audio = wav[i0:i1]
             embeds.append(model_wrapper.embed(segment_audio))
+            sampled_sec += end - start
 
         if not embeds:
             continue
@@ -266,6 +321,7 @@ def extract_embeddings_for_file(srt_path, wav_path, model_wrapper, source_label)
             "total_speech_sec": float(total_sec),
             "num_segments": len(embeds),
             "confidence": float(min(1.0, len(embeds) / 50.0)),
+            "sampled_speech_sec": float(sampled_sec),
         }
 
     return {
@@ -275,6 +331,7 @@ def extract_embeddings_for_file(srt_path, wav_path, model_wrapper, source_label)
         "model_id": model_wrapper.model_id,
         "embedding_dim": model_wrapper.embedding_dim,
         "source_diarization": source_label,
+        "sampling": "all" if max_speech_sec is None else f"even:{int(max_speech_sec)}s",
         "embeddings": speaker_embeddings,
     }
 
@@ -352,6 +409,10 @@ def main():
                         help="Maksimalan broj epizoda (za smoke test)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Lista posao bez izvršavanja")
+    parser.add_argument("--max-speech-sec", type=float, default=None,
+                        help="Ravnomjeran uzorak do N s govora po govorniku (npr. 90). "
+                             "Default: sav govor. Uzorak čita samo te komade WAV-a — "
+                             "za backfill kataloga, vidi docs/2026-09-23-backfill-sponzori-i-glasovi.md")
     parser.add_argument("--max-runtime-hours", type=float, default=None,
                         help="Wall-clock budget; izađe kad istekne")
     args = parser.parse_args()
@@ -411,7 +472,8 @@ def main():
 
         try:
             ep_start = time.time()
-            result = extract_embeddings_for_file(srt_path, wav_path, model_wrapper, args.source)
+            result = extract_embeddings_for_file(srt_path, wav_path, model_wrapper, args.source,
+                                                 max_speech_sec=args.max_speech_sec)
             if result is None or not result["embeddings"]:
                 print(f"   ⏭️  [{i}/{len(jobs)}] {srt_path.name}: nema usable speakera, preskočeno")
                 skipped += 1

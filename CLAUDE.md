@@ -106,6 +106,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
 | 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep. Gradi i `{base}.en.epub` kad postoji `.article.en.json` (`docs/ebook_epub_pipeline.md`) |
+| 9.85 | `detect_sponsors.js` | Sponzori UGRAĐENI u snimku → `{base}.sponsors_in_video.json` (tko + gdje: spot / host_read / rubric / mention). **Nula API poziva**, katalog ~19 s. Default ON, `--no-sponsors` gasi (`docs/2026-09-23-sponzori-u-snimci.md`) |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 
@@ -126,6 +127,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `sync_voting_candidates.mjs` | Registar → glasački bazen „Izbornog dana" (vidi ispod) |
 | `tools/rebuild_summary_md.js` | Ponovno složi `.canary.summary.md` iz postojećeg `.summary.json` — **nula API poziva** (npr. kad se promijeni format linkova) |
 | `tools/force_upload_epubs.js` | Bulk re-upload `data/{id}/book.epub` + CF purge (immutable ključevi). Šalje SAMO knjige koje su već objavljene — objavljivanje novih je posao nightlyja |
+| `tools/upload_sponsors_in_video.js` | Bulk upload `data/{id}/sponsors_in_video.json` + CF purge + upis u keys-cache. Samo za već objavljene epizode; backfill nakon promjene detektora (`docs/2026-09-23-backfill-sponzori-i-glasovi.md`) |
 | `share_to_whatsapp.js` | Epizoda + sva poglavlja u WhatsApp grupu, jedan link po poruci (preview lijepi most). Default **suho pokretanje**, treba `--commit`; već poslano se preskače. Vidi `docs/whatsapp_share_epizode.md` |
 
 ### `sync_voting_candidates.mjs` — registar → glasački bazen
@@ -453,6 +455,24 @@ speaks would still claim they do, which would corrupt the person hub downstream.
 
 A 30-minute chunk is also a bad retrieval unit regardless of any size limit: the
 hit returns a block the user then has to search by hand.
+
+### Sponzori u snimci (KORAK 9.85) i glasovni otisci
+
+`sponsors_in_video.json` su sponzori **ugrađeni u snimku** (autorova suradnja) —
+namjerno odvojeni od dinamičkih sponzorstava koja se na domovina.ai kupuju nakon
+snimanja. Detektor je determinističan (opis + YouTube poglavlja + dijarizirani SRT) i
+piše datoteku za SVAKU epizodu, i praznu (CDN kešira 404). Pravila naučena na tri
+kanala (npr. „spot bez imena sponzora nikad nije playable", „Patreon nije sponzor",
+„aliasi s drugih epizoda kanala samo uz sponzorsku frazu") su u
+`docs/2026-09-23-sponzori-u-snimci.md` §Zamke — ne olabavljuj ih bez ponovnog
+suhog prolaza na `rastuci_s_djecom` + `iva_kraljevic` + `bozanstvena_komedija`.
+
+**Glasovni otisak nije diarizacija.** Kad SRT već kaže tko govori kada, otisak je
+jedan prolaz malog modela (wespeaker ResNet34, 6.6 M param.): 0.2 s za 42 s zvuka na
+CPU-u. KORAK 6.5 (`extract_speaker_embeddings.py`) po defaultu embedda SVAKI segment
+i čita cijeli WAV (154 s/ep) — za backfill koristi `--max-speech-sec 90` (1.6 s/ep,
+0.987 sličnost s punim otiskom). Glas je **potvrda, ne izvor imena**; prag za slične
+glasove nije kalibriran.
 
 ### EPUB e-knjige (KORAK 9.8) — zašto stoji baš tu
 
