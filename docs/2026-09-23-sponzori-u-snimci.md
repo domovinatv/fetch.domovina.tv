@@ -134,3 +134,8 @@ potvrđuje ili predlaže, čovjek odobrava prije nego ime ode na stranicu.
 - Polje „narator" u `sponsors_in_video.json` — tek nad spremljenim registrom glasova.
 - Normalizacija padeža izgovorenih imena („Hvaromi" → „Hvaroma").
 - Uputa outline promptu da sponzorski segment ne utapa u susjedno poglavlje.
+
+## Vezani dokumenti
+
+- `docs/2026-09-23-backfill-sponzori-i-glasovi.md` — backfill (izveden), glasovni otisci, mapa osoba
+- `docs/2026-09-23-handoff-frontend-sponzori.md` — ugovor podataka + prompt za Flutter UI
