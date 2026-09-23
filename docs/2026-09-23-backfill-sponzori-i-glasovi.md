@@ -34,6 +34,13 @@ sadržaj promijeni; uploader šalje samo ključeve čija se veličina razlikuje 
 Stanje prije: 148 / 3305 epizoda ima `.embeddings.pyannote_wespeaker34.json`
 (110 ima `titanet`).
 
+**IZVEDENO 23.09.2026.** — 3160 epizoda za **26 min 45 s** (0.5 s/ep, MPS), 0 grešaka;
+sada **3305 / 3305**. Provjera iz spremljenih datoteka: spot `aue1GuuMsbA` SPEAKER_02 ↔
+Vlašić (`5XhBFrXb8II` SPEAKER_00) **0.838**; kontrole 0.107 / 0.138 / 0.108.
+
+**IZVEDENO 23.09.2026.** i §1: 3304 `sponsors_in_video.json` zapisano, 3289 poslano na
+R2 (0 grešaka, 6578 purge zapisa, 2 min 11 s); ponovni prolaz „za slanje: 0".
+
 ### Uzorak umjesto svega govora — `--max-speech-sec`
 
 Izvorni KORAK 6.5 embedda **svaki segment** i učitava **cijeli WAV** (~300 MB s USB
