@@ -275,6 +275,8 @@ WITH_R2_UPLOAD=false
 WITH_MAGISTERIUM=false
 # EPUB e-knjige: default ON (nula API troška, ~1.5 s/ep) — gasi se s --no-ebook.
 WITH_EBOOK=true
+# Sponzori ugrađeni u snimku (KORAK 9.85): default ON (nula API troška, ~6 ms/ep) — gasi se s --no-sponsors.
+WITH_SPONSORS=true
 WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
@@ -370,6 +372,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--no-ebook" ]; then
         WITH_EBOOK=false
+        i=$((i + 1))
+    elif [ "$arg" = "--no-sponsors" ]; then
+        WITH_SPONSORS=false
         i=$((i + 1))
     elif [ "$arg" = "--with-ebook-transcript" ]; then
         # Doslovan prijepis kao dodatak knjige. Opt-in: knjiga time prestaje biti
@@ -1445,6 +1450,40 @@ node "$SCRIPT_DIR/generate_ebook.js" "${EBOOK_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 9.8 (EPUB e-knjige) — zadan je --no-ebook"
+fi
+
+# --- KORAK 9.85: SPONZORI UGRAĐENI U SNIMKU (detect_sponsors.js) ---
+# {base}.sponsors_in_video.json iz opisa videa, YouTube poglavlja i dijariziranog
+# transkripta: tko je sponzor i gdje je u snimci (spot / host_read / rubric / mention).
+# NULA API poziva — cijeli katalog (3300 ep) za ~19 s. Piše se za SVAKU epizodu, i
+# prazan niz, da Flutter dobije 200 umjesto keširanog 404. Upload (KORAK 12) ga
+# prepisuje kad se promijeni (REPAIRABLE_BASENAMES) — bolji detektor stiže na CDN.
+# Odvojeno od dinamičkih sponzorstava koja se kupuju nakon snimanja.
+# Vidi docs/2026-09-23-sponzori-u-snimci.md.
+if [ "$WITH_SPONSORS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 9.85: sponzori u snimci (opis + poglavlja + transkript → sponsors_in_video.json)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SPONSORS_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        SPONSORS_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    SPONSORS_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/detect_sponsors.js" "${SPONSORS_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri detekciji sponzora, nastavljam..."
+}
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 9.85 (sponzori u snimci) — zadan je --no-sponsors"
 fi
 
 # --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---

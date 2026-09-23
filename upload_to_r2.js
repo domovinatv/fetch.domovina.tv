@@ -151,6 +151,10 @@ const UPLOAD_SUFFIXES = [
     // article.json iz kojeg je izvedena. Regeneracija traži `--force` + CF purge
     // jer data/ ključevi idu s immutable Cache-Controlom.
     ".epub",                    // uključuje i `{base}.en.epub` (endsWith) → data/{id}/book.en.epub
+    // Sponzori UGRAĐENI u snimku (detect_sponsors.js) — piše se za svaku epizodu,
+    // i prazan, da Flutter dobije 200 umjesto keširanog 404. Odvojeno od dinamičkih
+    // sponzorstava koja se na domovina.ai kupuju nakon snimanja.
+    ".sponsors_in_video.json",
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -542,6 +546,9 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.epub`)
         return `data/${videoId}/book.epub`;
 
+    if (filename === `${videoBase}.sponsors_in_video.json`)
+        return `data/${videoId}/sponsors_in_video.json`;
+
     // Responsive WebP varijante → images/{id}/thumb-{w}.webp
     const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
     if (webpMatch && webpMatch[1] === videoBase)
@@ -922,6 +929,8 @@ const REPAIRABLE_BASENAMES = new Set([
     "article.json", "outline.json", "summary.json",
     "article.en.json", "summary.en.json",
     "article.magisterium.json", "article.magisterium.en.json",
+    // Detektor se dotjeruje → nova verzija mora stići na CDN (drift po veličini + purge).
+    "sponsors_in_video.json",
 ]);
 function isRepairable(r2Key) {
     if (!r2Key.startsWith("data/")) return false;
