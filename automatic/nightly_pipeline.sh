@@ -382,6 +382,14 @@ if [ -f "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" ]; then
         node "$PIPELINE_QUEUE_BRIDGE/report_discovered.js" || true
 fi
 
+# ─── 5b. WATCH-ONLY KANDIDATI (registry → tko izbacuje nove epizode) ─
+# Za nepraćene podcaste iz registryja povuče samo popis videa (flat, nula medija),
+# odvoji originale od shortsa/isječaka/Q&A izreza i zapiše nove epizode u
+# automatic/watchlist/ (events.jsonl + REPORT.md). Ništa se ne skida ni ne obrađuje —
+# piše IZVAN automatic/podcasts/, pa ga fetch.js ne vidi. ~1 min za ~215 kanala.
+run_step "watch-only kandidati (registry, bez obrade)" \
+    node "$REPO_DIR/automatic/watch_candidates.js" || true
+
 # ─── 6. POTROŠNJA TOKENA (Claude Code sesije → pipeline queue) ──────
 # Zbroji tokene headless `claude -p` runova po videu (Magisterium MCP runbook,
 # --gemini-backend claude) iz ~/.claude/projects i pošalji u queue servis, gdje se

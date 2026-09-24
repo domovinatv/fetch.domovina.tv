@@ -1,0 +1,24 @@
+# Kanali medijskih kuća, institucija i udruga čiji se YouTube tab /podcasts i /playlists
+# pregledava u svakom discovery prolazu (discover.js podcasts-tab).
+# Format: naziv|channel_id ili URL kanala. Dodaj nove kad ih nađeš (web research, Podscan…).
+
+Bljesak.info|UC7WVD1Fm6JY4gU5hNg2CkDw
+VTV Televizija|UCVfz6I7XISePfuN02Hx4bCA
+Hrvatska katolička mreža|UCrfV3uhCoHNBaqiva1wCB4Q
+Večernji TV|UCPFfi389DTy-cI9BzM7bLTQ
+24sata|UCpJNsBEupVtlLlVIYw-kFpg
+Jutarnji list|UCoygYX3L4vBCR4T-EhafUTg
+Hrvatska radiotelevizija|UCweBO4bfRZgu33OMPYlehlg
+Hrvatski nogometni savez|UCsqWbe1Tp3ZkobTmcKqZmjg
+SDPHrvatske|UCKL-tBgTyCmKpOJqxoVTRLQ
+N1|UCpglal7d5mhV4lA1b3-DsCw
+TV Jadran|UCervWZO1EYpsbO9EWgmvang
+RTL|UCgOfDWsxLe3B8hUdPKx6S7A
+Dalmacija Danas|UCOJXpevbUq_r-fdkFHpQ07w
+NOVA TV|UCbzmcyoz_CzJJgHonmkJ23g
+HNK Hajduk Split|UCN7oOG6iLGDXXhyxBKcbq7A
+UniZg|UCGUeIn0apOuxottQQApBcPw
+Matica hrvatska|UC1fC6msmjs8FfVN1u0bHZMg
+YammatFM_official|UC0pZKoY0N8b6yFiNYoKrGDQ
+Promocija znanosti|UCOkyFO3dsH1Yq_G-eRApUfw
+Možemo!|UC-EG8D5Im29F-dvNC-wr8uw
