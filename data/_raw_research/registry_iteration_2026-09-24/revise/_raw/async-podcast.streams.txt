@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/@async_platform/streams
+#ERR ERROR: [youtube:tab] @async_platform: This channel does not have a streams tab

@@ -1,0 +1,3158 @@
+[
+ {
+  "display_name": "Sredinom (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 63,
+  "long_episodes": 49,
+  "long_in_last30": 28,
+  "avg_duration_min": 53.9,
+  "median_duration_min": 53.8,
+  "first_upload": "2022-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t"
+  ],
+  "evidence": "63 ep. ~54 min; mješoviti HR/BiH govornici",
+  "sample": [
+   "Snp8ArBAmWE|2190|2024-09-25|NE MOŽETE U STARKAMA IĆI U PLANINU, NOGE SU NAJVAŽNIJE- JOSIP DRMAĆ (B",
+   "HXO8b8ztEkY|4834|2024-09-25|SREDINOM #62 | SENADA DEMIROVIĆ HABIBIJA: RUŠEVINE U MOSTARU SE NE MOG",
+   "tMpLJHsoKG0|4303|2024-09-25|SREDINOM #61 | ADELA GOSTO:  IMA MOMENATA KADA SE PITAM ''ŠTO MI JE SV"
+  ]
+ },
+ {
+  "display_name": "Razgovori (VTV)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+  "type": "playlist",
+  "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+  "playlist_id": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+  "parent_channel": "VTV Televizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 9,
+  "long_episodes": 8,
+  "long_in_last30": 8,
+  "avg_duration_min": 46.4,
+  "median_duration_min": 49.8,
+  "first_upload": "2025-09-25",
+  "last_upload": "2025-12-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "regional",
+   "interview"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L"
+  ],
+  "evidence": "9 ep. ~46 min",
+  "sample": [
+   "WLme7aTbRYI|2946|2025-12-25|Razgovori 103. fra Josip Vizjak",
+   "T9t4F17HYQE|2860|2025-09-25|Razgovori 148. emisija Damir Makovec",
+   "HHVWGGNqAjU|3014|2025-09-25|Razgovori 147. emisija:  Bruno Ister"
+  ]
+ },
+ {
+  "display_name": "Duhovno duhovite večeri (HKR)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+  "type": "playlist",
+  "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+  "playlist_id": "PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+  "parent_channel": "Hrvatska katolička mreža",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 34,
+  "long_episodes": 33,
+  "long_in_last30": 29,
+  "avg_duration_min": 49.9,
+  "median_duration_min": 50.3,
+  "first_upload": "2021-09-25",
+  "last_upload": "2023-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "religious-catholic",
+   "humor"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o"
+  ],
+  "evidence": "34 ep. ~50 min 2021-2023",
+  "sample": [
+   "eV0cwcnZuHI|1417|2023-09-25|Duhovno duhovita večer - 22.11.2022.",
+   "g8QvRV1tL3c|2969|2023-09-25|Duhovno duhovita večer - 27.9.2022. - Izgradnja osobnog samopouzdanja",
+   "4pZ1WQw5o-M|2889|2022-09-25|Duhovno duhovita večer - 07.6.2022."
+  ]
+ },
+ {
+  "display_name": "In Medias Press (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 19,
+  "long_episodes": 10,
+  "long_in_last30": 10,
+  "avg_duration_min": 32.1,
+  "median_duration_min": 32.0,
+  "first_upload": "2026-06-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "media",
+   "journalism",
+   "conference"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP"
+  ],
+  "evidence": "Paneli/razgovori s medijske konferencije; 10 dugih",
+  "sample": [
+   "fC-nH25UpUI|118|2026-06-25|IN MEDIAS PRESS",
+   "jtxkOM0XRS8|2562|2026-06-25|Panel: Medijski brendovi vs. brendirani novinari",
+   "4HBehi04n8A|2211|2026-06-25|Razgovor 1:1 Tomislav Krasnec & Tuan Samahon - Na rubu slobode govora"
+  ]
+ },
+ {
+  "display_name": "As s klupe (24sata)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+  "type": "playlist",
+  "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+  "playlist_id": "PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+  "parent_channel": "24sata",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 8,
+  "long_episodes": 8,
+  "long_in_last30": 8,
+  "avg_duration_min": 62.2,
+  "median_duration_min": 65.9,
+  "first_upload": "2026-05-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "sport",
+   "football",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0"
+  ],
+  "evidence": "8 ep. ~60 min s nogometnim trenerima (2026), Podcasts tab",
+  "sample": [
+   "_n_gSDdO_dU|2859|2026-06-25|Hrvoje Vejić: 'Luka je fenomen, obožavam ga kao igrača i kao osobu' | ",
+   "zH3TtvriaBM|3186|2026-06-25|Ante Miše: 'Uvjeren sam da možemo do četvrtfinala' | AS S KLUPE",
+   "ybLPpG_Rde8|3995|2026-06-25|Ivica Olić: ‘Prije utakmice sa Srbijom nismo spavali dvije noći’ I AS "
+  ]
+ },
+ {
+  "display_name": "Čajanka s Borisom Vlašićem (Jutarnji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+  "type": "playlist",
+  "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+  "playlist_id": "PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+  "parent_channel": "Jutarnji list",
+  "hosts": [
+   "Boris Vlašić"
+  ],
+  "follower_count": null,
+  "total_items": 14,
+  "long_episodes": 10,
+  "long_in_last30": 10,
+  "avg_duration_min": 32.0,
+  "median_duration_min": 31.8,
+  "first_upload": "2019-09-25",
+  "last_upload": "2023-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "eu",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u"
+  ],
+  "evidence": "14 ep., ~32 min, 2019-2023",
+  "sample": [
+   "c7Gqr8wwZ2s|2127|2023-09-25|Čajanka s B. Vlašićem: 'Prijetili su dostavljačima da će ih zamijeniti",
+   "75K2yJh4xxY|2108|2023-09-25|Zašto stoji obnova Banije",
+   "8LbQEg0PT1Q|1863|2020-09-25|Kavkaska čajanka: Hrvatsko predsjedanje EU"
+  ]
+ },
+ {
+  "display_name": "VL Stativa (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 39,
+  "long_episodes": 11,
+  "long_in_last30": 9,
+  "avg_duration_min": 26.4,
+  "median_duration_min": 25.0,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-11",
+  "uploads_last_90d": 6,
+  "tags": [
+   "sport",
+   "football",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-"
+  ],
+  "evidence": "Sportski podcast, ~25 min, aktivan; 9/30 ≥30 min",
+  "sample": [
+   "e2TjMDdWIt4|3436|2026-09-11|Slaven Bilić objavio svoj prvi popis Hrvatske pa otkrio da je s Daliće",
+   "dNJadOV8088|1064|2026-09-11|Nova era Vatrenih počinje ovim popisom:Večernjakovi novinari otkrivaju",
+   "FEKdGbLecuA|2390|2026-09-04|Bivši hrvatski reprezentativac Dujmović: 'Od Kravcova imam velika oček"
+  ]
+ },
+ {
+  "display_name": "Pravi smjer (VTV)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+  "type": "playlist",
+  "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+  "playlist_id": "PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+  "parent_channel": "VTV Televizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 60,
+  "long_episodes": 60,
+  "long_in_last30": 30,
+  "avg_duration_min": 34.2,
+  "median_duration_min": 34.2,
+  "first_upload": "2023-09-25",
+  "last_upload": "2026-05-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "regional",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9"
+  ],
+  "evidence": "60 ep. ~34 min, 2023-2026",
+  "sample": [
+   "XfGP8-k44ec|2209|2026-05-25|Pravi smjer 5. svibnja 2026.",
+   "nTqS6Vtrv0k|2023|2026-05-25|Pravi smjer 28. travnja 2026.",
+   "e8VfuhwLAZI|2028|2026-04-25|Pravi smjer 21. travnja 2026."
+  ]
+ },
+ {
+  "display_name": "Roze Koze Podcast",
+  "youtube_url": "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos",
+  "type": "channel",
+  "channel_id": "UCW4Iu-dYRcHDj7Gum37nj8Q",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Mia",
+   "Bela"
+  ],
+  "follower_count": 588,
+  "total_items": 87,
+  "long_episodes": 54,
+  "long_in_last30": 25,
+  "avg_duration_min": 45.1,
+  "median_duration_min": 38.0,
+  "first_upload": "2020-09-25",
+  "last_upload": "2022-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "lifestyle",
+   "women",
+   "talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos"
+  ],
+  "evidence": "Netokracija vodič; 87 ep. ~45 min, neaktivan od 2022",
+  "sample": [
+   "EbKSdJbSSdM|4089|2022-09-25|HRANA BOGOVA - KAKAOVAC",
+   "Yj9sptb5JsU|2282|2022-09-25|JESTE LI ZNALI?",
+   "GCxZC6hXeT4|3518|2022-09-25|NAJBOLJE IZ PRIRODE - SAMONIKLO JESTIVO BILJE"
+  ]
+ },
+ {
+  "display_name": "Sport Centar (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 79,
+  "long_episodes": 77,
+  "long_in_last30": 30,
+  "avg_duration_min": 56.9,
+  "median_duration_min": 56.5,
+  "first_upload": "2022-09-25",
+  "last_upload": "2026-07-25",
+  "uploads_last_90d": 6,
+  "tags": [
+   "sport",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk"
+  ],
+  "evidence": "79 ep. ~57 min; BiH sportska tematika",
+  "sample": [
+   "1x_4aRFiIAs|2533|2026-07-25|Sport Centar FIFA 2026. uz Karlovačko | Maletić o Španjolskoj, BiH i k",
+   "tD4Rel7mfh4|3071|2026-07-25|Sport Centar FIFA 2026. uz Karlovačko | Boris Pandža: Španjolci su per",
+   "Gnx22OMb4jg|3071|2026-07-25|Sport Centar FIFA 2026. uz Karlovačko | Boris Pandža: Španjolci su per"
+  ]
+ },
+ {
+  "display_name": "Imam ideju (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 103,
+  "long_episodes": 102,
+  "long_in_last30": 29,
+  "avg_duration_min": 55.4,
+  "median_duration_min": 59.3,
+  "first_upload": "2022-09-25",
+  "last_upload": "2026-08-28",
+  "uploads_last_90d": 2,
+  "tags": [
+   "business",
+   "entrepreneurship",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z"
+  ],
+  "evidence": "103 ep. ~55 min; Mostar (hrvatski portal u BiH)",
+  "sample": [
+   "kwBZxBQfbSw|3365|2026-08-28|Kako i zašto ostaviti uspješan biznis u Frankfurtu i vratiti se u Stol",
+   "ZDHaG6hAK2w|2302|2026-07-25|Nakon toliko odbijenica za posao, kao da je ovo bio Božji plan za mene",
+   "nhli2Y0B0y4|3620|2026-06-25|Priča o književnom uspjehu Magdalene Blažević koja pisanjem osvaja Eur"
+  ]
+ },
+ {
+  "display_name": "The Home Team Podcast (HRT, EN)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 16,
+  "long_episodes": 13,
+  "long_in_last30": 13,
+  "avg_duration_min": 40.8,
+  "median_duration_min": 43.8,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "diaspora",
+   "sport",
+   "english"
+  ],
+  "language": "en",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-"
+  ],
+  "evidence": "16 ep. ~41 min na ENGLESKOM, HR tematika/dijaspora",
+  "sample": [
+   "TzUeDT70M_g|3256|2026-06-25|Joe Šimunić drops his predictions for Croatia at World Cup 2026 and mo",
+   "M4fZrZlW8cg|3230|2026-06-25|President of the Golf Association of Croatia",
+   "sVTQsD_6378|2436|2026-04-25|Legendary rowers the Sinković brothers talk to the Home Team"
+  ]
+ },
+ {
+  "display_name": "Podcast Vatrena #obitelj (HNS)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+  "type": "playlist",
+  "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+  "playlist_id": "PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+  "parent_channel": "Hrvatski nogometni savez",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 19,
+  "long_episodes": 19,
+  "long_in_last30": 19,
+  "avg_duration_min": 70.4,
+  "median_duration_min": 70.9,
+  "first_upload": "2021-09-25",
+  "last_upload": "2021-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "sport",
+   "football",
+   "institutional"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-"
+  ],
+  "evidence": "19 ep. ~70 min (2021); Podcasts tab HNS",
+  "sample": [
+   "-N512NQZa4A|3080|2021-09-25|Podcast Vatrena #obitelj: Domagoj Vida i Nderim Redžaj",
+   "EBaTa08QL2s|3737|2021-09-25|Vatrena #obitelj: Mile Škorić i Miroslav Marković",
+   "Ktbdt1JCTbY|2746|2021-09-25|Vatrena #obitelj: Dominik Livaković i Marjan Mrmić"
+  ]
+ },
+ {
+  "display_name": "Razgovori s (nad)biskupima (HKR)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+  "type": "playlist",
+  "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+  "playlist_id": "PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+  "parent_channel": "Hrvatska katolička mreža",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 25,
+  "long_episodes": 23,
+  "long_in_last30": 23,
+  "avg_duration_min": 41.6,
+  "median_duration_min": 42.0,
+  "first_upload": "2019-09-25",
+  "last_upload": "2025-11-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "religious-catholic",
+   "interview"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-"
+  ],
+  "evidence": "25 ep. ~42 min 2019-2025",
+  "sample": [
+   "QgzOHDDgHBY|2859|2025-11-25|Kardinal Josip Bozanić - 50 godina svećeništva",
+   "ADXt-ZR4m4g|1559|2025-09-25|Razgovor s vojnim ordinarijem mons. Jurom Bogdanom povodom smrti Sveto",
+   "xJDz4a-PU7Q|2653|2025-09-25|Intervju s umirovljenim zagrebačkim nadbiskupom kardinalom Josipom Boz"
+  ]
+ },
+ {
+  "display_name": "Digitalne tribine (SDP)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+  "type": "playlist",
+  "channel_id": "UCKL-tBgTyCmKpOJqxoVTRLQ",
+  "playlist_id": "PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+  "parent_channel": "SDPHrvatske",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 13,
+  "long_episodes": 13,
+  "long_in_last30": 13,
+  "avg_duration_min": 73.1,
+  "median_duration_min": 73.8,
+  "first_upload": "2020-09-25",
+  "last_upload": "2020-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "party"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 2400,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLTadq9219hgLnpKoOuFmIHtPURuIux_G-"
+  ],
+  "evidence": "13 tribina ~73 min, samo 2020",
+  "sample": [
+   "sNYyLTHt_Dw|6036|2020-09-25|Civilno društvo i mladi u doba pandemije, digitalni okrugli stol",
+   "Z_m3uj0Ng6A|4541|2020-09-25|Prava radnika u uvjetima Korona krize, digitalni okrugli stol",
+   "hG0Kd6kKDyQ|3916|2020-09-25|Ivica Račan - pokretač promjena"
+  ]
+ },
+ {
+  "display_name": "Razgovor s razlogom (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 106,
+  "long_episodes": 79,
+  "long_in_last30": 21,
+  "avg_duration_min": 24.5,
+  "median_duration_min": 30.5,
+  "first_upload": "2022-09-25",
+  "last_upload": "2026-04-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "interview",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja"
+  ],
+  "evidence": "106 ep., medijan 30 min",
+  "sample": [
+   "OCO-hdv8INI|1822|2026-04-25|Razgovor s razlogom: Lidija Arambašić",
+   "E-mY688DoFE|1957|2026-04-25|Razgovor s razlogom: Ante Radonić",
+   "5laATxrHZ4s|1949|2026-04-25|Razgovor s razlogom: Kokan Mladenović"
+  ]
+ },
+ {
+  "display_name": "Tajne svemira (N1)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+  "type": "playlist",
+  "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+  "playlist_id": "PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+  "parent_channel": "N1",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 34,
+  "long_episodes": 32,
+  "long_in_last30": 29,
+  "avg_duration_min": 50.8,
+  "median_duration_min": 51.9,
+  "first_upload": "2022-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "science",
+   "astronomy",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY"
+  ],
+  "evidence": "Mjesečna emisija o svemiru ~50 min, 34 ep.; jezik HR po formatu naslova, provjeriti",
+  "sample": [
+   "5knfv0J8Bms|2887|2025-09-25|Tajne svemira (10. 10. 2024.)",
+   "xE9mdsfYOUA|2772|2025-09-25|Tajne svemira (15. 11. 2024.)",
+   "J8FmLPhj4M0|3137|2025-09-25|Tajne svemira (13. 12. 2024.)"
+  ]
+ },
+ {
+  "display_name": "Kružni tok (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 9,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 85.0,
+  "median_duration_min": 83.8,
+  "first_upload": "2025-10-25",
+  "last_upload": "2026-05-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi"
+  ],
+  "evidence": "9 ep. ~85 min",
+  "sample": [
+   "BM_u3gJNUsQ|4229|2026-05-25|Konaković u Kružnom toku: I dalje mislim da izbor Komšića nije fer",
+   "EUf9ZglEf58|3747|2026-04-25|Filipović u Kružnom toku: Političko iskustvo koje imam kvalificira me ",
+   "FMkdDdssx40|3704|2026-03-25|Premijer Nikšić u Kružnom toku: Vjerujem kako će Trojka ostvariti još "
+  ]
+ },
+ {
+  "display_name": "Na prvoj crti (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 322,
+  "long_episodes": 296,
+  "long_in_last30": 30,
+  "avg_duration_min": 35.8,
+  "median_duration_min": 35.5,
+  "first_upload": "2015-09-25",
+  "last_upload": "2026-09-20",
+  "uploads_last_90d": 6,
+  "tags": [
+   "homeland-war",
+   "veterans",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW"
+  ],
+  "evidence": "322 ep. ~36 min, aktivan",
+  "sample": [
+   "C9Jcnu-j5a8|2202|2026-09-20|Na prvoj crti 19.09.2026. Mladen Braco Milošević",
+   "KwiwCqZjoA0|2383|2026-08-25|Na prvoj crti 22.08.2026. - Majka svih bitaka",
+   "SCj6IWPfpXE|2088|2026-08-25|Na prvoj crti 08.08.2026. Tomislav Matković"
+  ]
+ },
+ {
+  "display_name": "Purgeraj (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 61,
+  "long_episodes": 48,
+  "long_in_last30": 26,
+  "avg_duration_min": 34.8,
+  "median_duration_min": 35.8,
+  "first_upload": "2024-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "zagreb",
+   "culture",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E"
+  ],
+  "evidence": "61 ep. ~35 min, 2024",
+  "sample": [
+   "9O50e7dQFTU|1846|2024-09-25|Ivan Hlupić, 11. 6. 2024.",
+   "CaJU40Iee6Y|2418|2024-09-25|Davor Radolfi, 4. 6. 2024.",
+   "IqAg7zxMLHQ|1862|2024-09-25|Zlata Muck Sušec, 28. 5. 2024."
+  ]
+ },
+ {
+  "display_name": "Svlačionica podcast",
+  "youtube_url": "https://www.youtube.com/channel/UCGAFwYA2evauHaZzn6QYHSA/videos",
+  "type": "channel",
+  "channel_id": "UCGAFwYA2evauHaZzn6QYHSA",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 1210,
+  "total_items": 18,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 32.9,
+  "median_duration_min": 35.9,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-09-15",
+  "uploads_last_90d": 4,
+  "tags": [
+   "sport",
+   "football"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCGAFwYA2evauHaZzn6QYHSA/videos"
+  ],
+  "evidence": "Netokracija vodič; 18 videa, 9 dugih (intervjui Rendulić, Šprem), ostalo isječci",
+  "sample": [
+   "rmnfQM0Mi6A|283|2026-09-15|Koliko je zaista bio dobar Slaven Bilić",
+   "B1mRJRAADWI|514|2026-09-04|Analiza kola Engleske Premier lige",
+   "u7W-YkHc5yM|375|2026-08-28|Koliko je veliki trener Sergej Jakirović"
+  ]
+ },
+ {
+  "display_name": "Viza (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 96,
+  "long_episodes": 95,
+  "long_in_last30": 30,
+  "avg_duration_min": 49.7,
+  "median_duration_min": 49.9,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-07-25",
+  "uploads_last_90d": 1,
+  "tags": [
+   "travel",
+   "world",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw"
+  ],
+  "evidence": "96 ep. ~50 min, aktivan 2026",
+  "sample": [
+   "AQ41E97t6yk|2951|2026-07-25|VIZA 18.06.2026.",
+   "lBcpThoMOGU|2979|2026-06-25|VIZA 18.06.2026.",
+   "IDaVZ48-zOo|2972|2026-06-25|VIZA 11.06.2026."
+  ]
+ },
+ {
+  "display_name": "Andreine priče (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 12,
+  "long_episodes": 10,
+  "long_in_last30": 10,
+  "avg_duration_min": 50.0,
+  "median_duration_min": 49.7,
+  "first_upload": "2023-09-25",
+  "last_upload": "2023-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "human-interest",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS"
+  ],
+  "evidence": "12 ep. ~50 min, 2023",
+  "sample": [
+   "YhTFNwXDpP8|2137|2023-09-25|PODCAST ANDREINE PRIČE: Misija i svrha svega što radim",
+   "cSbkZB7jgps|4294|2023-09-25|ENIO KAPETANOVIĆ U PODCASTU ANDREINE PRIČE: O trudnoći, porodu i postp",
+   "npUcR0r22q8|3332|2023-09-25|JOSIP MILANOVIĆ: O inspiraciji, umjetnosti i izlasku iz društvenih okv"
+  ]
+ },
+ {
+  "display_name": "Pod križem (HKR)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+  "type": "playlist",
+  "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+  "playlist_id": "PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+  "parent_channel": "Hrvatska katolička mreža",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 130,
+  "long_episodes": 106,
+  "long_in_last30": 27,
+  "avg_duration_min": 37.4,
+  "median_duration_min": 37.3,
+  "first_upload": "2021-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "religious-catholic",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR"
+  ],
+  "evidence": "130 ep. ~37 min; Podcasts tab",
+  "sample": [
+   "1bcHnbBgdQA|2132|2025-09-25|Pod križem - 10.6.2025. - Jasnoća svjetlosti",
+   "Iz7vsXK14hE|2165|2025-09-25|Pod križem - 3.6.2025. - Duhovi - sila koja nas pokreće i oslobađa",
+   "g134-zO-SN0|2390|2025-09-25|Pod križem - 27.5.2025. - Izgradnja zajedništva"
+  ]
+ },
+ {
+  "display_name": "Bez uputnice (RTL)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+  "type": "playlist",
+  "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+  "playlist_id": "PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+  "parent_channel": "RTL",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 30,
+  "long_episodes": 15,
+  "long_in_last30": 15,
+  "avg_duration_min": 24.1,
+  "median_duration_min": 33.2,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "health",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5"
+  ],
+  "evidence": "Zdravstveni podcast, 30 stavki, pola ≥30 min; Podcasts tab",
+  "sample": [
+   "j0zX9PBJ8Ic|3022|2026-06-25|Dermatologinja o zabludama o koži i simptomima na koje moramo paziti: ",
+   "7YscZQHm3sw|3398|2026-05-25|Psihologinja i demograf o izazovima roditeljstva: 'Ljudi su doslovce b",
+   "7syv-MMt8Qs|2099|2026-04-25|Dječji kirurg otvoreno: 'Neki problemi češći su kod dječaka, dva stanj"
+  ]
+ },
+ {
+  "display_name": "Occamova britva (HRT HR1)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [
+   "Dario Špelić"
+  ],
+  "follower_count": null,
+  "total_items": 41,
+  "long_episodes": 33,
+  "long_in_last30": 24,
+  "avg_duration_min": 30.8,
+  "median_duration_min": 30.8,
+  "first_upload": "2025-12-25",
+  "last_upload": "2026-09-24",
+  "uploads_last_90d": 3,
+  "tags": [
+   "philosophy",
+   "critical-thinking",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.millionpodcasts.com/charts/apple/hr/top",
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0"
+  ],
+  "evidence": "Top-10 Apple HR chart; 41 ep. na YT ~31 min, aktivan",
+  "sample": [
+   "rK0TEf9i0F4|1801|2026-09-24|Occamova britva: Laplaceov demon",
+   "Tp3Dcxr0nnk|1840|2026-09-18|Occamova britva: Akrasia",
+   "dxAeEnCFrUw|1858|2026-09-11|Occamova britva: Lukavstvo uma"
+  ]
+ },
+ {
+  "display_name": "Dalmacija Danas Podcast",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+  "type": "playlist",
+  "channel_id": "UCOJXpevbUq_r-fdkFHpQ07w",
+  "playlist_id": "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+  "parent_channel": "Dalmacija Danas",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 17,
+  "long_episodes": 15,
+  "long_in_last30": 15,
+  "avg_duration_min": 57.0,
+  "median_duration_min": 59.9,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-12-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "regional",
+   "dalmatia",
+   "society"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t"
+  ],
+  "evidence": "17 ep. ~57 min 2024-2025; drugi kanal od postojećeg dalmacija-podcast",
+  "sample": [
+   "dSgiA_u1g7c|3725|2025-12-25|DALMACIJA DANAS DUEL - SRĐAN MARINIĆ vs. IVAN PERŠIĆ - Marjan jučer, d",
+   "gkxGRqOaRRc|3626|2025-12-25|DALMACIJA DANAS DUEL - JAKŠA BALOV (HDZ) vs. BOJAN IVOŠEVIĆ (Centar) -",
+   "rCGE9gFiX7w|4187|2025-12-25|DALMACIJA DANAS DUEL - HANA MATIĆ vs. MELIS MLADINEO BRNIČEVIĆ - Turis"
+  ]
+ },
+ {
+  "display_name": "Životne priče by Dea Redžić (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+  "parent_channel": "Večernji TV",
+  "hosts": [
+   "Dea Redžić"
+  ],
+  "follower_count": null,
+  "total_items": 62,
+  "long_episodes": 25,
+  "long_in_last30": 14,
+  "avg_duration_min": 44.8,
+  "median_duration_min": 5.0,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "human-interest",
+   "interview",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7"
+  ],
+  "evidence": "Pune epizode ~45-60 min + mnogo isječaka u istoj playlisti",
+  "sample": [
+   "iXSCPU5JVKI|6648|2026-06-25|Potresna ispovijest Gromova: Jedna brigada je izvršila suicid, o tome ",
+   "zYXvPBcs_Ag|142|2026-03-25|Nino Raspudić: Nema ništa hrvatskije od Zrinjskog iz Mostara",
+   "zitDCe8bxp8|142|2026-03-25|Nino Raspudić: Nema ništa hrvatskije od Zrinjskog iz Mostara"
+  ]
+ },
+ {
+  "display_name": "Prgavi podcast (Hajduk)",
+  "youtube_url": "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos",
+  "type": "channel",
+  "channel_id": "UCUuKqP2o5JUd692Lw26rrpw",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 3340,
+  "total_items": 260,
+  "long_episodes": 33,
+  "long_in_last30": 2,
+  "avg_duration_min": 15.3,
+  "median_duration_min": 13.4,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-09-11",
+  "uploads_last_90d": 26,
+  "tags": [
+   "sport",
+   "football",
+   "hajduk"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/watch?v=xC8P_L4xCX4",
+   "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos"
+  ],
+  "evidence": "Navijački Hajduk podcast, 3.3k pretplatnika, 260 videa, 33 ≥30 min; puno kratkih isječaka",
+  "sample": [
+   "wB5jnhb4uK4|2608|2026-09-11|Komentar i analiza Hajdukovog lita ❤️💙 prijelazni rok (otišli/došli) 🤍",
+   "CRgStitq07o|858|2026-09-11|Pobjeda protiv nedoraslog Rudeša ❤️💙 Šego u formi života 🤍 Prgavi podc",
+   "kycUPbg__s8|832|2026-09-11|Opušteni uživat u nogometu ❤️💙 Rudeš bez šanse? 🤍 Prgavi podcast"
+  ]
+ },
+ {
+  "display_name": "Otvoreni studio (VTV)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+  "type": "playlist",
+  "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+  "playlist_id": "PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+  "parent_channel": "VTV Televizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 22,
+  "long_episodes": 22,
+  "long_in_last30": 22,
+  "avg_duration_min": 54.9,
+  "median_duration_min": 54.2,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-09-11",
+  "uploads_last_90d": 1,
+  "tags": [
+   "regional",
+   "varazdin",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK"
+  ],
+  "evidence": "22 ep. ~55 min, aktivan",
+  "sample": [
+   "v6C68ycdF-0|3716|2026-09-11|Otvoreni studio 10. rujna 2026.",
+   "E_ZG-4LtdTQ|3901|2026-05-25|Otvoreni studio 22. svibnja 2026.",
+   "5yGpD4doDbU|3612|2026-03-25|Otvoreni studio 26. veljače 2026."
+  ]
+ },
+ {
+  "display_name": "Podcast s Brezom",
+  "youtube_url": "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos",
+  "type": "channel",
+  "channel_id": "UCvtVoRVW7ARC7KGQLLl7_fQ",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 10600,
+  "total_items": 185,
+  "long_episodes": 160,
+  "long_in_last30": 29,
+  "avg_duration_min": 44.7,
+  "median_duration_min": 44.8,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-24",
+  "uploads_last_90d": 38,
+  "tags": [
+   "politics",
+   "society",
+   "talk-show"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos"
+  ],
+  "evidence": "185 videa ~45 min, 10.6k pretplatnika, vrlo aktivan (38 u 90 dana)",
+  "sample": [
+   "jOdodZFxXiU|1941|2026-09-24|GRMOJA JAKO NAPAO otpadnu mafiju, Turudića i Plenkovića, a ostatak des",
+   "bkgdwauYm6I|2629|2026-09-22|Hadžidedić: Amerika sprema napad na Rusiju.Nuklearno oružje će se tad ",
+   "qKHKpzH7F_8|2819|2026-09-20|DALIJA ŠOKIRALA Što ako su tone otpada zakopane u dvorištima Ličana, z"
+  ]
+ },
+ {
+  "display_name": "Lucia Adžić (Lucie's Little Show)",
+  "youtube_url": "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos",
+  "type": "channel",
+  "channel_id": "UCEivQbBRJYKOBfko2YeQAnQ",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Lucia Adžić"
+  ],
+  "follower_count": 2160,
+  "total_items": 209,
+  "long_episodes": 82,
+  "long_in_last30": 7,
+  "avg_duration_min": 24.4,
+  "median_duration_min": 20.9,
+  "first_upload": "2021-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "lifestyle",
+   "business"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos"
+  ],
+  "evidence": "Netokracija vodič; 209 videa, mnogo <30 min",
+  "sample": [
+   "Q2AqTBnDic4|1370|2025-09-25|Kako pretvaram strahove u pogonsko gorivo?",
+   "RElF-l2Ib6E|1220|2025-09-25|Nevidljiv rad koji daje vidljive rezultate.",
+   "rD4AuZJZi2k|1220|2025-09-25|Moja broj 1 poslovna strategija."
+  ]
+ },
+ {
+  "display_name": "Filmopedija podcast",
+  "youtube_url": "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos",
+  "type": "channel",
+  "channel_id": "UCKiC-dZx62RXeymJmR8E99g",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 191,
+  "total_items": 36,
+  "long_episodes": 28,
+  "long_in_last30": 22,
+  "avg_duration_min": 51.0,
+  "median_duration_min": 54.1,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-19",
+  "uploads_last_90d": 14,
+  "tags": [
+   "film",
+   "pop-culture"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos"
+  ],
+  "evidence": "Netokracija vodič; 36 videa, 22/30 ≥30 min, aktivan (+ kraće recenzije)",
+  "sample": [
+   "k00iUIHzK0U|2580|2026-09-19|Što ovih dana gledamo? (birtijaška epizoda) PART 1 | Filmopedija podca",
+   "JbGqIfP70fg|915|2026-09-12|Filmski klub - recenzija filma Božji grad (2002.) - SPOILER",
+   "_JNpIH30QWs|3314|2026-09-11|Biramo najbolji filmski nastavak | Filmopedija podcast #27"
+  ]
+ },
+ {
+  "display_name": "Istinom do gola (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 19,
+  "long_episodes": 19,
+  "long_in_last30": 19,
+  "avg_duration_min": 43.8,
+  "median_duration_min": 44.3,
+  "first_upload": "2026-01-25",
+  "last_upload": "2026-09-24",
+  "uploads_last_90d": 5,
+  "tags": [
+   "sport",
+   "football",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h"
+  ],
+  "evidence": "19 ep. ~44 min, aktivan 2026",
+  "sample": [
+   "qUsyC7o6FjM|2660|2026-09-24|Istinom do gola 23.09.2026. - Vjekoslav Lokica",
+   "9zxzxtXYbWU|2772|2026-08-25|Istinom Do Gola 19.08.2026. -  Adrian Ježina",
+   "mbXKaMgIATk|2466|2026-08-25|Istinom Do Gola 05.08.2026. - Ante Miše"
+  ]
+ },
+ {
+  "display_name": "Krešendo (Nova TV)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+  "type": "playlist",
+  "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+  "playlist_id": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+  "parent_channel": "NOVA TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 9,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 79.8,
+  "median_duration_min": 89.2,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "interview",
+   "history",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd"
+  ],
+  "evidence": "9 dugih intervjua ~80 min (Josipović i dr.); Podcasts tab",
+  "sample": [
+   "7OpTKZm-iLk|5166|2025-09-25|\"Biden mi je prišao i rekao...\" Anegdote sa svjetskim liderima kakve s",
+   "X930K0pomNc|2640|2025-09-25|Josipović u Krešendu otkrio detalje neobičnog susreta: \"U torbi je nos",
+   "YFUaVe9EUa4|5737|2025-09-25|Posljednji dječak iz Auschwitza: \"To je bila industrija, konačan proiz"
+  ]
+ },
+ {
+  "display_name": "S druge strane ogledala (HKR)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+  "type": "playlist",
+  "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+  "playlist_id": "PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+  "parent_channel": "Hrvatska katolička mreža",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 28,
+  "long_episodes": 28,
+  "long_in_last30": 28,
+  "avg_duration_min": 40.5,
+  "median_duration_min": 40.6,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "religious-catholic",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc"
+  ],
+  "evidence": "28 ep. ~40 min; Podcasts tab HKM",
+  "sample": [
+   "b96KLEe1ryU|2344|2025-09-25|S druge strane ogledala - 2.6.2025. - Anksioznost kod djece i mladih",
+   "PfXhJzuN12s|2420|2025-09-25|S druge strane ogledala - 26.5.2025. - „Izgubljeni“ očevi i muževi",
+   "iVo34xQNX3Q|2468|2025-09-25|S druge strane ogledala - 19.05.2025. - Perfekcionizam – vrlina ili ma"
+  ]
+ },
+ {
+  "display_name": "Svijet plus (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 28,
+  "long_episodes": 18,
+  "long_in_last30": 18,
+  "avg_duration_min": 29.2,
+  "median_duration_min": 38.7,
+  "first_upload": "2025-12-25",
+  "last_upload": "2026-09-24",
+  "uploads_last_90d": 8,
+  "tags": [
+   "geopolitics",
+   "world",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1"
+  ],
+  "evidence": "Vanjskopolitička emisija, aktivna 2026, plus isječci",
+  "sample": [
+   "W01a97hyF4c|2320|2026-09-24|svijet plus srbija",
+   "8DHHMK0FaO4|90|2026-09-21|Kalinić u emisiji Svijet plus: Trump ne odlučuje ni o čemu - odlučuju ",
+   "T5ODMOmthws|4118|2026-09-20|Kalinić: Srbi trebaju vječno slaviti Tuđmana! Rat u BIH nije gotov, a "
+  ]
+ },
+ {
+  "display_name": "Forbes Business Unplugged (Nova TV / Forbes Hrvatska)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+  "type": "playlist",
+  "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+  "playlist_id": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+  "parent_channel": "NOVA TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 10,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 46.5,
+  "median_duration_min": 46.5,
+  "first_upload": "2025-12-25",
+  "last_upload": "2026-04-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "business",
+   "interview",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL279H2ix-v5WIOZwsuoZr5nS4FhfOcS2S",
+   "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b"
+  ],
+  "evidence": "10 ep. ~46 min (2025-26); Podcasts tab Nova TV",
+  "sample": [
+   "HzDuPrz-r3Y|2941|2026-04-25|Snaga domaće farmaceutske industrije | Pontus Pharma | Forbes Business",
+   "ALYZg3knCY0|2514|2026-04-25|Pretilost je bolest, ali i širi društveni problem | Mariko Shimizu | F",
+   "splz0ypjKyo|2424|2026-03-25|Klimatske promjene utječu na budući gospodarski rast | Ivana Belić | F"
+  ]
+ },
+ {
+  "display_name": "Samo Hajduk Podcast",
+  "youtube_url": "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos",
+  "type": "channel",
+  "channel_id": "UCIBpWx6R_pKgzAhk00aYjUw",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 1230,
+  "total_items": 81,
+  "long_episodes": 48,
+  "long_in_last30": 19,
+  "avg_duration_min": 45.4,
+  "median_duration_min": 58.4,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-23",
+  "uploads_last_90d": 26,
+  "tags": [
+   "sport",
+   "football",
+   "hajduk"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos"
+  ],
+  "evidence": "Tjedni Hajduk podcast #48 ~60-75 min, aktivan",
+  "sample": [
+   "F4_FZEo93Qg|4641|2026-09-23|Samo Hajduk Podcast #48: Iluzija kontrole | 8. kolo vs Rijeka",
+   "k3dWl47be3U|3156|2026-09-16|Samo Hajduk Podcast #47: Peta u nizu | 7. kolo vs Slaven | Gost: Hajdu",
+   "3WYtDwuqNMY|3412|2026-09-11|Samo Hajduk Podcast #46: Garciaball se uzdiže | 6. kolo vs Rudeš"
+  ]
+ },
+ {
+  "display_name": "Reci! (Jutarnji list)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
+  "type": "playlist",
+  "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+  "playlist_id": "PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
+  "parent_channel": "Jutarnji list",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 83,
+  "long_episodes": 35,
+  "long_in_last30": 16,
+  "avg_duration_min": 31.9,
+  "median_duration_min": 31.4,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-19",
+  "uploads_last_90d": 9,
+  "tags": [
+   "society",
+   "human-interest",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4ygmj--jCsOTw29Sg65okI4xupNd8xit"
+  ],
+  "evidence": "Osobne ispovijesti, ~31 min, tjedno",
+  "sample": [
+   "xybQ8Co-RAo|1751|2026-09-19|Inspirativna Simonina (40) priča: 'Govorili su da možda dijete neću up",
+   "ySVDEEn6qRI|1475|2026-09-12|Zagrepčanka Matea (33): ‘Osam godina radim u hitnoj službi i svako mal",
+   "Fs8wkwtt3Z0|2167|2026-09-11|Tena je bila vječna meta vršnjaka, liječila se u tri države, a sad je "
+  ]
+ },
+ {
+  "display_name": "Na aparatima (Jutarnji list)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+  "type": "playlist",
+  "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+  "playlist_id": "PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+  "parent_channel": "Jutarnji list",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 77,
+  "long_episodes": 39,
+  "long_in_last30": 25,
+  "avg_duration_min": 50.5,
+  "median_duration_min": 59.4,
+  "first_upload": "2023-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "media",
+   "entertainment"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg"
+  ],
+  "evidence": "Razgovorni podcast ~55 min, 77 ep., neaktivan od 2024; na Podcasts tabu",
+  "sample": [
+   "V8Kn5dN5J_E|3565|2024-09-25|'Nikad više ne bih zvao Ivana Pernara u Nu2, on je potpuni promašaj' /",
+   "IVuciqWUgqQ|3489|2024-09-25|Kako pobijediti u Potjeri, otkriva čovjek koji piše pitanja / Na apara",
+   "KjDamPAtI-Y|3699|2024-09-25|'Mogao bih razuvjeriti ravnozemljaša, dovoljno ga je pitati jednu stva"
+  ]
+ },
+ {
+  "display_name": "Podcast 8_24 / Dvajsčetvorka (Dinamo)",
+  "youtube_url": "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos",
+  "type": "channel",
+  "channel_id": "UCmnvmFyshLFSrRMDAhKkgHw",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 9300,
+  "total_items": 222,
+  "long_episodes": 95,
+  "long_in_last30": 1,
+  "avg_duration_min": 15.0,
+  "median_duration_min": 10.8,
+  "first_upload": "2020-09-25",
+  "last_upload": "2026-09-04",
+  "uploads_last_90d": 3,
+  "tags": [
+   "sport",
+   "football",
+   "dinamo"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/watch?v=a-hOE-t8RPk",
+   "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos"
+  ],
+  "evidence": "Dinamo navijački podcast, 9.3k pretplatnika, 95 ≥30 min; mnogo isječaka",
+  "sample": [
+   "aaL2atKj0oc|276|2026-09-04|“Najbitnije da smo ostali neporaženi” PRESS nakon remija na Aldo Drosi",
+   "F0uNMAhYrCw|1013|2026-08-28|Preko Vikinga do zvijezda LP / Najava iz kajaka",
+   "LaA3afcgRSw|410|2026-07-25|Dinamovi švicarski protivnici / Plava minijatura #1"
+  ]
+ },
+ {
+  "display_name": "Andromeda (HRT HR2)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 103,
+  "long_episodes": 103,
+  "long_in_last30": 30,
+  "avg_duration_min": 92.3,
+  "median_duration_min": 97.5,
+  "first_upload": "2025-12-25",
+  "last_upload": "2026-09-12",
+  "uploads_last_90d": 10,
+  "tags": [
+   "science",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.millionpodcasts.com/charts/apple/hr/top",
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px"
+  ],
+  "evidence": "Znanstvena emisija ~95 min, 103 ep. na YT, aktivna; Apple HR chart #21",
+  "sample": [
+   "F4jfX8c343I|6006|2026-09-12|Andromeda, 8.9.2026.",
+   "i_qAMTyoBgc|6154|2026-09-12|Andromeda, 1.9.2026.",
+   "cgbrYX7vsSI|6009|2026-09-12|Andromeda, 25.8.2026."
+  ]
+ },
+ {
+  "display_name": "Tech by Tomislav Tomašević (RTL/Net.hr)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+  "type": "playlist",
+  "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+  "playlist_id": "PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+  "parent_channel": "RTL",
+  "hosts": [
+   "Tomislav Tomašević"
+  ],
+  "follower_count": null,
+  "total_items": 12,
+  "long_episodes": 12,
+  "long_in_last30": 12,
+  "avg_duration_min": 51.3,
+  "median_duration_min": 52.2,
+  "first_upload": "2021-09-25",
+  "last_upload": "2022-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "technology",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa"
+  ],
+  "evidence": "12 ep. ~50 min 2021-2022; na Podcasts tabu RTL-a",
+  "sample": [
+   "uHGCYNq16Ak|3150|2022-09-25|Leonardo Bujas – može li se kod nas živjeti od esporta? | TECH BY TOMI",
+   "LtmnKKW4vbI|2669|2022-09-25|Anja Batina | TECH BY TOMISLAV TOMAŠEVIĆ",
+   "wfmLV_WLEl8|2236|2022-09-25|Ana Radišić | TECH BY TOMISLAV TOMAŠEVIĆ"
+  ]
+ },
+ {
+  "display_name": "Cancast (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 25,
+  "long_episodes": 24,
+  "long_in_last30": 24,
+  "avg_duration_min": 77.0,
+  "median_duration_min": 80.4,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-07-25",
+  "uploads_last_90d": 3,
+  "tags": [
+   "adventure",
+   "travel",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL"
+  ],
+  "evidence": "25 ep. ~77 min; gosti iz BiH, jezik provjeriti",
+  "sample": [
+   "0jhMylDtAvc|48|2026-07-25|🦠 Na dan polaska stigla je vijest o eboli u Ugandi",
+   "0rqsUMwTqug|5586|2026-07-25|Robert Dacešin: Najveća opasnost s kojom sam se suočio | CANCAST",
+   "hxcHAZovtpQ|4389|2026-07-25|Znao sam da gulim za viši cilj | Kerim Čutuna | CANCAST"
+  ]
+ },
+ {
+  "display_name": "Peti dan (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 252,
+  "long_episodes": 242,
+  "long_in_last30": 20,
+  "avg_duration_min": 40.6,
+  "median_duration_min": 60.0,
+  "first_upload": "2020-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "philosophy",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls"
+  ],
+  "evidence": "252 stavke, pune emisije ~60 min + isječci",
+  "sample": [
+   "CYeDReGbnF4|3583|2026-06-25|Peti dan: Zapadni Balkan - nove politike; nogomet - zamjenska religija",
+   "SZ6DkiVqVTs|3644|2026-06-25|Peti dan: Kina i svijet; papa Lav vs. UI",
+   "L7EbTkj_hrI|3619|2026-05-25|Peti dan: Izrael i Hrvatska; doživotna kazna"
+  ]
+ },
+ {
+  "display_name": "Davcastt (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 39,
+  "long_episodes": 36,
+  "long_in_last30": 27,
+  "avg_duration_min": 94.3,
+  "median_duration_min": 102.8,
+  "first_upload": "2022-09-25",
+  "last_upload": "2025-12-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj"
+  ],
+  "evidence": "39 ep. ~94 min; regionalni gosti, jezik provjeriti",
+  "sample": [
+   "2CFIdbWASII|527|2025-12-25|Desingerica: Svak voli autentičnost, a ja ne mogu drugačije | Bljesak",
+   "-uQa0xDOmS4|486|2025-12-25|Olivera Ćirković: Žene su žrtve, a muškarci su agresori - vrlo sam ske",
+   "8Asiv15AwnU|3767|2023-09-25|JMTRADE: LJUDI SU OVCE KOJI ZAVRSAVAJU FAKULTETE! | DAVCAST PODCAST"
+  ]
+ },
+ {
+  "display_name": "Nađi Način (Sara Peranić)",
+  "youtube_url": "https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos",
+  "type": "channel",
+  "channel_id": "UCihFVvNAGGWomC6Q4cIE2xg",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Sara Peranić"
+  ],
+  "follower_count": 7480,
+  "total_items": 284,
+  "long_episodes": 89,
+  "long_in_last30": 14,
+  "avg_duration_min": 29.3,
+  "median_duration_min": 28.8,
+  "first_upload": "2020-09-25",
+  "last_upload": "2026-09-23",
+  "uploads_last_90d": 6,
+  "tags": [
+   "business",
+   "entrepreneurship"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.millionpodcasts.com/charts/apple/hr/top",
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos"
+  ],
+  "evidence": "Apple HR chart #33 \"Sara Peranić – Podcast\"; 284 videa, 7.5k pretplatnika, aktivan",
+  "sample": [
+   "Ra5DDY6ec7E|2753|2026-09-23|Naši su ljudi itekako spremni platiti premium proizvod: evo što je za ",
+   "u8eRUkObjIQ|1355|2026-09-16|Skoro sam ugasila biznis nakon 10 godina, a danas sam motiviranija neg",
+   "U6Gtgn2IuDw|1896|2026-09-11|3 tipa poduzetnika i prepreke kod skaliranja"
+  ]
+ },
+ {
+  "display_name": "Aktualno (HKR)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+  "type": "playlist",
+  "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+  "playlist_id": "PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+  "parent_channel": "Hrvatska katolička mreža",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 46,
+  "long_episodes": 26,
+  "long_in_last30": 18,
+  "avg_duration_min": 29.9,
+  "median_duration_min": 32.3,
+  "first_upload": "2019-09-25",
+  "last_upload": "2026-09-23",
+  "uploads_last_90d": 1,
+  "tags": [
+   "religious-catholic",
+   "society"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU"
+  ],
+  "evidence": "46 stavki, ~30 min",
+  "sample": [
+   "SJ4GAVDMurg|2398|2026-09-23|Aktualno - Predstavljanje jesenske sheme",
+   "k_EaLPOz6Uk|2186|2025-09-25|Aktualno - 14.3.2025.",
+   "LlJBzzYcC-k|1207|2025-09-25|Najavljujemo otvaranje Jubileja u Zagrebačkoj nadbiskupiji i prijenos "
+  ]
+ },
+ {
+  "display_name": "Veliki intervju (24sata)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+  "type": "playlist",
+  "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+  "playlist_id": "PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+  "parent_channel": "24sata",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 114,
+  "long_episodes": 51,
+  "long_in_last30": 11,
+  "avg_duration_min": 33.0,
+  "median_duration_min": 27.9,
+  "first_upload": "2022-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "interview",
+   "celebrity",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B"
+  ],
+  "evidence": "114 ep. intervjua, pola <30 min; filtrirati",
+  "sample": [
+   "dfOwxnG-PBI|954|2025-09-25|Adi Šoše: 'Zadnje sam plakao na pjesmu Kemala Montena' | VELIKI INTERV",
+   "kjUvdNQ20pg|1905|2025-09-25|Nives Celzijus: ‘Više imam neugodnih iskustva sa ženama’ | VELIKI INTE",
+   "R1Q7EG3D0c8|1166|2025-09-25|Franka Batelić: ‘Samo borci mogu uspjeti’ | VELIKI INTERVJU"
+  ]
+ },
+ {
+  "display_name": "Pričamo o zdravlju (Bljesak podcast)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+  "type": "playlist",
+  "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "playlist_id": "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+  "parent_channel": "Bljesak.info",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 18,
+  "long_episodes": 16,
+  "long_in_last30": 16,
+  "avg_duration_min": 45.7,
+  "median_duration_min": 46.0,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "health",
+   "bih-croats"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt"
+  ],
+  "evidence": "18 ep. ~46 min",
+  "sample": [
+   "nP_glmreIws|2918|2026-06-25|''Živimo previše sterilno'' – Dr. Klarić objasnila zašto imunološki su",
+   "8PeSO4wBKew|2215|2026-05-25|Dr. Hammami: Rak debelog crijeva izlječiv u 90% slučajeva, ali samo ak",
+   "As-kNWsT3oo|3993|2026-02-25|Dr. Rada Šandrk: Djeca su danas medicinski zaštićenija, ali psihofizič"
+  ]
+ },
+ {
+  "display_name": "Pogled s Markovog trga (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 170,
+  "long_episodes": 46,
+  "long_in_last30": 25,
+  "avg_duration_min": 42.2,
+  "median_duration_min": 48.0,
+  "first_upload": "2014-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "parliament",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1"
+  ],
+  "evidence": "170 ep. ~45 min, 2014-2025",
+  "sample": [
+   "497X6QU7t4Q|2713|2025-09-25|POGLED S MARKOVOG TRGA 09.12.2024. - DRAGAN PRIMORAC",
+   "lpplNHKM1gA|2960|2024-09-25|POGLED S MARKOVOG TRGA 04.03.2024. - IVO JOSIPOVIĆ",
+   "o3rOUAJewOA|1197|2023-09-25|POGLED S MARKOVOG TRGA  06.04.2023. - LOVRO LUKAVEČKI"
+  ]
+ },
+ {
+  "display_name": "Veterani mira (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 62,
+  "long_episodes": 50,
+  "long_in_last30": 24,
+  "avg_duration_min": 32.7,
+  "median_duration_min": 33.9,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-20",
+  "uploads_last_90d": 1,
+  "tags": [
+   "homeland-war",
+   "veterans",
+   "tv"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa"
+  ],
+  "evidence": "62 ep. ~33 min, aktivan 2026",
+  "sample": [
+   "AxsVLnDZEgk|1496|2026-09-20|Veterani mira: Obljetnica akcije Rota i prisjećanje na bitku za Petrin",
+   "Jb2ct1rr_uE|1766|2026-06-25|Veterani mira: Martin Cruickshank i Zorislav Ćavar - Everest Maraton",
+   "YF5UUdH43os|1785|2026-06-25|Veterani mira: Specijalna jedinica policije Grof Dubrovnik"
+  ]
+ },
+ {
+  "display_name": "Planet Formula (RTL)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLbygzMRdzQg4",
+  "type": "playlist",
+  "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+  "playlist_id": "PLbygzMRdzQg4",
+  "parent_channel": "RTL",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 11,
+  "long_episodes": 10,
+  "long_in_last30": 10,
+  "avg_duration_min": 61.1,
+  "median_duration_min": 69.1,
+  "first_upload": "2026-06-25",
+  "last_upload": "2026-09-14",
+  "uploads_last_90d": 8,
+  "tags": [
+   "sport",
+   "formula1",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLbygzMRdzQg4"
+  ],
+  "evidence": "F1 podcast ~60 min, 11 ep. od 06/2026, aktivan",
+  "sample": [
+   "HX3hkDWdsq8|4655|2026-09-14|Deveta epizoda Planet Formula - Velika nagrada Španjolske",
+   "SPAEoJ9zD-M|3074|2026-09-11|8. epizoda Planet Formule: Je li prvenstvo već gotovo? 'Kimi ga sada m",
+   "ZkAiRg1ozFQ|2906|2026-08-25|Planet Formula ep. 6: Velika nagrada Mađarske"
+  ]
+ },
+ {
+  "display_name": "Bujica (Bujica TV Dalmacija)",
+  "youtube_url": "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ/videos",
+  "type": "channel",
+  "channel_id": "UCGh3dA-uo7SaeHhla-RVNQQ",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Velimir Bujanec"
+  ],
+  "follower_count": 90100,
+  "total_items": 300,
+  "long_episodes": 298,
+  "long_in_last30": 30,
+  "avg_duration_min": 66.8,
+  "median_duration_min": 64.3,
+  "first_upload": "2023-09-25",
+  "last_upload": "2026-07-25",
+  "uploads_last_90d": 4,
+  "tags": [
+   "politics",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 2400,
+  "source_urls": [
+   "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ",
+   "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ/videos"
+  ],
+  "evidence": "Kanal s punim emisijama Bujice ~65 min (UCGh3dA…), aktivan 2026",
+  "sample": [
+   "shLSMAIz8wA|4588|2026-07-25|BUJICA 06.07.2026. MP THOMPSON EKSKLUZIVNO! Bez cenzure: Velika report",
+   "HLyEEi7pGVk|4803|2026-07-25|BUJICA 03.07.2026. SPECIJAL 25: Hrvatska pokradena na SP u Americi?! K",
+   "XTnoGvu6tg4|4051|2026-07-25|BUJICA 29.6.2026. PRKAČIN: Na Daliću i Thompsonu je Božja ruka, a prog"
+  ]
+ },
+ {
+  "display_name": "Briefing (Jutarnji list)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
+  "type": "playlist",
+  "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+  "playlist_id": "PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
+  "parent_channel": "Jutarnji list",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 241,
+  "long_episodes": 211,
+  "long_in_last30": 28,
+  "avg_duration_min": 36.5,
+  "median_duration_min": 35.9,
+  "first_upload": "2021-09-25",
+  "last_upload": "2026-09-24",
+  "uploads_last_90d": 23,
+  "tags": [
+   "politics",
+   "geopolitics",
+   "media",
+   "interview"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP"
+  ],
+  "evidence": "Gotovo dnevni razgovor s analitičarom, 241 ep., ~36 min, aktivan",
+  "sample": [
+   "pgRVELPbW3Y|1816|2026-09-24|Mirjana Rakić: Trump je u UN-u rekao nešto zastrašujuće. Neke EU držav",
+   "6f8q2eZEInE|2822|2026-09-22|Zvonimir Stopić: Rat sa SAD-om? Samo se jedne stvari kineska Komunisti",
+   "-JWwYYK7D4E|2579|2026-09-18|Dejan Jović: Je li za vjerovati Vučiću da će priznati izborni poraz? B"
+  ]
+ },
+ {
+  "display_name": "Ćakula na Jadranu (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 214,
+  "long_episodes": 210,
+  "long_in_last30": 30,
+  "avg_duration_min": 73.6,
+  "median_duration_min": 75.3,
+  "first_upload": "2015-09-25",
+  "last_upload": "2020-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "talk-show",
+   "dalmatia",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ"
+  ],
+  "evidence": "214 ep. ~74 min, 2015-2020",
+  "sample": [
+   "osvU3DuGpkM|3529|2020-09-25|OLUJA NA JADRANU 05.08.2020.",
+   "aTBMHgf5xuI|4562|2020-09-25|Ćakula na Jadranu 28.01.2020.",
+   "gZ7KwTnRZ_w|4503|2020-09-25|Ćakula na Jadranu 21.01.2020."
+  ]
+ },
+ {
+  "display_name": "Hajduk Podcast (HNK Hajduk)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+  "type": "playlist",
+  "channel_id": "UCN7oOG6iLGDXXhyxBKcbq7A",
+  "playlist_id": "PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+  "parent_channel": "HNK Hajduk Split",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 26,
+  "long_episodes": 18,
+  "long_in_last30": 18,
+  "avg_duration_min": 45.8,
+  "median_duration_min": 57.3,
+  "first_upload": "2020-09-25",
+  "last_upload": "2021-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "sport",
+   "football",
+   "club"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+   "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7"
+  ],
+  "evidence": "26 ep., 18 ≥30 min, 2020-2021",
+  "sample": [
+   "5UkVjB8Fv9k|2859|2021-09-25|HAJDUK PODCAST #17 I Gost Zvonimir Deranja",
+   "1Cauyv22KE4|4564|2021-09-25|HAJDUK PODCAST #16 I Gost  Zlatko Vujović",
+   "UyeaBUSovxE|3436|2021-09-25|HAJDUK PODCAST #15 I Gost: Ivica Šurjak"
+  ]
+ },
+ {
+  "display_name": "Atomski marketing (Marijan Palić)",
+  "youtube_url": "https://www.youtube.com/channel/UCjlZkBNTCYZHZph7go-uqUg/videos",
+  "type": "channel",
+  "channel_id": "UCjlZkBNTCYZHZph7go-uqUg",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Marijan Palić"
+  ],
+  "follower_count": 1000,
+  "total_items": 33,
+  "long_episodes": 15,
+  "long_in_last30": 15,
+  "avg_duration_min": 29.3,
+  "median_duration_min": 33.8,
+  "first_upload": "2018-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "marketing",
+   "business"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCjlZkBNTCYZHZph7go-uqUg/videos"
+  ],
+  "evidence": "Netokracija vodič; 15 dugih, zadnje 2024",
+  "sample": [
+   "jgqJcRNlmfY|593|2024-09-25|Koliko ih je i kako botovi oblikuju naše mišljenje u politici?",
+   "l7h5qLt74jg|1728|2020-09-25|Marketing NK Osijek: Q&A (5/5)",
+   "MVEtp6hE_EE|2090|2020-09-25|Marketing NK Osijek: PAMPAS 2020 (4/5)"
+  ]
+ },
+ {
+  "display_name": "Razvojni kod (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [
+   "Tatjana Kaštelan"
+  ],
+  "follower_count": null,
+  "total_items": 169,
+  "long_episodes": 96,
+  "long_in_last30": 15,
+  "avg_duration_min": 30.4,
+  "median_duration_min": 30.4,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-09-11",
+  "uploads_last_90d": 1,
+  "tags": [
+   "society",
+   "business",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz"
+  ],
+  "evidence": "169 ep., ~30 min, aktivan",
+  "sample": [
+   "oUpua3oA9b8|2524|2026-09-11|Razvojni kod: Gošće Tatjane Kaštelan pulske obrtnice Slavica Bezić, Bi",
+   "-KFeqHZHpUY|1517|2026-06-25|Razvojni kod: Gosti Tatjane Kaštelan predstavnici Hospicija blaženog M",
+   "6ZATxOymHEg|1627|2026-06-25|U Razvojnom kodu Tatjane Kaštelan Marija Crljenica, edukatorica Hrvats"
+  ]
+ },
+ {
+  "display_name": "Vatreni podcast powered by PSK (HNS)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+  "type": "playlist",
+  "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+  "playlist_id": "PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+  "parent_channel": "Hrvatski nogometni savez",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 16,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 29.0,
+  "median_duration_min": 38.9,
+  "first_upload": "2024-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "sport",
+   "football",
+   "institutional"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms"
+  ],
+  "evidence": "16 ep. 2024, 9 ≥30 min",
+  "sample": [
+   "-ZwcDuC8WyQ|2561|2024-09-25|Vatreni podcast powered by PSK: Ivica Ivušić i Nediljko Labrović",
+   "_DOc3aldJTc|3778|2024-09-25|Vatreni podcast powered by PSK: Marko Pjaca i Marco Pašalić",
+   "VYmzlgU_XMw|2453|2024-09-25|Vatreni podcast powered by PSK: Luka Ivanušec i Martin Baturina"
+  ]
+ },
+ {
+  "display_name": "Alumni priča (Sveučilište u Zagrebu)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG",
+  "type": "playlist",
+  "channel_id": "UCGUeIn0apOuxottQQApBcPw",
+  "playlist_id": "PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG",
+  "parent_channel": "UniZg",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 13,
+  "long_episodes": 13,
+  "long_in_last30": 13,
+  "avg_duration_min": 70.3,
+  "median_duration_min": 64.2,
+  "first_upload": "2021-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "education",
+   "interview",
+   "institutional"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG"
+  ],
+  "evidence": "13 ep. ~70 min 2021-2024",
+  "sample": [
+   "Ql905ODJciI|3297|2024-09-25|Alumni priča: Diploma s olimpijskim potpisom | 4.7.2024.",
+   "NPaKwfIIkAA|2616|2024-09-25|'Alumni priča: Dvije diplome – jedna strast', gosti Goran Bogdan i Rob",
+   "nmF-lL56s2g|3851|2023-09-25|Alumni priča: sinergijom znanosti i umjetnosti do standardnoga hrvatsk"
+  ]
+ },
+ {
+  "display_name": "Tomislav Krajačić Talk",
+  "youtube_url": "https://www.youtube.com/channel/UCRe9wMqRzVfd0TiB-z09pbw/videos",
+  "type": "channel",
+  "channel_id": "UCRe9wMqRzVfd0TiB-z09pbw",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Tomislav Krajačić"
+  ],
+  "follower_count": 1190,
+  "total_items": 55,
+  "long_episodes": 39,
+  "long_in_last30": 24,
+  "avg_duration_min": 43.5,
+  "median_duration_min": 44.4,
+  "first_upload": "2019-09-25",
+  "last_upload": "2021-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "business",
+   "marketing"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCRe9wMqRzVfd0TiB-z09pbw/videos"
+  ],
+  "evidence": "Netokracija vodič; 55 videa, 2019-2021",
+  "sample": [
+   "oRr9fFBwf3Q|348|2021-09-25|TK Show | Rant of the day: Zašto živimo u highlightsima?",
+   "qzSWxEo-di8|1201|2021-09-25|TK Q&A | Biznis, korona i život",
+   "S7aPLvZi24U|2388|2021-09-25|TK Show | Novi val poduzetništva u Hrvatskoj feat. Nikola Kapraljević"
+  ]
+ },
+ {
+  "display_name": "Romano Bolković: 1 na 1 (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [
+   "Romano Bolković"
+  ],
+  "follower_count": null,
+  "total_items": 259,
+  "long_episodes": 245,
+  "long_in_last30": 19,
+  "avg_duration_min": 32.5,
+  "median_duration_min": 50.0,
+  "first_upload": "2019-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "interview",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b"
+  ],
+  "evidence": "259 stavki, pola dugih intervjua",
+  "sample": [
+   "0zKlsUiydLE|50|2026-06-25|Dr. Paladino: Nikad nisam osjećao strah prije operacije",
+   "zOqXpUBAAS4|113|2026-03-25|Krstulović Opara o kulturi otkazivanja",
+   "Sl_yB0DoKOI|98|2026-02-25|Rinčić o Thompsonovom koncertu u Rijeci"
+  ]
+ },
+ {
+  "display_name": "pomalo too much (Marie Wasler)",
+  "youtube_url": "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos",
+  "type": "channel",
+  "channel_id": "UCaX8S5r4-h5C6VIzXWWLPRA",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [
+   "Marie Wasler"
+  ],
+  "follower_count": 2200,
+  "total_items": 87,
+  "long_episodes": 80,
+  "long_in_last30": 30,
+  "avg_duration_min": 96.5,
+  "median_duration_min": 99.7,
+  "first_upload": "2021-09-25",
+  "last_upload": "2026-09-21",
+  "uploads_last_90d": 5,
+  "tags": [
+   "lifestyle",
+   "psychology",
+   "talk-show"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 2400,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos"
+  ],
+  "evidence": "Netokracija vodič; 87 ep. ~97 min, aktivan",
+  "sample": [
+   "ITVkalAAlm4|5381|2026-09-21|pomalo too much: Razmišlja li itko još svojom glavom?",
+   "KOMkKM62GyI|3834|2026-08-25|pomalo too much: Naši najsnažniji \"aha\" momenti s terapije",
+   "2VwchIjk2Jo|5321|2026-08-25|pomalo too much: \"Ljubav, ni potencijal, nisu dovoljni.\""
+  ]
+ },
+ {
+  "display_name": "Što je klasik? (HRT HR3)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 71,
+  "long_episodes": 62,
+  "long_in_last30": 28,
+  "avg_duration_min": 35.3,
+  "median_duration_min": 34.4,
+  "first_upload": "2024-09-25",
+  "last_upload": "2026-06-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "culture",
+   "literature",
+   "music",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD"
+  ],
+  "evidence": "71 ep. ~35 min",
+  "sample": [
+   "YIwrzQIvrS4|2332|2026-06-25|Što je klasik? Gospoda Glembajevi",
+   "hijDE9vdBEk|2282|2026-05-25|What is a classic? Alain Finkielkraut",
+   "WoYMAy8M6KU|2136|2026-05-25|Što je klasik? George Orwell"
+  ]
+ },
+ {
+  "display_name": "Show na kvadrat (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 81,
+  "long_episodes": 22,
+  "long_in_last30": 10,
+  "avg_duration_min": 26.2,
+  "median_duration_min": 2.5,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-09-23",
+  "uploads_last_90d": 5,
+  "tags": [
+   "entertainment",
+   "celebrity",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "low",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF"
+  ],
+  "evidence": "Većina stavki su isječci (medijan 2.5 min); 10 dugih u zadnjih 30",
+  "sample": [
+   "dNFMOh2b-sc|4279|2026-09-23|Jacques Houdek: Na estradi nema pravih prijateljstava, puno toga je sa",
+   "EiBY7EHvi5s|82|2026-09-21|Daniela Trbović on media pressure on women: We are never young, thin, ",
+   "DONomGAlrqs|74|2026-09-15|Daniela Trbović prisjetila se vođenja Najslabije karike: Jedna gospođa"
+  ]
+ },
+ {
+  "display_name": "N1 Newsnight – Zagreb",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok",
+  "type": "playlist",
+  "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+  "playlist_id": "PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok",
+  "parent_channel": "N1",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 100,
+  "long_episodes": 88,
+  "long_in_last30": 28,
+  "avg_duration_min": 42.5,
+  "median_duration_min": 39.8,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "geopolitics",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok"
+  ],
+  "evidence": "Večernji razgovor s analitičarima ~40 min, 100 ep., zadnje 2025",
+  "sample": [
+   "DK6vNhQztSk|2259|2025-09-25|N1 Newsnight: Miro Kovač o eskalaciji sukoba na Bliskom istoku (25.9.2",
+   "3gU18PV3IBE|2328|2025-09-25|N1 Newsnight: Vanjskopolitički analitičar o \"planu pobjede\" Zelenskog ",
+   "NQanimWx738|2100|2025-09-25|Newsnight: Kakva će biti reakcija SAD-a na napad Irana na Izrael? (1.1"
+  ]
+ },
+ {
+  "display_name": "'U povjerenju' s Nevenom Ciganovićem (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
+  "parent_channel": "Večernji TV",
+  "hosts": [
+   "Neven Ciganović"
+  ],
+  "follower_count": null,
+  "total_items": 109,
+  "long_episodes": 30,
+  "long_in_last30": 14,
+  "avg_duration_min": 29.2,
+  "median_duration_min": 2.9,
+  "first_upload": "2023-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "interview",
+   "celebrity",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu"
+  ],
+  "evidence": "109 stavki, puni intervjui + isječci; neaktivan od 2025",
+  "sample": [
+   "dZ_VR7RYhMA|140|2025-09-25|Lidija Bačić o traču da je u vezi s nogometašem: 'Osobu nisam nikad vi",
+   "std5yHa3e7Q|4211|2025-09-25|Lidija Bačić prvi puta progovorila o nogometašu s kojim su je nedavno ",
+   "HnBD8EtQVUw|76|2025-09-25|Ivana Kekin: Gledala sam Mjenjačnicu i rekla: Ovo je tip za kojeg ću s"
+  ]
+ },
+ {
+  "display_name": "Matičin podcast (Matica hrvatska)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+  "type": "playlist",
+  "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+  "playlist_id": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+  "parent_channel": "Matica hrvatska",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 12,
+  "long_episodes": 12,
+  "long_in_last30": 12,
+  "avg_duration_min": 57.1,
+  "median_duration_min": 59.6,
+  "first_upload": "2023-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "culture",
+   "language",
+   "institutional"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR"
+  ],
+  "evidence": "12 ep. ~57 min; Podcasts tab",
+  "sample": [
+   "-zrjdmbivc4|4459|2025-09-25|Matičin podcast - Marko Tadić",
+   "TBE8DegURyo|3723|2024-09-25|Matičin podcast - Davor Velnić",
+   "8Qi03VISaRE|4143|2023-09-25|Matičin podcast - Igor Zidić"
+  ]
+ },
+ {
+  "display_name": "Sistematski – tjedni intervju (Yammat FM)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
+  "type": "playlist",
+  "channel_id": "UC0pZKoY0N8b6yFiNYoKrGDQ",
+  "playlist_id": "PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
+  "parent_channel": "YammatFM_official",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 25,
+  "long_episodes": 24,
+  "long_in_last30": 24,
+  "avg_duration_min": 37.7,
+  "median_duration_min": 38.0,
+  "first_upload": "2025-09-25",
+  "last_upload": "2026-07-25",
+  "uploads_last_90d": 1,
+  "tags": [
+   "interview",
+   "culture",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W"
+  ],
+  "evidence": "25 ep. ~38 min, 2025-2026",
+  "sample": [
+   "z44UXtQz1DI|2260|2026-07-25|Vjeko i Daria, Gospić je naš dom - Yammatov sistematski - tjedni inter",
+   "JIRzOu7QNA4|2278|2026-06-25|Milena Zajović - Yammatov Sistematski - tjedni intervju tjedna",
+   "5UBL_80eCDE|2570|2026-06-25|Ljubo Jurčić - Yammatov Sistematski - tjedni intervju tjedna"
+  ]
+ },
+ {
+  "display_name": "Iza Pjace (Hajduk)",
+  "youtube_url": "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos",
+  "type": "channel",
+  "channel_id": "UCw0_lthGS4qChQec36LX8Mw",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 10300,
+  "total_items": 289,
+  "long_episodes": 48,
+  "long_in_last30": 6,
+  "avg_duration_min": 21.7,
+  "median_duration_min": 20.7,
+  "first_upload": "2018-09-25",
+  "last_upload": "2026-09-19",
+  "uploads_last_90d": 29,
+  "tags": [
+   "sport",
+   "football",
+   "hajduk"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw",
+   "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos"
+  ],
+  "evidence": "Hajduk podcast #148, 10.3k pretplatnika; epizode 1.5-2 h + shortsi/isječci",
+  "sample": [
+   "K_OvEiM2rFw|427|2026-09-19|Robert Graf o uvođenju sportskog psihologa ",
+   "lxxdMkLUSO0|401|2026-09-17|Del Moral je donio stabilnost ",
+   "EkuhpJaYdBw|5757|2026-09-12|Iza Pjace #146: Robert Graf "
+  ]
+ },
+ {
+  "display_name": "Shegrt (Financijski klub EFZG)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+  "type": "playlist",
+  "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+  "playlist_id": "PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+  "parent_channel": "Promocija znanosti",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 24,
+  "long_episodes": 22,
+  "long_in_last30": 22,
+  "avg_duration_min": 48.7,
+  "median_duration_min": 50.8,
+  "first_upload": "2023-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "finance",
+   "business",
+   "students"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+   "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5"
+  ],
+  "evidence": "24 ep. ~49 min; roditeljski kanal ima samo playliste u registryju",
+  "sample": [
+   "uEnesrQROVk|2359|2025-09-25|Iz strasti u posao - priča o podacima | Shegrt+ #24 – Ivan Žilić",
+   "aEYxEoyG_c8|1311|2025-09-25|Tips and tricks: Stambeni kredit? | Shegrt 101 #23 - Aida Čustović",
+   "2P8-00qreV8|2907|2025-09-25|Što ekonomija ne uči, a tržište traži? - Vuk Vuković | Shegrt #22"
+  ]
+ },
+ {
+  "display_name": "Slobodnim stilom (Promocija znanosti)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+  "type": "playlist",
+  "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+  "playlist_id": "PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+  "parent_channel": "Promocija znanosti",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 13,
+  "long_episodes": 13,
+  "long_in_last30": 13,
+  "avg_duration_min": 83.1,
+  "median_duration_min": 84.6,
+  "first_upload": "2024-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "science",
+   "talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5"
+  ],
+  "evidence": "13 ep. ~83 min (2024)",
+  "sample": [
+   "r5p6dleqlEU|5495|2024-09-25|Maša Kolanović, Amanda Prenkaj: Barbie po nebu kruza  I Slobodnim stil",
+   "C2UkcM9jMzg|3337|2024-09-25|Otmica Razreda za književnost: ni satira, nego novinarstvo | Slobodnim",
+   "iwdzxCzK_RA|6653|2024-09-25|Olja Savičević Ivančević: znatiželjna čitateljica | Slobodnim stilom K"
+  ]
+ },
+ {
+  "display_name": "Tribina Sučeljavanja (Matica hrvatska)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d",
+  "type": "playlist",
+  "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+  "playlist_id": "PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d",
+  "parent_channel": "Matica hrvatska",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 11,
+  "long_episodes": 11,
+  "long_in_last30": 11,
+  "avg_duration_min": 100.6,
+  "median_duration_min": 94.0,
+  "first_upload": "2022-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "debate",
+   "culture",
+   "institutional"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 2400,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d"
+  ],
+  "evidence": "11 tribina ~100 min",
+  "sample": [
+   "aV4eyW2XQ8U|5095|2025-09-25|Tribina Sučeljavanja u Matici hrvatskoj: DEMOGRAFSKI SLOM ILI OPORAVAK",
+   "Ipme37K3Or4|4196|2025-09-25|Tribina Sučeljavanja u Matici hrvatskoj: GEOSTRATEŠKI ODNOSI NA EUROPS",
+   "HCPoM5ssxwI|5863|2024-09-25|Tribina Sučeljavanja u Matici hrvatskoj: EKOLOŠKA BUDUĆNOST GRADA ZAGR"
+  ]
+ },
+ {
+  "display_name": "Večernji.hr podcast (playlist)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 58,
+  "long_episodes": 33,
+  "long_in_last30": 20,
+  "avg_duration_min": 41.2,
+  "median_duration_min": 35.8,
+  "first_upload": "2020-09-25",
+  "last_upload": "2024-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "media",
+   "talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu"
+  ],
+  "evidence": "58 ep., 2020-2024; moguće preklapanje s postojećim unosom vecernji-podcast (drugi kanal UCta3_)",
+  "sample": [
+   "E_D5qRQwzEs|3810|2024-09-25|Giriček: Shaquilleu O'Nealu sam odgovorio na provokaciju, a onda me za",
+   "Eeaafex6k2Q|1594|2023-09-25|Grupa Detour svirala je u našem studiju i najavila novi album: 'Snimil",
+   "FFbOx_H4BTI|1420|2023-09-25|Mrle nam je otkrio detalje: 'Na Doru smo se prijavili iz dosade, a nas"
+  ]
+ },
+ {
+  "display_name": "Možemo Podcast",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+  "type": "playlist",
+  "channel_id": "UC-EG8D5Im29F-dvNC-wr8uw",
+  "playlist_id": "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+  "parent_channel": "Možemo!",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 8,
+  "long_episodes": 8,
+  "long_in_last30": 8,
+  "avg_duration_min": 73.4,
+  "median_duration_min": 82.0,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "party"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A"
+  ],
+  "evidence": "8 ep. ~73 min; stranački podcast (Podcasts tab)",
+  "sample": [
+   "siLYhA643KU|2642|2025-09-25|Draženka Polović: \"HDZ je Karlovac u 30 godina sveo na elementarne čes",
+   "KK7mgfuVUMA|3393|2025-09-25|Tomislav Tomašević: \"Neki su mislili da nećemo izdržati ni godinu dana",
+   "7sUdQo8eSsw|3700|2025-09-25|Suzana Jašić: U Pazinu smo otvorili prvi novi vrtić od 1972.! | Možemo"
+  ]
+ },
+ {
+  "display_name": "Točka na tjedan (N1 Hrvatska)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3",
+  "type": "playlist",
+  "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+  "playlist_id": "PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3",
+  "parent_channel": "N1",
+  "hosts": [
+   "Mislav Bago"
+  ],
+  "follower_count": null,
+  "total_items": 373,
+  "long_episodes": 285,
+  "long_in_last30": 30,
+  "avg_duration_min": 163.0,
+  "median_duration_min": 158.8,
+  "first_upload": "2018-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "politics",
+   "debate",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 3600,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3"
+  ],
+  "evidence": "Tjedna politička debata ~2.5 h, 373 ep. 2018-2025; N1 kanal je regionalan, ova playlista je HR",
+  "sample": [
+   "DGO0isw_ROM|9591|2025-09-25|Točka na tjedan (19. 1. 2025.)",
+   "oeFqdLgFziY|9376|2025-09-25|Točka na tjedan (12. 1. 2025.)",
+   "Lj5QojyhX0s|9474|2025-09-25|Točka na tjedan (5.1.2025.)"
+  ]
+ },
+ {
+  "display_name": "Zmajeva Garaža (D&D podcast)",
+  "youtube_url": "https://www.youtube.com/channel/UCdkT57fx7OJS_P06-b23_9g/videos",
+  "type": "channel",
+  "channel_id": "UCdkT57fx7OJS_P06-b23_9g",
+  "playlist_id": null,
+  "parent_channel": null,
+  "hosts": [],
+  "follower_count": 896,
+  "total_items": 169,
+  "long_episodes": 87,
+  "long_in_last30": 15,
+  "avg_duration_min": 77.4,
+  "median_duration_min": 40.0,
+  "first_upload": "2020-09-25",
+  "last_upload": "2023-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "gaming",
+   "dnd",
+   "fiction"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+   "https://www.youtube.com/channel/UCdkT57fx7OJS_P06-b23_9g/videos"
+  ],
+  "evidence": "Netokracija vodič (Zmaj BLA); 169 videa, actual-play sesije 1-4 h, 2020-2023",
+  "sample": [
+   "KclDjAfgoSM|9260|2023-09-25|Zmajeva Garaža | Avantura II: Phlogistar Omega | Oluja duhova 👻",
+   "bAb2NEbvVGI|10852|2023-09-25|Zmajeva Garaža | Avantura II: Phlogistar Omega | Knjiški moljci & pipc",
+   "54tt02CCf4Y|14348|2023-09-25|DnD Balkan Gameplay | Ep. 10. - 🗿 Zigurat | Avantura II: Phlogistar"
+  ]
+ },
+ {
+  "display_name": "Veliki judi (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 614,
+  "long_episodes": 160,
+  "long_in_last30": 22,
+  "avg_duration_min": 32.6,
+  "median_duration_min": 32.9,
+  "first_upload": "2021-09-25",
+  "last_upload": "2026-09-20",
+  "uploads_last_90d": 13,
+  "tags": [
+   "interview",
+   "dalmatia",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj280mpxZ55AufvPhsZSRucoe"
+  ],
+  "evidence": "614 ep. ~33 min, tjedno, aktivan",
+  "sample": [
+   "ANwjCzNyCl4|2233|2026-09-20|Veliki judi 19.09.2026. Ivan Urlić",
+   "kzHvvypLu0M|1885|2026-09-13|Veliki judi 12.09.2026. Josip Jović",
+   "85qViTLNKzg|2047|2026-09-11|Veliki judi 05.09.2026. Cvjetana Bazina Periša"
+  ]
+ },
+ {
+  "display_name": "Glas mladih (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 46,
+  "long_episodes": 35,
+  "long_in_last30": 29,
+  "avg_duration_min": 47.5,
+  "median_duration_min": 44.5,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "youth",
+   "society",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn"
+  ],
+  "evidence": "46 ep. ~47 min, zadnje 2025",
+  "sample": [
+   "DYRhchhk8Zo|3002|2025-09-25|Glas mladih #55",
+   "kLQO0E9Drj4|2207|2025-09-25|Glas mladih #54",
+   "ZGuCgFu3gt8|3626|2025-09-25|Glas mladih #53"
+  ]
+ },
+ {
+  "display_name": "Prva linija (Jutarnji list)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+  "type": "playlist",
+  "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+  "playlist_id": "PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+  "parent_channel": "Jutarnji list",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 182,
+  "long_episodes": 117,
+  "long_in_last30": 25,
+  "avg_duration_min": 54.4,
+  "median_duration_min": 57.0,
+  "first_upload": "2023-09-25",
+  "last_upload": "2026-09-23",
+  "uploads_last_90d": 14,
+  "tags": [
+   "geopolitics",
+   "war",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku"
+  ],
+  "evidence": "Tjedni geopolitički/vojni podcast, ep. 143, ~55 min; na Podcasts tabu kanala",
+  "sample": [
+   "FwrVOTt4jYA|4203|2026-09-23|Prva linija, ep. 143: Vojni pilot Ivica Ivandić o Su-25 - 'leteći tenk",
+   "xDHwD8ZjV8k|1528|2026-09-16|Prva linija, ep. 142: Ukrajinska ofenziva kod Limana, ruski gubici i m",
+   "O-P6mQYrS-E|3378|2026-09-11|Prva linija, ep. 141: Napad 11. 9. 2001. - Tvrtko Jakovina o danu koji"
+  ]
+ },
+ {
+  "display_name": "Prstom po globusu (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 55,
+  "long_episodes": 53,
+  "long_in_last30": 30,
+  "avg_duration_min": 32.6,
+  "median_duration_min": 32.5,
+  "first_upload": "2024-09-25",
+  "last_upload": "2025-09-25",
+  "uploads_last_90d": 0,
+  "tags": [
+   "travel",
+   "world",
+   "radio"
+  ],
+  "language": "hr",
+  "confidence": "high",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://podcast.feedspot.com/croatia_travel_podcasts/",
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3"
+  ],
+  "evidence": "55 ep. ~33 min; i FeedSpot popis",
+  "sample": [
+   "76xHTfYSccM|1952|2025-09-25|Priča iz Like: Kosinj",
+   "gb262bHFPmA|1952|2025-09-25|Priča iz Like: Kosinj",
+   "PblJpD-cld4|2084|2025-09-25|S glagoljicom po Hrvatskoj"
+  ]
+ },
+ {
+  "display_name": "Povijesni dijalozi (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 15,
+  "long_episodes": 9,
+  "long_in_last30": 9,
+  "avg_duration_min": 46.4,
+  "median_duration_min": 75.1,
+  "first_upload": "2026-05-25",
+  "last_upload": "2026-09-18",
+  "uploads_last_90d": 7,
+  "tags": [
+   "history",
+   "media"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d"
+  ],
+  "evidence": "Povijesni razgovori ~75 min, aktivno 2026; sadrži i isječke",
+  "sample": [
+   "QMj_o-S69Ac|4722|2026-09-18|Kljaić o Putinovoj argumentaciji: Rusi i Ukrajinci jedan narod? Time s",
+   "unNHD-6YPGo|4512|2026-09-04|Povjesničar Kekez šokira novim pogledom na Krbavsku bitku: \"Krivo smo ",
+   "4rRALqyBbUc|4757|2026-08-25|Plan ujedinjenja pobunjenih Srba dovršen je pred Oluju: Nazor otkrio š"
+  ]
+ },
+ {
+  "display_name": "Cronnect (Večernji)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
+  "type": "playlist",
+  "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+  "playlist_id": "PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
+  "parent_channel": "Večernji TV",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 22,
+  "long_episodes": 16,
+  "long_in_last30": 16,
+  "avg_duration_min": 36.2,
+  "median_duration_min": 39.1,
+  "first_upload": "2026-04-25",
+  "last_upload": "2026-09-21",
+  "uploads_last_90d": 8,
+  "tags": [
+   "diaspora",
+   "society",
+   "interview"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "medium",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss"
+  ],
+  "evidence": "Razgovori s Hrvatima iz dijaspore/povratnicima, aktivan",
+  "sample": [
+   "tcsuDzoCmgQ|55|2026-09-21|Raspudić o tome zašto Hrvati u BiH biraju HDZ: To je jedna situacija z",
+   "w7mjG1nk4CI|2482|2026-09-04|John Gašparac, član uprave ACAP-a o povratku Hrvata: \"Ljudi žele doći,",
+   "vCiFLSvVx2U|3573|2026-08-25|Otišao je s Rebra u SAD na godinu dana: ‘Kod nas smo cijepljeni protiv"
+  ]
+ },
+ {
+  "display_name": "Osvrt (TV Jadran)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
+  "type": "playlist",
+  "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+  "playlist_id": "PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
+  "parent_channel": "TV Jadran",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 580,
+  "long_episodes": 238,
+  "long_in_last30": 15,
+  "avg_duration_min": 30.9,
+  "median_duration_min": 30.2,
+  "first_upload": "2020-09-25",
+  "last_upload": "2026-09-17",
+  "uploads_last_90d": 12,
+  "tags": [
+   "politics",
+   "commentary",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "low",
+  "suggested_min_duration_sec": 1500,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0"
+  ],
+  "evidence": "580 ep., ~31 min, aktivan",
+  "sample": [
+   "5LF20UDHk0M|1618|2026-09-17|Osvrt 16.09.2026. Marko Kumrić",
+   "PXtJguCpWLA|1863|2026-09-11|Osvrt 09.09.2026. Karlo Pilko",
+   "NxkwYoSSX2E|1763|2026-09-04|Osvrt 02.09.2026. Filip Šimunović"
+  ]
+ },
+ {
+  "display_name": "Otvoreno (HRT)",
+  "youtube_url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kObinvdS86MlleO-pMl6jQg",
+  "type": "playlist",
+  "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+  "playlist_id": "PLuEWODEWd3kObinvdS86MlleO-pMl6jQg",
+  "parent_channel": "Hrvatska radiotelevizija",
+  "hosts": [],
+  "follower_count": null,
+  "total_items": 972,
+  "long_episodes": 259,
+  "long_in_last30": 13,
+  "avg_duration_min": 15.1,
+  "median_duration_min": 2.3,
+  "first_upload": "2023-09-25",
+  "last_upload": "2026-09-11",
+  "uploads_last_90d": 3,
+  "tags": [
+   "politics",
+   "debate",
+   "tv-talk-show"
+  ],
+  "language": "hr",
+  "confidence": "medium",
+  "derivative_risk": "high",
+  "suggested_min_duration_sec": 1800,
+  "source_urls": [
+   "https://www.youtube.com/playlist?list=PLuEWODEWd3kObinvdS86MlleO-pMl6jQg"
+  ],
+  "evidence": "972 stavke, većinom isječci; pune emisije ~50 min rjeđe",
+  "sample": [
+   "sZrMBHXu5FU|57|2026-09-11|Toksikolog o otpadu u Gospiću: Stanje ekvivalentno požaru",
+   "BtgwwwYjSo4|78|2026-09-11|Capak o vodi u Ličko-senjskoj županiji",
+   "eIDL8hJ08Y8|72|2026-07-25|Tadić: Moskvi nije upalio gambit s Trumpom"
+  ]
+ }
+]

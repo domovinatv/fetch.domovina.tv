@@ -1,0 +1,14 @@
+#URL https://www.youtube.com/user/foicroatia/playlists
+PLLKIF1NTT77g|13|CECIIS 2026|https://www.youtube.com/playlist?list=PLLKIF1NTT77g
+PLzEvY0guiqZd8KAjD-wOQzZQIcXiUk-qM|13|CECIIS 2024|https://www.youtube.com/playlist?list=PLzEvY0guiqZd8KAjD-wOQzZQIcXiUk-qM
+PLzEvY0guiqZep46U3RhP51fu5Y4nQYsDb|13|FOI International Days 2024|https://www.youtube.com/playlist?list=PLzEvY0guiqZep46U3RhP51fu5Y4nQYsDb
+PLzEvY0guiqZfoZU_i6YFcd4uZ6XtzpBcf|13|CECIIS 2023|https://www.youtube.com/playlist?list=PLzEvY0guiqZfoZU_i6YFcd4uZ6XtzpBcf
+PLzEvY0guiqZfoXvvoj9B4j60Vaa3cMZ89|13|Erasmus+|https://www.youtube.com/playlist?list=PLzEvY0guiqZfoXvvoj9B4j60Vaa3cMZ89
+PLzEvY0guiqZcHb8A7A21ytX7uaMUNzazy|13|FOI Business Talks (Podcast emisije Fakulteta organizacije i informatike)|https://www.youtube.com/playlist?list=PLzEvY0guiqZcHb8A7A21ytX7uaMUNzazy
+PLzEvY0guiqZeEfUc2pdl_VC5vPFDQnrq1|13|CECIIS 2022|https://www.youtube.com/playlist?list=PLzEvY0guiqZeEfUc2pdl_VC5vPFDQnrq1
+PLzEvY0guiqZd7WiGmzf7jPeu-grIW4fCc|13|FOI projektne aktivnosti|https://www.youtube.com/playlist?list=PLzEvY0guiqZd7WiGmzf7jPeu-grIW4fCc
+PLzEvY0guiqZdZZtsSO2wFwjueh96Ixrvc|13|Tjedan karijera|https://www.youtube.com/playlist?list=PLzEvY0guiqZdZZtsSO2wFwjueh96Ixrvc
+PLzEvY0guiqZcZZKMFqy7rYYyesomyx-pR|13|CECIIS 2020|https://www.youtube.com/playlist?list=PLzEvY0guiqZcZZKMFqy7rYYyesomyx-pR
+PLzEvY0guiqZdWB5md2ahnXEETl_wlsIkh|13|CECIIS 2021|https://www.youtube.com/playlist?list=PLzEvY0guiqZdWB5md2ahnXEETl_wlsIkh
+PLzEvY0guiqZeaOUNmHb3d5W8LWrNBygk6|13|Upisi na FOI|https://www.youtube.com/playlist?list=PLzEvY0guiqZeaOUNmHb3d5W8LWrNBygk6
+PLzEvY0guiqZcvm1Z-J8HUQXc2JcagmCd7|13|Dan Fakulteta 2020|https://www.youtube.com/playlist?list=PLzEvY0guiqZcvm1Z-J8HUQXc2JcagmCd7

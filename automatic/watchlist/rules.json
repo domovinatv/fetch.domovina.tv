@@ -1,0 +1,2624 @@
+{
+ "2pogled-povijest": {
+  "source_url": "https://www.youtube.com/channel/UCQZjAfPH5XtOJ5ze66etQPw/videos",
+  "min_duration_sec": 1500,
+  "notes": "Tri serije: \"Putovanje kroz povijest | Ep.\", \"Drevne civilizacije #\", \"FRANKOPANI ... EPIZODA\" (~30 min, naracija); \"Clipeus Croatorum\" mini-serija 8-10 min i Shorts su izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 36,
+   "derivatives": 24
+  }
+ },
+ "actualitica-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCVdVBIcwZpKQfmxA488rQfA/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)Actualitica Podcast\\s*#\\d+",
+  "notes": "Numerirane epizode; isječci 5-15 min nemaju \"#N\" u naslovu.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 39,
+   "derivatives": 21
+  }
+ },
+ "agape-rtv": {
+  "source_url": "https://www.youtube.com/channel/UCxV-_KkTuo-ZzZ7cHD64diQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCxV-_KkTuo-ZzZ7cHD64diQ/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Katolička TV: intervjui/svjedočanstva 55-80 min + kratki prilozi; povremeni live na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 43,
+   "derivatives": 17
+  }
+ },
+ "agroklub-podcast": {
+  "source_url": "https://www.youtube.com/playlist?list=PLC0uKQIfwDPKb6rqeIxcKhf5aG-jObK2T",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Agroklub Podcast\\s*#\\d+",
+  "notes": "Kanal Agroklub je agro-medij (>90% kratkih priloga, posebne Shorts playliste HR/SRB/BiH). Podcast ima vlastitu playlistu \"Agroklub Podcast\", ali i u njoj su 2-3 min isječci \"... | Gost @ AKP\" — treba include \"#N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 39,
+   "originals": 8,
+   "derivatives": 31
+  }
+ },
+ "all-things-croatia": {
+  "source_url": "https://www.youtube.com/@allthingscroatia/videos",
+  "min_duration_sec": 1200,
+  "notes": "EN dijaspora podcast, 25-50 min; Shorts i 1-2 min najave izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 57,
+   "originals": 47,
+   "derivatives": 10
+  }
+ },
+ "alt-tab-good-game-show": {
+  "source_url": "https://www.youtube.com/channel/UCAbICmZKJWlqlzY6T6nQ50Q/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Alt\\+Tab podcast S\\d+E\\d+",
+  "notes": "Gaming kanal: vlogovi/izazovi 5-10 min; podcast = \"Alt+Tab podcast SxxEyy\". Stari live-streamovi su gameplay.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 20,
+   "derivatives": 40
+  }
+ },
+ "ana-radisic-podcast": {
+  "source_url": "https://www.youtube.com/@ana.radisic/videos",
+  "min_duration_sec": 1200,
+  "notes": "Sezonske epizode \"SxEy\" 25-50 min; 1 min najave/Shorts izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 59,
+   "originals": 50,
+   "derivatives": 9
+  }
+ },
+ "ask-frapriest": {
+  "source_url": "https://www.youtube.com/channel/UC2uXNaoJN2ssrf9mPKPnaOg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC2uXNaoJN2ssrf9mPKPnaOg/streams"
+  ],
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)podcast",
+  "notes": "\"Pitaj svećenika [PODCAST N]\"; ostalo su kateheze, radijske emisije (Bijela kronika) na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 31,
+   "derivatives": 29
+  }
+ },
+ "atma-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCKdfRYPC2lgfv5_4zHJ2Gdw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCKdfRYPC2lgfv5_4zHJ2Gdw/streams"
+  ],
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)ATMA predavanje",
+  "notes": "Najjači derivatni kanal u ovom setu: ~60% su 5-15 min izrezi s formatom \"Naslov / Ime Gosta\"; pune epizode 80-130 min s \"| ATMA Podcast\". Live \"ATMA Stream\" na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 13,
+   "derivatives": 47
+  }
+ },
+ "audijalog": {
+  "source_url": "https://www.youtube.com/@Audijalog/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@Audijalog/streams"
+  ],
+  "min_duration_sec": 3600,
+  "include_title_regex": "(?i)Audijalog\\s*#\\d+",
+  "notes": "Pune epizode 70-150 min \"Audijalog #N\"; ~50% kanala su 1-10 min citatni isječci (\"Ime: \"citat\"\").",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "becar-price": {
+  "source_url": "https://www.youtube.com/channel/UCYocODi5wXXvQstczBucIog/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCYocODi5wXXvQstczBucIog/streams"
+  ],
+  "min_duration_sec": 1200,
+  "notes": "Reportaže/vlogovi 20-35 min (dijaspora, zanimljivi ljudi) — nije razgovorni podcast. /streams ima 1 originala u zadnjih 365 d — izvor proširen na videos+streams",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 52,
+   "derivatives": 8
+  }
+ },
+ "bez-pardona": {
+  "source_url": "https://www.youtube.com/channel/UCngES6navsTlEYf5ASu5-QA/videos",
+  "min_duration_sec": 1800,
+  "notes": "Talk-show s 2-3 gošće, 45-110 min, ~mjesečno; Shorts odvojeni.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 15,
+   "originals": 15,
+   "derivatives": 0
+  }
+ },
+ "bijelo-plavi-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCzNKPyMT3JqK-jvtCprWOEg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCzNKPyMT3JqK-jvtCprWOEg/streams"
+  ],
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Bijelo-plavi podcast\\s*\\d+",
+  "notes": "Numerirane epizode; neke idu kao live na /streams (npr. #223, #229).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 47,
+   "derivatives": 13
+  }
+ },
+ "birc-talk": {
+  "source_url": "https://www.youtube.com/channel/UCQxfuSwkCySfpsftoHlo8Yw/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)BircTalk\\s*#\\d+",
+  "notes": "Pune epizode \"BircTalk #N\" 85-150 min; između njih 3-4 isječka po epizodi (3-14 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 14,
+   "derivatives": 46
+  }
+ },
+ "bliski-susreti-jezicne-vrste": {
+  "source_url": "https://www.youtube.com/playlist?list=PL8mo50pgDSnA0RFGO5AYe7BHMabdIFTJE",
+  "min_duration_sec": 1800,
+  "notes": "Playlista \"Ep. #N\"; kraći zapisi 5-30 min su bonusi/najave.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 54,
+   "derivatives": 6
+  }
+ },
+ "bookaravision": {
+  "source_url": "https://www.youtube.com/channel/UCJwt74EtiPJudvjKDSTBU3g/videos",
+  "min_duration_sec": 1800,
+  "notes": "Razgovori o arhitekturi/knjigama 45-100 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 54,
+   "derivatives": 6
+  }
+ },
+ "bossy-podcast": {
+  "source_url": "https://www.youtube.com/channel/UC33a8nt-Y0LkhoBE8JjyMig/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)EP\\s?\\d+",
+  "notes": "\"Podcast Iza Uspjeha - EPnn\"; Shorts izvan.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 12,
+   "originals": 11,
+   "derivatives": 1
+  }
+ },
+ "brodcast": {
+  "source_url": "https://www.youtube.com/@Brodcasteu/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)BRODCAST\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 45,
+   "originals": 35,
+   "derivatives": 10
+  }
+ },
+ "budi-heroj-svoje-price": {
+  "source_url": "https://www.youtube.com/channel/UCgZxjGrFlHDbgbPQHR8M_gw/videos",
+  "min_duration_sec": 1800,
+  "notes": "Dnevne monološke epizode 7-16 min (#N) — ispod podcast praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "casopis-obnova": {
+  "source_url": "https://www.youtube.com/channel/UCQbUuh8An2xOB4-lLu13VHw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCQbUuh8An2xOB4-lLu13VHw/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Snimke promocija časopisa i predavanja razlomljene na dijelove od ~24 min; nije podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 33,
+   "derivatives": 27
+  }
+ },
+ "chelsea-croatia": {
+  "source_url": "https://www.youtube.com/channel/UCHq7FkKmD7ZDtYK-qZ5tHWA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCHq7FkKmD7ZDtYK-qZ5tHWA/streams"
+  ],
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Chelsea Croatia podcast\\s*#\\d+",
+  "notes": "Podcast #N uz live analize utakmica (25-40 min) i rangiranja.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 32,
+   "derivatives": 28
+  }
+ },
+ "covik-s-mora": {
+  "source_url": "https://www.youtube.com/channel/UC_S-qv92CxWnxcP4lCiQTsw/videos",
+  "min_duration_sec": 2400,
+  "notes": "Skečevi/\"grintanje\" 1-10 min; samo pokoji INTERVIEW 90 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 16,
+   "derivatives": 44
+  }
+ },
+ "croatiansports-podcast": {
+  "source_url": "https://www.youtube.com/@croatiansports/videos",
+  "min_duration_sec": 1800,
+  "notes": "EN; epizode 45-90 min (\"PODCAST:\", \"REACTION:\", preview); isječci i intervjui 5-19 min izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 23,
+   "derivatives": 37
+  }
+ },
+ "denis-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCUJYL8cIs-XoNpTH8Tdb-Ww/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCUJYL8cIs-XoNpTH8Tdb-Ww/streams"
+  ],
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)^#\\d+|LIVE",
+  "notes": "Numerirane epizode \"#N\" (neke samo 8-10 min kratke najave) + live emisije \"HNL LIVE\" na /streams (45-130 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 35,
+   "derivatives": 25
+  }
+ },
+ "digilab-nsk": {
+  "source_url": "https://www.youtube.com/channel/UCM2A6a_hJkjmoLX9b6rVJXQ/videos",
+  "min_duration_sec": 1500,
+  "notes": "Više serija NSK (Beli Zagreb Grad podcast, LOV NA GOVOR, ZKDruškanje).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 46,
+   "originals": 45,
+   "derivatives": 1
+  }
+ },
+ "domovinski-rat-borna-marinic": {
+  "source_url": "https://www.youtube.com/channel/UCpXfcdXulKYTBO3DNBFWMjQ/videos",
+  "min_duration_sec": 3600,
+  "include_title_regex": "(?i)GDJE SI BIO",
+  "notes": "Pune epizode \"GDJE SI BIO '91? ... #N\" 3-3,5 h; ~85% kanala su 2-23 min isječci iz tih razgovora s VELIKIM naslovom i citatom.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 8,
+   "derivatives": 52
+  }
+ },
+ "don-stipe-mustapic": {
+  "source_url": "https://www.youtube.com/channel/UCuNiDwvYQn_8lsZZLyCdKUA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCuNiDwvYQn_8lsZZLyCdKUA/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Podcast \"Kod don Stipe\" 50-140 min; propovijedi 17-22 min i najave ispod praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 44,
+   "derivatives": 16
+  }
+ },
+ "dr-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCNexWS-htuUB8WCmU129GUg/videos",
+  "min_duration_sec": 1500,
+  "exclude_title_regex": "(?i)teaser",
+  "notes": "Natko Beck ep.; sponzorirana serija \"Razgovori o zdravlju s ADIVA ljekarnikom\" 20 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 23,
+   "originals": 15,
+   "derivatives": 8
+  }
+ },
+ "drustvo-promocija-znanosti": {
+  "source_url": "https://www.youtube.com/channel/UCoAi8zK4SAxBP3hgzD7el9g/videos",
+  "min_duration_sec": 1800,
+  "notes": "Javna znanstvena predavanja 30-75 min (monolog + pitanja), ne razgovorni podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "duhovna-obnova": {
+  "source_url": "https://www.youtube.com/channel/UCpj2LQ0SuCuoHJEU7_0Za6Q/videos",
+  "min_duration_sec": 1800,
+  "notes": "Propovijedi/nagovori 5-25 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 6,
+   "derivatives": 54
+  }
+ },
+ "eduza-show": {
+  "source_url": "https://www.youtube.com/channel/UCKPBjmgFMFR_WufZs3GLQwA/streams",
+  "min_duration_sec": 2400,
+  "notes": "Pune emisije idu ISKLJUČIVO kao live (webinar-razgovori 60-80 min) na /streams; /videos su 2-10 min izrezi i reportaže.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 29,
+   "originals": 29,
+   "derivatives": 0
+  }
+ },
+ "etvos-osijek": {
+  "source_url": "https://www.youtube.com/channel/UCQsbGN8gkx7NB3RxHBZLglw/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)ETVOS podcast EP\\s?\\d+",
+  "notes": "Teološki fakultet: podcast \"ETVOS podcast EPn\" je manjina; ostalo seminari (3,5 h), bogoslužja (/streams), promocije.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 8,
+   "derivatives": 52
+  }
+ },
+ "explora-hrt": {
+  "source_url": "https://www.youtube.com/@explorahrt/videos",
+  "min_duration_sec": 2400,
+  "notes": "HRT radio emisija \"Explora DD.MM.YYYY.\" 51-54 min, tjedno.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "f1-puls-podcast": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD",
+  "min_duration_sec": 3000,
+  "notes": "Čista playlista \"F1Puls podcast #N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "fakat-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCKrBWYif4EuYSE2RCnv_S3Q/videos",
+  "min_duration_sec": 1800,
+  "notes": "Narirani clickbait/misteriji 8-21 min — nije razgovorni podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "felix-contras": {
+  "source_url": "https://www.youtube.com/channel/UCRrn5SObn87AoejwDkh7bEA/videos",
+  "min_duration_sec": 1800,
+  "notes": "Format se promijenio: do travnja 2026. razgovori s Pavlom Kalinićem 30-70 min, od tada samo kratki komentari 9-21 min (ispod praga).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 48,
+   "originals": 10,
+   "derivatives": 38
+  }
+ },
+ "filozof-i-ja": {
+  "source_url": "https://www.youtube.com/channel/UCCwjhXFJmoOUp_oMFaUl7CA/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)teaser",
+  "notes": "Svaka epizoda ima 2 TEASERA (<1 min) — 13/23 videa su teaseri.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 23,
+   "originals": 8,
+   "derivatives": 15
+  }
+ },
+ "fima-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCiKExDrDuOZcD-EBs05QW4w/videos",
+  "min_duration_sec": 1200,
+  "notes": "Kratki razgovori o tržištu kapitala 20-35 min + sponzorirane promocije (Qelo) 3-4 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 22,
+   "derivatives": 38
+  }
+ },
+ "fire-podcast-tetka-skrti": {
+  "source_url": "https://www.youtube.com/channel/UCvPVzHKlfYkq5ij9te0maiw/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)FIRE Podcast",
+  "notes": "Numerirano \"FIRE Podcast za siromašne #N\"; /streams su \"Webinar #N\" (drugi format).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 48,
+   "derivatives": 12
+  }
+ },
+ "fit-through-science": {
+  "source_url": "https://www.youtube.com/channel/UCQ6Ooz2ny8JxRS0-OrdFAhw/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)FTS Podcast\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 25,
+   "derivatives": 35
+  }
+ },
+ "foi-business-talks": {
+  "source_url": "https://www.youtube.com/user/foicroatia/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)FOI Business Talks",
+  "notes": "Fakultetski kanal: aftermovieji, Erasmus priče, promo; podcast = \"FOI Business Talks: CPSRK edition #N\" 24-39 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 15,
+   "derivatives": 45
+  }
+ },
+ "fondovske-bajke": {
+  "source_url": "https://www.youtube.com/channel/UCW97IZgXeXcU5zL-U9OdWgg/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 10,
+   "originals": 9,
+   "derivatives": 1
+  }
+ },
+ "games-croatia": {
+  "source_url": "https://www.youtube.com/channel/UC7pc63_aIVAga2QyJ7fsJfw/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)Games Croatia Podcast",
+  "notes": "Uz podcast su i konferencijska predavanja (Blender: Film & Games).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 31,
+   "originals": 9,
+   "derivatives": 22
+  }
+ },
+ "geopolitika-i-sigurnost": {
+  "source_url": "https://www.youtube.com/channel/UC_6ekiH2k-JiXLzxQ_CgJmw/videos",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 30,
+   "originals": 22,
+   "derivatives": 8
+  }
+ },
+ "glazbena-kuca": {
+  "source_url": "https://www.youtube.com/channel/UC0GR_qkZLeo59JBnYf879Ug/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Glazbena Ku[cć]a Podcast",
+  "notes": "Uz podcast: glazbeni sessioni (3-4 min pjesme), live koncerti (60 min \"live from\").",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 40,
+   "derivatives": 20
+  }
+ },
+ "glazbene-price": {
+  "source_url": "https://www.youtube.com/channel/UCP-gm5mHEb6QhI81weMMlNw/videos",
+  "min_duration_sec": 1800,
+  "notes": "Arhiva VHS/vinil rip-ova koncerata i emisija — nije podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 30,
+   "derivatives": 30
+  }
+ },
+ "goodgamehr": {
+  "source_url": "https://www.youtube.com/channel/UChfPy4eOksWQo5EYlrTIJIg/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)PIKSELASTI MAKIJATO",
+  "notes": "Gaming portal: traileri/gameplay; podcast \"PIKSELASTI MAKIJATO\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "gozba-jaganjceva": {
+  "source_url": "https://www.youtube.com/channel/UCRqd-WWZslPKykWtZJ1x6vQ/videos",
+  "min_duration_sec": 1800,
+  "notes": "Zajednica: svjedočanstva + RE-UPLOADI radijskih/TV priloga (Radio Marija, HKR, RTL) — nema vlastite podcast serije.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 45,
+   "originals": 18,
+   "derivatives": 27
+  }
+ },
+ "gram-kulture": {
+  "source_url": "https://www.youtube.com/channel/UCSEm28CMmAyzT6XNVCMUSxQ/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)Podcast Gram kulture",
+  "notes": "1-5 min isječci (22/60) izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 36,
+   "derivatives": 24
+  }
+ },
+ "grizli-office": {
+  "source_url": "https://www.youtube.com/c/GrizliOfficePodcast/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)Grizli Office Podcast",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 54,
+   "derivatives": 6
+  }
+ },
+ "hcl-podcast": {
+  "source_url": "https://www.youtube.com/@HCLGamingPortal/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@HCLGamingPortal/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Gaming \"let's play\"/recenzije igara i gameplay streamovi — nije razgovorni podcast unatoč imenu.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 46,
+   "derivatives": 14
+  }
+ },
+ "heroji-vukovara": {
+  "source_url": "https://www.youtube.com/channel/UCWcwY7OvnX7HbywJgsI6-rg/videos",
+  "min_duration_sec": 2400,
+  "notes": "Dokumentarna serija \"Heroji Vukovara Epizoda N\" (2021-22).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 29,
+   "originals": 10,
+   "derivatives": 19
+  }
+ },
+ "hkm-argumenti": {
+  "source_url": "https://www.youtube.com/playlist?list=PLcQXSuJQoJAoa83nORkJFrd3DvvlQh6nZ",
+  "min_duration_sec": 2400,
+  "notes": "TV debatna emisija RTCG 60-90 min, tjedno.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "hopecast": {
+  "source_url": "https://www.youtube.com/channel/UCkbs81oPenkl7vvHMmK69Fg/videos",
+  "min_duration_sec": 1800,
+  "notes": "Svjedočanstva/intervjui 80-160 min, tjedno.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "hrvatska-knjiznica-za-slijepe": {
+  "source_url": "https://www.youtube.com/channel/UCLD7qUDboVZg9M90C2XopuA/videos",
+  "min_duration_sec": 1800,
+  "notes": "Više serija (EHO, Književni podcast, O nevidljivom vidljivo, tribine) 38-55 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "hrvatski-branitelj": {
+  "source_url": "https://www.youtube.com/channel/UCE6Tncbx57qtFGhzUs9VXbA/videos",
+  "min_duration_sec": 1200,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 21,
+   "originals": 19,
+   "derivatives": 2
+  }
+ },
+ "human-lab-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA/streams"
+  ],
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)najava|hot seat|rapid fire",
+  "notes": "Uz pune epizode 85-100 min: \"Službena najava\" 3 min, \"HOT SEAT\", \"Rapid Fire\", tematski isječci 5-10 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 34,
+   "derivatives": 26
+  }
+ },
+ "ideje-hr": {
+  "source_url": "https://www.youtube.com/playlist?list=PLDOWbnwbQ5EPNDIGHuzvnPVlbDhIC3YdZ",
+  "min_duration_sec": 1200,
+  "notes": "Playlista video-intervjua portala ideje.hr 20-75 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "in-medias-res": {
+  "source_url": "https://www.youtube.com/channel/UCUkcXcqGi9F1zOuJ9RpLXVg/videos",
+  "min_duration_sec": 900,
+  "notes": "Studentski podcast 17-30 min (2022-23).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "infinity-podcast-milojevic": {
+  "source_url": "https://www.youtube.com/channel/UCKgGXe2w1DWUrTRfTQyHHAw/videos",
+  "min_duration_sec": 900,
+  "include_title_regex": "(?i)INFINITY PODCAST",
+  "notes": "Kanal klinike: promo spotovi i TV prilozi; podcast = \"INFINITY PODCAST S3 #N\" (S1 EN epizode 20 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 36,
+   "derivatives": 24
+  }
+ },
+ "islam-i-krscanstvo-analiza": {
+  "source_url": "https://www.youtube.com/channel/UCDRvcWwZmT51hQzir8psa7w/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCDRvcWwZmT51hQzir8psa7w/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Apologetski kratki videi 2-20 min; povremeni live \"Otvoreni Mikrofon\" 100-195 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 5,
+   "derivatives": 55
+  }
+ },
+ "iza-okvira": {
+  "source_url": "https://www.youtube.com/channel/UC9aFjtVulWEsliv2Q6-krEg/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Iza Okvira\\s*#\\d+",
+  "notes": "Handle @izaokvira4383 je 404, kanal pronađen pretragom (UC9aFjtVulWEsliv2Q6-krEg). ZAVRŠEN: \"#137 - FINAL EPISODE, THANK YOU AND GOODBYE!\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "karlo-cast": {
+  "source_url": "https://www.youtube.com/channel/UCLqI0KuBfa9zonmrghXeZDA/videos",
+  "min_duration_sec": 1800,
+  "notes": "Razgovori 35-80 min; povremeni vlog 17 min i 1 min najave izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 27,
+   "originals": 22,
+   "derivatives": 5
+  }
+ },
+ "kliker-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCi_85ZFlmoInTB1wmrQ2pIw/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Kliker Podcast\\s*#\\d+",
+  "notes": "Svaka epizoda se razlomi na 5-8 tematskih isječaka 8-33 min s naslovom \"Teza - Ime gosta\"; samo \"Kliker Podcast #N\" je original. min_duration SAM ne bi bio dovoljan (isječci do 33 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 57,
+   "originals": 16,
+   "derivatives": 41
+  }
+ },
+ "knjiga-govori": {
+  "source_url": "https://www.youtube.com/channel/UCzIdv4b8Me5YlnEEzdOkPGQ/videos",
+  "min_duration_sec": 900,
+  "notes": "Narirani sažeci knjiga 15-37 min — nije razgovorni podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 52,
+   "originals": 50,
+   "derivatives": 2
+  }
+ },
+ "knjizara-ljevak-kul-u-gradu": {
+  "source_url": "https://www.youtube.com/channel/UC8rNuazotqd9RExLMmb8dQQ/videos",
+  "min_duration_sec": 1800,
+  "notes": "Snimke književne tribine \"KUL U GRADU\" ~55 min, nekoliko godišnje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 13,
+   "originals": 11,
+   "derivatives": 2
+  }
+ },
+ "kriminalno-dobre-price": {
+  "source_url": "https://www.youtube.com/channel/UC2hr0oPLYT_ETqKquJc3f0A/videos",
+  "min_duration_sec": 1500,
+  "notes": "True crime \"NNN. epizoda\"; na YouTubeu su samo PARNI brojevi epizoda (444, 442, 440...) — neparne vjerojatno drugdje/za članove.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "kroativ-tv": {
+  "source_url": "https://www.youtube.com/channel/UCw1J2syGEvCwpy5XsyOaz7A/videos",
+  "min_duration_sec": 1500,
+  "notes": "TV magazin za dijasporu (Misija, Gospodarski kutak), zadnje 2022.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 14,
+   "derivatives": 46
+  }
+ },
+ "kuhinjski-element": {
+  "source_url": "https://www.youtube.com/playlist?list=PLsC6O92E0tBgz7cp1erPybA3VJVson3n1",
+  "min_duration_sec": 1800,
+  "notes": "Playlista \"Između redaka #N\" 45-65 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 59,
+   "derivatives": 1
+  }
+ },
+ "kyrios-books": {
+  "source_url": "https://www.youtube.com/channel/UCQiOsHuy3jrCiwXaiuEAvbw/videos",
+  "min_duration_sec": 1800,
+  "notes": "Izdavač: PRIJEVODI/sinkronizacije stranih predavanja i intervjua (Ripperger, Kreeft, Rod Dreher) — re-upload tuđeg sadržaja, ne vlastiti podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 33,
+   "derivatives": 27
+  }
+ },
+ "la-vie-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCpHByrAFwng4tMNh7Z4V9jQ/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)La Vie Podcast",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 17,
+   "originals": 12,
+   "derivatives": 5
+  }
+ },
+ "laudato-tv": {
+  "source_url": "https://www.youtube.com/@LaudatoTV/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@LaudatoTV/streams"
+  ],
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)\\[NAJAVA\\]|\\[UŽIVO\\]|Sveta Misa|Pregled dana|Živa Riječ|krunica|klanjanje",
+  "notes": "Katolička TV: dnevni prilozi, najave, mise uživo; razgovorne emisije (\"Izdvojeno\", \"Otvori spomenar\", \"Čujte i počujte\") su manjina — kao kanal nije podcast; ako se prati, samo playlista pojedine emisije. Najbliže podcastu je playlista \"IZDVOJENO - Emisija\" (PLgrvM2s1LQ_f5ot6UuoNzp6EoAMTpxf02, TV intervju 40-48 min) — i ona sadrži [NAJAVA] klipove od 30 s.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "lets-learn-croatian": {
+  "source_url": "https://www.youtube.com/c/LetsLearnCroatian/videos",
+  "min_duration_sec": 900,
+  "notes": "Lekcije jezika 9-12 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 57,
+   "originals": 2,
+   "derivatives": 55
+  }
+ },
+ "libertas-talks": {
+  "source_url": "https://www.youtube.com/channel/UCeCk6GcwW18kYsLBKCeZo0A/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)S\\d+E\\d+",
+  "notes": "Podcast \"S4Enn\" 30-50 min; \"Strasbourg Talks\"/\"Alpbach Talks\" su kratki intervjui 4-30 min s konferencija.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 52,
+   "derivatives": 8
+  }
+ },
+ "lider-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCboxxQjTe6vkiny3mkIo_BQ/videos",
+  "min_duration_sec": 1500,
+  "exclude_title_regex": "(?i)konferencij",
+  "notes": "\"x Lider Podcast NNN\" 29-40 min; konferencijski izvještaji 3-4 min i live konferencije (4-7 h) na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 45,
+   "derivatives": 15
+  }
+ },
+ "logit": {
+  "source_url": "https://www.youtube.com/c/Logitnet/streams",
+  "min_duration_sec": 1200,
+  "notes": "\"LOGIT LIVE #N\" na /streams i \"Buba u uho\" — završilo 2023 (\"posljednja epizoda\").",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 30,
+   "originals": 30,
+   "derivatives": 0
+  }
+ },
+ "mame-kod-lane": {
+  "source_url": "https://www.youtube.com/channel/UCWFmO4Alg0-LFfzCsD-8Img/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Ep\\s?\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "maria-vision-medjugorje": {
+  "source_url": "https://www.youtube.com/playlist?list=PLkO2bNT7Mt3Z2GYezoaJ4fzdHycFBDB-C",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)podcast",
+  "notes": "Kanal je katolička TV (mise, klanjanja, krunice uživo, kateheze). Stvarni podcast je playlista \"PO MARIJI DO DUHA SVETOG\" (50-100 min); u njoj su i čitanja (\"Čitanje Žive Božje riječi\") koja include \"podcast\" odbacuje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 36,
+   "originals": 20,
+   "derivatives": 16
+  }
+ },
+ "marijana-perinic-zenska-prica": {
+  "source_url": "https://www.youtube.com/channel/UCvguXMDYahdklYdmtuS1zHg/videos",
+  "min_duration_sec": 1800,
+  "notes": "Panel \"ŽENSKA PRIČA:\" 75-96 min; pjevani/izrezani trenuci 2-4 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 47,
+   "derivatives": 13
+  }
+ },
+ "marijeta-martic": {
+  "source_url": "https://www.youtube.com/channel/UC8v0jm6C0ZuQDfP9VvuBEQA/videos",
+  "min_duration_sec": 1500,
+  "notes": "Serije \"Dejt s Istinom\", \"Esterin dnevnik\" 27-90 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 16,
+   "originals": 13,
+   "derivatives": 3
+  }
+ },
+ "marko-vuletic-podcast": {
+  "source_url": "https://www.youtube.com/c/MarkoVuleti%C4%87official/videos",
+  "min_duration_sec": 1800,
+  "notes": "Obiteljski vlogovi 18-40 min — nije podcast unatoč imenu.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "metabolic-friendly": {
+  "source_url": "https://www.youtube.com/channel/UCOHY4iPa9I-773G3nJDhXSQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCOHY4iPa9I-773G3nJDhXSQ/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Razgovori 90-130 min; kratki isječci 5-12 min i Shorts izvan praga.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 17,
+   "originals": 13,
+   "derivatives": 4
+  }
+ },
+ "metautism": {
+  "source_url": "https://www.youtube.com/@metautism/videos",
+  "min_duration_sec": 1800,
+  "notes": "Projektni videi/izjave 1-18 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 1,
+   "derivatives": 59
+  }
+ },
+ "mirta-fraisman-cobanov": {
+  "source_url": "https://www.youtube.com/channel/UCjrvxmaT1MjD9zQkLr169wA/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)Podcast s",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 18,
+   "originals": 10,
+   "derivatives": 8
+  }
+ },
+ "mjesto-zlocina": {
+  "source_url": "https://www.youtube.com/@mjestozlocinapodcast/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Epizoda\\s*\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "mlgp-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCKYVCu4kNK4NnMObp7-7G4A/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)MLGP Podcast\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 19,
+   "originals": 10,
+   "derivatives": 9
+  }
+ },
+ "moc-komunikacije": {
+  "source_url": "https://www.youtube.com/@Mo%C4%87komunikacije/videos",
+  "min_duration_sec": 1800,
+  "notes": "Monološke serije 7-24 min (MKOn, NPSn, \"Zakon ...\").",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 3,
+   "derivatives": 57
+  }
+ },
+ "morina-kutija": {
+  "source_url": "https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/streams"
+  ],
+  "min_duration_sec": 1500,
+  "notes": "\"S05Enn\" 30-65 min; S05E31 \"Pozdravi, preporuke i planovi\" = kraj sezone.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 56,
+   "derivatives": 4
+  }
+ },
+ "most-hrvatska": {
+  "source_url": "https://www.youtube.com/@MostHrvatska/videos",
+  "min_duration_sec": 2400,
+  "notes": "Politička stranka: izjave i isječci 4-24 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 1,
+   "derivatives": 59
+  }
+ },
+ "mrtvi-piksel-popcast": {
+  "source_url": "https://www.youtube.com/channel/UCLI1nI4jtUtOJjXOzDIp_1w/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCLI1nI4jtUtOJjXOzDIp_1w/streams"
+  ],
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 26,
+   "derivatives": 34
+  }
+ },
+ "myfitworld": {
+  "source_url": "https://www.youtube.com/channel/UCusPqVO2WDEK6MzWGJZuH5Q/videos",
+  "min_duration_sec": 1800,
+  "notes": "Aplikacija za trenere: tutorijali <10 min; razgovori o zdravlju/fitnessu 35-52 min samo 2023.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 21,
+   "derivatives": 39
+  }
+ },
+ "na-rubu-znanosti": {
+  "source_url": "https://www.youtube.com/channel/UCSN9ryVVWvePH2Xi3m1MImA/videos",
+  "min_duration_sec": 2400,
+  "notes": "RE-UPLOAD arhive HRT emisije \"Na Rubu Znanosti (2007) Ep N\" — nije nova produkcija; kanal je arhiva.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 56,
+   "derivatives": 4
+  }
+ },
+ "nebitno-o-bitnom": {
+  "source_url": "https://www.youtube.com/@NebitnoOBitnom/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "^#\\d+",
+  "notes": "\"#0NN\" epizode; isječci iz istih epizoda također nose \"#0NN\" pa je prag nužan.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 51,
+   "derivatives": 9
+  }
+ },
+ "nemoj-me": {
+  "source_url": "https://www.youtube.com/channel/UCIIMBF5bE6dmjLBLug7fzUQ/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)PODCAST S\\d+E\\d+|OFFLINE S\\d+E\\d+",
+  "notes": "Većina kanala su vlogovi 20-30 min (isto trajanje kao epizode!) — izolacija samo naslovom \"PODCAST SxxEyy\"/\"OFFLINE SxxEyy\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 32,
+   "derivatives": 28
+  }
+ },
+ "netokracija": {
+  "source_url": "https://www.youtube.com/@NetokracijaYT/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@NetokracijaYT/streams"
+  ],
+  "min_duration_sec": 1200,
+  "notes": "Umbrella; /videos miješa Office Talks (srpska redakcija, 25-50 min) i Netokracija podcast (S6.EPnn). Pratiti djecu (playliste), ne kanal. /streams ima 1 originala u zadnjih 365 d — izvor proširen na videos+streams",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 56,
+   "derivatives": 4
+  }
+ },
+ "netokracija-1on1": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQAr0dcLur9PRVwSiHE1lMk",
+  "min_duration_sec": 1800,
+  "notes": "Samo 3 epizode, sve i u netokracija-podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 3,
+   "originals": 3,
+   "derivatives": 0
+  }
+ },
+ "netokracija-digitalni-dorucak": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQzf-ZfA98E-8oat7o1HSS8",
+  "min_duration_sec": 1800,
+  "notes": "Završeno 2022.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 10,
+   "originals": 10,
+   "derivatives": 0
+  }
+ },
+ "netokracija-hrvatska": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTHEtB5KyebNXmzxocbEiZ2",
+  "min_duration_sec": 1200,
+  "notes": "Stari \"#NETOKRACIJAPODCAST\"; zadnje S5.EP3 prije ~1 god.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "netokracija-ladies-of-new-business": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVTp4HOSLoXOJBVdP8j-u_Ff",
+  "min_duration_sec": 1200,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 34,
+   "originals": 24,
+   "derivatives": 10
+  }
+ },
+ "netokracija-office-talks": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ",
+  "min_duration_sec": 1200,
+  "notes": "Srpska redakcija (ekavica), tjedno; ~10% zapisa <1 min su Shorts u playlisti.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "netokracija-podcast": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01",
+  "min_duration_sec": 900,
+  "include_title_regex": "(?i)S0?\\d+\\.?\\s?EP\\s?\\d+",
+  "notes": "Glavna podcast playlista S6.EPnn; neke epizode su 18-25 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 56,
+   "derivatives": 4
+  }
+ },
+ "netokracija-slazem-se-ne": {
+  "source_url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVRJGcObAmHkoYpkw0waxVr1",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 9,
+   "originals": 9,
+   "derivatives": 0
+  }
+ },
+ "neven-vidakovic": {
+  "source_url": "https://www.youtube.com/@nevenvidakovic/videos",
+  "min_duration_sec": 1800,
+  "notes": "Ekonomska predavanja/monolozi 11-25 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "nominis-ecommerce-hrvatska": {
+  "source_url": "https://www.youtube.com/channel/UCXHKfN-xMjwMXRZAgJqIK9g/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCXHKfN-xMjwMXRZAgJqIK9g/streams"
+  ],
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)Nominis e\\d+",
+  "notes": "Udruga eCommerce: promo/konferencijski spotovi 1-2 min; podcast \"Nominis eNN\" (stari na /streams).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 33,
+   "derivatives": 27
+  }
+ },
+ "nova-eva": {
+  "source_url": "https://www.youtube.com/@NovaEva/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@NovaEva/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Propovijedi (nedjeljne 15-25 min), kateheze \"SAKRAMENTI (n/17)\" 58 min, mise uživo — nije podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 18,
+   "derivatives": 42
+  }
+ },
+ "oasis-in-tempore": {
+  "source_url": "https://www.youtube.com/@oasisintempore/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@oasisintempore/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Mjesečni razgovori 60-80 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 58,
+   "originals": 58,
+   "derivatives": 0
+  }
+ },
+ "ofenziva-sportski-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCSCgxugLpe8NwS3Vw5zRhkQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCSCgxugLpe8NwS3Vw5zRhkQ/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Više emisija (Krepat ma ne molat, Ofenziva rasprave, Ofenziva na HNL/SP) 50-130 min; dio ide live na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 57,
+   "derivatives": 3
+  }
+ },
+ "ogistra": {
+  "source_url": "https://www.youtube.com/channel/UC6eoZUGPiIUvT6QU054Cv9A/videos",
+  "min_duration_sec": 2400,
+  "notes": "Brend suplemenata (SRB): reklamni i edukativni klipovi; intervjui 40-60 min rijetki.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 14,
+   "derivatives": 46
+  }
+ },
+ "ora-et-labora": {
+  "source_url": "https://www.youtube.com/playlist?list=PLJW0vK09V-ulNH5OHf8wWl3sbFyF4CuUy",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)OEL razgovor",
+  "notes": "/videos su dnevni molitveni susreti \"NN. Milosrđe Božje\" (60-120 min monolog) — prošli bi svaki prag trajanja! Razgovorni podcast je samo playlista \"Ora Et Labora intervjui.\" (\"N. OEL razgovor\", ~mjesečno, 30-100 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 8,
+   "originals": 7,
+   "derivatives": 1
+  }
+ },
+ "osjecki-glas-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCNQXMWX5wU2OJBNg6Rg8mJQ/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 14,
+   "originals": 14,
+   "derivatives": 0
+  }
+ },
+ "osoba-s-pogledom": {
+  "source_url": "https://www.youtube.com/channel/UCoiB1ysVBCVSLIgdBUr5Aog/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)OSOBA S POGLEDOM\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 22,
+   "originals": 20,
+   "derivatives": 2
+  }
+ },
+ "overthinkeri": {
+  "source_url": "https://www.youtube.com/channel/UC3TnYB6WW9qZtvSlKVkQ0rg/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)^EP\\d+",
+  "notes": "\"isječak iz epizode\" i reakcije 3-10 min izvan pravila.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 39,
+   "originals": 35,
+   "derivatives": 4
+  }
+ },
+ "pik-as-podcast": {
+  "source_url": "https://www.youtube.com/channel/UC9fk66tRBBj6IfbAPDGyO2A/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Pik As\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 15,
+   "originals": 15,
+   "derivatives": 0
+  }
+ },
+ "pod-haubom": {
+  "source_url": "https://www.youtube.com/channel/UC-WZQUVVjDw_o5q_VL4fStg/videos",
+  "min_duration_sec": 1500,
+  "include_title_regex": "(?i)POD HAUBOM",
+  "notes": "Neke epizode razdijeljene (\"#011/2.dio\").",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 28,
+   "originals": 21,
+   "derivatives": 7
+  }
+ },
+ "pod-mikroskopom": {
+  "source_url": "https://www.youtube.com/channel/UCa0NaE4Cp0FaGSX58a-Krlg/videos",
+  "min_duration_sec": 1200,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 20,
+   "originals": 20,
+   "derivatives": 0
+  }
+ },
+ "pod-smokvom": {
+  "source_url": "https://www.youtube.com/c/PodSmokvom/videos",
+  "min_duration_sec": 1800,
+  "notes": "Dnevni komentari evanđelja 4-7 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "podcast-besida": {
+  "source_url": "https://www.youtube.com/channel/UCL57E-CwLEXtcujXaIzzWKg/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Podcast Besida\\s*#\\d+",
+  "notes": "Uz epizode: prijenosi turnira u balotama, izvlačenja (\"#57 / Izvlačenje\" 17 min), klapske pjesme.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 43,
+   "derivatives": 17
+  }
+ },
+ "podcast-bez-pauze": {
+  "source_url": "https://www.youtube.com/channel/UCwHvgMD0YA7KhRnQBn6kgvg/videos",
+  "min_duration_sec": 3000,
+  "notes": "Epizode 90-190 min; isječci 5-15 min (\"#89 Šimun Cimerman...\" 12 min nosi isti broj!) — prag, ne regex.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 37,
+   "derivatives": 23
+  }
+ },
+ "podcast-hrvatska-uzivo": {
+  "source_url": "https://www.youtube.com/channel/UC_lZLuu677UjbKZciQ1C5lg/videos",
+  "min_duration_sec": 1800,
+  "notes": "RE-UPLOAD agregator: saborski govori, TV isječci (\"Repriza ...\"), 1-30 min — nema vlastite produkcije.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 17,
+   "derivatives": 43
+  }
+ },
+ "podcast-inkubator": {
+  "source_url": "https://www.youtube.com/@PodcastInkubator/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@PodcastInkubator/streams"
+  ],
+  "min_duration_sec": 2881,
+  "exclude_title_regex": "(?i)Q&A",
+  "include_title_regex": "(?i)Podcast Inkubator\\s*#\\d+",
+  "notes": "~75% /videos su 8-9 min isječci \"Gost: \"citat\"\". Glavne epizode \"Podcast Inkubator #NNNN\" izlaze i kao LIVE na /streams, a uz svaku ide zaseban \"Q&A NNNN\" (~50 min). /streams nosi i spinoffe (Extra Runda, Mysterium) — include regex ih odvaja. Kanal i sam ima derivatne playliste: \"Podcast Inkubator Highlights\" (izrezi 4-14 min), \"Q&A: Gosti odgovaraju na pitanja gledatelja\" (Q&A dijelovi 20-55 min za PI i A1 Nogometni), \"Podcast Rewind\" — nikad ih ne pratiti kao izvor.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 5,
+   "derivatives": 55
+  }
+ },
+ "podcast-inkubator-a1-nogometni": {
+  "source_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv",
+  "min_duration_sec": 2881,
+  "exclude_title_regex": "(?i)Q&A",
+  "notes": "Svaka epizoda #N ima zaseban \"Q&A N\" (12-50 min) — prag sam ne hvata dulje Q&A, treba exclude.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 30,
+   "derivatives": 30
+  }
+ },
+ "podcast-inkubator-extra-runda": {
+  "source_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU",
+  "min_duration_sec": 2400,
+  "notes": "Čista playlista \"Extra Runda #N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "podcast-inkubator-mysterium": {
+  "source_url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+  "min_duration_sec": 2400,
+  "notes": "Čista playlista \"Podcast Mysterium #N\"; \"LIVE Q&A\" u naslovu #178 je dio pune epizode — NE isključivati Q&A ovdje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "podcast-o-zdravlju": {
+  "source_url": "https://www.youtube.com/channel/UCyBAgjmdneuPsmCJTb8PmUg/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)^(Sa[žz]etak|Analiza)\\s*:",
+  "notes": "Originali: \"Dr. Ime - Tema\" razgovori 30-70 min. Derivati: \"Sažetak: Dr. X\" 14-17 min (sažeci vlastitih epizoda) i \"Analiza: Dr. X\" 36-56 min — analize TUĐIH stranih podcasta (Huberman, Walker...) koje PROLAZE prag trajanja; zato exclude po prefiksu.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 16,
+   "derivatives": 44
+  }
+ },
+ "podcast-posrednik": {
+  "source_url": "https://www.youtube.com/channel/UCExsiYu8oNXKtiyTvP3wnnQ/videos",
+  "min_duration_sec": 2400,
+  "notes": "Neke epizode objavljene u 2 dijela (oba originali).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 37,
+   "originals": 37,
+   "derivatives": 0
+  }
+ },
+ "podcast-sekstant": {
+  "source_url": "https://www.youtube.com/channel/UCUm0HNMAJ5PXiEQb-q3zFDQ/videos",
+  "min_duration_sec": 3600,
+  "include_title_regex": "(?i)PODCAST SEKSTANT\\s*#\\d+",
+  "notes": "Mjesečna epizoda 135-140 min + 4-8 isječaka \"Gost: teza\" 3-17 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "podcast-svjedok": {
+  "source_url": "https://www.youtube.com/channel/UCs9cbK1jnbAU1auzty9Qlrw/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)SVJEDOK S\\d+E\\d+",
+  "notes": "Arhivski HRT snimci i kratke izjave izvan pravila.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 13,
+   "originals": 11,
+   "derivatives": 2
+  }
+ },
+ "podcast-thegame": {
+  "source_url": "https://www.youtube.com/channel/UCxMwbRhj0DHdV0WXDPECy6w/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Podcast The ?Game",
+  "notes": "/streams su prijenosi turnira (4-7 h), ne podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 22,
+   "derivatives": 38
+  }
+ },
+ "podcast-u-pubu": {
+  "source_url": "https://www.youtube.com/channel/UCialAk3zc4hGEJvcopy7oNQ/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Podcast u Pubu",
+  "notes": "Po epizodi 3-4 isječka 1-6 min u formatu \"Teza? / Ime gosta\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 39,
+   "originals": 10,
+   "derivatives": 29
+  }
+ },
+ "podcast-ucka": {
+  "source_url": "https://www.youtube.com/channel/UCgjmQIhSFd8BCiyKdp3s7KA/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)PODCAST U[ČC]KA",
+  "notes": "Zadnja numerirana epizoda #84 (2024); 2026. samo re-upload radijskog gostovanja.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 48,
+   "derivatives": 12
+  }
+ },
+ "podkast-kviz-duel": {
+  "source_url": "https://www.youtube.com/channel/UCYIJYPlIPHn3e03NQOmgAQA/streams",
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)Q&A",
+  "include_title_regex": "(?i)U balunu",
+  "notes": "/videos: kviz i 29/60 isječaka pojedinačnih pitanja (<1 min); podcast \"PodKaST - U balunu #N\" je na /streams, s odvojenim Q&A dijelom.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 30,
+   "originals": 14,
+   "derivatives": 16
+  }
+ },
+ "podkist-fer": {
+  "source_url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)podkist\\s*#\\d+",
+  "notes": "Playlista sadrži i 45 kratkih (<15 min) isječaka/Shorts uz epizode \"podkist #N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 47,
+   "derivatives": 13
+  }
+ },
+ "poduzetnicki-mindset": {
+  "source_url": "https://www.youtube.com/channel/UCQSJ3fWc14iRWduTMbUg2gg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCQSJ3fWc14iRWduTMbUg2gg/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Snimke konferencijskih predavanja i panela 7-35 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "pogled-s-cuke": {
+  "source_url": "https://www.youtube.com/c/pogledscuke/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/c/pogledscuke/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Epizode #230+ išle live na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 59,
+   "derivatives": 1
+  }
+ },
+ "poljoprivrednica-hr": {
+  "source_url": "https://www.youtube.com/channel/UCRdQ7EmOMeWbEulwiDE3y_A/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)1\\. dio",
+  "include_title_regex": "(?i)epizoda",
+  "notes": "4 epizode (2025) + najave/teaseri 1-7 min i jedan \"1. dio\" isječak.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 13,
+   "originals": 4,
+   "derivatives": 9
+  }
+ },
+ "poslovni-dnevnik-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCSWkbfJTDKblBgAQJlEuWig/videos",
+  "min_duration_sec": 1500,
+  "exclude_title_regex": "(?i)konferencij|summit|conference|Change Makers",
+  "notes": "Intervjui 26-72 min; snimke konferencija 4-6 h (videos i streams) i promo spotovi.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 49,
+   "derivatives": 11
+  }
+ },
+ "pp-podcast-pero-pavlovic": {
+  "source_url": "https://www.youtube.com/channel/UCMdceJl1E-lSldJVAs9DiuA/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)PP podcast\\s*#\\d+",
+  "notes": "Pjevač: glazbeni spotovi, teaseri i live izvedbe (1-4 min) uz \"PP podcast #N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 30,
+   "derivatives": 30
+  }
+ },
+ "prica-sa-zapadne-strane": {
+  "source_url": "https://www.youtube.com/channel/UCgdz-Id_FkXp8fMRf0ANqRw/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 8,
+   "originals": 8,
+   "derivatives": 0
+  }
+ },
+ "price-iz-skrovista": {
+  "source_url": "https://www.youtube.com/channel/UCncW8X1JnVFwJMclhY4agWQ/videos",
+  "min_duration_sec": 1500,
+  "notes": "Završeno: \"#50: Finale\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 52,
+   "originals": 52,
+   "derivatives": 0
+  }
+ },
+ "projekt-velebit": {
+  "source_url": "https://www.youtube.com/@projektvelebit6100/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@projektvelebit6100/streams"
+  ],
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "\\(R\\)\\s*$",
+  "include_title_regex": "(?i)PODCAST VELEBIT",
+  "notes": "REPRIZE: dio epizoda se ponovno objavljuje sa sufiksom \"(R)\" (npr. \"Kulić ... (R)\", \"Bundalo: Zagreb se predao (R)\") — to su re-uploadi starih epizoda. Dio epizoda ide live na /streams. Reportaže 19 min izvan.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 47,
+   "derivatives": 13
+  }
+ },
+ "prvi-glas-telegram": {
+  "source_url": "https://www.youtube.com/playlist?list=PL3YKTluJTGBqgGQQfP9DcdrDWuFZcSuqE",
+  "min_duration_sec": 900,
+  "notes": "Telegramova dnevna video-emisija 15-38 min (većina 15-30) — kraće od klasičnog podcasta.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "psihologija-hrt": {
+  "source_url": "https://www.youtube.com/channel/UCzOVWK0r7Jpz2NFZ1tKiZZA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCzOVWK0r7Jpz2NFZ1tKiZZA/streams"
+  ],
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)best of",
+  "notes": "Nove epizode \"SxxEyy PSIHOLOGiJA #NN\" izlaze kao PREMIJERE/live na /streams (S03E02, S03E03), ne na /videos. \"The best of 2. sezone\" je kompilacija.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 40,
+   "originals": 37,
+   "derivatives": 3
+  }
+ },
+ "pulse-podcast-zuljevic": {
+  "source_url": "https://www.youtube.com/channel/UC5rBE0XRP7JYxmzWuClbLWQ/videos",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 52,
+   "originals": 13,
+   "derivatives": 39
+  }
+ },
+ "putoholicari": {
+  "source_url": "https://www.youtube.com/@Putoholicari/videos",
+  "min_duration_sec": 1800,
+  "notes": "Putopisni kratki videi; live putopisna predavanja 2021.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 7,
+   "derivatives": 53
+  }
+ },
+ "radio-marija-bih": {
+  "source_url": "https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Radijski program: emisije i isječci 12-48 min (serije \"Upoznaj sveca kroz 7 dana\", cenakuli, krunice) — radio, ne podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 34,
+   "derivatives": 26
+  }
+ },
+ "rebootcast": {
+  "source_url": "https://www.youtube.com/user/rebootmag/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Rebootcast",
+  "notes": "Gaming medij: unboxing, highlights, gameplay streamovi.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "retronauti": {
+  "source_url": "https://www.youtube.com/channel/UCMr5ZbeesbHwBSxOQdYp34w/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Retronauti podcast",
+  "notes": "Uz svaku epizodu \"Retro prijedlozi\" 15-30 min (bonus).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 39,
+   "originals": 19,
+   "derivatives": 20
+  }
+ },
+ "ril-tok-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCctBtR3ROI8bcgq__bQEwIw/videos",
+  "min_duration_sec": 3600,
+  "exclude_title_regex": "(?i)ŠORC",
+  "include_title_regex": "(?i)Ril Tok Podcast\\s*#\\d+",
+  "notes": "Uzorni derivatni obrazac: po epizodi 5-6 \"RIL TOK ŠORC / GOST / \"citat\"\" isječaka 4-14 min; original \"Ril Tok Podcast #N\" 140 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "rock-portal-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCP2LgGiAHQzaykKidqdOIOA/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)ROCK PODCAST\\s*#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 28,
+   "originals": 17,
+   "derivatives": 11
+  }
+ },
+ "rpasd-hrvatska": {
+  "source_url": "https://www.youtube.com/channel/UCW9XvqFIpoqlRWx1slG07BQ/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)Put Kristu\\s*#\\d+",
+  "notes": "Adventistička serija \"Put Kristu #N\" 24-36 min (vjeroučna); stari /streams su propovijedi.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 12,
+   "derivatives": 48
+  }
+ },
+ "salesiana-hr": {
+  "source_url": "https://www.youtube.com/channel/UCg83xUjFXRSZO95vIa9zhMg/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)SOV\\s*#\\d+",
+  "notes": "Izdavač: predstavljanja knjiga, promo; podcast \"SOV #N\" rijedak.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 8,
+   "derivatives": 52
+  }
+ },
+ "samo-bez-panike": {
+  "source_url": "https://www.youtube.com/channel/UC7qkcQ7f1r8Wmi49erDXoEg/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "sbs-croatian": {
+  "source_url": "https://www.youtube.com/playlist?list=PLA65Ww7iGS2p1nzZlgZ6mA1lX_vHZfCQk",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Program SBS-a na hrvatskom",
+  "notes": "SBS (Australija): cijeli dnevni program 53 min + ~80% playliste su IZREZANI segmenti tog programa (vijesti, sport, intervjui 4-20 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 11,
+   "derivatives": 49
+  }
+ },
+ "seksoteka": {
+  "source_url": "https://www.youtube.com/channel/UCdMkKtMvFlOEF6tKowy4C6g/videos",
+  "min_duration_sec": 1800,
+  "notes": "Kratki savjeti 2-8 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 7,
+   "derivatives": 53
+  }
+ },
+ "sime-show": {
+  "source_url": "https://www.youtube.com/channel/UChrGmxlWiQzScUQschV2C1g/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)[ŠS]ime Show",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 48,
+   "derivatives": 12
+  }
+ },
+ "sindikalni-megafon": {
+  "source_url": "https://www.youtube.com/channel/UCyHGMK7bYeQMYCGU2mf0IaQ/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)AgoraEU",
+  "notes": "\"Sindikalni megafon ep. N\" + \"European Challenges Ep. N\"; /streams su konferencije.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 42,
+   "originals": 21,
+   "derivatives": 21
+  }
+ },
+ "skac-palma": {
+  "source_url": "https://www.youtube.com/channel/UCh3-BFGjXuSi1nw05RcdUlQ/videos",
+  "min_duration_sec": 1800,
+  "notes": "\"SKAC Podcast #N\" + tribine \"Više od kave na špici\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 49,
+   "derivatives": 11
+  }
+ },
+ "slusalica-penkala": {
+  "source_url": "https://www.youtube.com/channel/UCDUU6qRAr2FozxtRoZxb6PA/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)OAweek|Mutimir|Povratak hrvatskih znanstvenika",
+  "notes": "Serije \"Znanstvenici povratnici #N\", \"Umjetna inteligencija #N\" + snimke konferencija.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 39,
+   "derivatives": 21
+  }
+ },
+ "spica-s-macanom": {
+  "source_url": "https://www.youtube.com/@SpicasMacanom/videos",
+  "min_duration_sec": 1800,
+  "notes": "\"Špica s Macanom #N\" + poslovni intervjui 60 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 57,
+   "derivatives": 3
+  }
+ },
+ "sportklub-podcast": {
+  "source_url": "https://www.youtube.com/playlist?list=PLUfoX9GOCZD-sY_i79cJ5QcrFla4ZsOL0",
+  "min_duration_sec": 1800,
+  "notes": "SPORT KLUB (SRB) playlista: 400 izjava/intervju-segmenata 1-22 min — nije podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 2,
+   "derivatives": 58
+  }
+ },
+ "sportske-novosti-mundocast": {
+  "source_url": "https://www.youtube.com/playlist?list=PLPrW31vfMzy6X4gDGBzeVxlN3eibkyYIO",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)VAR soba",
+  "notes": "Kanal Sportskih novosti ima 19 playlista (Mundocast, Eurocast, VAR soba, Sportsko jutro, SN shorts...).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "srednja-hr-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCpiWfxrISN7Uae0cfyHyZ-g/videos",
+  "min_duration_sec": 1200,
+  "include_title_regex": "(?i)PODCAST\\s*#\\d+",
+  "notes": "\"[PODCAST #N]\" + \"REDAKCIJA PODCAST #N\"; uz to online konferencije, finala natjecanja (/streams), \"Best of Norijada\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 21,
+   "derivatives": 39
+  }
+ },
+ "stemi-education": {
+  "source_url": "https://www.youtube.com/channel/UCTlbYlsSVHHA_wOIbJAQUUQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCTlbYlsSVHHA_wOIbJAQUUQ/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "EdTech: predavanja, paneli, \"GOAT talks\" (/streams); samo pokoji \"Podcast gost\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 25,
+   "derivatives": 35
+  }
+ },
+ "stjepan-belosa": {
+  "source_url": "https://www.youtube.com/channel/UCdsIEbzK5CH4-RTj1f-jpFw/videos",
+  "min_duration_sec": 1800,
+  "notes": "MLM (Forever Living) promo videi; rijetki razgovori.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 53,
+   "originals": 6,
+   "derivatives": 47
+  }
+ },
+ "stronger-talks": {
+  "source_url": "https://www.youtube.com/channel/UCRs0ziZf0CBJLa9iET5twvg/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "^#\\d+",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 7,
+   "originals": 7,
+   "derivatives": 0
+  }
+ },
+ "superhuman-life": {
+  "source_url": "https://www.youtube.com/c/Superhumanlife/videos",
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)webinar",
+  "notes": "Coaching kanal: savjeti 7-27 min, webinari i njihovi \"clip\"-ovi; razgovori s gostima 45-100 min manjina.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 29,
+   "derivatives": 31
+  }
+ },
+ "surove-strasti": {
+  "source_url": "https://www.youtube.com/c/SuroveStrasti/videos",
+  "min_duration_sec": 2400,
+  "notes": "Epizode \"E0NN\" su 2023-24 ponovno uploadane iz arhive (npr. \"Novogodišnji specijal 2018\") — nema nove produkcije.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 58,
+   "derivatives": 2
+  }
+ },
+ "tado-juric-migracije": {
+  "source_url": "https://www.youtube.com/channel/UCyXYNcDk0ACMHvcf0_voCqQ/videos",
+  "min_duration_sec": 1800,
+  "notes": "Predavanja/analize o migracijama (monolog) 10-80 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 21,
+   "derivatives": 39
+  }
+ },
+ "tipsy-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCaSlIxd_PD49e-x6oGWhRig/videos",
+  "min_duration_sec": 1800,
+  "notes": "Razgovori 45-105 min; kratki edukativni isječci 5-15 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 39,
+   "derivatives": 21
+  }
+ },
+ "tonecast-music-shop-no1": {
+  "source_url": "https://www.youtube.com/channel/UCE5nN4MTLjJ-tLMoIiGUQ-Q/videos",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)Tonecast Podcast",
+  "notes": "Trgovina: recenzije opreme 20-45 min (prošle bi prag!) — original samo \"Tonecast Podcast by Music Shop No1 | Epizoda N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 46,
+   "originals": 13,
+   "derivatives": 33
+  }
+ },
+ "topfightingzone": {
+  "source_url": "https://www.youtube.com/channel/UCE-TwuQToHiy8tyxEIW_cTA/videos",
+  "min_duration_sec": 900,
+  "include_title_regex": "(?i)TFZ PODCAST\\s*#\\d+",
+  "notes": "MMA medij: izjave, intervjui, press konferencije; isječak \"... - TFZ PODCAST\" nema \"#N\" pa ga include odbacuje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 20,
+   "derivatives": 40
+  }
+ },
+ "treci-element": {
+  "source_url": "https://www.youtube.com/channel/UC3Xxn8WDEM8eRn1bqLv7VfQ/videos",
+  "min_duration_sec": 1500,
+  "notes": "\"Treći element S10Enn\" ~30 min (2022-23).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tri-strane-obrazovanje": {
+  "source_url": "https://www.youtube.com/channel/UCcohM3KBg8Rm8LHS5FfSq2A/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 51,
+   "originals": 42,
+   "derivatives": 9
+  }
+ },
+ "tribina": {
+  "source_url": "https://www.youtube.com/@Tribina_HR/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@Tribina_HR/streams"
+  ],
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)bloopers",
+  "notes": "Umbrella; ~sve epizode su pune (45-300 min), live na /streams. Pratiti djecu-playliste; kanal kao cjelina duplira djecu.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-1-na-1-s-vladom": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 7,
+   "originals": 7,
+   "derivatives": 0
+  }
+ },
+ "tribina-euro-2024": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG",
+  "min_duration_sec": 2400,
+  "notes": "Sezonska playlista — završena (EURO 2024).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 33,
+   "originals": 33,
+   "derivatives": 0
+  }
+ },
+ "tribina-europski-nogomet": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-fantasy": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-hnl-ponedjeljak": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10",
+  "min_duration_sec": 2400,
+  "notes": "Sadrži i \"Q&A #26\" (isti video kao tribina-qa).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-iza-tribine": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 37,
+   "originals": 37,
+   "derivatives": 0
+  }
+ },
+ "tribina-nba-kosarka": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-nfl": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-nize-lige-specijal": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 14,
+   "originals": 14,
+   "derivatives": 0
+  }
+ },
+ "tribina-podcast-s-gostom": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "tribina-qa": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj",
+  "min_duration_sec": 3600,
+  "notes": "Q&A su ovdje PUNE epizode (2-12 h), ne izrezi — ne primjenjivati Q&A exclude.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 27,
+   "originals": 25,
+   "derivatives": 2
+  }
+ },
+ "tribina-reprezentacija": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3",
+  "min_duration_sec": 2400,
+  "notes": "Event-driven (SP/EURO).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 32,
+   "originals": 31,
+   "derivatives": 1
+  }
+ },
+ "tribina-robert-knjaz": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr",
+  "min_duration_sec": 1800,
+  "notes": "4 reportaže PlanetSport 2020.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 4,
+   "originals": 4,
+   "derivatives": 0
+  }
+ },
+ "tribina-sp-qatar-2022": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU",
+  "min_duration_sec": 2400,
+  "notes": "Sezonska playlista — završena.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 35,
+   "originals": 35,
+   "derivatives": 0
+  }
+ },
+ "tribina-sp-rusija-2018": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN",
+  "min_duration_sec": 1500,
+  "notes": "Sezonska playlista — završena.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 50,
+   "derivatives": 10
+  }
+ },
+ "tribina-tenis": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 15,
+   "originals": 7,
+   "derivatives": 8
+  }
+ },
+ "tribina-uefa-euro-2020": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP",
+  "min_duration_sec": 2400,
+  "exclude_title_regex": "(?i)bloopers",
+  "notes": "Sezonska playlista — završena.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 34,
+   "originals": 33,
+   "derivatives": 1
+  }
+ },
+ "tribina-weitzermania": {
+  "source_url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 10,
+   "originals": 10,
+   "derivatives": 0
+  }
+ },
+ "turizam24": {
+  "source_url": "https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC3aUDgP7MwQuHxedh7cNwSA/streams"
+  ],
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Podcast Turizam24",
+  "notes": "\"16. Podcast Turizam24\" razlomljen u 8 zasebnih razgovora 9-22 min; pune epizode #25-28 na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 15,
+   "derivatives": 45
+  }
+ },
+ "u-zoni-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCByUEqfqA1VP46pc3s1Hd4A/videos",
+  "min_duration_sec": 900,
+  "notes": "Zadnja serija \"Razgovor u Zoni #N\" 8-23 min (kratki format); ranije epizode 45-60 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 35,
+   "derivatives": 25
+  }
+ },
+ "uki-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCj1be7IUcDvfkVxIAKGsxXQ/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)Uki podcast",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 18,
+   "originals": 17,
+   "derivatives": 1
+  }
+ },
+ "urlaona": {
+  "source_url": "https://www.youtube.com/channel/UClVyDRcQ0BYkpownaYQ-G7A/videos",
+  "min_duration_sec": 1500,
+  "exclude_title_regex": "(?i)klip",
+  "include_title_regex": "(?i)URLAONA\\s*#\\d+",
+  "notes": "\"URLAONA #N\" + \"Urlaona klip II ...\" 3-7 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 52,
+   "originals": 40,
+   "derivatives": 12
+  }
+ },
+ "utakmicu-po-utakmicu": {
+  "source_url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XSH6m_QxPD2mygdBRXS-i5",
+  "min_duration_sec": 2400,
+  "notes": "Playlista od 365 stavki: samo 3-4 imaju metapodatke, ostalo nedostupno (privatno/obrisano). Zadnja epizoda S24/25.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 4,
+   "originals": 3,
+   "derivatives": 1
+  }
+ },
+ "vecernji-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCta3_D-wHbBNYQi9wxGajdw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCta3_D-wHbBNYQi9wxGajdw/streams"
+  ],
+  "min_duration_sec": 2400,
+  "notes": "Dio epizoda live na /streams; najave 1-2 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 21,
+   "derivatives": 39
+  }
+ },
+ "vez-sv-antuna": {
+  "source_url": "https://www.youtube.com/channel/UCdd4vcXePSZGFGXz2Z7AZeQ/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 8,
+   "originals": 8,
+   "derivatives": 0
+  }
+ },
+ "veza-dom": {
+  "source_url": "https://www.youtube.com/channel/UCbByab3O_52RHFT0p5dAdfg/videos",
+  "min_duration_sec": 1800,
+  "notes": "Isti naslov za sve (\"VEZA DOM - DRUSTVENO POLITICKI PODCAST...\") i za 3-5 min isječke — samo prag razlikuje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 49,
+   "originals": 34,
+   "derivatives": 15
+  }
+ },
+ "vida-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCZGnOswyrNGy2esYmQeYNOQ/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)U pravom licu|Zavidavanje|Srodne du[šs]e",
+  "notes": "Portal SNV-a: ~70% su VIDA info/art vijesti 3-7 min i intervjui 30-40 min; podcast serije \"U pravom licu #N\", \"Zavidavanje by Lado Tomičić #N\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 4,
+   "derivatives": 56
+  }
+ },
+ "you-go-you-grow": {
+  "source_url": "https://www.youtube.com/channel/UCDUycd8sVTE9FvZe1xc3S8g/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 6,
+   "originals": 6,
+   "derivatives": 0
+  }
+ },
+ "z1-televizija": {
+  "source_url": "https://www.youtube.com/@z1televizija/videos",
+  "min_duration_sec": 1800,
+  "notes": "TV kanal: dnevne vijesti \"ZIP\" 21-32 min i prilozi — nije podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 5,
+   "derivatives": 55
+  }
+ },
+ "zabavni-radio-na-ti": {
+  "source_url": "https://www.youtube.com/playlist?list=PLfjVhYtv5z7UtnEMbk8XgFSzNQdKln6th",
+  "min_duration_sec": 1800,
+  "notes": "Kanal lokalnog radija (prilozi, sjednice gradskog vijeća uživo). Playlista \"PODCASTI\" skuplja 4 emisije (NA TI, ARENA SPORTSKI, BEZ FILTERA, APLAUZ MOLIM) — čista.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 12,
+   "originals": 12,
+   "derivatives": 0
+  }
+ },
+ "zaja-mind": {
+  "source_url": "https://www.youtube.com/channel/UCaEpQ2To0BK5Bpnit-j921Q/videos",
+  "min_duration_sec": 1500,
+  "notes": "Isti obrazac naslova \"Ime 🎙️ - tema\" i za epizode i za isječke — samo trajanje razlikuje (isječci 4-16 min, epizode 28-117 min).",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 55,
+   "originals": 34,
+   "derivatives": 21
+  }
+ },
+ "zapozorje-podcast": {
+  "source_url": "https://www.youtube.com/@zapozorjepodcast6776/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/@zapozorjepodcast6776/streams"
+  ],
+  "min_duration_sec": 1200,
+  "notes": "Sezona 2 išla live na /streams.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 23,
+   "originals": 22,
+   "derivatives": 1
+  }
+ },
+ "zasto-cista-istina": {
+  "source_url": "https://www.youtube.com/channel/UCPt9YhYVGI7_MRHrlq4ZfeA/videos",
+  "min_duration_sec": 1800,
+  "notes": "Čitanja vjerskih tekstova (Bertha Dudde, Lorber) 25-90 min — naracija, ne podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 59,
+   "derivatives": 1
+  }
+ },
+ "zeleno-zuti-korner": {
+  "source_url": "https://www.youtube.com/channel/UCZFY00ou7XkPqFIfsY9_f6Q/videos",
+  "min_duration_sec": 1800,
+  "exclude_title_regex": "(?i)HAKL PO ISTRI",
+  "include_title_regex": "(?i)Zeleno-[ŽZ]uti Korner\\s*#",
+  "notes": "\"HAKL PO ISTRI\" vlog serija 13-23 min + ~50% Shorts/klipova 1-5 min.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 56,
+   "originals": 11,
+   "derivatives": 45
+  }
+ },
+ "zupa-sv-ilije-metkovic": {
+  "source_url": "https://www.youtube.com/channel/UC6zO38vRsP6bV8gNsaQWqVw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC6zO38vRsP6bV8gNsaQWqVw/streams"
+  ],
+  "min_duration_sec": 1800,
+  "notes": "Župni kanal: propovijedi, pobožnosti, mise uživo.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 33,
+   "derivatives": 27
+  }
+ },
+ "vjera-i-nada-varazdinska-biskupija": {
+  "source_url": "https://www.youtube.com/playlist?list=PLEJ5-NwciF_PnjPRgMbHMO9Gr5nTCRtOT",
+  "min_duration_sec": 1200,
+  "notes": "Unos je tipa playlist, ali URL je kanal biskupije. Emisija \"VJERA I NADA\" ima svoju playlistu — TV emisija od točno 25:00 (reportaže/razgovori), ne podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 60,
+   "derivatives": 0
+  }
+ },
+ "verbum-podcast": {
+  "source_url": "https://www.youtube.com/@VerbumHR/videos",
+  "min_duration_sec": 1800,
+  "notes": "Izdavač: 60/60 videa kraće od 1 min (reklame knjiga) — nema podcasta.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "rijec-zivota-podcast": {
+  "source_url": "https://www.youtube.com/channel/UCTWGqNnLnPXL7aykd3NYQQw/videos",
+  "min_duration_sec": 1800,
+  "notes": "Handle @RijecZivotaHR je 404; kanal crkve pronađen pretragom — propovijedi, seminari i \"Za tebe u Kristu\" (10-22 min), ne podcast.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 9,
+   "derivatives": 51
+  }
+ },
+ "srce-isusovo-podcast": {
+  "source_url": "https://www.youtube.com/@srceisusovo/videos",
+  "min_duration_sec": 1800,
+  "notes": "Duhovne pjesme 3-6 min, zadnje 2018.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "stanarica-podcast": {
+  "source_url": "https://www.youtube.com/@Stanarica/videos",
+  "min_duration_sec": 1800,
+  "notes": "\"Stanarica NN\" 42-53 min + mnogo 4-19 min tematskih isječaka s istim sufiksom \"| Stanarica podcast\".",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 56,
+   "originals": 22,
+   "derivatives": 34
+  }
+ },
+ "arbona-podcast": {
+  "source_url": "https://www.youtube.com/@arbona-agency/videos",
+  "min_duration_sec": 1200,
+  "notes": "Agencija: mjesečni \"Digitalni Briefing\" 10-12 min; \"Arbona podcast N\" (26-29 min) stao prije ~1 god.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 38,
+   "originals": 12,
+   "derivatives": 26
+  }
+ },
+ "async-podcast": {
+  "source_url": "https://www.youtube.com/@async_platform/videos",
+  "min_duration_sec": 1800,
+  "notes": "EN tutorijali AI video alata 1-10 min — nema podcasta; vjerojatno krivi kanal.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 0,
+   "derivatives": 60
+  }
+ },
+ "split-tech-city-podcast": {
+  "source_url": "https://www.youtube.com/@splittechcity/videos",
+  "min_duration_sec": 1800,
+  "notes": "Snimke predavanja/panela s eventova (Women in Tech, Mini PR konferencija); stari \"Tinel #N\" meetupi 2019.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 21,
+   "derivatives": 39
+  }
+ },
+ "speck-speaks": {
+  "source_url": "https://www.youtube.com/@speckspeaks/videos",
+  "min_duration_sec": 2400,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 36,
+   "originals": 34,
+   "derivatives": 2
+  }
+ },
+ "druga-strana-medalje": {
+  "source_url": "https://www.youtube.com/@DSM_Podcast/videos",
+  "min_duration_sec": 1800,
+  "include_title_regex": "(?i)DSM\\s*#\\d+",
+  "notes": "Epizode \"DSM #N\" (ponekad u 2 dijela \"(1/2)\"); vlog \"Vikend sa sinom\" izvan pravila.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 12,
+   "derivatives": 48
+  }
+ },
+ "gimnazijska-spica": {
+  "source_url": "https://www.youtube.com/@gimnazijskaspica/videos",
+  "min_duration_sec": 600,
+  "include_title_regex": "(?i)E\\d+\\s?S\\d+",
+  "notes": "Školski podcast \"EnSm\" 13-52 min, nekoliko godišnje.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 10,
+   "originals": 10,
+   "derivatives": 0
+  }
+ },
+ "zadarski-podcast": {
+  "source_url": "https://www.youtube.com/@noviradiozadar5838/videos",
+  "min_duration_sec": 500,
+  "include_title_regex": "(?i)ZADARSKI PODCAST|JUTRO JE UTROJE",
+  "notes": "Novi radio Zadar: \"ZADARSKI PODCAST #N\" (9-43 min) i \"JUTRO JE UTROJE\" (30 min, radijski razgovor); ostalo glazbeni klipovi.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 39,
+   "derivatives": 21
+  }
+ },
+ "kisobran-uniri-podcast": {
+  "source_url": "https://www.youtube.com/@kisobranuniri/streams",
+  "min_duration_sec": 2400,
+  "include_title_regex": "(?i)KI[ŠS]OVIZIJA",
+  "notes": "Studentski medij: glavna emisija \"KIŠOVIZIJA #N\" (58-71 min) izlazi SAMO kao live na /streams; /videos su intervjui 5-15 min s festivala, najave.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 30,
+   "originals": 28,
+   "derivatives": 2
+  }
+ },
+ "podcast-centra-tic": {
+  "source_url": "https://www.youtube.com/@CentarTi%C4%87/videos",
+  "min_duration_sec": 1800,
+  "notes": "Projektna serija uploadana odjednom (lipanj 2026.) + 1 min statistika-klipovi.",
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 17,
+   "originals": 5,
+   "derivatives": 12
+  }
+ },
+ "podcast-s-barbarom": {
+  "source_url": "https://www.youtube.com/@dulist9341/videos",
+  "min_duration_sec": 1800,
+  "from": "revision 2026-09-24",
+  "check": {
+   "sample": 60,
+   "originals": 47,
+   "derivatives": 13
+  }
+ }
+}

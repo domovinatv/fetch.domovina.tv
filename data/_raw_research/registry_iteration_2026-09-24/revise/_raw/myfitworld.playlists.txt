@@ -1,0 +1,5 @@
+#URL https://www.youtube.com/channel/UCusPqVO2WDEK6MzWGJZuH5Q/playlists
+PLbF57N9Yt-7Mti9CJAMeRIU5ZuQ51Raf2|4|MFW Podcast|https://www.youtube.com/playlist?list=PLbF57N9Yt-7Mti9CJAMeRIU5ZuQ51Raf2
+PLbF57N9Yt-7Olrwp39IVRS4CcdludiF0h|4|Add to home screen|https://www.youtube.com/playlist?list=PLbF57N9Yt-7Olrwp39IVRS4CcdludiF0h
+PLbF57N9Yt-7PriVkII3yfEpdkbFRpOyAo|4|MyFitWorld Tutroijali|https://www.youtube.com/playlist?list=PLbF57N9Yt-7PriVkII3yfEpdkbFRpOyAo
+PLbF57N9Yt-7N8VKOaDFGXF2Zl4ziF67yp|4|Treniraj kod kuće!|https://www.youtube.com/playlist?list=PLbF57N9Yt-7N8VKOaDFGXF2Zl4ziF67yp

@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/channel/UCeCk6GcwW18kYsLBKCeZo0A/streams
+#ERR ERROR: [youtube:tab] UCeCk6GcwW18kYsLBKCeZo0A: This channel does not have a streams tab

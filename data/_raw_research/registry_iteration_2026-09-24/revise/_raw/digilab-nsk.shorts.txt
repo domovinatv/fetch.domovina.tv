@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/channel/UCM2A6a_hJkjmoLX9b6rVJXQ/shorts
+#ERR ERROR: [youtube:tab] UCM2A6a_hJkjmoLX9b6rVJXQ: This channel does not have a shorts tab

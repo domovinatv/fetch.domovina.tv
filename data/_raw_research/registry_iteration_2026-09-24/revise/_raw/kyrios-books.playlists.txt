@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/channel/UCQiOsHuy3jrCiwXaiuEAvbw/playlists
+#ERR ERROR: [youtube:tab] UCQiOsHuy3jrCiwXaiuEAvbw: This channel does not have a playlists tab

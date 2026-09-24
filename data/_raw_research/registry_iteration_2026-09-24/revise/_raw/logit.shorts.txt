@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/c/Logitnet/shorts
+#ERR ERROR: [youtube:tab] Logitnet: This channel does not have a shorts tab

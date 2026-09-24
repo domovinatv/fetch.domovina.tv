@@ -1,0 +1,7 @@
+#URL https://www.youtube.com/channel/UCeCk6GcwW18kYsLBKCeZo0A/playlists
+PLeSJ-o8y4SIU|6|Alpbach Talks|https://www.youtube.com/playlist?list=PLeSJ-o8y4SIU
+PLhFKquhdyQYyKrm_jo_yQBt_4cQg1qsL3|6|Strasbourg Talks|https://www.youtube.com/playlist?list=PLhFKquhdyQYyKrm_jo_yQBt_4cQg1qsL3
+PLhFKquhdyQYx3Pfsi8uH0aKAhlIFT_r35|6|Sezona 4|https://www.youtube.com/playlist?list=PLhFKquhdyQYx3Pfsi8uH0aKAhlIFT_r35
+PLhFKquhdyQYzY6Sw2mXmWhR4kaYtCmXHr|6|Sezona 3|https://www.youtube.com/playlist?list=PLhFKquhdyQYzY6Sw2mXmWhR4kaYtCmXHr
+PLhFKquhdyQYwrRj8HgsANiH69zv3xSGXO|6|Sezona 2|https://www.youtube.com/playlist?list=PLhFKquhdyQYwrRj8HgsANiH69zv3xSGXO
+PLhFKquhdyQYzSD1lE7KN57vfga-5N8stA|6|Sezona 1|https://www.youtube.com/playlist?list=PLhFKquhdyQYzSD1lE7KN57vfga-5N8stA

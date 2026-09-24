@@ -1,0 +1,27 @@
+#URL https://www.youtube.com/channel/UCDUU6qRAr2FozxtRoZxb6PA/playlists
+PLPQ-JQ5Gt3niUg6pE0rWpokqeL880RfOr|26|Znanstvenici povratnici|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3niUg6pE0rWpokqeL880RfOr
+PLPQ-JQ5Gt3ngeDzDM5QfcnkNDFVKCJEU5|26|Penkala "Umjetna inteligencija" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngeDzDM5QfcnkNDFVKCJEU5
+PLPQ-JQ5Gt3ngmyV8U-pJDH6OenTkZpS2V|26|Penkala "Startup" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngmyV8U-pJDH6OenTkZpS2V
+PLPQ-JQ5Gt3njqeyItENPIEMA_G9du2MVZ|26|Otvorena znanost|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njqeyItENPIEMA_G9du2MVZ
+PLPQ-JQ5Gt3nhopHCJ37VemfJ2PqoFcmPh|26|Penkala "Startup" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhopHCJ37VemfJ2PqoFcmPh
+PLPQ-JQ5Gt3ni-Y2MGqODmFtUFg9Movk4t|26|Radionice|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ni-Y2MGqODmFtUFg9Movk4t
+PLPQ-JQ5Gt3nhBplgpzSzpvViHJ4bfcnY4|26|Akademska predavanja|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhBplgpzSzpvViHJ4bfcnY4
+PLPQ-JQ5Gt3niGpnoSUDBbA7TsumX3cIkN|26|Voditeljica: Ivona Baniček|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3niGpnoSUDBbA7TsumX3cIkN
+PLPQ-JQ5Gt3ngAeCyv4hDzJscFtZaSgBxu|26|Penkala "Green" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngAeCyv4hDzJscFtZaSgBxu
+PLPQ-JQ5Gt3nhzBpE5IV9qKZbuQKEFtyuy|26|Voditeljica: Una|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhzBpE5IV9qKZbuQKEFtyuy
+PLPQ-JQ5Gt3ngQTadRD4rFUR87s4Q0XcI2|26|Voditelj: Ivan|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngQTadRD4rFUR87s4Q0XcI2
+PLPQ-JQ5Gt3njGXBg4zG5CIiToqY-K0gsT|26|Voditeljica: Tea|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njGXBg4zG5CIiToqY-K0gsT
+PLPQ-JQ5Gt3niQ9ZgGQMYff4hWX68565NB|26|Voditelj: Deni|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3niQ9ZgGQMYff4hWX68565NB
+PLPQ-JQ5Gt3ngy7ECxAJ_dh1deNIc0Gn_o|26|Voditelj: Toni|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngy7ECxAJ_dh1deNIc0Gn_o
+PLPQ-JQ5Gt3nj3qv6nYGHpFlBtS7U40Cn2|26|Što je i što radi Udruga Penkala|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nj3qv6nYGHpFlBtS7U40Cn2
+PLPQ-JQ5Gt3nhvBaFAmqebGc_sVuFnipd3|26|O Penkali iz medija|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhvBaFAmqebGc_sVuFnipd3
+PLPQ-JQ5Gt3ni8KjLdoKIhxqfMGeGduaFZ|26|ScienceUp|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ni8KjLdoKIhxqfMGeGduaFZ
+PLPQ-JQ5Gt3nhhRK5nXLmsBUHfNW_ikko0|26|Penkala  "Akademske spike" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhhRK5nXLmsBUHfNW_ikko0
+PLPQ-JQ5Gt3nivMKR5-Ik9BfSLXELr0T5h|26|Penkalin Okrugli stol|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nivMKR5-Ik9BfSLXELr0T5h
+PLPQ-JQ5Gt3njPUTuBBTQE2QapLHZW6kbe|26|Science@home|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njPUTuBBTQE2QapLHZW6kbe
+PLPQ-JQ5Gt3nhxKbVvNB4D4Gw9p6iKEgjS|26|Mutimir 2020.|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhxKbVvNB4D4Gw9p6iKEgjS
+PLPQ-JQ5Gt3ni07eM8Q4V7IsiVVngm9MOV|26|Penkala "COVID" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ni07eM8Q4V7IsiVVngm9MOV
+PLPQ-JQ5Gt3ngCBbZRY-xr6NXIftMbSEZr|26|Penkala "Znanost i industrija" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngCBbZRY-xr6NXIftMbSEZr
+PLPQ-JQ5Gt3nhuk30or9SHHMr5n3BykPTx|26|Highlights|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhuk30or9SHHMr5n3BykPTx
+PLPQ-JQ5Gt3njnLpoMfcKv21MSre6X-Tpp|26|Penkala "Naše znanstvenice i znanstvenici" podcast|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njnLpoMfcKv21MSre6X-Tpp
+PLPQ-JQ5Gt3njNB19Yu5gkhewKQfKy1HJX|26|Slušalica: COVID-19 specijali|https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njNB19Yu5gkhewKQfKy1HJX

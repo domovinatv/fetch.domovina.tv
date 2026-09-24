@@ -1,0 +1,4 @@
+#URL https://www.youtube.com/channel/UCa0NaE4Cp0FaGSX58a-Krlg/playlists
+PLU-QqcCxcSLpegoQzDpVNO8-0b_DsJVXI|3|Pod mikroskopom - Sezona 3|https://www.youtube.com/playlist?list=PLU-QqcCxcSLpegoQzDpVNO8-0b_DsJVXI
+PLU-QqcCxcSLpQ-tdOir8DuNON2j1UKYHy|3|Pod mikroskopom - Sezona 2|https://www.youtube.com/playlist?list=PLU-QqcCxcSLpQ-tdOir8DuNON2j1UKYHy
+PLU-QqcCxcSLrn43rK8LoumVjaunbXQsY5|3|Pod mikroskopom - Sezona 1|https://www.youtube.com/playlist?list=PLU-QqcCxcSLrn43rK8LoumVjaunbXQsY5

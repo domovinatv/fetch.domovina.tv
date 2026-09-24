@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/@speckspeaks/shorts
+#ERR ERROR: [youtube:tab] @speckspeaks: This channel does not have a shorts tab

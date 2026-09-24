@@ -1,0 +1,4 @@
+#URL https://www.youtube.com/channel/UCyBAgjmdneuPsmCJTb8PmUg/playlists
+PLDADDO7IRs74|3|Podcast o Zdravlju: Sažeci|https://www.youtube.com/playlist?list=PLDADDO7IRs74
+PLDB1b6gUZk4A|3|Podcast o Zdravlju: Zdravstvene analize|https://www.youtube.com/playlist?list=PLDB1b6gUZk4A
+PLHcK9C-aFYCc|3|Podcast o Zdravlju: Stručni gosti|https://www.youtube.com/playlist?list=PLHcK9C-aFYCc

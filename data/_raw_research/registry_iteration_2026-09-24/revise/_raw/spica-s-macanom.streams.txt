@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/@SpicasMacanom/streams
+#ERR ERROR: [youtube:tab] @SpicasMacanom: This channel does not have a streams tab

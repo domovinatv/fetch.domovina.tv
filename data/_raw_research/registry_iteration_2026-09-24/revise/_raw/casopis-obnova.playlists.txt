@@ -1,0 +1,11 @@
+#URL https://www.youtube.com/channel/UCQbUuh8An2xOB4-lLu13VHw/playlists
+PLKGHiOexCivKdURM9-ayT72gBQJN5RvKX|10|Filmske večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivKdURM9-ayT72gBQJN5RvKX
+PLKGHiOexCivJO55fjps7CRiRZlIA5MtDF|10|Obnovaški klub knjige|https://www.youtube.com/playlist?list=PLKGHiOexCivJO55fjps7CRiRZlIA5MtDF
+PLKGHiOexCivIpKowUOFJPY90hILZydFDm|10|Medijske večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivIpKowUOFJPY90hILZydFDm
+PLKGHiOexCivIx1O4fWy7InU1enPLxcO1M|10|Priče iz Domovinskog rata|https://www.youtube.com/playlist?list=PLKGHiOexCivIx1O4fWy7InU1enPLxcO1M
+PLKGHiOexCivIWhd3YccwzZCtlw_HNhwPI|10|Sportske večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivIWhd3YccwzZCtlw_HNhwPI
+PLKGHiOexCivIKw4EIDpfNtPGM07KlISdu|10|Filozofske večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivIKw4EIDpfNtPGM07KlISdu
+PLKGHiOexCivL4nQN-DBSwVsNGJFoJ1kV4|10|Pjesničke večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivL4nQN-DBSwVsNGJFoJ1kV4
+PLKGHiOexCivIHIaYMyXfXWSex9bZXGDOk|10|Večeri superheroja|https://www.youtube.com/playlist?list=PLKGHiOexCivIHIaYMyXfXWSex9bZXGDOk
+PLKGHiOexCivINLYMdziAjbSv6uands0eg|10|Poduzetničke večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivINLYMdziAjbSv6uands0eg
+PLKGHiOexCivJK5wLgRjF-K990xn4FiWbm|10|Akademske večeri|https://www.youtube.com/playlist?list=PLKGHiOexCivJK5wLgRjF-K990xn4FiWbm

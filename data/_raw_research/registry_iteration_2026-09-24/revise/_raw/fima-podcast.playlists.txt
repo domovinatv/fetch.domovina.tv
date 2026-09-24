@@ -1,0 +1,17 @@
+#URL https://www.youtube.com/channel/UCiKExDrDuOZcD-EBs05QW4w/playlists
+PL1TUX5L9kA9fzdVkCG_nOFJpN36V4rcuj|16|FIMA Shorties|https://www.youtube.com/playlist?list=PL1TUX5L9kA9fzdVkCG_nOFJpN36V4rcuj
+PL1TUX5L9kA9fInU0KacZlrZpy3HliM4WT|16|FIMA Crypto - instructions and manuals|https://www.youtube.com/playlist?list=PL1TUX5L9kA9fInU0KacZlrZpy3HliM4WT
+PL1TUX5L9kA9d8mjg1fYqEis7sxfDnnywO|16|Basic facts about Crypto projects|https://www.youtube.com/playlist?list=PL1TUX5L9kA9d8mjg1fYqEis7sxfDnnywO
+PL1TUX5L9kA9d3WJMIcHR4PIJVqeeIcEiu|16|Business and companies to follow|https://www.youtube.com/playlist?list=PL1TUX5L9kA9d3WJMIcHR4PIJVqeeIcEiu
+PL1TUX5L9kA9eOC1fgBYqZ-v5PCVIcFZ3l|16|Education|https://www.youtube.com/playlist?list=PL1TUX5L9kA9eOC1fgBYqZ-v5PCVIcFZ3l
+PL1TUX5L9kA9c5xSch6ASQTnzatXJ-8CvL|16|Recommendation to watch|https://www.youtube.com/playlist?list=PL1TUX5L9kA9c5xSch6ASQTnzatXJ-8CvL
+PL1TUX5L9kA9cyNsywgglLkwZ036uL3yNm|16|Podcasts and videos about FIMA|https://www.youtube.com/playlist?list=PL1TUX5L9kA9cyNsywgglLkwZ036uL3yNm
+PL1TUX5L9kA9d4Ke2NB3K5xJUBxnd47hao|16|Insurance Business|https://www.youtube.com/playlist?list=PL1TUX5L9kA9d4Ke2NB3K5xJUBxnd47hao
+PL1TUX5L9kA9fkDeTOWm_QnU4fEmyTPE4r|16|FIMA 30 Years Flashbacks|https://www.youtube.com/playlist?list=PL1TUX5L9kA9fkDeTOWm_QnU4fEmyTPE4r
+PL1TUX5L9kA9eLIeQYctrkm5_HyvCWDiix|16|Čestitke|https://www.youtube.com/playlist?list=PL1TUX5L9kA9eLIeQYctrkm5_HyvCWDiix
+PL1TUX5L9kA9dGdQVjGiuStNQx3seIaviE|16|Energy Business|https://www.youtube.com/playlist?list=PL1TUX5L9kA9dGdQVjGiuStNQx3seIaviE
+PL1TUX5L9kA9e9wvITgcxvqUPEXVuncGbt|16|Digital Economy|https://www.youtube.com/playlist?list=PL1TUX5L9kA9e9wvITgcxvqUPEXVuncGbt
+PL1TUX5L9kA9cllX5txnDl_wi5vNzNlgps|16|Fintech|https://www.youtube.com/playlist?list=PL1TUX5L9kA9cllX5txnDl_wi5vNzNlgps
+PL1TUX5L9kA9cUgclQv1V6RPuXI3VS5mJ4|16|Capital Market|https://www.youtube.com/playlist?list=PL1TUX5L9kA9cUgclQv1V6RPuXI3VS5mJ4
+PL1TUX5L9kA9dAt7GSda97dEZdrgfpzP6a|16|Crypto market overviews|https://www.youtube.com/playlist?list=PL1TUX5L9kA9dAt7GSda97dEZdrgfpzP6a
+PL1TUX5L9kA9fyzL-nx9-v_JmfR76bGvCu|16|Crypto World|https://www.youtube.com/playlist?list=PL1TUX5L9kA9fyzL-nx9-v_JmfR76bGvCu

@@ -1,0 +1,7 @@
+#URL https://www.youtube.com/channel/UCMr5ZbeesbHwBSxOQdYp34w/playlists
+PLnlIA_j7FwetccHioZdAMwy1tbtUBippc|6|Retro prijedlozi|https://www.youtube.com/playlist?list=PLnlIA_j7FwetccHioZdAMwy1tbtUBippc
+PLnlIA_j7FwevAnKkejZcU5qW1ohfkyOo2|6|Netflix preporuka tjedna|https://www.youtube.com/playlist?list=PLnlIA_j7FwevAnKkejZcU5qW1ohfkyOo2
+PLnlIA_j7FweuY9WvUPoxUiPlE3vZ1G-Be|6|Uživo iz kina|https://www.youtube.com/playlist?list=PLnlIA_j7FweuY9WvUPoxUiPlE3vZ1G-Be
+PLnlIA_j7FwevllIqerU_dLxTELMHLxR6g|6|Retronauti Gameplay|https://www.youtube.com/playlist?list=PLnlIA_j7FwevllIqerU_dLxTELMHLxR6g
+PLnlIA_j7FwesApXBxumlI6i7A05J33Vy7|6|Star Wars Petak|https://www.youtube.com/playlist?list=PLnlIA_j7FwesApXBxumlI6i7A05J33Vy7
+PLnlIA_j7FwevXpVe8FIhxibpe1vPXVEmX|6|Retronauti - Podcast epizode|https://www.youtube.com/playlist?list=PLnlIA_j7FwevXpVe8FIhxibpe1vPXVEmX

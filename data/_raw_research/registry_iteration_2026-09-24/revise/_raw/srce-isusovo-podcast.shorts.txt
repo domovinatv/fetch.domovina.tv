@@ -1,0 +1,2 @@
+#URL https://www.youtube.com/@srceisusovo/shorts
+#ERR ERROR: [youtube:tab] @srceisusovo: This channel does not have a shorts tab

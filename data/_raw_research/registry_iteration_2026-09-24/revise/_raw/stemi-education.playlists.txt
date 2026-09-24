@@ -1,0 +1,12 @@
+#URL https://www.youtube.com/channel/UCTlbYlsSVHHA_wOIbJAQUUQ/playlists
+PL9o6qK1JiGX3UleByqdOlLGj40tNObSar|11|Product overview|https://www.youtube.com/playlist?list=PL9o6qK1JiGX3UleByqdOlLGj40tNObSar
+PL9o6qK1JiGX2bg70-YMTMuzqJul5foH6O|11|STEMwave - 'School of the Future' testimonials|https://www.youtube.com/playlist?list=PL9o6qK1JiGX2bg70-YMTMuzqJul5foH6O
+PL9o6qK1JiGX14x0Y3u_55SeWRaWzmO9lC|11|GOAT (Greatest Of All Tech) talks|https://www.youtube.com/playlist?list=PL9o6qK1JiGX14x0Y3u_55SeWRaWzmO9lC
+PL9o6qK1JiGX0TyzZFRIcdGm1DNxhU3WPF|11|Events|https://www.youtube.com/playlist?list=PL9o6qK1JiGX0TyzZFRIcdGm1DNxhU3WPF
+PL9o6qK1JiGX0Y4qnT4AaPtPIAMt9Ki0i9|11|Škola budućnosti [Croatian]|https://www.youtube.com/playlist?list=PL9o6qK1JiGX0Y4qnT4AaPtPIAMt9Ki0i9
+PL9o6qK1JiGX2DQiV8yTH1LW3yjUcILvB_|11|Testimonials: Bio-Inspired robotics program|https://www.youtube.com/playlist?list=PL9o6qK1JiGX2DQiV8yTH1LW3yjUcILvB_
+PL9o6qK1JiGX2r1JdJTtEmf4Qu6uMfQmiV|11|EDU Hex 2.0.: Voice Controller|https://www.youtube.com/playlist?list=PL9o6qK1JiGX2r1JdJTtEmf4Qu6uMfQmiV
+PL9o6qK1JiGX1MaST0fJLAgpfsRfCDmm9H|11|Robotics Camp Osijek|https://www.youtube.com/playlist?list=PL9o6qK1JiGX1MaST0fJLAgpfsRfCDmm9H
+PL9o6qK1JiGX0gjlVbp_oosR-UvFPjFYLW|11|Stemi Hexapod|https://www.youtube.com/playlist?list=PL9o6qK1JiGX0gjlVbp_oosR-UvFPjFYLW
+PL9o6qK1JiGX13KaI4W-7T6NsC3p-JPl8M|11|User testimonials [Croatian]|https://www.youtube.com/playlist?list=PL9o6qK1JiGX13KaI4W-7T6NsC3p-JPl8M
+PL9o6qK1JiGX3T3K_4_poAga-yGnPEoiFX|11|User testimonials|https://www.youtube.com/playlist?list=PL9o6qK1JiGX3T3K_4_poAga-yGnPEoiFX
