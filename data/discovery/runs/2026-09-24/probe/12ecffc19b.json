@@ -1,0 +1,49 @@
+{
+ "key": "PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+ "url": "https://www.youtube.com/playlist?list=PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+ "channel_id": "UCQSJ3fWc14iRWduTMbUg2gg",
+ "playlist_id": "PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+ "title": "Podcast \"EU mindset\"",
+ "channel": "Poduzetnički Mindset",
+ "channel_url": "https://www.youtube.com/channel/UCQSJ3fWc14iRWduTMbUg2gg",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "hmqTcf0CcvU",
+   "title": "Podcast \"EU mindset\" #1 na temu Žensko poduzetništvo.",
+   "duration": 2864,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "u5kPB04e9XY",
+   "title": "Podcast \"EU mindset\" #2 na temu Digitalizacija poslovanja",
+   "duration": 2830,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "xW4p8O2wjpM",
+   "title": "EU Mindset #3: Zašto je poljoprivreda ponovno tako privlačna?",
+   "duration": 2721,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "7X5U-WhDVDc",
+   "title": "Vruća tema: Gospodarski oporavak Hrvatske u podcastu EU Mindset",
+   "duration": 2658,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "cNKuoKtqqZA",
+   "title": "EU mindset - Budućnost gospodarske suradnje SAD-a i EU-a",
+   "duration": 1992,
+   "live_status": null,
+   "upload_date": "20220925"
+  }
+ ]
+}

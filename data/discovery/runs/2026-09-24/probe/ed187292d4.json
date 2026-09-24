@@ -1,0 +1,28 @@
+{
+ "key": "UC7zXh3gT-MvPEuymP-0u5sA",
+ "url": "https://www.youtube.com/channel/UC7zXh3gT-MvPEuymP-0u5sA/videos",
+ "channel_id": "UC7zXh3gT-MvPEuymP-0u5sA",
+ "playlist_id": null,
+ "title": "DIWitras Podcast - Videos",
+ "channel": "DIWitras Podcast",
+ "channel_url": "https://www.youtube.com/channel/UC7zXh3gT-MvPEuymP-0u5sA",
+ "description": "",
+ "follower_count": 38,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Yb4dHZVtlkI",
+   "title": "🎙️ A Chat with Prof. David Koilpillai | IIT Madras | Chairman, Bharat 6G Alliance",
+   "duration": 948,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "3ULb6b1ENgE",
+   "title": "A chat with Dr. Danny Raj, IIT Madras (Chennai)",
+   "duration": 337,
+   "live_status": null,
+   "upload_date": "20260904"
+  }
+ ]
+}

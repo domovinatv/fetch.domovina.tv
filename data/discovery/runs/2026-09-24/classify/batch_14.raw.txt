@@ -1,0 +1,408 @@
+```json
+[
+  {
+    "key": "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+    "verdict": "podcast_hr",
+    "reason": "Filozofska emisija HRT-a u obliku monolog-podcasta, aktivna, na hrvatskom jeziku, redovito emitiranje.",
+    "slug": "occamova-britva",
+    "display_name": "Occamova britva",
+    "tags": ["philosophy"],
+    "hosts": ["Dario Špelić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
+    "verdict": "podcast_hr",
+    "reason": "Povijesna emisija HRT-a, monolog-podcast format, dugotrajna serija epizoda na hrvatskom jeziku.",
+    "slug": "povijest-cetvrtkom",
+    "display_name": "Povijest četvrtkom",
+    "tags": ["history"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+    "verdict": "podcast_hr",
+    "reason": "Dugogodišnja radijska emisija HRT-a, monolog-podcast o znanosti i misterijima, aktivna 2026.",
+    "slug": "andromeda",
+    "display_name": "Andromeda",
+    "tags": ["science", "mystery"],
+    "hosts": ["Ante Radonić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorna emisija s gostima o društvenim i gospodarskim temama, voditeljica Tatjana Kaštelan.",
+    "slug": "razvojni-kod",
+    "display_name": "Razvojni kod",
+    "tags": ["society", "business"],
+    "hosts": ["Tatjana Kaštelan"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz",
+    "verdict": "not_podcast",
+    "reason": "Radiodramska, fikcijska emisija - nije razgovorni podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+    "verdict": "podcast_hr",
+    "reason": "Vanjskopolitička emisija HRT-a s razgovorima i stručnjacima, na hrvatskom jeziku.",
+    "slug": "viza",
+    "display_name": "Viza",
+    "tags": ["geopolitics"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+    "verdict": "podcast_hr",
+    "reason": "Engleski jezik, ali izravno o hrvatskom sportu i dijaspori, produkcija HRT-a, razgovorni format.",
+    "slug": "the-home-team-podcast",
+    "display_name": "The Home Team Podcast",
+    "tags": ["diaspora", "sport"],
+    "hosts": ["Nikola Badovinac", "Branko Lozančić", "Domagoj Ferenčić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kM2xg7hHyrU8TEKcy-Un1P_",
+    "verdict": "not_podcast",
+    "reason": "Radiodrama za djecu, fikcijska emisija - nije razgovorni format.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kOHD8K3NQl_L4mVzF2tK7wl",
+    "verdict": "not_podcast",
+    "reason": "Radiodrame i dramatizacije lektire za mlade - nije podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kN06w6uul12sUbTlA67tJY7",
+    "verdict": "not_podcast",
+    "reason": "Radiodramska emisija, glumačke izvedbe klasika - nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kMYW6vQe1-Ut9jmzE3mBe1V",
+    "verdict": "not_podcast",
+    "reason": "Duhovna meditacija/propovijed bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+    "verdict": "podcast_hr",
+    "reason": "Autorski radio-putopis, monolog-podcast na hrvatskom jeziku, redovita produkcija.",
+    "slug": "prstom-po-globusu",
+    "display_name": "Prstom po globusu",
+    "tags": ["travel", "culture"],
+    "hosts": ["Vesna Jurić Rukavina"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+    "verdict": "podcast_hr",
+    "reason": "Brendirani tjedni podcast HRT-a o europskim i mladenačkim temama, numerirane epizode.",
+    "slug": "glas-mladih",
+    "display_name": "Glas mladih",
+    "tags": ["society", "education"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorna emisija HRT-a o Zagrebu s gostima iz javnog života.",
+    "slug": "purgeraj",
+    "display_name": "Purgeraj",
+    "tags": ["culture", "lifestyle"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+    "verdict": "too_small",
+    "reason": "Samo 5 objavljenih epizoda, premalo za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+    "verdict": "not_podcast",
+    "reason": "Duhovna poučna emisija/predavanje, bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGX79ymSr6X-F6PwKoyT92DV",
+    "verdict": "not_podcast",
+    "reason": "Duhovna emisija/svjedočanstva u obliku predavanja, bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGUlZwS8VD3rDBZ8vf19tr64",
+    "verdict": "not_podcast",
+    "reason": "Vjerska predavanja/svjedočanstva jednog govornika, nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGVx_naywqJMjo8GFZXVdfQw",
+    "verdict": "not_podcast",
+    "reason": "Vjerska emisija sa svjedočanstvima/propovijedima, bez jasnog razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGXZ4n4efikgymnerAlb5lXO",
+    "verdict": "not_podcast",
+    "reason": "Vjeronaučno predavanje o meditaciji, bez razgovora.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGWYkk6hWbiBfQ--oP1JB_bF",
+    "verdict": "not_podcast",
+    "reason": "Biblijsko-vjeronaučna serija predavanja, bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGVodPhgiL1ITQGcXiilhzWC",
+    "verdict": "not_podcast",
+    "reason": "Vjerska/pastoralna predavanja pojedinih govornika, bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGUjsdtiSEGbtfuPCJD9Zujs",
+    "verdict": "not_podcast",
+    "reason": "Vjerska propovijed/predavanje jednog govornika (p. Mato Anić), bez razgovora.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGXJgRurrJTdwRw4b6TJI7YE",
+    "verdict": "not_podcast",
+    "reason": "Duhovna razmatranja o svetoj misi - propovijed bez razgovora.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4BCELLg-DGUKtkEv9NCisx67uCzcKRCe",
+    "verdict": "not_podcast",
+    "reason": "Vjerska/terapeutska predavanja, bez razgovornog formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+    "verdict": "podcast_hr",
+    "reason": "Stranački podcast s razgovorima s političarima i stručnjacima, jasno brendiran kao podcast.",
+    "slug": "mozemo-podcast",
+    "display_name": "Možemo Podcast",
+    "tags": ["political-party", "political"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorni podcast o seksualnosti na hrvatskom jeziku, autorica Marina Krleža.",
+    "slug": "seksurbacije-podcast",
+    "display_name": "Seksurbacije Podcast",
+    "tags": ["lifestyle", "health"],
+    "hosts": ["Marina Krleža"],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)najava"
+    }
+  },
+  {
+    "key": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-emisija regionalne TV s gostima iz javnog života, razgovorni format.",
+    "slug": "razgovori-vtv",
+    "display_name": "Razgovori",
+    "tags": ["culture", "talk-show"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+    "verdict": "not_podcast",
+    "reason": "Snimke panela i predavanja s medijske konferencije, nije podcast serija.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorna emisija/panel s političarima i stručnjacima pod vodstvom moderatora Borisa Vlašića.",
+    "slug": "cajanka-s-borisom-vlasicem",
+    "display_name": "Čajanka s Borisom Vlašićem",
+    "tags": ["political", "talk-show"],
+    "hosts": ["Boris Vlašić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+    "verdict": "podcast_hr",
+    "reason": "Redoviti TV talk-show regionalne postaje s razgovornim formatom, aktivan 2026.",
+    "slug": "pravi-smjer",
+    "display_name": "Pravi smjer",
+    "tags": ["talk-show", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+    "verdict": "not_podcast",
+    "reason": "Stranački virtualni okrugli stolovi/konferencije iz 2020., nije kontinuirani podcast razgovor.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+    "verdict": "podcast_hr",
+    "reason": "Tjedna intervju-emisija HRT-a s istaknutim gostima, voditeljica Morana Kasapović.",
+    "slug": "razgovor-s-razlogom",
+    "display_name": "Razgovor s razlogom",
+    "tags": ["culture", "talk-show"],
+    "hosts": ["Morana Kasapović"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+    "verdict": "not_podcast",
+    "reason": "TV znanstvena emisija N1-a, nije samostalno brendirani podcast razgovor.",
+    "slug": null,
+    "display_name": null,
+    "tags": null,
+    "hosts": null,
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-emisija regionalne TV o Domovinskom ratu s gostima svaka epizoda, aktivna 2026.",
+    "slug": "na-prvoj-crti",
+    "display_name": "Na prvoj crti",
+    "tags": ["domovinski-rat", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCUuKqP2o5JUd692Lw26rrpw",
+    "verdict": "podcast_hr",
+    "reason": "Navijački Hajduk podcast na hrvatskom jeziku s redovitim epizodama i analizama.",
+    "slug": "prgavi-podcast",
+    "display_name": "Prgavi podcast",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+    "verdict": "podcast_hr",
+    "reason": "Redoviti regionalni TV talk-show s razgovornim formatom.",
+    "slug": "otvoreni-studio",
+    "display_name": "Otvoreni studio",
+    "tags": ["talk-show", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCEivQbBRJYKOBfko2YeQAnQ",
+    "verdict": "podcast_hr",
+    "reason": "Osobni podcast o osobnom rastu i razvoju na hrvatskom jeziku, autorica Lucia Adžić.",
+    "slug": "neka-nova-prica",
+    "display_name": "Neka Nova Priča",
+    "tags": ["personal-development", "lifestyle"],
+    "hosts": ["Lucia Adžić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-emisija regionalne TV o nogometu s gostima, aktivna 2026.",
+    "slug": "istinom-do-gola",
+    "display_name": "Istinom do gola",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCIBpWx6R_pKgzAhk00aYjUw",
+    "verdict": "podcast_hr",
+    "reason": "Tjedni Hajduk podcast s numeriranim epizodama i gostima, na hrvatskom jeziku.",
+    "slug": "samo-hajduk",
+    "display_name": "Samo Hajduk",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)^(najava|pregled protivnika)"
+    }
+  }
+]
+```

@@ -1,0 +1,434 @@
+{
+ "key": "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+ "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+ "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+ "playlist_id": "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+ "title": "Pogled s Markovog trga",
+ "channel": "TV Jadran",
+ "channel_url": "https://www.youtube.com/channel/UCervWZO1EYpsbO9EWgmvang",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "497X6QU7t4Q",
+   "title": "POGLED S MARKOVOG TRGA 09.12.2024. - DRAGAN PRIMORAC",
+   "duration": 2713,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "lpplNHKM1gA",
+   "title": "POGLED S MARKOVOG TRGA 04.03.2024. - IVO JOSIPOVIĆ",
+   "duration": 2960,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "o3rOUAJewOA",
+   "title": "POGLED S MARKOVOG TRGA  06.04.2023. - LOVRO LUKAVEČKI",
+   "duration": 1197,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "QpEGfvxwWDY",
+   "title": "POGLED S MARKOVOG TRGA 31.03.2023.",
+   "duration": 982,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "t8bwp02vX9Y",
+   "title": "POGLED S MARKOVOG TRGA 07.02.2022. - DRAGAN PRIMORAC",
+   "duration": 2964,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "kEM7kzft4Jo",
+   "title": "POGLED S MARKOVOG TRGA 17.01.2022. - KARLO RESSLER",
+   "duration": 2878,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "zqYWpvYGU14",
+   "title": "POGLED S MARKOVOG TRGA 09.09.2021.",
+   "duration": 3009,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "F_Kw1YUuE0Y",
+   "title": "POGLED S MARKOVOG TRGA 09.05.2021. - FRANJO HABULIN",
+   "duration": 2853,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "QM357aB8tLc",
+   "title": "POGLED S MARKOVOG TRGA 26.04.2021.",
+   "duration": 3522,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "ks4E8CN6D1M",
+   "title": "POGLED S MARKOVOG TRGA 24.02.2021.",
+   "duration": 2840,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "2mGMOGOjFSM",
+   "title": "POGLED S MARKOVOG TRGA 22.02.2021.",
+   "duration": 2903,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "-qdWqGeuKbU",
+   "title": "POGLED S MARKOVOG TRGA 14.09.2020. - IVO JOSIPOVIĆ",
+   "duration": 2936,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "a2itEa_X-mM",
+   "title": "POGLED S MARKOVOG TRGA 22.06.2020.",
+   "duration": 2949,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "FWgOvLnTnJY",
+   "title": "POGLED S MARKOVOG TRGA 27.04.2020. - RAJKO OSTOJIĆ",
+   "duration": 2813,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "mG_RvfXRFoM",
+   "title": "POGLED S MARKOVOG TRGA 10.02.2020.",
+   "duration": 2463,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "E4RK9_WM_2E",
+   "title": "POGLED S MARKOVOG TRGA 19.11.2019. - ZORAN MILANOVIĆ",
+   "duration": 2127,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "YoBT_GShZB8",
+   "title": "POGLED S MARKOVOG TRGA - DALIJA OREŠKOVIĆ 01.10.2019.",
+   "duration": 3090,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "bzb81yLmDO4",
+   "title": "POGLED S MARKOVOG TRGA 17.09.2019. -  PREDRAG MATIĆ",
+   "duration": 3147,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "joooA8ijxv4",
+   "title": "POGLED S MARKOVOG TRGA GABRIJELA ŽALAC 05.03.2019",
+   "duration": 2915,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "xYavcIOUxwE",
+   "title": "POGLED S MARKOVOG TRGA - DALIJA OREŠKOVIĆ 12.02.2019",
+   "duration": 3672,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "l_vbjNdOLwA",
+   "title": "Pogled s markovog trga 30.10.2018.",
+   "duration": 3004,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "_k6-yfbaLgM",
+   "title": "Pogled s Markovog Trga (Zoran Milanović) 20.12.2017.",
+   "duration": 3090,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "gWs2s4xOGQE",
+   "title": "Pogled s markovog trga -  Pavo Barišić 19.12.2016.",
+   "duration": 2947,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "2vvNIkIMEMQ",
+   "title": "Pogled s Markovog trga - Marijana Petir 1. dio 13.06.2015",
+   "duration": 1746,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "udzV-7dC8nU",
+   "title": "Pogled s Markovog trga - Marijana Petir 2. dio 13.06.2015",
+   "duration": 1559,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "udzV-7dC8nU",
+   "title": "Pogled s Markovog trga - Marijana Petir 2. dio 13.06.2015",
+   "duration": 1559,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "XmmtpoCXSxE",
+   "title": "Pogled s Markovog trga - Ivo Josipović 1. dio 08.08.2015",
+   "duration": 1623,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "_lq0E6eeex0",
+   "title": "Pogled s Markovog trga - Dario Kuntić 1. dio 26.09.2015",
+   "duration": 1079,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "mT463blzErE",
+   "title": "Pogled s Markovog trga - Dario Kuntić 2. dio 26.09.2015",
+   "duration": 1975,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "HbajSSE4AhI",
+   "title": "Pogled s Markovog trga - Arsen Bauk 1. dio 20.11.2015",
+   "duration": 1903,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "csUZ21Kj6lw",
+   "title": "Pogled s Markovog trga - Arsen Bauk 2. dio 20.11.2015",
+   "duration": 1244,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "adtNYosSyO4",
+   "title": "Pogled s Markovog trga - Goran Senjanović 1. dio 24.10.2015",
+   "duration": 2089,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "fCHbHPvK8yk",
+   "title": "Pogled s Markovog trga - Roko Andičević 2. dio 24.10.2015",
+   "duration": 912,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "JxV6wUzGCHU",
+   "title": "Pogled s Markovog trga - Krešimir Sever 1. dio 08.11.2015",
+   "duration": 1507,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "9m2vzmboSoU",
+   "title": "Pogled s Markovog trga - Krešimir Sever 2. dio 08.11.2015",
+   "duration": 1361,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "JOG1taullzI",
+   "title": "Pogled s Markovog trga - Žarko Puhovski 2. dio 14.11.2015",
+   "duration": 1510,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "QmgJwGFfebM",
+   "title": "Pogled s Markovog trga - Žarko Puhovski 1. dio 14.11.2015",
+   "duration": 1554,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "DYJBioY1x2Y",
+   "title": "Pogled s Markovog trga - Slaven Letica 2. dio 28.11.2015",
+   "duration": 1446,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "_I_gdcrMAJc",
+   "title": "Pogled s Markovog trga - Slaven Letica 1. dio 28.11.2015",
+   "duration": 1719,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "oCdbYUz7Qjg",
+   "title": "Pogled s Markovog trga - Ivan Kirin 2. dio 28.02.2016",
+   "duration": 1302,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "UlXJfxhVa3E",
+   "title": "Pogled s Markovog trga - Andrej Plenković 2. dio 10.04.2016",
+   "duration": 1336,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "gFtScXSSewk",
+   "title": "Pogled s markovog trga - Tomislav Tolušić",
+   "duration": 2723,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "lacZB4ByNe4",
+   "title": "Pogled s Markovog trga - Ivan Bekavac 1. dio 09.09.2016",
+   "duration": 887,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "ONi5IVnjixQ",
+   "title": "Pogled s Markovog trga - Ivan Bekavac 2. dio 09.09.2016",
+   "duration": 937,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "4NxB5NMp2dg",
+   "title": "Pogled s Markovog trga - Lovro Kuščević 1. dio 03.09.2016",
+   "duration": 1326,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "KeN9TAaUJFQ",
+   "title": "Pogled s Markovog trga - Lovro Kuščević 2. dio 03.09.2016",
+   "duration": 1622,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "sfQqGMeYac0",
+   "title": "Pogled s Markovog trga - Ivan Vrdoljak 2. dio 16.07.2016",
+   "duration": 690,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "tfNbHAOyeJo",
+   "title": "Pogled s Markovog trga - Ivan Vrdoljak 1. dio 16.07.2016",
+   "duration": 2308,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "kdSfivRdMAM",
+   "title": "Pogled s markovog trga - Ivan Bekavac 1. dio 09.07.2016",
+   "duration": 1572,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "o4Hj-uBZpXM",
+   "title": "Pogled s Markovog trga - Ivan Bekavac 2. dio 09.07.2016",
+   "duration": 1390,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "C9Hz4EaEB2k",
+   "title": "Pogled s Markovog trga - Drago Prgomet 2. dio 21.05.2016",
+   "duration": 733,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "dKYSMb0skEo",
+   "title": "Pogled s Markovog trga - Drago Prgomet 1. dio 21.05.2016",
+   "duration": 2122,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "CdrnwsO96I0",
+   "title": "Pogled s Markovog trga - Jadranka Kosor 2. dio 14.05.2016",
+   "duration": 1107,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "WYYrGa5y310",
+   "title": "Pogled s Markovog trga - Jadranka Kosor 2. dio 14.05.2016",
+   "duration": 1906,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "6X74u-ZWO-E",
+   "title": "Pogled s Markovog trga - Ana Lederer 2. dio 01.07.2016",
+   "duration": 1013,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "LS4Li70lP6U",
+   "title": "Pogled s Markovog trga - Ana Lederer 1. dio 01.07.2016",
+   "duration": 1619,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "nBLho8XGT2A",
+   "title": "Pogled s Markovog trga - Stipe Petrina 2. dio 25.06.2016",
+   "duration": 1253,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "W6jpRf5i_e4",
+   "title": "Pogled s Markovog trga - Stipe Petrina 1. dio 25.06.2016",
+   "duration": 1653,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "PR0OMBIEBPw",
+   "title": "Pogled s Markovog trga - Ivo Josipović 2. dio 18.06.2016",
+   "duration": 1255,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "gPIl1UC-Xz0",
+   "title": "Pogled s Markovog trga - Ivo Josipović 1. dio 18.06.2016",
+   "duration": 1383,
+   "live_status": null,
+   "upload_date": "20160925"
+  }
+ ]
+}

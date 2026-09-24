@@ -1,0 +1,27 @@
+{
+ "name": "Z1 Televizija",
+ "ref": "UCuLBPhI5rx8yrCPafw2v3Aw",
+ "playlists": [
+  {
+   "id": "PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "title": "KRISTOV VOJNIK",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s"
+  },
+  {
+   "id": "PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "title": "RENDEZVOUS",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq"
+  },
+  {
+   "id": "PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "title": "TON-SLIKA-POLITIKA",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln"
+  },
+  {
+   "id": "PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "title": "ZONA ZAGREB",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM"
+  }
+ ],
+ "error": null
+}

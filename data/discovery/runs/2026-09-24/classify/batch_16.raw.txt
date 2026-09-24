@@ -1,0 +1,26 @@
+```json
+[
+  {
+    "key": "UCvFnB9iD6WBXf8RAkAUDkxQ",
+    "verdict": "not_hr",
+    "reason": "Imena voditelja (Todorović, Janjić) i jezični obrazac upućuju na srpski/regionalni, ne hrvatski kontekst; nema jasne hrvatske veze."
+  },
+  {
+    "key": "PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
+    "verdict": "podcast_hr",
+    "reason": "Studentski razgovorni podcast iz Splita, hrvatski jezik, 7/8 originalnih epizoda ≥30 min; playlista sadrži i kratke isječke koje treba isključiti.",
+    "slug": "push-pauza",
+    "display_name": "PushPauza Podcast",
+    "tags": ["culture", "sport", "entrepreneurship"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)#\\d+"
+    }
+  },
+  {
+    "key": "UCa9-8ruCWZSoOgdtEmq1Wcw",
+    "verdict": "too_small",
+    "reason": "Hrvatski teniski podcast s razgovornim formatom, ali samo 4 objavljene epizode i bez aktivnosti u posljednje vrijeme."
+  }
+]
+```

@@ -1,0 +1,434 @@
+{
+ "key": "UCl9ITjlpfJrRm2BNPb3nJqw",
+ "url": "https://www.youtube.com/channel/UCl9ITjlpfJrRm2BNPb3nJqw/videos",
+ "channel_id": "UCl9ITjlpfJrRm2BNPb3nJqw",
+ "playlist_id": null,
+ "title": "Nauka govori - Videos",
+ "channel": "Nauka govori",
+ "channel_url": "https://www.youtube.com/channel/UCl9ITjlpfJrRm2BNPb3nJqw",
+ "description": "Nauka govori je projekat usmjeren na povećanje naučne pismenosti kroz dijeljenje informacija, lekcija, razgovora i zanimljivosti o nauci, naučnicima/ama i uticaju nauke na svijet - društvo, ekonomiju, politiku i vice versa.\nOvaj kanal je pokrenut kao jedan od načina da autorka bloga Quantum of Science, MA Jelena Kalinić kroz animirane lekcije iz nauke olakša razumijevanje naučne materije školarcima, ali i njihovim roditeljima i nastavnicima. \nYouTube kanal uređuju članovi i članice UG Društvo za promociju prirodnih nauka \"Nauka i svijet\".\nPosjetite Nauka govori kanale za vijesti, članke i komentare iz oblasti nauke, bez pseudonauke i teorija zavjera. \nPortal: https://naukagovori.ba/\nFacebook: https://www.facebook.com/QuantumofScience/\nInstagram: https://www.instagram.com/naukagovori/\nTikTok: https://www.tiktok.com/@naukagovori\nThreads: https://www.threads.net/@naukagovori\n\nBlog stranica https://quantumofjk.blogspot.com/ na kojoj su sačuvani stariji tekstovi.\n",
+ "follower_count": 4290,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Cn20FmCb1eE",
+   "title": "EP27 Nauka govori: Kada vakcina može spriječiti karcinom - HPV i onkologija s dr. Amilom Družićem",
+   "duration": 1524,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "9gVTDSbRuQY",
+   "title": "Nauka govori E26, FactCast10 – Influenseri, rak i dezinformacije s Brankicom Raković",
+   "duration": 1669,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "mR6969o0U2A",
+   "title": "Nauka govori E25, FactCast9  – Priroda u krizi: biodiverzitet i klimatske promjene s Adlom Kahrić",
+   "duration": 1741,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "N34c0UgUaO4",
+   "title": "Nauka govori E24, FactCast 8 – Kako nas algoritmi kontrolišu s Vukom Vučetićem",
+   "duration": 1978,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "5ZXCbUqwjyQ",
+   "title": "Nauka govori E23, FactCast 7 – Istina o vakcinama i dezinformacijama s Jovanom Raičevićem",
+   "duration": 2085,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "ocbbfXPMi-E",
+   "title": "Nauka govori E22, FactCast 6 – Istina o raku i lažnim terapijama s Riadom Hajdaravićem",
+   "duration": 1706,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "cAaFlB5lOTk",
+   "title": "Nauka govori E21, FactCast 5 – Digitalne tehnologije i razvoj djece s Ivanom Zečević",
+   "duration": 1782,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "johXWmHBlGA",
+   "title": "Nauka govori E20, FactCast 4 – Dezinformacije i psihologija vjerovanja s Duškom Kekić",
+   "duration": 1680,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "gPhLiaVJszI",
+   "title": "Nauka govori E19, FactCast 3 – Dezinformacije u psihologiji s Elmom Pašić",
+   "duration": 1717,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "RUvXHHYJfzU",
+   "title": "EP18 Nauka govori: Humani papiloma virus i sve o HPV vakcini s dr. Slavenom Krajinom",
+   "duration": 1447,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "3Z2DhMupd28",
+   "title": "Nauka govori E17, FactCast 2 – Dezinformacije o zdravlju i sportu s dr. Mirzom Oručem",
+   "duration": 2064,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "zPTjCzrynkk",
+   "title": "Nauka govori E16, FactCast 1 – AI, halucinacije, deepfakeovi i pravo | dr. Nasir Muftić",
+   "duration": 1918,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "o2aW_jyHWnE",
+   "title": "EP15: HPV infekcije i rak grlića materice: Razgovor sa dr Ives Šindrak / Podkast Nauka govori",
+   "duration": 2512,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "xYVOgWwdFr8",
+   "title": "EP14: Humani papiloma virus i HPV infekcije: dr Radmila Stevandić Begović / Podkast Nauka govori",
+   "duration": 2063,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "clF5raOaME4",
+   "title": "Kako gradimo znanje u nauci?",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "81AOPgFA3j8",
+   "title": "Dr Asaf Salčinović razotkriva istinu o HPV vakcinama! 🦠💉",
+   "duration": 164,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "RPrgJ3BLvkg",
+   "title": "Dr Asaf Salčinović otkriva sve o HPV vakcinama! 🦠💉",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Lnrl1ZTNXIg",
+   "title": "EP13: HPV vakcine - ključ prevencije raka: Razgovor s dr Asafom Salčinovićem / Podkast Nauka govori",
+   "duration": 1710,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "wCQ9kg3NOwg",
+   "title": "Dr Asaf Salčinović razbija mitove o HPV vakcinama!",
+   "duration": 169,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "PrT1m5lSVr0",
+   "title": "Leo Liang, student primijenjene matematike i kompjuterskih nauka na Univerzitetu Rochester",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "TZ5hFa8aMTU",
+   "title": "Jesi li znao/la da HPV virus može dovesti do ozbiljnih zdravstvenih problema, uključujući rak?",
+   "duration": 71,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Tl1QXP7qUS8",
+   "title": "EP12: HPV vakcinacija: Zaštita zdravlja i prevencija karcinoma - Razgovor s dr Adisom Čengić",
+   "duration": 1309,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "J6sWlzD0QXg",
+   "title": "Zašto je vakcinacija protiv HPV-a najbolja prevencija raka grlića maternice?",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "X319oNZ3xRU",
+   "title": "🌟 Maja Halilović, biodizajnerka i inovatorica, otkriva kako preobraziti otpad! 🗑️➡️💎",
+   "duration": 163,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "e7n3AHLYuw8",
+   "title": "EP11: Biodizajn i cirkularna ekonomija: Razgovor s Majom Halilović / Podkast Nauka govori",
+   "duration": 2203,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3VZG2Z1Gur0",
+   "title": "🎙️ NOVA EPIZODA PODKASTA #NAUKAGOVORI JE ONLINE! 🎉",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "NUqyUME3ty8",
+   "title": "🎙️Sutra vas čeka nova epizoda podkasta \"Nauka govori\" sa Majom Halilović!🎙️",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "zH-CaWbaAXg",
+   "title": "Dr Saša Ceci razbija mitove o nauci i demokratiji u najnovijoj epizodi podkasta #NaukaGovori! 🔬🗳️",
+   "duration": 130,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "2-P7N7g6-JE",
+   "title": "🎙️ NOVA EPIZODA PODKASTA #NAUKAGOVORI JE TU! 🚀",
+   "duration": 82,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6CBA8zD4ics",
+   "title": "EP10: Nauka, demokratija i važnost znanstvene pismenosti: Razgovor s dr Sašom Cecijem / Nauka govori",
+   "duration": 2339,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "GiD93FYtQO4",
+   "title": "🔬🗳️ Nauka i demokratija - neraskidiva veza? 🤔",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "nZJ-0Q6Uvp8",
+   "title": "🌡️🌊 Klimatske promjene: Balkan na udaru! 🏙️🏔️",
+   "duration": 128,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "R-JisTnhJxA",
+   "title": "EP9 Klimatske promjene i njihov uticaj na Balkan: Razgovor s Nedimom Sladićem / Podkast Nauka govori",
+   "duration": 2308,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "V9aGiU_NjJM",
+   "title": "🌡️🌊 Klimatske promjene na Balkanu: Šta nas čeka? 🏙️🏔️",
+   "duration": 90,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "VS1jSE1Awe4",
+   "title": "🌡️🌊 Klimatske promjene: Kako će uticati na Balkan? 🏙️🏔️",
+   "duration": 184,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "56ViICc-6qc",
+   "title": "Dr Vahidin Katica razotkriva istine o HPV-u! 🦠",
+   "duration": 151,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Ytmyo8VSN64",
+   "title": "🎙️ Nova epizoda podkasta #NaukaGovori je tu! 🔬",
+   "duration": 142,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "X61Cv1FNRE8",
+   "title": "EP8: HPV-humani papiloma virus, rak grlića materice, važnost vakcina: dr Vahidin Katica-Nauka govori",
+   "duration": 1765,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "NTxFmhwNQ6U",
+   "title": "🚨 Jeste li spremni za važan razgovor o HPV-u? 🦠",
+   "duration": 132,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "fNVa1DOVZp8",
+   "title": "🚨 Jeste li već poslušali našu najnoviju epizodu s dr Adnom Ašić? 🎧🧠",
+   "duration": 101,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "vx2Fby429o8",
+   "title": "Nova epizoda Nauka Govori podcasta! 🎙️",
+   "duration": 75,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "GI2R4OAglgw",
+   "title": "EP7: Položaj žena u nauci i genetička istraživanja: Razgovor s dr Adnom Ašić / Podkast Nauka govori",
+   "duration": 2079,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "jN7Z0l79g54",
+   "title": "Uzima li nam AI poslove?",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "gYMQWMP_bto",
+   "title": "🎙️ Nova epizoda podcasta #NaukaGovori je tu!",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "VAcVGKDZEX0",
+   "title": "EP6: Ključni izazovi AI, Fake News i Deep Fake: Razgovor s Natašom Kilibardom / Podkast Nauka govori",
+   "duration": 2027,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "DGyStE17IWw",
+   "title": "Jesmo li spremni za AI revoluciju? 🤖",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "mMX8AVvgU1E",
+   "title": "Pigmenti koje je Johannes Vermeer koristio da bi naslikao “Djevojku sa bisernom naušnicom”",
+   "duration": 70,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "-3slf1vR14g",
+   "title": "Kolektivni imunitet",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ziYzxNanNmY",
+   "title": "Sastav krvi: krvna plazma i krvni elementi",
+   "duration": 72,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Q7W6eDAEwDs",
+   "title": "Zdravlje žena",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "SaYz9p7fYd4",
+   "title": "\"Lessons in Chemistry\"",
+   "duration": 74,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6f2gg0MzXSs",
+   "title": "Kakva je veza između hrane, klimatskih promjena, politike i demokratije?",
+   "duration": 71,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "lfQKWyOvLYM",
+   "title": "Nobelov nagradu za fiziologiju ili medicinu za 2023. godinu",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "yk0KoIINVFU",
+   "title": "HIV vs AIDS zablude (2)",
+   "duration": 90,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "DdNsE5jXp90",
+   "title": "HIV vs AIDS zablude (I)",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "45ziar2FXQ4",
+   "title": "Klimatske promjene i rodna nejednakost",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "aW1-p9p2Vr8",
+   "title": "\"Nauka Govori preporuke za čitanje\"",
+   "duration": 90,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "qJjlWN3jzKM",
+   "title": "Iduća pandemija:  šta kaže nauka",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "tpNIZeAhkUA",
+   "title": "Christiane Nüsslein Volhard i savjeti mladim naučnicima",
+   "duration": 128,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "rbSF6TOOKug",
+   "title": "Zašto je Lindau najpametnije mjesto na svijetu?",
+   "duration": 70,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

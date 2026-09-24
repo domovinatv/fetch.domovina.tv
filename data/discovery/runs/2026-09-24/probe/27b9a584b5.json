@@ -1,0 +1,56 @@
+{
+ "key": "UChkw9pFWngGwsbQXNE1d9OA",
+ "url": "https://www.youtube.com/channel/UChkw9pFWngGwsbQXNE1d9OA/videos",
+ "channel_id": "UChkw9pFWngGwsbQXNE1d9OA",
+ "playlist_id": null,
+ "title": "NativeBar - Videos",
+ "channel": "NativeBar",
+ "channel_url": "https://www.youtube.com/channel/UChkw9pFWngGwsbQXNE1d9OA",
+ "description": "",
+ "follower_count": 1270,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Lkv4cwJZEEY",
+   "title": "Pokušaj transplantacije novog akumulatora u starog Opela",
+   "duration": 134,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "IoIDHiCNnS8",
+   "title": "Don Mito muku muči s Zagorcem i zagorskim dijalektom",
+   "duration": 165,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "YKV7Vvc8aJs",
+   "title": "Tečaj hrvatskih dijalekata: Klapsko pjevanje na slavonski način",
+   "duration": 107,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "q0YXxRJoDmY",
+   "title": "Tečaj hrvatskih dijalekata: Dođu Dalmatinac, Zagorac, Slavonac i beštija…",
+   "duration": 52,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "0pdINBeXPD0",
+   "title": "Tečaj hrvatskih dijalekata: Što se dogodi prilikom nestručnog rukovanja zagorskim",
+   "duration": 53,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "KC3pF5EpJhE",
+   "title": "Stiže nam autentični hrvatski sladoled od kulena i srdela?",
+   "duration": 210,
+   "live_status": null,
+   "upload_date": "20150925"
+  }
+ ]
+}

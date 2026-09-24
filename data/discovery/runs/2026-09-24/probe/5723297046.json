@@ -1,0 +1,434 @@
+{
+ "key": "UCdeWIIyVKdg9Nq3CK5amFYA",
+ "url": "https://www.youtube.com/channel/UCdeWIIyVKdg9Nq3CK5amFYA/videos",
+ "channel_id": "UCdeWIIyVKdg9Nq3CK5amFYA",
+ "playlist_id": null,
+ "title": "Bitnonet - Videos",
+ "channel": "Bitnonet",
+ "channel_url": "https://www.youtube.com/channel/UCdeWIIyVKdg9Nq3CK5amFYA",
+ "description": "Youtube kanal portal Bitno.net gdje redovito objavljujemo naš podcast te s vremena na vrijeme aktualne videozapise.\r\n",
+ "follower_count": 10900,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "303dXoGEvsc",
+   "title": "'Obraćenje me fizički promijenilo' -  svjedočanstvo Albine Grčić",
+   "duration": 743,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Ie3o_rjdERI",
+   "title": "'Duhovna glazba u Hrvatskoj igra previše na sigurno' - ZANAS",
+   "duration": 767,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "YDG8PeLNAXo",
+   "title": "'Služio sam misu za Vatrene na Svjetskom prvenstvu' - Fr. Ivan Dominik Iličić",
+   "duration": 950,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "6mZ5UHSZNV4",
+   "title": "Ante Čaljkušić - 'Za život'",
+   "duration": 880,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "wM6dD52ZKhk",
+   "title": "Petar Buljan - 'Od Jaruna do Hipodroma'",
+   "duration": 917,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "bFUS23Ts4so",
+   "title": "Baby Lasagna - 'Biblija'",
+   "duration": 533,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "JmYRGB16D0I",
+   "title": "Na ulicama Rijeke traži beskućnike - s. Veronika Mila Popić | Podcast Bitno.net-a #2",
+   "duration": 4263,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "tGAOuf07tLM",
+   "title": "Kako prepoznati i prijaviti zlostavljanje u Crkvi? - Vlč. Josip Bošnjaković | Podcast Bitno.net-a #1",
+   "duration": 3285,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "BRcD_IO1JR8",
+   "title": "Simona Mijoković - 'Od srca' (svjedočanstvo)",
+   "duration": 910,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "_UdTwPnpPvI",
+   "title": "Povijesna četvrt #47: Grkokatolici",
+   "duration": 1651,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "8X_8ajXrnjs",
+   "title": "Povijesna četvrt #46: Nicejski sabor: Temelj jedinstva ili izvor podjela?",
+   "duration": 1758,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "eVNutOBniE4",
+   "title": "Povijesna četvrt #45: Zlatno doba Hrvatskog kraljevstva",
+   "duration": 1777,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Ygwf_fCWr9E",
+   "title": "Povijesna četvrt #44: Revolucija Grgura VII.: Velika reforma Crkve",
+   "duration": 1685,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ihvAs_j1gmw",
+   "title": "Povijesna četvrt #43: Kralj Tomislav - između estradizacije i cinične relativizacije",
+   "duration": 2201,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "aI5IkTxmYfQ",
+   "title": "Povijesna četvrt #42: Splitski crkveni sabori i Hrvatsko Kraljevstvo",
+   "duration": 1586,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "q7DFGJw5cqs",
+   "title": "Povijesna četvrt #41: Počeci i razvoj papinstva između Istoka i Zapada",
+   "duration": 1664,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "XPvJBAPW_vs",
+   "title": "Povijesna četvrt #40: Crkva u Dalmaciji prije dolaska Hrvata",
+   "duration": 1699,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Eznsa2pvgu8",
+   "title": "Povijesna četvrt #39: Počeci kršćanstva u Hrvata",
+   "duration": 1668,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ALrgeHz8qcc",
+   "title": "Povijesna četvrt #38: Tko je pravi Božić",
+   "duration": 1735,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "C_Xb5MgRs-8",
+   "title": "Povijesna četvrt #37: Bogumili i Crkva bosanska",
+   "duration": 1735,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "pr6Gc-XWxF8",
+   "title": "Povijesna četvrt #36: Sinodalnost i povijest sinoda u Katoličkoj Crkvi",
+   "duration": 1682,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "hniKXS0aX8s",
+   "title": "Povijesna četvrt #35: Martin Luther: prorok ili heretik?",
+   "duration": 1599,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "PBM5VdVRZMk",
+   "title": "Povijesna četvrt #34: Povijest jubileja u Katoličkoj Crkvi",
+   "duration": 1774,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "I0zC_XBOYho",
+   "title": "Povijesna četvrt #33: Obitelj Borgia i drama renesansnog papinstva",
+   "duration": 1722,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "7aOG5D9ws4M",
+   "title": "Povijesna četvrt #32: Ranokršćanska seksualna revolucija",
+   "duration": 1559,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "5yrHEZQvjX4",
+   "title": "Povijesna četvrt #31: Veliki zapadni raskol (papinska shizma)",
+   "duration": 1637,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "BDWkDHGfmxo",
+   "title": "Povijesna četvrt #30: Počeci kršćanstva u Kini",
+   "duration": 1591,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "gA6Jzxe12XE",
+   "title": "Povijesna četvrt #29: Avignonsko papinstvo",
+   "duration": 1671,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "qXLd3rgtfaM",
+   "title": "Povijesna četvrt #28: Dječji križarski rat",
+   "duration": 1604,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "zUVNAaDh7DM",
+   "title": "Povijesna četvrt #27: Veliki crkveni raskol: Ishodi i posljedice",
+   "duration": 1714,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Hcxg63YOLfw",
+   "title": "Povijesna četvrt #26: Veliki crkveni raskol: Korijeni i uzroci",
+   "duration": 1658,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Qt__Umq6sOc",
+   "title": "Povijesna četvrt #25: Katolička Crkva i mit o 'ravnoj Zemlji'",
+   "duration": 1707,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3lrvSIKE3qc",
+   "title": "Povijesna četvrt #24: Je li Isus postojao",
+   "duration": 1522,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "4xtqVxhea5Q",
+   "title": "Povijesna četvrt #23 Odgovaramo na vaša pitanja i kritike",
+   "duration": 1592,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "0MlAziX_frE",
+   "title": "Povijesna četvrt #22: Kako je nastao Novi zavjet",
+   "duration": 1659,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "TRTMsHV3cy8",
+   "title": "Povijesna četvrt #21: Milenarizam i strahovi od kraja svijeta",
+   "duration": 1427,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "80S5ZknXVSw",
+   "title": "Povijesna četvrt #20: Mučeništvo sv. Nikole Tavelića i dijalog s islamom",
+   "duration": 1585,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "X8mppeuEahw",
+   "title": "Povijesna četvrt #19: Halloween i Svi sveti",
+   "duration": 1598,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "y0xMWVdxdBU",
+   "title": "Povijesna četvrt #18: Papisa Ivana",
+   "duration": 1591,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "S0H3LF0Nmhw",
+   "title": "Povijesna četvrt #17: Bitka kod Lepanta",
+   "duration": 1665,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ctLHLCSnCHg",
+   "title": "Povijesna četvrt #16: Marija Magdalena",
+   "duration": 1572,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "A2klvvAkICA",
+   "title": "Povijesna četvrt #15: Povijest Crkve u Ukrajini",
+   "duration": 1536,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "P8zuTUp3sM0",
+   "title": "Povijesna četvrt #14: Hrvati i Srbi u ranom srednjem vijeku",
+   "duration": 1580,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "zZBvcy5IlWY",
+   "title": "Podcast Bitno.net-a - Anja Mihanović: Naučila sam kako odgoj djece pretvoriti u cjelodnevnu molitvu",
+   "duration": 3076,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "KgW5qtUXpUc",
+   "title": "Povijesna četvrt #13: Gnosticizam - jedna od najopasnijih herezi",
+   "duration": 1577,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "MuBSeFvK8Jw",
+   "title": "Podcast Bitno.net-a - Miron Perić: Zajednica Arka je gozba iz evanđelja o kojoj Krist govori",
+   "duration": 2605,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "3dpid3rDEl4",
+   "title": "Povijesna četvrt #12: Templari: Između mita i povijesti",
+   "duration": 1569,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "7j7XyK9f6F8",
+   "title": "Podcast Bitno.net-a - Ivica Pažin: Župnoj katehezi treba više novog evangelizacijskog žara",
+   "duration": 2952,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "rijjMDOG0Y8",
+   "title": "Povijesna četvrt #11: Križarsko osvajanje Carigrada",
+   "duration": 1591,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "iE6AxsWCAnk",
+   "title": "Podcast Bitno.net-a - Nikola Bolšec: Hrvati imaju jednog mladog sveca na kojeg su potpuno zaboravili",
+   "duration": 2785,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "qBTwKK7Vxlk",
+   "title": "Povijesna četvrt #10: Konstantin Veliki - tvorac kršćanske Europe ili katastrofa za kršćanstvo?",
+   "duration": 1550,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Ts5tQVmHsNg",
+   "title": "Povijesna četvrt #9: Torinsko platno - podvala ili autentična relikvija?",
+   "duration": 1477,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "SbhrHwQZzXw",
+   "title": "Podcast Bitno.net-a - p. Mijo Nikić: Ispovijed doprinosi ljudskom zdravlju, a krivnja razara psihu",
+   "duration": 2776,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "pRVYNdiJkoc",
+   "title": "Povijesna četvrt #8: Progon vještica u Hrvatskoj",
+   "duration": 1458,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "-WS8wvL09Q4",
+   "title": "Podcast Bitno.net-a - vlč. Denis Barić: Plodovi Sinode Zagrebačke nadbiskupije već su sada vidljivi",
+   "duration": 3116,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "8yj4tsN2pi0",
+   "title": "Povijesna četvrt #7: Mit o Hipatiji i spaljivanje 'Aleksandrijske knjižnice'",
+   "duration": 1439,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Ivls2JViz2Y",
+   "title": "Podcast Bitno.net-a - Maroje Burum: Karizmatska obnova je Božja volja za vrijeme u kojem živimo",
+   "duration": 2946,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "wIhVkWfVwSw",
+   "title": "Povijesna četvrt #6: Progon vještica",
+   "duration": 1542,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "k4RPFek-WzM",
+   "title": "Povijesna četvrt #5: Povijest celibata",
+   "duration": 1394,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "s1acPycl61I",
+   "title": "Podcast Bitno.net-a - Belavić: Radim na upoznavanju katoličkih samaca, govorim im da kava nije brak",
+   "duration": 2661,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

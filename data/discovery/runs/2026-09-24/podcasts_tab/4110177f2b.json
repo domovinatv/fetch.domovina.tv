@@ -1,0 +1,27 @@
+{
+ "name": "Lider",
+ "ref": "UCboxxQjTe6vkiny3mkIo_BQ",
+ "playlists": [
+  {
+   "id": "PLdWChcLT_rAfR9CgpfpErEcjmX-4cjstJ",
+   "title": "ICT Insider powered by A1",
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAfR9CgpfpErEcjmX-4cjstJ"
+  },
+  {
+   "id": "PLdWChcLT_rAe7GorBpYBJ05D34whdQAy4",
+   "title": "Sve epizode podcasta",
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAe7GorBpYBJ05D34whdQAy4"
+  },
+  {
+   "id": "PLdWChcLT_rAeXGWhG-DNnIg8QyEMHmA1N",
+   "title": "Fintech Talks powered by Monri Payments",
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAeXGWhG-DNnIg8QyEMHmA1N"
+  },
+  {
+   "id": "PLdWChcLT_rAdqUY-dMg9dysRTx_mOAKbs",
+   "title": "Lider Podcast x Future Tense",
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAdqUY-dMg9dysRTx_mOAKbs"
+  }
+ ],
+ "error": null
+}

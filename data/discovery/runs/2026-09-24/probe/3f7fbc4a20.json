@@ -1,0 +1,28 @@
+{
+ "key": "UC2JMoYifW9NB2LHf0hU0LiQ",
+ "url": "https://www.youtube.com/channel/UC2JMoYifW9NB2LHf0hU0LiQ/videos",
+ "channel_id": "UC2JMoYifW9NB2LHf0hU0LiQ",
+ "playlist_id": null,
+ "title": "Enis Hamidovic - Videos",
+ "channel": "Enis Hamidovic",
+ "channel_url": "https://www.youtube.com/channel/UC2JMoYifW9NB2LHf0hU0LiQ",
+ "description": "",
+ "follower_count": 1580,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "sIeaI4SAzY8",
+   "title": "28. jul 2019.",
+   "duration": 3,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "jNBmU__8cLg",
+   "title": "Milka broji do deset na NEMACKOM",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20180925"
+  }
+ ]
+}

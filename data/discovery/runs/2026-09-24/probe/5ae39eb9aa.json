@@ -1,0 +1,77 @@
+{
+ "key": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+ "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+ "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+ "playlist_id": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+ "title": "Krešendo",
+ "channel": "NOVA TV",
+ "channel_url": "https://www.youtube.com/channel/UCbzmcyoz_CzJJgHonmkJ23g",
+ "description": "Ususret ovogodišnjim parlamentarnim, predsjedničkim te izborima za europski parlament, Nova TV donosi novi format čiji je zadatak gledateljima otkriti kako politika, ali i političari, funkcioniraju iza kulisa.",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "eZJvIvWbU5k",
+   "title": "\"Netko je kupio cipele na ministrovu karticu?\" Gordan Maras i Darko Milinović u podcastu Krešendo",
+   "duration": 5572,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "i7tnZtaRTM4",
+   "title": "\"Klečala je i plačući molila mjesto na listi, a onda…\" – Jadranka Kosor i Vesna Pusić u Krešendu",
+   "duration": 5521,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "oKWb9C0Q7_s",
+   "title": "\"Odnosi s Milanovićem pukli su na maslinovu ulju!\" – Vojko Obersnel i Ivan Jakovčić | Krešendo",
+   "duration": 5352,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "o0uNGQZ-bSo",
+   "title": "\"Glasači HDZ-a i SDP-a se vrlo malo razlikuju\" – postizborna analiza politike u Hrvatskoj | Krešendo",
+   "duration": 5445,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "F88feGycGdk",
+   "title": "Kamo ide Europska unija? \"Želim da EU bude glavni jamac sigurnosti na kontinentu\" | Krešendo",
+   "duration": 3907,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "7OpTKZm-iLk",
+   "title": "\"Biden mi je prišao i rekao...\" Anegdote sa svjetskim liderima kakve se rijetko mogu čuti | Krešendo",
+   "duration": 5166,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "X930K0pomNc",
+   "title": "Josipović u Krešendu otkrio detalje neobičnog susreta: \"U torbi je nosio velik nož...\" | Krešendo",
+   "duration": 2640,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "YFUaVe9EUa4",
+   "title": "Posljednji dječak iz Auschwitza: \"To je bila industrija, konačan proizvod bila je smrt\" | Krešendo",
+   "duration": 5737,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "mqBuYjV1Aoc",
+   "title": "\"Prihvatit ćete ono što vam Bruxelles kaže\" – Trump, carine, Kina i Rusija | Krešendo",
+   "duration": 3730,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

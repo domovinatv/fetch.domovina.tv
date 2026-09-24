@@ -1,0 +1,448 @@
+{
+ "key": "UCv-HFw-vP3TWs0wsdSgKtAw",
+ "url": "https://www.youtube.com/channel/UCv-HFw-vP3TWs0wsdSgKtAw/videos",
+ "channel_id": "UCv-HFw-vP3TWs0wsdSgKtAw",
+ "playlist_id": null,
+ "title": "OŠ Slatine - Videos",
+ "channel": "OŠ Slatine",
+ "channel_url": "https://www.youtube.com/channel/UCv-HFw-vP3TWs0wsdSgKtAw",
+ "description": "",
+ "follower_count": 382,
+ "streams_count": 2,
+ "videos": [
+  {
+   "id": "lN8qscLj36E",
+   "title": "Djevojka i voda - dokumentarno - eksperimentalni film - OŠ Slatine",
+   "duration": 321,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "AkDLFcvpD6o",
+   "title": "UZ Prizidnica - Pandul - pripreme za Županijsku smotru 2026.",
+   "duration": 179,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "E2gfEnnpdrs",
+   "title": "Gustrina iz 1930. godine - intervju s Marinom Škrobicom - projekt Slatinski bunari",
+   "duration": 75,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "1ODiSt4tHzo",
+   "title": "Pucalina - intervju s Damirom Maukom - projekt Slatinski bunari",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "3LOYDZfsUQA",
+   "title": "Radionica eksperimentalnog filma u Kino klubu Split - STEAM projekt OŠ Slatine, 3.3.2026.",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "BEhwf5RCsJ0",
+   "title": "Vrilo - intervju s Marinom Škrobicom - projekt Slatinski bunari",
+   "duration": 82,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "IGaV9duvIpc",
+   "title": "Kamenica - intervju s Marinom Škrobicom - projekt Slatinski bunari",
+   "duration": 26,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "vNEkesUKEqM",
+   "title": "Gustrina I. - intervju s Nađom Balić - projekt Slatinski bunari",
+   "duration": 87,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "vcrvvZ-wLb8",
+   "title": "XII. prezentacija mladog maslinovog ulja otoka Čiova - Berba 2025.",
+   "duration": 73,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "Lna0coLsJwI",
+   "title": "Intervju s glumcem Zdravkom Vukelićem - 3.11.2025. OŠ Slatine",
+   "duration": 501,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "GO1O8UK_V5g",
+   "title": "Trogir Treasure Hunt - Erasmus + projekt Who Sows, Will Reap",
+   "duration": 63,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "OUQvpEX4JEU",
+   "title": "Behind the scenes - thirst for knowledge (and water)",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "yWt_cqYVYy4",
+   "title": "Gulaš od liganj s boben i rižot od šparog - Ča je za obid? - OŠ Slatine",
+   "duration": 247,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "EqSENJ1htWM",
+   "title": "UZ Prizidnica 2025. - konzerva sa srdelama - magnet (proizvod)",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "VXUKhWp7NRg",
+   "title": "Mali čuvari okoliša - OŠ Slatine, travanj 2025.",
+   "duration": 231,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Wk2LWwiOYFs",
+   "title": "Sve ove slike zvuče kao Slatine - trailer, travanj 2025.  #cimaj",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_1jt9r1t9M4",
+   "title": "Sve ove slike zvuče kao Slatine - film #cimaj #turist #split #sea #mediterranean #adriatic #film",
+   "duration": 369,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "SCvCxcTRDcE",
+   "title": "Kinoteka Zlatina vrata - Intervju s Tamarom Visković #cimaj #kino #kultura #film",
+   "duration": 1336,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ZCk6y2jgtyI",
+   "title": "CIMAJ tim 2025. - OŠ Slatine #cimaj",
+   "duration": 274,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "OVEN2LYyCR0",
+   "title": "Valentinovo u OŠ Slatine, 14.2.2025. #valentine #valentines #valentinesday #cimaj",
+   "duration": 54,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "9Qj4Uwn5E4M",
+   "title": "International Holocaust Remembrance Day - OŠ Slatine, 27.1.2025. #cimaj #holocaustremembrance",
+   "duration": 96,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "FtL8eiSl7JU",
+   "title": "DVD Slatine - intervju (OŠ Slatine, prosinac, 2024.) #cimaj",
+   "duration": 544,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Gzdhiq7b5-0",
+   "title": "Mali čuvari okoliša - intervju (program RAST CI SDŽ), studeni 2024.",
+   "duration": 488,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "bxYZDEnx77k",
+   "title": "Pasji život - kratki film učenika OŠ Slatine",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "PxzUx8-flIA",
+   "title": "Berba maslina 2024. - OŠ Slatine #cimaj #CISDŽ",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "BcDzLaUey84",
+   "title": "Krive su pčele (Erasmus projekt) - Budi dobar kao pčela",
+   "duration": 275,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_BFjIg_KQQI",
+   "title": "Dani Erasmusa 2024 - OŠ Slatine #erasmusdays #ampeu",
+   "duration": 298,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "9MlzO1Pi0qE",
+   "title": "110 GODINA",
+   "duration": 461,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "BRaRmWURixY",
+   "title": "Dani Erasmusa 2004 bloopers - OŠ Slatine #erasmusdays #ampeu",
+   "duration": 83,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "yKCSsbMN5mU",
+   "title": "Erasmus Days 2024 bloopers - OŠ Slatine #erasmusdays #ampeu",
+   "duration": 80,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ybBfkp1Z6as",
+   "title": "Erasmus Days 2024. - OŠ Slatine  #erasmusdays #AMPEU",
+   "duration": 293,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "QsbSexbkQMA",
+   "title": "Krive su pčele / Krive so čebele #erasmus #pčele #čebele #bees",
+   "duration": 269,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "4LTBbWeM_r0",
+   "title": "110 godina - OŠ Slatine - kratki film, svibanj, 2024.",
+   "duration": 459,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "4aCn0TxXfK0",
+   "title": "UZ Prizidnica - OŠ Slatine, svibanj 2024. - Splitske košarice",
+   "duration": 205,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "O2YXbbIDR90",
+   "title": "Rim Tim Tagi Dim - podrška OŠ Slatine iz Slatima i OŠ Nove Jarše iz Ljubljane #eurovision  #erasmus",
+   "duration": 39,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "LunkiilzdCY",
+   "title": "Ča je za obid? Lokarde na brujet #recepies #kuhanje",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "zJNyyXf1QwI",
+   "title": "Ča je za obid? Manistra na suvo - manistra na pome - šalša #recepies #kuhanje",
+   "duration": 196,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Ngqd9Dy217A",
+   "title": "Šimin dnevnik - OŠ \"Srinjine\"",
+   "duration": 626,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "71pfEsq4Awg",
+   "title": "Festival izvrsnosti 2023. - OŠ \"Slatine\"",
+   "duration": 169,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "LnrE3y4ljyg",
+   "title": "Cimaj tim OŠ \"Slatine\" 2023. #cimaj",
+   "duration": 330,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "O0cawJzvTmI",
+   "title": "Ča more znači - dokumentarac OŠ \"Slatine\", 2023. #cimaj",
+   "duration": 982,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "yVUN8XWA3dQ",
+   "title": "Ča ima za obid? - Lešo bob i fritule, svibanj 2023.  #cimaj",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "T9aFqabFAas",
+   "title": "Svjetski dan broja Pi - video reportaža - OŠ Slatine #cimaj",
+   "duration": 226,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "R21JAXMXj5M",
+   "title": "Ča je za obid? - UZ Prizidnica 2023. - pregača",
+   "duration": 270,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Vj1hJ5tO7UA",
+   "title": "Iz bakine škrinjice znanja i mudrosti - OŠ \"Slatine\", projekt Čuvari baštine CI SDŽ, 2023. #cimaj",
+   "duration": 397,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "nHHRiwUPL64",
+   "title": "RASTimo zajedno! - OŠ \"Slatine\" projekt RAST, svibanj 2023.",
+   "duration": 284,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "iJoAykTXlAo",
+   "title": "Ča more znači - trailer, travanj 2023. #cimaj  #more #pomorski",
+   "duration": 50,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "OT4SVwZHzUs",
+   "title": "Feđa Klarić intervju povodom manifestacije Smojinih 100 #cimaj",
+   "duration": 585,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "R76zFmS2BbU",
+   "title": "DRM 2023",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "unPUI-B8kgo",
+   "title": "Tripice by Taso i Špiro - OŠ Slatine, CI SDŽ, Dalmatinski suvenir, veljača 2023. #kuhanje #tripice",
+   "duration": 491,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Dl-q3McrWxA",
+   "title": "Kapetanov brujet s boben - OŠ \"Slatine\", Dalmatinski suvenir, studeni 2022.",
+   "duration": 461,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "_SttAA62mBg",
+   "title": "Cimaj tim OŠ \"Slatine\" 2022./2023.",
+   "duration": 227,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "lMRFXL9QG-A",
+   "title": "Dan škole OŠ Srinjine i Dan mjesta Srinjine, 6.6.2022.",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "ZQJyBuI0EiI",
+   "title": "Zaigrajmo trlju - UZ Prizidnica, 2022.",
+   "duration": 242,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "J8BvpihBtRE",
+   "title": "Cimaj i OŠ \"Slatine\" - promo video 2022.",
+   "duration": 205,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "gg_jWuzRRbY",
+   "title": "Ja sam Matilda - kratki dokumentarni film",
+   "duration": 450,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "1v_VIWaFO-0",
+   "title": "Dan voda 22.3.2022. - projektni dan OŠ \"Slatine\"",
+   "duration": 392,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "xwhLn3_qG44",
+   "title": "7.a i 7.b OŠ \"Srinjine\" za djecu Ukrajine",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "6hXI8cmtl1c",
+   "title": "Maškare u Slatinama 2022",
+   "duration": 159,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "xLmkp0CpG6k",
+   "title": "OŠ Slatine - reportaža, siječanj 2021.",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "OrwEnGj3FyU",
+   "title": "Klncert OŠ Slatine s Rock mulčkov iz OŠ Nove Jarše 6.6.2024. u Ljubljani",
+   "duration": 1346,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "QI_cENLlxPQ",
+   "title": "Kanal OŠ Slatine prenosi stream uživo!",
+   "duration": 4592,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  }
+ ]
+}

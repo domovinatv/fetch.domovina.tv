@@ -128,6 +128,8 @@ Each step is idempotent — checks for existing output before processing. The pi
 | `tools/rebuild_summary_md.js` | Ponovno složi `.canary.summary.md` iz postojećeg `.summary.json` — **nula API poziva** (npr. kad se promijeni format linkova) |
 | `tools/force_upload_epubs.js` | Bulk re-upload `data/{id}/book.epub` + CF purge (immutable ključevi). Šalje SAMO knjige koje su već objavljene — objavljivanje novih je posao nightlyja |
 | `tools/upload_sponsors_in_video.js` | Bulk upload `data/{id}/sponsors_in_video.json` + CF purge + upis u keys-cache. Samo za već objavljene epizode; backfill nakon promjene detektora (`docs/2026-09-23-backfill-sponzori-i-glasovi.md`) |
+| `automatic/watch_candidates.js` | **Watch-only** praćenje nepraćenih kandidata iz registryja (nightly korak 5b): flat popis videa, izolacija originala od shortsa/isječaka/Q&A, `automatic/watchlist/REPORT.md` + `events.jsonl`. Nula medija, piše IZVAN `automatic/podcasts/` (fetch.js bi inače sve skinuo) |
+| `data/discovery/discover.js` | **Mjesečni research alat za registry**: sweep → podcasts-tab → probe → triage → LLM klasifikacija → apply, uz `ledger.json` presuda (svaki prolaz preskače presuđeno). Runbook `docs/REGISTRY_DISCOVERY.md` |
 | `share_to_whatsapp.js` | Epizoda + sva poglavlja u WhatsApp grupu, jedan link po poruci (preview lijepi most). Default **suho pokretanje**, treba `--commit`; već poslano se preskače. Vidi `docs/whatsapp_share_epizode.md` |
 
 ### `sync_voting_candidates.mjs` — registar → glasački bazen

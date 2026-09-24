@@ -1,0 +1,63 @@
+{
+ "key": "UC9yuky9RbLt9ilfHoWL-b8w",
+ "url": "https://www.youtube.com/channel/UC9yuky9RbLt9ilfHoWL-b8w/videos",
+ "channel_id": "UC9yuky9RbLt9ilfHoWL-b8w",
+ "playlist_id": null,
+ "title": "Nika.G - Videos",
+ "channel": "Nika.G",
+ "channel_url": "https://www.youtube.com/channel/UC9yuky9RbLt9ilfHoWL-b8w",
+ "description": "",
+ "follower_count": 113,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "lcEj5PaikQM",
+   "title": "Mi Smo Zagreb! - Epizoda 07 IVAN ŠTIMAC",
+   "duration": 2849,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "jKulLYJf7gA",
+   "title": "Mi Smo Zagreb! - Epizoda 06 FEELGOOD",
+   "duration": 1489,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "OwSqrJtg2AE",
+   "title": "Mi Smo Zagreb! - Epizoda 05 MONIKA SMILJANIĆ",
+   "duration": 1359,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "3lh2g3eCagM",
+   "title": "Mi Smo Zagreb! - Epizoda 04 MATEO BARUN",
+   "duration": 1253,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "TbbTxT7Y6tQ",
+   "title": "Mi Smo Zagreb! - Epizoda 03 DOMINIK CAREVIĆ",
+   "duration": 1297,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "je_NXPbo03c",
+   "title": "Mi Smo Zagreb! - Epizoda 02 SARA GRLIĆ",
+   "duration": 1178,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "k5VPi7bU4zA",
+   "title": "Mi Smo Zagreb! - Epizoda 01",
+   "duration": 1948,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

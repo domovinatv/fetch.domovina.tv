@@ -1,0 +1,22 @@
+{
+ "name": "DigiLab NSK Podcasti",
+ "ref": "UCM2A6a_hJkjmoLX9b6rVJXQ",
+ "playlists": [
+  {
+   "id": "PLWUCHr2Hd6FLGcHds-x8moTHTiywBIm9j",
+   "title": "ZKDruškanje",
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FLGcHds-x8moTHTiywBIm9j"
+  },
+  {
+   "id": "PLWUCHr2Hd6FKeU9jtuYtbUbGZaRlK76Me",
+   "title": "Beli Zagreb Grad",
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FKeU9jtuYtbUbGZaRlK76Me"
+  },
+  {
+   "id": "PLWUCHr2Hd6FISTGlxoYT97TaHadRlZ5Gk",
+   "title": "Lov na govor",
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FISTGlxoYT97TaHadRlZ5Gk"
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,434 @@
+{
+ "key": "UCoyTnbkCuGTMqO41_LNAZ8Q",
+ "url": "https://www.youtube.com/channel/UCoyTnbkCuGTMqO41_LNAZ8Q/videos",
+ "channel_id": "UCoyTnbkCuGTMqO41_LNAZ8Q",
+ "playlist_id": null,
+ "title": "Dokumentarni.net - Videos",
+ "channel": "Dokumentarni.net",
+ "channel_url": "https://www.youtube.com/channel/UCoyTnbkCuGTMqO41_LNAZ8Q",
+ "description": "Dokumentarni.net je portal o dokumentarnim filmovima pokrenut 2013. godine.",
+ "follower_count": 801,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "R_EUWW1hAgk",
+   "title": "Iva Kraljević | \"Ovu sobu ostavite zakopanu\" | 24. Liburnia Film Festival",
+   "duration": 353,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "V04K7yPsfG0",
+   "title": "\"Biti u rodu s Johnom Malkovichem\" (Luka Mavretić, 2025.) | Recenzija",
+   "duration": 197,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "O-M49u2UEGo",
+   "title": "\"Medo u šparugama\" (Ivan Grgur, 2025.) | Recenzija",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "qxIjA3NnbyY",
+   "title": "\"Crveni tobogan\" (Nebojša Slijepčević, 2025.) | Recenzija",
+   "duration": 135,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "md5cqtPSkrs",
+   "title": "Čovjek koji ne treba šutjeti | Nebojša Slijepčević | Dokunet Podcast #14",
+   "duration": 2916,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "05XOYOI3QLg",
+   "title": "Slažu li se producenti i redatelji? | Tibor Keser | Dokunet Podcast #13",
+   "duration": 3070,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "CVGlh2kBXlQ",
+   "title": "O kozama, ljudima i uskličnicima | Tonći Gaćina | Dokunet Podcast #12",
+   "duration": 3243,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "QWFEBLL302U",
+   "title": "Od novinarstva i copywritinga do redatelja dokumentarnih filmova | Ivan Grgur | Dokunet Podcast #11",
+   "duration": 2699,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "tNcO1tQ2UEA",
+   "title": "U zajedničkom filmu i Art-kinu",
+   "duration": 424,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "xOLG3CA4UTU",
+   "title": "Nije lako danas biti novinar | Melita Vrsaljko",
+   "duration": 1539,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "Bi1bC0NhP8o",
+   "title": "Ivan Ramljak | \"Pozdrav iz Sekretarijata\" | 22. ZagrebDox",
+   "duration": 206,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "uE7XSkMZ3dk",
+   "title": "Jadran Boban | \"Vučja gozba\" | 22. ZagrebDox",
+   "duration": 167,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "nfe74UZ_ug0",
+   "title": "Sebastijan Borovčak | \"Mirna dolina\" | 22. ZagrebDox",
+   "duration": 182,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "VDZfeg2hBgY",
+   "title": "Luka Mavretić | \"Biti u rodu s Johnom Malkovichem\" | 22. ZagrebDox",
+   "duration": 151,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "4a-jQMKmlfE",
+   "title": "Tonći Gaćina | \"Koze!\" | 22. ZagrebDox",
+   "duration": 141,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "kNl3nK43k3g",
+   "title": "Hrvatski dokumentarci na 22. ZagrebDoxu",
+   "duration": 311,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "amxvSadN5WI",
+   "title": "Ivan Grgur | \"Medo u šparugama\" | 22. ZagrebDox",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "Z8heuut9b_M",
+   "title": "Nagrađeni najbolji hrvatski filmovi 2025. godine",
+   "duration": 468,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "k2X6QJYx-E0",
+   "title": "Od \"Fiume o morte!\" do \"Mirotvorca\": Hrvatski dokumentarci u 2025. godini",
+   "duration": 504,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "OcyNlryzs2s",
+   "title": "\"Amerikanci ne razumiju ovu vrstu rata u Hrvatskoj\" | Ivan Ramljak | \"Mirotvorac\"",
+   "duration": 979,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "S889L000ZCg",
+   "title": "ZG premijera filma o pravima radnika u Sloveniji | \"Ono što treba činiti\"",
+   "duration": 474,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "ulSIrWFvkLE",
+   "title": "\"Ono što treba činiti\" (Srđan Kovačević, 2025.) | Recenzija",
+   "duration": 225,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "ub2wMEjZc4o",
+   "title": "\"Lekcije mog tate\" (Dalija Dozet, 2025.) | Recenzija",
+   "duration": 221,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "tk8iQdeD2EA",
+   "title": "Hrvatska ima najbolji europski dokumentarac 2025. godine! | \"Fiume o morte\"!",
+   "duration": 80,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "RQWlODMqHAE",
+   "title": "\"Linije pogleda\", ep. 5 | Producenti | Tamara Babun Zovko i Oliver Sertić",
+   "duration": 1308,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "dUdfhG36UCQ",
+   "title": "\"Linije pogleda\", ep. 4 | Dizajneri zvuka | Tihomir Vrbanec i Ivan Zelić",
+   "duration": 1462,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "hEtjEgUiNHE",
+   "title": "\"Linije pogleda\", ep. 3 | Snimatelji | Dora Čaldarović i Damian Nenadić",
+   "duration": 1278,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "HLSuTbCao0o",
+   "title": "\"Linije pogleda\", ep. 2 | Montažeri | Dora Slakoper i Vladimir Gojun",
+   "duration": 1361,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "sF1-J4v2OyM",
+   "title": "\"Linije pogleda\", ep. 1 | Redatelji | Lucija Brkić i Damir Markovina",
+   "duration": 1277,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "wRuCGD5KMTM",
+   "title": "\"Brdo stvari\" (Toni Jelenić, 2024.) | Recenzija",
+   "duration": 186,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "A-lpKh3q77Y",
+   "title": "Uskoro...",
+   "duration": 32,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "ruqJ64MxoTI",
+   "title": "Top 10 | Najbolji hrvatski dokumentarni filmovi 2024. godine",
+   "duration": 500,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "263y1Bf3XdI",
+   "title": "Rijeka uskoro postaje centar studentskih dokumentaraca | 12. STIFF",
+   "duration": 284,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "UROSgWqbhcM",
+   "title": "Filmaktiv - hub riječke filmske scene",
+   "duration": 478,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "ISR_l_tFSSA",
+   "title": "Novi azerbejdžanski film u Zagrebu",
+   "duration": 126,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "SI40laUzAD8",
+   "title": "Ines Jokoš | \"Kad vrtim film\" | 23. Liburnia Film Festival",
+   "duration": 196,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "iKFnaPGHwYE",
+   "title": "Sebastijan Borovčak | \"Naš vrt na kraju svijeta\" | 23. Liburnia Film Festival",
+   "duration": 172,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "gfQp4lOqX9A",
+   "title": "Frane Pekica | \"Filice\" | 23. Liburnia Film Festival",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kX86bBI8x0w",
+   "title": "Aleš Suk | \"(P.S.)\" | 23. Liburnia Film Festival",
+   "duration": 128,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "m-VTaTeCqws",
+   "title": "Vida Žagar | \"Najbolji profesor filma na svijetu\" | 23. Liburnia Film Festival",
+   "duration": 176,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_zRpkjT1m5w",
+   "title": "Hrvoje Osvadić | \"Paviljon 6\" | 23. Liburnia Film Festival",
+   "duration": 161,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "-NlY7ZzsAv4",
+   "title": "Izazovi snimanja vlastite obitelji | Silvestar Kolbas | Dokunet Podcast #10",
+   "duration": 3461,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "J8qp3MB8wSg",
+   "title": "Čista ljepota života u ruralnoj Kini | Hansen Lin | 18. Subversive Film Festival",
+   "duration": 651,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "UlucumP9pKg",
+   "title": "Filmovi izvan uobičajenog | Patricia Pisters | 18. Subversive Film Festival",
+   "duration": 601,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "wsyGXcFl_Bg",
+   "title": "Kontekstualizacija filmske slike | Sanjin Pejković | 18. Subversive Film Festival",
+   "duration": 475,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "5OqdNehMJ9o",
+   "title": "Motel kojeg više nema | Filip Mojzeš | Dokunet Podcast #9",
+   "duration": 2040,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "m2NYFul7Hbs",
+   "title": "1. Dokumentarni.days!",
+   "duration": 329,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "39Bl1_eySOg",
+   "title": "Izabrali smo najbolji hrvatski dokumentarac 2024. godine!",
+   "duration": 243,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "qypVdUJJfQY",
+   "title": "Radi, spavaj, radi... | Andrej Korovljev | Dokunet Podcast #8",
+   "duration": 2848,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Db-Dk2jdiCg",
+   "title": "Filmski kritičari iz regije u Zagrebu",
+   "duration": 253,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "5VVf_RXsF1s",
+   "title": "I mi to isto doživljavamo... | Karla Jelić | Dokunet Podcast #7",
+   "duration": 1764,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "6FYrl9j2X3s",
+   "title": "Najglasnija tišina studentskih prosvjeda u Srbiji | Aleksandar Reljić | Dokunet Podcast #6",
+   "duration": 2819,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "-t6IkvIRqlA",
+   "title": "Nove dokumentarističke nade predstavile svoje filmove",
+   "duration": 174,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Qemm42lRFI8",
+   "title": "Kakvu glazbu biramo na svojim sprovodima | Lidija Špegar | Dokunet Podcast #5",
+   "duration": 1821,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "34GInM9zAc0",
+   "title": "Izidor Bistrović | \"Kupam se, voli vas tata\" | Dokumentarni na 21. ZagrebDoxu #5",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "BZBhYr0E5qc",
+   "title": "Lidija Špegar | \"Underground top lista\" | Dokumentarni na 21. ZagrebDoxu #4",
+   "duration": 129,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "1Az9-oRQubs",
+   "title": "\"Lekcije mog tate\" Dalije Dozet najbolji regionalni dokumentarac 21. ZagrebDoxa!",
+   "duration": 255,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Zg452GJRo3I",
+   "title": "Ivan Ramljak | \"Mirotvorac\" | Dokumentarni na 21. ZagrebDoxu #3",
+   "duration": 210,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "QmTqLnrsVCE",
+   "title": "Dalija Dozet | \"Lekcije mog tate\" | Dokumentarni na 21. ZagrebDoxu #2",
+   "duration": 202,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "843-xgAtpCI",
+   "title": "Renata Lučić | \"Godina prođe, dan nikako\" | Dokumentarni na 21. ZagrebDoxu #1",
+   "duration": 127,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

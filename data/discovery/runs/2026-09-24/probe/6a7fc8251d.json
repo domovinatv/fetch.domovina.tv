@@ -1,0 +1,77 @@
+{
+ "key": "UCqSlcFOIiM5UGAo3hnHpowg",
+ "url": "https://www.youtube.com/channel/UCqSlcFOIiM5UGAo3hnHpowg/videos",
+ "channel_id": "UCqSlcFOIiM5UGAo3hnHpowg",
+ "playlist_id": null,
+ "title": "BrightLounge - Videos",
+ "channel": "BrightLounge",
+ "channel_url": "https://www.youtube.com/channel/UCqSlcFOIiM5UGAo3hnHpowg",
+ "description": "Relax and be inspired with Creative interviews around the world.",
+ "follower_count": 56,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Coc4jGxtNYE",
+   "title": "BrightLounge 08: Interview with the Founders of TechSquare, Brand Embassy and Lonely Sock, in Prague",
+   "duration": 1290,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "1j37F4oBuJk",
+   "title": "BrightLounge 07: Interview With John Turturro of 3Palms & A Tour of Dwell on Design in LA",
+   "duration": 1651,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "3wPj4p0fhLM",
+   "title": "BrightLounge Interview with Bogdan Ripa of Adobe Romania (interview segment)",
+   "duration": 1354,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "E0G34SJn0ls",
+   "title": "BrightLounge 06: Interview with Bogdan Ripa of Adobe Romania, Business Catalyst + Apps for Designers",
+   "duration": 2123,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "mUrjcrwIbow",
+   "title": "BrightLounge 05: Interview with Marko Dugonjic in Zagreb Croatia and How to Start Building a Webapp",
+   "duration": 1887,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "sedpa0oaN_g",
+   "title": "BrightLounge 04: Interview with Fashion Designer Cary Santiago. The Future of E-commerce",
+   "duration": 1405,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "rKTlLkf9e4M",
+   "title": "BrightLounge 03: Architecture and Design with Pitupong Chawoakul, founder of Supermachine Studio",
+   "duration": 2082,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "9WbWGz8W4J4",
+   "title": "BrightLounge 02: Tips for Traveling Freelancers, Identity Designer Jacob Cass, in Sinaia, Romania",
+   "duration": 1875,
+   "live_status": null,
+   "upload_date": "20120925"
+  },
+  {
+   "id": "Z-UgtdXmCdE",
+   "title": "BrightLounge 01: Ilija Studen of activeCollab, Startup Bus and Qwiki",
+   "duration": 2340,
+   "live_status": null,
+   "upload_date": "20120925"
+  }
+ ]
+}

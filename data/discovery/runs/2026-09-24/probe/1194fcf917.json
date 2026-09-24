@@ -1,0 +1,105 @@
+{
+ "key": "UCvFnB9iD6WBXf8RAkAUDkxQ",
+ "url": "https://www.youtube.com/channel/UCvFnB9iD6WBXf8RAkAUDkxQ/videos",
+ "channel_id": "UCvFnB9iD6WBXf8RAkAUDkxQ",
+ "playlist_id": null,
+ "title": "YanTodor - Videos",
+ "channel": "YanTodor",
+ "channel_url": "https://www.youtube.com/channel/UCvFnB9iD6WBXf8RAkAUDkxQ",
+ "description": "YanTodor Design Podcast je emisija stručnog, ali i zabavnog karaktera u kojem dizajneri Bojan Janjić i Ljubomir Todorović razgovaraju o aktuelnim temama iz svijeta vizualnog dizajna, te o trenutnim projektima na kojima su angažovani.",
+ "follower_count": 144,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "jvYFV09bO70",
+   "title": "YanTodor Podcast #13 - Miješane umjetničke vještine",
+   "duration": 4975,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "lq-XStYt3FE",
+   "title": "YanTodor Podcast #12 -  Od kolijevke pa do groba, najljepše je na moru",
+   "duration": 3091,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "QnKmW8_NklQ",
+   "title": "YanTodor Podcast #11 - Život je jedan, živi ga Fikreta",
+   "duration": 3943,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "BqL-UHP6lxY",
+   "title": "YanTodor Podcast #10 Special - Kako je bilo u Španiji?",
+   "duration": 5170,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "drjlNSoWRl0",
+   "title": "YanTodor Podcast #09 - Gdje smo? Šta smo?",
+   "duration": 3693,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "TxUd3MayVL0",
+   "title": "YanTodor Podcast #08   Kako podnijeti kritiku?",
+   "duration": 2032,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "irg-f-OOi7w",
+   "title": "YanTodor Podcast #07  - Kako odrediti svoju cijenu?",
+   "duration": 2455,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "XzjKOAto3wI",
+   "title": "YanTodor Podcast #06 Special - Freelance VS Agency - Gost: Faruk Garić",
+   "duration": 4104,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "9PexVYUHBsE",
+   "title": "YanTodor Podcast #05 - Dizajn trendovi u 2021. godini",
+   "duration": 3828,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "rWfPBe_tynw",
+   "title": "YanTodor Podcast #04 - Znam šta si radio ovog ljeta",
+   "duration": 2617,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "jeNuRb-Q8uQ",
+   "title": "YanTodor Podcast #03 - Fotografija u advertajzingu",
+   "duration": 3283,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "h4Q17NLmlBc",
+   "title": "YanTodor Podcast #02 - Naših Top 6 radova",
+   "duration": 2265,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "SvhzXCIt3lA",
+   "title": "YanTodor Podcast #01 - Kako nastaje logo?",
+   "duration": 2951,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

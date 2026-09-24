@@ -1,0 +1,27 @@
+{
+ "name": "Stanarica podcast o nekretninama",
+ "ref": "UC-g63mNberP8KZShDX7fbXg",
+ "playlists": [
+  {
+   "id": "PLxaUgaMdjYUZ0M6RE1Zed98Xym8593GP6",
+   "title": "Agenti, standardi i reputacija",
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUZ0M6RE1Zed98Xym8593GP6"
+  },
+  {
+   "id": "PLxaUgaMdjYUYlhssFVZoCvhBHQq-SbuuP",
+   "title": "Tržište nekretnina: što se stvarno događa",
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUYlhssFVZoCvhBHQq-SbuuP"
+  },
+  {
+   "id": "PLxaUgaMdjYUYCFhs_64gBc1qXNtu2gdOl",
+   "title": "Kupnja i prodaja: cijene, krediti i provizije",
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUYCFhs_64gBc1qXNtu2gdOl"
+  },
+  {
+   "id": "PLxaUgaMdjYUY9Zua3tudLkjq-I4OUVv8v",
+   "title": "Gradnja, adaptacija i uređenje",
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUY9Zua3tudLkjq-I4OUVv8v"
+  }
+ ],
+ "error": null
+}

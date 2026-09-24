@@ -1,0 +1,1803 @@
+{
+ "source": "yt-sweep-agent",
+ "file": "data/_raw_research/registry_iteration_2026-09-24/sweep/candidates.json",
+ "at": "2026-09-24T21:04:48.830Z",
+ "seeds": [
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "name": "Prva linija (Jutarnji list)",
+   "hint": {
+    "tags": [
+     "military-history",
+     "geopolitics",
+     "media"
+    ],
+    "parent_channel": {
+     "name": "Jutarnji list",
+     "url": "https://www.youtube.com/channel/UCoygYX3L4vBCR4T-EhafUTg"
+    },
+    "evidence": "Jutarnjijev vojno-sigurnosni podcast, ep. 143+. Playlista: 117/182 ≥30 min.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1080
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCEL8iO89M44CjPQMI5uXM3g/videos",
+   "channel_id": "UCEL8iO89M44CjPQMI5uXM3g",
+   "playlist_id": null,
+   "name": "Sales Mindset (Vedran Šorić)",
+   "hint": {
+    "tags": [
+     "business",
+     "personal-development",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intervju-podcast, 80k pretplatnika, epizode s gostima iz biznisa/IT-a. Uzorak: 56/60 ≥30 min, kratkih <10 min 7 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1320
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC6TuJ0U9XM4zOVM-11V9OFg/videos",
+   "channel_id": "UC6TuJ0U9XM4zOVM-11V9OFg",
+   "playlist_id": null,
+   "name": "Um&Boom",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intervju-podcast (glumci, javne osobe), 33/34 dugih. Uzorak: 33/34 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos",
+   "channel_id": "UCvtVoRVW7ARC7KGQLLl7_fQ",
+   "playlist_id": null,
+   "name": "Podcast s Brezom",
+   "hint": {
+    "tags": [
+     "political",
+     "geopolitics",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR politički intervjui, 55/60 dugih, vrlo aktivan. Uzorak: 55/60 ≥30 min, kratkih <10 min 2 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos",
+   "channel_id": "UCmnvmFyshLFSrRMDAhKkgHw",
+   "playlist_id": null,
+   "name": "Podcast 8_24 (Dvajsčetvorka)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "HR navijački podcast (Dinamo), #282 epizoda, uglavnom LIVE (/streams). Uzorak: 61/120 ≥30 min, od toga 58 live (/streams), kratkih <10 min 17 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCzGpSiF2BW0e0PDhEFwFkwQ/videos",
+   "channel_id": "UCzGpSiF2BW0e0PDhEFwFkwQ",
+   "playlist_id": null,
+   "name": "Vox Medicus",
+   "hint": {
+    "tags": [
+     "health",
+     "medicine",
+     "education"
+    ],
+    "parent_channel": null,
+    "evidence": "HR liječnici specijalisti u razgovoru, 27/31 dugih. Uzorak: 27/32 ≥30 min, kratkih <10 min 3 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 720
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC3kRfdFs-8PJyF5DqYK1lzQ/videos",
+   "channel_id": "UC3kRfdFs-8PJyF5DqYK1lzQ",
+   "playlist_id": null,
+   "name": "Vetify Podcast",
+   "hint": {
+    "tags": [
+     "health",
+     "animals",
+     "education"
+    ],
+    "parent_channel": null,
+    "evidence": "HR veterinarski podcast, 18/20 dugih, numerirane epizode. Uzorak: 18/20 ≥30 min, kratkih <10 min 10 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/videos",
+   "channel_id": "UCKdC0rAJAG5pIBlk18BHsEw",
+   "playlist_id": null,
+   "name": "Fraktura BookTalk",
+   "hint": {
+    "tags": [
+     "books",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "Nakladnik Fraktura — razgovori s autorima, numerirane epizode. Uzorak: 93/119 ≥30 min, od toga 59 live (/streams), kratkih <10 min 8 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 660
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC2ZncwZyQBHyBKIzg7UGZvw/videos",
+   "channel_id": "UC2ZncwZyQBHyBKIzg7UGZvw",
+   "playlist_id": null,
+   "name": "NOVA — O svemiru i svemu ostalom",
+   "hint": {
+    "tags": [
+     "science",
+     "education",
+     "history"
+    ],
+    "parent_channel": null,
+    "evidence": "HR znanstveno-popularni podcast, 7 sezona, 60/60 dugih. Uzorak: 60/60 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCL1t5F5RlPQfI2Eu48Fxk0A/videos",
+   "channel_id": "UCL1t5F5RlPQfI2Eu48Fxk0A",
+   "playlist_id": null,
+   "name": "Freelance Roditelji",
+   "hint": {
+    "tags": [
+     "parenting",
+     "business",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR roditeljstvo + samozapošljavanje, gosti (Doktor Oga, Supermama). Uzorak: 18/22 ≥30 min, kratkih <10 min 18 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1260
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UClQch6cp0bXHC3AhRpubofA/videos",
+   "channel_id": "UClQch6cp0bXHC3AhRpubofA",
+   "playlist_id": null,
+   "name": "Izbačene Scene",
+   "hint": {
+    "tags": [
+     "film",
+     "pop-culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR filmski podcast, 55 numeriranih epizoda. Uzorak: 50/60 ≥30 min, kratkih <10 min 10 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvH7xHJPirAOXqGypud8cHQ/videos",
+   "channel_id": "UCvH7xHJPirAOXqGypud8cHQ",
+   "playlist_id": null,
+   "name": "Vragolasti Tenis",
+   "hint": {
+    "tags": [
+     "sport",
+     "tennis"
+    ],
+    "parent_channel": null,
+    "evidence": "HR teniski podcast (Grgo Dukić), analize Grand Slamova, 46/46 dugih. Uzorak: 46/46 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCM0U-TGwmRzaLzATEzRnzYQ/videos",
+   "channel_id": "UCM0U-TGwmRzaLzATEzRnzYQ",
+   "playlist_id": null,
+   "name": "Politički Marketing Podcast",
+   "hint": {
+    "tags": [
+     "political",
+     "media",
+     "communication"
+    ],
+    "parent_channel": null,
+    "evidence": "HR analize kampanja s gostima, 16/18 dugih. Uzorak: 16/18 ≥30 min, kratkih <10 min 11 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1680
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos",
+   "channel_id": "UCKiC-dZx62RXeymJmR8E99g",
+   "playlist_id": null,
+   "name": "Filmopedija",
+   "hint": {
+    "tags": [
+     "film",
+     "pop-culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR filmski podcast, 28 epizoda, aktivan. Uzorak: 28/36 ≥30 min, kratkih <10 min 3 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCOB8hyzZIF6grOZRFFAkU5Q/videos",
+   "channel_id": "UCOB8hyzZIF6grOZRFFAkU5Q",
+   "playlist_id": null,
+   "name": "Ovisnici o knjigama",
+   "hint": {
+    "tags": [
+     "books",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR književni podcast, 16 epizoda, aktivan 2026. Uzorak: 14/17 ≥30 min, kratkih <10 min 6 %.",
+    "confidence": "high",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCQ4n-1k0Mg-Vgvn2JIJa1sw/videos",
+   "channel_id": "UCQ4n-1k0Mg-Vgvn2JIJa1sw",
+   "playlist_id": null,
+   "name": "MATKO",
+   "hint": {
+    "tags": [
+     "mma",
+     "sport",
+     "boxing"
+    ],
+    "parent_channel": null,
+    "evidence": "HR borilački sportovi (FNC, boks); puno kratkih isječaka + live; ima i playlistu 'The Engine Podcast'. Uzorak: 87/120 ≥30 min, od toga 60 live (/streams), kratkih <10 min 12 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC065MgTCu82iJ8IjMGM8CGw/videos",
+   "channel_id": "UC065MgTCu82iJ8IjMGM8CGw",
+   "playlist_id": null,
+   "name": "eFISHent",
+   "hint": {
+    "tags": [
+     "sport",
+     "fishing"
+    ],
+    "parent_channel": null,
+    "evidence": "HR ribolovni podcast (Ep.23), dio na /streams. Uzorak: 34/92 ≥30 min, od toga 29 live (/streams), kratkih <10 min 10 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCt1jNnOtFMVS7rFeq3BpQQg/videos",
+   "channel_id": "UCt1jNnOtFMVS7rFeq3BpQQg",
+   "playlist_id": null,
+   "name": "Best Food Croatia",
+   "hint": {
+    "tags": [
+     "food",
+     "talk-show",
+     "lifestyle"
+    ],
+    "parent_channel": null,
+    "evidence": "HR gastro razgovori s poznatima u restoranima. Uzorak: 10/23 ≥30 min, kratkih <10 min 22 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLC6qJhj5yOpi3Fv2tQzmWm-DITvvGx4Pi",
+   "channel_id": "UC-GWO0eo78mY0o3iEkle7HA",
+   "playlist_id": "PLC6qJhj5yOpi3Fv2tQzmWm-DITvvGx4Pi",
+   "name": "Bezimeni filmski podcast (Osvrtnik)",
+   "hint": {
+    "tags": [
+     "film",
+     "pop-culture"
+    ],
+    "parent_channel": {
+     "name": "Osvrtnik",
+     "url": "https://www.youtube.com/channel/UC-GWO0eo78mY0o3iEkle7HA"
+    },
+    "evidence": "Osvrtnik (25.7k) — podcast playlista; ostalo recenzije i streamovi. Playlista: 6/15 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/videos",
+   "channel_id": "UCAfpzMev1SiUl-Jr569upow",
+   "playlist_id": null,
+   "name": "Bez dlake na glavi",
+   "hint": {
+    "tags": [
+     "political",
+     "geopolitics"
+    ],
+    "parent_channel": null,
+    "evidence": "HR politički komentari/razgovori uživo, 25k pretplatnika. Uzorak: 66/120 ≥30 min, od toga 60 live (/streams), kratkih <10 min 9 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCHjcFWGB1jmZvs47vAKTYQA/videos",
+   "channel_id": "UCHjcFWGB1jmZvs47vAKTYQA",
+   "playlist_id": null,
+   "name": "AFK Show (GameHub)",
+   "hint": {
+    "tags": [
+     "gaming",
+     "technology"
+    ],
+    "parent_channel": null,
+    "evidence": "HR gaming medij, AFK Show intervjui uživo (/streams). Uzorak: 87/120 ≥30 min, od toga 60 live (/streams), kratkih <10 min 15 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1560
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/videos",
+   "channel_id": "UCut75WmrjhrgrEiQ6Zmn5Gg",
+   "playlist_id": null,
+   "name": "Podcast SFERA",
+   "hint": {
+    "tags": [
+     "architecture",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR arhitektura (3LHD, Dani arhitekture); dio epizoda na engleskom (SFERA Global). Uzorak: 27/63 ≥30 min, od toga 3 live (/streams), kratkih <10 min 22 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1740
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLNCweG78i4PyGTh1waPF3tAfYx9UNbzw1",
+   "channel_id": "UCM1JkPEF4Jc8GccDdY5XI9w",
+   "playlist_id": "PLNCweG78i4PyGTh1waPF3tAfYx9UNbzw1",
+   "name": "Podcast Izvan travnjaka (12. IGRAČ)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": {
+     "name": "12. IGRAČ",
+     "url": "https://www.youtube.com/channel/UCM1JkPEF4Jc8GccDdY5XI9w"
+    },
+    "evidence": "HR nogometni intervjui; ostatak kanala je Football Manager gameplay. Playlista: 22/24 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 960
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/videos",
+   "channel_id": "UCE5wmfVlNSVWjWcjxzKcODg",
+   "playlist_id": null,
+   "name": "Finax Savjetuje (Finax Croatia)",
+   "hint": {
+    "tags": [
+     "finance",
+     "geopolitics"
+    ],
+    "parent_channel": null,
+    "evidence": "Finax HR live emisije o tržištima, 48 streamova. Uzorak: 56/109 ≥30 min, od toga 48 live (/streams), kratkih <10 min 15 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCbKP-aQw9Mt6Vg0XM34-VGg/videos",
+   "channel_id": "UCbKP-aQw9Mt6Vg0XM34-VGg",
+   "playlist_id": null,
+   "name": "Radio#matura (HRT)",
+   "hint": {
+    "tags": [
+     "audio-drama",
+     "education",
+     "institutional"
+    ],
+    "parent_channel": null,
+    "evidence": "HRT radio-drame lektire za maturu (Glembajevi 1-5/5) — audio-drama niša; epizode ~32 min. Uzorak: 31/52 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 960
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCBRlEDoXFISodPLvTAcCdlg/videos",
+   "channel_id": "UCBRlEDoXFISodPLvTAcCdlg",
+   "playlist_id": null,
+   "name": "Podcast BURA",
+   "hint": {
+    "tags": [
+     "political",
+     "society",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR razgovori (Dujmović, ekologija, obrazovanje); 60/60 dugih, zadnji upload ~2025. Uzorak: 60/60 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0",
+   "channel_id": "UC9E5Dc0sdGAajZ7XT12ai1A",
+   "playlist_id": "PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0",
+   "name": "01Podcast (01Portal)",
+   "hint": {
+    "tags": [
+     "political",
+     "media"
+    ],
+    "parent_channel": {
+     "name": "01Portal",
+     "url": "https://www.youtube.com/channel/UC9E5Dc0sdGAajZ7XT12ai1A"
+    },
+    "evidence": "01Portal razgovori (Jonjić i dr.), 121 video. Playlista: 60/121 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLGeo9U3C2hxx2Z0W7-C_yrmBCEgWjbigD",
+   "channel_id": "UCiS-fovOPi9LCr_L8Mm-5SA",
+   "playlist_id": "PLGeo9U3C2hxx2Z0W7-C_yrmBCEgWjbigD",
+   "name": "biciklizam.net Podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "cycling"
+    ],
+    "parent_channel": {
+     "name": "biciklizam_net",
+     "url": "https://www.youtube.com/channel/UCiS-fovOPi9LCr_L8Mm-5SA"
+    },
+    "evidence": "HR biciklistički podcast (#18+). Playlista: 18/18 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCsMw7tfzbrK-Bhymi9bFfMw/videos",
+   "channel_id": "UCsMw7tfzbrK-Bhymi9bFfMw",
+   "playlist_id": null,
+   "name": "Mi ViDiMo",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "evangelization"
+    ],
+    "parent_channel": null,
+    "evidence": "HR katolički razgovori (don Luka Klarica); dio su Q&A isječci. Uzorak: 21/60 ≥30 min, kratkih <10 min 37 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1260
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCDFJMnJN5qecz4lv1mZ63rg/videos",
+   "channel_id": "UCDFJMnJN5qecz4lv1mZ63rg",
+   "playlist_id": null,
+   "name": "#KiloMetri (Katarina Moskatelo)",
+   "hint": {
+    "tags": [
+     "sport",
+     "running",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR trkački razgovori s gostima; mnogo kratkih videa. Uzorak: 34/60 ≥30 min, kratkih <10 min 43 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/videos",
+   "channel_id": "UC5G48syi8BJd0UqRkS08hVg",
+   "playlist_id": null,
+   "name": "Digitalna Kultura",
+   "hint": {
+    "tags": [
+     "technology",
+     "gaming",
+     "pop-culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR tech/gaming podcast, epizode 1-3 h; kanal mlad (41 video). Uzorak: 41/41 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCk2N0DjcMQgOilSMic09hQg/videos",
+   "channel_id": "UCk2N0DjcMQgOilSMic09hQg",
+   "playlist_id": null,
+   "name": "Vrisak.info",
+   "hint": {
+    "tags": [
+     "regional-media",
+     "diaspora",
+     "religious-catholic"
+    ],
+    "parent_channel": null,
+    "evidence": "Široki Brijeg portal, hrvatski jezik/publika u BiH (kao HercegovinaInfo). Uzorak: 32/60 ≥30 min, kratkih <10 min 28 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC0ECfyWEEYpD0bVa_dMqe5w/videos",
+   "channel_id": "UC0ECfyWEEYpD0bVa_dMqe5w",
+   "playlist_id": null,
+   "name": "SPD Privrednik (tribine)",
+   "hint": {
+    "tags": [
+     "minorities",
+     "culture",
+     "history",
+     "institutional"
+    ],
+    "parent_channel": null,
+    "evidence": "Srpsko privredno društvo u Zagrebu — tribine srpske manjine u HR, ijekavica/hrvatski kontekst; institucionalni format. Uzorak: 77/84 ≥30 min, od toga 24 live (/streams), kratkih <10 min 4 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLDmHAu-mNqKpjreAvN1G1xqcd8n5yij4A",
+   "channel_id": "UCvtOvAD2mxCtmpM-oIpgDNA",
+   "playlist_id": "PLDmHAu-mNqKpjreAvN1G1xqcd8n5yij4A",
+   "name": "Bauštelski podcast (bauštelaHR)",
+   "hint": {
+    "tags": [
+     "architecture",
+     "business"
+    ],
+    "parent_channel": {
+     "name": "bauštelaHR",
+     "url": "https://www.youtube.com/channel/UCvtOvAD2mxCtmpM-oIpgDNA"
+    },
+    "evidence": "HR graditeljstvo/arhitektura, #27+. Playlista: 27/34 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCL8IZuMhZG0Olk9BaRZVzwA/videos",
+   "channel_id": "UCL8IZuMhZG0Olk9BaRZVzwA",
+   "playlist_id": null,
+   "name": "HŽV Siempre",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "Hajdukov navijački podcast uživo, analize utakmica. Uzorak: 68/120 ≥30 min, od toga 60 live (/streams), kratkih <10 min 5 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos",
+   "channel_id": "UCaX8S5r4-h5C6VIzXWWLPRA",
+   "playlist_id": null,
+   "name": "pomalo too much (Marie Wasler)",
+   "hint": {
+    "tags": [
+     "personal-development",
+     "health",
+     "lifestyle"
+    ],
+    "parent_channel": null,
+    "evidence": "HR razgovorni podcast (terapija, mentalno zdravlje), 59/60 dugih. Uzorak: 59/60 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos",
+   "channel_id": "UCrekW01JOy-dPoTCJk2SYNQ",
+   "playlist_id": null,
+   "name": "Noći Bez Cenzure",
+   "hint": {
+    "tags": [
+     "relationships",
+     "lifestyle"
+    ],
+    "parent_channel": null,
+    "evidence": "HR podcast o seksualnosti/vezama, 25 numeriranih epizoda. Uzorak: 29/30 ≥30 min, od toga 4 live (/streams), kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCApQrl9RAycb8qgb6NhvBog/videos",
+   "channel_id": "UCApQrl9RAycb8qgb6NhvBog",
+   "playlist_id": null,
+   "name": "AUTOSCENA Podcast",
+   "hint": {
+    "tags": [
+     "motorsport",
+     "lifestyle"
+    ],
+    "parent_channel": null,
+    "evidence": "HR auto scena, podcast epizode + vlogovi (svaka epizoda vlastita playlista). Uzorak: 21/64 ≥30 min, od toga 4 live (/streams), kratkih <10 min 66 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 960
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCMUZ619OQG0Z2oYV00EMfGQ/videos",
+   "channel_id": "UCMUZ619OQG0Z2oYV00EMfGQ",
+   "playlist_id": null,
+   "name": "Rooftop TV",
+   "hint": {
+    "tags": [
+     "sport",
+     "comedy",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR produkcija (Igrač s klupe, Ljutih 9, Podcast 8_24 S02) — mreža više emisija. Uzorak: 37/60 ≥30 min, kratkih <10 min 20 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+   "playlist_id": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "name": "Matičin podcast (Matica hrvatska)",
+   "hint": {
+    "tags": [
+     "culture",
+     "books",
+     "institutional"
+    ],
+    "parent_channel": {
+     "name": "Matica hrvatska",
+     "url": "https://www.youtube.com/channel/UC1fC6msmjs8FfVN1u0bHZMg"
+    },
+    "evidence": "Podcast playlista institucije; kanal su uglavnom tribine. Playlista: 12/12 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC1fjzQ9-rMqLvbKPa1p-16A/videos",
+   "channel_id": "UC1fjzQ9-rMqLvbKPa1p-16A",
+   "playlist_id": null,
+   "name": "Koji faks upisati?",
+   "hint": {
+    "tags": [
+     "education"
+    ],
+    "parent_channel": null,
+    "evidence": "HR razgovori sa studentima po fakultetima (UNIZG), 17/17 dugih. Uzorak: 17/17 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCtTRM-loGOEQugE_CSaIcOg/videos",
+   "channel_id": "UCtTRM-loGOEQugE_CSaIcOg",
+   "playlist_id": null,
+   "name": "MIXER Room Podcast",
+   "hint": {
+    "tags": [
+     "music",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "Mixer.hr — razgovori s glazbenicima (Marčelo, Kurspahić). Uzorak: 41/60 ≥30 min, kratkih <10 min 5 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCa0iFqekHmAyAidAmhNVXCw/videos",
+   "channel_id": "UCa0iFqekHmAyAidAmhNVXCw",
+   "playlist_id": null,
+   "name": "Rampa Podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR skate/parkour/urbana scena, 43 epizode. Uzorak: 43/44 ≥30 min, kratkih <10 min 2 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1620
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_TdJ96rX8HESB_hwz2fQ9L-cMQBWTur_",
+   "channel_id": "UCoyTnbkCuGTMqO41_LNAZ8Q",
+   "playlist_id": "PL_TdJ96rX8HESB_hwz2fQ9L-cMQBWTur_",
+   "name": "Dokunet Podcast (Dokumentarni.net)",
+   "hint": {
+    "tags": [
+     "film",
+     "culture"
+    ],
+    "parent_channel": {
+     "name": "Dokumentarni.net",
+     "url": "https://www.youtube.com/channel/UCoyTnbkCuGTMqO41_LNAZ8Q"
+    },
+    "evidence": "HR dokumentarni film, razgovori s redateljima. Playlista: 13/14 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCC6yBUjYw86-AfTWl3Qmu7A/videos",
+   "channel_id": "UCC6yBUjYw86-AfTWl3Qmu7A",
+   "playlist_id": null,
+   "name": "Fortunal Podcast",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "business"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intervju-podcast, numerirane epizode, aktivan 2026. Uzorak: 13/18 ≥30 min, kratkih <10 min 22 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1080
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCKwFccXL5XHo1JEaryEuTdw/videos",
+   "channel_id": "UCKwFccXL5XHo1JEaryEuTdw",
+   "playlist_id": null,
+   "name": "Filmovi s Ruba",
+   "hint": {
+    "tags": [
+     "film",
+     "pop-culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR filmski podcast (mjesečni filmski pregled), 52/60 dugih; neredovit. Uzorak: 52/60 ≥30 min, kratkih <10 min 2 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1320
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn",
+   "channel_id": "UC0q-eC0mM3t_nUME5IcIdfA",
+   "playlist_id": "PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn",
+   "name": "CROfutsal Podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "futsal"
+    ],
+    "parent_channel": {
+     "name": "Crofutsal",
+     "url": "https://www.youtube.com/channel/UC0q-eC0mM3t_nUME5IcIdfA"
+    },
+    "evidence": "HR futsal podcast (s Megamix Radio Hvar). Playlista: 17/19 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 900
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCO85nGVn0UdiCw9o63pkRZQ/videos",
+   "channel_id": "UCO85nGVn0UdiCw9o63pkRZQ",
+   "playlist_id": null,
+   "name": "DAZ podcast (Društvo arhitekata Zagreba)",
+   "hint": {
+    "tags": [
+     "architecture",
+     "culture",
+     "institutional"
+    ],
+    "parent_channel": null,
+    "evidence": "PP # epizode s arhitektima (Mrduljaš, Benić). Uzorak: 35/67 ≥30 min, od toga 7 live (/streams), kratkih <10 min 25 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCyBHS55I0ShoKNaCBD8HqdQ/videos",
+   "channel_id": "UCyBHS55I0ShoKNaCBD8HqdQ",
+   "playlist_id": null,
+   "name": "Antonio Šarić podcast",
+   "hint": {
+    "tags": [
+     "film",
+     "music",
+     "pop-culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR podcast o filmu/glazbi, 123 epizode. Uzorak: 54/60 ≥30 min, kratkih <10 min 2 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCL9ioGbtodKRv8lwad7g8mA/videos",
+   "channel_id": "UCL9ioGbtodKRv8lwad7g8mA",
+   "playlist_id": null,
+   "name": "Off Topic podcast (HRT)",
+   "hint": {
+    "tags": [
+     "culture",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HRT mladi podcast, aktivan 2026; dio isječaka. Uzorak: 10/29 ≥30 min, kratkih <10 min 62 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCgqGjw2FvGg4PyUJE3NHZKA/videos",
+   "channel_id": "UCgqGjw2FvGg4PyUJE3NHZKA",
+   "playlist_id": null,
+   "name": "StudentskiHR TV",
+   "hint": {
+    "tags": [
+     "education",
+     "media"
+    ],
+    "parent_channel": null,
+    "evidence": "Studentski.hr razgovori o studiju/karijeri, 44/60 dugih. Uzorak: 45/61 ≥30 min, od toga 1 live (/streams), kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1380
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR",
+   "channel_id": "UCJyQ5SzpHCcTbw1RvcsHBfA",
+   "playlist_id": "PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR",
+   "name": "Rad po mjeri čovjeka (SSSH)",
+   "hint": {
+    "tags": [
+     "labour",
+     "political-left",
+     "society"
+    ],
+    "parent_channel": {
+     "name": "Savez samostalnih sindikata Hrvatske - SSSH",
+     "url": "https://www.youtube.com/channel/UCJyQ5SzpHCcTbw1RvcsHBfA"
+    },
+    "evidence": "Sindikalni podcast SSSH, EP41 — lijeva/radnička niša. Playlista: 33/41 ≥30 min.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1080
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCEOOgydHzPNZYyt5MRqpARg/videos",
+   "channel_id": "UCEOOgydHzPNZYyt5MRqpARg",
+   "playlist_id": null,
+   "name": "MIOC podcast",
+   "hint": {
+    "tags": [
+     "education",
+     "science"
+    ],
+    "parent_channel": null,
+    "evidence": "Alumni XV. gimnazije, sezonski (S4). Uzorak: 20/45 ≥30 min, kratkih <10 min 40 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1560
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCMoVHXVRIh4ZbSB9yFbqS6A/videos",
+   "channel_id": "UCMoVHXVRIh4ZbSB9yFbqS6A",
+   "playlist_id": null,
+   "name": "Politološki podkast (HPD)",
+   "hint": {
+    "tags": [
+     "political",
+     "science",
+     "institutional"
+    ],
+    "parent_channel": null,
+    "evidence": "Hrvatsko politološko društvo, 24/26 dugih. Uzorak: 24/26 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCGwf4Fx9u72inqSnvJMzHiA/videos",
+   "channel_id": "UCGwf4Fx9u72inqSnvJMzHiA",
+   "playlist_id": null,
+   "name": "Čitanje i Predrasude",
+   "hint": {
+    "tags": [
+     "books",
+     "philosophy"
+    ],
+    "parent_channel": null,
+    "evidence": "HR podcast o klasicima (Ilijada, Odiseja), ~35 min, mlad kanal. Uzorak: 15/30 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1740
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC081faKTKatWEEMrPtyE_Og/videos",
+   "channel_id": "UC081faKTKatWEEMrPtyE_Og",
+   "playlist_id": null,
+   "name": "poslovniFM",
+   "hint": {
+    "tags": [
+     "business",
+     "media"
+    ],
+    "parent_channel": null,
+    "evidence": "HR poslovni radio/podcast; dupli uploadi (isti naslov kraći+dulji). Uzorak: 32/60 ≥30 min, kratkih <10 min 35 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCidqZjlsOsUSw5T2jf9F27A/videos",
+   "channel_id": "UCidqZjlsOsUSw5T2jf9F27A",
+   "playlist_id": null,
+   "name": "Mijenjam ciglu za ovcu",
+   "hint": {
+    "tags": [
+     "gaming",
+     "board-games"
+    ],
+    "parent_channel": null,
+    "evidence": "HR podcast o društvenim igrama, 6 sezona. Uzorak: 41/43 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCPLw4crqVFAUx98oIGXekug/videos",
+   "channel_id": "UCPLw4crqVFAUx98oIGXekug",
+   "playlist_id": null,
+   "name": "Game Changers (Ivan Šafranić)",
+   "hint": {
+    "tags": [
+     "business",
+     "personal-development"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intervju-podcast, 13/16 dugih. Uzorak: 13/16 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1440
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC_ceo_aYfQpg3-WxVUSabMA/videos",
+   "channel_id": "UC_ceo_aYfQpg3-WxVUSabMA",
+   "playlist_id": null,
+   "name": "BIG PODCAST (Debela Barbara)",
+   "hint": {
+    "tags": [
+     "lifestyle",
+     "women",
+     "comedy"
+    ],
+    "parent_channel": null,
+    "evidence": "HR influencerski podcast, 20 epizoda, neaktivan od ~2023. Uzorak: 16/60 ≥30 min, kratkih <10 min 3 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1620
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC9E5DkcSknr4eN5DISCB3Mg/videos",
+   "channel_id": "UC9E5DkcSknr4eN5DISCB3Mg",
+   "playlist_id": null,
+   "name": "SK PODCAST (Sportklub Hrvatska)",
+   "hint": {
+    "tags": [
+     "sport",
+     "tennis",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "SK PODCAST epizode 50-60 min (tenis, rukomet, šah, boks) ali /videos je 60/60 isječaka i nema podcast playliste; registry već ima 'sportklub-podcast' playlistu s regionalnog Sport Kluba — provjeriti preklapanje. Uzorak: 0/60 ≥30 min, kratkih <10 min 83 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCqilHAq6O5zdP1L5ptUHomA/videos",
+   "channel_id": "UCqilHAq6O5zdP1L5ptUHomA",
+   "playlist_id": null,
+   "name": "SkriptaTV",
+   "hint": {
+    "tags": [
+     "political-left",
+     "education",
+     "society"
+    ],
+    "parent_channel": null,
+    "evidence": "Zagrebačka lijeva platforma: predavanja/intervjui, ne klasični podcast. Uzorak: 57/60 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1320
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCjfDbSSejqVHixpoz8uyqTA/videos",
+   "channel_id": "UCjfDbSSejqVHixpoz8uyqTA",
+   "playlist_id": null,
+   "name": "Mate Mijić (Reakcija)",
+   "hint": {
+    "tags": [
+     "political",
+     "geopolitics"
+    ],
+    "parent_channel": null,
+    "evidence": "HR politički razgovori s gostima, neaktivan od ~2021. Uzorak: 22/60 ≥30 min, kratkih <10 min 27 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1620
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCG2iMPiH6Pzetmmv6Ypdv6Q/videos",
+   "channel_id": "UCG2iMPiH6Pzetmmv6Ypdv6Q",
+   "playlist_id": null,
+   "name": "Odgoj s Tanjom (Tanja Hrvatin Šimičić)",
+   "hint": {
+    "tags": [
+     "parenting",
+     "health"
+    ],
+    "parent_channel": null,
+    "evidence": "HR roditeljstvo; miješano s Instagram live snimkama. Uzorak: 8/32 ≥30 min, kratkih <10 min 16 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+   "channel_id": "UCscjLbM3jyyygjuVKMFQXUg",
+   "playlist_id": "PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+   "name": "MBZ Podcast (Music Biennale Zagreb)",
+   "hint": {
+    "tags": [
+     "music",
+     "culture",
+     "institutional"
+    ],
+    "parent_channel": {
+     "name": "MusicBiennaleZagreb",
+     "url": "https://www.youtube.com/channel/UCscjLbM3jyyygjuVKMFQXUg"
+    },
+    "evidence": "7 epizoda. Playlista: 7/7 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UClj-HayWteW-QLOdNY87jMQ/videos",
+   "channel_id": "UClj-HayWteW-QLOdNY87jMQ",
+   "playlist_id": null,
+   "name": "Podcast Tau Studio (Čapljina)",
+   "hint": {
+    "tags": [
+     "regional-media",
+     "diaspora",
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR (BiH) lokalni studio, podcast S1/S2 playliste, uglavnom live. Uzorak: 62/120 ≥30 min, od toga 58 live (/streams), kratkih <10 min 33 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1560
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvIig2IXzBexi_HXd01mDcQ/videos",
+   "channel_id": "UCvIig2IXzBexi_HXd01mDcQ",
+   "playlist_id": null,
+   "name": "Ljudovanje (Veselin Gatalo)",
+   "hint": {
+    "tags": [
+     "political",
+     "culture",
+     "diaspora"
+    ],
+    "parent_channel": null,
+    "evidence": "Hercegovački HR razgovori (Raspudić, Raguž); neaktivno od ~2022. Uzorak: 31/61 ≥30 min, od toga 1 live (/streams), kratkih <10 min 39 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1440
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZjNpNK55Xrab3D439N7AIn58Z9EZYtDw",
+   "channel_id": "UC_kJ0_FMtKy-1iHLOsKCZNg",
+   "playlist_id": "PLZjNpNK55Xrab3D439N7AIn58Z9EZYtDw",
+   "name": "Journal Unfiltered (journal.hr)",
+   "hint": {
+    "tags": [
+     "lifestyle",
+     "women",
+     "talk-show"
+    ],
+    "parent_channel": {
+     "name": "journalhr",
+     "url": "https://www.youtube.com/channel/UC_kJ0_FMtKy-1iHLOsKCZNg"
+    },
+    "evidence": "Journal.hr intervju serija; postoji i druga 'JOURNAL UNFILTERED' playlista (PLZjNpNK55XraFkvEvsh7oeSpm5I9JBxEv). Playlista: 12/12 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCV6nc4qEigMeM6mwQU6OAdA/videos",
+   "channel_id": "UCV6nc4qEigMeM6mwQU6OAdA",
+   "playlist_id": null,
+   "name": "Cycling Side",
+   "hint": {
+    "tags": [
+     "sport",
+     "cycling"
+    ],
+    "parent_channel": null,
+    "evidence": "HR biciklistički podcast, dio na engleskom. Uzorak: 20/62 ≥30 min, od toga 2 live (/streams), kratkih <10 min 37 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCpQtJl6aa7V2hdt87c3BDAQ/videos",
+   "channel_id": "UCpQtJl6aa7V2hdt87c3BDAQ",
+   "playlist_id": null,
+   "name": "FraMiKo (Frama Kočerin)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "franciscan",
+     "diaspora"
+    ],
+    "parent_channel": null,
+    "evidence": "Hercegovačka franjevačka mladež, sezonski podcast; miješano s događanjima. Uzorak: 17/35 ≥30 min, od toga 1 live (/streams), kratkih <10 min 43 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 720
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCxHPp2RH_zf0sGqkVE3QNdA/videos",
+   "channel_id": "UCxHPp2RH_zf0sGqkVE3QNdA",
+   "playlist_id": null,
+   "name": "Zidić (Puba77)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "Hajduk navijačke live emisije. Uzorak: 60/61 ≥30 min, od toga 60 live (/streams), kratkih <10 min 2 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC9f1kbP5ZqP8HTTwngqoPng/videos",
+   "channel_id": "UC9f1kbP5ZqP8HTTwngqoPng",
+   "playlist_id": null,
+   "name": "BizCasting",
+   "hint": {
+    "tags": [
+     "business",
+     "entrepreneurship"
+    ],
+    "parent_channel": null,
+    "evidence": "HR poslovni intervjui, 24/24 dugih, neaktivan od ~2020. Uzorak: 24/24 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC6ZlZrsPw_RnEc17U5kP8KA/videos",
+   "channel_id": "UC6ZlZrsPw_RnEc17U5kP8KA",
+   "playlist_id": null,
+   "name": "Super7 podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "HR nogometni podcast (HNL, Hajduk), neaktivan od ~2023. Uzorak: 37/60 ≥30 min, kratkih <10 min 28 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 660
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxQ_LCGoYKHv5OuPF6E0IDJpqZGKwsXVf",
+   "channel_id": "UCdqAwEqcoqyq12sB8RgTmVA",
+   "playlist_id": "PLxQ_LCGoYKHv5OuPF6E0IDJpqZGKwsXVf",
+   "name": "Na entu s Marijem Petrekovićem (Allianz)",
+   "hint": {
+    "tags": [
+     "sport",
+     "talk-show"
+    ],
+    "parent_channel": {
+     "name": "Allianz Hrvatska",
+     "url": "https://www.youtube.com/channel/UCdqAwEqcoqyq12sB8RgTmVA"
+    },
+    "evidence": "Korporativni sportski podcast, 9 epizoda. Playlista: 8/9 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1020
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLOUmVFmEH-PEvmeQBtYSBIg8su3BbnvxT",
+   "channel_id": "UCxM5VIs6ZAoGuOLndNqaJdQ",
+   "playlist_id": "PLOUmVFmEH-PEvmeQBtYSBIg8su3BbnvxT",
+   "name": "Arheocast (MHAS Split)",
+   "hint": {
+    "tags": [
+     "history",
+     "science",
+     "institutional"
+    ],
+    "parent_channel": {
+     "name": "Muzej hrvatskih arheoloških spomenika",
+     "url": "https://www.youtube.com/channel/UCxM5VIs6ZAoGuOLndNqaJdQ"
+    },
+    "evidence": "Muzej hrvatskih arheoloških spomenika. Playlista: 8/11 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1020
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCOQio6Dv9maeq0vrWWQ6X6g/videos",
+   "channel_id": "UCOQio6Dv9maeq0vrWWQ6X6g",
+   "playlist_id": null,
+   "name": "I ja sam sportaš",
+   "hint": {
+    "tags": [
+     "sport"
+    ],
+    "parent_channel": null,
+    "evidence": "HR mladi sportaši, 44 epizode, 2020. Uzorak: 18/60 ≥30 min, kratkih <10 min 57 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1320
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCCHSHlWJbZSB__9RcXBSmJQ/videos",
+   "channel_id": "UCCHSHlWJbZSB__9RcXBSmJQ",
+   "playlist_id": null,
+   "name": "Open Talk Podcast",
+   "hint": {
+    "tags": [
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intervju-podcast (Matej Marković, Borna Butijer), neaktivan od ~2024. Uzorak: 27/32 ≥30 min, kratkih <10 min 16 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1380
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCFADudZZSnC1LfC_rzhqYcA/videos",
+   "channel_id": "UCFADudZZSnC1LfC_rzhqYcA",
+   "playlist_id": null,
+   "name": "Oslobođenje životinja",
+   "hint": {
+    "tags": [
+     "ecology",
+     "advocacy"
+    ],
+    "parent_channel": null,
+    "evidence": "HR aktivistički razgovori o pravima životinja; neredovit. Uzorak: 23/60 ≥30 min, kratkih <10 min 42 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCdkT57fx7OJS_P06-b23_9g/videos",
+   "channel_id": "UCdkT57fx7OJS_P06-b23_9g",
+   "playlist_id": null,
+   "name": "Zmajeva Garaža",
+   "hint": {
+    "tags": [
+     "audio-drama",
+     "gaming"
+    ],
+    "parent_channel": null,
+    "evidence": "D&D actual-play na hrvatskom — najbliže audio-drami. Uzorak: 30/64 ≥30 min, od toga 1 live (/streams), kratkih <10 min 38 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1680
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC4c2_PYMd0uUKY8TexW5K7Q/videos",
+   "channel_id": "UC4c2_PYMd0uUKY8TexW5K7Q",
+   "playlist_id": null,
+   "name": "Podcast Bog i Hrvati",
+   "hint": {
+    "tags": [
+     "political",
+     "history",
+     "domoljubni"
+    ],
+    "parent_channel": null,
+    "evidence": "HR pravaški/povijesni sadržaj, dio su snimke skupova. Uzorak: 10/15 ≥30 min, kratkih <10 min 27 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCP3M0l-2weQBohmr6EqiC6g/videos",
+   "channel_id": "UCP3M0l-2weQBohmr6EqiC6g",
+   "playlist_id": null,
+   "name": "Bokun Neba",
+   "hint": {
+    "tags": [
+     "relationships",
+     "religious-catholic"
+    ],
+    "parent_channel": null,
+    "evidence": "HR brak/obitelj razgovori, epizode ~25-30 min. Uzorak: 14/60 ≥30 min, kratkih <10 min 28 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLfwAwo8i6BJxv_uw7W5b0fg6WTmYmOoWU",
+   "channel_id": "UCjK5sMB18p-FBL24T2bODpg",
+   "playlist_id": "PLfwAwo8i6BJxv_uw7W5b0fg6WTmYmOoWU",
+   "name": "Press Play Podcast (KING ICT)",
+   "hint": {
+    "tags": [
+     "technology",
+     "business"
+    ],
+    "parent_channel": {
+     "name": "KING ICT",
+     "url": "https://www.youtube.com/channel/UCjK5sMB18p-FBL24T2bODpg"
+    },
+    "evidence": "Korporativni IT podcast. Playlista: 3/15 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCB0AOqZ0AJF2I2LOE2J0hCg/videos",
+   "channel_id": "UCB0AOqZ0AJF2I2LOE2J0hCg",
+   "playlist_id": null,
+   "name": "Psihološki podcast (Psihološki Prostor)",
+   "hint": {
+    "tags": [
+     "health",
+     "science"
+    ],
+    "parent_channel": null,
+    "evidence": "HR, 9 epizoda, 2021. Uzorak: 7/18 ≥30 min, kratkih <10 min 44 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvBxYFmUPHpETuTNNlhGToA/videos",
+   "channel_id": "UCvBxYFmUPHpETuTNNlhGToA",
+   "playlist_id": null,
+   "name": "Kognitivna Muza",
+   "hint": {
+    "tags": [
+     "relationships",
+     "health"
+    ],
+    "parent_channel": null,
+    "evidence": "HR psihologija veza, 11 videa. Uzorak: 6/11 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1560
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC_-VJy3S7ziEZK686hxzomg/videos",
+   "channel_id": "UC_-VJy3S7ziEZK686hxzomg",
+   "playlist_id": null,
+   "name": "Relax Room Podcast",
+   "hint": {
+    "tags": [
+     "technology",
+     "business"
+    ],
+    "parent_channel": null,
+    "evidence": "HR IT intervjui (Infinum, SeekandHit), neaktivan od ~2023. Uzorak: 17/25 ≥30 min, kratkih <10 min 24 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 780
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCG5nO6uUX2k-kJawutF_Wkw/videos",
+   "channel_id": "UCG5nO6uUX2k-kJawutF_Wkw",
+   "playlist_id": null,
+   "name": "Šestica (Sportcast)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "HR nogometni podcast, neaktivan od 2023; kanal danas objavljuje spam (crypto). Uzorak: 47/78 ≥30 min, od toga 17 live (/streams), kratkih <10 min 6 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ/videos",
+   "channel_id": "UCFX4Srv6SEU3Oa7bQtT8FqQ",
+   "playlist_id": null,
+   "name": "Vrijeme za zdravlje s Doktorom za srce",
+   "hint": {
+    "tags": [
+     "health",
+     "medicine"
+    ],
+    "parent_channel": null,
+    "evidence": "HR kardiolog, 7/10 dugih, ~34 min. Uzorak: 7/10 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1260
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCmNlgTqn0BD2FdFSVuaVWxw/videos",
+   "channel_id": "UCmNlgTqn0BD2FdFSVuaVWxw",
+   "playlist_id": null,
+   "name": "Liberalni podcast",
+   "hint": {
+    "tags": [
+     "political",
+     "political-liberal",
+     "economics"
+    ],
+    "parent_channel": null,
+    "evidence": "HR liberalni podcast (60+ epizoda), neaktivan od ~2021 — rijetka niša. Uzorak: 21/60 ≥30 min, kratkih <10 min 47 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCnTnTM4s4BvBEO5wOBY_lsg/videos",
+   "channel_id": "UCnTnTM4s4BvBEO5wOBY_lsg",
+   "playlist_id": null,
+   "name": "Industry Talks",
+   "hint": {
+    "tags": [
+     "business",
+     "technology"
+    ],
+    "parent_channel": null,
+    "evidence": "HR industrijski intervjui, 13/17, neaktivan. Uzorak: 13/17 ≥30 min, kratkih <10 min 18 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCptUiwBhO4MfBPiVolHEgkw/videos",
+   "channel_id": "UCptUiwBhO4MfBPiVolHEgkw",
+   "playlist_id": null,
+   "name": "Pričajmo o novcu (Antešić)",
+   "hint": {
+    "tags": [
+     "finance",
+     "crypto"
+    ],
+    "parent_channel": null,
+    "evidence": "HR financije/kripto, 15/15 dugih, neaktivan od ~2024. Uzorak: 15/15 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCCojuuthVe0k51qzsbjd74g/videos",
+   "channel_id": "UCCojuuthVe0k51qzsbjd74g",
+   "playlist_id": null,
+   "name": "Sportologija",
+   "hint": {
+    "tags": [
+     "sport"
+    ],
+    "parent_channel": null,
+    "evidence": "HR NFL podcast; noviji videi kratki, duge epizode starije. Uzorak: 49/60 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCgJeoVM0zU50pjnqblKYqVg/videos",
+   "channel_id": "UCgJeoVM0zU50pjnqblKYqVg",
+   "playlist_id": null,
+   "name": "Designed & Developed (Bornfight)",
+   "hint": {
+    "tags": [
+     "technology",
+     "business"
+    ],
+    "parent_channel": null,
+    "evidence": "HR agencija, dio na engleskom; neaktivan. Uzorak: 33/39 ≥30 min, od toga 5 live (/streams), kratkih <10 min 10 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1020
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCMCDaQAhNyp8Ok4aGZZcZbw/videos",
+   "channel_id": "UCMCDaQAhNyp8Ok4aGZZcZbw",
+   "playlist_id": null,
+   "name": "Podcast M.P.Broadcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "cycling"
+    ],
+    "parent_channel": null,
+    "evidence": "HR biciklistički podcast, 8/9 dugih, 2022. Uzorak: 8/9 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1620
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/videos",
+   "channel_id": "UC_m1oUYrvCWDmGJRM3TYLpQ",
+   "playlist_id": null,
+   "name": "Tech Ćakula (IT zajednica Rijeka)",
+   "hint": {
+    "tags": [
+     "technology",
+     "regional"
+    ],
+    "parent_channel": null,
+    "evidence": "Riječka IT zajednica, 32 epizode uživo. Uzorak: 63/120 ≥30 min, od toga 56 live (/streams), kratkih <10 min 42 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1260
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCscO0WUb_c0L8XcwluMMHXQ/videos",
+   "channel_id": "UCscO0WUb_c0L8XcwluMMHXQ",
+   "playlist_id": null,
+   "name": "Baucast (Creato)",
+   "hint": {
+    "tags": [
+     "architecture",
+     "business"
+    ],
+    "parent_channel": null,
+    "evidence": "Novi HR podcast o gradnji (2026), 3 epizode. Uzorak: 3/4 ≥30 min, kratkih <10 min 25 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1620
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCDKOJTMbFsfkWPlzuchzR_A/videos",
+   "channel_id": "UCDKOJTMbFsfkWPlzuchzR_A",
+   "playlist_id": null,
+   "name": "Kulen Travel Podcast",
+   "hint": {
+    "tags": [
+     "travel",
+     "regional",
+     "agriculture"
+    ],
+    "parent_channel": null,
+    "evidence": "Slavonski turizam/OPG razgovori, 9 epizoda, 2022. Uzorak: 9/19 ≥30 min, kratkih <10 min 53 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1680
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCtNUrUgDlId2UecrM1bgATw/videos",
+   "channel_id": "UCtNUrUgDlId2UecrM1bgATw",
+   "playlist_id": null,
+   "name": "Čuješ Podcast",
+   "hint": {
+    "tags": [
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR, 8 epizoda, neaktivan. Uzorak: 7/8 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVzNvZ-SzIzB6IBScP0oLQdtP1Zw60FXg",
+   "channel_id": "UCAyLROfSvW2TtxIAjm1tgkw",
+   "playlist_id": "PLVzNvZ-SzIzB6IBScP0oLQdtP1Zw60FXg",
+   "name": "Glas HAZU",
+   "hint": {
+    "tags": [
+     "science",
+     "culture",
+     "institutional"
+    ],
+    "parent_channel": {
+     "name": "Glas HAZU",
+     "url": "https://www.youtube.com/channel/UCAyLROfSvW2TtxIAjm1tgkw"
+    },
+    "evidence": "HAZU podcast s akademicima. Playlista: 4/32 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1740
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCJlHoOAaOzZAvNnp-qS1Mkg/videos",
+   "channel_id": "UCJlHoOAaOzZAvNnp-qS1Mkg",
+   "playlist_id": null,
+   "name": "Šah u Hrvatskoj",
+   "hint": {
+    "tags": [
+     "sport",
+     "chess"
+    ],
+    "parent_channel": null,
+    "evidence": "HR šahovski komentari (HŠS afere) — jedini šahovski razgovorni nalaz. Uzorak: 9/32 ≥30 min, kratkih <10 min 63 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1380
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvFnB9iD6WBXf8RAkAUDkxQ/videos",
+   "channel_id": "UCvFnB9iD6WBXf8RAkAUDkxQ",
+   "playlist_id": null,
+   "name": "YanTodor Podcast",
+   "hint": {
+    "tags": [
+     "talk-show"
+    ],
+    "parent_channel": null,
+    "evidence": "HR podcast, 13/13 dugih, neaktivan. Uzorak: 13/13 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCn28OP_AoqEkiRiXRFrPZfw/videos",
+   "channel_id": "UCn28OP_AoqEkiRiXRFrPZfw",
+   "playlist_id": null,
+   "name": "Podcast portala Tjedno",
+   "hint": {
+    "tags": [
+     "culture",
+     "political"
+    ],
+    "parent_channel": null,
+    "evidence": "HR intelektualni razgovori (Alić, Bauer). Uzorak: 17/19 ≥30 min, kratkih <10 min 11 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1440
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCC6xpusfaTTvwY0dXPzC89A/videos",
+   "channel_id": "UCC6xpusfaTTvwY0dXPzC89A",
+   "playlist_id": null,
+   "name": "HPD — organizacijska psihologija",
+   "hint": {
+    "tags": [
+     "science",
+     "business",
+     "institutional"
+    ],
+    "parent_channel": null,
+    "evidence": "Hrvatsko psihološko društvo, 12 epizoda. Uzorak: 17/17 ≥30 min, od toga 5 live (/streams), kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
+   "channel_id": "UCoHhMJgd9ZTXIUdy1c2Mi-w",
+   "playlist_id": "PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
+   "name": "Push Pauza Podcast (S4S TV)",
+   "hint": {
+    "tags": [
+     "culture",
+     "music",
+     "sport"
+    ],
+    "parent_channel": {
+     "name": "S4S TV",
+     "url": "https://www.youtube.com/channel/UCoHhMJgd9ZTXIUdy1c2Mi-w"
+    },
+    "evidence": "Studentski podcast (Split). Playlista: 7/27 ≥30 min.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1320
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCMH5bKytb0jmkpO-hz6s6Ag/videos",
+   "channel_id": "UCMH5bKytb0jmkpO-hz6s6Ag",
+   "playlist_id": null,
+   "name": "Vinska karantena (Croatian Sommelier Adventures)",
+   "hint": {
+    "tags": [
+     "food",
+     "wine",
+     "business"
+    ],
+    "parent_channel": null,
+    "evidence": "HR razgovori s vinarima, 58 epizoda, 2020. Uzorak: 58/60 ≥30 min, kratkih <10 min 3 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1140
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UC4n_wwto0bJALR4DIDzbKGg/videos",
+   "channel_id": "UC4n_wwto0bJALR4DIDzbKGg",
+   "playlist_id": null,
+   "name": "Zona Filma // Strujanja",
+   "hint": {
+    "tags": [
+     "film",
+     "culture"
+    ],
+    "parent_channel": null,
+    "evidence": "HR filmski podcast s festivala (Dani hrvatskog filma). Uzorak: 12/28 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCa9-8ruCWZSoOgdtEmq1Wcw/videos",
+   "channel_id": "UCa9-8ruCWZSoOgdtEmq1Wcw",
+   "playlist_id": null,
+   "name": "Podcast Žuta Loptica",
+   "hint": {
+    "tags": [
+     "sport",
+     "tennis"
+    ],
+    "parent_channel": null,
+    "evidence": "HR teniski podcast, 5 epizoda, 2021. Uzorak: 4/5 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCmberHv5QM7GlFAqaIwRVCA/videos",
+   "channel_id": "UCmberHv5QM7GlFAqaIwRVCA",
+   "playlist_id": null,
+   "name": "hrsport.hr podcast",
+   "hint": {
+    "tags": [
+     "sport"
+    ],
+    "parent_channel": null,
+    "evidence": "HR sportski intervjui (Balog, Cvitanović), 27/28, 2021. Uzorak: 27/28 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1140
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCAgSVmmEQGi8eDkFEd-ADiw/videos",
+   "channel_id": "UCAgSVmmEQGi8eDkFEd-ADiw",
+   "playlist_id": null,
+   "name": "Podkast Sabotaža",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "parent_channel": null,
+    "evidence": "Novi HR podcast (2026), 5 epizoda. Uzorak: 5/5 ≥30 min, kratkih <10 min 0 %.",
+    "confidence": "low",
+    "suggested_min_duration_sec": 1200
+   }
+  }
+ ]
+}

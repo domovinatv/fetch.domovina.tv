@@ -1,0 +1,441 @@
+{
+ "key": "UCeWCEEFMoRUkhN13ZdqjQ5A",
+ "url": "https://www.youtube.com/channel/UCeWCEEFMoRUkhN13ZdqjQ5A/videos",
+ "channel_id": "UCeWCEEFMoRUkhN13ZdqjQ5A",
+ "playlist_id": null,
+ "title": "Basketball.hr - Videos",
+ "channel": "Basketball.hr",
+ "channel_url": "https://www.youtube.com/channel/UCeWCEEFMoRUkhN13ZdqjQ5A",
+ "description": "Hrvatski nacionalni košarkaški portal. Početak rada 17. svibnja 2017. godine.",
+ "follower_count": 395,
+ "streams_count": 1,
+ "videos": [
+  {
+   "id": "J1enLJxgwJY",
+   "title": "Šime Kumanović - čovjek koji 365 dana u godini živi košarku",
+   "duration": 1016,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "qXUil_92hp0",
+   "title": "Ivan Vrgoč - hrvatski 3x3 reprezentativac, najava FIBA 3×3 World Tour Zadar",
+   "duration": 17,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "TCyR5-4qbys",
+   "title": "FIBA 3X3 World Tour Zadar 2026, najavna konferencija, kadrovi",
+   "duration": 42,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "AUXmsI2te78",
+   "title": "FIBA 3X3 World Tour Zadar 2026, najavna konferencija",
+   "duration": 42,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "EFWX3IW7wpQ",
+   "title": "FIBA 3×3 World Tour Zadar  - izjava Šime Erlić, gradonačelnik Zadra",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "IPiH0KFuJy8",
+   "title": "KK Zabok - soba u kojoj se čuvaju uspomene i tajne",
+   "duration": 182,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "sKCN-Pfz9AE",
+   "title": "Jeronimo Šarin   intervju Basketball hr",
+   "duration": 291,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "IpARgLlWfts",
+   "title": "Croatia Basketball Camp - Ante Samac, trener na kampu - KK Zagreb",
+   "duration": 581,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "234IH6opKJ0",
+   "title": "Sportski direktor KK Zabok Dragutin Črnjević: Hrvatskoj košarci predstoji igrački stečaj",
+   "duration": 882,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ybcpGzhlPn0",
+   "title": "Petar Pero Dujmović ili jednostavno Pepi najavljuje novosti na Croatia Basketball Campu",
+   "duration": 599,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "CqYtUGlHQOs",
+   "title": "Ovako je Shannon Shorter proslavio pobjedu Splita protiv Zadra u četvrtfinalu Kupa Krešimir Ćosić",
+   "duration": 26,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "je_-REcHcyo",
+   "title": "Intervju Danijel Jusup - trener KK Zadar nakon završene sezone 2022/23 ekskluzivno za Basketball.hr",
+   "duration": 2647,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "rtezqrir6i4",
+   "title": "Krešimir Butić - inicijator Muzeja zadarske košarke",
+   "duration": 1050,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Shxbv3cAb0w",
+   "title": "Izložba povodom 73. rođendana Krešimira Ćosića",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "6QI2oqtVx0k",
+   "title": "Zadarska košarkaška obitelj za Darka Frakina - Video Maks Kovačević",
+   "duration": 299,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "HTAzD59Peg0",
+   "title": "Antonio Jordano - šuterski trening",
+   "duration": 75,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "O4yG3b55EAA",
+   "title": "Šibenka - Cibona 73:68, slavlje igrača Šibenke - 20.02.2021.",
+   "duration": 52,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "FZHCoBKkLww",
+   "title": "Mario Kasun \"poster\" dunk on KG",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "wc6r98s5gfY",
+   "title": "Giuseppe Giergia dominira i u 83.  - Zadar Masters 2020",
+   "duration": 85,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "ZSbLPoDcm6c",
+   "title": "KK Zadar - Pobjednik Kupa Krešimira Ćosića 2020",
+   "duration": 388,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "4JwZdJOjG2E",
+   "title": "Najava kvalifikacijskog turnira za Olimpijske igre - Josip Vranković, Stojko Vranković, Veljko Mršić",
+   "duration": 367,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "VGJ_MB8X310",
+   "title": "Bashir Ahmed nakon osvajanja Kupa Krešimira Ćosića",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "40-ah93WOLc",
+   "title": "Jan Palokaj nakon osvojenog Kupa Krešimira Ćosića",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "z5xsidAAoWA",
+   "title": "Domagoj Vuković nakon osvojenog Kupa Krešimira Ćosića 2020",
+   "duration": 83,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "y9rCdP72dos",
+   "title": "Stefan Fundić nakon osvojenog Kupa Krešimira Ćosića",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "7YARg01fJww",
+   "title": "Kladioničarski skandal u austrijskoj košarci",
+   "duration": 188,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "6j2tFesfdvs",
+   "title": "Slavlje košarkaša Zadra nakon pobjede nad Cibonom",
+   "duration": 143,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "HeeuWLcwIaI",
+   "title": "Hrvoje Vučić poveo zajedničko skandiranje igrača Alkara i Maligana u Jazinama",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "j0nxv7BL6sw",
+   "title": "Asistencija ili šut - Daniel Vujasinović plus neobični ubačaj Darka Baje",
+   "duration": 13,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "CSxbL0WAhlk",
+   "title": "ABA 2 liga: Split - Borac 74:76 - Je li Đoković faulirao Morrisa?",
+   "duration": 10,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "cjEhBCPt_JU",
+   "title": "Šesnaestogodišnja Katia Nekić iz ŽKK Zadar pogađa tricu s centra",
+   "duration": 14,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "6jWQO2qmSXM",
+   "title": "Budućnost Dalmacije - turnir za mlađe kadete",
+   "duration": 55,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "6TtLxxJWdc8",
+   "title": "Veličanstvena koreografija za Igora Miličića",
+   "duration": 32,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "1znajJBbiWU",
+   "title": "Otvaranje nove sezone HT Premijer lige u režiji Tornada",
+   "duration": 33,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "qa9Z-rDMbW8",
+   "title": "Vlade Đurović: Mator sam, ali Zadar ne bi mogao odbiti",
+   "duration": 68,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "8esrw-AK8lE",
+   "title": "Ovacije zadarskih navijača za Vladu Đurovića i dio generacije iz 86-e godine",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "C-w_1ZWLNIU",
+   "title": "Završna minuta utakmice Zadar-Khimki na ZDBT 2019",
+   "duration": 210,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "WKtuE_IN2EU",
+   "title": "Početak priprema KK Sonik Puntamika",
+   "duration": 10,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "-wZobLuA_o8",
+   "title": "Kadeti Cibone prvaci Hrvatske",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "Zj6cs4zzLE8",
+   "title": "Trica Jacoba Pullena za pobjedu Cedevite nad Zadrom",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "zbHPawv5zW0",
+   "title": "Slavlje košarkaša Sonik Puntamike nakon plasmana u HT Premijer ligu",
+   "duration": 8,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "ieBLItOJ3gs",
+   "title": "Slavlje košarkaša Sonik Puntamike nakon ulaska u HT Premijer ligu",
+   "duration": 87,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "Hk3oaIRN_4c",
+   "title": "Baklje i papelitosi na istoku Jazina",
+   "duration": 82,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "9YqYtnAkD7k",
+   "title": "Pražnjenje istočne tribine Jazina",
+   "duration": 93,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "xMc5OhAJqy4",
+   "title": "Slavlje kadeta KK Zadar",
+   "duration": 21,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "s7GKXCVr6dU",
+   "title": "Monika Vojvodić na Višnjiku",
+   "duration": 140,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "9j2Uv8oYlR4",
+   "title": "Gledatelj Nikola Marić zabija tricu s centra na poluvremenu utakmice KK Zadar - KK Budućnost",
+   "duration": 19,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "-HLRHQcuVQE",
+   "title": "Gimnazija Vladimira Nazora vs Pomorska škola 2019",
+   "duration": 70,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "ruSgYb6Cpyw",
+   "title": "Naguravanje navijača s policijom uoči utakmice KK Zadar - KK Petrol Olimpija (4. 1. 2019.)",
+   "duration": 58,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "84p1SJuxUsg",
+   "title": "Neobična trica Stjepana Tešije",
+   "duration": 10,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "GFl6zGfMd1U",
+   "title": "Giuseppe Pino Gjergja zabija i u 81. godini",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "EMAn5Xf6iIM",
+   "title": "Doček igrača i stručnog stožera KK Zadar nakon pobjede u Beogradu protiv Partizana 27  listopada 201",
+   "duration": 348,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "FcUryaRxn_s",
+   "title": "Tornado na Pressici postavlja pitanja treneru KK Zadar Alešu Pipanu nakon utakmice Zadar-Mornar",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "WpnoXl146Kg",
+   "title": "Zadnji dan ZDBT 2018",
+   "duration": 355,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "_64Xa_MEPl0",
+   "title": "TRENERSKA KLINIKA ZDBT 2018",
+   "duration": 134,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "G-rXP4pvCnw",
+   "title": "Video presjek trećeg dana ZBDT-a 2018",
+   "duration": 261,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "S6fshHYZYd0",
+   "title": "DRUGI DAN TURNIRA ZDBT 2018",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "UbgovRmsxb4",
+   "title": "PRVI DAN TURNIRA ZDBT2018",
+   "duration": 363,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "gkQOi6yAe9c",
+   "title": "PRESS ZDBT 2018",
+   "duration": 1152,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "AxTsBIx_a3I",
+   "title": "Predstavljanje Zadar Basketball Tournamenta 2018.",
+   "duration": 941,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "OYMxiEkRCxM",
+   "title": "PRESS konferencija: Najava završnice Kupa Krešimira Ćosića 2018. u Zadru",
+   "duration": 392,
+   "live_status": "was_live",
+   "upload_date": "20180925"
+  }
+ ]
+}

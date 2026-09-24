@@ -1,0 +1,49 @@
+{
+ "key": "UCiPjEoLqFtYzOMxa1tvSPGQ",
+ "url": "https://www.youtube.com/channel/UCiPjEoLqFtYzOMxa1tvSPGQ/videos",
+ "channel_id": "UCiPjEoLqFtYzOMxa1tvSPGQ",
+ "playlist_id": null,
+ "title": "Planet HR - Videos",
+ "channel": "Planet HR",
+ "channel_url": "https://www.youtube.com/channel/UCiPjEoLqFtYzOMxa1tvSPGQ",
+ "description": "",
+ "follower_count": 1110,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "U7LCRmm9tPo",
+   "title": "Crvenkapica   priča za laku noć",
+   "duration": 464,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "ylMtCEzy-10",
+   "title": "Aladin i čarobna svjetiljka priča za laku noć",
+   "duration": 517,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "ew8RsRFK6Yo",
+   "title": "Pepeljuga   priča za laku noć",
+   "duration": 454,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "7tGm28qzkvw",
+   "title": "Industrijska konoplja Plodovi zemlje 2014",
+   "duration": 274,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "4P29k4Kib1I",
+   "title": "Poplave u BIH 2014",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20140925"
+  }
+ ]
+}

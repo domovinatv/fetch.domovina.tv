@@ -1,0 +1,77 @@
+{
+ "key": "UCT2j6UngUU9_VqedPPs-Meg",
+ "url": "https://www.youtube.com/channel/UCT2j6UngUU9_VqedPPs-Meg/videos",
+ "channel_id": "UCT2j6UngUU9_VqedPPs-Meg",
+ "playlist_id": null,
+ "title": "Bruno Möller - Videos",
+ "channel": "Bruno Möller",
+ "channel_url": "https://www.youtube.com/channel/UCT2j6UngUU9_VqedPPs-Meg",
+ "description": "",
+ "follower_count": 138,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "skkv4d5FTBg",
+   "title": "Welcome to Tolerland",
+   "duration": 157,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "_w-GjihEjhU",
+   "title": "Croatia Vice Versa: Mental Health and Life Abroad",
+   "duration": 4746,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "P4J6UOkOQ9A",
+   "title": "Croatia Vice Versa: Business, Bureaucracy and Bars",
+   "duration": 2549,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "HDwDlo9l6lE",
+   "title": "Croatia Vice Versa: A Croatian Rhapsody in the US",
+   "duration": 3894,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Ijdj99O3pag",
+   "title": "Welcome to Croatia Vice Versa",
+   "duration": 952,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "rRSOiDnrPjQ",
+   "title": "Feliz Aniversário, Jussara!",
+   "duration": 161,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "dRBi-ApDF_Y",
+   "title": "Come Together/Lose Yourself (Karaoke Version)",
+   "duration": 160,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "1ywqU1iOgYg",
+   "title": "Dubioza Kolektiv - USA (Karaoke Version)",
+   "duration": 217,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "v8-j4JbprBY",
+   "title": "Semir Cerić Koke - Kafanica Laganica (Karaoke version)",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

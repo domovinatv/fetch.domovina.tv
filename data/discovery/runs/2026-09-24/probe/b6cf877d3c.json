@@ -1,0 +1,455 @@
+{
+ "key": "UCFTa6brqBD26IEPHJ_TILvA",
+ "url": "https://www.youtube.com/channel/UCFTa6brqBD26IEPHJ_TILvA/videos",
+ "channel_id": "UCFTa6brqBD26IEPHJ_TILvA",
+ "playlist_id": null,
+ "title": "DW Fokus - Videos",
+ "channel": "DW Fokus",
+ "channel_url": "https://www.youtube.com/channel/UCFTa6brqBD26IEPHJ_TILvA",
+ "description": "Deutsche Welle je medijska kuća koja emituje program za inostranstvo i nudi Vam sadržaje putem televizije, radija i interneta na 30 svjetskih jezika. Možete nas pratiti u bilo kojem dijelu svijeta!",
+ "follower_count": 38400,
+ "streams_count": 3,
+ "videos": [
+  {
+   "id": "aNkNMybYRlI",
+   "title": "Švedska: Borba protiv maloljetničkog kriminala",
+   "duration": 224,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "UUdptHTtmZQ",
+   "title": "Evropa u 15 minuta: Zatvor i za 14-godišnjake",
+   "duration": 882,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "QUU4R9m02CI",
+   "title": "Za jedne voljeni članovi obitelji, za druge životinjski otpad",
+   "duration": 194,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "XPjRYHLQKVA",
+   "title": "Europa u Burgasu: je li grad spreman za Eurosong?",
+   "duration": 237,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "xwMuwmIyvu4",
+   "title": "„Jezici su ljudi“: danKOdan u poseti Alji Gudžević",
+   "duration": 458,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "IL6ImS7VEws",
+   "title": "Šta Šerpasi rade u Norveškoj?",
+   "duration": 213,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "1ev4vUtdHFM",
+   "title": "Njemačka: Rekordne cijene goriva, skupi stanovi i pritisak na Merza",
+   "duration": 880,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "1TLmDIJtvh4",
+   "title": "Rusija i Ukrajina: rat protiv hrane",
+   "duration": 230,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "ttZ75iLl_Qw",
+   "title": "Saksonija-Anhalt: Vreme da se pakuju koferi?",
+   "duration": 236,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "MULANuzOBwc",
+   "title": "Europeo: kako su šerpe završili u Norveškoj i druge priče",
+   "duration": 898,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "lDAQvQolWms",
+   "title": "Hašim Tači osuđen na 25 godina zatvora",
+   "duration": 193,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "v1ceJYAPwI0",
+   "title": "Kako stari zatvor pretvoriti u studentski dom?",
+   "duration": 204,
+   "live_status": null,
+   "upload_date": "20260914"
+  },
+  {
+   "id": "AvoM-pwcNIk",
+   "title": "Umjetna inteligencija u službi borbe protiv zaborava nacističkih zločina",
+   "duration": 209,
+   "live_status": null,
+   "upload_date": "20260913"
+  },
+  {
+   "id": "4MyPIMRSP5w",
+   "title": "Strah Rusa u dijaspori od optužbi za veleizdaju",
+   "duration": 201,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "GuWccohJRLY",
+   "title": "Ceuta: strah od seksualnog napastvovanja",
+   "duration": 229,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "GvwzoHDAamo",
+   "title": "Europeo: Zašto studenti žive u zatvoru?",
+   "duration": 863,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "-FI94N3tBMo",
+   "title": "Mladićeva sahrana i odnos Srbije prema ratovima devedesetih",
+   "duration": 210,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "JuRFxW_YbHM",
+   "title": "„Umetnost je duhovna hrana“: danKOdan u poseti Icetu Teodosievskom",
+   "duration": 460,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "zSbXHE-1_7E",
+   "title": "Koliko je infrastruktura u Njemačkoj zaista sigurna?",
+   "duration": 656,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "FB7Fobckn4o",
+   "title": "Srebrenica između prošlosti i borbe za normalan život",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "zoNoMQIFKwM",
+   "title": "Farmeri teško pogođeni sušom u Nemačkoj",
+   "duration": 190,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "IjPSPmNVYWY",
+   "title": "AfD ili CDU – ko će imenovati premijera Saksonije-Anhalt?",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "rb0oSVhhAbY",
+   "title": "Dan kada je potvrđena presuda Ratku Mladiću",
+   "duration": 436,
+   "live_status": null,
+   "upload_date": "20260828"
+  },
+  {
+   "id": "LXXxv-RZnZw",
+   "title": "Da li će razdor između SAD i Evrope usporiti evropske ambicije Zapadnog Balkana?",
+   "duration": 578,
+   "live_status": null,
+   "upload_date": "20260828"
+  },
+  {
+   "id": "p19c8HpJpF0",
+   "title": "Nizak vodostaj Dunava otkriva olupine nacističkih brodova iz Drugog svetskog rata u Srbiji",
+   "duration": 239,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "va7PRRcAvYE",
+   "title": "„Treba nam ljubav, gde god da smo“- danKOdan u poseti Marijani Mladenov",
+   "duration": 460,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "AIGSX-wYxyc",
+   "title": "Skup život i slabo povjerenje u Njemačkoj",
+   "duration": 787,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Bbl73Rg2YDY",
+   "title": "Jeste li ikada probali \"labskaus\"?",
+   "duration": 229,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Lok09wF4G_o",
+   "title": "Čudo od samo četiri sastojka",
+   "duration": 198,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "__wGAPvHc-A",
+   "title": "Europa u 15 minuta: Kulinarska šetnja Starim kontinentom",
+   "duration": 895,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "NDmI8qSd2Mw",
+   "title": "Iz Kovačice u svet: Na violine Jana Nemčeka čeka se i godinu dana",
+   "duration": 239,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "TyIH_e-LZ5A",
+   "title": "Posao na konju: prednosti i mane",
+   "duration": 223,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "awDtY4hO0Fc",
+   "title": "Ured na vodi",
+   "duration": 230,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Jmew4duBosc",
+   "title": "Pilotkinja zaljubljena u svoj posao",
+   "duration": 220,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "K4EO7vLuuac",
+   "title": "Europeo: Tko ima najbolji posao?",
+   "duration": 901,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "JvtEnztCW9Q",
+   "title": "Umjesto Njemačke izabrao životinje: Melvisov zoo vrt kod Sarajeva",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "cBndu5KfR50",
+   "title": "Rekordno nizak vodostaj Dunava",
+   "duration": 159,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "GVVYYvZ-47c",
+   "title": "Morska trava - dobar izolacioni materijal",
+   "duration": 190,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "zVKh3GTD2ao",
+   "title": "„Život je proces“- danKOdan u poseti Aleksandaru Vuku Karstenu",
+   "duration": 472,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "TroVNwLiTY4",
+   "title": "Mallorca: test za održivost",
+   "duration": 237,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "U1JF-iPAV_0",
+   "title": "Njemačka se mijenja: Penzije, poslovi, klima i rad nedjeljom",
+   "duration": 871,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "JfcJ-rbSMV4",
+   "title": "Između Gibraltara i Španije više nema kopnene granice",
+   "duration": 192,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "bY4-eP_d2cA",
+   "title": "Protesti protiv naoružavanja Njemačke",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "ZjqKENs2g5E",
+   "title": "Europeo: mirovnjaci protiv \"Rajnmetala\" i druge priče",
+   "duration": 832,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "GeCh46k-BeQ",
+   "title": "Magija Šarganske osmice",
+   "duration": 211,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "0zivrtSIKvU",
+   "title": "Ukrajina: Seksualne radnice na fronti – slušaju",
+   "duration": 204,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "OYSzwFausmI",
+   "title": "Kako privući mlade ljude zanatima?",
+   "duration": 202,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "P7SVxZ7XIjM",
+   "title": "Romi u Grčkoj: Geto na balkanski način",
+   "duration": 239,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "b4J8zsv8yX8",
+   "title": "Ekstremne vrućine u Njemačkoj: Koliko su ugroženi ljudi i privreda?",
+   "duration": 886,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "i_6wYIgRiPo",
+   "title": "Italija: Sezonski radnici u ropskim uvjetima",
+   "duration": 220,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "7vTZV1pPKKQ",
+   "title": "Da li će Folksvagen povući i Cvikau u ponor?",
+   "duration": 183,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "p6RlVmDmU88",
+   "title": "Europeo: Agonija Volkswagena i druge priče",
+   "duration": 877,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "RWzgHanowRc",
+   "title": "Janjski pleteni sir: Bosanska mozzarella koja osvaja okusom i tradicijom",
+   "duration": 218,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Fvi7MLcL7ds",
+   "title": "Stanovnici Vareša strahuju za zdravlje zbog zagađenja olovom",
+   "duration": 302,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "06zg2pVG0Xk",
+   "title": "Srpski lešinari i njihovi kumovi",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "5SLx7NxKaTg",
+   "title": "„Širinu duha dugujemo domovini koje više nema“: danKOdan u poseti Ljiljani Vulin Hinriks",
+   "duration": 441,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "4e-j8cytEiI",
+   "title": "Mlada protestantica koja pliva protiv struje",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Kf-YOr6xZVU",
+   "title": "Bečka stambena politika - uzor za Evropu",
+   "duration": 239,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "FbuuAyzx4DU",
+   "title": "Kako djecu u francuskim školama zaštititi od seksualnih napasnika?",
+   "duration": 246,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "4v13K7-NJHE",
+   "title": "Europeo: pedofilski skandal u Francuskoj i druge priče",
+   "duration": 890,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "54BxH3MhXiM",
+   "title": "Uživo- Analiza EURO Pride 2022 Beograd",
+   "duration": 1714,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "ZQIZRzLqNT4",
+   "title": "Obraćanje nemačke ministarke spoljnih poslova Analene Berbok i predsednika Srbije Aleksandra Vučića",
+   "duration": 5462,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "4Cs6faDk17A",
+   "title": "Genocid u Srebrenici - Marš šutnje u Dortmundu",
+   "duration": 1581,
+   "live_status": "was_live",
+   "upload_date": "20190925"
+  }
+ ]
+}

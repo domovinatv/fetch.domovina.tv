@@ -1,0 +1,4336 @@
+{
+ "source": "podcasts-tab",
+ "at": "2026-09-24T21:06:15.820Z",
+ "seeds": [
+  {
+   "url": "https://www.youtube.com/playlist?list=PL1OYcn49e4_CiDZE8UnCs60V3Uix7hBtB",
+   "channel_id": "UClVyDRcQ0BYkpownaYQ-G7A",
+   "playlist_id": "PL1OYcn49e4_CiDZE8UnCs60V3Uix7hBtB",
+   "name": "Podcasti",
+   "hint": {
+    "parent_channel": "Urlaona",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL1kAclAyH0tdqu79wBYOg0es1eewYrhtB",
+   "channel_id": "UCX7jtR9MufouIC20G7AAVOg",
+   "playlist_id": "PL1kAclAyH0tdqu79wBYOg0es1eewYrhtB",
+   "name": "PODCAST Mreže Riječi",
+   "hint": {
+    "parent_channel": "Mreže Riječi",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL1kAclAyH0tduNeCL2cGrt7Wx0xrWSK3t",
+   "channel_id": "UCX7jtR9MufouIC20G7AAVOg",
+   "playlist_id": "PL1kAclAyH0tduNeCL2cGrt7Wx0xrWSK3t",
+   "name": "Jedno ti nedostaje (serijal o Markovom evanđelju)",
+   "hint": {
+    "parent_channel": "Mreže Riječi",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLt33a7jvfLQdyUIeEBxXwffgAQpBq3uO",
+   "channel_id": "UCMdceJl1E-lSldJVAs9DiuA",
+   "playlist_id": "PLLt33a7jvfLQdyUIeEBxXwffgAQpBq3uO",
+   "name": "PP podcast",
+   "hint": {
+    "parent_channel": "PP podcast (Pero Pavlović)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6jHY0ZVikCKdenQon2esDPqzpW0G8B_i",
+   "channel_id": "UCT6Sx8T7walJ0dpOgqHllkw",
+   "playlist_id": "PL6jHY0ZVikCKdenQon2esDPqzpW0G8B_i",
+   "name": "Podcast",
+   "hint": {
+    "parent_channel": "Iva Kraljević",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRcAhOECBte0",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLRcAhOECBte0",
+   "name": "FRANKOPANI 6 STOLJEĆA POVIJESTI",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLZv_RS8CmQHuKA7OTpwfn6Y8Q3y6qBDL",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLLZv_RS8CmQHuKA7OTpwfn6Y8Q3y6qBDL",
+   "name": "Putovanje kroz povijest",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLZv_RS8CmQGVJwKinJz9w8t3QycRI7rc",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLLZv_RS8CmQGVJwKinJz9w8t3QycRI7rc",
+   "name": "Drevne civilizacije podcast",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLZv_RS8CmQHCTrxOksuZmxQaRC3tkr4f",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLLZv_RS8CmQHCTrxOksuZmxQaRC3tkr4f",
+   "name": "„CLIPEUS CROATORUM – tragom hrvatskih grbova“",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCNcELP3eI_s",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLCNcELP3eI_s",
+   "name": "Živa baština: tvrđava Nehaj",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLZv_RS8CmQG_wGkRPPpWE2Dl0PelYiLc",
+   "channel_id": "UCQZjAfPH5XtOJ5ze66etQPw",
+   "playlist_id": "PLLZv_RS8CmQG_wGkRPPpWE2Dl0PelYiLc",
+   "name": "Invaliditet iz svih kuteva",
+   "hint": {
+    "parent_channel": "2Pogled na povijest Hrvatske i svijeta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLsG5k_Btl4ORm8sgvalEM09CPMPIjL2JB",
+   "channel_id": "UCJ-tk0z-v3W2HBp7zWSJNCg",
+   "playlist_id": "PLsG5k_Btl4ORm8sgvalEM09CPMPIjL2JB",
+   "name": "Oasis in tempore (2023.)",
+   "hint": {
+    "parent_channel": "Oasis in tempore",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLiUNHWfk-pFWnCBbfxGzfI2jTlATipN3X",
+   "channel_id": "UCnekAGEPTcDzgkRiODg6sJA",
+   "playlist_id": "PLiUNHWfk-pFWnCBbfxGzfI2jTlATipN3X",
+   "name": "Podcasti",
+   "hint": {
+    "parent_channel": "Ad Deum Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5ajeoEO7fdb2bjN08VQa2IU",
+   "channel_id": "UC42yFzzch6XCNm-DxxYHPzQ",
+   "playlist_id": "PLg9tJp41DA5ajeoEO7fdb2bjN08VQa2IU",
+   "name": "Podcast Apps & Software",
+   "hint": {
+    "parent_channel": "Async Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5Z1DCkH60TbmUCbN8G_VBn3",
+   "channel_id": "UC42yFzzch6XCNm-DxxYHPzQ",
+   "playlist_id": "PLg9tJp41DA5Z1DCkH60TbmUCbN8G_VBn3",
+   "name": "Content Creation Tips",
+   "hint": {
+    "parent_channel": "Async Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+   "channel_id": "UC42yFzzch6XCNm-DxxYHPzQ",
+   "playlist_id": "PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+   "name": "Tutorials",
+   "hint": {
+    "parent_channel": "Async Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLIi49dgcMtec6R0nZyfBbnkb3kz-N6tQJ",
+   "channel_id": "UCzNKPyMT3JqK-jvtCprWOEg",
+   "playlist_id": "PLIi49dgcMtec6R0nZyfBbnkb3kz-N6tQJ",
+   "name": "Bijelo-plavi podcast",
+   "hint": {
+    "parent_channel": "Bijelo-plavi podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL0u_FLkAs8UNU2C3TCq0i6bUoulw7Yr8k",
+   "channel_id": "UC3TnYB6WW9qZtvSlKVkQ0rg",
+   "playlist_id": "PL0u_FLkAs8UNU2C3TCq0i6bUoulw7Yr8k",
+   "name": "Overthinkeri",
+   "hint": {
+    "parent_channel": "Overthinkeri",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcS32IHvq7uGSONZFD6vATG",
+   "name": "NFL",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtf8gN8ObbuxIOAsKvM2pMgJ",
+   "name": "NBA & košarka",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcjmPzLWRs45pIdEhY-GW10",
+   "name": "HNL ponedjeljak",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtfH9CoO9QhpD2k7icuPmTRu",
+   "name": "WeitzerMania",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtdaGptIP1BNtJJqQZEzuYSq",
+   "name": "Europski nogomet",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtfuBH24hDG-8cAdqAUkLGSD",
+   "name": "F1puls",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P",
+   "name": "Podcast s gostom",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq",
+   "name": "1 na 1 s Vladom na ti",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPterAiNwD8F4MGD4C5M09Rsx",
+   "name": "Fantasy",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtegce0b7AQyRy6t6QT6cOld",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtegce0b7AQyRy6t6QT6cOld",
+   "name": "Svjetsko prvenstvo 2026",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3",
+   "name": "Reprezentacija Hrvatske",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj",
+   "name": "Q&A",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcccVjeO9XJf-xDijj4KvKH",
+   "name": "Iza Tribine",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn",
+   "name": "Niže lige specijal",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtedjOkgni0FJRjdQ_7IYPI9",
+   "name": "Tenis",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG",
+   "name": "EURO 2024",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU",
+   "name": "SP Qatar 2022",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtdiB3ijYeAzn8Gji6PBJpuP",
+   "name": "UEFA Euro 2020",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN",
+   "channel_id": "UCjTiZ9ebMJumhPMsciuevxg",
+   "playlist_id": "PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN",
+   "name": "SP Rusija 2018",
+   "hint": {
+    "parent_channel": "Tribina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5Xx3IAvwdUJOIzH9a65S48D",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5Xx3IAvwdUJOIzH9a65S48D",
+   "name": "Nema labavo by IN magazin",
+   "hint": {
+    "parent_channel": "NOVA TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "name": "Forbes Business Unplugged",
+   "hint": {
+    "parent_channel": "NOVA TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "name": "Krešendo",
+   "hint": {
+    "parent_channel": "NOVA TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5WS62eYsClNZrKAea_tyUp0",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5WS62eYsClNZrKAea_tyUp0",
+   "name": "Mjesto ZA mene",
+   "hint": {
+    "parent_channel": "NOVA TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLGeJJjxHNqOvzql0Ze2XN7xtyjKedDQ-k",
+   "channel_id": "UCE5nN4MTLjJ-tLMoIiGUQ-Q",
+   "playlist_id": "PLGeJJjxHNqOvzql0Ze2XN7xtyjKedDQ-k",
+   "name": "Tonecast Podcast",
+   "hint": {
+    "parent_channel": "Tonecast (Music Shop No1)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtjrBNlAtexFntUFIeO5fhEirsTQw_qAA",
+   "channel_id": "UCC80pbKKM2sYEqws_N41yjg",
+   "playlist_id": "PLtjrBNlAtexFntUFIeO5fhEirsTQw_qAA",
+   "name": "PSP PODCAST",
+   "hint": {
+    "parent_channel": "Poduzetništvo s povjerenjem",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZ6xSxLicxpA_652Qea6F4SEMh6JwVKrX",
+   "channel_id": "UC3aUDgP7MwQuHxedh7cNwSA",
+   "playlist_id": "PLZ6xSxLicxpA_652Qea6F4SEMh6JwVKrX",
+   "name": "TURISTIČKI PODCASTI - TURIZAM24",
+   "hint": {
+    "parent_channel": "Turizam24",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoSi7zkHzLN_5qBTMpm_MOFtH3zfhSCGa",
+   "channel_id": "UCKPBjmgFMFR_WufZs3GLQwA",
+   "playlist_id": "PLoSi7zkHzLN_5qBTMpm_MOFtH3zfhSCGa",
+   "name": "Eduza Show - poslovne edukacije, cjeloživotno učenje, podučavanje i razvoj ljudskih potencijala",
+   "hint": {
+    "parent_channel": "Eduza Show",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFvZmE6NFFcuA403lhb1qD3_gu6j9Y07r",
+   "channel_id": "UCCLmXuMmUwOlcE829aTUjsQ",
+   "playlist_id": "PLFvZmE6NFFcuA403lhb1qD3_gu6j9Y07r",
+   "name": "ABBACAST",
+   "hint": {
+    "parent_channel": "AbbaCast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLzEvY0guiqZcHb8A7A21ytX7uaMUNzazy",
+   "channel_id": "UCQlo65zirOoa9PPqUNvepJg",
+   "playlist_id": "PLzEvY0guiqZcHb8A7A21ytX7uaMUNzazy",
+   "name": "FOI Business Talks (Podcast emisije Fakulteta organizacije i informatike)",
+   "hint": {
+    "parent_channel": "FOI Business Talks",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1NskBJstu-hjYm5ZUhD31KR",
+   "channel_id": "UCxO2oHswmGc8QpETChzSdcw",
+   "playlist_id": "PLWflkPXRkq1NskBJstu-hjYm5ZUhD31KR",
+   "name": "ZP II RUNDA",
+   "hint": {
+    "parent_channel": "Zapozorje Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1O4nfdyJpPcNg7MoQVTm44k",
+   "channel_id": "UCxO2oHswmGc8QpETChzSdcw",
+   "playlist_id": "PLWflkPXRkq1O4nfdyJpPcNg7MoQVTm44k",
+   "name": "ZP I RUNDA",
+   "hint": {
+    "parent_channel": "Zapozorje Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1OSu87q-htTNOa1lFICym_8",
+   "channel_id": "UCxO2oHswmGc8QpETChzSdcw",
+   "playlist_id": "PLWflkPXRkq1OSu87q-htTNOa1lFICym_8",
+   "name": "Probavljeno ZAPOZORJE",
+   "hint": {
+    "parent_channel": "Zapozorje Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLU-QqcCxcSLpQ-tdOir8DuNON2j1UKYHy",
+   "channel_id": "UCa0NaE4Cp0FaGSX58a-Krlg",
+   "playlist_id": "PLU-QqcCxcSLpQ-tdOir8DuNON2j1UKYHy",
+   "name": "Pod mikroskopom - Sezona 2",
+   "hint": {
+    "parent_channel": "Podcast Pod mikroskopom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLU-QqcCxcSLrn43rK8LoumVjaunbXQsY5",
+   "channel_id": "UCa0NaE4Cp0FaGSX58a-Krlg",
+   "playlist_id": "PLU-QqcCxcSLrn43rK8LoumVjaunbXQsY5",
+   "name": "Pod mikroskopom - Sezona 1",
+   "hint": {
+    "parent_channel": "Podcast Pod mikroskopom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLP6xyCg5HL4RMtofzMvDngrYilT5MrLvM",
+   "channel_id": "UC33a8nt-Y0LkhoBE8JjyMig",
+   "playlist_id": "PLP6xyCg5HL4RMtofzMvDngrYilT5MrLvM",
+   "name": "\"Iza Uspjeha\" Podcast",
+   "hint": {
+    "parent_channel": "Bossy.",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAAOaFU0epfdpttAEOlNhfRSQROq83mqt",
+   "channel_id": "UCta3_D-wHbBNYQi9wxGajdw",
+   "playlist_id": "PLAAOaFU0epfdpttAEOlNhfRSQROq83mqt",
+   "name": "Debate",
+   "hint": {
+    "parent_channel": "Večernji podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAAOaFU0epfc3vNqo0nLFC9IqiF45SC0x",
+   "channel_id": "UCta3_D-wHbBNYQi9wxGajdw",
+   "playlist_id": "PLAAOaFU0epfc3vNqo0nLFC9IqiF45SC0x",
+   "name": "Miroljub emisije",
+   "hint": {
+    "parent_channel": "Večernji podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTfSDgsP7tB6Eqvs-57JZgh",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTfSDgsP7tB6Eqvs-57JZgh",
+   "name": "Podcast Sekstant Krešimir Mišak 5",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSYL_QDEQvGVUfmmDtiRikZ",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSYL_QDEQvGVUfmmDtiRikZ",
+   "name": "Podcast Sekstant Valentino Radman",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSXvqLj0Gp-qJVWOVHH2Go6",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSXvqLj0Gp-qJVWOVHH2Go6",
+   "name": "Podcast Sekstant Davor Marijan",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT5hRiTwSMJd2QIu2S2ZrH7",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT5hRiTwSMJd2QIu2S2ZrH7",
+   "name": "Podcast Sekstant Goran Tribuson",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTqbR9Crg4TNLuiAhbMGC9R",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTqbR9Crg4TNLuiAhbMGC9R",
+   "name": "Podcast Sekstant Nikola Grmoja",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRvDYmC8sfFQ85s-OQJaiHP",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRvDYmC8sfFQ85s-OQJaiHP",
+   "name": "Podcast Sekstant Tomislav Sunic",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQ6BZw7YWSr4D_LeJieSjVj",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQ6BZw7YWSr4D_LeJieSjVj",
+   "name": "Podcast Sekstant Admiral Davor Domazet-Lošo",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRcqfzDWmo8HfUtQiu-hC2A",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRcqfzDWmo8HfUtQiu-hC2A",
+   "name": "Podcast Sekstant Vedran Miletić i Patrik Nikolić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRG_yG77CktjCf1-eCgQgQH",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRG_yG77CktjCf1-eCgQgQH",
+   "name": "Podcast Sekstant Luka Goleš Babić 2",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuS50I9UYpY52Oww7kqRGebd",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuS50I9UYpY52Oww7kqRGebd",
+   "name": "Podcast Sekstatn Viktor Matić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQ7XnS5_3sq3vDGX9esn6ng",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQ7XnS5_3sq3vDGX9esn6ng",
+   "name": "Podcast Sekstant Krešimir Mišak 4",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTy_o8m-fHypd3RnU8TLDhG",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTy_o8m-fHypd3RnU8TLDhG",
+   "name": "Podcast Sekstant Marko Gregur 2",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQnEMFOLkavnsaxNEDIxb2a",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQnEMFOLkavnsaxNEDIxb2a",
+   "name": "Podcast Sekstant Nenad Stojkovic 2",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuS1aUPkJW_N3XuO7ekKc__s",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuS1aUPkJW_N3XuO7ekKc__s",
+   "name": "Podcast Sekstant Josip Nemet",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSYDvmuuGentzahYT4YSMYP",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSYDvmuuGentzahYT4YSMYP",
+   "name": "Podcast Sekstant Vinka Jelić Balta",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuR62gjO3Q9k9URf35VSgBy7",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuR62gjO3Q9k9URf35VSgBy7",
+   "name": "Podcast Sekstant Tomislav Radnić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuThNIeueuBuZKtbSBJ7zZfZ",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuThNIeueuBuZKtbSBJ7zZfZ",
+   "name": "Podcast Sekstant Krešimir Mišak",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRXHXXHFQMKyAYpMoMNIivW",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRXHXXHFQMKyAYpMoMNIivW",
+   "name": "Podcast Sekstant Patrik Nikolić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRzL5bXiBgEqeR_QMDu39k_",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRzL5bXiBgEqeR_QMDu39k_",
+   "name": "Podcast Sekstant Stjepan Bajić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuR3jzCxNK_6OKhoXIHcF1kY",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuR3jzCxNK_6OKhoXIHcF1kY",
+   "name": "Podcast Sekstant Marko Lucović",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRUNXx1riC-DaaI6JZCtHrc",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRUNXx1riC-DaaI6JZCtHrc",
+   "name": "Podcast Sekstant Hrvoje Ivančić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSniU7KmzkpEZSiLY_nFfxB",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSniU7KmzkpEZSiLY_nFfxB",
+   "name": "Podcast Sekstant Ivan Brodic 2",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQIq-bZSprb2cDZl4U3y9RH",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQIq-bZSprb2cDZl4U3y9RH",
+   "name": "Podcast Sekstant Filip Galić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuS-rZZ1xzXtrMWNAzMddrNq",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuS-rZZ1xzXtrMWNAzMddrNq",
+   "name": "Podcast Sekstant Boris Podobnik",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTEMofCc5PgY2ZHZJ9_0mTr",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTEMofCc5PgY2ZHZJ9_0mTr",
+   "name": "Podcast Sekstant Hrvoje Rupčić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTn6myH73P6vEXzCvdzIU3F",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTn6myH73P6vEXzCvdzIU3F",
+   "name": "Podcast Sekstant Nenad Stojković",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRVv2ZVOGy0agU51hXtlZrU",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRVv2ZVOGy0agU51hXtlZrU",
+   "name": "Podcast Sekstant Zoran Miliša",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT2BkfmsOzrtGwQdHRtAMBD",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT2BkfmsOzrtGwQdHRtAMBD",
+   "name": "Podcast Sekstant Ante Lucic",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRjs7ODIjVbKGk9Bx1SeeYi",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRjs7ODIjVbKGk9Bx1SeeYi",
+   "name": "Podcast Sekstant Ivan Pokupec",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuR5G1wCbplK5zZqRNOfVTwu",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuR5G1wCbplK5zZqRNOfVTwu",
+   "name": "Podcast Sekstant Damir Vujnovac",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuTy4zWn7kkWI5dYs3dEXySQ",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuTy4zWn7kkWI5dYs3dEXySQ",
+   "name": "Podcast Sekstant Igor Vuk",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSqTzYT1pM4m-YkQ7RBteuW",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSqTzYT1pM4m-YkQ7RBteuW",
+   "name": "Podcast Sekstant Marko Sladoljev",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRxv0r4kO-ZVu5T9zydiMEd",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRxv0r4kO-ZVu5T9zydiMEd",
+   "name": "Podcast Sekstant Maja Klarić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuR8ZDy6VgCCiz-mWhVLHizn",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuR8ZDy6VgCCiz-mWhVLHizn",
+   "name": "Podcast Sekstant Eduard Petranović",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT2bYRGJCARHHb38Q_VivAY",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT2bYRGJCARHHb38Q_VivAY",
+   "name": "Podcast Sekstant Goran Šafarek",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT-Y3X0J5IJB4l924B57NQY",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT-Y3X0J5IJB4l924B57NQY",
+   "name": "Podcast Sekstant Josip Ivanović",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQZ-h-gP4sPj7zdI0fes9EC",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQZ-h-gP4sPj7zdI0fes9EC",
+   "name": "Podcast Sekstant Siniša Matasović",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuQZ-jWtDpuz9GVSJG6Kefyk",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuQZ-jWtDpuz9GVSJG6Kefyk",
+   "name": "Podcast Sekstant Marko Gregur",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuSq65JpJj0v_5RgX9jAKzMU",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuSq65JpJj0v_5RgX9jAKzMU",
+   "name": "Podcast Sekstant Tomislav Kardum",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRd5LcGYRx4c4XRW8kxILVN",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRd5LcGYRx4c4XRW8kxILVN",
+   "name": "Podcast Sekstant Davor Nađi",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT7LrrgNGvNFy8Ml2Xey1Ke",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT7LrrgNGvNFy8Ml2Xey1Ke",
+   "name": "Podcast Sekstant Tomislav Stipić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuT-xQFx9UbZuGuxXM_ueQ5Q",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuT-xQFx9UbZuGuxXM_ueQ5Q",
+   "name": "Podcast Sekstant Slavko Radman",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLT8as6VCmTuRaiCbhBAAw9jOlvHBlvtbQ",
+   "channel_id": "UCUm0HNMAJ5PXiEQb-q3zFDQ",
+   "playlist_id": "PLT8as6VCmTuRaiCbhBAAw9jOlvHBlvtbQ",
+   "name": "Podcast Sekstant Ivan Brodić",
+   "hint": {
+    "parent_channel": "Podcast Sekstant",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
+   "channel_id": "UCU_HxRUP9Ta1NJp6cjXx_0w",
+   "playlist_id": "PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
+   "name": "Teologija Tijela",
+   "hint": {
+    "parent_channel": "Nova Eva",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "channel_id": "UCOJXpevbUq_r-fdkFHpQ07w",
+   "playlist_id": "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "name": "PODCAST",
+   "hint": {
+    "parent_channel": "Dalmacija Danas",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLmCYsHffT9flSxEqqNMZptt8cHyWVoerq",
+   "channel_id": "UCzGUbyv4QoACDY7EF_fcVEA",
+   "playlist_id": "PLmCYsHffT9flSxEqqNMZptt8cHyWVoerq",
+   "name": "SVJEDOČANSTVA",
+   "hint": {
+    "parent_channel": "Budi FRAjer",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FLGcHds-x8moTHTiywBIm9j",
+   "channel_id": "UCM2A6a_hJkjmoLX9b6rVJXQ",
+   "playlist_id": "PLWUCHr2Hd6FLGcHds-x8moTHTiywBIm9j",
+   "name": "ZKDruškanje",
+   "hint": {
+    "parent_channel": "DigiLab NSK Podcasti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FKeU9jtuYtbUbGZaRlK76Me",
+   "channel_id": "UCM2A6a_hJkjmoLX9b6rVJXQ",
+   "playlist_id": "PLWUCHr2Hd6FKeU9jtuYtbUbGZaRlK76Me",
+   "name": "Beli Zagreb Grad",
+   "hint": {
+    "parent_channel": "DigiLab NSK Podcasti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWUCHr2Hd6FISTGlxoYT97TaHadRlZ5Gk",
+   "channel_id": "UCM2A6a_hJkjmoLX9b6rVJXQ",
+   "playlist_id": "PLWUCHr2Hd6FISTGlxoYT97TaHadRlZ5Gk",
+   "name": "Lov na govor",
+   "hint": {
+    "parent_channel": "DigiLab NSK Podcasti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAfR9CgpfpErEcjmX-4cjstJ",
+   "channel_id": "UCboxxQjTe6vkiny3mkIo_BQ",
+   "playlist_id": "PLdWChcLT_rAfR9CgpfpErEcjmX-4cjstJ",
+   "name": "ICT Insider powered by A1",
+   "hint": {
+    "parent_channel": "Lider",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAe7GorBpYBJ05D34whdQAy4",
+   "channel_id": "UCboxxQjTe6vkiny3mkIo_BQ",
+   "playlist_id": "PLdWChcLT_rAe7GorBpYBJ05D34whdQAy4",
+   "name": "Sve epizode podcasta",
+   "hint": {
+    "parent_channel": "Lider",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAeXGWhG-DNnIg8QyEMHmA1N",
+   "channel_id": "UCboxxQjTe6vkiny3mkIo_BQ",
+   "playlist_id": "PLdWChcLT_rAeXGWhG-DNnIg8QyEMHmA1N",
+   "name": "Fintech Talks powered by Monri Payments",
+   "hint": {
+    "parent_channel": "Lider",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdWChcLT_rAdqUY-dMg9dysRTx_mOAKbs",
+   "channel_id": "UCboxxQjTe6vkiny3mkIo_BQ",
+   "playlist_id": "PLdWChcLT_rAdqUY-dMg9dysRTx_mOAKbs",
+   "name": "Lider Podcast x Future Tense",
+   "hint": {
+    "parent_channel": "Lider",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLOhalhF9Ntv9bOT1BJtvIumZpdhW77B49",
+   "channel_id": "UCByUEqfqA1VP46pc3s1Hd4A",
+   "playlist_id": "PLOhalhF9Ntv9bOT1BJtvIumZpdhW77B49",
+   "name": "Podcast U Zoni",
+   "hint": {
+    "parent_channel": "Podcast U Zoni",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "name": "KRISTOV VOJNIK",
+   "hint": {
+    "parent_channel": "Z1 Televizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "name": "RENDEZVOUS",
+   "hint": {
+    "parent_channel": "Z1 Televizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "name": "TON-SLIKA-POLITIKA",
+   "hint": {
+    "parent_channel": "Z1 Televizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "name": "ZONA ZAGREB",
+   "hint": {
+    "parent_channel": "Z1 Televizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVYWpaAvhRFll4QCiUE7dyikpxpN-fC5A",
+   "channel_id": "UCRdQ7EmOMeWbEulwiDE3y_A",
+   "playlist_id": "PLVYWpaAvhRFll4QCiUE7dyikpxpN-fC5A",
+   "name": "poljoprivrednica.hr Podcast",
+   "hint": {
+    "parent_channel": "poljoprivrednica.hr Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLynWD54kN8YOZvH90aAcduodFxIyPUp4Z",
+   "channel_id": "UCialAk3zc4hGEJvcopy7oNQ",
+   "playlist_id": "PLynWD54kN8YOZvH90aAcduodFxIyPUp4Z",
+   "name": "Cijele emisije",
+   "hint": {
+    "parent_channel": "Podcast u Pubu",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLzDvWAM3exr-7gTV510LdvRIDp82ezhfF",
+   "channel_id": "UC7qkcQ7f1r8Wmi49erDXoEg",
+   "playlist_id": "PLzDvWAM3exr-7gTV510LdvRIDp82ezhfF",
+   "name": "SAMO BEZ PANIKE podcast",
+   "hint": {
+    "parent_channel": "Samo bez panike (formerly 'Od A do Žena')",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLmYmWYT-DNEhXlp2UlKi3fr-haDOlzSt1",
+   "channel_id": "UCTXzwDMchkFFKT2MeVoBnfQ",
+   "playlist_id": "PLmYmWYT-DNEhXlp2UlKi3fr-haDOlzSt1",
+   "name": "Podcast: S Barbarom",
+   "hint": {
+    "parent_channel": "Podcast s Barbarom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLmYmWYT-DNEiVvwWtgmOnNTmFa3AwsXPz",
+   "channel_id": "UCTXzwDMchkFFKT2MeVoBnfQ",
+   "playlist_id": "PLmYmWYT-DNEiVvwWtgmOnNTmFa3AwsXPz",
+   "name": "Izbori",
+   "hint": {
+    "parent_channel": "Podcast s Barbarom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRSmTggg1ef68zhv9GqWAGHNfJ9Yw7wsA",
+   "channel_id": "UCQsbGN8gkx7NB3RxHBZLglw",
+   "playlist_id": "PLRSmTggg1ef68zhv9GqWAGHNfJ9Yw7wsA",
+   "name": "ETVOS Podcast",
+   "hint": {
+    "parent_channel": "Evanđeosko teološko veleučilište u Osijeku",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLm3RYFFjLV_6cboAVDrBwZQAPrVMbW5ke",
+   "channel_id": "UCLqI0KuBfa9zonmrghXeZDA",
+   "playlist_id": "PLm3RYFFjLV_6cboAVDrBwZQAPrVMbW5ke",
+   "name": "Edukativni sadržaj, nauči nešto !",
+   "hint": {
+    "parent_channel": "Karlo cast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "name": "Svijet plus",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUK24YzYznc925b4UikRlr2O",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUK24YzYznc925b4UikRlr2O",
+   "name": "Bobu Bob by Igor Bobić",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "name": "Show na kvadrat",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIDcpIzIF3zJ44dARz7J6jp",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUIDcpIzIF3zJ44dARz7J6jp",
+   "name": "Politički intervju tjedna",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "name": "Povijesni dijalozi",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU",
+   "name": "Popcast by Darko Pavičić",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "name": "VL Stativa",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "name": "Životne priče by Dea Redžić",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJCbgmjKQHCD_I8h1as3HTl",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUJCbgmjKQHCD_I8h1as3HTl",
+   "name": "Glas HAZU",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIDvomEJHz1jaF5Zn_l9zOZ",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUIDvomEJHz1jaF5Zn_l9zOZ",
+   "name": "TRAPAVICA",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKKUdDEU2LQaasFhv1SRhDD",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUKKUdDEU2LQaasFhv1SRhDD",
+   "name": "Megafon xyZ",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJFTF0r3qZyGgPablJQ5ENM",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUJFTF0r3qZyGgPablJQ5ENM",
+   "name": "Senator podcast by Željko Janković",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "name": "Večernji.hr podcast",
+   "hint": {
+    "parent_channel": "Večernji TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej",
+   "channel_id": "UC8lka4Cf-OTBvs7B53C3WpQ",
+   "playlist_id": "PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej",
+   "name": "Split Tech City Podcast",
+   "hint": {
+    "parent_channel": "Split Tech City Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLlHIYJ6BUyDhKVbnw_iWjHF6icprADAP8",
+   "channel_id": "UCQxfuSwkCySfpsftoHlo8Yw",
+   "playlist_id": "PLlHIYJ6BUyDhKVbnw_iWjHF6icprADAP8",
+   "name": "Podcasti",
+   "hint": {
+    "parent_channel": "Birc Talk",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLKtRIDy2tfCX6wwLvsB-SS0aYsC3wFr6h",
+   "channel_id": "UCXXhnehl2pss0uYdfLRDtyw",
+   "playlist_id": "PLKtRIDy2tfCX6wwLvsB-SS0aYsC3wFr6h",
+   "name": "DOMOVINA Podcast",
+   "hint": {
+    "parent_channel": "DOMOVINA.tv",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "name": "IMAM IDEJU | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "name": "SPORT CENTAR | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "name": "CANCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "name": "PRIČAMO O ZDRAVLJU",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "name": "KRUŽNI TOK",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "name": "DAVCASTT | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEhBnn7zHyCumVt8jgXhAPW",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEhBnn7zHyCumVt8jgXhAPW",
+   "name": "RASTUĆI S DJECOM | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "name": "SREDINOM | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHT9s0kK9n0zAuGsSDXF5Wb",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHT9s0kK9n0zAuGsSDXF5Wb",
+   "name": "ŠPICA!",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHJ92z9y08fxhFr7fTnqtQh",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHJ92z9y08fxhFr7fTnqtQh",
+   "name": "SVE OVO JA | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "name": "ANDREINE PRIČE | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHNUSksDIItWVX5nXIusJoz",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHNUSksDIItWVX5nXIusJoz",
+   "name": "KAFA S DINELOM | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHU3uyI-OsaKgHfx1HmCQLk",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHU3uyI-OsaKgHfx1HmCQLk",
+   "name": "SVLAČIONICA | BLJESAK PODCAST",
+   "hint": {
+    "parent_channel": "Bljesak.info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL5scUpqzPcKDTG7-8UIZJrfxJPR5hCY0E",
+   "channel_id": "UCCSRlWu3YlcbkIfORjOFpsQ",
+   "playlist_id": "PL5scUpqzPcKDTG7-8UIZJrfxJPR5hCY0E",
+   "name": "Podcast | Kišobran UNIRI",
+   "hint": {
+    "parent_channel": "Kišobran UNIRI Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLypvRdj01WMmETCXBcqIev9GVv4mrzWPe",
+   "channel_id": "UC3pytUSwwvUuiksKZ-EzfQQ",
+   "playlist_id": "PLypvRdj01WMmETCXBcqIev9GVv4mrzWPe",
+   "name": "Podcast",
+   "hint": {
+    "parent_channel": "Marin Miletić",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLS-rX45EGRL-xp7-DV05-FITwvb6No8Vh",
+   "channel_id": "UCfDgEkzamTLATUJ6q6swt8w",
+   "playlist_id": "PLS-rX45EGRL-xp7-DV05-FITwvb6No8Vh",
+   "name": "SUPERHUMAN LIFE PODCAST EPIZODE",
+   "hint": {
+    "parent_channel": "Superhuman Life",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtssuAZAz8cCao_o4aPN51DEPRNLrsZWW",
+   "channel_id": "UCh3-BFGjXuSi1nw05RcdUlQ",
+   "playlist_id": "PLtssuAZAz8cCao_o4aPN51DEPRNLrsZWW",
+   "name": "SKAC Podcast",
+   "hint": {
+    "parent_channel": "SKAC Palma",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLWuvC4PKk8vNKH9s4kiKXbat3Qj1x8CsS",
+   "channel_id": "UCjrvxmaT1MjD9zQkLr169wA",
+   "playlist_id": "PLWuvC4PKk8vNKH9s4kiKXbat3Qj1x8CsS",
+   "name": "Podcast: \"Kako voditi sebe i druge\"",
+   "hint": {
+    "parent_channel": "Mirta Fraisman Čobanov",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdkfic1L-ALYQkQOCSPlkVWhRIh8sDaNZ",
+   "channel_id": "UCvguXMDYahdklYdmtuS1zHg",
+   "playlist_id": "PLdkfic1L-ALYQkQOCSPlkVWhRIh8sDaNZ",
+   "name": "Introspekcija",
+   "hint": {
+    "parent_channel": "Ženska priča (Marijana Perinić)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLKej0OHws0XkLnT9yMUqMBtki_NBr8409",
+   "channel_id": "UChAEWwrEQc07pft2NDb9_-A",
+   "playlist_id": "PLKej0OHws0XkLnT9yMUqMBtki_NBr8409",
+   "name": "Catholic Futurist",
+   "hint": {
+    "parent_channel": "Catholic Futurist",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbF57N9Yt-7Mti9CJAMeRIU5ZuQ51Raf2",
+   "channel_id": "UCusPqVO2WDEK6MzWGJZuH5Q",
+   "playlist_id": "PLbF57N9Yt-7Mti9CJAMeRIU5ZuQ51Raf2",
+   "name": "MFW Podcast",
+   "hint": {
+    "parent_channel": "MyFitWorld",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLh0dpf63k_OMQZ2IV1XSTk-c-SURJ_jjD",
+   "channel_id": "UCXHKfN-xMjwMXRZAgJqIK9g",
+   "playlist_id": "PLh0dpf63k_OMQZ2IV1XSTk-c-SURJ_jjD",
+   "name": "Nominis - podcast s ljudima na dobrom glasu (powered by Neuralab)",
+   "hint": {
+    "parent_channel": "Nominis (Udruga eCommerce Hrvatska)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLiDvHKyuHKbxNYPYT4ikG-jOoCPVYTtcf",
+   "channel_id": "UC-ccA52yiqR6BTmaqRxrTcg",
+   "playlist_id": "PLiDvHKyuHKbxNYPYT4ikG-jOoCPVYTtcf",
+   "name": "Podcast by Niko 🎙️",
+   "hint": {
+    "parent_channel": "Podcast by Niko",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "name": "Aktualno",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "name": "Razgovori s (nad)biskupima",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
+   "name": "Argumenti - 7. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "name": "Pod križem",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "name": "S druge strane ogledala",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2",
+   "name": "Argumenti - 6. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V",
+   "name": "Argumenti - 5. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "name": "Duhovno duhovite večeri",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8xBPkcJrqUfWqOca4Rt2yb",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8xBPkcJrqUfWqOca4Rt2yb",
+   "name": "Novi valovi dobrote - II",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX",
+   "name": "Argumenti - 4. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6",
+   "name": "Argumenti - 1. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo",
+   "name": "Argumenti - 3. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX",
+   "name": "Argumenti - 2. sezona",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KysEEMBKAn3T-yHP54PyH",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_KysEEMBKAn3T-yHP54PyH",
+   "name": "Novi valovi dobrote - I",
+   "hint": {
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+   "playlist_id": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "name": "Matičin podcast",
+   "hint": {
+    "parent_channel": "Matica hrvatska",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL0XkAU-E3ZtZwIvReIti3NyPuSKTrtoPi",
+   "channel_id": "UCmv_ToglhdsdbV42FrpjnYA",
+   "playlist_id": "PL0XkAU-E3ZtZwIvReIti3NyPuSKTrtoPi",
+   "name": "Arbona podcast",
+   "hint": {
+    "parent_channel": "Arbona podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3niUg6pE0rWpokqeL880RfOr",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3niUg6pE0rWpokqeL880RfOr",
+   "name": "Znanstvenici povratnici",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngeDzDM5QfcnkNDFVKCJEU5",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3ngeDzDM5QfcnkNDFVKCJEU5",
+   "name": "Penkala \"Umjetna inteligencija\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njqeyItENPIEMA_G9du2MVZ",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3njqeyItENPIEMA_G9du2MVZ",
+   "name": "Otvorena znanost",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngmyV8U-pJDH6OenTkZpS2V",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3ngmyV8U-pJDH6OenTkZpS2V",
+   "name": "Penkala \"Startup\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3nhhRK5nXLmsBUHfNW_ikko0",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3nhhRK5nXLmsBUHfNW_ikko0",
+   "name": "Penkala  \"Akademske spike\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngAeCyv4hDzJscFtZaSgBxu",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3ngAeCyv4hDzJscFtZaSgBxu",
+   "name": "Penkala \"Green\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ni07eM8Q4V7IsiVVngm9MOV",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3ni07eM8Q4V7IsiVVngm9MOV",
+   "name": "Penkala \"COVID\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3njnLpoMfcKv21MSre6X-Tpp",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3njnLpoMfcKv21MSre6X-Tpp",
+   "name": "Penkala \"Naše znanstvenice i znanstvenici\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLPQ-JQ5Gt3ngCBbZRY-xr6NXIftMbSEZr",
+   "channel_id": "UCDUU6qRAr2FozxtRoZxb6PA",
+   "playlist_id": "PLPQ-JQ5Gt3ngCBbZRY-xr6NXIftMbSEZr",
+   "name": "Penkala \"Znanost i industrija\" podcast",
+   "hint": {
+    "parent_channel": "Slušalica (Udruga Penkala)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVOQvUBescuHiLaTkrLAn7UDOf40-XrEE",
+   "channel_id": "UCIIMBF5bE6dmjLBLug7fzUQ",
+   "playlist_id": "PLVOQvUBescuHiLaTkrLAn7UDOf40-XrEE",
+   "name": "PODCAST ''nemoj me''",
+   "hint": {
+    "parent_channel": "nemoj me. (Maša Zibar)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "name": "REDAKCIJA PODCAST",
+   "hint": {
+    "parent_channel": "srednja.hr Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "name": "[Podcast]",
+   "hint": {
+    "parent_channel": "srednja.hr Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+   "name": "👾 Futurizam",
+   "hint": {
+    "parent_channel": "srednja.hr Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+   "name": "[Kako si?]",
+   "hint": {
+    "parent_channel": "srednja.hr Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4V-XVW7mitDqaGJ3gk-ow-M",
+   "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+   "playlist_id": "PLtkTKfgc4b4V-XVW7mitDqaGJ3gk-ow-M",
+   "name": "Podcast N1 BiH",
+   "hint": {
+    "parent_channel": "N1",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4VwzLKIRgz1CLWuGgwbV8Dn",
+   "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+   "playlist_id": "PLtkTKfgc4b4VwzLKIRgz1CLWuGgwbV8Dn",
+   "name": "Podcast N1 Hrvatska",
+   "hint": {
+    "parent_channel": "N1",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL0QKeNXpX1WB9EDFe1Eg-XykZhhI5LxOJ",
+   "channel_id": "UCmsRVrpRrDpYYhIaCbh58sA",
+   "playlist_id": "PL0QKeNXpX1WB9EDFe1Eg-XykZhhI5LxOJ",
+   "name": "BP PODCAST",
+   "hint": {
+    "parent_channel": "Božja pobjeda",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+   "playlist_id": "PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "name": "Vatreni podcast powered by PSK 2024.",
+   "hint": {
+    "parent_channel": "Hrvatski nogometni savez",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+   "playlist_id": "PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "name": "Podcast Vatrena #obitelj",
+   "hint": {
+    "parent_channel": "Hrvatski nogometni savez",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFYHUQpaRaaz-DUdihWndKJ",
+   "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+   "playlist_id": "PLA3lGdP2OqRFYHUQpaRaaz-DUdihWndKJ",
+   "name": "MINI VATRENI PODCAST",
+   "hint": {
+    "parent_channel": "Hrvatski nogometni savez",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLqi-QIISjfPg8idd4qSazjw_h69XXyq2G",
+   "channel_id": "UC2yHIvdfB8iKorhc3eRBjHw",
+   "playlist_id": "PLqi-QIISjfPg8idd4qSazjw_h69XXyq2G",
+   "name": "Skrivena politika i povijest",
+   "hint": {
+    "parent_channel": "Podcast Velebit (Projekt Velebit)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLqi-QIISjfPiD0AuDgEvnF3A6TpFn-v7t",
+   "channel_id": "UC2yHIvdfB8iKorhc3eRBjHw",
+   "playlist_id": "PLqi-QIISjfPiD0AuDgEvnF3A6TpFn-v7t",
+   "name": "Rat u Ukrajini",
+   "hint": {
+    "parent_channel": "Podcast Velebit (Projekt Velebit)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLe8B1Q9f7JaE",
+   "channel_id": "UCW9XvqFIpoqlRWx1slG07BQ",
+   "playlist_id": "PLe8B1Q9f7JaE",
+   "name": "Put Kristu",
+   "hint": {
+    "parent_channel": "RPASD Hrvatska",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLH75LAcYosm88P5JVtoSYn8BCgp8EpePQ",
+   "channel_id": "UCW9XvqFIpoqlRWx1slG07BQ",
+   "playlist_id": "PLH75LAcYosm88P5JVtoSYn8BCgp8EpePQ",
+   "name": "Velika proročanstva Biblije",
+   "hint": {
+    "parent_channel": "RPASD Hrvatska",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLH75LAcYosm_rTXIEjTZO88q2QGrnQctr",
+   "channel_id": "UCW9XvqFIpoqlRWx1slG07BQ",
+   "playlist_id": "PLH75LAcYosm_rTXIEjTZO88q2QGrnQctr",
+   "name": "Mali proroci – zaboravljeni dio Biblije",
+   "hint": {
+    "parent_channel": "RPASD Hrvatska",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLH75LAcYosm8_sCv7l_q4B4E6J2KJna_q",
+   "channel_id": "UCW9XvqFIpoqlRWx1slG07BQ",
+   "playlist_id": "PLH75LAcYosm8_sCv7l_q4B4E6J2KJna_q",
+   "name": "Kršćanski Navigator",
+   "hint": {
+    "parent_channel": "RPASD Hrvatska",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnx_sZBSZcB-ZkEGajAm3Nw51vOuKUK_7",
+   "channel_id": "UCWSfCCG1ai1Jenlo95WfWgw",
+   "playlist_id": "PLnx_sZBSZcB-ZkEGajAm3Nw51vOuKUK_7",
+   "name": "LOOD Podcast",
+   "hint": {
+    "parent_channel": "LOOD",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnx_sZBSZcB9wrB3f5LYwwMxWTTgGDdLT",
+   "channel_id": "UCWSfCCG1ai1Jenlo95WfWgw",
+   "playlist_id": "PLnx_sZBSZcB9wrB3f5LYwwMxWTTgGDdLT",
+   "name": "LOOD Podcast Clips",
+   "hint": {
+    "parent_channel": "LOOD",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLlyc1wPj3hiGrrCohhOjY9jbeyPvw-k8_",
+   "channel_id": "UCKYVCu4kNK4NnMObp7-7G4A",
+   "playlist_id": "PLlyc1wPj3hiGrrCohhOjY9jbeyPvw-k8_",
+   "name": "Podcast",
+   "hint": {
+    "parent_channel": "MLGP Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZqT-bEOB0Js4qKffJiWUTMkDP1Ant7WO",
+   "channel_id": "UCpXfcdXulKYTBO3DNBFWMjQ",
+   "playlist_id": "PLZqT-bEOB0Js4qKffJiWUTMkDP1Ant7WO",
+   "name": "PODCASTI \"Gdje si bio '91?\"",
+   "hint": {
+    "parent_channel": "Gdje si bio '91? (Borna Marinić)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZqT-bEOB0JsNz0j9DHKlS0joeSXt_LFV",
+   "channel_id": "UCpXfcdXulKYTBO3DNBFWMjQ",
+   "playlist_id": "PLZqT-bEOB0JsNz0j9DHKlS0joeSXt_LFV",
+   "name": "Q&A \"Gdje si bio '91?\"",
+   "hint": {
+    "parent_channel": "Gdje si bio '91? (Borna Marinić)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLy33iROxbefqqRKRjnjNylAIXL1Umm5AE",
+   "channel_id": "UCP2LgGiAHQzaykKidqdOIOA",
+   "playlist_id": "PLy33iROxbefqqRKRjnjNylAIXL1Umm5AE",
+   "name": "ROCK PODCAST",
+   "hint": {
+    "parent_channel": "Rock Portal",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwgL6EryGYVTfeqc9vOfl00OKmgdEQPTe",
+   "channel_id": "UCotSpU9O5WMhPedWsR2jlXg",
+   "playlist_id": "PLwgL6EryGYVTfeqc9vOfl00OKmgdEQPTe",
+   "name": "HNB Podcast",
+   "hint": {
+    "parent_channel": "HNB - Hrvatska narodna banka",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLOTBPttHywDH7y1SeVEHMOTM6FxgDk6IQ",
+   "channel_id": "UCEoQJ1b1Bb2gSNiqWQCexQw",
+   "playlist_id": "PLOTBPttHywDH7y1SeVEHMOTM6FxgDk6IQ",
+   "name": "Špica s Macanom",
+   "hint": {
+    "parent_channel": "Špica s Macanom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLJ9aMKLrzhSKi0kSYJOgll5ZI8AAKuZez",
+   "channel_id": "UCaEpQ2To0BK5Bpnit-j921Q",
+   "playlist_id": "PLJ9aMKLrzhSKi0kSYJOgll5ZI8AAKuZez",
+   "name": "Zaja Mind",
+   "hint": {
+    "parent_channel": "Zaja Mind",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "name": "AS S KLUPE",
+   "hint": {
+    "parent_channel": "24sata",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVmHXP8UWto3xEW_rlFt8FHS",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVmHXP8UWto3xEW_rlFt8FHS",
+   "name": "PODCAST - EUIPO",
+   "hint": {
+    "parent_channel": "24sata",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "name": "VELIKI INTERVJU",
+   "hint": {
+    "parent_channel": "24sata",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVmoluQ2o5NPBkpE8462plnY",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVmoluQ2o5NPBkpE8462plnY",
+   "name": "BROMANCE PODCAST",
+   "hint": {
+    "parent_channel": "24sata",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYZjQGGkuWQBA4VgVgsmzMW",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYZjQGGkuWQBA4VgVgsmzMW",
+   "name": "TUMAČENJA SNOVA (SNOVI - 2.dio) - Split 2024.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbZteIW9B53f1io2hOicUlY",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbZteIW9B53f1io2hOicUlY",
+   "name": "BERTHA DUDDE I POČECI NJENE MISIJE - OBJAVE ZA NJU OSOBNO 2. dio",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZ5uYF3AbaE1cTkpo-aqUof",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZ5uYF3AbaE1cTkpo-aqUof",
+   "name": "VRIJEME JE KRAJA! KVP predavanja na Svjetlu Čiste Istine o posljednjim danima naziva; 2024",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaaBYTmRMK0dMc6V2PlJ8Ws",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaaBYTmRMK0dMc6V2PlJ8Ws",
+   "name": "Svaka Moja Riječ je dar s neba” - Jakob Lorber OSOBNO; Komentari na Objave J. Lorbera iz knjige \"Nebeski darovi\" naziva:\" 2025- Zagreb",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZP2TuJmNXB-Z8I-n0MzCm2",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZP2TuJmNXB-Z8I-n0MzCm2",
+   "name": "JUDE U KRŠĆANSKOJ CRKVI - 2. dio Seminara\"ISUS NAUČAVA O BOŽANSKOJ LJUBAVI\" (Čitanja iz \"Velikog Ivanovog Evanđelja\")",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGakqKui-Hs64XtRzQsxPLCr",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGakqKui-Hs64XtRzQsxPLCr",
+   "name": "'Kako vitar puše' (Ivan 3:8) - 2023 i 2024",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGY77xtIE551vonaiaH81TRF",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGY77xtIE551vonaiaH81TRF",
+   "name": "ZVJEZDOZNANAC; Promocija knjige \"Bog je Ljubav\" ; Studio Apratman, Zagreb 2024",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbUvqN1asla_kJbd9yezY6z",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbUvqN1asla_kJbd9yezY6z",
+   "name": "SNOVI - Split 2024",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGY_GcRwdl6AVuDPT_NENcQi",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGY_GcRwdl6AVuDPT_NENcQi",
+   "name": "BRAKOVI SKLOPLJENI NA NEBU - Šibenik 02/2024",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGb-tnQKhNvuUiA-SRgZT0kW",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGb-tnQKhNvuUiA-SRgZT0kW",
+   "name": "\"Ja sam odrastao na SWEDENBORG-u\"",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYtq8qLlo3Nl9R8EMFN0h44",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYtq8qLlo3Nl9R8EMFN0h44",
+   "name": "BERHA DUDE I POČECI NJENE MISIJE - OBJAVE ZA NJU OSOBNO",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbX6umJ-LG2RTsSJV7Bp9bE",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbX6umJ-LG2RTsSJV7Bp9bE",
+   "name": "Moji 'razgovori' sa Andrew Murray-em na temu Božanskog iscjeljenja; Zagreb 2023.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaK73NuUN2t5aFiP6KNUqId",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaK73NuUN2t5aFiP6KNUqId",
+   "name": "'Kako vitar puše' (Ivan 3:8) - 2022 i 2023",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbViitR-pLFyDj20sAUHHac",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbViitR-pLFyDj20sAUHHac",
+   "name": "Tražite prije svega Kraljevstvo Božje (Matej 6:33)",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaLaS7TIl7WJUznxmUjqBvb",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaLaS7TIl7WJUznxmUjqBvb",
+   "name": "KNJIŽICA BR 68: \" Tražite prije svega Kraljestvo Božje... \"",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYqGUP-ZfU0zZsE7yDi5hxD",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYqGUP-ZfU0zZsE7yDi5hxD",
+   "name": "GLAS SRCA - Predstavljanje novog izdanja Knjižice br. 67: \"Lipanj/Srpanj 2023 Zagreb",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZqptu9_Iz23VfVePrEZ9_L",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZqptu9_Iz23VfVePrEZ9_L",
+   "name": "\"NEKA NE PROTURJEČE!\" ( Titu 2:9 ) ( \" Evanđelje za žene\" i \" Važnost poslušnosti \" - Kurios 2 - nastavak ); Zagreb 2023.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGa9c0chFj1zoL6Exd5aMrro",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGa9c0chFj1zoL6Exd5aMrro",
+   "name": "LORENS JE REKAO: \"NEMA PAKLA!\"; Split/Zagreb Studeni 2022",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbH6qiie08KbG1j0qxf5xSl",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbH6qiie08KbG1j0qxf5xSl",
+   "name": "POTICAJI I OPOMENE PREMA KRŠTENJU U DUHU SVETOM sa Bogo-služja za NDE - SPLIT 2022.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbastaIq6aSAo31OnuzApUo",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbastaIq6aSAo31OnuzApUo",
+   "name": "DUHOVNO ZNAČENJE U RIJEČI BOŽJOJ: Postanak: Stari zavjet",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbw2_xJmhzx1Q3Ny9ZM3OtP",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbw2_xJmhzx1Q3Ny9ZM3OtP",
+   "name": "BUDITE IMITATORI ONIH KOJI SU VJEROM I USTRAJNOŠĆU BAŠTINILI OBEĆANJA (Hebrejima 6:12) - Varaždin / Zagreb / Split 2020-2022 ...",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZ2DZ4BTlSCmvULoam8VFgz",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZ2DZ4BTlSCmvULoam8VFgz",
+   "name": "RAZGOVORI I PROMIŠLJANJA O KRŠTENJU U DUHU SVETOME I VATRI",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGY49rCi3eM4AS3X1sLjV6Vs",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGY49rCi3eM4AS3X1sLjV6Vs",
+   "name": "\"OVO JE KRUH KOJI SILAZI S NEBA” (Ivan 6:50) -serija \"Isusove Riječi\" - 04-05/2022. Zagreb",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaIZz8XaMRMIiHdHHP5aJJ1",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaIZz8XaMRMIiHdHHP5aJJ1",
+   "name": "\"VJERA OŽIVLJENA KROZ LJUBAV\" promocija novog izdanja knjižice br. 63",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGafkz85utizZ9OEQGP3uScw",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGafkz85utizZ9OEQGP3uScw",
+   "name": "SAKRAMENTI - 7 sakramenata na Svjetlu Čiste Istine 2020-2021",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbgHx9UJPtw98TIQzin-4ds",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbgHx9UJPtw98TIQzin-4ds",
+   "name": "DUHOVNO ZNAČENJE U RIJEČI BOŽJOJ: Novi Zavjet",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbkwYU0s52fC3EKktzkcnPo",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbkwYU0s52fC3EKktzkcnPo",
+   "name": "„JA SAM PASTIR DOBRI ...“ (Ivan 10.poglavlje) - Rijeka 12/2017.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaAYWxblcn4bpkDS-g9cbLY",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaAYWxblcn4bpkDS-g9cbLY",
+   "name": "BORBA PROTIV SAMOLJUBLJA - Šibenik/Zadar 01/2019",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYPKBfdUXBdFLZNcDcf56p9",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYPKBfdUXBdFLZNcDcf56p9",
+   "name": "ULOGA BOLESTI U PLANU SPASENJA - Veli Iž / Šibenik 08/2019",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYSKOHKhlqoUAgr4hL9j-cW",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYSKOHKhlqoUAgr4hL9j-cW",
+   "name": "„SVUCITE STAROG ČOVJEKA“ (Kološanima 3:9-10) Ev.Ljub. 3 - Beograd 05/2019.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbq0wyCObqE3apAkihX7pV2",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbq0wyCObqE3apAkihX7pV2",
+   "name": "SLOBODNA ODLUKA VOLJE - Zadar 05/2018.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGa6QJcbWwfmBpOIcvesm5Hq",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGa6QJcbWwfmBpOIcvesm5Hq",
+   "name": "KULA BABILONSKA - Zagreb 06/2018",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaKHu0XfNW1rZjtQ-2y20-e",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaKHu0XfNW1rZjtQ-2y20-e",
+   "name": "ČIN SPASENJA ISUSA KRISTA - Šibenik 04/2018.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYa3QNoKczwodAMPnH0ZbmS",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYa3QNoKczwodAMPnH0ZbmS",
+   "name": "„I SAM SOTONA SE PRERUŠAVA...“ (2. Kor 11:14) - Split 04/2018.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZm3TQHBOud89i3uizPO3wZ",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZm3TQHBOud89i3uizPO3wZ",
+   "name": "„KAO SEBE SAMOGA...“  (Matej 22:39) - Zadar 11/2017",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbQXFmoPYpBehMG32bxkRE0",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGbQXFmoPYpBehMG32bxkRE0",
+   "name": "TAJNA LJUBAVI - Osijek 03/2018",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaQbCqCE5VvKxB12ff9WLZm",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaQbCqCE5VvKxB12ff9WLZm",
+   "name": "ATEISTI - Kutina 02/2018.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaBM91IigwB_YPIhK3SgRVk",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaBM91IigwB_YPIhK3SgRVk",
+   "name": "„...NEKA UZME SVOJ KRIŽ“ (Matej 16:24) - VInkovci 02/2018.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZ3LeX_bwLSdF3tcyzx-5-N",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZ3LeX_bwLSdF3tcyzx-5-N",
+   "name": "„SLOVO UBIJA, A DUH OŽIVLJAVA“ (2 Kor 3:6) – Skopje 11/2017.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaj8UDKE-BI6QZbVemZfpXC",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGaj8UDKE-BI6QZbVemZfpXC",
+   "name": "UZROK, SVRHA I CILJ LJUDSKE PATNJE, NESREĆE I BOLI - Šibenik 10/2017.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYyVKcLO7FH8Yp0z3FZVaPd",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYyVKcLO7FH8Yp0z3FZVaPd",
+   "name": "'O REINKARNACIJI...' - Split 04/2017.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZ51g4pLQ2ybuBRty5TtUPd",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGZ51g4pLQ2ybuBRty5TtUPd",
+   "name": "'POSLAO SAM SVOGA SINA NA ZEMLJU' - Rijeka 01/2017.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYBsH_8OxDrLJkWM-lXqlSS",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGYBsH_8OxDrLJkWM-lXqlSS",
+   "name": "\"BOG JE LJUBAV\" (1. Ivanova 4: 8 i 16) - Zadar 11.2016.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGabCupEt8lZZd8dnLGPnNzy",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGabCupEt8lZZd8dnLGPnNzy",
+   "name": "ZATO ČISTA ISTINA! Seminar 1 - Split 09/2016.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGam6YVIheZRUXpZYPEHHgqT",
+   "channel_id": "UCPt9YhYVGI7_MRHrlq4ZfeA",
+   "playlist_id": "PL6ruhm1CeCGam6YVIheZRUXpZYPEHHgqT",
+   "name": "UČITELJI U KRISTOVOJ CRKVI - Zadar 05/2016.",
+   "hint": {
+    "parent_channel": "Zašto Čista Istina",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLyh15-oTxhU0cEYXZTYowTTNQHee7VCe8",
+   "channel_id": "UC_6ekiH2k-JiXLzxQ_CgJmw",
+   "playlist_id": "PLyh15-oTxhU0cEYXZTYowTTNQHee7VCe8",
+   "name": "Podcast epizode",
+   "hint": {
+    "parent_channel": "Geopolitika i sigurnost",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLb65CCH6cy22PKvzrbHhEPCYYxMC9LGQ6",
+   "channel_id": "UCQ6Ooz2ny8JxRS0-OrdFAhw",
+   "playlist_id": "PLb65CCH6cy22PKvzrbHhEPCYYxMC9LGQ6",
+   "name": "FTS Podcast Episodes",
+   "hint": {
+    "parent_channel": "Fit Through Science",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCdKNUSZ0nIM1ENZNBcyyeQed8j9RmU-T",
+   "channel_id": "UCdsIEbzK5CH4-RTj1f-jpFw",
+   "playlist_id": "PLCdKNUSZ0nIM1ENZNBcyyeQed8j9RmU-T",
+   "name": "Na putu do uspjeha",
+   "hint": {
+    "parent_channel": "Stjepan Beloša",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj29_koFD1YNVi3fmcjBfNjOV",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj29_koFD1YNVi3fmcjBfNjOV",
+   "name": "Izborni kanal - Dalmatinska arena",
+   "hint": {
+    "parent_channel": "TV Jadran",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO3Dehl81anA6eKcpNpxd29G",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO3Dehl81anA6eKcpNpxd29G",
+   "name": "Krepat ma ne molat",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO1VwVQsFAok7WmuJurtXov1",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO1VwVQsFAok7WmuJurtXov1",
+   "name": "Ofenziva Rasprave",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO06X62xmRIl75nbCguU2JgV",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO06X62xmRIl75nbCguU2JgV",
+   "name": "Ofenziva na HNL",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO0wfPaABRglp6LnZSRIZ8p5",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO0wfPaABRglp6LnZSRIZ8p5",
+   "name": "Ofenziva na Svjetsko prvenstvo 2026.",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO0LO0lXG9Ci6Xs_EVlJUCrC",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO0LO0lXG9Ci6Xs_EVlJUCrC",
+   "name": "Ofenziva Podcasti - Gostovanja",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO3_COafOsVM8Xx74Smqxz0Y",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO3_COafOsVM8Xx74Smqxz0Y",
+   "name": "Ofenziva F1 podcast",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO3shFHgUr74HPmzkgRo18ju",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO3shFHgUr74HPmzkgRo18ju",
+   "name": "Europska Ofenziva",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO0WALRf43iYSVCCWq69wwMb",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO0WALRf43iYSVCCWq69wwMb",
+   "name": "Ofenziva na EURO 2024",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO1mHptFWf315xaacp50N6Mr",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO1mHptFWf315xaacp50N6Mr",
+   "name": "Ofenziva - Premier League Show",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO2cFxg-RIAyRRtNgfTdRCpA",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO2cFxg-RIAyRRtNgfTdRCpA",
+   "name": "Premiership Halftime with Ivan Ivković Los",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO2qbR4V4653xAwlG5b471zh",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO2qbR4V4653xAwlG5b471zh",
+   "name": "SVJETSKO PRVENSTVO 2022: NAJAVE GRUPA",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLM1nmLt9vMO0CpnKxgmUnU46iKVL_1lW0",
+   "channel_id": "UCSCgxugLpe8NwS3Vw5zRhkQ",
+   "playlist_id": "PLM1nmLt9vMO0CpnKxgmUnU46iKVL_1lW0",
+   "name": "SILAZNA PUTANJA - NBA PULS PODCAST",
+   "hint": {
+    "parent_channel": "Ofenziva - Sportski podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLzHb4rADjI0dlI6_IW6qLvsq2GiLgFA0",
+   "channel_id": "UCAbICmZKJWlqlzY6T6nQ50Q",
+   "playlist_id": "PLLzHb4rADjI0dlI6_IW6qLvsq2GiLgFA0",
+   "name": "Alt+Tab Podcast",
+   "hint": {
+    "parent_channel": "Alt+Tab (Good Game Show)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLzHb4rADjI3mQjKedtB6cqkj707uemjI",
+   "channel_id": "UCAbICmZKJWlqlzY6T6nQ50Q",
+   "playlist_id": "PLLzHb4rADjI3mQjKedtB6cqkj707uemjI",
+   "name": "Brutzcast",
+   "hint": {
+    "parent_channel": "Alt+Tab (Good Game Show)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVFvhRk3uf8LUVfMVdEl0MZ5UyhF0MLLz",
+   "channel_id": "UChgVPEqmTeG0na3u8VfY3PQ",
+   "playlist_id": "PLVFvhRk3uf8LUVfMVdEl0MZ5UyhF0MLLz",
+   "name": "Podcast ŽIVOT",
+   "hint": {
+    "parent_channel": "40 dana za život - Hrvatska za Život",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLq_sAEjfaXuCDSe1BFlLkVzvHOiMBHdmQ",
+   "channel_id": "UCsfpmOtIEbMbFoDyFzI9JTw",
+   "playlist_id": "PLq_sAEjfaXuCDSe1BFlLkVzvHOiMBHdmQ",
+   "name": "2024./2025.",
+   "hint": {
+    "parent_channel": "Gimnazijska špica",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLq_sAEjfaXuCRhfW5DsnTWIckPOFsJW98",
+   "channel_id": "UCsfpmOtIEbMbFoDyFzI9JTw",
+   "playlist_id": "PLq_sAEjfaXuCRhfW5DsnTWIckPOFsJW98",
+   "name": "2023./2024.",
+   "hint": {
+    "parent_channel": "Gimnazijska špica",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLYVKdHHOlE9uDYK6Yg6jF7yLfPEAf0yPM",
+   "channel_id": "UCcohM3KBg8Rm8LHS5FfSq2A",
+   "playlist_id": "PLYVKdHHOlE9uDYK6Yg6jF7yLfPEAf0yPM",
+   "name": "Tri strane - razgovori s gostima",
+   "hint": {
+    "parent_channel": "Tri strane - podcast o obrazovanju",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLYVKdHHOlE9sli-ldr2Xw6Hx9bksFk4LG",
+   "channel_id": "UCcohM3KBg8Rm8LHS5FfSq2A",
+   "playlist_id": "PLYVKdHHOlE9sli-ldr2Xw6Hx9bksFk4LG",
+   "name": "Eva i Martina - razgovori o obrazovnom svemu i svačemu",
+   "hint": {
+    "parent_channel": "Tri strane - podcast o obrazovanju",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFLDNGwFAx5VOi-7j0XWUgpK0AOl_Gv0r",
+   "channel_id": "UCassFh6wi9n4yg6xvtaIcbw",
+   "playlist_id": "PLFLDNGwFAx5VOi-7j0XWUgpK0AOl_Gv0r",
+   "name": "Audijalog Podcast",
+   "hint": {
+    "parent_channel": "Audijalog",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7Wk3lo0MZ3PKLsC0QgHudFOp",
+   "channel_id": "UCYIJYPlIPHn3e03NQOmgAQA",
+   "playlist_id": "PLnKR1Y-Zl7Wk3lo0MZ3PKLsC0QgHudFOp",
+   "name": "PodKaST - U balunu",
+   "hint": {
+    "parent_channel": "PodKaST",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WlhQ83ocHW8TCAWWiYg9k5E",
+   "channel_id": "UCYIJYPlIPHn3e03NQOmgAQA",
+   "playlist_id": "PLnKR1Y-Zl7WlhQ83ocHW8TCAWWiYg9k5E",
+   "name": "All Videos",
+   "hint": {
+    "parent_channel": "PodKaST",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WkXXiDsFfy46yG1HcQYSdwa",
+   "channel_id": "UCYIJYPlIPHn3e03NQOmgAQA",
+   "playlist_id": "PLnKR1Y-Zl7WkXXiDsFfy46yG1HcQYSdwa",
+   "name": "PodKaST Q&A",
+   "hint": {
+    "parent_channel": "PodKaST",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WmI-4-PG23my6Gm4aeb9VrY",
+   "channel_id": "UCYIJYPlIPHn3e03NQOmgAQA",
+   "playlist_id": "PLnKR1Y-Zl7WmI-4-PG23my6Gm4aeb9VrY",
+   "name": "Popular",
+   "hint": {
+    "parent_channel": "PodKaST",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ",
+   "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+   "playlist_id": "PLta2gH1s4UVQGCI3tveBnLsWIGhPdDktJ",
+   "name": "Office Talks Podcast",
+   "hint": {
+    "parent_channel": "Netokracija (Office Talks)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01",
+   "channel_id": "UCrolbzqlzSeLTH624wKbtLQ",
+   "playlist_id": "PLta2gH1s4UVQiPDg3lQ4v-3L2fJPvaU01",
+   "name": "Netokracija Podcast",
+   "hint": {
+    "parent_channel": "Netokracija (Office Talks)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxckWRcS_LBuzp8ACQvoXU77Qqk1cWeq0",
+   "channel_id": "UCkbs81oPenkl7vvHMmK69Fg",
+   "playlist_id": "PLxckWRcS_LBuzp8ACQvoXU77Qqk1cWeq0",
+   "name": "Hopecast – Nada kroz životne borbe",
+   "hint": {
+    "parent_channel": "HopeCast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLBcCYE88d50yk_jB2F7mckvDY6LAxpBex",
+   "channel_id": "UCg83xUjFXRSZO95vIa9zhMg",
+   "playlist_id": "PLBcCYE88d50yk_jB2F7mckvDY6LAxpBex",
+   "name": "SALESIANINE ODGOJNE VEČERI (SOV)",
+   "hint": {
+    "parent_channel": "Salesiana HR",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLNAy3HEF3wXdFfZouWolFVMjBJMB1DJ9E",
+   "channel_id": "UChrGmxlWiQzScUQschV2C1g",
+   "playlist_id": "PLNAy3HEF3wXdFfZouWolFVMjBJMB1DJ9E",
+   "name": "Podcast-i",
+   "hint": {
+    "parent_channel": "Šime Show",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL5Lnsa-BduYJIPwd-p5ONao_GrZwpJde-",
+   "channel_id": "UCncW8X1JnVFwJMclhY4agWQ",
+   "playlist_id": "PL5Lnsa-BduYJIPwd-p5ONao_GrZwpJde-",
+   "name": "Priče iz Skrovišta — TTRPG Podcast",
+   "hint": {
+    "parent_channel": "Priče iz Skrovišta",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLd_XUy4isxd_sheHG23SaXr-q-ftBe5lz",
+   "channel_id": "UCNexWS-htuUB8WCmU129GUg",
+   "playlist_id": "PLd_XUy4isxd_sheHG23SaXr-q-ftBe5lz",
+   "name": "Razgovori o zdravlju s ADIVA ljekarnikom",
+   "hint": {
+    "parent_channel": "dr. Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLd_XUy4isxd8GqQ7kJ0AHv0gqUDWIaQ4N",
+   "channel_id": "UCNexWS-htuUB8WCmU129GUg",
+   "playlist_id": "PLd_XUy4isxd8GqQ7kJ0AHv0gqUDWIaQ4N",
+   "name": "Endokrinološki Specijal",
+   "hint": {
+    "parent_channel": "dr. Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLd_XUy4isxd-F_jNya1AT8pgGn3f-H99P",
+   "channel_id": "UCNexWS-htuUB8WCmU129GUg",
+   "playlist_id": "PLd_XUy4isxd-F_jNya1AT8pgGn3f-H99P",
+   "name": "dr Podcast",
+   "hint": {
+    "parent_channel": "dr. Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRbrVrELkKnZgKg_CyGqXXakw5wepg5Hb",
+   "channel_id": "UCKgGXe2w1DWUrTRfTQyHHAw",
+   "playlist_id": "PLRbrVrELkKnZgKg_CyGqXXakw5wepg5Hb",
+   "name": "INFINITY PODCAST SEASON 3",
+   "hint": {
+    "parent_channel": "INFINITY Podcast (Poliklinika Milojević)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRbrVrELkKnY6h9ol_IL33P2nHcjks3-n",
+   "channel_id": "UCKgGXe2w1DWUrTRfTQyHHAw",
+   "playlist_id": "PLRbrVrELkKnY6h9ol_IL33P2nHcjks3-n",
+   "name": "INFINITY PODCAST SEASON 2",
+   "hint": {
+    "parent_channel": "INFINITY Podcast (Poliklinika Milojević)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRbrVrELkKnbuQai4PvSy5-2Kgxh8Df_3",
+   "channel_id": "UCKgGXe2w1DWUrTRfTQyHHAw",
+   "playlist_id": "PLRbrVrELkKnbuQai4PvSy5-2Kgxh8Df_3",
+   "name": "TAMC INFINITY PODCAST S1",
+   "hint": {
+    "parent_channel": "INFINITY Podcast (Poliklinika Milojević)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRbrVrELkKnbkARQRJrWrbtls0lBgvAYB",
+   "channel_id": "UCKgGXe2w1DWUrTRfTQyHHAw",
+   "playlist_id": "PLRbrVrELkKnbkARQRJrWrbtls0lBgvAYB",
+   "name": "INFINITY PODCAST SEASON 1",
+   "hint": {
+    "parent_channel": "INFINITY Podcast (Poliklinika Milojević)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "name": "Prva linija",
+   "hint": {
+    "parent_channel": "Jutarnji list",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+   "name": "Na aparatima",
+   "hint": {
+    "parent_channel": "Jutarnji list",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLLejqo1i2IeCtX3gDGA1aWlAXktwv-DEX",
+   "channel_id": "UCZ1iv6WxK7_tClKR5-1XJhg",
+   "playlist_id": "PLLejqo1i2IeCtX3gDGA1aWlAXktwv-DEX",
+   "name": "Mora FM",
+   "hint": {
+    "parent_channel": "Morina Kutija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrLplSOzISKD71G_JZCejEXC",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrLplSOzISKD71G_JZCejEXC",
+   "name": "RTL Detektor",
+   "hint": {
+    "parent_channel": "RTL",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrIJjF2VzhBWWu7QjIPOFK4L",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrIJjF2VzhBWWu7QjIPOFK4L",
+   "name": "Ideje na stolu",
+   "hint": {
+    "parent_channel": "RTL",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+   "name": "Bez uputnice",
+   "hint": {
+    "parent_channel": "RTL",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s",
+   "name": "Rukometne legende",
+   "hint": {
+    "parent_channel": "RTL",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+   "name": "Tech by Tomislav Tomašević",
+   "hint": {
+    "parent_channel": "RTL",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLmhxnAe-4pmhHp77w_mvCqMYq6ppcw7MT",
+   "channel_id": "UCN3w7duHBaKii0nrAviZwIg",
+   "playlist_id": "PLmhxnAe-4pmhHp77w_mvCqMYq6ppcw7MT",
+   "name": "Speck Speaks Podcast",
+   "hint": {
+    "parent_channel": "Speck Speaks",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "name": "Zavidavanje by Lado Tomičić",
+   "hint": {
+    "parent_channel": "VIDA",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "name": "Kontrapovijest by Hrvoje Klasić",
+   "hint": {
+    "parent_channel": "VIDA",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLOUnCWxr944uxQi8HTFyrC_tc-RAWY27I",
+   "channel_id": "UCs9cbK1jnbAU1auzty9Qlrw",
+   "playlist_id": "PLOUnCWxr944uxQi8HTFyrC_tc-RAWY27I",
+   "name": "Podcast Svjedok",
+   "hint": {
+    "parent_channel": "Podcast Svjedok",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwLxLBTaKrwxI2kXZhPCWoghNWrTJ-vi5",
+   "channel_id": "UC2uXNaoJN2ssrf9mPKPnaOg",
+   "playlist_id": "PLwLxLBTaKrwxI2kXZhPCWoghNWrTJ-vi5",
+   "name": "POdCast",
+   "hint": {
+    "parent_channel": "Ask FraPriest",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLXWtqC38LyS3ePAMvpsJU5YDtlI89vc14",
+   "channel_id": "UC6eoZUGPiIUvT6QU054Cv9A",
+   "playlist_id": "PLXWtqC38LyS3ePAMvpsJU5YDtlI89vc14",
+   "name": "BASIC TALK",
+   "hint": {
+    "parent_channel": "OGISTRA",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLXWtqC38LyS26P6KDhw3Sa8ukMfIfd7Qu",
+   "channel_id": "UC6eoZUGPiIUvT6QU054Cv9A",
+   "playlist_id": "PLXWtqC38LyS26P6KDhw3Sa8ukMfIfd7Qu",
+   "name": "BASIC Podcast",
+   "hint": {
+    "parent_channel": "OGISTRA",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFAfOAKki68U43nwXfJ_76u6uml4PRx4w",
+   "channel_id": "UC9aFjtVulWEsliv2Q6-krEg",
+   "playlist_id": "PLFAfOAKki68U43nwXfJ_76u6uml4PRx4w",
+   "name": "Iza Okvira",
+   "hint": {
+    "parent_channel": "Iza Okvira",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL7lHlboVVRZFIWj_AK6kk285m3lUB504Q",
+   "channel_id": "UC-7HdElVt1nIR-dUsWtqlbg",
+   "playlist_id": "PL7lHlboVVRZFIWj_AK6kk285m3lUB504Q",
+   "name": "All Things Croatia Podcast",
+   "hint": {
+    "parent_channel": "All Things Croatia",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL1WYOpFt35nMqUF8-FTw4CGQ3vuBvMFlR",
+   "channel_id": "UCNXYuKvvLWOOhCqQ5gyVA3Q",
+   "playlist_id": "PL1WYOpFt35nMqUF8-FTw4CGQ3vuBvMFlR",
+   "name": "Rebootcast",
+   "hint": {
+    "parent_channel": "Rebootcast (Reboot magazine)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9n58GpDW25zzc9qmoPDpA1P",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9n58GpDW25zzc9qmoPDpA1P",
+   "name": "Pozdravi svemir",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS",
+   "name": "Podkist",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9kYm7aNdfU0MBHlpPcxctKi",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9kYm7aNdfU0MBHlpPcxctKi",
+   "name": "DO EESTECA VREMENA",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mXfmxMsYP9S3PflqvqBhzA",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mXfmxMsYP9S3PflqvqBhzA",
+   "name": "Mudro zbori",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mFjfKMZtvb69DLpkzoOZTi",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mFjfKMZtvb69DLpkzoOZTi",
+   "name": "Tjedan financijske pismenosti",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+   "name": "Shegrt",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mMZumGOfgP9zIW4oljv2Zz",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mMZumGOfgP9zIW4oljv2Zz",
+   "name": "O zakonima prirode",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+   "name": "Slobodnim stilom",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mD4GY1L9p3eSo0_paok12Q",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mD4GY1L9p3eSo0_paok12Q",
+   "name": "27 STARS: hrvatska perspEUktiva",
+   "hint": {
+    "parent_channel": "Promocija znanosti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL2ygRlmoL9F65YCnfrFpSz7efq1U_Y-MS",
+   "channel_id": "UCoAVMy_9E_n75aZXbotfVjw",
+   "playlist_id": "PL2ygRlmoL9F65YCnfrFpSz7efq1U_Y-MS",
+   "name": "HCL PODCAST",
+   "hint": {
+    "parent_channel": "HCL Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLF-sNmHfgBWRFfvkyEtlhlj-mzHNUWTv2",
+   "channel_id": "UCJwt74EtiPJudvjKDSTBU3g",
+   "playlist_id": "PLF-sNmHfgBWRFfvkyEtlhlj-mzHNUWTv2",
+   "name": "BOOKKKARHA",
+   "hint": {
+    "parent_channel": "bookaravision",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhKnhYrmZ71Q14vKXY7ck3pGClObdZ1f7",
+   "channel_id": "UCOHY4iPa9I-773G3nJDhXSQ",
+   "playlist_id": "PLhKnhYrmZ71Q14vKXY7ck3pGClObdZ1f7",
+   "name": "Metabolic Friendly Podcast",
+   "hint": {
+    "parent_channel": "Metabolic Friendly",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLBIK6lXbDOOMQ-vj1xJWd04H_Rqe9W9GZ",
+   "channel_id": "UCV9U0DBy9mcqA9_F04lmBuw",
+   "playlist_id": "PLBIK6lXbDOOMQ-vj1xJWd04H_Rqe9W9GZ",
+   "name": "Saznaj sve o javnim nastupima",
+   "hint": {
+    "parent_channel": "Moć komunikacije",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLN69zBJ5kkcJpGtReVLti6oNqj-fpYFAl",
+   "channel_id": "UCbwPqigb6VmOmtLnrJiLHzQ",
+   "playlist_id": "PLN69zBJ5kkcJpGtReVLti6oNqj-fpYFAl",
+   "name": "Metautism",
+   "hint": {
+    "parent_channel": "Metautism",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "name": "Occamova britva",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
+   "name": "Povijest četvrtkom",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNDAqdKvFsDYEzle8SMFxt4",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNDAqdKvFsDYEzle8SMFxt4",
+   "name": "Duhovna misao | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPvBVeyO2-dk7KqTb5zCsKa",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPvBVeyO2-dk7KqTb5zCsKa",
+   "name": "Prva crta | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBznHZk8E0H4Xbu6E3FPVo",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOBznHZk8E0H4Xbu6E3FPVo",
+   "name": "Ljudi vjere | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "name": "Andromeda",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "name": "Razvojni kod | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPUqICDfu7yHshomRq2sXk3",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPUqICDfu7yHshomRq2sXk3",
+   "name": "KRIK | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz",
+   "name": "Radio igra | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "name": "Viza | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "name": "The Home Team Podcast",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMZP0Ffwqao1wWUnHah8Wg2",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kMZP0Ffwqao1wWUnHah8Wg2",
+   "name": "Radio roman | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM2xg7hHyrU8TEKcy-Un1P_",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kM2xg7hHyrU8TEKcy-Un1P_",
+   "name": "Radioigra za djecu i mlade | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOHD8K3NQl_L4mVzF2tK7wl",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOHD8K3NQl_L4mVzF2tK7wl",
+   "name": "Drama za mlade | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kN06w6uul12sUbTlA67tJY7",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kN06w6uul12sUbTlA67tJY7",
+   "name": "Radio drama | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMYW6vQe1-Ut9jmzE3mBe1V",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kMYW6vQe1-Ut9jmzE3mBe1V",
+   "name": "Meditacijom do Božića",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNpkspHQ1pt2XYxFds0iYJc",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNpkspHQ1pt2XYxFds0iYJc",
+   "name": "Nepregledno blago | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPEaldKGIEmdlR90IeXehfG",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPEaldKGIEmdlR90IeXehfG",
+   "name": "Hrvatski naš svagdašnji | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "name": "Prstom po globusu | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "name": "Glas mladih | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP1a29sSFXA9hCcbmYh9Fea",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kP1a29sSFXA9hCcbmYh9Fea",
+   "name": "Stetoskop | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "name": "Purgeraj | HRT",
+   "hint": {
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHpcxiQoDYHfZY8qWRawmv4Np4tvxCmta",
+   "channel_id": "UC_T6a1XdNe00BTDfd7754tw",
+   "playlist_id": "PLHpcxiQoDYHfZY8qWRawmv4Np4tvxCmta",
+   "name": "LLC Lessons",
+   "hint": {
+    "parent_channel": "Let's Learn Croatian",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoxsMilYdpVLtzqWdcUlB3LvPmHHI3vUc",
+   "channel_id": "UC0GR_qkZLeo59JBnYf879Ug",
+   "playlist_id": "PLoxsMilYdpVLtzqWdcUlB3LvPmHHI3vUc",
+   "name": "Glazbena Kuća Podcast",
+   "hint": {
+    "parent_channel": "Glazbena Kuća Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA4k5PuoYQs6pWjbdNLxRNx1Lq45sPqa6",
+   "channel_id": "UCExsiYu8oNXKtiyTvP3wnnQ",
+   "playlist_id": "PLA4k5PuoYQs6pWjbdNLxRNx1Lq45sPqa6",
+   "name": "Posrednik Podcast",
+   "hint": {
+    "parent_channel": "Podcast Posrednik",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+   "channel_id": "UCQSJ3fWc14iRWduTMbUg2gg",
+   "playlist_id": "PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+   "name": "Podcast \"EU mindset\"",
+   "hint": {
+    "parent_channel": "Poduzetnički Mindset",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHcK9C-aFYCc",
+   "channel_id": "UCyBAgjmdneuPsmCJTb8PmUg",
+   "playlist_id": "PLHcK9C-aFYCc",
+   "name": "Podcast o Zdravlju: Stručni gosti",
+   "hint": {
+    "parent_channel": "Podcast o zdravlju",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfjODN4Xy8OUgG38jMSUTatV",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfjODN4Xy8OUgG38jMSUTatV",
+   "name": "Podcast Inkubator s Ratkom Martinovićem",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfhSy15hANmq-pxd9HO1HWBU",
+   "name": "5Rak vs Hambi -  Extra Runda",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfjdJxHArO5DYRX_pqLq2goO",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfjdJxHArO5DYRX_pqLq2goO",
+   "name": "Podcast Inkubator s Markom Petrakom",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhcsvNUOHTGWV0bDlk9ElOr",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfhcsvNUOHTGWV0bDlk9ElOr",
+   "name": "Q&A: Gosti odgovaraju na pitanja gledatelja",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfhkXCRE-BRM8BD_3yT-mPr9",
+   "name": "Podcast Mysterium",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfiuKgY5Niyzi-jjOPYzaQ4J",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfiuKgY5Niyzi-jjOPYzaQ4J",
+   "name": "A1 GameOn",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfgHIWJuEJTzpkzfyclKUGXv",
+   "name": "A1 Nogometni Podcast",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfj2zr2f2sv8_Luc1klIUJ2n",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfj2zr2f2sv8_Luc1klIUJ2n",
+   "name": "Podcast Inkubator s Milanom i Filipom",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfg0A9CvDv9TRiH5zbRXHFjw",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfg0A9CvDv9TRiH5zbRXHFjw",
+   "name": "A1 GAMEON Podcast",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfhO9QBXAL_ldh0z--qkVkoT",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfhO9QBXAL_ldh0z--qkVkoT",
+   "name": "Podcast Inkubator s Ivonom Hemen",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfiype-IIb_OJu-TUcQY3APo",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfiype-IIb_OJu-TUcQY3APo",
+   "name": "Podcast Inkubator s Fil Tilenom",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfjVZQnPPg251dH564TxA_Lh",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfjVZQnPPg251dH564TxA_Lh",
+   "name": "Inkubatorovci o svemu",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfiMNopjy3WTwYRfWVdJj2l3",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfiMNopjy3WTwYRfWVdJj2l3",
+   "name": "Podcast Inkubator s Aidom Šukuricom",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbOmR_aFrZfh92ZfCZ9AytvUmtsowu-By",
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "playlist_id": "PLbOmR_aFrZfh92ZfCZ9AytvUmtsowu-By",
+   "name": "Podcast Inkubator s Deom Redžić",
+   "hint": {
+    "parent_channel": "Podcast Inkubator",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLUu318TJmWYUKWlusQSn6LYkDhgR29PXa",
+   "channel_id": "UC5rBE0XRP7JYxmzWuClbLWQ",
+   "playlist_id": "PLUu318TJmWYUKWlusQSn6LYkDhgR29PXa",
+   "name": "PULS.E PODCAST by Sanja Žuljević",
+   "hint": {
+    "parent_channel": "PULS.E Podcast (Sanja Žuljević)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLQ2EFMCniVlBTSvWCqVFYVyk8y7ByhItT",
+   "channel_id": "UC7pc63_aIVAga2QyJ7fsJfw",
+   "playlist_id": "PLQ2EFMCniVlBTSvWCqVFYVyk8y7ByhItT",
+   "name": "Games Croatia",
+   "hint": {
+    "parent_channel": "Games Croatia",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxmsATdqOowjIAXAdm4uvQOL",
+   "channel_id": "UCqthf51zZqV4pui35VADN4w",
+   "playlist_id": "PLr5AgobBmwxmsATdqOowjIAXAdm4uvQOL",
+   "name": "NA PUTU - Marko Matijašević",
+   "hint": {
+    "parent_channel": "Eho Projekt",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxlEmJOAkDi9QeAUFZWwVYDv",
+   "channel_id": "UCqthf51zZqV4pui35VADN4w",
+   "playlist_id": "PLr5AgobBmwxlEmJOAkDi9QeAUFZWwVYDv",
+   "name": "BUDI OSNAŽENA",
+   "hint": {
+    "parent_channel": "Eho Projekt",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxkQfa2Ng9vcvJqoZ5SUwhwZ",
+   "channel_id": "UCqthf51zZqV4pui35VADN4w",
+   "playlist_id": "PLr5AgobBmwxkQfa2Ng9vcvJqoZ5SUwhwZ",
+   "name": "EHOCAST",
+   "hint": {
+    "parent_channel": "Eho Projekt",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLRgTZW5a5Pg4VOOaLiL5Gd07NS3wwqMNl",
+   "channel_id": "UCi4cKxUl4MMUBO4vXbe1nkA",
+   "playlist_id": "PLRgTZW5a5Pg4VOOaLiL5Gd07NS3wwqMNl",
+   "name": "Horizonti Liderstva",
+   "hint": {
+    "parent_channel": "Horizonti Liderstva",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "channel_id": "UCSWkbfJTDKblBgAQJlEuWig",
+   "playlist_id": "PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "name": "Poslovni svijet s Ilijom Jandrićem",
+   "hint": {
+    "parent_channel": "Poslovni dnevnik",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo0bKz3RvVDPt6y70U__BjFu",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo0bKz3RvVDPt6y70U__BjFu",
+   "name": "RIL TOK PODCAST - 6. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo1Sb9hwt6JYLxXFGCaVqdRr",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo1Sb9hwt6JYLxXFGCaVqdRr",
+   "name": "RIL TOK PODCAST - 5. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo0acSs_33Z6psm9C17pcg-m",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo0acSs_33Z6psm9C17pcg-m",
+   "name": "RIL TOK PODCAST - 4. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo0fkBbj7NaJx7oayF9l-xQK",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo0fkBbj7NaJx7oayF9l-xQK",
+   "name": "RIL TOK PODCAST - 2. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo3ZSXgSS6S1Sf_qpvmob12g",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo3ZSXgSS6S1Sf_qpvmob12g",
+   "name": "RIL TOK RIPORT",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo1W_NCJpvqJrvHcykWU7OLk",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo1W_NCJpvqJrvHcykWU7OLk",
+   "name": "RIL TOK PODCAST - 3. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhmCQBMCTTo2d26Up-VyrN0tXsuNFQrh3",
+   "channel_id": "UCctBtR3ROI8bcgq__bQEwIw",
+   "playlist_id": "PLhmCQBMCTTo2d26Up-VyrN0tXsuNFQrh3",
+   "name": "RIL TOK PODCAST - 1. SEZONA",
+   "hint": {
+    "parent_channel": "Ril Tok Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+   "name": "Kršćanine upoznaj svoje dostojanstvo",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGX79ymSr6X-F6PwKoyT92DV",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGX79ymSr6X-F6PwKoyT92DV",
+   "name": "Jedno srce u Ocu",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUo0IbkGkjlduMJiALbIJ7c",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGUo0IbkGkjlduMJiALbIJ7c",
+   "name": "Neka se ne uznemiruje i neka se ne plaši srce vaše",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUlZwS8VD3rDBZ8vf19tr64",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGUlZwS8VD3rDBZ8vf19tr64",
+   "name": "Svjedočanstvo vjere",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGVx_naywqJMjo8GFZXVdfQw",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGVx_naywqJMjo8GFZXVdfQw",
+   "name": "Biti Mala Marija",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXZ4n4efikgymnerAlb5lXO",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGXZ4n4efikgymnerAlb5lXO",
+   "name": "Škola kršćanske meditacije",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGWYkk6hWbiBfQ--oP1JB_bF",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGWYkk6hWbiBfQ--oP1JB_bF",
+   "name": "Isus, novi Ilija",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGVodPhgiL1ITQGcXiilhzWC",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGVodPhgiL1ITQGcXiilhzWC",
+   "name": "U susret životu",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUjsdtiSEGbtfuPCJD9Zujs",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGUjsdtiSEGbtfuPCJD9Zujs",
+   "name": "Poruke nade",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXJgRurrJTdwRw4b6TJI7YE",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGXJgRurrJTdwRw4b6TJI7YE",
+   "name": "Razmatranja o Svetoj Misi",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUKtkEv9NCisx67uCzcKRCe",
+   "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+   "playlist_id": "PL4BCELLg-DGUKtkEv9NCisx67uCzcKRCe",
+   "name": "U Božjoj prisutnosti nema straha",
+   "hint": {
+    "parent_channel": "Radio Marija u BiH",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhoLJzb7KRV76-e3MSzZ-VAdlhfAJ2wV9",
+   "channel_id": "UCjcOht-_CO43oETQOo4tRMA",
+   "playlist_id": "PLhoLJzb7KRV76-e3MSzZ-VAdlhfAJ2wV9",
+   "name": "Susret mladih KKODS (Teslić, 2023.)",
+   "hint": {
+    "parent_channel": "KKO.hr",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLcF_BUMSaOLs8KhBtPPmZqJOt5fpyNFV1",
+   "channel_id": "UCSEm28CMmAyzT6XNVCMUSxQ",
+   "playlist_id": "PLcF_BUMSaOLs8KhBtPPmZqJOt5fpyNFV1",
+   "name": "Gram Kulture",
+   "hint": {
+    "parent_channel": "Podcast Gram kulture",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "channel_id": "UC-EG8D5Im29F-dvNC-wr8uw",
+   "playlist_id": "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "name": "Možemo Podcast",
+   "hint": {
+    "parent_channel": "Možemo!",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZSLYYN8FkPM2Rz1WYhMVlXcHfG5sM6Rg",
+   "channel_id": "UC-I_Bnsk4Zc6cXoP9LtM5Iw",
+   "playlist_id": "PLZSLYYN8FkPM2Rz1WYhMVlXcHfG5sM6Rg",
+   "name": "TNT",
+   "hint": {
+    "parent_channel": "Nebitno O Bitnom",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLdp7e0eH1IP56xEx6Wdx7g57TqMGJAE97",
+   "channel_id": "UCHqOpHIEveT_cRSPElzyOEw",
+   "playlist_id": "PLdp7e0eH1IP56xEx6Wdx7g57TqMGJAE97",
+   "name": "Podcast Bez Adrese",
+   "hint": {
+    "parent_channel": "Hercegovina Info",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
+   "channel_id": "UCdMkKtMvFlOEF6tKowy4C6g",
+   "playlist_id": "PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
+   "name": "Seksurbacije Podcast",
+   "hint": {
+    "parent_channel": "Seksoteka",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLZ6oUCHQCqyi-w0DyjNvwFAYl4pZoiP-r",
+   "channel_id": "UCwHvgMD0YA7KhRnQBn6kgvg",
+   "playlist_id": "PLZ6oUCHQCqyi-w0DyjNvwFAYl4pZoiP-r",
+   "name": "Podcast Bez pauze",
+   "hint": {
+    "parent_channel": "Podcast Bez pauze",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL7HeWkih7J4w18Loh_JHYYls3OhtaQAij",
+   "channel_id": "UCWQ_xqdopuTl2jElP5jVnTQ",
+   "playlist_id": "PL7HeWkih7J4w18Loh_JHYYls3OhtaQAij",
+   "name": "Sve epizode podcasta",
+   "hint": {
+    "parent_channel": "Ana Radišić Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL7HeWkih7J4zwPVxVm6Oof7OohddyCmVK",
+   "channel_id": "UCWQ_xqdopuTl2jElP5jVnTQ",
+   "playlist_id": "PL7HeWkih7J4zwPVxVm6Oof7OohddyCmVK",
+   "name": "5. sezona - Epizode",
+   "hint": {
+    "parent_channel": "Ana Radišić Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "name": "Upoznaj Bibliju",
+   "hint": {
+    "parent_channel": "Laudato TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "name": "Ne bojte se!",
+   "hint": {
+    "parent_channel": "Laudato TV",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL0Kse8OCRydUehCz8YRE-F9CqpDph9_sg",
+   "channel_id": "UCAcCn67b3O7b1JSISdQNbwA",
+   "playlist_id": "PL0Kse8OCRydUehCz8YRE-F9CqpDph9_sg",
+   "name": "PODCAST",
+   "hint": {
+    "parent_channel": "Mladi za Domovinu",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLieaHYtTW9hQxbriTd3-yOfQYooD68gBL",
+   "channel_id": "UCN8IwiyTm_68wtgEXz6VLWQ",
+   "playlist_id": "PLieaHYtTW9hQxbriTd3-yOfQYooD68gBL",
+   "name": "MERZpodcast",
+   "hint": {
+    "parent_channel": "Merz Institut (Za vječnu slavu)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLu1QTaC8EEt-3SbTK8wwcMnhCkef2hUgS",
+   "channel_id": "UCUJ1Q558nDOgrCkYd-1AoQQ",
+   "playlist_id": "PLu1QTaC8EEt-3SbTK8wwcMnhCkef2hUgS",
+   "name": "šta je s glavon?",
+   "hint": {
+    "parent_channel": "Marko Vuletić Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLsSK65F5KEDOzUPfFbaEhjzTrdd1I9Lqa",
+   "channel_id": "UCHq7FkKmD7ZDtYK-qZ5tHWA",
+   "playlist_id": "PLsSK65F5KEDOzUPfFbaEhjzTrdd1I9Lqa",
+   "name": "Chelsea Croatia Podcast  (studio)",
+   "hint": {
+    "parent_channel": "Chelsea Croatia",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLsSK65F5KEDM8B4OZ8o22om3KnT9zUTkj",
+   "channel_id": "UCHq7FkKmD7ZDtYK-qZ5tHWA",
+   "playlist_id": "PLsSK65F5KEDM8B4OZ8o22om3KnT9zUTkj",
+   "name": "Chelsea Croatia Podcast s Marinom  Lučićem",
+   "hint": {
+    "parent_channel": "Chelsea Croatia",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLvuH7UopTvO6GEZ2H5vr5ODzF6_ob19_V",
+   "channel_id": "UCKdfRYPC2lgfv5_4zHJ2Gdw",
+   "playlist_id": "PLvuH7UopTvO6GEZ2H5vr5ODzF6_ob19_V",
+   "name": "ATMA Podcast – Cjelovite epizode",
+   "hint": {
+    "parent_channel": "Atma",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLanadL0F8tsepC2ybFRzpjzTnDFHB3sX0",
+   "channel_id": "UCvPVzHKlfYkq5ij9te0maiw",
+   "playlist_id": "PLanadL0F8tsepC2ybFRzpjzTnDFHB3sX0",
+   "name": "FIRE podcast za siromašne",
+   "hint": {
+    "parent_channel": "FIRE Podcast (Tetka & Škrti Otočanin)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhFKquhdyQYx3Pfsi8uH0aKAhlIFT_r35",
+   "channel_id": "UCeCk6GcwW18kYsLBKCeZo0A",
+   "playlist_id": "PLhFKquhdyQYx3Pfsi8uH0aKAhlIFT_r35",
+   "name": "Sezona 4",
+   "hint": {
+    "parent_channel": "Libertas Talks podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhFKquhdyQYyKrm_jo_yQBt_4cQg1qsL3",
+   "channel_id": "UCeCk6GcwW18kYsLBKCeZo0A",
+   "playlist_id": "PLhFKquhdyQYyKrm_jo_yQBt_4cQg1qsL3",
+   "name": "Strasbourg Talks",
+   "hint": {
+    "parent_channel": "Libertas Talks podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhFKquhdyQYzY6Sw2mXmWhR4kaYtCmXHr",
+   "channel_id": "UCeCk6GcwW18kYsLBKCeZo0A",
+   "playlist_id": "PLhFKquhdyQYzY6Sw2mXmWhR4kaYtCmXHr",
+   "name": "Sezona 3",
+   "hint": {
+    "parent_channel": "Libertas Talks podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhFKquhdyQYwrRj8HgsANiH69zv3xSGXO",
+   "channel_id": "UCeCk6GcwW18kYsLBKCeZo0A",
+   "playlist_id": "PLhFKquhdyQYwrRj8HgsANiH69zv3xSGXO",
+   "name": "Sezona 2",
+   "hint": {
+    "parent_channel": "Libertas Talks podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLhFKquhdyQYzSD1lE7KN57vfga-5N8stA",
+   "channel_id": "UCeCk6GcwW18kYsLBKCeZo0A",
+   "playlist_id": "PLhFKquhdyQYzSD1lE7KN57vfga-5N8stA",
+   "name": "Sezona 1",
+   "hint": {
+    "parent_channel": "Libertas Talks podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLSgLlNCbXOit3OZ0ma7mY-7MNKh8g1qMR",
+   "channel_id": "UCzRilkVJ-f4VvzoPDojFRYQ",
+   "playlist_id": "PLSgLlNCbXOit3OZ0ma7mY-7MNKh8g1qMR",
+   "name": "Christianity AD 2054 - International Conference",
+   "hint": {
+    "parent_channel": "IKRA Institut",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLnlIA_j7FwevXpVe8FIhxibpe1vPXVEmX",
+   "channel_id": "UCMr5ZbeesbHwBSxOQdYp34w",
+   "playlist_id": "PLnlIA_j7FwevXpVe8FIhxibpe1vPXVEmX",
+   "name": "Retronauti - Podcast epizode",
+   "hint": {
+    "parent_channel": "Retronauti",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL2jdGRMufvjPGB2Vlo4rHD2Ej2agaTJGh",
+   "channel_id": "UCi_85ZFlmoInTB1wmrQ2pIw",
+   "playlist_id": "PL2jdGRMufvjPGB2Vlo4rHD2Ej2agaTJGh",
+   "name": "Kliker Podcast",
+   "hint": {
+    "parent_channel": "Kliker Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLaSCGcYqoFA4L1QHgB5o9rD4YHOl6pyTV",
+   "channel_id": "UC0ifUmr5Ux7ZBTh6R18oH0A",
+   "playlist_id": "PLaSCGcYqoFA4L1QHgB5o9rD4YHOl6pyTV",
+   "name": "Druga strana medalje",
+   "hint": {
+    "parent_channel": "Druga strana medalje",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLeuy5dm87XejN3dx1X938NvX0UDURk3Ou",
+   "channel_id": "UCrOF0wrN-xV2j-4x85cR0lg",
+   "playlist_id": "PLeuy5dm87XejN3dx1X938NvX0UDURk3Ou",
+   "name": "5 MINUTA ISTINE",
+   "hint": {
+    "parent_channel": "Mislav Kolakušić",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUZ0M6RE1Zed98Xym8593GP6",
+   "channel_id": "UC-g63mNberP8KZShDX7fbXg",
+   "playlist_id": "PLxaUgaMdjYUZ0M6RE1Zed98Xym8593GP6",
+   "name": "Agenti, standardi i reputacija",
+   "hint": {
+    "parent_channel": "Stanarica podcast o nekretninama",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUYlhssFVZoCvhBHQq-SbuuP",
+   "channel_id": "UC-g63mNberP8KZShDX7fbXg",
+   "playlist_id": "PLxaUgaMdjYUYlhssFVZoCvhBHQq-SbuuP",
+   "name": "Tržište nekretnina: što se stvarno događa",
+   "hint": {
+    "parent_channel": "Stanarica podcast o nekretninama",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUYCFhs_64gBc1qXNtu2gdOl",
+   "channel_id": "UC-g63mNberP8KZShDX7fbXg",
+   "playlist_id": "PLxaUgaMdjYUYCFhs_64gBc1qXNtu2gdOl",
+   "name": "Kupnja i prodaja: cijene, krediti i provizije",
+   "hint": {
+    "parent_channel": "Stanarica podcast o nekretninama",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLxaUgaMdjYUY9Zua3tudLkjq-I4OUVv8v",
+   "channel_id": "UC-g63mNberP8KZShDX7fbXg",
+   "playlist_id": "PLxaUgaMdjYUY9Zua3tudLkjq-I4OUVv8v",
+   "name": "Gradnja, adaptacija i uređenje",
+   "hint": {
+    "parent_channel": "Stanarica podcast o nekretninama",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLcEYJMu3QB2LQKLivyTGCMVIm49-YSkEt",
+   "channel_id": "UCI6pKljX81g3vuK2SYj62rQ",
+   "playlist_id": "PLcEYJMu3QB2LQKLivyTGCMVIm49-YSkEt",
+   "name": "PODCAST MREŽNICA",
+   "hint": {
+    "parent_channel": "Radio Mrežnica (Podcast Mrežnica)",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLeOKRWSaW436Mlkt1cADMM6RVHqVYXGzO",
+   "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+   "playlist_id": "PLeOKRWSaW436Mlkt1cADMM6RVHqVYXGzO",
+   "name": "Human LAB Podcast",
+   "hint": {
+    "parent_channel": "Human LAB Podcast",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLC9-5dbFUlA9C3sTdy3PEhHXbPDwctC1L",
+   "channel_id": "UCL57E-CwLEXtcujXaIzzWKg",
+   "playlist_id": "PLC9-5dbFUlA9C3sTdy3PEhHXbPDwctC1L",
+   "name": "Podcast Besida",
+   "hint": {
+    "parent_channel": "Podcast Besida",
+    "evidence": "YouTube /podcasts tab kanala"
+   }
+  }
+ ]
+}

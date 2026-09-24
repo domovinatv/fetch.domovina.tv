@@ -1,0 +1,28 @@
+{
+ "key": "UCvXgdQnjlzq4BoV3Xb5oYvQ",
+ "url": "https://www.youtube.com/channel/UCvXgdQnjlzq4BoV3Xb5oYvQ/videos",
+ "channel_id": "UCvXgdQnjlzq4BoV3Xb5oYvQ",
+ "playlist_id": null,
+ "title": "Sport Kultura - Videos",
+ "channel": "Sport Kultura",
+ "channel_url": "https://www.youtube.com/channel/UCvXgdQnjlzq4BoV3Xb5oYvQ",
+ "description": "",
+ "follower_count": 8,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "AyaeCr9gSKk",
+   "title": "JEL' JOŠ ŽIV ROCK'N'ROLL NA BALKANU? Branko Đurić - Đuro (2016.)",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "VupV9Ypy3_I",
+   "title": "IMA LI NAPRETKA U HRVATSKOM NOGOMETU? Zvonimir Boban (2017.)",
+   "duration": 71,
+   "live_status": null,
+   "upload_date": "20170925"
+  }
+ ]
+}

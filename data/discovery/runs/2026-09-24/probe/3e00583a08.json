@@ -1,0 +1,63 @@
+{
+ "key": "PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+ "url": "https://www.youtube.com/playlist?list=PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+ "channel_id": "UCscjLbM3jyyygjuVKMFQXUg",
+ "playlist_id": "PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+ "title": "MBZ Podcasti",
+ "channel": "MusicBiennaleZagreb",
+ "channel_url": "https://www.youtube.com/channel/UCscjLbM3jyyygjuVKMFQXUg",
+ "description": "Ususret 32. izdanju Muzičkog bijenala Zagreb, razgovaramo o kretanju suvremene glazbe uz izmjenu perspektiva između aktera nezavisne i institucionalne scene.  Moderatorice su Dijana Grubor i Iva Lovrec Štefanović.",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "cid5K1Kp0BI",
+   "title": "MBZ Podcast #1: razgovarajmo o eksperimentalnoj i izvaninstitucionalnoj sceni",
+   "duration": 4196,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Vw7mSXvolMM",
+   "title": "MBZ podcast #2: šest skladateljica nalazi inspiraciju",
+   "duration": 3399,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "JrdOmiqflmM",
+   "title": "MBZ podcast #3: od Pure Blissa do Lennona, ili kako se postaje skladatelj",
+   "duration": 4827,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "WvYgai4COao",
+   "title": "MBZ podcast #4: na prvo slušanje",
+   "duration": 5068,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "FOxa1-PgXyE",
+   "title": "MBZ Podcast #5: Prostor za scenu, MBZ Razgovori",
+   "duration": 4951,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "5QNXOOzpUB0",
+   "title": "MBZ Podcast #6: Ekološka održivost u kulturi, MBZ Razgovori",
+   "duration": 4195,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "QCMLsz2j3kI",
+   "title": "MBZ Podcast #7: Tehnologija i umjetnost, MBZ Razgovori",
+   "duration": 3956,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

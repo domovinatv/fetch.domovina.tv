@@ -1,0 +1,35 @@
+{
+ "key": "UCVNwAyn6HAJZkJsiXEM9_Rw",
+ "url": "https://www.youtube.com/channel/UCVNwAyn6HAJZkJsiXEM9_Rw/videos",
+ "channel_id": "UCVNwAyn6HAJZkJsiXEM9_Rw",
+ "playlist_id": null,
+ "title": "Kristijan Delić - Videos",
+ "channel": "Kristijan Delić",
+ "channel_url": "https://www.youtube.com/channel/UCVNwAyn6HAJZkJsiXEM9_Rw",
+ "description": "",
+ "follower_count": 240,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "mrOI9gQjkkI",
+   "title": "Krule - razgovor za posao",
+   "duration": 138,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "s0mi2PrpVTM",
+   "title": "dr Dzajic i Kineskinje",
+   "duration": 34,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "_Gkc58yQbPw",
+   "title": "Novak Djokovic HUMAN HERO",
+   "duration": 141,
+   "live_status": null,
+   "upload_date": "20220925"
+  }
+ ]
+}

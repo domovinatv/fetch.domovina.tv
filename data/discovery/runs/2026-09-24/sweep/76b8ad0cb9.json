@@ -1,0 +1,311 @@
+{
+ "cat": "fitness",
+ "q": "podcast trening fitness Hrvatska sportaš",
+ "at": "2026-09-24T21:05:03.080Z",
+ "hits": [
+  {
+   "channel_id": "UCRs0ziZf0CBJLa9iET5twvg",
+   "channel": "Stronger Talks PODCAST",
+   "channel_url": "https://www.youtube.com/channel/UCRs0ziZf0CBJLa9iET5twvg",
+   "id": "gWKEbd_Wuws",
+   "title": "#006 Zašto kompliciramo fitness?",
+   "duration": 5759
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "JfeF-QNKec4",
+   "title": "Gabudizator - \"Nakon dvije godine treninga dobivao sam iskusne hrvače!\"",
+   "duration": 203
+  },
+  {
+   "channel_id": "UCQ6Ooz2ny8JxRS0-OrdFAhw",
+   "channel": "Fit Through Science",
+   "channel_url": "https://www.youtube.com/channel/UCQ6Ooz2ny8JxRS0-OrdFAhw",
+   "id": "sPWcL_09RNo",
+   "title": "LARA SANTINI: Trebaju li Žene Trenirati Drugačije od Muškaraca | FTS Podcast #48",
+   "duration": 5024
+  },
+  {
+   "channel_id": "UCTIhYDu2J6LmLIfchSsoy9A",
+   "channel": "Mentalni Trening",
+   "channel_url": "https://www.youtube.com/channel/UCTIhYDu2J6LmLIfchSsoy9A",
+   "id": "iJ5UsJ8Ktvs",
+   "title": "Mentalni Trening PODCAST #14 - Matija Đulvat",
+   "duration": 4350
+  },
+  {
+   "channel_id": "UCunoZCJSZe4FZvyQtWU7I1g",
+   "channel": "KAZINI7MERCI",
+   "channel_url": "https://www.youtube.com/channel/UCunoZCJSZe4FZvyQtWU7I1g",
+   "id": "SPCF-sXYgQs",
+   "title": "K7: Pero Kuterovac / kondiciona priprema sportaša",
+   "duration": 1524
+  },
+  {
+   "channel_id": "UC0YJQtI38H09l27vFGpUh8w",
+   "channel": "Davorija Talk",
+   "channel_url": "https://www.youtube.com/channel/UC0YJQtI38H09l27vFGpUh8w",
+   "id": "53tHN0AX7DA",
+   "title": "Ako želiš postati uspješan fitnes trener, ovo su koraci koje trebaš poduzeti | Marino Bašić",
+   "duration": 5498
+  },
+  {
+   "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+   "channel": "Human LAB Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA",
+   "id": "2wMEHH6f2-E",
+   "title": "CROSSFIT | pripreme, trening i natjecanje | HLP Clips",
+   "duration": 461
+  },
+  {
+   "channel_id": "UCKdfRYPC2lgfv5_4zHJ2Gdw",
+   "channel": "Atma",
+   "channel_url": "https://www.youtube.com/channel/UCKdfRYPC2lgfv5_4zHJ2Gdw",
+   "id": "1QgosdrNBvY",
+   "title": "Zašto neki ljudi s godinama izgledaju sve BOLJE? | Stela Grljušić | ATMA Podcast",
+   "duration": 7794
+  },
+  {
+   "channel_id": "UCfDgEkzamTLATUJ6q6swt8w",
+   "channel": "Superhuman life",
+   "channel_url": "https://www.youtube.com/channel/UCfDgEkzamTLATUJ6q6swt8w",
+   "id": "MKTYpPHLUGM",
+   "title": "Marko Barić - Tamna strana fitnesa PODCAST",
+   "duration": 5131
+  },
+  {
+   "channel_id": "UCTIhYDu2J6LmLIfchSsoy9A",
+   "channel": "Mentalni Trening",
+   "channel_url": "https://www.youtube.com/channel/UCTIhYDu2J6LmLIfchSsoy9A",
+   "id": "JTTWhk99fAE",
+   "title": "Mentalni Trening PODCAST #11 - Tin Hrvoj",
+   "duration": 4927
+  },
+  {
+   "channel_id": "UCTIhYDu2J6LmLIfchSsoy9A",
+   "channel": "Mentalni Trening",
+   "channel_url": "https://www.youtube.com/channel/UCTIhYDu2J6LmLIfchSsoy9A",
+   "id": "NGx9jtYyFiA",
+   "title": "Mentalni Trening PODCAST #12 - Martina Čubrić",
+   "duration": 6295
+  },
+  {
+   "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+   "channel": "Human LAB Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA",
+   "id": "7Rm_7wvy6Gw",
+   "title": "HYBRID PERFORMANCE: Triatlon, Weightlifting, Ironman, Wim Hof: VIDO BOŠKOVIĆ | Human LAB Podcast #25",
+   "duration": 8151
+  },
+  {
+   "channel_id": "UC6TAdd9xBT35E3CvlJV7r7A",
+   "channel": "Klub pseće sreće Podcast",
+   "channel_url": "https://www.youtube.com/channel/UC6TAdd9xBT35E3CvlJV7r7A",
+   "id": "N5zY4V0vTEE",
+   "title": "Anja Blažević: Moj pas Buha prkosila je svim očekivanjima u agilityju | KPS Podcast EP. 26",
+   "duration": 3433
+  },
+  {
+   "channel_id": "UChgVPEqmTeG0na3u8VfY3PQ",
+   "channel": "40 dana za život - Hrvatska za Život",
+   "channel_url": "https://www.youtube.com/channel/UChgVPEqmTeG0na3u8VfY3PQ",
+   "id": "mskfoTG_XuY",
+   "title": "Podcast ŽIVOT #32 – Damir Znaor: Najbolje vrijeme za početi je danas",
+   "duration": 5882
+  },
+  {
+   "channel_id": "UCM1qERY3DKfIdDmpt19FSmg",
+   "channel": "Evolte Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCM1qERY3DKfIdDmpt19FSmg",
+   "id": "rgs-Ezy7Gh4",
+   "title": "Bodybuilding je ozbiljan sport - Luka Kuhar",
+   "duration": 1235
+  },
+  {
+   "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+   "channel": "Andrew Huberman",
+   "channel_url": "https://www.youtube.com/channel/UC2D2CMWXMOVWx7giW1n3LIg",
+   "id": "UNCwdFxPtE8",
+   "title": "Optimize Your Exercise Program with Science-Based Tools | Jeff Cavaliere",
+   "duration": 9647
+  },
+  {
+   "channel_id": "UCcMUnOOY8vJKiRKF41_mqfQ",
+   "channel": "Sportske novosti",
+   "channel_url": "https://www.youtube.com/channel/UCcMUnOOY8vJKiRKF41_mqfQ",
+   "id": "G2Y-I5lWk_I",
+   "title": "Kako mi je hrvatski trener objasnio da sam postao višak // SuperSportske Podcast #22",
+   "duration": 52
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "n4QEX6NE0C4",
+   "title": "Dario Gjergja o srpskoj košarci: \"Oni su druga dimenzija, tamo postoji struktura! A gdje smo tek mi\"",
+   "duration": 276
+  },
+  {
+   "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+   "channel": "Human LAB Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA",
+   "id": "J_n-s_wFDAM",
+   "title": "Kondicijska priprema sportaša, Pliometrija, Sprint, Nogomet: MARIN MANDARIĆ | Human LAB Podcast #27",
+   "duration": 6043
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "o_zQZ5Xt7bw",
+   "title": "Podcast Inkubator #677 - Marko i Marino Bašić",
+   "duration": 6858
+  },
+  {
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "channel": "Jutarnji list",
+   "channel_url": "https://www.youtube.com/channel/UCoygYX3L4vBCR4T-EhafUTg",
+   "id": "sXauDqGlJno",
+   "title": "SN PODCAST Krunoslav Simon o Efesu, reprezentaciji i jesu li mu draži ćevapi ili burek",
+   "duration": 2765
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "_aBPcUn38Zw",
+   "title": "Lovren se prisjetio Cro Copove dvorane - \"Kakav trening, ma to nije sport!\"",
+   "duration": 189
+  },
+  {
+   "channel_id": "UC6TAdd9xBT35E3CvlJV7r7A",
+   "channel": "Klub pseće sreće Podcast",
+   "channel_url": "https://www.youtube.com/channel/UC6TAdd9xBT35E3CvlJV7r7A",
+   "id": "WWHcTIG9X2k",
+   "title": "Ana-Marija Votuc: Najveće greške u Rally Obedienceu rade ljudi, ne psi | KPS Podcast EP. 23",
+   "duration": 3960
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "sLMi3InW9Hc",
+   "title": "Podcast Inkubator #179 - Ratko, Luka Milanović i Marino Bašić",
+   "duration": 7631
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "8Es-NC8sFIs",
+   "title": "A1 Nogometni Podcast #111 Q&A 111 - Hrvoje Štrok",
+   "duration": 1973
+  },
+  {
+   "channel_id": "UCSIFN6xiVjRUut98vZ3RrOA",
+   "channel": "Human LAB Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCSIFN6xiVjRUut98vZ3RrOA",
+   "id": "GQPxiQlt3qA",
+   "title": "Neočekivani detalji o prehrani, treningu i životu | MARIO VALENTIĆ | Human LAB Podcast | EP 60",
+   "duration": 5837
+  },
+  {
+   "channel_id": "UC1CVzH-XVr3E-kTT6D8hhfg",
+   "channel": "FitnessFAQs",
+   "channel_url": "https://www.youtube.com/channel/UC1CVzH-XVr3E-kTT6D8hhfg",
+   "id": "2ZbrqTZt1nY",
+   "title": "Why You Should Train Like A Gymnast | FitnessFAQs Podcast #21 - Gymnastics Method",
+   "duration": 3196
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "fNudrngjmRA",
+   "title": "A1 Nogometni Podcast #111 - Hrvoje Štrok",
+   "duration": 4148
+  },
+  {
+   "channel_id": "UCTIhYDu2J6LmLIfchSsoy9A",
+   "channel": "Mentalni Trening",
+   "channel_url": "https://www.youtube.com/channel/UCTIhYDu2J6LmLIfchSsoy9A",
+   "id": "ZEBPG-R6RR4",
+   "title": "Mentalni Trening PODCAST #1 - Vladimir Cupara",
+   "duration": 3249
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "VUTlK0WAxxQ",
+   "title": "Hrvoje Horvat - \"Mi nemamo vratare kao drugi\"",
+   "duration": 373
+  },
+  {
+   "channel_id": "UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "channel": "Podcast Inkubator",
+   "channel_url": "https://www.youtube.com/channel/UCv3Ob6T4cg4Okj0iGTdeIbg",
+   "id": "-u-MiYu2tNs",
+   "title": "Samir Toplak - \"Dinamo ili Rijeka daju 30 tisuća eura samo za trening tehnologiju. Mi to nemamo!\"",
+   "duration": 299
+  },
+  {
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "channel": "Jutarnji list",
+   "channel_url": "https://www.youtube.com/channel/UCoygYX3L4vBCR4T-EhafUTg",
+   "id": "z8E2c3UGEgQ",
+   "title": "Trening Hrvatske nogometne reprezentacije",
+   "duration": 29
+  },
+  {
+   "channel_id": "UCII3jcTjD1sdXRV15OfEH-A",
+   "channel": "Zona Dinamo Podcast",
+   "channel_url": "https://www.youtube.com/channel/UCII3jcTjD1sdXRV15OfEH-A",
+   "id": "dk_NFU1leKA",
+   "title": "Zona Dinamo Podcast #31 - Trening pred Kup",
+   "duration": 5265
+  },
+  {
+   "channel_id": "UC9E5DkcSknr4eN5DISCB3Mg",
+   "channel": "Sportklub Hrvatska",
+   "channel_url": "https://www.youtube.com/channel/UC9E5DkcSknr4eN5DISCB3Mg",
+   "id": "-kS8KDOyQYw",
+   "title": "SK PODCAST: NOGOMET HRVATSKI KUP",
+   "duration": 2990
+  },
+  {
+   "channel_id": "UC2s9DOCa-6EOEtnsfwO7QKw",
+   "channel": "Novak Sudar",
+   "channel_url": "https://www.youtube.com/channel/UC2s9DOCa-6EOEtnsfwO7QKw",
+   "id": "UOg2ugidmI8",
+   "title": "VLOG #7 - TRENING I PODCAST u ZAGREBU",
+   "duration": 1749
+  },
+  {
+   "channel_id": "UCa09am-cOsC-FSgr_nLkFFA",
+   "channel": "ZOE",
+   "channel_url": "https://www.youtube.com/channel/UCa09am-cOsC-FSgr_nLkFFA",
+   "id": "0KpxLSC1esI",
+   "title": "Is Exercise or Nutrition More Important for Weight Loss? | ZOE Science and Nutrition Podcast",
+   "duration": 3532
+  },
+  {
+   "channel_id": "UCdZuGHA8fV0oKQRCE4AYV0A",
+   "channel": "MAXSport",
+   "channel_url": "https://www.youtube.com/channel/UCdZuGHA8fV0oKQRCE4AYV0A",
+   "id": "YuWMawOeYl0",
+   "title": "Trening Hrvatske U-21 i izjava pomoćnika izbornika uoči kvalifikacijskog susreta s Austrijom U-21",
+   "duration": 133
+  },
+  {
+   "channel_id": "UC-awu5okvO9iQPl3Hj2ccnA",
+   "channel": "Renata Sopek (UltraFit)",
+   "channel_url": "https://www.youtube.com/channel/UC-awu5okvO9iQPl3Hj2ccnA",
+   "id": "cqDohVkTaZA",
+   "title": "Visoko intenzivan intervalni trening Bojana Medakovića",
+   "duration": 404
+  }
+ ]
+}

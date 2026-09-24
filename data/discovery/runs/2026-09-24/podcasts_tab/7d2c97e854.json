@@ -1,0 +1,17 @@
+{
+ "name": "Podcast Velebit (Projekt Velebit)",
+ "ref": "UC2yHIvdfB8iKorhc3eRBjHw",
+ "playlists": [
+  {
+   "id": "PLqi-QIISjfPg8idd4qSazjw_h69XXyq2G",
+   "title": "Skrivena politika i povijest",
+   "url": "https://www.youtube.com/playlist?list=PLqi-QIISjfPg8idd4qSazjw_h69XXyq2G"
+  },
+  {
+   "id": "PLqi-QIISjfPiD0AuDgEvnF3A6TpFn-v7t",
+   "title": "Rat u Ukrajini",
+   "url": "https://www.youtube.com/playlist?list=PLqi-QIISjfPiD0AuDgEvnF3A6TpFn-v7t"
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,290 @@
+```json
+[
+  {
+    "key": "UCzkYFmUJB3BzE8hicC14VRw",
+    "verdict": "not_podcast",
+    "reason": "Arhiva starih TV emisija (Latinica, Noćna Mora Željka Malnara) s reuploadima, nije originalni podcast kanal."
+  },
+  {
+    "key": "UCyaAQ9TXbHdwek2W-rhkFlg",
+    "verdict": "not_hr",
+    "reason": "Srpski jezik, ekavica, srpski gosti i tematika."
+  },
+  {
+    "key": "UC3fPzvmMpIhlt_0f5YPJIzA",
+    "verdict": "not_hr",
+    "reason": "Srpska ekavica i tematika, format ispovijesti/drame, nije hrvatski razgovorni podcast."
+  },
+  {
+    "key": "UCpwE1kmRYEhICdN1rk6F3hw",
+    "verdict": "institutional",
+    "reason": "Medijski brend 'bravo!' s više formata (koncerti, HotSeat/Skip or Beep, Na Svom Terenu), nije jedan dosljedan podcast. Sadrži podcast playliste (Na Svom Terenu, Skip Or Beep) vrijedne razmatranja zasebno."
+  },
+  {
+    "key": "UCru9Lx5UhTEdrR4psUJCpYA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski stand-up komičar, podcast 'Ko to tamo priča' s gostima na hrvatskom jeziku.",
+    "slug": "marko-dejanovic",
+    "display_name": "Marko Dejanović",
+    "tags": ["comedy"],
+    "hosts": ["Marko Dejanović", "Goran Vinčić"],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)trailer"
+    }
+  },
+  {
+    "key": "UCullRGSDluG5NxnYgtlD-yw",
+    "verdict": "not_hr",
+    "reason": "Srpski jezik i tematika (Beograd, srpska politika), nije hrvatski sadržaj."
+  },
+  {
+    "key": "UCx41qTSUurvyzYl0Z-ZZygg",
+    "verdict": "not_hr",
+    "reason": "Srpski talk-show, srpski jezik i produkcija (Beograd)."
+  },
+  {
+    "key": "UCa0qTmMrWzo_1e-0EfRo3EQ",
+    "verdict": "not_podcast",
+    "reason": "Fanovski arhivski kanal s reuploadima starih intervjua i isječaka, nije aktivan podcast."
+  },
+  {
+    "key": "UC1HdzLZ9ECzlwRn2dYHebfA",
+    "verdict": "not_podcast",
+    "reason": "Glazbeni kanal (hrvatske pop balade), nema razgovornog sadržaja."
+  },
+  {
+    "key": "UCoHhMJgd9ZTXIUdy1c2Mi-w",
+    "verdict": "too_small",
+    "reason": "Studentski podcast 'Push Pauza' s hrvatskim gostima, ali samo 7 originala i pretežno kratke epizode."
+  },
+  {
+    "key": "UC9f1kbP5ZqP8HTTwngqoPng",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski poslovni intervju-podcast, 24 duge epizode s poslovnim gostima.",
+    "slug": "bizcasting",
+    "display_name": "BizCasting",
+    "tags": ["business", "entrepreneurship"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCyXycCJMPIiuo_bj7eHUINg",
+    "verdict": "not_podcast",
+    "reason": "Glazbeni kanal (tamburaši, sevdah, folk emisije), nema razgovornog formata."
+  },
+  {
+    "key": "UCxHPp2RH_zf0sGqkVE3QNdA",
+    "verdict": "podcast_hr",
+    "reason": "Hajduk navijački talk-show/Q&A uživo na hrvatskom, monolog-podcast format.",
+    "slug": "puba77",
+    "display_name": "Puba77",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCL8IZuMhZG0Olk9BaRZVzwA",
+    "verdict": "podcast_hr",
+    "reason": "Hajduk navijački podcast s analizama utakmica na hrvatskom, monolog-podcast format.",
+    "slug": "hzv-siempre",
+    "display_name": "HŽV Siempre",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCkCaKvPqkFihbCtZsjXsRdg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski nogometni kanal s monolog-podcast dojmovima i analizama, uz prijenose ždrijebova.",
+    "slug": "loptar",
+    "display_name": "Loptar",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCnrWxCloh2lAaT_VJjnP7JA",
+    "verdict": "podcast_hr",
+    "reason": "Hajduk podcast s epizodama 'Štorija', reakcijama i komentarima na hrvatskom.",
+    "slug": "hajducka-storija",
+    "display_name": "Hajdučka štorija",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC_-VJy3S7ziEZK686hxzomg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski poduzetnički intervju-podcast (MojPosao), 19 epizoda s domaćim poduzetnicima.",
+    "slug": "relax-room-podcast",
+    "display_name": "Relax Room Podcast",
+    "tags": ["business", "entrepreneurship", "technology"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCFMq6-j2WadfIkvKee-b7DA",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, nema hrvatske veze."
+  },
+  {
+    "key": "UCeSUN_NC_hblAL1K47LoZwQ",
+    "verdict": "not_podcast",
+    "reason": "Gaming/streaming kanal (EA Sports FC, HearthStone), nije podcast."
+  },
+  {
+    "key": "UCjfDbSSejqVHixpoz8uyqTA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski politički razgovorni podcast 'Reakcija' s gostima iz javnog života.",
+    "slug": "mate-mijic-reakcija",
+    "display_name": "Mate Mijić - Reakcija",
+    "tags": ["political", "political-conservative", "geopolitics"],
+    "hosts": ["Mate Mijić"],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)izdvojeno"
+    }
+  },
+  {
+    "key": "UC1BOtUU4-vFKwA2_yk2OS8g",
+    "verdict": "not_hr",
+    "reason": "Bosanska komercijalna televizija (OBN BiH), nije hrvatski sadržaj niti podcast."
+  },
+  {
+    "key": "UCN-NUZXlU7ibwUxNCFTr43g",
+    "verdict": "institutional",
+    "reason": "Kulturno-edukativni festivalski kanal (Festival tolerancije), snimke panela i edukacija, ne podcast."
+  },
+  {
+    "key": "UCsoLIkULxkv8Ovd33tONdBQ",
+    "verdict": "institutional",
+    "reason": "Javni servis BiH (BHRT), TV program, sjednice i vijesti, nije podcast kanal."
+  },
+  {
+    "key": "UCHjcFWGB1jmZvs47vAKTYQA",
+    "verdict": "institutional",
+    "reason": "Hrvatski gaming TV kanal s mješovitim sadržajem; ima podcast/intervju playliste (AFK Show, HotSeat) vrijedne zasebne evaluacije."
+  },
+  {
+    "key": "UCdkT57fx7OJS_P06-b23_9g",
+    "verdict": "not_podcast",
+    "reason": "D&D actual-play (igranje uloga), nije razgovorni/intervju podcast format."
+  },
+  {
+    "key": "UCh1-xopKMTD73yhkDkur3Rw",
+    "verdict": "not_hr",
+    "reason": "Srpski jutarnji TV program (TV Happy), srpski jezik i ekavica."
+  },
+  {
+    "key": "UCPLw4crqVFAUx98oIGXekug",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski sportski intervju-podcast s vrhunskim sportašima.",
+    "slug": "game-changers-podcast",
+    "display_name": "Game Changers Podcast",
+    "tags": ["sport", "personal-development"],
+    "hosts": ["Ivan Šafranić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCvH7xHJPirAOXqGypud8cHQ",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski teniski monolog-podcast s analizama Grand Slam turnira.",
+    "slug": "vragolasti-tenis",
+    "display_name": "Vragolasti Tenis",
+    "tags": ["sport"],
+    "hosts": ["Grgo Dukić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCatt7TBjfBkiJWx8khav_Gg",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, britanski voditelj, nema hrvatske veze."
+  },
+  {
+    "key": "UCI91WzCptoaNp2B97s5cJ8w",
+    "verdict": "not_hr",
+    "reason": "Srpska ekavica ('podkast', 'vaskrsao', 'mesto'), srpski jezik."
+  },
+  {
+    "key": "UCSmXdXBDxfmeL98o_Qm-qMA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski lokalni radio-podcast (Benkovac) s intervjuima i svjedočanstvima.",
+    "slug": "radio-benkovac",
+    "display_name": "Radio Benkovac",
+    "tags": ["religious-catholic", "culture", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCpQtJl6aa7V2hdt87c3BDAQ",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski franjevački podcast (FraMiKo) s razgovorima i svjedočanstvima mladih.",
+    "slug": "framiko-frama-kocerin",
+    "display_name": "FraMiKo - Frama Kočerin",
+    "tags": ["religious-catholic", "franciscan", "testimonies"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCFADudZZSnC1LfC_rzhqYcA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski razgovorni podcast 'Veganski razgovori' s gostima o pravima životinja.",
+    "slug": "oslobodjenje-zivotinja-vr",
+    "display_name": "Oslobođenje životinja - Veganski razgovori",
+    "tags": ["advocacy", "society"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCmNlgTqn0BD2FdFSVuaVWxw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski politički podcast liberalne orijentacije s gostima o aktualnim temama.",
+    "slug": "liberalni-podcast",
+    "display_name": "Liberalni Podcast",
+    "tags": ["political", "economics"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCAPj-POjqOesdAh9T6GBVJA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski (kajkavski) intervju-podcast o zanimanjima i poslovima.",
+    "slug": "kaj-delas",
+    "display_name": "KAJ DELAŠ?",
+    "tags": ["lifestyle", "education"],
+    "hosts": [],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)q&a"
+    }
+  },
+  {
+    "key": "UCunoZCJSZe4FZvyQtWU7I1g",
+    "verdict": "too_small",
+    "reason": "Hrvatski sportski intervju-podcast (K7), ali samo 8 epizoda i mali broj pretplatnika."
+  },
+  {
+    "key": "UC0YJQtI38H09l27vFGpUh8w",
+    "verdict": "too_small",
+    "reason": "Hrvatski podcast o osobnom razvoju, tek 4 objavljene epizode."
+  },
+  {
+    "key": "UC6TAdd9xBT35E3CvlJV7r7A",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski intervju-podcast o psima s trenericom Anom Odak i stručnim gostima.",
+    "slug": "klub-psece-srece-podcast",
+    "display_name": "Klub pseće sreće Podcast",
+    "tags": ["lifestyle", "education"],
+    "hosts": ["Ana Odak"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCM1qERY3DKfIdDmpt19FSmg",
+    "verdict": "not_hr",
+    "reason": "Srpska ekavica ('mesto', 'ishrani', 'vežbača'), srpski jezik."
+  },
+  {
+    "key": "UC2D2CMWXMOVWx7giW1n3LIg",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, nema hrvatske veze."
+  }
+]
+```

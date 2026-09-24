@@ -1,0 +1,17 @@
+{
+ "name": "LOOD",
+ "ref": "UCWSfCCG1ai1Jenlo95WfWgw",
+ "playlists": [
+  {
+   "id": "PLnx_sZBSZcB-ZkEGajAm3Nw51vOuKUK_7",
+   "title": "LOOD Podcast",
+   "url": "https://www.youtube.com/playlist?list=PLnx_sZBSZcB-ZkEGajAm3Nw51vOuKUK_7"
+  },
+  {
+   "id": "PLnx_sZBSZcB9wrB3f5LYwwMxWTTgGDdLT",
+   "title": "LOOD Podcast Clips",
+   "url": "https://www.youtube.com/playlist?list=PLnx_sZBSZcB9wrB3f5LYwwMxWTTgGDdLT"
+  }
+ ],
+ "error": null
+}

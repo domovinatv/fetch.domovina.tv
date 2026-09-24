@@ -1,0 +1,546 @@
+{
+ "key": "UCwZFcFO7A4R1nRvkCGqQ21w",
+ "url": "https://www.youtube.com/channel/UCwZFcFO7A4R1nRvkCGqQ21w/videos",
+ "channel_id": "UCwZFcFO7A4R1nRvkCGqQ21w",
+ "playlist_id": null,
+ "title": "Business Café - Videos",
+ "channel": "Business Café",
+ "channel_url": "https://www.youtube.com/channel/UCwZFcFO7A4R1nRvkCGqQ21w",
+ "description": "Business Café je druženje malih poduzetnika i onih koji to žele biti s ciljem razmjene informacija, dijeljenja poduzetničkih iskustava i ohrabrivanja na pokretanje vlastitog posla. Ideja se rodila čitajući istraživanje jedne agencije koje je pokazalo da se 57% poslova dogovori uz kavu, a vlastito iskustvo pokazalo je da je umrežavanje jedno od ključeva za uspjeh.\n\nDruženja se organiziraju svaka 2 mjeseca na različitim lokacijama, a goste uz inspirativne poznate poduzetnike u ugodnom društvu očekuju i korisne informacije i zanimljive nagrade.\n\nDvije su osnovne poruke Business Caféa:\n1. NISMO SAMI – Kada pokrećemo i vodimo vlastiti biznis, svi prolazimo kroz isto. S nama poduzetnici nemaju osjećaj izoliranosti, neshvaćenosti, samoće. \n2. MOGUĆE JE USPJETI – I sada i ovdje, na ovim prostorima, unatoč svemu i svima. Priče naših gostiju daju nadu i inspiraciju.",
+ "follower_count": 655,
+ "streams_count": 16,
+ "videos": [
+  {
+   "id": "9EZX07M9cUM",
+   "title": "Business Cafe BiH 1. live, 30.11.2020.",
+   "duration": 3692,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "abTy2-fuVoM",
+   "title": "Business Cafe promo video",
+   "duration": 239,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "YAXJDrpd-7c",
+   "title": "55. Business Cafe u Zagrebu - M.Rimac, U. Sršen, J.Bašić, B.Horvat",
+   "duration": 6312,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "cslJiQoFVaY",
+   "title": "55. Business Cafe u Zagrebu – MATE RIMAC izjava",
+   "duration": 125,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "0w9f9sii7hc",
+   "title": "10. Business Café v Sloveniji - Ponovni začetek⎮Second chance",
+   "duration": 126,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "DL5_7KQB25o",
+   "title": "52.  Business Café u Zagrebu - atmosfera",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "eW6eQC0-O2o",
+   "title": "51. Business Café u Zagrebu - atmosfera",
+   "duration": 367,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "FO1pL2YAAls",
+   "title": "50. Business Café Zagreb - JUBILARNO I NAJVEĆE IZDANJE DO SAD - cijela snimka",
+   "duration": 6377,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "kybVUmgf6yE",
+   "title": "50. Business Café Zagreb - JUBILARNO I NAJVEĆE IZDANJE DO SAD - dojmovi sudionika",
+   "duration": 435,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "Ud_8OYHzRd4",
+   "title": "7. Business Café Slovenia - Influencerji smo podjetniki",
+   "duration": 148,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "BW5UTPlnndY",
+   "title": "6. Business Café Slovenija - Uresničitev sanj",
+   "duration": 68,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "Q1Nrs30yT_U",
+   "title": "Kristina Ercegović predavanje za Mostar",
+   "duration": 2141,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "-ho3_AyrmZw",
+   "title": "7. Business Café Dubrovnik - reportaža 2 min",
+   "duration": 133,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "25NaUGHypSc",
+   "title": "7. Business Café Dubrovnik - cijela snimka",
+   "duration": 2505,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "ELLf2q0zOLo",
+   "title": "5. Business Café Sjeverna Hrvatska, Varaždin - reportaža 3 min",
+   "duration": 214,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "O4oYhvfNZoM",
+   "title": "4. Business Café u Novom Sadu - Miša Blizanac",
+   "duration": 1489,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "IeBLyFN98lU",
+   "title": "4. Business Café u Novom Sadu - Aleksandar Samardžija",
+   "duration": 1553,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "EQnhX60X2HE",
+   "title": "4. Business Café u Novom Sadu - Slobodan Simić",
+   "duration": 512,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "gjC-fffOI6w",
+   "title": "4. Business Café u Novom Sadu - Branko Koprivica",
+   "duration": 454,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "31uoqI2YGbY",
+   "title": "4. Business Café u Novom Sadu - Milorad Radojević",
+   "duration": 366,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "Gkoxg-75lH4",
+   "title": "4. Business Café u Novom Sadu - Tatjana Mrdak",
+   "duration": 606,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "jEFuxak8gUc",
+   "title": "6. Business Café Dubrovnik – Lokalni heroji - short",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "RLgb3su-dzM",
+   "title": "Kaj pravijo o Business Caféu",
+   "duration": 200,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "AxTlrOQNjaM",
+   "title": "6. Business Café Dubrovnik – Lokalni heroji",
+   "duration": 3558,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "r8Sp8eCJBEA",
+   "title": "3. Business Café v sLOVEniji",
+   "duration": 130,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "QkIQYXlU7c4",
+   "title": "9. Business Café Istra, Pula - cijela snimka",
+   "duration": 4510,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "JegXZSqMpcc",
+   "title": "9. Business Café Istra, Pula - reportaža 3 min",
+   "duration": 219,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "CqAP7b8_rwA",
+   "title": "14. Business Café Beograd - ceo snimak",
+   "duration": 4138,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "1xTUU7r9F7Y",
+   "title": "35. Business Café u Zagrebu - cijela snimka",
+   "duration": 6709,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "TcMSa9lvHH0",
+   "title": "35. Business Café u Zagrebu - reportaža 5 min",
+   "duration": 295,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "aTVUhabbKf4",
+   "title": "4. Business Café Sjeverna Hrvatska, Čakovec",
+   "duration": 95,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "ImnSbSe6Am8",
+   "title": "3. Business Café u Novom Sadu - Đorđe Stojšić",
+   "duration": 547,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "BrCcHZnbZzY",
+   "title": "3. Business Café u Novom Sadu - kratka verzija",
+   "duration": 877,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "3yBxNGzoUWM",
+   "title": "3. Business Café u Novom Sadu - Ivan Đoković",
+   "duration": 132,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "Z_xGEGlhpVs",
+   "title": "3. Business Café u Novom Sadu - Jovana Lea Simić",
+   "duration": 515,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "hsjbZsOo35I",
+   "title": "3. Business Café u Novom Sadu - Ivan Brkljač",
+   "duration": 1059,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "2qfqB2i5Nx4",
+   "title": "3. Business Café u Novom Sadu - Vuk Armacki",
+   "duration": 451,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "Gaw5dxrwRJI",
+   "title": "3. Business Café u Novom Sadu - Branislav Sekulić",
+   "duration": 625,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "3IBjrwKFnPs",
+   "title": "3. Business Café u Slavoniji, Osijek - kratka reportaža 1 min",
+   "duration": 108,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "8UdMilBkNJw",
+   "title": "2. Business Café v sLOVEniji",
+   "duration": 94,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "ZziOdZjTDUI",
+   "title": "2. Business Café Vojvodina, Novi Sad – ceo snimak",
+   "duration": 3499,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "1sPXhit8VJY",
+   "title": "34. Business Café u Zagrebu - cijela snimka",
+   "duration": 4476,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "i77guwDLExI",
+   "title": "8. Business Café Istra, Pula - reportaža 3 min",
+   "duration": 184,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "MAkmYwrg1MY",
+   "title": "34. Business Café u Zagrebu - reportaža 3 min",
+   "duration": 201,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "M0_EG63r3oE",
+   "title": "13. Business Café Beograd - cela snimka",
+   "duration": 6661,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "OEmK1y5n-6k",
+   "title": "2. Business Café Sjeverna Hrvatska, Koprivnica - reportaža 5 min",
+   "duration": 286,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "uqpXphgNiIY",
+   "title": "2. Business Café u Slavoniji, Slavonski Brod - cijela snimka",
+   "duration": 6696,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "JYTsPdOtUl0",
+   "title": "33. Business Café u Zagrebu - reportaža 5 min",
+   "duration": 286,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "xFR2a7g9k6k",
+   "title": "33. Business Café u Zagrebu - cijela snimka",
+   "duration": 4397,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "SlVnhV0Pwsc",
+   "title": "2. Business Café u Slavoniji, Slavonski Brod - kratka reportaža",
+   "duration": 391,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "L2b9Eqh7DOA",
+   "title": "12. Business Café u Beogradu | 29.6.2016.",
+   "duration": 616,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "fztUSSkS19s",
+   "title": "Business Café Slavonija, Slavonski Brod – Najava",
+   "duration": 78,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "gW5HdpGr5L4",
+   "title": "1. BUSINESS CAFÉ V sLOVEniji",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "40fYBj_OYDE",
+   "title": "1. Business Café v sLOVEniji - Vse je mogoče",
+   "duration": 76,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "pAIJt7JLxnw",
+   "title": "1. Business Café u Slavoniji, Požega - cijela snimka",
+   "duration": 6202,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "1XJNWxtJlcE",
+   "title": "1. Business Café u Slavoniji, Požega - kratka reportaža",
+   "duration": 308,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "gQI-FEqyPK0",
+   "title": "10.06.2016. - VTV - Business Café",
+   "duration": 421,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "GgwIeK7yJVo",
+   "title": "04. Business Café u Podgorici - 12.05.2016. - reportaža 4 min",
+   "duration": 247,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "hbf6vgkXc58",
+   "title": "04. Business Café u Podgorici - 12.05.2016 - cijeli snimak",
+   "duration": 3982,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "mwse4FNhnqM",
+   "title": "19.05.2016. - HRT1; Vita jela, zelen bor - Business Café",
+   "duration": 1579,
+   "live_status": null,
+   "upload_date": "20160925"
+  },
+  {
+   "id": "ScZONbXw2ic",
+   "title": "17. Business Cafe online - Kako izgraditi vlastitu franšizu?",
+   "duration": 2163,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "TR2AkfoeYDs",
+   "title": "16. Business Cafe online - Što nakon exita?",
+   "duration": 2371,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "ahMsow4AXSk",
+   "title": "15. Business Cafe online - Paralelna/Bolja Hrvatska",
+   "duration": 4097,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "baWULGUdWdM",
+   "title": "14. Business Cafe online - Pasivni vs. aktivni prihodi - 1:1 s Bojanom Bernikom",
+   "duration": 3007,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "P8RJkv0kBuY",
+   "title": "13. Business Cafe online - Je li profit jedina mjera uspjeha?",
+   "duration": 2063,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "z9zxCdfBFJU",
+   "title": "Kako do police trgovačkih lanaca?",
+   "duration": 2301,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "aZdsnd_Dh4E",
+   "title": "12. Business Cafe online - Live and do business in Croatia",
+   "duration": 3477,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "V75-bKHgi1o",
+   "title": "11. Business Cafe online - Je li cijena uspjeha ponekad prevelika?",
+   "duration": 3241,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "DnCSSVCB3cY",
+   "title": "10. Business Cafe online - Biti drugačiji ili biti najbolji?",
+   "duration": 2809,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "8W9GYg4g21k",
+   "title": "9. Business cafe online - Vidimo se na vrhu",
+   "duration": 2480,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Q5xGcK9kzco",
+   "title": "8. Business Cafe online - Jesu li mali poduzetnici heroji društva?",
+   "duration": 3056,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "nHTvxgVZTzw",
+   "title": "7. Business Cafe online - Kako biti lider ovog doba?",
+   "duration": 3229,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "w19fxbADvt4",
+   "title": "6. Business Cafe online - Poduzetništvo novog doba - Selma Prodanovic",
+   "duration": 2337,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "StmFRt84-wU",
+   "title": "5. Business Cafe online - Kako zadr��ati poduzetnički mindset i u krizi?",
+   "duration": 2603,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "bTqRWoMrDWQ",
+   "title": "4. Business Cafe online - Računovodstvene i porezne aktualnosti, Tiana Prstec, Tvornica Mašte -",
+   "duration": 1307,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Xn_ips6ZGBw",
+   "title": "3. Business cafe online - Viktorija Knežević, odvjetnica",
+   "duration": 1603,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "key": "UCmZTkIzIygXvVICpjiQaIaA",
+ "url": "https://www.youtube.com/channel/UCmZTkIzIygXvVICpjiQaIaA/videos",
+ "channel_id": "UCmZTkIzIygXvVICpjiQaIaA",
+ "playlist_id": null,
+ "title": "Foreign Familiar - Videos",
+ "channel": "Foreign Familiar",
+ "channel_url": "https://www.youtube.com/channel/UCmZTkIzIygXvVICpjiQaIaA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "TKtFPmHJEkc",
+   "title": "Introduction (Episode 1)",
+   "duration": 585,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

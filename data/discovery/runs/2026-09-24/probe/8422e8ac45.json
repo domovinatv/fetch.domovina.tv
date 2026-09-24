@@ -1,0 +1,98 @@
+{
+ "key": "UCu9glHrvfEyyG6deDLSVZRA",
+ "url": "https://www.youtube.com/channel/UCu9glHrvfEyyG6deDLSVZRA/videos",
+ "channel_id": "UCu9glHrvfEyyG6deDLSVZRA",
+ "playlist_id": null,
+ "title": "AudioBajke - Videos",
+ "channel": "AudioBajke",
+ "channel_url": "https://www.youtube.com/channel/UCu9glHrvfEyyG6deDLSVZRA",
+ "description": "",
+ "follower_count": 9260,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "GMQeTAh96a0",
+   "title": "Palčica- Audio Bajka",
+   "duration": 2125,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "JBOjVDCRQF4",
+   "title": "Mačak u Čizmama- Audio Bajka",
+   "duration": 1652,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "9MIsZBhsQtA",
+   "title": "Trnoružica-Audio Bajka",
+   "duration": 1301,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "GTI9MxB_t6o",
+   "title": "Godišnja doba-Audio Bajka",
+   "duration": 1663,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "To2taeDER7M",
+   "title": "Tratinčica-H.C.Andersen",
+   "duration": 521,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "x738Hn0I-Xo",
+   "title": "Plesna haljina žutog maslačka-Audio Bajka",
+   "duration": 1319,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "XenyNkgLRzs",
+   "title": "Snjeguljica i sedam patuljaka-Audio bajka",
+   "duration": 1645,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "MWjekoO9AGI",
+   "title": "Carevo novo ruho-Audio bajka",
+   "duration": 956,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "ZBAPFoOwZHI",
+   "title": "Ivica i Marica- Audio Bajka",
+   "duration": 1672,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "75-mQ5sCEUw",
+   "title": "Vuk i sedam kozlića",
+   "duration": 1253,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "l8jDoin_O2k",
+   "title": "Crvenkapica- Audio Bajka",
+   "duration": 1650,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "vcJw8HR141I",
+   "title": "Pepeljuga-Audio Bajka",
+   "duration": 1160,
+   "live_status": null,
+   "upload_date": "20130925"
+  }
+ ]
+}

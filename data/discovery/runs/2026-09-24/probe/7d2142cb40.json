@@ -1,0 +1,28 @@
+{
+ "key": "UCgEv78qGIdi6cK9p9prRlRg",
+ "url": "https://www.youtube.com/channel/UCgEv78qGIdi6cK9p9prRlRg/videos",
+ "channel_id": "UCgEv78qGIdi6cK9p9prRlRg",
+ "playlist_id": null,
+ "title": "FraAlmir Spahić - Videos",
+ "channel": "FraAlmir Spahić",
+ "channel_url": "https://www.youtube.com/channel/UCgEv78qGIdi6cK9p9prRlRg",
+ "description": "",
+ "follower_count": 9,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "2tsUmguyQB0",
+   "title": "Goran Bare o Azri i EKV-u",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "QtyQr2D_zZo",
+   "title": "gbare",
+   "duration": 10,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

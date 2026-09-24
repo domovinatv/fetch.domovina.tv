@@ -1,0 +1,70 @@
+{
+ "key": "UCyMFlgOov9sxHyI05_4LhvQ",
+ "url": "https://www.youtube.com/channel/UCyMFlgOov9sxHyI05_4LhvQ/videos",
+ "channel_id": "UCyMFlgOov9sxHyI05_4LhvQ",
+ "playlist_id": null,
+ "title": "Podcast Prva ekonomska - Videos",
+ "channel": "Podcast Prva ekonomska",
+ "channel_url": "https://www.youtube.com/channel/UCyMFlgOov9sxHyI05_4LhvQ",
+ "description": "",
+ "follower_count": 153,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "0cQJYWx8qCo",
+   "title": "PODCAST PRVA EKONOMSKA 8. epizoda",
+   "duration": 971,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "XLvSAvGxroI",
+   "title": "PODCAST PRVA EKONOMSKA 7. epizoda - Evelyn Benner",
+   "duration": 642,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "kvmJnRbG6rc",
+   "title": "PODCAST PRVA EKONOMSKA 6. epizoda - Krešimir Vukelić",
+   "duration": 430,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "61QxFJJ4WpI",
+   "title": "PODCAST PRVA EKONOMSKA 5. epizoda - Lora Plazibat",
+   "duration": 1037,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "obfeX31I0eg",
+   "title": "PODCAST PRVA EKONOMSKA 4. epizoda - Adrian De Vrgna",
+   "duration": 1378,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "tDOpehymZ_o",
+   "title": "PODCAST PRVA EKONOMSKA 3. epizoda - Tamara Nikolić",
+   "duration": 559,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "4GnbXDY1iOQ",
+   "title": "PODCAST PRVA EKONOMSKA 2. epizoda - Krešimir Blaznik",
+   "duration": 1514,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "rZSki4JLjMo",
+   "title": "PODCAST PRVA EKONOMSKA 1.epizoda - Prva ekonomska iz perspektive ravnatelja škole (Nenad Travar)",
+   "duration": 1509,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

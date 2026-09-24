@@ -1,0 +1,434 @@
+{
+ "key": "UC1UKhJWkSInA-5axnDsHAWg",
+ "url": "https://www.youtube.com/channel/UC1UKhJWkSInA-5axnDsHAWg/videos",
+ "channel_id": "UC1UKhJWkSInA-5axnDsHAWg",
+ "playlist_id": null,
+ "title": "Običan radio - Videos",
+ "channel": "Običan radio",
+ "channel_url": "https://www.youtube.com/channel/UC1UKhJWkSInA-5axnDsHAWg",
+ "description": "",
+ "follower_count": 353,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Jaws_Lwb_PY",
+   "title": "Zeleni gradovi i cirkularne ekonomije",
+   "duration": 1067,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "xyfXdz3tOVE",
+   "title": "Gospodarenje tlom",
+   "duration": 1025,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "F-8uHKipRoE",
+   "title": "Ekoaktivizam mladih u BiH",
+   "duration": 801,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "xMU1-CigtXo",
+   "title": "Uporaba obnovljivih izvora energije",
+   "duration": 1305,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "vWT_NZEatNk",
+   "title": "Upravljanje otpadom kao okolišnim problemom današnjice",
+   "duration": 1391,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "2d7Yv_I9TKo",
+   "title": "Aktivnosti zaštićenih područja",
+   "duration": 986,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "8-ROCU_asZo",
+   "title": "Ublažavanje klimatskih promjena",
+   "duration": 1190,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "gP7A8xmV1ag",
+   "title": "Edukacija za očuvanje speleoloških objekata",
+   "duration": 853,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "-SDfDkfsSXU",
+   "title": "Edukacija o strogo zaštićenim vrstama",
+   "duration": 1304,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "vQgwWg_c7Zw",
+   "title": "Selma Žuljević - Suvremenom pristupu zaštiti okoliša",
+   "duration": 854,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "MY9IyV10yf8",
+   "title": "Kristina Ćavar - Unapređenje stanja okoliša i prostora urbanih i ruralnih sredina",
+   "duration": 854,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "GiByJuI_diQ",
+   "title": "Lidija Pavić-Rogošić - Održivi razvoj",
+   "duration": 1107,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "ffQgp2kqtv8",
+   "title": "Amra Mahmuzić - Očuvanje i poboljšanje kvalitete svih sastavnica okoliša: zraka, tla i vode",
+   "duration": 862,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "wZ1UHz-DhwY",
+   "title": "Energetska učinkovitost",
+   "duration": 1281,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "AYkeWAzYuRk",
+   "title": "Dajana Cvjetković: Mlade moramo osvijestiti da djeluju na okoliš na prihvatljiv",
+   "duration": 1131,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "jnLE4Y1cbGk",
+   "title": "Primanje plaće na ruke kao vid korupcije u gospodarstvu",
+   "duration": 872,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "x3ztc6XA3JQ",
+   "title": "Neodržavanje izbora kroz dvanaest godina u Mostaru kao posljedica korupcije",
+   "duration": 1222,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "DJ1PW03ZYvQ",
+   "title": "Korupcija u obrazovanju",
+   "duration": 778,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "HcvSI7_zAJY",
+   "title": "Primanje plaće na ruke kao vid korupcije u gospodarstvu",
+   "duration": 828,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "PYbes2Y_of8",
+   "title": "Korupcija kao snažan faktor lošeg života umirovljenika",
+   "duration": 1288,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Kj-Zhwg2cU0",
+   "title": "Korupcija i protekcija u poljoprivredi",
+   "duration": 1074,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "5gBQfc_7Tbo",
+   "title": "Korupcija u zdravstvu",
+   "duration": 1099,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "xiQBp7VmzWo",
+   "title": "Korupcija u obrazovanju",
+   "duration": 803,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "6NRw2MdNibI",
+   "title": "Korupcija kao snažan faktor lošeg života umirovljenika",
+   "duration": 1531,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "whCrAv1YigQ",
+   "title": "Vidovi korupcije u zdravstvu",
+   "duration": 1305,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "pmABWFVcMDc",
+   "title": "Vladavina prava kao najjače oružje u borbi protiv korupcije",
+   "duration": 1007,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "R8lwAsbArLQ",
+   "title": "Korupcija u policiji",
+   "duration": 893,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "8FMPtATZCJY",
+   "title": "Vladavina prava kao najjače oružje u borbi protiv korupcije",
+   "duration": 1219,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "i6NTkTLaYxo",
+   "title": "Izvršna vlast kao dio koruptivnog sustava",
+   "duration": 1182,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "I-WdnW9r7Q4",
+   "title": "Metode i načini borbe protiv korupcije",
+   "duration": 913,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "W5OZQ0_UOX4",
+   "title": "Metode i načini borbe protiv korupcije",
+   "duration": 910,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "rVfOsXoNUfE",
+   "title": "Korupcija kao oblik ponašanja u društvu",
+   "duration": 855,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Yvth6lw7xos",
+   "title": "Poteškoće u pregovaranju poslodavca i sindikata, kao sredstvo zadržavanja koruptivnog stanja",
+   "duration": 881,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "mUYyp8OXfOk",
+   "title": "Korupcija i protekcija u poljoprivredi",
+   "duration": 942,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "PxW8dAVdVVI",
+   "title": "Poteškoće u kolektivnom pregovaranju dviju suprotstavljenih strana, poslodavaca i sindikata",
+   "duration": 1207,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "DtN6Vu24M1s",
+   "title": "Korupcija u sudstvu i sprega sudstva s kriminalom",
+   "duration": 1124,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "p43LlgJIoFE",
+   "title": "Korupcija u policiji",
+   "duration": 1158,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "WuC9g_FbNKo",
+   "title": "Izvršna vlast kao dio koruptivnog sustava",
+   "duration": 898,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "xO_q5rBasvQ",
+   "title": "Korupcija u sudstvu i sprega sudstva s kriminalom",
+   "duration": 1450,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "I-21M1WJs9w",
+   "title": "Korupcija kao oblik ponašanja u društvu",
+   "duration": 1058,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "cxt6DwxY3yo",
+   "title": "Korupcija pri zapošljavanju u javnim institucijama",
+   "duration": 1029,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "zjZbiz2WpU8",
+   "title": "Korupcija glede izgradnje malih hidroelektrana na rijeci Buni kod Mostara",
+   "duration": 1258,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "xfM7qlrKW30",
+   "title": "Zaposlenje preko veze i ostale koruptivne radnje u javnim institucijama",
+   "duration": 961,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "j5UbV_Z1mug",
+   "title": "Uloga novinara u suzbijanju korupcije",
+   "duration": 955,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "3NGpNx11MB0",
+   "title": "Bespravna gradnja i graševinska mafija u Gradu Mostaru",
+   "duration": 919,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "dnYUSZTsThM",
+   "title": "Uloga novinara u suzbijanju korupcije",
+   "duration": 882,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Hh9PFQ_j3m4",
+   "title": "Neodržavanje izbora u Mostaru kao otvoren poziv na korupciju",
+   "duration": 1167,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "OerLCZvQMcY",
+   "title": "Serijal Korupcija veliko zlo  - Bespravna gradnja i građevinska mafija u Gradu Mostaru",
+   "duration": 986,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "G83HmdxnNF0",
+   "title": "Problem odvoza komunalnog otpada i onečišćenja javnih površina u Mostaru kao posljedica korupcije",
+   "duration": 1007,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "XiwQOJvaQXs",
+   "title": "Serijal Korupcija veliko zlo - Korupcija gradnje hidroelektrane na rijeci Doljanka.",
+   "duration": 1319,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "mEkXVb-e4ak",
+   "title": "Serijal Korupcija veliko zlo - Odvoz smeća na Uborak kao posljedice korupcije nadležnih dužnosnika",
+   "duration": 946,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "C9k8t1T9cVQ",
+   "title": "Ljubica Krišto: Materijalne stvari može ponuditi bilo tko, roditelji razgovarajte s djecom!",
+   "duration": 1501,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Rkdw3_dyahE",
+   "title": "Mirela Hadžić: Sve ono što ugrožava integritet i osobnost djece je nasilje",
+   "duration": 1208,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "74H7bN3hH4E",
+   "title": "Mario Ćorić - O prvom Oktoberfestu u Čapljini",
+   "duration": 161,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "CCZhmx5zUlg",
+   "title": "Emil Ćorić i Marko Čavka - O suradnji Karate kluba \"Zrinjski\" i Rehabilitacijskog centra \"Život\"",
+   "duration": 378,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "GRU6d74CxYs",
+   "title": "Ivan Mlinarević - O početku akcije 'OktoberMEST'",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Xt_u7pQPW1Y",
+   "title": "Elvira Drežnjak - O Međunarodnoj znanstveno stručnoj konferenciji „Sfera 2019\"",
+   "duration": 447,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "9NW2ZNaisCE",
+   "title": "Željko Stojkić - O otvaranju Centra za kompetencije i koordinatnog mjerenja",
+   "duration": 208,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "DKWK4bETyRU",
+   "title": "Matias Zečević - O predstavljanju romana \"Iščekujući zoru\"",
+   "duration": 446,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "0_G5HB_f_mg",
+   "title": "Beti Gall Jurić - O 2. Večeri hrvatskih povratnika",
+   "duration": 261,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

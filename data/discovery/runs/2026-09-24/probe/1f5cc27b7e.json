@@ -1,0 +1,28 @@
+{
+ "key": "UCYuF_uUqqaa1RfPeIQBCHxw",
+ "url": "https://www.youtube.com/channel/UCYuF_uUqqaa1RfPeIQBCHxw/videos",
+ "channel_id": "UCYuF_uUqqaa1RfPeIQBCHxw",
+ "playlist_id": null,
+ "title": "Blue je plavo! Podcast - Videos",
+ "channel": "Blue je plavo! Podcast",
+ "channel_url": "https://www.youtube.com/channel/UCYuF_uUqqaa1RfPeIQBCHxw",
+ "description": "",
+ "follower_count": 3,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "uVgi3oCECA4",
+   "title": "Epizoda 2",
+   "duration": 687,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "jr318sonVLY",
+   "title": "Epizoda 1",
+   "duration": 1500,
+   "live_status": null,
+   "upload_date": "20170925"
+  }
+ ]
+}

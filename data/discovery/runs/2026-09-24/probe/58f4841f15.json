@@ -1,0 +1,70 @@
+{
+ "key": "UCunoZCJSZe4FZvyQtWU7I1g",
+ "url": "https://www.youtube.com/channel/UCunoZCJSZe4FZvyQtWU7I1g/videos",
+ "channel_id": "UCunoZCJSZe4FZvyQtWU7I1g",
+ "playlist_id": null,
+ "title": "KAZINI7MERCI - Videos",
+ "channel": "KAZINI7MERCI",
+ "channel_url": "https://www.youtube.com/channel/UCunoZCJSZe4FZvyQtWU7I1g",
+ "description": "",
+ "follower_count": 98,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Psh72J9RT0U",
+   "title": "K7: Igor Bišćan / izbornik hrvatske U-21 reprezentacije",
+   "duration": 1502,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "NwO10qkb0sU",
+   "title": "K7: Damir Martin Damša / najbolji hrvatski skif",
+   "duration": 1478,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "c8ONWF2-W_Y",
+   "title": "K7: Veljko Mršić / hrvatska košarkaška reprezentacija",
+   "duration": 1945,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "d3ZvBfaxvdo",
+   "title": "K7: Hrvoje Horvat Cveba / muška rukometna reprezentacija i Euro 2022",
+   "duration": 1854,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "qPSFNCJkF_Y",
+   "title": "K7: Tin Srbić i Robert Basić / Olimpijsko srebro u Tokiju!",
+   "duration": 2630,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "SPCF-sXYgQs",
+   "title": "K7: Pero Kuterovac / kondiciona priprema sportaša",
+   "duration": 1524,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "b4aB2FY2StE",
+   "title": "K7: Zaprešić Boys / Hrvatske navijačke pjesme",
+   "duration": 1569,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "dW9ndFl47Qk",
+   "title": "K7: Igor Vori i Krešimir Ivanković / budućnost HR rukometa",
+   "duration": 1814,
+   "live_status": null,
+   "upload_date": "20220925"
+  }
+ ]
+}

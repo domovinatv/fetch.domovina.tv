@@ -1,0 +1,644 @@
+{
+ "key": "UC_m1oUYrvCWDmGJRM3TYLpQ",
+ "url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/videos",
+ "channel_id": "UC_m1oUYrvCWDmGJRM3TYLpQ",
+ "playlist_id": null,
+ "title": "IT zajednica Rijeka - Videos",
+ "channel": "IT zajednica Rijeka",
+ "channel_url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ",
+ "description": "Cilj ovog kanala je povećati suradnju unutar IT sektora u Hrvatskoj s naglaskom na Rijeku i okolicu.\n\n",
+ "follower_count": 208,
+ "streams_count": 30,
+ "videos": [
+  {
+   "id": "2NcNFLaspTA",
+   "title": "UNCONFERENCE#18 |  Matea Mužić - Selekcijski proces i intervju | Powered by Elixirr Digital ex.iOLAP",
+   "duration": 212,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "nRdKtoUDUDI",
+   "title": "UNCONFERENCE#18 |  Nikolina i Ivan - Stečene vještine i AI | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 136,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "yQUl33KBHcg",
+   "title": "UNCONFERENCE#18 | Magdalena Matas - Kako pravilno napisati CV | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 226,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "2QKGC-lwF8Y",
+   "title": "UNCONFERENCE#18 | Ivan, Nikolina i Ines - Mentoriranje | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 114,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "67bioLilqBc",
+   "title": "UNCONFERENCE#18 | Matea Mužić - Selekcijski proces | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 114,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "_O1TIbvGTPA",
+   "title": "UNCONFERENCE#18 | Nikolina i Ivan  - Preporuke sudionicima | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 122,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "DJw6Tub3h_k",
+   "title": "UNCONFERENCE#18 | Nikolina, Ivan i Ines - Program Akademije | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "D7ApfOWz6D8",
+   "title": "OGLAS ZA POSAO | JGL |  Senior Specijalista za IT Validacije (m/ž)",
+   "duration": 16,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "u_4ZOwBSOXM",
+   "title": "UNCONFERENCE#18 | Nikolina, Ivan i Ines - Očekivanja | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 193,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6qT5PqU0g90",
+   "title": "UNCONFERENCE#18  |Nikolina, Ivan i Ines - Idealni kandidat  | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 159,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "cJeogSYzZZ4",
+   "title": "UNCONFERENCE#18 |Nikolina, Ivan i Ines o Akademiji | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "0r02z8My2Gg",
+   "title": "UNCONFERENCE#18 | Milena Slivka - Intro | Powered by Elixirr Digital, ex iOLAP",
+   "duration": 149,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "DV5WHxqKAmI",
+   "title": "Sretnu i inovativnu Novu 2024. godinu želi vam IT zajednica Rijeka!",
+   "duration": 7,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "MmTS1vIFUYo",
+   "title": "TECH ĆAKULA #28 | IOLAP RIJEKA | BY IT ZAJEDNICA RIJEKA",
+   "duration": 1479,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "qM5ROPlnmSo",
+   "title": "iOLAP  | Matea Mužić - MenadžericaTalent Acquisition tima | Kako se ponašati na razgovoru za posao",
+   "duration": 205,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Ou6vhd3AMbo",
+   "title": "iOLAP  | Matea Mužić | Savjeti menadžerice Talent Acquisition tima",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Uhsk49npP8I",
+   "title": "Tech ćakula #30 |  Digital Labin | Vrijedi li sam trenirati zaposlenika?",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "OwGAPwoSKH0",
+   "title": "Tech ćakula #30 |  Digital Labin | Tko je Domagoj Ostović?",
+   "duration": 53,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "3KLo05R1wBM",
+   "title": "UNCONFERENCE#17 | iOLAP Academy Preview | Rad u iOLAP-u",
+   "duration": 103,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "oyRSsTn7HKg",
+   "title": "UNCONFERENCE#17 | iOLAP Academy Preview | O Akademiji",
+   "duration": 94,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Sf8TMOvfk8c",
+   "title": "UNCONFERENCE#17 | iOLAP Academy Preview | Predstavljanje",
+   "duration": 100,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "1bNHeuJVGVA",
+   "title": "OGLAS ZA POSAO",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "wTPuus_h6d8",
+   "title": "Tech Ćakula #30 | Lloyds digital - Digital Labin konferencija| Poklon",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "jJl9vHOlAJk",
+   "title": "Tech Ćakula #30 | Lloyds digital - Digital Labin konferencija| by IT zajednica Rijeka",
+   "duration": 15,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "AWfofF0HBo4",
+   "title": "Tech Ćakula #28 | iOLAP Rijeka | by IT zajednica Rijeka",
+   "duration": 1479,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "V_pHU72Q7b0",
+   "title": "Tech Ćakula #27 | ChatGPT baby Skynet ili spas čovječanstva | by IT zajednica Rijeka",
+   "duration": 17,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "3P-SFLqhPrU",
+   "title": "USKRSNA ČESTITKA",
+   "duration": 19,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "1PAI_ds1JCM",
+   "title": "Tech Ćakula #26 | M² Business Consulting GmbH - Tehnologije| by IT zajednica Rijeka",
+   "duration": 183,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "loWoXI8cr38",
+   "title": "Tech Ćakula #26 | M² Business Consulting GmbH - Be there or be square| by IT zajednica Rijeka",
+   "duration": 287,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "hvn34OW4iic",
+   "title": "Tech Ćakula #26 | M² Business Consulting GmbH otvaranje ureda u Rijeci| by IT zajednica Rijeka",
+   "duration": 369,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "mNusmsnbmmY",
+   "title": "SRETNA NOVA 2023.",
+   "duration": 18,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "F9oVvSBioXw",
+   "title": "Božićna čestitka",
+   "duration": 19,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "nREJS1E7o-0",
+   "title": "MIROSLAV ZARIĆ | Powered by 46elks | IT zajednica Rijeka",
+   "duration": 72,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "2qxTcKKOmMI",
+   "title": "Tko je Adrian Smijulj | IT zajednica Rijeka - powerd by 46 Elks",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "KW8ErgwNW_E",
+   "title": "Tko je Daniela Jović ? | Hrvatska leti u svemir | IT zajednica Rijeka",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "6gOp7_05s14",
+   "title": "#14unConference | Što radi IBM u Hrvatskoj? - Video najava | by IT zajednica Rijeka",
+   "duration": 93,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "97RqmYDWshA",
+   "title": "#12unConference  | Powered by Ericsson Nikola Tesla -Što će ponuditi Rijeci?",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "3MQoN-i5QnM",
+   "title": "#12unConference  | Powered by Ericsson Nikola Tesla - Kojim tehnologijama se koriste ?",
+   "duration": 131,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "RFwVQsQriws",
+   "title": "#13UNCONFERENCE  |  IT Zajednica Rijeka  | POWERED BY IOLAP - Predstavljanje tvrtke",
+   "duration": 62,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "66qqkPsOE6s",
+   "title": "#13UNCONFERENCE  |  POWERED BY IOLAP ACADEMY - Kako izgleda kurikulum akademije ?",
+   "duration": 107,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "4hzeIQOdyOs",
+   "title": "#13UnConference | Powered by iOLAP Academy - Za koga je iOLAP Academy namijenjena ?",
+   "duration": 109,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Hc0WdOOGHHc",
+   "title": "#12unConference  |  IT zajednica Rijeka  | Powered by Ericsson Nikola Tesla - Tko smo ?",
+   "duration": 92,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "0lOKYmiPpmY",
+   "title": "\"#9unConference\" | IT zajednica Rijeka - powered by 46elks",
+   "duration": 42,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9nT-7NYMlsU",
+   "title": "\"#9unConference\" | IT zajednica Rijeka - powered by 46elks",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "ReEv4kdUhQ8",
+   "title": "#9unConference \" | IT zajednica Rijeka -- Powered by 46elks",
+   "duration": 52,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "1lI1x4OrdlI",
+   "title": "Book Review: \"Do Present \" -Mark Shayler s Mariann Makrai - Tech ćakula #18 by IT zajednica Rijeka",
+   "duration": 2169,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Cu6fANVewgE",
+   "title": "#8unConference - Aestus Grupa predstavljanje",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "atncYhN-ZGQ",
+   "title": "#6unConference \" | IT zajednica Rijeka - Huuk - Powered by 46elks",
+   "duration": 98,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "NNGJNOEcRb0",
+   "title": "#6 unConference \" | IT zajednica Rijeka - Easy Aerial - Powered by 46elks",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "0HhYkiM48Q0",
+   "title": "#6 unConference \" | IT zajednica Rijeka - HUUK - Powered by 46elks",
+   "duration": 49,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "bnzxMKvAu74",
+   "title": "#6 unConference \" | IT zajednica Rijeka - Milan Erdelj - Powered by 46elks",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "0AHLWSgGbxg",
+   "title": "Božićni video 2021!",
+   "duration": 193,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "i_q_9J2uV0M",
+   "title": "ALT CAM VIEW - Prvi sastanak IT zajednice Rijeka | IT zajednica Rijeka",
+   "duration": 6356,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "MmG8QPxW8hc",
+   "title": "Vještine i znanja za uspješan početak karijere: Mirjana Fijolić | IT Zajednica Rijeka",
+   "duration": 5579,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "U4vwpYvkeZg",
+   "title": "LIVE Interview -Slaven Damjanović  eAgrar",
+   "duration": 3889,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "MOoK_vOH29g",
+   "title": "LIVE : Kako na Linkedinu do novih kupaca i poslovnih partnera?",
+   "duration": 5962,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "bHy9lAKA6mM",
+   "title": "Filip Elez - Casual tech talk #3",
+   "duration": 2439,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "_T7SccOhglI",
+   "title": "Matea Tomić - Casual tech talk #2",
+   "duration": 924,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "WWpm59AQRqY",
+   "title": "UX/UI Design process - Matea Tomić",
+   "duration": 2374,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "YijyN-LjzC8",
+   "title": "Casual tech talk - Adrian Smijulj (Webiny)  | IT zajednica Rijeka",
+   "duration": 641,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "yKFHJKDpQXs",
+   "title": "Tech Ćakula #32 | Klub mladih Rijeka | AI radionica | by IT zajednica Rijeka",
+   "duration": 2343,
+   "live_status": "was_live",
+   "upload_date": "20250925"
+  },
+  {
+   "id": "GB-xW9vIqYo",
+   "title": "Tech Ćakula #31 | Makora d.o.o. | Otvorili ste tvrtku i što sada? | by IT zajednica Rijeka",
+   "duration": 2929,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "wKBy63V9CRA",
+   "title": "UNCONFERENCE#18 | iOLAP Academy Preview | PROMIJENI SVOJU KARIJERU I POSTANI DATA & AI STRUČNJAK",
+   "duration": 4460,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "hHsSX7fAuwY",
+   "title": "Tech Ćakula #29 | Sandro Kraljević - Kako učinkovito upravljati stresom? | by IT zajednica Rijeka",
+   "duration": 2837,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "fLFUaf_SS_I",
+   "title": "UNCONFERENCE#17 | iOLAP Academy Preview | POWERED BY IOLAP",
+   "duration": 5064,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "qrm0ov1U3sc",
+   "title": "Tech Ćakula #30 | Lloyds digital - Digital Labin konferencija| by IT zajednica Rijeka",
+   "duration": 4336,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "xxynDS7ZU7w",
+   "title": "Tech Ćakula #27 | ChatGPT baby Skynet ili spas čovječanstva | by IT zajednica Rijeka",
+   "duration": 4453,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "w1DgcBS869A",
+   "title": "#16unConference | C++ ekosustav jučer/danas/sutra | by IT zajednica Rijeka",
+   "duration": 6078,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "AuuxfqMb5hk",
+   "title": "#15unConference | Uvod u Git - Tomo Krajina | by IT zajednica Rijeka",
+   "duration": 4814,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "41Cuqffp3H0",
+   "title": "Tech Ćakula #25 | Put prema IT karijeri  | by IT zajednica Rijeka",
+   "duration": 2967,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "RPgPXRbjW0I",
+   "title": "#14unConference | Što radi IBM u Hrvatskoj? | Powered by IT zajednica Rijeka",
+   "duration": 4300,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "SPmkWO0Al2g",
+   "title": "Tech Ćakula #24 |  Izazovi i dogodovštine video produkcije - David Dubrović | by IT zajednica Rijeka",
+   "duration": 2843,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "_XKT46QGQSQ",
+   "title": "Tech Ćakula #23 | Book Review - Umijeće ratovanja za žene - Mirjana Šlibar | by IT zajednica Rijeka",
+   "duration": 1770,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "P4aPKm4dKqQ",
+   "title": "Tech Ćakula #22 | Book Review - All Eyes on Me - Mariann Makrai | powered by IT zajednica Rijeka",
+   "duration": 2873,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "LUuK4KCsbsY",
+   "title": "Tech Ćakula #21 - HRVATSKA leti U SVEMIR | powered by IT zajednica Rijeka",
+   "duration": 2972,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "D-YxT_7fGwc",
+   "title": "Tech Ćakula #20 - Digital Labin se ponovno vraća | powered by IT zajednica Rijeka",
+   "duration": 2199,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "G8mi2EXt-kI",
+   "title": "#13unConference - IT zajednica Rijeka - powered by iOLAP",
+   "duration": 3437,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "tjk8_VxHyAg",
+   "title": "#12unConference - IT zajednica Rijeka - powered by Ericsson Nikola Tesla",
+   "duration": 2432,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "oR2f8XewYC0",
+   "title": "\"#11 unConference \" | IT zajednica Rijeka - powered by 46elks",
+   "duration": 3225,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "gxU-oPkANSM",
+   "title": "Book Review: \"Atomske navike\" - James Clear  - Tech ćakula #19 by IT zajednica Rijeka",
+   "duration": 2465,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "aAEjEQMv_5Y",
+   "title": "\"#10 unConference \" | IT zajednica Rijeka - powered by 46elks",
+   "duration": 7165,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Xkf6pjOU4SM",
+   "title": "Tech Ćakula Live #17 | Book Review: \"Digitalni minimalizam\" - Cal Newport s Darko Mareš",
+   "duration": 2708,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "x2DI083x1m8",
+   "title": "Tech Ćakula #16 \"Moraš skupit' sve - put od casual gaminga do ovisnosti\" - powered by 46elks",
+   "duration": 3049,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "mJoTgmrjyDw",
+   "title": "Tech Ćakula #15 | DataSector - Spašavanje podataka s  memorijskih medija | powered by 46elks",
+   "duration": 2994,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "gopkz7tPP8I",
+   "title": "Book Review: \"Kreativnost\" - John Cleese  s Milan Prša | Tech Talk Live #14",
+   "duration": 4245,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "nTQs_gda14M",
+   "title": "[VAŽNO]Poziv za dobivanje javnih sredstava #2 - IT zajednica Rijeka",
+   "duration": 509,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "p8KwCij4aDI",
+   "title": "[VAŽNO]Poziv za dobivanje javnih sredstava - IT zajednica Rijeka",
+   "duration": 898,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9rXPBNju4Sw",
+   "title": "\"#9 unConference \" | IT zajednica Rijeka - powered by 46elks",
+   "duration": 3435,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "aczZhtrmrSw",
+   "title": "Book Review: Embedded Entrepreneur ft. Arvid Kahl | Tech Talk Live #13",
+   "duration": 5025,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "DZdyHSNk6wY",
+   "title": "IT zajednica Rijeka - Projekt Energana i predstavljanje rada Udruge",
+   "duration": 2157,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  }
+ ]
+}

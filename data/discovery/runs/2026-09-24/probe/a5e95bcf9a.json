@@ -1,0 +1,70 @@
+{
+ "key": "UC-LqDYME5ubrBQx2Co7EjEA",
+ "url": "https://www.youtube.com/channel/UC-LqDYME5ubrBQx2Co7EjEA/videos",
+ "channel_id": "UC-LqDYME5ubrBQx2Co7EjEA",
+ "playlist_id": null,
+ "title": "SeksDrogaPolitika - Videos",
+ "channel": "SeksDrogaPolitika",
+ "channel_url": "https://www.youtube.com/channel/UC-LqDYME5ubrBQx2Co7EjEA",
+ "description": "",
+ "follower_count": 136,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "J3If-1VE-hI",
+   "title": "Ivo Josipović - Treći hrvatski predsjednik - pobjednički govor - 3rd Croatian president",
+   "duration": 504,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "3axS_ozdocA",
+   "title": "Lopovi o lopovima: Čačić i Jakovčić  o Sanaderovom povratku",
+   "duration": 36,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "bj0G5wiWd_4",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 6/6",
+   "duration": 567,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "9InvpN-X0gQ",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 5/6",
+   "duration": 625,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "8Ep55GSeqCo",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 4/6",
+   "duration": 626,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "5Mta_ToggNg",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 3/6",
+   "duration": 625,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "FspXs9YarOw",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 2/6",
+   "duration": 607,
+   "live_status": null,
+   "upload_date": "20100925"
+  },
+  {
+   "id": "6u5VI9mdfXs",
+   "title": "Nino Raspudić - Nedjeljom u 2 - 1/6",
+   "duration": 616,
+   "live_status": null,
+   "upload_date": "20100925"
+  }
+ ]
+}

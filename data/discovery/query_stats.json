@@ -1,0 +1,1692 @@
+{
+ "audio drama radio igra hrvatski": {
+  "cat": "audio-drama",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 0
+  }
+ },
+ "podcast pravo odvjetnik Hrvatska razgovor": {
+  "cat": "law",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 31,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 31,
+   "accepted": 0
+  }
+ },
+ "startup podcast Hrvatska tehnologija osnivač": {
+  "cat": "it-startup",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 28,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 28,
+   "accepted": 3
+  }
+ },
+ "gaming podcast hrvatski 2026": {
+  "cat": "gaming",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 3
+  }
+ },
+ "podcast 2026 Hrvatska nova epizoda gost": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 29,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 29,
+   "accepted": 1
+  }
+ },
+ "podcast zdravlje prehrana liječnik Hrvatska": {
+  "cat": "health",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 18,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 18,
+   "accepted": 2
+  }
+ },
+ "Igor Vukić podcast razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 9,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 9,
+   "accepted": 0
+  }
+ },
+ "podcast kultura umjetnost književnost Hrvatska": {
+  "cat": "culture",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 29,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 29,
+   "accepted": 0
+  }
+ },
+ "podcast o vezama hrvatski": {
+  "cat": "relationships",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 23,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 23,
+   "accepted": 2
+  }
+ },
+ "podcast roditeljstvo odgoj djece Hrvatska": {
+  "cat": "parenting",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 2
+  }
+ },
+ "automobilistički podcast hrvatski": {
+  "cat": "sport-motorsport",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 3
+  }
+ },
+ "podcast psihijatar psihoterapeut razgovor hrvatski": {
+  "cat": "medicine",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 2
+  }
+ },
+ "podcast liječnik medicina doktor razgovor Hrvatska": {
+  "cat": "medicine",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 3
+  }
+ },
+ "podcast studenti fakultet Hrvatska razgovor": {
+  "cat": "education",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 28,
+  "accepted_total": 6,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 28,
+   "accepted": 6
+  }
+ },
+ "podcast Dalmacija razgovor gost": {
+  "cat": "regional",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 13,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 13,
+   "accepted": 0
+  }
+ },
+ "putovanja podcast hrvatski": {
+  "cat": "travel",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 22,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 22,
+   "accepted": 2
+  }
+ },
+ "podcast Slavonija Osijek razgovor": {
+  "cat": "regional",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 1
+  }
+ },
+ "filmski podcast hrvatski": {
+  "cat": "film",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 6,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 6
+  }
+ },
+ "trčanje maraton triatlon podcast hrvatski": {
+  "cat": "sport-running",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 29,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 29,
+   "accepted": 1
+  }
+ },
+ "podcast obraćenje Isus svjedočanstvo": {
+  "cat": "religious-catholic",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 2
+  }
+ },
+ "liberalni podcast demokracija civilno društvo Hrvatska": {
+  "cat": "political-liberal",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 0,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 0,
+   "accepted": 0
+  }
+ },
+ "podcast mame tate roditelji djeca razgovor": {
+  "cat": "parenting",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 2
+  }
+ },
+ "romska zajednica Hrvatska razgovor podcast": {
+  "cat": "minorities",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 1,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 1,
+   "accepted": 0
+  }
+ },
+ "podcast borilački sportovi Hrvatska MMA": {
+  "cat": "mma",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 2
+  }
+ },
+ "čitanje knjiga preporuke podcast hrvatski": {
+  "cat": "books",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 1
+  }
+ },
+ "umjetna inteligencija podcast hrvatski razgovor AI": {
+  "cat": "it-ai",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 28,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 28,
+   "accepted": 1
+  }
+ },
+ "biciklizam podcast Hrvatska razgovor": {
+  "cat": "sport-cycling",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 7,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 7
+  }
+ },
+ "stand up komičar podcast Hrvatska razgovor": {
+  "cat": "comedy",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 2
+  }
+ },
+ "podcast poljoprivreda selo Hrvatska razgovor": {
+  "cat": "agriculture",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 33,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 33,
+   "accepted": 2
+  }
+ },
+ "znanstveni podcast Hrvatska istraživanje profesor": {
+  "cat": "science",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 33,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 33,
+   "accepted": 1
+  }
+ },
+ "kuhanje gastro podcast Hrvatska kuhar razgovor": {
+  "cat": "food",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 18,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 18,
+   "accepted": 1
+  }
+ },
+ "podcast pripovijedanje stvarne priče hrvatski": {
+  "cat": "stories",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 0
+  }
+ },
+ "jedrenje podcast Hrvatska jedriličar razgovor": {
+  "cat": "sport-sailing",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 22,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 22,
+   "accepted": 2
+  }
+ },
+ "Marko Perković Thompson intervju podcast": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 28,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 28,
+   "accepted": 2
+  }
+ },
+ "podcast \"S01E01\" hrvatski": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 3
+  }
+ },
+ "podcast financije investiranje Hrvatska burza": {
+  "cat": "finance",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 21,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 21,
+   "accepted": 3
+  }
+ },
+ "reli karting motorsport podcast hrvatski": {
+  "cat": "sport-motorsport",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 6,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 6,
+   "accepted": 0
+  }
+ },
+ "lijevi podcast Hrvatska društvo radnička prava": {
+  "cat": "political-left",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 1,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 1,
+   "accepted": 0
+  }
+ },
+ "podcast Domovinski rat bojna zapovjednik razgovor": {
+  "cat": "military-history",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 3,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 3,
+   "accepted": 0
+  }
+ },
+ "Ivica Todorić podcast razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 1
+  }
+ },
+ "planinarenje podcast Hrvatska planine razgovor": {
+  "cat": "sport-hiking",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 2
+  }
+ },
+ "šah podcast hrvatski": {
+  "cat": "sport-chess",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 5,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 5
+  }
+ },
+ "filmski podcast recenzije serija hrvatski": {
+  "cat": "film",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 10,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 10,
+   "accepted": 2
+  }
+ },
+ "podcast glazba glazbenik intervju Hrvatska": {
+  "cat": "music",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 1
+  }
+ },
+ "boks podcast Hrvatska razgovor boksač": {
+  "cat": "sport-boxing",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 0
+  }
+ },
+ "rukomet podcast Hrvatska reprezentacija razgovor": {
+  "cat": "sport-handball",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 12,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 12,
+   "accepted": 0
+  }
+ },
+ "podcast hrvatska glazbena scena razgovor bend": {
+  "cat": "music",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 29,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 29,
+   "accepted": 2
+  }
+ },
+ "Tomislav Jonjić podcast razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 1
+  }
+ },
+ "arhitektura podcast hrvatski": {
+  "cat": "architecture",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 23,
+  "accepted_total": 4,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 23,
+   "accepted": 4
+  }
+ },
+ "podcast civilno društvo Hrvatska": {
+  "cat": "political-liberal",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 3
+  }
+ },
+ "podcast smijeh gost hrvatski 2026": {
+  "cat": "comedy",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 34,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 34,
+   "accepted": 1
+  }
+ },
+ "Zlatko Hasanbegović podcast razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 1
+  }
+ },
+ "glazbeni podcast hrvatski": {
+  "cat": "music",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 30,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 30,
+   "accepted": 2
+  }
+ },
+ "HNL podcast Hajduk Dinamo analiza utakmice": {
+  "cat": "sport-football",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 13,
+  "accepted_total": 7,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 13,
+   "accepted": 7
+  }
+ },
+ "kriptovalute podcast Hrvatska": {
+  "cat": "it-crypto",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 2
+  }
+ },
+ "priče za laku noć audio hrvatski podcast": {
+  "cat": "stories",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 0
+  }
+ },
+ "Davor Gjenero podcast analiza": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 1
+  }
+ },
+ "razvoj igara game dev Hrvatska podcast": {
+  "cat": "it-gamedev",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 21,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 21,
+   "accepted": 1
+  }
+ },
+ "podcast misterij neobjašnjivo Hrvatska": {
+  "cat": "mystery",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 10,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 10,
+   "accepted": 0
+  }
+ },
+ "tenis podcast hrvatski razgovor tenisač": {
+  "cat": "sport-tennis",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 13,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 13,
+   "accepted": 3
+  }
+ },
+ "podcast razgovor vjera Bog svećenik": {
+  "cat": "religious-catholic",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 22,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 22,
+   "accepted": 2
+  }
+ },
+ "Ivan Pernar podcast gost razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 3
+  }
+ },
+ "podcast trening fitness Hrvatska sportaš": {
+  "cat": "fitness",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 22,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 22,
+   "accepted": 2
+  }
+ },
+ "književni podcast hrvatski": {
+  "cat": "books",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 2,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 2,
+   "accepted": 0
+  }
+ },
+ "Mislav Kolakušić podcast razgovor": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 10,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 10,
+   "accepted": 0
+  }
+ },
+ "\"#1\" podcast gost razgovor Hrvatska": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 34,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 34,
+   "accepted": 2
+  }
+ },
+ "true crime podcast Hrvatska slučaj ubojstvo": {
+  "cat": "true-crime",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 8,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 8,
+   "accepted": 0
+  }
+ },
+ "ribolov lovstvo podcast Hrvatska razgovor": {
+  "cat": "sport-fishing",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 0,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 0,
+   "accepted": 0
+  }
+ },
+ "priroda okoliš zaštita podcast hrvatski": {
+  "cat": "ecology",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 14,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 14,
+   "accepted": 3
+  }
+ },
+ "podcast izbori Hrvatska 2026 razgovor analitičar": {
+  "cat": "political",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 14,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 14,
+   "accepted": 3
+  }
+ },
+ "podcast veze ljubav partnerski odnosi hrvatski": {
+  "cat": "relationships",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 2
+  }
+ },
+ "poljoprivreda OPG podcast razgovor Hrvatska": {
+  "cat": "agriculture",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 3
+  }
+ },
+ "vino vinari podcast Hrvatska razgovor": {
+  "cat": "food-wine",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 12,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 12,
+   "accepted": 2
+  }
+ },
+ "talijanska manjina Istra podcast": {
+  "cat": "minorities",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 7,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 7,
+   "accepted": 0
+  }
+ },
+ "košarka podcast Hrvatska ABA liga analiza": {
+  "cat": "sport-basketball",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 14,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 14,
+   "accepted": 1
+  }
+ },
+ "podcast geopolitika svijet analiza hrvatski": {
+  "cat": "geopolitics",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 1
+  }
+ },
+ "podcast hrvatska dijaspora iseljeništvo razgovor": {
+  "cat": "diaspora",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 3
+  }
+ },
+ "\"podcast\" \"epizoda 1\" hrvatski": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 31,
+  "accepted_total": 4,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 31,
+   "accepted": 4
+  }
+ },
+ "podcast psihologija mentalno zdravlje Hrvatska": {
+  "cat": "science",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 10,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 10,
+   "accepted": 1
+  }
+ },
+ "nekretnine podcast hrvatski": {
+  "cat": "realestate",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 1
+  }
+ },
+ "pravni podcast Hrvatska": {
+  "cat": "law",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 3
+  }
+ },
+ "politički podcast Hrvatska analiza aktualno": {
+  "cat": "political",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 6,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 6,
+   "accepted": 0
+  }
+ },
+ "podcast putovanja Hrvatska avantura razgovor": {
+  "cat": "travel",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 2
+  }
+ },
+ "novi podcast prva epizoda Zagreb": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 3
+  }
+ },
+ "nekretnine podcast Hrvatska stanovi tržište": {
+  "cat": "realestate",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 23,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 23,
+   "accepted": 2
+  }
+ },
+ "podcast ljevica Hrvatska razgovor": {
+  "cat": "political-left",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 3
+  }
+ },
+ "putopisni podcast putovanja svijet hrvatski putnik": {
+  "cat": "travel",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 7,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 7,
+   "accepted": 0
+  }
+ },
+ "podcast odvjetnik pravni savjeti Hrvatska": {
+  "cat": "law",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 0
+  }
+ },
+ "podcast brak obitelj savjetovanje razgovor": {
+  "cat": "relationships",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 2
+  }
+ },
+ "podcast mladi vjera razgovor fra": {
+  "cat": "religion",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 7,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 7
+  }
+ },
+ "vinski podcast Hrvatska": {
+  "cat": "food-wine",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 5,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 5
+  }
+ },
+ "auto moto podcast Hrvatska automobili razgovor": {
+  "cat": "sport-motorsport",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 3
+  }
+ },
+ "vojna povijest podcast hrvatski Drugi svjetski rat": {
+  "cat": "military-history",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 1
+  }
+ },
+ "poduzetnički podcast Hrvatska biznis osnivač": {
+  "cat": "business",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 12,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 12,
+   "accepted": 0
+  }
+ },
+ "glazbenik intervju podcast Hrvatska pjevač karijera": {
+  "cat": "music",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 23,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 23,
+   "accepted": 0
+  }
+ },
+ "ribolov podcast hrvatski": {
+  "cat": "sport-fishing",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 1
+  }
+ },
+ "podcast aktualna politika Hrvatska Sabor gost": {
+  "cat": "political-center",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 7,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 7,
+   "accepted": 0
+  }
+ },
+ "podcast filozofija razgovor Hrvatska": {
+  "cat": "philosophy",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 2
+  }
+ },
+ "podcast osobni razvoj motivacija Hrvatska": {
+  "cat": "personal-development",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 3
+  }
+ },
+ "podcast učitelji nastavnici škola obrazovanje razgovor": {
+  "cat": "education",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 30,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 30,
+   "accepted": 0
+  }
+ },
+ "obrazovni podcast Hrvatska učitelj škola": {
+  "cat": "education",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 30,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 30,
+   "accepted": 1
+  }
+ },
+ "podcast lifestyle razgovor gost Hrvatska": {
+  "cat": "lifestyle",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 2
+  }
+ },
+ "šah podcast hrvatski velemajstor razgovor": {
+  "cat": "sport-chess",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 2
+  }
+ },
+ "podcast o filmovima kino razgovor hrvatski": {
+  "cat": "film",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 24,
+  "accepted_total": 8,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 24,
+   "accepted": 8
+  }
+ },
+ "podcast Istra Rijeka razgovor gost": {
+  "cat": "regional",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 2
+  }
+ },
+ "podcast knjige književnost pisac razgovor Hrvatska": {
+  "cat": "books",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 2
+  }
+ },
+ "podcast manjine Hrvatska Srbi Talijani Mađari razgovor": {
+  "cat": "minorities",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 0,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 0,
+   "accepted": 0
+  }
+ },
+ "ekologija održivost klima podcast Hrvatska": {
+  "cat": "ecology",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 18,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 18,
+   "accepted": 1
+  }
+ },
+ "podcast Domovinski rat svjedočanstvo branitelj": {
+  "cat": "history",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 0
+  }
+ },
+ "podcast žene karijera majčinstvo Hrvatska": {
+  "cat": "women",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 0
+  }
+ },
+ "podcast film serije recenzija Hrvatska": {
+  "cat": "film",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 19,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 19,
+   "accepted": 2
+  }
+ },
+ "povijesni podcast Hrvatska povjesničar razgovor": {
+  "cat": "history",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 18,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 18,
+   "accepted": 2
+  }
+ },
+ "hrvatski sportski podcast analiza nogomet": {
+  "cat": "sport",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 9,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 9,
+   "accepted": 0
+  }
+ },
+ "Nino Raspudić podcast gost": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 20,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 20,
+   "accepted": 3
+  }
+ },
+ "hrvatski gaming podcast razgovor": {
+  "cat": "gaming",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 15,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 15,
+   "accepted": 2
+  }
+ },
+ "Hrvati u Americi Kanadi Australiji podcast razgovor": {
+  "cat": "diaspora",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 14,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 14,
+   "accepted": 0
+  }
+ },
+ "Hrvati u Njemačkoj Irskoj podcast iseljenici": {
+  "cat": "diaspora",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 11,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 11,
+   "accepted": 0
+  }
+ },
+ "arhitektura dizajn podcast Hrvatska arhitekt": {
+  "cat": "architecture",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 1
+  }
+ },
+ "podkast razgovor gost Zagreb epizoda": {
+  "cat": "new",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 27,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 27,
+   "accepted": 1
+  }
+ },
+ "hrvatski podcast humor komedija smijeh": {
+  "cat": "comedy",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 25,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 25,
+   "accepted": 2
+  }
+ },
+ "Velimir Bujanec gost podcast": {
+  "cat": "guest",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 9,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 9,
+   "accepted": 0
+  }
+ },
+ "iseljenici podcast hrvatski": {
+  "cat": "diaspora",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 29,
+  "accepted_total": 4,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 29,
+   "accepted": 4
+  }
+ },
+ "podcast sportaš intervju Hrvatska karijera": {
+  "cat": "sport",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 14,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 14,
+   "accepted": 1
+  }
+ },
+ "katolički podcast duhovnost molitva": {
+  "cat": "religious-catholic",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 23,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 23,
+   "accepted": 1
+  }
+ },
+ "podcast novinar mediji Hrvatska intervju": {
+  "cat": "media",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 1
+  }
+ },
+ "tehnološki podcast Hrvatska programiranje AI": {
+  "cat": "technology",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 12,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 12,
+   "accepted": 0
+  }
+ },
+ "podcast Zadar Split Šibenik intervju": {
+  "cat": "regional",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 26,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 26,
+   "accepted": 1
+  }
+ },
+ "srpska zajednica Hrvatska podcast": {
+  "cat": "minorities",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 18,
+  "accepted_total": 3,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 18,
+   "accepted": 3
+  }
+ },
+ "kripto bitcoin podcast hrvatski": {
+  "cat": "it-crypto",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 17,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 17,
+   "accepted": 0
+  }
+ },
+ "programiranje podcast hrvatski developer razgovor": {
+  "cat": "it",
+  "runs": [
+   "2026-09-24"
+  ],
+  "channels_total": 10,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-09-24",
+   "channels": 10,
+   "accepted": 1
+  }
+ }
+}

@@ -1,0 +1,249 @@
+```json
+[
+  {
+    "key": "UC7R-q74uuLgUZlQQ7pT4PzA",
+    "verdict": "not_hr",
+    "reason": "Engleski filmski/TV kritičarski kanal bez hrvatske veze."
+  },
+  {
+    "key": "UClQch6cp0bXHC3AhRpubofA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski filmski razgovorni podcast, dvojica voditelja, dugoformatne numerirane epizode.",
+    "slug": "izbacene-scene",
+    "display_name": "Izbačene Scene",
+    "tags": ["pop-culture", "culture"],
+    "hosts": ["Tomislav Suvala", "Bruno Koić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCtTRM-loGOEQugE_CSaIcOg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski razgovorni format Mixer.hr s glazbenicima i kulturnjacima, dugoformatne epizode.",
+    "slug": "mixer-room-podcast",
+    "display_name": "MIXER",
+    "tags": ["culture", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCxxfZ7LhIiFuqPtacuXPLqw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski razgovorni podcast o raznim temama (knjige, svakodnevica), dugoformatne epizode.",
+    "slug": "fake-it-till-you-make-it-podcast",
+    "display_name": "Fake It Till You Make It Podcast",
+    "tags": ["culture", "lifestyle"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC_G1cT1NWHsg9rdHMB8rZWQ",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski video-razgovori (Rijeka), voditeljica Vedrana Lisica, dugoformatne epizode.",
+    "slug": "na-kaucu",
+    "display_name": "NA KAUČU by Vedrana Lisica",
+    "tags": ["talk-show", "culture"],
+    "hosts": ["Vedrana Lisica"],
+    "watch_rule": {"exclude_title_regex": "(?i)trailer"}
+  },
+  {
+    "key": "UCUezDU1Bm6Y0MetFjKUiw2w",
+    "verdict": "not_podcast",
+    "reason": "Službeni klupski kanal HNK Rijeka s prijenosima utakmica, nije podcast."
+  },
+  {
+    "key": "UCw0_lthGS4qChQec36LX8Mw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski nogometni podcast o Hajduku, dugoformatne numerirane epizode.",
+    "slug": "iza-pjace",
+    "display_name": "Iza Pjace",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCuv1iCvX5QDFkRqTlvkSZZw",
+    "verdict": "uncertain",
+    "reason": "Nedovoljno podataka (bez opisa, malo pratitelja); naslovi upućuju na radijsku emisiju, nejasno je li razgovorni podcast."
+  },
+  {
+    "key": "UCOB8hyzZIF6grOZRFFAkU5Q",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski knjižni podcast, troje voditelja, dugoformatne epizode.",
+    "slug": "ovisnici-o-knjigama",
+    "display_name": "Ovisnici o knjigama",
+    "tags": ["culture", "lifestyle"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCqilHAq6O5zdP1L5ptUHomA",
+    "verdict": "not_podcast",
+    "reason": "Predavanja, okrugli stolovi i paneli zagrebačke platforme, ne klasični razgovorni podcast."
+  },
+  {
+    "key": "UCsrKDhcBsB31Xclq5meaJ_w",
+    "verdict": "not_hr",
+    "reason": "Službeni srpski državni medijski kanal (RTS), sadržaj na srpskom."
+  },
+  {
+    "key": "UCefMV4uVMfUKpFEg4fY8PKQ",
+    "verdict": "not_hr",
+    "reason": "Engleski autorski kanal bez hrvatske veze."
+  },
+  {
+    "key": "UCsLDFmETE9NKRLKrBfLXn1Q",
+    "verdict": "not_hr",
+    "reason": "Engleski američki umjetnički medijski kanal (PBS), bez hrvatske veze."
+  },
+  {
+    "key": "UCef1-8eOpJgud7szVPlZQAQ",
+    "verdict": "not_hr",
+    "reason": "Engleski vijesti/live prijenosi (CNN-News18), bez hrvatske veze."
+  },
+  {
+    "key": "UCJu5LcWnQJkIsU9odEvnywQ",
+    "verdict": "not_podcast",
+    "reason": "Okrugli stolovi i konferencije o Domovinskom ratu, predavački format bez razgovora."
+  },
+  {
+    "key": "UCpM7SX7Bb2FwtVSLRKC6vJw",
+    "verdict": "not_podcast",
+    "reason": "Produkcijski kanal s prijenosima misa, konferencija i lokalnih zbivanja, nije podcast."
+  },
+  {
+    "key": "UCCpwkddQv0AS0sW0RDdLopg",
+    "verdict": "institutional",
+    "reason": "Institucionalni kanal (MAMFORCE) s konferencijama/panelima; pojedini videi nazvani 'podcast' pa provjeriti playlistu."
+  },
+  {
+    "key": "UCeVwoClNroOJCljdZb9fUgg",
+    "verdict": "not_hr",
+    "reason": "Engleski lifestyle kanal bez hrvatske veze."
+  },
+  {
+    "key": "UCjUfNlLgJIx91qxHvS2XaNA",
+    "verdict": "too_small",
+    "reason": "Hrvatski filmski podcast ali svega 3 objavljene epizode."
+  },
+  {
+    "key": "UCux63_Z-YPubnWzzSrE7geg",
+    "verdict": "not_hr",
+    "reason": "Srpski povijesni podcast, ekavica i srpske teme."
+  },
+  {
+    "key": "UCvIig2IXzBexi_HXd01mDcQ",
+    "verdict": "not_hr",
+    "reason": "Sadržaj miješan srpski/regionalni s izraženom ćirilicom i srpskim temama (RS, Kosovo), unatoč pojedinim hrvatskim gostima."
+  },
+  {
+    "key": "UCKdC0rAJAG5pIBlk18BHsEw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski nakladnik s dosljednom razgovornom serijom 'BookTalk' o književnosti, numerirane dugoformatne epizode.",
+    "slug": "fraktura-booktalk",
+    "display_name": "Fraktura BookTalk",
+    "tags": ["culture", "education"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCQfu-cfE5w09IWc2ifCZfnA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski radijsko-razgovorni format s gostima, dugoformatne epizode.",
+    "slug": "radio-tvornica-gosti",
+    "display_name": "Radio Tvornica",
+    "tags": ["talk-show", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCSPCDN_O49pvGn6IFuDz2FA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski gaming/tech podcast, dugoformatne epizode s više suradnika.",
+    "slug": "hcl-cast",
+    "display_name": "HCL Cast",
+    "tags": ["gaming", "technology"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCnnjB35KRzpFyMOToHsjWKg",
+    "verdict": "not_podcast",
+    "reason": "Gaming livestreamovi i vlogovi, nije razgovorni podcast format."
+  },
+  {
+    "key": "UCLVfQsUeJGkpYbzBYxJp7zw",
+    "verdict": "institutional",
+    "reason": "Institucionalni kanal HDS ZAMP; sadrži portrete autora i panele, nije sam po sebi podcast."
+  },
+  {
+    "key": "UCaBqhnQM3v-YwRpKYZ2d-xg",
+    "verdict": "not_podcast",
+    "reason": "Eklektičan kanal s montiranim segmentima o gradovima/glazbi, ne razgovorni podcast."
+  },
+  {
+    "key": "UCS_ysoSEeeQwLLKUMVT2izQ",
+    "verdict": "not_hr",
+    "reason": "Srpska medijska kuća u SAD-u, sadržaj o srpskoj dijaspori na srpskom."
+  },
+  {
+    "key": "UC3w-mSB80a1rzodcfZ66hiQ",
+    "verdict": "not_podcast",
+    "reason": "Prijenosi nogometnih/odbojkaških utakmica iz BiH regije, nije podcast."
+  },
+  {
+    "key": "UCLrr7oKWQcOpgtiNM1pqobw",
+    "verdict": "not_hr",
+    "reason": "Sadržaj o životu u Norveškoj bez jasne hrvatske poveznice, jezik i teme regionalne/bosanske dijaspore."
+  },
+  {
+    "key": "UCUWyNdjf3Gu6_3gpwq9Yu2Q",
+    "verdict": "not_hr",
+    "reason": "Engleski podcast o arhitekturi i dizajnu bez hrvatske veze."
+  },
+  {
+    "key": "UC_VwainzcFiclmS-KJRm3Tw",
+    "verdict": "institutional",
+    "reason": "Institucionalni kanal Hrvatske komore arhitekata s panelima i predavanjima, ne podcast."
+  },
+  {
+    "key": "UC2rxiHb4wm8_e_2gHUi_HLA",
+    "verdict": "not_hr",
+    "reason": "Engleski podcast o dizajnu/arhitekturi bez hrvatske veze."
+  },
+  {
+    "key": "UCI9ci0Likb2WNNKfSaF9czA",
+    "verdict": "too_small",
+    "reason": "Svega 2 objavljena videa, premalo za procjenu."
+  },
+  {
+    "key": "UCY3pC966Qci5ghXkQqzqdCA",
+    "verdict": "not_podcast",
+    "reason": "Putopisno-dokumentarni vlog format, ne razgovorni podcast."
+  },
+  {
+    "key": "UCqSlcFOIiM5UGAo3hnHpowg",
+    "verdict": "not_hr",
+    "reason": "Engleski intervju-format o kreativnim profesijama bez hrvatske veze."
+  },
+  {
+    "key": "UCoXzhoJUJDksnw3EebFmQoQ",
+    "verdict": "institutional",
+    "reason": "Školski kanal (OŠ kralja Tomislava) koji povremeno objavljuje 'Podcast klub' epizode, ali kanal nije podcast."
+  },
+  {
+    "key": "UC2iFnXiRw2l0FT8npfg7b4w",
+    "verdict": "institutional",
+    "reason": "Kanal Udruženja obrtnika grada Zagreba s podcast serijom o obrtnicima uz ostali institucionalni sadržaj."
+  },
+  {
+    "key": "UC9yuky9RbLt9ilfHoWL-b8w",
+    "verdict": "too_small",
+    "reason": "Hrvatska intervju-serija 'Mi Smo Zagreb!' ali svega 7 kratkih epizoda."
+  },
+  {
+    "key": "UCWFARHOZFK33kq66Szs1PyQ",
+    "verdict": "not_podcast",
+    "reason": "Gaming streamovi i reakcije, nije razgovorni podcast."
+  }
+]
+```

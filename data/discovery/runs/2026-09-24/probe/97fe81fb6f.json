@@ -1,0 +1,28 @@
+{
+ "key": "UCd_F5ivfOgZOHj4zmjPNbvA",
+ "url": "https://www.youtube.com/channel/UCd_F5ivfOgZOHj4zmjPNbvA/videos",
+ "channel_id": "UCd_F5ivfOgZOHj4zmjPNbvA",
+ "playlist_id": null,
+ "title": "AgramBrokeri - Videos",
+ "channel": "AgramBrokeri",
+ "channel_url": "https://www.youtube.com/channel/UCd_F5ivfOgZOHj4zmjPNbvA",
+ "description": "Dnevne tehničke analize CROBEX-a i najzanimljivih dionica na Zagrebačkoj burzi\r\n\r\nhttp://www.agram-brokeri.hr/\r\ninfo@agram-brokeri.hr",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "3m4k1jeDNwI",
+   "title": "Agram Brokeri intro",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20090925"
+  },
+  {
+   "id": "xWYESTVaXF8",
+   "title": "Agram Brokeri",
+   "duration": 92,
+   "live_status": null,
+   "upload_date": "20090925"
+  }
+ ]
+}

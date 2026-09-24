@@ -1,0 +1,112 @@
+{
+ "key": "PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej",
+ "url": "https://www.youtube.com/playlist?list=PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej",
+ "channel_id": "UC8lka4Cf-OTBvs7B53C3WpQ",
+ "playlist_id": "PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej",
+ "title": "Split Tech City Podcast",
+ "channel": "Split Tech City",
+ "channel_url": "https://www.youtube.com/channel/UC8lka4Cf-OTBvs7B53C3WpQ",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "BsTiVFNBCt8",
+   "title": "Get ready for Split Tech City podcast!",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "z-zxPqcz2-U",
+   "title": "Moving from Warsaw to Split - Andrei Zinkevich",
+   "duration": 2050,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "21-Rm35VmEY",
+   "title": "Moving from Randers to Split - Morten Smalby",
+   "duration": 692,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "y3JCCNBlqFo",
+   "title": "Moving from Bristol to Biograd na Moru - Luke Bryant",
+   "duration": 502,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "JPCR_kYgH8w",
+   "title": "Moving from Finland to Croatia - Ilkka-Cristian Niemi",
+   "duration": 1205,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "hqOWOAN5hVg",
+   "title": "Moving from the USA to Croatia - John Rogosic",
+   "duration": 1735,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "2hlds_pWffM",
+   "title": "Moving from Poland to Croatia - Bartosz Weryho",
+   "duration": 1752,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "tuib6cHpytQ",
+   "title": "Moving from Los Angeles to Split - Jill Erak",
+   "duration": 1394,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "RkYj328QuKY",
+   "title": "Moving from UK to Croatia - Michael Freer",
+   "duration": 1542,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "H3ioqhjRdxg",
+   "title": "Moving from USA to Croatia - Sara Dyson",
+   "duration": 1303,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "a-Bu2tIlOrs",
+   "title": "Moving from Ukraine to Croatia - Konstantin Mirin",
+   "duration": 907,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "MyHZEau8oTo",
+   "title": "Moving from UK to Croatia - Matthew Hairsnape",
+   "duration": 720,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "wZSda3HmzHE",
+   "title": "Moving from UK to Croatia - Paul Bradbury",
+   "duration": 1842,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "TNI-cAtICMo",
+   "title": "Moving from USA to Croatia - Piero Palevsky",
+   "duration": 1173,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

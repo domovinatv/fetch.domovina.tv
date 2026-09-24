@@ -33,3 +33,12 @@ test("ledger: trajna vs vremenska presuda", () => {
 test("parseJsonArray podnosi tekst oko JSON-a", () => {
     assert.deepEqual(parseJsonArray('Evo:\n```json\n[{"key":"a"}]\n```'), [{ key: "a" }]);
 });
+
+test("verdictFromReason", () => {
+    const { verdictFromReason } = require("./discover.js");
+    assert.equal(verdictFromReason("srpski"), "not_hr");
+    assert.equal(verdictFromReason("strani jezik (EN/ostali) — van HR scopea"), "not_hr");
+    assert.equal(verdictFromReason("TV/radio/medijska kuća, ne podcast"), "institutional");
+    assert.equal(verdictFromReason("ne prolazi triage: 2/60 ≥30 min"), "not_podcast");
+    assert.equal(verdictFromReason("nešto treće"), "uncertain");
+});

@@ -1,0 +1,35 @@
+{
+ "key": "UCVD9KqOzPD0TDkSxp8-B3qw",
+ "url": "https://www.youtube.com/channel/UCVD9KqOzPD0TDkSxp8-B3qw/videos",
+ "channel_id": "UCVD9KqOzPD0TDkSxp8-B3qw",
+ "playlist_id": null,
+ "title": "Knjigomoljci - Videos",
+ "channel": "Knjigomoljci",
+ "channel_url": "https://www.youtube.com/channel/UCVD9KqOzPD0TDkSxp8-B3qw",
+ "description": "",
+ "follower_count": 12,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "t7vkyHNnD8E",
+   "title": "Knjigomoljci podcast: Epizoda 3 - Navike",
+   "duration": 2491,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "iT4m7EqHcjw",
+   "title": "Knjigomoljci podcast: Epizoda 2 - Žene pišu",
+   "duration": 3035,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "F85861d8RL4",
+   "title": "Knjigomoljci podcast: Epizoda 1 - Distopija",
+   "duration": 2828,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

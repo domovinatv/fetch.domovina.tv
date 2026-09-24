@@ -1,0 +1,42 @@
+{
+ "key": "PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s",
+ "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s",
+ "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+ "playlist_id": "PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s",
+ "title": "Rukometne legende",
+ "channel": "RTL",
+ "channel_url": "https://www.youtube.com/channel/UCgOfDWsxLe3B8hUdPKx6S7A",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "bfBgDnLLBq4",
+   "title": "Slavko Goluža: 'Ja i igrači najbolje znamo što smo sve prošli' | RUKOMETNE LEGENDE",
+   "duration": 1867,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "1_7qrk1xe1o",
+   "title": "Virtuoz Vori: 'Mi smo bili barabe. Ali bili smo čvrsto na zemlji' | RUKOMETNE LEGENDE",
+   "duration": 2426,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Fw17PTXdfEM",
+   "title": "Šola u podcastu s Vargekom bez dlake na jeziku! | PODCAST RUKOMETNE LEGENDE",
+   "duration": 1511,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "neaU-o_AbY8",
+   "title": "Jedan od najvažnijih igrača svih vremena, veličanstveni Džomba! | PODCAST RUKOMETNE LEGENDE",
+   "duration": 1640,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

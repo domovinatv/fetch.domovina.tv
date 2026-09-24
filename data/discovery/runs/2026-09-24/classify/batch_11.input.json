@@ -1,0 +1,1560 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "UC-GIFfHhJj4CikCkZrhLsmg",
+   "type": "channel",
+   "name": "Croatian Adria Club Sound – CACS | DJ RobDeluxe",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC-GIFfHhJj4CikCkZrhLsmg/videos",
+   "follower_count": 5150,
+   "description": "🌊 Croatian Adria Club Sound – CACS 🌊\nWelcome to the rhythm of the Adriatic.\n\nCroatian Adria Club Sound (CACS) is your digital meeting place for premium Afro House, EDM, Chill Lounge, Funk, and Disco music — inspired by the Croatian Adriatic coast, Mediterranean nights, and modern club vibes.\n\nOur sound blends international club culture with the unique lifestyle of Croatia..\n\n🎶 What you can expect on this channel:\n✔️ Croatian club sound\n✔️ Afro House & deep groove rhythms\n✔️ EDM & club sounds\n✔️ Chill lounge & sunset beats\n✔️ Funk & disco classics\n✔️ Multilingual vocals (🇭🇷 Croatian | 🇬🇧",
+   "originals": 5,
+   "originals_30min": 5,
+   "avg_original_min": 122,
+   "derivative_ratio": 0.92,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "🔊 Croatian Adria Club Sound vol.6 🔥👉🏻 3 Hour Adria & AfroHouse Music | DJ RobDeluxe 🇭🇷🇪🇸🇺🇸🇩🇪",
+    "🌅 DJ RobDeluxe – Mixtape Vol.18 | Sunset Gallery AfroHouse 360° 🎶🌊",
+    "🏝️DJ RobDeluxe   Mix vol 17 AfroHouse Sunrise in Croatia 🔴 Juni 2025",
+    "🎧🔥 Croatian Adria Club Sound vol.5 – over 3 Hour AfroHouse & RnB Club Music | DJ RobDeluxe 🇭🇷🇩🇪",
+    "🎧🔊 Croatian Adria Club Sound vol.4 – über 1 Stunde Germany Club Music | DJ RobDeluxe🇭🇷🇩🇪"
+   ],
+   "sample_derivatives": [
+    "🇭🇷💯 DJ RobDeluxe – DISCIPLINA I FOKUS KARAKTER MI GRADI | 🎧 EDM Remx @CroatianAdriaClubSound (4 min < prag 15 min)",
+    "🇭🇷💯 DJ RobDeluxe – DJECA NAŠA | 🎧 EDM Remx I #CACS  @CroatianAdriaClubSound (nema trajanja)",
+    "🇭🇷💯 DJ RobDeluxe – BRZA AUTA ZGODNE ŽENE | 🎧 EDM Remx #CACS @CroatianAdriaClubSound (nema trajanja)",
+    "🇭🇷💯 DJ RobDeluxe – TVOJ POGLED OPASNOG ŠARMA | 🎧 EDM Remx #CACS @CroatianAdriaClubSound (nema trajanja)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCW4Iu-dYRcHDj7Gum37nj8Q",
+   "type": "channel",
+   "name": "Roze Koze Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos",
+   "follower_count": 588,
+   "description": "Roze Koze podcast svake srijede donosi 30 minutne životne teme. Dvije dugogodišnje prijateljice uz svoje goste otvoreno komentiraju o svakodnevnim odnosima sa djecom, partnerom i prijateljima, životnim izazovima, osobnom razvoju, sexu te poslovima i hobijima u kojima su strastvene. ",
+   "originals": 41,
+   "originals_30min": 41,
+   "avg_original_min": 47,
+   "derivative_ratio": 0.32,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "HRANA BOGOVA - KAKAOVAC",
+    "JESTE LI ZNALI?",
+    "NAJBOLJE IZ PRIRODE - SAMONIKLO JESTIVO BILJE",
+    "UDAH - IZDAH (inhale - exhale)",
+    "ROĐENDANSKI Q&A",
+    "RAZGOLIĆENE ROZE KOZE",
+    "COACHING (KAUČ-ING)",
+    "FLOAT THERAPY - PLUTANJE"
+   ],
+   "sample_derivatives": [
+    "JESTE LI ZNALI? (29 min < prag 30 min)",
+    "SEX PRIJE I POSLIJE OPERACIJE (24 min < prag 30 min)",
+    "JESTE LI LJUBOMORNI? (29 min < prag 30 min)",
+    "TALK TO ME DIRTY (25 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Netokracija vodič; 87 ep. ~45 min, neaktivan od 2022",
+     "tags": [
+      "lifestyle",
+      "women",
+      "talk-show"
+     ],
+     "hosts": [
+      "Mia",
+      "Bela"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCAfpzMev1SiUl-Jr569upow",
+   "type": "channel",
+   "name": "BEZ DLAKE NA GLAVI",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/videos",
+   "follower_count": 25000,
+   "description": "Dobrodošli na kanal BEZ DLAKE NA GLAVI.\nKroz satiru o aktualnostima, temama i razmišljanjima koja široko obilaze mainstream.\n\n---\n\nKontakt: bezdlakenaglaviyt@gmail.com\n",
+   "originals": 36,
+   "originals_30min": 36,
+   "avg_original_min": 162,
+   "derivative_ratio": 0.6,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "GOVOR URSULE VON DER LEYEN O STANJU EUROPSKE UNIJE - POTPUNA, ALI CILJANA OTUĐENOST OD REALNOSTI",
+    "\"NITKO NIJE ZNAO\" - LIČKA TRAGEDIJA",
+    "KOMENTIRAMO 'NAJBOLJE DIJELOVE' FAUCIJEVOG SASLUŠANJA",
+    "KAKO SU SE RIJEŠILI KONGRESMENA THOMASA MASSIEA?",
+    "DANIEL MIJATOVIĆ: \"IZRAEL IMA PRAVO NA OBRANU\"",
+    "KORIJEN EUROPSKOG SLUŽENJA SAD-U - MARSHALLOV PLAN V.2.0.? | BDNG CLIPS LIVE 186",
+    "HOĆE LI NAS DOISTA \"UMJETNA INTELIGENCIJA\" UNIŠTITI? | BDNG UŽIVO #204",
+    "KOLIKO JE ALTERNATIVA ZA NJEMAČKU - ALTERNATIVA? 25 GODINA OD 11. RUJNA | BDNG UŽIVO #203"
+   ],
+   "sample_derivatives": [
+    "TUŽNA PRIČA IZ DALMACIJE - ZA KRAJ (27 min < prag 30 min)",
+    "RUSIJA JE UVELA DIGITALNI RUBALJ (15 min < prag 30 min)",
+    "JEZIVE 'SLUČAJNOSTI' (27 min < prag 30 min)",
+    "KOMENTIRAMO TRUMPOV KOMEMORATIVNI GOVOR ZA OBLJETNICU 11. RUJNA (24 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR politički komentari/razgovori uživo, 25k pretplatnika. Uzorak: 66/120 ≥30 min, od toga 60 live (/streams), kratkih <10 min 9 %.",
+     "tags": [
+      "political",
+      "geopolitics"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCT2j6UngUU9_VqedPPs-Meg",
+   "type": "channel",
+   "name": "Bruno Möller",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCT2j6UngUU9_VqedPPs-Meg/videos",
+   "follower_count": 138,
+   "description": "",
+   "originals": 4,
+   "originals_30min": 3,
+   "avg_original_min": 51,
+   "derivative_ratio": 0.56,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Croatia Vice Versa: Mental Health and Life Abroad",
+    "Croatia Vice Versa: Business, Bureaucracy and Bars",
+    "Croatia Vice Versa: A Croatian Rhapsody in the US",
+    "Welcome to Croatia Vice Versa"
+   ],
+   "sample_derivatives": [
+    "Welcome to Tolerland (157s)",
+    "Feliz Aniversário, Jussara! (161s)",
+    "Come Together/Lose Yourself (Karaoke Version) (160s)",
+    "Dubioza Kolektiv - USA (Karaoke Version) (4 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCNiVQ046gzhfdUdwAMyR9vw",
+   "type": "channel",
+   "name": "The Living Abroad Academy",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCNiVQ046gzhfdUdwAMyR9vw/videos",
+   "follower_count": 14,
+   "description": "The Living Abroad Academy helps you understand what it takes to take the leap and establish residency in Europe. We cover not only the important aspects you need to consider–visas, housing, healthcare, taxes and more–but also the mindset needed to live full time outside your comfort zone.\n\nMaking this kind of move is not for everyone. It may not be achievable due to you work, family, or financial obligations. You also may not have the personality or patience to deal with the day-to-day realities of a particular country. Our goal is to help you find out what country (or countries) will truly wo",
+   "originals": 12,
+   "originals_30min": 10,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.29,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "The Netherlands: How American Expats are Going Dutch",
+    "The Netherlands: How American Expats are Going Dutch",
+    "Croatia: Healthcare, Housing, and What It Really Takes to Stay",
+    "Top European Countries for American Expats in 2026 [Survey Results]",
+    "Meet the Experts: How InterNations Creates Invaluable Communities for Expats",
+    "The Expat Experience: An American Entrepreneur in Spain",
+    "Meet the Experts: Tips for Easier French Immigration with Lexidy",
+    "The Expat Experience: Two Bay Area Tech Workers Retire Early in Portugal"
+   ],
+   "sample_derivatives": [
+    "Considering Leaving the U.S.? (13s)",
+    "Daydreaming of Leaving the U.S.? (14s)",
+    "We Teach Americans How to Move to Europe (15s)",
+    "She Googled \"how to move to Europe\" for the 47th time... and still didn't have a clear answer. (14s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCKrSwtGP1msfkJ9KuU2xtGw",
+   "type": "channel",
+   "name": "Rastimo u Gospodinu",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCKrSwtGP1msfkJ9KuU2xtGw/videos",
+   "follower_count": 45900,
+   "description": "Poticaji za duhovni rast u Gospodinu.\nRastimo zajedno u Gospodinu!\n",
+   "originals": 13,
+   "originals_30min": 9,
+   "avg_original_min": 78,
+   "derivative_ratio": 0.8,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Mate Marić Otkrij svoj identitet Božjeg djeteta",
+    "KAKO ŽIVJETI BRAČI ŽIVOT U SVETOSTI - KAKO NE BITI U GRIJEHU",
+    "RUŽARJE - RUŽARIJ - ROŽARJE  - SVE ČETIRI GOSPINE KRUNICE",
+    "Isusova Krunica s preporukama",
+    "KRUNICA DUHU SVETOM",
+    "KRUNICA - Slavna otajstva",
+    "FRA IVO PAVIĆ: ISUS JE ŽIV I ON DANAS OZDRAVLJA I OSLOBAĐA",
+    "Gospin plač skraćeno - Livno"
+   ],
+   "sample_derivatives": [
+    "KRUNICA I LITANIJE OCU NEBESKOM (17 min < prag 24 min)",
+    "KADA BISKUP SJEDNE ZA ORGULJE .... (158s)",
+    "Svećenički blagoslov za sve majke   fra Josip Ikić (104s)",
+    "NOVO: Stala plačuć tužna Mati,  gledala je kako pati  Sin joj na križ uzdignut (5 min < prag 24 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCcslp31vFQwbYPx2GFtHqtA",
+   "type": "channel",
+   "name": "Zakej - Susret s Isusom",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCcslp31vFQwbYPx2GFtHqtA/videos",
+   "follower_count": 46100,
+   "description": "Zakej - Susret s Isusom (Zakkhaios) je projekat nastao iz želje da se kvalitetnim sadržajem dopuni prostranstvo YouTube platforme duhovnim i teološkim materijalima te kušamo što bolje crpiti mogućnosti ovog modernog medija. Svakako valja naglasiti otvorenost Svijetu uz tendenciju obrade i tema osim katoličkih, a potom i izvan samog Kršćanstva. Uz vremenski odmak ovaj kanal ćemo obogatiti različitim sadržajima, i uz Vaše sugestije. \n\nUkoliko Vam se sviđa ovo što radimo i želite nas podržati kliknite PRETPLATI ME (SUBSCRIBE).",
+   "originals": 16,
+   "originals_30min": 7,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "FRA DAMIR PAVIĆ: Velika propovijed na sv. Ivana Krstitelja u Kraljevoj Sutjesci",
+    "Najljepše hrvatske adventske pjesme MIX",
+    "Tri Soprana ONE i Ivo Gamulin Gianni - Adventski koncert u KBC Zagreb, Rebro",
+    "Adventsko-božićni koncert u Hrvatskom katoličkom centru Alojz Stepinac",
+    "PROPOVIJED: fra Filip Karadža | Gospa olovska | Gospino svetište Olovo",
+    "MLADIFEST 2024 - Svjedočanstvo s. Dijana Mlinarić: Veliki Bog traži mene malu i smotanu",
+    "PROPOVIJED Sutješkog gvardijana fra Bone Tomića",
+    "FRA GORAN AZINOVIĆ - PROPOVIJED"
+   ],
+   "sample_derivatives": [
+    "Molitva svetom Anti #molitva #SvetiAnto (53s)",
+    "MOLITVA: Gospo žalosna, povjeravamo ti svakoga tko pati (61s)",
+    "MOLITVENI SUSRET: Gospa žalosna i sveti Ante za bolesne i potrebite (10 min < prag 15 min)",
+    "\"KRIŽU SVETI, DRVO POSVEĆENO!\" - \"PRIJESTOLJE KRALJA\"! (171s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCXylAJpasmGnyoeeZSWi6dg",
+   "type": "channel",
+   "name": "Orthodox Talks",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCXylAJpasmGnyoeeZSWi6dg/videos",
+   "follower_count": 22000,
+   "description": "The Orthodox Monastery of the Archangel Michael was established in Sydney, Australia, in 1995 by Hieromonks Kosmas and Justin. The monastery is under the jurisdiction of the Russian Orthodox Church Outside of Russia, of which the ruling hierarch is His Eminence Metropolitan Hilarion.\n\nIn 2007, with the blessing and support of Metropolitan Hilarion, Father Kosmas began presenting regular talks every 6–8 weeks, at Saint George Russian Orthodox Church in Carlton, Sydney. These talks were recorded and made available for purchase on CD at a number of monasteries and parishes, especially in North Am",
+   "originals": 45,
+   "originals_30min": 45,
+   "avg_original_min": 205,
+   "derivative_ratio": 0.25,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Talk 83: The Importance of Reading the Lives of Saints when Dealing with Ecumenism and Covidism - 2",
+    "Talk 82: The Importance of Reading the Lives of Saints when Dealing with Ecumenism and Covidism",
+    "Talk 47: The Aerial Toll-houses: Myth or Reality?",
+    "Talk 46: The Aerial Toll-houses: Fearful yet Hopeful",
+    "Talk 74: On the Upbringing of Children According to Saints Paisios and Porphyrios – Part 5",
+    "Talk 73: On the Upbringing of Children According to Saints Paisios and Porphyrios – Part 4",
+    "Talk 45: Are We Leading a Balanced Spiritual Life?",
+    "Talk 68: How Refraining From Marital Relations Can be Both Beneficial and Harmful"
+   ],
+   "sample_derivatives": [
+    "Who Should We Listen to Regarding Contraceptives and the Avoidance of Having Children? (6 min < prag 84 min)",
+    "Sermon 14: Fasting - Abstinence from Food but what About Abstinence from Sin? (28 min < prag 84 min)",
+    "Sermon 13: On Spiritual Deadness (28 min < prag 84 min)",
+    "Sermon 12: The Power of Holy Unction (20 min < prag 84 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC-z10o42s5ZsZ-RTID7ZOZw",
+   "type": "channel",
+   "name": "Divine Mercy",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC-z10o42s5ZsZ-RTID7ZOZw/videos",
+   "follower_count": 607000,
+   "description": "The Divine Mercy Channel is home to the Marian Fathers, the official promoters of the Divine Mercy message since 1941. \n\nDiscover the eternal truth of Catholic teachings, watch the Holy Catholic Mass LIVE daily and explore the Catholic faith on shows such as Living Divine Mercy, Explaining the Faith, Ask a Marian, and more brought to you by the likes of Fr. Chris Alar, Fr. Donald Calloway, and many other Marian Fathers.\nTo learn more about The Divine Mercy, visit www.TheDivineMercy.org\n* The Marians are a Congregation of more than 500 priests and brothers in 19 countries around the world.\n* Th",
+   "originals": 57,
+   "originals_30min": 29,
+   "avg_original_min": 39,
+   "derivative_ratio": 0.37,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Wed, Sep 23 - Holy Rosary from the National Shrine of The Divine Mercy",
+    "Padre Pio, A Living Sign of Christ | Fr. Daniel Klimek",
+    "Tue, Sep 22 - Holy Rosary from the National Shrine of The Divine Mercy",
+    "Mon, Sep 21 - Holy Rosary from the National Shrine of The Divine Mercy",
+    "From Sinner to Saint: Transformed by Divine Mercy | Fr. Tyler Mentzer, MIC",
+    "Sun, Sep 20 - Holy Rosary from the National Shrine of The Divine Mercy",
+    "Sat, Sep 19 - Holy Rosary from the National Shrine of The Divine Mercy",
+    "Becoming Good Soil: Bearing Abundant Fruit for the Kingdom | Fr. Tyler Mentzer, MIC"
+   ],
+   "sample_derivatives": [
+    "Thu, Sep 24 - Holy Rosary from the National Shrine of The Divine Mercy (nema trajanja)",
+    "Thu, Sep 24 - Chaplet of the Divine Mercy from the National Shrine (15 min < prag 18 min)",
+    "Wed, Sep 23 - Chaplet of the Divine Mercy from the National Shrine (16 min < prag 18 min)",
+    "Tue, Sep 22 - Chaplet of the Divine Mercy from the National Shrine (16 min < prag 18 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCnGLfWQxaippd50mSkGwb8g",
+   "type": "channel",
+   "name": "Queen of Peace Media",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCnGLfWQxaippd50mSkGwb8g/videos",
+   "follower_count": 216000,
+   "description": "Welcome to Queen of Peace Media (https://www.QueenofPeaceMedia.com) where we offer books and media to help you encounter the God who loves you and to be transformed by him. We are a group of individuals, who out of our love for God and his mother, wish you offer you a hand of fellowship, healing, truth, knowledge, and fun. We invite you to peruse our website, click on our videos, and share them with the world.",
+   "originals": 74,
+   "originals_30min": 62,
+   "avg_original_min": 47,
+   "derivative_ratio": 0.18,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Can God Satisfy My Desires? Even My Carnal Ones? - Theology of the Body with Dr. Christopher West",
+    "Is the Gen Z Catholic Revival Real? Is the Church Dying? Washington D.C. Rosary Pilgrimage Sept. 26!",
+    "“The Lord Showed Me My Soul and It Was Devastating” - Joelle Maryn’s Illumination of Conscience",
+    "“The UFO Charged Straight at Me . . . It Wanted My Soul” - An Interview with Patricia Sandoval",
+    "\"Aliens\" Are Not What You Think. Ex-Occultist Exposes the Terrifying Truth - Eira Wulfnothsson",
+    "GET READY! Join the Winning Side Now. Worldwide Mary's Mantle Consecration with Fr. James Siler",
+    "Join in wherever you are! The First Worldwide Marian Procession, and Mary's Mantle Consecration.",
+    "He Was Visited By Three Angelic Beings with the Miraculous Medal - Deacon Christoph Sandoval's Story"
+   ],
+   "sample_derivatives": [
+    "Brought Him to Tears - A Catholic Priest's Recent Mystical Experience with the Blood of Christ (9 min < prag 21 min)",
+    "Two Great Miracles Just Happened! MARY'S MANTLE CONSECRATION, El Manto de Maria! (6 min < prag 21 min)",
+    "\"It will start here,\" said Venezuelan Servant of God María Esperanza. This is what Our Lady told her (11 min < prag 21 min)",
+    "The wait is over. THE GREAT WARNING movie is now available. Watch the first four minutes here! (14 min < prag 21 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClYN3WXAFPr0FDHUaLx1g0Q",
+   "type": "channel",
+   "name": "The Catholic Talk Show",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClYN3WXAFPr0FDHUaLx1g0Q/videos",
+   "follower_count": 300000,
+   "description": "The Catholic Talk Show with Ryan Scheel, Ryan DellaCrosse, & Fr. Michael Nixon explores a wide range of topics related to the history, theology, and culture of The Catholic Church. The show blends humor, deep discussions, and engaging storytelling to make the faith accessible and relatable to modern audiences. The Catholic Talk Show offers a fresh, insightful, and often humorous take on Catholic life and tradition.",
+   "originals": 67,
+   "originals_30min": 67,
+   "avg_original_min": 61,
+   "derivative_ratio": 0.17,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Angels and Demons: The Truth, According to an Exorcist Trainer",
+    "5 Ways To Help Your Kids Stay Catholic",
+    "Vatican Insider Reveals The Hidden Power Of The Vatican",
+    "The Rosary Will Save America",
+    "7 Things Catholics Don't Agree On",
+    "The Worst Christian Spiritual Advice",
+    "7 Things Every Catholic Should Know About Guardian Angels",
+    "Would Proof of Aliens End Christianity?"
+   ],
+   "sample_derivatives": [
+    "The War in Heaven: What REALLY Happened? (6 min < prag 26 min)",
+    "The Luminous Mysteries of The Rosary Are Prophetic For Our Times (4 min < prag 26 min)",
+    "How Do Dominicans Eat Spaghetti?!? (167s)",
+    "A Secret We've Learned About Catholic Pilgrimages... (4 min < prag 26 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCuTsNUh9sBx3hs1sN3wtgrg",
+   "type": "channel",
+   "name": "Called to More",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCuTsNUh9sBx3hs1sN3wtgrg/videos",
+   "follower_count": 122000,
+   "description": "Practical faith-filled videos for everyday life.\n",
+   "originals": 18,
+   "originals_30min": 18,
+   "avg_original_min": 64,
+   "derivative_ratio": 0.77,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "LIVE #19 | Live Q&A with Fr Patrick Cahill",
+    "LIVE #17 | Live Q&A with Fr Gavan Jennings",
+    "LIVE #16 | Live Q&A with Fr Columba Jordan CFR",
+    "LIVE #15 | Live Q&A with Fr Columba Jordan CFR",
+    "LIVE #14 | Live Q&A with Fr Columba Jordan CFR",
+    "LIVE #13 | Live Q&A with Fr Columba Jordan CFR",
+    "LIVE #12 | Live Q&A with Fr Columba Jordan CFR",
+    "LIVE #11 | Live Q&A with Fr Columba Jordan CFR"
+   ],
+   "sample_derivatives": [
+    "Have You Forgotten How to Rest? | LITTLE BY LITTLE | Fr Columba Jordan CFR (14 min < prag 23 min)",
+    "Why the Priesthood Matters More Than You Think | LITTLE BY LITTLE | Fr Columba Jordan CFR (13 min < prag 23 min)",
+    "Stop Saving Prayer for \"Later\" | LITTLE BY LITTLE | Fr Columba Jordan CFR (7 min < prag 23 min)",
+    "Stop Negotiating With God (Trust Instead) | LITTLE BY LITTLE | Fr Columba Jordan CFR (9 min < prag 23 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClh4JeqYB1QN6f1h_bzmEng",
+   "type": "channel",
+   "name": "Matt Fradd",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClh4JeqYB1QN6f1h_bzmEng/videos",
+   "follower_count": 877000,
+   "description": "Long form discussions about the Catholic faith.\n\n🍺 Get episodes a week early,  and 🍺 enjoy exclusive streams with me! Become a Daily Wire Member and watch all of our content ad-free: https://www.dailywire.com/subscribe\n\n\n\n\n",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 154,
+   "derivative_ratio": 0.74,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Islam Cannot Survive Basic Scrutiny (GodLogic) | Ep. 597",
+    "Unknown Stories of Spiritual and Physical Phenomena (Jimmy Akin) | Ep. 596",
+    "AI, Loneliness, and the Future of Being Human (Christopher West) | Ep. 595",
+    "Why I Had to Become Catholic (Georgia Howe) | Ep. 594",
+    "Popular Youtube Skeptic Becomes Catholic (Joe Schmid) | Ep. 593",
+    "AI, Sex Robots & Becoming Human Again (Michael Gormley) | Ep. 592",
+    "Catholic vs Protestant | The Assumption of The Virgin Mary (Albrecht vs Pastor Farag) | Ep. 591",
+    "Is The University System Dead? (Jacob Imam)"
+   ],
+   "sample_derivatives": [
+    "GodLogic Destroys Islamic Arguments | Last Call Ep. 33 (33 min < prag 63 min)",
+    "Definitive Proof the Quran Wasn't Perfectly Preserved (18 min < prag 63 min)",
+    "You Don't Understand What Jehovah's Witnesses Believe (13 min < prag 63 min)",
+    "Muslim Admits They Can't Answer the Islamic Dilemma (13 min < prag 63 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCYpsKNzKZpnXdnQ0IQd8Ufw",
+   "type": "channel",
+   "name": "Catholic Deliverance Power",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCYpsKNzKZpnXdnQ0IQd8Ufw/videos",
+   "follower_count": 240000,
+   "description": "Prayers for Faith building, Self Healing & Personal Deliverance! Just be present before the Lord. He will come Find you n' Touch you.. For sure!\n\nPower of the Lordship of Jesus Christ along with the Power of the Holy Sacraments, the Intercession of Blessed Mary the Virgin Mother of God, the authority of the Holy Apostolic Catholic Church, Holy Angels & Arch Angels, the Communion of Saints and Blessed Spirits gives us an impeccable/impenetrable ring of protection, healing and deliverance.... Do nothing, but be ready with an expectant heart to - Be Blessed, Healed,  Delivered - by the power of t",
+   "originals": 57,
+   "originals_30min": 57,
+   "avg_original_min": 659,
+   "derivative_ratio": 0.05,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Liberating, Grace Filling, Infilling Healing Prayer to the Holy Spirit.. Come Holy Spirit Come! ✞⚡🕊️",
+    "Powerful Prayer for Inner Calm and Global Peace. Gog Magog war, Immaculate Heart & Sacred Heart ✝️🕊️",
+    "Powerful Marian Protection Prayer Seeking Strength, Wisdom, and Divine Love - Angelic warfare ✝️M🌹",
+    "Powerful Chaplet of the Evangelical Virtues of Mary, Freedom & Healing through the Immaculate Heart",
+    "Soothing & Alleviating Invocation of the Precious Blood of Jesus flowing from His Holy wounds",
+    "Powerful Curse Breaking Prayer, Exchanging our Curses with the one cursed on the tree of the Cross",
+    "Powerful Marian Deliverance, Protection and Healing Prayer, Using Marian Virtues, Marian Dogmas",
+    "Powerful Litany of Holy Command Of Freedom and Healing - by the Holy Name of Jesus, Precious Blood"
+   ],
+   "sample_derivatives": [
+    "ACT OF CONSECRATION TO THE IMMACULATE HEART OF MARY, ONESELF, CHURCH, HUMANITY, RUSSIA AND UKRAINE (8 min < prag 251 min)",
+    "Miracle Prayer to Jesus of the Great Power, Gran Poder, Healing Spiritual, Emotional, Physical, (117 min < prag 251 min)",
+    "Seven Ways St Michael the Arch Angel protects His consecrated children (10 min < prag 251 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCCIcOC_ats_S_qCAnvwzunw",
+   "type": "channel",
+   "name": "Keith Nester",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCCIcOC_ats_S_qCAnvwzunw/videos",
+   "follower_count": 139000,
+   "description": "Keith Nester is a Catholic Speaker, Author, and Former Protestant Pastor with over 20 years of experience in Christian Ministry. \n\nIn 2017, after a 20-year journey of prayer and discernment, Keith made the life-changing decision to convert to the Catholic faith. Now, through Down to Earth Ministry, he helps others discover the truth, beauty, and richness of Catholicism.\n\nOn this channel, you’ll find powerful Catholic Conversion Stories, Teachings on Scripture, and Practical Guidance for living the faith in today’s world.\n\nUnpacking the Mass – A weekly Catholic Bible study and reflection on the",
+   "originals": 57,
+   "originals_30min": 57,
+   "avg_original_min": 68,
+   "derivative_ratio": 0.37,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "The Bible Made me Catholic w/John Bergsma",
+    "24th Sunday in Ordinary Time   Year A",
+    "23rd Sunday in Ordinary Timer   Year A",
+    "Fundamentalist Baptist Becomes Catholic w/Rob Corzine",
+    "22nd Sunday in Ordinary Time - Year A",
+    "21st Sunday in Ordinary Time   Year A",
+    "20th Sunday in Ordinary Time   Year A",
+    "From Protestant to Catholic: The Biblical Themes That Changed Everything | Dr. Jeff Morrow"
+   ],
+   "sample_derivatives": [
+    "26th Sunday in Ordinary Time   Year A (29 min < prag 30 min)",
+    "25th Sunday in Ordinary Time   Year A (28 min < prag 30 min)",
+    "Goodness vs. Holiness (10 min < prag 30 min)",
+    "Why Can't God Go Directly To Us? (5 min < prag 30 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCsOXr3JHt176_xnWvF7KFYA",
+   "type": "channel",
+   "name": "OMNIA DEO",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCsOXr3JHt176_xnWvF7KFYA/videos",
+   "follower_count": 52700,
+   "description": "",
+   "originals": 56,
+   "originals_30min": 14,
+   "avg_original_min": 33,
+   "derivative_ratio": 0.21,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "BOŽE, ŠTO ŽELIŠ OD MENE? Kako prepoznati Božju volju za svoj život",
+    "Živio je kao da vidi Nevidljivoga!",
+    "MOĆ EUHARISTIJSKOG ISUSA!",
+    "Što će biti s ljudima koji ignoriraju deset Božjih zapovijedi?",
+    "NAŠE JEDINO ORUŽJE",
+    "NIŠTA SE NE DOGAĐA BEZ BOŽJEG DOPUŠTENJA!",
+    "SREĆA NA DOHVAT RUKE!",
+    "TKO JE MAJKA ISTINITOG I PRAVOG BOGA?"
+   ],
+   "sample_derivatives": [
+    "LJUDI SU GLADNI SVEĆENIKOVE SVETOSTI! (14 min < prag 15 min)",
+    "Molitva za sedam darova Duha Svetoga (9 min < prag 15 min)",
+    "Kako se ispravno nositi s nevoljama života? (11 min < prag 15 min)",
+    "\"Mi se više nećemo vidjeti na zemlji, vidjet ćemo se u Nebu!\" (15 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC2Ea3vm-NN3z39PJRYtn0Bg",
+   "type": "channel",
+   "name": "Catholic Minute - Catholic speaker Ken Yasinski",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC2Ea3vm-NN3z39PJRYtn0Bg/videos",
+   "follower_count": 296000,
+   "description": "Helping people live the Catholic life. We are a Catholic couple, raising a family of 8 young children, producing videos on living the Catholic spiritual life. Our faith topics include Jesus, Mary, the Sacraments, prayer, the Saints, the virtues, and devotional prayers: all focused on striving to live a life of holiness please to God. \n\nOur videos and special retreat series follow the liturgical life of the Catholic Church. We seek always to remain faithful to the deposit of faith and the official magisterial teaching of the Catholic Church. Our hope is to become saints one day and help others ",
+   "originals": 26,
+   "originals_30min": 9,
+   "avg_original_min": 28,
+   "derivative_ratio": 0.57,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "I Saw My Soul Before God — I Was Terrified",
+    "We Witnessed Something Most Catholics Never See",
+    "Catholic Morning Prayer September 2026 | Prayers",
+    "3 Lies the Devil Uses Today to Pull You Away From Jesus",
+    "He Worked in Hollywood for 10 Years — What He Saw as a Catholic",
+    "Catholic Morning Prayer August 2026 | Prayers",
+    "Catholic Family of 10: Was the Road Trip Worth It?",
+    "Catholic Morning Prayer July 2026 | Prayers"
+   ],
+   "sample_derivatives": [
+    "Satan Wants You Stuck in These Two Words (10 min < prag 15 min)",
+    "3 Days of Darkness: The Prophecies of Blessed Anna Maria (14 min < prag 15 min)",
+    "The 12-Year Prayers of St. Bridget | The Astonishing Promises (14 min < prag 15 min)",
+    "5 Astonishing Prophecies of Blessed Anna Maria Taigi (11 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCe87sEM3AUxAyhl5RhCpkcA",
+   "type": "channel",
+   "name": "The Fatima Center",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCe87sEM3AUxAyhl5RhCpkcA/videos",
+   "follower_count": 136000,
+   "description": "Our mission is to ensure that the entire Fatima Message is fully known, understood, and obeyed.\n\nFounded in 1978, The Fatima Center is a grassroots association of Catholic priests and lay people. The Director of The Fatima Center since then was Father Nicholas Gruner († 2015).",
+   "originals": 52,
+   "originals_30min": 33,
+   "avg_original_min": 94,
+   "derivative_ratio": 0.26,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "The Three Controversies of Fatima",
+    "Why Mary's Role as Co-Redemptrix CANT be Rejected?",
+    "Leo XIV Contradicts St. Pius X | Trump's Ballroom Controversy",
+    "They Rejected Our Lady at Vatican II — What Happened Next? (With Dr. Maike Hickson)",
+    "Why Mary's Role as Mediatrix of All Graces CANT Be Rejected",
+    "Glorious Mysteries in Petition for First Saturday Devotion",
+    "Sorrowful Mysteries in Petition for First Saturday",
+    "Joyful Mysteries in Petition for First Saturday Devotion"
+   ],
+   "sample_derivatives": [
+    "September 13, 1917: The Forgotten Miracles of Fatima (19 min < prag 22 min)",
+    "First Saturday 15-Minute Meditation | The Scourging at the Pillar (20 min < prag 22 min)",
+    "The Fatima Children Faced Death Rather Than Reveal This Secret (7 min < prag 22 min)",
+    "Make or Renew Your Personal Consecration (6 min < prag 22 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCoOae5nYA7VqaXzerajD0lg",
+   "type": "channel",
+   "name": "Ali Abdaal",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCoOae5nYA7VqaXzerajD0lg/videos",
+   "follower_count": 6690000,
+   "description": "I'm Ali - doctor turned entrepreneur, YouTuber, and author of the New York Times bestseller Feel-Good Productivity. \n\nOn this channel, we explore the skills that school didn't teach you - productivity, personal development, how to become financially free, how to build your own independent business. These are the skills I learned through trial-and-error while trying to build my own business alongside medical school at Cambridge University. After years of trying, learning and making mistakes, I ended up in a life I could never have imagined. On this YouTube channel, I try my best to share everyt",
+   "originals": 44,
+   "originals_30min": 34,
+   "avg_original_min": 58,
+   "derivative_ratio": 0.39,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "If you’re ambitious but inconsistent, please watch this",
+    "How to Make Your Job Optional",
+    "i am begging you to try harry potter fan fiction",
+    "The Dark Side Of Getting Rich On YouTube",
+    "How to Find a Career You Genuinely Love",
+    "If You Want to Make Money From YouTube, Do This.",
+    "you only need a phone",
+    "The Simplest Way to Make $10k/month - Case Study"
+   ],
+   "sample_derivatives": [
+    "POV: You Quit Your Job And Run Your Own Online Business (18 min < prag 24 min)",
+    "Give Me 22 Minutes, I’ll Show You How to Get Your First Client (22 min < prag 24 min)",
+    "How to make your first $1,000 online (22 min < prag 24 min)",
+    "What To Do With Your Life (20 min < prag 24 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClpf-3oOo-Vswcph0Sej8jg",
+   "type": "channel",
+   "name": "Silvija Munda",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClpf-3oOo-Vswcph0Sej8jg/videos",
+   "follower_count": 47,
+   "description": "https://www.facebook.com/GETreport",
+   "originals": 17,
+   "originals_30min": 5,
+   "avg_original_min": 28,
+   "derivative_ratio": 0.72,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Vinoteka 193",
+    "Vinoteka 192",
+    "Vinoteka 191",
+    "Vinoteka 195",
+    "Vinoteka 194",
+    "Vinoteka 186",
+    "Vinoteka 185",
+    "Vinoteka 184"
+   ],
+   "sample_derivatives": [
+    "VINOcom 2013 (34s)",
+    "Ciklo G.E.T. Tour Zagorje, 5.10.2013.  TV reklama (26s)",
+    "Ciklo G.E.T. Tour Međimurje, 28.9.2013.  TV reklama (26s)",
+    "Pag - enogastro i turizam (Radio Martin 7.7.2013. Tomislav Radić uživo) (5 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCJqAX4vWSdh0KIDe3AFfhjA",
+   "type": "channel",
+   "name": "Basketball club Cibona",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCJqAX4vWSdh0KIDe3AFfhjA/videos",
+   "follower_count": 1450,
+   "description": "Službeni YouTube kanal Košarkaškog kluba Cibona\r\nOfficial YouTube channel of CIbona basketball club",
+   "originals": 17,
+   "originals_30min": 17,
+   "avg_original_min": 74,
+   "derivative_ratio": 0.81,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "CTV PODCAST: Na kavi s... KREŠIMIR RADOVČIĆ",
+    "CTV PODCAST: Na kavi s... TONI NAKIĆ",
+    "CTV PODCAST: Na kavi s... AMAR GEGIĆ",
+    "CTV PODCAST: Na kavi s... ROKO PRKAČIN",
+    "CTV PODCAST: Na kavi s... ANTONIO VRANKOVIĆ",
+    "2. finalna utakmica HT premijer liga KK Cibona - KK Zadar (press konferencija)",
+    "JKL 13.kolo: KK Cibona - KK Šibenka",
+    "JKL 11.kolo: KK Cibona - KK Vrijednosnice Osijek"
+   ],
+   "sample_derivatives": [
+    "HIGHLIGHTS: KK Cibona - KK Furnir (98s)",
+    "HIGHLIGHTS: KK FMP - KK Cibona (70s)",
+    "HIGHLIGHTS: KK Cibona - KK Borac (69s)",
+    "HIGHLIGHTS: KK Šibenka - KK Cibona (96s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC4c2_PYMd0uUKY8TexW5K7Q",
+   "type": "channel",
+   "name": "PODCAST BOG I HRVATI",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC4c2_PYMd0uUKY8TexW5K7Q/videos",
+   "follower_count": 781,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 69,
+   "derivative_ratio": 0.33,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "8. svibnja 1945. Dan kada je Zagreb pao!",
+    "Izborni zbor Hrvatske stranke prava gradske organizacije grada Zagreba",
+    "Akademik Dragutin Gutić- Emocionalna inteligencija",
+    "Pravaški pogled na 2025 godinu",
+    "Svečana božićna emisija- gostuje Jozo Krajinović",
+    "Hrvatski arhiepiskop Aleksandar hrvatske pravoslavne crkve",
+    "Podcast \"Bog i Hrvati- Gostuje Mladen Lojkić",
+    "Gostuje dr.sc. Krešimir Bušić- pravaš i povjesničar"
+   ],
+   "sample_derivatives": [
+    "Dr. E. Michael Jones on the phenomen of Međugorje (truth or hidden lie)? (22 min < prag 30 min)",
+    "Sretan Uskrs 2026 od Hrvatske stranke prava (141s)",
+    "130. godišnjica od smrti oca Domovine Dr.  Ante Starčevića (9 min < prag 30 min)",
+    "Sretna vam i blagoslovljena nova 2026 godina od Hrvatske stranke prava. (84s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR pravaški/povijesni sadržaj, dio su snimke skupova. Uzorak: 10/15 ≥30 min, kratkih <10 min 27 %.",
+     "tags": [
+      "political",
+      "history",
+      "domoljubni"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UC0ECfyWEEYpD0bVa_dMqe5w",
+   "type": "channel",
+   "name": "Srpsko privredno društvo Privrednik",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC0ECfyWEEYpD0bVa_dMqe5w/videos",
+   "follower_count": 2980,
+   "description": "Dobrodošli na YouTube kanal Srpskog privrednog društva \"Privrednik\" iz Zagreba.",
+   "originals": 77,
+   "originals_30min": 77,
+   "avg_original_min": 78,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Tribina: „10 dana u travnju“",
+    "Tribina: „Aoj Liko, truje li te iko“",
+    "Tribina: „Srpski snajperisti“ 1991. – pozadina jedne opasne laži",
+    "Tribina: Iz Afrike s ljubavlju",
+    "Tribina: Angel Andonov – priča bivšeg zatvorenika",
+    "Tribina: Jugoslavija, najskuplja hrvatska riječ",
+    "Tribina: Goran Babić – jugoslavenski pjesnik i prognanik",
+    "Tribina: „Proslava obljetnice osnutka NDH – Do kada ćemo se praviti da je to normalno?“"
+   ],
+   "sample_derivatives": [
+    "14. kongres Privrednikovih stipendista i srpske omladine u Zagrebu (6 min < prag 30 min)",
+    "Leon Ćevanić o Privredniku u emisiji Prizma na HRT-u (20 min < prag 30 min)",
+    "Dodjela stipendija na 13. kongresu Privrednikovih stipendista u Zagrebu (21 min < prag 30 min)",
+    "Milorad Pupovac – govor na 13. kongresu Privrednikovih stipendista u Zagrebu (7 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Srpsko privredno društvo u Zagrebu — tribine srpske manjine u HR, ijekavica/hrvatski kontekst; institucionalni format. Uzorak: 77/84 ≥30 min, od toga 24 live (/streams), kratkih <10 min 4 %.",
+     "tags": [
+      "minorities",
+      "culture",
+      "history",
+      "institutional"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCf4lDW63CMNZggWovAFZNyw",
+   "type": "channel",
+   "name": "Katolička Tradicija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCf4lDW63CMNZggWovAFZNyw/videos",
+   "follower_count": 126,
+   "description": "",
+   "originals": 8,
+   "originals_30min": 5,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.47,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Biskup Athanasius Schneider: Je li odreknuće pape Benedikta bilo valjano?",
+    "Propovijed svećenika koji je ekskomuniciran jer je govorio istinu! (o. Vaughn Treco)",
+    "Kakav treba biti dobar pastir?",
+    "Pedesetnica - Duhovi (Kapela sv. Jeronima, Split, 2017.)",
+    "Zločin i kazna:  Novus Ordo misa i njezin razarajući utjecaj na američko društvo",
+    "Tradicionalna latinska Misa - XIII. nedjelja nakon Duhova (18. 8. 2013.)",
+    "Tradicionalna latinska Misa - svetkovina sv. Mihaela ark. (29. 9. 2017.)",
+    "Tradicionalna latinska Misa - spomendan sv. Vjenceslava (28. 9. 2017.)"
+   ],
+   "sample_derivatives": [
+    "Pravi muževi ne sagiblju koljena pred lažnim duhom vremena - bl.  Alojzije Stepinac (12 min < prag 15 min)",
+    "Trebamo li priželjkivati da se dogodi katastrofa? (3 min < prag 15 min)",
+    "Nadbiskup Viganò o ulozi neokonzervativnih katolika u revoluciji (5 min < prag 15 min)",
+    "Zašto ići na tradicionalnu latinsku Misu? (12 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCC6xpusfaTTvwY0dXPzC89A",
+   "type": "channel",
+   "name": "HPD Sekcija za organizacijsku psihologiju",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCC6xpusfaTTvwY0dXPzC89A/videos",
+   "follower_count": 131,
+   "description": "",
+   "originals": 17,
+   "originals_30min": 17,
+   "avg_original_min": 83,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Promocije i democije",
+    "Wellbeing na radnom mjestu -  samo buzzword ili stvarna korist?",
+    "Upravljanje kompetencijama kroz model Hansen Beck Kompas",
+    "Webinar  „Digitalni HR - što su HR tehnologije i kako ih odabrati?“",
+    "Nagrađivanje i benefiti",
+    "Upravljanje radnim učinkom",
+    "HR kontroling",
+    "Korporativno volontiranje zaposlenika u humanitarne svrhe"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Hrvatsko psihološko društvo, 12 epizoda. Uzorak: 17/17 ≥30 min, od toga 5 live (/streams), kratkih <10 min 0 %.",
+     "tags": [
+      "science",
+      "business",
+      "institutional"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "type": "playlist",
+   "name": "Forbes Business Unplugged",
+   "parent_channel": "NOVA TV",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "follower_count": null,
+   "description": "Forbes Hrvatska lansirao je podcast Forbes Business Unplugged – novi format posvećen poduzetništvu i gospodarstvu, koji će redovito donositi najnovije vijesti i trendove iz domaće i svjetske ekonomije.",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 49,
+   "derivative_ratio": 0.1,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Snaga domaće farmaceutske industrije | Pontus Pharma | Forbes Business Unplugged",
+    "Pretilost je bolest, ali i širi društveni problem | Mariko Shimizu | Forbes Business Unplugged",
+    "Klimatske promjene utječu na budući gospodarski rast | Ivana Belić | Forbes Business Unplugged",
+    "Liderstvo iz ženske perspektive | Ivana Budin Arhanić i Vedrana Miholić | Forbes Business Unplugged",
+    "Kako znati je li zlato pravo i što učiniti nakon kupnje? | Saša Ivanović | Forbes Business Unplugged",
+    "Nama je Hrvatska omogućila jako puno | Ivan Bešlić | Forbes Business Unplugged 5",
+    "Europa ostaje snažan igrač u novom globalnom poretku | Gordan Kolak | Forbes Business Unplugged 4",
+    "Hrvatska mora privući stručnjake i investicije | Hrvoje Josip Balen | Forbes Business Unplugged 3"
+   ],
+   "sample_derivatives": [
+    "Nema straha od umjetne inteligencije | Tobias Schmidt | Forbes Business Unplugged 2 (27 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "10 ep. ~46 min (2025-26); Podcasts tab Nova TV",
+     "tags": [
+      "business",
+      "interview",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "type": "playlist",
+   "name": "Krešendo",
+   "parent_channel": "NOVA TV",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "follower_count": null,
+   "description": "Ususret ovogodišnjim parlamentarnim, predsjedničkim te izborima za europski parlament, Nova TV donosi novi format čiji je zadatak gledateljima otkriti kako politika, ali i političari, funkcioniraju iza kulisa.",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 80,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "\"Netko je kupio cipele na ministrovu karticu?\" Gordan Maras i Darko Milinović u podcastu Krešendo",
+    "\"Klečala je i plačući molila mjesto na listi, a onda…\" – Jadranka Kosor i Vesna Pusić u Krešendu",
+    "\"Odnosi s Milanovićem pukli su na maslinovu ulju!\" – Vojko Obersnel i Ivan Jakovčić | Krešendo",
+    "\"Glasači HDZ-a i SDP-a se vrlo malo razlikuju\" – postizborna analiza politike u Hrvatskoj | Krešendo",
+    "Kamo ide Europska unija? \"Želim da EU bude glavni jamac sigurnosti na kontinentu\" | Krešendo",
+    "\"Biden mi je prišao i rekao...\" Anegdote sa svjetskim liderima kakve se rijetko mogu čuti | Krešendo",
+    "Josipović u Krešendu otkrio detalje neobičnog susreta: \"U torbi je nosio velik nož...\" | Krešendo",
+    "Posljednji dječak iz Auschwitza: \"To je bila industrija, konačan proizvod bila je smrt\" | Krešendo"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "9 dugih intervjua ~80 min (Josipović i dr.); Podcasts tab",
+     "tags": [
+      "interview",
+      "history",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
+   "type": "playlist",
+   "name": "Teologija Tijela",
+   "parent_channel": "Nova Eva",
+   "url": "https://www.youtube.com/playlist?list=PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
+   "follower_count": null,
+   "description": "ŠTO je teologija tijela?\n\nPotaknut krizom i padom morala na području spolnosti sredinom 20. st., tada još Karol Wojtyła, shvatio je da Crkva svoju istinu o spolnom moralu mora ponuditi na suvremeni način, razumljiv i prihvatljiv modernom čovjeku. Zato će on ponuditi svijetu novo i detaljnije tumačenje onog što je Crkva držala istinitim i ispravnim od svojih početaka. Moderni svijet više nije prihvaćao samo sustav zabrana i zakona - “kontracepcija je grijeh”, “predbračni odnosi su grijeh”, “masturbacija je grijeh” itd. Moderni svijet želi znati zašto je to tako.  Wojtyła će ponuditi jedno susta",
+   "originals": 36,
+   "originals_30min": 35,
+   "avg_original_min": 39,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast \"Riječ tijelom postade\" | Epizoda 36",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 35",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 34",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 33",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 32",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 31",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 30",
+    "Podcast \"Riječ tijelom postade\" | Epizoda 29"
+   ],
+   "sample_derivatives": [
+    "Teologija tijela |Najava| (4 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "type": "playlist",
+   "name": "PODCAST",
+   "parent_channel": "Dalmacija Danas",
+   "url": "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "follower_count": null,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 65,
+   "derivative_ratio": 0.12,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "DALMACIJA DANAS PODCAST (1) - ŠPIRO GRUICA",
+    "DALMACIJA DANAS PODCAST (2) -  LUKA KANAET (SLIČICE PRIČAJU)",
+    "DALMACIJA DANAS PODCAST (3) - IVAN BUBALO",
+    "DALMACIJA DANAS PODCAST (5) - JADRAN MARINKOVIĆ",
+    "DALMACIJA DANAS PODCAST (8) - KATA MIJIĆ (KATE MITCHELL)",
+    "DALMACIJA DANAS PODCAST (9) - MARIJA LJUBENKOV",
+    "DALMACIJA DANAS PODCAST (10) - VANGEL LIKUŠEVSKI",
+    "DALMACIJA DANAS PODCAST (4) - ADELA ROUDI"
+   ],
+   "sample_derivatives": [
+    "DALMACIJA DANAS PODCAST Adela Roudi, istaknuta čuvateljica baštine grada Splita (44s)",
+    "DALMACIJA DANAS DUEL - ANTE ŠOŠIĆ vs. JAKOV PRKIĆ - Kad će Lećevica? (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "17 ep. ~57 min 2024-2025; drugi kanal od postojećeg dalmacija-podcast",
+     "tags": [
+      "regional",
+      "dalmatia",
+      "society"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "type": "playlist",
+   "name": "Svijet plus",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "follower_count": null,
+   "description": "",
+   "originals": 18,
+   "originals_30min": 18,
+   "avg_original_min": 45,
+   "derivative_ratio": 0.36,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "svijet plus srbija",
+    "Kalinić: Srbi trebaju vječno slaviti Tuđmana! Rat u BIH nije gotov, a svijetom vlada BlackRock",
+    "„Vučić je spreman učiniti sve da ostane na vlasti – čak i izazvati nemire i krvoproliće!“",
+    "U Europi jača krajnja desnica, Tena Prelec: Ona nije uzrok, nego posljedica političke krize",
+    "Miro Kovač: Treba mijenjati Ustav kako bi se smanjili sukobi između predsjednika i premijera",
+    "Novinar N1 Slovenija o ponovnom povratku Janše: On nikada nije bio otpisan, ni od birača ni od baze",
+    "Trump nije anomalija američke politike, nego prvi koji je nepredvidljivost pretvorio u strategiju",
+    "U Britaniji vrije zbog ubojstva mladića, Mirjana Rakić: Policija je na neki način ubila Henryja"
+   ],
+   "sample_derivatives": [
+    "Kalinić u emisiji Svijet plus: Trump ne odlučuje ni o čemu - odlučuju oni koji su ga postavili (90s)",
+    "Tena Prelec: \"Živimo u svijetu u kojem više zemalja ima autokratski nego demokratski tip vlade\" (57s)",
+    "Miro Kovač u emisiji Svijet plus: Stvari će se morati prilagoditi realnosti koju diktira Amerika (83s)",
+    "Je li svijet s više sila ikada završio bez velikog rata? Tvrtko Jakovina u emisiji Svijet plus (175s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Vanjskopolitička emisija, aktivna 2026, plus isječci",
+     "tags": [
+      "geopolitics",
+      "world",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "type": "playlist",
+   "name": "Show na kvadrat",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "follower_count": null,
+   "description": "Ova dinamična i zabavna emisija donosi ekskluzivne razgovore s inspirativnim gostima, analizu aktualnih događaja te intrigantne priče koje će osvojiti pažnju naših vjernih čitatelja i gledatelja. Voditelj emisije, novinar Zvonimir Milaković, svojim britkim pitanjima i duhovitim pristupom obećava sadržaj koji će vas zabaviti, nasmijati, potaknuti na razmišljanje i zaintrigirati.",
+   "originals": 17,
+   "originals_30min": 17,
+   "avg_original_min": 72,
+   "derivative_ratio": 0.72,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Jacques Houdek: Na estradi nema pravih prijateljstava, puno toga je samo privid",
+    "Daniela Trbović: Jedna žena rekla mi je da sam vještica,a muškarac koji mi priđe sigurno je pacijent",
+    "Senidah: Svi smo mi s Balkana isti narod, sramota je brojati krvna zrnca i dijeliti ljude",
+    "Ana Gruica Uglešić: Tužila sam novine, tražila potvrdu za duševnu bol i tako sam upoznala supruga",
+    "Enis Bešlagić: Moj otac je bio u logoru tijekom rata, ali me nikada nije učio mrziti",
+    "Mia Kovačić: Ima i muškaraca s ovih prostora iz Epsteinovih mailova, a o njima nisu pisali mediji",
+    "Nikolina Pišek: Mnogi ne znaju da sam prvi put bila samohrana majka, starija kći nema kontakt s ocem",
+    "Ana Rucner: Svećenici znaju biti najbolji psiholozi, a on je satima u Taboru slušao moje probleme"
+   ],
+   "sample_derivatives": [
+    "Daniela Trbović on media pressure on women: We are never young, thin, or beautiful enough... (82s)",
+    "Daniela Trbović prisjetila se vođenja Najslabije karike: Jedna gospođa mi je prosiktala 'Vještica!' (74s)",
+    "Senidah: \"Kada me Dino Merlin nazvao za suradnju, nisam znala što bi! Trčala sam po stanu.\" (92s)",
+    "Ana Gruica Uglešić o sramotnoj odluci oca: Alimentacija nije 'njezin' novac! (46s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Većina stavki su isječci (medijan 2.5 min); 10 dugih u zadnjih 30",
+     "tags": [
+      "entertainment",
+      "celebrity",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "type": "playlist",
+   "name": "Povijesni dijalozi",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "follower_count": null,
+   "description": "U novom podcastu Večernji TV-a „Povijesni dijalozi“ Tepeš se vraća svojoj struci: kroz razgovore s povjesničarima želi kontroverzne povijesne teme sagledati bez ideoloških rovova.",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 77,
+   "derivative_ratio": 0.4,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Hrvatski povjesničar o Sarajevskom atentatu: Iza atentata na Franju Ferdinanda stajao je Petersburg",
+    "Povjesničar Kekez šokira novim pogledom na Krbavsku bitku: \"Krivo smo tumačili njezine posljedice\"",
+    "Plan ujedinjenja pobunjenih Srba dovršen je pred Oluju: Nazor otkrio što piše u dokumentima",
+    "Jareb: Masovni zločini u NDH nisu izolirani incidenti, ali broj Srba u Jasenovcu je bio manipuliran",
+    "Kovač u povijesnoj analizi Europe: Francuski strah od Njemačke i britanski imperij oblikovali su EU",
+    "Povjesničar o Titu: ‘U Moskvi su nestali mnogi njegovi rivali, njegova biografija i dalje je nejasna",
+    "Goldstein: „Postoji percepcija da su svi Židovi bogati. To nije istina. Bilo je i puno sirotinje“",
+    "Ćirilica nije samo srpska, a prvo bijelo polje nije nužno ustaško: Galović razbija dva velika mita"
+   ],
+   "sample_derivatives": [
+    "‘Povijesni dijalozi’: Od Prvog svjetskog rata do Ukrajine, Europa bez Amerike ne može (27s)",
+    "Profesor Galović o Višeslavovoj krstionici kao dokazu kristijanizacije Hrvata (119s)",
+    "Profesor Galović o Višeslavovoj krstionici kao dokazu kristijanizacije Hrvata (119s)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Povijesni razgovori ~75 min, aktivno 2026; sadrži i isječke",
+     "tags": [
+      "history",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "type": "playlist",
+   "name": "VL Stativa",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "follower_count": null,
+   "description": "Sportska redakcija Večernjeg lista svakog ponedjeljka ugostit će i komentirati novosti iz svijeta HNL-a, nogometne reprezentacije i ostalih najvažnijih sportskih događaja. Zanimljive teme, poznati gosti, analize... pratite VL Stativu svakog ponedjeljka od 10 sati.",
+   "originals": 20,
+   "originals_30min": 11,
+   "avg_original_min": 34,
+   "derivative_ratio": 0.49,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Slaven Bilić objavio svoj prvi popis Hrvatske pa otkrio da je s Dalićem bio u Novalji",
+    "Bivši hrvatski reprezentativac Dujmović: 'Od Kravcova imam velika očekivanja, kao i klub'",
+    "Filip Lončarić, bivši vratar Dinama komentira HNL, Dinamo, Norvežane...",
+    "Večernjakovi novinari analiziraju jedno od najkontroverznijih prvenstava u povijesti",
+    "Legenda HNL-a Rendulić o epskom finalu SP-a i ulozi bivšeg dinamovca",
+    "Bivši as Hajduka: Žao mi je gdje je klub danas, a neshvatljivo mi je onako ući u derbi s Dinamom",
+    "Bivši napadač Srđan Lakić o Dinamu, Bobanu i izjavama Livaje koje su uzburkale javnost",
+    "Je li Dinamo postao prejak za Hajduk? Treba li Beljo Daliću? Komentira Alen Peternac"
+   ],
+   "sample_derivatives": [
+    "Nova era Vatrenih počinje ovim popisom:Večernjakovi novinari otkrivaju što je Bilić zapravo napravio (18 min < prag 25 min)",
+    "Štimac bez dlake na jeziku: 'Hajduku ne treba novi stadion, a Bilić ga ne može voditi' (19 min < prag 25 min)",
+    "Srđan Mladinić, bivši igrač Hajduka i Dinama, komentira derbi i 1. HNL (18 min < prag 25 min)",
+    "Večernjakovi novinari analiziraju veliki posrtaj Hajduka i povratak Dinama (21 min < prag 25 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Sportski podcast, ~25 min, aktivan; 9/30 ≥30 min",
+     "tags": [
+      "sport",
+      "football",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "type": "playlist",
+   "name": "Životne priče by Dea Redžić",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "follower_count": null,
+   "description": "Poznata je po tome da pita pitanja koje drugi nerado pitaju. Ali to ne bi mogla da nema puno \"utakmica\" u nogama. Nasuprot nje su sjedili nogometaši, skijaši, tenisači, izbornici, bivši ministri, u podcastima koje je vodila uvijek je uspjela iz gosta izvući ono što nisu htjeli reći.\nDea Redžić novinarstvom se bavi gotovo 20 godina, tijekom kojih je promijenila nekoliko redakcija i nije samo radila intervjue, pisala je i komentare, izvještaje s najvećih sportskih natjecanja, europskih i svjetskih prvenstava te olimpijskih igara, radila reportaže u kojima je objedinjavala strast prema sportu i p",
+   "originals": 24,
+   "originals_30min": 24,
+   "avg_original_min": 84,
+   "derivative_ratio": 0.6,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Potresna ispovijest Gromova: Jedna brigada je izvršila suicid, o tome se šuti",
+    "Nino Raspudić otvoreno o Mostaru, Hercegovini, Thompsonu, navijanju za Zrinjski, Igoru Štimcu…",
+    "Nikad iskreniji Zlatko Hasanbegović:  Progovorio o navijačima, fašizmu, antifašizmu, Dinamu, Hajduku",
+    "A. Jarak i D. Redžić: Srbi imaju mafijašku tradiciju. Bojim se rata, povraćam od safarija u Sarajevu",
+    "A. Nazor i D. Redžić: Nitko nama ne može zabraniti Čavoglave! Bijednici, sramite se zbog Nicoliera",
+    "Selak Raspudić otvoreno: 'Zovu me zla maćeha, politički grijeh mi je što sam udana za Hercegovca!'",
+    "Dea Redžić i Anto Nobilo o Arkanu, Jelaviću, Pripuzu i borbi za Zagreb: Gradit ću i bez Tomaševića",
+    "Štern: U ratu ne bi imali nafte za tenkove da nije bilo dva čovjeka. Rusi su mi nudili da prodam Inu"
+   ],
+   "sample_derivatives": [
+    "Nino Raspudić: Nema ništa hrvatskije od Zrinjskog iz Mostara (142s)",
+    "Nino Raspudić: Nema ništa hrvatskije od Zrinjskog iz Mostara (142s)",
+    "Nino Raspudić: 'Thompson je dinarski Bob Dylan. Geni kameni su top' (4 min < prag 30 min)",
+    "Raspudić o novinarima: Oni su uvjereni da sam zao čovjek i žele da taj nečovjek i fašit izađe van (62s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Pune epizode ~45-60 min + mnogo isječaka u istoj playlisti",
+     "tags": [
+      "human-interest",
+      "interview",
+      "media"
+     ],
+     "hosts": [
+      "Dea Redžić"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "type": "playlist",
+   "name": "Večernji.hr podcast",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "follower_count": null,
+   "description": "",
+   "originals": 34,
+   "originals_30min": 33,
+   "avg_original_min": 60,
+   "derivative_ratio": 0.41,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Giriček: Shaquilleu O'Nealu sam odgovorio na provokaciju, a onda me zamantalo",
+    "Grupa Detour svirala je u našem studiju i najavila novi album: 'Snimili smo apokaliptične pjesme'",
+    "Nikad iskreniji Goran Ivanišević: Progovorio o Draženu, Hajduku, Đokoviću i najtežim trenucima",
+    "Aco Petrović: 'Nikada neću zaboraviti ovacije u Splitu, jedna stvar od Rađe posebno me zaboljela'",
+    "Alen Vitasović otvoreno o supruzi, alkoholu, estradi: To što naša djeca slušaju, ja nemam komentara",
+    "Zoran Primorac: 'Nikada neću zaboraviti osjećaj kad sam nosio zastavu na OI'",
+    "Anđa Marić o novoj knjizi, glazbi, životu s multiplom, Tinderu... 'Dugo sam se sramila i skrivala'",
+    "Ivica Kostelić: 'Kad stojiš na startu znaš da će sve biti gotovo za dvije minute! Nema popravnog'"
+   ],
+   "sample_derivatives": [
+    "Mrle nam je otkrio detalje: 'Na Doru smo se prijavili iz dosade, a nastupit ćemo goli!' (24 min < prag 25 min)",
+    "Apel prvakinje iz Splita: 'Zvali su da odem iz Hrvatske, ovako dalje ne može, još smo u skloništu' (19 min < prag 25 min)",
+    "Mario Kovačević: Gađali su nas snajperima u Sarajevu , ubili mi suigrače. Bježao sam s jednom torbom (23 min < prag 25 min)",
+    "Alen Vitasović o supruzi: 'Već smo deset godina u vezi, pa smo se sad i oženili' (160s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "58 ep., 2020-2024; moguće preklapanje s postojećim unosom vecernji-podcast (drugi kanal UCta3_)",
+     "tags": [
+      "media",
+      "talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "type": "playlist",
+   "name": "IMAM IDEJU | BLJESAK PODCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "follower_count": null,
+   "description": "Podcast ''Imam Ideju'' donosi inspirativne razgovore s poduzetnicima, inovatorima i kreatorima iz Bosne i Hercegovine i regije. Otkrijte kako nastaju uspješne poslovne ideje, kako ih realizirati i koje su ključne lekcije na putu do uspjeha. Pratite nas za motivaciju, praktične savjete i najnovije trendove u poduzetništvu, startup svijetu i kreativnoj industriji.\n\nPretplatite se i budite dio zajednice koja pokreće promjene!",
+   "originals": 59,
+   "originals_30min": 59,
+   "avg_original_min": 57,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kako i zašto ostaviti uspješan biznis u Frankfurtu i vratiti se u Stolac",
+    "Nakon toliko odbijenica za posao, kao da je ovo bio Božji plan za mene | Imam Ideju",
+    "Priča o književnom uspjehu Magdalene Blažević koja pisanjem osvaja Europu | Imam ideju",
+    "Prof. dr. Alena Huseinbegović: Univerzitet \"Džemal Bijedić\" nastoji biti u rangu najuspješnijih",
+    "Poduzetnik i menadžer Sandro Zovko otkriva zašto je BiH odlično mjesto za život i poslovanje",
+    "Kako Caritas pomaže osjetljivim i ranjivijim osobama pri pronalasku posla | Imam Ideju",
+    "Nužne su tri pripreme da nova generacija preuzme obiteljsku tvrtku | Podcast Imam Ideju",
+    "Prof. dr. Čolak: Situacija na Sveučilištu u Mostaru se znatno poboljšala u novije vrijeme"
+   ],
+   "sample_derivatives": [
+    "🇪🇺 Što bi značio ulazak BiH u Europsku uniju za poduzetnike i investitore? 💶 (41s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "103 ep. ~55 min; Mostar (hrvatski portal u BiH)",
+     "tags": [
+      "business",
+      "entrepreneurship",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "type": "playlist",
+   "name": "SPORT CENTAR | BLJESAK PODCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "follower_count": null,
+   "description": "Podcast ''Sport Centar'' donosi najnovije  intervjue, analize i vijesti iz svijeta sporta u Bosni i Hercegovini i regiji. Pratite nas za detaljne izvještaje, ekspertne komentare i zanimljive priče o nogometu, košarci, rukometu, atletici i drugim sportovima. Idealno mjesto za sve sportske zaljubljenike koji žele biti u toku sa svim važnim sportskim događajima.\n\nPretplatite se i ne propustite nijedan sportski trenutak!",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 57,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Sport Centar FIFA 2026. uz Karlovačko | Maletić o Španjolskoj, BiH i kraju SP-a",
+    "Sport Centar FIFA 2026. uz Karlovačko | Boris Pandža: Španjolci su perfektni",
+    "Sport Centar FIFA 2026. uz Karlovačko | Boris Pandža: Španjolci su perfektni",
+    "Sport Centar FIFA 2026. uz Karlovačko | Jure Ivanković: Jedan detalj ruši sve na SP-u",
+    "Sport Centar FIFA 2026. uz Karlovačko | Saša Ibrulj o BiH, Hrvatskoj i SP-u iz prve ruke",
+    "Sport Centar FIFA 2026. uz Karlovačko | Toni Karačić o BiH, Hrvatskoj i nokaut fazi",
+    "Sport Centar FIFA 2026. uz Karlovačko | Bivši izbornik Katara Džemal Hadžiabdić o BiH i Hrvatskoj",
+    "Sport Centar FIFA 2026. uz Karlovačko | Slaven Musa: BiH mora pokazati više, Hrvatska može proći"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "79 ep. ~57 min; BiH sportska tematika",
+     "tags": [
+      "sport",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "type": "playlist",
+   "name": "CANCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "follower_count": null,
+   "description": "Podcast ''Cancast'' donosi zanimljive razgovore, aktualne teme i posebne goste iz sporta, zabave i društvenog života Bosne i Hercegovine. Pratite nas za inspiraciju, ekskluzivne intervjue i drugačiji pogled na važne društvene teme koje pokreću regiju. Idealno mjesto za sve koji vole kvalitetan sadržaj i duboke razgovore.\n\nPretplatite se i budite dio Cancast zajednice!",
+   "originals": 24,
+   "originals_30min": 24,
+   "avg_original_min": 80,
+   "derivative_ratio": 0.04,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Robert Dacešin: Najveća opasnost s kojom sam se suočio | CANCAST",
+    "Znao sam da gulim za viši cilj | Kerim Čutuna | CANCAST",
+    "Ilića bih ubio u trećoj borbi | Miran Fabjan Slo Rocky | Cancast",
+    "Tehnologija nam postaje najbolji “prijatelj” | Novak Sudar | Podcast Cancast",
+    "Bruno Marić: Imao sam predsjednikovu punu podršku | Cancast",
+    "Igor Štimac: \"Vadim BiH putovnicu pa ću im mahati njome\" | Podcast Cancast",
+    "“Prijetili su mi zbog Thompsona” – Antun Račić | Cancast Podcast",
+    "Ivan Skoko: Hercegovac koji je postao heroj Londona | Podcast Cancast | Bljesak"
+   ],
+   "sample_derivatives": [
+    "🦠 Na dan polaska stigla je vijest o eboli u Ugandi (48s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "25 ep. ~77 min; gosti iz BiH, jezik provjeriti",
+     "tags": [
+      "adventure",
+      "travel",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "type": "playlist",
+   "name": "PRIČAMO O ZDRAVLJU",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "follower_count": null,
+   "description": "Podcast ''Pričamo o zdravlju'' donosi stručne i pristupačne razgovore o svim važnim aspektima zdravlja, medicine i prevencije. Saznajte najnovije informacije o zdravstvenim temama, savjete stručnjaka i praktične preporuke za bolji i kvalitetniji život. Idealan podcast za sve koji žele bolje razumjeti svoje zdravlje i živjeti zdravije.\n\nPretplatite se i budite informirani o zdravlju i wellnessu!",
+   "originals": 16,
+   "originals_30min": 16,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.11,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "''Živimo previše sterilno'' – Dr. Klarić objasnila zašto imunološki sustav slabi",
+    "Dr. Hammami: Rak debelog crijeva izlječiv u 90% slučajeva, ali samo ako dođete na vrijeme",
+    "Dr. Rada Šandrk: Djeca su danas medicinski zaštićenija, ali psihofizički osjetljivija",
+    "Dr. Mladen Vukić: ''Pacijenti dolaze s FaceApp fotografijama i pitaju: možete li napraviti ovo?''",
+    "Dr. Galić: Srčani udar nije uvijek bol u prsima, evo što još treba znati | Pričamo o zdravlju",
+    "Porodi u Poliklinici Vitalis: Šta donosi nova praksa u Mostaru? | Bljesak",
+    "Zid zrači, banana zrači, vi zračite – što to znači za vaše zdravlje pojašnjava dr. Petar Pušić",
+    "Tihi simptomi, visoka smrtnost – sve što morate znati o bolestima bubrega! - Pričamo o zdravlju"
+   ],
+   "sample_derivatives": [
+    "Gost prve epizode nove sezone podcasta \"Pričamo o zdravlju\" bio je dr. Mate Galić (51s)",
+    "Sve češće govorne poteškoće kod djece: Kako ih prepoznati i kada potražiti pomoć? - Bljesak (28 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "18 ep. ~46 min",
+     "tags": [
+      "health",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "type": "playlist",
+   "name": "KRUŽNI TOK",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "follower_count": null,
+   "description": "U ovoj playlisti istražujemo zašto se politika u regiji već 30 godina vrti u krug – od tranzicije devedesetih do današnjih elita koje ponavljaju iste obrasce. Kroz razgovore s političarima, analitičarima i novinarima otkrivamo zašto su reforme stalno na čekanju te što bi se moralo promijeniti da bi regija konačno krenula naprijed. \n\nAko vas zanima stvarna pozadina balkanske politike – ovo je mjesto za vas.",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 85,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Konaković u Kružnom toku: I dalje mislim da izbor Komšića nije fer",
+    "Filipović u Kružnom toku: Političko iskustvo koje imam kvalificira me za Predsjedništvo",
+    "Premijer Nikšić u Kružnom toku: Vjerujem kako će Trojka ostvariti još bolji rezultat",
+    "Cvitanović u Kružnom toku: Kovačević ruši BiH, u to su umiješane paraobavještajne strukture",
+    "Ministar Bunoza u Kružnom toku: Nakon presude Kovačević u BiH više ništa nije isto",
+    "Vukanović u Kružnom toku: Nemamo ništa protiv treće izborne jedinice, treći entitet nije prihvatljiv",
+    "Safet Oručević u Kružnom toku: U HDZ-u i SDA postoje snage koje žele podijeljeni Mostar | Bljesak",
+    "Mario Kordić u Kružnom toku: Gradsko vijeće godinu dana ne može donijeti niti jednu ozbiljnu odluku"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "9 ep. ~85 min",
+     "tags": [
+      "talk-show",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  }
+ ]
+}

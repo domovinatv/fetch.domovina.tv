@@ -1,0 +1,42 @@
+{
+ "key": "UCNDMz1sVgO2yFxTNzjSAqGQ",
+ "url": "https://www.youtube.com/channel/UCNDMz1sVgO2yFxTNzjSAqGQ/videos",
+ "channel_id": "UCNDMz1sVgO2yFxTNzjSAqGQ",
+ "playlist_id": null,
+ "title": "Cokeleek - Videos",
+ "channel": "Cokeleek",
+ "channel_url": "https://www.youtube.com/channel/UCNDMz1sVgO2yFxTNzjSAqGQ",
+ "description": "",
+ "follower_count": 186,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "6xS0szra5XQ",
+   "title": "Hercegovci u domovinskom ratu(HVO)",
+   "duration": 96,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "zbXgYWUKAXM",
+   "title": "Mladi vojnik u 2 minute i 33 sekunde objasnio što je rat!",
+   "duration": 154,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "lxWPPlTvc2U",
+   "title": "Two teams, one dream[JUVENTUS F.C.]",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "PGiyErlmDcw",
+   "title": "Deutsche Nationalhymne [German National Anthem]",
+   "duration": 179,
+   "live_status": null,
+   "upload_date": "20150925"
+  }
+ ]
+}

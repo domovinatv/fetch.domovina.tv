@@ -1,0 +1,56 @@
+{
+ "key": "UCY0ZWyWKZ9CS4UGZTu27vjQ",
+ "url": "https://www.youtube.com/channel/UCY0ZWyWKZ9CS4UGZTu27vjQ/videos",
+ "channel_id": "UCY0ZWyWKZ9CS4UGZTu27vjQ",
+ "playlist_id": null,
+ "title": "Ustanova za kulturu i sport Metković - Videos",
+ "channel": "Ustanova za kulturu i sport Metković",
+ "channel_url": "https://www.youtube.com/channel/UCY0ZWyWKZ9CS4UGZTu27vjQ",
+ "description": "",
+ "follower_count": 60,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "tWfpdt8TbDE",
+   "title": "Podcast 'Metkovske minute' - Epizoda 6 - Ferdinand Jakić - Ferdo",
+   "duration": 1392,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "KDb_QvWw83w",
+   "title": "Podcast 'Metkovske minute' - Epizoda 5 - Ivica Ivaniš – Kulija",
+   "duration": 622,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "1i8PX0s7fxQ",
+   "title": "Podcast 'Metkovske minute' - Epizoda 4 - Ante Boras",
+   "duration": 843,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "2hp-qxx-HrE",
+   "title": "Podcast 'Metkovske minute' - Epizoda 3 - Nikša Martinac",
+   "duration": 1925,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "SMcB7jZSKTM",
+   "title": "Podcast 'Metkovske minute' - Epizoda 2 - Lajla Mišur Volarević",
+   "duration": 1645,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "1IDto6R11R8",
+   "title": "Podcast 'Metkovske minute' - Epizoda 1 - Ante Granić i Hrvoje Batinović",
+   "duration": 1148,
+   "live_status": null,
+   "upload_date": "20251025"
+  }
+ ]
+}

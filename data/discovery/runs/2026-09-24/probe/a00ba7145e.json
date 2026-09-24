@@ -1,0 +1,35 @@
+{
+ "key": "UCiBDeULOhfsOL6gjCNHPpFA",
+ "url": "https://www.youtube.com/channel/UCiBDeULOhfsOL6gjCNHPpFA/videos",
+ "channel_id": "UCiBDeULOhfsOL6gjCNHPpFA",
+ "playlist_id": null,
+ "title": "BANDitos Channel - Videos",
+ "channel": "BANDitos Channel",
+ "channel_url": "https://www.youtube.com/channel/UCiBDeULOhfsOL6gjCNHPpFA",
+ "description": "",
+ "follower_count": 83,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "5jHbYgdGz98",
+   "title": "BANDitos s01e02: MAŠINKO",
+   "duration": 1631,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "TLkv9Dtxf78",
+   "title": "BANDitos MAŠINKO najava",
+   "duration": 25,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "BhbVIV3QkNQ",
+   "title": "BANDitos s01e01: ŠANK?!",
+   "duration": 1577,
+   "live_status": null,
+   "upload_date": "20140925"
+  }
+ ]
+}

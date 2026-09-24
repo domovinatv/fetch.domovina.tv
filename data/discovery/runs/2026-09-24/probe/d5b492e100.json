@@ -1,0 +1,105 @@
+{
+ "key": "UCvkQSYaI1MYbf7yczpO5kNA",
+ "url": "https://www.youtube.com/channel/UCvkQSYaI1MYbf7yczpO5kNA/videos",
+ "channel_id": "UCvkQSYaI1MYbf7yczpO5kNA",
+ "playlist_id": null,
+ "title": "CroCube - Videos",
+ "channel": "CroCube",
+ "channel_url": "https://www.youtube.com/channel/UCvkQSYaI1MYbf7yczpO5kNA",
+ "description": "Croatia's first satellite mission",
+ "follower_count": 91,
+ "streams_count": 1,
+ "videos": [
+  {
+   "id": "NjPbe1IYcZY",
+   "title": "Upoznajte CroCube Tim: Višnja Željeznjak",
+   "duration": 212,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "alz5i1pxwJk",
+   "title": "Upoznaj CroCube Tim: Željko Ulip",
+   "duration": 91,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Ei71YKg8crE",
+   "title": "CroCube deployment",
+   "duration": 9,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "so4QmXG52RM",
+   "title": "CroCube podcast - Epizoda 9: Joana Kamenova",
+   "duration": 841,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "1FF2zl3LOKA",
+   "title": "CroCube podcast - Epizoda 8: Hrvoje Tkalčić",
+   "duration": 1797,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "QsyoXh2eYOQ",
+   "title": "CroCube podcast - Epizoda 7: Saša Nuić",
+   "duration": 1712,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dhdzAo2d_sM",
+   "title": "CroCube podcast - Epizoda 6: Željko Ulip",
+   "duration": 2138,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "4NcSITUCQrk",
+   "title": "CroCube podcast - Epizoda 5: Zvonimir Drvar",
+   "duration": 637,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "tIo7wX0omLM",
+   "title": "CroCube podcast - Epizoda 4: Lana Ceraj",
+   "duration": 637,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "xpzXPKremao",
+   "title": "CroCube podcast - Epizoda 3: Marcel Frajt",
+   "duration": 1174,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "DbW5DYWaC2E",
+   "title": "CroCube podcast - Epizoda 2: Eugen Dobrić",
+   "duration": 489,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "OYIVRRizpgo",
+   "title": "CroCube podcast - Epizoda 1: Vedran Slukić",
+   "duration": 729,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "9HiXBtHiVjg",
+   "title": "SpaceX Transporter-9 misija - Gledamo uživo",
+   "duration": 4615,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  }
+ ]
+}

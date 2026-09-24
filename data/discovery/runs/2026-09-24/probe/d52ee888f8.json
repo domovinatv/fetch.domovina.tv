@@ -1,0 +1,56 @@
+{
+ "key": "UCGy50EDeC8Zf-QXlQEngvgQ",
+ "url": "https://www.youtube.com/channel/UCGy50EDeC8Zf-QXlQEngvgQ/videos",
+ "channel_id": "UCGy50EDeC8Zf-QXlQEngvgQ",
+ "playlist_id": null,
+ "title": "Podcast SlavonijaIn - Videos",
+ "channel": "Podcast SlavonijaIn",
+ "channel_url": "https://www.youtube.com/channel/UCGy50EDeC8Zf-QXlQEngvgQ",
+ "description": "",
+ "follower_count": 6,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "cWgbLsPkmCY",
+   "title": "MISTERIJ JEŽEVIKA: Kriju li okolne šume još ljudskih kostura? | Podcast Slavonija.IN",
+   "duration": 2583,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "cto_gV3M_P8",
+   "title": "THOMPSON UŽIVO | Predstavljanje knjige \"Fenomen Thompson\" | Zagreb 2026",
+   "duration": 442,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "yh-FbyEF_Xw",
+   "title": "IZMEĐU STEPENICA I BIROKRACIJE: Život jedne bolesne žene u Osijeku",
+   "duration": 2986,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "q0ZdRKXJQjs",
+   "title": "Gornja Vrba",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "mh1_4SwtQfk",
+   "title": "Gornja Vrba",
+   "duration": 99,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "aZCHwhDuFy4",
+   "title": "Daniel Grgić, Općina Gornja Vrba, Interwiev",
+   "duration": 1339,
+   "live_status": null,
+   "upload_date": "20260525"
+  }
+ ]
+}

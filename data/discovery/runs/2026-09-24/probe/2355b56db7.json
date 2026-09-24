@@ -1,0 +1,56 @@
+{
+ "key": "UCla-I20VncMN4vQtG3dBVmQ",
+ "url": "https://www.youtube.com/channel/UCla-I20VncMN4vQtG3dBVmQ/videos",
+ "channel_id": "UCla-I20VncMN4vQtG3dBVmQ",
+ "playlist_id": null,
+ "title": "Oko društva - Videos",
+ "channel": "Oko društva",
+ "channel_url": "https://www.youtube.com/channel/UCla-I20VncMN4vQtG3dBVmQ",
+ "description": "Dobrodošli na YouTube kanal mladih kreativaca. 👋\nMi smo udruga Oko društva i bavimo se kulturom, mentalnim zdravljem, prevenciji nasilja i ovisnosti, zaštitom okoliša te razvoju volonterstva i lokalne zajednice.\n\nTu smo kako bismo poboljšali svakodnevicu lokalne zajednice i dobrobit mladih. \n\nPretplatite se na naš kanal i uživajte u videima s projekata i koncerata, playlistama, DIY videima i ostalom kreativnom čušpajzu. 😄",
+ "follower_count": 45,
+ "streams_count": 1,
+ "videos": [
+  {
+   "id": "F9WpZHzQ6mw",
+   "title": "Oko mikrofona - Kutinska jazz scena -  Los Kozmos - 5. dio",
+   "duration": 1465,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "FPmzwIfJNDQ",
+   "title": "Oko mikrofona - Kutinska punk scena - Tačke - 4. dio",
+   "duration": 1218,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "0dnA1ok1BXY",
+   "title": "Oko mikrofona - Kutinska \"nismo se još opredijelili - niti budemo\" scena - Podočnjaci - 3. dio",
+   "duration": 989,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "FcryZtGQ3QY",
+   "title": "Oko mikrofona - Kutinska scena hip hop/rap glazbe - Boj bend - 2. dio",
+   "duration": 1235,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "-5UbwQLkrsw",
+   "title": "Oko mikrofona - Kutinska elektronička scena - DJ-i i producenti - 1. dio",
+   "duration": 3246,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "T3ivh7Mpcho",
+   "title": "The Sound Of Power vol. 1",
+   "duration": 14297,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  }
+ ]
+}

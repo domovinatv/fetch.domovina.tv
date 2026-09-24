@@ -1,0 +1,434 @@
+{
+ "key": "UCoA7CqPuvpWQGWJ8bfIrImA",
+ "url": "https://www.youtube.com/channel/UCoA7CqPuvpWQGWJ8bfIrImA/videos",
+ "channel_id": "UCoA7CqPuvpWQGWJ8bfIrImA",
+ "playlist_id": null,
+ "title": "TheOutlier Podcast - Videos",
+ "channel": "TheOutlier Podcast",
+ "channel_url": "https://www.youtube.com/channel/UCoA7CqPuvpWQGWJ8bfIrImA",
+ "description": "A podcast aimed at honoring The Outliers.\n\n",
+ "follower_count": 85,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "YsUnFtzNpwY",
+   "title": "Inside a Community Bank CFO’s Strategy for AI & Tech | Dan Carey,   CFO of Cambridge Savings Bank",
+   "duration": 1202,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "8BQmEsZwjUI",
+   "title": "Driving 4 Years of Record Credit Union Earnings | Neil Gordon, CFO, Lighthouse Credit Union",
+   "duration": 1054,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "wgtyrkmzR1g",
+   "title": "Blending Eastern Wisdom and Western Business Leadership | Neville Billimoria, CMO of Mission Fed",
+   "duration": 1036,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "xVYBdalFDdg",
+   "title": "What’s Real vs Hype in Financial AI | Umesh Babaria, Head of Consumer Analytics & AI, KeyBank",
+   "duration": 1366,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "dozcpzyG7po",
+   "title": "From AI Experiments to Enterprise Impact : Scott Kuhlman, Chief AI Officer & Sumeet Bhalla, CLO",
+   "duration": 1607,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "FcjYRDoe7Oo",
+   "title": "Building Nutanix, Cohesity & Beyond | Mohit Aron, Founder - Nutanix and Cohesity",
+   "duration": 1388,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "CjkJ9s_SwKI",
+   "title": "AI & Cloud in Banking: The Future of Lending | Deepak Nayak, Director Product Eng, Citizens Bank",
+   "duration": 1029,
+   "live_status": null,
+   "upload_date": "20260828"
+  },
+  {
+   "id": "REfDrATKyy8",
+   "title": "Modernizing Banking Tech & AI Realities in Finance | Jennifer Smith former CIO of Zions Bank",
+   "duration": 1412,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "lCqSUKvpjbE",
+   "title": "How CUs Master AI, Data & 1-Click Tech | Kevan Williamson, CTO, Georgia's Own Credit Union",
+   "duration": 1601,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "aaNGni_7TtY",
+   "title": "How Community Banks Win the Future of Payments | DJ Seeterlin, CISO, Chesapeake Bank",
+   "duration": 1240,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "h-aP0dyW59I",
+   "title": "Tech Leadership & AI in Credit Unions — Eric Cardona, VP of Tech, Provident CU",
+   "duration": 757,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "ivdg_wijx3o",
+   "title": "The Secret to #1 Customer Experience in Banking | Ali Ayca, Head of Retail, First Bank",
+   "duration": 1450,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "OxMK0Ttzxn8",
+   "title": "Modern Credit Union Growth Strategies with Chris Keller, CMO of Empower Credit Union",
+   "duration": 1629,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "EZnh4IEYRBc",
+   "title": "Data Science vs. AI Hype: Future of MarTech & AI Governance | Kirun Amiri - CIO, Entravision",
+   "duration": 799,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "7Yo6jEbbZEc",
+   "title": "The Truth About Legacy Data Silos & AI in Credit Unions | Adam K, CSO Dort Financial",
+   "duration": 1225,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "AzYq_wwaLn4",
+   "title": "The Death of Segment Marketing: Moving to \"One-to-Moment\" with AI | John D. Metcalf",
+   "duration": 1503,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "17u6pn6HPg8",
+   "title": "Adam Boyd on Joining Rate, the Future of Consumer Lending & Why AI Isn't a Cost Play",
+   "duration": 1354,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "_qPoCqMRShY",
+   "title": "Simon Powley on How Kitsap Credit Union Grew 9% in a Year",
+   "duration": 1661,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "Wvk9odtDicc",
+   "title": "Defending Banking Data Against AI Deepfakes & Phishing Vectors | Jason, CIO First Advantage CU",
+   "duration": 1254,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "ufBXmzfW-eE",
+   "title": "A Bank CEO on AI, Talent, and Why Tech Keeps Failing Banks -Duncan Taylor",
+   "duration": 1375,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "GjzexgFvyCk",
+   "title": "From Air Force to Credit Human: Michael Brouillet's Banking Disruptor Story",
+   "duration": 1427,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "7lsmenzHf5Q",
+   "title": "\"Joshua Houde on Member Growth, AI, and the Future of Credit Union Marketing\"",
+   "duration": 1158,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "z17xWiBu7Og",
+   "title": "\"Winning Deposits in the Chime & Revoult Era.\"- Dave Valentine, CXO Consumers Credit Union",
+   "duration": 1281,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "CS43NRYJxk4",
+   "title": "Building the AI Brain for Credit Unions ft. Anubhav, Co-founder & CPO of ShiftMate AI",
+   "duration": 877,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "kpcIH6xL_D8",
+   "title": "What's the Future of Community Banking? Brian McEvoy, CRO at Webster Five Bank",
+   "duration": 1097,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "9zq8SgYl0DU",
+   "title": "\"Scaling a Credit Union from $5B to $10B with Anil Choudary, CIO, Keesler Federal\"",
+   "duration": 1408,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "N5tg67g4qck",
+   "title": "Agentic AI, Contact Centers & Onboarding: Amit Nandy on ESFCU's Real AI Strategy",
+   "duration": 1402,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "-7_1wXE0ESE",
+   "title": "\"Culture, Stablecoin & Gen AI — Leading One Nevada in 2026 | Steve O'Donnell\"",
+   "duration": 1002,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "Gj8Ha80_6vU",
+   "title": "Why Branches Still Matter in a Digital Era | Chris Boler, CXO at ORNL FCU",
+   "duration": 1005,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "RoppDMHXxEQ",
+   "title": "Sean VanHandel: The CIO Strategy Transforming Member Experience",
+   "duration": 1158,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "XaIiwzplNFQ",
+   "title": "Why the Best-Performing Banks Are the First to Modernize | Jody Bhagat, President Engine by Starling",
+   "duration": 1801,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "HJrZiWgYhWI",
+   "title": "Beyond the Branch: Alex De La Cruz on Sunward’s Roadmap to 2035",
+   "duration": 1709,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "8XY3DUQKjAQ",
+   "title": "The Enterprise Shift: John Fede on Modernizing Hudson Valley Credit Union",
+   "duration": 1091,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "jo1o8XiYTbg",
+   "title": "\"Why Credit Unions Can't Be Everything to Everybody | Brian Waldron, CEO, Dort Financial",
+   "duration": 721,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "dZar4u-180Y",
+   "title": "Augmented Reality, Data Analytics, and Smaller Branches: Jonathan Cilley's Vision for Credit Unions",
+   "duration": 2081,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "KF-s7jMWj9Y",
+   "title": "Indiana Members Credit Union (IMCU) on Growth Strategy, M&A, and the Future of Community Banking",
+   "duration": 815,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "VVAIt38uhAU",
+   "title": "Give. Grow. Guide. — Desert Financial Credit Union's Playbook for the Next 10 Years",
+   "duration": 959,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "IJtuKNv7-V4",
+   "title": "Scaling Icons: Cydni Tetro on Disney, Coke, and AI",
+   "duration": 1258,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "XUVdRBF0zl0",
+   "title": "Jim Lawrence: Balancing Revenue and Member Experience at Partners Federal Credit Union",
+   "duration": 1094,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "WOttzzHNPt8",
+   "title": "\"How Arizona Financial Credit Union Competes With Big Banks — AI, BNPL & Stable coins | Eric Givens\"",
+   "duration": 1341,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "lRgwUsK_Adc",
+   "title": "Risk Isn't the Enemy of Growth—It's the Catalyst | Arindam Majumdar, Bank OZK CRO\"",
+   "duration": 1759,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "NCu0vJWFbJk",
+   "title": "From Heineken & Visa to Redwood CU: Steve Greig’s Global Marketing Playbook",
+   "duration": 1684,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "kt16f1TU6S8",
+   "title": "The 2026 Credit Union Roadmap: AI, Efficiency, and the Future of Community Banking",
+   "duration": 2746,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "aahOQxnouAs",
+   "title": "\"Nuvision CEO Roger Ballard: 'Never Get Comfortable' After 30 Years & $4 Billion\"",
+   "duration": 2495,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "t4Uo1N38qrM",
+   "title": "Nick Riegal: How Ascend Credit Union 2X'd Membership in One Month\"",
+   "duration": 1297,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "Zquo4xnNJ-Y",
+   "title": "\"What Does 'Banking Better' Mean at WESCOM? Hashim Forrester's People-Over-Profits Philosophy\"",
+   "duration": 1027,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "Halfxpzk3OY",
+   "title": "From Billion-Dollar Budgets to Meaningful Impact: Ryan Marosy on Credit Union Marketing",
+   "duration": 1518,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "zfYDwm1OweY",
+   "title": "Why Credit Unions Need BOTH Branches & Digital (Not Either/Or) | Rick Kapur, Chevron FCU",
+   "duration": 947,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "Q-ciZx7qYqQ",
+   "title": "\"Decoding the Future of Data and AI with Databricks’ Head Evangelist, Ari Kaplan\"",
+   "duration": 2256,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "9wsMdIIUrC4",
+   "title": "From Wall Street to Main Street: Kevin Miller on Travis Credit Union Journey",
+   "duration": 1625,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "jK-PWmq2yjo",
+   "title": "\"How Tab Bank Wins: John Huntinghouse Shares the Strategy\"",
+   "duration": 2598,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "g2_RE-QQb24",
+   "title": "\"Paroma Chatterjee: From First Mobile Wallet to Revolut India CEO | Full Story\"",
+   "duration": 2088,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "oUp77IujkbQ",
+   "title": "Brian Waldron: The Power of People—Why Dort Financial's CEO Focuses on Employee Empowerment",
+   "duration": 1294,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "c4J79hVDRcY",
+   "title": "\"Leadership, AI, and Brand Evolution: A CMO’s Playbook with Stephen Zich of Capital Credit Union\"",
+   "duration": 959,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "bs-a4C1XHzg",
+   "title": "Data, Strategy & Culture: The Winning Formula with IMCU’s Justin Sinders",
+   "duration": 1146,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "exH1hcCpTxo",
+   "title": "From Legacy to Leadership: CTO Adam Kinnard on Building the Future of Credit Unions",
+   "duration": 1792,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "STuTDVGRsQw",
+   "title": "\"Gen Z, Growth & Grit: A Credit Union Leadership Roundtable\"",
+   "duration": 3112,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "8nNwJcNaY7I",
+   "title": "From MarTech to FinTech: An Innovator's Journey with Jeffery Staw",
+   "duration": 1625,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "P70mol8FbkE",
+   "title": "Building the Credit Union of Tomorrow: Inside BECU’s Digital Journey with Jason Rudman",
+   "duration": 1843,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "66cYY6tQTPA",
+   "title": "Redefining Retail Banking with Service Credit Union's Mark O'Dell and the POWER of AI",
+   "duration": 984,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

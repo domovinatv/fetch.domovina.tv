@@ -1,0 +1,17 @@
+{
+ "name": "Podcast s Barbarom",
+ "ref": "UCTXzwDMchkFFKT2MeVoBnfQ",
+ "playlists": [
+  {
+   "id": "PLmYmWYT-DNEhXlp2UlKi3fr-haDOlzSt1",
+   "title": "Podcast: S Barbarom",
+   "url": "https://www.youtube.com/playlist?list=PLmYmWYT-DNEhXlp2UlKi3fr-haDOlzSt1"
+  },
+  {
+   "id": "PLmYmWYT-DNEiVvwWtgmOnNTmFa3AwsXPz",
+   "title": "Izbori",
+   "url": "https://www.youtube.com/playlist?list=PLmYmWYT-DNEiVvwWtgmOnNTmFa3AwsXPz"
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,28 @@
+{
+ "key": "UC_Fxi2_juh700yBix6GcSYg",
+ "url": "https://www.youtube.com/channel/UC_Fxi2_juh700yBix6GcSYg/videos",
+ "channel_id": "UC_Fxi2_juh700yBix6GcSYg",
+ "playlist_id": null,
+ "title": "Ivan Ivo - Videos",
+ "channel": "Ivan Ivo",
+ "channel_url": "https://www.youtube.com/channel/UC_Fxi2_juh700yBix6GcSYg",
+ "description": "",
+ "follower_count": 4,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "g92khz4EquM",
+   "title": "Hrvatski branitelj - što je, tko je - 2",
+   "duration": 77,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "vjC6uLUeXVI",
+   "title": "Hrvatski branitelj - što je, tko je - 1",
+   "duration": 321,
+   "live_status": null,
+   "upload_date": "20150925"
+  }
+ ]
+}

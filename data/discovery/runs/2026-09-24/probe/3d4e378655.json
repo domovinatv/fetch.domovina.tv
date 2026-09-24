@@ -1,0 +1,91 @@
+{
+ "key": "UCuv1iCvX5QDFkRqTlvkSZZw",
+ "url": "https://www.youtube.com/channel/UCuv1iCvX5QDFkRqTlvkSZZw/videos",
+ "channel_id": "UCuv1iCvX5QDFkRqTlvkSZZw",
+ "playlist_id": null,
+ "title": "Radio Kastav - Videos",
+ "channel": "Radio Kastav",
+ "channel_url": "https://www.youtube.com/channel/UCuv1iCvX5QDFkRqTlvkSZZw",
+ "description": "",
+ "follower_count": 13,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "MbrPzRZPAfU",
+   "title": "Radio Kastav",
+   "duration": 174,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "l9Ot9zmfyxc",
+   "title": "Radio Kastav",
+   "duration": 210,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Eo4jJnrMVZo",
+   "title": "Obnovi ljubav 18.02.",
+   "duration": 2051,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "fnsctxRFWZw",
+   "title": "Obnovi ljubav 17.12.",
+   "duration": 2639,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "tzwUHVvCl0g",
+   "title": "Obnovi ljubav 07.01.",
+   "duration": 2629,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "0ds-zXFYtfc",
+   "title": "Obnovi ljubav 10.12.",
+   "duration": 3301,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "IyQEHDEow-0",
+   "title": "Radio Kastav - \"Obnovi Ljubav\" 3. emisija (03.12.2019.)",
+   "duration": 3022,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Mc7zybQS6CQ",
+   "title": "Radio Kastav 28.11.",
+   "duration": 1337,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "6y5mAcGfsqc",
+   "title": "Radio Kastav 28.11.2019.",
+   "duration": 1834,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "bWPssDxSOyU",
+   "title": "Radio Kastav - emisija \"Obnovi ljubav\" 26.11.",
+   "duration": 2596,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "S16iihDH40E",
+   "title": "Radio Kastav",
+   "duration": 1453,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

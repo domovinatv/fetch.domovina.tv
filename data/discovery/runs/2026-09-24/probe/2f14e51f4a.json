@@ -1,0 +1,70 @@
+{
+ "key": "UCDump3-uSzF0iIPThXuJnZA",
+ "url": "https://www.youtube.com/channel/UCDump3-uSzF0iIPThXuJnZA/videos",
+ "channel_id": "UCDump3-uSzF0iIPThXuJnZA",
+ "playlist_id": null,
+ "title": "nikotin202 - Videos",
+ "channel": "nikotin202",
+ "channel_url": "https://www.youtube.com/channel/UCDump3-uSzF0iIPThXuJnZA",
+ "description": "",
+ "follower_count": 328,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "g8OuSmyDS5s",
+   "title": "Talicni Tom i Daltoni - Radio Drama Stevana Koprivice",
+   "duration": 2655,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "pp5BcO9PiSk",
+   "title": "NE PREDAJ SE NIKAD OSIM KAD MORAŠ - PRIČA O NENADU BRIXIJU I ALANU FORDU",
+   "duration": 3445,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "L8K783gnmaA",
+   "title": "Alan Ford - Radio Drama Mirjane Lazić - Bradati Pljackaš",
+   "duration": 3040,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "KD5SG1Vg2og",
+   "title": "Dylan Dog - Radio Drama Petra Mihajlovića - Gavran",
+   "duration": 2675,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "-U-Dqaxz5iE",
+   "title": "Grupa BOB - Poznajem Tu Djevojku",
+   "duration": 220,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "gB1tZ-OlnlM",
+   "title": "Grupa BOB - Tajna Grupa",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "dpUxDCJe2D8",
+   "title": "IGGI & Sir Oliver Band - Naj Ostanem Ali Grem (Mix)",
+   "duration": 245,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "KrEclQwcrKo",
+   "title": "IGGI & Sir Oliver Band - Naj Ostanem Ali Grem",
+   "duration": 200,
+   "live_status": null,
+   "upload_date": "20180925"
+  }
+ ]
+}

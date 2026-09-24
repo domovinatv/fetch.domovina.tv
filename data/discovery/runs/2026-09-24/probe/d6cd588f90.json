@@ -1,0 +1,154 @@
+{
+ "key": "PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+ "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+ "channel_id": "UC42yFzzch6XCNm-DxxYHPzQ",
+ "playlist_id": "PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+ "title": "Tutorials",
+ "channel": "Async AI Video Editor",
+ "channel_url": "https://www.youtube.com/channel/UC42yFzzch6XCNm-DxxYHPzQ",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "iAI57mSKxv8",
+   "title": "How to Remove Noise From Your Audio With Podcastle’s Magic Dust",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "X-97gT94SWI",
+   "title": "How to Easily Fade In/ Fade Out Your Audio",
+   "duration": 27,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "DbZpgsTb8CU",
+   "title": "Record Audio on Mobile with Podcastle App",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "g31o_7QJxtk",
+   "title": "How to Remove Silence from Audio with Podcastle",
+   "duration": 24,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "sFGXDXdWV38",
+   "title": "Trim and Split Audio with Podcastle",
+   "duration": 37,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dZdEp4xSI_M",
+   "title": "How to Upload Multiple Videos to Podcastle",
+   "duration": 37,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "BMh8S5y5vEg",
+   "title": "How to Use Podcastle’s Magnet Tool",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "UFF3sAc3Rlo",
+   "title": "Create a Digital Copy of Your Voice and Turn Text into Audio with Podcastle",
+   "duration": 90,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "zvk3SiPn2qA",
+   "title": "How to Change the Speed and Duration of the Recording",
+   "duration": 36,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Kwl2DjqWpLU",
+   "title": "Transcribe Texts with Podcastle",
+   "duration": 76,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "l0cn2_ZMZWI",
+   "title": "How to Convert Text to Speech with Podcastle",
+   "duration": 24,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "W0Gi6v7Uygk",
+   "title": "How to Delete a Project on Podcastle",
+   "duration": 21,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "pW129IAGJtc",
+   "title": "How to Turn on a Second Microphone?",
+   "duration": 27,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "EOpq6x6cRUc",
+   "title": "How to Create a Show on Podcastle",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "qsp7DyEXq-c",
+   "title": "How to Publish a Podcast Episode on Podcastle",
+   "duration": 58,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "3UGEV03lnUs",
+   "title": "How Do I Use the Equalizer on Podcastle?",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "c3nmDDc6bn8",
+   "title": "What Is a Team Workspace, and How Do I Create One",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "oINyuikxBmI",
+   "title": "How Do I Invite Someone to Join My Workspace",
+   "duration": 86,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "PrR25TRn1bU",
+   "title": "How to Trim or Split Your Audio Track?",
+   "duration": 37,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "pBZUQi9Pw1c",
+   "title": "How to Use Podcastle Team Workspace",
+   "duration": 365,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "key": "UCuXcWYOSNIlzT1S9QHpsheg",
+ "url": "https://www.youtube.com/channel/UCuXcWYOSNIlzT1S9QHpsheg/videos",
+ "channel_id": "UCuXcWYOSNIlzT1S9QHpsheg",
+ "playlist_id": null,
+ "title": "Podcast Bunker - Videos",
+ "channel": "Podcast Bunker",
+ "channel_url": "https://www.youtube.com/channel/UCuXcWYOSNIlzT1S9QHpsheg",
+ "description": "Podcast Bunker\n\n- voditelj Zlatko Koščević,\nkolumnist, komentator, cinik, provokator, predsjednik, administrator, heteroseksualac\n\n- ikone amaterskog nogometnog okruženja ( sadašnji i bivši igrači, treneri, predsjednici, suci, domari, dežurne sveznalice i pljuvači,\nte ostale skupine zaražene nogometom )\n- smijeh i zabava zagarantirane\n- red ozbiljnih tema, red provokativnih pitanja\n- uživo pitanja pratitelja stranice gostima, bez cenzure\n- sredinom prvog mjeseca prva emisija s gostom iznenađenja, hodajućom legendom\nLajkajte, dijelite i podržite nas!",
+ "follower_count": 93,
+ "streams_count": 3,
+ "videos": [
+  {
+   "id": "W7MndMBJOTk",
+   "title": "Intro - NAJAVA - Podcast Bunker",
+   "duration": 394,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "G3tDLiaSL08",
+   "title": "Podcast Bunker #4 - Gost Hrvoje Koščević",
+   "duration": 8604,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "qfGkTMNx2hU",
+   "title": "Podcast Bunker #3 - Gost Jurica Bešlić - Đuro",
+   "duration": 6583,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "1EASmT6rsKI",
+   "title": "Podcast Bunker #2 - Gost Davor Marušić",
+   "duration": 8218,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  }
+ ]
+}

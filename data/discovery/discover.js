@@ -256,15 +256,24 @@ function cmdAggregate() {
         }
     }
 
-    const fresh = [], skipped = { registry: 0, ledger: 0 };
+    // Playliste kanala koji je u registryju kao CIJELI kanal su njegov podskup (sezone,
+    // highlightsi, Q&A) — preskoči. Iznimka: kanal presuđen kao ne-podcast (TV, medij),
+    // gdje je baš playlista pravi podcast (Z1 Press klub, Laudato Nota bene…).
+    const wholeChannel = new Map();
+    for (const p of reg.podcasts) {
+        if (p.youtube?.channel_id && !playlistId(p.youtube.url)) wholeChannel.set(p.youtube.channel_id, p);
+    }
+    const fresh = [], skipped = { registry: 0, ledger: 0, subset: 0 };
     for (const t of targets.values()) {
         if (known.has(t.key) || (t.url && known.has(normHandleUrl(t.url)))) { skipped.registry++; continue; }
+        const parent = t.type === "playlist" && t.channel_id && wholeChannel.get(t.channel_id);
+        if (parent && !["not-podcast", "dead-url"].includes(parent.metadata?.status)) { skipped.subset++; continue; }
         if (ledgerBlocks(ledger[t.key])) { skipped.ledger++; continue; }
         fresh.push(t);
     }
     writeJson(path.join(RUN_DIR, "targets.json"), fresh);
     writeJson(path.join(RUN_DIR, "per_query.json"), perQuery);
-    log(`🧮 aggregate: ${targets.size} jedinstvenih → ${fresh.length} za probe (već u registryju ${skipped.registry}, presuđeno u ledgeru ${skipped.ledger})`);
+    log(`🧮 aggregate: ${targets.size} jedinstvenih → ${fresh.length} za probe (već u registryju ${skipped.registry}, podskup kanala iz registryja ${skipped.subset}, presuđeno u ledgeru ${skipped.ledger})`);
 }
 
 // ─── probe ─────────────────────────────────────────────────────────
@@ -276,7 +285,7 @@ async function cmdProbe() {
     log(`🔬 probe: ${targets.length} kanala/playlista (zadnjih ${PROBE_ITEMS} videa, nula medija)`);
     await pool(targets, CONCURRENCY, async (t) => {
         const f = path.join(outDir, `${hash(t.key)}.json`);
-        if (fs.existsSync(f)) return;
+        if (fs.existsSync(f) && !hasFlag("--refresh")) return;
         let url = t.url;
         if (t.type === "channel" && !playlistId(url)) url = url.replace(/\/+$/, "").replace(/\/(featured|streams|shorts|playlists)$/, "") + (/\/videos$/.test(url) ? "" : "/videos");
         const r = await runYtdlp(["--flat-playlist", "-J", "--no-warnings", "--playlist-items", `1:${PROBE_ITEMS}`,
@@ -284,6 +293,18 @@ async function cmdProbe() {
         let j = null;
         try { j = JSON.parse(r.out); } catch { /* greška ispod */ }
         if (!j) { writeJson(f, { key: t.key, url, error: (r.err.trim().split("\n").pop() || `exit ${r.code}`).slice(0, 300) }); return; }
+        // Podcasti koji izlaze kao livestream/premijera vide se samo na /streams
+        // (sweep 2026-09-24: +35 jakih kanala; Podcast 8_24 ima 3 duga na /videos, 58 uživo).
+        if (/\/videos$/.test(url)) {
+            const rs = await runYtdlp(["--flat-playlist", "-J", "--no-warnings", "--playlist-items", "1:30",
+                "--extractor-args", "youtubetab:approximate_date", url.replace(/\/videos$/, "/streams")]);
+            try {
+                const js = JSON.parse(rs.out);
+                const have = new Set((j.entries || []).map((e) => e && e.id));
+                j.streams_count = (js.entries || []).length;
+                j.entries = [...(j.entries || []), ...(js.entries || []).filter((e) => e && e.id && !have.has(e.id))];
+            } catch { /* kanal nema /streams */ }
+        }
         writeJson(f, {
             key: t.key, url,
             channel_id: j.channel_id || t.channel_id || null,
@@ -291,7 +312,10 @@ async function cmdProbe() {
             title: j.title, channel: j.channel || j.uploader, channel_url: j.channel_url,
             description: (j.description || "").slice(0, 1500),
             follower_count: j.channel_follower_count ?? null,
-            videos: (j.entries || []).filter((e) => e && e.id).map((e) => ({ id: e.id, title: e.title, duration: e.duration ?? null, upload_date: e.upload_date || null })),
+            streams_count: j.streams_count || 0,
+            // -J (za razliku od -j) daje `timestamp`, ne `upload_date`.
+            videos: (j.entries || []).filter((e) => e && e.id).map((e) => ({ id: e.id, title: e.title, duration: e.duration ?? null, live_status: e.live_status || null,
+                upload_date: e.upload_date || (e.timestamp ? new Date(e.timestamp * 1000).toISOString().slice(0, 10).replace(/-/g, "") : null) })),
         });
     });
 }
@@ -327,8 +351,10 @@ function metricsFor(videos, rule = {}) {
     };
 }
 
-/** Auto-presuda po trajanjima. LLM dobiva samo `candidate` i `maybe`. */
+/** Auto-presuda po trajanjima (+ ćirilica). LLM dobiva samo `candidate` i `maybe`. */
 function autoVerdict(m) {
+    const t = m.sample_titles || [];
+    if (t.length >= 3 && t.filter((x) => /[\u0400-\u04FF]/.test(x)).length / t.length > 0.5) return "not_hr";
     if (m.originals_30min >= 8 && m.avg_original_min >= 30) return "candidate";
     if (m.originals_30min >= 4 && m.avg_original_min >= 25) return "maybe";
     if (m.originals_30min >= 1 && m.sampled < 12) return "maybe";      // mlad kanal — LLM odlučuje too_small
@@ -363,7 +389,7 @@ function cmdTriage() {
     }
     writeJson(path.join(RUN_DIR, "triage.json"), rows);
     const c = (v) => rows.filter((r) => r.auto === v).length;
-    log(`⚖️  triage: ${rows.length} → candidate ${c("candidate")}, maybe ${c("maybe")}, not_podcast ${c("not_podcast")}, error ${c("error")}`);
+    log(`⚖️  triage: ${rows.length} → candidate ${c("candidate")}, maybe ${c("maybe")}, not_podcast ${c("not_podcast")}, not_hr (ćirilica) ${c("not_hr")}, error ${c("error")}`);
 }
 
 // ─── classify (LLM) ────────────────────────────────────────────────
@@ -478,17 +504,17 @@ function cmdApply() {
     const tagOk = new Set(Object.keys(reg.tag_legend || {}));
     const source = `registry-discovery-${RUN.slice(0, 7)}`;
     const rules = readJson(WATCH_RULES, {});
-    const added = [], judged = {};
+    const added = [], merged = [], judged = {};
 
     for (const r of triage) {
         if (r.auto === "error") continue;
         const c = cls[r.key];
-        const verdict = c ? c.verdict : r.auto === "not_podcast" ? "not_podcast" : null;
+        const verdict = c ? c.verdict : ["not_podcast", "not_hr"].includes(r.auto) ? r.auto : null;
         if (!verdict) continue;                                   // čeka LLM presudu
         judged[verdict] = (judged[verdict] || 0) + 1;
         ledger[r.key] = {
             name: r.name, url: r.url, type: r.type, verdict,
-            reason: c ? c.reason : `auto: ${r.originals_30min} originala ≥30 min od ${r.sampled}, prosjek ${r.avg_original_min} min`,
+            reason: c ? c.reason : r.auto === "not_hr" ? "auto: većina naslova ćirilicom" : `auto: ${r.originals_30min} originala ≥30 min od ${r.sampled}, prosjek ${r.avg_original_min} min`,
             judged_at: today(), run: RUN, by: c ? c.classifier : "triage",
             metrics: { sampled: r.sampled, originals_30min: r.originals_30min, avg_original_min: r.avg_original_min, last_original: r.last_original, follower_count: r.follower_count },
         };
@@ -496,6 +522,22 @@ function cmdApply() {
 
         let slug = slugify(c.slug || c.display_name || r.name);
         if (!slug) continue;
+        // Isti podcast pod drugim ID-em (unos bez channel_id, stari handle, kanal vs playlista)?
+        const twin = findTwin(reg.podcasts, slug, c.display_name || r.name);
+        if (twin) {
+            const alt = { url: r.url, type: r.type, key: r.key, originals_30min: r.originals_30min, last_original: r.last_original, run: RUN };
+            const alts = (twin.youtube_alternatives = twin.youtube_alternatives || []);
+            if (!alts.some((a) => a.key === r.key)) alts.push(alt);
+            // Postojeći unos je mrtav ili presuđen kao ne-podcast, a ovo je provjereni
+            // podcast istog imena → to je njegov pravi izvor.
+            if (["dead-url", "not-podcast"].includes(twin.metadata?.status) && twin.tracking?.enabled !== true) {
+                twin.youtube = { ...(twin.youtube || {}), previous_url: twin.youtube?.url, url: r.url, type: r.type, channel_id: r.channel_id, ...(r.playlist_id ? { playlist_id: r.playlist_id } : {}) };
+                twin.metadata = { ...(twin.metadata || {}), status: statusFrom(r.last_original), last_episode: ym(r.last_original) };
+                merged.push(`${twin.slug} ⇐ ${r.url} (bio ${twin.youtube.previous_url || "?"}, zamijenjen)`);
+            } else merged.push(`${twin.slug} ⇐ ${r.url} (zapisan kao alternativa)`);
+            ledger[r.key].slug = twin.slug; ledger[r.key].merged_into = twin.slug;
+            continue;
+        }
         if (slugs.has(slug)) slug = `${slug}-${r.key.slice(-4).toLowerCase()}`;
         ledger[r.key].slug = slug;
         const entry = {
@@ -531,8 +573,9 @@ function cmdApply() {
         qstats[q] = s;
     }
 
-    log(`📥 apply: +${added.length} u registry; presude: ${JSON.stringify(judged)}`);
+    log(`📥 apply: +${added.length} u registry, ${merged.length} spojeno s postojećim; presude: ${JSON.stringify(judged)}`);
     for (const a of added) log(`   + ${a}`);
+    for (const m of merged) log(`   ≈ ${m}`);
     if (DRY_RUN) { log("   (dry-run — ništa nije zapisano)"); return; }
     if (added.length) {
         reg.sources = [...new Set([...(reg.sources || []), source])];
@@ -543,6 +586,29 @@ function cmdApply() {
     writeJson(QSTATS, qstats);
     writeJson(WATCH_RULES, rules);
     regenerateViews();
+}
+
+function levenshtein(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return d[a.length][b.length];
+}
+const normName = (s) => slugify(s).replace(/\b(podcast|podkast|the|kanal)\b/g, "").replace(/[^a-z0-9]/g, "");
+
+/** Postojeći unos istog imena: isti slug ili gotovo isto ime (≤1 slovo razlike za duža imena). */
+function findTwin(podcasts, slug, name) {
+    const a = normName(name), b = normName(slug);
+    for (const p of podcasts) {
+        if (p.slug === slug) return p;
+        const n = normName(p.display_name), s = normName(p.slug);
+        for (const x of [a, b]) for (const y of [n, s]) {
+            if (x.length < 5 || y.length < 5) continue;
+            if (x === y || (x.length >= 8 && levenshtein(x, y) <= 1)) return p;
+        }
+    }
+    return null;
 }
 
 function regenerateViews() {
@@ -690,9 +756,10 @@ function cmdReviseApply() {
 
 function verdictFromReason(reason) {
     const r = (reason || "").toLowerCase();
-    if (/srpsk|bosansk|bošnj|slovensk|crnogor|makedon|engleski|english|ćirilic|regionaln/.test(r)) return "not_hr";
+    if (/srpsk|bosansk|bošnj|slovensk|crnogor|makedon|engleski|english|ćirilic|regionaln|strani jezik/.test(r)) return "not_hr";
+    if (/institucional|tv\/medij|tv kanal|medijsk/.test(r)) return "institutional";
     if (/već u registryju|duplikat|re-?upload|re-?publikacij|podskup/.test(r)) return "institutional";
-    if (/premalo|prekratk|isječ|kratk|nije podcast|radio drama|propovij|misa|predavanj|vijesti|glazb|trailer/.test(r)) return "not_podcast";
+    if (/premalo|prekratk|isječ|kratk|nije podcast|ne prolazi triage|radio drama|audio ?knjig|ai-sinkroniz|generiran|propovij|misa|predavanj|vijesti|glazb|trailer|vlog|gameplay|tutorial/.test(r)) return "not_podcast";
     return "uncertain";
 }
 
@@ -744,4 +811,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error("❌", e.message); process.exit(1); });
-module.exports = { verdictFromReason, autoVerdict, metricsFor, slugify, statusFrom, ledgerBlocks, knownKeys, parseJsonArray };
+module.exports = { findTwin, verdictFromReason, autoVerdict, metricsFor, slugify, statusFrom, ledgerBlocks, knownKeys, parseJsonArray };

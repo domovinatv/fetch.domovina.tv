@@ -1,0 +1,22 @@
+{
+ "name": "Eho Projekt",
+ "ref": "UCqthf51zZqV4pui35VADN4w",
+ "playlists": [
+  {
+   "id": "PLr5AgobBmwxmsATdqOowjIAXAdm4uvQOL",
+   "title": "NA PUTU - Marko Matijašević",
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxmsATdqOowjIAXAdm4uvQOL"
+  },
+  {
+   "id": "PLr5AgobBmwxlEmJOAkDi9QeAUFZWwVYDv",
+   "title": "BUDI OSNAŽENA",
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxlEmJOAkDi9QeAUFZWwVYDv"
+  },
+  {
+   "id": "PLr5AgobBmwxkQfa2Ng9vcvJqoZ5SUwhwZ",
+   "title": "EHOCAST",
+   "url": "https://www.youtube.com/playlist?list=PLr5AgobBmwxkQfa2Ng9vcvJqoZ5SUwhwZ"
+  }
+ ],
+ "error": null
+}

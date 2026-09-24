@@ -1,0 +1,42 @@
+{
+ "key": "UCVGgUBBnAD14gtSu973Xh_w",
+ "url": "https://www.youtube.com/channel/UCVGgUBBnAD14gtSu973Xh_w/videos",
+ "channel_id": "UCVGgUBBnAD14gtSu973Xh_w",
+ "playlist_id": null,
+ "title": "selmer francetic - Videos",
+ "channel": "selmer francetic",
+ "channel_url": "https://www.youtube.com/channel/UCVGgUBBnAD14gtSu973Xh_w",
+ "description": "",
+ "follower_count": 367,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "TB0NPOynLGM",
+   "title": "Marko Perkovic Thompson: srbi me uopce ne zanimaju!",
+   "duration": 86,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "nrUJVk4FDaA",
+   "title": "Goran Bregovic o Marku Perkovicu Thompsonu",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "dlS_sgkguNk",
+   "title": "Ateisti, Srbi, Jugoslaveni ne idu na komemoraciju u Bleiburg",
+   "duration": 56,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "eQAPWcQXTVo",
+   "title": "Marko Perkovic Thompson Molit cu Boga da sacuvam razum",
+   "duration": 18,
+   "live_status": null,
+   "upload_date": "20180925"
+  }
+ ]
+}

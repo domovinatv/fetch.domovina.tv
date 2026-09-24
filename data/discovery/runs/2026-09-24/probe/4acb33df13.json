@@ -1,0 +1,434 @@
+{
+ "key": "UCatMPoW3BfGVvlyRvQJtyqg",
+ "url": "https://www.youtube.com/channel/UCatMPoW3BfGVvlyRvQJtyqg/videos",
+ "channel_id": "UCatMPoW3BfGVvlyRvQJtyqg",
+ "playlist_id": null,
+ "title": "NLO Arhivist - Videos",
+ "channel": "NLO Arhivist",
+ "channel_url": "https://www.youtube.com/channel/UCatMPoW3BfGVvlyRvQJtyqg",
+ "description": "",
+ "follower_count": 321,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "nZfiOQXtVYA",
+   "title": "Astronomi i AATIP 5: Korlević komentira videozapise AATIP-a / Puljak o ET civilizacijama",
+   "duration": 398,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "5q6ki7l9ysk",
+   "title": "Noćni susret - aeronautički incident JRZ-a s neidentificiranom zračnom pojavom iz 1984. god.",
+   "duration": 449,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "u7nWFZN8MeY",
+   "title": "Astronomi i AATIP 4: Korlević komentira fenomen NLO-a i videozapise AATIP-a / Puljak o ET hipotezi",
+   "duration": 525,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "8KiI0qZo4JA",
+   "title": "Astronomi i AATIP 47: Milinović, Radonić i Korlević: Lebdeći krug, ET civilizacije i Dražen Premate",
+   "duration": 2841,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "QBJYJGnb3kc",
+   "title": "Astronomi i AATIP 63: Radonić komentira kongresna NLO saslušanja / Korlević o egzodusu sa Zemlje",
+   "duration": 1099,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "NZraUwN1w7Q",
+   "title": "Astronomi i AATIP 54:Korlević, Vojinović i Nešović o neidentificiranim dronovima iznad SADa i Europe",
+   "duration": 30280,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "4gd6j8cMdfw",
+   "title": "Astronomi i AATIP 62: Ante Radonić i Korado Korlević komentiraju komet 3I/ATLAS",
+   "duration": 11579,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "D-Z637ViOqg",
+   "title": "Astronomi i AATIP 61:Radonić, Gašić, Korlević komentiraju projekt SETI i mogućnosti života u svemiru",
+   "duration": 3598,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "lW_crVyb36c",
+   "title": "Astronomi i AATIP 60:Korlević i Radonić komentiraju atmosferske pojave i mogućnosti života u svemiru",
+   "duration": 2711,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "qUd0XoNjFck",
+   "title": "Astronomi i AATIP 51: 12-godišnje modifikacije tvrdnji o mjerenjima ET gravitacijskih pogona",
+   "duration": 8371,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "DH7u7BqoW7A",
+   "title": "2026-05-15 - TV prilog o Pentagonovoj objavi NLO dokumenata i snimaka",
+   "duration": 311,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "B-NJTl5tSjI",
+   "title": "Astronomi i AATIP 59: Korado Korlević komentira Fermijev paradoks i odgovara na kritiku slušatelja",
+   "duration": 2269,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "beqZSsznKW4",
+   "title": "Astronomi i AATIP 52: Korado Korlević o \"skepticima\" i povjerljivim ugovorima za vojne projekte",
+   "duration": 3827,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "yKTQsUKHKL4",
+   "title": "Astronomi i AATIP 58:Ante Radonić o NLO incidentu Pan Adrije i slušatelj spominje Schumerov amandman",
+   "duration": 709,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "qHsARe8aLwg",
+   "title": "2026-05-09 - TV prilog o objavi NLO videozapisa, fotografija i dokumenata Pentagona",
+   "duration": 245,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "IoMQP547u_w",
+   "title": "2026-05-09 - TV prilog o objavi NLO dosjea Pentagona",
+   "duration": 178,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "X3ucvU20joA",
+   "title": "Astronomi i AATIP 57: Korado Korlević komentira mogućnosti postojanja izvanzemaljskih civilizacija",
+   "duration": 1534,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "SeSuZnapM04",
+   "title": "2025-01-04-Božidar Kemić analizira povijest ufologije, kongresna NLO saslušanja i Wilson/Davis memo",
+   "duration": 4294,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "_T8KEA-sc3U",
+   "title": "Astronomi i AATIP 56: Korado Korlević komentira trend kongresnih NLO saslušanja",
+   "duration": 695,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "mUsAvs1op_Q",
+   "title": "Astronomi i AATIP 55: Aleksić, Gašić i Hrupec komentiraju ET civilizacije i ufološke slučajeve",
+   "duration": 8079,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "OsewQDZzixM",
+   "title": "Astronomi i AATIP 53: Gašić, Aleksić, Radonić, Korlević, Simonović, Bubnjević i Popović o NLO-ima",
+   "duration": 7847,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "KeWMQx4txLU",
+   "title": "Astronomi i AATIP 50: Rovčanin, Korlević i Radonić komentiraju viđenja NLO-a i kriptoter. hipotezu",
+   "duration": 2620,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "XdQ6LP74CM4",
+   "title": "Astronomi i AATIP 32: Ante Radonić govori o vojnim incidentima s NLO-ima (programi AAWSAP/AATIP)",
+   "duration": 2378,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "xMxxl8ncw54",
+   "title": "2023-08-28 - Božidar Kemić komentira ufološke trendove od 2017. godine i Wilson/Davis memorandum",
+   "duration": 1940,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "bDMPLfH2Y8Y",
+   "title": "Astronomi i AATIP 2: Korado Korlević komentira susrete pilota i snimke NLO-a američke mornarice",
+   "duration": 430,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "7R2LEqLO7Es",
+   "title": "Ususret konferenciji o \"padu NLO-a kod Varginhe u Brazilu\" - najavljena za 20. siječanj 2026.",
+   "duration": 2261,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "xvi9KEfSyCo",
+   "title": "Astronomi i AATIP 22: Korado Korlević o NLO incidentima US mornarice - Ante Radonić o ET kontaktu",
+   "duration": 973,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "P4lYpdhwhBQ",
+   "title": "Arhivski radio klasici - 1997-12-15 - Paški NLO incident - Ekskluzivni intervju s Josipom Portadom",
+   "duration": 785,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "YDoQYJmf2q8",
+   "title": "Astronomi i AATIP 43: Korado Korlević protiv Avija Loeba",
+   "duration": 2898,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "SsJ9laqUkGQ",
+   "title": "Ususret 6. modernim NLO saslušanjima - Pregled dosadašnjih NLO saslušanja i inicijativa 2021 - 2024",
+   "duration": 2937,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "ONaXJueT0H4",
+   "title": "2025-11-03 - Radio Jajce - Svemir iz Jajca: Ufologija",
+   "duration": 1588,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "5at_aAM0beo",
+   "title": "Astronomi i AATIP 33:Radonić i Korlević o Area 51 i kritikama slušatelja zbog ETH (ne)interpretacija",
+   "duration": 471,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "uVU6pRtpWeU",
+   "title": "Astronomi i AATIP 9: Korado Korlević komentira vijesti o Radnoj skupini za NLO-e i ET hipotezu",
+   "duration": 628,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "VH8j0AxgrIg",
+   "title": "Astronomi i AATIP 3: Radonić i Korlević o snimkama NLO-a američke mornarice i rev. inženjeringu",
+   "duration": 539,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "f-HqRTfPRS0",
+   "title": "Astronomi i AATIP 44: Bubnjević, Korlević, Radonić i Simonović komentiraju kongresna UAP saslušanja",
+   "duration": 5390,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ca82X1o6-ao",
+   "title": "Astronomi i AATIP 49: Korlević komentira Warp pogon, Fermijev paradoks, SETI i svjetla u Hessdalenu",
+   "duration": 2916,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "DuYC8VvHLs0",
+   "title": "Astronomi i AATIP 48: Korlević i Radonić o grav. pogonima, SETI-ju, Apollu 14 i Johnu Glennu",
+   "duration": 1899,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Nqx0KDNwtKA",
+   "title": "1996 - Arhivski TV prilog o NLO-ima",
+   "duration": 316,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "O8dJwpii9Bw",
+   "title": "Astronomi i AATIP 14: Ante Radonić o predstojećem UAP izvještaju i slučaju USS Omahe (2021-06-01)",
+   "duration": 1183,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "s2voFJESQ4o",
+   "title": "Astronomi i AATIP 28: Ante Radonić komentira kongresno NLO saslušanje i videozapise mornarice",
+   "duration": 295,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "nDL2ij5J-dY",
+   "title": "Astronomi i AATIP 17: Korado Korlević iznosi teoriju optičkih refleksija (2021-06-29)",
+   "duration": 455,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "TujRcUKPmLw",
+   "title": "Astronomi i AATIP 30: Branko Simonović komentira novu NLO studiju NASA-e",
+   "duration": 410,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "S-2xLSCUgQc",
+   "title": "Astronomi i AATIP 20: Ante Radonić komentira videozapise AATIP-a i tvrtku LeoLabs",
+   "duration": 304,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "QsenjI9seoc",
+   "title": "Astronomi i AATIP 6: Branko Simonović i Aleksandar Otašević komentiraju NLO istraživanja Pentagona",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "jbyTUcton8A",
+   "title": "Astronomi i AATIP 16: Branko Simonović komentira mogućnost postojanja izvanzemaljskog života i NLO-a",
+   "duration": 1402,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "p53yPsghIxg",
+   "title": "Astronomi i AATIP 13: Ante Radonić odgovara na pitanje o predstojećem UAP izvještaju (2021-05-25)",
+   "duration": 557,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "uqoWC9PYViQ",
+   "title": "Astronomi i AATIP 12: Korado Korlević raspravlja o NLO-ima i vojnim pilotima JRZ-a (2021-05-25)",
+   "duration": 600,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "X249kkPKlG0",
+   "title": "Astronomi i AATIP 46: Komentari o prezentaciji u meksičkom Kongresu i UAP istraživanjima NASA-e",
+   "duration": 4417,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ZFrptiyzIi8",
+   "title": "20. obljetnica Revenge of the Sith - Radio Kronike",
+   "duration": 4127,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "cO3PljFBBz8",
+   "title": "2004-05-30 Radio esej: Radio emisije i ekstraterestrične ideje (Giuliano Marinković)",
+   "duration": 446,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "gpvEu-JWqc8",
+   "title": "2013-01-31 - Goran Ergović iznosi teoriju ciklodroma",
+   "duration": 440,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "XAxVeKyZAPk",
+   "title": "NLO i zviždači / Aerosvemirske kronike NLO-a 5. dio od 5 (Giuliano Marinković)",
+   "duration": 3090,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "UtwLswyYCM4",
+   "title": "2013-09-24 - Giuliano Marinković komentira radio reportaže o aeronautičkim NLO incidentima",
+   "duration": 1400,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "KMxRk746DYw",
+   "title": "Najava epizode: Na rubu znanosti: NLO i zviždači - Nedjelja: HRT3 - 23.02.2025. - 21:55h",
+   "duration": 34,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "1xoIoqcY9eo",
+   "title": "Astronomi i AATIP 41: Radio Raskol Korlević/Radonić:Dijametralno suprotne teorije o NASA NLO studiji",
+   "duration": 3559,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "8iFEuPwMexA",
+   "title": "Astronomi i AATIP 1: Korado Korlević komentira snimke NLO-a američke vojske",
+   "duration": 386,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "vUADZXgOmIw",
+   "title": "2023-08-07 - Božidar Kemić komentira kongresna NLO saslušanja, AATIP i mornaričke NLO incidente",
+   "duration": 496,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "vNmHEQSF470",
+   "title": "Astronomi i AATIP 45: Radonić komentira NLO iskustva slušatelja; Korlević o trendu ufologije",
+   "duration": 2477,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "gClvqx_PR_s",
+   "title": "Astronomi i AATIP 35: Korlević, Radonić, Simonović, Bubnjević i Gajić o kineskom špijunskom balonu",
+   "duration": 8347,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "8DD4DDCNr_w",
+   "title": "Astronomi i AATIP 42: Korlević, Radonić i Ivezić odgovaraju na pitanja o NLO-ima i životu u svemiru",
+   "duration": 1010,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

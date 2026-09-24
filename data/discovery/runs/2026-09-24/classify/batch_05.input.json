@@ -1,0 +1,1364 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "UCE5wmfVlNSVWjWcjxzKcODg",
+   "type": "channel",
+   "name": "Finax Croatia",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/videos",
+   "follower_count": 9040,
+   "description": "Dobrodošli na Finaxov kanal o investiranju! U našim videima Tamara Vrhovec Sekáč i ostali stručnjaci raspravljaju o financijskim temama koje su njihova svakodnevnica. Dovedite svoje financije pod kontrolu, steknite osnove financijskog obrazovanja, naučite kako donijeti ispravne financijske odluke i izgraditi bogatstvo za sebe i svoju obitelj.\n\nNa našem kanalu možete pronaći:\n🎓Finax - osnovni pojmovi osobnih financija i investiranja\n💬Finax savjetuje - odgovaramo na vaša pitanja\n🎥Webinari - prijenos uživo o zanimljivim temama iz svijeta financija.\n\nVažne poveznice:\n🔵Kalkulator - koliko možet",
+   "originals": 38,
+   "originals_30min": 38,
+   "avg_original_min": 78,
+   "derivative_ratio": 0.58,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Finax Savjetuje | Eskalacija na Bliskom istoku",
+    "Operacija SAD-a i Izraela: Kraj Hameneija",
+    "Američka operacija u Venezueli",
+    "Kako do kredita u 2025?",
+    "Investiranje na vrhuncima",
+    "Najčešća pitanja Finaxovih klijenata",
+    "11 koraka do financijskog preporoda | #finaxwomen",
+    "Novčani trikovi koje morate znati | Finax Podcast"
+   ],
+   "sample_derivatives": [
+    "Mislite da ste zakasnili s ulaganjem? Razmislite još jednom. (15 min < prag 30 min)",
+    "Ljetno zatišje na burzama: zašto je lov na 'savršen trenutak' loša strategija? (12 min < prag 30 min)",
+    "Kako štedjeti za budućnost svoje djece? (8 min < prag 30 min)",
+    "Toni Milun i Emilio iz Finaxa ukratko predstavljaju Europsku mirovinu (PEPP) (8 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Finax HR live emisije o tržištima, 48 streamova. Uzorak: 56/109 ≥30 min, od toga 48 live (/streams), kratkih <10 min 15 %.",
+     "tags": [
+      "finance",
+      "geopolitics"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCfJ8osGmpxquA3HAc9SWT8w",
+   "type": "channel",
+   "name": "AI Radio Berza ",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCfJ8osGmpxquA3HAc9SWT8w/videos",
+   "follower_count": 74,
+   "description": "AI Radio Berza koristi veštačku inteligenciju za pripremu, obradu i prezentaciju finansijskih i ekonomskih tema.\nCilj je da informacije budu razumljive, zanimljive i dostupne — bez predstavljanja AI voditelja kao stvarnih novinara ili analitičara.\nŠta možete da čujete na našim talasima?\n\n🌍 Vodiče za početnike: Kako bezbedno i korak po korak kupiti svoj prvi ETF.\n\n💸 Pravne i finansijske savete: Sve što treba da znate o porezima na berzi, kapitalnoj dobiti i dividendama na Balkanu.\n\nNaša formula je jednostavna: Znanje. Strategija. Disciplina. To su temelji koji vode do finansijske nezavisnosti",
+   "originals": 38,
+   "originals_30min": 19,
+   "avg_original_min": 30,
+   "derivative_ratio": 0.05,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Život kao žongliranje: Kako definisati pravi uspeh | Radio Berza",
+    "Akademska studija: Dobre vesti za akcije vrednosti – Novi dokazi o efikasnosti tržišta",
+    "Li Lu na Columbia Business School: Istina o vrednosnom investiranju (2006)",
+    "Zvanični akademski rad otkriva: Grejemov portfolio pravi 31% prinosa!",
+    "Aršanapali i Nelson otkrivaju: Ultimativna zaštita od kraha berze",
+    "Vrednosno investiranje po naučnom istraživačkom radu Asvata Damodarana sa Njujorškog univerziteta",
+    "Dividende ne lažu: Lekcije iz knjige \"The Rational Investment\" ",
+    "Zašto 90% ljudi gubi novac na berzi? (Analiza akademskog rada)#investiranje "
+   ],
+   "sample_derivatives": [
+    "Zašto je Isak Njutn izgubio bogatstvo na berzi? (Lekcije iz 1720.)#radioberza  (7 min < prag 15 min)",
+    "Tajna prve berze na svetu: Amsterdam 1602. (8 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCmYFMOiIuqJEW_TPxM61o0w",
+   "type": "channel",
+   "name": "Marja Milic",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCmYFMOiIuqJEW_TPxM61o0w/videos",
+   "follower_count": 17500,
+   "description": "Sem Marja Milič in ustvarjam finančni podkast Money-How. Je prvi podkast o upravljanju denarja pri nas. 😃 Finančnemu opismenjevanju in širjenju finančnega znanja sem predana že skoraj 20 let. Sem nekdanja novinarka in odgovorna urednica revije Moje finance na Časniku Finance, odgovorna urednica slovenskega digitalnega uredništva na poslovnem mediju Bloomberg Adria, odgovorna urednica regionalne revije Bloomberg Businessweek Adria (v 3 jezikih) in vertikale Finančni trgi za celo regijo Adria (5 držav). \nSem nacionalna ambasadorka finančne pismenosti v Sloveniji na pobudo Evropske komisije.  \n\n",
+   "originals": 73,
+   "originals_30min": 73,
+   "avg_original_min": 74,
+   "derivative_ratio": 0.16,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Bogati nimajo denarja na računu: vse imajo investirano",
+    "Finančno močne! Samozavestne. Neodvisne. Svobodne.",
+    "Ko denar prevzame nadzor: Miha Kramli o statusu, kreditih in zasvojenosti",
+    "Investiranje ni igra na srečo: Največji miti o denarju",
+    "O pokojnini razmišljati že pri 30 letih? Pametna poteza ali pretiravanje?",
+    "Zakaj nas zanima, kako bogat je sosed? Lekcija ekonomske psihologije",
+    "Kam s 100.000 evri? Strateg Interactive Brokers vidi vrednost v Evropi in rast v ZDA",
+    "Borzni zlom? Tokrat zares ali spet lažni alarm?"
+   ],
+   "sample_derivatives": [
+    "Vodič: kako nastaviti trajnik v banki in avtomatizirati nakupe ETF pri brokerju (20 min < prag 29 min)",
+    "47 let: ko začneš pobirati obresti (5 min < prag 29 min)",
+    "Trade Republic: Kako odpreti račun po korakih in ga prijaviti v eDavke (17 min < prag 29 min)",
+    "Kaj dogaja? 🐔 (9 min < prag 29 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCpUyx7ObA_xEE82EIrjVuIA",
+   "type": "channel",
+   "name": "Investicijski Labos",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCpUyx7ObA_xEE82EIrjVuIA/videos",
+   "follower_count": 3750,
+   "description": "Ako vas zanima osobni rast i teme poput zdravlja, obitelji, financija, došli ste na jedno od mjesta na kojem možda pronađete odgovore. Postoji i velika šansa da nekome i pomognete, a ja ću nastojati u što boljem, razumljivijem, duhovitijem stanju praviti kvalitetan sadržaj baziran na vlastitim iskustvima i osobnom rastu za koji smatram da će vam biti od koristi.\n",
+   "originals": 50,
+   "originals_30min": 23,
+   "avg_original_min": 39,
+   "derivative_ratio": 0.3,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Masivni balon ili masivna prilika i zašto logika ne pomaže | 7 bitnih indikatora",
+    "NIKE! Je'l moguće da je bolja investicija i od Bitcoina",
+    "Na pragu smo Bitcoin Super Ciklusa: Jedina strategija koju početnik treba za ovaj Bull",
+    "Kupujem Bitcoin | Ratu je odzvonilo, prestaje prodaja smrti vraćamo seks",
+    "Do stana lakše i brže sa zlatom i Bitcoinom - Superciklusi traju 14-22 godine",
+    "Odgodom zadovoljstva do imamo dovoljno Bitcoina",
+    "Kupuj Bitcoin kao da ti je zadnje što ćeš kupiti u životu",
+    "Kako izraditi svog agenta savjetnika za Bitcoin"
+   ],
+   "sample_derivatives": [
+    "Zašto stvaram bogatstvo, ako u njemu ne želim uživati? (8 min < prag 17 min)",
+    "BEAR još nije gotov! Idemo i niže, a ti radi svoje (8 min < prag 17 min)",
+    "BITCOIN ZAMKA: Svi gledaju krive vijesti (Sprema se uragan novca!) (13 min < prag 17 min)",
+    "NEMOJ OVO ZEZNUT: Vrijeme je za pametne poteze | Lijeva traka #3 (16 min < prag 17 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCp0nYPUCvyHZ7xiaBJEtuRg",
+   "type": "channel",
+   "name": "Finančni Trgi",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCp0nYPUCvyHZ7xiaBJEtuRg/videos",
+   "follower_count": 106,
+   "description": "",
+   "originals": 7,
+   "originals_30min": 7,
+   "avg_original_min": 80,
+   "derivative_ratio": 0.84,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Temelji uspešnega investiranja",
+    "Bi Buffett kupil Volkswagen? - predstavitev kako investirajo najboljši",
+    "Posnetek Dogodka Skladko.com",
+    "Kako bo Brexit vplival na vaše premoženje?",
+    "Webinar: Kako do uspeha na finančnih trgih",
+    "Webinar za udeležence Dobre strategije",
+    "Brezplačni webinar o nafti, švicarju in drugih zanimivih temah"
+   ],
+   "sample_derivatives": [
+    "Ameriške delnice na rekordnih vrednostih (6 min < prag 15 min)",
+    "Kolaps cene srebra, delnice končale v pozitivnem (6 min < prag 15 min)",
+    "Centralni bankirji prestrašili borzne trgovce (6 min < prag 15 min)",
+    "Cene nafte nižje, delniški trgi mešano (5 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCO5pYNV5S6ot7gXKW-Z7UGg",
+   "type": "channel",
+   "name": "Kripto Evolucija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCO5pYNV5S6ot7gXKW-Z7UGg/videos",
+   "follower_count": 7510,
+   "description": "Dobrodošli na Kripto Evolucija – vaš vodič kroz svijet kriptovaluta, blockchain tehnologije i ulaganja u kripto tržište! Na ovom kanalu pronaći ćete edukativne videe, analize tržišta, kripto vijesti i korisne informacije koje će vam pomoći da donesete pametne odluke u svijetu digitalnih valuta.\n\n🎯 Pokrivamo teme poput:\n\nKako kupiti i razumjeti Bitcoin, Ethereum i druge altcoine\nTehnička analiza i prepoznavanje obrazaca poput CME gapa\nDugoročno i kratkoročno ulaganje u kriptovalute\nAnaliza sentimenta tržišta i donošenje odluka na temelju podataka\nMotivacija i edukacija za uspjeh u kripto svije",
+   "originals": 20,
+   "originals_30min": 20,
+   "avg_original_min": 104,
+   "derivative_ratio": 0.78,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "KRIPTO UPDATE: DEATH CROSS PRUŽA IZNENAĐENJE - 14-11-2025",
+    "KRIPTO LIVE - SVE PADA, ALI NE I NADA? - VAŠA PITANJA #31 🎞️🎥 🛑",
+    "KRIPTO LIVE - ŠTO MOŽE SPASITI BULL? - HOPIUM ILI REALNOST#30 🎞️🎥 🛑",
+    "KRIPTO LIVE - KLJUČNA VREMENA ZA BULL + PITANJA #29 🎞️🎥 🛑",
+    "KRIPTO LIVE - SNIŽENE KAMATE, PUMP, DUMP ILI TRUMP + PITANJA #28 🎞️🎥 🛑",
+    "KRIPTO LIVE - CHARTOVI VAŠIH OMILJENIH ALTCOINA + PITANJA #27 🎞️🎥 🛑",
+    "KRIPTO LIVE - MNOGI ĆE SE  PREKASNO PROBUDITI? I VAŠA PITANJA #25 🎞️🎥 🛑",
+    "KRIPTO LIVE - IDEMO DALJE KROZ BULL I VAŠA PITANJA #24 🎞️🎥 🛑"
+   ],
+   "sample_derivatives": [
+    "BITCOIN PROBIO VAŽAN OTPOR – ALTCOINI POKAZUJU SNAGU (12 min < prag 34 min)",
+    "NAJGORI MJESEC ZA BITCOIN – A SIGNALI SVE BOLJI (12 min < prag 34 min)",
+    "BITCOIN DOBIVA POTVRDU – OVO SADA PRATIM 💡🤔󠄻󠄱󠅂󠄴󠄹 (13 min < prag 34 min)",
+    "BITCOIN JE NAPRAVIO POTEZ – SAD DOLAZI PRAVI TEST 🤔 (15 min < prag 34 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCYOiUr0aIrrln8eKdvHilKg",
+   "type": "channel",
+   "name": "DubrovnikTVnet Dubrovnik",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCYOiUr0aIrrln8eKdvHilKg/videos",
+   "follower_count": 7420,
+   "description": "News from Dubrovnik-Neretva county. First internet television in Dubrovnik, Croatia. Contact: desk@dubrovniktv.net.",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 387,
+   "derivative_ratio": 0.74,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Snimka Javne rasprave o Brzoj cesti – 5. rujna 2023, Stara bolnica",
+    "Zbor građana Rijeke Dubrovačke o brzoj cesti Osojnik - Zračna luka",
+    "19. sjednica Županijske skupštine",
+    "18. sjednica Županijske skupštine",
+    "17. sjednica Županijske skupštine",
+    "31. sjednica Gradskog vijeća Grada Dubrovnika",
+    "16. sjednica Županijske skupštine",
+    "30. sjednica Gradskog vijeća Grada Dubrovnika"
+   ],
+   "sample_derivatives": [
+    "www.dubrovnikTV.net / Mato Franković - Obilazak knjižnice u TUP-u (7 min < prag 125 min)",
+    "www.dubrovnikTV.net/Mato Franković - Obilazak radova na Dječjem vrtiću Ivana Pavla II. (6 min < prag 125 min)",
+    "www.dubrovnikTV.net / DAN INTERREG SURADNJE CAVTAT (8 min < prag 125 min)",
+    "www.dubrovnikTV.net/ BEZ KOMENTARA - PARK GRADAC (172s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCYBXVTm91Xh5wvgeCQXx-Cw",
+   "type": "channel",
+   "name": "Prime Time",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw/videos",
+   "follower_count": 36000,
+   "description": "Službeni YouTube kanal emisije Prime Time",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 108,
+   "derivative_ratio": 0.79,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Disciplina rulje | 486 | Prime Time",
+    "Sramoćenje | 485 | Prime Time",
+    "Šah mat! | 484 | Prime Time",
+    "FAQ #12 | live | Prime Time",
+    "FAQ #11 | live | Prime Time",
+    "FAQ #10 | live | Prime Time",
+    "FAQ #9_1 | live | Prime Time",
+    "FAQ #8 | live | Prime Time"
+   ],
+   "sample_derivatives": [
+    "HDZ čistunstvo | 492 - 1 | Prime Time (10 min < prag 46 min)",
+    "Lika dikpika | 492 | Prime Time (35 min < prag 46 min)",
+    "Uzmi otpad i bježi | Off the record | Prime Time (13 min < prag 46 min)",
+    "Poziv na prosvjed | 491 | Prime Time (39 min < prag 46 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCwWuiTInPYRsK6XeyRZRSJQ",
+   "type": "channel",
+   "name": "The Adventure Sports Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCwWuiTInPYRsK6XeyRZRSJQ/videos",
+   "follower_count": 582,
+   "description": "Listen to in-depth interviews three times a week from adventure sports enthusiasts around the globe. You'll hear from athletes, outfitters, guides, authors, business owners and whoever else is living their lives to the fullest in the world of adventure sports.  \n\nAdventuresportspodcast.com\nhttps://www.instagram.com/adventuresportspodcast/\nhttps://www.facebook.com/adventuresportspodcast",
+   "originals": 59,
+   "originals_30min": 59,
+   "avg_original_min": 57,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ep. 1248 - Competitive Skydiving with Harrison Murdock",
+    "Ep. 1246: Adventures in Zero Gravity Revisited with Curt Liljedahl",
+    "Ep. 1246 Extreme Endurance and Inspiration with Croix Sather",
+    "Ep. 1245: Why Sea Kayaking is Better than Backpacking Revisited with Brett Friedman",
+    "Ep. 1244: Sailboat Racing with Sara Stone",
+    "Ep. 1243: Crossing Baffin Island on Skis Revisited with Valérie Gagné",
+    "Ep. 1242: Van Life & Climbing in Europe with Martina Russo",
+    "Ep. 1241: Expedition Africa Revisited with Jack Fleckney"
+   ],
+   "sample_derivatives": [
+    "Special Announcement Today! (7 min < prag 23 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCJlHoOAaOzZAvNnp-qS1Mkg",
+   "type": "channel",
+   "name": "Šah u Hrvatskoj",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCJlHoOAaOzZAvNnp-qS1Mkg/videos",
+   "follower_count": 158,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 9,
+   "avg_original_min": 56,
+   "derivative_ratio": 0.69,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Što se događa u šahu u Hrvatskoj? (2) - o optužnici, neregistriranom odboru i eliminaciji klubova",
+    "Što se događa u šahu u Hrvatskoj? - komentar članka u Nacionalu",
+    "LJUDI U ŠAHU - EPIZODA 7 - Zlatko i Marijan Rožić, o 62 godine prebogate povijesti šaha u Buševcu",
+    "LJUDI U ŠAHU - EPIZODA 6 - VALTER VALKOVIĆ, o Pula Openu, idejama za šah u Istri i Hrvatskoj",
+    "Kako pobijediti Ivicu Brkića",
+    "LJUDI U ŠAHU - EPIZODA 5 - IM Nenad Dorić, o trendovima u šahu i srazu prošlosti i budućnosti",
+    "LJUDI U ŠAHU - EPIZODA 4 - Andrej Gal, jedini kadet s titulom šahovskog majstora u Hrvatskoj",
+    "LJUDI U ŠAHU - EPIZODA 3 - Nikola Mihočka o kandidaturi za Predsjednika Hrvatskog šahovskog saveza"
+   ],
+   "sample_derivatives": [
+    "Zajednica šahista proteže se šire nego što je vidljivo iz vizure administracije nacionalnog saveza (10 min < prag 23 min)",
+    "Sudačko oštećivanje mladih igrača - \"Gradištanski incident\" (17 min < prag 23 min)",
+    "Zastupnik Darko Klasić u Hrvatskom saboru o problemima i zlouporabama u Hrvatskom šahovskom savezu (141s)",
+    "Intervju s Polinom Mykhailets nakon uspjeha na Kupu Hrvatske (7 min < prag 23 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR šahovski komentari (HŠS afere) — jedini šahovski razgovorni nalaz. Uzorak: 9/32 ≥30 min, kratkih <10 min 63 %.",
+     "tags": [
+      "sport",
+      "chess"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCgzVhNLXxAE68Wyvx1ZIPXw",
+   "type": "channel",
+   "name": "CapljinskiPortal",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCgzVhNLXxAE68Wyvx1ZIPXw/videos",
+   "follower_count": 2390,
+   "description": "YouTube kanal Čapljinskog portala je online televizija, prva u Čapljini, koja prati događaje sa područja Čapljine i juga Hercegovine.",
+   "originals": 15,
+   "originals_30min": 6,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Na kavi s ‘Crem caffe Sušac’–Bruno Penava: Čapljini treba coworking, a Hercegovina je regija biznisa",
+    "Na kavi s ‘Crem caffe Sušac’ – Irena Rozić: Nismo svjesni kakvo je blago Hutovo blato!",
+    "Na kavi s Crem caffe Sušac - Zvone Karlović i Sanja Bilić: Šah u Čapljini popularan i ima budućnost",
+    "''Na kavi s uz Crem caffe Sušac'' - Farah Hadžiabdić: Neorganiziranost pogoduje ilegalnim deponijama",
+    "Na kavi s uz Crem caffe Sušac: dr. Goran Pehar - O stomatologiji, nastupu na Olimpijadi, ribolovu...",
+    "Na kavi s uz Crem Caffe Sušac: Mika Ivanković o tajnama kave, navikama, espressu, specialty kavi...",
+    "Na kavi s Darijom Ramljak uz Crem caffe Sušac: O glazbi, vjeri, životu u Čapljini, majčinstvu...",
+    "Na kavi s 'Crem Caffe Sušac'-Davor Baković: Život u Ravnom ima budućnost; Vjetrenica svjetski biser"
+   ],
+   "sample_derivatives": [
+    "SMART Water projekt: Kako sačuvati vodu u vremenu klimatskih promjena? (4 min < prag 15 min)",
+    "Nova zgrada Javnog komunalnog poduzeća Čapljina (81s)",
+    "Satarašijada 2026 (37s)",
+    "Air tractor gasi požar na Crnom brdu (23s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCmberHv5QM7GlFAqaIwRVCA",
+   "type": "channel",
+   "name": "slaven Bonačić",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCmberHv5QM7GlFAqaIwRVCA/videos",
+   "follower_count": 33,
+   "description": "Pozdrav dragi naši čitatelji i gledatelji sportskih poratala hrsport.hr i crosarka.com.\nMi radimo podcast emisije s poznatim osobama iz svijeta sporta\nNadamo se da će Vam se svidjeti naš rad i da ćete se pretplatiti na naš kanal.\nVIDO: https://hrsport.hr/author/vbonacic/\nSLAVEN: https://hrsport.hr/author/sbonacic/\n",
+   "originals": 28,
+   "originals_30min": 27,
+   "avg_original_min": 61,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Stjepan Balog podcast hrsport hr",
+    "Damir Martin podcast hrsport hr",
+    "Mario Cvitanović podcast hrsport hr",
+    "Samir Toplak podcast hrsport hr",
+    "Ivan Dorian Molnar podcast hrsport hr",
+    "Mirna Zidarić hrsport.hr podcast",
+    "Stanko Ružić podcast crosarka com",
+    "Ivan Stipčić podcast hrsport.hr"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR sportski intervjui (Balog, Cvitanović), 27/28, 2021. Uzorak: 27/28 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "sport"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCd-yZX3HAZKuWSVZ1iKsYug",
+   "type": "channel",
+   "name": "Velimir Gašparić",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCd-yZX3HAZKuWSVZ1iKsYug/videos",
+   "follower_count": 5570,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 5,
+   "avg_original_min": 27,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Znastvenici i  bioetičari u emisiji HRT-a: \"Cilj tehnološkoga razvoja je potpuni nadzor čovjeka\"",
+    "FESTIVAL SLOBODE - ZAGREB 05. 09. 2020.",
+    "Vrsni znanstvenici, mikrobiolozi i infektolozi o korona virusu - Da li su mjere i panika opravdana?",
+    "U “EKO ZONI” O 5G MREŽI",
+    "Akademik Vladimir Paar o \"globalnom zatopljenju\"",
+    "ISKUSTVA RODITELJA – Istina o cjepivima",
+    "Zračenje mobilnih telefona i baznih stanica te opasnosti 5G tehnologije",
+    "Dr. Rauni Leena o elektromagnetskim oružjima, mikročipovima"
+   ],
+   "sample_derivatives": [
+    "POSTUPAK U SLUČAJU TRAŽENJA \"COVID POTVRDE\" OD STRANE POSLODAVCA (9 min < prag 15 min)",
+    "Matt Damon o poslušnosti (5 min < prag 15 min)",
+    "Da li je ovo normalno izvještavanje? (129s)",
+    "Virtualna stvarnost - Stvaranje Matrix sustava (113s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC6ZlZrsPw_RnEc17U5kP8KA",
+   "type": "channel",
+   "name": "Super7",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC6ZlZrsPw_RnEc17U5kP8KA/videos",
+   "follower_count": 1240,
+   "description": "Službeni YT kanal Super7 by SuperSport",
+   "originals": 42,
+   "originals_30min": 37,
+   "avg_original_min": 64,
+   "derivative_ratio": 0.3,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NK Rudeš - proslava naslova prvaka SuperSport 1. NL | Super7 specijal",
+    "'Rabuzinovo sunce' u finalu SuperSport HNKupa podići će... | Super7 podcast #16",
+    "Super7 recreativo x Sportreact feat. Latko, Tomo, Roko & Ljuti golman | NK Rudeš",
+    "Još je 10 utakmica do kraja sezone, a evo tko se još bori za EKL ili ostanak?  Super7 podcast #15",
+    "Franičević: Navijač Hajduka može biti zadovoljan nakon ove sezone. | Super7 podcast #14",
+    "Kako je Dinamo postao prvak? Retrospektiva sezone | Super7 podcast#13",
+    "Blic-pregled i odgovor na pitanje: Kako smo ostali bez stručnog suradnika? | Super7 podcast #12",
+    "Kako igra novi Dinamo Igora Bišćana te kako je Rijeka slomila Hajduk? | Super7 podcast #11"
+   ],
+   "sample_derivatives": [
+    "SuperSportske podcast ⚽ Najava treće sezone ⚽ (naslov (isječak/najava/…))",
+    "SuperSportske podcast S2E37 - Škerbić: \"Dražen je za mene bio apsolutni igrač i sportski idol!\" (4 min < prag 11 min)",
+    "SuperSportske podcast S2E35 - Jozak: \"Hrvatska per capita proizvodi najviše nogometaša na svijetu!\" (7 min < prag 11 min)",
+    "SuperSportske podcast S2E34 - Što se događa u Osijeku i kakvu potporu traži Bjelica? (6 min < prag 11 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR nogometni podcast (HNL, Hajduk), neaktivan od ~2023. Uzorak: 37/60 ≥30 min, kratkih <10 min 28 %.",
+     "tags": [
+      "sport",
+      "football"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCopjyUbERSbQxwDZwHfyGsA",
+   "type": "channel",
+   "name": "NašaTV službeni kanal",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCopjyUbERSbQxwDZwHfyGsA/videos",
+   "follower_count": 8200,
+   "description": "adresa: Bišće Polje bb, 88000 Mostar\n\ntel:+38736/382-212\n\ne-mail:info@nasatv.ba\n\nweb: www.nasatv.ba\n\nFacebook: www.facebook.com/nasatvmo",
+   "originals": 30,
+   "originals_30min": 21,
+   "avg_original_min": 42,
+   "derivative_ratio": 0.5,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NAŠA TV | MISLI O ODGOJU 28. svibnja 2019.",
+    "NAŠA TV | DOBAR, LOŠ, ZAO: MIRKO ZELENIKA",
+    "NAŠA TV | WBO EUROPSKI NASLOV: EMIL MARKIĆ (HRVATSKA) VS TOMAŠ ADAMEK (ČEŠKA)",
+    "NAŠA TV | DOBAR, LOŠ, ZAO: ŽELJANA ZOVKO",
+    "NAŠA TV | MISLI O ODGOJU 14. svibnja 2019.",
+    "NAŠA TV | DOBAR, LOŠ, ZAO: VALENTINA RUPČIĆ",
+    "NAŠA TV | KERIGMA 12. svibnja 2019.",
+    "NAŠA TV | DOBAR, LOŠ, ZAO: ZDENKO MARIĆ"
+   ],
+   "sample_derivatives": [
+    "NAŠA TV | DOBAR, LOŠ, ZAO, NAJAVA: MIRKO ZELENIKA (38s)",
+    "NAŠA TV | PROFESIONALNI BOKS: MATE KRISTOF (MAĐARSKA) VS EDIN PUHALO (BIH) (6 min < prag 21 min)",
+    "NAŠA TV | NAJAVA: EMIL MARKIĆ - TOMAŠ ADAMEK (65s)",
+    "NAŠA TV | DOBAR, LOŠ, ZAO, NAJAVA: ŽELJANA ZOVKO (47s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC-cSb37nYQcbyXXJ5BVoHRw",
+   "type": "channel",
+   "name": "Mario Vrećo",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC-cSb37nYQcbyXXJ5BVoHRw/videos",
+   "follower_count": 607000,
+   "description": "SUBSCRIBE :)\n📩 partners@mariovreco.com",
+   "originals": 39,
+   "originals_30min": 10,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.4,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ko je dovoljno lud da se prijavi za Balkanski Love Island?",
+    "Žene na TikToku tvrde da je nevina. Ona priznaje da je kriva",
+    "Zašto je Policija Pustila Ovog TikTokera iz Zatvora?",
+    " ne mogu da verujem šta se desilo",
+    "Zašto Ovaj TikToker Nije u Zatvoru?",
+    "Istražio sam da li nas influenseri iz Dubaija LAŽU?",
+    "niko nije smeo ovo da kaže",
+    "Haker iza Najveće Prevare u Istoriji Lutrije Srbije"
+   ],
+   "sample_derivatives": [
+    "kada skrivena kamera ode predaleko (14 min < prag 15 min)",
+    "otkrio sam najjadnijeg lika na tviteru (13 min < prag 15 min)",
+    "moram da pričam o ovoj situaciji (7 min < prag 15 min)",
+    "Maltretiranje Mentalno Nestabilne Osobe Zbog Pregleda (14 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC7SUC7UTIMoV5N4IJ8W9l6g",
+   "type": "channel",
+   "name": "LOUD DIGITAL",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC7SUC7UTIMoV5N4IJ8W9l6g/videos",
+   "follower_count": 32000,
+   "description": "LOUD DIGITAL is a full service music agency and record label, redefining what it means to be a music company! We're all about the quality of music and the quality in everything else we do.",
+   "originals": 39,
+   "originals_30min": 38,
+   "avg_original_min": 60,
+   "derivative_ratio": 0.57,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "🔥 LOUD STAGE 2026 – VELIKO FINALE! 🔥",
+    "LOUD STAGE 2026 – EP.11 POLUFINALE!🔥",
+    "LOUD STAGE EP.8 – BOOTCAMP FINALE! TKO IDE U TOP 8 I KORAK BLIŽE KARIJERI? 🔥🎤",
+    "LOUD STAGE EP.7 – DANAS NE POBJEĐUJE GLAS. POBJEĐUJU DRUŠTVENE MREŽE. 📱🔥",
+    "LOUD STAGE EP.6 – TKO IMA X FAKTOR? IMAGE, STAGE & ATTITUDE POD PRITISKOM 🔥",
+    "LOUD STAGE EP.5 - BOOTCAMP SE NASTAVLJA! NOVIH 12 KANDIDATA U BORBI ZA TOP 8 🔥",
+    "LOUD STAGE EP.4 – IMAGE JE SVE! ELFS, CIGI & TRANSFORM MIJENJAJU KANDIDATE 🔥",
+    "LOUD STAGE EP.3 – BOOTCAMP POČINJE! 12 KANDIDATA U BORBI ZA 8 MJESTA 🔥"
+   ],
+   "sample_derivatives": [
+    "MONIKA JUKIĆ * MOJE ZLATO * (4 min < prag 25 min)",
+    "KRISTIJAN RAHIMOVSKI * AKO ME VOLIŠ * (4 min < prag 25 min)",
+    "NINA MIA * AMORE MIO * (178s)",
+    "STEGO feat. ALAZAR * MINUT DO PLAŽE * (143s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCyBHS55I0ShoKNaCBD8HqdQ",
+   "type": "channel",
+   "name": "Antonio Šarić",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCyBHS55I0ShoKNaCBD8HqdQ/videos",
+   "follower_count": 543,
+   "description": "Talk to me Goose\n\nhttps://linktr.ee/Antonio.88",
+   "originals": 54,
+   "originals_30min": 54,
+   "avg_original_min": 88,
+   "derivative_ratio": 0.1,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ruža Vjetrova by Ruža (Ep.123)",
+    "OSMI PUTNIK EP.122",
+    "Zoran Mišić/Opća Opasnost intervju",
+    "Bruno Kovačić EP.120",
+    "TOP GUN - 40 GODINA | EP.119",
+    "TOM CRUISE EP.100",
+    "Renato Švorinić EP.119",
+    "Tomislav Kabić intervju (bonus epizoda)"
+   ],
+   "sample_derivatives": [
+    "Željko Pervan (bonus epizoda) (10 min < prag 25 min)",
+    "IGOR ŠEREGI - SVADBA (16 min < prag 25 min)",
+    "EUGEN - TIŠINE (EUROVISION) | EP.49 (19 min < prag 25 min)",
+    "VOJKO V - PODCAST SVIJET OKO MENE| EP.33 (13 min < prag 25 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR podcast o filmu/glazbi, 123 epizode. Uzorak: 54/60 ≥30 min, kratkih <10 min 2 %.",
+     "tags": [
+      "film",
+      "music",
+      "pop-culture"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCodqyc-_Mq0_UMD423aSoSQ",
+   "type": "channel",
+   "name": "Powertools Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCodqyc-_Mq0_UMD423aSoSQ/videos",
+   "follower_count": 6920,
+   "description": "Powertools is America's #1 and longest-running dance show!\nGrammy-nominated DJ / Producer / Curator Richard Vission along with world-renowned guest DJ's bring you one of the best hours in dance music.\nRecent guests include Dom Dolla, Kaskade, Diplo, Lee Foss, Chris Lake, Dombresky, John Summit, Mark Knight, Sara Landry, Sofi Tukker, Hugel, Mark Knight, Tiesto, Alok, Mau P, \nJames Hype, MK, BLOND:ISH, A-Trak, AC Slater, Nicole Moudaber, Anna Lunoe, Tchami, Laidback Luke, and Matroda. \n\nhttps://www.instagram.com/richardvission\nhttps://www.instagram.com/wearepowertools\n\n",
+   "originals": 55,
+   "originals_30min": 23,
+   "avg_original_min": 30,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Mia Moretti on DJ A.M., Katy Perry, Ibiza & Finding Her Sound in Chicago House | POWERTOOLS PODCAST",
+    "Seeing Double on Going Viral, Cloonee, Dance MF & Watching Tomorrowland as Kids | POWERTOOLS PODCAST",
+    "SLAMM on Meeting in Chicago, First NYC Gig & Getting Support from Skrillex | POWERTOOLS PODCAST",
+    "JORD on Collabing w/Vintage Culture, Portuguese vocals & First Ibiza Season | POWERTOOLS PODCAST",
+    "Riordan on Coachella w/ Gabba Gabba, 1st DJ Set On Aux, and Ironing Boards | POWERTOOLS PODCAST",
+    "MICHAELBM on David Guetta, Latin House Gang & His Latin House Debut Album | POWERTOOLS PODCAST",
+    "Doc Martin on One Of LA’s 1st Global DJs, DEEE-LITE Tour DJ & Record Stores | POWERTOOLS PODCAST",
+    "Eli & Fur on Meeting at 16, First Gig & Writing Dance Songs To Make You Think  | POWERTOOLS PODCAST"
+   ],
+   "sample_derivatives": [
+    "Jazzy on Collab w/ Chris Lorenzo, Debut Album, DJing & Dublin | POWERTOOLS PODCAST (13 min < prag 15 min)",
+    "DEM2 on Bay Area Raves, Building Bump N’ Grind & Shaping Latin Tech House | POWERTOOLS PODCAST (12 min < prag 15 min)",
+    "NARASIMHA on Chris Lake Finding “Wakili”, Selling All for West Africa & Healing | POWERTOOLS PODCAST (15 min < prag 15 min)",
+    "Powertools Awards Winner Recap - 2025 / CHRIS LAKE, MAUP, BLOND:ISH, TIESTO / POWERTOOLS PODCAST (6 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClthXyGrbJ9FXpew9zh0K5g",
+   "type": "channel",
+   "name": "Trend Radio",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClthXyGrbJ9FXpew9zh0K5g/videos",
+   "follower_count": 129,
+   "description": "",
+   "originals": 26,
+   "originals_30min": 18,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.54,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Logoped Nermin Toromanović: Ekranizacija je najveći uzrok govornih poteškoća kod djece",
+    "PODCAST NA TRENDU - Lejla i Anastasija: Mladi Velike Kladuše i Gradiške imaju slične probleme",
+    "PODCAST NA TRENDU - II sezona \"Adnan Družić: Ponosni smo na zajedničke proslave vjerskih praznika\"",
+    "PODCAST NA TRENDU - II sezona \"Arifov put od Rajnovca do Kuala Lumpura\"",
+    "PODCAST NA TRENDU - ll sezona  \"Darko Trajković - učitelj i trener u oblasti psihofizičkog zdravlja\"",
+    "PODCAST NA TRENDU - II sezona \"Nejra Nesimović: Građani su sve otvoreniji za psihološku pomoć\"",
+    "PODCAST NA TRENDU - II sezona \"Povratnik iz Italije otvorio farmu ovaca i koza u Cazinu\"",
+    "PODCAST NA TRENDU - II sezona  \"Velikokladuška profesorica na vrhu Kilimandžara\""
+   ],
+   "sample_derivatives": [
+    "Udruženje  poduzetnika Velika Kladuša - promo video (4 min < prag 15 min)",
+    "Kompanija Miral lider na području Velike Kladuše u proizvodnji struje iz alternativnih izvora (4 min < prag 15 min)",
+    "U 10 priča smo analizirali funkcionisanje Velike Kladuše i Gradiške (5 min < prag 15 min)",
+    "Većina političkih stranaka javne radove zloupotrebljava u predizborne svrhe (5 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCAgSVmmEQGi8eDkFEd-ADiw",
+   "type": "channel",
+   "name": "SABOTAŽA",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCAgSVmmEQGi8eDkFEd-ADiw/videos",
+   "follower_count": 21,
+   "description": "SABOTAŽA\nGovorim ono što se šapuće.\nKamera uključena.\nIstina bez filtera.\n\nOvaj kanal služi za zabavu i razonodu. Povezan je i sa drugim društvenim mrežama i svi dobronamjerni ste dobro došli, ostali zgubidani, razgulite. Očekujem kulturne komentare bez zlobe i mržnje bilo koje vrste. U protivnom, zaobiđite. \nDa bi kanal opstao, treba nas biti što više na okupu. S toga svaki LIKE, PRETPLATI SE (ne traži lovu) i ZVONCE pridonosi širenju, kvalitetnijim sadržajima, boljoj opremi. A ja vam spremam priče i pričice, pričane kolumne, PODKASTE sa zanimljivim gostima i svašta nešto. Znam da sa ovim kas",
+   "originals": 5,
+   "originals_30min": 5,
+   "avg_original_min": 47,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "🏆 6× SVJETSKI PRVACI | Mario Sirotić i Tomislav Bošnjak | Nevjerojatna priča hrvatskih šampiona",
+    "⚽🏆 PODKAST SABOTAŽA Kada godine kažu DA, a srce kaže NE | Nogomet, život i uspomene | ENCO ŠABANOVIĆ",
+    "SLAVKO RASBERGER OTVORIO DUŠU: “NIKADA OVO NISAM ISPRIČAO…” | tenis, život",
+    "🎾 SABOTAŽA | SLAVKO RASBERGER: HRVAT TRAŽI $100.000, DOK MÜSTER, MOYÁ I NADAL IGRAJU ZA…🎾",
+    "SABOTAŽA🎙️ SLAVKO RASBERGER — Priče koje nikada nije ispričao | ATP Umag, otkaz i istina (1. dio)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Novi HR podcast (2026), 5 epizoda. Uzorak: 5/5 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "sport",
+      "football"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCr673TvGvT0h7Hz2YSSp95w",
+   "type": "channel",
+   "name": "Hrvatski rukometni savez",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCr673TvGvT0h7Hz2YSSp95w/videos",
+   "follower_count": 23400,
+   "description": "",
+   "originals": 30,
+   "originals_30min": 30,
+   "avg_original_min": 101,
+   "derivative_ratio": 0.67,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Zagreb vs Nexe | 2. kolo | Paket24 Premijer liga (Liga A)",
+    "Osijek vs Čakovec | 2. kolo | Paket24 Premijer liga (Liga B)",
+    "Zamet vs Ivanić | 2. kolo | 1. HRL Žene",
+    "Sisak vs Trogir | 2. kolo | Paket24 Premijer liga (Liga B)",
+    "Bjelovar vs Rudar | 2. kolo | Paket24 Premijer liga (Liga A)",
+    "Karlovac vs Metković-Zalmo | 2. kolo | Paket24 Premijer liga (Liga B)",
+    "Sesvete Triglav Osiguranje vs Gorica | 2. kolo | Paket24 Premijer liga (Liga B)",
+    "Marina Kaštela vs 1234 Virovitica | 2. kolo | 1. HRL Žene"
+   ],
+   "sample_derivatives": [
+    "LIDL novi sponzor hrvatske ženske seniorske reprezentacije | Aktivnosti HRS - a (51s)",
+    "“Želimo se što bolje pripremiti za Europsko prvenstvo“ | Obrvan i Ježić (91s)",
+    "14 klubova, jedan trofej, puno dobrih utakmica & nova sezona kreće! | 1. HRL Žene (52s)",
+    "16 klubova. Jedan cilj. Najbolji rukomet u Hrvatskoj! | Paket24 Premijer liga (49s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCla-I20VncMN4vQtG3dBVmQ",
+   "type": "channel",
+   "name": "Oko društva",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCla-I20VncMN4vQtG3dBVmQ/videos",
+   "follower_count": 45,
+   "description": "Dobrodošli na YouTube kanal mladih kreativaca. 👋\nMi smo udruga Oko društva i bavimo se kulturom, mentalnim zdravljem, prevenciji nasilja i ovisnosti, zaštitom okoliša te razvoju volonterstva i lokalne zajednice.\n\nTu smo kako bismo poboljšali svakodnevicu lokalne zajednice i dobrobit mladih. \n\nPretplatite se na naš kanal i uživajte u videima s projekata i koncerata, playlistama, DIY videima i ostalom kreativnom čušpajzu. 😄",
+   "originals": 6,
+   "originals_30min": 2,
+   "avg_original_min": 62,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Oko mikrofona - Kutinska jazz scena -  Los Kozmos - 5. dio",
+    "Oko mikrofona - Kutinska punk scena - Tačke - 4. dio",
+    "Oko mikrofona - Kutinska \"nismo se još opredijelili - niti budemo\" scena - Podočnjaci - 3. dio",
+    "Oko mikrofona - Kutinska scena hip hop/rap glazbe - Boj bend - 2. dio",
+    "Oko mikrofona - Kutinska elektronička scena - DJ-i i producenti - 1. dio",
+    "The Sound Of Power vol. 1"
+   ],
+   "sample_derivatives": [],
+   "hints": []
+  },
+  {
+   "key": "UCGxQ4AH-PgDEqaL0Nq0eVhQ",
+   "type": "channel",
+   "name": "Škola za umjetnost, dizajn, grafiku i odjeću Zabok",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCGxQ4AH-PgDEqaL0Nq0eVhQ/videos",
+   "follower_count": 359,
+   "description": "Video radovi učenika Škole za umjetnost, dizajn, grafiku i odjeću Zabok",
+   "originals": 60,
+   "originals_30min": 33,
+   "avg_original_min": 35,
+   "derivative_ratio": 0.06,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast Niš konkretno - Florijan Lacko",
+    "Podcast Niš konkretno - Endrina Muqaj",
+    "Podcast Niš konkretno - Željka Horvat Vukelja",
+    "Podcast Niš konkretno - Davor Aničić",
+    "Podcast Niš konkretno - Magic Leon",
+    "Podcast Niš konkretno - Slaven Škrobot",
+    "Podcast Niš konkretno - Vedran Car",
+    "Podcast Niš konkretno - Mirela Priselac REMI"
+   ],
+   "sample_derivatives": [
+    "Podcast Niš konkretno - Odjava sezone (85s)",
+    "Podcast Niš konkretno - Jana Pavalić (16 min < prag 16 min)",
+    "Podcast Niš konkretno - Stela Rade (12 min < prag 16 min)",
+    "Podcast Niš konkretno - Pritisak na tlak (14 min < prag 16 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCpN_fqCSBrJrX1MEul3NfOQ",
+   "type": "channel",
+   "name": "DALIBOR PETKO SHOW",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCpN_fqCSBrJrX1MEul3NfOQ/videos",
+   "follower_count": 78600,
+   "description": "Dalibor Petko novo je lice CMC televizije! Poznati radijski i televizijski voditelj, nedjeljom u poslijepodnevnim satima vodit će i uređivati “Dalibor Petko Show”\nShow će biti glazbenog karaktera. Uz središnjeg gosta koji će svirati sa svojim bendom, u studiju će se izmjenjivati pjevači i grupe, promovirajući nove singlove, najavljivati koncerte, komentirati glazbene događaje… Bit će tu i prilozi s promocija, premijere spotova, nagradne igre i još mnogo toga. U svakoj emisiji gostovat će i jedan glazbeni urednik, koji će nam u rubrici Radijski kutak otkriti što se trenutno najviše sluša u Hrva",
+   "originals": 7,
+   "originals_30min": 7,
+   "avg_original_min": 105,
+   "derivative_ratio": 0.88,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Special Požega | Zlatne žice Slavonije 2026. | Dalibor Petko Show | CMC TV",
+    "Special Požega | Zlatne žice Slavonije 2026. | Dalibor Petko Show | CMC TV",
+    "CMC 200 Slavonija Fest | Dalibor Petko Show Special 2026 | CMC TV",
+    "Ivan Zak | Dalibor Petko Show | CMC TV",
+    "Željko Bebek | Dalibor Petko Show | CMC TV",
+    "Neda Ukraden | Dalibor Petko Show | CMC TV",
+    "Boris Režak | Dalibor Petko Show | CMC TV"
+   ],
+   "sample_derivatives": [
+    "Zak priča njemački | Ivan Zak | Dalibor Petko Show | CMC TV (4 min < prag 15 min)",
+    "Raskrinkaj šefa | Ivan Zak | Dalibor Petko Show | CMC TV (152s)",
+    "Pogodi tko sam | Ivan Zak | Dalibor Petko Show | CMC TV (5 min < prag 15 min)",
+    "Napiši pjesmu od tuđih stihova | Ivan Zak | Dalibor Petko Show | CMC TV (4 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCIDQgKfNOMNWEjCorDaiinQ",
+   "type": "channel",
+   "name": "Muzička produkcija BHRT",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCIDQgKfNOMNWEjCorDaiinQ/videos",
+   "follower_count": 18600,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 9,
+   "avg_original_min": 35,
+   "derivative_ratio": 0.83,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Corner - Almas Smajlovic",
+    "Corner - Keops",
+    "Corner - Velahavle",
+    "Corner - Mejdi Sulejmani",
+    "Corner - Divanhana",
+    "Corner - Jovana Bojanić",
+    "Corner  - Denial Ahmetović",
+    "Corner - Shizif"
+   ],
+   "sample_derivatives": [
+    "Azur Mehmedović - Ah moja draga (Festival Ilidža 2026) (4 min < prag 15 min)",
+    "Azmir Halilović - Kilometri tuge (Festival Ilidža 2026) (4 min < prag 15 min)",
+    "Pavao Anić - Pod beharli jabukom (Festival Ilidža 2026) (4 min < prag 15 min)",
+    "Semir Hasić - Ljubav prava i jedina (Festival Ilidža 2026) (4 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCGwyQM5eQOTxoeHOZaMwzSg",
+   "type": "channel",
+   "name": "Track Star*",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCGwyQM5eQOTxoeHOZaMwzSg/videos",
+   "follower_count": 321000,
+   "description": "",
+   "originals": 20,
+   "originals_30min": 17,
+   "avg_original_min": 39,
+   "derivative_ratio": 0.67,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "We'll Never Look at Records the Same Way Again w/ Grandmaster Flash",
+    "Ravi Coltrane Teaches Us How to Listen to his Father’s Catalog",
+    "Testing Legs McNeil's Punk Music Knowledge",
+    "Medium Build Performs for a Live Audience at Track Star HQ",
+    "Oscar Peterson Was No Regular Pianist (ft. Christian McBride & Kelly Peterson)",
+    "We Turned Our Office Into an ACTUAL Concert Venue w/ Florence Road",
+    "Testing KISS's Music Knowledge",
+    "Testing Gov. Wes Moore’s Music Knowledge"
+   ],
+   "sample_derivatives": [
+    "Who Knows 80s Music Better? Ryan Reynolds vs Kenneth Branagh (6 min < prag 17 min)",
+    "Testing Juanes’ Latin Music Knowledge (6 min < prag 17 min)",
+    "Medium Build Performs Their New Single \"It's Not Easy (Falling In Love)\" (165s)",
+    "Testing Andrew Garfield's Music Knowledge (7 min < prag 17 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCHyk3X4fTB6wPmseXl3zHzA",
+   "type": "channel",
+   "name": "Cronika Video",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCHyk3X4fTB6wPmseXl3zHzA/videos",
+   "follower_count": 1420,
+   "description": "Youtube kanal portala Cronika.hr\n\nBudućnost hrvatskog novinarstva. Bez subjektivizma. Bez klikomamaca. Bez žutila.",
+   "originals": 6,
+   "originals_30min": 4,
+   "avg_original_min": 36,
+   "derivative_ratio": 0.9,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Cronika.hr IN MEMORIAM IVAN GUDELJ",
+    "Ratko Mladić pregovori",
+    "Dokumentarni film ISTINOM DO POBJEDE Petra Malbaše",
+    "PRESS KONFERENCIJA IVAN PENAVA_ Analiza pola mandata",
+    "Intervju Draženke Franjić s prof. Tomislavom Ivančićem",
+    "Zločini komunizma izložba u dvorcu Vitturi"
+   ],
+   "sample_derivatives": [
+    "141.  Brigada 2 kaštelanska bojna (12 min < prag 15 min)",
+    "141  Brigada bojnik Zvonko Škeljo (3 min < prag 15 min)",
+    "141  Brigada umirovljeni bojnik Mirko Sušac i Marko Ćurković kapetan fregate u mirovini (11 min < prag 15 min)",
+    "141  Brigada  brigadir Jakov Miletić (7 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCvtOvAD2mxCtmpM-oIpgDNA",
+   "type": "channel",
+   "name": "bauštelaHR",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCvtOvAD2mxCtmpM-oIpgDNA/videos",
+   "follower_count": 2860,
+   "description": "Portal bauštela.hr specijalizirani je portal za građevinski sektor.",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 67,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Predstavljanje novog izgleda stadiona Maksimir",
+    "[Podcast] #27 Krešimir Petric | Tajne moderne arhitekture, projekt Avenue V, preizgradnja Zagreba",
+    "[Podcast] #26 Mario Obuljen | Što donosi novi GUP Dubrovnika?",
+    "[Podcast] #25 Janko Kralj | Arhitektura nije na našoj strani",
+    "[Podcast] #24 Ante Borovina | Zašto projekti obnove često kasne",
+    "[Podcast] #23 Zlatko Šavor | Čovjek koji će odlučivati o izgledu Jarunskog mosta",
+    "[Podcast] #22 Ninehertz office | Svi žele isto? Problem modernih interijera",
+    "[Podcast] #21 Mario Dobrilović | Vjesnik treba minirati!"
+   ],
+   "sample_derivatives": [
+    "Nova vinska meka na Plešivici: Pogledajte kako napreduju radovi na obnovi stare zadruge! (6 min < prag 25 min)",
+    "Obnova nadvožnjaka u Sesvetama pri kraju: Evo kada se otvara za promet! (4 min < prag 25 min)",
+    "Bauštelska četvrt: Trnsko (11 min < prag 25 min)",
+    "Novi bungalovi i hotel: Primiče se kraj radovima u Orahovici (3 min < prag 25 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCAyLROfSvW2TtxIAjm1tgkw",
+   "type": "channel",
+   "name": "Glas HAZU",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCAyLROfSvW2TtxIAjm1tgkw/videos",
+   "follower_count": 159,
+   "description": "Podcast Hrvatske akademije znanosti i umjetnosti   \" Glas HAZU\" ",
+   "originals": 5,
+   "originals_30min": 4,
+   "avg_original_min": 59,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Upoznajte novoizabrane akademkinje i akademike HAZU-a",
+    "Podcast “Glas HAZU”: akademkinja Mirna Šitum #akademkinja #hazu #podcast #znanost #umjetnost",
+    "Podcast “Glas HAZU”:  akademik Bojan Jerbić",
+    "Podcast “Glas HAZU”: akademik Davor Miličić",
+    "Podcast “Glas HAZU”: akademik Nikola Bašić bez rukavica!"
+   ],
+   "sample_derivatives": [
+    "📖 don Marko Trogrlić: Znanje raste u dijalogu (179s)",
+    "🥇 Od potrage za zlatom do čuvanja okoliša (3 min < prag 15 min)",
+    "🩺 Dragan Ljutić: Pacijent je uvijek bio na prvom mjestu (5 min < prag 15 min)",
+    "🩺 Domagoj Delimar: Znanje koje se prenosi dalje (111s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCut75WmrjhrgrEiQ6Zmn5Gg",
+   "type": "channel",
+   "name": "Podcast SFERA",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/videos",
+   "follower_count": 11100,
+   "description": "SFERA is an ideal space where all points gravitate toward a single center; a meeting place for local creatives and enthusiasts who are shaping a better living environment. A place that brings together all those who see architecture as a mechanism of social change.\n\nCREATIVE TEAM:\n\nAuthors and producers:\nMiljan Salata\nIgor Mikitišin\nNemanja Dačić\nDenis Turanović\n\nVideo and audio editing:\nLuka Jukić\n\nSocial media:\nhttps://linktr.ee/sfera_podcast\n\nANY COPYING OR DOWNLOADING, IN PART OR IN FULL, IS STRICTLY PROHIBITED WITHOUT THE PERMISSION OF THE AUTHOR AND THE PRODUCTION THAT OWNS THE MATERIAL.\n",
+   "originals": 27,
+   "originals_30min": 27,
+   "avg_original_min": 105,
+   "derivative_ratio": 0.57,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Sustainability Begins with Good Urbanism | Dean Lah | ENOTA  | EP 09 | SFERA Global",
+    "How 3LHD Reshaped the Adriatic Coast I 3LHD Marko Dabrović I Saša Begović I SO1 EP07",
+    "Mediji u Arhitekturi | Gradnja i Grenef | Igor Conić i Predrag Rađen | EP 69",
+    "DIZAJN GRADOVA: Arhitektura između fikcije i stvarnosti | Alen Žunić ALBATROSS studio I EP 68",
+    "Drugarstvo sa fakulteta | Kako je nastala SKICA? | studenti Jelena, Boško i Ada | EP 67",
+    "At the Edge of the Alps: Architecture in Dialogue with Nature | Aljoša Dekleva, D+G | S01 | EP 06",
+    "Od Konteksta do ideje o Kući | Kako SODAA koristi okruženje | Vedran Jukić | EP 66",
+    "KOMORA ARHITEKATA - Kako vratiti moć struci? | Rajka Bunjevac i Ariana Korlaet | EP 65"
+   ],
+   "sample_derivatives": [
+    "Inside 3LHD with Saša Begović I SFERA:ARCHITOURS (26 min < prag 29 min)",
+    "Do we need to suffer in order to be Sustainable? (10 min < prag 29 min)",
+    "Architecture is not a Great Idea (4 min < prag 29 min)",
+    "What Young Architects Still Need to Hear (7 min < prag 29 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR arhitektura (3LHD, Dani arhitekture); dio epizoda na engleskom (SFERA Global). Uzorak: 27/63 ≥30 min, od toga 3 live (/streams), kratkih <10 min 22 %.",
+     "tags": [
+      "architecture",
+      "culture"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UClGqwj5WE3wSymJ6tjfxBwg",
+   "type": "channel",
+   "name": "Dani Arhitekture",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClGqwj5WE3wSymJ6tjfxBwg/videos",
+   "follower_count": 140,
+   "description": "Dani Arhitekture\n\nCilj Dana arhitekture da prikaže trenutna dostignuća, i razvoj u oblasti arhitektonske djelatnosti. Istovremeno cilj je i međunarodna razmjena iskustava, definisanje budućih pravaca i mogućnosti razvoja arhitektonske scene u Crnoj Gori.\n",
+   "originals": 38,
+   "originals_30min": 20,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.37,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Dani Arhitekture 2025 - Podkast - Tomislav Ćurković, osnivač Dva arhitekta Ćurković, Hrvatska",
+    "Dani Arhitekture 2025 - Podkast - Matevž Zalar i Miha Munda - koosnivači Elementarna, Slovenija",
+    "Dani Arhitekture 2025 - Podkast - Davorin Počivašek, Arhitekti Počivašek Petranovič, Slovenija",
+    "Dani Arhitekture 2025 - Podkast - Miranda Veljačić i Dinko Peračić, ARP, Platforma 9,81, Hrvatska",
+    "Dani Arhitekture 2025 - Podkast - Sigurd Larsen, osnivač Sigurd Larsen Design, Njemačka",
+    "Dani Arhitekture 2025 - Podkast - Michal Kristof, osnivač Chybik + Kristof Architects, Češka",
+    "Dani Arhitekture 2025 - Podkast - Reinier de Graaf, partner OMA, Holandija",
+    "Dani Arhitekture 2025 - Podkast - Rifat Alihodžić, osnivač Arhing inženjering, Crna Gora"
+   ],
+   "sample_derivatives": [
+    "Dani Arhitekture 2024 - Podkast - Peter Pichler, osnivač Peter Pichler architecture, Milano (14 min < prag 16 min)",
+    "Dani Arhitekture 2024 - Podkast - Mikkel Hermann Sørensen, partner u CCO architects, Kopenhagen (13 min < prag 16 min)",
+    "Dani Arhitekture 2024 - Podkast - Vedran Pedišić, osnivač Sangrad+AVP, Zagreb (13 min < prag 16 min)",
+    "Dani Arhitekture 2024 - Podkast - Ferenzs Marcel Habil, CEO u Napur Architect, Budimpešta (15 min < prag 16 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC1qHtZPDapqGlpFZUdWH_lw",
+   "type": "channel",
+   "name": "ARHITEKTA",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC1qHtZPDapqGlpFZUdWH_lw/videos",
+   "follower_count": 13800,
+   "description": "Arhitekta stručni časopis i podcast iz oblasti arhitekture \n_______________________________________________________\n\nStavovi izneseni u podcast-u su lični stavovi učesnika i ne odražavaju neophodno naše stavove. Mišljenja izneta u komentarima su privatno mišljenje autora komentara i ne predstavljaju naše stavove.\n\nZabranjeno je svako kopiranje i neovlašćeno preuzimanje video i/ili audio snimaka i postavljanje na druge kanale. Nije dozvoljeno koristiti materijal bilo u celosti ili iz segmenata sa ovog kanala, bez licenciranja/plaćanja, kako za komercijalnu, tako i za nekomercijalnu upotrebu. Sv",
+   "originals": 58,
+   "originals_30min": 53,
+   "avg_original_min": 45,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Arhitekta Podcast-S07E03 - gost: A3 Architects - Projektovanje aerodroma.",
+    "Arhitekta Podcast-S07E02 - gost: Dr Lidija Đokić - Rasveta u arhitekturi.",
+    "Arhitekta Podcast-S07E01 - gost: Zora AI - AI marketing u nekretninama.",
+    "Arhitekta Podcast-S06E07 - gost: Dr Marija Pavlović - Arhitektura sportskih objekata u Beogradu.",
+    "Arhitekta Podcast-S06E07 - gost: BINA studio - Ugostiteljski objekti u Kragujevcu.",
+    "Arhitekta Podcast-S06E06 - gost: Irena Kilibarda - Kuhinja kao autorski industrijski dizajn.",
+    "Arhitekta Podcast - S06E05 - gost: Dr Dejan Milivojević - Stambena arhitektura Užica.",
+    "Arhitekta Podcast - S06E04 - guest: Toni Rubio Soler - From ego to eco."
+   ],
+   "sample_derivatives": [
+    "WOLF Kongres (37s)",
+    "Arhitekta Podcast-Sezona 4-Ep#12 - gost: Reynaers - podrška u projektovanju. (14 min < prag 18 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC3HTbeJA91UvQ2RKCJH9Fxw",
+   "type": "channel",
+   "name": "poriloox",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC3HTbeJA91UvQ2RKCJH9Fxw/videos",
+   "follower_count": 754,
+   "description": "podcast, kvaliteta življenja, civilno društvo, ekologija, aktivizam, osobe sa invaliditetom\nljudska prava, alternativa, film i glazba, udruga spirit, agent 010, rijeka, kvarner, krk, opatija, gorski kotar, najave događanja, radio emisije, rad na sebi, samoizlječenje, konoplja, plesna meditacija, gong kupke, yoga, kultura, umjetnost, bojkot trgovina i cijene, zašto se ljutimo, kreativnost, uhvati film, festival, \n",
+   "originals": 46,
+   "originals_30min": 12,
+   "avg_original_min": 30,
+   "derivative_ratio": 0.26,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Nakon prosvjeda ostaje pitanje – što dalje? emisija/podcast",
+    "Bruno Šimleša: Što čovjek pronađe nakon 4.482 kilometra hodanja? emisija",
+    "Priče predaka: Kako prošlost, rod i nevidljivi slojevi oblikuju naš život",
+    "Između svijetova: što nosimo od predaka? emisija, podcast poriluk",
+    "Akupresura, sunyoga, što sve znamo o tome? emisija",
+    "Mogu li građani sami proizvoditi i dijeliti energiju? Energetske zajednice; emisija, podcast",
+    "Hodanje po vatri i život s prirodom, ljekovito bilje i tinkture. emisija",
+    "KLIMA VIŠE NIJE SUTRA Jesmo li spremni? Emisija, podcast"
+   ],
+   "sample_derivatives": [
+    "Kad je na plaži više čikova nego kamenčića- godišnje doba LJETO (5 min < prag 15 min)",
+    "Plaža nije pepeljara! (23s)",
+    "Treba li ozbiljnije kažnjavati roditelje kad dijete vozi romobil bez kacige ili u jednosmjernoj? (3 min < prag 15 min)",
+    "Sounds of NATURE - THIS HEALS EVERYTHING! Try it! - The best video you will watch and listen today. (6 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCYl5I0jgP1LgNde6palXejA",
+   "type": "channel",
+   "name": "gradjanske inicijative",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCYl5I0jgP1LgNde6palXejA/videos",
+   "follower_count": 1130,
+   "description": "Misija Građanskih inicijativa je jačanje građanskog društva putem obrazovanja, promovisanja demokratije i podrške aktivnom građanstvu. Pridružite nam se!\nhttp://www.gradjanske.org",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 79,
+   "derivative_ratio": 0.63,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Od ulice do interneta: Kako se menjaju granice kažnjavanja?",
+    "Milioni iz budžeta za organizacije bliske vlastima – predstavljanje nalaza i panel diskusija",
+    "Izbori za Savet REM-a još gori nego prošli put",
+    "Podneta krivična prijava za terorizam zbog incidenta 15. marta",
+    "Vlast zloupotrebljava državne institucije za progon aktivista",
+    "Srbija u kategoriji “opstruiranih” zemalja: Predstavljen najnoviji godišnji izveštaj CIVICUS-a",
+    "Tribina \"Bašta, pepeo\" u Užicu: O razlozima i posledicama požara na deponijama",
+    "FERKA u Novom Sadu: Izbori su borba za slobodno društvo"
+   ],
+   "sample_derivatives": [
+    "\"Savet REM je stručno telo, nema veze ko je pobedio na izborima - svi članovi treba da su nezavisni\" (13 min < prag 29 min)",
+    "Uroš Jovanović: Digitalne pretnje građanskom prostoru više nisu apstraktni rizici, već realnost (127s)",
+    "Stojanović: Srbiju u 2025. obeležila nikad veća borba za ljudska prava i povećana represija (5 min < prag 29 min)",
+    "Šta je Fon der Lajen rekla predstavnicima civilnog društva u Srbiji (14 min < prag 29 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCrUunJvTEy86fFIetv6II3Q",
+   "type": "channel",
+   "name": "Zagorska televizija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCrUunJvTEy86fFIetv6II3Q/videos",
+   "follower_count": 2680,
+   "description": "Emitiramo vijesti i reportaže iz Krapinsko-zagorske županije i Zaprešičkog kraja svaki radni dan u 19.45. na kanalu MREŽA TV Zagreb. Subotom i nedjeljom emitiramo pregled tjedna - subota u 19.30 a repriza u nedjelju u 17.00 sati na kanalu MREŽA TV Zagreb ... lučite nas...\n",
+   "originals": 5,
+   "originals_30min": 5,
+   "avg_original_min": 93,
+   "derivative_ratio": 0.93,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Festival pjesništva 8. Nagrada Vesna Parun - uživo!",
+    "35. sjednica OV Općine Konjščina 3.dio",
+    "35. sjednica OV Općine Konjščina 2",
+    "Zagorska televizija prenosi stream uživo sa 7. pjesničkog festivala Vesna Parun Stubičke Toplice",
+    "32. Sjednica OV Općine Konjščina 03.06.24."
+   ],
+   "sample_derivatives": [
+    "19.09.26. - Izvješće župana o prvom plugodištu 2026 (15 min < prag 36 min)",
+    "18.09.26. 4. dio Aktualni sat 8. sjednice ŽS KZŽ (14 min < prag 36 min)",
+    "17.09.26. - 3.dio Aktualni sat 8. sjednice ŽS KZŽ (13 min < prag 36 min)",
+    "16.09.26 - 2. dio Aktualni sat 8. sjednice ŽS KZŽ (15 min < prag 36 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCcuv5Z2EjWFp1bH-JAfht-g",
+   "type": "channel",
+   "name": "Podcast Homeland",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCcuv5Z2EjWFp1bH-JAfht-g/videos",
+   "follower_count": 336,
+   "description": "Homeland is a Podcast for the Croatian diaspora worldwide with guests every Tuesday from 8,30 PM CEST Facebook LIVE @onlinelivetvcroatia.  Moderator: Anita Prka Đurašić, returnee and entrepreneur woman in Croatia. \nMarketing of the Podcast: Anita Prka Đurašić, marketing director, Mail: onlinelivetvcroatia@gmail.com GSM: '385996230134",
+   "originals": 39,
+   "originals_30min": 39,
+   "avg_original_min": 74,
+   "derivative_ratio": 0.48,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "HRVATI U VOJVODINI, II.dio/ Bunjevački govori i Dan rođenja bana J.Jelačića/ repriza Zov Domovine",
+    "Uz Dan sjećanja na žrtve Vukovara,18.11. Repriza: Intervju s Damirom Plavšićem BITKA ZA VUKOVAR",
+    "ROVINJ virtualna šetnja (2021.)",
+    "POREČ virtualna šetnja",
+    "Aktualno uz pomilovanje Perkovića i Mustača-repriza emisije s Josipom Jurčevićem",
+    "Deklaracija o nazivu i položaju hrvatskog jezika ; A.G. Matoš; Bunjevački govor. Gost: Željko Jozić",
+    "BL ALOJZIJE STEPINAC-ZOV DOMOVINE SPECIAL REPRIZA",
+    "TRIPUNDAN I BOKELJSKA MORNARICA // Repriza Zov Domovine #18"
+   ],
+   "sample_derivatives": [
+    "OPROŠTAJNO PISMO PETRA ZRINSKOG  ANI KATARINI ZRINSKI (6 min < prag 32 min)",
+    "Najveće Martinje u Europi održano u Hrvatskoj kući Materina priča u Zagrebu (4 min < prag 32 min)",
+    "Dubrovnik nocturno @podcastzovdomovine9632 (21s)",
+    "HRVATI U PARAGVAJU - ŽELJA ZA POVRATKOM U HRVATSKU, Gost: Hugo Estigarribia Villasanti (12 min < prag 32 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCYGAzwaxZctmTuwzKUEoJOA",
+   "type": "channel",
+   "name": "Omladinski centar CK13",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCYGAzwaxZctmTuwzKUEoJOA/videos",
+   "follower_count": 758,
+   "description": "Omladinski centar CK13 je otvoren prostor namenjen podsticanju i razvoju društvenog angažmana i političkog aktivizma, u kojem se kroz programe i sadržaje iz oblasti kulture, umetnosti i politike, preispituju problemi (savremenog) društva, kao što su: nacionalizmi, fašizmi, rasizmi, ksenofobija, homofobija - i ostali oblici diskriminacije i nasilja - sa ciljem stvaranja alternativa dominantnom nacionalističkom diskursu. \n\nPromovišu se vrednosti: altruizam, ravnopravnost, antifašizam, pluralizam, kritičnost,  samoinicijativa, samoorganizovanost, odgovornost, kompetentnost, otvorenost.",
+   "originals": 42,
+   "originals_30min": 42,
+   "avg_original_min": 89,
+   "derivative_ratio": 0.33,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "CK13 TRIBINA - Razgovor sa \"Novosadskom šestorkom\" - Proces (24.11.2025.)",
+    "Tribina \"Solidarnost u doba represije\"",
+    "CK13 Tribina \"Odupreti se zlu\" - 18. decembar 2024.",
+    "Razgovor o razlozima i posledicama požara na deponijama širom Srbije",
+    "\"Ne brini, mi smo uz tebe\": Tribina o nasilju nad ženama u ginekološko-akušerskim ustanovama",
+    "Tribina - Mladi i protesti",
+    "Razgovor sa Dubravkom Stojanović i Ivanom Čolovićem",
+    "Tribina “Nasilje u Srbiji – od neviđene društvene tragedije do povratka vojske na Kosovo”"
+   ],
+   "sample_derivatives": [
+    "Dodela nagrade za društveno-kritički angažman \"Ivan Radenković\" 2022. (24 min < prag 40 min)",
+    "Promocija romana \"Deca Nedođina\" Miloša K. Ilića (38 min < prag 40 min)",
+    "Odbijene primedbe protiv rušenja Crne kuće (7 min < prag 40 min)",
+    "Kolektiv za feminističko mišljenje i akciju, Kosovo (Festival samoorganizovanja 2021) (27 min < prag 40 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC5LNL3UojxJS_3alzkvr0Aw",
+   "type": "channel",
+   "name": "Tv Loki",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC5LNL3UojxJS_3alzkvr0Aw/videos",
+   "follower_count": 193000,
+   "description": "\nTV LOKI  je nezavisni kanal koji prati vijesti sa područja Ličko-senjske županije. Otvoren je zbog vas dragi gledatelji kako bi mogli pogledati sve što uspijemo snimiti, a u skladu s našim mogućnostima objavljujemo svakodnevno. Na našem kanalu možete gledati: domaćina i domaćicu mlađu i stariju, humor, vjerski život, vlakove, prirodu, životinje, istraživanja, dokumenterne filmove, glazbene spotove, edukativne filmove, motore, automobile, vijesti s našeg i šireg područja, socijalne slučajeve života ljudi, ostatke JNA građevina, politiku itd.\n\nCOPYRIGHT NAPOMENA: Sve video snimke na ovom kanalu",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 110,
+   "derivative_ratio": 0.74,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Javna tribina o zaštiti i revitalizaciji rijeke Gacke treći dio",
+    "Svečana sjednica za Dan Općine Brinje 11.08.2023.",
+    "15. sjednica Županijske skupštine LSŽ 27.07.2023.",
+    "12. sjednica Gradskog vijeća Grada Otočca, 17.07.2023.",
+    "Prezentacija EU Projekta „VODOOPSKRBNI SUSTAV HRVATSKO PRIMORJE“  Gospić 29.05.2023. godine",
+    "14. sjednica Županijske skupštine LSŽ 04.05.2023.",
+    "Dan Grada Senja svečana sjednica 24.04.2023.",
+    "11. sjednica Gradskog vijeća Grada Otočca 11.04.2023."
+   ],
+   "sample_derivatives": [
+    "Javna tribina o zaštiti i revitalizaciji rijeke Gacke: Kostelac vs Gašparović (11 min < prag 42 min)",
+    "Javna tribina o zaštiti i revitalizaciji rijeke Gacke: Izlaganje Šime Šimurine (83s)",
+    "Javna tribina o zaštiti i revitalizaciji rijeke Gacke: Brajković vs Gašparović (8 min < prag 42 min)",
+    "Javna tribina o zaštiti i revitalizaciji rijeke Gacke: Izlaganje Jose Brajkovića (5 min < prag 42 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCDfk7qBdvo4RgnrpKl3wMEg",
+   "type": "channel",
+   "name": "Neven Krajisnik",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCDfk7qBdvo4RgnrpKl3wMEg/videos",
+   "follower_count": 6350,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 4,
+   "avg_original_min": 30,
+   "derivative_ratio": 0.83,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Stanojković, Halilhodžić, Slišković i Ivković sa Bahom u vrhunskom panelu Simposara",
+    "Svečano otvoren 15. Simposar u Sarajevu (18.09.2026)",
+    "Zlatna rijeka ljudi u Visokom (06.09.2026)",
+    "Održana humanitarna trka/šetnja “Zlatni krug” u Visokom (06.09.2026)",
+    "Press konferencija KK “Bosna BH Telecom” (03.09.2026)",
+    "Svečana sjednica Gradskog vijeća povodom Dana Grada Visoko (29.08.2026)",
+    "Svečano otvoreni “49. visočki likovni susreti” (28.08.2026)",
+    "Rumbakana: “The energy of the audience in Visoko is incredible and we would love to come back”"
+   ],
+   "sample_derivatives": [
+    "Nastavljena saradnja FKG Visoko i partnerske škole iz Bolzana (4 min < prag 15 min)",
+    "Počeo novi kurs za radioamatere u Visokom (23.09.2026) (127s)",
+    "Visoko prvog jesenjeg dana 2026. godine  (5 min < prag 15 min)",
+    "U FKG Visoko posađeno Drvo mira (142s)"
+   ],
+   "hints": []
+  }
+ ]
+}

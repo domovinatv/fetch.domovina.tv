@@ -1,0 +1,42 @@
+{
+ "key": "UC5nxu4xTAQpQ473ufwZpLpA",
+ "url": "https://www.youtube.com/channel/UC5nxu4xTAQpQ473ufwZpLpA/videos",
+ "channel_id": "UC5nxu4xTAQpQ473ufwZpLpA",
+ "playlist_id": null,
+ "title": "Bitlucky - Videos",
+ "channel": "Bitlucky",
+ "channel_url": "https://www.youtube.com/channel/UC5nxu4xTAQpQ473ufwZpLpA",
+ "description": "",
+ "follower_count": 251,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "_upSw9WYCL4",
+   "title": "KAD ĆE TAJ ALTSEASON? - BITLUCKY PODCAST #4",
+   "duration": 1279,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "tIj2fT1m4uA",
+   "title": "Bitcoin i exponential moving average - BITLUCKY PODCAST #3",
+   "duration": 428,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "tHCTf5yOzvo",
+   "title": "BITLUCKY PODCAST #2 - Bitcoin ide u propast?",
+   "duration": 757,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "pEDz5v-z-DY",
+   "title": "BITLUCKY PODCAST #1 - Bull ili bear market?",
+   "duration": 1041,
+   "live_status": null,
+   "upload_date": "20190925"
+  }
+ ]
+}

@@ -1,0 +1,404 @@
+```json
+[
+  {
+    "key": "UCE5wmfVlNSVWjWcjxzKcODg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski financijski kanal s razgovornim/Q&A formatom (Finax Savjetuje, Finax Podcast), stručnjaci raspravljaju o financijama.",
+    "slug": "finax-croatia",
+    "display_name": "Finax Croatia",
+    "tags": ["finance", "geopolitics"],
+    "hosts": ["Tamara Vrhovec Sekáč"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCfJ8osGmpxquA3HAc9SWT8w",
+    "verdict": "not_hr",
+    "reason": "Opis i sadržaj na srpskoj ekavici, AI-generiran narativni format bez hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCmYFMOiIuqJEW_TPxM61o0w",
+    "verdict": "not_hr",
+    "reason": "Slovenski jezik (opis i naslovi na slovenskom), slovenska voditeljica i tematika.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCpUyx7ObA_xEE82EIrjVuIA",
+    "verdict": "not_podcast",
+    "reason": "Solo edukativno-promotivni sadržaj o Bitcoinu (vlogovi/analize), nije razgovorni ni jasan monolog-podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCp0nYPUCvyHZ7xiaBJEtuRg",
+    "verdict": "not_hr",
+    "reason": "Slovenski jezik, webinari i predavanja o financijskim tržištima.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCO5pYNV5S6ot7gXKW-Z7UGg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski kripto kanal s formatom uživo emisija i odgovaranja na pitanja gledatelja (KRIPTO LIVE), numerirane epizode.",
+    "slug": "kripto-evolucija",
+    "display_name": "Kripto Evolucija",
+    "tags": ["finance"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)kripto live"}
+  },
+  {
+    "key": "UCYOiUr0aIrrln8eKdvHilKg",
+    "verdict": "institutional",
+    "reason": "Lokalna internet televizija (vijesti, sjednice vijeća), nije podcast kanal.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCYBXVTm91Xh5wvgeCQXx-Cw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski talk-show podcast s numeriranim epizodama i FAQ live segmentima, razgovorni format.",
+    "slug": "prime-time",
+    "display_name": "Prime Time",
+    "tags": ["talk-show", "political"],
+    "hosts": [],
+    "watch_rule": {"exclude_title_regex": "\\d+\\s*-\\s*\\d+"}
+  },
+  {
+    "key": "UCwWuiTInPYRsK6XeyRZRSJQ",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, američki podcast o pustolovnim sportovima, bez hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCJlHoOAaOzZAvNnp-qS1Mkg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski razgovorni podcast o šahu s intervjuima (LJUDI U ŠAHU) i komentarima aktualnih zbivanja.",
+    "slug": "sah-u-hrvatskoj",
+    "display_name": "Šah u Hrvatskoj",
+    "tags": ["sport"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCgzVhNLXxAE68Wyvx1ZIPXw",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-serija 'Na kavi s...' iz Čapljine (BiH Hrvati), razgovorni format uz kavu s lokalnim gostima.",
+    "slug": "na-kavi-s-caplinski-portal",
+    "display_name": "Na kavi s (Čapljinski portal)",
+    "tags": ["talk-show", "culture"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)na kavi s"}
+  },
+  {
+    "key": "UCmberHv5QM7GlFAqaIwRVCA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski sportski intervju-podcast (hrsport.hr) s poznatim sportašima, jasan razgovorni format.",
+    "slug": "slaven-bonacic-podcast",
+    "display_name": "hrsport.hr Podcast",
+    "tags": ["sport"],
+    "hosts": ["Slaven Bonačić", "Vido Bonačić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCd-yZX3HAZKuWSVZ1iKsYug",
+    "verdict": "not_podcast",
+    "reason": "Kompilacija TV priloga, predavanja i izjava (5G, cjepiva, covid), nije originalni razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC6ZlZrsPw_RnEc17U5kP8KA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski nogometni podcast (HNL, Hajduk, Dinamo) s numeriranim epizodama i gostima.",
+    "slug": "super7-podcast",
+    "display_name": "Super7 Podcast",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCopjyUbERSbQxwDZwHfyGsA",
+    "verdict": "institutional",
+    "reason": "Televizijska kuća iz Mostara (BiH Hrvati) s više emisija; kanal nije podcast, može sadržavati podcast-playlistu.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC-cSb37nYQcbyXXJ5BVoHRw",
+    "verdict": "not_hr",
+    "reason": "Naslovi na srpskoj ekavici ('da verujem', 'niko nije smeo', 'moram da pričam'), srpski kreator.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC7SUC7UTIMoV5N4IJ8W9l6g",
+    "verdict": "not_podcast",
+    "reason": "Glazbeni talent-show (LOUD STAGE) i glazbeni spotovi, nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCyBHS55I0ShoKNaCBD8HqdQ",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski podcast o filmu/glazbi/popkulturi s numeriranim epizodama i gostima (intervjui).",
+    "slug": "antonio-saric-podcast",
+    "display_name": "Antonio Šarić Podcast",
+    "tags": ["pop-culture", "culture"],
+    "hosts": ["Antonio Šarić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCodqyc-_Mq0_UMD423aSoSQ",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, američki DJ/dance-music podcast, bez hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UClthXyGrbJ9FXpew9zh0K5g",
+    "verdict": "not_hr",
+    "reason": "Bosanska regionalna tematika (Velika Kladuša, Gradiška), bez jasne hrvatske jezične/etničke veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCAgSVmmEQGi8eDkFEd-ADiw",
+    "verdict": "too_small",
+    "reason": "Hrvatski sportski podcast s gostima, ali tek 5 objavljenih epizoda (nov kanal iz 2026).",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCr673TvGvT0h7Hz2YSSp95w",
+    "verdict": "institutional",
+    "reason": "Službeni kanal Hrvatskog rukometnog saveza s prijenosima utakmica, nije podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCla-I20VncMN4vQtG3dBVmQ",
+    "verdict": "too_small",
+    "reason": "Hrvatska udruga s intervju-serijalom 'Oko mikrofona' o glazbenoj sceni, ali tek 6 originala i uglavnom kratki.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCGxQ4AH-PgDEqaL0Nq0eVhQ",
+    "verdict": "podcast_hr",
+    "reason": "Školski hrvatski podcast 'Niš konkretno' s intervju-epizodama i gostima iz kulture/umjetnosti.",
+    "slug": "podcast-nis-konkretno",
+    "display_name": "Podcast Niš konkretno",
+    "tags": ["education", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCpN_fqCSBrJrX1MEul3NfOQ",
+    "verdict": "not_podcast",
+    "reason": "Glazbena TV emisija s gostima-izvođačima i nagradnim igrama, nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCIDQgKfNOMNWEjCorDaiinQ",
+    "verdict": "not_podcast",
+    "reason": "Glazbeni nastupi i festivalski segmenti (BHRT), nema razgovornog podcast formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCGwyQM5eQOTxoeHOZaMwzSg",
+    "verdict": "not_hr",
+    "reason": "Engleski jezik, američka glazbena talk-emisija, bez hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCHyk3X4fTB6wPmseXl3zHzA",
+    "verdict": "institutional",
+    "reason": "Hrvatski novinski portal s dokumentarcima, press konferencijama i prigodnim intervjuima, kanal nije podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCvtOvAD2mxCtmpM-oIpgDNA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski podcast o arhitekturi i građevinarstvu (numerirane epizode) s gostima iz struke.",
+    "slug": "baustelahr-podcast",
+    "display_name": "bauštela.hr Podcast",
+    "tags": ["business", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCAyLROfSvW2TtxIAjm1tgkw",
+    "verdict": "too_small",
+    "reason": "Podcast HAZU-a s intervjuima akademika, jasan format, ali tek 5 epizoda objavljeno.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCut75WmrjhrgrEiQ6Zmn5Gg",
+    "verdict": "podcast_hr",
+    "reason": "Regionalni arhitektonski podcast s hrvatskim epizodama i hrvatskim gostima arhitektima (3LHD i dr.).",
+    "slug": "podcast-sfera",
+    "display_name": "Podcast SFERA",
+    "tags": ["culture", "business"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UClGqwj5WE3wSymJ6tjfxBwg",
+    "verdict": "not_hr",
+    "reason": "Crnogorski festival arhitekture (Dani arhitekture, Crna Gora), organizator i fokus nisu hrvatski.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC1qHtZPDapqGlpFZUdWH_lw",
+    "verdict": "not_hr",
+    "reason": "Srpski podcast o arhitekturi (Beograd, Kragujevac, Užice), srpska produkcija i tematika.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC3HTbeJA91UvQ2RKCJH9Fxw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatska (riječka/kvarnerska) emisija/podcast o civilnom društvu, ekologiji i alternativnim temama.",
+    "slug": "poriloox",
+    "display_name": "Poriluk Podcast",
+    "tags": ["society", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCYl5I0jgP1LgNde6palXejA",
+    "verdict": "not_hr",
+    "reason": "Srpska organizacija (Građanske inicijative), tribine o Srbiji, REM-u i srpskim izborima.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCrUunJvTEy86fFIetv6II3Q",
+    "verdict": "institutional",
+    "reason": "Lokalna zagorska televizija s vijestima i sjednicama vijeća, nije podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCcuv5Z2EjWFp1bH-JAfht-g",
+    "verdict": "podcast_hr",
+    "reason": "Podcast namijenjen hrvatskoj dijaspori u svijetu, razgovorni format s gostima o hrvatskim temama.",
+    "slug": "podcast-homeland",
+    "display_name": "Podcast Homeland",
+    "tags": ["diaspora", "culture"],
+    "hosts": ["Anita Prka Đurašić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCYGAzwaxZctmTuwzKUEoJOA",
+    "verdict": "not_hr",
+    "reason": "Srpski omladinski centar (Novi Sad), tribine o Srbiji i srpskim protestima.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC5LNL3UojxJS_3alzkvr0Aw",
+    "verdict": "institutional",
+    "reason": "Lokalna hrvatska televizija (Ličko-senjska županija) s vijestima i sjednicama, nije podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCDfk7qBdvo4RgnrpKl3wMEg",
+    "verdict": "not_podcast",
+    "reason": "Lokalno praćenje događanja, press konferencija i sjednica iz Visokog, nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  }
+]
+```

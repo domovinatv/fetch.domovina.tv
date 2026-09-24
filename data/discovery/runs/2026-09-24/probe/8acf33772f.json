@@ -1,0 +1,63 @@
+{
+ "key": "UCMucSHtaBwL9U1K8YTG4Gyw",
+ "url": "https://www.youtube.com/channel/UCMucSHtaBwL9U1K8YTG4Gyw/videos",
+ "channel_id": "UCMucSHtaBwL9U1K8YTG4Gyw",
+ "playlist_id": null,
+ "title": "Jelena Alfirevic - Videos",
+ "channel": "Jelena Alfirevic",
+ "channel_url": "https://www.youtube.com/channel/UCMucSHtaBwL9U1K8YTG4Gyw",
+ "description": "",
+ "follower_count": 29,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "yFWulLyVfIk",
+   "title": "Snjeguljica film Sveučilište u Zadru 2025",
+   "duration": 1253,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "G9E-NVI3FkQ",
+   "title": "Film ''Između'' (prema adolescentskom romanu Magdalene Mrčele), studenti Sveučilišta u Zadru 2023.",
+   "duration": 1035,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "RSmjEVAj9Bo",
+   "title": "Marko Marulić, \"Judita\" film Sveučilišta u Zadru (povodom 500. obljetnice tiskanja)",
+   "duration": 773,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "q__gDmbboeA",
+   "title": "Digitalizirani strip: ,,Jure Kaštelan - simbol grada i poljičkog zavičaja\", Poljička kneževina, Omiš",
+   "duration": 1231,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "bp9mLxTPxeM",
+   "title": "Film ,,Ružno pače\" (prema bajci H. C. Andersena), studenti Odjela za izobrazbu uč. i odg., Zadar",
+   "duration": 755,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "0-fLy8lQM7o",
+   "title": "Movie \"Little Red Riding Hood\", students of the University of Zadar, Zadar 2021.",
+   "duration": 657,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "g7RAaNIZMX0",
+   "title": "Jure Kaštelan, film ,,Kaštelanova dica\"  ili ,,Pjesniku za 100. rođendan\", SŠ ,,Jure Kaštelan\", Omiš",
+   "duration": 1034,
+   "live_status": null,
+   "upload_date": "20190925"
+  }
+ ]
+}

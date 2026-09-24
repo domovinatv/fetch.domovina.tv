@@ -1,0 +1,532 @@
+{
+ "key": "UCKmNFtF1iXDyBybPmxRysSg",
+ "url": "https://www.youtube.com/channel/UCKmNFtF1iXDyBybPmxRysSg/videos",
+ "channel_id": "UCKmNFtF1iXDyBybPmxRysSg",
+ "playlist_id": null,
+ "title": "NOVA BH televizija - Videos",
+ "channel": "NOVA BH televizija",
+ "channel_url": "https://www.youtube.com/channel/UCKmNFtF1iXDyBybPmxRysSg",
+ "description": "Bosanskohercegovačka komercijalna televizija s nacionalnom koncesijom, koja nudi raznovrstan programski sadržaj. Zahvaljujući bogatoj programskoj shemi te povjerenju gledatelja, danas je TV Nova sinonim za TV program vrhunske kvalitete u svim segmentima – od objektivnog i relevantnog Informativnog programa do vrhunskih i najgledanijih zabavnih formata.",
+ "follower_count": 40200,
+ "streams_count": 14,
+ "videos": [
+  {
+   "id": "-SELJcL65Sg",
+   "title": "BERBA GROŽĐA U PATOŠEVCIMA: Kad vinograd zamiriše na pjesmu i smijeh",
+   "duration": 242,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "-sFH1pxSdVQ",
+   "title": "Domaći mesni doručak i jabuke s vanilijom, slano i slatko za savršen početak dana",
+   "duration": 1346,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "hG6BvGZX45Q",
+   "title": "„Ratnice“: Stvarne priče o borbi s rakom i sistemskim preprekama",
+   "duration": 634,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "_CmFw42uBdk",
+   "title": "Jesen i naše raspoloženje, zašto osjećamo umor i pad energije?",
+   "duration": 718,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "lvSq76sScKs",
+   "title": "Veće plaće budžetskim korisnicima u HNK, pravosuđe nastavlja štrajk",
+   "duration": 187,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "L4PmHSs0Rj8",
+   "title": "Zenički rudari štrajkuju glađu, duguju im četiri zarađene plate",
+   "duration": 196,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "-DGgElANhkw",
+   "title": "Žare priprema punjene šampinjone i choco mousse iz tegle",
+   "duration": 1516,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "Tf1wusFUgbY",
+   "title": "AI stručnjaci stižu u Sarajevo: Kako će vještačka inteligencija mijenjati naše poslove?",
+   "duration": 877,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "3VQkbzBRTzM",
+   "title": "Automobilski klasici ponovo na ulicama Sarajeva, stiže Oldtimer Rally",
+   "duration": 541,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "Kn5a6GyTMF8",
+   "title": "Sajam knjige u Tuzli: Dani posvećeni knjigama, autorima i ljubavi prema čitanju",
+   "duration": 537,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "1kSyXlenNRU",
+   "title": "Toplotna kupola stiže prema Balkanu: Temperature ponovo do 30 stepeni",
+   "duration": 161,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "iOdUsWoMwkg",
+   "title": "Novi udar na vozače: Dizel za samo tri sedmice poskupio 31 fening",
+   "duration": 197,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "UFiqADEdXmk",
+   "title": "Rudari u Zenici stupili u štrajk glađu: Duguju im četiri plaće",
+   "duration": 189,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "KigGzOEL5AU",
+   "title": "Dva recepta za svačiji ukus: Sočna pekmeznjača i slani palačinci",
+   "duration": 1397,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "86bObCBtHPQ",
+   "title": "Možemo li bez automobila? Kako bi Sarajevo izgledalo s manje vozila?",
+   "duration": 591,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "Vo39p-WKdgM",
+   "title": "Oko 600 djece u Tuzli čeka neuropedijatra: Roditelji traže hitno rješenje",
+   "duration": 842,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "qEiHuAyApd8",
+   "title": "Svrzina kuća slavi 300 godina: Tri stoljeća čuva priču o starom Sarajevu",
+   "duration": 577,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "Oq_rhrX_xaM",
+   "title": "Zmajevi počeli pripreme za četiri utakmice Lige nacija",
+   "duration": 250,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "YXsF-d-6ebw",
+   "title": "Blagaj centar avanturizma: Climbing festival okupio 300 učesnika iz 30 zemalja",
+   "duration": 174,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "s121GSoTMn8",
+   "title": "Nasilje iza ekrana: Kako zaštititi djecu i mlade na internetu?",
+   "duration": 2972,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "Lfk0ap4fxJk",
+   "title": "Korisni savjeti, važne teme i odgovori stručnjaka za zdraviji život",
+   "duration": 1841,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "xjc-ogId13s",
+   "title": "Zajedno za život: Race for the Cure šalje snažnu poruku podrške",
+   "duration": 2907,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "dmXwXOBbbkQ",
+   "title": "Muzika kao trening za um",
+   "duration": 590,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "GRdS_W0XduY",
+   "title": "BARBAREZ I SPAHIĆ JASNI: EURO JE GLAVNI CILJ, ALI ZMAJEVI ŽELE PUNO I U LIGI NACIJA!",
+   "duration": 3312,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "uSGdW0ZJq20",
+   "title": "Dva jednostavna recepta koja vrijedi isprobati!",
+   "duration": 1617,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "EOtDslopK-E",
+   "title": "Žene u društvu: Jesu li ključne pozicije moći i dalje rezervisane za muškarce?",
+   "duration": 923,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "f1quN0hqPy4",
+   "title": "Mir počinje razgovorom: Kako mladi grade mostove umjesto podjela?",
+   "duration": 719,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "zkEQxU5y3bU",
+   "title": "Alarm u poljoprivredi! Suša desetkovala prinose, traži se proglašenje stanja elementarne nepogode",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "8qNv_duoNt0",
+   "title": "Zašto građani odlaze i šta BiH gubi njihovim odlaskom?",
+   "duration": 218,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "qaHTRnlPSLM",
+   "title": "Jedete, a stalno ste gladni? Evo šta vam tijelo pokušava poručiti",
+   "duration": 833,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "Ip6QHFcDbic",
+   "title": "Novi skok cijena goriva donosi strah od lančanih poskupljenja",
+   "duration": 224,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "i0jRqvVX4KA",
+   "title": "Pet znakova da s vašim očima nešto nije u redu: Ne pripisujte ih samo umoru",
+   "duration": 384,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "uAHf4ORh4XM",
+   "title": "Alergije se mogu pojaviti i u odrasloj dobi: Ove simptome ne ignorirajte",
+   "duration": 400,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "h_ObZAXVNPg",
+   "title": "Uprkos višim cijenama, Neum pun gostiju: Ljeto na bh. moru još traje",
+   "duration": 190,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "n8-hw3a-lKE",
+   "title": "Izbori uz nove tehnologije: Koji problemi brinu CIK BiH pred 4. oktobar?",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "65xc5ayx7Vk",
+   "title": "Dva recepta koja morate probati: Sočna pita gužvara i neodoljivi kokos zalogaji",
+   "duration": 1542,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "OrZwDdmC41M",
+   "title": "Zaboravnost ili prvi znakovi demencije: Kada je vrijeme za pomoć?",
+   "duration": 645,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "EFmPPDt8oKg",
+   "title": "Ima li Sarajevo dovoljno vode i prijeti li nam nestašica?",
+   "duration": 707,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "NPGhYzf_Y1A",
+   "title": "Redukcije vode sve veći problem, dio građana danima bez osnovnih uslova za život",
+   "duration": 209,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "3X40yZmriBs",
+   "title": "Požar u domu kod Lukavca - Dvije osobe teško povrijeđene, ponovo otvoreno pitanje sigurnosti",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "PbpoVnuOjuI",
+   "title": "Uborak dva mjeseca nakon požara: Hrana sigurna, u tlu povišene vrijednosti teških metala",
+   "duration": 192,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "3T2Y2_c48ds",
+   "title": "SUPER BRZI DORUČAK SA DOMAĆIM PARADAJZ SOSOM",
+   "duration": 1479,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "Tih9kV795dM",
+   "title": "nKLIK: Zdravstvene informacije dostupne bez odlaska u ustanovu",
+   "duration": 693,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "RvJ0mKTvBds",
+   "title": "Možemo li smanjiti saobraćajne gužve, zagađenje i vrijeme koje provodimo u saobraćaju",
+   "duration": 835,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "HAX9dA5cAGU",
+   "title": "Tuzla spremna za Joola Cup: Stižu najbolji mladi stonoteniseri",
+   "duration": 520,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "auRaGX8Q7D8",
+   "title": "Penzije veće, ali troškovi još veći: Penzioneri kažu da je inflacija „pojela“ povećanje ",
+   "duration": 154,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "K0UzOi0Mqiw",
+   "title": "Građani ispred Tužilaštva TK: Maloljetnica u pritvoru s punoljetnim osobama",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "4jWbMqJMg5o",
+   "title": "Hašim Tači osuđen na 25 godina zatvora zbog ratnih zločina",
+   "duration": 228,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "4MhevWYFAZc",
+   "title": "NEGIRANJE GENOCIDA – ZAŠTO JE VAŽNO GOVORITI O ČINJENICAMA?",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "TQdLWgVsVJY",
+   "title": "Dva neodoljiva recepta: Uštipci sa sirom i krofne iz rerne",
+   "duration": 1306,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "8AbswCbwG_k",
+   "title": "Švrakino Selo protiv zombi-apokalipse",
+   "duration": 504,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "sZ5oBdHxWTg",
+   "title": "Koliko su pacijenti zaista sigurni u zdravstvenom sistemu?",
+   "duration": 836,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "Qxv3w9NmyoU",
+   "title": "Atletika stiže širom BiH: Evropska sedmica sporta okuplja najmlađe",
+   "duration": 839,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "Uge2jdzRvxs",
+   "title": "Novo poskupljenje na pomolu, piletina skuplja i do 15 posto",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "7yH0ciMWPzY",
+   "title": "Klizišta ponovo prijete banjalučkim naseljima, mještani traže hitnu reakciju",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "jMHuzx-MEOs",
+   "title": "Rudari ostaju bez zdravstvenog osiguranja, sutra ističe rok",
+   "duration": 189,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "oafhQOXdvIQ",
+   "title": "Žarko priprema korpice s mozzarellom i homemade pops",
+   "duration": 1296,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "SMN5BZHy5Wc",
+   "title": "Predstavljen prvi bh. FPV dron, koliko BiH može razvijati vlastite bespilotne tehnologije?",
+   "duration": 942,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "9aN25WqSmh0",
+   "title": "Koliko je snažna demokratija u BiH i koliko je zaista živimo?",
+   "duration": 585,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "YnicJksV20U",
+   "title": "Barlov i Zulfić donijeli tri medalje u BiH i izborili A norme za Los Angeles 2028",
+   "duration": 843,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "vzvVKPD8Ays",
+   "title": "Hoće li visoki predstavnik nametnuti nove izmjene Ustava BiH?",
+   "duration": 575,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "TlK0sDeGbCM",
+   "title": "Press konferencija Ivayla Peteva uoči utakmice BiH - Luksemburg",
+   "duration": 611,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "kqefl-4O5Vs",
+   "title": "Press konferencija Nogometne reprezentacije BiH uoči utakmice sa Gruzijom",
+   "duration": 716,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "xWoEHC8l8Sg",
+   "title": "Press konferencija Nogometne reprezentacije BiH nakon utakmice sa Ukrajinom",
+   "duration": 961,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "8rDFafXJL0c",
+   "title": "Press konferencija reprezentacije Ukrajine uoči susreta sa BiH",
+   "duration": 1011,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "REsMg64s2sc",
+   "title": "Press konferencija Nogometne reprezentacije BiH uoči utakmice sa Ukrajinom",
+   "duration": 936,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "OfEsL3brJhQ",
+   "title": "Press konferencija Nogometne reprezentacije BiH nakon poraza od Finske",
+   "duration": 586,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "NqThyjgEmME",
+   "title": "Press konferencija \"A\" reprezentacije Bosne i Hercegovine uoči utakmice sa Finskom",
+   "duration": 650,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "tq5QdZS_2xw",
+   "title": "Press konferencija Ivayla Peteva o predstojećim kvalifikacijskim utakmicama Zmajeva",
+   "duration": 331,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "RiQgyMCm3DU",
+   "title": "Press konferencija Zmajeva uoči utakmice sa Kazahstanom",
+   "duration": 566,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "u6jPdPEBs4c",
+   "title": "Press konferencija Nogometne reprzentacije BiH uoči prijateljskog meča sa Kuvajtom",
+   "duration": 756,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "25Q_s1u6LsU",
+   "title": "Press konferencija Nogometne reprezentacije BiH nakon utakmice sa Francuskom",
+   "duration": 1686,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "pv5tDNeuM4g",
+   "title": "Press konferencija Francuska - Bosna i Hercegovina",
+   "duration": 530,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "6PSVJYnm8Sg",
+   "title": "Pratite emisiju povodom obilježavanja 25. godišnjice genocida u Srebrenici",
+   "duration": 8326,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  }
+ ]
+}

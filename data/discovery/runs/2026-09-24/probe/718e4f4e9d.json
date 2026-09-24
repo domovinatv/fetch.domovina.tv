@@ -1,0 +1,357 @@
+{
+ "key": "UCeeykzeo0LDW6BNtC1fdd2g",
+ "url": "https://www.youtube.com/channel/UCeeykzeo0LDW6BNtC1fdd2g/videos",
+ "channel_id": "UCeeykzeo0LDW6BNtC1fdd2g",
+ "playlist_id": null,
+ "title": "O novcu - Videos",
+ "channel": "O novcu",
+ "channel_url": "https://www.youtube.com/channel/UCeeykzeo0LDW6BNtC1fdd2g",
+ "description": "Ja sam Marko Bogdan i na ovom kanalu ću na što jednostavniji način objašnjavati sve vezano za osobne financije. Pretplati se da ne propustiš nijedan video!",
+ "follower_count": 32500,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "E2RtbGMyh1I",
+   "title": "Kupiti stan ili plaćati najam? Prava cijena jedne i druge odluke",
+   "duration": 767,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "KTdSyPXumFg",
+   "title": "Ovo ti nisu rekli o tvojoj plaći",
+   "duration": 854,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "9wnUlrjGiso",
+   "title": "Ovo mijenja ulaganje u Hrvatskoj -  i tebe se tiče",
+   "duration": 674,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "l4Ettc2Ruyo",
+   "title": "NAJGORE financijske odluke na TikToku!",
+   "duration": 601,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "_T3TGNZ9Zms",
+   "title": "Stambeni kredit u 2026. - pazi na ovu ZAMKU!",
+   "duration": 722,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "_6cQB25wXNM",
+   "title": "Nije do tebe. Evo zašto kupuješ stvari koje ne trebaš!",
+   "duration": 761,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "grIjsE9LIV4",
+   "title": "Stambeni kredit: većina radi ovu GREŠKU!",
+   "duration": 586,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "5oqdmZ9pFJg",
+   "title": "Zašto cijene nekretnina u Hrvatskoj ne prestaju rasti",
+   "duration": 802,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "OAnOgyGFIfg",
+   "title": "5 laži o novcu u koje svi vjerujemo",
+   "duration": 566,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "FPCtRmeMZ8s",
+   "title": "Svaki mjesec sam uplaćivao 50€ u ETF-ove. Evo rezultata.",
+   "duration": 589,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "A044Rj6qDzE",
+   "title": "Dionica prvi put izlazi na burzu - isplati li se investirati na IPO?",
+   "duration": 735,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "oUsTE1VA9gY",
+   "title": "MOD - institucija za koju većina nikad nije čula",
+   "duration": 773,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "ptY28Z4vrfg",
+   "title": "Uredi financije u 8 tjedana!",
+   "duration": 807,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "nBOxag8qwSk",
+   "title": "2013. vs. 2025. - živi li prosječan Hrvat danas bolje?",
+   "duration": 629,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "7q8Y0eOXA68",
+   "title": "Većina Hrvata je u KRIVOM MIROVINSKOM FONDU - kako odabrati i promijeniti?",
+   "duration": 783,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "9hhJQf_Q-FM",
+   "title": "12 navika zbog kojih si SIROMAŠAN",
+   "duration": 890,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "Nf-Fb36O-0k",
+   "title": "BESPLATNI BANKOVNI RAČUN - prednosti i (moguće) zamke",
+   "duration": 484,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "uiY1Cm544T4",
+   "title": "Godinu dana ulaganja u ETF-ove – MOJI REZULTATI I GREŠKE",
+   "duration": 352,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "pw3UnXn9udw",
+   "title": "PRIJEVARA S ULAGANJEM - stvarni poziv i cijela priča",
+   "duration": 680,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "FAzIK82-ycw",
+   "title": "Najčešća pitanja o stambenim kreditima",
+   "duration": 482,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "7OBKhheI9lc",
+   "title": "Budžetiranje za početnike: 3 metode koje stvarno rade!",
+   "duration": 370,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "SR7rZdTNng4",
+   "title": "Trezorski zapisi RH – isplati li se kupovati u 2025 ?",
+   "duration": 437,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "r4tHztPh2_s",
+   "title": "Stambeni krediti - Kako osigurati NAJNIŽU KAMATU na tržištu!",
+   "duration": 382,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "0XSabsDmGrk",
+   "title": "Kako će na tebe utjecati promjene od 1.1.2025.?",
+   "duration": 375,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "G0332oLALs4",
+   "title": "Treći mirovinski fond - kako ga MAKSIMALNO iskoristiti",
+   "duration": 548,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "t-2RKmrMmg0",
+   "title": "Sve što trebaš znati o investiranju u OSAM MINUTA",
+   "duration": 490,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "UCc26ROOB-o",
+   "title": "Korak po korak od BRUTO DO NETO PLAĆE",
+   "duration": 397,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "djaqJq4Eg_c",
+   "title": "POREZ NA NEKRETNINE - pun pogodak ili potpuni promašaj?",
+   "duration": 267,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "zjuAOaiyezg",
+   "title": "OSIGURAJ svoje zdravlje!",
+   "duration": 417,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "WJWBf-P1NaM",
+   "title": "Najčešće POGREŠNO SHVAĆENI financijski pojmovi",
+   "duration": 442,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "hfx9PXct3tY",
+   "title": "Jesi li FINANCIJSKI (NE)ZREO?",
+   "duration": 340,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "cGYFq0w_wss",
+   "title": "POČNI INVESTIRATI U ETF-ove (nije komplicirano!)",
+   "duration": 471,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "i_o08IUNENQ",
+   "title": "Može li NOVAC KUPITI SREĆU?",
+   "duration": 305,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "xNi_bL91x6Q",
+   "title": "BANKE - kako funkcioniraju i kako \"STVARAJU NOVAC\"?",
+   "duration": 554,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "XDWvFL1C4-Y",
+   "title": "AKTIVNO ili PASIVNO INVESTIRANJE - što misle stručnjaci?",
+   "duration": 1527,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "QAg1bG-jyvk",
+   "title": "Koliko su ZARADILE HRVATSKE FIRME u 2023. godini?",
+   "duration": 377,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "hQ3WzMgdt8I",
+   "title": "INFLACIJA - Tihi ubojica štednje",
+   "duration": 365,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "N2EjQXLNhxk",
+   "title": "OSIGURANJE AUTOMOBILA - Vodič za sve vozače",
+   "duration": 389,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "xp4E6fhtREA",
+   "title": "Složena kamatna stopa - tvoj NOVAC NA STEROIDIMA!",
+   "duration": 274,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "a5s52fFHTS4",
+   "title": "Sve što morate znati o STAMBENIM KREDITIMA prije kupnje nekretnine!",
+   "duration": 424,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Nq6Jo9-Ulo4",
+   "title": "OSIGURAJ SI BOLJU BUDUĆNOST – kako odabrati najbolji mirovinski fond?",
+   "duration": 387,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "A3cbxczVAYY",
+   "title": "Prijevremena otplata kredita? RAZMISLITE još jednom",
+   "duration": 273,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "_Ah4jFdhQIQ",
+   "title": "PAZITE koju \"peglate\" - po čemu se razlikuju debitne i kreditne kartice?",
+   "duration": 400,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "PULAxf7dZl4",
+   "title": "Izgradnja stabilnih financija - PET ODLUKA za sigurniju budućnost",
+   "duration": 386,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "yq-300CxafA",
+   "title": "Sve što MORATE znati o mirovinskom sustavu!",
+   "duration": 298,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "IBAtGqsJSOE",
+   "title": "Ep.3 |„Pokretanje vlastitog posla“ - Lotar Bengin",
+   "duration": 3774,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "0g8wNZZCMTI",
+   "title": "Ep.2 |„Gdje investirati u 2024.“ - Niko Maričić",
+   "duration": 4274,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "hncbQx5dMwo",
+   "title": "Ep.1 |„Planiranje osobnih financija za početnike“ - Željka Šeler",
+   "duration": 3602,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "eM3XcBFtttM",
+   "title": "Najava podcasta \"O NOVCU\"",
+   "duration": 47,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

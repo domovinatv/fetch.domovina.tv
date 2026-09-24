@@ -1,0 +1,1375 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "UClYSeEab6uwGQSTSkTQKHmQ",
+   "type": "channel",
+   "name": "Mizerija X",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClYSeEab6uwGQSTSkTQKHmQ/videos",
+   "follower_count": 3600,
+   "description": "Postavljam radio drame sa područja bivše naše. Ogromnom većinom su to srpske radio drame u produkciji Radio televizije Beograd , a poneke i Radio Novog Sada. Takođe, ima drama iz Bosne u proizvodnji BHRT-a i iz Crne Gore u proizvodnji RTCG-s.\n",
+   "originals": 59,
+   "originals_30min": 42,
+   "avg_original_min": 41,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Duško Trifunović:  \"Profesor Nula\"  (RADIO DRAMA)",
+    "Miodrag Đurđević:  Deoba prijatelja\"  (RADIO DRAMA)",
+    "Fridrih Direnmat (Friedrich Dürrenmatt):  \"Jedne jesenje večeri\"  (RADIO DRAMA)",
+    "Dušan Jaglikin:  \"Melina prostitutka\"  (RADIO DRAMA)",
+    "Branislav Nušić:  \"Šta ste radi Ben Akiba\"  (RADIO PLOČA)",
+    "Branislav Nušić:  \"Pod starost\"  (RADIO DRAMA)",
+    "Branislav Nušić:  \"Svetski rat\"  (RADIO DRAMA)",
+    "Slobodan Čvorović:  \"Buntovnik\"  (RADIO DRAMA)"
+   ],
+   "sample_derivatives": [
+    "Nikolaj V. Gogolj (Никола́й В. Го́голь):  \"Nos\"  (RADIO DRAMA) (14 min < prag 17 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCDump3-uSzF0iIPThXuJnZA",
+   "type": "channel",
+   "name": "nikotin202",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCDump3-uSzF0iIPThXuJnZA/videos",
+   "follower_count": 328,
+   "description": "",
+   "originals": 4,
+   "originals_30min": 4,
+   "avg_original_min": 49,
+   "derivative_ratio": 0.5,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Talicni Tom i Daltoni - Radio Drama Stevana Koprivice",
+    "NE PREDAJ SE NIKAD OSIM KAD MORAŠ - PRIČA O NENADU BRIXIJU I ALANU FORDU",
+    "Alan Ford - Radio Drama Mirjane Lazić - Bradati Pljackaš",
+    "Dylan Dog - Radio Drama Petra Mihajlovića - Gavran"
+   ],
+   "sample_derivatives": [
+    "Grupa BOB - Poznajem Tu Djevojku (4 min < prag 15 min)",
+    "Grupa BOB - Tajna Grupa (4 min < prag 15 min)",
+    "IGGI & Sir Oliver Band - Naj Ostanem Ali Grem (Mix) (4 min < prag 15 min)",
+    "IGGI & Sir Oliver Band - Naj Ostanem Ali Grem (3 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCELglpUBREaB22la46EKZ_Q",
+   "type": "channel",
+   "name": "Klasična gimnazija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCELglpUBREaB22la46EKZ_Q/videos",
+   "follower_count": 153,
+   "description": "Službeni youtube kanal Klasične gimnazije u Zagrebu.",
+   "originals": 16,
+   "originals_30min": 12,
+   "avg_original_min": 58,
+   "derivative_ratio": 0.68,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Antička dramska grupa • SAN LJETNE NOĆI (2026.)",
+    "Antička dramska grupa • EKLESIAZUSE (2025.)",
+    "Antička dramska grupa • ARISTOFANOVE PTICE (2024.)",
+    "DRAMSKI DIPTIH - ČUDESNI SVIJET VIDRIĆEVE POEZIJE / ISKONI BJE SLOVO",
+    "Antička dramska grupa • BEZ IFIGENIJE (2023.)",
+    "MATURANTI 2023.",
+    "MATURANTI 2022",
+    "Suvremena dramska skupina • KLASIČNI VIDRIĆ (2022.)"
+   ],
+   "sample_derivatives": [
+    "Homo homini homo (67s)",
+    "ZAGREBAČKI DRAMULET (16 min < prag 21 min)",
+    "The Bulgarian Odyssey of Vesna Parun (6 min < prag 21 min)",
+    "Marija Jurić Zagorka (5 min < prag 21 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCPi6G5jS8QFOmh7qDUIBS2g",
+   "type": "channel",
+   "name": "Study Legal English",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCPi6G5jS8QFOmh7qDUIBS2g/videos",
+   "follower_count": 25100,
+   "description": "Welcome to Study Legal English, your go-to educational resource for mastering legal English. I’m Louise Kulbicki, and I have spent over 10 years helping international lawyers, law students and legal professionals improve their legal English. On this channel, I provide practical lessons to help you sharpen your skills. New lessons uploaded weekly - subscribe to join our community and take your professional English to the next level.\n\nEmail: louise@studylegalenglish.com \n\nDisclaimer: Study Legal English is an English language teaching and study resource. The content provided is for educational p",
+   "originals": 39,
+   "originals_30min": 11,
+   "avg_original_min": 27,
+   "derivative_ratio": 0.35,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "10 Legal English Expressions to Explain Contracts Clearly | Learn with Example Clauses + Quiz",
+    "Greenwashing & Environmental Claims | Bird & Bird Article (Read Legal English with Me)",
+    "12 Common Commercial Contracts in English | Legal English Vocabulary",
+    "Commercial Contract Structure",
+    "Top Books for Learning Contract Drafting Language",
+    "Legal English Mistakes That Make You Sound Unprofessional",
+    "How do I say this in legal English? #1",
+    "Walk and Talk Vlog: My week as a legal English teacher"
+   ],
+   "sample_derivatives": [
+    "Why Join Our Legal English Summer School in Nuremberg? (6 min < prag 15 min)",
+    "😮12 MUST-KNOW irregular verbs for lawyers (9 min < prag 15 min)",
+    "😮13 MUST-KNOW uncountable nouns for lawyers (10 min < prag 15 min)",
+    "12 MUST-KNOW legal English collocations for pre-trial criminal law collocations (15 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "type": "channel",
+   "name": "Večernji TV",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCPFfi389DTy-cI9BzM7bLTQ/videos",
+   "follower_count": 117000,
+   "description": "",
+   "originals": 37,
+   "originals_30min": 28,
+   "avg_original_min": 43,
+   "derivative_ratio": 0.59,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Mirela Holy o Gospiću, gospodarima otpada, Plenkoviću i Milanoviću",
+    "Predstavljanje novog Maksimirskog stadiona",
+    "Jacques Houdek: Na estradi nema pravih prijateljstava, puno toga je samo privid",
+    "Stručnjakinja zgranuta stanjem u Hrvatskoj: 'Ni najveći stručnjaci ne mogu sve to pohvatati!'",
+    "Kalinić: Srbi trebaju vječno slaviti Tuđmana! Rat u BIH nije gotov, a svijetom vlada BlackRock",
+    "Igor Peternel: Igor Štimac razumije probleme, želi ih rješavati i imat će ulogu na idućih izborima",
+    "Hrvatski povjesničar o Sarajevskom atentatu: Iza atentata na Franju Ferdinanda stajao je Petersburg",
+    "Lički župan Petry o opasnom otpadu, prosvjedu, vodi i ličkom krumpiru"
+   ],
+   "sample_derivatives": [
+    "240 sekundi 24sata, 24.9.2026. (4 min < prag 17 min)",
+    "Raste potražnja za repelentima: Stručnjak otkrio koji tip zaštite protiv komaraca doista djeluje (10 min < prag 17 min)",
+    "Holy: U svakoj normalnoj državi Vlada bi pala zbog ovog skandala (148s)",
+    "Imamo prve fotografije kako će izgledati novi Maksimir, remek-djelo arhitekture! (96s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCiL6MqiHHCtmDDSanddCV7w",
+   "type": "channel",
+   "name": "Wolf Theiss Rechtsanwälte",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCiL6MqiHHCtmDDSanddCV7w/videos",
+   "follower_count": 210,
+   "description": "Wolf Theiss is one of the leading law firms in Central, Eastern and Southeastern Europe (CEE/SEE). We have built our reputation on unrivalled local knowledge which is supported by strong international capabilities. We opened our first office in Vienna over 65 years ago. With 400+ lawyers in 13 countries and a central European hub in Brussels, over 80% of the firm's work involves cross-border representation of international clients. We have concentrated our energies on a unique part of the world: the complex, fast-developing markets of the CEE/SEE region. Through our international network of of",
+   "originals": 35,
+   "originals_30min": 31,
+   "avg_original_min": 63,
+   "derivative_ratio": 0.42,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Is your business ready to navigate geopolitical change?",
+    "The AI wave in defence: what it means for Europe’s security, industry and legal landscape",
+    "Digital Law: GDPR and EU Digital Strategy",
+    "Dgital Law DSA mp4",
+    "Careers in International Arbitration",
+    "Wolf Theiss Energy Summit - Romania's Move towards a Decarbonized Future (25 October 2023): Panel 2",
+    "Wolf Theiss Energy Summit - Romania's Move towards a Decarbonized Future (25 October 2023): Panel 1",
+    "Nachhaltigkeit und ESG – aktuelle und zukünftige Haftungsfragen des grünen Wandels"
+   ],
+   "sample_derivatives": [
+    "Wolf Theiss: The Human Network (5 min < prag 27 min)",
+    "Guiding Growth: Shaping Futures at Wolf Theiss (97s)",
+    "Powered by Passion: Driving Excellence at Wolf Theiss (148s)",
+    "The Lawyers in the Details: Theresia Welser (97s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCC2uqZmLpIItmV0FhquzXSQ",
+   "type": "channel",
+   "name": "The Consumer Guys",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCC2uqZmLpIItmV0FhquzXSQ/videos",
+   "follower_count": 1010,
+   "description": "Join consumer attorneys Abbas Kazerounian and Mike Kazerouni as they discuss the latest developments in consumer law, how to protect yourself from bad actors, and break down the need to know information that affects YOU as a consumer today. \n\nNow available on iTunes! : https://podcasts.apple.com/us/podcast/the-know-your-rights-consumer-lawcast/id1499904867",
+   "originals": 20,
+   "originals_30min": 9,
+   "avg_original_min": 29,
+   "derivative_ratio": 0.46,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Episode 5: When Debt Collectors Cross The Line",
+    "Episode 3: Product Liablity- The Good, The Bad, and The Deadly",
+    "The Consumer Guys Episode 2: Identity Theft",
+    "The Consumer Guys Episode 1: Behind Class Actions",
+    "KYR Episode 16: Data Breaches",
+    "Know Your Rights Episode 15: The Massive T-Mobile Data Breach",
+    "Know Your Rights Episode 14: Dealing With Debt In A Post-Pandemic World",
+    "Know Your Rights Episode 13: From Plaintiff To Advocate"
+   ],
+   "sample_derivatives": [
+    "Episode 4: Is This Call Being Recorded? (10 min < prag 15 min)",
+    "Abbas Interviewed On RT About T-Mobile Breach (5 min < prag 15 min)",
+    "Abbas On The Road Episode 4: Kansas City, Missouri (6 min < prag 15 min)",
+    "Abbas On The Road Episode 3: Salt Lake City, Utah (11 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCmD0IG5g-Nzt503MfTgWcvQ",
+   "type": "channel",
+   "name": "HSLDA",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCmD0IG5g-Nzt503MfTgWcvQ/videos",
+   "follower_count": 13200,
+   "description": "Advocates for Homeschooling.\n\nHome School Legal Defense Association (HSLDA) is a national nonprofit with almost 100,000 member families. Our ultimate goal is to give homeschooling families peace of mind so they can focus on crafting the educational experience that best fits each child.\n",
+   "originals": 62,
+   "originals_30min": 58,
+   "avg_original_min": 53,
+   "derivative_ratio": 0.31,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Finding Strength and Connection Through Homeschooling | Homeschool Talks Ep. 170",
+    "Building Legacy Through Homeschooling: | Homeschool Talks Ep. 169",
+    "Grace, Gratitude and the Journey of Parenting | Homeschool Talks Ep. 168",
+    "From Lion King to Noah’s Ark: A Mission for Families | Homeschool Talks Ep. 167",
+    "Engaging the Culture | Homeschool Talks Ep. 166",
+    "Engaging the Culture | Homeschool Talks Ep. 165",
+    "Parenting, AI, and the Future of Homeschooling | Homeschool Talks Ep. 164",
+    "Victory for Indiana Homeschool Graduates | Homeschool Talks Ep. 163"
+   ],
+   "sample_derivatives": [
+    "PART 3: Preserving Freedom for the Next Generation | Homeschool Freedom is American Freedom (7 min < prag 22 min)",
+    "How to Homeschool Legally in Tennessee | A Quick Overview (4 min < prag 22 min)",
+    "How to Homeschool Legally in Mississippi | A Quick Overview (89s)",
+    "PART 2: Zan's Story | Homeschool Freedom is American Freedom (7 min < prag 22 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCUYK0BJZF3yNb2fw1EdAXUQ",
+   "type": "channel",
+   "name": "The Rest Is History",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCUYK0BJZF3yNb2fw1EdAXUQ/videos",
+   "follower_count": 585000,
+   "description": "Take a deep dive into History’s biggest moments with Tom Holland & Dominic Sandbrook.\n\nExplore the stories of History’s most brutal rulers, deadly battles, and world-changing events. From the rise and fall of the Roman Empire, the Nazi conquest of Europe, and Hitler’s evil master plan for world domination, to the French Revolution, the sinking of the Titanic, or the Norman Conquest of England in 1066, Tom and Dominic bring the past to life with gripping storytelling and expert analysis, as they unpack the high-drama moments that shaped our world.\n",
+   "originals": 59,
+   "originals_30min": 59,
+   "avg_original_min": 67,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Why Robespierre Believed Terror Could Save France",
+    "Why Did the French Revolution Produce Such Great Art?",
+    "The Assassination That Made the Terror Inevitable",
+    "Robespierre Was Master of the Revolution... 24 Hours Later He Was Dead | EP 6 | EARLY ACCESS",
+    "The Day Robespierre Tried to Become God | The Terror EP 5 | MEMBERS' EARLY ACCESS",
+    "The Revolutionary Who Tried to End the Terror: The Fall of Danton | EP 4 | MEMBERS' EARLY ACCESS",
+    "For the French Revolution to Survive... the Monarchy Had to Die | EP 3 | MEMBERS' EARLY ACCESS",
+    "The Guillotine Strikes: The Rise of Robespierre | The Terror EP 2 | MEMBERS' EARLY ACCESS"
+   ],
+   "sample_derivatives": [
+    "MEMBERS' BONUS | Could Henry VIII Just Do Anything He Wanted? (26 min < prag 27 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCt9rNsGYq8d_udpM2L4q-ag",
+   "type": "channel",
+   "name": "Philip K.H. Wong Centre for Chinese Law",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCt9rNsGYq8d_udpM2L4q-ag/videos",
+   "follower_count": 1620,
+   "description": "Philip K.H. Wong Centre for Chinese Law at the University of Hong Kong promotes legal scholarship with the aim to develop a deeper understanding of China and facilitate dialogue between East and West.\nhttp://ccl.law.hk",
+   "originals": 58,
+   "originals_30min": 58,
+   "avg_original_min": 88,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Common Law, Continental Civil Law and Economic Development",
+    "Book Talk – On Law and Ritual: Or, How Best to Combat Corruption?",
+    "Comparison of Choice of Law Rules in Non-contractual Obligations Between England and Hong Kong",
+    "The Future of Tso 祖 and Tong 堂",
+    "China’s Quest to Dismantle Data Silos and Operationalize Its Massive Government Data Resources",
+    "人工智能時代文科生的自我修養 (A Guidebook for Humanities Students: How to Survive in the Age of AI)",
+    "律師事務所主流業務領域熱點思考以及法學生的職業選擇",
+    "Navigating Change: Transformation of the Legal Market in Chinese Mainland and Hong Kong (2006-2026)"
+   ],
+   "sample_derivatives": [
+    "Quantum International Law Theories: Towards an Inclusive International Investment-Security Construct (37 min < prag 38 min)",
+    "Law & Political Economy in China's New Era (35 min < prag 38 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCKm0SeapWaDPI3nYznask_Q",
+   "type": "channel",
+   "name": "Wolep",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCKm0SeapWaDPI3nYznask_Q/videos",
+   "follower_count": 43,
+   "description": "The world has changed. Successful business is usually a global business. The Internet has changed the world, and the benefits of Internet-specific tools call for progress in all areas. The 2020 pandemic forced humanity to perceive the Internet as an appropriate solution for many activities and not just as a possibility for the future evolution of the market, of social behaviours.\n\nThe WOLEP - World Online Lawyers With Excellent Practice - network represents the future.\n\nHere is the vision of the WOLEP International Network of Lawyers:\n\nThe Internet : It's fantastic. It can make us all office c",
+   "originals": 19,
+   "originals_30min": 19,
+   "avg_original_min": 69,
+   "derivative_ratio": 0.56,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "WOLEP Real Estate Law Roundtable (17 October 2024): Analyzing Market Trends from 2018 to the Present",
+    "WOLEP Relax & Connect - Opening Event",
+    "WOLEP Podcast Episode V - Legal Implications of Global Business Expansion",
+    "WOLEP Podcast Épisode IV - L'utilité et le rôle de l'avocat à travers le monde",
+    "WOLEP Corporate Law Practice - Roundtable on VCCs (27 March 2024)",
+    "EVs and Alternative Batteries Explored: Highlights from the Webinar on Sustainability and Innovation",
+    "WOLEP Sports Law Practice - Opening Roundtable (11 April 2023)",
+    "WOLEP Real Estate Law Practice - Opening Roundtable (8 June 2023)"
+   ],
+   "sample_derivatives": [
+    "Meet Our Members: Ms. Selene Snippe (Netherlands) (144s)",
+    "WOLEP presents: Members' Feedback - Mr. Zoran Minic (Serbia) (111s)",
+    "Incentives for Investors: VCCs in Bulgaria - Exclusive Excerpt from WOLEP's Roundtable on VCCs (80s)",
+    "WOLEP Criminal Law Practice - On detention conditions in France (72s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCBDH8XgztaizHzWmZ63v2Ww",
+   "type": "channel",
+   "name": "Elven Star Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCBDH8XgztaizHzWmZ63v2Ww/videos",
+   "follower_count": 82,
+   "description": "Kevin Ferry hosts the Elven Star Podcast—featuring people who aren’t famous doing great things in their communities. The genesis of Elven Star is Ferry’s belief that humanity’s looking in all the wrong places for guidance, and for answers to life’s difficult questions.\n\nIn the technorealm of social media, tweets, follows, re-posts, likes and shares equate with status—even legitimacy. The complex machinery built into its algorithms manipulates & distorts the truth. Conversely, Elven Star present its Guests & their worthy pursuits without any alterations, whatsoever.\n\nElven Star promotes hard-wo",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 55,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "🦣 Mammoths, Ice Ages & a 200,000-Year-Old Mystery | Dr. Christopher Jass",
+    "How to Find Your True Voice Through Music | Sandy Ervin | Ep. 22",
+    "Lawyer by Day, Macy's Thanksgiving Day Parade Clown by Choice | Chuck Tatelbaum | Ep. 21",
+    "Kevin Ferry: The Human Side of Law, Life & Success | Elven Star Podcast Ep 20",
+    "Healing the Root Cause with Traditional Chinese Medicine | Dr. Ming Wu | Elven Star Podcast Ep. 19",
+    "21-Year-Old Defies Rare Disease: Evan St. Amand's Inspiring Journey | Elven Star Podcast Ep 18",
+    "Social Prescribing, Community Healing & the Power of Connection | Elven Star Podcast Ep 17",
+    "Mindfulness Is Not What You Think | Elven Star Podcast EP 16 | Kevin Ferry & Jay Rinsen Weik Roshi"
+   ],
+   "sample_derivatives": [
+    "When the Intro Just Won’t Come Together 😂 | Podcast Bloopers (127s)",
+    "The Podcast Ended... But The Conversation Didn't | Bonus Footage with Lori Goertz and Kevin Ferry (4 min < prag 23 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCoygYX3L4vBCR4T-EhafUTg",
+   "type": "channel",
+   "name": "Jutarnji list",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCoygYX3L4vBCR4T-EhafUTg/videos",
+   "follower_count": 81600,
+   "description": "Vijesti i zanimljivosti iz zemlje i svijeta pratite na našem kanalu kroz video reportaže, intervjue i druge formate.",
+   "originals": 21,
+   "originals_30min": 21,
+   "avg_original_min": 187,
+   "derivative_ratio": 0.77,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Tržište kapitala 2025.",
+    "Puhovski u emisiji Jutarnjeg: ‘Plenković sada u koaliciji ima mrtve duše, jest će mu iz ruke'",
+    "Puhovski: ‘Ovo što se dogodilo u Zagrebu nije dobro; Gotovac: ‘Perverzija, porno film‘",
+    "Izbor za Miss Universe Hrvatske 2025.",
+    "U debati Jutarnjeg napali Tomaševića i Selak Raspudić: 'Marija, hoćeš li mu dati ruku...'",
+    "'Milanović bi trebao održati inauguraciju na Trgu Svetog Marka!'",
+    "Koncert dobrodošlice iz HNK Ivana pl. Zajca u Rijeci",
+    "Puhovski: 'Pred Hrvatskom je katastrofa, Milanović je naš najgori predsjednik u povijesti'"
+   ],
+   "sample_derivatives": [
+    "Konferencija za medije hrvatske nogometne reprezentacije uoči utakmice protiv Češke (146s)",
+    "Predstavljen projekt za novi stadion Maksimir i Sportsko-rekreacijski centar Svetice (160s)",
+    "Konferencija za medije stranke Most (5 min < prag 71 min)",
+    "Ante Kujundžić o pravima hrvatskih branitelja (170s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClsErnRt3tpnQUBtiWJOD6A",
+   "type": "channel",
+   "name": "American Academy of Arts & Sciences",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClsErnRt3tpnQUBtiWJOD6A/videos",
+   "follower_count": 12000,
+   "description": "",
+   "originals": 54,
+   "originals_30min": 54,
+   "avg_original_min": 82,
+   "derivative_ratio": 0.29,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Can Regulation Keep Pace with AI in Mental Healthcare?",
+    "Tech Companies and Practitioners Working Together to Safely Provide Mental Health Care Using AI",
+    "AI, Science, and Discovery with James Manyika, Aviv Regev, and Eric Topol",
+    "Do the Founding Ideals Still Shape America at 250?",
+    "Elizabeth Hillman and Adam Falk on Commemoration, Education, and Public Memory",
+    "Honorary Society Prizes for Claudia Goldin, Greg Grandin, and Jan Ziolkowski",
+    "Jason Moran and Viet Nguyen Discuss Why Artists Create",
+    "What Can We Learn about Rebuilding from Los Angeles?"
+   ],
+   "sample_derivatives": [
+    "Brian Uzzi, Sociologist and Professor of Leadership - Academy Induction Address, 2025 (11 min < prag 27 min)",
+    "Gregory H. Robinson, Professor of Chemistry - Academy Induction Address 2025 (10 min < prag 27 min)",
+    "Ashish Jha, Physician and Public Health Leader - Academy Induction Address, 2025 (11 min < prag 27 min)",
+    "Jacqueline Woodson, Author - Academy Induction Address, 2025 (10 min < prag 27 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCXCLaaClAWQiTkl3pw9ZdLw",
+   "type": "channel",
+   "name": "Law&Crime Trials",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCXCLaaClAWQiTkl3pw9ZdLw/videos",
+   "follower_count": 1000000,
+   "description": "Law & Crime is the leading multi-platform network that covers live court video, high-profile criminal trials, crazy crime, celebrity justice, and smart legal analysis. Created by TV’s top legal commentator and attorney, Dan Abrams, Law & Crime brings common sense written and video analysis to the often confusing and always intriguing world of the law. The network's team of journalists and lawyers provide real-time news updates along with live courtroom coverage of the most fascinating trials and legal stories. Watch the courtroom drama unfold live by tuning in at 9am ET each morning M-F. \n\nWat",
+   "originals": 27,
+   "originals_30min": 27,
+   "avg_original_min": 443,
+   "derivative_ratio": 0.7,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Wife Who Fatally Shot Husband Wants Murder Charge Dismissed",
+    "LIVE: Pastor’s Deadly Sin Trial — OH v. Caleb Flynn — Day 5",
+    "LIVE: Fishing Trip Murder Trial — FL v. Tony ’TJ' Wiggins — Day 8",
+    "LIVE: Fishing Trip Murder Trial — FL v. Tony ’TJ' Wiggins — Day 7",
+    "LIVE: Pastor’s Deadly Sin Trial — OH v. Caleb Flynn — Day 4",
+    "LIVE: ‘Killer’ Surgeon on Trial — FL v. Tomasz Kosowski — Day 7",
+    "LIVE: Fishing Trip Murder Trial — FL v. Tony ’TJ' Wiggins — Day 6",
+    "LIVE: Pastor’s Deadly Sin Trial — OH v. Caleb Flynn — Day 3"
+   ],
+   "sample_derivatives": [
+    "Missing Attorney’s Husband Reveals His Final Memory of Him (32 min < prag 166 min)",
+    "Pastor ‘Was Her First Time’ Before Breaking Her Heart: Mistress (17 min < prag 166 min)",
+    "Pastor’s Mistress Admits Lying to FBI After Murder (15 min < prag 166 min)",
+    "Pastor’s Mistress Gave Flynn Final Deadline to Leave Wife (28 min < prag 166 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC081faKTKatWEEMrPtyE_Og",
+   "type": "channel",
+   "name": "poslovniFM",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC081faKTKatWEEMrPtyE_Og/videos",
+   "follower_count": 54,
+   "description": "",
+   "originals": 32,
+   "originals_30min": 32,
+   "avg_original_min": 41,
+   "derivative_ratio": 0.47,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Harapin Molc: Radna sreća nije luksuz, nego imperativ svake organ...",
+    "Harapin Molc: Radna sreća nije luksuz, nego imperativ svake organizacije",
+    "Mustapić: Logistika više nije samo isporuka, već postaje stratešk...",
+    "Mustapić: Logistika više nije samo isporuka, već postaje strateška funkcija svakog poduzeća",
+    "Agrovizija: Hrvatski startup uz pomoć dronova i umjetne inteligen...",
+    "Vineyard Angel: Hrvatska inovacija koja uz pomoć umjetne inteligencije i dronova mijenja budućnos...",
+    "Kliček: Bez industrije nema dugoročnog prosperiteta",
+    "Kliček: Bez industrije nema dugoročnog prosperiteta"
+   ],
+   "sample_derivatives": [
+    "Dr. Karlica Utrobičić: Prije privatnog zdravstva najprije treba s... (24 min < prag 30 min)",
+    "Dr. Karlica Utrobičić: Prije privatnog zdravstva najprije treba steći kliničko iskustvo (24 min < prag 30 min)",
+    "Brend Forum 2026 | After Movie ⭐ (105s)",
+    "Rojnica Šunjić: Svatko ima prepoznatljiv stil i može doći do kupc... (24 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR poslovni radio/podcast; dupli uploadi (isti naslov kraći+dulji). Uzorak: 32/60 ≥30 min, kratkih <10 min 35 %.",
+     "tags": [
+      "business",
+      "media"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCnTnTM4s4BvBEO5wOBY_lsg",
+   "type": "channel",
+   "name": "Industry Talks",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCnTnTM4s4BvBEO5wOBY_lsg/videos",
+   "follower_count": 345,
+   "description": "",
+   "originals": 13,
+   "originals_30min": 13,
+   "avg_original_min": 62,
+   "derivative_ratio": 0.24,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "IndustryTalks E13: Manuel Brković",
+    "IndustryTalks E12: Sergio Galošić",
+    "IndustryTalks E11: James P. Womack",
+    "IndustryTalks #E10: Đuro Horvat",
+    "IndustryTalks #E9: Stjepan Šafran",
+    "IndustryTalks #E8: Davor Gečić",
+    "IndustryTalks #E7: Mladen Šarlija",
+    "IndustryTalks #E6: Kristian Krpan"
+   ],
+   "sample_derivatives": [
+    "IndustryTalks #E7: Mladen Šarlija - Razgovor iz proizvodnje (22 min < prag 30 min)",
+    "IndustryTalks #E7: Mladen Šarlija - Najava (78s)",
+    "IndustryTalks #E5: Razvoj proizvoda (83s)",
+    "IndustryTalks #E3:  Lean Menadžment (6 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR industrijski intervjui, 13/17, neaktivan. Uzorak: 13/17 ≥30 min, kratkih <10 min 18 %.",
+     "tags": [
+      "business",
+      "technology"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCNHhj5X0gxF25oz9M_sgFKg",
+   "type": "channel",
+   "name": "Du STEM",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCNHhj5X0gxF25oz9M_sgFKg/videos",
+   "follower_count": 15,
+   "description": "Du STEM je projekt namijenjen jačanju kapaciteta organizacija civilnog društva (OCD) za popularizaciju STEM-a. Zajednica tehničke kulture Grada Dubrovnika će projekt Du STEM provoditi kroz dvije godine (20. svibanj 2021. – 20. svibanj 2023.) u suradnji s partnerima Sveučilištem u Dubrovniku, Univerzalnim istraživačkim institutom UR, Zajednicom tehničke kulture Dubrovačko-neretvanske županije i Informatičkim klub Futura i suradnicima Modelarskim institutom Nave Dumins, Društvom brodomodelara Argosy, Aeroklubom Nimbus i Maritimo Recyclingom. Ukupna vrijednost projekta je 2.660.083,07 HRK. Projek",
+   "originals": 14,
+   "originals_30min": 7,
+   "avg_original_min": 36,
+   "derivative_ratio": 0.36,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Du STEM Podcast (E4) - Ante Medić",
+    "Du STEM Podcast (E5) - Dragica Jerkov",
+    "Du STEM: Predavanje Deborah Hustić - Simpozij STEM Hrvatska",
+    "Du STEM: Predavanje Roberto Vdović - Simpozij STEM Hrvatska",
+    "Tutorijal - Uvod u virtualno Arduino programiranje (Bioelektronička akademija 2023)",
+    "Du STEM Podcast (E3) - Deborah Hustić",
+    "Du STEM // Proširena stvarnost (VR & Hologrami)",
+    "Du STEM: Predavanje Vedran Kocijan - Simpozij STEM Hrvatska"
+   ],
+   "sample_derivatives": [
+    "Klub Mladih Znanstvenika (pod okriljem Du STEM projekta) (10 min < prag 19 min)",
+    "Science & Technology rezidencija  - Voda, hrana i 4. industrijska revolucija (Du STEM) (10 min < prag 19 min)",
+    "Du STEM: Predavanje Zrinka Valetić - Simpozij STEM Hrvatska (15 min < prag 19 min)",
+    "Du STEM // Festival (10 min < prag 19 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCFYznqC_ctZHCOiahCk-T5A",
+   "type": "channel",
+   "name": "Centar za poduzetništvo DNŽ",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCFYznqC_ctZHCOiahCk-T5A/videos",
+   "follower_count": 209,
+   "description": "Centar za poduzetništvo d.o.o. djeluje na području Dubrovačko-neretvanske županije s naglaskom na razvoj obrtništva te malog i srednjeg poduzetništva.",
+   "originals": 22,
+   "originals_30min": 22,
+   "avg_original_min": 84,
+   "derivative_ratio": 0.6,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Radionica: Izmjene zakona o fiskalizaciji",
+    "Radionica \"Praktični savjeti kako samostalno voditi paušalni obrt\"",
+    "Radionica „Korištenje financijskih instrumenata Hrvatske banke za obnovu i razvitak (HBOR) iz NPOO“",
+    "Seminar „Od po'ja do pjata“",
+    "Radionica \"Kako postići rast poslovanja sužavanjem niše?\"",
+    "Radionica \"Tajne korporativnog planiranja za male poduzetnike\"",
+    "Konferencija “Otporni turizam koji radi za nas”",
+    "Konferencija „Budi kotačić promjene: Diversifikacija dubrovačkog turističkog proizvoda“"
+   ],
+   "sample_derivatives": [
+    "Predstavljanje stanara mreže Poduzetničkih inkubatora DNŽ - DL Design Studio (8 min < prag 35 min)",
+    "Predstavljanje stanara mreže Poduzetničkih inkubatora DNŽ - PMC (136s)",
+    "Predstavljanje stanara mreže Poduzetničkih inkubatora DNŽ - Design with Jelena (4 min < prag 35 min)",
+    "Predstavljanje stanara mreže Poduzetničkih inkubatora DNŽ - LJU & ME PHOTOGRAPHY (4 min < prag 35 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC_m1oUYrvCWDmGJRM3TYLpQ",
+   "type": "channel",
+   "name": "IT zajednica Rijeka",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/videos",
+   "follower_count": 208,
+   "description": "Cilj ovog kanala je povećati suradnju unutar IT sektora u Hrvatskoj s naglaskom na Rijeku i okolicu.\n\n",
+   "originals": 37,
+   "originals_30min": 34,
+   "avg_original_min": 59,
+   "derivative_ratio": 0.59,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "TECH ĆAKULA #28 | IOLAP RIJEKA | BY IT ZAJEDNICA RIJEKA",
+    "Tech Ćakula #28 | iOLAP Rijeka | by IT zajednica Rijeka",
+    "Book Review: \"Do Present \" -Mark Shayler s Mariann Makrai - Tech ćakula #18 by IT zajednica Rijeka",
+    "ALT CAM VIEW - Prvi sastanak IT zajednice Rijeka | IT zajednica Rijeka",
+    "Vještine i znanja za uspješan početak karijere: Mirjana Fijolić | IT Zajednica Rijeka",
+    "LIVE Interview -Slaven Damjanović  eAgrar",
+    "LIVE : Kako na Linkedinu do novih kupaca i poslovnih partnera?",
+    "Filip Elez - Casual tech talk #3"
+   ],
+   "sample_derivatives": [
+    "UNCONFERENCE#18 |  Matea Mužić - Selekcijski proces i intervju | Powered by Elixirr Digital ex.iOLAP (4 min < prag 21 min)",
+    "UNCONFERENCE#18 |  Nikolina i Ivan - Stečene vještine i AI | Powered by Elixirr Digital, ex iOLAP (136s)",
+    "UNCONFERENCE#18 | Magdalena Matas - Kako pravilno napisati CV | Powered by Elixirr Digital, ex iOLAP (4 min < prag 21 min)",
+    "UNCONFERENCE#18 | Ivan, Nikolina i Ines - Mentoriranje | Powered by Elixirr Digital, ex iOLAP (114s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Riječka IT zajednica, 32 epizode uživo. Uzorak: 63/120 ≥30 min, od toga 56 live (/streams), kratkih <10 min 42 %.",
+     "tags": [
+      "technology",
+      "regional"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCoA7CqPuvpWQGWJ8bfIrImA",
+   "type": "channel",
+   "name": "TheOutlier Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCoA7CqPuvpWQGWJ8bfIrImA/videos",
+   "follower_count": 85,
+   "description": "A podcast aimed at honoring The Outliers.\n\n",
+   "originals": 55,
+   "originals_30min": 9,
+   "avg_original_min": 25,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Inside a Community Bank CFO’s Strategy for AI & Tech | Dan Carey,   CFO of Cambridge Savings Bank",
+    "Driving 4 Years of Record Credit Union Earnings | Neil Gordon, CFO, Lighthouse Credit Union",
+    "Blending Eastern Wisdom and Western Business Leadership | Neville Billimoria, CMO of Mission Fed",
+    "What’s Real vs Hype in Financial AI | Umesh Babaria, Head of Consumer Analytics & AI, KeyBank",
+    "From AI Experiments to Enterprise Impact : Scott Kuhlman, Chief AI Officer & Sumeet Bhalla, CLO",
+    "Building Nutanix, Cohesity & Beyond | Mohit Aron, Founder - Nutanix and Cohesity",
+    "AI & Cloud in Banking: The Future of Lending | Deepak Nayak, Director Product Eng, Citizens Bank",
+    "Modernizing Banking Tech & AI Realities in Finance | Jennifer Smith former CIO of Zions Bank"
+   ],
+   "sample_derivatives": [
+    "Tech Leadership & AI in Credit Unions — Eric Cardona, VP of Tech, Provident CU (13 min < prag 15 min)",
+    "Data Science vs. AI Hype: Future of MarTech & AI Governance | Kirun Amiri - CIO, Entravision (13 min < prag 15 min)",
+    "Building the AI Brain for Credit Unions ft. Anubhav, Co-founder & CPO of ShiftMate AI (15 min < prag 15 min)",
+    "\"Why Credit Unions Can't Be Everything to Everybody | Brian Waldron, CEO, Dort Financial (12 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCwZFcFO7A4R1nRvkCGqQ21w",
+   "type": "channel",
+   "name": "Business Café",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCwZFcFO7A4R1nRvkCGqQ21w/videos",
+   "follower_count": 655,
+   "description": "Business Café je druženje malih poduzetnika i onih koji to žele biti s ciljem razmjene informacija, dijeljenja poduzetničkih iskustava i ohrabrivanja na pokretanje vlastitog posla. Ideja se rodila čitajući istraživanje jedne agencije koje je pokazalo da se 57% poslova dogovori uz kavu, a vlastito iskustvo pokazalo je da je umrežavanje jedno od ključeva za uspjeh.\n\nDruženja se organiziraju svaka 2 mjeseca na različitim lokacijama, a goste uz inspirativne poznate poduzetnike u ugodnom društvu očekuju i korisne informacije i zanimljive nagrade.\n\nDvije su osnovne poruke Business Caféa:\n1. NISMO SA",
+   "originals": 32,
+   "originals_30min": 30,
+   "avg_original_min": 62,
+   "derivative_ratio": 0.58,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Business Cafe BiH 1. live, 30.11.2020.",
+    "55. Business Cafe u Zagrebu - M.Rimac, U. Sršen, J.Bašić, B.Horvat",
+    "50. Business Café Zagreb - JUBILARNO I NAJVEĆE IZDANJE DO SAD - cijela snimka",
+    "Kristina Ercegović predavanje za Mostar",
+    "7. Business Café Dubrovnik - cijela snimka",
+    "6. Business Café Dubrovnik – Lokalni heroji",
+    "9. Business Café Istra, Pula - cijela snimka",
+    "14. Business Café Beograd - ceo snimak"
+   ],
+   "sample_derivatives": [
+    "Business Cafe promo video (4 min < prag 26 min)",
+    "55. Business Cafe u Zagrebu – MATE RIMAC izjava (125s)",
+    "10. Business Café v Sloveniji - Ponovni začetek⎮Second chance (126s)",
+    "52.  Business Café u Zagrebu - atmosfera (3 min < prag 26 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCcefcZRL2oaA_uBNeo5UOWg",
+   "type": "channel",
+   "name": "Y Combinator",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCcefcZRL2oaA_uBNeo5UOWg/videos",
+   "follower_count": 2400000,
+   "description": "All the world is changing around technology and you may contribute a line of code. What will yours be? \n\nSubscribe for startup advice, founder stories, and a look inside Y Combinator.\n\nWhat is Y Combinator?\nWe invest $500,000 in every startup and work intensively with the founders for three months. For the life of their company, founders have access to the most powerful community in the world, essential advice, later-stage funding and programs, recruiting resources, and exclusive deals. \n\nVisit ycombinator.com to learn more.\n\n",
+   "originals": 59,
+   "originals_30min": 55,
+   "avg_original_min": 72,
+   "derivative_ratio": 0.21,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "The State of Startups in 2026",
+    "Why The Harness Matters More Than The Model | YC Paper Club",
+    "Open Models Change The Economics of AI",
+    "Max Junestrand: You Need The Willingness To Learn Faster Than Anyone Else",
+    "Going In Deep On Data | YC Paper Club",
+    "Michael Kratsios: Inside the White House's AI Strategy",
+    "Susan Kare: Designing Icons & Graphics For the Original Mac",
+    "Chelsea Finn: This is the State of the Art in Robotics"
+   ],
+   "sample_derivatives": [
+    "Why You're Getting Zero Replies To Your Cold Emails (13 min < prag 26 min)",
+    "Paul Graham On Startups, Ambition, and Great Founders (21 min < prag 26 min)",
+    "The World’s Largest Electric Aircraft Just Flew (15 min < prag 26 min)",
+    "Circleback CEO Ali Haghani: Why Your Company Should Be Recording More Meetings (15 min < prag 26 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC5G48syi8BJd0UqRkS08hVg",
+   "type": "channel",
+   "name": "Digitalna Kultura",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/videos",
+   "follower_count": 3000,
+   "description": "Digitalna Kultura je YouTube kanal o tehnologiji bez hypea, marketinga i prodaje magle. Voditelji Ivan J. Mandić (Ivša) i Mihael Sertić (Buca) pričaju o hardveru, softveru, gadgetima, igrama i digitalnim trendovima iz perspektive stvarnih korisnika, a ne PR materijala.",
+   "originals": 41,
+   "originals_30min": 41,
+   "avg_original_min": 77,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Televizori imaju užasan zvuk, ali to ne mora biti tako",
+    "iPhone Duo: Revolucija ili Appleov zakašnjeli odgovor?",
+    "Buca prvi put igra Zeldu Breath of the Wild",
+    "Čitava Povijest Nintenda: Od karata do Switcha 2",
+    "Američka vlada je potvrdila UAP-e, ali ne ono što mislite",
+    "3D Filmovi: Uspon i pad budućnosti kina",
+    "Minecraft nema pravi cilj. I baš zato je genijalan!",
+    "Od PayPala do Marsa: Uspon Elona Muska"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR tech/gaming podcast, epizode 1-3 h; kanal mlad (41 video). Uzorak: 41/41 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "technology",
+      "gaming",
+      "pop-culture"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCBLK_Tu0dc7voXT40G69dPg",
+   "type": "channel",
+   "name": "Omcoo",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCBLK_Tu0dc7voXT40G69dPg/videos",
+   "follower_count": 3630000,
+   "description": "Hello and welcome!!!\n...are you ready for this???\n",
+   "originals": 27,
+   "originals_30min": 7,
+   "avg_original_min": 27,
+   "derivative_ratio": 0.55,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "We Turn Into Bad Guys - Compilation",
+    "KPop Demon Hunters are Pregnant Compilation",
+    "Goo Goo Gaga - Compilation",
+    "KPop Demon Hunters Stories",
+    "KPop Demon Hunters Compilation",
+    "Serbian Dancing Lady Compilation",
+    "I Become Bad Guy Compilation",
+    "Skibidi Man VS Spider-Man VS Car"
+   ],
+   "sample_derivatives": [
+    "Breaking An Old Cars - Mashup (13 min < prag 15 min)",
+    "Me VS 67 (8 min < prag 15 min)",
+    "Joker and His Family (135s)",
+    "Superheroes Save The Day (8 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCEL8iO89M44CjPQMI5uXM3g",
+   "type": "channel",
+   "name": "Vedran Soric",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCEL8iO89M44CjPQMI5uXM3g/videos",
+   "follower_count": 80500,
+   "description": "Vedran Soric is a sales trainer and consultant with 20+ years of experience in the sales owning 2 companies dealing with sales - Sorbel Group & Prodajni Mindset.\n\nWith managerial positions in several corporations and entrepreneurial experience from four companies, he has built a reputation as a dynamic, results-oriented individual with a strong presence. \n\nSince the beginning of his sales career he has held various positions in the sales sector, ranging from sales representative, Key Account Manager, regional sales manager, business development manager, to sales director, and ultimately execut",
+   "originals": 56,
+   "originals_30min": 56,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.07,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "KAKO SE ZAPRAVO ZARAĐUJE OD IGRANJA IGRICA? // Neno Hadžihajdić (Pvt Mole)",
+    "ŠTO SE DOGODILO NOKIJI? // Nikolina Finska",
+    "BACAMO LI NOVAC NA POGREŠNA ENERGETSKA RJEŠENJA? // Stjepan Mikleušević",
+    "POPULARNOST ILI POŠTOVANJE — ŠTO JE VAŽNIJE? // Mia Kovačić",
+    "Antonio Brajković: “EVO GDJE VEĆINA ODUSTANE”",
+    "VJEKO PERETIĆ - NAJGORA FINANCIJSKA GREŠKA KOJU LJUDI RADE",
+    "ILIJA BRAJKOVIĆ - ZAŠTO VEĆINA FIRMI IZGLEDA USPJEŠNIJE NEGO ŠTO JEST?",
+    "TOMO RICOV - KAKO NAPRAVITI DOGAĐAJ KOJI SE PAMTI?"
+   ],
+   "sample_derivatives": [
+    "Testimonial polaznice Prodajnog Momentuma | Elena Sriča Blašković, virtualna asistentica (5 min < prag 22 min)",
+    "SALES4FUTURE - Aftermovie SHORT (66s)",
+    "SALES4FUTURE - Aftermovie (143s)",
+    "Prodaja je igra. Prodaja je mindset. (34s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR intervju-podcast, 80k pretplatnika, epizode s gostima iz biznisa/IT-a. Uzorak: 56/60 ≥30 min, kratkih <10 min 7 %.",
+     "tags": [
+      "business",
+      "personal-development",
+      "talk-show"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UC8P837qhN0mpfipm2-7hL9A",
+   "type": "channel",
+   "name": "Tapirlo",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC8P837qhN0mpfipm2-7hL9A/videos",
+   "follower_count": 336000,
+   "description": "Ovdje pričamo o nogometnim vijestima, rekordima, zanimljivostima, legendarnim igračima i pričama koje svaki navijač mora znati!\nZbog toga me i zovu Kralj ludih i Bogu nepotrebnih statistika 👑📈\n\n📱Prati me i ovdje:\nInstagram: https://www.instagram.com/tapirlo.fc\nTikTok: https://tiktok.com/@tapirlo.fc\n\n👉 Podrži kanal i postani apsolutna ikona:\nhttps://www.youtube.com/channel/UC8P837qhN0mpfipm2-7hL9A/join\n\n📩 Mail za poslovne upite potražite na:\nhttp://bit.ly/PoslovniUpiti",
+   "originals": 35,
+   "originals_30min": 35,
+   "avg_original_min": 132,
+   "derivative_ratio": 0.61,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Hajduk nakon europe osvaja i HNL?! | Klupa za Rezerve @iza_pjace",
+    "Moja PROGNOZA Premier lige – šok na vrhu?!",
+    "Ovo su NAJGORI i NAJBOLJI dresovi na Balkanu",
+    "Rangiram sezone klubova - 2025/26",
+    "Izbor NAJBOLJEG dresa - Svjetsko prvenstvo 2026",
+    "Chelsea - Arsenal | LIVE WatchAlong w/ Tapirlo & navijači Arsenala",
+    "Dinamo - Hajduk | LIVE WatchAlong w/ Tapirlo & navijači",
+    "Portugal - HRVATSKA | Srbija - Španjolska | LIVE WatchAlong w/ Tapirlo"
+   ],
+   "sample_derivatives": [
+    "Mogu li Hrvatska i BIH rasturiti Ligu nacija? Moje analize i prognoze (34 min < prag 45 min)",
+    "Mourinho POLUDIO zbog krađe Reala | Tottenham ZADNJI | The Offside 406 (25 min < prag 45 min)",
+    "Misterija na novom dresu Hrvatske? | Sterling u zatvor? | The Offside 405 (19 min < prag 45 min)",
+    "Može li Dinamo osvojiti Europa ligu? Moje prognoze! (21 min < prag 45 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCpcv404DxfhGYhXgyB9Aoeg",
+   "type": "channel",
+   "name": "Triton Poker",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCpcv404DxfhGYhXgyB9Aoeg/videos",
+   "follower_count": 443000,
+   "description": "Welcome to Triton Poker – the world’s most prestigious high-stakes poker tour. Home to legendary showdowns, jaw-dropping pots, and elite players, Triton Poker brings you exclusive access to the biggest poker events across the globe. You'll experience the intensity, strategy, and drama of the most luxurious poker series in the world. \n\nJoin us for unforgettable hands, champion moments, and the ultimate high-roller experience. From luxury locations to intense live streams, this is poker at its highest level – raw, real, and relentless.\n\nFor Business inquiries, please use the contact information ",
+   "originals": 32,
+   "originals_30min": 32,
+   "avg_original_min": 597,
+   "derivative_ratio": 0.64,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "🔥 DUEL Heads-Up | Ossi ‘Monarch’ Ketola vs Wiktor ‘Limitless’ Malinowski",
+    "$100K NLH Main Event – Final Table | Triton Poker Series X WSOP Paradise 2025",
+    "$125K NLH 7-Handed – Final Table | Triton Poker Series X WSOP Paradise 2025",
+    "$150K NLH 10th Anniversary Special – Event #15 (Final Day) | Triton SHRS Jeju II 2026",
+    "$100K NLH Main Event – Event #12 (Final Day) | Triton SHRS Jeju II 2026",
+    "$100K NLH Main Event – Event #12 (Day 2) | Triton SHRS Jeju II 2026",
+    "$200K NLH Triton Invitational – Event #10 (Final Day) | Triton SHRS Jeju II 2026",
+    "$200K NLH Triton Invitational – Event #10 (Day 2) | Triton SHRS Jeju II 2026"
+   ],
+   "sample_derivatives": [
+    "🔱 Triton ONE arrives in North Cyprus this November 2026 (31s)",
+    "Day 14 Highlights 🔱 $150K 10th Anniversary (16 min < prag 250 min)",
+    "Day 13 Highlights 🔱 $100K Main Event (3/3) (15 min < prag 250 min)",
+    "Day 12 Highlights 🔱 $100K NLH Main Event (2/3) (8 min < prag 250 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCX3nwNDoPxo7ZBHjkk1WLGA",
+   "type": "channel",
+   "name": "AmiG Show",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCX3nwNDoPxo7ZBHjkk1WLGA/videos",
+   "follower_count": 1410000,
+   "description": "Dobro došli na zvanični Youtube kanal emisije AmiG Show!\n\nHvala na poverenju i budite uz emisiju \"Amidži šou\" koja se emituje svakog utorka u 22 časa na Tv Pink-u.\n\nTakođe posetite i zapratite naše stranice na društvenim mrežama.\n",
+   "originals": 22,
+   "originals_30min": 22,
+   "avg_original_min": 71,
+   "derivative_ratio": 0.76,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "3.emisija (Cela emisija) (22.09.2026.) (AmiG Show S19)",
+    "2.emisija (Cela emisija) (15.09.2026.) (AmiG Show S19)",
+    "1.emisija (Cela emisija) (08.09.2026.) (AmiG Show S19)",
+    "Best of 4 (AmiG Show S18)",
+    "Best of 3 (AmiG Show S18)",
+    "Best of 2 (AmiG Show S18)",
+    "Best of 1 (AmiG Show S18)",
+    "47.emisija (Cela emisija) (04.08.2026.) (AmiG Show S18)"
+   ],
+   "sample_derivatives": [
+    "Nadežda Biljić o borbi sa rakom (AmiG Show S19) (9 min < prag 35 min)",
+    "Pitanja ljudi sa instagrama - AmiG Show S19 - E03 (9 min < prag 35 min)",
+    "Moja kombinacija - AmiG Show S19 - E03 (10 min < prag 35 min)",
+    "Čudan predmet - AmiG Show S19 - E03 (10 min < prag 35 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCzrKf-kuv_BIx8SQa8YRbBg",
+   "type": "channel",
+   "name": "Srbija Danas",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCzrKf-kuv_BIx8SQa8YRbBg/videos",
+   "follower_count": 109000,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 55,
+   "derivative_ratio": 0.75,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kada telo počinje da gubi snagu: Kako sačuvati pokretljivost i samostalnost u starijem dobu",
+    "Injekcije za mršavljenje pod lupom: Kome pomažu, a za koga mogu biti pogrešan izbor!",
+    "UČESTALE URINARNE INFEKCIJE KOD DECE MOGU UGROZITI BUBREGE: Ovo su znaci za uzbunu!",
+    "Ženite žene koje su imale preko 30 muškaraca! Ženi ne treba pratilac, već vođa!",
+    "Ne ulazite u brak ako niste spremni na razvod! Raspored prilagodite prioritetima!",
+    "Roditelji, oprez! Kako prepoznati alergije kod dece i izbeći greške tokom virusa",
+    "LEKARI, NASILJE I BORBA ZA ŽIVOT: Maja, Tanja i Dragan otkrile kroz kakav su pakao prošle",
+    "Sve mlađi obolevaju od ovih bolesti! Kako prepoznati prve znake moždanog udara!"
+   ],
+   "sample_derivatives": [
+    "Najveći honorar i poseban apartman: Milena Kačavenda ulazi u \"Elitu 10\" (12 min < prag 27 min)",
+    "Ekskluzivni snimak Mirke Vasiljević: Evo kakva je zaista glumica van kamera! (31s)",
+    "Sahrana Ratka Mladića snimci iz drona (121s)",
+    "Karleuša emotivna povodom rođendana naslednica: Pevačica, Atina i Nika se rasplakale na pomen Divne (11 min < prag 27 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCbI6g8MNZUF67nBLES2sRkg",
+   "type": "channel",
+   "name": "serb‧fun",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCbI6g8MNZUF67nBLES2sRkg/videos",
+   "follower_count": 2060,
+   "description": "",
+   "originals": 7,
+   "originals_30min": 6,
+   "avg_original_min": 65,
+   "derivative_ratio": 0.88,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kapetan Dragan - Hotel California",
+    "Serbian Krajina presidential election (1993)",
+    "Dnevnik SRT",
+    "Borislav Zorić Ličanin - Ameriko ne diraj Srbiju (Ljuti Kordunaš reupload)",
+    "Jandrino Jato - Čuvaj Knine naše običaje (Ljuti Kordunaš reupload)",
+    "Svijet Renomea - Najljepši Krajiški Hitovi (Ljuti Kordunaš reupload)",
+    "Mile Delija - Oj Srbijo Majko ne plaši se rata (1993)"
+   ],
+   "sample_derivatives": [
+    "Прва линија - Батеријо (4 min < prag 26 min)",
+    "23.2.1992 (142s)",
+    "Dveri - Himna ZA Život Srbije (4 min < prag 26 min)",
+    "Pirgo playing (148s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCrekW01JOy-dPoTCJk2SYNQ",
+   "type": "channel",
+   "name": "Noći Bez Cenzure",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos",
+   "follower_count": 2130,
+   "description": "DOBRODOŠLI U NAJKONTROVERZNIJI PODCAST NA BALKANU\n\n\n🔮✨ Spremni za razgovore bez filtera?\nOno što se inače šapće iza zatvorenih vrata sada dolazi na mikrofon i pred kamere. 🎙️💋\n\n\nNišta uljepšano. Ništa cenzurirano. Samo iskrene priče i otvoreni razgovori.\n\n\n👀 Hoćeš li imati hrabrosti slušati (i gledati) do kraja?\n\n#NoćiBezCenzure ",
+   "originals": 30,
+   "originals_30min": 29,
+   "avg_original_min": 55,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Epizoda 25 - Josip Ercegović (SWINGERS TALK)",
+    "Epizoda 24 - Bruno Bernardis (Diablo Men`s Club) ft BirkiMrak",
+    "Epizoda 23 - Matea Afrodita (SWINGERS TALK)",
+    "Epizoda 22 - DIABLO Men's Club",
+    "Epizoda 21 - Marko Martinjak (SVJETSKI BKB PRVAK)",
+    "EPIZODA 20 - FunTom & BirKi (TRAP KURVE DROGA)",
+    "Epizoda 19 - Prvi put javno: Istina o swingerskom životu (BEZ FILTERA)",
+    "EPIZODA 18 - Tajne biljara"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR podcast o seksualnosti/vezama, 25 numeriranih epizoda. Uzorak: 29/30 ≥30 min, od toga 4 live (/streams), kratkih <10 min 0 %.",
+     "tags": [
+      "relationships",
+      "lifestyle"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCV6nc4qEigMeM6mwQU6OAdA",
+   "type": "channel",
+   "name": "Cycling Side",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCV6nc4qEigMeM6mwQU6OAdA/videos",
+   "follower_count": 1820,
+   "description": "Na misiji transformacije biciklizma u Hrvatskoj kako bi postao profesija za bicikliste i trenere.\n\n-Podcast\n-videozapisi pregleda staza\n-FPV utrka\n-trening tips\n\nobratite nam se za suradnju: cyclingside@gmail.com\n",
+   "originals": 20,
+   "originals_30min": 20,
+   "avg_original_min": 77,
+   "derivative_ratio": 0.68,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Bol u donjem djelu leđa - zašto je česta pojava? | Vanja Došen",
+    "Pushing Hardest for the Ones Behind Me - Valerie Rupitsch | #cyclingside",
+    "Capoeira - Teo Koller",
+    "Smirenost, strast za vožnjom, pobjeđivanje | podcast s Peter Vesel #cyclingside ",
+    "Za Tadej Pogačar naučiti ću slovenski | Josip Juričić - biciklizam.net",
+    "podcast | 24h Downhill-a - Sebastijan Šajina | #cyclingside",
+    "Od klinicke smrti do postolja - Aleksa Dudic, multisportas | cyclingside podcast",
+    "David Sandić  - bivši vrlo uspješan biciklist"
+   ],
+   "sample_derivatives": [
+    "Biciklom po Čičariji 2026 (21 min < prag 30 min)",
+    "Biciklizam u \"tema dana\" na #MedulinFM radiju (19 min < prag 30 min)",
+    "Enduraga - sudjeluj i ti ! (54s)",
+    "Kada se mjenja lanac na biciklu i kako? | Sram GX vs XX1 (13 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR biciklistički podcast, dio na engleskom. Uzorak: 20/62 ≥30 min, od toga 2 live (/streams), kratkih <10 min 37 %.",
+     "tags": [
+      "sport",
+      "cycling"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCzGpSiF2BW0e0PDhEFwFkwQ",
+   "type": "channel",
+   "name": "Vox Medicus",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCzGpSiF2BW0e0PDhEFwFkwQ/videos",
+   "follower_count": 2730,
+   "description": "Vox Medicus je podcast o zdravlju i medicini koji kroz razgovore s liječnicima i vrhunskim stručnjacima donosi provjerene, znanstveno utemeljene informacije o bolestima, prevenciji i suvremenim metodama liječenja.\nNaš cilj je povećati zdravstvenu pismenost, pomoći ljudima da bolje razumiju svoje tijelo te pružiti medijski prostor istaknutim liječnicima koji imaju mnogo vrijednog stručnog znanja i iskustva za podijeliti - jasno, pouzdano i s iskrenom brigom za slušatelja.\n",
+   "originals": 31,
+   "originals_30min": 27,
+   "avg_original_min": 39,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Rak dojke i štitnjače, doc.dr.sc. Vesna Ramljak, spec. kliničke citologije",
+    "SAVJETI FARMACEUTA 2. DIO, mag.pharm Andrea Duspara Brnić",
+    "Komplikacije u trudnoći, Prof.dr.sc. Snježana Škrablin, subspec. fetalne med., i humane reprodukcije",
+    "POREMEĆAJ IZ SPEKTRA AUTIZMA, Izv.prof.dr.sc. Sanja Šimleša, psihologinja, ERF",
+    "GINEKOLOŠKA REPRODUKTIVNA I ESTETSKA KIRURGIJA, dr. Marko Kisić, ginekolog i reproduktivni kirurg",
+    "NEURORIZIČNA DJECA, dr.sc. Svetislav Polovina, spec. fizikalne medicine i rehabilitacije",
+    "NAJBOLJI SLUŠNI APARATI DANAS, Dejan Brdarić i Kristijan Škrlec, stručnjaci iz tvrtke Neuroth",
+    "HIV BEZ STIGME Prof.dr.sc. Josip Begovac, infektolog i Edi Kiseljak, novinar i pisac"
+   ],
+   "sample_derivatives": [
+    "Kanal Vox Medicus prenosi stream uživo! (71s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR liječnici specijalisti u razgovoru, 27/31 dugih. Uzorak: 27/32 ≥30 min, kratkih <10 min 3 %.",
+     "tags": [
+      "health",
+      "medicine",
+      "education"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCw9XIcKyBgC5WUDEgtwqeFw",
+   "type": "channel",
+   "name": "CoolTuRaj - KreaDiva",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCw9XIcKyBgC5WUDEgtwqeFw/videos",
+   "follower_count": 101,
+   "description": "CoolTuRaj je kanal za kreativce,  podcast KreaDiva bavi se temom kreativnosti u svim područjima ljudskog djelovanja. Predstavlja kreativne pojedince koji imaju svijetu što reći i pokazati. Slušajte i gledajte naše kreaDivne intervjue iz područja umjetnosti, kulture, businessa, marketinga i copywritinga. Kreativci svih zemalja ujedinite se i zapratite nas! Svratite na kreaDivne priče. Amfore mudrosti i ludosti donose originalne autorske aforizme aforistikinje Dijane Perišić Vukobratović, kao i autorske pjesme iste autorice u rubrici Poetry is in the air.",
+   "originals": 3,
+   "originals_30min": 2,
+   "avg_original_min": 33,
+   "derivative_ratio": 0.67,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast KreaDiva - Lidija Šinko Kumić \"Kad rima vlast preuzima\"",
+    "Podcast KreaDiva ‒ Azra Hayer \"You Are Cordially Invited\"",
+    "Podcast KreaDiva ‒ Sanja Repanić Blažičko \"Nek' ti riječ ne bude strana(c)\", Mjesec hrvatske knjige"
+   ],
+   "sample_derivatives": [
+    "U20 Championships 2026. Luka Vukobratovića, Croatia silver medal (4 min < prag 15 min)",
+    "\"VINAFORA\" - ZBORNIK VINSKIH ZAPISA, UHAH 2024. (71s)",
+    "Aforizmi autorice Dijane Perišić Vukobratović iz UHAH-ova zbornika \"Spletke u pleteru\", 2023. (4 min < prag 15 min)",
+    "\"Sreća\", Dijana Perišić Vukobratović (35s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCX_cNqtNYJn3WwkxLRZAm7g",
+   "type": "channel",
+   "name": "SBTV - Slavonskobrodska televizija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCX_cNqtNYJn3WwkxLRZAm7g/videos",
+   "follower_count": 20600,
+   "description": "YouTube kanal Slavonskobrodske televizije i BrodPortala",
+   "originals": 11,
+   "originals_30min": 7,
+   "avg_original_min": 44,
+   "derivative_ratio": 0.83,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "SBTV - PRESSING – DARIO PILIPOVIĆ – 24.09.2026.",
+    "SBTV - BROD KULTURE - 23.09.2026.",
+    "SBTV - LIPA MOJA SLAVONIJA - 22.09.2026.",
+    "SBTV - SPORT PLUS - 21.09.2026.",
+    "SBTV - PRESSING  – 17.09.2026.",
+    "SBTV - BROD KULTURE – 16.09.2026.",
+    "SBTV - LIPA MOJA SLAVONIJA - 15.09.2026.",
+    "SBTV - SPORT PLUS - 14.09.2026."
+   ],
+   "sample_derivatives": [
+    "SBTV - DNEVNIK - ŽKK \"BROD NA SAVI\" – ELITE \"BEAC\" (BUDIMPEŠTA) 76:71 - 24.09.2026. (5 min < prag 15 min)",
+    "SBTV - DNEVNIK - PREDSTAVLJENA \"ŠIZIKA\" – ROMAN O ŽIVOTU UZ DUŠEVNU BOLEST - 24.09.2026. (5 min < prag 15 min)",
+    "SBTV - DNEVNIK - OTVORENJE 4. REUME - 24.09.2026. (3 min < prag 15 min)",
+    "SBTV - DNEVNIK - MINISTAR BAČIĆ U GARČINU – POČINJE GRADNJA VIŠESTAMBENE ZGRADE - 24.09.2026. (5 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC1fC6msmjs8FfVN1u0bHZMg",
+   "type": "channel",
+   "name": "Matica hrvatska",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC1fC6msmjs8FfVN1u0bHZMg/videos",
+   "follower_count": 1290,
+   "description": "http://www.matica.hr",
+   "originals": 33,
+   "originals_30min": 33,
+   "avg_original_min": 69,
+   "derivative_ratio": 0.46,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Tribina Sučeljavanja u Matici hrvatskoj: GEOSTRATEŠKI ODNOSI NA EUROPSKOM JUGOISTOKU",
+    "Matičin podcast - Marko Tadić",
+    "Tribina Sučeljavanja u Matici hrvatskoj: DEMOGRAFSKI SLOM ILI OPORAVAK HRVATSKE",
+    "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - četvrti dan",
+    "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - treći dan",
+    "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - drugi dan",
+    "Tribina Sučeljavanja u Matici hrvatskoj: EKOLOŠKA BUDUĆNOST GRADA ZAGREBA",
+    "Matičin podcast - Davor Velnić"
+   ],
+   "sample_derivatives": [
+    "5. festival knjige u Matici hrvatskoj - najava (61s)",
+    "Libertas – Andrej Grubišić – Maskiranje privatnih ciljeva u javni interes (3 min < prag 30 min)",
+    "Libertas – Aleksandar Musić – Kako manipulacija prodaje neuspješne ekonomske modele (4 min < prag 30 min)",
+    "Libertas – Velimir Šonje – Zašto se iz Hrvatske odlazi, a u Irsku vraća? (7 min < prag 30 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC4DKZ6piAAd14Irf8k5Yv9Q",
+   "type": "channel",
+   "name": "Silva Kalcic",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC4DKZ6piAAd14Irf8k5Yv9Q/videos",
+   "follower_count": 7,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 73,
+   "derivative_ratio": 0.06,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "AICA: Dijalozi Željko Kipke",
+    "Mladen Lučić",
+    "Antun Maracic   web",
+    "AICA Jerica Zihler",
+    "AICA Dijalozi: Zvonko Maković",
+    "AICA Dijalozi Razgovor s Nadom Beroš",
+    "AICA DIJALOZI Razgovor s Leonidom Kovač",
+    "cay kjwc zsp 2020 11 06 at 08 05 GMT 8"
+   ],
+   "sample_derivatives": [
+    "Inter(aktiv), 2016 (23 min < prag 31 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCEqVXgSeccn4t1jcKFuFwcA",
+   "type": "channel",
+   "name": "Matica hrvatska Ogranak Velika Gorica",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCEqVXgSeccn4t1jcKFuFwcA/videos",
+   "follower_count": 46,
+   "description": "",
+   "originals": 58,
+   "originals_30min": 52,
+   "avg_original_min": 52,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "333. Matiičin četvrtak - „L U Č“ br. 13/2025. g.",
+    "332. Matičin četvrtak: VELIKOGORIČKO ŽIDOVSKO GROBLJE: fragment nestajuće baštine",
+    "331. Matičin četvrtak - „GUCI kronika i drugi zôpisi / GUDCI kronika i drugi zapisi“",
+    "330. Matičin četvrtak - VEZA IZMEĐU ČOVJEKA, TLA I HRANE",
+    "329. Matičin četvrtak - Predstavljanje Kulturno umjetničkog društva \"Mičevec\"",
+    "328. Matičin četvrtak - Predstavljanje umjetničke škole Franje Lučića",
+    "327. Matičin četvrtak - \"DEDA, A  JESI  I  TI  IMAO  DEDU?“",
+    "326. Matičin četvrtak - 17. Matičin književni natječaj za kratku priču „TUROPOLJSKA POCULICA“"
+   ],
+   "sample_derivatives": [
+    "U POTRAZI ZA  TUROPOLJSKIM BLAGOM - IŠČEMU TUROPOLSKO BLOGO (20 min < prag 22 min)",
+    "293.  Matičin četvrtak- Sjećanje na žrtvu Vukovara i Škabrnje 1991. (17 min < prag 22 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCPqQWdcS_Qq_vxD0qKMt3Pg",
+   "type": "channel",
+   "name": "RTS Kulturno-umetnički program",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCPqQWdcS_Qq_vxD0qKMt3Pg/videos",
+   "follower_count": 145000,
+   "description": "Dobro došli na Zvanični kanal RTS Kulturno-umetnički program.\n\nOvaj kanal, kao i svi postavljeni video i audio zapisi na kanalu su u vlasništvu Javne medijske ustanove-Radio-Televizije Srbije. Sav zaštićeni sadržaj, odnosno muzika i video materijal će biti uklanjan sa ostalih YouTube kanala.\nIz ovoga će biti izuzeti samo kanali koji od RTS dobiju specijalnu dozvolu.\n\nZa sve informacije o pravima na upload i pravima vlasništva snimaka: \nhttp://www.youtube.com/t/copyright_education/ \n\ninfo: copyrightyt@rts.rs",
+   "originals": 56,
+   "originals_30min": 11,
+   "avg_original_min": 25,
+   "derivative_ratio": 0.07,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kulturni dnevnik | O 53. FESTU | 24.9.2026.",
+    "Kulturni centar (TV RTS 23.9.2026.)",
+    "Kulturni dnevnik | 23.9.2026.",
+    "Zemlja nije moj dom",
+    "Hronika 59. Bitefa | 02 EM",
+    "Vavilon 22.9.2026.",
+    "Kulturni dnevnik | 22.9.2026.",
+    "NTC kviz 4 / 2. emisija"
+   ],
+   "sample_derivatives": [
+    "Kulturni dnevnik | 21.9.2026. (12 min < prag 15 min)",
+    "Kulturni dnevnik | 30.06.2026. (14 min < prag 15 min)",
+    "Molitva | Sveto mesto (1990) (8 min < prag 15 min)",
+    "Ljubavni život Mileta i Mice - SILE U VAZDUHU (1989) (15 min < prag 15 min)"
+   ],
+   "hints": []
+  }
+ ]
+}

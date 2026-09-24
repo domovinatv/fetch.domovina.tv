@@ -1,0 +1,434 @@
+{
+ "key": "UCTnBAvMUWsM2a--hPr9MrPw",
+ "url": "https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw/videos",
+ "channel_id": "UCTnBAvMUWsM2a--hPr9MrPw",
+ "playlist_id": null,
+ "title": "Gaj Tomaš - Videos",
+ "channel": "Gaj Tomaš",
+ "channel_url": "https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw",
+ "description": "",
+ "follower_count": 237,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "fNIpfaqd3gg",
+   "title": "Ep. #248 – Oda jeziku (Vol. II)",
+   "duration": 6030,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "e7T8qFsts28",
+   "title": "Ep. #247 – Oda jeziku (Vol. I)",
+   "duration": 5201,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "CWRMHwe5G4c",
+   "title": "Ep. #246 – Forenzička lingvistika",
+   "duration": 5575,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "X4qtFfpO_P4",
+   "title": "Ep. #245 – Strani jezik, druga osobnost?",
+   "duration": 3646,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "qI9irTwsQ58",
+   "title": "Ep. #244 – Jezik i identitet",
+   "duration": 4757,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "bzwqh3In9Ts",
+   "title": "Ep. #243 – Hrenovka + viršla = hrěnviršla. Međuslavenski jezik.",
+   "duration": 6057,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "YojhzFQn0O8",
+   "title": "Ep. #242 – Osvrt na Jezični savjetnik za 21. stoljeće (Mate Kapović)",
+   "duration": 5043,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "IolYzW_gngU",
+   "title": "Ep. #241 – Vozi Miško! Jezik pop kulture. Nove hrvatske riječi.",
+   "duration": 6399,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "rsPvqFN6-Dk",
+   "title": "Ep. #240 – Jezik kviza. Morana Zibar",
+   "duration": 4571,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "zZPV0NYWo2M",
+   "title": "Ep. #239 – Jezik protesta",
+   "duration": 5732,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "SLOM2cUj1hQ",
+   "title": "Ep. #238 – Poštapalice",
+   "duration": 4976,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "69R-DA6bHoQ",
+   "title": "Ep. #237 – Jezik gradišćanskih Hrvatov. Katharina Tyran",
+   "duration": 3639,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "K6xVTj4-qKU",
+   "title": "Ep. #236 - 1000 zašto, 1000 zato - o jeziku (LIVE from Škripa pub)",
+   "duration": 5039,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "w-YgYx7rRGw",
+   "title": "Ep. #235 - Romski jezik",
+   "duration": 4422,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "gJRHiJbSX2Y",
+   "title": "Ep. #234 – Jezik dirigiranja. Antoaneta Radočaj-Jerković",
+   "duration": 3758,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Qeh0R9L9Uis",
+   "title": "Ep. #233 – Što radi sudski tumač? Tomislav Kojundžić",
+   "duration": 4658,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ldIxmozN3f8",
+   "title": "Ep. #232 - Riječi / reči (hrvatski i srpski vol. III)",
+   "duration": 6177,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "RfkFzvywULw",
+   "title": "Ep. #231 – O jeziku/govoru Arbanasa i jezičnoj održivosti. Klara Bilić Meštrić",
+   "duration": 4061,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "7IoPyyhmrE0",
+   "title": "Ep. #230 –  O frazemima od A do Živjeti u oblacima. Jelena Parizoska",
+   "duration": 3934,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3VLX-8BAHoM",
+   "title": "Novosti (telemach, YouTube, promjena tempa)",
+   "duration": 220,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "oTJZQyCirYM",
+   "title": "Ep. #229 – O podučavanju hrvatskog kao stranog jezika. Sanda Lucija Udier (Croaticum)",
+   "duration": 4103,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "UL54YS2GDRE",
+   "title": "Ep. #228 – O jezičnoj arhitekturi političke komunikacije. Marijana Grbeša-Zenzerović.",
+   "duration": 3681,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "5uD3hvJmxBE",
+   "title": "Ep. #227 – Sleng kao odrednica identiteta (mladih). Anita Skelin Horvat",
+   "duration": 3347,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ol0eLdI449g",
+   "title": "Ep. #226 - Hrvatski i srpski vol. II",
+   "duration": 5217,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "qPHUhSs5OT8",
+   "title": "Ep. #225 – Bugarski jezik, dodiri s hrvatskim, književnost, prijevod. Ksenija Banović (DHKP)",
+   "duration": 4154,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "wLGPrI-hM2g",
+   "title": "Ep. #224 – Korisni mrežni jezični izvori i alati",
+   "duration": 2319,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "rqeFNmwdTLg",
+   "title": "Ep. #223 – BKS u Njemačkoj, pripovijedanje BiH autora, poetika melankolije. Davor Beganović",
+   "duration": 3459,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "SNYDZNK-y70",
+   "title": "Ep. #222 – Zakon o hrvatskom jeziku, standard, šizoglosija. Anđel Starčević",
+   "duration": 4746,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "yQg9IFB3gkQ",
+   "title": "Ep. #221 – Kratak pregled hrvatskih narječja",
+   "duration": 1674,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6jpEHvhfCBc",
+   "title": "Ep. #220 – \"Jezik je dijalekt s vojskom i mornaricom\"",
+   "duration": 3109,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "KnGxoIq8KEY",
+   "title": "Ep. #219 – Djeca bez jezika",
+   "duration": 1770,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "zF17XRQBdp8",
+   "title": "Ep. #218 – Lektorske intervencije. Željka Jeličanin (@hjzasve)",
+   "duration": 3985,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "McqNzHLJyk8",
+   "title": "Ep. #217 – Mjesec hrvatske knjige, čitanje, razgovor i prevođenje. Anda Bukvić Pažin",
+   "duration": 4594,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "dkouDxNEWjU",
+   "title": "Ep. #216 – Jezik glazbe feat. Marko Glavica",
+   "duration": 4569,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "EndbI6BYVvY",
+   "title": "Ep. #215 – Ugroženi jezici s prostora Hrvatske",
+   "duration": 2660,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "OIoZL1XSt1I",
+   "title": "Ep. #214 – Govor mržnje",
+   "duration": 2109,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "iqTACspvsRU",
+   "title": "Ep. #213 – O slušanju audio knjiga s autoricama book&zvooka.",
+   "duration": 3613,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Gjs7cs_f_tI",
+   "title": "Ep. #212 – Ples kao jezik. Ana Lovrić, instruktorica argentinskog tanga.",
+   "duration": 4298,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "nU8LF0VkaPk",
+   "title": "Ep. #211 – O jeziku psihoanalize. Željka Matijašević.",
+   "duration": 4276,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "C81A1Fc0qrg",
+   "title": "Ep. #210 – Jezik životinja",
+   "duration": 1451,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "jTaO3o5v_Bo",
+   "title": "Ep. #209 – Abeceda",
+   "duration": 2612,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "bt6IFrWm6vw",
+   "title": "Ep. #208 – Ogoljena snaga haiku poezije. Goran Gatalica.",
+   "duration": 4931,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "vUtp17mO3r8",
+   "title": "Ep. #207 – Muke po gramatičkom rodu",
+   "duration": 2734,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "K0XiT8-HXXI",
+   "title": "Ep. #206 – Jezik meteorologije i prognoze. Zoran Vakula",
+   "duration": 4424,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "LHliOLl3SnQ",
+   "title": "Ep. #205 – ChatGPT i usvajanje jezika",
+   "duration": 1755,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "icfG6k59odg",
+   "title": "Ep. #204 – Indoeuropeistika, jezična raznolikost svijeta, glag. vid i akcionalnost. Jurica Polančec",
+   "duration": 4714,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "jyAqnVclvXs",
+   "title": "Ep. #203 – Jezik fitnesa i žargon gyma. Jezičar/fitness trener Andrej Smodlaka.",
+   "duration": 6087,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "h1Qi5V2tZKA",
+   "title": "Ep. #202 – Razvojni govorno-jezični poremećaji, uloga logopeda i roditelja. Ana Matić Škorić.",
+   "duration": 4933,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "B_tQIO-s5Rs",
+   "title": "Ep. #201 – Oj, ej, padežu!",
+   "duration": 3839,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "fLOq615lFfg",
+   "title": "#200 – Hvala!",
+   "duration": 4799,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Th9S-v-OO9E",
+   "title": "Ep. #199 - Sapir-Whorfova hipoteza",
+   "duration": 1632,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "okDhxewr6w8",
+   "title": "Ep. #198 – Storytelling i jezik turizma. Pričopričateljica Josipa Šiklić (Purgerica)",
+   "duration": 5870,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "AUvLyzFWxIo",
+   "title": "Ep. #197 – „Svi mi koristimo jezik prodaje“. Saša Tenodi i Vedran Sorić.",
+   "duration": 6662,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "PkfhIoM72Yo",
+   "title": "Ep. #196 – Turcizmi",
+   "duration": 3222,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "bSDn7Hw4F_s",
+   "title": "Ep. #195 – BrE v. AmE",
+   "duration": 4171,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "actBP6kUKbw",
+   "title": "Ep. #194 - Kroatistika, neologizmi, jezična politika, osječki govor. Ana Mikić Čolić",
+   "duration": 6192,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "JYnDuSg7fSs",
+   "title": "Ep. #193 – Jezična ekonomičnost",
+   "duration": 3729,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "J7frO6WSDo4",
+   "title": "Ep. #192 – Jezik astrofizike, komuniciranje znanosti i storytelling. Vernesa Smolčić (PMF)",
+   "duration": 3591,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "8iGzaqHU_Fo",
+   "title": "Ep. #191 – Izmaštavanje i slika: Jezik scenarija. Anita Čeko.",
+   "duration": 4738,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ry4l6ksIqj4",
+   "title": "Ep. #190 – Fjànketo, šuster mat, orangutan: Jezik šaha. GM Alojzije Janković",
+   "duration": 3613,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

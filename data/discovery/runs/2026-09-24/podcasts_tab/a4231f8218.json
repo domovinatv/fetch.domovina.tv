@@ -1,0 +1,27 @@
+{
+ "name": "PodKaST",
+ "ref": "UCYIJYPlIPHn3e03NQOmgAQA",
+ "playlists": [
+  {
+   "id": "PLnKR1Y-Zl7Wk3lo0MZ3PKLsC0QgHudFOp",
+   "title": "PodKaST - U balunu",
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7Wk3lo0MZ3PKLsC0QgHudFOp"
+  },
+  {
+   "id": "PLnKR1Y-Zl7WlhQ83ocHW8TCAWWiYg9k5E",
+   "title": "All Videos",
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WlhQ83ocHW8TCAWWiYg9k5E"
+  },
+  {
+   "id": "PLnKR1Y-Zl7WkXXiDsFfy46yG1HcQYSdwa",
+   "title": "PodKaST Q&A",
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WkXXiDsFfy46yG1HcQYSdwa"
+  },
+  {
+   "id": "PLnKR1Y-Zl7WmI-4-PG23my6Gm4aeb9VrY",
+   "title": "Popular",
+   "url": "https://www.youtube.com/playlist?list=PLnKR1Y-Zl7WmI-4-PG23my6Gm4aeb9VrY"
+  }
+ ],
+ "error": null
+}

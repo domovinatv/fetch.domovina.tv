@@ -1,0 +1,77 @@
+{
+ "key": "UCOZ1STDTT5Tn2YclQL7iHsg",
+ "url": "https://www.youtube.com/channel/UCOZ1STDTT5Tn2YclQL7iHsg/videos",
+ "channel_id": "UCOZ1STDTT5Tn2YclQL7iHsg",
+ "playlist_id": null,
+ "title": "Mate Krezic - Videos",
+ "channel": "Mate Krezic",
+ "channel_url": "https://www.youtube.com/channel/UCOZ1STDTT5Tn2YclQL7iHsg",
+ "description": "",
+ "follower_count": 15,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "ttsixB8MOTk",
+   "title": "Tornado na treningu KK Zadar",
+   "duration": 135,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "iwLgshNXkZM",
+   "title": "H96",
+   "duration": 102,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "4SB710YPx48",
+   "title": "KK Zadar - KK Cibona: Policija i navijači",
+   "duration": 34,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "q2_-1fkkLbk",
+   "title": "Rajko Vidaković: Naglasio bih naših 20 asistencija",
+   "duration": 95,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "YfbM4AiY-Lk",
+   "title": "Filip Kraljević: Idemo dalje pobjeđivati",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "J06FOoAczrs",
+   "title": "Rajko Vidaković: Zahvaljujem publici...",
+   "duration": 63,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "SI3MsAnOVy0",
+   "title": "Lovre Bašić: Prvo poluvrijeme teže nego smo očekivali",
+   "duration": 17,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "fEXVtlMzMP4",
+   "title": "Rajko Vidaković: Do kraja života...",
+   "duration": 62,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "wEiVaB_iNZE",
+   "title": "Josip Sobin: Odnile su me emocije",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20140925"
+  }
+ ]
+}

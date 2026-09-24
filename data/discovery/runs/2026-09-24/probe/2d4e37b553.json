@@ -1,0 +1,91 @@
+{
+ "key": "PLbygzMRdzQg4",
+ "url": "https://www.youtube.com/playlist?list=PLbygzMRdzQg4",
+ "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+ "playlist_id": "PLbygzMRdzQg4",
+ "title": "Planet Formula",
+ "channel": "RTL",
+ "channel_url": "https://www.youtube.com/channel/UCgOfDWsxLe3B8hUdPKx6S7A",
+ "description": "Portal Net.hr krenuo je s post - race podcastom 'Planet Formula' odmah nakon Velike nagrade Monaka na web siteu, društvenim mrežama i You Tube kanalu.",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "ZkAiRg1ozFQ",
+   "title": "Planet Formula ep. 6: Velika nagrada Mađarske",
+   "duration": 2906,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "IajP1d_ncwA",
+   "title": "Planet Formula epizoda 5. Velika nagrada Belgije.",
+   "duration": 4147,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "w2qcIDeexGk",
+   "title": "Planet formula 4. epizoda - Velika nagrada Britanije",
+   "duration": 3898,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "eGHfVP1l-Tw",
+   "title": "Planet Formula, 3. epizoda - Velika nagrada Austrije",
+   "duration": 5050,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "slxmwvqdTZg",
+   "title": "Planet Formula, 2. epizoda, Velika nagrada Barcelone",
+   "duration": 4739,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "Ipubyh7BMMs",
+   "title": "Planet Formula 1. epizoda, Velika nagrada Monaka",
+   "duration": 3483,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "tkl2AIFQ1rI",
+   "title": "Planet Formula specijalna epizoda - Presjek dosadašnjeg dijela sezone",
+   "duration": 4167,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "iTFh4MH9PUU",
+   "title": "Planet Formula - 7. epizoda VN Nizozemske",
+   "duration": 4182,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "SPAEoJ9zD-M",
+   "title": "8. epizoda Planet Formule: Je li prvenstvo već gotovo? 'Kimi ga sada može samo izgubiti'",
+   "duration": 3074,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "Iu_Pfo3GMko",
+   "title": null,
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  },
+  {
+   "id": "HX3hkDWdsq8",
+   "title": "Deveta epizoda Planet Formula - Velika nagrada Španjolske",
+   "duration": 4655,
+   "live_status": null,
+   "upload_date": "20260914"
+  }
+ ]
+}

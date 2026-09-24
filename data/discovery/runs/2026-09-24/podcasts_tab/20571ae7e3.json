@@ -1,0 +1,27 @@
+{
+ "name": "NOVA TV",
+ "ref": "UCbzmcyoz_CzJJgHonmkJ23g",
+ "playlists": [
+  {
+   "id": "PL279H2ix-v5Xx3IAvwdUJOIzH9a65S48D",
+   "title": "Nema labavo by IN magazin",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5Xx3IAvwdUJOIzH9a65S48D"
+  },
+  {
+   "id": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "title": "Forbes Business Unplugged",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b"
+  },
+  {
+   "id": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "title": "Krešendo",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd"
+  },
+  {
+   "id": "PL279H2ix-v5WS62eYsClNZrKAea_tyUp0",
+   "title": "Mjesto ZA mene",
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5WS62eYsClNZrKAea_tyUp0"
+  }
+ ],
+ "error": null
+}

@@ -1,0 +1,22 @@
+{
+ "name": "Async Podcast",
+ "ref": "UC42yFzzch6XCNm-DxxYHPzQ",
+ "playlists": [
+  {
+   "id": "PLg9tJp41DA5ajeoEO7fdb2bjN08VQa2IU",
+   "title": "Podcast Apps & Software",
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5ajeoEO7fdb2bjN08VQa2IU"
+  },
+  {
+   "id": "PLg9tJp41DA5Z1DCkH60TbmUCbN8G_VBn3",
+   "title": "Content Creation Tips",
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5Z1DCkH60TbmUCbN8G_VBn3"
+  },
+  {
+   "id": "PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z",
+   "title": "Tutorials",
+   "url": "https://www.youtube.com/playlist?list=PLg9tJp41DA5YM8hrA-SWzPQwe-r9WAS9Z"
+  }
+ ],
+ "error": null
+}

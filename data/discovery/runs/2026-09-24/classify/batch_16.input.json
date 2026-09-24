@@ -1,0 +1,169 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "UCvFnB9iD6WBXf8RAkAUDkxQ",
+   "type": "channel",
+   "name": "YanTodor",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCvFnB9iD6WBXf8RAkAUDkxQ/videos",
+   "follower_count": 144,
+   "description": "YanTodor Design Podcast je emisija stručnog, ali i zabavnog karaktera u kojem dizajneri Bojan Janjić i Ljubomir Todorović razgovaraju o aktuelnim temama iz svijeta vizualnog dizajna, te o trenutnim projektima na kojima su angažovani.",
+   "originals": 13,
+   "originals_30min": 13,
+   "avg_original_min": 57,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "YanTodor Podcast #13 - Miješane umjetničke vještine",
+    "YanTodor Podcast #12 -  Od kolijevke pa do groba, najljepše je na moru",
+    "YanTodor Podcast #11 - Život je jedan, živi ga Fikreta",
+    "YanTodor Podcast #10 Special - Kako je bilo u Španiji?",
+    "YanTodor Podcast #09 - Gdje smo? Šta smo?",
+    "YanTodor Podcast #08   Kako podnijeti kritiku?",
+    "YanTodor Podcast #07  - Kako odrediti svoju cijenu?",
+    "YanTodor Podcast #06 Special - Freelance VS Agency - Gost: Faruk Garić"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR podcast, 13/13 dugih, neaktivan. Uzorak: 13/13 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "talk-show"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
+   "type": "playlist",
+   "name": "PushPauza",
+   "parent_channel": "S4S TV",
+   "url": "https://www.youtube.com/playlist?list=PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
+   "follower_count": null,
+   "description": "PushPauza podcast udruge Studenti za studente Split",
+   "originals": 8,
+   "originals_30min": 7,
+   "avg_original_min": 57,
+   "derivative_ratio": 0.7,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "MATIJA LUKETIN - DUMP - UDRUGA MLADIH PROGRAMERA | Push Pauza Podcast #1",
+    "DENI BALETA - ŽENA KAO TI | Podcast PushPauza #2",
+    "PushPauza Podcast #12 - FESB Racing - Luka Delić i Luka Terihaj",
+    "The Showtime - Kako Funkcionira Pub Kviz? | Luka Gavranić | Podcast PushPauza #13",
+    "Lorena Bućan | Podcast Push Pauza #14",
+    "Barbara Matić | Kako osvojiti olimpijsko zlato? | Push Puza Podcast #15",
+    "Od Garaže do Tvornice Kulture | bend Zo - Vincent Šepić i Ante Eterović | Push Pauza Podcast #16",
+    "Lea Štambuk | Što će biti s Kockom | WC u Kocki | Push Pauza Podcast #17"
+   ],
+   "sample_derivatives": [
+    "Matija Luketin o startupima #PushPauza #podcast #DUMP #split #croatia (36s)",
+    "Kako funkcionira DUMP internship - Matija Luketin - PushPauza Segment (4 min < prag 22 min)",
+    "Deni Baleta aka. Žena Kao Ti po prvi put u podcastu - PushPauza u Nedjelju u 14:00h (31s)",
+    "Deni Baleta o novom romanu - PushPauza segment (4 min < prag 22 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Studentski podcast (Split). Playlista: 7/27 ≥30 min.",
+     "tags": [
+      "culture",
+      "music",
+      "sport"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCa9-8ruCWZSoOgdtEmq1Wcw",
+   "type": "channel",
+   "name": "Podcast Žuta Loptica",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCa9-8ruCWZSoOgdtEmq1Wcw/videos",
+   "follower_count": 48,
+   "description": "Podcast Žuta Loptica razgovorni je video sadržaj triju teniskih fanova, igrača i entuzijasta. Vedran Ljubej višegodišnji je teniski komentator, a društvo mu čine momci koji su teniskim znanjem možda i obdareniji - Vedran Mucić i Viktor Obrol.",
+   "originals": 4,
+   "originals_30min": 4,
+   "avg_original_min": 92,
+   "derivative_ratio": 0.2,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Žuta Loptica #4 | Je li GOAT odavno poznat - najopširnija analiza koju ćete ikada pogledati",
+    "Žuta Loptica #3 | Detaljna analiza Medvedeva i je li ovo Serenin kraj?",
+    "Žuta Loptica #2 | Je li moguće ONAKO servirati s napuklim trbušnim zidom?",
+    "Žuta Loptica #1 | Što zapravo muči Čilića i je li Kyrgios dobar za tenis?"
+   ],
+   "sample_derivatives": [
+    "GOAT Federer - priča koja odgovara industriji? (19 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR teniski podcast, 5 epizoda, 2021. Uzorak: 4/5 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "sport",
+      "tennis"
+     ]
+    }
+   ]
+  }
+ ]
+}

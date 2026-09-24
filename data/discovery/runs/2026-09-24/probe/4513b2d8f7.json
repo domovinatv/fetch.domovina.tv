@@ -1,0 +1,70 @@
+{
+ "key": "UCpz3gjD5mvlfUlok2TCgbfg",
+ "url": "https://www.youtube.com/channel/UCpz3gjD5mvlfUlok2TCgbfg/videos",
+ "channel_id": "UCpz3gjD5mvlfUlok2TCgbfg",
+ "playlist_id": null,
+ "title": "Hrvoje Hrc - Videos",
+ "channel": "Hrvoje Hrc",
+ "channel_url": "https://www.youtube.com/channel/UCpz3gjD5mvlfUlok2TCgbfg",
+ "description": "",
+ "follower_count": 69,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "8YIFa4MRdD0",
+   "title": "Hrvoje Krmelić \"Apsolutno svoj\" najava premijere 13.12.",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "g-9TcIVEnbQ",
+   "title": "\"Dobra večer i dobrodošli svi\" - Best of Hrvoje Krmelić stand-up comedy show (09.03.2024.OUT Bunker)",
+   "duration": 213,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "I0U60wIJyEM",
+   "title": "Hrvoje Krmelić Stand-up komedija \"U moja 4 zida\" - Sisak 12.03.2022.",
+   "duration": 454,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "__E5m2KwbkQ",
+   "title": "\"Sve te podsjeća na bivšeg\" - Hrvoje Krmelić - Stand-up komedija",
+   "duration": 44,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "uwhi2Ibsc0o",
+   "title": "\"Križanje prije jela?\" - Hrvoje Krmelić - Stand-up komedija",
+   "duration": 72,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "wDdfedY3jHs",
+   "title": "\"Crkva mi se zamjerila\" - Hrvoje Krmelić - Stand-up komedija",
+   "duration": 130,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "kDc053CZEO8",
+   "title": "\"Slogani\" - Hrvoje Krmelić - Stand-up komedija",
+   "duration": 43,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "0RLQ8-YfuO8",
+   "title": "Stand-up comedy show \"TANDEM\" by Hrvoje Krmelić i Vanja Perić 01.04.2021. PROMO",
+   "duration": 70,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "name": "Laudato TV",
+ "ref": "UCMNltXN6fWur0K8Z1oubFPA",
+ "playlists": [
+  {
+   "id": "PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "title": "Upoznaj Bibliju",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK"
+  },
+  {
+   "id": "PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "title": "Ne bojte se!",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7"
+  }
+ ],
+ "error": null
+}

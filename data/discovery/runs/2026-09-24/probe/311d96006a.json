@@ -1,0 +1,77 @@
+{
+ "key": "UCnkWDTP0YMCuYv1sdvN1Ttw",
+ "url": "https://www.youtube.com/channel/UCnkWDTP0YMCuYv1sdvN1Ttw/videos",
+ "channel_id": "UCnkWDTP0YMCuYv1sdvN1Ttw",
+ "playlist_id": null,
+ "title": "Grdelin Adiva - Videos",
+ "channel": "Grdelin Adiva",
+ "channel_url": "https://www.youtube.com/channel/UCnkWDTP0YMCuYv1sdvN1Ttw",
+ "description": "http://www.youtube.com/watch?v=_ibgyaA9P0c&list=PLQSNsb1cjOAdeIuxn2f0hiVz_DqDmahvE",
+ "follower_count": 93,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "m8OhVlaMfOM",
+   "title": "Klapa Herceg - Stan'te kosci",
+   "duration": 190,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "UJxLSYlpV9w",
+   "title": "život na sjeveru",
+   "duration": 277,
+   "live_status": null,
+   "upload_date": "20150925"
+  },
+  {
+   "id": "zbUy0_NJh7M",
+   "title": "Svirci moji",
+   "duration": 256,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "3VtO2AN6KDw",
+   "title": "Kruno Golubičić - Lenka (Jer nije jedna suza nikad sama)",
+   "duration": 254,
+   "live_status": null,
+   "upload_date": "20140925"
+  },
+  {
+   "id": "PLp1QloshbM",
+   "title": "Klapa kumpanji - Kada jednom ovom zafalin se tilu",
+   "duration": 216,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "p6jACQ1g8II",
+   "title": "Klapa Sv.Juraj HRM - Tiho sviraj",
+   "duration": 213,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "M_og_o_Y6ng",
+   "title": "Klapa Hrvoje - Sto godina skupa",
+   "duration": 237,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "iusPfblAPvU",
+   "title": "Vinko Coce - Mirno spavaj",
+   "duration": 227,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "_ibgyaA9P0c",
+   "title": "Probudi me jutrom - Kumpanji",
+   "duration": 206,
+   "live_status": null,
+   "upload_date": "20130925"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "key": "UC7NlsNY6sGS8rgr6ROTHFRA",
+ "url": "https://www.youtube.com/channel/UC7NlsNY6sGS8rgr6ROTHFRA/videos",
+ "channel_id": "UC7NlsNY6sGS8rgr6ROTHFRA",
+ "playlist_id": null,
+ "title": "BIS Comedy - Videos",
+ "channel": "BIS Comedy",
+ "channel_url": "https://www.youtube.com/channel/UC7NlsNY6sGS8rgr6ROTHFRA",
+ "description": "BIS Comedy je kolektiv hrvatskih stand up komičara. Trenutno obuhvaća Tina Sedlara, Gorana Vinčića, Marka Dejanovića, Admira Šećkanovića i Hrvoja Krmelića. ",
+ "follower_count": 68,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "CDbJSAxAFVk",
+   "title": "BIS podcast #5 - Vrući razgovori",
+   "duration": 1545,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "BPeaNWGYBXM",
+   "title": "BIS podcast #4 - Slavimo 1. rođendan!",
+   "duration": 1836,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "4VucYqe95tw",
+   "title": "TRAILER: Sketch Improv Show - Zlatan Zuhrić Zuhra, Tin Sedlar, Goran Vinčić i Marko Dejanović",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "t6FANbwO4pQ",
+   "title": "BIS podcast #3 - Naše bezobrazne igračke",
+   "duration": 1852,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "DboeFIs28p0",
+   "title": "BIS podcast #ep2 - Jezici, dijalekti i imitacije...",
+   "duration": 2006,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "oyBsURSEMUM",
+   "title": "BIS podcast #1 - Kada maske postanu gaće",
+   "duration": 1976,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

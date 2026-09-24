@@ -1,0 +1,22 @@
+{
+ "name": "Zapozorje Podcast",
+ "ref": "UCxO2oHswmGc8QpETChzSdcw",
+ "playlists": [
+  {
+   "id": "PLWflkPXRkq1NskBJstu-hjYm5ZUhD31KR",
+   "title": "ZP II RUNDA",
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1NskBJstu-hjYm5ZUhD31KR"
+  },
+  {
+   "id": "PLWflkPXRkq1O4nfdyJpPcNg7MoQVTm44k",
+   "title": "ZP I RUNDA",
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1O4nfdyJpPcNg7MoQVTm44k"
+  },
+  {
+   "id": "PLWflkPXRkq1OSu87q-htTNOa1lFICym_8",
+   "title": "Probavljeno ZAPOZORJE",
+   "url": "https://www.youtube.com/playlist?list=PLWflkPXRkq1OSu87q-htTNOa1lFICym_8"
+  }
+ ],
+ "error": null
+}

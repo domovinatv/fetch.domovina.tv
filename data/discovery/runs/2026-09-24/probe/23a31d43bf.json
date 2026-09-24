@@ -1,0 +1,525 @@
+{
+ "key": "UCYBXVTm91Xh5wvgeCQXx-Cw",
+ "url": "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw/videos",
+ "channel_id": "UCYBXVTm91Xh5wvgeCQXx-Cw",
+ "playlist_id": null,
+ "title": "Prime Time - Videos",
+ "channel": "Prime Time",
+ "channel_url": "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw",
+ "description": "Službeni YouTube kanal emisije Prime Time",
+ "follower_count": 36000,
+ "streams_count": 13,
+ "videos": [
+  {
+   "id": "jcZkljD9L1U",
+   "title": "HDZ čistunstvo | 492 - 1 | Prime Time",
+   "duration": 589,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "cpTHzK5Kw9g",
+   "title": "Lika dikpika | 492 | Prime Time",
+   "duration": 2108,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "EYddLgInvVg",
+   "title": "Uzmi otpad i bježi | Off the record | Prime Time",
+   "duration": 769,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "LvigrVyHztY",
+   "title": "Poziv na prosvjed | 491 | Prime Time",
+   "duration": 2351,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "tkmMC12nGGA",
+   "title": "Pseća racija kod Bandića | 2 | Prime Time",
+   "duration": 1338,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "G2xaHVi-EyI",
+   "title": "Dr. Sotona & Dr. Puhovski | 1 | Prime Time",
+   "duration": 1110,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "l2huHJzrFpU",
+   "title": "Podzemlja Hrvatska | 490 | Prime Time",
+   "duration": 2645,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "FbqnsEB-UME",
+   "title": "Na starom mostu | 490 - 7 | Prime Time",
+   "duration": 392,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Yo9P8Vzq028",
+   "title": "Spucat ću te Bago! | 490 - 6 | Prime Time",
+   "duration": 488,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "a9YkOzad1MM",
+   "title": "Novinar za anale | 490 - 5 | Prime Time",
+   "duration": 483,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "XINxZUkCofw",
+   "title": "Pare se pare | 490 - 4 | Prime Time",
+   "duration": 408,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "0rHOMP5hFJI",
+   "title": "Nepravda u sustavu | 490 - 3 | Prime Time",
+   "duration": 481,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "IF3NBO7yCGw",
+   "title": "Krvari most | 490 - 2 | Prime Time",
+   "duration": 483,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "MTaiF90q9CY",
+   "title": "Purgeri se kolju! | 490 - 1 | Prime Time",
+   "duration": 483,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Yot7NgpDvY0",
+   "title": "Savjet mladima da dođu u savjet za mlade | Off the record | Prime Time",
+   "duration": 602,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "h6sU33HNaJY",
+   "title": "Morski parazit | 489 | Prime Time",
+   "duration": 2128,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "vHuD0DDqusE",
+   "title": "Ne mrzite Dalmatince | 489 - 6 | Prime Time",
+   "duration": 398,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "a8BM1rMkLWY",
+   "title": "Prodana obala | 489 - 5 | Prime Time",
+   "duration": 491,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "7i9wedrjW9Y",
+   "title": "Plenković spasio Francusku | 489 - 4 | Prime Time",
+   "duration": 440,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "C4TIlCct9kE",
+   "title": "Macronov tata | 489 - 3 | Prime Time",
+   "duration": 492,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "xnijkMSJwNc",
+   "title": "Kukavno oko Bosne | 489 - 2 | Prime Time",
+   "duration": 601,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "hTUgjU_z3Mw",
+   "title": "Toljage za Bosnu | 489 - 1 | Prime Time",
+   "duration": 511,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "WP8JB--Ktkw",
+   "title": "Zelena mafija | Off the record | Prime Time",
+   "duration": 524,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "-3Bhq1r3YWA",
+   "title": "HDZja | 488 | Prime Time",
+   "duration": 2720,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "SdVGC_GdzZs",
+   "title": "Hrvati u BiH - preglasajte HDZ | 488 - 6 | Prime Time",
+   "duration": 562,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "weiQwG9r6N8",
+   "title": "Mentalna poteškoća imovinske kartice | 488 - 5 | Prime Time",
+   "duration": 422,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "wyjTLMI6IXQ",
+   "title": "Žigmanovi Menadžeri A Troi | 488 - 4 | Prime Time",
+   "duration": 561,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "Z_RYoRLukXk",
+   "title": "Homerova HDZijada | 488 - 3 | Prime Time",
+   "duration": 443,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "hAiluPBE8j4",
+   "title": "Sokol presudu nije volio | 488 - 2 | Prime Time",
+   "duration": 540,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "ouCuTYRDczA",
+   "title": "Naša Odiseja i Marta Mitić | 488 - 1 | Prime Time",
+   "duration": 568,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "_xGxSKlg-0s",
+   "title": "Tko bije medije? | Off the record | Prime Time",
+   "duration": 708,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "pKvZ3DcqJhE",
+   "title": "Najgora stoka su ovce | 487 - 6 | Prime Time",
+   "duration": 544,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "ugcTwLQyUcg",
+   "title": "Dehumanizacija | 487 | Prime Time",
+   "duration": 2341,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "e4mSKsCs9xk",
+   "title": "Stoka je blago! | 487 - 5 | Prime Time",
+   "duration": 503,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "9QLTFVtmGfc",
+   "title": "Država lomi koljena | 487 - 4 | Prime Time",
+   "duration": 531,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "mf6GXcq8JcI",
+   "title": "Kakav tajming! | 487 - 3 | Prime Time",
+   "duration": 527,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "_oTDfEpO3lg",
+   "title": "Mami ti uzmem mobitel | 487 - 2 | Prime Time",
+   "duration": 530,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "jcmA1YTJJHs",
+   "title": "Invazivna animalija | 487 - 1 | Prime Time",
+   "duration": 488,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "YunYdB0gv1Q",
+   "title": "Babo iz Nove Gradiške | Off the record | Prime Time",
+   "duration": 693,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "hAfw6dxcQ8s",
+   "title": "Disciplina rulje | 486 | Prime Time",
+   "duration": 2886,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "QMWgNjWWzDA",
+   "title": "HDZ zaprosio Možemo | 486 - 7 | Prime Time",
+   "duration": 339,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "OsqT0BWytho",
+   "title": "Neka institucije rade moj posao | 486 - 6 | Prime Time",
+   "duration": 454,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "05RyXTOi0ZI",
+   "title": "Pljačka i domoljublje | 486 - 5 | Prime Time",
+   "duration": 584,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "mm-rwiBOuAo",
+   "title": "Djeca su kriva za inflaciju! | 486 - 4 | Prime Time",
+   "duration": 561,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "MnQ-GacNC7k",
+   "title": "Deset eura nagrade za kopanje po smeću | 486 - 3 | Prime Time",
+   "duration": 495,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "CQF-kzLyxtI",
+   "title": "Sretan dan izvlačenja para | 486 - 2 | Prime Time",
+   "duration": 481,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "BKrEmDCfJCE",
+   "title": "Kalmeta samo malo lopov | 486 - 1 | Prime Time",
+   "duration": 532,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "hwe4oho1W-Y",
+   "title": "Sustav koji je ubio opet | Off the record | Prime Time",
+   "duration": 495,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "QmlMMbuxw3s",
+   "title": "Sramoćenje | 485 | Prime Time",
+   "duration": 3044,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "KqpD3THt9Zg",
+   "title": "Ustavni sud je mrtav | 485 - 7 | Prime Time",
+   "duration": 429,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "wsnd6IzW294",
+   "title": "Možemo kontrolira Europsku komisiju! | 485 - 6 | Prime Time",
+   "duration": 458,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "lHLl2M7Roz4",
+   "title": "Hrvati varaju na govnima | 485 - 5 | Prime Time",
+   "duration": 525,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "AfiVQqhb9nU",
+   "title": "Premijer se hvali vašim novcem | 485 - 4 | Prime Time",
+   "duration": 525,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "2KO5wC8mDZM",
+   "title": "Sokol pao niz stepenice | 485 - 3 | Prime Time",
+   "duration": 559,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "TikgoBLbygo",
+   "title": "Ustaše, četnici i Sulejman Veličanstveni | 485 - 2 | Prime Time",
+   "duration": 498,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "VrnFZbe9EcE",
+   "title": "Komunjare slave pad nacizma | 485 - 1 | Prime Time",
+   "duration": 518,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "5MlcSOI6v2A",
+   "title": "Narod za žalbu Vedrana Pavleka | Off the record | Prime Time",
+   "duration": 386,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "9pFJyVNsnGc",
+   "title": "Šah mat! | 484 | Prime Time",
+   "duration": 2900,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "porCszJobXs",
+   "title": "Kako sam prestao brinuti i zavolio bombu | OnlyPodržislav | Prime Time",
+   "duration": 684,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "Smyv9SsfdEY",
+   "title": "Thompson i Dalić spašeni| 484 - 6 | Prime Time",
+   "duration": 759,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "hILJR3uYFfE",
+   "title": "FAQ #12 | live | Prime Time",
+   "duration": 7207,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "85nD_jMxWTM",
+   "title": "FAQ #11 | live | Prime Time",
+   "duration": 7921,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "iyX3eolbuQQ",
+   "title": "FAQ #10 | live | Prime Time",
+   "duration": 6100,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "iy2n42JkXT4",
+   "title": "FAQ #9_1 | live | Prime Time",
+   "duration": 4553,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "p2HWt6bwgfw",
+   "title": "FAQ #9 | live | Prime Time",
+   "duration": 1394,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "0BALNdiqlg0",
+   "title": "FAQ #8 | live | Prime Time",
+   "duration": 7658,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "iAkt7onsUm8",
+   "title": "FAQ #7 | live | Prime Time",
+   "duration": 6403,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "vb9PeZxL5Kg",
+   "title": "FAQ #6 | live | Prime Time",
+   "duration": 6908,
+   "live_status": "was_live",
+   "upload_date": "20230925"
+  },
+  {
+   "id": "lfWQNLFPge4",
+   "title": "FAQ #5 | live | Prime Time",
+   "duration": 8420,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "eC7lUrL3VD4",
+   "title": "FAQ #4 | live | Prime Time",
+   "duration": 8778,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "7lC8Cf6ozIw",
+   "title": "FAQ #3 | live | Prime Time",
+   "duration": 8246,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "GDoZ9Lk2KnQ",
+   "title": "FAQ #2 | live | Prime Time",
+   "duration": 7931,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "tTXrG_SkK9E",
+   "title": "FAQ #1 | live | Prime Time",
+   "duration": 7820,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  }
+ ]
+}

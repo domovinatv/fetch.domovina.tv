@@ -1,0 +1,308 @@
+```json
+[
+ {
+  "key": "UCGy50EDeC8Zf-QXlQEngvgQ",
+  "verdict": "too_small",
+  "reason": "Samo 3 originalne epizode, premalo za katalogizaciju iako format (razgovor/istraga) odgovara podcastu."
+ },
+ {
+  "key": "UCzbn7dSIvN24cthbfTUEFBw",
+  "verdict": "institutional",
+  "reason": "Službeni klupski kanal NK Osijek - press konferencije, najave i sažeci utakmica, nije podcast format."
+ },
+ {
+  "key": "UCb3WvE_PxYGtgTtlJ1ZIqJw",
+  "verdict": "podcast_hr",
+  "slug": "slamanje-podcast",
+  "display_name": "Slamanje Podcast",
+  "tags": ["culture", "pop-culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Osječki razgovorni podcast s gostima iz glazbe i umjetnosti, numerirane epizode #1-#6, na hrvatskom."
+ },
+ {
+  "key": "UCKiC-dZx62RXeymJmR8E99g",
+  "verdict": "podcast_hr",
+  "slug": "filmopedija",
+  "display_name": "Filmopedija",
+  "tags": ["pop-culture", "culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Hrvatski razgovorni podcast o filmu i serijama, redovito numerirane epizode, pretežito >30 min."
+ },
+ {
+  "key": "UC-GWO0eo78mY0o3iEkle7HA",
+  "verdict": "podcast_hr",
+  "slug": "osvrtnik",
+  "display_name": "Osvrtnik",
+  "tags": ["pop-culture", "culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Dugi monolog/live-stream sadržaj o filmu na hrvatskom, uz kraće filmske osvrte kao derivate."
+ },
+ {
+  "key": "UC4n_wwto0bJALR4DIDzbKGg",
+  "verdict": "podcast_hr",
+  "slug": "zona-filma-strujanja",
+  "display_name": "Zona Filma // Strujanja",
+  "tags": ["culture", "pop-culture"],
+  "hosts": [],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)^radionica"
+  },
+  "reason": "Podcast Hrvatskog društva filmskih kritičara, razgovori s filmašima na festivalima, hrvatski jezik."
+ },
+ {
+  "key": "UCKwFccXL5XHo1JEaryEuTdw",
+  "verdict": "podcast_hr",
+  "slug": "filmovi-s-ruba",
+  "display_name": "Filmovi s Ruba",
+  "tags": ["pop-culture", "culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Hrvatski filmski podcast, mjesečni pregled i epizode s vlastitom numeracijom, većina >30 min."
+ },
+ {
+  "key": "UCoyTnbkCuGTMqO41_LNAZ8Q",
+  "verdict": "podcast_hr",
+  "slug": "dokunet-podcast",
+  "display_name": "Dokunet Podcast",
+  "tags": ["pop-culture", "culture"],
+  "hosts": [],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)recenzija"
+  },
+  "reason": "Razgovorni podcast o dokumentarnom filmu s redateljima/producentima, hrvatski, numerirane epizode."
+ },
+ {
+  "key": "UCmOZTyhea2luossld9Qpu9Q",
+  "verdict": "institutional",
+  "reason": "Multijezični javni radiodifuzer SBS Australija; hrvatski program samo je dio šireg spektra jezičnih emisija, kanal nije posvećeni hrvatski podcast."
+ },
+ {
+  "key": "UCk2N0DjcMQgOilSMic09hQg",
+  "verdict": "podcast_hr",
+  "slug": "vrisak-podcast",
+  "display_name": "Vrisak Podcast",
+  "tags": ["talk-show", "regional-media", "culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Portal iz Širokog Brijega (BiH Hrvati) s razgovornim podcastom - intervjui s gostima, hrvatski jezik."
+ },
+ {
+  "key": "UC4Zvwwv680jzurDCcxWHA3w",
+  "verdict": "institutional",
+  "reason": "Kanal dnevnog lista 24sata - konferencije, prijenosi i vijesti, nije posvećen podcast format."
+ },
+ {
+  "key": "UCmnvmFyshLFSrRMDAhKkgHw",
+  "verdict": "podcast_hr",
+  "slug": "podcast-8-24",
+  "display_name": "Podcast 8_24",
+  "tags": ["sport", "football"],
+  "hosts": [],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)^(press|najava)\\b"
+  },
+  "reason": "Navijački Dinamo podcast s gostima i analizama, numerirane epizode (Dvajsčetvorka), hrvatski."
+ },
+ {
+  "key": "UCwxJklD4bGmtFiTEINkxc7w",
+  "verdict": "not_podcast",
+  "reason": "Osobni vlog/izvještaji triatlonca s utrka, bez razgovornog podcast formata."
+ },
+ {
+  "key": "UChLtXXpo4Ge1ReTEboVvTDg",
+  "verdict": "not_hr",
+  "reason": "Kanadski TV news kanal na engleskom bez hrvatske veze."
+ },
+ {
+  "key": "UCiXXRMlzoA-MKPHVe5V7YdQ",
+  "verdict": "podcast_hr",
+  "slug": "nanovo-rodeni",
+  "display_name": "Nanovo Rođeni",
+  "tags": ["religious-catholic", "testimonies", "evangelization"],
+  "hosts": [],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)poticaj tjedna"
+  },
+  "reason": "Katolička zajednica s govorima i svjedočanstvima gostiju, dug format na hrvatskom."
+ },
+ {
+  "key": "UCFgLgVYmGcVssivjYOb7QuA",
+  "verdict": "not_podcast",
+  "reason": "Predavanja i propovijedi svećenika/redovnika, monolog bez razgovornog formata."
+ },
+ {
+  "key": "UCdeWIIyVKdg9Nq3CK5amFYA",
+  "verdict": "podcast_hr",
+  "slug": "bitnonet-podcast",
+  "display_name": "Podcast Bitno.net-a",
+  "tags": ["religious-catholic", "testimonies", "history"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Katolički razgovorni podcast portala Bitno.net, intervjui i svjedočanstva na hrvatskom."
+ },
+ {
+  "key": "UC3rUB85EeGomaomy8D3GpFw",
+  "verdict": "not_podcast",
+  "reason": "Snimke molitvenih susreta, slavljenja i zagovaranja - liturgijski sadržaj bez razgovornog formata."
+ },
+ {
+  "key": "UCcZw_KjJf_GhCpL3EVkAPSg",
+  "verdict": "not_podcast",
+  "reason": "Numerirana serija biblijskih poduka (monolog), nije razgovorni podcast."
+ },
+ {
+  "key": "UC0QkexsWMyTAQUrFpIjzfAQ",
+  "verdict": "institutional",
+  "reason": "Kanal katoličke radio postaje - katekizam, devetnice i duhovni sadržaj, institucionalni radijski program."
+ },
+ {
+  "key": "UCG2iMPiH6Pzetmmv6Ypdv6Q",
+  "verdict": "podcast_hr",
+  "slug": "tanja-hrvatin-simicic",
+  "display_name": "Podcast Tanje Hrvatin Šimičić",
+  "tags": ["parenting", "women", "personal-development"],
+  "hosts": ["Tanja Hrvatin Šimičić"],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)instagram live"
+  },
+  "reason": "Numerirani podcast o roditeljstvu i odgoju na hrvatskom, autorica dječji psihoterapeut."
+ },
+ {
+  "key": "UCLrVxw4H4ZJ3LovpdbzF7bw",
+  "verdict": "not_hr",
+  "reason": "Američki engleski talk show bez hrvatske veze."
+ },
+ {
+  "key": "UCUir14Y00_F06-H_W7lxtoA",
+  "verdict": "not_hr",
+  "reason": "Američka odvjetnička tvrtka, engleski jezik, bez hrvatske veze."
+ },
+ {
+  "key": "UCi0sR-v4nx7ZnbBWJ4_t3LA",
+  "verdict": "not_hr",
+  "reason": "Naslovi na srpskom/crnogorskom (ekavica, teme o Crnogorcima), nije hrvatski sadržaj."
+ },
+ {
+  "key": "UCKQlB36W_KXy7bQNGRvgxjQ",
+  "verdict": "podcast_hr",
+  "slug": "ontheair2013",
+  "display_name": "OnTheAir2013 MMA Podcast",
+  "tags": ["mma", "sport"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Hrvatski MMA podcast s gostima borcima, epizode pretežito duge razgovorne."
+ },
+ {
+  "key": "UCQVKGBalPWg_hjjimEiZuxw",
+  "verdict": "not_podcast",
+  "reason": "Book-vlog/haul kanal o knjigama, monologni vlog format bez podcast strukture."
+ },
+ {
+  "key": "UCcaLNQThBSRvIkqwCtMoYWg",
+  "verdict": "not_podcast",
+  "reason": "Audioknjige i putopisna narracija, mješavina jezika (hr/sr/bs/en/de), bez razgovornog podcast formata."
+ },
+ {
+  "key": "UC9vFBmioLfxFNqMGkGpY7fg",
+  "verdict": "podcast_hr",
+  "slug": "izmedu-redaka",
+  "display_name": "Između Redaka",
+  "tags": ["culture", "education"],
+  "hosts": [],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)mali knjiški moljci"
+  },
+  "reason": "Podcast knjižarskog lanca Hoću knjigu - intervjui o književnosti, numerirane epizode preko #170."
+ },
+ {
+  "key": "UCPgu2fTdNO_rQpYdwSVpaug",
+  "verdict": "not_podcast",
+  "reason": "Radionice o poticanju čitanja - predavački format bez razgovora, edukativni sadržaj."
+ },
+ {
+  "key": "UCuYv6V3yXb7CXQ6cyBrje6w",
+  "verdict": "institutional",
+  "reason": "Kanal gradske knjižnice s institucionalnim sadržajem (predavanja, dodjele nagrada), ali sadrži podcast playlistu 'Budi solidaran' s gostima."
+ },
+ {
+  "key": "UCV_gCZEP2ikrjZVTRulR7sw",
+  "verdict": "institutional",
+  "reason": "Kanal news portala Telegram.hr s video komentarima i analizama, nije posvećeni podcast format."
+ },
+ {
+  "key": "UCJyQ5SzpHCcTbw1RvcsHBfA",
+  "verdict": "institutional",
+  "reason": "Kanal sindikata SSSH - vijesti i prosvjedi, ali sadrži podcast playlistu 'Rad po mjeri čovjeka'."
+ },
+ {
+  "key": "UCKKA4g9uPnCAEEeLAd9_UNw",
+  "verdict": "podcast_hr",
+  "slug": "ideje-hr",
+  "display_name": "Ideje.hr",
+  "tags": ["geopolitics", "political"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Portal s dugim razgovornim intervjuima o politici i geopolitici na hrvatskom, prosjek 43 min."
+ },
+ {
+  "key": "UCscjLbM3jyyygjuVKMFQXUg",
+  "verdict": "too_small",
+  "reason": "Tek 5 podcast epizoda (MBZ Podcast #3-#7) uz pretežno neglazbeni festivalski sadržaj, premalo za sada."
+ },
+ {
+  "key": "UCdUJEX1cjVDTrqjxVVCAcJQ",
+  "verdict": "not_hr",
+  "reason": "Bosanski podcast network (bosanski voditelji i gosti), nije hrvatski sadržaj."
+ },
+ {
+  "key": "UCiS-fovOPi9LCr_L8Mm-5SA",
+  "verdict": "podcast_hr",
+  "slug": "biciklizam-net-podcast",
+  "display_name": "biciklizam.net Podcast",
+  "tags": ["sport"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Hrvatski biciklistički podcast s gostima, numerirane epizode, pretežito dugi razgovori."
+ },
+ {
+  "key": "UCMCDaQAhNyp8Ok4aGZZcZbw",
+  "verdict": "podcast_hr",
+  "slug": "podcast-mp-broadcast",
+  "display_name": "Podcast M.P.Broadcast",
+  "tags": ["sport", "lifestyle"],
+  "hosts": ["Ivo Jarić", "Ante Lučin", "Leo Lemešić"],
+  "watch_rule": null,
+  "reason": "Hrvatski video podcast s tematskim emisijama (biciklizam, moda, nautika), voditelji poznati iz opisa."
+ },
+ {
+  "key": "UCDFJMnJN5qecz4lv1mZ63rg",
+  "verdict": "podcast_hr",
+  "slug": "kilometri-podcast",
+  "display_name": "#KiloMetri",
+  "tags": ["travel", "culture", "lifestyle"],
+  "hosts": ["Katarina Moskatelo"],
+  "watch_rule": {
+   "exclude_title_regex": "(?i)showreel"
+  },
+  "reason": "Hrvatski putopisni razgovorni podcast s gostima, autorica jasno navedena, dugi format."
+ },
+ {
+  "key": "UCtDK1OrP90rKeI4eDnFusyQ",
+  "verdict": "not_hr",
+  "reason": "Srpski biciklistički podcast (srpski voditelji, ekavica), nije hrvatski sadržaj."
+ },
+ {
+  "key": "UCa0iFqekHmAyAidAmhNVXCw",
+  "verdict": "podcast_hr",
+  "slug": "podcast-rampa",
+  "display_name": "Podcast Rampa",
+  "tags": ["sport", "culture"],
+  "hosts": [],
+  "watch_rule": null,
+  "reason": "Hrvatski podcast o urbanim sportovima (skate, parkour) s gostima, 43 numerirane epizode, gotovo bez derivata."
+ }
+]
+```

@@ -1,0 +1,1580 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "type": "playlist",
+   "name": "Occamova britva",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "follower_count": null,
+   "description": "Emisija o filozofskim i etičkim teorijama i dilemama.",
+   "originals": 40,
+   "originals_30min": 33,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Occamova britva: Laplaceov demon",
+    "Occamova britva: Akrasia",
+    "Occamova britva: Lukavstvo uma",
+    "Occamova britva: Je li svijest u svemu?",
+    "Occamova britva: Jureći tramvaj",
+    "Occamova britva: Građanski neposluh",
+    "Occamova britva: Turingov test",
+    "Occamova britva: Nevidljiva tjelešca"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Top-10 Apple HR chart; 41 ep. na YT ~31 min, aktivan",
+     "tags": [
+      "philosophy",
+      "critical-thinking",
+      "radio"
+     ],
+     "hosts": [
+      "Dario Špelić"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
+   "type": "playlist",
+   "name": "Povijest četvrtkom",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
+   "follower_count": null,
+   "description": "Tko je i kada nešto otkrio i tko je i kada ta otkrića ukrao? Kako nastaju i kako nestaju civilizacije? Što više pokreće ljude: nada i ljubav ili sila i strah? Jesu li velikani uistinu tako veliki i jesu li negativci uvijek samo negativni? Kako se stvaraju urote i kako propadaju države?",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 50,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Povijest četvrtkom: Slučaj Heidegger, III. dio",
+    "Povijest četvrtkom: Slučaj Heidegger, II. dio",
+    "Povijest četvrtkom: Slučaj Heidegger, I. dio",
+    "Povijest četvrtkom: Cezar",
+    "Povijest četvrtkom: Carlos",
+    "Povijest četvrtkom: Država blagostanja, II. dio",
+    "Povijest četvrtkom: Država blagostanja, I. dio",
+    "Povijest četvrtkom: Dionizije"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "type": "playlist",
+   "name": "Andromeda",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "follower_count": null,
+   "description": "Vjerojatno ste svi čuli, a mnogi i slušali, legendarnu radio emisiju Andromeda, koja više od dva desetljeća ide na Drugom programu Hrvatskoga radija, svakoga utorka od 20:00 - 22:00 sata autora Ante Radonića.",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 103,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Andromeda, 8.9.2026.",
+    "Andromeda, 1.9.2026.",
+    "Andromeda, 25.8.2026.",
+    "Andromeda, 18.8.2026.",
+    "Andromeda, 21.7.2026.",
+    "Andromeda, 14.07.2026",
+    "Andromeda, 07.07.2026",
+    "Andromeda, 30.06.2026"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "Znanstvena emisija ~95 min, 103 ep. na YT, aktivna; Apple HR chart #21",
+     "tags": [
+      "science",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "type": "playlist",
+   "name": "Razvojni kod | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "follower_count": null,
+   "description": "Emisija o najvažnijim gospodarskim temama, ekonomskom razvoju u zemlji i inozemstvu, pokretanju posrnulog gospodarstva, otvaranju novih poduzetničkih zona, zapošljavanju radnika i drugim temama koje su važne za društveni razvoj.",
+   "originals": 38,
+   "originals_30min": 29,
+   "avg_original_min": 36,
+   "derivative_ratio": 0.37,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Razvojni kod: Gošće Tatjane Kaštelan pulske obrtnice Slavica Bezić, Biserka Lilić i Iva Kuzmanović",
+    "Razvojni kod: Gosti Tatjane Kaštelan predstavnici Hospicija blaženog Miroslava Bulešića, gosti i ...",
+    "U Razvojnom kodu Tatjane Kaštelan Marija Crljenica, edukatorica Hrvatske donorske mreže",
+    "Razvojni kod: Gošće Tatjane Kaštelan Olga Rojnić i Keti Glavaš o medicinskom kadru",
+    "Razvojni kod: Gosti Tatjane Kaštelan Darko Etinger i Jelena Nikolić Ražem, FIPU i gospodarski razvoj",
+    "Razvojni kod: Gost Tatjane Kaštelan Bruno Šimleša, 'U srcu divljine' - 19.5.2026.",
+    "Razvojni kod: Gošća Tatjane Kaštelan Sandra Ćakić Kuhar o gerontološkom sustavu",
+    "Razvojni kod: Gošća Tatjane Kaštelan Nevena Tolanov, bijeg od razgovora u digitalno doba"
+   ],
+   "sample_derivatives": [
+    "Razvojni kod: Gošća Tatjane Kaštelan Andrea Aljić o humanitarnoj 'Reviji pasa svih rasa' i svom ž... (24 min < prag 25 min)",
+    "Razvojni kod: Gošće Tatjane Kaštelan Marlena Plavšić, Jasminka Brlas i Milena Joksimović o 'Putok... (22 min < prag 25 min)",
+    "Razvojni kod: Gošće Tatjane Kaštelan Marieta Djaković i Draženka Moll, 'zložba 'Heidi: Od književ... (19 min < prag 25 min)",
+    "Razvojni kod: Gošće Tatjane Kaštelan Milena Joksimović i Jelena Gazibara o 'Putokazima kroz svako... (23 min < prag 25 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "169 ep., ~30 min, aktivan",
+     "tags": [
+      "society",
+      "business",
+      "radio"
+     ],
+     "hosts": [
+      "Tatjana Kaštelan"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz",
+   "type": "playlist",
+   "name": "Radio igra | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz",
+   "follower_count": null,
+   "description": "Suvremena domaća i inozemna dramska i radiodramska ostvarenja različitog stilskog, žanrovskog i tematskog spektra, s posebnim naglaskom na problemski artikulirana ili dramaturški inovativna djela, što emisiju povremeno otvara i prema propulzivnijim autorima iz ranijih razdoblja 20. stoljeća.",
+   "originals": 60,
+   "originals_30min": 59,
+   "avg_original_min": 46,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Karla Leko: U STANU BEZ VODE RAZMIŠLJAM O MORU",
+    "Ivona Marciuš: ODJEDNOM JE POSTALO TIHO",
+    "Tanja Radović: GOSPODARICE VREMENA",
+    "Tanja radović: SUNČEVE PJEGE",
+    "Beatrica Kurbel: PARK",
+    "PRIČE S GORNJEG GRADA 2",
+    "PRIČE S GORNJEG GRADA 1",
+    "Tomislav Zajec: FRANZ"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "type": "playlist",
+   "name": "Viza | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "follower_count": null,
+   "description": "U Vizi četvrtkom govorimo o najnovijim  svjetskim krizama i događajima, o globalnim izazovima  i trendovima. Sve to poslušajte  u dinamičnim, uvijek aktualnim novinarskim reportažama  i u  razgovorima s najboljim domaćim i stranim vanjskopolitičkim stručnjacima, analitičarima i diplomatima.",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 50,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "VIZA 18.06.2026.",
+    "VIZA 18.06.2026.",
+    "VIZA 11.06.2026.",
+    "VIZA 04.06.2026.",
+    "VIZA 28.05.2026.",
+    "VIZA 21.05.2026.",
+    "VIZA 21.05.2026.",
+    "VIZA 14.05.2026."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "96 ep. ~50 min, aktivan 2026",
+     "tags": [
+      "travel",
+      "world",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "type": "playlist",
+   "name": "The Home Team Podcast",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "follower_count": null,
+   "description": "Each episode of The Home Team Podcast features hosts Nikola Badovinac, Branko Lozančić and Domagoj Ferenčić discussing the latest news from the world of Croatian sports. From football, basketball, handball and water polo, to tennis, skiing and sailing, you name it and The Home Team Podcast has it covered. Be sure to join us and share your thoughts!",
+   "originals": 13,
+   "originals_30min": 13,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.19,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Joe Šimunić drops his predictions for Croatia at World Cup 2026 and more",
+    "President of the Golf Association of Croatia",
+    "Legendary rowers the Sinković brothers talk to the Home Team",
+    "One of Croatia's first two citizens to row across the Atlantic - Martin Cruickshank",
+    "Croatia's World Cup qualifications, Croatian basketball & handball, viewer comments",
+    "Croatian Skier Filip Zubčić shares an inside view of the FIS World Cup circuit",
+    "Mark Viduka on Dinamo-Partizan 5:0, Šimunić's 3 yellow cards vs Australia, the Premiership and more",
+    "Squash, school and the road to success with Franka Vidović"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "16 ep. ~41 min na ENGLESKOM, HR tematika/dijaspora",
+     "tags": [
+      "diaspora",
+      "sport",
+      "english"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kM2xg7hHyrU8TEKcy-Un1P_",
+   "type": "playlist",
+   "name": "Radioigra za djecu i mlade | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM2xg7hHyrU8TEKcy-Un1P_",
+   "follower_count": null,
+   "description": "Emisija namijenjena djeci u dobi od pet do petnaest godina koja radiofonijskim sredstvima u izvedbi profesionalnih glumaca predstavlja djela suvremenih hrvatskih književnika za djecu i mlade, dramatizacije poznatih klasika dječje književnosti te važne lektirne naslove.",
+   "originals": 59,
+   "originals_30min": 38,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Mala Frida",
+    "VLASTA GOLUB: NIŠTA SE NIJE MOGLO UČINITI",
+    "Vladimir Nazor: BIJELI JELEN",
+    "Sanja Lovrenčić: PRIČA ZA DAMJANA",
+    "Ana Đokić Pongrašić: ZOE, DJEVOJČICA S VRHA NEBODERA",
+    "SANJA PILIĆ: MRVICE IZ DNEVNOG BORAVKA",
+    "Nada MIhelčić: ARNO I ZLATNA RIBICA",
+    "Mladen Kopjar: MOJ TATA INDIJANAC"
+   ],
+   "sample_derivatives": [
+    "AUGUST ŠENOA: POSTOLAR I VRAG (11 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kOHD8K3NQl_L4mVzF2tK7wl",
+   "type": "playlist",
+   "name": "Drama za mlade | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOHD8K3NQl_L4mVzF2tK7wl",
+   "follower_count": null,
+   "description": "Emisija dramskoga sadržaja namijenjena mladim od 15 do 20 godina. Dramski i dokumentarni sadržaji koji se tematski i medijski bave temama bliskim ovoj ciljanoj skupini slušatelja. Poseban dio ovoga ciklusa jest i RADIOLEKTIRA izbor lektirnih naslova za srednje škole , a osim dramskih tekstova poput (Antigone, Novele od Stanca, Dunda Maroja, Dubrovačke trilogije i dr.) u radiolektiri naći će se  i  dramatizacija romana Kiklop, Posljednji Stipančići, Matoševe novele, izbor iz poezije S.S.Kranjčevića, Matoša i drugih pjesnika. Radiolektira nije zamjena za čitanje, ali je zasigurno pomoć u razumij",
+   "originals": 51,
+   "originals_30min": 45,
+   "avg_original_min": 40,
+   "derivative_ratio": 0.07,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Luca Kozina: Samo se igramo",
+    "Lav Nikolajević Tolstoj : Postolar i anđeo",
+    "SELMA LAGERLOF: SVETI PLAMEN",
+    "ANTUN GUSTAV MATOŠ: KLOBUK, LJUBAV I DUBLJINA",
+    "MIRUNA KASTRATOVIĆ: „DJECA RATA“",
+    "ERNEST HEMINGWAY:  STARAC I MORE 2. DIO - PREMIJERA",
+    "ERNEST HEMINGWAY:  STARAC I MORE 1. DIO - PREMIJERA",
+    "RADIOLEKTIRA  George Orwell: 1984. ( 3. dio, )"
+   ],
+   "sample_derivatives": [
+    "GORDAN NUHANOVIĆ: “VJEROJATNO ZAUVIJEK” 3. DIO (13 min < prag 17 min)",
+    "null (nema trajanja)",
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kN06w6uul12sUbTlA67tJY7",
+   "type": "playlist",
+   "name": "Radio drama | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kN06w6uul12sUbTlA67tJY7",
+   "follower_count": null,
+   "description": "Drame i dramatizacije stranih klasika širokog vremenskog raspona, te suvremena europska i hrvatska drama klasičnog prosedea.\nGlumačke ekipe okupljene u ovim zahtjevnim radiofonskim projektima najzvučnija su imena hrvatskog glumišta koja na radiju nalaze svoje umjetničko utočište.",
+   "originals": 60,
+   "originals_30min": 58,
+   "avg_original_min": 46,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Radovan Ivšić: Kralj Gordogan",
+    "Nives Madunić Barišić: Babuška ili Medaja iz susjedstva",
+    "F. KAFKA: PREOBRAŽAJ",
+    "Eugene Ionesco: Nosorog",
+    "Antun Šoljan: Kratki izlet",
+    "Antun Šoljan: Bombardiranje",
+    "Marina Čapalija: Sričući",
+    "Charlotte Gillman: Žute tapete"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kMYW6vQe1-Ut9jmzE3mBe1V",
+   "type": "playlist",
+   "name": "Meditacijom do Božića",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMYW6vQe1-Ut9jmzE3mBe1V",
+   "follower_count": null,
+   "description": "U iščekivanju Božića potičemo na duhovnu obnovu i promišljanje o sebi, svom odnosu prema bližnjima i prema Bogu.",
+   "originals": 9,
+   "originals_30min": 7,
+   "avg_original_min": 38,
+   "derivative_ratio": 0.85,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Meditacijom do Božića - uživo sa slušateljima - 24.12.2025.",
+    "Meditacijom do Božića - uživo sa slušateljima - 21.12.2025.",
+    "Meditacijom do Božića - uživo sa slušateljima - 14.12.2025.",
+    "Meditacijom do Božića - uživo sa slušateljima - 07.12.2025.",
+    "Meditacijom do Božića - uživo sa slušateljima - 30.11.2025.",
+    "Meditacijom do Božića - uživo sa slušateljima - 24.12.2024.",
+    "Meditacijom do Božića - uživo sa slušateljima - 21.12.2024.",
+    "Meditacijom do Božića - uživo sa slušateljima - 14.12.2024."
+   ],
+   "sample_derivatives": [
+    "Meditacijom do Božića - 25.12.2025. (14 min < prag 15 min)",
+    "Meditacijom do Božića - 24.12.2025. (11 min < prag 15 min)",
+    "Meditacijom do Božića - 23.12.2025. (11 min < prag 15 min)",
+    "Meditacijom do Božića - 22.12.2025. (11 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "type": "playlist",
+   "name": "Prstom po globusu | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "follower_count": null,
+   "description": "Radio putopis obilježen je zapažanjima, dojmovima i razmišljanjima o svemu što zaokuplja autoričinu pažnju na putovanju. Riječ je najčešće i o potpuno nepoznatom ili tek otkrivenom. Vesna Jurić Rukavina \"svojim\" prstom iz tjedna u tjedan donosi nove priče iz Hrvatske ili svijeta.",
+   "originals": 53,
+   "originals_30min": 53,
+   "avg_original_min": 33,
+   "derivative_ratio": 0.04,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Priča iz Like: Kosinj",
+    "Priča iz Like: Kosinj",
+    "S glagoljicom po Hrvatskoj",
+    "Mali Lošinj i priča o Apoksiomenu",
+    "Starogradsko polje: Faros na tanjuru",
+    "Podno Mohokosa: Kuća Lina u Pleškovcu",
+    "Svi putevi vode u Rim",
+    "Okićki kraj i jedna Kljuka"
+   ],
+   "sample_derivatives": [
+    "Tajna crne sobe:\"Povelja s pečatom od zlata začetak gradskog arkiva\" (26 min < prag 30 min)",
+    "Senj - 1. dio, Riječ po riječ na Rivi (30 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "55 ep. ~33 min; i FeedSpot popis",
+     "tags": [
+      "travel",
+      "world",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "type": "playlist",
+   "name": "Glas mladih | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "follower_count": null,
+   "description": "Glas mladih podcast je u kojem jedanput na tjedan izdvajamo najzanimljivije razgovore, reportaže i priloge koji su objavljeni u emisijama Hrvatskoga radija, a koje se bave europskim temama. Osim u Slušaonici, slušajte nas preko Google i Apple podcast aplikacija i pratite na TikToku Glas mladih.",
+   "originals": 35,
+   "originals_30min": 35,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.24,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Glas mladih #55",
+    "Glas mladih #54",
+    "Glas mladih #53",
+    "Glas mladih #48",
+    "Glas mladih #46",
+    "Glas mladih #45",
+    "Glas mladih #44",
+    "Glas mladih #43"
+   ],
+   "sample_derivatives": [
+    "Glas mladih #23 (24 min < prag 30 min)",
+    "Glas mladih #12 (28 min < prag 30 min)",
+    "Glas mladih #10 (21 min < prag 30 min)",
+    "Glas mladih #9 (19 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "46 ep. ~47 min, zadnje 2025",
+     "tags": [
+      "youth",
+      "society",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "type": "playlist",
+   "name": "Purgeraj | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "follower_count": null,
+   "description": "Utorkom u 15.30 Radio Sljeme otvara svoj Purgeraj. Osobe iz javnoga života u emisiji otkrivaju svoje doživljaje Zagreba i predstavljaju svoje najdraže i najintimnije zagrebačke kutke. Doznajemo kaj im je najljepše u zagrebačkoj kajkavštini i slušamo kaj su Zagrebu dali dotepenci, a kaj Zagreb njima.",
+   "originals": 48,
+   "originals_30min": 48,
+   "avg_original_min": 35,
+   "derivative_ratio": 0.2,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ivan Hlupić, 11. 6. 2024.",
+    "Davor Radolfi, 4. 6. 2024.",
+    "Zlata Muck Sušec, 28. 5. 2024.",
+    "Dijana Katica, 14. 5. 2024.",
+    "Dean Šarić, 21. 5. 2024.",
+    "Damir Smrtić, 7. 5. 2024.",
+    "Krešimir Sučević-Međeral, 30. 4. 2024.",
+    "Matija Antolić, 22. 4. 2024."
+   ],
+   "sample_derivatives": [
+    "Barbara Nola, 2. 4. 2024. (30 min < prag 30 min)",
+    "Iva Šulentić, 9. 1. 2024. (29 min < prag 30 min)",
+    "Stjepan Brčina, 26. 12. 2023. (29 min < prag 30 min)",
+    "Duško Ćurlić, 28. 11. 2023. (29 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "61 ep. ~35 min, 2024",
+     "tags": [
+      "zagreb",
+      "culture",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+   "type": "playlist",
+   "name": "Podcast \"EU mindset\"",
+   "parent_channel": "Poduzetnički Mindset",
+   "url": "https://www.youtube.com/playlist?list=PLFSYq8VBJEglFlHH-OZFiaLhCxUPdUPvk",
+   "follower_count": null,
+   "description": "",
+   "originals": 5,
+   "originals_30min": 5,
+   "avg_original_min": 44,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast \"EU mindset\" #1 na temu Žensko poduzetništvo.",
+    "Podcast \"EU mindset\" #2 na temu Digitalizacija poslovanja",
+    "EU Mindset #3: Zašto je poljoprivreda ponovno tako privlačna?",
+    "Vruća tema: Gospodarski oporavak Hrvatske u podcastu EU Mindset",
+    "EU mindset - Budućnost gospodarske suradnje SAD-a i EU-a"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+   "type": "playlist",
+   "name": "Kršćanine upoznaj svoje dostojanstvo",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+   "follower_count": null,
+   "description": "",
+   "originals": 45,
+   "originals_30min": 45,
+   "avg_original_min": 46,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kršćanine upoznaj svoje dostojanstvo - Kako uistinu upoznati svoje dostojanstvo",
+    "Kršćanine upoznaj svoje dostojanstvo - Veronika Galić - „Kako umor pretvoriti u odmor\"",
+    "Kršćanine upoznaj svoje dostojanstvo - Živjeti darovane talente",
+    "Kršćanine upoznaj svoje dostojanstvo - Bog je blizu i čeka na tvoju odluku",
+    "Kršćanine upoznaj svoje dostojanstvo - Obitelj i težnja ka svetosti",
+    "Kršćanine upoznaj svoje dostojanstvo - Božić",
+    "Kršćanine upoznaj svoje dostojanstvo - Maknuti zapreke djelovanju Duha Svetog",
+    "Krsćanine upoznaj svoje dostojanstvo - Dostojanstvo moga tijela"
+   ],
+   "sample_derivatives": [
+    "Na putu u slobodu - Kršćanine upoznaj svoje dostojanstvo (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGX79ymSr6X-F6PwKoyT92DV",
+   "type": "playlist",
+   "name": "Jedno srce u Ocu",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGX79ymSr6X-F6PwKoyT92DV",
+   "follower_count": null,
+   "description": "",
+   "originals": 20,
+   "originals_30min": 11,
+   "avg_original_min": 32,
+   "derivative_ratio": 0.05,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Radost u Šenštatskoj Obitelji - Jedno srce u Ocu",
+    "\"Jedno srce u Ocu\";  Geslo Josefa Kentenicha - Jedno srce u Ocu",
+    "Što Marija danas čini? - Jedno srce u Ocu",
+    "Križ kao Očev dar - Jedno srce u Ocu",
+    "Dolazak Majke Triput Divne u Mostar - Jedno Srce u Ocu",
+    "Svjedočanstvo o Majci Triput Divnoj - Jedno srce u Ocu",
+    "Moje DA Ocu Nebeskom i Majci Triput Divnoj - Jedno srce u Ocu",
+    "Novi početak - Jedno srce u Ocu"
+   ],
+   "sample_derivatives": [
+    "Novi početak - Jedno srce u Ocu (14 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGUlZwS8VD3rDBZ8vf19tr64",
+   "type": "playlist",
+   "name": "Svjedočanstvo vjere",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUlZwS8VD3rDBZ8vf19tr64",
+   "follower_count": null,
+   "description": "",
+   "originals": 23,
+   "originals_30min": 12,
+   "avg_original_min": 32,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Svjedočanstvo vjere 27 - Genocid današnjeg vremena: Pobačaj",
+    "Svjedocanstvo vjere 26 - Genocid današnjeg vremena: Pobačaj",
+    "Svjedočanstvo vjere 25 - Genocid današnjeg vremena: Pobačaj - Drazen Janko",
+    "Svjedočanstvo vjere 24 - Genocid današnjeg vremena: Pobačaj - Dražen Janko",
+    "Svjedočanstvo vjere 23 - Genocid današnjeg vremena: Pobačaj - Dražen Janko",
+    "Svjedočanstvo vjere 22 - Genocid današnjeg vremena: Pobačaj - Dražen Janko",
+    "Svjedočanstvo vjere - Franjevci među svojim pukom - Fra Anđelko Barun",
+    "Svjedočanstvo vjere - Izgradnja mira 📌Strateško planiranje izgradnje mira 2. dio 🎙 Drazen Janko"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGVx_naywqJMjo8GFZXVdfQw",
+   "type": "playlist",
+   "name": "Biti Mala Marija",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGVx_naywqJMjo8GFZXVdfQw",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 54,
+   "avg_original_min": 47,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Biti Mala Marija - Put svetog Jakova",
+    "Kako živjeti s koronom - Ivana Trlin - emisija \"Biti Mala Marija\"",
+    "Biti Mala Marija - Put svetog Jakova 2. dio",
+    "Biti Mala Marija - Ljubav je pobijedila - 40. godišnjica ukazanja",
+    "Biti Mala Marija - Isuse misli Ti",
+    "Biti Mala Marija - Izlaz iz pakla droge i život nakon zajednice",
+    "Biti Mala Marija -  Svjedočanstvo dječjeg srca",
+    "Biti Mala Marija - Gdje se pokapaju nerođena djeca?"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGXZ4n4efikgymnerAlb5lXO",
+   "type": "playlist",
+   "name": "Škola kršćanske meditacije",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXZ4n4efikgymnerAlb5lXO",
+   "follower_count": null,
+   "description": "",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 46,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Može li Bog uništiti svijet",
+    "Poznavati Isusa",
+    "Gdje i kako naći Isusa",
+    "Isus učitelj, gospodar i prijatelj",
+    "Križ i obraćenje srca",
+    "Tko je za mene Bog",
+    "Kad nam je Bog blizu a kad daleko",
+    "Kako \"ugledati\" Isusa"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGWYkk6hWbiBfQ--oP1JB_bF",
+   "type": "playlist",
+   "name": "Isus, novi Ilija",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGWYkk6hWbiBfQ--oP1JB_bF",
+   "follower_count": null,
+   "description": "",
+   "originals": 16,
+   "originals_30min": 12,
+   "avg_original_min": 34,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Što su vidjeli na Kalvariji",
+    "\"Dva svjedoka\"",
+    "Isus, Glasnik",
+    "Glasnik Dana Gospodnjeg",
+    "Savez - \"srodstsvo po krvi\"",
+    "Na putu u Jeruzalem, vjernost u nasljedovanju",
+    "Prvi poziv, na putu u Jeruzalem",
+    "Dosao sam da bacim oganj"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGVodPhgiL1ITQGcXiilhzWC",
+   "type": "playlist",
+   "name": "U susret životu",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGVodPhgiL1ITQGcXiilhzWC",
+   "follower_count": null,
+   "description": "",
+   "originals": 22,
+   "originals_30min": 21,
+   "avg_original_min": 55,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "U susret životu - Oprost kao antibiotik",
+    "U susret životu  - S Duhom Svetim kroz svakodnevni život!",
+    "U susret životu - Vrednote današnjih mladih",
+    "U susret životu - Svećenički život - Fra Velimir Bavrka",
+    "U susret životu - Dr. Zlatko Miliša - Vjera, Odgoj, Znanost",
+    "Fra Ivan Slišković - Svećenicki poziv i život - U susret životu",
+    "Jednaki u različitosti - U susret životu",
+    "Mucanje nije bolest, to je simptom posebnih - U susret životu"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGUjsdtiSEGbtfuPCJD9Zujs",
+   "type": "playlist",
+   "name": "Poruke nade",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUjsdtiSEGbtfuPCJD9Zujs",
+   "follower_count": null,
+   "description": "",
+   "originals": 17,
+   "originals_30min": 16,
+   "avg_original_min": 40,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Poruke nade 10 - Poruka obiteljima - p. Mato Anić",
+    "Poruke nade - Sile pakla neće nadvladati - p Mato Anić",
+    "Poruke nade - Molitva, vjernost, jakost - p Mato Anić",
+    "Poruke nade - p Mato Anić",
+    "Evanđelje se danas mora sačuvati doslovno, živjeti doslovno i propovijedati doslovno - p Mato Anić",
+    "Siromaštvo i bogatsvo  - p Mato Anić",
+    "Ovo je čas moje pobjede - p Mato Anić",
+    "Medjugorje raskrsce budućnosti - p Mato Anić"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGXJgRurrJTdwRw4b6TJI7YE",
+   "type": "playlist",
+   "name": "Razmatranja o Svetoj Misi",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXJgRurrJTdwRw4b6TJI7YE",
+   "follower_count": null,
+   "description": "",
+   "originals": 39,
+   "originals_30min": 31,
+   "avg_original_min": 33,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Tišina na Misi - p. Mato Anić",
+    "Šutnja i riječ na svetoj misi - p Mato Anić",
+    "Sabranost na Misi - p. Mato Anić",
+    "\"Nutarnja\" prisutnost na Misi - p Mato Anić",
+    "Misa - otkupljenje u vremenu i prostoru - p Mato Anić",
+    "Sveto mjesto - Razmatranje o svetoj Misi  - p Mato Anić",
+    "Sveti čas na Svetoj Misi - Razmatranje o svetoj Misi  - p Mato Anić",
+    "Sveta radnja - Razmatranje o svetoj Misi  - p Mato Anić"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL4BCELLg-DGUKtkEv9NCisx67uCzcKRCe",
+   "type": "playlist",
+   "name": "U Božjoj prisutnosti nema straha",
+   "parent_channel": "Radio Marija u BiH",
+   "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUKtkEv9NCisx67uCzcKRCe",
+   "follower_count": null,
+   "description": "",
+   "originals": 12,
+   "originals_30min": 12,
+   "avg_original_min": 44,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "U Božjoj prisutnosti nema straha - Važnost oprosta",
+    "U Božjoj prisutnosti nema straha - Zašto ne možemo oprostiti",
+    "U Božjoj prisutnosti nema straha - Predati se u volju Božju i spoznati identitet djeteta Božjega",
+    "U Božjoj prisutnosti nema straha - Kako nas toksični stid blokira da živimo u radosti",
+    "Kako se osloboditi srama - Božjoj prisutnosti nema straha",
+    "Krunica Gospe od Suza - U Božjoj prisutnosti nema straha",
+    "Navezanost i ovisnost jednih o drugima - U Božjoj prisutnosti nema straha",
+    "U prisutnosti živoga Boga, spoznati i vršiti volju Božju - U Božjoj prisutnosti nema straha"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "type": "playlist",
+   "name": "Možemo Podcast",
+   "parent_channel": "Možemo!",
+   "url": "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "follower_count": null,
+   "description": "Dobrodošli u Možemo Podcast! Zašto podcast? Nažalost, svakodnevica je da se javnim novcem pegla ugled političara, a to je igra na koju mi jednostavno ne pristajemo. U tom peglanju veoma često naša poruka ne dopire do vas putem klasičnih medija. I baš zato podcast! Kako bi do vas došle brze i točne informacije o ljudima i politikama koje čine promjenu u cijeloj Hrvatskoj.\n\nRazgovarat ćemo s političarima, vodećim stručnjacima, aktivistima i akademskim vizionarima kako bismo istražili složenost političkih sustava, razumjeli različite oblike korupcije te identificirali inovativna rješenja za očuva",
+   "originals": 8,
+   "originals_30min": 8,
+   "avg_original_min": 73,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Draženka Polović: \"HDZ je Karlovac u 30 godina sveo na elementarne čestice\"",
+    "Tomislav Tomašević: \"Neki su mislili da nećemo izdržati ni godinu dana!\" | Možemo Podcast 007",
+    "Suzana Jašić: U Pazinu smo otvorili prvi novi vrtić od 1972.! | Možemo Podcast 006",
+    "Kekin i Tomašević rade domaću bučnicu! | Možemo Podcast 005",
+    "Danijela Dolenec: Otvorili smo 9 vrtića, do kraja mandata otvorit ćemo ih 15! | Možemo Podcast 004",
+    "Gordan Bosanac: U našim TAJNIM SLUŽBAMA ima i šlampavih analiza | Možemo Podcast 003",
+    "Ivana Kekin: Svaki deseti srednjoškolac ima problema s KOCKANJEM | Možemo Podcast 002",
+    "Sandra Benčić: HDZ krade SVE! Od starog željeza do milijardi iz INE | Možemo Podcast 001"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "8 ep. ~73 min; stranački podcast (Podcasts tab)",
+     "tags": [
+      "politics",
+      "party"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
+   "type": "playlist",
+   "name": "Seksurbacije Podcast",
+   "parent_channel": "Seksoteka",
+   "url": "https://www.youtube.com/playlist?list=PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
+   "follower_count": null,
+   "description": "",
+   "originals": 21,
+   "originals_30min": 19,
+   "avg_original_min": 46,
+   "derivative_ratio": 0.05,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Seksualnost je moj životni poziv - Podcast Seksurbacije #1 by Marina Krleža",
+    "Libido određuje pravila igre - Podcast Seksurbacije #2 by Marina Krleža",
+    "Urođenu biseksualnost osvijestila sam u 31. godini života - Podcast Seksurbacije #5 by Marina Krleža",
+    "Seksualne zabrane oko nas - Podcast Seksurbacije #6 by Marina Krleža",
+    "Stvari koje ne znamo o otvorenim vezama - Podcast Seksurbacije #3 by Marina Krleža",
+    "Seksualno zastranjenje ili umjetnost tolerancije - Podcast Seksurbacije #4 by Marina Krleža",
+    "Urođenu biseksualnost osvijestila sam u 31. godini života - Podcast Seksurbacije #5 by Marina Krleža",
+    "Smatram se velikom masturbatoricom - Seksurbacije Podcast #7 by Marina Krleža"
+   ],
+   "sample_derivatives": [
+    "Najava Podcasta Seksurbacije - Marina Krleža (naslov (isječak/najava/…))"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+   "type": "playlist",
+   "name": "Razgovori",
+   "parent_channel": "VTV Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+   "follower_count": null,
+   "description": "",
+   "originals": 8,
+   "originals_30min": 8,
+   "avg_original_min": 52,
+   "derivative_ratio": 0.11,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Razgovori 103. fra Josip Vizjak",
+    "Razgovori 148. emisija Damir Makovec",
+    "Razgovori 147. emisija:  Bruno Ister",
+    "Razgovori 145. emisija: Ozren Bogdanović",
+    "Razgovori 143. emisija: Jadran Lazić",
+    "Razgovori 144. emisija: Snježana Mikulčić Jakopović",
+    "Razgovori 141. emisija Vladimir Flegar",
+    "Razgovori 142. emisija: Vatrogasci"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "9 ep. ~46 min",
+     "tags": [
+      "regional",
+      "interview"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+   "type": "playlist",
+   "name": "IN MEDIAS PRESS",
+   "parent_channel": "Večernji TV",
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+   "follower_count": null,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 40,
+   "derivative_ratio": 0.47,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Panel: Medijski brendovi vs. brendirani novinari",
+    "Razgovor 1:1 Tomislav Krasnec & Tuan Samahon - Na rubu slobode govora",
+    "Panel: Biznišno",
+    "Panel: Sadržaj je zaključan",
+    "Panel: Oglasno i jasno",
+    "Panel: Jer za content treba imati dušu?",
+    "Panel: Radio - U ritmu promjena",
+    "Panel: Istraži pa reci hop"
+   ],
+   "sample_derivatives": [
+    "IN MEDIAS PRESS (118s)",
+    "Predavanje: Europa, mediji i tehnološka suverenost (24 min < prag 30 min)",
+    "Razgovor 1:1 Lordan Kondić i Ivan Lovreček (22 min < prag 30 min)",
+    "Sebastian Krause: From Click to Trust – Regional News in the Age of Agentic AI (27 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Paneli/razgovori s medijske konferencije; 10 dugih",
+     "tags": [
+      "media",
+      "journalism",
+      "conference"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+   "type": "playlist",
+   "name": "Čajanka s Borisom Vlašićem",
+   "parent_channel": "Jutarnji list",
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+   "follower_count": null,
+   "description": "Razmjena mišljenja važnih političara, društvenjaka i stručnjaka o aktualnim temama pod vodstvom moderatora Borisa Vlašića",
+   "originals": 14,
+   "originals_30min": 10,
+   "avg_original_min": 32,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Čajanka s B. Vlašićem: 'Prijetili su dostavljačima da će ih zamijeniti radnicima iz trećeg svijeta'",
+    "Zašto stoji obnova Banije",
+    "Kavkaska čajanka: Hrvatsko predsjedanje EU",
+    "Kavkaska čajanka: Predsjednički izbori 2019.",
+    "Kavkaska čajanka: Je li moguća rastava braka koja ne bi traumatizirala djecu?",
+    "Kavkaska čajanka: Griješi li država po pitanju Vukovara?",
+    "Kavkaska čajanka: Zašto predsjednički kandidati pričaju o Jugoslaviji",
+    "Kavkaska čajanka: Slučaj grupnog silovanja u Zadru"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "14 ep., ~32 min, 2019-2023",
+     "tags": [
+      "politics",
+      "eu",
+      "media"
+     ],
+     "hosts": [
+      "Boris Vlašić"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+   "type": "playlist",
+   "name": "Pravi smjer",
+   "parent_channel": "VTV Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 34,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Pravi smjer 5. svibnja 2026.",
+    "Pravi smjer 28. travnja 2026.",
+    "Pravi smjer 21. travnja 2026.",
+    "Pravi smjer 14. travnja 2026.",
+    "Pravi smjer 7. travnja 2026.",
+    "Pravi smjer 31. ožujka 2026.",
+    "Pravi smjer 24. ožujak 2026.",
+    "Pravi smjer 17. ožujka 2026."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "60 ep. ~34 min, 2023-2026",
+     "tags": [
+      "regional",
+      "tv-talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+   "type": "playlist",
+   "name": "Digitalne tribine",
+   "parent_channel": "SDPHrvatske",
+   "url": "https://www.youtube.com/playlist?list=PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+   "follower_count": null,
+   "description": "",
+   "originals": 12,
+   "originals_30min": 12,
+   "avg_original_min": 77,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Civilno društvo i mladi u doba pandemije, digitalni okrugli stol",
+    "Prava radnika u uvjetima Korona krize, digitalni okrugli stol",
+    "Ivica Račan - pokretač promjena",
+    "Virtualni okrugli stol - Ljudska prava u doba corona  pandemije",
+    "Tribina o obrazovanju i Državnog maturi u uvjetima pandemije",
+    "Pandemija nasilja - virtualni okrugli stol u organizaciji Socijaldemokratskog Foruma žena SDP-a",
+    "Tribina SDP-a Hrvatske zbog situacije u zdravstvenom sustavu te izvanredne situacije u Splitu",
+    "SDP - virtualni okrugli stol, kako lokalna vlast pomaže građanima i gospodarstvu"
+   ],
+   "sample_derivatives": [
+    "SDP - virtualna konferencija za medije 01-04-2020 (32 min < prag 40 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "13 tribina ~73 min, samo 2020",
+     "tags": [
+      "politics",
+      "party"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+   "type": "playlist",
+   "name": "Razgovor s razlogom | HRT",
+   "parent_channel": "Hrvatska radiotelevizija",
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+   "follower_count": null,
+   "description": "U tjednoj emisiji \"Razgovor s razlogom\" urednice i voditeljice Morane Kasapović gosti su istaknuti pojedinci, intelektualci, umjetnici, znanstvenici, koji nisu često na malim ekranima, a itekako imaju što reći i vrijedi ih čuti.",
+   "originals": 45,
+   "originals_30min": 40,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.25,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Razgovor s razlogom: Lidija Arambašić",
+    "Razgovor s razlogom: Ante Radonić",
+    "Razgovor s razlogom: Kokan Mladenović",
+    "Razgovor s razlogom: Đorđe Matić",
+    "Razgovor s razlogom: Marina Vujčić",
+    "Razgovor s razlogom: Nebojša Blanuša",
+    "Razgovor s razlogom: Nikola Bašić",
+    "Razgovor s razlogom: Marko Vučetić"
+   ],
+   "sample_derivatives": [
+    "Vučetić o fašizmu (93s)",
+    "Nadbiskup Uzinić o strancima i predrasudama (50s)",
+    "Ulrik Haagerup o izbjegavanju vijesti kao globalnom trendu (149s)",
+    "Politički gaslighting (55s)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "106 ep., medijan 30 min",
+     "tags": [
+      "interview",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+   "type": "playlist",
+   "name": "Tajne svemira",
+   "parent_channel": "N1",
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+   "follower_count": null,
+   "description": "",
+   "originals": 32,
+   "originals_30min": 32,
+   "avg_original_min": 53,
+   "derivative_ratio": 0.06,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Tajne svemira (15. 4. 2022.)",
+    "Tajne svemira (13.5.2022.)",
+    "Tajne svemira (17.6.2022.)",
+    "Tajne svemira (15.7.2022.)",
+    "Tajne svemira (12.8.2022.).",
+    "Tajne svemira (9.9.2022.)",
+    "Tajne svemira (14.10.2022.)",
+    "Tajne svemira (11.11.2022.)"
+   ],
+   "sample_derivatives": [
+    "Pogledajte kako izgleda Hrvatska pod zvijezdama (18 min < prag 30 min)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Mjesečna emisija o svemiru ~50 min, 34 ep.; jezik HR po formatu naslova, provjeriti",
+     "tags": [
+      "science",
+      "astronomy",
+      "tv-talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+   "type": "playlist",
+   "name": "Na prvoj crti",
+   "parent_channel": "TV Jadran",
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 35,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Na prvoj crti 19.09.2026. Mladen Braco Milošević",
+    "Na prvoj crti 22.08.2026. - Majka svih bitaka",
+    "Na prvoj crti 08.08.2026. Tomislav Matković",
+    "Na prvoj crti 25.07.2026. Jakiša Bubalo",
+    "Na prvoj crti 10.07.2026. Marijan Maroja, Milan Bašić",
+    "Na prvoj crti 27.06.2026. - Petar Kaćunko",
+    "Na prvoj crti 13.06.2026. Ivan Pavić",
+    "Na prvoj crti 30.05.2026."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "322 ep. ~36 min, aktivan",
+     "tags": [
+      "homeland-war",
+      "veterans",
+      "tv-talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "UCUuKqP2o5JUd692Lw26rrpw",
+   "type": "channel",
+   "name": "Prgavi podcast (+15)",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos",
+   "follower_count": 3340,
+   "description": "Najviše o Hajduku i ponešto o ostalim manjim klubovima, sucima i repsentacji\n\nkanal podržite na ​​https://ko-fi.com/prgavipodcast\n\nrevolut IBAN  : LT113250010461764151\nBIC / SWIFT kod REVOLT21\n\nPaypal : mateateabio@gmail.com  \n\ntiktok.com/@prgavi.podcast",
+   "originals": 32,
+   "originals_30min": 32,
+   "avg_original_min": 79,
+   "derivative_ratio": 0.64,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Komentar i analiza Hajdukovog lita ❤️💙 prijelazni rok (otišli/došli) 🤍 Prgavi podcast",
+    "Šteta! ❤️💙 i s igračem manje bili bolji! 🤍 Prgavi podcast",
+    "Braća za HNL povijest ❤️💙 Hajduk konačno dobio Varaždin 🤍 Prgavi podcast",
+    "Bez VAR-a sezona la pa pa 🤍 analiza derbija ❤️💙 Prgavi podcast",
+    "Na pauzu 1. na tablici sa +4 ❤️💙 Prgavi podcast #194",
+    "Deja vú na Rujevici ❤️💙 4 godine bez gola and still running 🤍 Prgavi podcast",
+    "Bez pobjede na Rujevici skoro 4 godine ❤️💙 a ni gol nismo zabili??? 🤍 Prgavi podcast",
+    "Generali nakon bitke - Slaven Belupo ❤️💙 stručna analiza  sa Darkom Jozinovićem🤍 Prgavi podcast"
+   ],
+   "sample_derivatives": [
+    "Pobjeda protiv nedoraslog Rudeša ❤️💙 Šego u formi života 🤍 Prgavi podcast (14 min < prag 30 min)",
+    "Opušteni uživat u nogometu ❤️💙 Rudeš bez šanse? 🤍 Prgavi podcast (14 min < prag 30 min)",
+    "Konačno!!! ❤️💙 Kraj psihološke barijere 🤍 Prgavi podcast (11 min < prag 30 min)",
+    "Utakmica za budućnost kluba ❤️💙 odlučit će karakter 🤍 Prgavi podcast (16 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Navijački Hajduk podcast, 3.3k pretplatnika, 260 videa, 33 ≥30 min; puno kratkih isječaka",
+     "tags": [
+      "sport",
+      "football",
+      "hajduk"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+   "type": "playlist",
+   "name": "Otvoreni studio",
+   "parent_channel": "VTV Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+   "follower_count": null,
+   "description": "",
+   "originals": 22,
+   "originals_30min": 22,
+   "avg_original_min": 55,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Otvoreni studio 30. studenoga 2023.",
+    "Otvoreni studio 07. prosinca 2023.",
+    "Otvoreni studio 21. prosinca 2023.",
+    "Otvoreni studio 28. prosinca 2023.",
+    "Otvoreni studio 7. ožujka 2024.",
+    "Otvoreni studio 16. svibnja 2024.",
+    "Otvoreni studio 23. svibnja 2024.",
+    "Otvoreni studio 22. kolovoz 2024."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "22 ep. ~55 min, aktivan",
+     "tags": [
+      "regional",
+      "varazdin",
+      "tv-talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "UCEivQbBRJYKOBfko2YeQAnQ",
+   "type": "channel",
+   "name": "Lucia Adzic",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos",
+   "follower_count": 2160,
+   "description": "Dobrodošli! Ovaj kanal jedno je od mjesta putem kojeg možete slušati moj podcast!\nNeka Nova Priča je podcast o osobnom rastu i razvoju kroz život i iskustvo jedne mame, supruge i 'slučajne' poduzetnice. Pridružite nam se u otvorenim razgovorima o svim onim bitnim stvarima koje često zaboravljamo, usvojite neka nova znanja i pronađite inspiraciju za one male životne promjene koje će vam pomoći da postanete bolja verzija sebe. \n\nHvala vam što ste tu. \n\nxx Lucia \n",
+   "originals": 20,
+   "originals_30min": 20,
+   "avg_original_min": 46,
+   "derivative_ratio": 0.67,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Na kavi s Luc, drugi dio.",
+    "Na kavi s Luc. 200ta epizoda?!",
+    "Greške u izgradnji osobnog brenda.",
+    "Daja & Luc u epizodi ‘Živi svoj najbolji život’!",
+    "O istraživanju sebe. Intervju s Aleksandrom Vancevskom.",
+    "Roditeljstvo kao poziv u svjesniji život. Intervju s Milicom Stojšić.",
+    "Kako ti glazba može pomoći da se povežeš sa sobom? Intervju s Tenom Duran.",
+    "Što je zapravo emocionalna inteligencija? Intervju s Draganom Tošić."
+   ],
+   "sample_derivatives": [
+    "Kako pretvaram strahove u pogonsko gorivo? (23 min < prag 30 min)",
+    "Nevidljiv rad koji daje vidljive rezultate. (20 min < prag 30 min)",
+    "Moja broj 1 poslovna strategija. (20 min < prag 30 min)",
+    "Koliko si daleko spremna ići da dobiješ ono što želiš? (21 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Netokracija vodič; 209 videa, mnogo <30 min",
+     "tags": [
+      "lifestyle",
+      "business"
+     ],
+     "hosts": [
+      "Lucia Adžić"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+   "type": "playlist",
+   "name": "Istinom do gola",
+   "parent_channel": "TV Jadran",
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+   "follower_count": null,
+   "description": "",
+   "originals": 19,
+   "originals_30min": 19,
+   "avg_original_min": 44,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Istinom do gola 23.09.2026. - Vjekoslav Lokica",
+    "Istinom Do Gola 19.08.2026. -  Adrian Ježina",
+    "Istinom Do Gola 05.08.2026. - Ante Miše",
+    "Istinom Do Gola 22.07.2026. -  Mišo Krstičević",
+    "Istinom Do Gola 08.07.2026. - Mario Smodlaka",
+    "Istinom do gola 24.06.2026. - Frane Despotović",
+    "Istinom do Gola 10.06.2026. - Duje Kaliterna",
+    "Istinom do Gola 27.05.2026. Sergej Barbarez"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "19 ep. ~44 min, aktivan 2026",
+     "tags": [
+      "sport",
+      "football",
+      "tv-talk-show"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "UCIBpWx6R_pKgzAhk00aYjUw",
+   "type": "channel",
+   "name": "Samo Hajduk",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos",
+   "follower_count": 1230,
+   "description": "",
+   "originals": 33,
+   "originals_30min": 33,
+   "avg_original_min": 73,
+   "derivative_ratio": 0.46,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Samo Hajduk Podcast #48: Iluzija kontrole | 8. kolo vs Rijeka",
+    "Samo Hajduk Podcast #47: Peta u nizu | 7. kolo vs Slaven | Gost: Hajdučka Štorija",
+    "Samo Hajduk Podcast #46: Garciaball se uzdiže | 6. kolo vs Rudeš",
+    "Samo Hajduk Podcast #45: Ljetni prijelazni rok 2026.",
+    "Samo Hajduk Podcast #44: Hajduk u petoj brzini | 5. kolo vs Lokomotiva",
+    "Specijal: Senijad Ibričić  - Hajduk ponovno u Europi",
+    "Samo Hajduk Podcast #43: Svi živci sprženi ali vrijedilo je | uzvrat vs Rakow",
+    "Samo Hajduk Podcast #42: Lakše nego očekivano | 4. kolo vs Osijek"
+   ],
+   "sample_derivatives": [
+    "Najava utakmice: Uzvrat protiv Rakowa - Samo Hajduk (4 min < prag 30 min)",
+    "Pregled protivnika: 4. kolo vs Osijek - Samo Hajduk (5 min < prag 30 min)",
+    "Pregled protivnika: Rakow prva utakmica - Samo Hajduk (6 min < prag 30 min)",
+    "Pregled protivnika: Žalgiris uzvrat - Samo Hajduk (6 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-research-agent",
+     "evidence": "Tjedni Hajduk podcast #48 ~60-75 min, aktivan",
+     "tags": [
+      "sport",
+      "football",
+      "hajduk"
+     ],
+     "hosts": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "key": "UCqBDhmLPxuKyBT8fsmFczpg",
+ "url": "https://www.youtube.com/channel/UCqBDhmLPxuKyBT8fsmFczpg/videos",
+ "channel_id": "UCqBDhmLPxuKyBT8fsmFczpg",
+ "playlist_id": null,
+ "title": "Hrvatski Padel Savez - Videos",
+ "channel": "Hrvatski Padel Savez",
+ "channel_url": "https://www.youtube.com/channel/UCqBDhmLPxuKyBT8fsmFczpg",
+ "description": "",
+ "follower_count": 181,
+ "streams_count": 1,
+ "videos": [
+  {
+   "id": "-G4oKo4yp34",
+   "title": "PADEL ZONA 🥎 Epizoda #2",
+   "duration": 1793,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "vxKx1HDbZE4",
+   "title": "PADEL ZONA E02 🥎 Official Teaser 🍿",
+   "duration": 41,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "SAq3p_G1O3o",
+   "title": "Podcast PADELIRANJE #2 - Tea Jezidžić & Tea Lovreković",
+   "duration": 2750,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "71ptk34xMCY",
+   "title": "Sportski centar Stars ✨️ by Padel Zona",
+   "duration": 317,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "txsM4kS3odo",
+   "title": "Upoznaj repku - Matija Selak 💪🏻 by Padel Zona",
+   "duration": 426,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Of15dBmG8TQ",
+   "title": "Reket mjeseca Nox AT10 🎾 by Padel Zona",
+   "duration": 90,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "VQAVS9EPm2g",
+   "title": "Embassy Cup 2025 🥎 by Padel Zona",
+   "duration": 342,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "BIZqoZIgAfU",
+   "title": "PADEL ZONA 🥎 Epizoda #1",
+   "duration": 1703,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "icM2x2kYxPA",
+   "title": "Podcast PADELIRANJE #1 - Tomislav Margeta",
+   "duration": 1774,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "dBWUTgaiIpU",
+   "title": "Državno prvenstvo Hrvatske u padelu - Kamp Straško",
+   "duration": 10600,
+   "live_status": "was_live",
+   "upload_date": "20260525"
+  }
+ ]
+}

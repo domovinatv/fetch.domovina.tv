@@ -1,0 +1,28 @@
+{
+ "key": "UCI9ci0Likb2WNNKfSaF9czA",
+ "url": "https://www.youtube.com/channel/UCI9ci0Likb2WNNKfSaF9czA/videos",
+ "channel_id": "UCI9ci0Likb2WNNKfSaF9czA",
+ "playlist_id": null,
+ "title": "Casopis Prostor - Videos",
+ "channel": "Casopis Prostor",
+ "channel_url": "https://www.youtube.com/channel/UCI9ci0Likb2WNNKfSaF9czA",
+ "description": "",
+ "follower_count": 6,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "WFLf3-Oak7k",
+   "title": "BioDesign Connect Ana Curk",
+   "duration": 1527,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "KvxK07whVzI",
+   "title": "BioDesign Connect Danica Mihaljević Davidović",
+   "duration": 2043,
+   "live_status": null,
+   "upload_date": "20251025"
+  }
+ ]
+}

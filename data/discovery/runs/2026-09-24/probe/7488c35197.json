@@ -1,0 +1,644 @@
+{
+ "key": "UCpM7SX7Bb2FwtVSLRKC6vJw",
+ "url": "https://www.youtube.com/channel/UCpM7SX7Bb2FwtVSLRKC6vJw/videos",
+ "channel_id": "UCpM7SX7Bb2FwtVSLRKC6vJw",
+ "playlist_id": null,
+ "title": "PROTV - Videos",
+ "channel": "PROTV",
+ "channel_url": "https://www.youtube.com/channel/UCpM7SX7Bb2FwtVSLRKC6vJw",
+ "description": "Video produkcija i prijenosi uživo.",
+ "follower_count": 25900,
+ "streams_count": 30,
+ "videos": [
+  {
+   "id": "cTXOA_kme4w",
+   "title": "U SKLOPU MFF-a ODRŽANA RADIONICA KREATIVNA EUROPA   IDEJE KOJE POVEZUJU",
+   "duration": 369,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "sRbjaWfr21c",
+   "title": "POČEO JE 27. MEDITERAN FILM FESTIVAL",
+   "duration": 562,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "fIPtDBvuIfY",
+   "title": "POLITIČKI SAT: IVICA MUSIĆ I NIKOLA PERKOVIĆ, KANDIDATI ZA SKUPŠTINU HBŽ (HDZ 1990)",
+   "duration": 1833,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "K_rRXXZFeN4",
+   "title": "U KUPRESU PREDSTAVLJEN IZBORNI PROGRAM HDZ-a BiH ZA ŽUPANIJSKE IZBORE",
+   "duration": 348,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "M-0_E3fiTUo",
+   "title": "SVEČANO OBILJEŽEN DAN BRANITELJA OPĆINE NEUM",
+   "duration": 642,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "wX6aL8NZzsA",
+   "title": "U LIVNU ODRŽANA FOTO RADIONICA SVIJET U BOJAMA",
+   "duration": 642,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "yjEdCFQD9cw",
+   "title": "LIVNO OBILJEŽILO DAN BRANITELJA I DAN BRIGADE PETAR KREŠIMIR IV",
+   "duration": 873,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "DM_U1ouETPk",
+   "title": "KANADERI IPAK STIGLI: NAJNOVIJE INFORMACIJE S POŽARIŠTA",
+   "duration": 562,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "8Ir-_i4O1V0",
+   "title": "BAKA ANKA PROSLAVILA 106. GODINA",
+   "duration": 1261,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "S6qz4stwAwQ",
+   "title": "BUTKOVIĆ OTKRIO SLJEDEĆE KORAKE ZA NOVI MOST IZMEĐU ŽUPANJE I ORAŠJA",
+   "duration": 763,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "nQtrbrtWycQ",
+   "title": "TRENUTNO STANJE NA POŽARIŠTU NA ČVRSNICI: KANADERI ZBOG NISKE TEMPERATURE NE MOGU DJELOVATI",
+   "duration": 155,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "CIStjViKDeQ",
+   "title": "PREDSTAVLJEN PROGRAM 27. MEDITERAN FILM FESTIVALA",
+   "duration": 1352,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "hLiuZ6QbNe4",
+   "title": "ČOVIĆ U BANJOJ LUCI: NEMA RAZLOGA ZA RASIPANJE HRVATSKIH GLASOVA U REPUBLICI SRPSKOJ",
+   "duration": 300,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "ZXLzssIE_xM",
+   "title": "KVIZIKA U TOMISLAVGRADU OKUPILA BROJNE KVIZAŠE, POSEBAN GOST BIO JE DEAN KOTIGA",
+   "duration": 348,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "q1ipj-mGX_g",
+   "title": "POSJETILI SMO DUVANJSKA SELA, TE SAZNALI KAKO SE STANOVNICI PRIPREMAJU ZA ZIMU",
+   "duration": 1143,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "g-md5mkX6K8",
+   "title": "POŽAR NA BLIDINJU: VATROGASCI I DALJE NA TERENU",
+   "duration": 838,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "cd-7-PKdIJI",
+   "title": "KANADERI STIGLI NA ČVRSNICU",
+   "duration": 325,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "DIatcKEPRuQ",
+   "title": "ČVRSNICA VEĆ DANIMA GORI - JAVLJANJE S BLIDINJA",
+   "duration": 657,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "u3B5MrGqTN4",
+   "title": "FESTIVAL SPORTA NA DANIMA BERBE GROŽĐA U BROTNJU",
+   "duration": 1288,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "G91X9Qp2exA",
+   "title": "BOGAT PROGRAM DANA BERBE GROŽĐA I OVE GODINE OKUPIO BROJNE POSJETITELJE",
+   "duration": 1921,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "DMHVL2T9U_c",
+   "title": "JUBILARNI 10. DANI CINCARA: NA USPONU MNOŠTVO PLANINARA IZ BiH I HRVATSKE",
+   "duration": 862,
+   "live_status": null,
+   "upload_date": "20260921"
+  },
+  {
+   "id": "_SR6UAODmDE",
+   "title": "U KUPRESU PROSLAVLJEN DAN OPĆINE",
+   "duration": 1651,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "7sNC8GskW6w",
+   "title": "ODRŽANA TRADICIONALNA LOVAČKA VEČER  \"JAREBICA\", MOSTAR",
+   "duration": 2010,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "yjLKqXPIt6w",
+   "title": "NA GORICI BLAGOSLOVLJEN KRIŽNI PUT",
+   "duration": 1356,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "D3aqTfUfqGI",
+   "title": "OBILJEŽENA 32. OBLJETNICA UDRUGE DRAGOVOLJACA I VETERANA DR HVO HB",
+   "duration": 3766,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "V1fqKbVcxEk",
+   "title": "DAN BRANITELJA OPĆINE ČITLUK: OTKRIVEN SPOMENIK POGINULIM BRANITELJIMA BROTNJA",
+   "duration": 1542,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "yB7407sKR5c",
+   "title": "NA ZIDINAMA OBILJEŽENE RANE SVETOG FRANJE",
+   "duration": 557,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "3VMOKrbQOPs",
+   "title": "U MOSTARU OBILJEŽENA 33. OBLJETNICA POGIBIJE PRIPADNIKA VOJNE POLICIJE LIVNO",
+   "duration": 255,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "k7Z5bLEMUHg",
+   "title": "OTVORENA NOVA SPORTSKA DVORANA ZA POSAVSKE OSNOVCE",
+   "duration": 528,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "y4H3qG5ZPTM",
+   "title": "HUDUTSKO: OBILJEŽENA 33. GODIŠNJICA STRADANJA VOJNIKA JAJAČKE BRIGADE",
+   "duration": 1214,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "_AXVaCpxL0I",
+   "title": "LIVNO: BOGATSTVO TRADICIJE I PROIZVODA NA AGRO-TOUR SAJMU",
+   "duration": 1297,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "lzF990Uauj0",
+   "title": "DONOSIMO OBJE STRANE PRIČE O INCIDENTU U RAVNOM",
+   "duration": 516,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "b_8emoYyrz0",
+   "title": "NA DANAŠNJI DAN PRIJE 35 GODINA POČELA JE BITKA ZA ŠIBENIK",
+   "duration": 1033,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "e-ZRN_9GWtA",
+   "title": "\"KAD ZAIGRA BUSOVAČA\" - CIJELA SNIMKA",
+   "duration": 5284,
+   "live_status": null,
+   "upload_date": "20260917"
+  },
+  {
+   "id": "5NFbSZhzQaQ",
+   "title": "OPĆINA KUPRES: ODGOĐENA IZVANREDNA SJEDNICA OPĆINSKOG VIJEĆA",
+   "duration": 1794,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "Ner9wQ6A7Ho",
+   "title": "HDZ BiH U TOMISLAVGRADU PREDSTAVIO KANDIDATE I IZBORNE PRIORITETE",
+   "duration": 914,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "_oprSVVz-q8",
+   "title": "LIVNO: POTPISANI UGOVORI ZA SUBVENCIONIRANJE STJECANJA PRVE STAMBENE NEKRETNINE",
+   "duration": 197,
+   "live_status": null,
+   "upload_date": "20260916"
+  },
+  {
+   "id": "ryDRtyMGe38",
+   "title": "VITEZ I NOVI TRAVNIK DOBILI 850 000 KM OD FEDERALNOG MINISTARSTVA KULTURE I SPORTA",
+   "duration": 347,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "GAMqraowWCU",
+   "title": "MOSTAR: 24 OBITELJI DOBILE KLJUČEVE NOVIH STANOVA",
+   "duration": 752,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "7ro_9E-mL68",
+   "title": "DOSTOJANSTVENO OBILJEŽENA 33. OBLJETNICA STRADANJA HRVATA U UZDOLU",
+   "duration": 1418,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "a7lr7z7TYBY",
+   "title": "BUSOVAČA U ZNAKU TRADICIJE: „KAD ZAIGRA BUSOVAČA“",
+   "duration": 793,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "8t5f33LorVc",
+   "title": "HDZ BiH BUSOVAČA ODRŽAO SASTANAK S UDRUGAMA HVO-a",
+   "duration": 538,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "BwqsZ2Ovxxo",
+   "title": "31 GODINA OD VRO MAESTRAL",
+   "duration": 5218,
+   "live_status": null,
+   "upload_date": "20260914"
+  },
+  {
+   "id": "B6YqAQ_i6WU",
+   "title": "PREDSTAVLJANJE KANDIDATA I PROGRAMA HDZ-a BiH U LIVNU",
+   "duration": 711,
+   "live_status": null,
+   "upload_date": "20260914"
+  },
+  {
+   "id": "n49MN9pf3d0",
+   "title": "DRUGO IZDANJE BLIDINJE \"GASTRO FESTA\"",
+   "duration": 743,
+   "live_status": null,
+   "upload_date": "20260913"
+  },
+  {
+   "id": "tsEsChsGc7I",
+   "title": "KOČERIN I BROJNI NAVIJAČI HAJDUKA UJEDINJENI ZA MIŠU",
+   "duration": 508,
+   "live_status": null,
+   "upload_date": "20260913"
+  },
+  {
+   "id": "GAq-4uHuJRk",
+   "title": "IZNENADILI SVIJET: LJUBUŠACI POD HRVATSKIM BARJAKOM NASTUPILI NA NOMADSKIM IGRAMA I ZAVRŠILI SEDMI",
+   "duration": 1190,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "yh5ifaJQ_uA",
+   "title": "BRAĆA BUŠIĆ OSVOJILI TREĆE MJESTO U TRADICIONALNOJ IGRI ŠIJAVICE",
+   "duration": 1134,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "-SRm0lmwDOE",
+   "title": "SV. IVAN PAVAO II. PRIJE 32 GODINE PRVI PUT POSJETIO HRVATSKU",
+   "duration": 1363,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "hGA6mYhlRqI",
+   "title": "X. LIKOVNA KOLONIJA U ČAST ZVONKU BUŠIĆU TAIKU",
+   "duration": 1167,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "YUGGOLfwCuA",
+   "title": "U MOSTARU ODRŽANO TREĆE IZDANJE MObizz-a",
+   "duration": 461,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "1cPE1CHu7es",
+   "title": "ZAPOČELA 10. HUMANITARNA LIKOVNA KOLONIJA „ZVONKO BUŠIĆ TAIK“ – POSVEĆENA JULIENNE",
+   "duration": 2231,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "rpC3oV7FuJ0",
+   "title": "OBILJEŽENA GODIŠNJICA STRADANJA 33 HRVATSKA CIVILA U GRABOVICI",
+   "duration": 1866,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "VxyxRg-9_4w",
+   "title": "MALA GOSPA NA ŠĆITU OKUPILA MNOŠTVO VJERNIKA",
+   "duration": 1976,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "T94NN4W1K-g",
+   "title": "BRADARA I GRLIĆ RADMAN U SREDIŠNJOJ BOSNI: HRVATSKA OSTAJE UZ SVOJ NAROD",
+   "duration": 1047,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "yOQgQoQcnNY",
+   "title": "U VITEZU PREDSTAVLJEN VITEŠKI LJETOPIS: GORDAN GRLIĆ RADMAN MEĐU BROJNIM UZVANICIMA",
+   "duration": 640,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "o94q64iFulg",
+   "title": "315 GODINA OD ROĐENJA RUĐERA BOŠKOVIĆA: Od ORAHOVOG DOLA DO SVJETSKE ZNANOSTI",
+   "duration": 285,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "LfUGMCtp_08",
+   "title": "U GAREVCU JE PROTEKLOGA VIKENDA ODRŽANA FILMSKA REVIJA",
+   "duration": 642,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "Hhj5z9rKj8w",
+   "title": "FRA STJEPAN PAVLIČEVIĆ O TRADICIJI BLAGDANA MALE GOSPE NA ŠĆITU",
+   "duration": 991,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "OixMFgj409w",
+   "title": "65 HODOČASNIKA PJEŠICE IZ MEĐUGORJA DOLAZE GOSPI RAMSKOJ",
+   "duration": 815,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "3HXLChKFR-g",
+   "title": "Blagdan Male GospeŠćit, Prozor-Rama, 08.09.2026.",
+   "duration": 4996,
+   "live_status": "was_live",
+   "upload_date": "20260911"
+  },
+  {
+   "id": "Do6TRTAh8uc",
+   "title": "Europski dan sjećanja na žrtve svih totalitarnih režima - GROBLJE MIRA, BILE, 22.08.2026.",
+   "duration": 7077,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "BJHUVsRPyWA",
+   "title": "PRIJENOS SVEČANOG MISNOG SLAVLJA NA BLAGDAN VELIKE GOSPE - ŠIROKI BRIJEG",
+   "duration": 4421,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "8sHLtT5SWIw",
+   "title": "Zlatna misa fra Ćirila Ćire LovrićaŽupa sv. Mihovila ArkanđelaOdžak-Ćaić, Livno, 09.08.2026.",
+   "duration": 473,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "6478Fb6wqjM",
+   "title": "Zlatna misa fra Ćirila Ćire LovrićaŽupa sv. Mihovila ArkanđelaOdžak-Ćaić, Livno, 09.08.2026.",
+   "duration": 7065,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "QAHB9jmqqdw",
+   "title": "Dijamantni jubilej fra Gabrijela Mioča, Šuica, 26.07.2026.",
+   "duration": 9000,
+   "live_status": "was_live",
+   "upload_date": "20260825"
+  },
+  {
+   "id": "xJ_bSefWoeQ",
+   "title": "Sveta misa - Svetkovina sv. Ivo, Podmilačje / 24.6.2026.",
+   "duration": 5052,
+   "live_status": "was_live",
+   "upload_date": "20260625"
+  },
+  {
+   "id": "mWTIN4b8uLY",
+   "title": "Blagdan sv.Ante Padovanskog, Humac, Ljubuški, 13.06.",
+   "duration": 5476,
+   "live_status": "was_live",
+   "upload_date": "20260625"
+  },
+  {
+   "id": "l5Y9-8Y7eUg",
+   "title": "Uočnica sv. Ante, Uzarići, 12. lipnja 2026.",
+   "duration": 5786,
+   "live_status": "was_live",
+   "upload_date": "20260625"
+  },
+  {
+   "id": "YbEnBRIVMSQ",
+   "title": "11. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA, DRUGI DIO",
+   "duration": 2561,
+   "live_status": "was_live",
+   "upload_date": "20260625"
+  },
+  {
+   "id": "ilj8eO15Pnk",
+   "title": "11. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 15443,
+   "live_status": "was_live",
+   "upload_date": "20260625"
+  },
+  {
+   "id": "AbZDcu3o13s",
+   "title": "KOMEMORACIJA I SVETA MISA ZA ŽRTVE KRIŽNOG PUTA, RADIMILJA - STOLAC, 17.05.2026.",
+   "duration": 4911,
+   "live_status": "was_live",
+   "upload_date": "20260525"
+  },
+  {
+   "id": "2p6SOfhoN0g",
+   "title": "GROBLJE MIRA, BILE, BLAGDAN SVETOG JOSIPA RADNIKA - SVETA MISA",
+   "duration": 4261,
+   "live_status": "was_live",
+   "upload_date": "20260525"
+  },
+  {
+   "id": "7c3ONM5Bh6s",
+   "title": "PLENKOVIĆ STIGAO U MOSTAR, PRESS KONFERENCIJA",
+   "duration": 1625,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "1n0DLbSQQsU",
+   "title": "PLENKOVIĆ STIGAO U MOSTAR, PRESS KONFERENCIJA",
+   "duration": 14,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "kOddrMQbg78",
+   "title": "OBREDI VELIKE SUBOTE, MISA VAZMENOG BDJENJA - UŽIVO IZ ŠIROKOG BRIJEGA",
+   "duration": 7034,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "euX6vvNGxWY",
+   "title": "OBREDI VELIKOG PETKA, DAN MUKE GOSPODNJE - UŽIVO IZ ŠIROKOG BRIJEGA",
+   "duration": 6735,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "szs5lttZoac",
+   "title": "OBREDI VELIKOG ČETVRTKA, MISA VEČERE GOSPODNJE - UŽIVO IZ ŠIROKOG BRIJEGA",
+   "duration": 4479,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "bMPtC7lT168",
+   "title": "DESETA SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 13746,
+   "live_status": "was_live",
+   "upload_date": "20260425"
+  },
+  {
+   "id": "NmYkkec4Nfo",
+   "title": "DEVETA SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 6103,
+   "live_status": "was_live",
+   "upload_date": "20260225"
+  },
+  {
+   "id": "gCle8_fJlrc",
+   "title": "DEVETA SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 4881,
+   "live_status": "was_live",
+   "upload_date": "20260225"
+  },
+  {
+   "id": "zn2Sd4PnxDk",
+   "title": "DEVETA SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 8099,
+   "live_status": "was_live",
+   "upload_date": "20260225"
+  },
+  {
+   "id": "maa_veyLUVM",
+   "title": "DOČEK BRONČANIH RUKOMETAŠA U LJUBUŠKOM",
+   "duration": 3529,
+   "live_status": "was_live",
+   "upload_date": "20260225"
+  },
+  {
+   "id": "IhmmLvoVu_k",
+   "title": "8. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 3063,
+   "live_status": "was_live",
+   "upload_date": "20251225"
+  },
+  {
+   "id": "PkEoJG-vaFY",
+   "title": "8. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 8462,
+   "live_status": "was_live",
+   "upload_date": "20251225"
+  },
+  {
+   "id": "QrvdvV2Wy58",
+   "title": "7. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 17727,
+   "live_status": "was_live",
+   "upload_date": "20251225"
+  },
+  {
+   "id": "ur7jnPV9jY0",
+   "title": "6. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 16463,
+   "live_status": "was_live",
+   "upload_date": "20251125"
+  },
+  {
+   "id": "PhtItd7gVKo",
+   "title": "6. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 121,
+   "live_status": "was_live",
+   "upload_date": "20251125"
+  },
+  {
+   "id": "u123aLy7Tos",
+   "title": "6. SJEDNICA GRADSKOG VIJEĆA ČAPLJINA",
+   "duration": 402,
+   "live_status": "was_live",
+   "upload_date": "20251125"
+  },
+  {
+   "id": "VyiLRaEfS-8",
+   "title": "JAVNA RASPRAVA O NACRTU ZAKONA O KONCESIJAMA U HBŽ",
+   "duration": 13511,
+   "live_status": "was_live",
+   "upload_date": "20251025"
+  }
+ ]
+}

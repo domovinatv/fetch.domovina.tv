@@ -1,0 +1,1514 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "type": "playlist",
+   "name": "DAVCASTT | BLJESAK PODCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "follower_count": null,
+   "description": "Mjesto dobre priče, noviteta, širokih vidika. Tvoja strana priče. | Svakog ponedjeljka od 20.00 sati",
+   "originals": 36,
+   "originals_30min": 36,
+   "avg_original_min": 103,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "JMTRADE: LJUDI SU OVCE KOJI ZAVRSAVAJU FAKULTETE! | DAVCAST PODCAST",
+    "CRNI ANTE & RENATO: CRNCI U DALMACIJI NISU TOLIKO DISKRIMINIRANI! | DAVCAST PODCAST",
+    "HENNY & POPOV: NE MISLIMO DA SMO U SJENI ČLANOVA GENERACIJE ZED! | DAVCAST PODCAST",
+    "GRŠE: SANJAO SAM KAO MALI OVO STO DANAS ŽIVIM! | DAVCAST PODCAST",
+    "CORONA & RIMSKI: PJEVALI SMO DZABE 10 GODINA! | DAVCAST PODCAST",
+    "SEKSI & LACKU: BEZ DINARA SMO NAPRAVILI REGIONALNU KARIJERU & HITOVE!",
+    "NUCCI: NISAM IMAO PODRSKU NI OD KOGA NA POČETKU KARIJERE! | DAVCAST PODCAST",
+    "DZEJLA RAMOVIC: PONOSNA SAM NA USPJEH & SVE STO SAM POSTIGLA KAO MLADA!"
+   ],
+   "sample_derivatives": [
+    "Desingerica: Svak voli autentičnost, a ja ne mogu drugačije | Bljesak (9 min < prag 30 min)",
+    "Olivera Ćirković: Žene su žrtve, a muškarci su agresori - vrlo sam skeptična na tu temu | Bljesak (8 min < prag 30 min)",
+    "ODJAVA | DAVCAST PODCAST (4 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "39 ep. ~94 min; regionalni gosti, jezik provjeriti",
+     "tags": [
+      "talk-show",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "type": "playlist",
+   "name": "SREDINOM | BLJESAK PODCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "follower_count": null,
+   "description": "PODCAST O LJEPŠOJ STRANI ŽIVOTA U HERCEGOVINI KOJI UREĐUJE I VODI MIA BOJIČIĆ",
+   "originals": 46,
+   "originals_30min": 46,
+   "avg_original_min": 52,
+   "derivative_ratio": 0.23,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NE MOŽETE U STARKAMA IĆI U PLANINU, NOGE SU NAJVAŽNIJE- JOSIP DRMAĆ (BLJESAK-SREDINOM)",
+    "SREDINOM #62 | SENADA DEMIROVIĆ HABIBIJA: RUŠEVINE U MOSTARU SE NE MOGU TAKO LAKO UKLONITI",
+    "SREDINOM #61 | ADELA GOSTO:  IMA MOMENATA KADA SE PITAM ''ŠTO MI JE SVE OVO TREBALO''",
+    "SREDINOM #60 | DADO RUVIĆ: OD LOKALNE VIDEOTEKE DO REUTERSA",
+    "SREDINOM #59 | ROBERTA KAPSALIS: NISTE ZNALI ŠTO SE SVE KRIJE U HERCEGOVINI",
+    "SREDINOM #58 |  LEON LASIĆ: NISAM ZNAO DA MOJI PACIJENTI GLEDAJU I PRATE ''THE VOICE''",
+    "SREDINOM #57 | GORAN VINČIĆ VINČA: AKO JE NEKOME PREVIŠE ŠTO PSUJEM, GLEDAJTE DRUGE KOMIČARE",
+    "SREDINOM #56 | MUSTAFA ŠANTIĆ: SVIRAO SAM KIRKU DOUGLASU, TADA JE BILO PUNO PARA"
+   ],
+   "sample_derivatives": [
+    "SREDINOM #42 |  KARMEN OBRDALJ: FILM KOJI SAM POGLEDALA U KINU I KOJI ME PREOKRENUO (23 min < prag 30 min)",
+    "SREDINOM #36 | KAKO JE VERONIKA ZAVRŠILA U VOJNIČKIM ČIZMAMA (29 min < prag 30 min)",
+    "SREDINOM #32 | JOSIPA KATARINA LAVRIĆ: INSTAGRAM MI SLUŽI DA SE ZABAVIM, TO JE BIJEG OD REALNOSTI (29 min < prag 30 min)",
+    "SREDINOM #30 | MOSTAR: PROŠEĆITE KALDRMA, ARHITEKTONSKOM, STREET ART ILI REKREACIJSKOM RUTOM (29 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "63 ep. ~54 min; mješoviti HR/BiH govornici",
+     "tags": [
+      "talk-show",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "type": "playlist",
+   "name": "ANDREINE PRIČE | BLJESAK PODCAST",
+   "parent_channel": "Bljesak.info",
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "follower_count": null,
+   "description": "PODCAST KOJI UREĐUJE I VODI ANDREA MILIĆ POTAKNUT ĆE VAS NA POZITIVNE ŽIVOTNE PROMJENE",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 55,
+   "derivative_ratio": 0.17,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "PODCAST ANDREINE PRIČE: Misija i svrha svega što radim",
+    "ENIO KAPETANOVIĆ U PODCASTU ANDREINE PRIČE: O trudnoći, porodu i postpartumu",
+    "JOSIP MILANOVIĆ: O inspiraciji, umjetnosti i izlasku iz društvenih okvira",
+    "PAVA U PODCASTU ANDREINE PRIČE: FORMULA ZA USPJEH U SVIJETU GLAZBE",
+    "DIJANA ĆAVAR U PODCASTU ANDREINE PRIČE: ŠTO JE POTREBNO ZA VODITI USPJEŠAN TEAM?",
+    "NEVENA PANDŽA U PODCASTU ANDREINE MALE PRIČE: ZDRAVA PREHRANA",
+    "LORA DAVIDOVIĆ U PODCASTU ANDREINE MALE PRIČE: PARTNERSKI ODNOSI NAKON DOLASKA DJECE",
+    "GLORIJA PERANIĆ U PODCASTU ANDREINE PRIČE: KAKO ODGOJITI EMOCIONALNO INTELIGENTNO DIJETE?"
+   ],
+   "sample_derivatives": [
+    "ANDREINE PRIČE: O VAŽNOSTI ODNOSA SA SOBOM (27 min < prag 30 min)",
+    "KOJA JE PRIČA IZA ANDREINE MALE PRIČE? (26 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "12 ep. ~50 min, 2023",
+     "tags": [
+      "human-interest",
+      "bih-croats"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "type": "playlist",
+   "name": "Aktualno",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "follower_count": null,
+   "description": "",
+   "originals": 36,
+   "originals_30min": 26,
+   "avg_original_min": 34,
+   "derivative_ratio": 0.22,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Aktualno - Predstavljanje jesenske sheme",
+    "Aktualno - 14.3.2025.",
+    "Aktualno - 26.3.2024. - vlč. Tomislav Markić",
+    "Intervju s novim banjolučkim biskupom - mons. Željkom Majićem",
+    "Aktualno - Obitelji osoba s invaliditetom u krilu Crkve - 2.12.2022.",
+    "Aktualno – stav Crkve o napetostima u društvu uz nove mjere o COVID potvrdama - 15.11.2021.",
+    "Aktualno - 21.10.2021. - Razgovor povodom završetka 63. plenarnog zasjedanja HBK",
+    "Novosti sa 62. plenarnog zasjedanja HBK - 14.4.2021. - Aktualno"
+   ],
+   "sample_derivatives": [
+    "Najavljujemo otvaranje Jubileja u Zagrebačkoj nadbiskupiji i prijenos zemnih ostataka bl. Stepinca (20 min < prag 25 min)",
+    "Aktualno - O zaključcima 65. plenarnog zasjedanja Hrvatske biskupske konferencije - 19.10.2022. (15 min < prag 25 min)",
+    "Aktualno - Prof. dr. Ivan Milotić dobitnik uglednog priznanja pape Franje - 12.10.2021. (20 min < prag 25 min)",
+    "Aktualno - Razgovor sa novoimenovanim srijemskim biskupom koadjutorom mons. Fabijanom Svalinom (18 min < prag 25 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "46 stavki, ~30 min",
+     "tags": [
+      "religious-catholic",
+      "society"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "type": "playlist",
+   "name": "Razgovori s (nad)biskupima",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "follower_count": null,
+   "description": "",
+   "originals": 23,
+   "originals_30min": 23,
+   "avg_original_min": 43,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kardinal Josip Bozanić - 50 godina svećeništva",
+    "Intervju s umirovljenim zagrebačkim nadbiskupom kardinalom Josipom Bozanićem",
+    "Intervju s mons. Markom Medom, novoimenovanim gospićko-senjskim biskupom",
+    "Prvi intervju novoga biskupa Martinovića: \"Dolazim u život Crkve koja živi svoje poslanje.\"",
+    "Intervju s umirovljenim požeškim biskupom mons. Antunom Škvorčevićem",
+    "Intervju s novim banjolučkim biskupom - mons. Željkom Majićem",
+    "Stepinčevi tragovi  - Razgovor s kardinalom Josipom Bozanićem",
+    "Prvi intervju zagrebačkog nadbiskupa mons. Dražena Kutleše"
+   ],
+   "sample_derivatives": [
+    "Razgovor s vojnim ordinarijem mons. Jurom Bogdanom povodom smrti Svetog Oca (26 min < prag 30 min)",
+    "Intervju s đakovačko - osječkim nadbiskupom u miru Marinom Srakićem (19 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "25 ep. ~42 min 2019-2025",
+     "tags": [
+      "religious-catholic",
+      "interview"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
+   "type": "playlist",
+   "name": "Argumenti - 7. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 12.6.2025. - Završetak školske godine i pritisak na učenicima i roditeljima",
+    "Argumenti - 11.6.2025. - Družba „Braća Hrvatskoga Zmaja“",
+    "Argumenti - 10.6.2025. - Sprovodi - povlaštena mjesta evangelizacije",
+    "Argumenti - 5.6.2025. - Kako planirati godišnji odmor u HR  i postaje li hrvatska obala preskupa?",
+    "Argumenti - 4.6.2025. - Državni simboli i opće dobro",
+    "Argumenti - 3.6.2025. - Izazovi migracija i prisutnost stranih radnika u hrvatskim gradovima",
+    "Argumenti - 29.5.2025. - Domoljublje u vrijeme mira",
+    "Argumenti - 28.5.2025. - Tihe patnje hrvatskih branitelja u miru"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "type": "playlist",
+   "name": "Pod križem",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "follower_count": null,
+   "description": "",
+   "originals": 53,
+   "originals_30min": 53,
+   "avg_original_min": 38,
+   "derivative_ratio": 0.12,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Pod križem - 10.6.2025. - Jasnoća svjetlosti",
+    "Pod križem - 3.6.2025. - Duhovi - sila koja nas pokreće i oslobađa",
+    "Pod križem - 27.5.2025. - Izgradnja zajedništva",
+    "Pod križem - 20.5.2025. - Oprošteno mi je",
+    "Pod križem - 6.5.2025. - Marijin život u svjetlu evanđelja",
+    "Pod križem - 29.4.2025. - Put u Emaus",
+    "Pod križem - 15.4.2025. - Kako živjeti Veliki tjedan u godini Jubileja?",
+    "Pod križem - 8.4.2025. - Korizma - put iz Nazareta u Kafarnaum"
+   ],
+   "sample_derivatives": [
+    "Pod križem - 13.5.2025. - Ostavština pape Franje (25 min < prag 30 min)",
+    "Pod križem - 11.2.2025. - Kako ispravno ljubiti sebe? (30 min < prag 30 min)",
+    "Pod križem - 19.11.2024. - Prakticiranje šutnje (29 min < prag 30 min)",
+    "Pod križem - 12.6.2024. - Kraj sezone (20 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "130 ep. ~37 min; Podcasts tab",
+     "tags": [
+      "religious-catholic",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "type": "playlist",
+   "name": "S druge strane ogledala",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "follower_count": null,
+   "description": "",
+   "originals": 28,
+   "originals_30min": 28,
+   "avg_original_min": 40,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "S druge strane ogledala - 2.6.2025. - Anksioznost kod djece i mladih",
+    "S druge strane ogledala - 26.5.2025. - „Izgubljeni“ očevi i muževi",
+    "S druge strane ogledala - 19.05.2025. - Perfekcionizam – vrlina ili mana?",
+    "S druge strane ogledala - 5.5.2025. - Strpljenje i kako ga „dočekati“?",
+    "S druge strane ogledala - 7.4.2025. - Kako vjera ozdravlja?",
+    "S druge strane ogledala - 24.3.2025. - Nasilje u obitelji – spriječiti, prepoznati, zaustaviti",
+    "S druge strane ogledala - 17.3.2025. - Emocionalna inteligencija – ključ uspješnih odnosa",
+    "S druge strane ogledala - 10.3.2025. - Kako prihvatiti gubitke – osobe, zdravlja, posla?"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "28 ep. ~40 min; Podcasts tab HKM",
+     "tags": [
+      "religious-catholic",
+      "radio"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2",
+   "type": "playlist",
+   "name": "Argumenti - 6. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 18.9.2023. - Dostojanstvo umiranja",
+    "Argumenti - 19.9.2023. - Formacija svećenika",
+    "Argumenti - 20.9.2023. - Obuzdavanje inflacije novim mjerama Vlade",
+    "Argumenti - 21.9.2021. - Stres u školi i sportu - možemo li ga izbjeći?",
+    "Argumenti - 25.9.2023. - Otvorena pitanja Hrvatske sa Srbijom i Crnom Gorom",
+    "Argumenti - 26.9.2023. - Pastoral razvedenih osoba",
+    "Argumenti - 27.9.2023. - Unbound molitva - put do oslobođenja i ozdravljenja",
+    "Argumenti - 28.9.2023. - Evangelizacija koja dopire do mladih"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V",
+   "type": "playlist",
+   "name": "Argumenti - 5. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 15.6.2023. - Pristojno odijevanje",
+    "Argumenti - 14.6.2023. - Stanje u pravosuđu",
+    "Argumenti - 13.6.2023. - Inkluzija djece s teškoćama u razvoju u sustav redovnog obrazovanja",
+    "Argumenti - 12.6.2023. - Odgovornost djece i mladih pred zakonom",
+    "Argumenti - 7.6.2023. - Zahtjev za ratnom odštetom od Srbije",
+    "Argumenti - 6.6.2023. - Krv Kristova – snaga i zaštita",
+    "Argumenti - 5.6.2023. - Sv. Antun Padovanski - svetac svega svijeta",
+    "Argumenti - 1.6.2023. - Što religije imaju s ekologijom?"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "type": "playlist",
+   "name": "Duhovno duhovite večeri",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "follower_count": null,
+   "description": "",
+   "originals": 33,
+   "originals_30min": 33,
+   "avg_original_min": 51,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Duhovno duhovita večer - 27.9.2022. - Izgradnja osobnog samopouzdanja",
+    "Duhovno duhovita večer - 07.6.2022.",
+    "Duhovno duhovita večer - 31.5.2022.",
+    "Duhovno duhovita večer - 25.5.2022.",
+    "Duhovno duhovita večer - 10.5.2022.",
+    "Duhovno duhovita večer -3.5.2022.",
+    "Duhovno duhovita večer - 26.4.2022.",
+    "Duhovno duhovita večer - 5.4.2022."
+   ],
+   "sample_derivatives": [
+    "Duhovno duhovita večer - 22.11.2022. (24 min < prag 30 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "34 ep. ~50 min 2021-2023",
+     "tags": [
+      "religious-catholic",
+      "humor"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg8xBPkcJrqUfWqOca4Rt2yb",
+   "type": "playlist",
+   "name": "Novi valovi dobrote - II",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8xBPkcJrqUfWqOca4Rt2yb",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 16,
+   "avg_original_min": 28,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Novi valovi dobrote - 20.7.2022.",
+    "Novi valovi dobrote - 19.7.2022.",
+    "Novi valovi dobrote - 23.7.2022.",
+    "Novi valovi dobrote - 22.7.2022.",
+    "Novi valovi dobrote - 21.7.2022.",
+    "Novi valovi dobrote - 18.7.2022.",
+    "Novi valovi dobrote - 16.7.2022.",
+    "Novi valovi dobrote - 15.7.2022."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX",
+   "type": "playlist",
+   "name": "Argumenti - 4. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 20.9.2021. - Izgradnja kulture života",
+    "Argumenti - 21.9.2021. - Koliko je psihoterapijska podrška potrebna djeci modernog doba?",
+    "Argumenti - 22.9.2021. - Kriza očinstva",
+    "Argumenti - 23.9.2021. - Za kakvu slobodu se bore protivnici cijepljenja i epidemioloških mjera?",
+    "Argumenti - 27.9.2021. - Je li današnji čovjek izgubio pouzdanje u Božje milosrđe?",
+    "Argumenti - 28.9.2021. - Neplodnost - izazov sve većeg broja brakova",
+    "Argumenti - 29.9.2021. - Izazovi i rizici multipolarnoga svijeta",
+    "Argumenti - 30.9.2021. - Hrvatska pred demografskim slomom, država još piše strategije"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6",
+   "type": "playlist",
+   "name": "Argumenti - 1. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 37,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 13.6.2019.",
+    "Argumenti - 12.6.2019.",
+    "Argumenti - 11.6.2019.",
+    "Argumenti - 10.6.2019.",
+    "Argumenti - 6.6.2019.",
+    "Argumenti - 5.6.2019.",
+    "Argumenti - 4.6.2019.",
+    "Argumenti - 3.6.2019."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo",
+   "type": "playlist",
+   "name": "Argumenti - 3. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 14.9.2020. - Crkva i društvo u \"novom normalnom\"",
+    "Argumenti - 15.9.2020. - Koristimo li post, pokoru i molitvu kao oruđe u borbi s križevima?",
+    "Argumenti - 16.9.2020. - Pastoral mladih u vrijeme Covid-a 19",
+    "Argumenti - 17.9.2020. - Kako odgovoriti na izazov otuđenja djece?",
+    "Argumenti - 21.9.2020. - Udomiteljstvo djece - jesu li djeca na prvom mjestu?",
+    "Argumenti - 22.9.2020. -  „72 sata bez kompromisa” - Budi promjena!",
+    "Argumenti - 23.9.2020. - Crkva pred izazovima digitalnog doba",
+    "Argumenti - 24.9.2020. - Riječka petokraka – umjetnička sloboda ili provokacija?"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX",
+   "type": "playlist",
+   "name": "Argumenti - 2. sezona",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Argumenti - 30.9.2019.",
+    "Argumenti - 1.10.2019.",
+    "Argumenti - 2.10.2019.",
+    "Argumenti - 3.10.2019.",
+    "Argumenti - 7.10.2019.",
+    "Argumenti - 9.10.2019.",
+    "Argumenti - 10.10.2019.",
+    "Argumenti - 14.10.2019."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLVDKMx1rtcg_KysEEMBKAn3T-yHP54PyH",
+   "type": "playlist",
+   "name": "Novi valovi dobrote - I",
+   "parent_channel": "Hrvatska katolička mreža",
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KysEEMBKAn3T-yHP54PyH",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 19,
+   "avg_original_min": 28,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Novi valovi dobrote - 2.11.2021.",
+    "Novi valovi dobrote - 29.10.2021.",
+    "Novi valovi dobrote - 28.10.2021.",
+    "Novi valovi dobrote - 27.10.2021.",
+    "Novi valovi dobrote - 26.10.2021.",
+    "Novi valovi dobrote - 25.10.2021.",
+    "Novi valovi dobrote - 22.10.2021.",
+    "Novi valovi dobrote - 21.10.2021."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "type": "playlist",
+   "name": "Matičin podcast",
+   "parent_channel": "Matica hrvatska",
+   "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "follower_count": null,
+   "description": "Dobrodošli na Matičin podcast u kojem gostuju istaknuti stručnjaci, književnici, umjetnici i razni drugi gosti s kojima razgovaramo o aktualnim kulturnim, znanstvenim i društvenim temama.",
+   "originals": 12,
+   "originals_30min": 12,
+   "avg_original_min": 57,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Matičin podcast - Igor Zidić",
+    "Matičin podcast - Filip Zoričić",
+    "Matičin podcast - Matija Štahan",
+    "Matičin podcast - Rajka Jurdana-Šepić",
+    "Matičin podcast - Eva Kirchmayer-Bilić",
+    "Matičin podcast - Denis Brižić",
+    "Matičin podcast - Filip Hren",
+    "Matičin podcast - Boris Domagoj Biletić"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "12 ep. ~57 min; Podcasts tab",
+     "tags": [
+      "culture",
+      "language",
+      "institutional"
+     ],
+     "hosts": []
+    },
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Podcast playlista institucije; kanal su uglavnom tribine. Playlista: 12/12 ≥30 min.",
+     "tags": [
+      "culture",
+      "books",
+      "institutional"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "PLtkTKfgc4b4V-XVW7mitDqaGJ3gk-ow-M",
+   "type": "playlist",
+   "name": "Podcast N1 BiH",
+   "parent_channel": "N1",
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4V-XVW7mitDqaGJ3gk-ow-M",
+   "follower_count": null,
+   "description": "",
+   "originals": 36,
+   "originals_30min": 36,
+   "avg_original_min": 62,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "N1 podcast Jedan sat: Gost Milan Pavlović",
+    "N1 podcast Jedan sat: Gost Ademir Kenović",
+    "N1 podcast Jedan sat: Gošća Ljubica Todorović",
+    "N1 podcast Jedan sat: Gošća Gordana Boban",
+    "N1 podcast Jedan sat: Gošća Jasmina Ćorović-Kuburović",
+    "N1 podcast Jedan sat: Gost Jovan Marjanović",
+    "N1 podcast Jedan sat: Gost Dragan Marinković Maca",
+    "N1 podcast Jedan sat: Gost Elvir Laković Laka"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "type": "playlist",
+   "name": "Vatreni podcast powered by PSK 2024.",
+   "parent_channel": "Hrvatski nogometni savez",
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "follower_count": null,
+   "description": "",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 49,
+   "derivative_ratio": 0.44,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Vatreni podcast powered by PSK: Ivica Ivušić i Nediljko Labrović",
+    "Vatreni podcast powered by PSK: Marko Pjaca i Marco Pašalić",
+    "Vatreni podcast powered by PSK: Luka Ivanušec i Martin Baturina",
+    "Vatreni podcast powered by PSK: Borna Sosa i Andrej Kramarić",
+    "Vatreni podcast powered by PSK: Bruno Petković i Dominik Livaković",
+    "Vatreni podcast powered by PSK: Martin Erlić i Marin Pongračić",
+    "Vatreni podcast powered by PSK: Josip Stanišić i Luka Sučić",
+    "Vatreni podcast powered by PSK: Joško Gvardiol i Lovro Majer"
+   ],
+   "sample_derivatives": [
+    "Vatreni podcast powered by PSK: Josip Juranović i Nikola Vlašić (17 min < prag 30 min)",
+    "A koliko ranije vi dolazite na aerodrom? :) (23s)",
+    "Uhođenje na Instagramu ili samo informiranje? :) (26s)",
+    "Ono kad neke stvari prešutiš zbog mira u kući :) (59s)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "16 ep. 2024, 9 ≥30 min",
+     "tags": [
+      "sport",
+      "football",
+      "institutional"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "type": "playlist",
+   "name": "Podcast Vatrena #obitelj",
+   "parent_channel": "Hrvatski nogometni savez",
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "follower_count": null,
+   "description": "Podcast Vatrena #obitelj, nova platforma krovne organizacije hrvatskog nogometa, u kojoj će svakodnevno uoči i tijekom Europskog prvenstva gostovati hrvatski reprezentativci, članovi stručnog stožera, ali i ljudi iz sjene koji nisu u prvom planu, a itekako doprinose uspjesima Vatrenih.",
+   "originals": 19,
+   "originals_30min": 19,
+   "avg_original_min": 70,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast Vatrena #obitelj: Domagoj Vida i Nderim Redžaj",
+    "Vatrena #obitelj: Mile Škorić i Miroslav Marković",
+    "Vatrena #obitelj: Dominik Livaković i Marjan Mrmić",
+    "Vatrena #obitelj: Mislav Oršić i Nenad Krošnjar",
+    "Vatrena #obitelj: Nikola Vlašić i Luka Milanović",
+    "Vatrena #obitelj: Simon Sluga i Dražen Ladić",
+    "Vatrena #obitelj: Josip Brekalo i Goran Beloglavec",
+    "Vatrena #obitelj: Duje Ćaleta-Car i Nikola Jerkan"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "19 ep. ~70 min (2021); Podcasts tab HNS",
+     "tags": [
+      "sport",
+      "football",
+      "institutional"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "type": "playlist",
+   "name": "AS S KLUPE",
+   "parent_channel": "24sata",
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "follower_count": null,
+   "description": "U novom podcastu 'As s klupe: Powered by Carlsberg', donosimo razgovore s bivšim hrvatskim nogometnim reprezentativcima. U razgovoru s voditeljima Hrvojem Tironijem i Tomislavom Gabelićem, ispričali su svoja iskustva s reprezentacijom - od početka karijere do kraja te otkrili njihova očekivanja od nadolazećeg Svjetskog prvenstva.",
+   "originals": 8,
+   "originals_30min": 8,
+   "avg_original_min": 62,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Hrvoje Vejić: 'Luka je fenomen, obožavam ga kao igrača i kao osobu' | AS S KLUPE",
+    "Ante Miše: 'Uvjeren sam da možemo do četvrtfinala' | AS S KLUPE",
+    "Ivica Olić: ‘Prije utakmice sa Srbijom nismo spavali dvije noći’ I AS S KLUPE",
+    "Ivan Strinić: 'Za penale treba biti hladan, ja to nisam' | AS S KLUPE",
+    "Lovre Kalinić: 'Brozović je kralj društvenih igara, a Lovren nije htio odustati' | AS S KLUPE",
+    "Silvio Marić: 'Ćiro je bio opasan, volio je disciplinu' | AS S KLUPE",
+    "Gordon Schildenfeld: 'Prije se na utakmice dolazilo vrijeđati' | AS S KLUPE",
+    "Niko Kranjčar: ‘Prve dvije godine igranja za reprezentaciju su bile najgore’ | AS S KLUPE"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "8 ep. ~60 min s nogometnim trenerima (2026), Podcasts tab",
+     "tags": [
+      "sport",
+      "football",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "type": "playlist",
+   "name": "VELIKI INTERVJU",
+   "parent_channel": "24sata",
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "follower_count": null,
+   "description": "Maria Grigoryan, lice ORIĐIĐI produkcije u novom studiju 24sata intervjuira A celebrityje poput Josipe Lisac, Gibonnija, Nikoline Pišek i drugih. \nU velikom novinarskom video intervjuu, sasvim iskreno otkrivaju nepoznate i zanimljive detalje iz svog života i karijere.",
+   "originals": 37,
+   "originals_30min": 24,
+   "avg_original_min": 38,
+   "derivative_ratio": 0.38,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Nives Celzijus: ‘Više imam neugodnih iskustva sa ženama’ | VELIKI INTERVJU",
+    "Veliki intervju | MARATON *Josipa Pavičić, Ivan Temšić i Slavica de Jong*",
+    "Veliki intervju | MARATON *Lidija Bačić, Milan Marić i Vojko V*",
+    "Veliki intervju | MARATON *Danijela Martinović, Josipa Lisac i Enis Bešlagić*",
+    "Dalibor Petko: ‘Katarina Baban mi zamijenila Maju Šuput’ | VELIKI INTERVJU",
+    "Daria Lorenci Flatz: 'Najveću popularnost sam stekla s Kumovima' | VELIKI INTERVJU",
+    "Amar Bukvić: ‘Sa suprugom snimam kastinge dok djeca spavaju’ | VELIKI INTERVJU",
+    "Melkior Bašić: ‘Mit je da ne smijete podgrijavati krumpir’ | VELIKI INTERVJU"
+   ],
+   "sample_derivatives": [
+    "Adi Šoše: 'Zadnje sam plakao na pjesmu Kemala Montena' | VELIKI INTERVJU (16 min < prag 25 min)",
+    "Franka Batelić: ‘Samo borci mogu uspjeti’ | VELIKI INTERVJU (19 min < prag 25 min)",
+    "Ella Dvornik: ‘Tati bi se svidjela moja nova pjesma’ | VELIKI INTERVJU (17 min < prag 25 min)",
+    "Mirna Medaković Stepinac: 'Gušt je biti s Filipom Juričićem u kadru' | VELIKI INTERVJU (25 min < prag 25 min)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    },
+    {
+     "source": "web-research-agent",
+     "evidence": "114 ep. intervjua, pola <30 min; filtrirati",
+     "tags": [
+      "interview",
+      "celebrity",
+      "media"
+     ],
+     "hosts": []
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGYZjQGGkuWQBA4VgVgsmzMW",
+   "type": "playlist",
+   "name": "TUMAČENJA SNOVA (SNOVI - 2.dio) - Split 2024.",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYZjQGGkuWQBA4VgVgsmzMW",
+   "follower_count": null,
+   "description": "",
+   "originals": 14,
+   "originals_30min": 14,
+   "avg_original_min": 90,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "TUMAČENJA SNOVA 14. Prije tumačenja vlastitih snova treba otkriti 'Tko je sanjač'...",
+    "TUMAČENJA SNOVA 13. 'Šesti anđeo je ovdje!' - Biblijski jezik i jezik snova... Swedenborg... Danijel",
+    "TUMAČENJA SNOVA 12. Upute kako pristupiti tumačenju vlastitih snova - Jezik simbola...Swedenborg...",
+    "TUMAČENJA SNOVA 11. Snovi o onome što nas najviše zaokuplja -Primjeri kod Swedenorga -San protumačen",
+    "TUMAČENJA SNOVA 10. Snovi o onome što TRENUTNO radimo  - E.Swedenborg i J. Lorber tijekom primanja..",
+    "TUMAČENJA SNOVA 9. Govor u snu (2. dio)",
+    "DREAM INTERPRETATIONS 8. Sleep Talking (Part 1)",
+    "TUMAČENJA SNOVA 7. '... ali ima na nebu Bog koji objavljuje tajne!' (Danijel 2:28)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGbZteIW9B53f1io2hOicUlY",
+   "type": "playlist",
+   "name": "BERTHA DUDDE I POČECI NJENE MISIJE - OBJAVE ZA NJU OSOBNO 2. dio",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbZteIW9B53f1io2hOicUlY",
+   "follower_count": null,
+   "description": "",
+   "originals": 45,
+   "originals_30min": 45,
+   "avg_original_min": 61,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Bertha Dudde 2 dio - 46. Sunce... Bozanska svjetlosna snaga... Svjetlo i Ljubav... (BD 0237)",
+    "Bertha Dudde 2 dio - 45. Most prema duhovnom svijetu.... Uvjeti (BD 0547)",
+    "Bertha Dudde 2 dio - 43. 'Gospodar prokušava zemaljsku djecu s obzirom na to da li će ustrajati...",
+    "Bertha Dudde 2 dio - 42. Priprema za primanje NAJDRAGOCJENIIJEG DARA - Zvučne Riječii... (BD 0711)",
+    "Bertha Dudde 2 dio - 41. 'Kad se moliš ti si kod Mene i Ja sam kod tebe!' (BD 0323) - Nevolja...",
+    "Bertha Dudde 2 dio - 40. 'Nećeš morati trpjeti sve dok se predaješ Meni!' - 'Uvijek pazi na čistoću",
+    "Bertha Dudde 2 dio - 39. 'Moje drago dijete!' ... Svaki sat je namijenjen našem duhovnom razvoju...",
+    "Bertha Dudde 2 dio - 38. ČUDO stvaranja UČITELJA... 'VJERA je prva i posljednja početak i kraj!..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGZ5uYF3AbaE1cTkpo-aqUof",
+   "type": "playlist",
+   "name": "VRIJEME JE KRAJA! KVP predavanja na Svjetlu Čiste Istine o posljednjim danima naziva; 2024",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZ5uYF3AbaE1cTkpo-aqUof",
+   "follower_count": null,
+   "description": "",
+   "originals": 34,
+   "originals_30min": 34,
+   "avg_original_min": 55,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "VRIJEME JE KRAJA! 34. 'Ljudi ne žele vjerovati da su tako blizu Kraja!' (BD 6174)",
+    "VRIJEME JE KRAJA! 33. Samo se vrlo malo ljudi još može zadobiti, ipak će Kraj biti odgođen zbog njih",
+    "VRIJEME JE KRAJA! 32. Znakovi divljanja prije Kraja (BD 6178)",
+    "VRIJEME JE KRAJA! 31. 'Morate biti posebno oprezni u posljednjim danima jer su vragovi ...'",
+    "VRIJEME JE KRAJA! 30. 'Dan se bliži kraju, svjetlost tone u sumrak, a noć pada...' (BD 4329)",
+    "VRIJEME JE KRAJA!! 29. Zašto Čista Istina u posljednjim vremenima - Božje NEUOBIČAJENO djelovanje...",
+    "VRIJEME JE KRAJA! 28. 'Sotona zna da nema puno vremena' (Otkr. 12:12 - BD 3603)",
+    "VRIJEME JE KRAJA! 27. Božje STALNO pozivanje ljudi koji su na putu propasti (BD 6308)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGaaBYTmRMK0dMc6V2PlJ8Ws",
+   "type": "playlist",
+   "name": "Svaka Moja Riječ je dar s neba” - Jakob Lorber OSOBNO; Komentari na Objave J. Lorbera iz knjige \"Nebeski darovi\" naziva:\" 2025- Zagreb",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaaBYTmRMK0dMc6V2PlJ8Ws",
+   "follower_count": null,
+   "description": "",
+   "originals": 12,
+   "originals_30min": 12,
+   "avg_original_min": 64,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NEBESKI DAR 12. Zemaljski i nebeski pravni poredak- 'U takvim okolnostima teško je pogoditi s neba..",
+    "NEBESKI DAR 11.Vjera jednog PRAVEDNIKA (1 Pet 1:8-9)- 'Blaženi su oni koji nisu vidjeli' (Iv. 20:29)",
+    "NEBESKI DAR 10.'Ne brinite za vaše neprijatelje jer Ja znam kako zaštititi Moju Riječ i Moje sluge!'",
+    "NEBESKI DAR 9. Materijalna i duhovna inflacija ...",
+    "NEBESKI DAR 8. O zakletvi ili zavjetu.... 'Neka vaše DA bude DA, a NE, NE!' (Mt. 5:37 - Jk. 5:12)",
+    "NEBESKI DAR 7. 'NE BRINITE - BRIGA OPTEREĆUJE SRCE!' - 'Marta' i 'Marija' kakve nikad niste vidjeli!",
+    "NEBESKI DAR 6. Nepotrebne brige...",
+    "NEBESKI DAR 5. 'Ja se Sam pozivam među vas jer ste prepoznali Mojeg slugu -Crkveni duh i Duh Ljubavi"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGZP2TuJmNXB-Z8I-n0MzCm2",
+   "type": "playlist",
+   "name": "JUDE U KRŠĆANSKOJ CRKVI - 2. dio Seminara\"ISUS NAUČAVA O BOŽANSKOJ LJUBAVI\" (Čitanja iz \"Velikog Ivanovog Evanđelja\")",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZP2TuJmNXB-Z8I-n0MzCm2",
+   "follower_count": null,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 76,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "JUDE U CRKVI 15. Stvari se NISU odvile kako je Juda planirao ... Njegov očaj i smrt...",
+    "JUDE U CRKVI 14. Koji su bili razlozi Judine izdaje tj. što je Juda htio postići kad je izdao Isusa?",
+    "JUDE U CRKVI 13 Zbog čega je Isus 'trpio' Judu iako je poznavao njegovu zloću i znao da će Ga izdati",
+    "JUDE U CRKVI 12. Juda otkriva svoju nutrinu o Isusovoj božanstvenosti i Njegova čudesnog djelovanja",
+    "JUDE U CRKVI 11. Učenici u oluji na moru - Negativne primjedbe na to što ih je Isus tamo poslao...",
+    "JUDE U CRKVI 10. Juda prigovara radi Isusove 'slabosti' jer ne koristi Svoju MOĆ da porazi i zavlada",
+    "JUDE U CRKVI 9. Juda PRIGOVARA Isusovoj uputi za NE-nošenje torbe i novaca Apostolima (Mt. 10:9-10)",
+    "JUDE U CRKVI 8. Još o pohlepi Jude Iškariotskog -Razne situacije... Razlog zašto 'Jude' ne napreduju"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGakqKui-Hs64XtRzQsxPLCr",
+   "type": "playlist",
+   "name": "'Kako vitar puše' (Ivan 3:8) - 2023 i 2024",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGakqKui-Hs64XtRzQsxPLCr",
+   "follower_count": null,
+   "description": "",
+   "originals": 16,
+   "originals_30min": 16,
+   "avg_original_min": 59,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "1. KVP - Potvrda",
+    "2. KVP - Temelj bračne ljubavi",
+    "3. KVP - \"ZBOG!\" (Post. 2:18 ; 1 Kor. 11:7-10) Obmana u svezi \"srodne duše\" koju čekamo...",
+    "4. KVP - ALTER EGO (drugi \"ja\")",
+    "5. KVP - 'Kost mojih kostiju i meso moga mesa...' (Postanak 2:23)",
+    "6. KVP - The silence of Love (Tišina Ljubavi - Istinska ljepota žene)",
+    "7. KVP - 'Kruna svome mužu...' (Mudre Izreke 12:4)",
+    "8. KVP - 'Tko će naći VRLU ženu' (Mudre Izreke 31)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGY77xtIE551vonaiaH81TRF",
+   "type": "playlist",
+   "name": "ZVJEZDOZNANAC; Promocija knjige \"Bog je Ljubav\" ; Studio Apratman, Zagreb 2024",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGY77xtIE551vonaiaH81TRF",
+   "follower_count": null,
+   "description": "",
+   "originals": 16,
+   "originals_30min": 16,
+   "avg_original_min": 79,
+   "derivative_ratio": 0.11,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "ZVJEZDOZNANAC 15. DODATAK 2 - Svrha ovog Seminara je ispunjena. kad... - SVJEDOČANSTVO...",
+    "ZVJEZDOZNANAC 13. 'U kući Moga Oca ima ...' (Iv 14:2) kroz 'Oče naš' (Mal. 2:10 i Mt. 6:9)",
+    "ZVJEZDOZNANAC 14. Zemlja je zasebna planeta koja nema kontakt sa drugim svjetovima....Vanzemaljci",
+    "Molitva Gospodnja - Dodatak - 6. Pogled 'sunčanih' i 'zemljanih' ljudi na Očevu Ljubav prema njima",
+    "ZVJEZDOZNANAC 12. Pogled 'sunčanih' i 'zemljanih' ljudi na Očevu Ljubav prema njima",
+    "ZVJEZDOZNANAC 11. Nevoljnost želje za žrtvu radi postignuća konačnog Cilja - Mnoga svjedočanstva!",
+    "ZVJEZDOZNANAC 10. Prednosti SUNČANIH ljudi... UVJETI na Zemlji pogoduju postignuću NAJVIŠEG CILJA!",
+    "ZVJEZDOZNANAC 9. Savršeno uređenje u kraljevstvu životinja --- poredba življenja na drugim planetama"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGbUvqN1asla_kJbd9yezY6z",
+   "type": "playlist",
+   "name": "SNOVI - Split 2024",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbUvqN1asla_kJbd9yezY6z",
+   "follower_count": null,
+   "description": "",
+   "originals": 14,
+   "originals_30min": 14,
+   "avg_original_min": 83,
+   "derivative_ratio": 0.07,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "SNOVI 14 Kako čovjekova kvaliteta ljubavi-osjećajii i znanje-vjerovanje-shvaćanje utječu na primanja",
+    "SNOVI 13. Na koji način nam duhovi donose snove. U snu smo pod stalnim napadima ali nas anđeli štite",
+    "SNOVI 12. O 3 razine promatranja (vizije) duše... Objašnjena ČISTA VIZIJA potpuno proDUHovljene duše",
+    "SNOVI 11. Bezvrijednost snova tjelesnih i senzualnih duša... Zablude u sanjaricama'...",
+    "SNOVI 10. Uloga PODSVIJESTI u snovima - Objašnjene 'ludi i nepovezani' snovi... Sirah 34:4",
+    "SNOVI 9. Potresna iskustva u snovima...",
+    "SNOVI 8. Susreti sa srodnom dušom tijekom sna... Umnažanje snage i nemogućnost propadanja...",
+    "SNOVI 7. Snovi kao izvanredna pomoć vjernicima u posljednjim danima pred Kraj u velikoj nevolji!"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGY_GcRwdl6AVuDPT_NENcQi",
+   "type": "playlist",
+   "name": "BRAKOVI SKLOPLJENI NA NEBU - Šibenik 02/2024",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGY_GcRwdl6AVuDPT_NENcQi",
+   "follower_count": null,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 15,
+   "avg_original_min": 85,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "BRAKOVI 1. 'Gle OVO je brak doista ugovoren na nebu! Tako SVI brakovi trebaju biti ugovoreni ...'",
+    "BRAKOVI 2. Što je 'Emanuel'... Lamech i Ghemela spojeni unutar Mateja 6:33... 'Vi se TREBATE ...",
+    "BRAKOVI 3. 'Kao u dane Noine TAKO ĆE BITI... ženili se i udavali i NISU NIŠTA ZNALI!' (Mt. 24:37-39)",
+    "BRAKOVI 4. Blagoslov mladog para od strane praotaca -Evin važan govor - Zuriel postaje anđeo Heb 1:5",
+    "BRAKOVI 5. Jorias i Besela ... 'Da bi donekle prigušio tvoj žar dat ću ti ženu!' -Objašnjen Božanski",
+    "BRAKOVI 6. Pitanja i odgovori o MNOGOŽENSTVU! Da li je 'navika' u braku ili rutina razlog za dosadu",
+    "BRAKOVI 7. Muthael i problem izvanjske nježnosti i unutarnje tvrdoće žena. O prirodi muškarca i žene",
+    "BRAKOVI 8. Kada Gospodar odgađa blagoslov za tijelo za u PRAVO VRIJEME...."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGb-tnQKhNvuUiA-SRgZT0kW",
+   "type": "playlist",
+   "name": "\"Ja sam odrastao na SWEDENBORG-u\"",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGb-tnQKhNvuUiA-SRgZT0kW",
+   "follower_count": null,
+   "description": "",
+   "originals": 17,
+   "originals_30min": 17,
+   "avg_original_min": 53,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "SWEDENBORG - 17. (DODATAK 2) - 15-o i 16-o poglavlje 'Neba i pakla'...",
+    "SWEDENBORG - 16. (DODATAK) - Kako se užici vladajuće ljubavi mijenjaju u podudarne duhovne...",
+    "SWEDENBORG - 15. ŽIVOT POKAJANJA!",
+    "SWEDENBORG - 14. Što se događa kada niži anđeli idu u više a viši u niže nebo...",
+    "SWEDENBORG - 13. Tama ne spoznaje tamu... Duhovne zajednice na nebu - Princip zajedništva objašnjen",
+    "SWEDENBORG - 12. Duhovne sfere (2 dio)",
+    "SWEDENBORG - 11. Duhovne sfere (1 dio)",
+    "SWEDENBORG - 10. Tajna sretnog suživota sa ljudima u palom svijetu - PRAVILNA 'RAZDALJINA'..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGYtq8qLlo3Nl9R8EMFN0h44",
+   "type": "playlist",
+   "name": "BERHA DUDE I POČECI NJENE MISIJE - OBJAVE ZA NJU OSOBNO",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYtq8qLlo3Nl9R8EMFN0h44",
+   "follower_count": null,
+   "description": "",
+   "originals": 13,
+   "originals_30min": 13,
+   "avg_original_min": 61,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "BERTHA DUDDE - 1. Bertha Dudde i počeci Misije - 'Poslao sam moćnog anđela na Zemlju!'...",
+    "BERTHA DUDDE - 2. BD 0245 - 1 korak prema osobnoj Misiji je uspostavljanje PRVOG ODNOSA...",
+    "BERTHA DUDDE - 3. BD 0182 - 'Ako napustiš OVAJ PUT nebrojene mogućnosti će za tebe biti izgubljene…",
+    "BERTHA DUDDE - 4. O slobodnoj volji svih pa i ne-palih bića... Primanje ČISTE ISTINE...",
+    "BERTHA DUDDE - 5. BD 1742 - ZADATAK za Berthu Dudde - POMOZI potrebitima ('nahrani gladne')...",
+    "BERTHA DUDDE - 6. BD 0189 - 'Jedino kroz neprestanu molitvu će milost i snaga neprestano biti ...",
+    "BERTHA DUDDE - 7. BD 0185 - 'On dade neke...' (Ef. 4:7-8:11-13) - 'Tvoje će duhovno znanje rasti...",
+    "BERTHA DUDDE - 8. BD 219 - 'Puno lakše bi bilo za tebe i za nas ako bi ti možda mogla..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGbX6umJ-LG2RTsSJV7Bp9bE",
+   "type": "playlist",
+   "name": "Moji 'razgovori' sa Andrew Murray-em na temu Božanskog iscjeljenja; Zagreb 2023.",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbX6umJ-LG2RTsSJV7Bp9bE",
+   "follower_count": null,
+   "description": "",
+   "originals": 33,
+   "originals_30min": 33,
+   "avg_original_min": 82,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "BOŽANSKO ISCJELJENJE - 1. Rak 4. stupanj iscjeljenje... I dalje Luka 18:1-8 i usTRAJNA molitva...",
+    "BOŽANSKO ISCJELJENJE - 2. Jakovljeva (516-18) - KOLIKO može ŽARKA molitva pravednika...",
+    "BOŽANSKO ISCJELJENJE - 3. Božja volja (predodreženje) ili naša NEVJERA-Razlog za odsustvo čudesnog..",
+    "BOŽANSKO ISCJELJENJE - 4. Bolesti kao 'stega' tj. odgojno popravna mjera - Poziv na pokajanje...",
+    "BOŽANSKO ISCJELJENJE - 5. Zašto su OPROST GRIJEHA i ISCJELJENJE usko povezani u Svetom Pismu...",
+    "BOŽANSKO ISCJELJENJE - 6. Jobova bolest i ozdravljenje... Bog se služi Sotonom...",
+    "BOŽANSKO ISCJELJENJE - 7. Božji je ZAKON - Bit će nam KAKO vjerujemo!",
+    "BOŽANSKO ISCJELJENJE - 8. Koja je volja Božja za mene po pitanju ozdravljenja..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGaK73NuUN2t5aFiP6KNUqId",
+   "type": "playlist",
+   "name": "'Kako vitar puše' (Ivan 3:8) - 2022 i 2023",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaK73NuUN2t5aFiP6KNUqId",
+   "follower_count": null,
+   "description": "",
+   "originals": 19,
+   "originals_30min": 19,
+   "avg_original_min": 87,
+   "derivative_ratio": 0.1,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Opaki uzrok svake kuge... - predavanje na Svjetlu Čiste Istine",
+    "'Sjeti se da SVETKUJEŠ...' (Izlazak 20:8)",
+    "'Dajte caru ono što je carevo a Bogu ono što je Božje!' (Matej 22:21) - 5 svjedoka ...",
+    "“KAKO VITAR PUŠE  - 'Stalno sam s Isusom, a ipak ne napredujem, ZAŠTO!' (Primjer Jude Iškariotskog)",
+    "Kako vitar puše - Božić i duh Antikrista",
+    "Kako vitar puše - Kad čovjek pred licem nepravde šuti i sam postaje nepravedan!",
+    "PRELJUBNICI, ZAR NE ZNATE!  (Jakovljeva 4:4; 2 Korinćanima 11:2,3)",
+    "KVP - 1. SUD nad NEradnicima za Kraljevstvo (Pravedna plaća za besposlenost)"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGbViitR-pLFyDj20sAUHHac",
+   "type": "playlist",
+   "name": "Tražite prije svega Kraljevstvo Božje (Matej 6:33)",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGbViitR-pLFyDj20sAUHHac",
+   "follower_count": null,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 54,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Matej 6:33 - 1. 'Zbog stanja u kakvom ste vi ljudi danas nećete prihvatiti ove Matej 6:33...",
+    "Matej 6:33 - 2. 'Ako ispunite OVAJ uvjet Mt. 6 33 Ja ću preuzeti zemaljsku brigu za vas!' (BD 4892)",
+    "Matej 6:33 - 3. 'To Mt. 6 33 je OBEĆANJE koje Ja nisam dao uzalud u vrijeme Mojeg zemaljskog života!",
+    "Matej 6:33 - 4. 'Tko ove (= Mt. 6:33) Moje Riječi prihvaća ozbiljno tko otresa svaku zemaljsku brigu",
+    "Matej 6:33 - 5. 'A OSTALIMA je Moja Riječ (= Mt. 6:33) samo jedna govorna figura...",
+    "Hranjenje duše - 1. 'Vi ljudi NE SMIJETE zanemariti duhovnu hranu!!!' (BD 2362)",
+    "Hranjenje duše - 2. 'Ako ti ne operem noge NEMAŠ DIJELA SA MNOM!' (Iv. 13:8)...",
+    "Hranjenje duše - 3. BD 2362 - 'Ako čovjek izravno prima zračenje Božje Snage 'jede' Riječ Božju'..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGaLaS7TIl7WJUznxmUjqBvb",
+   "type": "playlist",
+   "name": "KNJIŽICA BR 68: \" Tražite prije svega Kraljestvo Božje... \"",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGaLaS7TIl7WJUznxmUjqBvb",
+   "follower_count": null,
+   "description": "",
+   "originals": 15,
+   "originals_30min": 14,
+   "avg_original_min": 48,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "KNJIŽICA 68. - 1. BD 3466a - 'Moje Kraljevstvo nije od ovog svijeta i zbog toga morate...",
+    "KNJIŽICA 68. - 2. BD 3466a 'Tko Me slijedi tko ljubi kako sam Ja ljubio osvojit će Moje kraljevstvo",
+    "KNJIŽICA 68 - 3. BD 3466a 'Slijedite Me i obratite se na Put Ljubavi jer kroz Ljubav...",
+    "KNJIŽICA 68. - 4. Što se događa kad našom ljubavlju prionemo uz svijet.... 'Lizalica'...",
+    "KNJIŽICA 68. - 5. BD 3466b - 'Moj Duh šalje svoje zračenje na vas i tako vas zaposjedam...",
+    "KNJIŽICA 68. - 6. BD 3466B - 'Morate Mi žrtvovati sve što vas još vezuje na Zemlji...",
+    "KNJIŽICA 68. - 7. 3466b Glagol 'TRAŽITE' u Kološanima 3:1-3 i Mateju 6:33 u stvari je na 'neviđeno'",
+    "KNJIŽICA 68. - 1. (8) - 'Radi se o brzom razvoju duše... Još samo malo vremena imate!'..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGYqGUP-ZfU0zZsE7yDi5hxD",
+   "type": "playlist",
+   "name": "GLAS SRCA - Predstavljanje novog izdanja Knjižice br. 67: \"Lipanj/Srpanj 2023 Zagreb",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGYqGUP-ZfU0zZsE7yDi5hxD",
+   "follower_count": null,
+   "description": "",
+   "originals": 13,
+   "originals_30min": 13,
+   "avg_original_min": 89,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "GLAS SRCA 1. Glas savjesti kao naš stalni suputnik i podsjetnik od Gospodara -'Nema nikog između...'",
+    "GLAS SRCA 2. 'Najveći uspjeh se može ostvariti ako čovjek sebi dozvoli biti vođen iznutra!' BD 6585",
+    "GLAS SRCA 3. Odgovoreno najvažnije pitanje - Kako mogu znati čiji glas čujem u srcu...  (Ivan 7:17)",
+    "GLAS SRCA 4. GRIZODUŠJE!",
+    "GLAS SRCA 5 Maslacem i medom on će se hraniti dok ne nauči odbacivat' zlo i birati dobro Izaija 7:15",
+    "GLAS SRCA 6. Najunutarniji osjećaj kao vodeći princip za način života - . Važnost podređivanja volje",
+    "GLAS SRCA 7. Objašnjen problem NEODLUČNOSTI u donošenju odluka... Kako ljudi završe opsjednuti...",
+    "GLAS SRCA 8. Molim se Isusu za zaštitu a poražen sam od sila tame molim se Isusu za vodstvo a ..."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  },
+  {
+   "key": "PL6ruhm1CeCGZqptu9_Iz23VfVePrEZ9_L",
+   "type": "playlist",
+   "name": "\"NEKA NE PROTURJEČE!\" ( Titu 2:9 ) ( \" Evanđelje za žene\" i \" Važnost poslušnosti \" - Kurios 2 - nastavak ); Zagreb 2023.",
+   "parent_channel": "Zašto Čista Istina",
+   "url": "https://www.youtube.com/playlist?list=PL6ruhm1CeCGZqptu9_Iz23VfVePrEZ9_L",
+   "follower_count": null,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 99,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NEKA NE PROTURJEČE - 1. Zašto je 'okvir' iz Poslanice Titu 2 1-10 - Pogrđivanje Božje Riječi...",
+    "NEKA NE PROTURJEČE -2. 2 svjedočanstva kao 'prvi plodovi' nauka Dragocjeno vrijeme šutnje objašnjeno",
+    "NEKA NE PROTURJEČE -3.  Ja sam sav svoj život i sve što jesam uložila u Riječ ( upute za žene)...",
+    "NEKA NE PROTURJEČE - 4. Nepodložna žena je GRJEŠNICA koja se mora pokajati za svoj grijeh...",
+    "NEKA NE PROTURJEČE - 5. Gdje ima volje nađe se i načina!- Vjera to ŽELI!...",
+    "NEKA NE PROTURJEČE -6. ZAVJET - 'Od ove večeri do vječnosti neka bude volja Tvoja a ne moja...",
+    "NEKA NE PROTURJEČE - 7. Neposluh Božjoj UPUTI i posljedice kroz priču o proroku Joni...",
+    "NEKA NE PROTURJEČE - 8. Mudrost Salomonova (1. Kraljevi 316-28) - Kako procijeniti tko je  u PRAVU"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "podcasts-tab",
+     "evidence": "YouTube /podcasts tab kanala"
+    }
+   ]
+  }
+ ]
+}

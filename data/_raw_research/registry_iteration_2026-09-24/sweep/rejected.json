@@ -1,0 +1,1577 @@
+[
+ {
+  "name": "Teachers Off Duty Podcast",
+  "channel_id": "UCkLUQ2TIUuuaRfNP3VwHR5A",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Košarkaški podcast sa Lukom i Kuzmom",
+  "channel_id": "UCZEeXCfyo_ljd_e2o7zxVtw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Nedjeljom u 2 | HRT",
+  "channel_id": "UCMyhjTyOHvZleisAV2WPJCQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "HronosVoxTemporis",
+  "channel_id": "UCz4fc0Aau0yjt3aIRqrdkag",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "Odabrao je Pere Kozomara",
+  "channel_id": "UCbuo0Xx-Pt3JXHm2XJFs32w",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "Noćne Priče",
+  "channel_id": "UCyNbyAUtmg52dwo4rc9H8YQ",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Domaćin",
+  "channel_id": "UCbRRMqbRk8Hrig2hOo_BsJw",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "Audio knjige KLASICI ",
+  "channel_id": "UCQl_4ZV62NvwU_2QJd9OMXw",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "DIZEL ASTRONAUTI",
+  "channel_id": "UC0S35M9MHl2VVcaAajrdGow",
+  "reason": "srpski"
+ },
+ {
+  "name": "Dreamink",
+  "channel_id": "UCo1pipV0BkbkrUD4Fh-S5zw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Wine Jam",
+  "channel_id": "UC4pEKZmLT-U8xIO03_yu67w",
+  "reason": "srpski"
+ },
+ {
+  "name": "Tehix",
+  "channel_id": "UC2HPlp2eyS1KeKXASJMeZzA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Sportcast Network",
+  "channel_id": "UCon5iIws-cixVGo9QPjJI3w",
+  "reason": "srpski"
+ },
+ {
+  "name": "Polovni automobili",
+  "channel_id": "UCSt8HX9b25JhcF8wau_WluA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Dan Za Podcast by Kontra Agency",
+  "channel_id": "UC311piiPMAUnz08zuLgq9kw",
+  "reason": "već u registryju (stub bez channel_id ili handle) — kandidat za enrichment, ne novi"
+ },
+ {
+  "name": "Centar za sigurniji internet",
+  "channel_id": "UCOGImLmHlBh2wwE7eWPyj6Q",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Dva i po psihijatra",
+  "channel_id": "UCPFcdpn9lj16S_P6_ICwNNw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Historia magistra vitae est",
+  "channel_id": "UCV70lbQtcdGpzT3-gSQDYNA",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "Meridian Sport BH",
+  "channel_id": "UCnRPU38eSCbFUm5TCsh_UIw",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Fox Carp Fishing TV Croatia",
+  "channel_id": "UCvJksDi5-lmgEjpDGZgGAUA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Priča za laku noć",
+  "channel_id": "UCeqE6XSwCWwTJRo4DXI7DDg",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Planetarni Dokumentarac Hrvatski",
+  "channel_id": "UCdAnq5UsL3Re5GZByYsqLfg",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Eesti Arhitektide Liit",
+  "channel_id": "UCJBYMArTmv8mez3T3hbsBGw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Miloš Živković - Profa Podcast 2",
+  "channel_id": "UCr-bW33i4ktAJSp1HWaYPsg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Dom na kvadrat",
+  "channel_id": "UCTsMVCiUurev7pGYSXR4Y6Q",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Ljudska Era",
+  "channel_id": "UC38zr01hOx0yaKGZTTdpeHA",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Audio knjige books NS",
+  "channel_id": "UCdb7orm6xH6lcbZB21HlJrg",
+  "reason": "srpski"
+ },
+ {
+  "name": "SVET AUDIO KNJIGA",
+  "channel_id": "UCY8D_6sN3yl_RAlfX5mkkwQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Audio Knjige - Pult Dobrih Knjiga",
+  "channel_id": "UCYWWQf0cUG7Vrp5JRceSTeg",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "English with Cambridge",
+  "channel_id": "UCnXqRankqlC47qzXcYMazKA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Losos Glazbena Produkcija",
+  "channel_id": "UCuxkScEVDJEOjwv-MNqH-2Q",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Amelia Dawson",
+  "channel_id": "UCBAkpt5lqoXzO3YanIcVsbA",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Studio HR",
+  "channel_id": "UCPK-TzWYCENGSB_lol2HxfQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Alice in Blockchains",
+  "channel_id": "UCsdtLQmlupOtIxJ0iaF9v2g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Pojacalo",
+  "channel_id": "UC_NvcpQIWA7TXh1qhjlPCuQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "BALKAN RULES PODCAST",
+  "channel_id": "UCP19qvqE9q93Qovi0SnlrHw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Two Parents & A Podcast",
+  "channel_id": "UCPqdLq_9rd9SSSqIuPxcDdg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "TV OBN",
+  "channel_id": "UC6oXcK8X1dpQZ5ryVlUYB_w",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Spotlight TV",
+  "channel_id": "UC95i7k4140I0Wrd5tCvTdAA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Nebeska Udica",
+  "channel_id": "UCkqWhnxjTVZh7Z4twX39gwg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Balkan u trendu!",
+  "channel_id": "UCV2okFpxbmwwqYlZYPCVD8w",
+  "reason": "srpski"
+ },
+ {
+  "name": "Alpinistički Odsjek Željezničar",
+  "channel_id": "UCsw0ooa4HeFGKATc0CRkdaQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Enigma",
+  "channel_id": "UCynC0QAsHbk4WtLtgiUX-SA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Robert Dacešin",
+  "channel_id": "UCfwKxPO5sehd6cBCoXyjRig",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Mundare Hrvatski",
+  "channel_id": "UCINA9dmRR05g32uVsmaTf6A",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Abyx Cosmos Hrvatski",
+  "channel_id": "UCcvQtUdFLbXhYYgvfmVYhBA",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Plemeniti Channel 2",
+  "channel_id": "UCts3JY1VeY5r2R469YXkUiA",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "ABC Adriatic Business Centre",
+  "channel_id": "UCpjLDtr2bZtrvK94zIbc5dQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "AA School of Architecture",
+  "channel_id": "UCfE4Y-61_QO-JYg0WnT0n6Q",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "A+ Lectures PoliTo",
+  "channel_id": "UCsh6SxnndUofY1x82CSJ4cg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "IC za Prostor",
+  "channel_id": "UCTOKaRNMVGvZemTBRxN4LPw",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "3D School",
+  "channel_id": "UC891mrKLwWJ4wdOsFzeY1lA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Places She Shapes",
+  "channel_id": "UCmm7vMLbtHd9t55Z8cVUTaQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Anarchitecture Podcast",
+  "channel_id": "UCWELM_zTl7tXLgT-rDKpSvg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Talking Place",
+  "channel_id": "UCCM0fmwbTRVbCnHJ9tRqVQw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "DuList",
+  "channel_id": "UCTXzwDMchkFFKT2MeVoBnfQ",
+  "reason": "već u registryju (stub bez channel_id ili handle) — kandidat za enrichment, ne novi"
+ },
+ {
+  "name": "Audio Moljac",
+  "channel_id": "UCdcazm-R09lusiN0wWwmDrw",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Hrvatski sabor kulture",
+  "channel_id": "UCZNTB44HyXQf7vUGrK3t9gg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "AUDIO KNJIGE RADIO 222",
+  "channel_id": "UCTtSiiSXNFO2afUA7Od5-0w",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Vaklkyrie",
+  "channel_id": "UCuZHfe2t3H765mLQDp-tV2Q",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Žiška",
+  "channel_id": "UCstCQSYWuEqIqz3dV3X7GVA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Knjizarko",
+  "channel_id": "UCdM6vsoxzQg5tDEoFChLaOg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Knjige Audio",
+  "channel_id": "UCY_it9x-M5onrqAPtBvdvAw",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "VOSTCAST",
+  "channel_id": "UC3FTjYEiewsYm3iOKI74XVA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Marin Baničević",
+  "channel_id": "UC13SBArvsHBfOnkz4_WlnTg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "MarqetHub d.o.o -  Kreativni Marketing",
+  "channel_id": "UCTfV5X4PahZAFJx85z4LW4A",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Mr Bean World",
+  "channel_id": "UCzoFjzSkbrDD1GHsz2YNLig",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Gavrilo Nikolic",
+  "channel_id": "UCNSHgpvBEJNIeBoWk9d5v2Q",
+  "reason": "srpski"
+ },
+ {
+  "name": "ASHA Global Voices",
+  "channel_id": "UCbNKyz3LUCKT6Ox3EyvLlSQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Worlds Collide - The Podcast about moving abroad",
+  "channel_id": "UCky9n1T_Hz2uzQSa5NP5SoQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Jetoff ai",
+  "channel_id": "UC-QMCtM1SxCVvjt-IP58CuA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Brits in Bosnia",
+  "channel_id": "UCd0PgnC0lW_IGs8a9TwiwDA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Brooke Abroad",
+  "channel_id": "UCjHtEqxwr-AVqedGGrS5Bfw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "About Abroad",
+  "channel_id": "UCF-2pSIK0iUOjXubJoLpJjQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "SHiFT COST Action",
+  "channel_id": "UCrWs80LtJKXKzkhWmFYM-gg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Julie's Bicycle",
+  "channel_id": "UCE500jBAA486d0SerqKDsFw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "MEER SRM",
+  "channel_id": "UCsh5Z6ecNn2hu7kT-SrFvfQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Watson School of International and Public Affairs",
+  "channel_id": "UCok8bs3XNbyU93LMwQ4A55w",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "MDR Mitteldeutscher Rundfunk",
+  "channel_id": "UCvwE_EBBDWM552Vd9v8m9Gg",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Jordan B Peterson",
+  "channel_id": "UCL_f53ZEJxp8TtlOkHwMV9Q",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "ART BELL | MIDNIGHT IN THE DESERT | DREAMLAND",
+  "channel_id": "UCbkdVfL8o5bbXer0naMehuQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Index Video",
+  "channel_id": "UCUp6H4ko32XqnV_6MOPunBA",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Ekonomski fakultet - Zagreb",
+  "channel_id": "UC5GdZj5gL6br0-jxOfN4pog",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "BUKA TV",
+  "channel_id": "UCK4nW0sw8X75ibsfIGjUbjw",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Etacude English Teachers",
+  "channel_id": "UCFTdQsjZCVXDyB8jkCZPxZQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Living Joyfully with Unschooling",
+  "channel_id": "UC24Frx1-PEOAKr_04JjznfQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The Reading League",
+  "channel_id": "UCm9TD9u7xGdRUaGjHkOthxw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The Teachers' Podcast",
+  "channel_id": "UCHmUDtGAisK7I1APyHpBQOw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Simple Farmhouse Life",
+  "channel_id": "UCJh5H0bg_9Cq1wP1jVirmOA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Teaching English with Oxford",
+  "channel_id": "UCJg43fASYmwa-pLlMQITVnw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The Daily Ketchup Podcast",
+  "channel_id": "UCY6xfL1cyfGQ5RjKR_25x-g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "School Psyched Podcast",
+  "channel_id": "UCw9nxVmNKe8Uh_I9zz1omhg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The TEFLology Podcast",
+  "channel_id": "UCZUvEqf5A7m7OADQoMOV8AA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Euka Future Learning",
+  "channel_id": "UCghT8_SiivqS67xPjlH6Gog",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Teachers On Fire",
+  "channel_id": "UCFDPjkAn7lZb-rahyVDttKA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Erum Nabeel Rehman ",
+  "channel_id": "UCtQH9_kylPp-hTGMkJRJTSQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The Daily Wire",
+  "channel_id": "UCaeO5vkdj5xOQHp4UmIN6dw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Njuz Net",
+  "channel_id": "UCbYHvSoOkkHfhPTNkz4RmQg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Budimo Realni?!",
+  "channel_id": "UCS45bjfKR-7NtYZoiakPoHA",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Kolektiv znanja",
+  "channel_id": "UCWr5W426CaxD6j35KMW-UuA",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Gajbotron",
+  "channel_id": "UCxQvSRUgXRTHQDPzOKyzyaw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Čelični Oblak",
+  "channel_id": "UCZNgThUflo9WAtkXlXsfygg",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "BN TELEVIZIJA",
+  "channel_id": "UCXkkgJdxvHWulglW2NLkcfQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Melos Podcast Production",
+  "channel_id": "UClm-iT9Lb4B9U-5eon9T94Q",
+  "reason": "srpski"
+ },
+ {
+  "name": "Igor i Vlado podcast",
+  "channel_id": "UCdXrpoMIetYqThag7DZDAMw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Novi Sad Podcast",
+  "channel_id": "UC4nuLSdebLXoMvKFT6piKZw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Vanja Elez",
+  "channel_id": "UC_SroeAAYDJ45KvfKvkwHgQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "MARIO ZNA",
+  "channel_id": "UCby8C-qq1N_8K5YNBnsQXKg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Dubrovačka televizija",
+  "channel_id": "UChAZr0FTYMGbufl1g1i7QZw",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "K1 Televizija",
+  "channel_id": "UCsTJunBwH5dM7yXCgAh3CQQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "MOJ PUT - Život, ljudi i događaji...",
+  "channel_id": "UCkEL1VkoOtEMRPL6aqsqseA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Tampon zona",
+  "channel_id": "UCQQF3fhOJ-19hKrBFJIzw_A",
+  "reason": "srpski"
+ },
+ {
+  "name": "Hladovina",
+  "channel_id": "UCn7RgTfGahvc4JkhJy74jfQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "KCNS",
+  "channel_id": "UCfMLUkYu_mc5_y1WKwxg0GA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Fairpress EU",
+  "channel_id": "UCmK2S6_BaiqEpMS8ZjbdTCQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Nebojša Vukanović",
+  "channel_id": "UCD7rmQ50SLohLswrKrCyB4Q",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "cuna951",
+  "channel_id": "UCBYP4QJY5_uUgu8eI4UAuHw",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "Marginalci Novog Svijeta",
+  "channel_id": "UCn4VgpBdzDEGaCdzRIKh3ag",
+  "reason": "re-upload tuđih emisija (npr. Povijest četvrtkom već u registryju)"
+ },
+ {
+  "name": "DvadesetJedan - Bitcoin Zajednica",
+  "channel_id": "UCYXly5XM_SO07vLHh2yPlCw",
+  "reason": "srpski"
+ },
+ {
+  "name": "IT Serbia Podcast",
+  "channel_id": "UC2AIRXf0mCCHx8jpvSK5IHw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Talas",
+  "channel_id": "UCMj0I1pX3toKLI4AOO2vFCg",
+  "reason": "srpski"
+ },
+ {
+  "name": "PLAY Zine",
+  "channel_id": "UC1g5EZDkRCuap42GAOIzbDw",
+  "reason": "srpski"
+ },
+ {
+  "name": "DUMP",
+  "channel_id": "UC7PMtpZobjWu84C-x_nRW5w",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Aleksandra Petrovski",
+  "channel_id": "UCer9ZiqEbyBrNoJE-50cVlA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Split Tech City",
+  "channel_id": "UC8lka4Cf-OTBvs7B53C3WpQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Strictly From Nowhere Podcast",
+  "channel_id": "UCWAstEyCK6YsKVTTRsQr37w",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Data Minds Podcast",
+  "channel_id": "UCuvdRjULDadeR70TX1Gte1A",
+  "reason": "srpski"
+ },
+ {
+  "name": "1st10 Podcast",
+  "channel_id": "UCcgGpBpwGHgziRLbiZJAV6Q",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The Founder's Dream | Abhishek vyas",
+  "channel_id": "UCMSka9vDmy6--lrAMCl_F2w",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Autonomy Global Network",
+  "channel_id": "UCFGodYF39gCI6CN6Dno6YYQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Šta Posle Faksa",
+  "channel_id": "UCHng1wGd1PDFuMzzx3mBxLg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Gitanjali Radio",
+  "channel_id": "UClEjPFVZy9945YVnReHHBsg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "The New Indians",
+  "channel_id": "UCeJ9CJhoXbaZ-sWA-S2OSeA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Podcast: \"Bez rukavica sa Božom Marićem\"",
+  "channel_id": "UCEPdjPkxsX0GGQW-64JMmkQ",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Spanian",
+  "channel_id": "UCecAIXPb5KTJz5BFnUzlTaA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Lachowski i Piątkowski o prawie międzynarodowym",
+  "channel_id": "UC4ZN8dMxgINJsTEyBXW_F2Q",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "A.K.A. Lex Sportiva",
+  "channel_id": "UCdSvjndoO4oT0regSzj_WPA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Slam The Gavel Podcast, Host Maryann Petri",
+  "channel_id": "UCKqAvMnB3BGsATNoQ7wxE7g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": " WW2 Legends Hrvatski",
+  "channel_id": "UCiaUHjnVMi-WXFpO7lPBU4Q",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Hrvatski Dom Split",
+  "channel_id": "UC6v6qK4AFgcZeK9tfgy1R2Q",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "RockLove Magazine Podcast ",
+  "channel_id": "UCzRQhAE7jTaUB-Zq3j8mFfw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "AMN Amnplify",
+  "channel_id": "UCgVuU2p5N6z_WWDgAvCVXqg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Ten Thousand Miles",
+  "channel_id": "UCkZj1zFgY_5smRxvnYYz__g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Unfiltered with krishnakshi",
+  "channel_id": "UCsabwz7fqii5OxJeD4nAMug",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Dmc Tv",
+  "channel_id": "UCqIK9T1T2xidMMbiQ9dHLgQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Kastel Art",
+  "channel_id": "UCIxUHNQ6qFW4oyvDF8F8CAQ",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Kišobran UNIRI",
+  "channel_id": "UCCSRlWu3YlcbkIfORjOFpsQ",
+  "reason": "već u registryju (stub bez channel_id ili handle) — kandidat za enrichment, ne novi"
+ },
+ {
+  "name": "BALKAN INFO - Zvanični kanal",
+  "channel_id": "UCLG5Qu54Q7gywaCeDs5etuQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Marijana Vuksanović",
+  "channel_id": "UCSMai-H9JvLCBtjmlvLX9bg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Klinika",
+  "channel_id": "UCOsohWavH_pHvCs-kHoBnqQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "ETM TV",
+  "channel_id": "UC8zpwqysjdr6nZxWngbKoCg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Masoom Minawala",
+  "channel_id": "UCCDls-tg021M45i4LfDY_4A",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Ivana Štulić",
+  "channel_id": "UCtuJ2mXycAebr8CHzgFdgCw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Healing the Tigress Podcast",
+  "channel_id": "UCmHIuQmz1MDf7-R46R9nucw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Hayat 2",
+  "channel_id": "UC8LsYbBwRBkPyvGfWYpcCkw",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "FTV",
+  "channel_id": "UC5W7u2h4S8dx9NL0qOCW4pQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "HRT Show",
+  "channel_id": "UCT8U6--zy-ej_SjxW60BY0A",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Novo društvo",
+  "channel_id": "UCcyxzSfnnKFT2R47b7P7ACw",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Hrvatsko sociološko društvo",
+  "channel_id": "UCUUJ4Cm6pVog2dhOwW1ISmw",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Der Legionär Hrvatski",
+  "channel_id": "UCATU4PXh1Qblfom55GkSDQg",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Boris Vidovic",
+  "channel_id": "UC3bMiYhk3KoenMplzY51Rgw",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "CROSOL Platform",
+  "channel_id": "UCWgt0Q9YZxcn-SZheAgHrSQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Hrvatski ured za osiguranje",
+  "channel_id": "UCIM1lMtuLlmg19XJWHTqYWQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "PNJS Productions",
+  "channel_id": "UCJRvwQRMnJVjsEKOiUTLDgA",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Podcast Kvadrat Po Kvadrat",
+  "channel_id": "UC5iFsgK01i-3xozxhFju7gg",
+  "reason": "srpski"
+ },
+ {
+  "name": "irelistings",
+  "channel_id": "UCZ_CkhvrLUQNTOomahojlVg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "IPEKA Counseling Center",
+  "channel_id": "UCMM6KR8lzuZX4pa01-CzB2Q",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Glas javnosti",
+  "channel_id": "UCvhPPKCG2fpcIX5hUy3E39g",
+  "reason": "srpski"
+ },
+ {
+  "name": "Sovann Pen",
+  "channel_id": "UCR5_g2WB7Ht-D8cVMJAizqQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Mimi Peric",
+  "channel_id": "UCZUOYS0UJOvsk4BP5flHIAw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Sinergija Centar",
+  "channel_id": "UC7mdMB_ITLHnrA3mNulFQbg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Telegraf.rs TV",
+  "channel_id": "UC5mvyf388uDnEK4-GX0RlUA",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Vikend sa Šofrom Gradska televizija",
+  "channel_id": "UCtCWWldArcM9mh8n6qfeVyQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Perpetual Chess Podcast",
+  "channel_id": "UCtcudElmRsQYTwULtd_gnFw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "TV LORD fishing",
+  "channel_id": "UCYo6Ecw2y4-Ozi_Geig_TrQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Marjan Mijajlović",
+  "channel_id": "UC04xao6vKvjopDRowyjO7rg",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Svlačionica podcast ",
+  "channel_id": "UCGAFwYA2evauHaZzn6QYHSA",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "The Climbing Majority Podcast",
+  "channel_id": "UC8JyC73pFEu-14UkB-fW0Lw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Robert Nuli",
+  "channel_id": "UCf0RxEMsxAb-m_VaW4Crqkg",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "U planinama",
+  "channel_id": "UCUi56YT3V94eT_8j1JAxnAg",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Planinar. ba",
+  "channel_id": "UCnerfC3Awbi4fQjbnyVsGTQ",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Sport Klub",
+  "channel_id": "UChpzBje9Ro6CComXe3BgNaw",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "TRČKAST",
+  "channel_id": "UCPvlxlHgG7BXBajeZP-I5KA",
+  "reason": "srpski"
+ },
+ {
+  "name": "The Runna Podcast",
+  "channel_id": "UC1L_pWHfh46nTpyV8Ep6z8w",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Bois in Motion",
+  "channel_id": "UCwDMlpnL9gurd2akop4D81g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Sweat Elite - Podcast ",
+  "channel_id": "UCKoVGxT--0JTXdyL5cVytJg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Први пут с оцем",
+  "channel_id": "UC-y8-5kPNc03MlqjrwtO9qA",
+  "reason": "srpski"
+ },
+ {
+  "name": "Pripovjedač ",
+  "channel_id": "UC1a9k_ryc6EZ-sEcsqpxEIQ",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Priče iz Tame",
+  "channel_id": "UCWa9RRpGErkQGBCEL7RqeLw",
+  "reason": "srpski"
+ },
+ {
+  "name": "MAGIČNI VIDEO",
+  "channel_id": "UCTy2axjng4Hil6C6qqelCxQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Priče Srca",
+  "channel_id": "UCdpAo2MdnYharJW7jFih00A",
+  "reason": "AI-sinkronizirani/generirani dokumentarci ili priče"
+ },
+ {
+  "name": "Croatian Travel Festival",
+  "channel_id": "UCfdF7QHKpaEReZIz4yicAnw",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Span",
+  "channel_id": "UCZsE55Gwx4Zku_UWpGJSVFA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "HYPE TV",
+  "channel_id": "UC-A5E7RiRLFuS31ZDw_8xmA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Kanal Ri",
+  "channel_id": "UCqkU9P-Gt9ojNZmcpJKtmGA",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "DKolektiv - organizacija za društveni razvoj",
+  "channel_id": "UCKXJlwnM_-OpBzMw_7EcxWQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Standuprs",
+  "channel_id": "UCxKJGf3QEOwTKZA8MjZRuUg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Dennis Domian",
+  "channel_id": "UC9ocwnNOrNeF9JE97KlmJqQ",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Maris - Nekretnine ",
+  "channel_id": "UC9C9yQFwrMx7nRI-ADdN_3g",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Udruga CARPE DIEM",
+  "channel_id": "UCl1Deq9dDwznmyLJTICDR1g",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "CMS Zagreb",
+  "channel_id": "UChNDG3CBV_HJr4IMjePtkEg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Udruga RiRock",
+  "channel_id": "UCRQ2imZRyFYW2GdRWI1m02A",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Sportska televizija",
+  "channel_id": "UCe13v3ktE5pKbNZIDsCEAtQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "CENTAR ZA ODGOJ I OBRAZOVANJE ČAKOVEC",
+  "channel_id": "UCvIcKYF3DHMmTEbhku0is6w",
+  "reason": "već u registryju (stub bez channel_id ili handle) — kandidat za enrichment, ne novi"
+ },
+ {
+  "name": "Smion",
+  "channel_id": "UCtFM2XU8yjxHTMMaoTu15Ig",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Festival europske kratke priče",
+  "channel_id": "UCkKhpfO9_30OmlsXLryuncQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Naklada Iris Illyrica",
+  "channel_id": "UC896AT27Pu7zKuvMBhxQOUw",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Tportal Mjerilo za bitno",
+  "channel_id": "UCYt_4QhS9m8FmtvcsWY6fpg",
+  "reason": "HR, ali premalo pravih epizoda / uglavnom kratki ili miješani sadržaj"
+ },
+ {
+  "name": "Knjiznica Blato",
+  "channel_id": "UC4kLKamY99JrA_V0wS0Zxuw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "PRIJATELJ KNJIGE",
+  "channel_id": "UC8rTZ5y09bT6xEgYbn-RypQ",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Drazen S",
+  "channel_id": "UCu-gbq-P6izw0DgQV2Jsr2g",
+  "reason": "srpski"
+ },
+ {
+  "name": "PiGŠRi projekti",
+  "channel_id": "UCxLvD_PrEF3uExEmH2se9cg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Adventure Freaksss ",
+  "channel_id": "UC0dRjLpXi4C8oti0Y9riUmg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "EcoMotion",
+  "channel_id": "UCaeafS_13xz8fQtb6kZ-Vig",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Štreberaj",
+  "channel_id": "UC8x0l2BtMLWy5VvPwokFDAQ",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "The New York Times Learning Network",
+  "channel_id": "UChRG1acLA7vtOav58bGpGEw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Fatman Chef",
+  "channel_id": "UCnNoLm7AJpEoE5FBWLkqIUw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Chef kuha doma",
+  "channel_id": "UCV_gG6SONQML3pj4lh2aJgw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Dnevnik",
+  "channel_id": "UC9-6mg97TjPerDjXIMFEF2Q",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "mts Tvoj svet",
+  "channel_id": "UC1MoMWWJt9MRfxpkem70uPw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Andrej Plenković",
+  "channel_id": "UCi0K3WrQ_WaN_C0lK5fSroA",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "IN Televizija emisije",
+  "channel_id": "UCYHsp04gm8xpBdF3qhKYIjA",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Nije sve tako crno",
+  "channel_id": "UCK4rs2BfgPBY7m_5eyJIsUw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Nikolino",
+  "channel_id": "UC8gMcvtxczaFITypei4_ZzQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "NOVA S",
+  "channel_id": "UCloa3CgQMtGSeqjLkpQlEFg",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Republika News",
+  "channel_id": "UCMmJnysXtM-Nu9ox4AgZE2w",
+  "reason": "srpski"
+ },
+ {
+  "name": "Štokajča",
+  "channel_id": "UCI0oOw6g7sfxHL-2dhQMwvw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "SoMo Borac",
+  "channel_id": "UCU46Mj9AayA6LvSC_deN_cA",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "MobileAppDaily",
+  "channel_id": "UCsM-HY7YBWuHmgexjzpVdEw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Podkast Pravni argumenti ",
+  "channel_id": "UCrNNlJoimsPHnSTBuP_Uo_w",
+  "reason": "srpski"
+ },
+ {
+  "name": "paralelaHR",
+  "channel_id": "UCwGs0r_ItbDg7rsPbdwFXZA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Financial Jazz",
+  "channel_id": "UCZUMXxVCtX-4lS2hPBYXfjw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "SC REALTORS®",
+  "channel_id": "UCqwUBUEMgSePxo5dOxwlAIA",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Stetoskop info",
+  "channel_id": "UCNu0Bi1keY4fX3qTzrMUyrw",
+  "reason": "srpski"
+ },
+ {
+  "name": "Ivica Puljak",
+  "channel_id": "UCAoULrJnWW29EJNwJsjrYTg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Fabula Docet",
+  "channel_id": "UC4eZHukxsTR9emscBY7yNww",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "TV Nova Pula",
+  "channel_id": "UCe_tp4aZoWzjd4P9gohGFGg",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Radio Centar",
+  "channel_id": "UCgUdqF-8w0orCqUIHyIQO_g",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "PDV Records",
+  "channel_id": "UCZEzatDzCXXDN57qNhOUFlw",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Razgovori u dnevnoj",
+  "channel_id": "UC_yEDFX6GNAEMwtKHA_YXcA",
+  "reason": "HR, ali premalo pravih epizoda / uglavnom kratki ili miješani sadržaj"
+ },
+ {
+  "name": "Centar za istraživačko novinarstvo Srbije CINS",
+  "channel_id": "UCSeAuEJfRQERvHaZuXu2gxQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Centar za mlade Zagreb",
+  "channel_id": "UCGO8MNmXjycykmQZIh_XhSQ",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "RTS Sajt",
+  "channel_id": "UCF6U1KDm7BLHWBBUwsZzKtQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Centralna BA",
+  "channel_id": "UCzKo0zfxtHyOSA7HmlHeQfw",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Newsmax Balkans",
+  "channel_id": "UCLwCfOjZDvGpNxagHt2eo7A",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Pepo TV",
+  "channel_id": "UCTxaCjKQe7luSYJsyqbf_TQ",
+  "reason": "srpski"
+ },
+ {
+  "name": "Jasna Bajraktarević",
+  "channel_id": "UC72B3JfoOfbAek8FExWs0WQ",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Dr. Sagar Pathak",
+  "channel_id": "UCxj_d3S6VDxH2EoTNqW3vbQ",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Frama Široki Brijeg",
+  "channel_id": "UC7gmCpabDpex7NHlDl-yqGA",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Body & Mind",
+  "channel_id": "UCpepY2tWTA5MO8-z56hsVOw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Učite šah s velemajstorom Jankovićem",
+  "channel_id": "UCYvq-ghyAhdu9sj0gGkETXA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Nikola Clutch",
+  "channel_id": "UCcFILnpfC-xvkyiYYDsovGw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "EduKamp",
+  "channel_id": "UCDBfJ_K1NvybfbLtmDTq5Tw",
+  "reason": "HR, ali premalo pravih epizoda / uglavnom kratki ili miješani sadržaj"
+ },
+ {
+  "name": "IBU Official",
+  "channel_id": "UC5Ir3WnH5RRJ8q7hJHknE3A",
+  "reason": "bosanski / BiH nehrvatski"
+ },
+ {
+  "name": "Ivica Kostelić",
+  "channel_id": "UCOvHuRlZRlhIOHLSIronxrA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Invincible NGO",
+  "channel_id": "UCw8uaiUJgCJFHfvLVgZwAww",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "ProGame",
+  "channel_id": "UCz_xqMN_B10c1qLjOSXrqsw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "BugTV",
+  "channel_id": "UCrogte8JZ06qmIQZ0h7JoGg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "AutoMarket.hr",
+  "channel_id": "UCwslAYK88ax-ITOE4uIiteQ",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "3SPORTA",
+  "channel_id": "UCecF6-yBbI4Ku7uI2ZveLTQ",
+  "reason": "HR, ali premalo pravih epizoda / uglavnom kratki ili miješani sadržaj"
+ },
+ {
+  "name": "CHARTERBAR Yachting - Yachtcharter & Segeln",
+  "channel_id": "UCbcN792-h91I7tufPzPgBSg",
+  "reason": "strani jezik (EN/ostali) — van HR scopea"
+ },
+ {
+  "name": "Lucas Leiner",
+  "channel_id": "UCItTzt2JdChBe_vj3eXsDtA",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Šareni Tornado",
+  "channel_id": "UCOMaXgfD_IWQHGjnx4DFbww",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Samantine Recenzije & Podcast",
+  "channel_id": "UCuhyoLdoVj_ssgpTqGmafxw",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Kaufland Hrvatska",
+  "channel_id": "UCH06X7-IKL79JxXMHbTq8Cg",
+  "reason": "ne prolazi triage: 0/60 ≥30 min, avg 0 min"
+ },
+ {
+  "name": "N1 Hrvatska",
+  "channel_id": "UC1T9Sd-3fv64j_6X7pkvMCg",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Krajobrazovanje",
+  "channel_id": "UCEnYHg0sKs5ji0e4eirnLHA",
+  "reason": "ne prolazi triage: 1/2 ≥30 min, avg 76 min"
+ },
+ {
+  "name": "Krležin Gvozd - official channel of Ivo Štivičić",
+  "channel_id": "UC7vwwp4anW6bkBEZrq5r8OQ",
+  "reason": "ne prolazi triage: 3/60 ≥30 min, avg 57 min"
+ },
+ {
+  "name": "Central European Academy of the UM",
+  "channel_id": "UCYK-nLMdX0lipGQCwOTLwLQ",
+  "reason": "ne prolazi triage: 2/60 ≥30 min, avg 43 min"
+ },
+ {
+  "name": "Croatian Music Spotlight",
+  "channel_id": "UCW5keqtEsPJ5ecM0OhDmOIA",
+  "reason": "ne prolazi triage: 1/1 ≥30 min, avg 34 min"
+ },
+ {
+  "name": "Artu furniture",
+  "channel_id": "UC5IzvaIaX5OI2vJ0UXs-O7Q",
+  "reason": "ne prolazi triage: 1/1 ≥30 min, avg 40 min"
+ },
+ {
+  "name": "Antonia Saso",
+  "channel_id": "UCmFxHvDPlOoJEvbClR4QwkA",
+  "reason": "ne prolazi triage: 3/4 ≥30 min, avg 51 min"
+ },
+ {
+  "name": "AntonioDiavolo1",
+  "channel_id": "UCG6eYE3nx0gxn0l7HTil7ag",
+  "reason": "ne prolazi triage: 3/12 ≥30 min, avg 43 min"
+ },
+ {
+  "name": "Max teatar",
+  "channel_id": "UCQiZsLiGeydiyZfM7f4amfQ",
+  "reason": "ne prolazi triage: 1/31 ≥30 min, avg 50 min"
+ },
+ {
+  "name": "Miljenko Hršak",
+  "channel_id": "UCIJ_J9cw8Tf_fxC0TOWpTpA",
+  "reason": "ne prolazi triage: 3/58 ≥30 min, avg 54 min"
+ },
+ {
+  "name": "Dani Roman",
+  "channel_id": "UCeZTwMsH8S12hm6_fzd7vNg",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Goli Zivot TV Happy",
+  "channel_id": "UCfFsalWhdhEy6LJkB0cEG1w",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "MixMaker 081",
+  "channel_id": "UCYGHa2DKeD6sabOX8Vr_g7A",
+  "reason": "ne prolazi triage: 3/36 ≥30 min, avg 98 min"
+ },
+ {
+  "name": "jota ka",
+  "channel_id": "UCebNgeqse9h687iJH3qncsg",
+  "reason": "ne prolazi triage: 1/2 ≥30 min, avg 157 min"
+ },
+ {
+  "name": "Krug prijatelja Brune Gröninga (Hrvatska)",
+  "channel_id": "UCfCtf5jy9RkrHKqgG3Fjxlw",
+  "reason": "ne prolazi triage: 2/60 ≥30 min, avg 88 min"
+ },
+ {
+  "name": "Oko ekrana",
+  "channel_id": "UCqiJMkb9rQhinAjsJcs6DDg",
+  "reason": "ne prolazi triage: 2/2 ≥30 min, avg 54 min"
+ },
+ {
+  "name": "WineLibraryTV",
+  "channel_id": "UC-8aMX2uL1Mt8MgojmNvn4w",
+  "reason": "ne prolazi triage: 0/60 ≥30 min, avg 0 min"
+ },
+ {
+  "name": "Ivica Todorić",
+  "channel_id": "UCwuqSkx1uwt_OU-Q7I8_iSg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Tomislav Jonjić",
+  "channel_id": "UCwFYeETYOT3mpU3FNou49ug",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Crypto Balkan",
+  "channel_id": "UCY7emIIQvRCedwPib-_bYOA",
+  "reason": "ne prolazi triage: 3/40 ≥30 min, avg 55 min"
+ },
+ {
+  "name": "GamePerspectives",
+  "channel_id": "UCekvaUJ7UIaQ3OXuDwgWQLg",
+  "reason": "ne prolazi triage: 1/60 ≥30 min, avg 85 min"
+ },
+ {
+  "name": "vidilab",
+  "channel_id": "UCd8HWjLOs5n4B2JOYJybPlQ",
+  "reason": "ne prolazi triage: 4/62 ≥30 min, avg 48 min"
+ },
+ {
+  "name": "Portal Narod",
+  "channel_id": "UCHAlSHKLPpeeBrnFZYS1bEw",
+  "reason": "već u registryju (stub bez channel_id ili handle) — kandidat za enrichment, ne novi"
+ },
+ {
+  "name": "Anti-Corruption Education",
+  "channel_id": "UCjyppMBkQM_fx0FltaznQKg",
+  "reason": "ne prolazi triage: 1/15 ≥30 min, avg 34 min"
+ },
+ {
+  "name": "Kabinet za Funkcionalnu Medicinu Beo-lab ",
+  "channel_id": "UCY3NOxEEnIcdIMhkmcKg97A",
+  "reason": "ne prolazi triage: 2/5 ≥30 min, avg 41 min"
+ },
+ {
+  "name": "Inkubator izvrsnosti",
+  "channel_id": "UC64_8r3W3OdXW032pjvROrg",
+  "reason": "ne prolazi triage: 4/6 ≥30 min, avg 67 min"
+ },
+ {
+  "name": "Glazbeni Krugodrk",
+  "channel_id": "UCCwSZiW86kLGNHIrQjZ4gtQ",
+  "reason": "ne prolazi triage: 3/3 ≥30 min, avg 61 min"
+ },
+ {
+  "name": "Radio Dalmacija",
+  "channel_id": "UCZ2ttr0Hjmew2Sv62ASds-w",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Superval",
+  "channel_id": "UCb0VKAxHvj1nCKRdcaiHV7Q",
+  "reason": "ne prolazi triage: 1/60 ≥30 min, avg 83 min"
+ },
+ {
+  "name": "Hrvatska republikanska stranka",
+  "channel_id": "UCUYRf5KE6vC6eiBwFuYAsTg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "LIVING ROOM Podcast ",
+  "channel_id": "UC0SICrWVZ4RQ-olahhc1lXQ",
+  "reason": "ne prolazi triage: 1/1 ≥30 min, avg 63 min"
+ },
+ {
+  "name": "TI TO NE KUŽIŠ Podcast",
+  "channel_id": "UCs5xSY2h8oAgnlB2VPoknYw",
+  "reason": "ne prolazi triage: 2/6 ≥30 min, avg 63 min"
+ },
+ {
+  "name": "Gostiona je način života",
+  "channel_id": "UCn8UoMabYyx30tTl_BACEfQ",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "BURO247 HRVATSKA",
+  "channel_id": "UCFGNfcUM1rGvq53YRpWS0zQ",
+  "reason": "ne prolazi triage: 3/4 ≥30 min, avg 51 min"
+ },
+ {
+  "name": "Chill Talk Podcast",
+  "channel_id": "UCfdPRnqaLVwKz_GNnz4mAKg",
+  "reason": "ne prolazi triage: 1/2 ≥30 min, avg 99 min"
+ },
+ {
+  "name": "Bodysculpt by Roni Kovačić",
+  "channel_id": "UC_UzzKqmseWTdnWbadsqmrg",
+  "reason": "ne prolazi triage: 4/6 ≥30 min, avg 53 min"
+ },
+ {
+  "name": "Čitaj Dalje",
+  "channel_id": "UCnmKWzSd1yQme7nN-oniPXA",
+  "reason": "ne prolazi triage: 1/4 ≥30 min, avg 30 min"
+ },
+ {
+  "name": "Radnička Fronta",
+  "channel_id": "UCdIN6FYhfVTLnM8R_kSRfLg",
+  "reason": "institucionalna događanja/predavanja/tribine/stranački kanal"
+ },
+ {
+  "name": "Kuća ljudskih prava Zagreb",
+  "channel_id": "UCMn04DqiOIvnoj4CkDnuoCw",
+  "reason": "ne prolazi triage: 2/10 ≥30 min, avg 38 min"
+ },
+ {
+  "name": "Hrvatski drvni klaster",
+  "channel_id": "UC_3BmwzITRs8Kq1tVH4edtQ",
+  "reason": "ne prolazi triage: 2/57 ≥30 min, avg 56 min"
+ },
+ {
+  "name": "biciklizam_net Plus",
+  "channel_id": "UCQvQdyxLPqh77skTIbLhHZQ",
+  "reason": "ne prolazi triage: 3/60 ≥30 min, avg 43 min"
+ },
+ {
+  "name": "PODCAST-Baranja pod povećalom",
+  "channel_id": "UC6EvpIQ3JVV_Dd27fBJQhPg",
+  "reason": "ne prolazi triage: 3/8 ≥30 min, avg 56 min"
+ },
+ {
+  "name": "Al Jazeera Balkans",
+  "channel_id": "UC_yXEx3-Gk5drg9qhPzSQSg",
+  "reason": "TV/radio/medijska kuća, ne podcast"
+ },
+ {
+  "name": "Generali Srbija",
+  "channel_id": "UCZ_MBIKbzc8-5RZYnU0Rzfg",
+  "reason": "srpski"
+ },
+ {
+  "name": "Исус Христос наше спасење",
+  "channel_id": "UCKYq0wDeJR4CW-47yAYc4mA",
+  "reason": "ne prolazi triage: 4/30 ≥30 min, avg 110 min"
+ },
+ {
+  "name": "Danijela Vidić",
+  "channel_id": "UCsbkEjpQsKvBDx0EpXIIl8A",
+  "reason": "audio knjige (ne podcast, autorska prava)"
+ },
+ {
+  "name": "Daily Chill",
+  "channel_id": "UCJy19Lz4pdy8j6-muXP9-JA",
+  "reason": "vlog/gameplay/tutorial/kratki video, ne razgovorni podcast"
+ },
+ {
+  "name": "Priče Između Nota",
+  "channel_id": "UC0ZBRtkLfWwvNEfvsUvgN_w",
+  "reason": "probe neuspješan (kanal nema /videos tab ili prazan)"
+ },
+ {
+  "name": "Seen & Heard",
+  "channel_id": "UCUn2PzgYx7cTCmQEGmADtRw",
+  "reason": "probe neuspješan (kanal nema /videos tab ili prazan)"
+ },
+ {
+  "name": "Pametni ljudi (COO Čakovec) — playlista PLS9hJy-IsPT0ZJM84vvZU1ue_HoqUYYmf",
+  "channel_id": "UCvIcKYF3DHMmTEbhku0is6w",
+  "reason": "već u registryju kao stub \"pametni-ljudi\" bez URL-a — ovo je njegov URL (enrichment)"
+ }
+]

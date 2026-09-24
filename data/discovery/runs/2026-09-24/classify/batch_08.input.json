@@ -1,0 +1,1380 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "UCT83lJC9IZiTsf__pXAs0QA",
+   "type": "channel",
+   "name": "Bijela kronika",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCT83lJC9IZiTsf__pXAs0QA/videos",
+   "follower_count": 305,
+   "description": "Bijela kronika je TV emisija  koja promiče pozitivne stavove u društvu, gosti emisije su osobe koji svojim dosadašnjim doprinosima poboljšavaju našu zajednicu i bude nadu u bolje sutra. Emisija svojim pozitivnim stavovim potiče svakoga od nas da činimo dobre stvari za osobe u našoj blizini. \nUrednik i voditelj:  Ivo Krištić\nSports life\nUDRUGA ZA PROMICANJE ZDRAVOG NAČINA ŽIVOTA, AMATERSKOG SPORTA I ZAŠTITE OKOLIŠA SPORTS LIFE\nMBS: Ulica Božidara Magovca 20, Zagreb \nTel:  098/478-774  www.sports-life.hr  e-mail: sportslife.hr@gmail.com\nPotporu za rad emisije možete upaltiti na naš  žiro-račun k",
+   "originals": 60,
+   "originals_30min": 21,
+   "avg_original_min": 29,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Bijela kronika Svyatoslav Kotkevych, Grkokatolički svećenik o putu vijere  i snazi opraštanja.",
+    "Bijela kronika: Dr. Veljko Đorđević o čovječnosti u Domovinskom ratu",
+    "Bijela kronika doc. dr. sc.  Julija Baričević Pletikosić o čuvanju istine o Domovinskom ratu",
+    "Bijela kronika: Dr. sc. Krešimir Margaletić o mirovnim sporazumima i budućnosti svjetskih sukoba",
+    "Bijela kronika Mladen Miletović \"Ili ćemo ze zbiti, ili nas neće biti\"",
+    "Bijela kronika Domagoj Tuličić:  Koliko smo sigurni u virtalnom svijetu?",
+    "Bijela kronika Goran Luburić: Naš je zadatak je pripremiti studente za stvarna zanimanja budućnosti.",
+    "Bijela kronika:  Povijest hrvatske reprezentacije,  Mario Stipančević i Hrvoje Gržina HDA"
+   ],
+   "sample_derivatives": [],
+   "hints": []
+  },
+  {
+   "key": "UCEOOgydHzPNZYyt5MRqpARg",
+   "type": "channel",
+   "name": "MIOC podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCEOOgydHzPNZYyt5MRqpARg/videos",
+   "follower_count": 160,
+   "description": "Dobrodošli na podcast kanal XV. gimnazije, popularnog MIOC-a. \n\n\n\n\n",
+   "originals": 20,
+   "originals_30min": 20,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.56,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "MIOC Podcast S4 EP5 | Nebojša Slijepčević",
+    "MIOC Podcast S4 EP4 | Paolo Tišljarić",
+    "Ivica Kostelić | Razgovori olimpijaca S2 EP1",
+    "MIOC Podcast S4 EP3 | Željko Ivezić",
+    "MIOC Podcast S4 EP2 | Razgovor profesora",
+    "MIOC Podcast S4 EP1 | Andrej Kramarić",
+    "Igor Vori | Razgovori olimpijaca S1 EP4",
+    "Miran Maričić | Razgovori olimpijaca S1 EP3"
+   ],
+   "sample_derivatives": [
+    "MIOC Podcast S2 EP4 - isječak 5 - Poruka za Miočane (91s)",
+    "MIOC Podcast S2 EP2 - isječak 5 - anegdote (4 min < prag 26 min)",
+    "MIOC Podcast S2 EP3 - isječak 5 - atmosfera u zbornici (7 min < prag 26 min)",
+    "MIOC Podcast S2 EP4 - isječak 4 - MIOC PMG ili IB (139s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Alumni XV. gimnazije, sezonski (S4). Uzorak: 20/45 ≥30 min, kratkih <10 min 40 %.",
+     "tags": [
+      "education",
+      "science"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCakU8LMxQuvHqGo0wJEFVww",
+   "type": "channel",
+   "name": "Vanjskopoliticka Inicijativa BH",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCakU8LMxQuvHqGo0wJEFVww/videos",
+   "follower_count": 106,
+   "description": "",
+   "originals": 12,
+   "originals_30min": 9,
+   "avg_original_min": 48,
+   "derivative_ratio": 0.65,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Diplomacy talks sa Dr. Fabio Scano/ epizoda 8",
+    "Diplomacy talks sa Farukom Borićem / epizoda 7",
+    "Diplomacy talks sa prof. dr. Asim Mujkić / epizoda 6",
+    "DIPLOMACY TALKS PODCAST / epizoda 5 – Esmir Milavić",
+    "DIPLOMACY TALKS PODCAST / epizoda 4 – Damir Kapidžić",
+    "Mladi Online: Čujemo li se? Aktiviraj se!",
+    "\"Imate pravo znati\" s Leilom Bičakčić",
+    "DIPLOMACY TALKS PODCAST / epizoda 3 - Stevo Muk"
+   ],
+   "sample_derivatives": [
+    "FPI BH in 2020 (119s)",
+    "Naša postignuća u 2020. godini (119s)",
+    "\"Imate pravo znati\" s Draganom Ćuzulanom (15 min < prag 21 min)",
+    "EU i BiH? (61s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCidqZjlsOsUSw5T2jf9F27A",
+   "type": "channel",
+   "name": "Mijenjam ciglu za ovcu",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCidqZjlsOsUSw5T2jf9F27A/videos",
+   "follower_count": 50,
+   "description": "Mijenjam ciglu za ovcu je podcast o društvenim igrama.\nPodcast vodi Slaven, a uz njega su Ana, Bruno i Danijel te mnogi gosti.\n\nEkipa podcasta je dio Kluba Titan Atlas iz Osijeka, Hrvatske i možete pronaći stranice Kluba na:\nhttps://klubtitanatlas.hr/\nili na facebook stranici\nhttps://www.facebook.com/klubtitanatlas/\n\nTakođer facebook grupa je otvorena za sve zainteresirane:\nhttps://www.facebook.com/groups/482962175137376/",
+   "originals": 42,
+   "originals_30min": 41,
+   "avg_original_min": 58,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 5 - Crni petak",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 4 - Igre koje obožavamo",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 3 - Riftbound",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 2 - Kutije društvenih igara",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 1",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 5 Epizoda 2 - Spiel Des Jahres",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 5 Epizoda 1 - Olympos",
+    "Unfiltered Podcast Mijenjam ciglu za ovcu - Specijal za praznike - Liste"
+   ],
+   "sample_derivatives": [
+    "Unfiltered Podcast Mijenjam ciglu za ovcu Sezona 6 Epizoda 6 - Sretni praznici! (13 min < prag 20 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR podcast o društvenim igrama, 6 sezona. Uzorak: 41/43 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "gaming",
+      "board-games"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCvmjTlYCz1I8oznVznFloRw",
+   "type": "channel",
+   "name": "ProBudi Podcast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCvmjTlYCz1I8oznVznFloRw/videos",
+   "follower_count": 543,
+   "description": "Budi pokretač pozitivnih promjena! Edukacija/Kultura/Domovina/Duhovnost.",
+   "originals": 18,
+   "originals_30min": 18,
+   "avg_original_min": 56,
+   "derivative_ratio": 0.22,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "mr. Bakir Buljugija, prof.  -  Bivši rukometni reprezentativac BiH",
+    "KAKO ZAUSTAVITI STRES I DEPRESIJU \"UBICE\" 21. STOLJEĆA? - Prof. dr. sc. Redžo Čaušević",
+    "Prof.dr.sc. Mevludin Hasanović \"POREMEĆAJI ZBOG UPOTREBE SUPSTANCI/DROGA\"",
+    "Da li je moguće \"Potpuno psihičko blagostanje\"  -  Prof. emeritus dr. Izet Zikjr Pajević",
+    "Vladimir Al-Adasi - Kiropraktika kao nauka?",
+    "U susret ramazanu - Doc.dr.hafiz Elvir Duranović",
+    "ProBudi Podcast # 9 Zlatan Halilbegovic",
+    "ProBudi Podcast # 8:  Ademir Lasetovic"
+   ],
+   "sample_derivatives": [
+    "Priče iz Mesnevije: Car, djevojka i zlatar - Prof. emeritus dr. Izet Zikjr Pajević (5 min < prag 24 min)",
+    "Hafiz Duranović - Šta je to duhovnost? (62s)",
+    "Šta je to poštovanje - Alma Tihić psihoterapeut (75s)",
+    "ProBudi Podcast # 7 Muharem Sehic, IT Inzinjer i NVO aktivista (22 min < prag 24 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCVD9KqOzPD0TDkSxp8-B3qw",
+   "type": "channel",
+   "name": "Knjigomoljci",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCVD9KqOzPD0TDkSxp8-B3qw/videos",
+   "follower_count": 12,
+   "description": "",
+   "originals": 3,
+   "originals_30min": 3,
+   "avg_original_min": 46,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Knjigomoljci podcast: Epizoda 3 - Navike",
+    "Knjigomoljci podcast: Epizoda 2 - Žene pišu",
+    "Knjigomoljci podcast: Epizoda 1 - Distopija"
+   ],
+   "sample_derivatives": [],
+   "hints": []
+  },
+  {
+   "key": "UCY0ZWyWKZ9CS4UGZTu27vjQ",
+   "type": "channel",
+   "name": "Ustanova za kulturu i sport Metković",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCY0ZWyWKZ9CS4UGZTu27vjQ/videos",
+   "follower_count": 60,
+   "description": "",
+   "originals": 4,
+   "originals_30min": 1,
+   "avg_original_min": 25,
+   "derivative_ratio": 0.33,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Podcast 'Metkovske minute' - Epizoda 6 - Ferdinand Jakić - Ferdo",
+    "Podcast 'Metkovske minute' - Epizoda 3 - Nikša Martinac",
+    "Podcast 'Metkovske minute' - Epizoda 2 - Lajla Mišur Volarević",
+    "Podcast 'Metkovske minute' - Epizoda 1 - Ante Granić i Hrvoje Batinović"
+   ],
+   "sample_derivatives": [
+    "Podcast 'Metkovske minute' - Epizoda 5 - Ivica Ivaniš – Kulija (10 min < prag 15 min)",
+    "Podcast 'Metkovske minute' - Epizoda 4 - Ante Boras (14 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCbJjxfPij-6lHDj9InPRGuA",
+   "type": "channel",
+   "name": "Libertas međunarodno sveučilište (Sveučilište Libertas)",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCbJjxfPij-6lHDj9InPRGuA/videos",
+   "follower_count": 377,
+   "description": "Sveučilište Libertas je prvo privatno sveučilište u Hrvatskoj koja pruža akreditirane prijediplomske, diplomske i poslijediplomske studije. \n\nLibertasova snaga leži u iznimnim profesorima s bogatim akademskim i profesionalnim iskustvom, uključujući stručnjake s vodećih svjetskih sveučilišta i međunarodnih institucija. Njihova kombinacija akademske izvrsnosti i praktičnog iskustva osigurava uravnoteženost teorije i prakse u programima Libertasa.\n\nNa našem YouTube kanalu imat ćete priliku osjetiti atmosferu u našim predavaonicama, upoznati naše studente, profesore i nastavnike te čuti od njih di",
+   "originals": 7,
+   "originals_30min": 7,
+   "avg_original_min": 83,
+   "derivative_ratio": 0.68,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Detant - epizoda 6: Svijet nakon američkih predsjedničkih izbora",
+    "Detant - epizoda 5: Analiza hrvatske vanjske politike",
+    "Detant - epizoda 4: Europska i globalna gospodarska slika",
+    "Detant - epizoda 3: Europska unija - jučer, danas, sutra",
+    "Detant - epizoda 2: Sukob i kriza na Bliskom istoku",
+    "Detant - epizoda 1: Hrvatska u svijetu",
+    "ArhKonTur • Final Conference | Završna konferencija projekta - 21.01.2021."
+   ],
+   "sample_derivatives": [
+    "Međunarodno poslovanje (121s)",
+    "Menadžment športa 2023 (121s)",
+    "Poslovna ekonomija i globalizacija (122s)",
+    "Fizioterapija (138s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCCHSHlWJbZSB__9RcXBSmJQ",
+   "type": "channel",
+   "name": "OPEN TALK PODCAST",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCCHSHlWJbZSB__9RcXBSmJQ/videos",
+   "follower_count": 954,
+   "description": "𝗜𝗡𝗦𝗣𝗜𝗥𝗜𝗥𝗔𝗝, 𝗥𝗔𝗦𝗧𝗜, 𝗢𝗦𝗧𝗩𝗔𝗥𝗜! \n𝗩𝗿𝗵𝘂𝗻𝘀𝗸𝗶 𝘀𝗽𝗼𝗿𝘁𝗮š𝗶, 𝗲𝗹𝗶𝘁𝗻𝗶 𝘁𝗿𝗲𝗻𝗲𝗿𝗶 𝗶 𝗽𝗼𝗱𝘂𝘇𝗲𝘁𝗻𝗶𝗰𝗶 🏆",
+   "originals": 27,
+   "originals_30min": 27,
+   "avg_original_min": 71,
+   "derivative_ratio": 0.16,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "MATEJ MARKOVIĆ | Open Talk Podcast #29",
+    "BORNA BUTIJER | Open Talk Podcast #28",
+    "IVAN RUDEŽ | Open Talk Podcast #27",
+    "IGOR BLAŽINČIĆ | Open Talk Podcast #26",
+    "MILAN STJELJA | OpenTalk Podcast #24",
+    "LUKA MILANOVIĆ | Open Talk Podcast #23",
+    "DIMITRIJE ČABARKAPA | Open Talk Podcast #22",
+    "GORAN ŠPREM | Open Talk Podcast #21"
+   ],
+   "sample_derivatives": [
+    "Sportreact Challenge-  DARIO NOVAK (116s)",
+    "SPORTREACT CHALLENGE (Filip Zubčić) (5 min < prag 23 min)",
+    "MARIN DADIĆ o penalima protiv Japana i Brazila na SP-u 2022! (135s)",
+    "SPORTREACT CHALLENGE (Anto Širić vs OpenTalk ekipa) ! (5 min < prag 23 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR intervju-podcast (Matej Marković, Borna Butijer), neaktivan od ~2024. Uzorak: 27/32 ≥30 min, kratkih <10 min 16 %.",
+     "tags": [
+      "talk-show"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCTPsOHaWs3BWPPPo2I3F4Pw",
+   "type": "channel",
+   "name": "dm Srbija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCTPsOHaWs3BWPPPo2I3F4Pw/videos",
+   "follower_count": 14400,
+   "description": "Kompanija dm na srpskom tržištu prisutna je od 2004. godine na kojem se, do danas, ustalila sa preko 160 prodajnih objekata. Kao kompanija koja reaguje na postojeće trendove, a u većini slučajeva ih i diktira, dm je prepoznat kao trendseter na tržištu Srbije i kao mesto kupovine svega na jednom mestu, od segmenta lepote, prirodne kozmetike, organske hrane, lične higijene, do proizvoda za domaćinstvo i negu beba.\n\nPored toga, dm je jedan od najvećih ponuđača privatne robne marke na tržištu Srbije. Dobro poznati dm brendovi – Balea, alverde, dmBio, babylove, Denkmit i dr. garantuju identičan kva",
+   "originals": 11,
+   "originals_30min": 11,
+   "avg_original_min": 64,
+   "derivative_ratio": 0.82,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Žensko zadovoljstvo uz Durex i Sebamed proizvode | dmLIVE",
+    "Kako različite životne uloge utiču na žensko zdravlje? | Kada sam #potpunoja |",
+    "Majčinstvo bez filtera: fizičko i emocionalno zdravlje svake mame | Kada sam #potpunoja |",
+    "Hormoni i ishrana | Žensko zdravlje | dmLIVE",
+    "Kako se hranimo kroz godine: odnos prema telu koji se menja sa nama | Kada sam #potpunoja |",
+    "Zašto i dalje ćutimo o ženskoj želji? | Kada sam #potpunoja |",
+    "Kako nas hrana oblikuje? Mitovi, istine i sve što nismo znali o ishrani | Kada sam #potpunoja |",
+    "Hormoni, ciklus i emocije: ginekolog i endokrinolog objašnjavaju sve | Kada sam #potpunoja |"
+   ],
+   "sample_derivatives": [
+    "Eye Maxing trend, korak po korak: oči koje hipnotišu za 5 minuta | dm beauty tips&tricks #4 #dm (7 min < prag 28 min)",
+    "Eye-maxing šminka korak po korak: kako istaći oči uz Maybelline | dm beauty tips&tricks #4 (12 min < prag 28 min)",
+    "Još više uštede uz aplikaciju Moj dm! (11s)",
+    "Dugoročno povoljne cene u dm-u! (10s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCKUw64SNx3dtI7gL8gaH8aQ",
+   "type": "channel",
+   "name": "Obzor Europa Hrvatska",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCKUw64SNx3dtI7gL8gaH8aQ/videos",
+   "follower_count": 159,
+   "description": "Dobrodošli na službeni YouTube kanal Obzor Europa Hrvatska! 🌍\nObzor Europa najveći je program Europske unije za financiranje istraživanja i inovacija u razdoblju 2021. – 2027. \nOvaj kanal posvećen je promociji programa u Republici Hrvatskoj, a administriraju ga nacionalne osobe za kontakt uz koordinaciju Ministarstva znanosti, obrazovanja i mladih.\nOvdje možete pronaći korisne informacije i savjete vezane uz program Obzor Europa. \nZajedno gradimo inovativnu budućnost! 🚀\n\n#ObzorEuropa\n",
+   "originals": 27,
+   "originals_30min": 27,
+   "avg_original_min": 88,
+   "derivative_ratio": 0.56,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Priprema za poziv ERC Advanced Grant 2026 - Webinar 28.5.2026.",
+    "Iskustva i savjeti evaluatora MSCA, dr. sc. Mario Novak, Institut za antropologiju",
+    "Informativni dan programa Obzor Europa: MSCA Postdoktorske stipendije 2026.",
+    "Nacionalni informativni dan: Klaster 2 i NEB Facility (22. 4. 2026.)",
+    "Ciklus nacionalnih informativnih webinara programa Obzor Europa  EIC Radni program 2026",
+    "Ciklus nacionalnih informativnih webinara programa Obzor Europa  EIC Uvod",
+    "Korisni savjeti za pripremu projektnog prijedloga za Razmjene osoblja 2026",
+    "Nacionalni informativni dan Novi natječaji za misije EU-a u 2026.(Klima, Gradovi, Ocean i vode, Tlo)"
+   ],
+   "sample_derivatives": [
+    "Djelovanja Marie Skłodowska-Curie (MSCA) - natječaji 2026. (23 min < prag 36 min)",
+    "Predstavljanje poziva ERC Plus Grants 2026 (5 min < prag 36 min)",
+    "Projekt ENVIJUST-WB, dr.sc. Barbara Frey i dr.sc. Tena Prelec, UNIRI – primjer dobre prakse (26 min < prag 36 min)",
+    "Klaster 2: Predstavljanje područja i poziva za 2026. godinu (22. 4. 2026.) (31 min < prag 36 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCjK5sMB18p-FBL24T2bODpg",
+   "type": "channel",
+   "name": "KING ICT",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCjK5sMB18p-FBL24T2bODpg/videos",
+   "follower_count": 695,
+   "description": "Welcome to the official channel of KING ICT, a  company specialized in advanced information and communication technology solutions. Here you will find official company announcements, lectures and workshops \n\nWe are part of M SAN Group, which has more than 30 affiliated companies and employs over 1,500 people in six countries. KING ICT is the majority owner of two companies: Aktivis - a company specialized in the development of document management solutions (DMS) and Smart Energy - a company specialized in implementing of measures in the field of energy efficiency.",
+   "originals": 33,
+   "originals_30min": 13,
+   "avg_original_min": 29,
+   "derivative_ratio": 0.45,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "PressPlay Podcast - Jasmin Štrkonjić - Infrastructure meets AI (epizoda 15)",
+    "KING ICT - SAP Business Data Cloud",
+    "PressPlay Podcast - Davorin Perišić - All about the cloud (epizoda 13)",
+    "PressPlay podcast - Jasminka Golubić - SAP+AI= savršeni partneri za digitalnu transformaciju (ep 11)",
+    "PressPlay podcast - Alen Adanić - Journey of a Mentor (epizoda 10)",
+    "PressPlay Podcast - Daria Dragčević - Navigating Success: GIS in Business Terrain (epizoda 9)",
+    "PressPlay Podcast - Ivan Ivković - 2023 Recap (epizoda 8)",
+    "PressPlay Podcast - Marko Stepić - IT'S all about ITS (epizoda 7)"
+   ],
+   "sample_derivatives": [
+    "KING ICT Teambuilding 2026 (3 min < prag 15 min)",
+    "Press Play Podcast - Kristina Alebić - 2025 recap (epizoda 14) (8 min < prag 15 min)",
+    "KING ICT - SAP BUSINESS DATA CLOUD (12s)",
+    "KING ICT - SAP BUSINESS DATA CLOUD (11s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCXUa2rxSiJoEuNe-lOj3PUg",
+   "type": "channel",
+   "name": "MODUL ZA RAST",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCXUa2rxSiJoEuNe-lOj3PUg/videos",
+   "follower_count": 670,
+   "description": "Dobrodošli u podcast Modul za rast. Mjesto gdje istražujemo kako unaprijediti sebe, pronaći ispunjenje u svakodnevnici i kreirati život po svojim pravilima. Moje ime je Katarina Divjanović i veseli me što si tu 🍀.\n",
+   "originals": 23,
+   "originals_30min": 16,
+   "avg_original_min": 48,
+   "derivative_ratio": 0.23,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "#30: Trening snage za žene: što stvarno dovodi do rezultata? / Dušica Svilar",
+    "#29: Optimalna prehrana: mitovi, činjenice i tajna dugovječnosti / Katarina Ðozović",
+    "#28: Bez filtera o majčinstvu, baby bluesu, dojenju i partnerskom odnosu / Nana Nadarević",
+    "#27: O mentalnom zdravlju na slikovit način / Tea Bašić",
+    "#24: Hormonalno zdravlje žena, ciklus i plodnost / Maja Obrovac Glišić",
+    "#23: Što s karijerom nakon porodiljnog?",
+    "#21: Kako prebroditi bračne krize i sačuvati ljubav / Alenka Vidulin",
+    "#20: Kako stati na kraj anksioznosti i napadajima panike / Psihologinja Monika Bombelles Melnjak"
+   ],
+   "sample_derivatives": [
+    "#26: Kako postati zadovoljnija svojim životom? (16 min < prag 22 min)",
+    "#25: Kako smanjiti mentalni teret u majčinstvu? (15 min < prag 22 min)",
+    "#22: Da bi uistinu živjela, moraš usporiti. Evo zašto  (17 min < prag 22 min)",
+    "#16: Imamo li svi istih 24 sata u danu? (22 min < prag 22 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UClj-HayWteW-QLOdNY87jMQ",
+   "type": "channel",
+   "name": "Tau Studio TV Čapljina",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UClj-HayWteW-QLOdNY87jMQ/videos",
+   "follower_count": 2720,
+   "description": "Pretplatite se na naš kanal kako biste dobili obavijesti o nadolazećim sadržajima.\n\nPratite nas i na:\n👉🏼 INSTAGRAM: https://www.instagram.com/taustudiotv/\n👉🏼 FACEBOOK: https://www.facebook.com/taustudiotv\n\nTau Studio TV Čapljina posluje gotovo u potpunosti od donacija dobrih ljudi, stoga zahvaljujemo ukoliko podržavate naš rad na bilo koji način.\n\nŽelite li postati dio tima ili podijeliti svoj prijedlog ili kritiku kako bismo bili još bolji, molimo Vas da nam se javite na e-mail: taustudiotv@gmail.com\n\nTau Studio TV Čapljina\n",
+   "originals": 32,
+   "originals_30min": 32,
+   "avg_original_min": 59,
+   "derivative_ratio": 0.64,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "PODCAST TAU STUDIO S2E4: Simona Mijoković",
+    "PODCAST TAU STUDIO S2E3: Gospođica anoreksija",
+    "Predstavljanje romana \"Kraljica Katarina Kotromanić Kosača\" - autor dr. Danko Lupi, Buna 27.10.2024.",
+    "🔴UŽIVO: BLAGDAN SV. FRANJE - Sveta Misa iz Crkve sv. Franje Ilići, 6.10.2024.",
+    "🔴 UŽIVO: MISA ZORNICA, 18.12.2023. - Crkva sv. Franje Asiškog Čapljina (Molitveni program)",
+    "🔴 UŽIVO: Solistički koncert Bernardice Miočević | Gost Josip Zubonja | Crkva sv. Franje Asiškog",
+    "🔴 UŽIVO: ARDEA -Završni koncert sudionika seminara violine",
+    "🔴 UŽIVO: SVETA MISA - Crkva sv. Franje Asiškog Čapljina (29.4.2023.)"
+   ],
+   "sample_derivatives": [
+    "Andrija i Petar – Pjesma o fratrima mučenicima 1945. | Čapljina & Široki Brijeg (4 min < prag 26 min)",
+    "VELIKA JE CIJENA PLAĆENJA, ALI JE I VELIKA NAGRADA, DA SMO DJECA BOŽJA! - fra Mile Vlašić 18.1.2026. (12 min < prag 26 min)",
+    "OTVORI SE BOGU I OSLOBODI SE ZLA ! - fra Mile Vlašić, 6.1.2026 (14 min < prag 26 min)",
+    "Duh Sveti - Ivan Sušac i FRAMA Čapljina (166s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR (BiH) lokalni studio, podcast S1/S2 playliste, uglavnom live. Uzorak: 62/120 ≥30 min, od toga 58 live (/streams), kratkih <10 min 33 %.",
+     "tags": [
+      "regional-media",
+      "diaspora",
+      "talk-show"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCpQ7ZSAQg9UX0wNYFmK3-6g",
+   "type": "channel",
+   "name": "KKHT & KNTH RADIO",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCpQ7ZSAQg9UX0wNYFmK3-6g/videos",
+   "follower_count": 158,
+   "description": "About Salem Media Group\n\nAmerica’s leading media company serving the nation’s Christian and conservative communities.\n\nSalem Media Group is America’s leading multimedia company specializing in Christian and conservative content, with media properties comprising radio, digital media and book and newsletter publishing. Each day Salem serves a loyal and dedicated audience of listeners and readers numbering in the millions nationally. With its unique programming focus, Salem provides compelling content, fresh commentary and relevant information from some of the most respected figures across the Ch",
+   "originals": 72,
+   "originals_30min": 45,
+   "avg_original_min": 47,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "The Church at Sardis, Part 2",
+    "BONUS: The Vampire Rule & Semi-Automatic Banning: What’s Next for the Second Amendment? | Paul Weiss",
+    "AI Innovation vs. Regulation: Is the Tech Moving Too Fast?",
+    "\"On the Double: Why Taking It Straight to God Matters\"",
+    "9/18/2026 \"Carpooling with Johnny Teague: Appointment\"",
+    "The Church at Sardis, Part 1",
+    "BONUS: Is Safe Drinking Water Guaranteed? Lessons from Jackson & Flint",
+    "Medications, Records, & Malpractice: Analyzing the Lindsay Clancy Case | Angela Barker"
+   ],
+   "sample_derivatives": [],
+   "hints": []
+  },
+  {
+   "key": "UCF73VZS_4MZcVleGJmykISA",
+   "type": "channel",
+   "name": "Casefile",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCF73VZS_4MZcVleGJmykISA/videos",
+   "follower_count": 169000,
+   "description": "Fact is scarier than fiction.\n\nEstablished in January 2016, Casefile: True Crime Podcast presents unforgettable true crime stories in a professionally produced audio format. Presented by an anonymous host, the podcast delves into the crimes, investigations, and trials of solved and cold cases from across the world. \nhttps://casefilepodcast.com.\n\nIn 2019, the Casefile Presents network was launched. Casefile Presents is a space for existing podcasts to reach a wider audience while providing a platform for new podcast projects and talent to voice their stories. Silent Waves was the first podcast ",
+   "originals": 59,
+   "originals_30min": 59,
+   "avg_original_min": 82,
+   "derivative_ratio": 0.02,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "A Prank That Became a Murder Investigation",
+    "Anonymous Phone Call Unravels a Murder Conspiracy",
+    "Who Murdered Three Siblings in Their Home?",
+    "The Crime Behind a Bestselling Book",
+    "The Suspicious Deaths of Two Husbands",
+    "The Beach Murder That Shocked Far North Queensland",
+    "The New York Dermatologist’s Chilling Secret",
+    "Was This Really a Murder Confession?"
+   ],
+   "sample_derivatives": [
+    "A Crime That Shook East St. Louis (34 min < prag 34 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCpczT8xMLC8GL36tvNSgAzQ",
+   "type": "channel",
+   "name": "DrChinweEgbunike-Umegbolu",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCpczT8xMLC8GL36tvNSgAzQ/videos",
+   "follower_count": 1890,
+   "description": "Dr Chinwe Umegbolu is a Law Lecturer at KU & a #judge for the British Podcast Awards & a fellow of the ABA Dispute Resolution (23).\nThe Award-winning EVA show simplifies the Traditional African Method of Settling Disputes /Appropriate Methods /Multi-Door Courthouse. The aim is to normalise these informal methods worldwide as the means of settling disputes via #mediation, #arbitration, collaborative law, Ombuds, RJ etc. ADR is an appropriate method to litigation. Recent research (Umegbolu 2021) depicts that ADR mediation is cheaper, faster & more flexible than #litigation. Besides that, dispute",
+   "originals": 57,
+   "originals_30min": 25,
+   "avg_original_min": 29,
+   "derivative_ratio": 0.07,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Housing Disputes in the US and Across the Globe with Achere Cole, FCIARB, UK. Pt. 1",
+    "Can a Boss Whisperer Tame a Fierce and Abrasive Leader at Work? With Stephen Tolfree.",
+    "Housing Disputes in the US and Across the Globe with Dr Chinwe Umegbolu and Alec Chapa",
+    "The Place of Mediation within the Modern Civil Justice System-Dr Masood Ahmed & Dr David Sixsmith",
+    "Arbitration of Commercial Disputes: International& English Law & Practice 2nd Ed, Dr Masood & Andrew",
+    "Apologies: The simple building block of an enduring & accountable workplace culture with Jon Bui, JD",
+    "Beyond Resolution: Healing, Forgiveness, and the Future of Workplace Conflict with Prof Ken Cloke",
+    "American Arbitration Association (AAA) AI Tools and AI Arbitrator with Aaron Gothelf, Esq."
+   ],
+   "sample_derivatives": [
+    "Creating Safe Spaces via ADR: Can Employees in Canada Report Discrimination & Bullying- Jon Fleming  (13 min < prag 15 min)",
+    "Series 2: Vous Parlez #adr Washington DC! #findings with podcaster Ayssia Mason (117s)",
+    "Series 1: ADR and Ombuds with Mark Patterson, JD, LLM #adr #viral #ombudsman (14 min < prag 15 min)",
+    "Tribute to Professor Robert A. Baruch Bush By Dr Chinwe Egbunike-Umegbolu (6 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCIYCiv2mvUQVOylaK5cJgTA",
+   "type": "channel",
+   "name": "Kava & Rakija Podkast",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCIYCiv2mvUQVOylaK5cJgTA/videos",
+   "follower_count": 1580,
+   "description": "Kava & Rakija je podkast koji vode Branko Kujundžić i Bojan Purić, nastao iz radoznalosti, iskustva i želje za kvalitetnim razgovorom. Kroz epizode okupljamo umetnike, muzičare, strip autore, sportiste, lekare, naučnike, avanturiste, političare, svetske putnike, aktiviste i ljude iz sveta tehnologije koji imaju stvarno iskustvo i priče sa pokrićem.\n\nZanimaju nas autentične priče, neobični životni putevi i ljudi koji pomeraju granice u svom poslu, bilo da su već poznati ili tek dolaze. Razgovori kod nas nisu sterilni ni unapred upakovani. Bitni su nam spontanost, prirodna atmosfera i iskren pog",
+   "originals": 23,
+   "originals_30min": 22,
+   "avg_original_min": 70,
+   "derivative_ratio": 0.62,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "AI ĆE NAS UNISTITI? ISTINA O KOJOJ SE ĆUTI? | Nemanja Stevanović | Kava & Rakija Podkast",
+    "POBEDIO SAM DEMONE: Životna priča Mladena Vasiljevića | Kava & Rakija Podkast",
+    "SVAKA BOLJKA IMA BILJKU? dr Aleksandar Ristić otkriva istinu | Kava & Rakija Podkast",
+    "DOKTOR ZA AI KOJI NAS JE SMIRIO: Priroda Je Jedini Spas! | dr M. Milivojević | Kava & Rakija Podkast",
+    "HIT NIJE DOVOLJAN!: KAKO PREŽIVETI ESTRADU? Ivan Novitović OONDA | Kava & Rakija Podkast",
+    "Kava & Rakija Podkast Aleksandar Duković - Šta Ti Niko Ne Kaže o Vinu",
+    "Kava & Rakija Podkast Podcast Boško Prinčevac - Zašto Je Srpska Rakija Posebna?",
+    "Mesto gde je poginuo Džejms Bond i grad sa najviše Michelin zvezdica — Kava&Rakija, Nikola Novaković"
+   ],
+   "sample_derivatives": [
+    "Kava & Rakija Shortkast – Zlatna Milijarda: Ko Živi Bolje, A Ko Plaća Cenu? (4 min < prag 26 min)",
+    "Priče Uz Kavu & Rakiju E29 - Palamuđenje (19 min < prag 26 min)",
+    "Priče Uz Kavu & Rakiju E28 - Šta Smo Hteli Biti Kad Porastemo? (17 min < prag 26 min)",
+    "Priče Uz Kavu & Rakiju E27 - Razlike Između Inostranstva I Domovine (14 min < prag 26 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC5lZ43BS7FZHRtaWTeDoKgA",
+   "type": "channel",
+   "name": "Vedran Badun Adventures",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC5lZ43BS7FZHRtaWTeDoKgA/videos",
+   "follower_count": 85900,
+   "description": "I am an adventurer, traveler, travel writer ( 4 travel books ) i writer ( 10 fantasy books ). Artist, I draw, paint, write, photograph, an make documentaries. My current profession is making and editing realistic documentaries. I deal with a lot of different things and with this channel I try to wake people up. Tell them we are all the same and we can do anything. Im not afraid to speak my mind and expressing my views. That is why I have a lot of enemies. However freedom has no price. Enjoy the channel Im here for you.",
+   "originals": 45,
+   "originals_30min": 44,
+   "avg_original_min": 60,
+   "derivative_ratio": 0.5,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "RASKRINKAVANJE Lažova - Teritorij Gerije",
+    "Raskrinkavanje - 4 DANA NA VODI | Stopama Badjunka🕵️",
+    "RASKRINKAVANJE \"Dzungla\"... Stopama Badjunka",
+    "O Japancima, kurv*ma, švercu cigara, Hrvatima",
+    "Zaboravljeni Vojnićki Q&A",
+    "Kišna sezona na haciendi Los Leones",
+    "Hod kroz tropsku prirodu I sto je vazno znati u njoj",
+    "VBA PODCAST vol 26 IVAN GLUHAK borio Sam SE jer to volim"
+   ],
+   "sample_derivatives": [
+    "Vedran Badjun maltretira životinju! (3 min < prag 26 min)",
+    "Nisu mi dragi lažni profili (Raskrinkavanje) (15 min < prag 26 min)",
+    "Vedran Badjun Ilegalni prelazak granice! @policiadecolombia @ICEgov @muptv192 (6 min < prag 26 min)",
+    "Badjun o Juki - \"On je teško zlo i kukavica!\" (7 min < prag 26 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCg6YWlBSZ7fL5LdJP3H7Ivg",
+   "type": "channel",
+   "name": "Drugačija televizija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCg6YWlBSZ7fL5LdJP3H7Ivg/videos",
+   "follower_count": 2080,
+   "description": "",
+   "originals": 44,
+   "originals_30min": 22,
+   "avg_original_min": 38,
+   "derivative_ratio": 0.27,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Yoga konferencija 1. dio",
+    "Yoga konferencija 2. dio",
+    "Yoga konferencija 3. dio",
+    "Hrvatsko mirovinsko osiguravajuće društvo d.d.",
+    "Sirova prehrana",
+    "Svi putevi vode u Rim-Udruga Mali grad",
+    "Suplementi pobjednika-Be natura",
+    "Zašto me ne razumije? - Davor Dženanović"
+   ],
+   "sample_derivatives": [
+    "Obljetnica 6. Zeleni Kastav (126s)",
+    "Film s ljetne radionice crtanog filma 2022 (4 min < prag 16 min)",
+    "Zamjena, film s filmske ljetne radionice 2022 (155s)",
+    "Dnevnik televizije Jastrebarsko (7 min < prag 16 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC2ZncwZyQBHyBKIzg7UGZvw",
+   "type": "channel",
+   "name": "Nova O svemiru i svemu ostalom",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC2ZncwZyQBHyBKIzg7UGZvw/videos",
+   "follower_count": 1080,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 50,
+   "derivative_ratio": 0,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NOVA S7E27 Ig Nobel - od smijeha do korisne znanosti",
+    "NOVA S7E26 S druge strane jave - važnost snivanja",
+    "NOVA S7E25 Sovjetski lunarni program",
+    "NOVA S7E24 Program Apollo XI. dio: Apollo 17",
+    "NOVA S7E23 Program Apollo X. dio: Apollo 16",
+    "Nova S7E22  Program Apollo IX. dio: Apollo 15",
+    "NOVA S7E21 Program Apollo VIII.: dio Apollo 14",
+    "NOVA S7E20 Program Apollo VII. dio: Apollo 13"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR znanstveno-popularni podcast, 7 sezona, 60/60 dugih. Uzorak: 60/60 ≥30 min, kratkih <10 min 0 %.",
+     "tags": [
+      "science",
+      "education",
+      "history"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCB0AOqZ0AJF2I2LOE2J0hCg",
+   "type": "channel",
+   "name": "Psihološki Prostor",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCB0AOqZ0AJF2I2LOE2J0hCg/videos",
+   "follower_count": 601,
+   "description": "Psihološki prostor objavljuje članke namijenjene općoj populaciji čitatelja, promovirajući psihologiju kao znanost. Pišemo o raznim aktualnostima, a svakom objavom nastojimo razjasniti psihološke mehanizme u podlozi određenih fenomena.\n\nJedan dio Psihološkog prostora čini i Psihološki podcast - razgovor kojeg prenosimo u domove svih onih koji žele upoznati psihologe, produbiti svoje znanje psihologije i srodnih tema, ili se jednostavno družiti s nama.\n\nSvrha takvog razgovora je podizati svijest ljudi o psihološkim mehanizmima koji su uključeni u sve domene naših života kao pojedinaca i kao dru",
+   "originals": 9,
+   "originals_30min": 7,
+   "avg_original_min": 42,
+   "derivative_ratio": 0.5,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Psihološki podcast #9 - Ivana Burić: Mindfulness - mentalni trening ili mistika?",
+    "Psihološki podcast #8 - Mario Zulić: Scrum, seks i psihodelici",
+    "Psihološki podcast #7 - Lahorka Jurčić: Kako pomoći sebi i djetetu u procesu tugovanja?",
+    "Psychological podcast #6 - Iris Žeželj: Social identities in the Balkans - what separates/unites us?",
+    "Psychological podcast #5 - Sandra Matošina Borbaš: Loneliness, solitude, and new ways of adjusting",
+    "Psychological podcast #4 - Goran Knežević: Basic personality traits, disintegration and amorality",
+    "Psychological podcast # 3 - Sandra Zgodić: Volunteering - giving and/or receiving?",
+    "Psychological podcast #2 – Ana Antolović: Childhood decisions, self-love and psychological hungers"
+   ],
+   "sample_derivatives": [
+    "Psihološki podcast #9 Teaser (106s)",
+    "Psihološki podcast #8 Teaser (71s)",
+    "Psychological podcast #7 Teaser (61s)",
+    "Škoro the cat has a question (161s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR, 9 epizoda, 2021. Uzorak: 7/18 ≥30 min, kratkih <10 min 44 %.",
+     "tags": [
+      "health",
+      "science"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCscO0WUb_c0L8XcwluMMHXQ",
+   "type": "channel",
+   "name": "BAUCAST_byCreato",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCscO0WUb_c0L8XcwluMMHXQ/videos",
+   "follower_count": 207,
+   "description": "Dobrodošli u BAUCAST! Jedini lifestyle podcast koji spaja građevinu i poznata lica.",
+   "originals": 3,
+   "originals_30min": 3,
+   "avg_original_min": 64,
+   "derivative_ratio": 0.25,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "MARIO PETREKOVIĆ: Zašto jedan slivnik košta 520 eura? | Baucast #3",
+    "TOMO RICOV: Uredio pola centra Zagreba, a ne zna zabiti čavao | Baucast by Creato #2",
+    "ANTE CASH: od repera do keramičara i zašto je sretniji nego ikad | Baucast by Creato #1"
+   ],
+   "sample_derivatives": [
+    "6 poznatih lica, jedna tema: građevina | Baucast by Creato (najava) (156s)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "Novi HR podcast o gradnji (2026), 3 epizode. Uzorak: 3/4 ≥30 min, kratkih <10 min 25 %.",
+     "tags": [
+      "architecture",
+      "business"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCfJAn7o4NNKT8cFNrIwWIaw",
+   "type": "channel",
+   "name": "Borna Zuber",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCfJAn7o4NNKT8cFNrIwWIaw/videos",
+   "follower_count": 2660,
+   "description": "Pozdrav i hvala što gledaš moje videe.  Ja sam Borna i preselio sam se u Irsku krajem 2018, a  Youtube kanal sam napravio davne 2011. i do 2019. nisam objavio niti jedan video.\n\nVidjet ćete puno videa o Irskoj i preseljenju, ali ja ne mislim da je preseliti se dovoljno da bi si promjenili život. \nSa ovim kanalom želim iskoristiti priliku i pričati o tome kako uspjeti u životu i unaprijediti si sve te podići život na novu razinu. \n\nUz to Vodim i 3 druga kanala koiji su na engleskom:\nUncle Gold Podcast: https //www.youtube.com/channel/UCA8d6fvEq3C8NRx-a30ofsg\nUncle Gold Podcast CLIPS https://www",
+   "originals": 18,
+   "originals_30min": 18,
+   "avg_original_min": 116,
+   "derivative_ratio": 0.77,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Borna Zuber LiveQ&A(19) DUBAI Experience: Kako je bilo?",
+    "Borna Zuber LiveQ&A(18)🍀Pitajte me o Irskoj",
+    "Borna Zuber LiveQ&A(17)🍀Sve o NEKRETNINAMA u Irskoj",
+    "Borna Zuber LiveQ&A(16) U Irskoj Nakon Dugog ljeta",
+    "Borna Zuber LiveQ&A(15)🍀Sve što ste htjeli znati o Irskoj",
+    "Borna Zuber LiveQ&A(14) Kako je bilo u Hrvatskoj i Što dalje?",
+    "Borna Zuber LiveQ&A(13) PRODAJA- Kako prodavati bolje i zaraditi više",
+    "Borna Zuber Live Q&A (12) Kako započeti YouTube Kanal"
+   ],
+   "sample_derivatives": [
+    "Najgori put… najbolji HOTEL Saadiyat Rotana Resort & Villas (14 min < prag 47 min)",
+    "Zadnji dan Maldiva ili kako provesti sat vremena u Malé (6 min < prag 47 min)",
+    "Oproštaj od Maldiva – zadnje jutro na Maafushi otoku 🌴 (162s)",
+    "Večernja šetnja na Maafushiju 🌴🌅 (168s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCdnx0BsPrbOfb0bMhURTlIg",
+   "type": "channel",
+   "name": "LUCIJAN JURIĆ",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCdnx0BsPrbOfb0bMhURTlIg/videos",
+   "follower_count": 2850,
+   "description": "Ovdje učite kako kupiti, prodati ili iznajmiti nekretninu bez da vas netko košta 20.000 € više nego što treba.\n\n\n\nGovorim ono što drugi prešućuju:\n\n– kako se pregovara\n\n– tko vam zapravo (ne) radi u interesu\n\n– što određuje cijenu na tržištu\n\n– kako ne postati laka meta u pregovorima\n\n\n\nBez teorije. Bez uljepšavanja. Samo realnost tržišta.\n\n\n\nAko ulazite u kupnju ili prodaju – bolje je znati unaprijed.\n\n\n\n📩 Konzultacije:\n\nWhatsApp: +385 95 282 8289\n\nEmail: lucijan21@gmail.com\n\n\n\nPridruži se WhatsApp zajednici za ozbiljne razgovore o tržištu.\n\nhttps://chat.whatsapp.com/C8MprMWJ9yaDB48emh9dzr?m",
+   "originals": 7,
+   "originals_30min": 5,
+   "avg_original_min": 55,
+   "derivative_ratio": 0.86,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "PODCAST: NA KAVI S USPJEŠNIMA, gošća: ANTO NOBILO",
+    "PODCAST: Na kavi s uspjašnima, GOŠĆA: Manuela Šola",
+    "Na kavi s uspješnima 2, Krešimir Dvorski",
+    "Na kavi s uspješnima 1; Hrvoje Prpić",
+    "NOVOGRADNJA vs  STAROGRADNJA",
+    "Kupnja stana 2.dio, PREGOVARANJE",
+    "“Kako spustiti cijenu stana 10–20% (a da vas ne izbace van)”"
+   ],
+   "sample_derivatives": [
+    "\"SAVRŠEN BIJEG: Vikendica na Blidinju koju morate posjetiti! 🌲✨ (House Tour)\" (55s)",
+    "Nekretnine nisu najbolja investicija (za većinu ljudi) (7 min < prag 15 min)",
+    "Vila s bazenom na osami – Buško jezero 🌊🔥 (29s)",
+    "Odvjetnik vas je spasio? Ili vas je koštao stana? (8 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCDy3t1FUXKIvt4rgcUY776A",
+   "type": "channel",
+   "name": "Mathias Corvinus Collegium",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCDy3t1FUXKIvt4rgcUY776A/videos",
+   "follower_count": 6090,
+   "description": "A Mathias Corvinus Collegium (MCC) olyan szellemi tudásközpont és tehetséggondozó intézmény, amely Kárpát-medence-szerte nyújt a hagyományos iskolarendszeren túlmutató, mégis ingyenes, közcélú képzéseket az általános és középiskolás korú fiataloktól kezdve egészen a felsőoktatásban tanuló vagy már diplomás korosztályig.\n\nAz MCC az ország iránt elkötelezett, a helyi közösségekért tenni akaró, honfitársaikért és a környezetükért felelősséget érző fiatalokat támogatja abban, hogy a bennük rejlő tehetséget – társadalmi és kulturális helyzetüktől függetlenül – kibontakoztathassák és azt saját maguk",
+   "originals": 37,
+   "originals_30min": 34,
+   "avg_original_min": 60,
+   "derivative_ratio": 0.38,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "MCC Podcast: TÉKA | Mentés másként – Ifjúság és kultúra a digitális hangzavarban",
+    "MCC Votes & Seats: Kosovo’s June 2026 Election - Crisis, Fatigue, and Eggs in the Parliament",
+    "MCC Podcast: TÉKA | Lapozz tovább! - Az olvasás jövője?",
+    "Learning from Asia project: Twinning program podcast part 2",
+    "MCC Podcast: Lessons of Classical Education – The Case of Slovakia and the US",
+    "Inside Tagesschau - Between News and Opinion-Making: What You Don't See on Screen",
+    "Compass to History and Civic Education - Történelemoktatás és állampolgári nevelés 16 országban",
+    "Learning from Asia project: Twinning program podcast"
+   ],
+   "sample_derivatives": [
+    "MCC ARS Nyári Művészeti Akadémia 2026 (167s)",
+    "MCC Votes & Seats: Armenia's 2026 Legislative Election - At the Dawn of a New Geopolitical Era (27 min < prag 29 min)",
+    "MCC Diplomaátadó 2026: Tombor András beszéde (5 min < prag 29 min)",
+    "MCC ARS 2026 Országos Döntő | A kiemelt arany minősítést szerző produkciók (5 min < prag 29 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCnJBLh4UJvbXkvbsL2DJ9QA",
+   "type": "channel",
+   "name": "Journey to Nations",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCnJBLh4UJvbXkvbsL2DJ9QA/videos",
+   "follower_count": 10300,
+   "description": "Dobrodošli u Journey to Nations! 🌍 Ovdje vas vodimo na uzbudljivo putovanje kako biste istražili fascinantna odredišta i uronili u raznolike kulture. Journey to Nations usredotočuje se na očaravajuće putopisne dokumentarce koji vas upoznaju s izvanrednim zemljama, izvanrednim ljudima i posebno inspirativnim ženama iz svakog kutka svijeta.\n\nNaš kanal vas približava stvarnom životu u različitim narodima, nudeći jedinstvene priče i činjenice o zemljama koje nećete lako pronaći drugdje. Bilo da sanjate o užurbanim ulicama Tokija ili živopisnoj ljepoti Kolumbije, imamo dokumentarac za vas.\n\nPridru",
+   "originals": 24,
+   "originals_30min": 24,
+   "avg_original_min": 107,
+   "derivative_ratio": 0.7,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NAJ \"GREŠNA\" DRŽAVA 2026? Stvarni život u Tajlandu! Zapanjujuće činjenice o Tajlandu – dokumentarac",
+    "Ovo je život na SOCOTRI, otoku s najneobičnijim ženama na SVIJETU! Putnički dokumentarac",
+    "NAJ“GREŠNIJA” ZEMLJA 2026? Stvarni život u Grčkoj! Zapanjujuće činjenice o Grčkoj – dokumentarac",
+    "NAJ“GREŠNIJA” DRŽAVA 2026? Stvarni život u Južnoj Koreji! Nevjerojatne činjenice o Koreji",
+    "Tajanstveni osmi kontinent! 12 šokantnih čuda koja ćete pronaći samo na Madagaskaru | Dokumentarac",
+    "Najhladniji Europski Otok: 15 Šokantnih Činjenica o Grenlandu i Drevnim Inuitskim Tradicijama",
+    "Ovo Je Život U TANZANIJI – Kolijevci ČOVJEČANSTVA Gdje Se Žene Razmjenjuju Za KRAVE",
+    "15 Činjenica koje oduzimaju dah o Amišima koje ne žele da saznate – Dokumentarac"
+   ],
+   "sample_derivatives": [
+    "Preživljavanje na ekstremnoj hladnoći: nevjerojatna stvarnost žena koje preživljavaju na Antarktici (23 min < prag 37 min)",
+    "15 ZAPANJUJUĆIH ČINJENICA o DR Kongu: Zemlja najneobičnijih kontrasta na svijetu – dokumentarac (23 min < prag 37 min)",
+    "Ovo je život na CURAÇAU | ČUDNI OTOK s najbizarnijim TRADICIJAMA - Putopisni dokumentarac (24 min < prag 37 min)",
+    "Život u Finskoj: Jedinstvena zemlja s NAJLJEPŠIM ženama – putopisni dokumentarac (23 min < prag 37 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCP6YQiDAEfzHhm2lX9bZmmw",
+   "type": "channel",
+   "name": "Funkcionalan život sa Mirjanom",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCP6YQiDAEfzHhm2lX9bZmmw/videos",
+   "follower_count": 11100,
+   "description": "Email za sponzorstvo i poslovnu saradnju: mirjanarankovic159@gmail.com\n\n - O roditeljstvu, vaspitanju, odrastanju\ni svemu onome što doprinosi funkcionalnijem životu pojedinca i društva \n\n\n",
+   "originals": 49,
+   "originals_30min": 49,
+   "avg_original_min": 63,
+   "derivative_ratio": 0.18,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Miloš Đoršević, odrastanje, roditeljstvo, gluma",
+    "Ljudi su mi važni, Aleksandra Milisavljević - CEO at IT Inviggo i Selfnest platformi",
+    "O bliskosti u seksualnim odnosima i seksualnosti, seksolozi Tamara Petrović i Josif Fidanovski",
+    "Marijo Radošević, rođen sam za ovaj porodični posao - vlasnik obrta u ZRG Kamin Montaža",
+    "Volim hrabre ljude, glumica Iva Manojlović o odrastanju, školovanju, majčinstvu, glumi",
+    "Zašto volim preduzetništvo, direktorka BFS Company, Mirjana Gilić",
+    "O odrastanju, porodici, glumi, glumica Suzana Lukić",
+    "Život na selu i roditeljstvo, Jovana Lazarević, pedagoškinja, psihoterapeutkinja"
+   ],
+   "sample_derivatives": [
+    "Vladimir Mladenov - sertifikovani konsultant - Video za smart ciljeve i swot analizu (8 min < prag 24 min)",
+    "Preporuka knjige za lični rast i razvoj (11 min < prag 24 min)",
+    "Vizualizacija kao deo strategije ka ispunjenju cilja ✨️ #vizualizacija  (7 min < prag 24 min)",
+    "Uspomene sa 3K - emisija \"Srce\" 1991./1992. godina (7 min < prag 24 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC0ABUr3KO0BP8UHoDBj8Yew",
+   "type": "channel",
+   "name": "Agnieszka Piasecka",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC0ABUr3KO0BP8UHoDBj8Yew/videos",
+   "follower_count": 169,
+   "description": "Attorney Agnieszka \"Aga\" Piasecka has more than 20 years combined experience as a lawyer in Poland and the United States. She obtained her Juris Doctorate from Stetson University College of Law in Florida, Masters Degree in Law from Jagiellonian University in Poland and speaks English, Polish, Spanish and Italian. \n\nAttorney Piasecka has personally experienced the United States Immigration process and can assist you in obtaining your Green Card and U.S. Citizenship in the entire United States including Florida, New Mexico and Colorado. Her other areas of practice in Florida include: Wills and ",
+   "originals": 7,
+   "originals_30min": 4,
+   "avg_original_min": 33,
+   "derivative_ratio": 0.88,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Estate Planning in Florida - Wills & Trusts  08/28/2024",
+    "Testament czy Trust na Florydzie?  08/28/2024",
+    "Traveling On Green Card Seminar, Recorded live in Santa Fe, NM, 10/11/2024",
+    "U.S. Fiance Visa Seminar, Recorded live in London, GB, 08/12/2024",
+    "Imigracja do USA przez rodzinę - seminarium zarejestrowane na żywo w Białym Stoku, PL, 7/29/2024",
+    "Polish Citizenship Seminar, Recorded live in Boston, MA  on 06/27/2024",
+    "U.S. Citizenship Seminar, Recorded live in Santa Fe, NM, 6/12/24"
+   ],
+   "sample_derivatives": [
+    "IMPORTANT USCIS POLICY UPDATE 2026 (12 min < prag 15 min)",
+    "POWAŻNE ZMIANY W PRAWIE IMIGRACYJNYM DLA APLIKANTÓW O ZIELONĄ KARTĘ (11 min < prag 15 min)",
+    "Immigration Attorney Interview NYC 2026 (4 min < prag 15 min)",
+    "Polish Citizenship frequently asked questions (15 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCP3M0l-2weQBohmr6EqiC6g",
+   "type": "channel",
+   "name": "Bokun Neba",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCP3M0l-2weQBohmr6EqiC6g/videos",
+   "follower_count": 719,
+   "description": "Obiteljski centar Bokun Neba (OCBN) je online platforma za podršku velikim i malim obiteljima koje žele izgraditi snažnu obitelj utemeljenu na kršćanskim načelima, te rješiti bračne i roditeljske probleme s kojima su suočeni.\n\nOCBN vode bračni par Frano i Tereza s dugogodišnjim iskustvom u podršci obiteljima, te vlastitim primjerom šesteročlane obitelji koja je nadvladala brojna iskušenja i zadržala snažan duhovni nucleus u Kristu. \n\nBokun Neba možete gledati ovdje na YouTube-u, ili čitati na https://bokun-neba.com/ \n\nZapratite nas na i na Instagramu:\n\nhttps://www.instagram.com/frano.bokun.neb",
+   "originals": 43,
+   "originals_30min": 14,
+   "avg_original_min": 28,
+   "derivative_ratio": 0.28,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "S04 E13 Kako istrenirati zmaja.. zašto je žena bez PRAVOG muža neostvarena",
+    "S04 E12 Muž i žena razgovaraju nakon svađe",
+    "S04 E11 Što sprječava muškarce da preuzmu odgovornost u obitelji?",
+    "Knjiga \"Dragi moj prijatelju\" Frane Ožbolta prvi puta predstavljena u Splitu",
+    "S04 E10 Kad ljubav postane kontrola.. Kako stvoriti nesposobnog i nesigurnog muža",
+    "S04 E09 Kako ženina promjena mijenja muža i brak.. nemojte odustati prije nego pokušate ovo",
+    "S04 E08 Kako do bračne sreće.. Kako ne pogriješiti u odabiru bračnog druga",
+    "S04 E07 \"Shvatila sam da sam control freak\" - Ono kad muž više odustane od pokušavanja da nešto kaže"
+   ],
+   "sample_derivatives": [
+    "Nakon godina pisanja i podcasta, startamo s novim poglavljem.. Dođite nas vidjeti uživo! (4 min < prag 10 min)",
+    "10 Kako uskladiti prirodne i duhovne obveze i prioritete u obitelji | Temelj mlade obitelji (9 min < prag 10 min)",
+    "09 Kako bi trebalo raspodijeliti financije u kršćanskom braku | Temelj snažne obitelji (9 min < prag 10 min)",
+    "08  Zajedničko služenje bračnog para | Temelj snažne obitelji (8 min < prag 10 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR brak/obitelj razgovori, epizode ~25-30 min. Uzorak: 14/60 ≥30 min, kratkih <10 min 28 %.",
+     "tags": [
+      "relationships",
+      "religious-catholic"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UC3zj2qK5he72UZp4J6OMFew",
+   "type": "channel",
+   "name": "FOKUS Obitelj",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC3zj2qK5he72UZp4J6OMFew/videos",
+   "follower_count": 824,
+   "description": "",
+   "originals": 8,
+   "originals_30min": 8,
+   "avg_original_min": 54,
+   "derivative_ratio": 0.87,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Više od običnoga braka (5) - Tim Savage - Vikend za pamćenje 2023",
+    "Više od običnoga braka (4) - Tim Savage - Vikend za Pamćenje 2023",
+    "Više od običnoga braka (3) - Tim Savage - Vikend za Pamćenje 2023",
+    "Više od običnoga braka (2) - Tim Savage - Vikend za pamćenje 2023",
+    "Više od običnoga braka (1) - Tim Savage - Vikend za pamćenje 2023",
+    "Večer s Pavlinima - Kako smo podigli našu obitelj",
+    "dr. Jayne Cuidon - Kako djeca uče - Seminar",
+    "Dr. Tim Kimmel - Obitelj ispunjena milošću"
+   ],
+   "sample_derivatives": [
+    "Otovreno o seksu , part 2 (19 min < prag 21 min)",
+    "Podcast #5 Otvoreno o sexu - part 1 (15 min < prag 21 min)",
+    "Podcast #4  - Koja Je veza između braka i vinograda part 2 (15 min < prag 21 min)",
+    "Koja je poveznica između braka i vinograda? - Podcast #3 part 1 (13 min < prag 21 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCP7wiY4zNuahUWVJ9R8AVHA",
+   "type": "channel",
+   "name": "Wellspring Conversations",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCP7wiY4zNuahUWVJ9R8AVHA/videos",
+   "follower_count": 33700,
+   "description": "Welcome to Wellspring Conversations, a podcast by the Wellspring Center, where real people share real stories and where healing begins through conversation. Hosted by a certified mental health professional, each episode invites anonymous callers to open up about their personal mental health journeys. Whether they’re navigating anxiety, depression, trauma, or everyday emotional struggles, these brave voices shed light on the shared human experience of mental health.\n\nOur host offers compassionate listening, practical insights, and professional guidance—sometimes it’s about solutions, and someti",
+   "originals": 42,
+   "originals_30min": 9,
+   "avg_original_min": 25,
+   "derivative_ratio": 0.18,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Membedah Red Flag: Mana Yang Bisa Diampuni & Mana Yang Tidak",
+    "Bukan ADHD! Ternyata Otakmu Cuma Rusak Akibat \"Doom Scrolling\"",
+    "Berjuang Melawan \"Takdir\"",
+    "Generasi Kita Adalah Generasi Pulih Dari Trauma",
+    "Kenapa Manusia Bersembunyi di Balik Bercanda?",
+    "Menyembuhkan Trauma Dengan \"Mengedit\" Memori",
+    "Pernah Atau Nggak Pernah: Gen Alpha vs Milenial",
+    "Tetap Berpikir Positif Saat Menjalani Kemoterapi"
+   ],
+   "sample_derivatives": [
+    "Memahami Anak Dimulai Dari Mendengarkan, Bukan Menebak (13 min < prag 15 min)",
+    "Anak Spesial, Butuh Orang Tua Spesial (15 min < prag 15 min)",
+    "Kecemasan Itu Asalnya Darimana? (13 min < prag 15 min)",
+    "Video Reaction Dr. Sandy: Perspektif & Insight Baru (14 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC469rilyuy-vErL3AkZ6TOg",
+   "type": "channel",
+   "name": "Hrvatska udruga doula",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC469rilyuy-vErL3AkZ6TOg/videos",
+   "follower_count": 774,
+   "description": "",
+   "originals": 55,
+   "originals_30min": 40,
+   "avg_original_min": 37,
+   "derivative_ratio": 0.08,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Skrivena strana poroda ep42 - AI i majčinstvo: pomoć ili privid podrške?",
+    "Skrivena strana poroda ep41 - Prava rodilja u RH",
+    "Skrivena strana poroda ep40 - Porođajni edukator",
+    "Skrivena strana poroda ep39 - Treba li nam to stvarno? – Gadgeti za bebe bez filtera",
+    "Skrivena strana poroda ep38 - Zašto se oko dojenja diže tolika tenzija?",
+    "Skrivena strana poroda ep37 - Izdajanje: izazov, izbor i realnost",
+    "Skrivena strana poroda ep36 - Tišina postpartuma: nevidljive potrebe majke",
+    "Skrivena strana poroda ep35 - Što znači \"dobar porod?\""
+   ],
+   "sample_derivatives": [
+    "Skrivena strana poroda - Intro (42s)",
+    "Useljenje u novi prostor - Mesnička 3 (5 min < prag 16 min)",
+    "Debra Pascali-Bonaro hrvatskim doulama (4 min < prag 16 min)",
+    "Doule -emisija Zdrav život HRT (4 min < prag 16 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCd0yxCrbWJID5mM_eGLokDg",
+   "type": "channel",
+   "name": "Berkathidup",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCd0yxCrbWJID5mM_eGLokDg/videos",
+   "follower_count": 21900,
+   "description": "Official Youtube Channel for BERKATHIDUP.NET by GKY Mangga Besar",
+   "originals": 26,
+   "originals_30min": 26,
+   "avg_original_min": 81,
+   "derivative_ratio": 0.71,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ngopi Bareng #045 - Kerasukan Roh Jahat Atau Gangguan Mental?",
+    "恩典之路 Jalan Anugerah - God is Good (17 September 2026)",
+    "FINAL BASKETBALL TOURNAMENT - PGTI Union Cup VII 2026 (05 September 2026)",
+    "SEMIFINAL BASKETBALL TOURNAMENT - PGTI Union Cup VII 2026 (05 September 2026)",
+    "燃烧 Fire Up - God is Good (03 September 2026)",
+    "做人 Budi Pekerti - God is Good (20 Agustus 2026)",
+    "机会难留 Carpe Diem - God is Good (06 Agustus 2026)",
+    "自由选择 Bebas Memilih - God is Good (30 Juli 2026)"
+   ],
+   "sample_derivatives": [
+    "Tuhan Adalah Gembalaku #2145 - Doa minta pertolongan (part 2) (11 min < prag 34 min)",
+    "Tuhan Adalah Gembalaku #2144 - Doa minta pertolongan (part 1) (11 min < prag 34 min)",
+    "Tuhan Adalah Gembalaku #2143 - Doa mohon Israel dipulihkan (10 min < prag 34 min)",
+    "Tuhan Adalah Gembalaku #2142 - Rindu kepada kediaman Allah (part 2) (10 min < prag 34 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCuwG4Y72gz8bjBmmLXkX-Tg",
+   "type": "channel",
+   "name": "Varazdinska Biskupija",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCuwG4Y72gz8bjBmmLXkX-Tg/videos",
+   "follower_count": 4240,
+   "description": "Video kanal Varaždinske biskupije na kojem objavljujemo video materijale koje priprema Ured za pastoral u medijma naše biskupije.",
+   "originals": 45,
+   "originals_30min": 33,
+   "avg_original_min": 56,
+   "derivative_ratio": 0.5,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "VJERA I NADA Dnevni boravak djece „Dr. Antun Bogdan“ - drugi dom i najveći oslonac",
+    "VJERA I NADA Sveta Nedjelja u Ludbregu 2026.",
+    "\"Mama govori, tata klima, djeca na mobitelu\" – komunikacija koja gradi obitelj počinje prisutnošću",
+    "U svjetlu vjere - srpanj 2026.",
+    "VJERA I NADA Osobe s invaliditetom u krilu Crkve: obitelj Kasić",
+    "VJERA I NADA Osobe s invaliditetom u krilu Crkve: Marija Kotarski",
+    "VJERA I NADA Osobe s invaliditetom u krilu Crkve: obitelj Vlah",
+    "U svjetlu vjere - lipanj 2026."
+   ],
+   "sample_derivatives": [
+    "Kome da idemo? 25. nedjelja kroz godinu (A) - fra Dejan Lecić (16 min < prag 21 min)",
+    "Kome da idemo? 24. nedjelja kroz godinu (A) - s. Damjana Mihaela Barbarić (15 min < prag 21 min)",
+    "Kome da idemo? 23. nedjelja kroz godinu (A) - vlč. Leonardo Šardi (16 min < prag 21 min)",
+    "Poziv na proslavu ludbreške Svete nedjelje 2026. (47s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCsMw7tfzbrK-Bhymi9bFfMw",
+   "type": "channel",
+   "name": "Mi ViDiMo",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCsMw7tfzbrK-Bhymi9bFfMw/videos",
+   "follower_count": 3600,
+   "description": "Mi ViDiMo (mladi, vjere, djela i molitve) okuplja katoličku mladež dviju hercegovačkih biskupija. Za cilj ima kroz djela i molitvu ojačati vjeru nas mladih. Ovaj pokret organizira raznorazne događaje, od poučnih tribina, molitvenih programa i humanitarnih akcija. Bitno je naglasiti da ova zajednica ima blagoslov naše biskupije, imenovavši don Gabrijela Pavlovića povjerenikom za mlade.\n\n\n✒️ E-mail - mladi@biskupija-mostar.ba\n\n",
+   "originals": 27,
+   "originals_30min": 21,
+   "avg_original_min": 36,
+   "derivative_ratio": 0.55,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "LITO IDE MALA - Q&A(don Luka Klarica)",
+    "LITO IDE MALA - don Luka Klarica",
+    "BOG I ZNANOST - doc. dr. sc. Petar Tomev Mitrikeski",
+    "BOG I ZNANOST - Q&A",
+    "KLIK ILI TRIK - Q&A",
+    "KLIK ILI TRIK - Dr.Asja Palinić Cvitanović",
+    "Mračna strana duhovnosti - fra Danijel Rajić(Q&A)",
+    "Mračna strana duhovnosti - fra Danijel Rajić"
+   ],
+   "sample_derivatives": [
+    "LITO IDE MALA - skeč (7 min < prag 21 min)",
+    "BOG I ZNANOST - skeč (13 min < prag 21 min)",
+    "\"KLIK ILI TRIK\" - SKEČ (18 min < prag 21 min)",
+    "MRAČNA STRANA DUHOVNOSTI. - skeč (11 min < prag 21 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR katolički razgovori (don Luka Klarica); dio su Q&A isječci. Uzorak: 21/60 ≥30 min, kratkih <10 min 37 %.",
+     "tags": [
+      "religious-catholic",
+      "evangelization"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "UCmnfBcW8n2HmE8qig18whGQ",
+   "type": "channel",
+   "name": "Frama Tomislavgrad ",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCmnfBcW8n2HmE8qig18whGQ/videos",
+   "follower_count": 553,
+   "description": "FRAMA TOMISLAVGRAD\n\nNaše franjevačko bratstvo živi već 27 godina. Na inicijativu fra Roberta Jolića i fra Vinka Bebeka te na veliko oduševljenje duvanjske mladeži, u Tomislavgradu je 25. veljače 1995. godine osnovana Frama Tomislavgrad. Od tada su kroz ovo bratstvo prošli brojni Framaši i duhovni asistenti koji su, jedni uz druge, učili prepoznati Kristovo lice u svakom čovjeku. Danas naša Frama, zajedno s našim duhovnim asistentom fra Stipom Rotimom, broji 154 člana koji sudjeluju u raznim sekcijama kao što su : glazbena, medijska, likovna, kolumnistička, čitačka i sl. Kontaktirajte nas preko",
+   "originals": 26,
+   "originals_30min": 21,
+   "avg_original_min": 34,
+   "derivative_ratio": 0.48,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "NAJVEĆI PROBLEMI DANAŠNJICE - Podcast Frame Tomislavgrad",
+    "Frama s vama: Mladi Framaš VS stari Framaš (Intervju s Josipom Ljubičićem i Petrom Zrinušićem)",
+    "Frama s vama: Tranzitus (Intervju s fra Nikolom Jurišićem)",
+    "Frama s vama: Savršeno veselje (Frama Posušje)",
+    "FRAMA S VAMA: Intervju s Framom Seonica",
+    "FRAMA S VAMA: Anđeli",
+    "FRAMA S VAMA: Duhovna obnova",
+    "FRAMA S VAMA: Uskrs"
+   ],
+   "sample_derivatives": [
+    "FRAMA Tomislavgrad - Vrati me (4 min < prag 15 min)",
+    "Tebi pripadam (4 min < prag 15 min)",
+    "Gospodine, učini me oruđem svoga mira (4 min < prag 15 min)",
+    "Riječ Gospodnja (4 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC83LuWZDC-WeqpNp_OvEGQg",
+   "type": "channel",
+   "name": "Stilueta",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC83LuWZDC-WeqpNp_OvEGQg/videos",
+   "follower_count": 128,
+   "description": "Stilueta je online platforma koja s bazom u Rijeci donosi aktualne teme, inspirativne intervje, odlične preporuke i osvježavajuće sadržaje. Osim blog/portala Stilueta kreira i autorska događanja kao što su modna manifestacija City 45 20, Stilueta breakfast, Sweet & Style and brojna druga. Pratite nas jer mi pratimo sve što zanima vas!",
+   "originals": 18,
+   "originals_30min": 4,
+   "avg_original_min": 25,
+   "derivative_ratio": 0.7,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "STILUETA LIVING ROOM - Davor Štimac: \"Treba vratiti nadu i osmijeh ljudima\"",
+    "STILUETA LIVING ROOM - Iva Rinčić: \"Bitno je razbiti kulturu ne može se -  može se, treba se!\"",
+    "STILUETA LIVING ROOM - Udruga U.Z.O.R,  Avon I Lykke za Dan žena!",
+    "STILUETA LIVING ROOM - Vlasta Brozičević, kreativna, strastvena, optimistična... i - uspješna!",
+    "STILUETA LIVING ROOM - Maja Šimleša: O žirafi Suli, pisanju, obitelji i životu kao avanturi",
+    "STILUETA LIVING ROOM - Kristjan Staničić:  Ljubav prema turizmu, od malih nogu do važnih uloga",
+    "STILUETA LIVING ROOM - Vivian Jurković: anti aging kao životni poziv, emocije  kao temelj stvaranja",
+    "STILUETA LIVING ROOM -  Džana Ravlić, optimistična poduzetnica, vječno nadahnuta dizajnerica"
+   ],
+   "sample_derivatives": [
+    "Stilueta intervju (koji se čekao godinama): Robi i Prco (10 min < prag 15 min)",
+    "Venus Viva tretman kod dr. Vivian Jurković (5 min < prag 15 min)",
+    "Stilueta u posjeti: Vivian Jurković, klinika Dentalsan (5 min < prag 15 min)",
+    "Stilueta Beauty  Room - recenzija Holyplant anti age boostera i vlažnih maramica (5 min < prag 15 min)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UC8N5iQ5ojnqKX5M_nzNqaTQ",
+   "type": "channel",
+   "name": "D Business Leadership Summit",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UC8N5iQ5ojnqKX5M_nzNqaTQ/videos",
+   "follower_count": 7270,
+   "description": "Business skills for healthcare professionals who want to grow.\n\n",
+   "originals": 42,
+   "originals_30min": 42,
+   "avg_original_min": 66,
+   "derivative_ratio": 0.41,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "Slatka strana biznisa - PSZ #42, Žakline Troskot",
+    "U potrazi za vrhunskim performansama pod ekstremnim pritiskom - PSZ #41, Miroslav Zrnčević",
+    "Otvaramo svoje Camino ruksake  i otkrivamo što smo trebali ostaviti doma - PSZ #40, Boris Trupčević",
+    "Fuji - mjesto gdje su mogućnosti snažnije od prepreka - PSZ #39, Marina Drašković",
+    "Camino hodočašće - leadership program koji ne možeš kupiti - PSZ #38, Boris Trupčević",
+    "Je li AI - “AIme” ili “AImo”? - PSZ #37, Carmen Tariba",
+    "Kako ostvariti viziju i graditi timove nevidljivim dodirom? - PSZ #36, Ana Soldo",
+    "Zašto ljudi rade ono što rade? Psihologija,AI,komunikacija u zdravstvu i biznisu-PSZ#35,Boris Šurija"
+   ],
+   "sample_derivatives": [
+    "DBL Summit 2026 - Day 2 (120s)",
+    "DBL Summit - Day 1 (120s)",
+    "DBL Summit AI assistant, developed in collaboration with our technology partner Upheave Technologies (31s)",
+    "Želiš li postati CEO svog života i posla? (97s)"
+   ],
+   "hints": []
+  },
+  {
+   "key": "UCMH5bKytb0jmkpO-hz6s6Ag",
+   "type": "channel",
+   "name": "Croatian Sommelier Adventures",
+   "parent_channel": null,
+   "url": "https://www.youtube.com/channel/UCMH5bKytb0jmkpO-hz6s6Ag/videos",
+   "follower_count": 92,
+   "description": "",
+   "originals": 58,
+   "originals_30min": 58,
+   "avg_original_min": 50,
+   "derivative_ratio": 0.03,
+   "last_original": null,
+   "originals_90d": 0,
+   "sample_titles": [
+    "VINSKA KARANTENA - 58 Vinarija Vizzulin",
+    "VINSKA KARANTENA - 57 Vinarija Bura",
+    "VINSKA KARANTENA - 56 Vinarija Antunović (Pelješac)",
+    "VINSKA KARANTENA - 55 Pjenušci",
+    "VINSKA KARANTENA - 54 Vinarija Božo Metković",
+    "VINSKA KARANTENA - 53 Teran",
+    "VINSKA KARANTENA - 52 Vinarija Iločki podrumi - graševina",
+    "VINSKA KARANTENA - 51 Vinarija Degrassi"
+   ],
+   "sample_derivatives": [
+    "Croatian Sommelier Adventures Castello di Amorosa (129s)",
+    "Croatian Sommelier Adventures The Best Croatian Sommelier Sinisa Lasan (4 min < prag 19 min)"
+   ],
+   "hints": [
+    {
+     "source": "yt-sweep-agent",
+     "evidence": "HR razgovori s vinarima, 58 epizoda, 2020. Uzorak: 58/60 ≥30 min, kratkih <10 min 3 %.",
+     "tags": [
+      "food",
+      "wine",
+      "business"
+     ]
+    }
+   ]
+  }
+ ]
+}

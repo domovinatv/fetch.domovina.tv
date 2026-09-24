@@ -1,0 +1,42 @@
+{
+ "key": "UCCKgO_RPoWZbemrfUSbNL_Q",
+ "url": "https://www.youtube.com/channel/UCCKgO_RPoWZbemrfUSbNL_Q/videos",
+ "channel_id": "UCCKgO_RPoWZbemrfUSbNL_Q",
+ "playlist_id": null,
+ "title": "Fabula rasa - Videos",
+ "channel": "Fabula rasa",
+ "channel_url": "https://www.youtube.com/channel/UCCKgO_RPoWZbemrfUSbNL_Q",
+ "description": "",
+ "follower_count": 52,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "7oBRJ2FYeXE",
+   "title": "(Ne)vidljiva tinta - priča o elektroničkom nasilju među djecom",
+   "duration": 972,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "6fYg3LQHcw0",
+   "title": "Pluton i njegovo Sunce - priča o vršnjačkom nasilju",
+   "duration": 656,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "JC5KP6URnnM",
+   "title": "Zabrinuto ogledalo - priča o prihvaćanju sebe",
+   "duration": 785,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "YniI4BvTNrI",
+   "title": "Ja sam zmaj! - priča o velikim osjećajima",
+   "duration": 413,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

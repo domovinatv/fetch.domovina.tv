@@ -1,0 +1,28 @@
+{
+ "key": "UC2Mustlt7va6hsuySP6GUSA",
+ "url": "https://www.youtube.com/channel/UC2Mustlt7va6hsuySP6GUSA/videos",
+ "channel_id": "UC2Mustlt7va6hsuySP6GUSA",
+ "playlist_id": null,
+ "title": "Jakov Jozinović - Videos",
+ "channel": "Jakov Jozinović",
+ "channel_url": "https://www.youtube.com/channel/UC2Mustlt7va6hsuySP6GUSA",
+ "description": "",
+ "follower_count": 2810,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "qCSZyhdsdGA",
+   "title": "Zvjezdice| Da je tuga snijeg| Jakov Jozinović",
+   "duration": 159,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "mQUrQ6iAjH0",
+   "title": "Jakov Jozinović \"One Night Only\"",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20180925"
+  }
+ ]
+}

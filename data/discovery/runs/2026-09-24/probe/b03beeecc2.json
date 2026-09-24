@@ -1,0 +1,602 @@
+{
+ "key": "UC0ECfyWEEYpD0bVa_dMqe5w",
+ "url": "https://www.youtube.com/channel/UC0ECfyWEEYpD0bVa_dMqe5w/videos",
+ "channel_id": "UC0ECfyWEEYpD0bVa_dMqe5w",
+ "playlist_id": null,
+ "title": "Srpsko privredno društvo Privrednik - Videos",
+ "channel": "Srpsko privredno društvo Privrednik",
+ "channel_url": "https://www.youtube.com/channel/UC0ECfyWEEYpD0bVa_dMqe5w",
+ "description": "Dobrodošli na YouTube kanal Srpskog privrednog društva \"Privrednik\" iz Zagreba.",
+ "follower_count": 2980,
+ "streams_count": 24,
+ "videos": [
+  {
+   "id": "gnCA58VVtMI",
+   "title": "Tribina: „10 dana u travnju“",
+   "duration": 4411,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "hVpEW2UlT7w",
+   "title": "Tribina: „Aoj Liko, truje li te iko“",
+   "duration": 4144,
+   "live_status": null,
+   "upload_date": "20260911"
+  },
+  {
+   "id": "9jpJ3U84UWw",
+   "title": "Tribina: „Srpski snajperisti“ 1991. – pozadina jedne opasne laži",
+   "duration": 3931,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "oR7Dgcn9jW0",
+   "title": "Tribina: Iz Afrike s ljubavlju",
+   "duration": 4708,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "5J0uETooS6A",
+   "title": "Tribina: Angel Andonov – priča bivšeg zatvorenika",
+   "duration": 4790,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "ehL3cVdqBIk",
+   "title": "Tribina: Jugoslavija, najskuplja hrvatska riječ",
+   "duration": 4792,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "Fh-aF3G19LM",
+   "title": "Tribina: Goran Babić – jugoslavenski pjesnik i prognanik",
+   "duration": 4157,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "FDN7qWrKU0U",
+   "title": "Tribina: „Proslava obljetnice osnutka NDH – Do kada ćemo se praviti da je to normalno?“",
+   "duration": 5552,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "xyMUwMXkYs0",
+   "title": "Tribina: Posljedice rata u Iranu: svijet u krizi",
+   "duration": 5884,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "9aUErKb-Kjg",
+   "title": "Tribina: Poljud – rušenje ili obnova?",
+   "duration": 5325,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "Mr7UhX4Ptq8",
+   "title": "Tribina: Epsteinova ostavština",
+   "duration": 4260,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "Q4TvLrUvdGs",
+   "title": "Tribina: Svadba – film koji su gledali svi",
+   "duration": 4236,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "b1tH6jL6Shc",
+   "title": "Tribina: 100 znamenitih Srba u Hrvatskoj",
+   "duration": 3470,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "h9aN_XlVFzY",
+   "title": "Tribina: Nestali u ratu – potraga koja ne prestaje",
+   "duration": 6547,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "XlR1ur3jSxU",
+   "title": "14. kongres Privrednikovih stipendista i srpske omladine u Zagrebu",
+   "duration": 351,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "hWeepi__MWs",
+   "title": "Tribina „Trump i Putin: Tuđe hoćemo – svoje ne damo!“",
+   "duration": 5273,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "RMiSnIedJiM",
+   "title": "Leon Ćevanić o Privredniku u emisiji Prizma na HRT-u",
+   "duration": 1187,
+   "live_status": null,
+   "upload_date": "20260125"
+  },
+  {
+   "id": "isN_yxRct4E",
+   "title": "Tribina: Medački džep – potpuno uništenje",
+   "duration": 4129,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "V4yYfcegGi4",
+   "title": "Tribina: Brat uz brata, Srbin uz Hrvata",
+   "duration": 5443,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "uLcnr_f_d4Q",
+   "title": "Tribina: Priča sa zapadne strane",
+   "duration": 4670,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "nuRL9Q0MHNE",
+   "title": "Predstavljanje knjige Igora Čoke: „Mojom stranom ulice”",
+   "duration": 5301,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "S3VliyXEQ3E",
+   "title": "Tribina: Borna i Domagoj – Humorom protiv tumora",
+   "duration": 4532,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "yVhOwOMb8zk",
+   "title": "Predstavljanje knjige „Bukara i druge priče“",
+   "duration": 2920,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "xmIvE9XwkRE",
+   "title": "Tribina: AGM – Arsen, Gabi i Matija",
+   "duration": 4522,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "NNUVD3Mz-Ok",
+   "title": "Tribina: Svijet na prekretnici – ima li rješenja ili nam prijete još veći sukobi?",
+   "duration": 4110,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "hcql9FoEo-o",
+   "title": "Predstavljanje knjige arhimandrita Danila „Peroj – tajna broja 77“",
+   "duration": 5495,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "4y9tIli_5fM",
+   "title": "Tribina: Stradanje Srpske pravoslavne crkve u NDH",
+   "duration": 5859,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ms_Y1qAcXRw",
+   "title": "Tribina: Gaza – tragedija koja ne prestaje",
+   "duration": 6809,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "M4PZ3Rd9VzQ",
+   "title": "Tribina: Sutjeska – majka svih bitaka",
+   "duration": 5801,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "dFdUq-6-K_A",
+   "title": "Bleiburg – tri različita pogleda",
+   "duration": 5994,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "jDeHadQIAbo",
+   "title": "Tribina: (Ne)Pokoreni grad",
+   "duration": 4892,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_44J7hEvwlU",
+   "title": "Tribina: Jasenovac – 80. godišnjica proboja iz logora smrti",
+   "duration": 4245,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "hUvUfNLjGnU",
+   "title": "Tribina: Bili jednom Srbi u Hrvatskoj",
+   "duration": 3791,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "zBJgb36RBWQ",
+   "title": "Tribina: Srbija na ulicama: Protesti i podjele",
+   "duration": 4199,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "IYLuD7UubCI",
+   "title": "Tribina: Ukrajina i Rusija – je li konačno ratu došao kraj?",
+   "duration": 5037,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "KBS008W1YHQ",
+   "title": "Predstavljanje knjiga Bojana Munjina i Đorđa Matića u Privredniku",
+   "duration": 4441,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "tLG4vpTsxAs",
+   "title": "Tribina: Ima li u školama mjesta za svu našu djecu?",
+   "duration": 6533,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "iR35wLbmolQ",
+   "title": "Tribina: Thompson über alles",
+   "duration": 5337,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "4L4WrhMWOR4",
+   "title": "Predstavljanje knjige „Poslije zabave“ Steve Grabovca",
+   "duration": 4163,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "shFXMANfoZE",
+   "title": "Tribina: O klavirima, trčanju i ljubavi",
+   "duration": 3188,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "peL7HfO1DKE",
+   "title": "Dodjela stipendija na 13. kongresu Privrednikovih stipendista u Zagrebu",
+   "duration": 1279,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "PolEOJYLzs0",
+   "title": "Milorad Pupovac – govor na 13. kongresu Privrednikovih stipendista u Zagrebu",
+   "duration": 435,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ZcwuBf0EPVQ",
+   "title": "Nikola Lunić – govor na 13. kongresu Privrednikovih stipendista u Zagrebu",
+   "duration": 729,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "n4YzA4u-lTU",
+   "title": "Patrijarh Porfirije na 13. kongresu Privrednikovih stipendista u Zagrebu",
+   "duration": 457,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "K6Dfpp78NwU",
+   "title": "Slobodan Trkulja na Kongresu Privrednikovih stipendista u Zagrebu",
+   "duration": 1036,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Eir3BH7KUvk",
+   "title": "Tribina: Javno i(li) privatno",
+   "duration": 4322,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "g_iZzjh9Uys",
+   "title": "Tribina: Noć južnoslavenske ljubavi i neprijateljstva",
+   "duration": 4180,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "a84uDBFUVYw",
+   "title": "Tribina: Kako se konstruirao srednjovjekovni identitet Bosne",
+   "duration": 3678,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kTrnSJN6Yw4",
+   "title": "Tribina: Vjerujem – ne vjerujem",
+   "duration": 5258,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Xm04UFmKblA",
+   "title": "Tribina: Šuvar – politička biografija",
+   "duration": 3048,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "STKooC5g8gE",
+   "title": "Tribina: Svijet na rubu katastrofe",
+   "duration": 4750,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Ks5jtC70tY4",
+   "title": "Tribina: Ljudi koji ne mogu šutjeti",
+   "duration": 3590,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "zJX-c-8xSH4",
+   "title": "Tribina: Ekocid na Štrbačkom buku",
+   "duration": 4436,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "J9tFhCD7e14",
+   "title": "Tribina: Lijepa priča s izvora Une",
+   "duration": 3650,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "2dHxowldimc",
+   "title": "Tribina: Odnos Srbije prema svjetskim silama, EU i regionu",
+   "duration": 5166,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "F9Fg2TLeV1Q",
+   "title": "Tribina: Zašto je otišao Ivo Pejaković?",
+   "duration": 4421,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "jsi6pWt9yy0",
+   "title": "Tribina: Pjesma nas je održala, njojzi hvala",
+   "duration": 4162,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "KscN7OzUwjc",
+   "title": "Tribina: Bolje pakt nego rat?",
+   "duration": 5835,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "tnDSt1pmyms",
+   "title": "Tribina: Odrastanje u Karlovcu",
+   "duration": 4818,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "5qq-aj4Q1LY",
+   "title": "Tribina: Ta strašna riječ, genocid",
+   "duration": 4957,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "y-cfkBRzJ_o",
+   "title": "Treća javna tribina o rezultatima projekta „Upoznajmo se da bismo se razumjeli“",
+   "duration": 4306,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "lMLE-A4lk-o",
+   "title": "Tribina: Pomoć i razgovor od vrata do vrata",
+   "duration": 5862,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "lLHfImvWCQQ",
+   "title": "Tribina: Petrovačka cesta duga 27 godina",
+   "duration": 3722,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "kbF2B41ocBE",
+   "title": "Tribina: Sanja sȃnja ravnopravnost",
+   "duration": 4469,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "WNDxHAqgEpk",
+   "title": "Tribina: Damir je za mir",
+   "duration": 3787,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "SIlHJgdh45U",
+   "title": "Javna tribina o rezultatima projekta „Upoznajmo se da bismo se razumjeli“",
+   "duration": 3728,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "CHnXvOQKbo0",
+   "title": "Samo da rata ne bude (još dugo)",
+   "duration": 6166,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "1ldVjpEiVvs",
+   "title": "Počeci hrišćanstva u Skandinaviji- Finska pravoslavna crkva",
+   "duration": 4994,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "UdMok8ENDPU",
+   "title": "Tribina „Hej, Sloveni, zaustavite rat!“",
+   "duration": 6026,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "zqonv_FIlQE",
+   "title": "Tribina „Prvi mitopolit zagrebački, mučenik Dositej Vasić“",
+   "duration": 4135,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "4EPjSLMG6H8",
+   "title": "Deseti kongres Privrednikovih stipendista i srpske omladine",
+   "duration": 4302,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9qukNE9Pc74",
+   "title": "Javna tribina o rezultatima projekta „Upoznajmo se da bismo se razumjeli“",
+   "duration": 2457,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "EVKHHUVLj9s",
+   "title": "Samo da rata ne bude",
+   "duration": 5835,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "MyrROWPzzhI",
+   "title": "Tribina: Zašto je domovinu lakše voljeti iz daljine",
+   "duration": 4028,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "DaWNHCoU2tc",
+   "title": "Tribina: „Trideset godina od rata u Hrvatskoj:Da li je moglo biti drugačije?“",
+   "duration": 5740,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "DadBiAYKJec",
+   "title": "Tribina: „Demografija: koliko nas je još ostalo?“",
+   "duration": 4867,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "fEyzuqHkqKw",
+   "title": "Tribina: Što nam danas znači Prvi maj?",
+   "duration": 4758,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "x5Gjy8HF5jg",
+   "title": "„O patriotizmu, nakon svega’“",
+   "duration": 4405,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "BaaaX2RsGZE",
+   "title": "„Božićna tema: ‘Jer za njih nije bilo mjesta u svratištu’“",
+   "duration": 4661,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "TIG9g75AYPA",
+   "title": "Deveti kongres Privrednikovih stipendista i srpske omladine",
+   "duration": 4051,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "2DKnCvd2vAQ",
+   "title": "Tribina: „Ujedinjenje Jugoslavije 1. decembra 1918: od nade do tragedije“",
+   "duration": 5297,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "W2spY2kwo9k",
+   "title": "Tribina „Zašto mijenjamo imena ulica i trgova?“",
+   "duration": 6031,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "pKPcwSxqzyk",
+   "title": "Tribina: Čega se boje mladi Srbi u Hrvatskoj?",
+   "duration": 5585,
+   "live_status": "was_live",
+   "upload_date": "20210925"
+  },
+  {
+   "id": "fTm9hc9oriQ",
+   "title": "Tribina: „Kozaračka djeca, po drugi put žrtve“",
+   "duration": 4239,
+   "live_status": "was_live",
+   "upload_date": "20200925"
+  }
+ ]
+}

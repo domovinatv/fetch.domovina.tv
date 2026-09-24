@@ -1,0 +1,316 @@
+```json
+[
+  {
+    "key": "UC-GIFfHhJj4CikCkZrhLsmg",
+    "verdict": "not_podcast",
+    "reason": "DJ mix glazbeni kanal (AfroHouse/EDM setovi), nema razgovornog podcast formata."
+  },
+  {
+    "key": "UCW4Iu-dYRcHDj7Gum37nj8Q",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski lifestyle podcast dvije prijateljice s gostima, ~47 min epizode.",
+    "slug": "roze-koze-podcast",
+    "display_name": "Roze Koze Podcast",
+    "tags": ["lifestyle", "women", "talk-show"],
+    "hosts": ["Mia", "Bela"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCAfpzMev1SiUl-Jr569upow",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski politički/komentatorski talk-show, dugi uživo razgovori i monolozi.",
+    "slug": "bez-dlake-na-glavi",
+    "display_name": "Bez Dlake Na Glavi",
+    "tags": ["political", "geopolitics", "talk-show"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCT2j6UngUU9_VqedPPs-Meg",
+    "verdict": "too_small",
+    "reason": "Format nalik podcastu o hrvatskoj dijaspori, ali svega 4 originalne epizode.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCNiVQ046gzhfdUdwAMyR9vw",
+    "verdict": "not_hr",
+    "reason": "Engleski kanal o iseljavanju u Europu općenito, Hrvatska je tek jedna od mnogih spomenutih zemalja."
+  },
+  {
+    "key": "UCKrSwtGP1msfkJ9KuU2xtGw",
+    "verdict": "not_podcast",
+    "reason": "Krunice, propovijedi i pobožnosti bez razgovornog formata."
+  },
+  {
+    "key": "UCcslp31vFQwbYPx2GFtHqtA",
+    "verdict": "not_podcast",
+    "reason": "Propovijedi, mise, svjedočanstva i koncerti bez dijaloškog podcast formata."
+  },
+  {
+    "key": "UCXylAJpasmGnyoeeZSWi6dg",
+    "verdict": "not_hr",
+    "reason": "Engleski pravoslavni kanal iz Australije, nema hrvatske veze."
+  },
+  {
+    "key": "UC-z10o42s5ZsZ-RTID7ZOZw",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički medijski kanal (Marian Fathers, SAD), nema hrvatske veze."
+  },
+  {
+    "key": "UCnGLfWQxaippd50mSkGwb8g",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički medij, nema hrvatske veze."
+  },
+  {
+    "key": "UClYN3WXAFPr0FDHUaLx1g0Q",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički talk-show, nema hrvatske veze."
+  },
+  {
+    "key": "UCuTsNUh9sBx3hs1sN3wtgrg",
+    "verdict": "not_hr",
+    "reason": "Engleski duhovni kanal, nema hrvatske veze."
+  },
+  {
+    "key": "UClh4JeqYB1QN6f1h_bzmEng",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički podcast, nema hrvatske veze."
+  },
+  {
+    "key": "UCYpsKNzKZpnXdnQ0IQd8Ufw",
+    "verdict": "not_hr",
+    "reason": "Engleski kanal molitvi/oslobođenja, nema hrvatske veze."
+  },
+  {
+    "key": "UCCIcOC_ats_S_qCAnvwzunw",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički kanal, nema hrvatske veze."
+  },
+  {
+    "key": "UCsOXr3JHt176_xnWvF7KFYA",
+    "verdict": "not_podcast",
+    "reason": "Hrvatski duhovni monolozi/propovijedi bez razgovornog formata."
+  },
+  {
+    "key": "UC2Ea3vm-NN3z39PJRYtn0Bg",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički kanal, nema hrvatske veze."
+  },
+  {
+    "key": "UCe87sEM3AUxAyhl5RhCpkcA",
+    "verdict": "not_hr",
+    "reason": "Engleski katolički kanal (Fatima Center), nema hrvatske veze."
+  },
+  {
+    "key": "UCoOae5nYA7VqaXzerajD0lg",
+    "verdict": "not_hr",
+    "reason": "Engleski kanal o produktivnosti/poduzetništvu, nema hrvatske veze."
+  },
+  {
+    "key": "UClpf-3oOo-Vswcph0Sej8jg",
+    "verdict": "uncertain",
+    "reason": "Nedovoljno podataka o formatu (Vinoteka epizode) da bi se utvrdilo je li riječ o razgovornom podcastu ili TV rubrici."
+  },
+  {
+    "key": "UCJqAX4vWSdh0KIDe3AFfhjA",
+    "verdict": "institutional",
+    "reason": "Kanal košarkaškog kluba Cibona; sadrži podcast segment 'CTV PODCAST: Na kavi s...' uz utakmice i highlightse.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC4c2_PYMd0uUKY8TexW5K7Q",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski politički/povijesni podcast s gostima (pravaška/domoljubna tematika).",
+    "slug": "podcast-bog-i-hrvati",
+    "display_name": "Podcast Bog i Hrvati",
+    "tags": ["political", "history", "domoljubni"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC0ECfyWEEYpD0bVa_dMqe5w",
+    "verdict": "institutional",
+    "reason": "Kanal srpske manjinske udruge u Zagrebu; sadržaj su tribine/predavanja, ne dijaloški podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCf4lDW63CMNZggWovAFZNyw",
+    "verdict": "not_podcast",
+    "reason": "Snimke tradicionalnih latinskih misa i propovijedi bez razgovornog formata."
+  },
+  {
+    "key": "UCC6xpusfaTTvwY0dXPzC89A",
+    "verdict": "institutional",
+    "reason": "Kanal stručne sekcije HPD-a; sadržaj su webinari i predavanja, ne podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+    "verdict": "podcast_hr",
+    "reason": "Forbes Hrvatska podcast o poduzetništvu i gospodarstvu, jasan /podcasts tab format.",
+    "slug": "forbes-business-unplugged",
+    "display_name": "Forbes Business Unplugged",
+    "tags": ["business", "economics", "leadership"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+    "verdict": "podcast_hr",
+    "reason": "Nova TV politički intervju-podcast s dugim epizodama i poznatim gostima.",
+    "slug": "kresendo",
+    "display_name": "Krešendo",
+    "tags": ["political", "talk-show", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski podcast o teologiji tijela, redovite epizode, minimalan udio isječaka.",
+    "slug": "teologija-tijela",
+    "display_name": "Teologija Tijela",
+    "tags": ["theology", "religious-catholic", "evangelization"],
+    "hosts": [],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)najava"
+    }
+  },
+  {
+    "key": "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+    "verdict": "podcast_hr",
+    "reason": "Regionalni portal Dalmacija Danas, podcast razgovori s lokalnim gostima.",
+    "slug": "dalmacija-danas-podcast",
+    "display_name": "Dalmacija Danas Podcast",
+    "tags": ["regional-media", "culture", "society"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+    "verdict": "podcast_hr",
+    "reason": "Večernji TV vanjskopolitička emisija/podcast s dugim analitičkim razgovorima.",
+    "slug": "svijet-plus",
+    "display_name": "Svijet Plus",
+    "tags": ["geopolitics", "political", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+    "verdict": "podcast_hr",
+    "reason": "Talk-show s poznatim gostima, voditelj Zvonimir Milaković, dugi originalni razgovori.",
+    "slug": "show-na-kvadrat",
+    "display_name": "Show na kvadrat",
+    "tags": ["pop-culture", "talk-show", "media"],
+    "hosts": ["Zvonimir Milaković"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+    "verdict": "podcast_hr",
+    "reason": "Povijesni razgovori s povjesničarima, Večernji TV, dugi format.",
+    "slug": "povijesni-dijalozi",
+    "display_name": "Povijesni dijalozi",
+    "tags": ["history", "talk-show", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+    "verdict": "podcast_hr",
+    "reason": "Tjedni sportski talk-show sportske redakcije Večernjeg lista o HNL-u i reprezentaciji.",
+    "slug": "vl-stativa",
+    "display_name": "VL Stativa",
+    "tags": ["sport", "football", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-podcast novinarke Dee Redžić s poznatim osobama iz sporta i javnog života.",
+    "slug": "zivotne-price-by-dea-redzic",
+    "display_name": "Životne priče by Dea Redžić",
+    "tags": ["culture", "talk-show", "media"],
+    "hosts": ["Dea Redžić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+    "verdict": "podcast_hr",
+    "reason": "Večernji.hr podcast s intervjuima poznatih osoba iz sporta, glazbe i javnog života.",
+    "slug": "vecernji-hr-podcast-vecernji-tv",
+    "display_name": "Večernji.hr Podcast",
+    "tags": ["talk-show", "media", "pop-culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+    "verdict": "podcast_hr",
+    "reason": "Poduzetnički podcast portala Bljesak.info iz Mostara, hrvatska tematika Hercegovine.",
+    "slug": "imam-ideju",
+    "display_name": "Imam Ideju",
+    "tags": ["business", "entrepreneurship", "leadership"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+    "verdict": "podcast_hr",
+    "reason": "Sportski intervju-podcast portala Bljesak.info iz Mostara.",
+    "slug": "sport-centar-bljesak",
+    "display_name": "Sport Centar",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-podcast portala Bljesak.info o sportu i javnom životu iz Mostara.",
+    "slug": "cancast",
+    "display_name": "Cancast",
+    "tags": ["sport", "pop-culture", "talk-show"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+    "verdict": "podcast_hr",
+    "reason": "Zdravstveni podcast portala Bljesak.info s liječnicima-gostima.",
+    "slug": "pricamo-o-zdravlju",
+    "display_name": "Pričamo o zdravlju",
+    "tags": ["health"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+    "verdict": "podcast_hr",
+    "reason": "Politički intervju-podcast portala Bljesak.info o regionalnoj politici i BiH.",
+    "slug": "kruzni-tok",
+    "display_name": "Kružni tok",
+    "tags": ["political", "talk-show", "geopolitics"],
+    "hosts": [],
+    "watch_rule": null
+  }
+]
+```

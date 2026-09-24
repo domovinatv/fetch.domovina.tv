@@ -1,0 +1,434 @@
+{
+ "key": "UCJzVTRaUieC2EKE6vnj7ovg",
+ "url": "https://www.youtube.com/channel/UCJzVTRaUieC2EKE6vnj7ovg/videos",
+ "channel_id": "UCJzVTRaUieC2EKE6vnj7ovg",
+ "playlist_id": null,
+ "title": "Moja Rijeka - Videos",
+ "channel": "Moja Rijeka",
+ "channel_url": "https://www.youtube.com/channel/UCJzVTRaUieC2EKE6vnj7ovg",
+ "description": "www.mojarijeka.hr - Multimedijalni portal grada Rijeke - mjesto na kojem se izražavaju ideje i osobnost Rijeke i njene okolice, na kojem se komunicira identitet grada te stvara odnos građana i posjetitelja prema gradu u najširem smislu riječi.\n",
+ "follower_count": 4220,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "nQ7INCgBBFo",
+   "title": "MojaRijeka.hr - Inkluzivna radiodrama @ Radio Benčić",
+   "duration": 220,
+   "live_status": null,
+   "upload_date": "20260919"
+  },
+  {
+   "id": "CgDWaQhgizc",
+   "title": "MojaRijeka.hr - 4. Kreativna Kružna",
+   "duration": 278,
+   "live_status": null,
+   "upload_date": "20260912"
+  },
+  {
+   "id": "sqWGQk_XIms",
+   "title": "MojaRijeka.hr - Škola za trgovinu i modni dizajn Rijeka na 18. Riječkim stepenicama",
+   "duration": 280,
+   "live_status": null,
+   "upload_date": "20260904"
+  },
+  {
+   "id": "451-HK8ct10",
+   "title": "MojaRijeka.hr - Selotejp @ Art-kvart Benčić",
+   "duration": 267,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "KfwCojtIkLQ",
+   "title": "MojaRijeka.hr - Grad po mjeri susjedstva: Kultura, participacija i društveni centri u kvartovima",
+   "duration": 366,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "fnj6Ib7UqSY",
+   "title": "MojaRijeka.hr - Ljetni dan velikih radionica: retro inspiracija, novo stvaranje",
+   "duration": 259,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "blRYvjTT7kI",
+   "title": "MojaRijeka.hr - Škola i zajednica, Gimnazija Andrije Mohorovičića Rijeka",
+   "duration": 374,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "CwFGjb6bOkU",
+   "title": "MojaRijeka.hr - UNIRI Career Days 2026: Sajam poslova povezao studente i poslodavce",
+   "duration": 334,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "4CQxUm1fojA",
+   "title": "MojaRijeka.hr - Premijera predstave \"Ovo bi mogao biti moj razred\"",
+   "duration": 418,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "hCVFLszg5fw",
+   "title": "MojaRijeka.hr - Tetragon na Kampusu",
+   "duration": 233,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "x67wu-55KFk",
+   "title": "MojaRijeka.hr - XXL Komikaze / omotnice strip albuma @Galerija SKC",
+   "duration": 250,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "cwhyhUreieA",
+   "title": "MojaRijeka.hr - Četvrti STEM piknik u Art-kvartu Benčić",
+   "duration": 278,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "95XR2S6uI1Q",
+   "title": "MojaRijeka.hr - Premijera filma Za tvoje dobro @ Art-kino Croatia",
+   "duration": 225,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "CotKaIsmeaM",
+   "title": "MojaRijeka.hr - Filmovi 6. Kvarnera u kratkom obilježili 17. rođendan Art-kina",
+   "duration": 336,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "VIW6YPesRpw",
+   "title": "MojaRijeka.hr - Knjiga svima: Kora i začarani izvor & Kaledioskop",
+   "duration": 266,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "RASl9uNNNFA",
+   "title": "MojaRijeka.hr - Art-kvart čarolija: 5. Zimska priča iz Benčića",
+   "duration": 290,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "ICSAyOcXlog",
+   "title": "MojaRijeka.hr - HKD-ove volonterke i volonteri u kulturi proslavili Međunarodni dan volontera",
+   "duration": 266,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "rITcjq_A7Bo",
+   "title": "MojaRijeka.hr - 13. Rijeka Tattoo Expo",
+   "duration": 272,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "LPmSNOtlDeQ",
+   "title": "MojaRijeka.hr - Klub za mlade Palach",
+   "duration": 561,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "DV9jBQXFyjI",
+   "title": "MojaRijeka.hr - Otvorenje 12. STIFF festivala uz APURI-jev film \"Nije smiješno\"",
+   "duration": 481,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "-e5l2xC3Cd4",
+   "title": "MojaRijeka.hr - Rasadnik Demo Week @GKRijeka",
+   "duration": 222,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "u8dGHTI2MXE",
+   "title": "MojaRijeka.hr - Rasadnik Demo Week u Gradskoj knjižnici Rijeka",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "1k4yfJh_omU",
+   "title": "MojaRijeka.hr - SDF 2025. i Skateboard park Krnjevo",
+   "duration": 222,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "RhKeB8meW2Y",
+   "title": "MojaRijeka.hr - Tribina Vojni Jok i izložba Print savjesti!",
+   "duration": 485,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "_iWS77Lth4k",
+   "title": "MojaRijeka.hr - Erasmus Days u Rijeci",
+   "duration": 222,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "_HoJfx83V6E",
+   "title": "MojaRijeka.hr - Smoqua 2025 - slavlje zajedništva i 25 godina LORI",
+   "duration": 264,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "BrGXNRvW_SU",
+   "title": "MojaRijeka.hr - Art Explora 2025",
+   "duration": 623,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "KTIVLrsqpAg",
+   "title": "MojaRijeka.hr - Screenagers @ Zoom + Igralke festival 2025",
+   "duration": 281,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "r2YCInYRrDE",
+   "title": "MojaRijeka.hr - Noć istraživača 2025",
+   "duration": 405,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "OOxCDuDEiSw",
+   "title": "MojaRijeka.hr - Rikon 2025",
+   "duration": 229,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "uRzE3FdKnbg",
+   "title": "MojaRijeka.hr - 365 dana zdravlja u školi",
+   "duration": 471,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "dRnFttdmOKU",
+   "title": "MojaRijeka.hr - Vrisak_Na pola puta",
+   "duration": 403,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "pbX3vu8ZbJA",
+   "title": "MojaRijeka.hr - Studentski Vrisak 2025",
+   "duration": 325,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "YREqQa4XRwY",
+   "title": "MojaRijeka.hr - Otvorenje festivala Art Explora",
+   "duration": 268,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "cGxhOUcjdzQ",
+   "title": "MojaRijeka.hr - Tjedan fotografije mladih u Galeriji Principij",
+   "duration": 234,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "7JIwRuTzPhA",
+   "title": "MojaRijeka.hr - Kreativna Kružna otvorila novu sezonu Palacha",
+   "duration": 375,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "NCUrJm3Kz9I",
+   "title": "MojaRijeka.hr - Urbani separe @ Art-kvart Benčić",
+   "duration": 172,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Z39s6_dgEUA",
+   "title": "MojaRijeka.hr - Visualia zatvorila 9. Tobogan",
+   "duration": 109,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "sH4oCgn52Zg",
+   "title": "MojaRijeka.hr - Urbani separe: Park prirode Ričina festival",
+   "duration": 230,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ZrDiMW1qgiY",
+   "title": "MojaRijeka.hr - “Art, a ne rat”: Koreografska izvedba na vojnom igralištu",
+   "duration": 316,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kuwWGLyHrQA",
+   "title": "MojaRijeka.hr - Super Feniks Kviz @ Art-kvart Benčić",
+   "duration": 169,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "U6gotsg7kec",
+   "title": "MojaRijeka.hr - Ri Lit na Principiju",
+   "duration": 326,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "xsgLGN88XzE",
+   "title": "MojaRijeka.hr - Otvorenje 9. Tobogana",
+   "duration": 270,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "PvX8RhO5IUU",
+   "title": "MojaRijeka.hr - Yugo Logo izložba @ Galerija Kortil",
+   "duration": 225,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "J96qTdJY59Q",
+   "title": "MojaRijeka.hr - 20 godina APURI: Dan Akademije",
+   "duration": 245,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "EGsG3bg5lk4",
+   "title": "MojaRijeka.hr - Fotografska radionica @ Muzej Grada Rijeke",
+   "duration": 202,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Cbct6EIlSpY",
+   "title": "MojaRijeka.hr - Selotejp - Pilot projekt Gradske knjižnice Rijeka",
+   "duration": 177,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "J1iu6iuv5gE",
+   "title": "MojaRijeka.hr - Riječka premijera filma \"Život na Sisi\"",
+   "duration": 315,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "tUvLbFxZlL4",
+   "title": "MojaRijeka.hr - Studentska Fiumanka 2025.",
+   "duration": 179,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "YXMukAH9lRM",
+   "title": "MojaRijeka.hr - Finale Riječke debatne lige",
+   "duration": 318,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_oG2-COW5NE",
+   "title": "MojaRijeka.hr - Greenlight Collective @ Art-kvart Benčić",
+   "duration": 154,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ehQGQ3nF0f4",
+   "title": "MojaRijeka.hr - Svjetski dan sporta @ Kampus",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "cakZzqzmopc",
+   "title": "MojaRijeka.hr - Bad Elephant",
+   "duration": 351,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "9rF1NMersWU",
+   "title": "MojaRijeka.hr - Budućnost mladih umjetnika",
+   "duration": 569,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "P8yeRfkfKJE",
+   "title": "MojaRijeka.hr - U garaži Riteh Racing Teama",
+   "duration": 337,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "4IEQLabvPsA",
+   "title": "MojaRijeka.hr - Grad po mjeri mladih 2: Krećemo ili nastavljamo?!",
+   "duration": 227,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "yNN9t63ZASs",
+   "title": "MojaRijeka.hr - Radio Sova",
+   "duration": 364,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "peiVzvbOQ-I",
+   "title": "MojaRijeka.hr - Udruga Briješ",
+   "duration": 289,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "XuyDzH1A9CE",
+   "title": "MojaRijeka.hr - Ri Teatar",
+   "duration": 306,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kf0JQqo1jfk",
+   "title": "MojaRijeka.hr - Klub mladih Rijeka",
+   "duration": 356,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

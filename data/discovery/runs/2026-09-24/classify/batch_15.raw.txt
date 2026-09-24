@@ -1,0 +1,416 @@
+```json
+[
+  {
+    "key": "PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
+    "verdict": "podcast_hr",
+    "reason": "Tjedne osobne ispovijesti, pune epizode ~33 min, hrvatski jezik, jasan razgovorni/monolog-podcast format.",
+    "slug": "reci",
+    "display_name": "Reci!",
+    "tags": ["society", "testimonies", "media"],
+    "hosts": ["Lada Novak Starčević"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls",
+    "verdict": "not_podcast",
+    "reason": "Klasična tjedna TV panel-rasprava o više aktualnih tema, format TV talk showa, ne razgovorni podcast s jasnim sugovornikom.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+    "verdict": "podcast_hr",
+    "reason": "Emisija s jednim gostom po epizodi (naveden u naslovu), dugi format ~46 min, razgovorno-intervjuistički podcast.",
+    "slug": "pogled-s-markovog-trga",
+    "display_name": "Pogled s Markovog trga",
+    "tags": ["political", "talk-show", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa",
+    "verdict": "not_podcast",
+    "reason": "TV magazin koji kombinira reportaže i studijski razgovor o braniteljskim temama, nije čisti razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLbygzMRdzQg4",
+    "verdict": "podcast_hr",
+    "reason": "Post-race F1 podcast portala Net.hr, numerirane epizode, razgovorni format oko 60+ min.",
+    "slug": "planet-formula",
+    "display_name": "Planet Formula",
+    "tags": ["sport", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
+    "verdict": "podcast_hr",
+    "reason": "Gotovo dnevni intervju s jednim analitičarom o aktualnoj geopolitici/politici, ~36 min, jasan razgovorni podcast.",
+    "slug": "briefing-jutarnji-list",
+    "display_name": "Briefing",
+    "tags": ["geopolitics", "political", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ",
+    "verdict": "not_podcast",
+    "reason": "Lokalna TV razgovorna emisija bez jasnog jednog sugovornika u naslovu, klasičan panel/talk show format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+    "verdict": "podcast_hr",
+    "reason": "Klupski podcast s jednim gostom po epizodi, numeriran, dugi format ~65 min.",
+    "slug": "hajduk-podcast",
+    "display_name": "Hajduk Podcast",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)^HAJDUK PODCAST\\s*#\\d+"
+    }
+  },
+  {
+    "key": "UCjlZkBNTCYZHZph7go-uqUg",
+    "verdict": "podcast_hr",
+    "reason": "Autorski podcast o marketingu i političkim kampanjama, host jasno naveden u opisu, dugi originali ~52 min.",
+    "slug": "marijan-palic",
+    "display_name": "Marijan Palić Podcast",
+    "tags": ["business", "communication", "political"],
+    "hosts": ["Marijan Palić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG",
+    "verdict": "not_podcast",
+    "reason": "Ciklus javnih predavanja/tribina Sveučilišta u Zagrebu, konferencijski format, ne razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCRe9wMqRzVfd0TiB-z09pbw",
+    "verdict": "podcast_hr",
+    "reason": "Autorska razgovorna emisija o poduzetništvu s gostima, host jasno naveden, dugi originali ~45 min.",
+    "slug": "tk-show",
+    "display_name": "TK Show",
+    "tags": ["business", "entrepreneurship", "communication"],
+    "hosts": ["Tomislav Krajačić"],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)(Q&A|Rant of the day|IG LIVE)"
+    }
+  },
+  {
+    "key": "PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
+    "verdict": "podcast_hr",
+    "reason": "Jasan intervju-format '1 na 1' s imenovanim gostom u svakom naslovu, dugi format ~51 min, host naveden.",
+    "slug": "romano-bolkovic-1-na-1",
+    "display_name": "Romano Bolković: 1 na 1",
+    "tags": ["political", "geopolitics", "talk-show"],
+    "hosts": ["Romano Bolković"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD",
+    "verdict": "not_podcast",
+    "reason": "Kulturno-obrazovna TV emisija o književnim klasicima, dokumentarno-predavački format, ne razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok",
+    "verdict": "not_podcast",
+    "reason": "Večernja politička TV analiza s više gostiju i tema, klasičan televizijski talk show format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
+    "verdict": "podcast_hr",
+    "reason": "Intervju emisija s jednim gostom po epizodi, host jasno naveden u nazivu, dugi format ~58 min.",
+    "slug": "u-povjerenju-s-nevenom-ciganovicem",
+    "display_name": "U povjerenju s Nevenom Ciganovićem",
+    "tags": ["pop-culture", "talk-show", "lifestyle"],
+    "hosts": ["Neven Ciganović"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
+    "verdict": "podcast_hr",
+    "reason": "Tjedni intervju s jednom osobom iz politike/kulture/biznisa, ~38 min, jasan razgovorni podcast.",
+    "slug": "sistematski-yammat-fm",
+    "display_name": "Sistematski - Yammatov tjedni intervju tjedna",
+    "tags": ["culture", "political", "media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d",
+    "verdict": "not_podcast",
+    "reason": "Javne tribine i rasprave u instituciji (Matica hrvatska), konferencijski/panelni format, ne podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3",
+    "verdict": "not_podcast",
+    "reason": "Trosatni politički televizijski format s analizom i debatom, eksplicitno opisan kao TV emisija.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
+    "verdict": "podcast_hr",
+    "reason": "Dugogodišnja intervju-serija s imenovanim gostom po epizodi, ~32 min, jasan razgovorni format.",
+    "slug": "veliki-judi",
+    "display_name": "Veliki Judi",
+    "tags": ["talk-show", "culture", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s Hrvatima iz dijaspore i povratnicima, izričito nazvan podcast, dugi format.",
+    "slug": "cronnect",
+    "display_name": "Cronnect",
+    "tags": ["diaspora", "society", "talk-show"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-emisija s imenovanim gostom po epizodi, dugi format ~33 min, jasan razgovorni podcast.",
+    "slug": "osvrt-tv-jadran",
+    "display_name": "Osvrt",
+    "tags": ["political", "talk-show", "regional-media"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLuEWODEWd3kObinvdS86MlleO-pMl6jQg",
+    "verdict": "not_podcast",
+    "reason": "Središnji politički TV talk show s raspravom više gostiju suprotstavljenih stajališta, klasičan TV format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC6TuJ0U9XM4zOVM-11V9OFg",
+    "verdict": "podcast_hr",
+    "reason": "Izvorni YouTube razgovorni podcast s voditeljicom i gostima, ~57 min, jasno izraženo u opisu.",
+    "slug": "um-and-boom",
+    "display_name": "Um&Boom",
+    "tags": ["lifestyle", "talk-show", "culture"],
+    "hosts": ["Ines Mahmić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLC6qJhj5yOpi3Fv2tQzmWm-DITvvGx4Pi",
+    "verdict": "too_small",
+    "reason": "Samo 6 epizoda ≥30 min u playlisti, nedovoljno za katalogizaciju kao aktivan podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLNCweG78i4PyGTh1waPF3tAfYx9UNbzw1",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski nogometni intervju-podcast s imenovanim gostom po epizodi, dugi format ~67 min.",
+    "slug": "podcast-izvan-travnjaka",
+    "display_name": "Podcast Izvan Travnjaka",
+    "tags": ["sport", "football"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0",
+    "verdict": "podcast_hr",
+    "reason": "Novinarski razgovori o aktualnim temama Zagreba i Zagrebačke županije, voditelj naveden u opisu, dugi format.",
+    "slug": "01podcast",
+    "display_name": "01Podcast",
+    "tags": ["political", "regional-media", "media"],
+    "hosts": ["Marijan Opačak"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLGeo9U3C2hxx2Z0W7-C_yrmBCEgWjbigD",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski biciklistički intervju-podcast, numerirane epizode, dugi format ~78 min.",
+    "slug": "biciklizam-net-podcast",
+    "display_name": "biciklizam.net Podcast",
+    "tags": ["sport"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)#\\d+"
+    }
+  },
+  {
+    "key": "PLDmHAu-mNqKpjreAvN1G1xqcd8n5yij4A",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori sa stručnjacima o gradnji/arhitekturi, numerirane epizode, dugi format ~61 min.",
+    "slug": "baustelski-podcast",
+    "display_name": "Bauštelski podcast",
+    "tags": ["business", "education"],
+    "hosts": [],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)#baustelahr"
+    }
+  },
+  {
+    "key": "PL_TdJ96rX8HESB_hwz2fQ9L-cMQBWTur_",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s hrvatskim dokumentaristima, numerirane epizode, dugi format ~47 min.",
+    "slug": "dokunet-podcast",
+    "display_name": "Dokunet Podcast",
+    "tags": ["culture", "pop-culture", "media"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)Dokunet Podcast\\s*#\\d+"
+    }
+  },
+  {
+    "key": "UCC6yBUjYw86-AfTWl3Qmu7A",
+    "verdict": "podcast_hr",
+    "reason": "Dalmatinski intervju-podcast s numeriranim gostima, dugi format ~46 min.",
+    "slug": "fortunal-podcast",
+    "display_name": "Fortunal Podcast",
+    "tags": ["lifestyle", "comedy", "talk-show"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)Fortunal Podcast\\s*#\\d+"
+    }
+  },
+  {
+    "key": "PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski futsal intervju-podcast s numeriranim gostima, dugi format ~51 min.",
+    "slug": "crofutsal-megamix-radio-hvar-podcast",
+    "display_name": "CROfutsal & Megamix Radio Hvar Podcast",
+    "tags": ["sport"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR",
+    "verdict": "podcast_hr",
+    "reason": "Sindikalni razgovorni podcast s voditeljicom i stručnjacima/aktivistima, numerirane epizode, ~36 min.",
+    "slug": "rad-po-mjeri-covjeka",
+    "display_name": "Rad po mjeri čovjeka",
+    "tags": ["society", "advocacy"],
+    "hosts": ["Nediljka Junaković"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCGwf4Fx9u72inqSnvJMzHiA",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski podcast o književnim klasicima namijenjen ženama, razgovorno-analitički format, ~34 min.",
+    "slug": "citanje-i-predrasude",
+    "display_name": "Čitanje i predrasude",
+    "tags": ["culture", "women", "philosophy"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
+    "verdict": "podcast_hr",
+    "reason": "Moderirani razgovori o suvremenoj glazbenoj sceni, moderatorice imenovane u opisu, dugi format ~73 min.",
+    "slug": "mbz-podcast",
+    "display_name": "MBZ Podcast",
+    "tags": ["culture", "education"],
+    "hosts": ["Dijana Grubor", "Iva Lovrec Štefanović"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLZjNpNK55Xrab3D439N7AIn58Z9EZYtDw",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-serija s gostima iz svijeta lifestylea/estrade, numerirane epizode, dugi format ~43 min.",
+    "slug": "journal-unfiltered",
+    "display_name": "Journal Unfiltered",
+    "tags": ["lifestyle", "women", "pop-culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLxQ_LCGoYKHv5OuPF6E0IDJpqZGKwsXVf",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorni sportski podcast s voditeljem i parom sportaša po epizodi, numeriran, ~41 min.",
+    "slug": "na-entu",
+    "display_name": "Na entu",
+    "tags": ["sport", "talk-show"],
+    "hosts": ["Mario Petreković"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLOUmVFmEH-PEvmeQBtYSBIg8su3BbnvxT",
+    "verdict": "podcast_hr",
+    "reason": "Arheološki razgovorni podcast muzeja, numerirane epizode, dugi format ~33 min.",
+    "slug": "arheocast",
+    "display_name": "Arheocast",
+    "tags": ["history", "science", "education"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCptUiwBhO4MfBPiVolHEgkw",
+    "verdict": "podcast_hr",
+    "reason": "Prvi hrvatski specijalizirani financijski podcast, razgovori sa stručnjacima, numerirane epizode, dugi format ~85 min.",
+    "slug": "pricajmo-o-novcu",
+    "display_name": "Pričajmo o novcu",
+    "tags": ["finance", "business", "economics"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCtNUrUgDlId2UecrM1bgATw",
+    "verdict": "too_small",
+    "reason": "Samo 7-8 epizoda, kanal neaktivan, nedovoljno materijala za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLVzNvZ-SzIzB6IBScP0oLQdtP1Zw60FXg",
+    "verdict": "too_small",
+    "reason": "Samo 4 pune epizode ≥30 min, ostalo su kratki isječci, premalo za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  }
+]
+```

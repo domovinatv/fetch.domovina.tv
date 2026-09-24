@@ -1,0 +1,546 @@
+{
+ "key": "UClsErnRt3tpnQUBtiWJOD6A",
+ "url": "https://www.youtube.com/channel/UClsErnRt3tpnQUBtiWJOD6A/videos",
+ "channel_id": "UClsErnRt3tpnQUBtiWJOD6A",
+ "playlist_id": null,
+ "title": "American Academy of Arts & Sciences - Videos",
+ "channel": "American Academy of Arts & Sciences",
+ "channel_url": "https://www.youtube.com/channel/UClsErnRt3tpnQUBtiWJOD6A",
+ "description": "",
+ "follower_count": 12000,
+ "streams_count": 16,
+ "videos": [
+  {
+   "id": "dp6fyWOBZkw",
+   "title": "Can Regulation Keep Pace with AI in Mental Healthcare?",
+   "duration": 3618,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "Z4qsBrfxlFg",
+   "title": "Tech Companies and Practitioners Working Together to Safely Provide Mental Health Care Using AI",
+   "duration": 3535,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "hLQIes4J-b4",
+   "title": "AI, Science, and Discovery with James Manyika, Aviv Regev, and Eric Topol",
+   "duration": 3963,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "cfl54HaH-jk",
+   "title": "Do the Founding Ideals Still Shape America at 250?",
+   "duration": 3671,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "lehJWcWMUd8",
+   "title": "Elizabeth Hillman and Adam Falk on Commemoration, Education, and Public Memory",
+   "duration": 2228,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "u4NZ-8_9lks",
+   "title": "Honorary Society Prizes for Claudia Goldin, Greg Grandin, and Jan Ziolkowski",
+   "duration": 5138,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "LpIkqdWnXmg",
+   "title": "Jason Moran and Viet Nguyen Discuss Why Artists Create",
+   "duration": 3716,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "ku0xc6Wb2vA",
+   "title": "What Can We Learn about Rebuilding from Los Angeles?",
+   "duration": 5264,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "OlE13oaWbVY",
+   "title": "How Do We Understand International Security Now?",
+   "duration": 4487,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "f8GmQC5H8MI",
+   "title": "Can Congress Better Represent Americans?",
+   "duration": 4353,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "SCQFY49dG8c",
+   "title": "How Can AI Impact Human Memories? An Academy discussion.",
+   "duration": 4543,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "SMu4HHakUXE",
+   "title": "Challenges and Opportunities of AI in Mental Health Care",
+   "duration": 4689,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "mvakSXK2v9Y",
+   "title": "Kenny Leon in Conversation with David Rubenstein - 2025 Induction, Opening Event",
+   "duration": 2792,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "0aLIerbUMsE",
+   "title": "David Dunning Presentation and Conversation - 2025 Induction Weekend",
+   "duration": 4502,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "6fA2mly9bKE",
+   "title": "Brian Uzzi, Sociologist and Professor of Leadership - Academy Induction Address, 2025",
+   "duration": 662,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "Y9TVdzKmyDQ",
+   "title": "Gregory H. Robinson, Professor of Chemistry - Academy Induction Address 2025",
+   "duration": 613,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "B_qEeB9oXfc",
+   "title": "Ashish Jha, Physician and Public Health Leader - Academy Induction Address, 2025",
+   "duration": 656,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "pkF2fi4_LqA",
+   "title": "Jacqueline Woodson, Author - Academy Induction Address, 2025",
+   "duration": 594,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "MgMukBBZIEI",
+   "title": "Christine Brennan, Sports Journalist - Academy Induction Address, 2025",
+   "duration": 887,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "KlQuZV9qTos",
+   "title": "Generative AI Is Terrific, But Is it Really Legal?",
+   "duration": 4957,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "bayKCQdx-Fo",
+   "title": "We the People: A Conversation on the Fate of our Constitution with Jill Lepore",
+   "duration": 3654,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "ahf4IAt6-NE",
+   "title": "What Can Be Learned from International Perspectives on Autocracy and Democracy?",
+   "duration": 3541,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "oGySXYkwYYw",
+   "title": "Why Do Tariffs Matter for Americans? (ft. Judith L. Goldstein, Ronald Kirk, and Michael R. Strain)",
+   "duration": 3601,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "HxKAIF1c0dc",
+   "title": "Understanding Caregiving: How Do We Improve It From Birth Through Old Age?",
+   "duration": 4231,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "IJBetaeIGj8",
+   "title": "Honoring Anthony S. Fauci, M.D.",
+   "duration": 4112,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "tam63UrZ-T0",
+   "title": "Cultural Spaces and Their Communities (ft. Oskar Eustis & Leah A. Dickerman)",
+   "duration": 4753,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "U_yv_evkW-M",
+   "title": "Science and Creativity (featuring Kip Thorne, Andrea Ghez, & Risa Wechsler)",
+   "duration": 4548,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kxV7D-UgRKU",
+   "title": "Rodney Whitaker Trio - Opening Celebration - 2024 Induction Weekend",
+   "duration": 553,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "5qYXyieBsnw",
+   "title": "Are We in a Constitutional Crisis?",
+   "duration": 3716,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "gIHE-LPneQg",
+   "title": "Our Common Purpose Discussion - Champions Convening",
+   "duration": 2309,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "F15UotZ3lxg",
+   "title": "The World in 2025 (ft. Kwame Anthony Appiah, Michael Froman, Anne-Marie Slaughter, and Adam Tooze)",
+   "duration": 3937,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "08JAqtNBMkw",
+   "title": "Achieving Civil Justice | New Recommendations for Closing the Civil Justice Gap",
+   "duration": 3625,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "MCVNJxlz8n0",
+   "title": "The Future of Care: Integrating AI and Robotics",
+   "duration": 4355,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "-B8l3ZzTseo",
+   "title": "Health and Our Oceans (with Kimberly Prather, UC San Diego)",
+   "duration": 3662,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "KH903P5sPfc",
+   "title": "Narratives of the Economy (with Kyla Scanlon, Viet Thanh Nguyen, and Manuel Pastor)",
+   "duration": 5070,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "bamP7uE7Bac",
+   "title": "Rebuilding Trust in Science: A Morton L. Mandel Conversation (with Sean M. Decatur & Naomi Oreskes)",
+   "duration": 4499,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "DhvOcUCa1Jo",
+   "title": "How to Fortify Civic Culture (Ben Klutsey, Eric Liu, Goodwin Liu, Laurie Patton, & Natalie Tran)",
+   "duration": 4320,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "8G_Xe7dhipY",
+   "title": "Economic Connectedness: Building Relationships that Expand Opportunity",
+   "duration": 3824,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_96HuOZvon4",
+   "title": "Charles Gammie, University of Illinois - Class Speaker - 2024 Induction Weekend",
+   "duration": 533,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "XFVg8IumHTU",
+   "title": "Helene Muller-Landau, Smithsonian - Class Speaker - 2024 Induction Weekend",
+   "duration": 726,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "vDY5VjGZ9vk",
+   "title": "Daniel E. Ho, Stanford University - Class Speaker - 2024 Induction Weekend",
+   "duration": 568,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "qri3wRm7yx8",
+   "title": "Jhumpa Lahiri, Barnard College - Class Speaker - 2024 Induction Weekend",
+   "duration": 804,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "tLByGlaEGD4",
+   "title": "Cecilia Conrad, Lever for Change - Class Speaker - 2024 Induction Weekend",
+   "duration": 546,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "C9ZYsKU9xh8",
+   "title": "Conversation with André Fenton - Closing Program - 2024 Induction Weekend",
+   "duration": 4053,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "d16xLIKzFDk",
+   "title": "David M. Rubenstein Conversation - Opening Celebration - 2024 Induction Weekend",
+   "duration": 2170,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "gcDJP4eXxXI",
+   "title": "Building Demand for National Service, Part 2",
+   "duration": 1263,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "sOljJa0XBBc",
+   "title": "Building Demand for National Service, Part 1",
+   "duration": 2694,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "yCzxxCAWcyw",
+   "title": "Political Polarization and Political Violence (Rachel Kleinfeld, Paige Alexander, & Marty Smith)",
+   "duration": 3519,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "pKXLzwKkz-8",
+   "title": "Integrating Environmental Justice and Philanthropy: Lessons and Opportunities",
+   "duration": 5626,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6f5Zj0KsMWE",
+   "title": "People-Centered Justice as a Lens for Understanding Why Civil Justice Matters",
+   "duration": 3307,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3ETS7rOI7NM",
+   "title": "Keynote Lecture: Building a Bridge to Justice through Medical-Legal Partnership",
+   "duration": 3185,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Fk1iJ8_dxmk",
+   "title": "Making Justice Accessible Summit Opening Remarks",
+   "duration": 1347,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "oCIXGj3WpV0",
+   "title": "Civil Justice Network: Robust, Diverse, and Powerful Levers for Change",
+   "duration": 2735,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "P64R5HSOf74",
+   "title": "Expanding What Innovation Means in Civil Justice",
+   "duration": 3209,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "htI-jStgIYI",
+   "title": "Opportunities in Civil Justice for Public & Private Sectors",
+   "duration": 3253,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "bFk0RHY0iOU",
+   "title": "Understanding Implicit Bias and How to Combat it: A Morton L. Mandel Conversation",
+   "duration": 4486,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "I0F7efsIkBI",
+   "title": "Honoring Anthony Appiah",
+   "duration": 4103,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "lSADm9vx8M0",
+   "title": "Anti Globalism’s Past and Present with Historian Tara Zahra",
+   "duration": 3599,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "W7uWBgLjros",
+   "title": "The Geography of American Opportunity",
+   "duration": 4680,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "C4rWuK6pBmU",
+   "title": "Inspiring Collective Climate Action in California and Beyond",
+   "duration": 3488,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "nwbi2r_uSjo",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 42901,
+   "live_status": "was_live",
+   "upload_date": "20170925"
+  },
+  {
+   "id": "vCUTZDxqaro",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 231,
+   "live_status": "was_live",
+   "upload_date": "20170925"
+  },
+  {
+   "id": "fuvyIi0N29I",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 9307,
+   "live_status": "was_live",
+   "upload_date": "20170925"
+  },
+  {
+   "id": "W303E3jktEQ",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 44,
+   "live_status": "was_live",
+   "upload_date": "20170925"
+  },
+  {
+   "id": "pwF0aH8iws4",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 259,
+   "live_status": "was_live",
+   "upload_date": "20170925"
+  },
+  {
+   "id": "k_vx7K2UvKw",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 1468,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "_k8wD3HUyMw",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 654,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "BSy37yCdPVM",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 519,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "PEjmmNISvZk",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 3005,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "iDVz8Yak660",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 175,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "sPXWcpozQNM",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 53,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "pwmonNdQqDM",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 3375,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "a1QpcTBTWqQ",
+   "title": "American Academy of Arts & Sciences Live Stream",
+   "duration": 330,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "w-MY1_ba2uU",
+   "title": "Inaugural Distinguished Morton L. Mandel Annual Public Lecture Making Justice Accessible",
+   "duration": 9735,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "cN_HA9RIh_k",
+   "title": "Members Briefing - Raw Live Stream",
+   "duration": 10536,
+   "live_status": "was_live",
+   "upload_date": "20160925"
+  },
+  {
+   "id": "5S0x-ytyjD4",
+   "title": "Restoring the Foundation: The Vital Role of Research in Preserving the American Dream",
+   "duration": 4088,
+   "live_status": "was_live",
+   "upload_date": "20140925"
+  }
+ ]
+}

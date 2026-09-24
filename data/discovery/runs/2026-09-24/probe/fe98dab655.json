@@ -1,0 +1,84 @@
+{
+ "key": "UCFX4Srv6SEU3Oa7bQtT8FqQ",
+ "url": "https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ/videos",
+ "channel_id": "UCFX4Srv6SEU3Oa7bQtT8FqQ",
+ "playlist_id": null,
+ "title": "Vrijeme za zdravlje s Doktorom za srce - Videos",
+ "channel": "Vrijeme za zdravlje s Doktorom za srce",
+ "channel_url": "https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ",
+ "description": "Podcast \"Vrijeme za zdravlje s Doktorom za srce\" želi biti forum gdje se znanost, iskustvo i empatija susreću i gdje svatko može pronaći inspiraciju za zdraviji i sretniji život.  Voditelj podcasta, ugledni kardiolog akademik Davor Miličić, otvara iznimno aktualne i važne zdravstvene teme u prvoj sezoni Podcasta. Vrijeme je za zdravlje – vrijeme je za zdravo srce.",
+ "follower_count": 359,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "cvzMG48Cp6E",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Kronični koronarni sindrom",
+   "duration": 2055,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "w8R34ghNCGo",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Aritmije",
+   "duration": 2068,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "emNCg84CA7Y",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Transtiretinska amiloidoza (ATTR-CM)",
+   "duration": 789,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "OCl9qcwMM4w",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Srčana pumpa za privremenu mehaničku potporu cirkulaciji",
+   "duration": 2122,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "t8XbYQENaC0",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Kolesterol i srčani udar",
+   "duration": 2155,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "-X2i4kOQ8jM",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Lp(a)",
+   "duration": 1941,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "8DCI9X1U2E0",
+   "title": "Probir na porodičnu hiperkolesterolemiju: ključ za rano otkrivanje i prevenciju",
+   "duration": 1745,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "DtaUdlo3epc",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Fibrilacija atrija",
+   "duration": 1739,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "uWBrQY8a-js",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Kako prepoznati i liječiti ZATAJIVANJE SRCA",
+   "duration": 2008,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "i_A-Fe3q79E",
+   "title": "Vrijeme za zdravlje s Doktorom za srce: Revolucija u borbi s kilogramima",
+   "duration": 2137,
+   "live_status": null,
+   "upload_date": "20251025"
+  }
+ ]
+}

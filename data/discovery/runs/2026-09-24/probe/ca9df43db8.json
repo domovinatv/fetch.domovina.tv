@@ -1,0 +1,77 @@
+{
+ "key": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+ "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+ "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+ "playlist_id": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+ "title": "Razgovori",
+ "channel": "VTV Televizija",
+ "channel_url": "https://www.youtube.com/channel/UCVfz6I7XISePfuN02Hx4bCA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "WLme7aTbRYI",
+   "title": "Razgovori 103. fra Josip Vizjak",
+   "duration": 2946,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "T9t4F17HYQE",
+   "title": "Razgovori 148. emisija Damir Makovec",
+   "duration": 2860,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "HHVWGGNqAjU",
+   "title": "Razgovori 147. emisija:  Bruno Ister",
+   "duration": 3014,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "3YjorCsEhf0",
+   "title": "Razgovori 145. emisija: Ozren Bogdanović",
+   "duration": 3526,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "HZWPMPIDZso",
+   "title": "Razgovori 143. emisija: Jadran Lazić",
+   "duration": 2796,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "5sK79Y0BgZ8",
+   "title": "Razgovori 144. emisija: Snježana Mikulčić Jakopović",
+   "duration": 3123,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "ULUFfHLiNDE",
+   "title": "Razgovori 141. emisija Vladimir Flegar",
+   "duration": 3799,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "GvNImRsoovw",
+   "title": "Razgovori 142. emisija: Vatrogasci",
+   "duration": 2990,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "7W_rNJi4M3A",
+   "title": null,
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  }
+ ]
+}

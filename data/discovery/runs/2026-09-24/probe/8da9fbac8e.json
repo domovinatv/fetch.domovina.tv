@@ -1,0 +1,21 @@
+{
+ "key": "UCQvK_BA3oDYWJqO06lB1XiQ",
+ "url": "https://www.youtube.com/channel/UCQvK_BA3oDYWJqO06lB1XiQ/videos",
+ "channel_id": "UCQvK_BA3oDYWJqO06lB1XiQ",
+ "playlist_id": null,
+ "title": "Ivan Ramić - Videos",
+ "channel": "Ivan Ramić",
+ "channel_url": "https://www.youtube.com/channel/UCQvK_BA3oDYWJqO06lB1XiQ",
+ "description": "",
+ "follower_count": 3,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "j0qn0nz-sGw",
+   "title": "Marko Marušić Piže",
+   "duration": 1354,
+   "live_status": null,
+   "upload_date": "20150925"
+  }
+ ]
+}

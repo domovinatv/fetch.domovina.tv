@@ -1,0 +1,388 @@
+```json
+[
+  {
+    "key": "UCKpMnNUjVpJK4C8ArIFMVGA",
+    "verdict": "not_podcast",
+    "reason": "Arhiva kratkih snimki govora/istupa, nema razgovornog formata; sve epizode ispod praga trajanja.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCiqh0pOqarVSgCMrk6VQfTw",
+    "verdict": "podcast_hr",
+    "reason": "PodKAJst je hrvatski (kajkavski) intervju-podcast s poznatim gostima, dovoljno epizoda za katalog.",
+    "slug": "podkajst",
+    "display_name": "PodKAJst (Kvartet Gubec)",
+    "tags": ["culture", "pop-culture"],
+    "hosts": [],
+    "watch_rule": {
+      "include_title_regex": "(?i)^PodKAJst"
+    }
+  },
+  {
+    "key": "UCno5l8tdLPYk0rOycHEE8RQ",
+    "verdict": "institutional",
+    "reason": "Lifestyle medijski kanal (Gloria.hr) s mješavinom formata; postoji 'Gloria Podcast' playlista unutar kanala.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCdWFyUlQzIC_NiHH1zA-zbQ",
+    "verdict": "not_podcast",
+    "reason": "Snimke lokalnih crkvenih i udružnih događanja (prve pričesti, koncerti, sjednice), nema podcast formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCApQrl9RAycb8qgb6NhvBog",
+    "verdict": "podcast_hr",
+    "reason": "Intervju-format 'AUTOSCENA Podcast' s ličnostima iz hrvatske auto scene, odvojeno od vlog sadržaja.",
+    "slug": "autoscena",
+    "display_name": "AUTOSCENA Podcast",
+    "tags": ["talk-show", "lifestyle"],
+    "hosts": [],
+    "watch_rule": {
+      "exclude_title_regex": "(?i)vlog"
+    }
+  },
+  {
+    "key": "UC7AKJe91Uf-QbPFxOWnzQRg",
+    "verdict": "not_podcast",
+    "reason": "Video recenzije i testovi automobila (voditeljski format), nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC2z-Yu3n2XmOla1r0yY35oQ",
+    "verdict": "not_hr",
+    "reason": "Srpski kanal (Beograd, srpska terminologija), sadržaj o automehanici, nije hrvatski.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCGp_gN9jbDXPuP5X5nFvxcg",
+    "verdict": "podcast_hr",
+    "reason": "Epizodni razgovorni show dvojice voditelja (Luka i Tin) o automobilima na hrvatskom jeziku.",
+    "slug": "garaza",
+    "display_name": "Garaža",
+    "tags": ["talk-show", "lifestyle"],
+    "hosts": ["Luka", "Tin"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCONhSOtzSUEF_XcKxeQeqnQ",
+    "verdict": "not_hr",
+    "reason": "Srpski jezik (ekavica, N1, Beograd), konferencijski/panel sadržaj, nije hrvatski podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCGBhcflm6uj_AO6W-lJgZUA",
+    "verdict": "not_hr",
+    "reason": "Srpski kanal (Beograd, ekavica), edukativni automehaničarski sadržaj, nije hrvatski.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCNSBTqi0HF_snOJLoK1wD9A",
+    "verdict": "not_podcast",
+    "reason": "Arhiva glazbenih koncerata i radijskih emisija (uglavnom slovenski/hrvatski folk), nema razgovornog podcast formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC_h8E4dZX-32AX2itV5_YsA",
+    "verdict": "institutional",
+    "reason": "Službeni glazbeni kanal HRT-a s emisijama i koncertnim snimkama, nije podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC2AwGdo0UJLHHcXZRrUhwcQ",
+    "verdict": "not_hr",
+    "reason": "Engleski kanal o house glazbi, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC_sOUrIR0wZ7JCcZU-wmB9g",
+    "verdict": "not_hr",
+    "reason": "Engleski rock/metal intervju podcast, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC065MgTCu82iJ8IjMGM8CGw",
+    "verdict": "not_podcast",
+    "reason": "Ribolovni tutorijali i vlogovi (uputstva, oprema); podcast segment tek povremeno, nije dominantan format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCKL-tBgTyCmKpOJqxoVTRLQ",
+    "verdict": "institutional",
+    "reason": "Kanal političke stranke (SDP) s govorima i izjavama; sadrži playlistu 'PODCAST Slušamo ljude'.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCIMKS5afVr8Q4Nm4dl5V3yg",
+    "verdict": "not_hr",
+    "reason": "Pretežno makedonski dokumentarni sadržaj (ćirilica/makedonski jezik), povremeno hrvatski gosti ali nije hrvatski podcast kanal.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCllJwSgbX1NEu8TuYMOaUtg",
+    "verdict": "not_podcast",
+    "reason": "Narativni/motivacijski sadržaj tipa audioknjige (citati Napoleona Hilla uz naraciju), nema razgovornog podcast formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCihFVvNAGGWomC6Q4cIE2xg",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski poduzetnički/razvojni podcast autorice Sare Peranić, potvrđen na Apple HR ljestvicama.",
+    "slug": "nadji-nacin",
+    "display_name": "Nađi Način",
+    "tags": ["business", "entrepreneurship", "personal-development"],
+    "hosts": ["Sara Peranić"],
+    "watch_rule": null
+  },
+  {
+    "key": "UCsRB8TMe6iuSSwQ8fp2dOdw",
+    "verdict": "podcast_hr",
+    "reason": "Hrvatski intervju-podcast o osobnom razvoju, duhovnosti i praksama dobrobiti.",
+    "slug": "coredialog",
+    "display_name": "COREdialog",
+    "tags": ["personal-development", "philosophy", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCMzCmiWOfkFyEgYO-blfinw",
+    "verdict": "not_podcast",
+    "reason": "Video treninzi i vježbe (fitness sadržaj), nije razgovorni podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC57SJ9qGUznBc1P_hebPYpg",
+    "verdict": "not_hr",
+    "reason": "Engleski obrazovni sadržaj (SAD), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC3gBRnhyFZop630cowg_rzA",
+    "verdict": "not_hr",
+    "reason": "Engleski kanal škole u SAD-u, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCaEEm-0s0x3MHg9jzFcHuQQ",
+    "verdict": "not_hr",
+    "reason": "Engleski korporativni kanal (Siemens), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCU-GCW3-EwNxcbJEFKKaABw",
+    "verdict": "not_hr",
+    "reason": "Engleski obrazovni kanal (inkluzivno obrazovanje), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCvixJtaXuNdMPUGdOPcY8Ag",
+    "verdict": "not_hr",
+    "reason": "Engleski politički news-komentar kanal, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCYI_ychRnL7sJrG6PUSBpQA",
+    "verdict": "not_hr",
+    "reason": "Engleski vjerski news kanal (CBN), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCX2UnkTmM9fErqQYwHbo0AQ",
+    "verdict": "not_hr",
+    "reason": "Engleski zabavni/game-show kanal (Audible UK), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCr4kgAUTFkGIwlWSodg43QA",
+    "verdict": "not_hr",
+    "reason": "Engleski politički komentar kanal, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC8vS9aplGbqSLS7aubplZxg",
+    "verdict": "not_hr",
+    "reason": "Engleski obrazovni podcast (inkluzija u SAD-u), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UC0tUUA3cgd2ad326LI4dR0w",
+    "verdict": "institutional",
+    "reason": "Kanal manifestacije 'Tjedan cjeloživotnog učenja' s promo filmovima; sadrži 'EPALE podcast' seriju epizoda.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCWIWCcDw_k2-BP9JnbryIyg",
+    "verdict": "institutional",
+    "reason": "Sveučilišni kanal s webinarima i promo sadržajem, nije podcast format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCZtY9yw3J-EZfvrIfIecCcg",
+    "verdict": "not_hr",
+    "reason": "Pretežno engleski EU-projektni kanal o integraciji migrantske djece, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCVqUbH8f6y1zeq8VS-1DJKw",
+    "verdict": "too_small",
+    "reason": "Vidljiv je 'Edukos Podcast #4', ali kanal ima svega nekoliko originala i uglavnom je edukacijski servis, premalo epizoda za sada.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UClumgTNtu0bI97MVkXzmj_w",
+    "verdict": "institutional",
+    "reason": "Lokalni/regionalni medij (Ličko-senjska županija) s vijestima i povremenim intervjuima, nije dedicated podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCM-ONC2bCHytG2mYtKDmIeA",
+    "verdict": "not_hr",
+    "reason": "Engleski šahovski kanal (SAD), nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCiIFpspcjdF1b7wB_vQ0Ksw",
+    "verdict": "not_podcast",
+    "reason": "Prijenosi i snimke školskih sportskih natjecanja, nema razgovornog podcast formata.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "UCkTCNuQ2mGfW6-SpHpaze_g",
+    "verdict": "not_hr",
+    "reason": "Engleski šahovski kanal, nema hrvatske veze.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  }
+]
+```

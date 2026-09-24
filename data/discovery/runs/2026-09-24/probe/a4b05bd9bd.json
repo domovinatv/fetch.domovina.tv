@@ -1,0 +1,70 @@
+{
+ "key": "UCtNUrUgDlId2UecrM1bgATw",
+ "url": "https://www.youtube.com/channel/UCtNUrUgDlId2UecrM1bgATw/videos",
+ "channel_id": "UCtNUrUgDlId2UecrM1bgATw",
+ "playlist_id": null,
+ "title": "Čuješ Podcast - Videos",
+ "channel": "Čuješ Podcast",
+ "channel_url": "https://www.youtube.com/channel/UCtNUrUgDlId2UecrM1bgATw",
+ "description": "Regionalni podcast.\n\n",
+ "follower_count": 167,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "jLK7K8speoU",
+   "title": "Čuješ Podcast #8 Alen Mirić",
+   "duration": 5079,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3Vbdl3HTFXg",
+   "title": "Čujes Podcast #7 Marko Vlajsović",
+   "duration": 2916,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "ES_jbiaLUGE",
+   "title": "Čuješ Podcast #6 CBD",
+   "duration": 5298,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "FRScFaao6kE",
+   "title": "Čuješ Podcast #05   Ante Batarelo",
+   "duration": 3347,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "DBBAVHr3m1k",
+   "title": "Čuješ Podcast #04 - Davor Rakić - EKN",
+   "duration": 4131,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "2exDvf5lRl0",
+   "title": "Čuješ Podcast #03 - PVTmole",
+   "duration": 4107,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "B2O0j2L_Z4s",
+   "title": "Nepoznata Moslavina - Čuješ podcast",
+   "duration": 3804,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "TSJ2il42Gvo",
+   "title": "Čuješ podcast - The BestBeat",
+   "duration": 1008,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

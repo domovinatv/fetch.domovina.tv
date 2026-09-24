@@ -1,0 +1,49 @@
+{
+ "key": "UCjUfNlLgJIx91qxHvS2XaNA",
+ "url": "https://www.youtube.com/channel/UCjUfNlLgJIx91qxHvS2XaNA/videos",
+ "channel_id": "UCjUfNlLgJIx91qxHvS2XaNA",
+ "playlist_id": null,
+ "title": "Andrija Golub - Videos",
+ "channel": "Andrija Golub",
+ "channel_url": "https://www.youtube.com/channel/UCjUfNlLgJIx91qxHvS2XaNA",
+ "description": "Bird up!",
+ "follower_count": 94,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "uGzAuiZjcyg",
+   "title": "Podcast #3 | Wakanda Forever i budućnost MCU-a | feat. Zvonimir Prtenjača (SPOILERI!)",
+   "duration": 4542,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "ZMLkz1YNkuQ",
+   "title": "Wakanda Forever mogao je biti dobar film",
+   "duration": 729,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "6mLOXVDWuCw",
+   "title": "Black Adam je zbrkan",
+   "duration": 566,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "p6kplcNOw98",
+   "title": "Podcast #2 | Stranger Things 4 | feat. Zvonimir Prtenjača (SPOILERI!)",
+   "duration": 5971,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "iq1F53sizro",
+   "title": "Podcast #1 | The Batman | feat. Zvonimir Prtenjača",
+   "duration": 4766,
+   "live_status": null,
+   "upload_date": "20220925"
+  }
+ ]
+}

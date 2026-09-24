@@ -1,0 +1,83 @@
+```json
+[
+  {"key": "UCFhDjduMfQKbVCqm5lc3BxA", "verdict": "podcast_hr", "reason": "Hrvatski razgovorni podcast s gostima iz svijeta borilačkih sportova, brojne epizode s brojevima.", "slug": "podcast-u-ringu", "display_name": "Podcast u ringu", "tags": ["mma", "sport"], "hosts": ["Siniša Kovačić"], "watch_rule": null},
+
+  {"key": "UCJPMZwh6qj1AZQWd1jl3ISw", "verdict": "podcast_hr", "reason": "Hrvatski komičarski podcast s gostima, dvije serije epizoda (Podcast Rijeke Smijeha, Mrtvi Kut).", "slug": "podcast-rijeke-smijeha", "display_name": "Podcast Rijeke Smijeha", "tags": ["comedy", "talk-show"], "hosts": [], "watch_rule": null},
+
+  {"key": "UCTnBAvMUWsM2a--hPr9MrPw", "verdict": "podcast_hr", "reason": "Hrvatski monolog-podcast o jeziku i lingvistici, jasno numerirane epizode.", "slug": "gaj-tomas", "display_name": "Gaj Tomaš", "tags": ["language", "culture", "education"], "hosts": ["Gaj Tomaš"], "watch_rule": {"include_title_regex": "(?i)Ep\\.\\s*#\\d+"}},
+
+  {"key": "UC7NlsNY6sGS8rgr6ROTHFRA", "verdict": "too_small", "reason": "Hrvatski stand-up podcast kolektiva BIS, ali tek 5 objavljenih epizoda.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCSi6yaNwa77vTjsbRDu3x5g", "verdict": "not_podcast", "reason": "Lokalni radio/festivalski video zapisi i prijenosi manifestacija, nije razgovorni podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCIdEmdeEXgezh3gw4kZFkbA", "verdict": "not_podcast", "reason": "Poljoprivredni vlog o voćarstvu i strojevima, nema razgovornog podcast formata.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCKmNFtF1iXDyBybPmxRysSg", "verdict": "not_hr", "reason": "Bosanskohercegovačka komercijalna televizija, sadržaj nije hrvatski niti u podcast formatu.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCun9QlOXu7Y-b_54ECfTjEg", "verdict": "not_podcast", "reason": "Snimke folklornih festivala i koncerata (vinske popevke, KUD-ovi), nije podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UClCyg88qaT53Aa04QA2sqPQ", "verdict": "institutional", "reason": "Kanal HRT-a s kulturnim TV emisijama i dokumentarcima, nije podcast format iako postoji sličan sadržaj.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCwZCIZ7r_vRpkByXuzafnGA", "verdict": "not_podcast", "reason": "Snimke okruglih stolova i predavanja o poljoprivredi, nije razgovorni podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UClK6gVLWoRPRWBBeIJrCmRA", "verdict": "not_podcast", "reason": "Konferencije za medije i panel rasprave HINA-e, nije podcast format.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCptZ9Tn8pCWBrYdBFqiQolg", "verdict": "not_podcast", "reason": "Dokumentarci i predavanja o teorijama zavjere (chemtrails), bez dijaloškog razgovora.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCsbmo8MGwV1fIPQZnh3aO4w", "verdict": "not_podcast", "reason": "Predavanja i monolozi Tomislava Terzina na rubnim znanstvenim temama, nije razgovorni podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCxM5VIs6ZAoGuOLndNqaJdQ", "verdict": "podcast_hr", "reason": "Muzejski podcast 'Arheocast' s razgovorima o arheologiji i povijesti, dominira sadržaj kanala.", "slug": "arheocast", "display_name": "Arheocast", "tags": ["history", "culture", "education"], "hosts": [], "watch_rule": {"include_title_regex": "(?i)Arheocast|Podcast\\s*#\\d+"}},
+
+  {"key": "UCll0fGZdlj-YQGEtaVCFRdw", "verdict": "institutional", "reason": "Službeni kanal fakulteta s predavanjima, tribinama i promocijama knjiga, nije podcast format.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UChDvkB4zk-Ec6EIgJABXS8g", "verdict": "too_small", "reason": "Samo jedan objavljeni video, nedovoljno za procjenu podcasta.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCVvwADooA6K19sCzZQsIZwQ", "verdict": "not_hr", "reason": "Srpski znanstveni institut, ćirilica i srpski jezik, nema hrvatske veze.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCPn4FsiQP15nudug9FDhluA", "verdict": "not_hr", "reason": "Engleski kanal bez ikakve hrvatske veze.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCI05gfRAx5pHCPdBJcRpcuA", "verdict": "not_hr", "reason": "Njemački sveučilišni kanal, sadržaj na njemačkom, bez hrvatske veze.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCIgYMJQ9r3uxEjC6kX_q7EQ", "verdict": "institutional", "reason": "Kanal visokog učilišta s promotivnim i edukativnim sadržajem, nije podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCKM5BYYa-X0lEjW8eBhqXxA", "verdict": "not_hr", "reason": "Srpski regionalni turistički kanal, ekavica, fokus na Srbiju i regiju.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCP_4XS1Iz5wv8X8wWoKeDUw", "verdict": "not_podcast", "reason": "Gastro recenzije i vlog format u regiji, nije razgovorni podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCNpxdiF7xVKk7x3fwTqb4Wg", "verdict": "institutional", "reason": "Kanal Hrvatske gospodarske komore s edukacijama, radionicama i predstavljanjima, nije podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCt1jNnOtFMVS7rFeq3BpQQg", "verdict": "podcast_hr", "reason": "Hrvatski gastro talk-show format, razgovori s poznatim gostima u restoranima.", "slug": "best-food-croatia", "display_name": "Best Food Croatia", "tags": ["lifestyle", "talk-show", "pop-culture"], "hosts": ["Domagoj Delač"], "watch_rule": {"exclude_title_regex": "(?i)^Špica Kanala|behind the scenes|kako smo snimili"}},
+
+  {"key": "UCzJC9uHXoDBNMhBK-_rCcMA", "verdict": "not_podcast", "reason": "Narirane horor priče (audio-format), nije razgovorni podcast već nalik audioknjizi.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCK2IrwMtbozS-_grSQI2xAw", "verdict": "not_podcast", "reason": "Audio pripovijedanje detektivskih priča (Poirot), format audioknjige, nije podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCqfisF56N2sF0u5wwl-7VSQ", "verdict": "not_podcast", "reason": "Predavanja i seminari o duhovnosti/alternativnoj medicini, nije dijaloški podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCOC5KRHvB28Rdf9CoDasgmw", "verdict": "not_podcast", "reason": "Lokalne vijesti, sjednice vijeća i sportski prijenosi, nije podcast format.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCOQio6Dv9maeq0vrWWQ6X6g", "verdict": "podcast_hr", "reason": "Hrvatski sportski podcast s intervjuima mladih sportaša, numerirane epizode.", "slug": "i-ja-sam-sportas", "display_name": "I ja sam sportaš", "tags": ["sport"], "hosts": [], "watch_rule": {"include_title_regex": "(?i)E\\d{3}\\s*I ja sam sporta[šs]"}},
+
+  {"key": "UC2gEFtlXhCFucdR4O-HVgXw", "verdict": "not_podcast", "reason": "Putopisni vlog/dokumentarac s intervjuima na lokaciji, nije klasičan razgovorni podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCn28OP_AoqEkiRiXRFrPZfw", "verdict": "podcast_hr", "reason": "Hrvatski intervju-podcast s intelektualcima i javnim osobama.", "slug": "podcast-portala-tjedno", "display_name": "Podcast portala Tjedno", "tags": ["political", "culture"], "hosts": [], "watch_rule": null},
+
+  {"key": "UCvtVoRVW7ARC7KGQLLl7_fQ", "verdict": "podcast_hr", "reason": "Vrlo aktivan hrvatski politički intervju-podcast s brojnim gostima iz regije.", "slug": "podcast-s-brezom", "display_name": "Podcast s Brezom", "tags": ["political", "geopolitics", "talk-show"], "hosts": ["Boris Brezo"], "watch_rule": null},
+
+  {"key": "UCM-oPnch79rVytkgKr5pt9Q", "verdict": "uncertain", "reason": "Miješan osobni kanal (glazba, TV pilot, navijačke pjesme, intervjui 'Bez cenzure'), nejasno je li primarno podcast.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UC_kJ0_FMtKy-1iHLOsKCZNg", "verdict": "institutional", "reason": "Lifestyle brend s raznolikim sadržajem (unboxing, cooking show, eventi) uz seriju intervjua 'Journal Unfiltered/Voices' kao podcast playlistu.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCMUZ619OQG0Z2oYV00EMfGQ", "verdict": "podcast_hr", "reason": "Hrvatska podcast mreža s više emisija (Ljutih 9, Podcast 8_24, AluBravi).", "slug": "rooftop-tv", "display_name": "Rooftop TV", "tags": ["sport", "comedy", "talk-show"], "hosts": [], "watch_rule": {"exclude_title_regex": "(?i)^@RooftopTVHR"}},
+
+  {"key": "UC1P3Bq3EV1j4l1SZaaQyZVQ", "verdict": "too_small", "reason": "Mini glazbeni intervju-podcast, tek 5 kratkih epizoda.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCG5nO6uUX2k-kJawutF_Wkw", "verdict": "podcast_hr", "reason": "Hrvatski nogometni podcast (Šestica), neaktivan od 2023., kanal danas objavljuje kripto spam koji treba isključiti.", "slug": "sportcast", "display_name": "Sportcast", "tags": ["sport", "football"], "hosts": [], "watch_rule": {"exclude_title_regex": "(?i)crypto|arbitrage|ethereum"}},
+
+  {"key": "UCO85nGVn0UdiCw9o63pkRZQ", "verdict": "institutional", "reason": "Kanal strukovnog društva arhitekata s tribinama, panelima i predavanjima, uz podcast seriju 'Prednji plan' kao playlistu.", "slug": null, "display_name": null, "tags": [], "hosts": [], "watch_rule": null},
+
+  {"key": "UCgJeoVM0zU50pjnqblKYqVg", "verdict": "podcast_hr", "reason": "Hrvatska tvrtka producira nekoliko poslovno-tehnoloških intervju-podcasta (Highway to Scale, Designed & Developed).", "slug": "bornfight-podcast", "display_name": "Bornfight Podcast", "tags": ["business", "entrepreneurship", "technology"], "hosts": [], "watch_rule": null},
+
+  {"key": "UCUgQcyJuN-FNBhgkXJtlBSQ", "verdict": "podcast_hr", "reason": "Hrvatski monolog-podcast o financijama i burzi.", "slug": "financije-i-samo-financije", "display_name": "Financije i samo Financije", "tags": ["finance", "business"], "hosts": [], "watch_rule": null}
+]
+```

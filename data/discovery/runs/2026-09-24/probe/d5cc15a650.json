@@ -1,0 +1,476 @@
+{
+ "key": "UCVvwADooA6K19sCzZQsIZwQ",
+ "url": "https://www.youtube.com/channel/UCVvwADooA6K19sCzZQsIZwQ/videos",
+ "channel_id": "UCVvwADooA6K19sCzZQsIZwQ",
+ "playlist_id": null,
+ "title": "Institute of Physics Belgrade - Videos",
+ "channel": "Institute of Physics Belgrade",
+ "channel_url": "https://www.youtube.com/channel/UCVvwADooA6K19sCzZQsIZwQ",
+ "description": "",
+ "follower_count": 1590,
+ "streams_count": 6,
+ "videos": [
+  {
+   "id": "2nsKv8WxoAM",
+   "title": "Prolećna radionica Advances u Institutu",
+   "duration": 116,
+   "live_status": null,
+   "upload_date": "20260625"
+  },
+  {
+   "id": "6cb0smv5b9U",
+   "title": "Dan Instituta za fiziku u Beogradu 2026.",
+   "duration": 117,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "XeEb1L1uZXA",
+   "title": "VRT FIZIKE SPECIJAL: Prof. dr Branislav Nikolić",
+   "duration": 1121,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "1eNKmknBHHs",
+   "title": "VRT FIZIKE: Tamna materija",
+   "duration": 842,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "TtlWw06ehdg",
+   "title": "A Glance At Physic: Hunting Cosmic Rays - Institute of Physics Belgrade",
+   "duration": 484,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "gKbAecgmJRA",
+   "title": "POGLED U FIZIKU: Lov na kosmičke zrake - Institut za fiziku u Beogradu",
+   "duration": 484,
+   "live_status": null,
+   "upload_date": "20260425"
+  },
+  {
+   "id": "z0iJQXC_zfM",
+   "title": "POGLED U FIZIKU: Prvi koraci u astrobioloskim eksperimentima - Institut za fiziku u Beogradu",
+   "duration": 1171,
+   "live_status": null,
+   "upload_date": "20260325"
+  },
+  {
+   "id": "dDivHoCLErk",
+   "title": "POGLED U FIZIKU: Regionalni centar za trening mladih istraživača - Institut za fiziku u Beogradu",
+   "duration": 517,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "lBQyq1KcI80",
+   "title": "POGLED U FIZIKU: Šta kriju dvodimenzionalni materijali - Institut za fiziku u Beogradu",
+   "duration": 428,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "qYQwwQSJtTc",
+   "title": "POGLED U FIZIKU: Istraživački zadaci za buduće fizičare",
+   "duration": 692,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "HjfJ7lmzBIA",
+   "title": "Nov trening centar u Institutu za fiziku",
+   "duration": 509,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "TRiplX8qgj0",
+   "title": "POGLED U FIZIKU: Кako fizika proučava kolagen - INSTITUT ZA FIZIKU U BEOGRADU",
+   "duration": 429,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "i4A_qCamyzk",
+   "title": "POGLED U FIZIKU: Zaštita od falsifikovanja uz pomoć laserskog zraka - INSTITUT ZA FIZIKU U BEOGRADU",
+   "duration": 379,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "6wlgN7-AX6Y",
+   "title": "VRT FIZIKE: Evolucija van naše planete",
+   "duration": 745,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "785aYYm53xI",
+   "title": "Inside the World of Quantum Biophotonics",
+   "duration": 419,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "F8mR2ovUEMk",
+   "title": "POGLED U FIZIKU: Šta izučava kvantna biofotonika?",
+   "duration": 419,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "v5tI6yKWMoU",
+   "title": "VRT FIZIKE: Dolazak skrivenih stanja",
+   "duration": 600,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "yJDVEcpOBWY",
+   "title": "Šta studenti misle o Institutu za fiziku u Beogradu",
+   "duration": 322,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "fdrNFfkn7BQ",
+   "title": "PHOTONICA 2025",
+   "duration": 77,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "fhNYAcptWGg",
+   "title": "Dan Instituta za fiziku u Beogradu",
+   "duration": 138,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "JfWWEDY1QDM",
+   "title": "Sećanje na Dragana Popovića",
+   "duration": 539,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "-WQXS0tBegw",
+   "title": "Studenti o fizici i izboru karijere u Institutu",
+   "duration": 305,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "mCE6TmSufis",
+   "title": "Izdanja Instituta za fiziku u 2024.",
+   "duration": 524,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "_12pWdRQ_QI",
+   "title": "Crne rupe i haos u Beogradu - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 426,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "X70OYrIvQCM",
+   "title": "VRT FIZIKE: Fizika crnih rupa u Petnici",
+   "duration": 900,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "1UoA_X481f4",
+   "title": "Kako krize utiču na zagađenje vazduha - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 452,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "uzkNX4NiuAk",
+   "title": "Inovacije, pravo i veštačka inteligencija - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 266,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "xpXb8d1MnCU",
+   "title": "Kako se vazduh prečišćava jonizacijom - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 389,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "-zGN6K5u43k",
+   "title": "MEDIJSKA LABORATORIJA - Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 382,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "lKiz4Cyk4C4",
+   "title": "Bašta Instituta",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "HKVYSvHOPPo",
+   "title": "Dan nauke 2024 - \"Nauka i inovacije u Srbiji\" u SANU",
+   "duration": 563,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "npGBam-mTqU",
+   "title": "IZDANJA: \"Nauka i inovacije\" - Institut za fiziku u Beogradu",
+   "duration": 164,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "OHFX3AXFzmc",
+   "title": "Novi materijali u zaštiti kulturne baštine - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 549,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "5_sQDLewtlA",
+   "title": "BIOFIZIKA: Razvoj novih metoda mikroskopije - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 236,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "3aF_kXeHkaY",
+   "title": "Kuda idu polaroni? - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 538,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "37uVFuwVsVo",
+   "title": "Kako se rađa, a kako propada kolektivno poverenje? - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 274,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "ZLA0Pc7yC9w",
+   "title": "Tragom pesticida - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 385,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "G6TPAim_ldw",
+   "title": "Spirala saznanja - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 472,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Niuc2pp90Jg",
+   "title": "Potraga za ekološkim gasom - POGLED U FIZIKU - Institut za fiziku u Beogradu",
+   "duration": 426,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "cz5-OQXxq7E",
+   "title": "VRT FIZIKE SPECIJAL: dr Ilija Zeljković",
+   "duration": 585,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "cCNne4FPJkQ",
+   "title": "Primena plazme u biomedicini - Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 315,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "65aT4q1yXdw",
+   "title": "Primena lasera u fuzionim reaktorima - Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 361,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "-7__v4BbkKw",
+   "title": "U polju kvantne gravitacije - Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 388,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "feqZK32iHfs",
+   "title": "LASERSKA HIRURGIJA GLJIVA ŠTETOČINA - Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 487,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "E6fETFDV7yk",
+   "title": "ŠTA ISTRAŽUJE SUPERKOMPJUTER PARADOKS? Pogled u fiziku - Institut za fiziku u Beogradu",
+   "duration": 330,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "NSHAB5vAJlc",
+   "title": "Garden of Physics - France and IPB",
+   "duration": 976,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "n1hOnecCYOs",
+   "title": "Vrt fizike: Kako zaustaviti odliv mozgova?",
+   "duration": 844,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "noLT6EHempY",
+   "title": "Dodela prestižne nagrade Marko Jarić fizičaru Marku Lončaru",
+   "duration": 4004,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "CBTmIyQg4Zg",
+   "title": "SVEČANO PROGLAŠENJE DOBITNIKA NAGRADE MARKO JARIĆ",
+   "duration": 5167,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "kIj4uaB5FmA",
+   "title": "Treći ERC grant u Srbiji",
+   "duration": 1150,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Sd4uHgV0UII",
+   "title": "Garden of Physics  - Switzerland and IPB",
+   "duration": 580,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "it2NFPLlQ4k",
+   "title": "VRT FIZIKE: Postanak replikatora",
+   "duration": 696,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "z3Sam3NwnyU",
+   "title": "VRT FIZIKE: Kvantni efekti fotosinteze",
+   "duration": 846,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "QXq8BV5-wio",
+   "title": "VRT FIZIKE: Gospodar mašina",
+   "duration": 832,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "kL9qonrPIhQ",
+   "title": "VRT FIZIKE: Rađanje fizike u Srbiji",
+   "duration": 900,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "RGLwFKa6ByY",
+   "title": "VRT FIZIKE: Mračno pitanje Vernera Hajzenberga",
+   "duration": 1026,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "yz5vnCUgpBo",
+   "title": "VRT FIZIKE: Tajna njutnove revolucije",
+   "duration": 761,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "z5-bBYkctU0",
+   "title": "VRT FIZIKE: Kako predvideti zagađenje?",
+   "duration": 590,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "DZfIZCdlZkk",
+   "title": "VRT FIZIKE: Nepodnošljiva hladnoća superprovodnosti",
+   "duration": 441,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Cig9cOLbBBg",
+   "title": "VRT FIZIKE: Ajnštajnov košmar",
+   "duration": 632,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "1TN7KHJZ-90",
+   "title": "Komemoracija dr Mirjana Božić",
+   "duration": 3558,
+   "live_status": "was_live",
+   "upload_date": "20251125"
+  },
+  {
+   "id": "ahaViTSrzyI",
+   "title": "Svečano proglašenje dobitnika nagrade iz fizike \"Marko Jarić\"",
+   "duration": 3780,
+   "live_status": "was_live",
+   "upload_date": "20240925"
+  },
+  {
+   "id": "Rm8OO16plf0",
+   "title": "ИЗБОР ДИРЕКТОРА - Пренос ванредне седнице Научног већа Института за физику у Београду",
+   "duration": 4546,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9wjQ_MHz-yQ",
+   "title": "Sporazum o strateškom partnerstvu između Instituta za fiziku i Mašinskog fakulteta u Beogradu",
+   "duration": 841,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  },
+  {
+   "id": "5xacLgv-QuY",
+   "title": "Dan Instituta 2019",
+   "duration": 6368,
+   "live_status": "was_live",
+   "upload_date": "20190925"
+  },
+  {
+   "id": "X4JDT29F8Pw",
+   "title": "Годишњица Института за физику",
+   "duration": 4448,
+   "live_status": "was_live",
+   "upload_date": "20180925"
+  }
+ ]
+}

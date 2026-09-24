@@ -1,0 +1,28 @@
+{
+ "key": "UCbp4i9NfbgQfYcuL_lJK2KQ",
+ "url": "https://www.youtube.com/channel/UCbp4i9NfbgQfYcuL_lJK2KQ/videos",
+ "channel_id": "UCbp4i9NfbgQfYcuL_lJK2KQ",
+ "playlist_id": null,
+ "title": "Branislav Desic - Videos",
+ "channel": "Branislav Desic",
+ "channel_url": "https://www.youtube.com/channel/UCbp4i9NfbgQfYcuL_lJK2KQ",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "2sBrkBqTIs8",
+   "title": "Utovar na Bobovici",
+   "duration": 101,
+   "live_status": null,
+   "upload_date": "20130925"
+  },
+  {
+   "id": "I_bRkCzPjNk",
+   "title": "Bobovica-utovar",
+   "duration": 101,
+   "live_status": null,
+   "upload_date": "20130925"
+  }
+ ]
+}

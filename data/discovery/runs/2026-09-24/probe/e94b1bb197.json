@@ -1,0 +1,56 @@
+{
+ "key": "UCn_vjwdr1_orBcKmY9eOAXg",
+ "url": "https://www.youtube.com/channel/UCn_vjwdr1_orBcKmY9eOAXg/videos",
+ "channel_id": "UCn_vjwdr1_orBcKmY9eOAXg",
+ "playlist_id": null,
+ "title": "Eko Village Boracko Jezero - Videos",
+ "channel": "Eko Village Boracko Jezero",
+ "channel_url": "https://www.youtube.com/channel/UCn_vjwdr1_orBcKmY9eOAXg",
+ "description": "",
+ "follower_count": 6,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "eVYvDGIizTc",
+   "title": "Organizacija ljetnog plivačkog/sportskog kampa u Eko Selu Boračko jezero",
+   "duration": 13,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "kGwx_Y6UgoM",
+   "title": "World Triathlon Coaches Level 1 Course - Eko Selo Boračko jezero",
+   "duration": 52,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "fNURDoPvfO0",
+   "title": "Sprint Triatlon Kup \"Kulin Ban\" Boračko jezero 2021.",
+   "duration": 242,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "2a-YfMBs0us",
+   "title": "Triatlon Kup \"Kulin Ban\" Boračko jezero 2021",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "lSEZJniCljo",
+   "title": "EkoSelo Boračko jezero - POSJETITE NAS!",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "p8eERLe26Rg",
+   "title": "TV spot Eko Selo Boračko Jezero BiH",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20160925"
+  }
+ ]
+}

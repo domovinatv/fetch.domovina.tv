@@ -1,0 +1,49 @@
+{
+ "key": "UCa9-8ruCWZSoOgdtEmq1Wcw",
+ "url": "https://www.youtube.com/channel/UCa9-8ruCWZSoOgdtEmq1Wcw/videos",
+ "channel_id": "UCa9-8ruCWZSoOgdtEmq1Wcw",
+ "playlist_id": null,
+ "title": "Podcast Žuta Loptica - Videos",
+ "channel": "Podcast Žuta Loptica",
+ "channel_url": "https://www.youtube.com/channel/UCa9-8ruCWZSoOgdtEmq1Wcw",
+ "description": "Podcast Žuta Loptica razgovorni je video sadržaj triju teniskih fanova, igrača i entuzijasta. Vedran Ljubej višegodišnji je teniski komentator, a društvo mu čine momci koji su teniskim znanjem možda i obdareniji - Vedran Mucić i Viktor Obrol.",
+ "follower_count": 48,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "gZmabOVy0sQ",
+   "title": "GOAT Federer - priča koja odgovara industriji?",
+   "duration": 1147,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "E85fZviXkvM",
+   "title": "Žuta Loptica #4 | Je li GOAT odavno poznat - najopširnija analiza koju ćete ikada pogledati",
+   "duration": 6430,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "rrep9BRZM1s",
+   "title": "Žuta Loptica #3 | Detaljna analiza Medvedeva i je li ovo Serenin kraj?",
+   "duration": 4630,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "z1ZfuD8q6ow",
+   "title": "Žuta Loptica #2 | Je li moguće ONAKO servirati s napuklim trbušnim zidom?",
+   "duration": 5109,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "nxiSV_BneYo",
+   "title": "Žuta Loptica #1 | Što zapravo muči Čilića i je li Kyrgios dobar za tenis?",
+   "duration": 5823,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

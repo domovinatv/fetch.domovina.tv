@@ -1,0 +1,98 @@
+{
+ "key": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+ "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+ "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+ "playlist_id": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+ "title": "Matičin podcast",
+ "channel": "Matica hrvatska",
+ "channel_url": "https://www.youtube.com/channel/UC1fC6msmjs8FfVN1u0bHZMg",
+ "description": "Dobrodošli na Matičin podcast u kojem gostuju istaknuti stručnjaci, književnici, umjetnici i razni drugi gosti s kojima razgovaramo o aktualnim kulturnim, znanstvenim i društvenim temama.",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "8Qi03VISaRE",
+   "title": "Matičin podcast - Igor Zidić",
+   "duration": 4143,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "SWe3OUf-LVg",
+   "title": "Matičin podcast - Filip Zoričić",
+   "duration": 3574,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "IuP4baNdYzg",
+   "title": "Matičin podcast - Matija Štahan",
+   "duration": 2235,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "0LeTZt8tpYc",
+   "title": "Matičin podcast - Rajka Jurdana-Šepić",
+   "duration": 4494,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Caid0nPx0GM",
+   "title": "Matičin podcast - Eva Kirchmayer-Bilić",
+   "duration": 2633,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "6kR1w22Hars",
+   "title": "Matičin podcast - Denis Brižić",
+   "duration": 3874,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "1Gu-CEvVnVI",
+   "title": "Matičin podcast - Filip Hren",
+   "duration": 2278,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "sOgjI3blgJE",
+   "title": "Matičin podcast - Boris Domagoj Biletić",
+   "duration": 3517,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dnsJpiYn2t0",
+   "title": "Matičin podcast - Zrinka Turalija",
+   "duration": 3132,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dOwRWfBpfqg",
+   "title": "Matičin podcast - Pavao Pavličić",
+   "duration": 3029,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "TBE8DegURyo",
+   "title": "Matičin podcast - Davor Velnić",
+   "duration": 3723,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "-zrjdmbivc4",
+   "title": "Matičin podcast - Marko Tadić",
+   "duration": 4459,
+   "live_status": null,
+   "upload_date": "20250925"
+  }
+ ]
+}

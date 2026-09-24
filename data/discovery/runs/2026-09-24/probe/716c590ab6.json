@@ -1,0 +1,84 @@
+{
+ "key": "UC6EI-sqke0ojHD6Y-YejItQ",
+ "url": "https://www.youtube.com/channel/UC6EI-sqke0ojHD6Y-YejItQ/videos",
+ "channel_id": "UC6EI-sqke0ojHD6Y-YejItQ",
+ "playlist_id": null,
+ "title": "ESN Osijek - Videos",
+ "channel": "ESN Osijek",
+ "channel_url": "https://www.youtube.com/channel/UC6EI-sqke0ojHD6Y-YejItQ",
+ "description": "We are a student volunteer organization helping incoming students in Osijek to have the best possible time in our town and preparing outgoing students for their experience abroad.",
+ "follower_count": 50,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "X9r21vwwvmU",
+   "title": "The official song of ESN Osijek for its 10th birthday",
+   "duration": 192,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "KOneoMAJI00",
+   "title": "Osijek through the eyes of the youngest exchange student - PiRates talk",
+   "duration": 616,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Y02jeg3usnk",
+   "title": "From Montenegro to Croatia - PiRates Talk",
+   "duration": 612,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "0Dw0-hnUMKQ",
+   "title": "PiRates Talk- German voyage",
+   "duration": 1082,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "nCHokOLYwdU",
+   "title": "PiRates Talk – Macedonian voyage",
+   "duration": 641,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "ElEQf4oZEAQ",
+   "title": "PiRates Talk – Spanish voyage",
+   "duration": 1765,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "S9rPms-ysEk",
+   "title": "PiRates Talk – Polish voyage",
+   "duration": 1005,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "7VxYyxy_D8M",
+   "title": "PiRates Talk – Albanian voyage",
+   "duration": 1097,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "HbDxW4_nTCQ",
+   "title": "PiRates Talk – Pilot episode",
+   "duration": 417,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "jQJoVxHPkzA",
+   "title": "Meet Erasmus Student Network Osijek",
+   "duration": 48,
+   "live_status": null,
+   "upload_date": "20210925"
+  }
+ ]
+}

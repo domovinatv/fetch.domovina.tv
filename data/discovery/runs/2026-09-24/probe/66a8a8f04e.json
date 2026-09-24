@@ -1,0 +1,28 @@
+{
+ "key": "UCk4okikkDBkj9Y4a-xywmhQ",
+ "url": "https://www.youtube.com/channel/UCk4okikkDBkj9Y4a-xywmhQ/videos",
+ "channel_id": "UCk4okikkDBkj9Y4a-xywmhQ",
+ "playlist_id": null,
+ "title": "Crveni Karton - Videos",
+ "channel": "Crveni Karton",
+ "channel_url": "https://www.youtube.com/channel/UCk4okikkDBkj9Y4a-xywmhQ",
+ "description": "",
+ "follower_count": 467,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "5doVcPrlzRg",
+   "title": "Cenzurirani i zabranjeni intervju Ivana Pernara iz 2018. godine",
+   "duration": 3465,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "exFgp_9wmqU",
+   "title": "Mislav Kolakušić rasturio novinarku N1 - Žestoki intervju",
+   "duration": 710,
+   "live_status": null,
+   "upload_date": "20220925"
+  }
+ ]
+}

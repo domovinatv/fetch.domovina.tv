@@ -38,3 +38,93 @@ media|podcast novinar mediji Hrvatska intervju
 lifestyle|podcast lifestyle razgovor gost Hrvatska
 agriculture|podcast poljoprivreda selo Hrvatska razgovor
 law|podcast pravo odvjetnik Hrvatska razgovor
+sport-boxing|boks podcast Hrvatska razgovor boksač
+sport-chess|šah podcast hrvatski velemajstor razgovor
+sport-sailing|jedrenje podcast Hrvatska jedriličar razgovor
+sport-motorsport|auto moto podcast Hrvatska automobili razgovor
+sport-motorsport|reli karting motorsport podcast hrvatski
+sport-basketball|košarka podcast Hrvatska ABA liga analiza
+sport-tennis|tenis podcast hrvatski razgovor tenisač
+sport-handball|rukomet podcast Hrvatska reprezentacija razgovor
+sport-hiking|planinarenje podcast Hrvatska planine razgovor
+sport-running|trčanje maraton triatlon podcast hrvatski
+sport-cycling|biciklizam podcast Hrvatska razgovor
+sport-football|HNL podcast Hajduk Dinamo analiza utakmice
+sport-fishing|ribolov lovstvo podcast Hrvatska razgovor
+political-left|lijevi podcast Hrvatska društvo radnička prava
+political-liberal|liberalni podcast demokracija civilno društvo Hrvatska
+political-center|podcast aktualna politika Hrvatska Sabor gost
+political|podcast izbori Hrvatska 2026 razgovor analitičar
+audio-drama|audio drama radio igra hrvatski
+stories|priče za laku noć audio hrvatski podcast
+stories|podcast pripovijedanje stvarne priče hrvatski
+minorities|podcast manjine Hrvatska Srbi Talijani Mađari razgovor
+minorities|romska zajednica Hrvatska razgovor podcast
+it|programiranje podcast hrvatski developer razgovor
+it-ai|umjetna inteligencija podcast hrvatski razgovor AI
+it-gamedev|razvoj igara game dev Hrvatska podcast
+it-crypto|kripto bitcoin podcast hrvatski
+it-startup|startup podcast Hrvatska tehnologija osnivač
+food|kuhanje gastro podcast Hrvatska kuhar razgovor
+food-wine|vino vinari podcast Hrvatska razgovor
+agriculture|poljoprivreda OPG podcast razgovor Hrvatska
+architecture|arhitektura dizajn podcast Hrvatska arhitekt
+film|filmski podcast recenzije serija hrvatski
+film|podcast o filmovima kino razgovor hrvatski
+music|glazbenik intervju podcast Hrvatska pjevač karijera
+music|podcast hrvatska glazbena scena razgovor bend
+books|podcast knjige književnost pisac razgovor Hrvatska
+books|čitanje knjiga preporuke podcast hrvatski
+education|podcast učitelji nastavnici škola obrazovanje razgovor
+education|podcast studenti fakultet Hrvatska razgovor
+medicine|podcast liječnik medicina doktor razgovor Hrvatska
+medicine|podcast psihijatar psihoterapeut razgovor hrvatski
+law|podcast odvjetnik pravni savjeti Hrvatska
+realestate|nekretnine podcast Hrvatska stanovi tržište
+travel|putopisni podcast putovanja svijet hrvatski putnik
+parenting|podcast mame tate roditelji djeca razgovor
+relationships|podcast veze ljubav partnerski odnosi hrvatski
+relationships|podcast brak obitelj savjetovanje razgovor
+diaspora|Hrvati u Njemačkoj Irskoj podcast iseljenici
+diaspora|Hrvati u Americi Kanadi Australiji podcast razgovor
+military-history|vojna povijest podcast hrvatski Drugi svjetski rat
+military-history|podcast Domovinski rat bojna zapovjednik razgovor
+ecology|ekologija održivost klima podcast Hrvatska
+ecology|priroda okoliš zaštita podcast hrvatski
+new|"podcast" "epizoda 1" hrvatski
+new|"#1" podcast gost razgovor Hrvatska
+new|podcast 2026 Hrvatska nova epizoda gost
+new|novi podcast prva epizoda Zagreb
+new|podcast "S01E01" hrvatski
+new|podkast razgovor gost Zagreb epizoda
+guest|Ivan Pernar podcast gost razgovor
+guest|Marko Perković Thompson intervju podcast
+guest|Mislav Kolakušić podcast razgovor
+guest|Ivica Todorić podcast razgovor
+guest|Zlatko Hasanbegović podcast razgovor
+guest|Nino Raspudić podcast gost
+guest|Tomislav Jonjić podcast razgovor
+guest|Velimir Bujanec gost podcast
+guest|Igor Vukić podcast razgovor
+guest|Davor Gjenero podcast analiza
+religion|podcast mladi vjera razgovor fra
+minorities|srpska zajednica Hrvatska podcast
+minorities|talijanska manjina Istra podcast
+political-liberal|podcast civilno društvo Hrvatska
+political-left|podcast ljevica Hrvatska razgovor
+sport-fishing|ribolov podcast hrvatski
+sport-motorsport|automobilistički podcast hrvatski
+travel|putovanja podcast hrvatski
+food-wine|vinski podcast Hrvatska
+diaspora|iseljenici podcast hrvatski
+it-crypto|kriptovalute podcast Hrvatska
+sport-chess|šah podcast hrvatski
+architecture|arhitektura podcast hrvatski
+realestate|nekretnine podcast hrvatski
+law|pravni podcast Hrvatska
+books|književni podcast hrvatski
+relationships|podcast o vezama hrvatski
+film|filmski podcast hrvatski
+music|glazbeni podcast hrvatski
+gaming|gaming podcast hrvatski 2026
+comedy|podcast smijeh gost hrvatski 2026

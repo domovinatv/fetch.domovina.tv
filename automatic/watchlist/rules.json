@@ -2620,5 +2620,157 @@
    "originals": 47,
    "derivatives": 13
   }
+ },
+ "big-podcast-debela-barbara": {
+  "include_title_regex": "(?i)BIG PODCAST",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "podcast-izvan-travnjaka": {
+  "include_title_regex": "(?i)PODCAST",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "rezolucija-vodcast": {
+  "include_title_regex": "(?i)REZOLUCIJA Vodcast #\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "off-topic-podcast-hrt": {
+  "include_title_regex": "(?i)Off Topic #\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "zona-filma-strujanja": {
+  "exclude_title_regex": "(?i)^radionica",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "dokunet-podcast": {
+  "exclude_title_regex": "(?i)recenzija",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "podcast-8-24": {
+  "exclude_title_regex": "(?i)^(press|najava)\\b",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "tanja-hrvatin-simicic": {
+  "exclude_title_regex": "(?i)instagram live",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "izmedu-redaka": {
+  "exclude_title_regex": "(?i)mali knjiški moljci",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "kilometri-podcast": {
+  "exclude_title_regex": "(?i)showreel",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "gaj-tomas": {
+  "include_title_regex": "(?i)Ep\\.\\s*#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "arheocast": {
+  "include_title_regex": "(?i)Arheocast|Podcast\\s*#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "best-food-croatia": {
+  "exclude_title_regex": "(?i)^Špica Kanala|behind the scenes|kako smo snimili",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "i-ja-sam-sportas": {
+  "include_title_regex": "(?i)E\\d{3}\\s*I ja sam sporta[šs]",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "rooftop-tv": {
+  "exclude_title_regex": "(?i)^@RooftopTVHR",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "sportcast": {
+  "exclude_title_regex": "(?i)crypto|arbitrage|ethereum",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "kripto-evolucija": {
+  "include_title_regex": "(?i)kripto live",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "prime-time": {
+  "exclude_title_regex": "\\d+\\s*-\\s*\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "na-kavi-s-caplinski-portal": {
+  "include_title_regex": "(?i)na kavi s",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "marko-dejanovic": {
+  "exclude_title_regex": "(?i)trailer",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "mate-mijic-reakcija": {
+  "exclude_title_regex": "(?i)izdvojeno",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "kaj-delas": {
+  "exclude_title_regex": "(?i)q&a",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "crofutsal": {
+  "include_title_regex": "(?i)CROfutsal podcast",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "let-love-eho-radio": {
+  "exclude_title_regex": "(?i)(JUTARNJI SHOW|ŠALJIVI TON)",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "projekt-snovi": {
+  "include_title_regex": "(?i)Podcast projekta SNOVI",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "mioc-podcast": {
+  "exclude_title_regex": "(?i)isje[cč]ak",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "borna-zuber-liveqa": {
+  "include_title_regex": "(?i)Live\\s?Q&A",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "podkajst": {
+  "include_title_regex": "(?i)^PodKAJst",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "autoscena": {
+  "exclude_title_regex": "(?i)vlog",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "na-kaucu": {
+  "exclude_title_regex": "(?i)trailer",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "teologija-tijela": {
+  "exclude_title_regex": "(?i)najava",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "seksurbacije-podcast": {
+  "exclude_title_regex": "(?i)najava",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "samo-hajduk": {
+  "exclude_title_regex": "(?i)^(najava|pregled protivnika)",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "hajduk-podcast": {
+  "include_title_regex": "(?i)^HAJDUK PODCAST\\s*#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "tk-show": {
+  "exclude_title_regex": "(?i)(Q&A|Rant of the day|IG LIVE)",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "baustelski-podcast": {
+  "exclude_title_regex": "(?i)#baustelahr",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "fortunal-podcast": {
+  "include_title_regex": "(?i)Fortunal Podcast\\s*#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "push-pauza": {
+  "include_title_regex": "(?i)#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
  }
 }

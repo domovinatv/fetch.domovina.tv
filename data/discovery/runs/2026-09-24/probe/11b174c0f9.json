@@ -1,0 +1,42 @@
+{
+ "key": "UCDAUcp72qbOa20oGQu6oXzg",
+ "url": "https://www.youtube.com/channel/UCDAUcp72qbOa20oGQu6oXzg/videos",
+ "channel_id": "UCDAUcp72qbOa20oGQu6oXzg",
+ "playlist_id": null,
+ "title": "PosFacts - Videos",
+ "channel": "PosFacts",
+ "channel_url": "https://www.youtube.com/channel/UCDAUcp72qbOa20oGQu6oXzg",
+ "description": "",
+ "follower_count": 63,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "1l7w3hKkfbc",
+   "title": "Mračne Tajne Svjetskih Prvenstava Koje FIFA Skriva",
+   "duration": 526,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "Upii0vzeApk",
+   "title": "BALKANSKI KRIMINALAC BJEŽAO 9 PUTA IZ ZATVORA !",
+   "duration": 519,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "TAmVG-FtR7I",
+   "title": "Tko je zapravo Thompson? Dokumentarac o fenomenu koji dijeli Hrvatsku",
+   "duration": 1249,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "yfjlTeSTqf0",
+   "title": "DRŽAVE KOJE ĆE USKORO NESTATI!",
+   "duration": 267,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

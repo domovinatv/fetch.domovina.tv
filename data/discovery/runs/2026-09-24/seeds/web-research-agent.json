@@ -1,0 +1,1858 @@
+{
+ "source": "web-research-agent",
+ "file": "data/_raw_research/registry_iteration_2026-09-24/web/candidates.json",
+ "at": "2026-09-24T21:04:48.859Z",
+ "seeds": [
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
+   "name": "Sredinom (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "63 ep. ~54 min; mješoviti HR/BiH govornici",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+   "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+   "playlist_id": "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
+   "name": "Razgovori (VTV)",
+   "hint": {
+    "tags": [
+     "regional",
+     "interview"
+    ],
+    "hosts": [],
+    "parent_channel": "VTV Televizija",
+    "evidence": "9 ep. ~46 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
+   "name": "Duhovno duhovite večeri (HKR)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "humor"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "34 ep. ~50 min 2021-2023",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP",
+   "name": "In Medias Press (Večernji)",
+   "hint": {
+    "tags": [
+     "media",
+     "journalism",
+     "conference"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Paneli/razgovori s medijske konferencije; 10 dugih",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
+   "name": "As s klupe (24sata)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "24sata",
+    "evidence": "8 ep. ~60 min s nogometnim trenerima (2026), Podcasts tab",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
+   "name": "Čajanka s Borisom Vlašićem (Jutarnji)",
+   "hint": {
+    "tags": [
+     "politics",
+     "eu",
+     "media"
+    ],
+    "hosts": [
+     "Boris Vlašić"
+    ],
+    "parent_channel": "Jutarnji list",
+    "evidence": "14 ep., ~32 min, 2019-2023",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
+   "name": "VL Stativa (Večernji)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Sportski podcast, ~25 min, aktivan; 9/30 ≥30 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+   "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+   "playlist_id": "PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
+   "name": "Pravi smjer (VTV)",
+   "hint": {
+    "tags": [
+     "regional",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "VTV Televizija",
+    "evidence": "60 ep. ~34 min, 2023-2026",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos",
+   "channel_id": "UCW4Iu-dYRcHDj7Gum37nj8Q",
+   "playlist_id": null,
+   "name": "Roze Koze Podcast",
+   "hint": {
+    "tags": [
+     "lifestyle",
+     "women",
+     "talk-show"
+    ],
+    "hosts": [
+     "Mia",
+     "Bela"
+    ],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 87 ep. ~45 min, neaktivan od 2022",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
+   "name": "Sport Centar (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "sport",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "79 ep. ~57 min; BiH sportska tematika",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
+   "name": "Imam ideju (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "business",
+     "entrepreneurship",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "103 ep. ~55 min; Mostar (hrvatski portal u BiH)",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
+   "name": "The Home Team Podcast (HRT, EN)",
+   "hint": {
+    "tags": [
+     "diaspora",
+     "sport",
+     "english"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "16 ep. ~41 min na ENGLESKOM, HR tematika/dijaspora",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+   "playlist_id": "PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
+   "name": "Podcast Vatrena #obitelj (HNS)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "institutional"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatski nogometni savez",
+    "evidence": "19 ep. ~70 min (2021); Podcasts tab HNS",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
+   "name": "Razgovori s (nad)biskupima (HKR)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "interview"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "25 ep. ~42 min 2019-2025",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+   "channel_id": "UCKL-tBgTyCmKpOJqxoVTRLQ",
+   "playlist_id": "PLTadq9219hgLnpKoOuFmIHtPURuIux_G-",
+   "name": "Digitalne tribine (SDP)",
+   "hint": {
+    "tags": [
+     "politics",
+     "party"
+    ],
+    "hosts": [],
+    "parent_channel": "SDPHrvatske",
+    "evidence": "13 tribina ~73 min, samo 2020",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLTadq9219hgLnpKoOuFmIHtPURuIux_G-"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 2400
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
+   "name": "Razgovor s razlogom (HRT)",
+   "hint": {
+    "tags": [
+     "interview",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "106 ep., medijan 30 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+   "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+   "playlist_id": "PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY",
+   "name": "Tajne svemira (N1)",
+   "hint": {
+    "tags": [
+     "science",
+     "astronomy",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "N1",
+    "evidence": "Mjesečna emisija o svemiru ~50 min, 34 ep.; jezik HR po formatu naslova, provjeriti",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
+   "name": "Kružni tok (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "9 ep. ~85 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
+   "name": "Na prvoj crti (TV Jadran)",
+   "hint": {
+    "tags": [
+     "homeland-war",
+     "veterans",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "322 ep. ~36 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
+   "name": "Purgeraj (HRT)",
+   "hint": {
+    "tags": [
+     "zagreb",
+     "culture",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "61 ep. ~35 min, 2024",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCGAFwYA2evauHaZzn6QYHSA/videos",
+   "channel_id": "UCGAFwYA2evauHaZzn6QYHSA",
+   "playlist_id": null,
+   "name": "Svlačionica podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "football"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 18 videa, 9 dugih (intervjui Rendulić, Šprem), ostalo isječci",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCGAFwYA2evauHaZzn6QYHSA/videos"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
+   "name": "Viza (HRT)",
+   "hint": {
+    "tags": [
+     "travel",
+     "world",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "96 ep. ~50 min, aktivan 2026",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS",
+   "name": "Andreine priče (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "human-interest",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "12 ep. ~50 min, 2023",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
+   "name": "Pod križem (HKR)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "130 ep. ~37 min; Podcasts tab",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
+   "name": "Bez uputnice (RTL)",
+   "hint": {
+    "tags": [
+     "health",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "RTL",
+    "evidence": "Zdravstveni podcast, 30 stavki, pola ≥30 min; Podcasts tab",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
+   "name": "Occamova britva (HRT HR1)",
+   "hint": {
+    "tags": [
+     "philosophy",
+     "critical-thinking",
+     "radio"
+    ],
+    "hosts": [
+     "Dario Špelić"
+    ],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "Top-10 Apple HR chart; 41 ep. na YT ~31 min, aktivan",
+    "source_urls": [
+     "https://www.millionpodcasts.com/charts/apple/hr/top",
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "channel_id": "UCOJXpevbUq_r-fdkFHpQ07w",
+   "playlist_id": "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
+   "name": "Dalmacija Danas Podcast",
+   "hint": {
+    "tags": [
+     "regional",
+     "dalmatia",
+     "society"
+    ],
+    "hosts": [],
+    "parent_channel": "Dalmacija Danas",
+    "evidence": "17 ep. ~57 min 2024-2025; drugi kanal od postojećeg dalmacija-podcast",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
+   "name": "Životne priče by Dea Redžić (Večernji)",
+   "hint": {
+    "tags": [
+     "human-interest",
+     "interview",
+     "media"
+    ],
+    "hosts": [
+     "Dea Redžić"
+    ],
+    "parent_channel": "Večernji TV",
+    "evidence": "Pune epizode ~45-60 min + mnogo isječaka u istoj playlisti",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos",
+   "channel_id": "UCUuKqP2o5JUd692Lw26rrpw",
+   "playlist_id": null,
+   "name": "Prgavi podcast (Hajduk)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "hajduk"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Navijački Hajduk podcast, 3.3k pretplatnika, 260 videa, 33 ≥30 min; puno kratkih isječaka",
+    "source_urls": [
+     "https://www.youtube.com/watch?v=xC8P_L4xCX4",
+     "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+   "channel_id": "UCVfz6I7XISePfuN02Hx4bCA",
+   "playlist_id": "PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
+   "name": "Otvoreni studio (VTV)",
+   "hint": {
+    "tags": [
+     "regional",
+     "varazdin",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "VTV Televizija",
+    "evidence": "22 ep. ~55 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos",
+   "channel_id": "UCvtVoRVW7ARC7KGQLLl7_fQ",
+   "playlist_id": null,
+   "name": "Podcast s Brezom",
+   "hint": {
+    "tags": [
+     "politics",
+     "society",
+     "talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "185 videa ~45 min, 10.6k pretplatnika, vrlo aktivan (38 u 90 dana)",
+    "source_urls": [
+     "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos",
+   "channel_id": "UCEivQbBRJYKOBfko2YeQAnQ",
+   "playlist_id": null,
+   "name": "Lucia Adžić (Lucie's Little Show)",
+   "hint": {
+    "tags": [
+     "lifestyle",
+     "business"
+    ],
+    "hosts": [
+     "Lucia Adžić"
+    ],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 209 videa, mnogo <30 min",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos",
+   "channel_id": "UCKiC-dZx62RXeymJmR8E99g",
+   "playlist_id": null,
+   "name": "Filmopedija podcast",
+   "hint": {
+    "tags": [
+     "film",
+     "pop-culture"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 36 videa, 22/30 ≥30 min, aktivan (+ kraće recenzije)",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
+   "name": "Istinom do gola (TV Jadran)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "19 ep. ~44 min, aktivan 2026",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
+   "name": "Krešendo (Nova TV)",
+   "hint": {
+    "tags": [
+     "interview",
+     "history",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "NOVA TV",
+    "evidence": "9 dugih intervjua ~80 min (Josipović i dr.); Podcasts tab",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
+   "name": "S druge strane ogledala (HKR)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "28 ep. ~40 min; Podcasts tab HKM",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
+   "name": "Svijet plus (Večernji)",
+   "hint": {
+    "tags": [
+     "geopolitics",
+     "world",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Vanjskopolitička emisija, aktivna 2026, plus isječci",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "channel_id": "UCbzmcyoz_CzJJgHonmkJ23g",
+   "playlist_id": "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
+   "name": "Forbes Business Unplugged (Nova TV / Forbes Hrvatska)",
+   "hint": {
+    "tags": [
+     "business",
+     "interview",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "NOVA TV",
+    "evidence": "10 ep. ~46 min (2025-26); Podcasts tab Nova TV",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL279H2ix-v5WIOZwsuoZr5nS4FhfOcS2S",
+     "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos",
+   "channel_id": "UCIBpWx6R_pKgzAhk00aYjUw",
+   "playlist_id": null,
+   "name": "Samo Hajduk Podcast",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "hajduk"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Tjedni Hajduk podcast #48 ~60-75 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
+   "name": "Reci! (Jutarnji list)",
+   "hint": {
+    "tags": [
+     "society",
+     "human-interest",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Jutarnji list",
+    "evidence": "Osobne ispovijesti, ~31 min, tjedno",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4ygmj--jCsOTw29Sg65okI4xupNd8xit"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
+   "name": "Na aparatima (Jutarnji list)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "media",
+     "entertainment"
+    ],
+    "hosts": [],
+    "parent_channel": "Jutarnji list",
+    "evidence": "Razgovorni podcast ~55 min, 77 ep., neaktivan od 2024; na Podcasts tabu",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos",
+   "channel_id": "UCmnvmFyshLFSrRMDAhKkgHw",
+   "playlist_id": null,
+   "name": "Podcast 8_24 / Dvajsčetvorka (Dinamo)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "dinamo"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Dinamo navijački podcast, 9.3k pretplatnika, 95 ≥30 min; mnogo isječaka",
+    "source_urls": [
+     "https://www.youtube.com/watch?v=a-hOE-t8RPk",
+     "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
+   "name": "Andromeda (HRT HR2)",
+   "hint": {
+    "tags": [
+     "science",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "Znanstvena emisija ~95 min, 103 ep. na YT, aktivna; Apple HR chart #21",
+    "source_urls": [
+     "https://www.millionpodcasts.com/charts/apple/hr/top",
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
+   "name": "Tech by Tomislav Tomašević (RTL/Net.hr)",
+   "hint": {
+    "tags": [
+     "technology",
+     "media"
+    ],
+    "hosts": [
+     "Tomislav Tomašević"
+    ],
+    "parent_channel": "RTL",
+    "evidence": "12 ep. ~50 min 2021-2022; na Podcasts tabu RTL-a",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
+   "name": "Cancast (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "adventure",
+     "travel",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "25 ep. ~77 min; gosti iz BiH, jezik provjeriti",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls",
+   "name": "Peti dan (HRT)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "philosophy",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "252 stavke, pune emisije ~60 min + isječci",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XF71aRFLGpDax8PRTrFlRUj",
+   "name": "Davcastt (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "39 ep. ~94 min; regionalni gosti, jezik provjeriti",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XF71aRFLGpDax8PRTrFlRUj"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos",
+   "channel_id": "UCihFVvNAGGWomC6Q4cIE2xg",
+   "playlist_id": null,
+   "name": "Nađi Način (Sara Peranić)",
+   "hint": {
+    "tags": [
+     "business",
+     "entrepreneurship"
+    ],
+    "hosts": [
+     "Sara Peranić"
+    ],
+    "parent_channel": null,
+    "evidence": "Apple HR chart #33 \"Sara Peranić – Podcast\"; 284 videa, 7.5k pretplatnika, aktivan",
+    "source_urls": [
+     "https://www.millionpodcasts.com/charts/apple/hr/top",
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+   "playlist_id": "PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
+   "name": "Aktualno (HKR)",
+   "hint": {
+    "tags": [
+     "religious-catholic",
+     "society"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska katolička mreža",
+    "evidence": "46 stavki, ~30 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "channel_id": "UCpJNsBEupVtlLlVIYw-kFpg",
+   "playlist_id": "PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
+   "name": "Veliki intervju (24sata)",
+   "hint": {
+    "tags": [
+     "interview",
+     "celebrity",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "24sata",
+    "evidence": "114 ep. intervjua, pola <30 min; filtrirati",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
+   "name": "Pričamo o zdravlju (Bljesak podcast)",
+   "hint": {
+    "tags": [
+     "health",
+     "bih-croats"
+    ],
+    "hosts": [],
+    "parent_channel": "Bljesak.info",
+    "evidence": "18 ep. ~46 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
+   "name": "Pogled s Markovog trga (TV Jadran)",
+   "hint": {
+    "tags": [
+     "politics",
+     "parliament",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "170 ep. ~45 min, 2014-2025",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa",
+   "name": "Veterani mira (HRT)",
+   "hint": {
+    "tags": [
+     "homeland-war",
+     "veterans",
+     "tv"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "62 ep. ~33 min, aktivan 2026",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbygzMRdzQg4",
+   "channel_id": "UCgOfDWsxLe3B8hUdPKx6S7A",
+   "playlist_id": "PLbygzMRdzQg4",
+   "name": "Planet Formula (RTL)",
+   "hint": {
+    "tags": [
+     "sport",
+     "formula1",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "RTL",
+    "evidence": "F1 podcast ~60 min, 11 ep. od 06/2026, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLbygzMRdzQg4"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ/videos",
+   "channel_id": "UCGh3dA-uo7SaeHhla-RVNQQ",
+   "playlist_id": null,
+   "name": "Bujica (Bujica TV Dalmacija)",
+   "hint": {
+    "tags": [
+     "politics",
+     "tv-talk-show"
+    ],
+    "hosts": [
+     "Velimir Bujanec"
+    ],
+    "parent_channel": null,
+    "evidence": "Kanal s punim emisijama Bujice ~65 min (UCGh3dA…), aktivan 2026",
+    "source_urls": [
+     "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ",
+     "https://www.youtube.com/channel/UCGh3dA-uo7SaeHhla-RVNQQ/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 2400
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
+   "name": "Briefing (Jutarnji list)",
+   "hint": {
+    "tags": [
+     "politics",
+     "geopolitics",
+     "media",
+     "interview"
+    ],
+    "hosts": [],
+    "parent_channel": "Jutarnji list",
+    "evidence": "Gotovo dnevni razgovor s analitičarom, 241 ep., ~36 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ",
+   "name": "Ćakula na Jadranu (TV Jadran)",
+   "hint": {
+    "tags": [
+     "talk-show",
+     "dalmatia",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "214 ep. ~74 min, 2015-2020",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+   "channel_id": "UCN7oOG6iLGDXXhyxBKcbq7A",
+   "playlist_id": "PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+   "name": "Hajduk Podcast (HNK Hajduk)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "club"
+    ],
+    "hosts": [],
+    "parent_channel": "HNK Hajduk Split",
+    "evidence": "26 ep., 18 ≥30 min, 2020-2021",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
+     "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCjlZkBNTCYZHZph7go-uqUg/videos",
+   "channel_id": "UCjlZkBNTCYZHZph7go-uqUg",
+   "playlist_id": null,
+   "name": "Atomski marketing (Marijan Palić)",
+   "hint": {
+    "tags": [
+     "marketing",
+     "business"
+    ],
+    "hosts": [
+     "Marijan Palić"
+    ],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 15 dugih, zadnje 2024",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCjlZkBNTCYZHZph7go-uqUg/videos"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
+   "name": "Razvojni kod (HRT)",
+   "hint": {
+    "tags": [
+     "society",
+     "business",
+     "radio"
+    ],
+    "hosts": [
+     "Tatjana Kaštelan"
+    ],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "169 ep., ~30 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "channel_id": "UCsqWbe1Tp3ZkobTmcKqZmjg",
+   "playlist_id": "PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
+   "name": "Vatreni podcast powered by PSK (HNS)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "institutional"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatski nogometni savez",
+    "evidence": "16 ep. 2024, 9 ≥30 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG",
+   "channel_id": "UCGUeIn0apOuxottQQApBcPw",
+   "playlist_id": "PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG",
+   "name": "Alumni priča (Sveučilište u Zagrebu)",
+   "hint": {
+    "tags": [
+     "education",
+     "interview",
+     "institutional"
+    ],
+    "hosts": [],
+    "parent_channel": "UniZg",
+    "evidence": "13 ep. ~70 min 2021-2024",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCRe9wMqRzVfd0TiB-z09pbw/videos",
+   "channel_id": "UCRe9wMqRzVfd0TiB-z09pbw",
+   "playlist_id": null,
+   "name": "Tomislav Krajačić Talk",
+   "hint": {
+    "tags": [
+     "business",
+     "marketing"
+    ],
+    "hosts": [
+     "Tomislav Krajačić"
+    ],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 55 videa, 2019-2021",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCRe9wMqRzVfd0TiB-z09pbw/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
+   "name": "Romano Bolković: 1 na 1 (HRT)",
+   "hint": {
+    "tags": [
+     "interview",
+     "tv-talk-show"
+    ],
+    "hosts": [
+     "Romano Bolković"
+    ],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "259 stavki, pola dugih intervjua",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos",
+   "channel_id": "UCaX8S5r4-h5C6VIzXWWLPRA",
+   "playlist_id": null,
+   "name": "pomalo too much (Marie Wasler)",
+   "hint": {
+    "tags": [
+     "lifestyle",
+     "psychology",
+     "talk-show"
+    ],
+    "hosts": [
+     "Marie Wasler"
+    ],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič; 87 ep. ~97 min, aktivan",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 2400
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD",
+   "name": "Što je klasik? (HRT HR3)",
+   "hint": {
+    "tags": [
+     "culture",
+     "literature",
+     "music",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "71 ep. ~35 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
+   "name": "Show na kvadrat (Večernji)",
+   "hint": {
+    "tags": [
+     "entertainment",
+     "celebrity",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Većina stavki su isječci (medijan 2.5 min); 10 dugih u zadnjih 30",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF"
+    ],
+    "confidence": "low",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok",
+   "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+   "playlist_id": "PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok",
+   "name": "N1 Newsnight – Zagreb",
+   "hint": {
+    "tags": [
+     "politics",
+     "geopolitics",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "N1",
+    "evidence": "Večernji razgovor s analitičarima ~40 min, 100 ep., zadnje 2025",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLtkTKfgc4b4XWN1ijF7nQr2RAmo-yaeok"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
+   "name": "'U povjerenju' s Nevenom Ciganovićem (Večernji)",
+   "hint": {
+    "tags": [
+     "interview",
+     "celebrity",
+     "media"
+    ],
+    "hosts": [
+     "Neven Ciganović"
+    ],
+    "parent_channel": "Večernji TV",
+    "evidence": "109 stavki, puni intervjui + isječci; neaktivan od 2025",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+   "playlist_id": "PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR",
+   "name": "Matičin podcast (Matica hrvatska)",
+   "hint": {
+    "tags": [
+     "culture",
+     "language",
+     "institutional"
+    ],
+    "hosts": [],
+    "parent_channel": "Matica hrvatska",
+    "evidence": "12 ep. ~57 min; Podcasts tab",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLAu-22Tvun_moHOzFJmq-C4oFlxACPXPR"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
+   "channel_id": "UC0pZKoY0N8b6yFiNYoKrGDQ",
+   "playlist_id": "PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
+   "name": "Sistematski – tjedni intervju (Yammat FM)",
+   "hint": {
+    "tags": [
+     "interview",
+     "culture",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "YammatFM_official",
+    "evidence": "25 ep. ~38 min, 2025-2026",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos",
+   "channel_id": "UCw0_lthGS4qChQec36LX8Mw",
+   "playlist_id": null,
+   "name": "Iza Pjace (Hajduk)",
+   "hint": {
+    "tags": [
+     "sport",
+     "football",
+     "hajduk"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Hajduk podcast #148, 10.3k pretplatnika; epizode 1.5-2 h + shortsi/isječci",
+    "source_urls": [
+     "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw",
+     "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+   "name": "Shegrt (Financijski klub EFZG)",
+   "hint": {
+    "tags": [
+     "finance",
+     "business",
+     "students"
+    ],
+    "hosts": [],
+    "parent_channel": "Promocija znanosti",
+    "evidence": "24 ep. ~49 min; roditeljski kanal ima samo playliste u registryju",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
+     "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+   "channel_id": "UCOkyFO3dsH1Yq_G-eRApUfw",
+   "playlist_id": "PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
+   "name": "Slobodnim stilom (Promocija znanosti)",
+   "hint": {
+    "tags": [
+     "science",
+     "talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "Promocija znanosti",
+    "evidence": "13 ep. ~83 min (2024)",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d",
+   "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+   "playlist_id": "PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d",
+   "name": "Tribina Sučeljavanja (Matica hrvatska)",
+   "hint": {
+    "tags": [
+     "debate",
+     "culture",
+     "institutional"
+    ],
+    "hosts": [],
+    "parent_channel": "Matica hrvatska",
+    "evidence": "11 tribina ~100 min",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 2400
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
+   "name": "Večernji.hr podcast (playlist)",
+   "hint": {
+    "tags": [
+     "media",
+     "talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "58 ep., 2020-2024; moguće preklapanje s postojećim unosom vecernji-podcast (drugi kanal UCta3_)",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "channel_id": "UC-EG8D5Im29F-dvNC-wr8uw",
+   "playlist_id": "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+   "name": "Možemo Podcast",
+   "hint": {
+    "tags": [
+     "politics",
+     "party"
+    ],
+    "hosts": [],
+    "parent_channel": "Možemo!",
+    "evidence": "8 ep. ~73 min; stranački podcast (Podcasts tab)",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
+     "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3",
+   "channel_id": "UCpglal7d5mhV4lA1b3-DsCw",
+   "playlist_id": "PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3",
+   "name": "Točka na tjedan (N1 Hrvatska)",
+   "hint": {
+    "tags": [
+     "politics",
+     "debate",
+     "tv-talk-show"
+    ],
+    "hosts": [
+     "Mislav Bago"
+    ],
+    "parent_channel": "N1",
+    "evidence": "Tjedna politička debata ~2.5 h, 373 ep. 2018-2025; N1 kanal je regionalan, ova playlista je HR",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLtkTKfgc4b4UTwhxbfGJNXMYfmAOb4o_3"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 3600
+   }
+  },
+  {
+   "url": "https://www.youtube.com/channel/UCdkT57fx7OJS_P06-b23_9g/videos",
+   "channel_id": "UCdkT57fx7OJS_P06-b23_9g",
+   "playlist_id": null,
+   "name": "Zmajeva Garaža (D&D podcast)",
+   "hint": {
+    "tags": [
+     "gaming",
+     "dnd",
+     "fiction"
+    ],
+    "hosts": [],
+    "parent_channel": null,
+    "evidence": "Netokracija vodič (Zmaj BLA); 169 videa, actual-play sesije 1-4 h, 2020-2023",
+    "source_urls": [
+     "https://www.netokracija.com/veliki-vodic-domacih-podcasta",
+     "https://www.youtube.com/channel/UCdkT57fx7OJS_P06-b23_9g/videos"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
+   "name": "Veliki judi (TV Jadran)",
+   "hint": {
+    "tags": [
+     "interview",
+     "dalmatia",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "614 ep. ~33 min, tjedno, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj280mpxZ55AufvPhsZSRucoe"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
+   "name": "Glas mladih (HRT)",
+   "hint": {
+    "tags": [
+     "youth",
+     "society",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "46 ep. ~47 min, zadnje 2025",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "channel_id": "UCoygYX3L4vBCR4T-EhafUTg",
+   "playlist_id": "PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
+   "name": "Prva linija (Jutarnji list)",
+   "hint": {
+    "tags": [
+     "geopolitics",
+     "war",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Jutarnji list",
+    "evidence": "Tjedni geopolitički/vojni podcast, ep. 143, ~55 min; na Podcasts tabu kanala",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
+   "name": "Prstom po globusu (HRT)",
+   "hint": {
+    "tags": [
+     "travel",
+     "world",
+     "radio"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "55 ep. ~33 min; i FeedSpot popis",
+    "source_urls": [
+     "https://podcast.feedspot.com/croatia_travel_podcasts/",
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3"
+    ],
+    "confidence": "high",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
+   "name": "Povijesni dijalozi (Večernji)",
+   "hint": {
+    "tags": [
+     "history",
+     "media"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Povijesni razgovori ~75 min, aktivno 2026; sadrži i isječke",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
+   "channel_id": "UCPFfi389DTy-cI9BzM7bLTQ",
+   "playlist_id": "PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
+   "name": "Cronnect (Večernji)",
+   "hint": {
+    "tags": [
+     "diaspora",
+     "society",
+     "interview"
+    ],
+    "hosts": [],
+    "parent_channel": "Večernji TV",
+    "evidence": "Razgovori s Hrvatima iz dijaspore/povratnicima, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
+   "channel_id": "UCervWZO1EYpsbO9EWgmvang",
+   "playlist_id": "PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
+   "name": "Osvrt (TV Jadran)",
+   "hint": {
+    "tags": [
+     "politics",
+     "commentary",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "TV Jadran",
+    "evidence": "580 ep., ~31 min, aktivan",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1500
+   }
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kObinvdS86MlleO-pMl6jQg",
+   "channel_id": "UCweBO4bfRZgu33OMPYlehlg",
+   "playlist_id": "PLuEWODEWd3kObinvdS86MlleO-pMl6jQg",
+   "name": "Otvoreno (HRT)",
+   "hint": {
+    "tags": [
+     "politics",
+     "debate",
+     "tv-talk-show"
+    ],
+    "hosts": [],
+    "parent_channel": "Hrvatska radiotelevizija",
+    "evidence": "972 stavke, većinom isječci; pune emisije ~50 min rjeđe",
+    "source_urls": [
+     "https://www.youtube.com/playlist?list=PLuEWODEWd3kObinvdS86MlleO-pMl6jQg"
+    ],
+    "confidence": "medium",
+    "suggested_min_duration_sec": 1800
+   }
+  }
+ ]
+}

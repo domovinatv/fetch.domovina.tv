@@ -1,0 +1,17 @@
+{
+ "name": "Večernji podcast",
+ "ref": "UCta3_D-wHbBNYQi9wxGajdw",
+ "playlists": [
+  {
+   "id": "PLAAOaFU0epfdpttAEOlNhfRSQROq83mqt",
+   "title": "Debate",
+   "url": "https://www.youtube.com/playlist?list=PLAAOaFU0epfdpttAEOlNhfRSQROq83mqt"
+  },
+  {
+   "id": "PLAAOaFU0epfc3vNqo0nLFC9IqiF45SC0x",
+   "title": "Miroljub emisije",
+   "url": "https://www.youtube.com/playlist?list=PLAAOaFU0epfc3vNqo0nLFC9IqiF45SC0x"
+  }
+ ],
+ "error": null
+}

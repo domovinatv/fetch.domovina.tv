@@ -1,0 +1,98 @@
+{
+ "key": "UCO8aAosAYo18Bo9GZqdXJ6w",
+ "url": "https://www.youtube.com/channel/UCO8aAosAYo18Bo9GZqdXJ6w/videos",
+ "channel_id": "UCO8aAosAYo18Bo9GZqdXJ6w",
+ "playlist_id": null,
+ "title": "Brudet TV - Videos",
+ "channel": "Brudet TV",
+ "channel_url": "https://www.youtube.com/channel/UCO8aAosAYo18Bo9GZqdXJ6w",
+ "description": "",
+ "follower_count": 586,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "KhjrrZBBmQo",
+   "title": "Brudet TV - podcast #6: Tarik Berber",
+   "duration": 2956,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "jFi2LZxRtW8",
+   "title": "Brudet TV - juniori KK Zadra",
+   "duration": 1306,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "eexkprgb2-8",
+   "title": "Brudet TV - podcast #5: Vladimir Gašpar",
+   "duration": 1292,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "vwXE3LzcyV4",
+   "title": "Zadarska ljetna liga - 2. epizoda",
+   "duration": 962,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "1ejkxJqRoQ8",
+   "title": "Brudet s nogu - Tomislav Kabić",
+   "duration": 361,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "fl86lgf6Piw",
+   "title": "Brudet TV - podcast #4: Martin Vulić",
+   "duration": 1989,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "WT9porHdtG0",
+   "title": "Brudet TV -  podcast #3: Nadine Mičić",
+   "duration": 1852,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "lSoJKwTtO6w",
+   "title": "Brudet TV - Lovre Bašić vs Mario Bašić",
+   "duration": 322,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "ahK0GOFb3Bo",
+   "title": "Brudet TV - podcast #2: Lovre Bašić",
+   "duration": 745,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "HmKvuivRWSo",
+   "title": "Brudet TV -  podcast #1: Pavle Kostov",
+   "duration": 787,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "jVEMaJT6KNI",
+   "title": "Zadarska ljetna liga - 1. epizoda",
+   "duration": 488,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Qa5teW5Y2Z8",
+   "title": "Brudet TV - Kako je sve počelo",
+   "duration": 76,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

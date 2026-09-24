@@ -1,0 +1,49 @@
+{
+ "key": "UCNJ5snWKXj0_jvJ9o8Fr-Xw",
+ "url": "https://www.youtube.com/channel/UCNJ5snWKXj0_jvJ9o8Fr-Xw/videos",
+ "channel_id": "UCNJ5snWKXj0_jvJ9o8Fr-Xw",
+ "playlist_id": null,
+ "title": "Miso Hercegovina - Videos",
+ "channel": "Miso Hercegovina",
+ "channel_url": "https://www.youtube.com/channel/UCNJ5snWKXj0_jvJ9o8Fr-Xw",
+ "description": "",
+ "follower_count": 1700,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "rQWY9uUMN9w",
+   "title": "HERCEGOVKA IZ MOSTARA  RESTORANA KONOBA CIGO KVESIĆ ČOVIĆ I OSTALI LOPOVI HDZ-A",
+   "duration": 103,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Bz5W8zu80fI",
+   "title": "AVDULJ  LOKA MOLI ZA NEKI DINAR",
+   "duration": 190,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "lVmTORSbAbM",
+   "title": "Malo sladja malo Zorka",
+   "duration": 97,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "4A7Es0jHKHI",
+   "title": "Da sam pauk lovci u Hercegovini općina Grude",
+   "duration": 117,
+   "live_status": null,
+   "upload_date": "20190925"
+  },
+  {
+   "id": "Mu2tvqmiyLc",
+   "title": "Sramotan ples",
+   "duration": 66,
+   "live_status": null,
+   "upload_date": "20180925"
+  }
+ ]
+}

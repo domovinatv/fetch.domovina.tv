@@ -1,0 +1,42 @@
+{
+ "key": "UCscO0WUb_c0L8XcwluMMHXQ",
+ "url": "https://www.youtube.com/channel/UCscO0WUb_c0L8XcwluMMHXQ/videos",
+ "channel_id": "UCscO0WUb_c0L8XcwluMMHXQ",
+ "playlist_id": null,
+ "title": "BAUCAST_byCreato - Videos",
+ "channel": "BAUCAST_byCreato",
+ "channel_url": "https://www.youtube.com/channel/UCscO0WUb_c0L8XcwluMMHXQ",
+ "description": "Dobrodošli u BAUCAST! Jedini lifestyle podcast koji spaja građevinu i poznata lica.",
+ "follower_count": 207,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "MSEsh904iys",
+   "title": "MARIO PETREKOVIĆ: Zašto jedan slivnik košta 520 eura? | Baucast #3",
+   "duration": 5168,
+   "live_status": null,
+   "upload_date": "20260913"
+  },
+  {
+   "id": "jIwjB70hT9E",
+   "title": "TOMO RICOV: Uredio pola centra Zagreba, a ne zna zabiti čavao | Baucast by Creato #2",
+   "duration": 3110,
+   "live_status": null,
+   "upload_date": "20260825"
+  },
+  {
+   "id": "kLAEB5W5uvQ",
+   "title": "ANTE CASH: od repera do keramičara i zašto je sretniji nego ikad | Baucast by Creato #1",
+   "duration": 3291,
+   "live_status": null,
+   "upload_date": "20260725"
+  },
+  {
+   "id": "omFGmSuyWQ4",
+   "title": "6 poznatih lica, jedna tema: građevina | Baucast by Creato (najava)",
+   "duration": 156,
+   "live_status": null,
+   "upload_date": "20260725"
+  }
+ ]
+}

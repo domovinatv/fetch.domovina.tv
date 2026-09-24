@@ -1,0 +1,406 @@
+{
+ "key": "UCLNWGmOMRsP7Fuu0o4qicxg",
+ "url": "https://www.youtube.com/channel/UCLNWGmOMRsP7Fuu0o4qicxg/videos",
+ "channel_id": "UCLNWGmOMRsP7Fuu0o4qicxg",
+ "playlist_id": null,
+ "title": "Sportska emisija - Videos",
+ "channel": "Sportska emisija",
+ "channel_url": "https://www.youtube.com/channel/UCLNWGmOMRsP7Fuu0o4qicxg",
+ "description": "TV emisija o hrvatskim sportašicama i sportašima. Neki su već postigli velike uspjehe, a neki će tek uspjeti. Gledajte nas i pratite.",
+ "follower_count": 158,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Wg7cZinccNU",
+   "title": "ZKK Tresnjevka Dinamo Ltd vs Split",
+   "duration": 863,
+   "live_status": null,
+   "upload_date": "20251025"
+  },
+  {
+   "id": "NmV1bxTY9Ac",
+   "title": "ŽKK Studio Zagreb vs Pula",
+   "duration": 914,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "czatsKgTveQ",
+   "title": "HNL SEZONA 1819 NAJAVA",
+   "duration": 77,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "kbRS3MNkGes",
+   "title": "SPEM 47: Gost - Luka Jureško 20062018",
+   "duration": 1372,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "xomczJphA-k",
+   "title": "SPEM 46: Gošća - Tamara Boroš 06062018",
+   "duration": 819,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "b-oRI65aPPg",
+   "title": "SPEM 45 - Gošća: Lea Beličev 28052018",
+   "duration": 1164,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "4gXxhY1IveY",
+   "title": "SPEM 44: Gost - Danijel Pranjić 02042018",
+   "duration": 1285,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "KDdNJENyVTs",
+   "title": "SPEM 43: Gošća - Emanuela Salopek 26032018",
+   "duration": 1502,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "_77y8Ko7wBo",
+   "title": "SPEM 42: Gost - Pero Kuterovac 19032018",
+   "duration": 1369,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "Mffmajg-9mY",
+   "title": "SPEM 41 - Gost: Igor Štimac",
+   "duration": 1447,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "GQcQtU4TrjE",
+   "title": "SPEM 40 - Gost: Budimir Šobat 05032018",
+   "duration": 1315,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "Cd22iaNkYA8",
+   "title": "SPEM 38: Gost - Nikola Pokrivač 19022018",
+   "duration": 1255,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "-53tsCwWydY",
+   "title": "SPEM 39: Gost - Filip Grgić 19022018",
+   "duration": 1148,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "EuicaoA2awA",
+   "title": "SPEM 37 - gost: Božo Starčević 12022018",
+   "duration": 1433,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "3cM0Bejyjsg",
+   "title": "SPEM 36 - gost: Patrik Ćavar 05022018",
+   "duration": 1211,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "BezYGjBiRyU",
+   "title": "SPEM 35 - gost: Zlatko Pospiš",
+   "duration": 1406,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "1eCH4noAv9Q",
+   "title": "SPEM 34 - gost: Željko Kopić - trener HNK Hajduk",
+   "duration": 1164,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "qidAAPF4exo",
+   "title": "SPEM 33 - gost: Nikola Jurčević",
+   "duration": 1393,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "iAuBAbmZJ0Q",
+   "title": "SPEM 32 - gost: Luka Lešković 0801_2018",
+   "duration": 1465,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "r8MoOFSofQc",
+   "title": "SPEM 30 - gost: Mario Zorko",
+   "duration": 1264,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "5UoaVKFELZU",
+   "title": "SPEM 31- gošća: Ana Jelušić Black",
+   "duration": 1297,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "8JAZu3Q2K-8",
+   "title": "SPEM 29 - gost emisije:  Enrico Marotti",
+   "duration": 1539,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "W-iRI6ocIPY",
+   "title": "SPEM 28 - gošća: Dora Krsnik",
+   "duration": 1093,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "k4IiIoBdvqM",
+   "title": "SPEM 27 - Gošća: Nika Klepac",
+   "duration": 1006,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "zyDNocK6CWM",
+   "title": "SPEM 26 - gost: Ante Nazor",
+   "duration": 1223,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "09FK_Vj2Rks",
+   "title": "SPEM 25 gošća: Ana-Marija Bujas Čelan",
+   "duration": 1197,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "lQzZrfTY1Gk",
+   "title": "SPEM 24 - gost: Marin Rozić",
+   "duration": 878,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "osZ2sbR5IYo",
+   "title": "SPEM 23 -  gošća: Dina Levačić",
+   "duration": 1295,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "uAhEWldsIds",
+   "title": "SPEM 22 - gost: Samir Toplak",
+   "duration": 1252,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "o27dnNBdN_0",
+   "title": "SPEM 21 - Gost: Tin Srbić",
+   "duration": 1095,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "Qywmf7sYt08",
+   "title": "SPEM 20 gost: Ivica Tucak",
+   "duration": 1380,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "-3hk7djWcis",
+   "title": "SPEM 19 - gost: Ivica Kostelić",
+   "duration": 1300,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "SZGrDDckx9w",
+   "title": "SPEM 18 Lea Gobec i Lucija Babić",
+   "duration": 1487,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "Lie4YVUB8uo",
+   "title": "SPEM 17 - gost Slaven Rimac",
+   "duration": 1167,
+   "live_status": null,
+   "upload_date": "20180925"
+  },
+  {
+   "id": "TjNbJbUmI3c",
+   "title": "SPEM 16 - Zlatko Škorić",
+   "duration": 1641,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "K7_Zm3Zthg0",
+   "title": "SPEM 15 - gost emisije Mladen Brestovac",
+   "duration": 1378,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "cQ_oKp1JT6o",
+   "title": "SPEM 14  - Gošća: Andrea Ivančević",
+   "duration": 1117,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "UJ3xMBCi1JE",
+   "title": "SPEM 13 - gost Mirko Novosel",
+   "duration": 1478,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "sKI53u5xbLY",
+   "title": "SPEM 12 - Hrvoje Sep",
+   "duration": 1672,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "eE7dJuO3ssM",
+   "title": "SPEM 11 - gost Lovro Majer",
+   "duration": 1391,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "nrU_pBUupLY",
+   "title": "SPEM 10 - gost Damir Bičanić",
+   "duration": 1210,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "13DfqBFJtXs",
+   "title": "SPEM E9  - Tin Pavličić",
+   "duration": 1227,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "p2qVXdU6Krc",
+   "title": "SPEM E8 - gost Nikola Moro",
+   "duration": 1063,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "_xNVhIKpecw",
+   "title": "SPEM E7 - gost Marijo Možnik",
+   "duration": 1543,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "NqiWs_NAr6s",
+   "title": "SPEM - najava Nikola Moro",
+   "duration": 17,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "6t15emj2PII",
+   "title": "SPEM 5E - gost Željko Pavličević",
+   "duration": 1328,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "Av8xNB09tA8",
+   "title": "SPEM E6 - Natko Zrnčić-Dim",
+   "duration": 1413,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "HkRtkr_r6x0",
+   "title": "Najava \"Sportske emisije\" - Mario Moznik 17. 07. 2017.",
+   "duration": 17,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "APPoSR2AD38",
+   "title": "Ivana Habazin - trening",
+   "duration": 92,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "5hu3KhVJQOc",
+   "title": "Infinitum progresum - Ivana Habazin",
+   "duration": 82,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "cdpl7LaQ4OQ",
+   "title": "Sportska emisija - Braća Glasnović  - SPEM 4",
+   "duration": 1336,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "7VyBsn3rmxM",
+   "title": "Sportska emisija - Damir Martin - SPEM E3",
+   "duration": 1392,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "TsCvFGPiOTE",
+   "title": "HVIDRA Dubrava - Stolnoteniski turnir 10062017 Dvorana STK Merix",
+   "duration": 1839,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "Rfu5rIkShTA",
+   "title": "SPEM Ivana Habazin E2",
+   "duration": 1263,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "gtUzV4VeEHU",
+   "title": "SPEM - Krio sauna",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20170925"
+  },
+  {
+   "id": "tFsnBkxAOrE",
+   "title": "SPEM Zlatko Horvat",
+   "duration": 1147,
+   "live_status": null,
+   "upload_date": "20170925"
+  }
+ ]
+}

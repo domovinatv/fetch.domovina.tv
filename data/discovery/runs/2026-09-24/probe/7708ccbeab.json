@@ -1,0 +1,441 @@
+{
+ "key": "UC1fC6msmjs8FfVN1u0bHZMg",
+ "url": "https://www.youtube.com/channel/UC1fC6msmjs8FfVN1u0bHZMg/videos",
+ "channel_id": "UC1fC6msmjs8FfVN1u0bHZMg",
+ "playlist_id": null,
+ "title": "Matica hrvatska - Videos",
+ "channel": "Matica hrvatska",
+ "channel_url": "https://www.youtube.com/channel/UC1fC6msmjs8FfVN1u0bHZMg",
+ "description": "http://www.matica.hr",
+ "follower_count": 1290,
+ "streams_count": 1,
+ "videos": [
+  {
+   "id": "ycWb1CN91w4",
+   "title": "5. festival knjige u Matici hrvatskoj - najava",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20260525"
+  },
+  {
+   "id": "IQnCcB4WxKI",
+   "title": "Libertas – Andrej Grubišić – Maskiranje privatnih ciljeva u javni interes",
+   "duration": 196,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "6uDo87xmQbU",
+   "title": "Libertas – Aleksandar Musić – Kako manipulacija prodaje neuspješne ekonomske modele",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20260225"
+  },
+  {
+   "id": "KDJiMXEmifY",
+   "title": "Libertas – Velimir Šonje – Zašto se iz Hrvatske odlazi, a u Irsku vraća?",
+   "duration": 400,
+   "live_status": null,
+   "upload_date": "20251225"
+  },
+  {
+   "id": "S2ckdLOGrxQ",
+   "title": "Libertas – Ivica Šola – Žele li ljudi slobodu?",
+   "duration": 340,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "bPASrvb5zcc",
+   "title": "Ne propustite izdanja Matice hrvatske!",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20251125"
+  },
+  {
+   "id": "ntQG5uRuGZQ",
+   "title": "4. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - prvi dan",
+   "duration": 624,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "VUK5snWmiJ0",
+   "title": "Četvrti festival knjige u Matici hrvatskoj - najava",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "Ipme37K3Or4",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: GEOSTRATEŠKI ODNOSI NA EUROPSKOM JUGOISTOKU",
+   "duration": 4196,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "UE2PXNG9xdE",
+   "title": "Knjige, periodika te portal Matice hrvatske MISAO.hr",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "-zrjdmbivc4",
+   "title": "Matičin podcast - Marko Tadić",
+   "duration": 4459,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "aV4eyW2XQ8U",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: DEMOGRAFSKI SLOM ILI OPORAVAK HRVATSKE",
+   "duration": 5095,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "0T9rwc6P4AI",
+   "title": "Božićna i novogodišnja čestitka predsjednika Matice hrvatske Mire Gavrana",
+   "duration": 63,
+   "live_status": null,
+   "upload_date": "20250925"
+  },
+  {
+   "id": "tvtlSyiwDq4",
+   "title": "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - četvrti dan",
+   "duration": 2412,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "-aMtAzi6TsY",
+   "title": "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - treći dan",
+   "duration": 2077,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "CBMdmbhoBFM",
+   "title": "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - drugi dan",
+   "duration": 2931,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "l3ieIvFtNzc",
+   "title": "3. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - prvi dan",
+   "duration": 626,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "2yyH5CRw4uk",
+   "title": "Treći festival knjige u Matici hrvatskoj - najava",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "DFIzcjtueIY",
+   "title": "Ne propustite izdanja Matice hrvatske!",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "HCPoM5ssxwI",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: EKOLOŠKA BUDUĆNOST GRADA ZAGREBA",
+   "duration": 5863,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "TBE8DegURyo",
+   "title": "Matičin podcast - Davor Velnić",
+   "duration": 3723,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "6vAJF9ggRGA",
+   "title": "Božićna i novogodišnja čestitka predsjednika Matice hrvatske Mire Gavrana",
+   "duration": 116,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "brSiiQwbFWE",
+   "title": "Svetost glagoljice - predavanje Marice Čunćić",
+   "duration": 2656,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "SMAuPX5twPk",
+   "title": "2. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - 3. dan",
+   "duration": 2176,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "p7YUXH-S8I8",
+   "title": "2. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - 2. dan",
+   "duration": 1408,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "DEbY_cvzEkY",
+   "title": "2. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - 1. dan",
+   "duration": 711,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dOwRWfBpfqg",
+   "title": "Matičin podcast - Pavao Pavličić",
+   "duration": 3029,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "dnsJpiYn2t0",
+   "title": "Matičin podcast - Zrinka Turalija",
+   "duration": 3132,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "hRY0dj1ESus",
+   "title": "Drugi festival knjige u Matici hrvatskoj - najava",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "sOgjI3blgJE",
+   "title": "Matičin podcast - Boris Domagoj Biletić",
+   "duration": 3517,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Q0ASYBdYmwk",
+   "title": "Očuvanje tradicionalnih i autohtonih sorti voćnih vrsta u Republici Hrvatskoj",
+   "duration": 895,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "1Gu-CEvVnVI",
+   "title": "Matičin podcast - Filip Hren",
+   "duration": 2278,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "6kR1w22Hars",
+   "title": "Matičin podcast - Denis Brižić",
+   "duration": 3874,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "Caid0nPx0GM",
+   "title": "Matičin podcast - Eva Kirchmayer-Bilić",
+   "duration": 2633,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "0LeTZt8tpYc",
+   "title": "Matičin podcast - Rajka Jurdana-Šepić",
+   "duration": 4494,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "IuP4baNdYzg",
+   "title": "Matičin podcast - Matija Štahan",
+   "duration": 2235,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "H5QZE08xLec",
+   "title": "540. obljetnica prve tiskane knjige na hrvatskome jeziku - Misal po zakonu rimskoga dvora iz 1483.",
+   "duration": 960,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "SWe3OUf-LVg",
+   "title": "Matičin podcast - Filip Zoričić",
+   "duration": 3574,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "iFNSj8z2cVo",
+   "title": "Dan Matice hrvatske 2023.",
+   "duration": 4145,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "8Qi03VISaRE",
+   "title": "Matičin podcast - Igor Zidić",
+   "duration": 4143,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "o1gbvsFSkDg",
+   "title": "Božićni susret Matice hrvatske 2022.",
+   "duration": 1977,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "FtKgiMtEDek",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj - UVOĐENJE NERADNE NEDJELJE",
+   "duration": 5036,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "yH4fcrLj2Ic",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj - PRIJEPORI OKO IZGRADNJE HIDROCENTRALE U KOSINJU",
+   "duration": 5643,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "W8i8d6YInU8",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj - ZADRUGA VS PROIZVOĐAČKA ORGANIZACIJA",
+   "duration": 7854,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "vraKanBSMyg",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: KAKVU BI FISKALNU POLITIKU TREBALA IMATI REPUBLIKA HRVATSKA",
+   "duration": 7800,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "FPjSHSqhY44",
+   "title": "1. festival knjige u Matici hrvatskoj - Matica dobrih knjiga - 1. dan",
+   "duration": 723,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "ZGECcGpt7ks",
+   "title": "Nikolina Bralić - Skup posebnih analitičkih metoda primjenjivih u ležištu cementne sirovine",
+   "duration": 1407,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "vrnIhiENHrA",
+   "title": "Josip Kišpatić - velikan hrvatske agrikulture",
+   "duration": 1081,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "q0vxQ588JLI",
+   "title": "Predstavljanje knjige Ive Miljkovića - JABUKA",
+   "duration": 2556,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "aMciSzDdGqY",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: POLOŽAJ HRVATA U BOSNI I HERCEGOVINI",
+   "duration": 7315,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9XxUY2gRdEM",
+   "title": "Iz medija - Hrvatska za 5, (HTV), 5. travnja 2022.",
+   "duration": 3124,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "9sSMdQTb_z8",
+   "title": "Sučeljavanje u MH: UTJECAJ DEMOGRAFSKIH PROMJENA NA GOSPODARSKI RAZVOJ I SUSTAV SOCIJALNE ZAŠTITE",
+   "duration": 4696,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "ShaTjdfBfgE",
+   "title": "Tribina Lingvistika s povodom: Hrvatski jezik u digitalnom dobu",
+   "duration": 3365,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "uDfU0EmWI0Y",
+   "title": "O hrvatskome jeziku sa Zrinkom Jelaska",
+   "duration": 1514,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "BFHY5ai_tps",
+   "title": "O hrvatskome jeziku s Anom Ćavar",
+   "duration": 481,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "lTpQhvno8GU",
+   "title": "O hrvatskome jeziku s Marijom Malnar Jurišić",
+   "duration": 506,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "N2VzfaJtE54",
+   "title": "O hrvatskome jeziku s Bernardinom Petrović",
+   "duration": 1273,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "zx_JBiyr21g",
+   "title": "O hrvatskome jeziku s Mateom Žagarom",
+   "duration": 806,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Znz42JeuyBQ",
+   "title": "Mladi glazbenici u MH - Josipa Bilić, sopran - Gustave Charpentier - Depuis le jour",
+   "duration": 339,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "21QfkYKzjC0",
+   "title": "Tribina Sučeljavanja u Matici hrvatskoj: SIGURNOSNI ASPEKTI MIGRANTSKE KRIZE",
+   "duration": 5223,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "rhiq1FYEwdU",
+   "title": "Noć knjige u Matici hrvatskoj \"Imperativ slobode: Ukrajinska književnost, kultura i povijest\"",
+   "duration": 8562,
+   "live_status": "was_live",
+   "upload_date": "20220925"
+  }
+ ]
+}
