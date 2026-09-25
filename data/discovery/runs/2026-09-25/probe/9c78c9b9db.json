@@ -1,0 +1,70 @@
+{
+ "key": "PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+ "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+ "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+ "playlist_id": "PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+ "title": "[Kako si?]",
+ "channel": "srednjaHR",
+ "channel_url": "https://www.youtube.com/channel/UCpiWfxrISN7Uae0cfyHyZ-g",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "dbN_cTv7m08",
+   "title": "[Kako si?] Utjecaj dugotrajne karantene na psihičko zdravlje",
+   "duration": 1025,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "xd44kCXe_E0",
+   "title": "[Kako si?] U zdravom tijelu zdrav duh",
+   "duration": 595,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "IpNWRyHKwco",
+   "title": "[Kako si?] Dr. Google - imam li COVID-19 ili kiberohondriju?",
+   "duration": 932,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "oEvszz3e_aA",
+   "title": "[Kako si?] Kako se motivirati na učenje?",
+   "duration": 1022,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "29mR_4NEGFg",
+   "title": "[Kako si?] Ljubav u doba korone",
+   "duration": 1172,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "ayDX5IMq-eE",
+   "title": "[Kako si?] Psihološka prva pomoć za maturante",
+   "duration": 983,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "qH8Cwn6Tdls",
+   "title": "[Kako si?] Kako preživjeti emocionalni rollercoaster?",
+   "duration": 771,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "VvzIc4lrBH8",
+   "title": "[Kako si?] Kako preživjeti obitelj u doba korone?",
+   "duration": 804,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

@@ -1,0 +1,217 @@
+{
+ "key": "PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+ "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+ "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+ "playlist_id": "PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+ "title": "O, tempora!",
+ "channel": "LaudatoTV",
+ "channel_url": "https://www.youtube.com/channel/UCMNltXN6fWur0K8Z1oubFPA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "3P8uNjMxG6o",
+   "title": "O, tempora! - Politička korektnost - Matko Marušić i don Mladen Parlov",
+   "duration": 1524,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "xGJycfnf8BY",
+   "title": "O, tempora! - Jordan Peterson i Biblija - Ivo Džeba, Valentino Findrik, fra Ante Vučković",
+   "duration": 1457,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "JKXuBFrgrU8",
+   "title": "O, tempora! - Europa i migracije - Ivica Šola i Marita Brčić Kuljiš",
+   "duration": 1552,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "gaPZk24hmyk",
+   "title": "O, tempora! – Seksualizacija djece – Karolina Vidović Krišto, Ivica Šola, don Josip Mužić",
+   "duration": 1714,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "7OSybv57REk",
+   "title": "O, tempora! - Kako razumjeti Novi zavjet? - prof. dr. sc. don Marinko Vidović",
+   "duration": 1634,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "7OSybv57REk",
+   "title": "O, tempora! - Kako razumjeti Novi zavjet? - prof. dr. sc. don Marinko Vidović",
+   "duration": 1634,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "RGCQauSLnGU",
+   "title": "O, tempora! - Znakovi vremena - don Tonči Matulić",
+   "duration": 1836,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Zn_BQtROfHU",
+   "title": "O, tempora! - Europa i migracije (drugi dio) - Aziz ef. Hasanović, Ivica Šola, fra Anđelko Domazet",
+   "duration": 1499,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "X9Gdqx1zaB8",
+   "title": "O, tempora! - Kojim jezikom govorimo? - Nada Babić",
+   "duration": 1630,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "p0DUFXxaCvo",
+   "title": "O, TEMPORA! -  Odnos Hrvatske i SAD-a - Aleksandar Musić i Višnja Starešina",
+   "duration": 1705,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "VrCCGyLkJSI",
+   "title": "O tempora! - Miro Gavran - Kako pišem?",
+   "duration": 1684,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "a6xH2HNVUC4",
+   "title": "O, tempora! - Moralni aspekti transhumanizma – Marija Selak Raspudić",
+   "duration": 1731,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "mfHnKXv5hp4",
+   "title": "O, tempora! - Izazovi transhumanizma - Krešimir Mišak i vlč. Odilon Singbo",
+   "duration": 1808,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "d3lX2JFJs5s",
+   "title": "O, tempora! - Razlike između muškaraca i žena – Ljubica Duspara",
+   "duration": 1699,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "cY8VrW18fbo",
+   "title": "O, tempora! - Katolički bogoslovni fakultet u Splitu",
+   "duration": 1718,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "jLIxVQJfrm0",
+   "title": "Božićni specijal - O, tempora! - \"Božićni specijal\" - Božić u suvremenoj Europi - Matko Marušić",
+   "duration": 635,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "tIAOlN3o66Q",
+   "title": "Oasis in tempore - Kako živjeti vjeru u suvremenom svijetu (gost: prof.dr.sc. Mladen Parlov)",
+   "duration": 2779,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "VGqY25pGPS0",
+   "title": "O, tempora! - Što nas uči Stari zavjet? - fra Mate Kolak",
+   "duration": 1841,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "RwUIdzwoGsc",
+   "title": "O, tempora! - Kako tumačimo Stari zavjet - doslovno, simbolički, duhovno...?",
+   "duration": 1787,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "i1IRkPlyDtY",
+   "title": "O tempora! - Marulić suprotiva Turkom - Bratislav Lučin, Nada Babić, Josip Bratulić",
+   "duration": 1478,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "59P72sfE5-o",
+   "title": "O, tempora - Kultura otkazivanja - Matija Štahan",
+   "duration": 1951,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "_CN485bhi_0",
+   "title": "O, tempora! - Hrvatski demografski slom – Stjepan Šterc",
+   "duration": 1780,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "QXJfw0wMrkk",
+   "title": "O, tempora! - Lustracija u Hrvatskoj - don Josip Dukić i Karolina Vidović Krišto",
+   "duration": 2202,
+   "live_status": null,
+   "upload_date": "20220925"
+  },
+  {
+   "id": "Np9I5OFDRp4",
+   "title": "O, tempora! - Novo nenormalno - fra Mario Knezović",
+   "duration": 2305,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "JrbDtdY4tPI",
+   "title": "O, tempora! - Rodna i trans ideologija - dr. Herman Vukušić",
+   "duration": 1571,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "vUUlNraeLM8",
+   "title": "O, tempora! - \"Droge u Hrvatskoj je sve više\" - Slavko Sakoman",
+   "duration": 1899,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "_WTyPNOCg-g",
+   "title": "O, tempora! - Kako svoj život dovesti u red? - Joško Hrvatić (Cenacolo)",
+   "duration": 1504,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "AcsVUJveWmU",
+   "title": "O, tempora! - Rusija, Ukrajina, BiH - Davor Dijanović",
+   "duration": 1939,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "b2u_l4sJVcI",
+   "title": "O, tempora! - Sve je više stranog kapitala u hrvatskim medijima - Mate Mijić",
+   "duration": 1629,
+   "live_status": null,
+   "upload_date": "20230925"
+  }
+ ]
+}

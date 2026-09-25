@@ -1,0 +1,364 @@
+```json
+[
+  {
+    "key": "PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
+    "verdict": "podcast_hr",
+    "reason": "Autorski razgovorni talk show na hrvatskom, politička/društvena tematika, redovite epizode preko 50 min.",
+    "slug": "50-minuta",
+    "display_name": "50 Minuta",
+    "tags": ["political", "talk-show", "domoljubni"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)50\\s*minuta"}
+  },
+  {
+    "key": "PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
+    "verdict": "too_small",
+    "reason": "Samo 1 objavljena epizoda, nedovoljno za katalogizaciju kao aktivan podcast.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+    "verdict": "podcast_hr",
+    "reason": "Autorski talk show Ratka Martinovića, razgovori s gostima na hrvatskom, dugoformatne epizode.",
+    "slug": "rendezvous",
+    "display_name": "Rendezvous",
+    "tags": ["talk-show", "culture", "political"],
+    "hosts": ["Ratko Martinović"],
+    "watch_rule": {"include_title_regex": "(?i)rendezvous"}
+  },
+  {
+    "key": "PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorna/panel emisija s gostima o društvenim i vjerskim temama na hrvatskom.",
+    "slug": "prosudbe",
+    "display_name": "Prosudbe",
+    "tags": ["religious-catholic", "society", "culture"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s političarima i javnim osobama na hrvatskom, tematski vezani uz stranku Most.",
+    "slug": "most-tv",
+    "display_name": "Most TV",
+    "tags": ["political-party", "political"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+    "verdict": "podcast_hr",
+    "reason": "Poslovni intervjui na hrvatskom, aktivan format s jasnim voditeljem.",
+    "slug": "poslovni-svijet-s-ilijom-jandricem",
+    "display_name": "Poslovni svijet s Ilijom Jandrićem",
+    "tags": ["business", "finance", "entrepreneurship"],
+    "hosts": ["Ilija Jandrić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
+    "verdict": "podcast_hr",
+    "reason": "Dnevna kontakt emisija/talk show na hrvatskom s jasnim voditeljem.",
+    "slug": "vruci-krumpir",
+    "display_name": "Vrući krumpir",
+    "tags": ["talk-show", "political"],
+    "hosts": ["Davor Dretar"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
+    "verdict": "podcast_hr",
+    "reason": "Monolog-satirični dnevnik na hrvatskom s komentarima aktualnih zbivanja.",
+    "slug": "pervanov-dnevnik",
+    "display_name": "Pervanov dnevnik",
+    "tags": ["comedy", "political"],
+    "hosts": ["Željko Pervan"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
+    "verdict": "uncertain",
+    "reason": "Voditelj je slovenski glazbenik, gosti mješoviti hrvatski/slovenski, jezik i nacionalna pripadnost formata nisu jasni iz podataka.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+    "verdict": "podcast_hr",
+    "reason": "Povijesni razgovorni podcast na hrvatskom, aktivan, s jasnim voditeljem-povjesničarem.",
+    "slug": "kontrapovijest-by-hrvoje-klasic",
+    "display_name": "Kontrapovijest by Hrvoje Klasić",
+    "tags": ["history", "education"],
+    "hosts": ["Hrvoje Klasić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+    "verdict": "podcast_hr",
+    "reason": "Podcast redakcije o temama obrazovanja i mladih na hrvatskom, aktivan.",
+    "slug": "redakcija-podcast",
+    "display_name": "Redakcija Podcast",
+    "tags": ["education", "society"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)redakcija podcast\\s*#\\d+"}
+  },
+  {
+    "key": "PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+    "verdict": "podcast_hr",
+    "reason": "Autorski razgovorni podcast s gostima iz kulture na hrvatskom, vrlo aktivan.",
+    "slug": "zavidavanje-by-lado-tomicic",
+    "display_name": "Zavidavanje by Lado Tomičić",
+    "tags": ["culture", "talk-show"],
+    "hosts": ["Lado Tomičić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+    "verdict": "podcast_hr",
+    "reason": "Autorski talk show s dugim razgovorima o povijesti i politici na hrvatskom.",
+    "slug": "ton-slika-politika",
+    "display_name": "Ton-slika-politika",
+    "tags": ["political", "domoljubni", "history"],
+    "hosts": ["Davor Dijanović"],
+    "watch_rule": {"include_title_regex": "(?i)ton[- ]slika[- ]politika"}
+  },
+  {
+    "key": "PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s glazbenicima i javnim osobama na hrvatskom, katolički medij.",
+    "slug": "nota-bene",
+    "display_name": "Nota Bene",
+    "tags": ["pop-culture", "testimonies"],
+    "hosts": [],
+    "watch_rule": {"exclude_title_regex": "(?i)^\\[najava\\]"}
+  },
+  {
+    "key": "PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
+    "verdict": "too_small",
+    "reason": "Samo 4 originalne epizode, nedovoljno za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+    "verdict": "too_small",
+    "reason": "Samo 4 originalne epizode, nedovoljno za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s liječnicima o zdravstvenim temama na hrvatskom, redovit format.",
+    "slug": "sat-za-zdravlje",
+    "display_name": "Sat za zdravlje",
+    "tags": ["health"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLbuQEruP__NI",
+    "verdict": "too_small",
+    "reason": "Samo 1 epizoda, nedovoljno za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s političarima i stručnjacima na hrvatskom tijekom pandemije, jasan podcast format.",
+    "slug": "dogmatica",
+    "display_name": "Dogmatica",
+    "tags": ["political", "society"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+    "verdict": "podcast_hr",
+    "reason": "Autorski podcast o Zagrebu s jasnim voditeljem, redovite epizode na hrvatskom.",
+    "slug": "zona-zagreb",
+    "display_name": "Zona Zagreb",
+    "tags": ["political", "society"],
+    "hosts": ["Renato Petek"],
+    "watch_rule": {"include_title_regex": "(?i)zona zagreb\\s*\\d+"}
+  },
+  {
+    "key": "PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorni podcast o kulturi i (jugo)povijesti na hrvatskom, brojčano označene epizode.",
+    "slug": "kulturni-stab",
+    "display_name": "Kulturni štab",
+    "tags": ["culture", "history"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
+    "verdict": "podcast_hr",
+    "reason": "Autorski talk show s političkim i vjerskim gostima na hrvatskom.",
+    "slug": "press-klub-tihomira-dujmovica",
+    "display_name": "Press klub Tihomira Dujmovića",
+    "tags": ["political", "talk-show", "religious-catholic"],
+    "hosts": ["Tihomir Dujmović"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+    "verdict": "podcast_hr",
+    "reason": "Panel-razgovori o teološkim i filozofskim temama na hrvatskom s više gostiju.",
+    "slug": "o-tempora",
+    "display_name": "O, tempora!",
+    "tags": ["theology", "philosophy", "religious-catholic"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s teolozima/svećenicima na hrvatskom, stariji ali jasan podcast format.",
+    "slug": "uvjereno",
+    "display_name": "Uvjereno",
+    "tags": ["religious-catholic", "theology"],
+    "hosts": [],
+    "watch_rule": {"exclude_title_regex": "(?i)najava"}
+  },
+  {
+    "key": "PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+    "verdict": "too_small",
+    "reason": "Samo 3 epizode, nedovoljno za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+    "verdict": "not_podcast",
+    "reason": "Tematska biblijska predavanja/kateheza bez vidljivog sugovornika, nije razgovorni format.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori i osobna svjedočanstva na hrvatskom, jasan podcast format s gostima.",
+    "slug": "kristov-vojnik",
+    "display_name": "Kristov vojnik",
+    "tags": ["testimonies", "religious-catholic"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)kristov vojnik"}
+  },
+  {
+    "key": "PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
+    "verdict": "uncertain",
+    "reason": "Nedovoljno podataka (nema opisa, gostiju ni sadržajnih naznaka) za odluku o formatu.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+    "verdict": "not_podcast",
+    "reason": "Tematska kateheza/propovjedni ciklus bez sugovornika, monolog nalik propovijedi.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori-svjedočanstva s imenovanim gostima na hrvatskom, redovit format.",
+    "slug": "novo-srce",
+    "display_name": "Novo srce",
+    "tags": ["testimonies", "religious-catholic"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
+    "verdict": "podcast_hr",
+    "reason": "Razgovorna emisija za mlade na katoličke i životne teme, na hrvatskom.",
+    "slug": "generacija-plus",
+    "display_name": "Generacija+",
+    "tags": ["religious-catholic", "personal-development"],
+    "hosts": [],
+    "watch_rule": {"exclude_title_regex": "(?i)\\[najava\\]"}
+  },
+  {
+    "key": "PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+    "verdict": "podcast_hr",
+    "reason": "Podcast novinara srednja.hr s gostima o obrazovanju i mladima, aktivan.",
+    "slug": "podcast-srednja-hr",
+    "display_name": "[Podcast] – srednja.hr",
+    "tags": ["education", "society"],
+    "hosts": [],
+    "watch_rule": {"include_title_regex": "(?i)\\[podcast\\s*#\\d+\\]"}
+  },
+  {
+    "key": "PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s osobama iz kulture na hrvatskom, vrlo aktivan format s voditeljicom.",
+    "slug": "u-pravom-licu-by-antonela-marusic",
+    "display_name": "U pravom licu by Antonela Marušić",
+    "tags": ["culture", "pop-culture"],
+    "hosts": ["Antonela Marušić"],
+    "watch_rule": null
+  },
+  {
+    "key": "PLBgJ7vu-_Rvw",
+    "verdict": "too_small",
+    "reason": "Samo 1 epizoda, nedovoljno za katalogizaciju.",
+    "slug": null,
+    "display_name": null,
+    "tags": [],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
+    "verdict": "podcast_hr",
+    "reason": "Razgovori s povjesničarima o hrvatskoj povijesti, jasan podcast/talk show format.",
+    "slug": "hrvatske-povijesne-istine",
+    "display_name": "Hrvatske povijesne istine",
+    "tags": ["history", "domoljubni"],
+    "hosts": [],
+    "watch_rule": null
+  },
+  {
+    "key": "PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
+    "verdict": "podcast_hr",
+    "reason": "Satirično-komentatorski dnevnik dvojice voditelja na hrvatskom.",
+    "slug": "kolumnisticki-dnevnik",
+    "display_name": "Kolumnistički dnevnik",
+    "tags": ["comedy", "political"],
+    "hosts": ["Željko Pervan", "Mladen Horvat"],
+    "watch_rule": {"include_title_regex": "(?i)kolumnisti[cč]ki dnevnik"}
+  }
+]
+```

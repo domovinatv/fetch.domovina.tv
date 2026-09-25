@@ -31,10 +31,12 @@ node data/discovery/discover.js all
 node data/discovery/discover.js apply --dry-run
 node data/discovery/discover.js apply
 
-# 4. aktivnost postojećih kandidata iz nightly watch podataka
+# 4. točan datum zadnjeg originala (flat liste daju samo „prije N godina") → status
+node data/discovery/discover.js exact-dates
+# 5. aktivnost postojećih kandidata iz nightly watch podataka
 node data/discovery/discover.js activity --update-status
 
-# 5. commit: registry + ledger + query_stats + runs/<datum>/ + watchlist/rules.json
+# 6. commit + deploy javnog registryja (dashboard/public, vidi niže): registry + ledger + query_stats + runs/<datum>/ + watchlist/rules.json
 ```
 
 Svaki korak je idempotentan i kešira po datoteci u `runs/<datum>/` — prekinuti prolaz
@@ -90,6 +92,21 @@ kroz prolaze. Upit koji dvaput zaredom ne donese ništa novo je kandidat za zamj
 u `queries.txt`; upiti tipa „epizoda 1" / „#1 podcast" hvataju podcaste na startu.
 
 ## Zamke (naučeno u prolazima)
+
+- **Broj pratitelja ≠ doseg podcasta, ≠ aktivnost.** „Big Podcast" (112k) je mini-serijal
+  od 20 epizoda na vlog kanalu influencerice kojoj je glavna platforma Instagram; kanal
+  je napušten 14.12.2022. Status se određuje ISKLJUČIVO po točnom datumu zadnjeg originala
+  (`exact-dates`), a u sažetke nalaza idu samo aktivni.
+- **Približni datumi lažu za stare kanale**: „prije 3 godine" → danas − 3 god. (Big Podcast
+  je ispao 2023-09 umjesto 2022-12). `exact-dates` radi jedan ne-flat poziv po unosu.
+- **Anti-bot na ne-flat pozivima**: nakon ~400 poziva YouTube traži prijavu. `exact-dates`
+  staje nakon 5 takvih odgovora, koristi približni datum samo kad je NOVIJI od zapisanog i
+  označi `last_episode_date_approx: true` — idući run ih ponovno pokuša.
+- **`seed --force`** zaobilazi ledger i filtar podskupa — za ručno odabrane playliste
+  (npr. Z1 Press klub, Laudato Nota bene, VIDA Zavidavanje unutar kanala koji su u
+  registryju kao cjelina).
+- **Idempotentnost**: `triage` i `apply` se smiju ponoviti nad istim runom — triage ne
+  izbacuje ono što je u međuvremenu ušlo u registry (`in_registry`), ledger čuva `slug`/`merged_into`.
 
 - **`/streams`**: podcasti koji izlaze kao livestream/premijera ne vide se na `/videos`
   (Podcast 8_24: 3 duga na /videos, 58 uživo). `probe` zato uvijek čita i `/streams`,

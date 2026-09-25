@@ -1,0 +1,70 @@
+{
+ "key": "PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+ "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+ "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+ "playlist_id": "PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+ "title": "👾 Futurizam",
+ "channel": "srednjaHR",
+ "channel_url": "https://www.youtube.com/channel/UCpiWfxrISN7Uae0cfyHyZ-g",
+ "description": "Futurizam je segment naših podcasta gdje gosti izvlače jedno pitanje povezano s dalekom budućnosti.",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "-mBwSapDdKA",
+   "title": "👾 Futurizam | Ivica Puljak - Split 2050.",
+   "duration": 108,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "eAS7bYO1zZM",
+   "title": "👾 Futurizam | Josip Aladrović - Mirovinski sustav 2050.",
+   "duration": 311,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "kabIZIbSHao",
+   "title": "👾 Futurizam | Marin Trošelj - Medicinska policija",
+   "duration": 445,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "lmSGnky6cSM",
+   "title": "👾 Futurizam | Branimir Tot: Žene više ne moraju biti trudne",
+   "duration": 337,
+   "live_status": null,
+   "upload_date": "20210925"
+  },
+  {
+   "id": "Ug4IIbz5SgU",
+   "title": "👾 Futurizam | Marko Kovačić - Roboti su novi liječnici",
+   "duration": 368,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "kMUh0UVxSJc",
+   "title": "👾 Futurizam | Jerković i Orhanović - Tablete su nova hrana",
+   "duration": 362,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "Meh7pQwfDSQ",
+   "title": "👾 Futurizam | Albert Gajšak - Poligamija je mainstream",
+   "duration": 392,
+   "live_status": null,
+   "upload_date": "20200925"
+  },
+  {
+   "id": "OmwgiTiaYu0",
+   "title": "👾 Futurizam | Leko i Vuković - Download baza znanja u ljude",
+   "duration": 592,
+   "live_status": null,
+   "upload_date": "20200925"
+  }
+ ]
+}

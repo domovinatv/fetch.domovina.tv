@@ -1,0 +1,42 @@
+{
+ "key": "PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+ "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+ "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+ "playlist_id": "PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+ "title": "Intervju",
+ "channel": "LaudatoTV",
+ "channel_url": "https://www.youtube.com/channel/UCMNltXN6fWur0K8Z1oubFPA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "TUIKTCaGP3w",
+   "title": "Intervju - Poznati TV chef, o. Leo Patalinghug",
+   "duration": 1201,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "D3ZFkYNmBeQ",
+   "title": "S Tomislavom Bralićem u Bibinjama - Razgovor o Braliću i klapi Intrade za Laudato TV",
+   "duration": 3112,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "g2511Vy1sIg",
+   "title": "Intervju s Rajkom Ećimovićem - \"Preživio sam Bleiburg i kući se vratio na Srce Isusovo\"",
+   "duration": 2190,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "waoutjeYwhQ",
+   "title": "Razgovor s mons. Želimirom Puljićem, zadarskim nadbiskupom emeritusom",
+   "duration": 1628,
+   "live_status": null,
+   "upload_date": "20260725"
+  }
+ ]
+}

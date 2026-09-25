@@ -1,0 +1,35 @@
+{
+ "key": "PLbuQEruP__NI",
+ "url": "https://www.youtube.com/playlist?list=PLbuQEruP__NI",
+ "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+ "playlist_id": "PLbuQEruP__NI",
+ "title": "Čovjek prije svega",
+ "channel": "LaudatoTV",
+ "channel_url": "https://www.youtube.com/channel/UCMNltXN6fWur0K8Z1oubFPA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "1zf_m6iLnSM",
+   "title": "Čovjek prije svega - vlč. Anđelko Katanec",
+   "duration": 2246,
+   "live_status": null,
+   "upload_date": "20260920"
+  },
+  {
+   "id": "NzKg34FExNM",
+   "title": "[NAJAVA] Čovjek prije svega - Anđelko Katanec (19.9.)",
+   "duration": 74,
+   "live_status": null,
+   "upload_date": "20260918"
+  },
+  {
+   "id": "deXKtToU9Q4",
+   "title": null,
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  }
+ ]
+}

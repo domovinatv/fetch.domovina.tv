@@ -1,0 +1,1220 @@
+{
+ "dopusteni_tagovi": [
+  "religious-catholic",
+  "pro-life",
+  "domoljubni",
+  "political",
+  "political-conservative",
+  "political-party",
+  "business",
+  "entrepreneurship",
+  "leadership",
+  "personal-development",
+  "communication",
+  "technology",
+  "finance",
+  "sport",
+  "football",
+  "mma",
+  "true-crime",
+  "mystery",
+  "geopolitics",
+  "pop-culture",
+  "lifestyle",
+  "women",
+  "parenting",
+  "diaspora",
+  "culture",
+  "language",
+  "philosophy",
+  "theology",
+  "evangelization",
+  "masculinity",
+  "franciscan",
+  "testimonies",
+  "history",
+  "domovinski-rat",
+  "regional-media",
+  "institutional",
+  "talk-show",
+  "gaming",
+  "tourism",
+  "travel",
+  "education",
+  "science",
+  "comedy",
+  "health",
+  "fitness",
+  "digital",
+  "media",
+  "advocacy",
+  "economics",
+  "society",
+  "own-channel",
+  "religious-other"
+ ],
+ "kanali": [
+  {
+   "key": "PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
+   "type": "playlist",
+   "name": "50 MINUTA",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
+   "follower_count": null,
+   "description": "Politički, gospodarski i društveni procesi oblikuju svakodnevicu, ali rijetko se prate u kontinuitetu. Ova emisija donosi razgovore i teme koje traže kontekst, jasno postavljena pitanja i konkretne odgovore.\n\nU fokusu su odluke koje imaju posljedice – od politike i javnih financija do društvenih promjena koje se često prelamaju izvan naslovnica. Vraćamo se na ključne događaje, analiziramo njihove učinke i otvaramo prostor za raspravu koja ne ostaje na površini.\n\nEmisija se emitira ponedjeljkom od 20 sati i 10 minuta na Z1 TV-u.",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 51,
+   "derivative_ratio": 0.31,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "50Minuta - Pavliček: \"Hrvatska i Vukovar zaslužuju Stadion 12 hrvatskih redarstvenika!\"",
+    "50Minuta - Dina Dogan: \"Tomaševića su u prvom mandatu iznijeli Bandićevi ljudi!\"",
+    "50Minuta - Zlatko Hasanbegović: \"Novosti su glasilo neojugoslavenske inteligencije!\"",
+    "50Minuta - Karačić: Ni najbolji sustav ne može jamčiti da se zločin neće dogoditi",
+    "50MINUTA - Ivan Pepić: \"Treći entitet nije prijetnja BiH, nego jedini način stabilizacije!\"",
+    "50Minuta Peternel o kresovima: Oni ne žele osuditi komunizam jer bi time osudili svoje djedove",
+    "50MINUTA - LUKA ŠARIĆ: \"Tomašević je preuzeo ulogu zabranitelja!\"",
+    "50Minuta - PAVLE KALINIĆ o sigurnosti: \"U našoj Vladi sjedi hrpa diletanata!\""
+   ],
+   "sample_derivatives": [
+    "HASANBEGOVIĆ: \"Novosti nisu srpsko manjinsko glasilo i ne trebaju se financirati javnim novcem!\" (48s)",
+    "HASANBEGOVIĆ: \"Imaju pravo govoriti što hoće, ali Thompson će pjevati u Vukovaru!\" (67s)",
+    "PAVLE KALINIĆ: \"90-ih smo bili spremniji nego danas!\" (34s)",
+    "PAVLE KALINIĆ: \"Neće nam Nepalci biti u civilnoj zaštiti!\" (64s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
+   "type": "playlist",
+   "name": "Iza sjene by Gospodin Nitko",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
+   "follower_count": null,
+   "description": "",
+   "originals": 1,
+   "originals_30min": 1,
+   "avg_original_min": 44,
+   "derivative_ratio": 0,
+   "last_original": "20230925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Iza sjene by Gospodin Nitko #1"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "type": "playlist",
+   "name": "RENDEZVOUS",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "follower_count": null,
+   "description": "AUTORSKI TALK SHOW RATKA MARTINOVIĆA",
+   "originals": 31,
+   "originals_30min": 31,
+   "avg_original_min": 54,
+   "derivative_ratio": 0.48,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "RENDEZVOUS - DRAGO PLEČKO - Novosti iz rubnih područja znanosti (9.6.2026.)",
+    "RENDEZVOUS - JOSIP ĐEREK - Julienne Bušić - simbol hrvatske slobode",
+    "RENDEZVOUS - NENAD BAKIĆ - Doba umjetne inteligencije (19.5.2026.)",
+    "RENDEZVOUS - Vole li Hrvati poduzetnike, kapitalizam i privatni sektor? (12.5.2026.)",
+    "RENDEZVOUS - TOMISLAV SUNIĆ - Josip Broz Tito: anatomija diktatora (5.5.2026.)",
+    "RENDEZVOUS - ROBERT ŠPEHAR - Sezona je pred vratima: Što nas očekuje? (28.4.2026.)",
+    "RENDEZVOUS - DOGAN I RADNIĆ Zagreb 2030: Plaća 2200€, robotaksi i kulturalna revolucija (21.4.2026.)",
+    "RENDEZVOUS - GORIČKI I ŠVARC: Zagreb postaje strip centar Europe uz Zagora i Conana (14.4.2026.)"
+   ],
+   "sample_derivatives": [
+    "DRAGO PLEČKO: \"Na svijetu ne postoje dvije jednake osobe!\" (70s)",
+    "DRAGO PLEČKO: \"Nemoguće je voljeti nepoznatu osobu bez motiva!\" (45s)",
+    "JOSIP ĐEREK: \"Čitali smo UDBINE biltenčiće, ali imali smo i svoje tajne informacije!\" (71s)",
+    "JOSIP ĐEREK: \"Pri prvom susretu sa Zvonkom Bušićem `pauk` mi je oprostio nepropisno parkiranje!\" (45s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
+   "type": "playlist",
+   "name": "Prosudbe",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 59,
+   "avg_original_min": 51,
+   "derivative_ratio": 0,
+   "last_original": "20200925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Prosudbe – 60. obljetnica smrti bl. A. Stepinca",
+    "Prosudbe - don Damir Stojić i Diana Tikvić",
+    "Prosudbe - Bacanje hrane",
+    "Prosudbe - Okrugli stol \"Ovčara-zločin bez kazne\"",
+    "Prosudbe - Važnost europskog sjećanja za budućnost Europe",
+    "Prosudbe - Neprimjerena lektira",
+    "Prosudbe - Koliko je političarima u Hrvatskoj bitno obrazovanje?",
+    "Prosube - Napad na kršćane"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
+   "type": "playlist",
+   "name": "MOST TV",
+   "parent_channel": "Most",
+   "url": "https://www.youtube.com/playlist?list=PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
+   "follower_count": null,
+   "description": "",
+   "originals": 16,
+   "originals_30min": 12,
+   "avg_original_min": 35,
+   "derivative_ratio": 0.27,
+   "last_original": "20200925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "BOŽO PETROV: MILANOVIĆU BI BILO PAMETNIJE DA JE ŠUTIO",
+    "JESU LI SVI KOJI UPOZORAVAJU NA PROPUSTE STOŽERA PETOKOLONAŠI?",
+    "MIRO BULJ: KAKO ISKORISTITI OVU KRIZU ZA OKRETANJE DOMAĆOJ PROIZVODNJI?",
+    "SLAVEN DOBROVIĆ O POTRESU U ZAGREBU, KORONAVIRUSU, PROBLEMIMA I PRILIKAMA U NAŠOJ POLJOPRIVREDI",
+    "RAZGOVOR S ČOVJEKOM KOJI JE GODINAMA RAZOTKRIVAO PRAVU NARAV BANDIĆEVE VLADAVINE",
+    "KAKO ĆE EPIDEMIJA KORONAVIRUSA UTJECATI NA RADNIKE I OBITELJI?",
+    "JE LI OVA KRIZA PRILIKA ZA POVRATAK POLJOPRIVREDI I STOČARSTVU?",
+    "KAKO JE BITI TRUDNICA U DOBA COVID-19, KAKO KARANTENA UTJEČE NA ŠKOLOVANJE DJECE I MLADIH"
+   ],
+   "sample_derivatives": [
+    "MIRO BULJ: HITNO OTVORITE TRŽNICE UZ SVE MJERE ZAŠTITE (8 min < prag 15 min)",
+    "NINO RASPUDIĆ: NE VOLIM KAD MI BIVŠI KOS-OVCI GOVORE O TOME KAKO ĆE ME ŠTITITI NADZIRANJEM MOBITELA (14 min < prag 15 min)",
+    "MARIN MILETIĆ NA MOST TV (5 min < prag 15 min)",
+    "MOST TV: KAKO POMOĆI POTREBITIMA TIJEKOM EPIDEMIJE KORONAVIRUSA (10 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "type": "playlist",
+   "name": "Poslovni svijet s Ilijom Jandrićem",
+   "parent_channel": "Poslovni dnevnik",
+   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "follower_count": null,
+   "description": "",
+   "originals": 59,
+   "originals_30min": 56,
+   "avg_original_min": 52,
+   "derivative_ratio": 0.02,
+   "last_original": "20260919",
+   "originals_90d": 4,
+   "sample_titles": [
+    "Pleše: Dugoročno reguliranje cijena goriva dovelo bi do nestašice",
+    "Nikola Pavešić: Dronovi će biti svugdje, a ljude će živcirati sadržaji koje kreira AI",
+    "Dražen Oreščanin: Vladi se živo fućka za obrtnike!",
+    "Matija Srbić: U Nuqleusu pomažemo znanstvenicima da pokrenu uspješan startup",
+    "Mario Mandarić: Hrvatska treba biti skupa destinacija",
+    "Darko Horvat: Bosqar želi stvoriti jaku regionalnu prehrambenu kompaniju",
+    "Josip Mikulić: Privatni smještaj je i dalje jako nisko oporezovan",
+    "Marijana Grbeša: Ako ne bude novinarstva, neće biti ni demokracije"
+   ],
+   "sample_derivatives": [
+    "Tonči Tadić: Hrvatska treba graditi male nuklearne elektrane (3 min < prag 22 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
+   "type": "playlist",
+   "name": "VRUĆI KRUMPIR",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
+   "follower_count": null,
+   "description": "Dnevna kontakt emisija Davora Dretara",
+   "originals": 29,
+   "originals_30min": 29,
+   "avg_original_min": 58,
+   "derivative_ratio": 0.06,
+   "last_original": "20250925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "VRUĆI KRUMPIR 4.6.2025.",
+    "VRUĆI KRUMPIR - 29.5.2025.",
+    "VRUĆI KRUMPIR - 13.5.2025.",
+    "VRUĆI KRUMPIR - 12.5.2025.",
+    "VRUĆI KRUMPIR - 8.5.2025.",
+    "VRUĆI KRUMPIR - 6.5.2025.",
+    "VRUĆI KRUMPIR - 24.4.2025.",
+    "VRUĆI KRUMPIR - 28.4.2025."
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
+   "type": "playlist",
+   "name": "PERVANOV DNEVNIK",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
+   "follower_count": null,
+   "description": "",
+   "originals": 59,
+   "originals_30min": 6,
+   "avg_original_min": 28,
+   "derivative_ratio": 0.02,
+   "last_original": "20220925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "PERVANOV DNEVNIK - epizoda 1 (7.5.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 2 (14.5.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 3 (21.5.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 4 (28.5.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 5 (4.6.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 6 (11.6.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 7 (18.6.2020, Z1 TELEVIZIJA)",
+    "PERVANOV DNEVNIK - epizoda 8 (25.6.2020, Z1 TELEVIZIJA)"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
+   "type": "playlist",
+   "name": "Srodne duše",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
+   "follower_count": null,
+   "description": "",
+   "originals": 10,
+   "originals_30min": 9,
+   "avg_original_min": 41,
+   "derivative_ratio": 0,
+   "last_original": "20230925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Srodne duše sa Zoranom Predinom – Goran Vojnović",
+    "Srodne duše sa Zoranom Predinom – Milena Zupančič",
+    "Srodne duše sa Zoranom Predinom - Specijal",
+    "Srodne duše sa Zoranom Predinom – Jagna Pogačnik",
+    "Srodne duše sa Zoranom Predinom – Daniela Trbović",
+    "Srodne duše sa Zoranom Predinom – Zoran Čutura",
+    "Srodne duše sa Zoranom Predinom – Slobodan Maksimović",
+    "Srodne duše sa Zoranom Predinom – Saša Antić"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "type": "playlist",
+   "name": "Kontrapovijest by Hrvoje Klasić",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "follower_count": null,
+   "description": "",
+   "originals": 58,
+   "originals_30min": 23,
+   "avg_original_min": 29,
+   "derivative_ratio": 0.03,
+   "last_original": "20260913",
+   "originals_90d": 4,
+   "sample_titles": [
+    "Kontrapovijest by Hrvoje Klasić #72 – Branka Vierda – Pokolj u Medačkom džepu",
+    "Kontrapovijest by Hrvoje Klasić #71 – Šimun Cimerman – Bitka na Sutjesci",
+    "Kontrapovijest by Hrvoje Klasić #70 – Gaj Trifković – Najjači su bili Titovi partizani",
+    "Kontrapovijest by Hrvoje Klasić #69 – Dubravka Stojanović – Ratne devedesete",
+    "Kontrapovijest by Hrvoje Klasić #68 – Boris Mosković – Umro je drug Tito",
+    "Kontrapovijest by Hrvoje Klasić #67 – Milivoj Bešlin – Kosovo u Jugoslaviji",
+    "Kontrapovijest by Hrvoje Klasić #66 – Luka Bogdanić – Kako je nastao fašizam",
+    "Kontrapovijest by Hrvoje Klasić #65 – Nikolina Židek – Kako su bježali ustaše"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "type": "playlist",
+   "name": "REDAKCIJA PODCAST",
+   "parent_channel": "srednjaHR",
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "follower_count": null,
+   "description": "Podcasti u kojima članovi redakcije Pametne kuće razgovaraju o trenutno gorućim temama.",
+   "originals": 23,
+   "originals_30min": 22,
+   "avg_original_min": 57,
+   "derivative_ratio": 0.12,
+   "last_original": "20260825",
+   "originals_90d": 1,
+   "sample_titles": [
+    "REDAKCIJA PODCAST #24 | Život u studentskom domu vs. život u stanu",
+    "REDAKCIJA PODCAST #23 Treba li uvesti 'malu maturu'?",
+    "REDAKCIJA PODCAST #22 Kako učimo za ispite, maturu i kolokvije?",
+    "REDAKCIJA PODCAST #21 Preživjeti pubertet | Ramona, Luka, Inga",
+    "REDAKCIJA PODCAST #20 Profesori koje ćemo pamtiti | Ivor, Ramona i Marko",
+    "REDAKCIJA PODCAST #19 Nasilje u školama | Ramona i Marko",
+    "REDAKCIJA PODCAST #18 Autoškola i polaganje vozačkog  | Ramona, Antonija i Marija",
+    "REDAKCIJA PODCAST #17 Treba li ukinuti lektire u školama? | Ramona, Hrvoje i Marko"
+   ],
+   "sample_derivatives": [
+    "Znaš li ti gdje ti je ključ? 👀🗝️🔑#srednjahr #maturant #studentskidom #student (58s)",
+    "Esej na maturi - savjeti i trikovi (113s)",
+    "REDAKCIJA PODCAST #13 Sučeljavanje: gimnazijalac vs strukovnjak | Duje i Ramona (25 min < prag 27 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "type": "playlist",
+   "name": "Zavidavanje by Lado Tomičić",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "follower_count": null,
+   "description": "",
+   "originals": 59,
+   "originals_30min": 59,
+   "avg_original_min": 65,
+   "derivative_ratio": 0.02,
+   "last_original": "20260922",
+   "originals_90d": 2,
+   "sample_titles": [
+    "Zavidavanje by Lado Tomičić #168 - Vesna Teršelič",
+    "Zavidavanje by Lado Tomičić #167 - Mario Gavranović",
+    "Zavidavanje by Lado Tomičić #166 - Branko Sekulić",
+    "Zavidavanje by Lado Tomičić #165 - Franjo Šarčević",
+    "Zavidavanje by Lado Tomičić #164 - Oliver Frljić",
+    "Zavidavanje by Lado Tomičić #163 - Petar Pismestrović",
+    "Zavidavanje by Lado Tomičić #162 - Arijana Lekić Fridrih",
+    "Zavidavanje by Lado Tomičić #161 - Valentina Otmačić"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "type": "playlist",
+   "name": "TON-SLIKA-POLITIKA",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "follower_count": null,
+   "description": "TALK SHOW DAVORA DIJANOVIĆA",
+   "originals": 18,
+   "originals_30min": 18,
+   "avg_original_min": 83,
+   "derivative_ratio": 0.7,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "TON-SLIKA-POLITIKA - MAX KRIŽANIĆ: \"Širimo domoljubne i pozitivne vrijednosti!\"",
+    "TON-SLIKA-POLITIKA NJAVRO: Hrvatska je najuspješniji projekt, trebaju nam velike ideje o budućnosti!",
+    "TON-SLIKA-POLITIKA - DAVOR MARIJAN: \"Jedino je Tuđman mogao ostvariti projekt samostalne Hrvatske!\"",
+    "TON-SLIKA-POLITIKA - prof.dr Tado Jurić o demografskoj situaciji: Nužna je nova strategija",
+    "TON-SLIKA-POLITIKA -  dr. sc. Blanka Matković: Zašto se umanjuje i kriminalizira uloga HOS-a?",
+    "TON-SLIKA-POLITIKA - JOSIP JURČEVIĆ: \"U Jasenovcu su bila iskapanja, ali je ostao protuhrvatski mit\"",
+    "TON-SLIKA-POLITIKA Vice Batarelo:Bog je Hrvate stvorio za borbu; nudimo ideju trećeg entiteta u BiH",
+    "TON-SLIKA-POLITIKA - VIDMAROVIĆ:\"Anacionalna i ateistička legija preuzela je kulturu i književnost!\""
+   ],
+   "sample_derivatives": [
+    "MAX KRIŽANIĆ: \"Hrvatski izumitelji puno su toga dali svijetu!\" (69s)",
+    "MAX KRIŽANIĆ: \"Tko god radi nešto domoljubno, odmah dobije etiketu!\" (51s)",
+    "DAVOR MARIJAN: \"UDBA radi što partija kaže!\" (46s)",
+    "DAVOR MARIJAN: \"1987. je ključna godina za raspad Jugoslavije!\" (74s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
+   "type": "playlist",
+   "name": "NOTA BENE",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
+   "follower_count": null,
+   "description": "",
+   "originals": 38,
+   "originals_30min": 38,
+   "avg_original_min": 51,
+   "derivative_ratio": 0.37,
+   "last_original": "20250925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Nota Bene - Tonči Huljić",
+    "NOTA BENE - Tonči Huljić",
+    "Nota Bene - Emanuel",
+    "Nota bene - Feminnem",
+    "Nota bene - Feminnem",
+    "Nota bene - Bend \"Živim\"",
+    "EMI NOTA BENE 01 06 20221225",
+    "Nota bene - Laudato TV bend"
+   ],
+   "sample_derivatives": [
+    "[NAJAVA] NOTA BENE - Emanuel (43s)",
+    "[NAJAVA] Nota bene - Sestre Halužan - Petak 25.11.2022. u 21:05 (42s)",
+    "[NAJAVA] Nota bene - Bend \"Živim\" - Petak 9.12.2022. u 21:05 (48s)",
+    "[NAJAVA] Nota bene - Božićni specijal - Laudato TV bend - 25.12.2022. u 21:05 (47s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
+   "type": "playlist",
+   "name": "BRANITELJI DANAS",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
+   "follower_count": null,
+   "description": "",
+   "originals": 4,
+   "originals_30min": 1,
+   "avg_original_min": 27,
+   "derivative_ratio": 0.33,
+   "last_original": "20260325",
+   "originals_90d": 0,
+   "sample_titles": [
+    "BRANITELJI DANAS (18.12.2025.)",
+    "BRANITELJI DANAS (20.11.2025.)",
+    "BRANITELJI DANAS | DARKO PERANOVIĆ, dragovoljac HOS-a | 1.8.2024.",
+    "BRANITELJI DANAS - Braniteljske udruge Hrvatski Vitezovi, HVIDRA Dugo Selo, Crne mambe (16.5.2024.)"
+   ],
+   "sample_derivatives": [
+    "SRAMOTA NA JELAČIĆ PLACU? Aktivisti blatili Oluju i Gotovinu; Z1 jedina postavljala pitanja! (3 min < prag 15 min)",
+    "LEGENDARNI \"TIGROVI\" KATUŠA I BAJAN NA MIROGOJU POLOŽILI VIJENCE! (167s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+   "type": "playlist",
+   "name": "Intervju",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+   "follower_count": null,
+   "description": "",
+   "originals": 4,
+   "originals_30min": 2,
+   "avg_original_min": 34,
+   "derivative_ratio": 0,
+   "last_original": "20260725",
+   "originals_90d": 1,
+   "sample_titles": [
+    "Intervju - Poznati TV chef, o. Leo Patalinghug",
+    "S Tomislavom Bralićem u Bibinjama - Razgovor o Braliću i klapi Intrade za Laudato TV",
+    "Intervju s Rajkom Ećimovićem - \"Preživio sam Bleiburg i kući se vratio na Srce Isusovo\"",
+    "Razgovor s mons. Želimirom Puljićem, zadarskim nadbiskupom emeritusom"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
+   "type": "playlist",
+   "name": "SAT ZA ZDRAVLJE",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
+   "follower_count": null,
+   "description": "",
+   "originals": 35,
+   "originals_30min": 35,
+   "avg_original_min": 47,
+   "derivative_ratio": 0,
+   "last_original": "20260425",
+   "originals_90d": 0,
+   "sample_titles": [
+    "SAT ZA ZDRAVLJE - doc. prim. dr. sc. Sandra Morović, dr. med.specijalist neurologije (4.3.2026.)",
+    "SAT ZA ZDRAVLJE - KRALJEŽNICA - doc. prim. dr. sc. Darko Perović, dr. med.",
+    "SAT ZA ZDRAVLJE - Srebrenka Turčin, dr. med. spec. pulmologije i dipl. kriminalistica (18.3.2026.)",
+    "SAT ZA ZDRAVLJE - prim.dr.sc. Zvonimir Lovrić, dr.med.prof.VŠ (2.4.2025.)",
+    "SAT ZA ZDRAVLJE prof. dr. sc. Vanja Bašić Kes, specijalistica neurologije - MIGRENA (29.1.2025.)",
+    "SAT ZA ZDRAVLJE - dr. sc. Jakov Ajduk, dr. med. - TINITUS (22.1.2025.)",
+    "SAT ZA ZDRAVLJE (15.1.2025.) prof.dr.sc. Santa Večerina Volić",
+    "SAT ZA ZDRAVLJE - ŠEĆERNA BOLEST - prof.dr.sc. DARIO RAHELIĆ (20.11.2024.)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLbuQEruP__NI",
+   "type": "playlist",
+   "name": "Čovjek prije svega",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLbuQEruP__NI",
+   "follower_count": null,
+   "description": "",
+   "originals": 1,
+   "originals_30min": 1,
+   "avg_original_min": 37,
+   "derivative_ratio": 0.67,
+   "last_original": "20260920",
+   "originals_90d": 1,
+   "sample_titles": [
+    "Čovjek prije svega - vlč. Anđelko Katanec"
+   ],
+   "sample_derivatives": [
+    "[NAJAVA] Čovjek prije svega - Anđelko Katanec (19.9.) (74s)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
+   "type": "playlist",
+   "name": "DOGMATICA 2020./2021.",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
+   "follower_count": null,
+   "description": "",
+   "originals": 22,
+   "originals_30min": 22,
+   "avg_original_min": 57,
+   "derivative_ratio": 0.04,
+   "last_original": "20210925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "DOGMATICA - ZLATKO STIĆ, ravnatelj Prirodoslovne škole Vladimir Prelog (8.9.2020, Z1 TV)",
+    "DOGMATICA - Petrana Brečić, ravnateljica Klinike za psihijatriju Vrapče",
+    "DOGMATICA - Goranka Petrović (epidemiologinja HZJZ) (15.9.2020, Z1 TV)",
+    "DOGMATICA  - analitičar i kolumnist Goranko Fižulić (17.9, Z1 TV)",
+    "DOGMATICA - Ranko Ostojić (SDP) (24.9.2020)",
+    "DOGMATICA - Marijana Puljak, saborska zastupnica (PAMETNO)",
+    "DOGMATICA - Dražen Oreščanin (GLAS PODUZETNIKA (Z1 TV, 1.10.2020)",
+    "DOGMATICA - Jan Ivanjek o \"Srpskom svetu\" (Z1 TV, 6.10.2020)"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "type": "playlist",
+   "name": "ZONA ZAGREB",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "follower_count": null,
+   "description": "Podcast autora i voditelja Renata Peteka!\nZagreb je (i) naš! Grad koji volimo, ali i grad koji propada zbog nesposobnih i neodgovornih. Predugo smo to šutke gledali!\nPreviše muljanja.\nPreviše improvizacije.\nPreveć praznih obećanja.\nPremalo kompetencije.\nZato pokrećem Zonu Zagreb. Neće to biti još jedan podcast na kojem se lijepo priča i ništa ne kaže. Bit će to prostor gdje ću glasno reći ono što mnogi samo šapću po kvartovima. Što se zaista događa iza zatvorenih vrata? Tko zapravo odlučuje? Tko profitira i koliko sve to košta? Svaki tjedan - jedna tema. Razgovarat ću s ljudima koji poznaju pr",
+   "originals": 17,
+   "originals_30min": 17,
+   "avg_original_min": 85,
+   "derivative_ratio": 0.48,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "ZONA ZAGREB 017 * THOMAS BAUER - Gdje zapinje u upravljanju Zagrebom? (29.5.2026.)",
+    "ZONA ZAGREB 016 * RIBARIĆ i MRVALJ - NEVIDLJIVI LJUDI - Ignorira li sustav beskućnike? (15.5.2026.)",
+    "ZONA ZAGREB 015 * VELIMIR SRIĆA - Dizajniranje budućnosti Zagreba",
+    "ZONA ZAGREB 014 * JOVIĆ, JOZIĆ I VUČEMILOVIĆ - ZET iznutra: plaće, vozni red i vožnja u budućnost",
+    "ZONA ZAGREB 013 * DINKA PAVELIĆ - Pametni grad: Gube li Zagrepčani slobodu? (17.4.2026.)",
+    "ZONA ZAGREB 012 * PUCARIĆ I VIDIĆ SMETANA - Vjerodostojnost na kušnji: kako nam prodaju politiku",
+    "ZONA ZAGREB 011* LEILA TOPIĆ - Zagrebačka  kulturna ideologija",
+    "ZONA ZAGREB-010* OTTO BARIĆ- Sportska infrastruktura: Fiktivne rekonstrukcije i eksplozija troškova"
+   ],
+   "sample_derivatives": [
+    "THOMAS BAUER: \"Nije li čudno što Tomašević s 40 godina ima svega 4 godine radnog staža?!\" (54s)",
+    "THOMAS BAUER: \"Tomašević kaže da nema vremena brinuti o tolikim sportskim objektima!\" (38s)",
+    "THOMAS BAUER: \"Vuković i Samodol su nakon angažmana u Holdingu otvorili dušu!\" (45s)",
+    "VRTLAR KRUNO - Od Zagreba do Berlina i cvjetnog dizajnera Angele Merkel (82s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
+   "type": "playlist",
+   "name": "Kulturni štab",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
+   "follower_count": null,
+   "description": "",
+   "originals": 39,
+   "originals_30min": 19,
+   "avg_original_min": 31,
+   "derivative_ratio": 0,
+   "last_original": "20250925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Kulturni štab #39 - Koliko para toliko filma",
+    "Kulturni štab #38 - Tko je bila Jovanka Broz?",
+    "Kulturni štab #37 - Pobuna protiv Vučićevog režima",
+    "Kulturni štab #36 - Što je nama Bijelo dugme",
+    "Kulturni štab #35 - Afera LGBT kompas",
+    "Kulturni štab #34 - Marija Škaričić",
+    "Kulturni štab #33 - Alternativna glazbena scena u Hrvatskoj i Srbiji",
+    "Kulturni štab #32 - Jugonostalgija"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
+   "type": "playlist",
+   "name": "Press klub Tihomira Dujmovića",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 60,
+   "derivative_ratio": 0,
+   "last_original": "20220925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA (3.12.2020, Z1 TELEVIZIJA)",
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA (Z1 TELEVIZIJA, 10.12. 2020.)",
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA (Z1 TELEVIZIJA, 17.12.2020)",
+    "SPECIJALNA EMISIJA \"PRESS KLUBA TIHOMIRA DUJMOVIĆA\" NA STARU GODINU!",
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA - (Z1 TELEVIZIJA, 07.01.2021)",
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA - BISKUP VLADO KOŠIĆ (Z1 TELEVIZIJA, 14.1.2021)",
+    "PRESS KLUB TIHOMIRA DUJMOVIĆA - ŽELJKA MARKIĆ (Z1 TELEVIZIJA, 21.1.2021)",
+    "\"PRESS KLUB TIHOMIRA DUJMOVIĆA\" (28.1.2021, Z1 TELEVIZIJA)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+   "type": "playlist",
+   "name": "O, tempora!",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+   "follower_count": null,
+   "description": "",
+   "originals": 28,
+   "originals_30min": 9,
+   "avg_original_min": 29,
+   "derivative_ratio": 0.03,
+   "last_original": "20230925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "O, tempora! - Politička korektnost - Matko Marušić i don Mladen Parlov",
+    "O, tempora! - Jordan Peterson i Biblija - Ivo Džeba, Valentino Findrik, fra Ante Vučković",
+    "O, tempora! - Europa i migracije - Ivica Šola i Marita Brčić Kuljiš",
+    "O, tempora! – Seksualizacija djece – Karolina Vidović Krišto, Ivica Šola, don Josip Mužić",
+    "O, tempora! - Kako razumjeti Novi zavjet? - prof. dr. sc. don Marinko Vidović",
+    "O, tempora! - Kako razumjeti Novi zavjet? - prof. dr. sc. don Marinko Vidović",
+    "O, tempora! - Znakovi vremena - don Tonči Matulić",
+    "O, tempora! - Europa i migracije (drugi dio) - Aziz ef. Hasanović, Ivica Šola, fra Anđelko Domazet"
+   ],
+   "sample_derivatives": [
+    "Božićni specijal - O, tempora! - \"Božićni specijal\" - Božić u suvremenoj Europi - Matko Marušić (11 min < prag 15 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
+   "type": "playlist",
+   "name": "Uvjereno",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
+   "follower_count": null,
+   "description": "",
+   "originals": 9,
+   "originals_30min": 9,
+   "avg_original_min": 53,
+   "derivative_ratio": 0.25,
+   "last_original": "20160925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Uvjereno 11.5.2016. - Razgovor s prof.dr. Tomislavom Ivančićem, 2. dio",
+    "Uvjereno - 27.4.2016.  Razgovor s prof.dr. Tomislavom Ivančićem",
+    "Uvjereno 13.4.2016. - Razgovor s fra Ivom Pavićem",
+    "Uvjereno 13.4.2016. - Razgovor s fra Ivom Pavićem",
+    "Uvjereno 30.3.2016. - Slavljenje je poljubac koji javno dajemo Gospodinu",
+    "Uvjereno 15.3.2016. - Muško-ženska komunikacija i ljubav",
+    "Uvjereno 2.3.2016. - Ritam, uloge i mjera života",
+    "Uvjereno  17.2.2016. - Molitva"
+   ],
+   "sample_derivatives": [
+    "Najava - Uvjereno (22s)",
+    "Najava - Uvjereno (23s)",
+    "Uvjereno - najava (22s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+   "type": "playlist",
+   "name": "Prored",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+   "follower_count": null,
+   "description": "",
+   "originals": 3,
+   "originals_30min": 1,
+   "avg_original_min": 23,
+   "derivative_ratio": 0,
+   "last_original": "20240925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Prored - Proleteri s Himalaje",
+    "Prored #2 – Potopljeni",
+    "Prored #3 - Zajednički Vukovar"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "type": "playlist",
+   "name": "Upoznaj Bibliju",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "follower_count": null,
+   "description": "",
+   "originals": 18,
+   "originals_30min": 11,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.05,
+   "last_original": "20220925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Upoznaj Bibliju - Zašto nam je važno poznavati Božju Riječ?",
+    "Upoznaj Bibliju -  Prevođenje Biblije",
+    "Upoznaj Bibliju - Kako zajedno moliti s Abrahamom, Mojsijem, Salomonom, Jobom, Jonom...",
+    "Upoznaj Bibliju - Božje kazne u Bibliji",
+    "Upoznaj Bibliju - Nasilje u Bibliji",
+    "Upoznaj Bibliju - Starost u Bibliji",
+    "Upoznaj Bibliju - Patnja u Bibliji",
+    "Upoznaj Bibliju - Zemlja u Bibliji"
+   ],
+   "sample_derivatives": [
+    "[NAJAVA] Upoznaj Bibliju - četvrtkom u 21:30 (30s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "type": "playlist",
+   "name": "KRISTOV VOJNIK",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "follower_count": null,
+   "description": "PODCAST „KRISTOV VOJNIK“ DONOSI VIŠE OD RAZGOVORA\nKad tišina progovara: Svjedočanstva koja vraćaju vjeru u Živoga Boga",
+   "originals": 10,
+   "originals_30min": 10,
+   "avg_original_min": 60,
+   "derivative_ratio": 0.77,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "KRISTOV VOJNIK 11 - IVICA PULJAK:  Kad se život promijeni iz temelja (14.6.2026.)",
+    "KRISTOV VOJNIK 09  - MISLAV ĐURIN -  Božji plan je uvijek veći od našega! (31.5. 2026 .)",
+    "KRISTOV VOJNIK 08  - DOMAGOJ SOLDO - MOJ SUSRET S BOGOM MIJENJA SVE  (24.5. 2026 .)",
+    "KRISTOV VOJNIK 07  - DARIO PERIĆ - OD BOJIŠTA I PAKLA DROGE DO DUHOVNOG MIRA  (17.5. 2026 .)",
+    "KRISTOV VOJNIK 06  - JOSIP ĆURKOVIĆ - Što se dogodi kada život stavite u Božje ruke?  (10.5. 2026 .)",
+    "KRISTOV VOJNIK 05  - STIPE KIRASIĆ - Hrabrost kao dar Duha Svetoga (3.5. 2026 .)",
+    "KRISTOV VOJNIK 04 - GORAN JUKIĆ - Gospodin me izbavio iz ralja nečastivoga! (26.4.2026.)",
+    "KRISTOV VOJNIK 03 - PETAR ŠIBENIK - Živim i slikam u Kristu! (19.4.2026.)"
+   ],
+   "sample_derivatives": [
+    "JOSIP ĆURKOVIĆ - SVJEDOČANSTVO: \"Čudesna je moć majčine molitve!\" (69s)",
+    "DOMINIK UDOVIČIĆ - SVJEDOČANSTVO: \"Budi kratak i jasan - zavapi, zamoli!\" (34s)",
+    "DOMINIK UDOVIČIĆ - SVJEDOČANSTVO: \"Letak s rasvjetnog stupa odveo me u Šurkovac i promijenio sve!\" (108s)",
+    "IVICA PULJAK - SVJEDOČANSTVO: \"Zlo me je napadalo, ostavljalo me i bez snage i bez glasa!\" (88s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
+   "type": "playlist",
+   "name": "KVARTURA",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
+   "follower_count": null,
+   "description": "",
+   "originals": 21,
+   "originals_30min": 5,
+   "avg_original_min": 29,
+   "derivative_ratio": 0,
+   "last_original": "20260325",
+   "originals_90d": 0,
+   "sample_titles": [
+    "KVARTURA (4.3.2025.)",
+    "KVARTURA (21.1.2025.)",
+    "KVARTURA 13 (17.2.2026.)",
+    "KVARTURA 05 (11.11.2025.)",
+    "KVARTURA 04 (28.10.2025.)",
+    "KVARTURA 03 (14.10.2025.)",
+    "KVARTURA 02 (30.9.2025.)",
+    "KVARTURA 01 (16.09.2025.)"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "type": "playlist",
+   "name": "Ne bojte se!",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "follower_count": null,
+   "description": "",
+   "originals": 26,
+   "originals_30min": 26,
+   "avg_original_min": 59,
+   "derivative_ratio": 0,
+   "last_original": "20220925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Ne bojte se! - S Isusom u patnji i boli",
+    "Ne bojte se! - Upoznaj sebe",
+    "Ne bojte se! - Prihvati sebe",
+    "Ne bojte se! - Zavoli sebe",
+    "Ne bojte se! - Obraćenje i promjena krivih stavova i načina života",
+    "Ne bojte se! - Živi u istini!",
+    "Ne bojte se! - Živi po svojoj savjesti",
+    "Ne bojte se! - Vjeruj u Boga i prihvati svoj križ"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
+   "type": "playlist",
+   "name": "Novo srce",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 47,
+   "derivative_ratio": 0,
+   "last_original": "20260625",
+   "originals_90d": 0,
+   "sample_titles": [
+    "Novo srce - Antica Nada Ćepulić",
+    "Novo srce - o. Nikola Grizelj, OCD",
+    "Novo srce - fra Mislav Lukačević",
+    "Novo srce - Bernardica Miter",
+    "Novo srce - Ana i Dražen Petrović",
+    "Novo srce - Tea Bekavac",
+    "Novo srce - Ivan Karol Villa",
+    "Novo srce - Vikica Šalić, Klub svetog Franje"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
+   "type": "playlist",
+   "name": "Generacija +",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
+   "follower_count": null,
+   "description": "",
+   "originals": 58,
+   "originals_30min": 58,
+   "avg_original_min": 46,
+   "derivative_ratio": 0.03,
+   "last_original": "20260725",
+   "originals_90d": 1,
+   "sample_titles": [
+    "Generacija+ - Mladi danas i izazovi suvremenog doba",
+    "Generacija+ - Jezik pregrizem da ne bi’ opsovao",
+    "Generacija+ - Je li svetost za elitu ili grješnike?",
+    "Generacija+ -  Jesam li ja normalan?",
+    "Generacija+ - Došašće (Sretna Nova godina, ali liturgijska)",
+    "Generacija+ - Povijesni Isus",
+    "Generacija+ - Volim Hrvatsku i ostajem ovdje",
+    "Generacija+ - Tko je stekao prijatelja, našao je blago"
+   ],
+   "sample_derivatives": [
+    "[NAJAVA] Generacija+ - Svake druge subote u 15:55 (46s)",
+    "[NAJAVA] Generacija+ - Original ili kopija? (13.6.2026.) (54s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "type": "playlist",
+   "name": "[Podcast]",
+   "parent_channel": "srednjaHR",
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "follower_count": null,
+   "description": "Podcasti koje vode novinari portala srednja.hr u koje pozivamo zanimljive ljude i pričamo o stvarima koje se tiču obrazovanja i mladih!",
+   "originals": 52,
+   "originals_30min": 50,
+   "avg_original_min": 56,
+   "derivative_ratio": 0.13,
+   "last_original": "20260725",
+   "originals_90d": 1,
+   "sample_titles": [
+    "[PODCAST #76] ﻿Ana Paula Novak | Studentska pravobraniteljica o slučaju Pravnog fakulteta",
+    "[PODCAST #74] Kristian Novak | Ima li nade da djeca ponovno zavole čitanje?",
+    "[PODCAST #73] Stela Rade | Od Justina Biebera do harmonike",
+    "[PODCAST #70] Gordan Kragić | Zaslužuju li studenti veću satnicu?",
+    "[PODCAST #69] Marina Banković | Vršnjačko nasilje, samoozljeđivanje i suicid kod djece i mladih",
+    "[PODCAST #68] Mile Živčić | Kako će izgledati modularna nastava?",
+    "[PODCAST #67] Mirko Planinić | Treba nagraditi ljude koji su izabrali biti profesori",
+    "[PODCAST #66] Iva Dasović | 'Potres je sam po sebi kaotična pojava'"
+   ],
+   "sample_derivatives": [
+    "Jesu li mladi muškarci zanemareni? 🤔#srednjahr #maturanti #maturant (82s)",
+    "Što za tebe znači odlazak u teretanu? 💪🏋️#srednjahr #maturanti #maturant #student #teretana (72s)",
+    "[PODCAST #75] Ivančica Ternjej | “PMF mora ostati izvrstan”: O studentima, STEM-u i društvu (22 min < prag 24 min)",
+    "[PODCAST #72] Petra Kejla | Kako se pravilno brinuti za vaginu? (19 min < prag 24 min)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
+   "type": "playlist",
+   "name": "U pravom licu by Antonela Marušić",
+   "parent_channel": "VIDA",
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
+   "follower_count": null,
+   "description": "",
+   "originals": 41,
+   "originals_30min": 40,
+   "avg_original_min": 48,
+   "derivative_ratio": 0.05,
+   "last_original": "20260924",
+   "originals_90d": 4,
+   "sample_titles": [
+    "U pravom licu# 41 - Maša Kolanović",
+    "U pravom licu #40 - Monika Herceg",
+    "U pravom licu #39 - Sloboda Mićalović",
+    "U pravom licu #38 - Barbi Marković",
+    "U pravom licu #37 - Dino Šaran (Letu štuke)",
+    "U pravom licu #36 - Semezdin Mehmedinović",
+    "U pravom licu #35 - Elemental",
+    "U pravom licu #34 - Vlasta Delimar"
+   ],
+   "sample_derivatives": [
+    "null (nema trajanja)",
+    "null (nema trajanja)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLBgJ7vu-_Rvw",
+   "type": "playlist",
+   "name": "Kako dalje?",
+   "parent_channel": "LaudatoTV",
+   "url": "https://www.youtube.com/playlist?list=PLBgJ7vu-_Rvw",
+   "follower_count": null,
+   "description": "",
+   "originals": 1,
+   "originals_30min": 1,
+   "avg_original_min": 43,
+   "derivative_ratio": 0,
+   "last_original": "20260914",
+   "originals_90d": 1,
+   "sample_titles": [
+    "Kako dalje? - Kako voljeti, a ne kontrolirati? Majke i odrasli sinovi."
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
+   "type": "playlist",
+   "name": "HRVATSKE POVIJESNE ISTINE",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
+   "follower_count": null,
+   "description": "",
+   "originals": 60,
+   "originals_30min": 60,
+   "avg_original_min": 59,
+   "derivative_ratio": 0,
+   "last_original": "20240925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "HRVATSKE POVIJESNE ISTINE 6.5. 2022. ZLATKO HASANBEGOVIĆ i PERO ŠOLA",
+    "HRVATSKE POVIJESNE ISTINE - JOSIP JURČEVIĆ 13.5.2022.",
+    "HRVATSKE POVIJESNE ISTINE - ROMAN LELJAK - 20.5.2022.",
+    "HRVATSKE POVIJESNE ISTINE - DAMIR BOROVČAK - 27.5.2022.",
+    "HRVATSKE POVIJESNE ISTINE 3. 6. 2022. MARIO JAREB, Hrvatski institut za povijest",
+    "HRVATSKE POVIJESNE ISTINE 10.6.2022. HRVATSKO DRUŠTVO POLITIČKIH ZATVORENIKA",
+    "HRVATSKE POVIJESNE ISTINE - 17.6.2022. IGOR VUKIĆ I ZLATKO HASANBEGOVIĆ",
+    "HRVATSKE POVIJESNE ISTINE 24.6.2022. - HRVATSKO DRUŠTVO POLITIČKIH ZATVORENIKA"
+   ],
+   "sample_derivatives": [],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  },
+  {
+   "key": "PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
+   "type": "playlist",
+   "name": "KOLUMNISTIČKI DNEVNIK",
+   "parent_channel": "Z1 Televizija",
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
+   "follower_count": null,
+   "description": "",
+   "originals": 21,
+   "originals_30min": 15,
+   "avg_original_min": 31,
+   "derivative_ratio": 0.05,
+   "last_original": "20240925",
+   "originals_90d": 0,
+   "sample_titles": [
+    "KOLUMNISTIČKI DNEVNIK ep 001-nove tv epizode Pervana i Horvata, provjereno najnovije vijesti dana!",
+    "KOLUMNISTIČKI DNEVNIK 002 (19.1.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 003 (26.1.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 004 (2.2.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 005 (9.2.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 006 (16.2.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 007 (23.2.2024.)",
+    "KOLUMNISTIČKI DNEVNIK 008 (29.3.2024.)"
+   ],
+   "sample_derivatives": [
+    "ŽELJKO PERVAN I MLADEN HORVAT - Upute za pranje i podapiranje! 🤣 (145s)"
+   ],
+   "hints": [
+    {
+     "source": "web-parent-playlists"
+    }
+   ]
+  }
+ ]
+}

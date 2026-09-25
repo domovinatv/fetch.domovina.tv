@@ -1,0 +1,35 @@
+{
+ "key": "PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
+ "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
+ "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+ "playlist_id": "PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
+ "title": "Faks VS posao",
+ "channel": "srednjaHR",
+ "channel_url": "https://www.youtube.com/channel/UCpiWfxrISN7Uae0cfyHyZ-g",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "TCDnIr_2u4k",
+   "title": "Faks VS posao: Kako kombinirati oboje? #srednjahr #podcast",
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  },
+  {
+   "id": "ns1XNz9v6KY",
+   "title": "Faks VS posao: Mijenjaju li ljudi glas kad rade u korisničkoj?",
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  },
+  {
+   "id": "vw0yOEqBoL8",
+   "title": "Faks VS posao: Kako sam korisniku rekao da ima 'prosjeben' kanal",
+   "duration": null,
+   "live_status": null,
+   "upload_date": null
+  }
+ ]
+}

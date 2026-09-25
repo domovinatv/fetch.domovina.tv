@@ -1,0 +1,35 @@
+{
+ "key": "PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+ "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+ "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+ "playlist_id": "PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+ "title": "Prored",
+ "channel": "VIDA",
+ "channel_url": "https://www.youtube.com/channel/UCZGnOswyrNGy2esYmQeYNOQ",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "fbAyn4WODyo",
+   "title": "Prored - Proleteri s Himalaje",
+   "duration": 921,
+   "live_status": null,
+   "upload_date": "20230925"
+  },
+  {
+   "id": "30kATQvMaqQ",
+   "title": "Prored #2 – Potopljeni",
+   "duration": 1901,
+   "live_status": null,
+   "upload_date": "20240925"
+  },
+  {
+   "id": "s3shoViKlio",
+   "title": "Prored #3 - Zajednički Vukovar",
+   "duration": 1258,
+   "live_status": null,
+   "upload_date": "20240925"
+  }
+ ]
+}

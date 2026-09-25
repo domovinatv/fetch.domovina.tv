@@ -20,6 +20,7 @@
  *   triage     metrike + auto-presuda „je li podcast" po trajanjima   (deterministički)
  *   classify   LLM presuda: HR? podcast? tagovi, pravilo za derivate  (LLM, sirovo spremljeno)
  *   apply      registry += prihvaćeni; ledger += SVE presude          (deterministički)
+ *   exact-dates  točan datum zadnjeg originala (1 ne-flat poziv po unosu) → status
  *   activity   watch-state (nightly) → registry `activity` (+ --update-status)
  *   ledger-import presude s razlogom (npr. odbijeni iz web researcha) → ledger
  *   revise-apply  revizija postojećih unosa (--file revisions.json) → status, URL, watch pravila
@@ -174,7 +175,9 @@ function cmdSeed() {
     const source = getArg("--source") || "seed";
     if (!file) throw new Error("seed treba --file <candidates.json>");
     const raw = readJson(path.resolve(file), null);
-    const list = Array.isArray(raw) ? raw : raw?.candidates || [];
+    let list = Array.isArray(raw) ? raw : raw?.candidates || raw?.rejected || [];
+    const filter = getArg("--filter-reason");
+    if (filter) list = list.filter((c) => new RegExp(filter, "i").test(c.reason || ""));
     const seeds = list.filter((c) => c.youtube_url || c.url).map((c) => ({
         url: c.youtube_url || c.url,
         channel_id: c.channel_id || null,
@@ -182,7 +185,10 @@ function cmdSeed() {
         name: c.display_name || c.name || null,
         hint: { tags: c.tags, hosts: c.hosts, parent_channel: c.parent_channel, evidence: c.evidence, source_urls: c.source_urls, confidence: c.confidence, suggested_min_duration_sec: c.suggested_min_duration_sec },
     }));
-    writeJson(path.join(RUN_DIR, "seeds", `${source}.json`), { source, file, at: new Date().toISOString(), seeds });
+    // --force: seed zaobilazi ledger i filtar „podskup kanala" (ručno odabrane playliste,
+    // npr. podcast serije unutar kanala koji je u registryju kao cijeli kanal).
+    const force = hasFlag("--force");
+    writeJson(path.join(RUN_DIR, "seeds", `${source}.json`), { source, file, at: new Date().toISOString(), force, seeds });
     log(`🌱 seed: ${seeds.length} kandidata iz ${file} → runs/${RUN}/seeds/${source}.json`);
 }
 
@@ -251,6 +257,7 @@ function cmdAggregate() {
             const key = c.playlist_id || c.channel_id || normHandleUrl(c.url);
             const t = targets.get(key) || { key, type: c.playlist_id ? "playlist" : "channel", url: c.url, name: c.name, channel_id: c.channel_id, playlist_id: c.playlist_id, sources: [], queries: [], hints: [] };
             if (!t.sources.includes(s.source)) t.sources.push(s.source);
+            if (s.force) t.force = true;
             (t.hints = t.hints || []).push({ source: s.source, ...c.hint });
             targets.set(key, t);
         }
@@ -267,8 +274,8 @@ function cmdAggregate() {
     for (const t of targets.values()) {
         if (known.has(t.key) || (t.url && known.has(normHandleUrl(t.url)))) { skipped.registry++; continue; }
         const parent = t.type === "playlist" && t.channel_id && wholeChannel.get(t.channel_id);
-        if (parent && !["not-podcast", "dead-url"].includes(parent.metadata?.status)) { skipped.subset++; continue; }
-        if (ledgerBlocks(ledger[t.key])) { skipped.ledger++; continue; }
+        if (!t.force && parent && !["not-podcast", "dead-url"].includes(parent.metadata?.status)) { skipped.subset++; continue; }
+        if (!t.force && ledgerBlocks(ledger[t.key])) { skipped.ledger++; continue; }
         fresh.push(t);
     }
     writeJson(path.join(RUN_DIR, "targets.json"), fresh);
@@ -373,7 +380,10 @@ function cmdTriage() {
         if (p.error) { rows.push({ key: t.key, name: t.name, url: t.url, auto: "error", error: p.error }); continue; }
         // Seed bez ID-a dobije pravi ključ tek u probeu → ponovni dedupe.
         const realKey = p.playlist_id || p.channel_id || t.key;
-        if (known.has(realKey) || seenKeys.has(realKey)) continue;
+        if (seenKeys.has(realKey)) continue;
+        // Ne izbacuj ono što je u međuvremenu ušlo u registry (npr. apply istog runa) —
+        // triage.json je artefakt prolaza i ponovni triage ga ne smije osiromašiti.
+        const inRegistry = known.has(realKey);
         seenKeys.add(realKey);
         const hintMin = (t.hints || []).map((h) => h.suggested_min_duration_sec).find((x) => x > 0);
         const m = metricsFor(p.videos, hintMin ? { min_duration_sec: hintMin } : {});
@@ -382,9 +392,9 @@ function cmdTriage() {
             name: p.playlist_id ? p.title : (p.channel || p.title || t.name),
             parent_channel: p.playlist_id ? p.channel : null,
             url: p.playlist_id ? `https://www.youtube.com/playlist?list=${p.playlist_id}` : `https://www.youtube.com/channel/${p.channel_id}/videos`,
-            channel_id: p.channel_id, playlist_id: p.playlist_id, follower_count: p.follower_count,
+            channel_id: p.channel_id, playlist_id: p.playlist_id, follower_count: p.follower_count, streams_count: p.streams_count || 0,
             description: p.description, sources: t.sources, queries: t.queries, hints: t.hints || [],
-            auto: autoVerdict(m), ...m,
+            auto: autoVerdict(m), ...(inRegistry ? { in_registry: true } : {}), ...m,
         });
     }
     writeJson(path.join(RUN_DIR, "triage.json"), rows);
@@ -512,10 +522,12 @@ function cmdApply() {
         const verdict = c ? c.verdict : ["not_podcast", "not_hr"].includes(r.auto) ? r.auto : null;
         if (!verdict) continue;                                   // čeka LLM presudu
         judged[verdict] = (judged[verdict] || 0) + 1;
+        const prev = ledger[r.key] || {};
         ledger[r.key] = {
+            ...(prev.slug ? { slug: prev.slug } : {}), ...(prev.merged_into ? { merged_into: prev.merged_into } : {}),
             name: r.name, url: r.url, type: r.type, verdict,
             reason: c ? c.reason : r.auto === "not_hr" ? "auto: većina naslova ćirilicom" : `auto: ${r.originals_30min} originala ≥30 min od ${r.sampled}, prosjek ${r.avg_original_min} min`,
-            judged_at: today(), run: RUN, by: c ? c.classifier : "triage",
+            judged_at: prev.run === RUN && prev.judged_at ? prev.judged_at : today(), run: RUN, by: c ? c.classifier : "triage",
             metrics: { sampled: r.sampled, originals_30min: r.originals_30min, avg_original_min: r.avg_original_min, last_original: r.last_original, follower_count: r.follower_count },
         };
         if (verdict !== "podcast_hr" || known.has(r.key)) continue;
@@ -561,6 +573,18 @@ function cmdApply() {
         reg.podcasts.push(entry);
         slugs.add(slug); known.add(r.key);
         added.push(`${slug} (${r.type}, ${r.originals_30min} ep, zadnji ${r.last_original || "?"})`);
+    }
+
+    // Kanal koji objavljuje i uživo → watch mora čitati i /streams (inače ga vidi kao uspavanog).
+    for (const r of triage) {
+        const slug = ledger[r.key]?.verdict === "podcast_hr" && !ledger[r.key]?.merged_into ? ledger[r.key]?.slug : null;
+        if (!slug || r.type !== "channel" || !r.streams_count || !r.channel_id) continue;
+        const base = `https://www.youtube.com/channel/${r.channel_id}`;
+        const rule = rules[slug] || (rules[slug] = { from: `${source} (streams)` });
+        rule.source_url = rule.source_url || `${base}/videos`;
+        const extra = new Set(rule.extra_source_urls || []);
+        extra.add(`${base}/streams`);
+        rule.extra_source_urls = [...extra];
     }
 
     // Statistika upita kroz prolaze: koliko kanala, koliko ih je završilo kao podcast_hr.
@@ -783,6 +807,69 @@ function cmdLedgerImport() {
     if (!DRY_RUN) writeJson(LEDGER, ledger);
 }
 
+
+// ─── exact-dates (točan datum zadnjeg originala) ───────────────────
+//
+// Flat liste daju približne datume („prije 3 godine" → danas − 3 god.), pa je
+// Big Podcast (zadnja epizoda 14.12.2022.) ispao kao 2023-09. Status aktivno/
+// uspavano ovisi o tom datumu, zato za svaki nepraćeni unos jedan ne-flat poziv
+// na najnoviji original iz watch-statea. Rezultat: metadata.last_episode_date.
+// Ponavlja se samo za unose čiji je najnoviji original promijenjen.
+
+async function cmdExactDates() {
+    const reg = readJson(REGISTRY);
+    const st = readJson(WATCH_STATE, null);
+    if (!st) throw new Error(`nema ${WATCH_STATE} — pokreni prvo automatic/watch_candidates.js`);
+    const jobs = [];
+    for (const p of reg.podcasts) {
+        if (p.tracking?.enabled === true) continue;
+        const ch = st.channels[p.slug];
+        if (!ch) continue;
+        const orig = Object.entries(ch.seen).filter(([, v]) => v.cls === "original");
+        if (!orig.length) continue;
+        const maxApprox = orig.map(([, v]) => v.upload_date || "").sort().pop();
+        const [id] = orig.find(([, v]) => (v.upload_date || "") === maxApprox);   // prvi u redoslijedu liste = najnoviji
+        // Snimke livestreamova (/streams) u flat listi nemaju ni približni datum — uzmi i
+        // prva dva takva, pa pobjeđuje najnoviji točan datum.
+        const ids = [id, ...orig.filter(([, v]) => !v.upload_date).slice(0, 2).map(([k]) => k)].filter((x, i, a) => a.indexOf(x) === i);
+        if (p.metadata?.last_episode_video && ids.includes(p.metadata.last_episode_video) && p.metadata?.last_episode_date && !p.metadata?.last_episode_date_approx && !hasFlag("--all")) continue;
+        jobs.push({ p, ids, approx: maxApprox || null, approxId: id });
+    }
+    log(`📅 exact-dates: ${jobs.length} unosa`);
+    const changes = [];
+    let failed = 0, antiBot = 0;
+    await pool(jobs, CONCURRENCY, async ({ p, ids, approx, approxId }) => {
+        let d = null, id = null, exact = true;
+        for (const x of ids) {
+            if (antiBot >= 5) break;                              // YouTube nas je označio — ne tuci dalje
+            const r = await runYtdlp(["--skip-download", "--no-warnings", "--print", "%(upload_date)s", `https://youtu.be/${x}`], 60000);
+            const v = r.out.trim();
+            if (/^\d{8}$/.test(v)) { if (!d || v > d) { d = v; id = x; } }
+            else if (/not a bot/i.test(r.err)) antiBot++;
+        }
+        const known = (p.metadata?.last_episode_date || "").replace(/-/g, "");
+        if (!d) {
+            failed++;
+            // Bez točnog datuma: približni vrijedi samo ako je NOVIJI od zapisanog (inače bi
+            // „prije 3 godine" pregazio točan datum).
+            if (!approx || approx <= known) return;
+            d = approx; id = approxId; exact = false;
+        }
+        const prevStatus = p.metadata?.status;
+        p.metadata = { ...(p.metadata || {}), last_episode: ym(d), last_episode_date: `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`, last_episode_video: id };
+        if (exact) delete p.metadata.last_episode_date_approx; else p.metadata.last_episode_date_approx = true;
+        if (["active", "active-slowing", "inactive", "unknown"].includes(prevStatus || "unknown")) {
+            const next = statusFrom(d);
+            if (next !== prevStatus) { p.metadata.status = next; changes.push(`${p.slug}: ${prevStatus} → ${next} (${p.metadata.last_episode_date})`); }
+        }
+    });
+    log(`   ${changes.length} promjena statusa, ${failed} bez točnog datuma${antiBot ? ` (⚠️  ${antiBot}× YouTube anti-bot — ponovi kasnije ili kroz --proxy/--via-iphone)` : ""}`);
+    for (const c of changes) log(`   ~ ${c}`);
+    if (DRY_RUN) return;
+    fs.writeFileSync(REGISTRY, JSON.stringify(reg, null, 2) + "\n");
+    regenerateViews();
+}
+
 // ─── main ──────────────────────────────────────────────────────────
 
 async function main() {
@@ -798,6 +885,7 @@ async function main() {
         case "classify": return cmdClassify();
         case "apply": return cmdApply();
         case "activity": return cmdActivity();
+        case "exact-dates": return cmdExactDates();
         case "revise-apply": return cmdReviseApply();
         case "all":
             await cmdSweep(); await cmdPodcastsTab(); cmdAggregate(); await cmdProbe(); cmdTriage(); cmdClassify();

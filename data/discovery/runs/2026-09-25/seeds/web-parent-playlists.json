@@ -1,0 +1,365 @@
+{
+ "source": "web-parent-playlists",
+ "file": "data/_raw_research/registry_iteration_2026-09-24/web/rejected.json",
+ "at": "2026-09-25T10:08:03.362Z",
+ "force": true,
+ "seeds": [
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL3IKH0WTXqSoLthqIPF3A_6nC40YxQSYu",
+   "channel_id": "UCoC_vH7Vp_atyV2AQCCKlZg",
+   "playlist_id": "PL3IKH0WTXqSoLthqIPF3A_6nC40YxQSYu",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
+   "channel_id": "UCoC_vH7Vp_atyV2AQCCKlZg",
+   "playlist_id": "PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "channel_id": "UCSWkbfJTDKblBgAQJlEuWig",
+   "playlist_id": "PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fez4JSSWVA-urCajwDmeLO",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_fez4JSSWVA-urCajwDmeLO",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpXGp1xf8rFyP4Bxq7p9_Y-",
+   "channel_id": "UCSWkbfJTDKblBgAQJlEuWig",
+   "playlist_id": "PLFPspjM9PmgpXGp1xf8rFyP4Bxq7p9_Y-",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTPx9zm7cJ5mvGtcrx1b7pu",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqTPx9zm7cJ5mvGtcrx1b7pu",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEHIhuBmi7jmyMfOmLF9FZYO",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEHIhuBmi7jmyMfOmLF9FZYO",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLbuQEruP__NI",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLbuQEruP__NI",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEER4aEYmAcn0bLmaMaQOIJA",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEER4aEYmAcn0bLmaMaQOIJA",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3Qfc3YAlqed2SCcXtjiuNF",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig3Qfc3YAlqed2SCcXtjiuNF",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1Bkmxt71OLn5QvMqIp8y48",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig1Bkmxt71OLn5QvMqIp8y48",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1f77j36a9gS52Z1ts_jj1F",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig1f77j36a9gS52Z1ts_jj1F",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_f-oeYvQLACUzDCwrCDbYI9",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_f-oeYvQLACUzDCwrCDbYI9",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "channel_id": "UCpiWfxrISN7Uae0cfyHyZ-g",
+   "playlist_id": "PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
+   "channel_id": "UCZGnOswyrNGy2esYmQeYNOQ",
+   "playlist_id": "PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLBgJ7vu-_Rvw",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLBgJ7vu-_Rvw",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_e6GlFwExf9TvSLUMXRwXFS",
+   "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+   "playlist_id": "PLgrvM2s1LQ_e6GlFwExf9TvSLUMXRwXFS",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTWmF6x-x7o7WUobljOegF1",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqTWmF6x-x7o7WUobljOegF1",
+   "name": null,
+   "hint": {}
+  },
+  {
+   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
+   "channel_id": "UCuLBPhI5rx8yrCPafw2v3Aw",
+   "playlist_id": "PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
+   "name": null,
+   "hint": {}
+  }
+ ]
+}

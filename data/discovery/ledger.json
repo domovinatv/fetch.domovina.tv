@@ -4995,12 +4995,18 @@
   "name": "50 MINUTA",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=9]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Autorski razgovorni talk show na hrvatskom, politička/društvena tematika, redovite epizode preko 50 min.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 13,
+   "originals_30min": 9,
+   "avg_original_min": 51,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "PLr703DZI18XHJ92z9y08fxhFr7fTnqtQh": {
   "name": "SVE OVO JA | BLJESAK PODCAST",
@@ -5061,12 +5067,18 @@
   "name": "Iza sjene by Gospodin Nitko",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig26Xe-EF-N1VhNmssAobwwC",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "too_small",
+  "reason": "Samo 1 objavljena epizoda, nedovoljno za katalogizaciju kao aktivan podcast.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 1,
+   "avg_original_min": 44,
+   "last_original": "20230925",
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kNPGCMl25DiOOfJlRmk6hJg": {
   "name": "Riječ i život | HRT",
@@ -5105,12 +5117,18 @@
   "name": "Iza politike",
   "url": "https://www.youtube.com/playlist?list=PL3IKH0WTXqSoLthqIPF3A_6nC40YxQSYu",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (most-hrvatska); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Most"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLjcSZRsaxuw5Y4rFnfZRUWy1s2ofTDrmB": {
   "name": "FOKUS",
@@ -5127,12 +5145,18 @@
   "name": "RENDEZVOUS",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=182]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Autorski talk show Ratka Martinovića, razgovori s gostima na hrvatskom, dugoformatne epizode.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 31,
+   "avg_original_min": 54,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kNFUM_Xm7wJhN1FiAf0sGht": {
   "name": "U fokusu | HRT",
@@ -5160,12 +5184,18 @@
   "name": "Prosudbe",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=63]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Razgovorna/panel emisija s gostima o društvenim i vjerskim temama na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 59,
+   "avg_original_min": 51,
+   "last_original": "20200925",
+   "follower_count": null
+  }
  },
  "PLCbPTnlOFH9mD4GY1L9p3eSo0_paok12Q": {
   "name": "27 STARS: hrvatska perspEUktiva",
@@ -5259,12 +5289,18 @@
   "name": "MOST TV",
   "url": "https://www.youtube.com/playlist?list=PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (most-hrvatska); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=12]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Most"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s političarima i javnim osobama na hrvatskom, tematski vezani uz stranku Most.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 22,
+   "originals_30min": 12,
+   "avg_original_min": 35,
+   "last_original": "20200925",
+   "follower_count": null
+  }
  },
  "PLFSB3SakI85fiNSlYU1S3Hlr98W-QzTEH": {
   "name": "Zastupnički klub",
@@ -5303,34 +5339,52 @@
   "name": "Poslovni svijet s Ilijom Jandrićem",
   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpIU71mnQk4e936lak3jcpd",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (poslovni-dnevnik-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=67]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Poslovni dnevnik"
+  "verdict": "podcast_hr",
+  "reason": "Poslovni intervjui na hrvatskom, aktivan format s jasnim voditeljem.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 56,
+   "avg_original_min": 52,
+   "last_original": "20260919",
+   "follower_count": null
+  }
  },
  "PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd": {
   "name": "👾 Futurizam",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFMGs0uuHsY6pGA3lvLRVPd",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4": {
   "name": "VRUĆI KRUMPIR",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=29]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Dnevna kontakt emisija/talk show na hrvatskom s jasnim voditeljem.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 31,
+   "originals_30min": 29,
+   "avg_original_min": 58,
+   "last_original": "20250925",
+   "follower_count": null
+  }
  },
  "PLVuzj4Bsq-ezMYhpqPMsvIRbvXkYBxpwn": {
   "name": "Nogometne ćakule",
@@ -5347,12 +5401,18 @@
   "name": "PERVANOV DNEVNIK",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTNAIgxsU8tZpxTsKdgKT3L",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=40]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Monolog-satirični dnevnik na hrvatskom s komentarima aktualnih zbivanja.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 6,
+   "avg_original_min": 28,
+   "last_original": "20220925",
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kOY-AhAL7LLe3crhWNlj4eS": {
   "name": "Prometej | HRT",
@@ -5413,12 +5473,18 @@
   "name": "Srodne duše",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2azUfP4CezGaTJ3f7_MGCR",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=9]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "uncertain",
+  "reason": "Voditelj je slovenski glazbenik, gosti mješoviti hrvatski/slovenski, jezik i nacionalna pripadnost formata nisu jasni iz podataka.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 10,
+   "originals_30min": 9,
+   "avg_original_min": 41,
+   "last_original": "20230925",
+   "follower_count": null
+  }
  },
  "PLCazT8AcMSrKLPL1uDjH3zRyVzwlEbvyD": {
   "name": "Na terenu s Borisom Miševićem",
@@ -5435,12 +5501,18 @@
   "name": "Živa Riječ",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fez4JSSWVA-urCajwDmeLO",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kPvBVeyO2-dk7KqTb5zCsKa": {
   "name": "Prva crta | HRT",
@@ -5490,12 +5562,18 @@
   "name": "Hrvatska pamet Hrvatskoj",
   "url": "https://www.youtube.com/playlist?list=PLFPspjM9PmgpXGp1xf8rFyP4Bxq7p9_Y-",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (poslovni-dnevnik-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Poslovni dnevnik"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLN1nC4b616WIhldIcPamPWpWb3FNUrIiD": {
   "name": "Priče sa Zapadne obale",
@@ -5545,12 +5623,18 @@
   "name": "Kontrapovijest by Hrvoje Klasić",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3dihHj3ty_CX36mU02v9gt",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=24]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "podcast_hr",
+  "reason": "Povijesni razgovorni podcast na hrvatskom, aktivan, s jasnim voditeljem-povjesničarem.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 23,
+   "avg_original_min": 29,
+   "last_original": "20260913",
+   "follower_count": null
+  }
  },
  "PLwkAZA40UDUIDcpIzIF3zJ44dARz7J6jp": {
   "name": "Politički intervju tjedna",
@@ -5666,12 +5750,18 @@
   "name": "REDAKCIJA PODCAST",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEH6Y1saXPcOyRtI2wZ0c2Z_",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=22]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "podcast_hr",
+  "reason": "Podcast redakcije o temama obrazovanja i mladih na hrvatskom, aktivan.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 26,
+   "originals_30min": 22,
+   "avg_original_min": 57,
+   "last_original": "20260825",
+   "follower_count": null
+  }
  },
  "PLp7Pq8yQ1XRgLHs1tR5bGl2ilJgfOlkEf": {
   "name": "INTERVJU",
@@ -5710,12 +5800,18 @@
   "name": "RIJEČ NA RIJEČ",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTPx9zm7cJ5mvGtcrx1b7pu",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 41, prosjek 27 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 41,
+   "originals_30min": 3,
+   "avg_original_min": 27,
+   "last_original": "20260525",
+   "follower_count": null
+  }
  },
  "PLqNhgfBUwU2yM7BkTsUcr5JB3zkOXLcjg": {
   "name": "Pregled tjedna",
@@ -5732,12 +5828,18 @@
   "name": "Zavidavanje by Lado Tomičić",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig13LI8ocbyHLxAYiMfW4qqi",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=168]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "podcast_hr",
+  "reason": "Autorski razgovorni podcast s gostima iz kulture na hrvatskom, vrlo aktivan.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 59,
+   "avg_original_min": 65,
+   "last_original": "20260922",
+   "follower_count": null
+  }
  },
  "PL_VLZbAitXVkkZ9SUyyeftipDCpsGdEki": {
   "name": "GURAJ DO KRAJA (Svakog ponedjeljka)",
@@ -5875,12 +5977,18 @@
   "name": "TON-SLIKA-POLITIKA",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqRzFOw1302SKn9iE4vdVAln",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=26]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Autorski talk show s dugim razgovorima o povijesti i politici na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 18,
+   "avg_original_min": 83,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kOBznHZk8E0H4Xbu6E3FPVo": {
   "name": "Ljudi vjere | HRT",
@@ -5941,12 +6049,18 @@
   "name": "Financijska pismenost",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEHIhuBmi7jmyMfOmLF9FZYO",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 10, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 10,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLA6KJRpQR6g4vZjvzgWIOzmbGr7OMEtVS": {
   "name": "Podcast series",
@@ -5963,12 +6077,18 @@
   "name": "NOTA BENE",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=64]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s glazbenicima i javnim osobama na hrvatskom, katolički medij.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 38,
+   "avg_original_min": 51,
+   "last_original": "20250925",
+   "follower_count": null
+  }
  },
  "PLqNhgfBUwU2whUxqp1DohUhDb1hOJz9kd": {
   "name": "Glas Javnosti",
@@ -5985,12 +6105,18 @@
   "name": "BRANITELJI DANAS",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ7sNMJoYG1okxruMjF-UOp",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "too_small",
+  "reason": "Samo 4 originalne epizode, nedovoljno za katalogizaciju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 6,
+   "originals_30min": 1,
+   "avg_original_min": 27,
+   "last_original": "20260325",
+   "follower_count": null
+  }
  },
  "PLuEWODEWd3kNN_tJm8L8I-hdBG9omhRli": {
   "name": "Jedno djelo | HRT",
@@ -6040,12 +6166,18 @@
   "name": "Intervju",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ez0vlQHjdBw72ZX1y4W3iM",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "too_small",
+  "reason": "Samo 4 originalne epizode, nedovoljno za katalogizaciju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 2,
+   "avg_original_min": 34,
+   "last_original": "20260725",
+   "follower_count": null
+  }
  },
  "PLwkAZA40UDUKKUdDEU2LQaasFhv1SRhDD": {
   "name": "Megafon xyZ",
@@ -6117,12 +6249,18 @@
   "name": "SAT ZA ZDRAVLJE",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=35]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s liječnicima o zdravstvenim temama na hrvatskom, redovit format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 35,
+   "originals_30min": 35,
+   "avg_original_min": 47,
+   "last_original": "20260425",
+   "follower_count": null
+  }
  },
  "PLwkAZA40UDUIDvomEJHz1jaF5Zn_l9zOZ": {
   "name": "TRAPAVICA",
@@ -6150,23 +6288,35 @@
   "name": "Čovjek prije svega",
   "url": "https://www.youtube.com/playlist?list=PLbuQEruP__NI",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "too_small",
+  "reason": "Samo 1 epizoda, nedovoljno za katalogizaciju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 1,
+   "avg_original_min": 37,
+   "last_original": "20260920",
+   "follower_count": null
+  }
  },
  "PL_nOz1dDYNEER4aEYmAcn0bLmaMaQOIJA": {
   "name": "VOX",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEER4aEYmAcn0bLmaMaQOIJA",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 36, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 36,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLefijogcSjGK9VoZLy3r0FI7Sl8eVPxBY": {
   "name": "Škola kuhanja by The Outlaw Chef",
@@ -6293,12 +6443,18 @@
   "name": "DOGMATICA 2020./2021.",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=22]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s političarima i stručnjacima na hrvatskom tijekom pandemije, jasan podcast format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 23,
+   "originals_30min": 22,
+   "avg_original_min": 57,
+   "last_original": "20210925",
+   "follower_count": null
+  }
  },
  "PLCazT8AcMSrIJjF2VzhBWWu7QjIPOFK4L": {
   "name": "Ideje na stolu",
@@ -6381,12 +6537,18 @@
   "name": "ZONA ZAGREB",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=17]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Autorski podcast o Zagrebu s jasnim voditeljem, redovite epizode na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 33,
+   "originals_30min": 17,
+   "avg_original_min": 85,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "UCMqsXBHMVBTKwjpyb-1NyRA": {
   "name": "UCMqsXBHMVBTKwjpyb-1NyRA",
@@ -6513,12 +6675,18 @@
   "name": "Paragraf",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig3Qfc3YAlqed2SCcXtjiuNF",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 57, prosjek 21 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 57,
+   "originals_30min": 3,
+   "avg_original_min": 21,
+   "last_original": "20260922",
+   "follower_count": null
+  }
  },
  "PL03gJa93ZRUY6D3jDfFaQY1KkzqKwwmqc": {
   "name": "Start",
@@ -6546,23 +6714,35 @@
   "name": "Pola sata",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1Bkmxt71OLn5QvMqIp8y48",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 25 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 25,
+   "last_original": "20240925",
+   "follower_count": null
+  }
  },
  "PLoYQojDUdig1zx05X3q48ndA77dpGbnZr": {
   "name": "Kulturni štab",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1zx05X3q48ndA77dpGbnZr",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=19]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "podcast_hr",
+  "reason": "Razgovorni podcast o kulturi i (jugo)povijesti na hrvatskom, brojčano označene epizode.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 39,
+   "originals_30min": 19,
+   "avg_original_min": 31,
+   "last_original": "20250925",
+   "follower_count": null
+  }
  },
  "PLYi3OWbSIzAs": {
   "name": "Apsurdi.hr",
@@ -6590,12 +6770,18 @@
   "name": "Faks VS posao",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEHJZqF93pSnyz2o-EadZ-Or",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 3, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PL_VLZbAitXVknXZV0bHLZOKpD1Uc0SHnF": {
   "name": "Bez stigme (Svaki četvrtak)",
@@ -6645,12 +6831,18 @@
   "name": "Press klub Tihomira Dujmovića",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqQeBCadytk1DD8rlWApnImf",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=188]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Autorski talk show s političkim i vjerskim gostima na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 60,
+   "avg_original_min": 60,
+   "last_original": "20220925",
+   "follower_count": null
+  }
  },
  "PLM0KutNw_HucBDdXSxak3GZHuS0vjmxRe": {
   "name": "VIDEOINTERVJU",
@@ -6689,12 +6881,18 @@
   "name": "O, tempora!",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=9]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Panel-razgovori o teološkim i filozofskim temama na hrvatskom s više gostiju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 29,
+   "originals_30min": 9,
+   "avg_original_min": 29,
+   "last_original": "20230925",
+   "follower_count": null
+  }
  },
  "PLJSey6incgRqvp4_HkLC9ihKsg3b_QtiO": {
   "name": "EU megafon",
@@ -6722,12 +6920,18 @@
   "name": "Uvjereno",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=9]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s teolozima/svećenicima na hrvatskom, stariji ali jasan podcast format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 12,
+   "originals_30min": 9,
+   "avg_original_min": 53,
+   "last_original": "20160925",
+   "follower_count": null
+  }
  },
  "PL4ygmj--jCsMSTs3ggyNawzXhusiKgApL": {
   "name": "Q2B",
@@ -6810,12 +7014,18 @@
   "name": "Prored",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig2N5qqnrX9IjmkKOmFvwNip",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "too_small",
+  "reason": "Samo 3 epizode, nedovoljno za katalogizaciju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 1,
+   "avg_original_min": 23,
+   "last_original": "20240925",
+   "follower_count": null
+  }
  },
  "PL279H2ix-v5WIOZwsuoZr5nS4FhfOcS2S": {
   "name": "FORBES Hrvatska",
@@ -6843,23 +7053,35 @@
   "name": "Upoznaj Bibliju",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fOiFlRpZ1qFHelMqPMd7gK",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=11]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "not_podcast",
+  "reason": "Tematska biblijska predavanja/kateheza bez vidljivog sugovornika, nije razgovorni format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 19,
+   "originals_30min": 11,
+   "avg_original_min": 31,
+   "last_original": "20220925",
+   "follower_count": null
+  }
  },
  "PLoYQojDUdig1f77j36a9gS52Z1ts_jj1F": {
   "name": "VIDA sedmica",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig1f77j36a9gS52Z1ts_jj1F",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLVDKMx1rtcg9Pb5elmWj9vB3eNaX_YvC8": {
   "name": "Halo velečasni",
@@ -6876,12 +7098,18 @@
   "name": "KRISTOV VOJNIK",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqR1ESxSquBH9jJRof3__J8s",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=10]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori i osobna svjedočanstva na hrvatskom, jasan podcast format s gostima.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 43,
+   "originals_30min": 10,
+   "avg_original_min": 60,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "PLLcGeVtnXMIY": {
   "name": "U SRŽI",
@@ -7019,23 +7247,35 @@
   "name": "KVARTURA",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTle8LdB-Db99ED4Kfpy8hn",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "uncertain",
+  "reason": "Nedovoljno podataka (nema opisa, gostiju ni sadržajnih naznaka) za odluku o formatu.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 21,
+   "originals_30min": 5,
+   "avg_original_min": 29,
+   "last_original": "20260325",
+   "follower_count": null
+  }
  },
  "PLgrvM2s1LQ_f-oeYvQLACUzDCwrCDbYI9": {
   "name": "Egzamen - ispit svjesnosti",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_f-oeYvQLACUzDCwrCDbYI9",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 17 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20260924",
+   "follower_count": null
+  }
  },
  "PLi33OBgeCLNAgz-s3LT-hR7uUKtO-gOxQ": {
   "name": "U krevetu s...",
@@ -7118,12 +7358,18 @@
   "name": "Ne bojte se!",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cMFZuIazZZKadZGGXM7Gc7",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=26]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "not_podcast",
+  "reason": "Tematska kateheza/propovjedni ciklus bez sugovornika, monolog nalik propovijedi.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 26,
+   "originals_30min": 26,
+   "avg_original_min": 59,
+   "last_original": "20220925",
+   "follower_count": null
+  }
  },
  "PL4ygmj--jCsPXK9c2vIP-cxoGY2mX5G_h": {
   "name": "Drugim očima",
@@ -7140,23 +7386,35 @@
   "name": "Novo srce",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=152]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori-svjedočanstva s imenovanim gostima na hrvatskom, redovit format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 60,
+   "avg_original_min": 47,
+   "last_original": "20260625",
+   "follower_count": null
+  }
  },
  "PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj": {
   "name": "Generacija +",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=59]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "podcast_hr",
+  "reason": "Razgovorna emisija za mlade na katoličke i životne teme, na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 58,
+   "avg_original_min": 46,
+   "last_original": "20260725",
+   "follower_count": null
+  }
  },
  "PLaAb2tpW-f6w": {
   "name": "IZVAN PROTOKOLA S TIHOMIROM DUJMOVIĆEM",
@@ -7206,12 +7464,18 @@
   "name": "[Kako si?]",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEFmGFEBiPqmwkTD9AsAOQpj",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 17 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20200925",
+   "follower_count": null
+  }
  },
  "PL_VLZbAitXVkeiq70Mktrv2m7nVuQOdTB": {
   "name": "LEĐA O LEĐA",
@@ -7239,12 +7503,20 @@
   "name": "[Podcast]",
   "url": "https://www.youtube.com/playlist?list=PL_nOz1dDYNEEq304taMXo4Ttu5c91mM70",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (srednja-hr-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=63]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "srednjaHR"
+  "verdict": "podcast_hr",
+  "reason": "Podcast novinara srednja.hr s gostima o obrazovanju i mladima, aktivan.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 50,
+   "avg_original_min": 56,
+   "last_original": "20260725",
+   "follower_count": null
+  },
+  "slug": "srednja-hr-podcast",
+  "merged_into": "srednja-hr-podcast"
  },
  "PLM0KutNw_Hue9Afb8VVUX8NTNwBAgTtAz": {
   "name": "Intervju",
@@ -7338,12 +7610,18 @@
   "name": "U pravom licu by Antonela Marušić",
   "url": "https://www.youtube.com/playlist?list=PLoYQojDUdig0zntHKSZtQnsleQThdyEsx",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (vida-podcast); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=40]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "VIDA"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s osobama iz kulture na hrvatskom, vrlo aktivan format s voditeljicom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 43,
+   "originals_30min": 40,
+   "avg_original_min": 48,
+   "last_original": "20260924",
+   "follower_count": null
+  }
  },
  "PLjcIttKD20rzv5ldh9V66yzsT_I14ngvn": {
   "name": "HDTV 📺❤️💙",
@@ -7371,12 +7649,18 @@
   "name": "Kako dalje?",
   "url": "https://www.youtube.com/playlist?list=PLBgJ7vu-_Rvw",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "too_small",
+  "reason": "Samo 1 epizoda, nedovoljno za katalogizaciju.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 1,
+   "avg_original_min": 43,
+   "last_original": "20260914",
+   "follower_count": null
+  }
  },
  "PLCbPTnlOFH9lTRvpGtWOXXENQdvoHueX0": {
   "name": "Alumni Talks",
@@ -7426,12 +7710,18 @@
   "name": "HRVATSKE POVIJESNE ISTINE",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqSmODAhcBGjeMxNfMH1oY7x",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=88]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Razgovori s povjesničarima o hrvatskoj povijesti, jasan podcast/talk show format.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 60,
+   "avg_original_min": 59,
+   "last_original": "20240925",
+   "follower_count": null
+  }
  },
  "PLtkTKfgc4b4WGrJNQfG1U0VRj-mL20JIJ": {
   "name": "Idemo dalje",
@@ -7448,12 +7738,18 @@
   "name": "Razlog nade",
   "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_e6GlFwExf9TvSLUMXRwXFS",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (laudato-tv); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "LaudatoTV"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 17 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20240925",
+   "follower_count": null
+  }
  },
  "UCx_fGa-Ls5QA7Jc-NugWw3A": {
   "name": "UCx_fGa-Ls5QA7Jc-NugWw3A",
@@ -7492,12 +7788,18 @@
   "name": "ŽELJKO PERVAN",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqTWmF6x-x7o7WUobljOegF1",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 5, prosjek 0 min",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "triage",
+  "metrics": {
+   "sampled": 5,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
  },
  "PLi33OBgeCLNAqTl9VcOqB3U6TESi-UkN3": {
   "name": "Popričale smo...",
@@ -7547,12 +7849,18 @@
   "name": "KOLUMNISTIČKI DNEVNIK",
   "url": "https://www.youtube.com/playlist?list=PLHtC9C5-dlqS3ghEPtptHhAghC2oihd7C",
   "type": "playlist",
-  "verdict": "institutional",
-  "reason": "roditeljski kanal već u registryju kao cijeli kanal (z1-televizija); kandidat za split u playlist-unos ako se kanal ikad prati [long_all=15]",
-  "judged_at": "2026-09-24",
-  "run": "2026-09-24",
-  "by": "web-research-agent",
-  "parent_channel": "Z1 Televizija"
+  "verdict": "podcast_hr",
+  "reason": "Satirično-komentatorski dnevnik dvojice voditelja na hrvatskom.",
+  "judged_at": "2026-09-25",
+  "run": "2026-09-25",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 22,
+   "originals_30min": 15,
+   "avg_original_min": 31,
+   "last_original": "20240925",
+   "follower_count": null
+  }
  },
  "PLReBdy6RFj2_dBsxROX-t56fP0pHXf8ZL": {
   "name": "Misao svijeta",
@@ -10885,6 +11193,7 @@
   }
  },
  "UC081faKTKatWEEMrPtyE_Og": {
+  "slug": "poslovnifm",
   "name": "poslovniFM",
   "url": "https://www.youtube.com/channel/UC081faKTKatWEEMrPtyE_Og/videos",
   "type": "channel",
@@ -10899,10 +11208,10 @@
    "avg_original_min": 41,
    "last_original": "20260924",
    "follower_count": 54
-  },
-  "slug": "poslovnifm"
+  }
  },
  "UCnTnTM4s4BvBEO5wOBY_lsg": {
+  "slug": "industrytalks",
   "name": "Industry Talks",
   "url": "https://www.youtube.com/channel/UCnTnTM4s4BvBEO5wOBY_lsg/videos",
   "type": "channel",
@@ -10917,8 +11226,7 @@
    "avg_original_min": 62,
    "last_original": "20230925",
    "follower_count": 345
-  },
-  "slug": "industrytalks"
+  }
  },
  "UCNHhj5X0gxF25oz9M_sgFKg": {
   "name": "Du STEM",
@@ -10955,6 +11263,7 @@
   }
  },
  "UC_m1oUYrvCWDmGJRM3TYLpQ": {
+  "slug": "tech-cakula-it-zajednica-rijeka",
   "name": "IT zajednica Rijeka",
   "url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/videos",
   "type": "channel",
@@ -10969,8 +11278,7 @@
    "avg_original_min": 59,
    "last_original": "20250925",
    "follower_count": 208
-  },
-  "slug": "tech-cakula-it-zajednica-rijeka"
+  }
  },
  "UCEsBG5HS3yodOTc30QWsW_A": {
   "name": "Zendesk",
@@ -11058,6 +11366,7 @@
   }
  },
  "UC5G48syi8BJd0UqRkS08hVg": {
+  "slug": "digitalna-kultura",
   "name": "Digitalna Kultura",
   "url": "https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/videos",
   "type": "channel",
@@ -11072,8 +11381,7 @@
    "avg_original_min": 77,
    "last_original": "20260923",
    "follower_count": 3000
-  },
-  "slug": "digitalna-kultura"
+  }
  },
  "UCBLK_Tu0dc7voXT40G69dPg": {
   "name": "Omcoo",
@@ -11093,6 +11401,7 @@
   }
  },
  "UCEL8iO89M44CjPQMI5uXM3g": {
+  "slug": "vedran-soric-podcast",
   "name": "Vedran Soric",
   "url": "https://www.youtube.com/channel/UCEL8iO89M44CjPQMI5uXM3g/videos",
   "type": "channel",
@@ -11107,10 +11416,10 @@
    "avg_original_min": 50,
    "last_original": "20260921",
    "follower_count": 80500
-  },
-  "slug": "vedran-soric-podcast"
+  }
  },
  "UC8P837qhN0mpfipm2-7hL9A": {
+  "slug": "tapirlo",
   "name": "Tapirlo",
   "url": "https://www.youtube.com/channel/UC8P837qhN0mpfipm2-7hL9A/videos",
   "type": "channel",
@@ -11125,8 +11434,7 @@
    "avg_original_min": 132,
    "last_original": "20260828",
    "follower_count": 336000
-  },
-  "slug": "tapirlo"
+  }
  },
  "UCpcv404DxfhGYhXgyB9Aoeg": {
   "name": "Triton Poker",
@@ -11367,6 +11675,7 @@
   }
  },
  "UCrekW01JOy-dPoTCJk2SYNQ": {
+  "slug": "noci-bez-cenzure",
   "name": "Noći Bez Cenzure",
   "url": "https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos",
   "type": "channel",
@@ -11381,8 +11690,7 @@
    "avg_original_min": 55,
    "last_original": "20260725",
    "follower_count": 2130
-  },
-  "slug": "noci-bez-cenzure"
+  }
  },
  "UCL40wRgil6-a7Tz06qfJ3mg": {
   "name": "Dijasporac Production ",
@@ -11453,6 +11761,7 @@
   }
  },
  "UCV6nc4qEigMeM6mwQU6OAdA": {
+  "slug": "cycling-side",
   "name": "Cycling Side",
   "url": "https://www.youtube.com/channel/UCV6nc4qEigMeM6mwQU6OAdA/videos",
   "type": "channel",
@@ -11467,10 +11776,10 @@
    "avg_original_min": 77,
    "last_original": "20260625",
    "follower_count": 1820
-  },
-  "slug": "cycling-side"
+  }
  },
  "UCzGpSiF2BW0e0PDhEFwFkwQ": {
+  "slug": "vox-medicus",
   "name": "Vox Medicus",
   "url": "https://www.youtube.com/channel/UCzGpSiF2BW0e0PDhEFwFkwQ/videos",
   "type": "channel",
@@ -11485,8 +11794,7 @@
    "avg_original_min": 39,
    "last_original": "20260625",
    "follower_count": 2730
-  },
-  "slug": "vox-medicus"
+  }
  },
  "UC88uP03avB6f9i3ct2AS7gA": {
   "name": "Croatian Red Cross Hrvatski Crveni kriz",
@@ -11744,6 +12052,7 @@
   }
  },
  "UC_ceo_aYfQpg3-WxVUSabMA": {
+  "slug": "big-podcast-debela-barbara",
   "name": "Debela Barbara",
   "url": "https://www.youtube.com/channel/UC_ceo_aYfQpg3-WxVUSabMA/videos",
   "type": "channel",
@@ -11758,10 +12067,10 @@
    "avg_original_min": 35,
    "last_original": "20230925",
    "follower_count": 112000
-  },
-  "slug": "big-podcast-debela-barbara"
+  }
  },
  "UCvBxYFmUPHpETuTNNlhGToA": {
+  "slug": "kognitivna-muza-podcast",
   "name": "Kognitivna Muza",
   "url": "https://www.youtube.com/channel/UCvBxYFmUPHpETuTNNlhGToA/videos",
   "type": "channel",
@@ -11776,8 +12085,7 @@
    "avg_original_min": 35,
    "last_original": "20250925",
    "follower_count": 583
-  },
-  "slug": "kognitivna-muza-podcast"
+  }
  },
  "UCiD3aqF9dGiQeJT23TWpCcQ": {
   "name": "UNICEFHrvatska",
@@ -11797,6 +12105,7 @@
   }
  },
  "UCL1t5F5RlPQfI2Eu48Fxk0A": {
+  "slug": "freelance-roditelji",
   "name": "Freelance Roditelji",
   "url": "https://www.youtube.com/channel/UCL1t5F5RlPQfI2Eu48Fxk0A/videos",
   "type": "channel",
@@ -11811,8 +12120,7 @@
    "avg_original_min": 72,
    "last_original": "20260904",
    "follower_count": 1060
-  },
-  "slug": "freelance-roditelji"
+  }
  },
  "UChycxVTe0yTjpdLxrA__ALw": {
   "name": "ŠIBaj TV",
@@ -11917,6 +12225,7 @@
   }
  },
  "UC6w-jwT36e0vMJRKBvkZb0A": {
+  "slug": "igra-van-okvira",
   "name": "IGRA",
   "url": "https://www.youtube.com/channel/UC6w-jwT36e0vMJRKBvkZb0A/videos",
   "type": "channel",
@@ -11931,8 +12240,7 @@
    "avg_original_min": 71,
    "last_original": "20260525",
    "follower_count": 413
-  },
-  "slug": "igra-van-okvira"
+  }
  },
  "UCNx8KOpLU_i1y81dgk8zBGg": {
   "name": "BabyBook Hrvatska",
@@ -11969,6 +12277,7 @@
   }
  },
  "UCBRlEDoXFISodPLvTAcCdlg": {
+  "slug": "podcast-bura",
   "name": "Podcast BURA",
   "url": "https://www.youtube.com/channel/UCBRlEDoXFISodPLvTAcCdlg/videos",
   "type": "channel",
@@ -11983,8 +12292,7 @@
    "avg_original_min": 63,
    "last_original": "20250925",
    "follower_count": 4620
-  },
-  "slug": "podcast-bura"
+  }
  },
  "UCQ4n-1k0Mg-Vgvn2JIJa1sw": {
   "name": "MATKO",
@@ -12004,6 +12312,7 @@
   }
  },
  "UCM1JkPEF4Jc8GccDdY5XI9w": {
+  "slug": "podcast-izvan-travnjaka",
   "name": "12. IGRAČ",
   "url": "https://www.youtube.com/channel/UCM1JkPEF4Jc8GccDdY5XI9w/videos",
   "type": "channel",
@@ -12018,10 +12327,10 @@
    "avg_original_min": 149,
    "last_original": "20240925",
    "follower_count": 10500
-  },
-  "slug": "podcast-izvan-travnjaka"
+  }
  },
  "UCzckNCisVvpuIsJY0uZwXCw": {
+  "slug": "rezolucija-vodcast",
   "name": "REZOLUCIJA Vodcast",
   "url": "https://www.youtube.com/channel/UCzckNCisVvpuIsJY0uZwXCw/videos",
   "type": "channel",
@@ -12036,8 +12345,7 @@
    "avg_original_min": 76,
    "last_original": "20210925",
    "follower_count": 1030
-  },
-  "slug": "rezolucija-vodcast"
+  }
  },
  "UCBtZjRGkYwqh8AfPbT025lQ": {
   "name": "WwwSirokiBrigCom",
@@ -12074,6 +12382,7 @@
   }
  },
  "UCaX8S5r4-h5C6VIzXWWLPRA": {
+  "slug": "pomalo-too-much",
   "name": "Marie Wasler",
   "url": "https://www.youtube.com/channel/UCaX8S5r4-h5C6VIzXWWLPRA/videos",
   "type": "channel",
@@ -12088,8 +12397,7 @@
    "avg_original_min": 94,
    "last_original": "20260921",
    "follower_count": 2200
-  },
-  "slug": "pomalo-too-much"
+  }
  },
  "UCmt73l42-4_OeU-t7U-EvKA": {
   "name": "JPeG",
@@ -12177,6 +12485,7 @@
   }
  },
  "UCFX4Srv6SEU3Oa7bQtT8FqQ": {
+  "slug": "vrijeme-za-zdravlje-s-doktorom-za-srce",
   "name": "Vrijeme za zdravlje s Doktorom za srce",
   "url": "https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ/videos",
   "type": "channel",
@@ -12191,8 +12500,7 @@
    "avg_original_min": 33,
    "last_original": "20260725",
    "follower_count": 359
-  },
-  "slug": "vrijeme-za-zdravlje-s-doktorom-za-srce"
+  }
  },
  "UC_GQ6jTS74aiXOcSPYde7cA": {
   "name": "Nazdravlje!",
@@ -12229,6 +12537,7 @@
   }
  },
  "UC3kRfdFs-8PJyF5DqYK1lzQ": {
+  "slug": "vetify-podcast",
   "name": "Vetify Podcast",
   "url": "https://www.youtube.com/channel/UC3kRfdFs-8PJyF5DqYK1lzQ/videos",
   "type": "channel",
@@ -12243,8 +12552,7 @@
    "avg_original_min": 57,
    "last_original": "20260725",
    "follower_count": 2410
-  },
-  "slug": "vetify-podcast"
+  }
  },
  "UCIGgA86OZ_Urq6DUq7viiRQ": {
   "name": "FuturZ",
@@ -12281,6 +12589,7 @@
   }
  },
  "UCgqGjw2FvGg4PyUJE3NHZKA": {
+  "slug": "studentski-hr-tv",
   "name": "StudentskiHR TV",
   "url": "https://www.youtube.com/channel/UCgqGjw2FvGg4PyUJE3NHZKA/videos",
   "type": "channel",
@@ -12295,8 +12604,7 @@
    "avg_original_min": 44,
    "last_original": "20260725",
    "follower_count": 336
-  },
-  "slug": "studentski-hr-tv"
+  }
  },
  "UCl2J-Po9njn76sXVLdvvSwg": {
   "name": "DNEVNJAK",
@@ -12316,6 +12624,7 @@
   }
  },
  "UC1fjzQ9-rMqLvbKPa1p-16A": {
+  "slug": "koji-faks-upisati",
   "name": "Koji faks upisati?",
   "url": "https://www.youtube.com/channel/UC1fjzQ9-rMqLvbKPa1p-16A/videos",
   "type": "channel",
@@ -12330,8 +12639,7 @@
    "avg_original_min": 54,
    "last_original": "20260525",
    "follower_count": 1060
-  },
-  "slug": "koji-faks-upisati"
+  }
  },
  "UCOkyFO3dsH1Yq_G-eRApUfw": {
   "name": "Promocija znanosti",
@@ -12351,6 +12659,7 @@
   }
  },
  "UCJqtfDvBfCel_EfM-yXvboA": {
+  "slug": "metapodcast",
   "name": "METAPODCAST",
   "url": "https://www.youtube.com/channel/UCJqtfDvBfCel_EfM-yXvboA/videos",
   "type": "channel",
@@ -12365,8 +12674,7 @@
    "avg_original_min": 61,
    "last_original": "20250925",
    "follower_count": 261
-  },
-  "slug": "metapodcast"
+  }
  },
  "UCCZ_93VzC19wjl7SBSZzoQA": {
   "name": "Uplift",
@@ -12437,6 +12745,7 @@
   }
  },
  "UCLefhh2z-nladdwBTo444Qw": {
+  "slug": "rudjer-podcast",
   "name": "Knjižnica TŠRB",
   "url": "https://www.youtube.com/channel/UCLefhh2z-nladdwBTo444Qw/videos",
   "type": "channel",
@@ -12451,10 +12760,10 @@
    "avg_original_min": 35,
    "last_original": "20230925",
    "follower_count": 244
-  },
-  "slug": "rudjer-podcast"
+  }
  },
  "UCvBpdH7d-Lm7KwLkC_adQ6w": {
+  "slug": "dretva",
   "name": "DRETVA",
   "url": "https://www.youtube.com/channel/UCvBpdH7d-Lm7KwLkC_adQ6w/videos",
   "type": "channel",
@@ -12469,10 +12778,10 @@
    "avg_original_min": 78,
    "last_original": "20250925",
    "follower_count": 210
-  },
-  "slug": "dretva"
+  }
  },
  "UCMoVHXVRIh4ZbSB9yFbqS6A": {
+  "slug": "politoloski-podkast",
   "name": "Hrvatsko politološko društvo",
   "url": "https://www.youtube.com/channel/UCMoVHXVRIh4ZbSB9yFbqS6A/videos",
   "type": "channel",
@@ -12487,8 +12796,7 @@
    "avg_original_min": 61,
    "last_original": "20260923",
    "follower_count": 128
-  },
-  "slug": "politoloski-podkast"
+  }
  },
  "UCil9XwltykFzRkjMORwTRgw": {
   "name": "Slobodna Dalmacija",
@@ -12610,6 +12918,7 @@
   }
  },
  "UCL9ioGbtodKRv8lwad7g8mA": {
+  "slug": "off-topic-podcast-hrt",
   "name": "Off Topic podcast | HRT",
   "url": "https://www.youtube.com/channel/UCL9ioGbtodKRv8lwad7g8mA/videos",
   "type": "channel",
@@ -12624,10 +12933,10 @@
    "avg_original_min": 70,
    "last_original": "20260924",
    "follower_count": 501
-  },
-  "slug": "off-topic-podcast-hrt"
+  }
  },
  "UCDKOJTMbFsfkWPlzuchzR_A": {
+  "slug": "kulen-travel-podcast",
   "name": "Kulen Travel",
   "url": "https://www.youtube.com/channel/UCDKOJTMbFsfkWPlzuchzR_A/videos",
   "type": "channel",
@@ -12642,8 +12951,7 @@
    "avg_original_min": 57,
    "last_original": "20210925",
    "follower_count": 181
-  },
-  "slug": "kulen-travel-podcast"
+  }
  },
  "UCGy50EDeC8Zf-QXlQEngvgQ": {
   "name": "Podcast SlavonijaIn",
@@ -12765,6 +13073,7 @@
   }
  },
  "UCb3WvE_PxYGtgTtlJ1ZIqJw": {
+  "slug": "slamanje-podcast",
   "name": "Slamanje Osijek",
   "url": "https://www.youtube.com/channel/UCb3WvE_PxYGtgTtlJ1ZIqJw/videos",
   "type": "channel",
@@ -12779,8 +13088,7 @@
    "avg_original_min": 52,
    "last_original": "20250925",
    "follower_count": 123
-  },
-  "slug": "slamanje-podcast"
+  }
  },
  "UCLpxM4Rhsq6cV5yExUS_4tA": {
   "name": "Živi zid",
@@ -12851,6 +13159,7 @@
   }
  },
  "UCKiC-dZx62RXeymJmR8E99g": {
+  "slug": "filmopedija",
   "name": "Filmopedija",
   "url": "https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos",
   "type": "channel",
@@ -12865,10 +13174,10 @@
    "avg_original_min": 64,
    "last_original": "20260919",
    "follower_count": 191
-  },
-  "slug": "filmopedija"
+  }
  },
  "UC-GWO0eo78mY0o3iEkle7HA": {
+  "slug": "osvrtnik",
   "name": "Osvrtnik",
   "url": "https://www.youtube.com/channel/UC-GWO0eo78mY0o3iEkle7HA/videos",
   "type": "channel",
@@ -12883,10 +13192,10 @@
    "avg_original_min": 102,
    "last_original": "20260921",
    "follower_count": 25700
-  },
-  "slug": "osvrtnik"
+  }
  },
  "UC4n_wwto0bJALR4DIDzbKGg": {
+  "slug": "zona-filma-strujanja",
   "name": "Zona Filma // Strujanja",
   "url": "https://www.youtube.com/channel/UC4n_wwto0bJALR4DIDzbKGg/videos",
   "type": "channel",
@@ -12901,10 +13210,10 @@
    "avg_original_min": 38,
    "last_original": "20251025",
    "follower_count": 76
-  },
-  "slug": "zona-filma-strujanja"
+  }
  },
  "UCKwFccXL5XHo1JEaryEuTdw": {
+  "slug": "filmovi-s-ruba",
   "name": "Filmovi s Ruba",
   "url": "https://www.youtube.com/channel/UCKwFccXL5XHo1JEaryEuTdw/videos",
   "type": "channel",
@@ -12919,10 +13228,10 @@
    "avg_original_min": 55,
    "last_original": "20260225",
    "follower_count": 654
-  },
-  "slug": "filmovi-s-ruba"
+  }
  },
  "UCoyTnbkCuGTMqO41_LNAZ8Q": {
+  "slug": "dokunet-podcast",
   "name": "Dokumentarni.net",
   "url": "https://www.youtube.com/channel/UCoyTnbkCuGTMqO41_LNAZ8Q/videos",
   "type": "channel",
@@ -12937,8 +13246,7 @@
    "avg_original_min": 36,
    "last_original": "20260725",
    "follower_count": 801
-  },
-  "slug": "dokunet-podcast"
+  }
  },
  "UCmOZTyhea2luossld9Qpu9Q": {
   "name": "SBS Audio",
@@ -12958,6 +13266,7 @@
   }
  },
  "UCk2N0DjcMQgOilSMic09hQg": {
+  "slug": "vrisak-podcast",
   "name": "Vrisak.info",
   "url": "https://www.youtube.com/channel/UCk2N0DjcMQgOilSMic09hQg/videos",
   "type": "channel",
@@ -12972,8 +13281,7 @@
    "avg_original_min": 53,
    "last_original": "20260125",
    "follower_count": 2980
-  },
-  "slug": "vrisak-podcast"
+  }
  },
  "UCoy5LVrR7qK2pnES4pogx5Q": {
   "name": "Proteini․si HR",
@@ -13078,6 +13386,7 @@
   }
  },
  "UCmnvmFyshLFSrRMDAhKkgHw": {
+  "slug": "podcast-8-24",
   "name": "Podcast 8_24",
   "url": "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos",
   "type": "channel",
@@ -13092,8 +13401,7 @@
    "avg_original_min": 112,
    "last_original": "20260922",
    "follower_count": 9300
-  },
-  "slug": "podcast-8-24"
+  }
  },
  "UCwxJklD4bGmtFiTEINkxc7w": {
   "name": "Andrej Vistica",
@@ -13232,6 +13540,8 @@
   }
  },
  "UCiXXRMlzoA-MKPHVe5V7YdQ": {
+  "slug": "nanovoroeni",
+  "merged_into": "nanovoroeni",
   "name": "Nanovo rođeni",
   "url": "https://www.youtube.com/channel/UCiXXRMlzoA-MKPHVe5V7YdQ/videos",
   "type": "channel",
@@ -13246,9 +13556,7 @@
    "avg_original_min": 56,
    "last_original": "20260625",
    "follower_count": 49900
-  },
-  "slug": "nanovoroeni",
-  "merged_into": "nanovoroeni"
+  }
  },
  "UCFgLgVYmGcVssivjYOb7QuA": {
   "name": "sveti Ivan od Križa Split",
@@ -13268,6 +13576,8 @@
   }
  },
  "UCdeWIIyVKdg9Nq3CK5amFYA": {
+  "slug": "podcast-bitno-net",
+  "merged_into": "podcast-bitno-net",
   "name": "Bitnonet",
   "url": "https://www.youtube.com/channel/UCdeWIIyVKdg9Nq3CK5amFYA/videos",
   "type": "channel",
@@ -13282,9 +13592,7 @@
    "avg_original_min": 31,
    "last_original": "20260625",
    "follower_count": 10900
-  },
-  "slug": "podcast-bitno-net",
-  "merged_into": "podcast-bitno-net"
+  }
  },
  "UC3rUB85EeGomaomy8D3GpFw": {
   "name": "Dom Molitve Slavonski Brod",
@@ -13372,6 +13680,7 @@
   }
  },
  "UCG2iMPiH6Pzetmmv6Ypdv6Q": {
+  "slug": "tanja-hrvatin-simicic",
   "name": "Tanja Hrvatin Šimičić",
   "url": "https://www.youtube.com/channel/UCG2iMPiH6Pzetmmv6Ypdv6Q/videos",
   "type": "channel",
@@ -13386,8 +13695,7 @@
    "avg_original_min": 27,
    "last_original": "20260911",
    "follower_count": 3800
-  },
-  "slug": "tanja-hrvatin-simicic"
+  }
  },
  "UC8QeTZP65gQ1Eckr_XlZbDQ": {
   "name": "MicrodosingOfWisdom",
@@ -13560,6 +13868,7 @@
   }
  },
  "UCKQlB36W_KXy7bQNGRvgxjQ": {
+  "slug": "ontheair2013",
   "name": "ontheair2013",
   "url": "https://www.youtube.com/channel/UCKQlB36W_KXy7bQNGRvgxjQ/videos",
   "type": "channel",
@@ -13574,8 +13883,7 @@
    "avg_original_min": 64,
    "last_original": "20150925",
    "follower_count": 56
-  },
-  "slug": "ontheair2013"
+  }
  },
  "UCLk_YqhzM6tQWiyEL4oih1A": {
   "name": "MMA Scena",
@@ -13629,6 +13937,7 @@
   }
  },
  "UC9vFBmioLfxFNqMGkGpY7fg": {
+  "slug": "izmedu-redaka",
   "name": "Hoću knjigu",
   "url": "https://www.youtube.com/channel/UC9vFBmioLfxFNqMGkGpY7fg/videos",
   "type": "channel",
@@ -13643,8 +13952,7 @@
    "avg_original_min": 52,
    "last_original": "20260725",
    "follower_count": 14700
-  },
-  "slug": "izmedu-redaka"
+  }
  },
  "UCesD5_--F1DgkDo78HYvqqA": {
   "name": "Audio Knjige Balkan",
@@ -13766,6 +14074,8 @@
   }
  },
  "UCKKA4g9uPnCAEEeLAd9_UNw": {
+  "slug": "ideje-hr",
+  "merged_into": "ideje-hr",
   "name": "Ideje",
   "url": "https://www.youtube.com/channel/UCKKA4g9uPnCAEEeLAd9_UNw/videos",
   "type": "channel",
@@ -13780,9 +14090,7 @@
    "avg_original_min": 43,
    "last_original": "20260924",
    "follower_count": 5210
-  },
-  "slug": "ideje-hr",
-  "merged_into": "ideje-hr"
+  }
  },
  "UCscjLbM3jyyygjuVKMFQXUg": {
   "name": "MusicBiennaleZagreb",
@@ -13819,6 +14127,7 @@
   }
  },
  "UCiS-fovOPi9LCr_L8Mm-5SA": {
+  "slug": "biciklizam-net-podcast",
   "name": "biciklizam_net",
   "url": "https://www.youtube.com/channel/UCiS-fovOPi9LCr_L8Mm-5SA/videos",
   "type": "channel",
@@ -13833,10 +14142,10 @@
    "avg_original_min": 73,
    "last_original": "20260904",
    "follower_count": 3970
-  },
-  "slug": "biciklizam-net-podcast"
+  }
  },
  "UCMCDaQAhNyp8Ok4aGZZcZbw": {
+  "slug": "podcast-mp-broadcast",
   "name": "Podcast M.P.Broadcast",
   "url": "https://www.youtube.com/channel/UCMCDaQAhNyp8Ok4aGZZcZbw/videos",
   "type": "channel",
@@ -13851,8 +14160,7 @@
    "avg_original_min": 72,
    "last_original": "20220925",
    "follower_count": 217
-  },
-  "slug": "podcast-mp-broadcast"
+  }
  },
  "UC9E5DkcSknr4eN5DISCB3Mg": {
   "name": "Sportklub Hrvatska",
@@ -13872,6 +14180,7 @@
   }
  },
  "UCDFJMnJN5qecz4lv1mZ63rg": {
+  "slug": "kilometri-podcast",
   "name": "Katarina Moskatelo",
   "url": "https://www.youtube.com/channel/UCDFJMnJN5qecz4lv1mZ63rg/videos",
   "type": "channel",
@@ -13886,8 +14195,7 @@
    "avg_original_min": 57,
    "last_original": "20210925",
    "follower_count": 3420
-  },
-  "slug": "kilometri-podcast"
+  }
  },
  "UCrCwd4sa4-bPC8pegeqGF6Q": {
   "name": "Goran Pauk - Stabilno.",
@@ -13924,6 +14232,7 @@
   }
  },
  "UCa0iFqekHmAyAidAmhNVXCw": {
+  "slug": "podcast-rampa",
   "name": "Podcast Rampa",
   "url": "https://www.youtube.com/channel/UCa0iFqekHmAyAidAmhNVXCw/videos",
   "type": "channel",
@@ -13938,10 +14247,10 @@
    "avg_original_min": 76,
    "last_original": "20251225",
    "follower_count": 812
-  },
-  "slug": "podcast-rampa"
+  }
  },
  "UCFhDjduMfQKbVCqm5lc3BxA": {
+  "slug": "podcast-u-ringu",
   "name": "KOVACIC SINISA -Podcast, osobni trener",
   "url": "https://www.youtube.com/channel/UCFhDjduMfQKbVCqm5lc3BxA/videos",
   "type": "channel",
@@ -13956,8 +14265,7 @@
    "avg_original_min": 74,
    "last_original": "20230925",
    "follower_count": 526
-  },
-  "slug": "podcast-u-ringu"
+  }
  },
  "UCVNwAyn6HAJZkJsiXEM9_Rw": {
   "name": "Kristijan Delić",
@@ -13977,6 +14285,7 @@
   }
  },
  "UCJPMZwh6qj1AZQWd1jl3ISw": {
+  "slug": "podcast-rijeke-smijeha",
   "name": "Rijeka Smijeha",
   "url": "https://www.youtube.com/channel/UCJPMZwh6qj1AZQWd1jl3ISw/videos",
   "type": "channel",
@@ -13991,10 +14300,10 @@
    "avg_original_min": 40,
    "last_original": "20230925",
    "follower_count": 103
-  },
-  "slug": "podcast-rijeke-smijeha"
+  }
  },
  "UCTnBAvMUWsM2a--hPr9MrPw": {
+  "slug": "gaj-tomas",
   "name": "Gaj Tomaš",
   "url": "https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw/videos",
   "type": "channel",
@@ -14009,8 +14318,7 @@
    "avg_original_min": 74,
    "last_original": "20251125",
    "follower_count": 237
-  },
-  "slug": "gaj-tomas"
+  }
  },
  "UC7NlsNY6sGS8rgr6ROTHFRA": {
   "name": "BIS Comedy",
@@ -14319,6 +14627,7 @@
   }
  },
  "UCxM5VIs6ZAoGuOLndNqaJdQ": {
+  "slug": "arheocast",
   "name": "Muzej hrvatskih arheoloških spomenika",
   "url": "https://www.youtube.com/channel/UCxM5VIs6ZAoGuOLndNqaJdQ/videos",
   "type": "channel",
@@ -14333,8 +14642,7 @@
    "avg_original_min": 33,
    "last_original": "20240925",
    "follower_count": 1090
-  },
-  "slug": "arheocast"
+  }
  },
  "UCzpW25kRydkImb6R8ARGzSw": {
   "name": "Institut Ruđer Bošković - Interaktivni labos",
@@ -14575,6 +14883,7 @@
   }
  },
  "UCt1jNnOtFMVS7rFeq3BpQQg": {
+  "slug": "best-food-croatia",
   "name": "Best Food Croatia",
   "url": "https://www.youtube.com/channel/UCt1jNnOtFMVS7rFeq3BpQQg/videos",
   "type": "channel",
@@ -14589,8 +14898,7 @@
    "avg_original_min": 31,
    "last_original": "20260918",
    "follower_count": 26500
-  },
-  "slug": "best-food-croatia"
+  }
  },
  "UCC2RLPeSFAHxeb80vYIdXrw": {
   "name": "Apoliticni.hr - Prvi hrvatski apolitični portal",
@@ -14865,6 +15173,7 @@
   }
  },
  "UCOQio6Dv9maeq0vrWWQ6X6g": {
+  "slug": "i-ja-sam-sportas",
   "name": "Podcast I ja sam sportas",
   "url": "https://www.youtube.com/channel/UCOQio6Dv9maeq0vrWWQ6X6g/videos",
   "type": "channel",
@@ -14879,8 +15188,7 @@
    "avg_original_min": 58,
    "last_original": "20200925",
    "follower_count": 1060
-  },
-  "slug": "i-ja-sam-sportas"
+  }
  },
  "UC2gEFtlXhCFucdR4O-HVgXw": {
   "name": "KAMBER izam",
@@ -14951,6 +15259,7 @@
   }
  },
  "UCn28OP_AoqEkiRiXRFrPZfw": {
+  "slug": "podcast-portala-tjedno",
   "name": "PODCAST PORTALA TJEDNO",
   "url": "https://www.youtube.com/channel/UCn28OP_AoqEkiRiXRFrPZfw/videos",
   "type": "channel",
@@ -14965,8 +15274,7 @@
    "avg_original_min": 70,
    "last_original": "20250925",
    "follower_count": 134
-  },
-  "slug": "podcast-portala-tjedno"
+  }
  },
  "UCvjVy_fSrSdtr4FevZh31xg": {
   "name": "vel cro",
@@ -15003,6 +15311,7 @@
   }
  },
  "UCvtVoRVW7ARC7KGQLLl7_fQ": {
+  "slug": "podcast-s-brezom",
   "name": "Podcast s Brezom",
   "url": "https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos",
   "type": "channel",
@@ -15017,8 +15326,7 @@
    "avg_original_min": 44,
    "last_original": "20260924",
    "follower_count": 10600
-  },
-  "slug": "podcast-s-brezom"
+  }
  },
  "UCM-oPnch79rVytkgKr5pt9Q": {
   "name": "Andelo Jurkas",
@@ -15089,6 +15397,7 @@
   }
  },
  "UCMUZ619OQG0Z2oYV00EMfGQ": {
+  "slug": "rooftop-tv",
   "name": "Rooftop TV",
   "url": "https://www.youtube.com/channel/UCMUZ619OQG0Z2oYV00EMfGQ/videos",
   "type": "channel",
@@ -15103,8 +15412,7 @@
    "avg_original_min": 56,
    "last_original": "20250925",
    "follower_count": 1410
-  },
-  "slug": "rooftop-tv"
+  }
  },
  "UC1P3Bq3EV1j4l1SZaaQyZVQ": {
   "name": "Tronožac show",
@@ -15124,6 +15432,7 @@
   }
  },
  "UCG5nO6uUX2k-kJawutF_Wkw": {
+  "slug": "sportcast",
   "name": "Sportcast",
   "url": "https://www.youtube.com/channel/UCG5nO6uUX2k-kJawutF_Wkw/videos",
   "type": "channel",
@@ -15138,8 +15447,7 @@
    "avg_original_min": 43,
    "last_original": "20240925",
    "follower_count": 391
-  },
-  "slug": "sportcast"
+  }
  },
  "UCO85nGVn0UdiCw9o63pkRZQ": {
   "name": "DAZhr",
@@ -15176,6 +15484,7 @@
   }
  },
  "UCgJeoVM0zU50pjnqblKYqVg": {
+  "slug": "bornfight-podcast",
   "name": "Bornfight",
   "url": "https://www.youtube.com/channel/UCgJeoVM0zU50pjnqblKYqVg/videos",
   "type": "channel",
@@ -15190,8 +15499,7 @@
    "avg_original_min": 54,
    "last_original": "20220925",
    "follower_count": 256
-  },
-  "slug": "bornfight-podcast"
+  }
  },
  "UCeeykzeo0LDW6BNtC1fdd2g": {
   "name": "O novcu",
@@ -15211,6 +15519,7 @@
   }
  },
  "UCUgQcyJuN-FNBhgkXJtlBSQ": {
+  "slug": "financije-i-samo-financije",
   "name": "Financije i samo Financije",
   "url": "https://www.youtube.com/channel/UCUgQcyJuN-FNBhgkXJtlBSQ/videos",
   "type": "channel",
@@ -15225,10 +15534,10 @@
    "avg_original_min": 41,
    "last_original": "20250925",
    "follower_count": 8300
-  },
-  "slug": "financije-i-samo-financije"
+  }
  },
  "UCE5wmfVlNSVWjWcjxzKcODg": {
+  "slug": "finax-croatia",
   "name": "Finax Croatia",
   "url": "https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/videos",
   "type": "channel",
@@ -15243,8 +15552,7 @@
    "avg_original_min": 78,
    "last_original": "20260325",
    "follower_count": 9040
-  },
-  "slug": "finax-croatia"
+  }
  },
  "UCfJ8osGmpxquA3HAc9SWT8w": {
   "name": "AI Radio Berza ",
@@ -15315,6 +15623,7 @@
   }
  },
  "UCO5pYNV5S6ot7gXKW-Z7UGg": {
+  "slug": "kripto-evolucija",
   "name": "Kripto Evolucija",
   "url": "https://www.youtube.com/channel/UCO5pYNV5S6ot7gXKW-Z7UGg/videos",
   "type": "channel",
@@ -15329,8 +15638,7 @@
    "avg_original_min": 104,
    "last_original": "20251225",
    "follower_count": 7510
-  },
-  "slug": "kripto-evolucija"
+  }
  },
  "UCfIw-v_au2g8qs3BffwASJw": {
   "name": "Veliki Dioničar",
@@ -15469,6 +15777,7 @@
   }
  },
  "UCYBXVTm91Xh5wvgeCQXx-Cw": {
+  "slug": "prime-time",
   "name": "Prime Time",
   "url": "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw/videos",
   "type": "channel",
@@ -15483,8 +15792,7 @@
    "avg_original_min": 108,
    "last_original": "20260625",
    "follower_count": 36000
-  },
-  "slug": "prime-time"
+  }
  },
  "UCNChNNAQbw11tRkUgZaV_Og": {
   "name": "CROPIX",
@@ -15606,6 +15914,7 @@
   }
  },
  "UCJlHoOAaOzZAvNnp-qS1Mkg": {
+  "slug": "sah-u-hrvatskoj",
   "name": "Šah u Hrvatskoj",
   "url": "https://www.youtube.com/channel/UCJlHoOAaOzZAvNnp-qS1Mkg/videos",
   "type": "channel",
@@ -15620,8 +15929,7 @@
    "avg_original_min": 56,
    "last_original": "20250925",
    "follower_count": 158
-  },
-  "slug": "sah-u-hrvatskoj"
+  }
  },
  "UCQxQDTPAtGg5Kp4AIpRfyyg": {
   "name": "Petar Curic TV",
@@ -15658,6 +15966,7 @@
   }
  },
  "UCgzVhNLXxAE68Wyvx1ZIPXw": {
+  "slug": "na-kavi-s-caplinski-portal",
   "name": "CapljinskiPortal",
   "url": "https://www.youtube.com/channel/UCgzVhNLXxAE68Wyvx1ZIPXw/videos",
   "type": "channel",
@@ -15672,10 +15981,10 @@
    "avg_original_min": 31,
    "last_original": "20260911",
    "follower_count": 2390
-  },
-  "slug": "na-kavi-s-caplinski-portal"
+  }
  },
  "UCmberHv5QM7GlFAqaIwRVCA": {
+  "slug": "slaven-bonacic-podcast",
   "name": "slaven Bonačić",
   "url": "https://www.youtube.com/channel/UCmberHv5QM7GlFAqaIwRVCA/videos",
   "type": "channel",
@@ -15690,8 +15999,7 @@
    "avg_original_min": 61,
    "last_original": "20210925",
    "follower_count": 33
-  },
-  "slug": "slaven-bonacic-podcast"
+  }
  },
  "UCd-yZX3HAZKuWSVZ1iKsYug": {
   "name": "Velimir Gašparić",
@@ -15711,6 +16019,7 @@
   }
  },
  "UC6ZlZrsPw_RnEc17U5kP8KA": {
+  "slug": "super7-podcast",
   "name": "Super7",
   "url": "https://www.youtube.com/channel/UC6ZlZrsPw_RnEc17U5kP8KA/videos",
   "type": "channel",
@@ -15725,8 +16034,7 @@
    "avg_original_min": 64,
    "last_original": "20230925",
    "follower_count": 1240
-  },
-  "slug": "super7-podcast"
+  }
  },
  "UCtDGjI65i4h512lz2r35h6A": {
   "name": "FilTilen",
@@ -15814,6 +16122,7 @@
   }
  },
  "UCyBHS55I0ShoKNaCBD8HqdQ": {
+  "slug": "antonio-saric-podcast",
   "name": "Antonio Šarić",
   "url": "https://www.youtube.com/channel/UCyBHS55I0ShoKNaCBD8HqdQ/videos",
   "type": "channel",
@@ -15828,8 +16137,7 @@
    "avg_original_min": 88,
    "last_original": "20260911",
    "follower_count": 543
-  },
-  "slug": "antonio-saric-podcast"
+  }
  },
  "UCxfUiolrwMZRFY1X_UZhqxg": {
   "name": "Špica | HRT",
@@ -16002,6 +16310,7 @@
   }
  },
  "UCGxQ4AH-PgDEqaL0Nq0eVhQ": {
+  "slug": "podcast-nis-konkretno",
   "name": "Škola za umjetnost, dizajn, grafiku i odjeću Zabok",
   "url": "https://www.youtube.com/channel/UCGxQ4AH-PgDEqaL0Nq0eVhQ/videos",
   "type": "channel",
@@ -16016,8 +16325,7 @@
    "avg_original_min": 35,
    "last_original": "20260725",
    "follower_count": 359
-  },
-  "slug": "podcast-nis-konkretno"
+  }
  },
  "UCpN_fqCSBrJrX1MEul3NfOQ": {
   "name": "DALIBOR PETKO SHOW",
@@ -16190,6 +16498,7 @@
   }
  },
  "UCvtOvAD2mxCtmpM-oIpgDNA": {
+  "slug": "baustelahr-podcast",
   "name": "bauštelaHR",
   "url": "https://www.youtube.com/channel/UCvtOvAD2mxCtmpM-oIpgDNA/videos",
   "type": "channel",
@@ -16204,8 +16513,7 @@
    "avg_original_min": 67,
    "last_original": "20260924",
    "follower_count": 2860
-  },
-  "slug": "baustelahr-podcast"
+  }
  },
  "UCAyLROfSvW2TtxIAjm1tgkw": {
   "name": "Glas HAZU",
@@ -16225,6 +16533,7 @@
   }
  },
  "UCut75WmrjhrgrEiQ6Zmn5Gg": {
+  "slug": "podcast-sfera",
   "name": "Podcast SFERA",
   "url": "https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/videos",
   "type": "channel",
@@ -16239,8 +16548,7 @@
    "avg_original_min": 105,
    "last_original": "20260625",
    "follower_count": 11100
-  },
-  "slug": "podcast-sfera"
+  }
  },
  "UClGqwj5WE3wSymJ6tjfxBwg": {
   "name": "Dani Arhitekture",
@@ -16328,6 +16636,7 @@
   }
  },
  "UC3HTbeJA91UvQ2RKCJH9Fxw": {
+  "slug": "poriloox",
   "name": "poriloox",
   "url": "https://www.youtube.com/channel/UC3HTbeJA91UvQ2RKCJH9Fxw/videos",
   "type": "channel",
@@ -16342,8 +16651,7 @@
    "avg_original_min": 30,
    "last_original": "20260914",
    "follower_count": 754
-  },
-  "slug": "poriloox"
+  }
  },
  "UCYl5I0jgP1LgNde6palXejA": {
   "name": "gradjanske inicijative",
@@ -16380,6 +16688,7 @@
   }
  },
  "UCcuv5Z2EjWFp1bH-JAfht-g": {
+  "slug": "podcast-homeland",
   "name": "Podcast Homeland",
   "url": "https://www.youtube.com/channel/UCcuv5Z2EjWFp1bH-JAfht-g/videos",
   "type": "channel",
@@ -16394,8 +16703,7 @@
    "avg_original_min": 74,
    "last_original": "20240925",
    "follower_count": 336
-  },
-  "slug": "podcast-homeland"
+  }
  },
  "UCYGAzwaxZctmTuwzKUEoJOA": {
   "name": "Omladinski centar CK13",
@@ -16568,6 +16876,7 @@
   }
  },
  "UCru9Lx5UhTEdrR4psUJCpYA": {
+  "slug": "marko-dejanovic",
   "name": "Marko Dejanovic",
   "url": "https://www.youtube.com/channel/UCru9Lx5UhTEdrR4psUJCpYA/videos",
   "type": "channel",
@@ -16582,8 +16891,7 @@
    "avg_original_min": 51,
    "last_original": "20260425",
    "follower_count": 12400
-  },
-  "slug": "marko-dejanovic"
+  }
  },
  "UCkrKGwIsydIkIKmjXYyxGQA": {
   "name": "Tuzlanski TV",
@@ -16705,6 +17013,7 @@
   }
  },
  "UC9f1kbP5ZqP8HTTwngqoPng": {
+  "slug": "bizcasting",
   "name": "BizCasting",
   "url": "https://www.youtube.com/channel/UC9f1kbP5ZqP8HTTwngqoPng/videos",
   "type": "channel",
@@ -16719,8 +17028,7 @@
    "avg_original_min": 63,
    "last_original": "20200925",
    "follower_count": 1260
-  },
-  "slug": "bizcasting"
+  }
  },
  "UCsV23a7jsts8_u60om6UKoA": {
   "name": "Layat TV",
@@ -16910,6 +17218,7 @@
   }
  },
  "UCxHPp2RH_zf0sGqkVE3QNdA": {
+  "slug": "puba77",
   "name": "Puba77",
   "url": "https://www.youtube.com/channel/UCxHPp2RH_zf0sGqkVE3QNdA/videos",
   "type": "channel",
@@ -16924,10 +17233,10 @@
    "avg_original_min": 167,
    "last_original": "20260923",
    "follower_count": 1560
-  },
-  "slug": "puba77"
+  }
  },
  "UCL8IZuMhZG0Olk9BaRZVzwA": {
+  "slug": "hzv-siempre",
   "name": "HŽV Siempre",
   "url": "https://www.youtube.com/channel/UCL8IZuMhZG0Olk9BaRZVzwA/videos",
   "type": "channel",
@@ -16942,10 +17251,10 @@
    "avg_original_min": 150,
    "last_original": "20260922",
    "follower_count": 2290
-  },
-  "slug": "hzv-siempre"
+  }
  },
  "UCkCaKvPqkFihbCtZsjXsRdg": {
+  "slug": "loptar",
   "name": "Loptar",
   "url": "https://www.youtube.com/channel/UCkCaKvPqkFihbCtZsjXsRdg/videos",
   "type": "channel",
@@ -16960,10 +17269,10 @@
    "avg_original_min": 63,
    "last_original": "20240925",
    "follower_count": 8130
-  },
-  "slug": "loptar"
+  }
  },
  "UCnrWxCloh2lAaT_VJjnP7JA": {
+  "slug": "hajducka-storija",
   "name": "Hajdučka štorija",
   "url": "https://www.youtube.com/channel/UCnrWxCloh2lAaT_VJjnP7JA/videos",
   "type": "channel",
@@ -16978,10 +17287,10 @@
    "avg_original_min": 25,
    "last_original": "20260923",
    "follower_count": 27300
-  },
-  "slug": "hajducka-storija"
+  }
  },
  "UC_-VJy3S7ziEZK686hxzomg": {
+  "slug": "relax-room-podcast",
   "name": "Relax Room Podcast",
   "url": "https://www.youtube.com/channel/UC_-VJy3S7ziEZK686hxzomg/videos",
   "type": "channel",
@@ -16996,8 +17305,7 @@
    "avg_original_min": 36,
    "last_original": "20230925",
    "follower_count": 441
-  },
-  "slug": "relax-room-podcast"
+  }
  },
  "UCFMq6-j2WadfIkvKee-b7DA": {
   "name": "Crypto-Wednesdays Show",
@@ -17272,6 +17580,7 @@
   }
  },
  "UCjfDbSSejqVHixpoz8uyqTA": {
+  "slug": "mate-mijic-reakcija",
   "name": "Mate Mijić",
   "url": "https://www.youtube.com/channel/UCjfDbSSejqVHixpoz8uyqTA/videos",
   "type": "channel",
@@ -17286,8 +17595,7 @@
    "avg_original_min": 47,
    "last_original": "20210925",
    "follower_count": 4520
-  },
-  "slug": "mate-mijic-reakcija"
+  }
  },
  "UC1BOtUU4-vFKwA2_yk2OS8g": {
   "name": "OBN Televizija",
@@ -17443,6 +17751,7 @@
   }
  },
  "UCPLw4crqVFAUx98oIGXekug": {
+  "slug": "game-changers-podcast",
   "name": "Game Changers podcast by Ivan Šafranić",
   "url": "https://www.youtube.com/channel/UCPLw4crqVFAUx98oIGXekug/videos",
   "type": "channel",
@@ -17457,10 +17766,10 @@
    "avg_original_min": 46,
    "last_original": "20260825",
    "follower_count": 34
-  },
-  "slug": "game-changers-podcast"
+  }
  },
  "UCvH7xHJPirAOXqGypud8cHQ": {
+  "slug": "vragolasti-tenis",
   "name": "Vragolasti Tenis",
   "url": "https://www.youtube.com/channel/UCvH7xHJPirAOXqGypud8cHQ/videos",
   "type": "channel",
@@ -17475,8 +17784,7 @@
    "avg_original_min": 99,
    "last_original": "20260917",
    "follower_count": 767
-  },
-  "slug": "vragolasti-tenis"
+  }
  },
  "UCatt7TBjfBkiJWx8khav_Gg": {
   "name": "Piers Morgan Uncensored",
@@ -17513,6 +17821,7 @@
   }
  },
  "UCSmXdXBDxfmeL98o_Qm-qMA": {
+  "slug": "radio-benkovac",
   "name": "radiobenkovac",
   "url": "https://www.youtube.com/channel/UCSmXdXBDxfmeL98o_Qm-qMA/videos",
   "type": "channel",
@@ -17527,10 +17836,10 @@
    "avg_original_min": 48,
    "last_original": "20260923",
    "follower_count": 55
-  },
-  "slug": "radio-benkovac"
+  }
  },
  "UCpQtJl6aa7V2hdt87c3BDAQ": {
+  "slug": "framiko-frama-kocerin",
   "name": "Frama Kočerin",
   "url": "https://www.youtube.com/channel/UCpQtJl6aa7V2hdt87c3BDAQ/videos",
   "type": "channel",
@@ -17545,10 +17854,10 @@
    "avg_original_min": 49,
    "last_original": "20260919",
    "follower_count": 1670
-  },
-  "slug": "framiko-frama-kocerin"
+  }
  },
  "UCFADudZZSnC1LfC_rzhqYcA": {
+  "slug": "oslobodjenje-zivotinja-vr",
   "name": "Oslobođenje životinja / Animal liberation",
   "url": "https://www.youtube.com/channel/UCFADudZZSnC1LfC_rzhqYcA/videos",
   "type": "channel",
@@ -17563,10 +17872,10 @@
    "avg_original_min": 56,
    "last_original": "20250925",
    "follower_count": 922
-  },
-  "slug": "oslobodjenje-zivotinja-vr"
+  }
  },
  "UCmNlgTqn0BD2FdFSVuaVWxw": {
+  "slug": "liberalni-podcast",
   "name": "Liberalni podcast",
   "url": "https://www.youtube.com/channel/UCmNlgTqn0BD2FdFSVuaVWxw/videos",
   "type": "channel",
@@ -17581,10 +17890,10 @@
    "avg_original_min": 87,
    "last_original": "20210925",
    "follower_count": 350
-  },
-  "slug": "liberalni-podcast"
+  }
  },
  "UCAPj-POjqOesdAh9T6GBVJA": {
+  "slug": "kaj-delas",
   "name": "KAJ DELAŠ?",
   "url": "https://www.youtube.com/channel/UCAPj-POjqOesdAh9T6GBVJA/videos",
   "type": "channel",
@@ -17599,8 +17908,7 @@
    "avg_original_min": 28,
    "last_original": "20250925",
    "follower_count": 1450
-  },
-  "slug": "kaj-delas"
+  }
  },
  "UCTIhYDu2J6LmLIfchSsoy9A": {
   "name": "Mentalni Trening",
@@ -17654,6 +17962,7 @@
   }
  },
  "UC6TAdd9xBT35E3CvlJV7r7A": {
+  "slug": "klub-psece-srece-podcast",
   "name": "Klub pseće sreće Podcast",
   "url": "https://www.youtube.com/channel/UC6TAdd9xBT35E3CvlJV7r7A/videos",
   "type": "channel",
@@ -17668,8 +17977,7 @@
    "avg_original_min": 65,
    "last_original": "20260915",
    "follower_count": 4340
-  },
-  "slug": "klub-psece-srece-podcast"
+  }
  },
  "UCM1qERY3DKfIdDmpt19FSmg": {
   "name": "Evolte Podcast",
@@ -17723,6 +18031,7 @@
   }
  },
  "UCII3jcTjD1sdXRV15OfEH-A": {
+  "slug": "zona-dinamo-podcast",
   "name": "Zona Dinamo Podcast",
   "url": "https://www.youtube.com/channel/UCII3jcTjD1sdXRV15OfEH-A/videos",
   "type": "channel",
@@ -17737,8 +18046,7 @@
    "avg_original_min": 87,
    "last_original": "20260924",
    "follower_count": 4430
-  },
-  "slug": "zona-dinamo-podcast"
+  }
  },
  "UC2s9DOCa-6EOEtnsfwO7QKw": {
   "name": "Novak Sudar",
@@ -17945,6 +18253,7 @@
   }
  },
  "UC0q-eC0mM3t_nUME5IcIdfA": {
+  "slug": "crofutsal",
   "name": "Crofutsal",
   "url": "https://www.youtube.com/channel/UC0q-eC0mM3t_nUME5IcIdfA/videos",
   "type": "channel",
@@ -17959,8 +18268,7 @@
    "avg_original_min": 60,
    "last_original": "20260725",
    "follower_count": 642
-  },
-  "slug": "crofutsal"
+  }
  },
  "UC1-Txfw4pXfU_e_im-8N25g": {
   "name": "Gvozden Pro",
@@ -18099,6 +18407,7 @@
   }
  },
  "UCatMPoW3BfGVvlyRvQJtyqg": {
+  "slug": "nlo-arhivist",
   "name": "NLO Arhivist",
   "url": "https://www.youtube.com/channel/UCatMPoW3BfGVvlyRvQJtyqg/videos",
   "type": "channel",
@@ -18113,8 +18422,7 @@
    "avg_original_min": 88,
    "last_original": "20260825",
    "follower_count": 321
-  },
-  "slug": "nlo-arhivist"
+  }
  },
  "UCU9ajdg0sW8oeT4L2xeurUg": {
   "name": "ICV Virovitica",
@@ -18151,6 +18459,7 @@
   }
  },
  "UCM0U-TGwmRzaLzATEzRnzYQ": {
+  "slug": "politicki-marketing-podcast",
   "name": "Politički Marketing Podcast",
   "url": "https://www.youtube.com/channel/UCM0U-TGwmRzaLzATEzRnzYQ/videos",
   "type": "channel",
@@ -18165,8 +18474,7 @@
    "avg_original_min": 78,
    "last_original": "20260625",
    "follower_count": 351
-  },
-  "slug": "politicki-marketing-podcast"
+  }
  },
  "UCNxjMUEZP7Wrr97pgV0A6jw": {
   "name": "Partnerski \"translejter\"",
@@ -18237,6 +18545,7 @@
   }
  },
  "UCacGzbXouQkqR9pw5olGV-g": {
+  "slug": "zrela-veza",
   "name": "Zrela Veza",
   "url": "https://www.youtube.com/channel/UCacGzbXouQkqR9pw5olGV-g/videos",
   "type": "channel",
@@ -18251,8 +18560,7 @@
    "avg_original_min": 30,
    "last_original": "20260325",
    "follower_count": 13100
-  },
-  "slug": "zrela-veza"
+  }
  },
  "UCzwH-E5W75UYq6ijqjFZbyA": {
   "name": "Ljudi i priče iz Hrvatske | HRT",
@@ -18408,6 +18716,7 @@
   }
  },
  "UCgJSwKPHx2yF-rahKDyQn-A": {
+  "slug": "let-love-eho-radio",
   "name": "Let Love Eho radio",
   "url": "https://www.youtube.com/channel/UCgJSwKPHx2yF-rahKDyQn-A/videos",
   "type": "channel",
@@ -18422,8 +18731,7 @@
    "avg_original_min": 45,
    "last_original": "20240925",
    "follower_count": 1200
-  },
-  "slug": "let-love-eho-radio"
+  }
  },
  "UCnuvocMQ6Tr31nIDiNX7qTw": {
   "name": "Beth Roars",
@@ -18681,6 +18989,7 @@
   }
  },
  "UCCojuuthVe0k51qzsbjd74g": {
+  "slug": "sportologija-sportski-podcast",
   "name": "Sportologija - Sportski Podcast",
   "url": "https://www.youtube.com/channel/UCCojuuthVe0k51qzsbjd74g/videos",
   "type": "channel",
@@ -18695,8 +19004,7 @@
    "avg_original_min": 72,
    "last_original": "20230925",
    "follower_count": 307
-  },
-  "slug": "sportologija-sportski-podcast"
+  }
  },
  "UCZezsMrOZVBImR7egoiZ2ZQ": {
   "name": "MarsoniaNews",
@@ -18716,6 +19024,7 @@
   }
  },
  "UCBBk8DEZxwF6zLVjOQbvo6w": {
+  "slug": "pravo-na-istinu",
   "name": "PRAVO NA ISTINU",
   "url": "https://www.youtube.com/channel/UCBBk8DEZxwF6zLVjOQbvo6w/videos",
   "type": "channel",
@@ -18730,10 +19039,10 @@
    "avg_original_min": 126,
    "last_original": "20260917",
    "follower_count": 3280
-  },
-  "slug": "pravo-na-istinu"
+  }
  },
  "UCd8L4hpON6SV_9cOngEETMA": {
+  "slug": "projekt-snovi",
   "name": "Projekt SNOVI",
   "url": "https://www.youtube.com/channel/UCd8L4hpON6SV_9cOngEETMA/videos",
   "type": "channel",
@@ -18748,8 +19057,7 @@
    "avg_original_min": 29,
    "last_original": "20260913",
    "follower_count": 990
-  },
-  "slug": "projekt-snovi"
+  }
  },
  "UCMPI1P8oj1XWD6-CDhw1kMw": {
   "name": "Balkan in Amerika",
@@ -18769,6 +19077,7 @@
   }
  },
  "UCT83lJC9IZiTsf__pXAs0QA": {
+  "slug": "bijela-kronika",
   "name": "Bijela kronika",
   "url": "https://www.youtube.com/channel/UCT83lJC9IZiTsf__pXAs0QA/videos",
   "type": "channel",
@@ -18783,8 +19092,7 @@
    "avg_original_min": 29,
    "last_original": "20260904",
    "follower_count": 305
-  },
-  "slug": "bijela-kronika"
+  }
  },
  "UCrQuquS7NlRaCgAO6lzsAug": {
   "name": "Hrvatski iseljenički kongres - HIK",
@@ -18872,6 +19180,7 @@
   }
  },
  "UCEOOgydHzPNZYyt5MRqpARg": {
+  "slug": "mioc-podcast",
   "name": "MIOC podcast",
   "url": "https://www.youtube.com/channel/UCEOOgydHzPNZYyt5MRqpARg/videos",
   "type": "channel",
@@ -18886,8 +19195,7 @@
    "avg_original_min": 50,
    "last_original": "20260725",
    "follower_count": 160
-  },
-  "slug": "mioc-podcast"
+  }
  },
  "UCakU8LMxQuvHqGo0wJEFVww": {
   "name": "Vanjskopoliticka Inicijativa BH",
@@ -18907,6 +19215,7 @@
   }
  },
  "UCidqZjlsOsUSw5T2jf9F27A": {
+  "slug": "mijenjam-ciglu-za-ovcu",
   "name": "Mijenjam ciglu za ovcu",
   "url": "https://www.youtube.com/channel/UCidqZjlsOsUSw5T2jf9F27A/videos",
   "type": "channel",
@@ -18921,8 +19230,7 @@
    "avg_original_min": 58,
    "last_original": "20251225",
    "follower_count": 50
-  },
-  "slug": "mijenjam-ciglu-za-ovcu"
+  }
  },
  "UCvmjTlYCz1I8oznVznFloRw": {
   "name": "ProBudi Podcast",
@@ -18993,6 +19301,7 @@
   }
  },
  "UCCHSHlWJbZSB__9RcXBSmJQ": {
+  "slug": "open-talk-podcast",
   "name": "OPEN TALK PODCAST",
   "url": "https://www.youtube.com/channel/UCCHSHlWJbZSB__9RcXBSmJQ/videos",
   "type": "channel",
@@ -19007,8 +19316,7 @@
    "avg_original_min": 71,
    "last_original": "20240925",
    "follower_count": 954
-  },
-  "slug": "open-talk-podcast"
+  }
  },
  "UCbo4aOrpIPNZiqOUNs0OLrg": {
   "name": "Learn German Podcast ",
@@ -19096,6 +19404,7 @@
   }
  },
  "UCXUa2rxSiJoEuNe-lOj3PUg": {
+  "slug": "modul-za-rast",
   "name": "MODUL ZA RAST",
   "url": "https://www.youtube.com/channel/UCXUa2rxSiJoEuNe-lOj3PUg/videos",
   "type": "channel",
@@ -19110,8 +19419,7 @@
    "avg_original_min": 48,
    "last_original": "20260911",
    "follower_count": 670
-  },
-  "slug": "modul-za-rast"
+  }
  },
  "UCvqusAyWpUAWKqqG0rbhcrg": {
   "name": "INA Hrvatska",
@@ -19284,6 +19592,7 @@
   }
  },
  "UC2ZncwZyQBHyBKIzg7UGZvw": {
+  "slug": "nova-o-svemiru-i-svemu-ostalom",
   "name": "Nova O svemiru i svemu ostalom",
   "url": "https://www.youtube.com/channel/UC2ZncwZyQBHyBKIzg7UGZvw/videos",
   "type": "channel",
@@ -19298,10 +19607,10 @@
    "avg_original_min": 50,
    "last_original": "20260725",
    "follower_count": 1080
-  },
-  "slug": "nova-o-svemiru-i-svemu-ostalom"
+  }
  },
  "UCB0AOqZ0AJF2I2LOE2J0hCg": {
+  "slug": "psiholoski-podcast",
   "name": "Psihološki Prostor",
   "url": "https://www.youtube.com/channel/UCB0AOqZ0AJF2I2LOE2J0hCg/videos",
   "type": "channel",
@@ -19316,8 +19625,7 @@
    "avg_original_min": 42,
    "last_original": "20210925",
    "follower_count": 601
-  },
-  "slug": "psiholoski-podcast"
+  }
  },
  "UCscO0WUb_c0L8XcwluMMHXQ": {
   "name": "BAUCAST_byCreato",
@@ -19371,6 +19679,7 @@
   }
  },
  "UCfJAn7o4NNKT8cFNrIwWIaw": {
+  "slug": "borna-zuber-liveqa",
   "name": "Borna Zuber",
   "url": "https://www.youtube.com/channel/UCfJAn7o4NNKT8cFNrIwWIaw/videos",
   "type": "channel",
@@ -19385,8 +19694,7 @@
    "avg_original_min": 116,
    "last_original": "20250925",
    "follower_count": 2660
-  },
-  "slug": "borna-zuber-liveqa"
+  }
  },
  "UCvWqZuM2Sl8p-pjtG3BKMfw": {
   "name": "Agencija Plus NEKRETNINE",
@@ -19610,6 +19918,7 @@
   }
  },
  "UCP3M0l-2weQBohmr6EqiC6g": {
+  "slug": "bokun-neba",
   "name": "Bokun Neba",
   "url": "https://www.youtube.com/channel/UCP3M0l-2weQBohmr6EqiC6g/videos",
   "type": "channel",
@@ -19624,8 +19933,7 @@
    "avg_original_min": 28,
    "last_original": "20250925",
    "follower_count": 719
-  },
-  "slug": "bokun-neba"
+  }
  },
  "UC3zj2qK5he72UZp4J6OMFew": {
   "name": "FOKUS Obitelj",
@@ -19679,6 +19987,7 @@
   }
  },
  "UC469rilyuy-vErL3AkZ6TOg": {
+  "slug": "skrivena-strana-poroda",
   "name": "Hrvatska udruga doula",
   "url": "https://www.youtube.com/channel/UC469rilyuy-vErL3AkZ6TOg/videos",
   "type": "channel",
@@ -19693,8 +20002,7 @@
    "avg_original_min": 37,
    "last_original": "20260625",
    "follower_count": 774
-  },
-  "slug": "skrivena-strana-poroda"
+  }
  },
  "UCd0yxCrbWJID5mM_eGLokDg": {
   "name": "Berkathidup",
@@ -19731,6 +20039,7 @@
   }
  },
  "UCsMw7tfzbrK-Bhymi9bFfMw": {
+  "slug": "mi-vidimo",
   "name": "Mi ViDiMo",
   "url": "https://www.youtube.com/channel/UCsMw7tfzbrK-Bhymi9bFfMw/videos",
   "type": "channel",
@@ -19745,10 +20054,10 @@
    "avg_original_min": 36,
    "last_original": "20260725",
    "follower_count": 3600
-  },
-  "slug": "mi-vidimo"
+  }
  },
  "UCmnfBcW8n2HmE8qig18whGQ": {
+  "slug": "frama-tomislavgrad",
   "name": "Frama Tomislavgrad ",
   "url": "https://www.youtube.com/channel/UCmnfBcW8n2HmE8qig18whGQ/videos",
   "type": "channel",
@@ -19763,10 +20072,10 @@
    "avg_original_min": 34,
    "last_original": "20230925",
    "follower_count": 553
-  },
-  "slug": "frama-tomislavgrad"
+  }
  },
  "UC83LuWZDC-WeqpNp_OvEGQg": {
+  "slug": "stilueta-living-room",
   "name": "Stilueta",
   "url": "https://www.youtube.com/channel/UC83LuWZDC-WeqpNp_OvEGQg/videos",
   "type": "channel",
@@ -19781,10 +20090,10 @@
    "avg_original_min": 25,
    "last_original": "20210925",
    "follower_count": 128
-  },
-  "slug": "stilueta-living-room"
+  }
  },
  "UC8N5iQ5ojnqKX5M_nzNqaTQ": {
+  "slug": "psz-podcast",
   "name": "D Business Leadership Summit",
   "url": "https://www.youtube.com/channel/UC8N5iQ5ojnqKX5M_nzNqaTQ/videos",
   "type": "channel",
@@ -19799,10 +20108,10 @@
    "avg_original_min": 66,
    "last_original": "20260825",
    "follower_count": 7270
-  },
-  "slug": "psz-podcast"
+  }
  },
  "UCMH5bKytb0jmkpO-hz6s6Ag": {
+  "slug": "croatian-sommelier-adventures",
   "name": "Croatian Sommelier Adventures",
   "url": "https://www.youtube.com/channel/UCMH5bKytb0jmkpO-hz6s6Ag/videos",
   "type": "channel",
@@ -19817,8 +20126,7 @@
    "avg_original_min": 50,
    "last_original": "20200925",
    "follower_count": 92
-  },
-  "slug": "croatian-sommelier-adventures"
+  }
  },
  "UCszehWeFvmdsC2si5CcSBSw": {
   "name": "GRIC GRIC",
@@ -19889,6 +20197,7 @@
   }
  },
  "UCiqh0pOqarVSgCMrk6VQfTw": {
+  "slug": "podkajst",
   "name": "Kvartet Gubec",
   "url": "https://www.youtube.com/channel/UCiqh0pOqarVSgCMrk6VQfTw/videos",
   "type": "channel",
@@ -19903,8 +20212,7 @@
    "avg_original_min": 51,
    "last_original": "20220925",
    "follower_count": 1290
-  },
-  "slug": "podkajst"
+  }
  },
  "UC2uWW1csyQUJ1L7oyd0sUIQ": {
   "name": "CroatiaRecordsVEVO",
@@ -20026,6 +20334,7 @@
   }
  },
  "UCApQrl9RAycb8qgb6NhvBog": {
+  "slug": "autoscena",
   "name": "AUTOSCENA",
   "url": "https://www.youtube.com/channel/UCApQrl9RAycb8qgb6NhvBog/videos",
   "type": "channel",
@@ -20040,8 +20349,7 @@
    "avg_original_min": 131,
    "last_original": "20260725",
    "follower_count": 2110
-  },
-  "slug": "autoscena"
+  }
  },
  "UC7AKJe91Uf-QbPFxOWnzQRg": {
   "name": "Auto Show",
@@ -20095,6 +20403,7 @@
   }
  },
  "UCGp_gN9jbDXPuP5X5nFvxcg": {
+  "slug": "garaza",
   "name": "Garaža",
   "url": "https://www.youtube.com/channel/UCGp_gN9jbDXPuP5X5nFvxcg/videos",
   "type": "channel",
@@ -20109,8 +20418,7 @@
    "avg_original_min": 27,
    "last_original": "20220925",
    "follower_count": 6250
-  },
-  "slug": "garaza"
+  }
  },
  "UCONhSOtzSUEF_XcKxeQeqnQ": {
   "name": "EkoMobilnost",
@@ -20368,6 +20676,7 @@
   }
  },
  "UCihFVvNAGGWomC6Q4cIE2xg": {
+  "slug": "nadji-nacin",
   "name": "Nađi Način",
   "url": "https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos",
   "type": "channel",
@@ -20382,10 +20691,10 @@
    "avg_original_min": 41,
    "last_original": "20260923",
    "follower_count": 7480
-  },
-  "slug": "nadji-nacin"
+  }
  },
  "UCsRB8TMe6iuSSwQ8fp2dOdw": {
+  "slug": "coredialog",
   "name": "COREdialog",
   "url": "https://www.youtube.com/channel/UCsRB8TMe6iuSSwQ8fp2dOdw/videos",
   "type": "channel",
@@ -20400,8 +20709,7 @@
    "avg_original_min": 99,
    "last_original": "20260225",
    "follower_count": 238
-  },
-  "slug": "coredialog"
+  }
  },
  "UCP3Ua42KGyrdmN9n8nStPqA": {
   "name": "Želimir Horvat",
@@ -21067,6 +21375,7 @@
   }
  },
  "UClQch6cp0bXHC3AhRpubofA": {
+  "slug": "izbacene-scene",
   "name": "Izbačene Scene",
   "url": "https://www.youtube.com/channel/UClQch6cp0bXHC3AhRpubofA/videos",
   "type": "channel",
@@ -21081,10 +21390,10 @@
    "avg_original_min": 72,
    "last_original": "20260916",
    "follower_count": 846
-  },
-  "slug": "izbacene-scene"
+  }
  },
  "UCtTRM-loGOEQugE_CSaIcOg": {
+  "slug": "mixer-room-podcast",
   "name": "MIXER",
   "url": "https://www.youtube.com/channel/UCtTRM-loGOEQugE_CSaIcOg/videos",
   "type": "channel",
@@ -21099,10 +21408,10 @@
    "avg_original_min": 39,
    "last_original": "20260325",
    "follower_count": 912
-  },
-  "slug": "mixer-room-podcast"
+  }
  },
  "UCxxfZ7LhIiFuqPtacuXPLqw": {
+  "slug": "fake-it-till-you-make-it-podcast",
   "name": "Fake It Till You Make It Podcast",
   "url": "https://www.youtube.com/channel/UCxxfZ7LhIiFuqPtacuXPLqw/videos",
   "type": "channel",
@@ -21117,10 +21426,10 @@
    "avg_original_min": 43,
    "last_original": "20240925",
    "follower_count": 45
-  },
-  "slug": "fake-it-till-you-make-it-podcast"
+  }
  },
  "UC_G1cT1NWHsg9rdHMB8rZWQ": {
+  "slug": "na-kaucu",
   "name": "NA KAUČU by Vedrana Lisica",
   "url": "https://www.youtube.com/channel/UC_G1cT1NWHsg9rdHMB8rZWQ/videos",
   "type": "channel",
@@ -21135,8 +21444,7 @@
    "avg_original_min": 72,
    "last_original": "20220925",
    "follower_count": 2850
-  },
-  "slug": "na-kaucu"
+  }
  },
  "UCUezDU1Bm6Y0MetFjKUiw2w": {
   "name": "HNK Rijeka",
@@ -21173,6 +21481,7 @@
   }
  },
  "UCw0_lthGS4qChQec36LX8Mw": {
+  "slug": "iza-pjace",
   "name": "Iza Pjace",
   "url": "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos",
   "type": "channel",
@@ -21187,8 +21496,7 @@
    "avg_original_min": 94,
    "last_original": "20260922",
    "follower_count": 10300
-  },
-  "slug": "iza-pjace"
+  }
  },
  "UCuv1iCvX5QDFkRqTlvkSZZw": {
   "name": "Radio Kastav",
@@ -21208,6 +21516,7 @@
   }
  },
  "UCOB8hyzZIF6grOZRFFAkU5Q": {
+  "slug": "ovisnici-o-knjigama",
   "name": "Ovisnici o knjigama",
   "url": "https://www.youtube.com/channel/UCOB8hyzZIF6grOZRFFAkU5Q/videos",
   "type": "channel",
@@ -21222,8 +21531,7 @@
    "avg_original_min": 42,
    "last_original": "20260915",
    "follower_count": 177
-  },
-  "slug": "ovisnici-o-knjigama"
+  }
  },
  "UCqilHAq6O5zdP1L5ptUHomA": {
   "name": "SkriptaTV",
@@ -21600,6 +21908,7 @@
   }
  },
  "UCKdC0rAJAG5pIBlk18BHsEw": {
+  "slug": "fraktura-booktalk",
   "name": "Fraktura Najbolja Literatura",
   "url": "https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/videos",
   "type": "channel",
@@ -21614,10 +21923,10 @@
    "avg_original_min": 51,
    "last_original": "20260725",
    "follower_count": 1970
-  },
-  "slug": "fraktura-booktalk"
+  }
  },
  "UCQfu-cfE5w09IWc2ifCZfnA": {
+  "slug": "radio-tvornica-gosti",
   "name": "Radio Tvornica",
   "url": "https://www.youtube.com/channel/UCQfu-cfE5w09IWc2ifCZfnA/videos",
   "type": "channel",
@@ -21632,8 +21941,7 @@
    "avg_original_min": 38,
    "last_original": "20250925",
    "follower_count": 342
-  },
-  "slug": "radio-tvornica-gosti"
+  }
  },
  "UC-LqDYME5ubrBQx2Co7EjEA": {
   "name": "SeksDrogaPolitika",
@@ -21670,6 +21978,7 @@
   }
  },
  "UCSPCDN_O49pvGn6IFuDz2FA": {
+  "slug": "hcl-cast",
   "name": "HCL Cast",
   "url": "https://www.youtube.com/channel/UCSPCDN_O49pvGn6IFuDz2FA/videos",
   "type": "channel",
@@ -21684,8 +21993,7 @@
    "avg_original_min": 78,
    "last_original": "20250925",
    "follower_count": 3690
-  },
-  "slug": "hcl-cast"
+  }
  },
  "UCnnjB35KRzpFyMOToHsjWKg": {
   "name": "KostMalen",
@@ -22096,6 +22404,7 @@
   }
  },
  "UCW4Iu-dYRcHDj7Gum37nj8Q": {
+  "slug": "roze-koze-podcast",
   "name": "Roze Koze Podcast",
   "url": "https://www.youtube.com/channel/UCW4Iu-dYRcHDj7Gum37nj8Q/videos",
   "type": "channel",
@@ -22110,8 +22419,7 @@
    "avg_original_min": 47,
    "last_original": "20220925",
    "follower_count": 588
-  },
-  "slug": "roze-koze-podcast"
+  }
  },
  "UCEX3m1_wjtlqNfB51ZakqWQ": {
   "name": "Denis Rajčić",
@@ -22267,6 +22575,7 @@
   }
  },
  "UCAfpzMev1SiUl-Jr569upow": {
+  "slug": "bez-dlake-na-glavi",
   "name": "BEZ DLAKE NA GLAVI",
   "url": "https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/videos",
   "type": "channel",
@@ -22281,8 +22590,7 @@
    "avg_original_min": 162,
    "last_original": "20260924",
    "follower_count": 25000
-  },
-  "slug": "bez-dlake-na-glavi"
+  }
  },
  "UCe1GM-EsZBEZGvQWrpaxnaA": {
   "name": "CORAL Consulting Service",
@@ -22914,6 +23222,7 @@
   }
  },
  "UC4c2_PYMd0uUKY8TexW5K7Q": {
+  "slug": "podcast-bog-i-hrvati",
   "name": "PODCAST BOG I HRVATI",
   "url": "https://www.youtube.com/channel/UC4c2_PYMd0uUKY8TexW5K7Q/videos",
   "type": "channel",
@@ -22928,8 +23237,7 @@
    "avg_original_min": 69,
    "last_original": "20260525",
    "follower_count": 781
-  },
-  "slug": "podcast-bog-i-hrvati"
+  }
  },
  "UC0ECfyWEEYpD0bVa_dMqe5w": {
   "name": "Srpsko privredno društvo Privrednik",
@@ -23034,6 +23342,7 @@
   }
  },
  "PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b": {
+  "slug": "forbes-business-unplugged",
   "name": "Forbes Business Unplugged",
   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b",
   "type": "playlist",
@@ -23048,10 +23357,10 @@
    "avg_original_min": 49,
    "last_original": "20260425",
    "follower_count": null
-  },
-  "slug": "forbes-business-unplugged"
+  }
  },
  "PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd": {
+  "slug": "kresendo",
   "name": "Krešendo",
   "url": "https://www.youtube.com/playlist?list=PL279H2ix-v5X7G7dNwYlDYUBQePL8mvxd",
   "type": "playlist",
@@ -23066,10 +23375,10 @@
    "avg_original_min": 80,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "kresendo"
+  }
  },
  "PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj": {
+  "slug": "teologija-tijela",
   "name": "Teologija Tijela",
   "url": "https://www.youtube.com/playlist?list=PLmqB3SO5C_QZRg1Ja5mXgtlc7Qn8YrJhj",
   "type": "playlist",
@@ -23084,10 +23393,10 @@
    "avg_original_min": 39,
    "last_original": "20210925",
    "follower_count": null
-  },
-  "slug": "teologija-tijela"
+  }
  },
  "PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t": {
+  "slug": "dalmacija-danas-podcast",
   "name": "PODCAST",
   "url": "https://www.youtube.com/playlist?list=PL44PNyNoH-3zIsYQ6BfTjoYfFdSv2pz8t",
   "type": "playlist",
@@ -23102,10 +23411,10 @@
    "avg_original_min": 65,
    "last_original": "20251225",
    "follower_count": null
-  },
-  "slug": "dalmacija-danas-podcast"
+  }
  },
  "PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1": {
+  "slug": "svijet-plus",
   "name": "Svijet plus",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKC_2hcOSqQQ13Ltbg7avq1",
   "type": "playlist",
@@ -23120,10 +23429,10 @@
    "avg_original_min": 45,
    "last_original": "20260924",
    "follower_count": null
-  },
-  "slug": "svijet-plus"
+  }
  },
  "PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF": {
+  "slug": "show-na-kvadrat",
   "name": "Show na kvadrat",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF",
   "type": "playlist",
@@ -23138,10 +23447,10 @@
    "avg_original_min": 72,
    "last_original": "20260923",
    "follower_count": null
-  },
-  "slug": "show-na-kvadrat"
+  }
  },
  "PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d": {
+  "slug": "povijesni-dijalozi",
   "name": "Povijesni dijalozi",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULkmUkYD9-IVvJB-kZwSf5d",
   "type": "playlist",
@@ -23156,10 +23465,10 @@
    "avg_original_min": 77,
    "last_original": "20260918",
    "follower_count": null
-  },
-  "slug": "povijesni-dijalozi"
+  }
  },
  "PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-": {
+  "slug": "vl-stativa",
   "name": "VL Stativa",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULEzZwjB3zy1MbPTN9e-h_-",
   "type": "playlist",
@@ -23174,10 +23483,10 @@
    "avg_original_min": 34,
    "last_original": "20260911",
    "follower_count": null
-  },
-  "slug": "vl-stativa"
+  }
  },
  "PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7": {
+  "slug": "zivotne-price-by-dea-redzic",
   "name": "Životne priče by Dea Redžić",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7",
   "type": "playlist",
@@ -23192,10 +23501,10 @@
    "avg_original_min": 84,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "zivotne-price-by-dea-redzic"
+  }
  },
  "PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu": {
+  "slug": "vecernji-hr-podcast-vecernji-tv",
   "name": "Večernji.hr podcast",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUJjIV3xAmvev-8O2qw6FDsu",
   "type": "playlist",
@@ -23210,8 +23519,7 @@
    "avg_original_min": 60,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "vecernji-hr-podcast-vecernji-tv"
+  }
  },
  "PLw1sAE-q_rHv51yiw1SoFNwrRSHkJxRej": {
   "name": "Split Tech City Podcast",
@@ -23231,6 +23539,7 @@
   }
  },
  "PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z": {
+  "slug": "imam-ideju",
   "name": "IMAM IDEJU | BLJESAK PODCAST",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XG3Jy9P-ldRfy4VWz9mfm7Z",
   "type": "playlist",
@@ -23245,10 +23554,10 @@
    "avg_original_min": 57,
    "last_original": "20260828",
    "follower_count": null
-  },
-  "slug": "imam-ideju"
+  }
  },
  "PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk": {
+  "slug": "sport-centar-bljesak",
   "name": "SPORT CENTAR | BLJESAK PODCAST",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEpDQdUDUKsN1ML8W9yw_Mk",
   "type": "playlist",
@@ -23263,10 +23572,10 @@
    "avg_original_min": 57,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "sport-centar-bljesak"
+  }
  },
  "PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL": {
+  "slug": "cancast",
   "name": "CANCAST",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL",
   "type": "playlist",
@@ -23281,10 +23590,10 @@
    "avg_original_min": 80,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "cancast"
+  }
  },
  "PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt": {
+  "slug": "pricamo-o-zdravlju",
   "name": "PRIČAMO O ZDRAVLJU",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XEv-7GbNXrYw_HBPRq8THHt",
   "type": "playlist",
@@ -23299,10 +23608,10 @@
    "avg_original_min": 50,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "pricamo-o-zdravlju"
+  }
  },
  "PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi": {
+  "slug": "kruzni-tok",
   "name": "KRUŽNI TOK",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XGcm3HvGUY9Hx9bAYtMXWfi",
   "type": "playlist",
@@ -23317,8 +23626,7 @@
    "avg_original_min": 85,
    "last_original": "20260525",
    "follower_count": null
-  },
-  "slug": "kruzni-tok"
+  }
  },
  "PLr703DZI18XF71aRFLGpDax8PRTrFlRUj": {
   "name": "DAVCASTT | BLJESAK PODCAST",
@@ -23338,6 +23646,7 @@
   }
  },
  "PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t": {
+  "slug": "sredinom",
   "name": "SREDINOM | BLJESAK PODCAST",
   "url": "https://www.youtube.com/playlist?list=PLr703DZI18XHt6bRBzF_dZ4xCL8UMxS8t",
   "type": "playlist",
@@ -23352,8 +23661,7 @@
    "avg_original_min": 52,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "sredinom"
+  }
  },
  "PLr703DZI18XHM4Wii-g3N7nzL1NmwLkJS": {
   "name": "ANDREINE PRIČE | BLJESAK PODCAST",
@@ -23373,6 +23681,7 @@
   }
  },
  "PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU": {
+  "slug": "aktualno-hkm",
   "name": "Aktualno",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
   "type": "playlist",
@@ -23387,10 +23696,10 @@
    "avg_original_min": 34,
    "last_original": "20260923",
    "follower_count": null
-  },
-  "slug": "aktualno-hkm"
+  }
  },
  "PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-": {
+  "slug": "razgovori-s-nadbiskupima",
   "name": "Razgovori s (nad)biskupima",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
   "type": "playlist",
@@ -23405,10 +23714,10 @@
    "avg_original_min": 43,
    "last_original": "20251125",
    "follower_count": null
-  },
-  "slug": "razgovori-s-nadbiskupima"
+  }
  },
  "PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7": {
+  "slug": "argumenti-sezona-7",
   "name": "Argumenti - 7. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
   "type": "playlist",
@@ -23423,10 +23732,10 @@
    "avg_original_min": 41,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR": {
+  "slug": "pod-krizem",
   "name": "Pod križem",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
   "type": "playlist",
@@ -23441,10 +23750,10 @@
    "avg_original_min": 38,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "pod-krizem"
+  }
  },
  "PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc": {
+  "slug": "s-druge-strane-ogledala",
   "name": "S druge strane ogledala",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
   "type": "playlist",
@@ -23459,10 +23768,11 @@
    "avg_original_min": 40,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "s-druge-strane-ogledala"
+  }
  },
  "PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 6. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9Yd_ylLFUv6aePWtUNMsI2",
   "type": "playlist",
@@ -23477,11 +23787,11 @@
    "avg_original_min": 41,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 5. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg9KmiEsoXK1JriC-XRBGn9V",
   "type": "playlist",
@@ -23496,11 +23806,10 @@
    "avg_original_min": 41,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o": {
+  "slug": "duhovno-duhovite-veceri",
   "name": "Duhovno duhovite večeri",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
   "type": "playlist",
@@ -23515,8 +23824,7 @@
    "avg_original_min": 51,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "duhovno-duhovite-veceri"
+  }
  },
  "PLVDKMx1rtcg8xBPkcJrqUfWqOca4Rt2yb": {
   "name": "Novi valovi dobrote - II",
@@ -23536,6 +23844,8 @@
   }
  },
  "PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 4. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_twxXSsRgHUk8aZzlV12MX",
   "type": "playlist",
@@ -23550,11 +23860,11 @@
    "avg_original_min": 41,
    "last_original": "20220925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 1. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8fqNs5LTL80nq8PEVwkGk6",
   "type": "playlist",
@@ -23569,11 +23879,11 @@
    "avg_original_min": 37,
    "last_original": "20190925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 3. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg965vY6sHX0lId-5p6J3gQo",
   "type": "playlist",
@@ -23588,11 +23898,11 @@
    "avg_original_min": 41,
    "last_original": "20210925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX": {
+  "slug": "argumenti-sezona-7",
+  "merged_into": "argumenti-sezona-7",
   "name": "Argumenti - 2. sezona",
   "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8OkmZUpQEBdDC5dGG86tqX",
   "type": "playlist",
@@ -23607,9 +23917,7 @@
    "avg_original_min": 41,
    "last_original": "20200925",
    "follower_count": null
-  },
-  "slug": "argumenti-sezona-7",
-  "merged_into": "argumenti-sezona-7"
+  }
  },
  "PLVDKMx1rtcg_KysEEMBKAn3T-yHP54PyH": {
   "name": "Novi valovi dobrote - I",
@@ -23680,6 +23988,7 @@
   }
  },
  "PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms": {
+  "slug": "vatreni-podcast-psk-2024",
   "name": "Vatreni podcast powered by PSK 2024.",
   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRFsQo1Bl2fpqkfGxtDvaLms",
   "type": "playlist",
@@ -23694,10 +24003,11 @@
    "avg_original_min": 49,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "vatreni-podcast-psk-2024"
+  }
  },
  "PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-": {
+  "slug": "vatrena-obitelj",
+  "merged_into": "vatrena-obitelj",
   "name": "Podcast Vatrena #obitelj",
   "url": "https://www.youtube.com/playlist?list=PLA3lGdP2OqRG8X2NX3kq74uG474nmGnI-",
   "type": "playlist",
@@ -23712,11 +24022,10 @@
    "avg_original_min": 70,
    "last_original": "20210925",
    "follower_count": null
-  },
-  "slug": "vatrena-obitelj",
-  "merged_into": "vatrena-obitelj"
+  }
  },
  "PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0": {
+  "slug": "as-s-klupe",
   "name": "AS S KLUPE",
   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVkNq9qp6tPhfPD91pJ4A9K0",
   "type": "playlist",
@@ -23731,10 +24040,10 @@
    "avg_original_min": 62,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "as-s-klupe"
+  }
  },
  "PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B": {
+  "slug": "veliki-intervju-24sata",
   "name": "VELIKI INTERVJU",
   "url": "https://www.youtube.com/playlist?list=PL_VLZbAitXVn5FjruIg9XMHmv876RKy-B",
   "type": "playlist",
@@ -23749,8 +24058,7 @@
    "avg_original_min": 38,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "veliki-intervju-24sata"
+  }
  },
  "PL6ruhm1CeCGYZjQGGkuWQBA4VgVgsmzMW": {
   "name": "TUMAČENJA SNOVA (SNOVI - 2.dio) - Split 2024.",
@@ -24552,6 +24860,7 @@
   }
  },
  "PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku": {
+  "slug": "prva-linija",
   "name": "Prva linija",
   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOA8jpwDLw6XGCO9XwwbMku",
   "type": "playlist",
@@ -24566,10 +24875,10 @@
    "avg_original_min": 58,
    "last_original": "20260923",
    "follower_count": null
-  },
-  "slug": "prva-linija"
+  }
  },
  "PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg": {
+  "slug": "na-aparatima",
   "name": "Na aparatima",
   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsMT7Lip0qpIIwkVZLIKI4rg",
   "type": "playlist",
@@ -24584,8 +24893,7 @@
    "avg_original_min": 59,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "na-aparatima"
+  }
  },
  "PLCazT8AcMSrLplSOzISKD71G_JZCejEXC": {
   "name": "RTL Detektor",
@@ -24605,6 +24913,7 @@
   }
  },
  "PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5": {
+  "slug": "bez-uputnice",
   "name": "Bez uputnice",
   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5",
   "type": "playlist",
@@ -24619,8 +24928,7 @@
    "avg_original_min": 47,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "bez-uputnice"
+  }
  },
  "PLCazT8AcMSrKuxgg_gSdb4Gno1gxT17_s": {
   "name": "Rukometne legende",
@@ -24640,6 +24948,7 @@
   }
  },
  "PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa": {
+  "slug": "tech-by-tomislav-tomasevic",
   "name": "Tech by Tomislav Tomašević",
   "url": "https://www.youtube.com/playlist?list=PLCazT8AcMSrIDgKOh3-sUGoy1SlDSaRUa",
   "type": "playlist",
@@ -24654,8 +24963,7 @@
    "avg_original_min": 51,
    "last_original": "20220925",
    "follower_count": null
-  },
-  "slug": "tech-by-tomislav-tomasevic"
+  }
  },
  "PLCbPTnlOFH9mFjfKMZtvb69DLpkzoOZTi": {
   "name": "Tjedan financijske pismenosti",
@@ -24675,6 +24983,7 @@
   }
  },
  "PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5": {
+  "slug": "shegrt",
   "name": "Shegrt",
   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5",
   "type": "playlist",
@@ -24689,10 +24998,10 @@
    "avg_original_min": 51,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "shegrt"
+  }
  },
  "PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5": {
+  "slug": "slobodnim-stilom",
   "name": "Slobodnim stilom",
   "url": "https://www.youtube.com/playlist?list=PLCbPTnlOFH9mc-GSEUglA9JpMPyW7aTi5",
   "type": "playlist",
@@ -24707,8 +25016,7 @@
    "avg_original_min": 83,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "slobodnim-stilom"
+  }
  },
  "PL2ygRlmoL9F65YCnfrFpSz7efq1U_Y-MS": {
   "name": "HCL PODCAST",
@@ -24728,6 +25036,8 @@
   }
  },
  "PLBIK6lXbDOOMQ-vj1xJWd04H_Rqe9W9GZ": {
+  "slug": "moc-komunikacije",
+  "merged_into": "moc-komunikacije",
   "name": "Saznaj sve o javnim nastupima",
   "url": "https://www.youtube.com/playlist?list=PLBIK6lXbDOOMQ-vj1xJWd04H_Rqe9W9GZ",
   "type": "playlist",
@@ -24742,9 +25052,7 @@
    "avg_original_min": 113,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "moc-komunikacije",
-  "merged_into": "moc-komunikacije"
+  }
  },
  "PLN69zBJ5kkcJpGtReVLti6oNqj-fpYFAl": {
   "name": "Metautism",
@@ -24764,6 +25072,7 @@
   }
  },
  "PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0": {
+  "slug": "occamova-britva",
   "name": "Occamova britva",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0",
   "type": "playlist",
@@ -24778,10 +25087,11 @@
    "avg_original_min": 31,
    "last_original": "20260924",
    "follower_count": null
-  },
-  "slug": "occamova-britva"
+  }
  },
  "PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1": {
+  "slug": "povijest-cetvrtkom",
+  "merged_into": "povijest-cetvrtkom",
   "name": "Povijest četvrtkom",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1",
   "type": "playlist",
@@ -24796,11 +25106,10 @@
    "avg_original_min": 50,
    "last_original": "20260924",
    "follower_count": null
-  },
-  "slug": "povijest-cetvrtkom",
-  "merged_into": "povijest-cetvrtkom"
+  }
  },
  "PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px": {
+  "slug": "andromeda",
   "name": "Andromeda",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOFAkl0-T0xgv_HWczt23Px",
   "type": "playlist",
@@ -24815,10 +25124,10 @@
    "avg_original_min": 103,
    "last_original": "20260912",
    "follower_count": null
-  },
-  "slug": "andromeda"
+  }
  },
  "PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz": {
+  "slug": "razvojni-kod",
   "name": "Razvojni kod | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz",
   "type": "playlist",
@@ -24833,8 +25142,7 @@
    "avg_original_min": 36,
    "last_original": "20260911",
    "follower_count": null
-  },
-  "slug": "razvojni-kod"
+  }
  },
  "PLuEWODEWd3kMEikpQt0eeP_FxML2nWQPz": {
   "name": "Radio igra | HRT",
@@ -24854,6 +25162,7 @@
   }
  },
  "PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw": {
+  "slug": "viza",
   "name": "Viza | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOMq2sW8syl8FR1omCzUtMw",
   "type": "playlist",
@@ -24868,10 +25177,10 @@
    "avg_original_min": 50,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "viza"
+  }
  },
  "PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-": {
+  "slug": "the-home-team-podcast",
   "name": "The Home Team Podcast",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNzl_vzvsghgJljtsrEDSN-",
   "type": "playlist",
@@ -24886,8 +25195,7 @@
    "avg_original_min": 50,
    "last_original": "20260625",
    "follower_count": null
-  },
-  "slug": "the-home-team-podcast"
+  }
  },
  "PLuEWODEWd3kMZP0Ffwqao1wWUnHah8Wg2": {
   "name": "Radio roman | HRT",
@@ -24975,6 +25283,7 @@
   }
  },
  "PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3": {
+  "slug": "prstom-po-globusu",
   "name": "Prstom po globusu | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kPzdCArFAptzsAiI9HsRcj3",
   "type": "playlist",
@@ -24989,10 +25298,10 @@
    "avg_original_min": 33,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "prstom-po-globusu"
+  }
  },
  "PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn": {
+  "slug": "glas-mladih",
   "name": "Glas mladih | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kMEhTgVih33j50aIvSmFhJn",
   "type": "playlist",
@@ -25007,10 +25316,10 @@
    "avg_original_min": 50,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "glas-mladih"
+  }
  },
  "PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E": {
+  "slug": "purgeraj",
   "name": "Purgeraj | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E",
   "type": "playlist",
@@ -25025,8 +25334,7 @@
    "avg_original_min": 35,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "purgeraj"
+  }
  },
  "PLHpcxiQoDYHfZY8qWRawmv4Np4tvxCmta": {
   "name": "LLC Lessons",
@@ -25250,6 +25558,7 @@
   }
  },
  "PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A": {
+  "slug": "mozemo-podcast",
   "name": "Možemo Podcast",
   "url": "https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A",
   "type": "playlist",
@@ -25264,10 +25573,10 @@
    "avg_original_min": 73,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "mozemo-podcast"
+  }
  },
  "PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a": {
+  "slug": "seksurbacije-podcast",
   "name": "Seksurbacije Podcast",
   "url": "https://www.youtube.com/playlist?list=PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a",
   "type": "playlist",
@@ -25282,8 +25591,7 @@
    "avg_original_min": 46,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "seksurbacije-podcast"
+  }
  },
  "PLu1QTaC8EEt-3SbTK8wwcMnhCkef2hUgS": {
   "name": "šta je s glavon?",
@@ -25303,6 +25611,7 @@
   }
  },
  "PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L": {
+  "slug": "razgovori-vtv",
   "name": "Razgovori",
   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L",
   "type": "playlist",
@@ -25317,8 +25626,7 @@
    "avg_original_min": 52,
    "last_original": "20251225",
    "follower_count": null
-  },
-  "slug": "razgovori-vtv"
+  }
  },
  "PLwkAZA40UDUL3HVk24fToCcucmw5Ok7NP": {
   "name": "IN MEDIAS PRESS",
@@ -25338,6 +25646,7 @@
   }
  },
  "PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u": {
+  "slug": "cajanka-s-borisom-vlasicem",
   "name": "Čajanka s Borisom Vlašićem",
   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOGfQIi4oagqIkD4FVR7l8u",
   "type": "playlist",
@@ -25352,10 +25661,10 @@
    "avg_original_min": 32,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "cajanka-s-borisom-vlasicem"
+  }
  },
  "PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9": {
+  "slug": "pravi-smjer",
   "name": "Pravi smjer",
   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85dY-C7gq3sQhRpv3c2HfQU9",
   "type": "playlist",
@@ -25370,8 +25679,7 @@
    "avg_original_min": 34,
    "last_original": "20260525",
    "follower_count": null
-  },
-  "slug": "pravi-smjer"
+  }
  },
  "PLTadq9219hgLnpKoOuFmIHtPURuIux_G-": {
   "name": "Digitalne tribine",
@@ -25391,6 +25699,7 @@
   }
  },
  "PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja": {
+  "slug": "razgovor-s-razlogom",
   "name": "Razgovor s razlogom | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja",
   "type": "playlist",
@@ -25405,8 +25714,7 @@
    "avg_original_min": 31,
    "last_original": "20260425",
    "follower_count": null
-  },
-  "slug": "razgovor-s-razlogom"
+  }
  },
  "PLtkTKfgc4b4XtoPYs_iClTxGV8vgTfdiY": {
   "name": "Tajne svemira",
@@ -25426,6 +25734,7 @@
   }
  },
  "PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW": {
+  "slug": "na-prvoj-crti",
   "name": "Na prvoj crti",
   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj28Gv5nHVOnbNSmI2jEDwXdW",
   "type": "playlist",
@@ -25440,10 +25749,10 @@
    "avg_original_min": 35,
    "last_original": "20260920",
    "follower_count": null
-  },
-  "slug": "na-prvoj-crti"
+  }
  },
  "UCUuKqP2o5JUd692Lw26rrpw": {
+  "slug": "prgavi-podcast",
   "name": "Prgavi podcast (+15)",
   "url": "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos",
   "type": "channel",
@@ -25458,10 +25767,10 @@
    "avg_original_min": 79,
    "last_original": "20260921",
    "follower_count": 3340
-  },
-  "slug": "prgavi-podcast"
+  }
  },
  "PLFSB3SakI85eSysSqSzwcV10-DRXNNokK": {
+  "slug": "otvoreni-studio",
   "name": "Otvoreni studio",
   "url": "https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK",
   "type": "playlist",
@@ -25476,10 +25785,10 @@
    "avg_original_min": 55,
    "last_original": "20260911",
    "follower_count": null
-  },
-  "slug": "otvoreni-studio"
+  }
  },
  "UCEivQbBRJYKOBfko2YeQAnQ": {
+  "slug": "neka-nova-prica",
   "name": "Lucia Adzic",
   "url": "https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos",
   "type": "channel",
@@ -25494,10 +25803,10 @@
    "avg_original_min": 46,
    "last_original": "20250925",
    "follower_count": 2160
-  },
-  "slug": "neka-nova-prica"
+  }
  },
  "PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h": {
+  "slug": "istinom-do-gola",
   "name": "Istinom do gola",
   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_9b_dIi4KXXrJcAAd_wy6h",
   "type": "playlist",
@@ -25512,10 +25821,10 @@
    "avg_original_min": 44,
    "last_original": "20260924",
    "follower_count": null
-  },
-  "slug": "istinom-do-gola"
+  }
  },
  "UCIBpWx6R_pKgzAhk00aYjUw": {
+  "slug": "samo-hajduk",
   "name": "Samo Hajduk",
   "url": "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos",
   "type": "channel",
@@ -25530,10 +25839,10 @@
    "avg_original_min": 73,
    "last_original": "20260923",
    "follower_count": 1230
-  },
-  "slug": "samo-hajduk"
+  }
  },
  "PL4ygmj--jCsOTw29Sg65okI4xupNd8xit": {
+  "slug": "reci",
   "name": "Reci!",
   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsOTw29Sg65okI4xupNd8xit",
   "type": "playlist",
@@ -25548,8 +25857,7 @@
    "avg_original_min": 33,
    "last_original": "20260919",
    "follower_count": null
-  },
-  "slug": "reci"
+  }
  },
  "PLuEWODEWd3kN_rKkXBgtOnoNOQ60B79Ls": {
   "name": "Peti dan | HRT",
@@ -25569,6 +25877,7 @@
   }
  },
  "PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1": {
+  "slug": "pogled-s-markovog-trga",
   "name": "Pogled s Markovog trga",
   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj2_v_ADnwxcMPiCgYFWSGaF1",
   "type": "playlist",
@@ -25583,8 +25892,7 @@
    "avg_original_min": 46,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "pogled-s-markovog-trga"
+  }
  },
  "PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa": {
   "name": "Veterani mira | HRT",
@@ -25604,6 +25912,7 @@
   }
  },
  "PLbygzMRdzQg4": {
+  "slug": "planet-formula",
   "name": "Planet Formula",
   "url": "https://www.youtube.com/playlist?list=PLbygzMRdzQg4",
   "type": "playlist",
@@ -25618,10 +25927,10 @@
    "avg_original_min": 67,
    "last_original": "20260914",
    "follower_count": null
-  },
-  "slug": "planet-formula"
+  }
  },
  "PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP": {
+  "slug": "briefing-jutarnji-list",
   "name": "Briefing",
   "url": "https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP",
   "type": "playlist",
@@ -25636,8 +25945,7 @@
    "avg_original_min": 37,
    "last_original": "20260924",
    "follower_count": null
-  },
-  "slug": "briefing-jutarnji-list"
+  }
  },
  "PLReBdy6RFj2-yS19mR6pB52YV47LSeJeQ": {
   "name": "Ćakula na Jadranu",
@@ -25657,6 +25965,7 @@
   }
  },
  "PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7": {
+  "slug": "hajduk-podcast",
   "name": "HAJDUK PODCAST",
   "url": "https://www.youtube.com/playlist?list=PLjcIttKD20ryzlJl4YIn2QnJM-Xsny7Z7",
   "type": "playlist",
@@ -25671,10 +25980,10 @@
    "avg_original_min": 65,
    "last_original": "20210925",
    "follower_count": null
-  },
-  "slug": "hajduk-podcast"
+  }
  },
  "UCjlZkBNTCYZHZph7go-uqUg": {
+  "slug": "marijan-palic",
   "name": "Marijan Palić",
   "url": "https://www.youtube.com/channel/UCjlZkBNTCYZHZph7go-uqUg/videos",
   "type": "channel",
@@ -25689,8 +25998,7 @@
    "avg_original_min": 52,
    "last_original": "20200925",
    "follower_count": 1000
-  },
-  "slug": "marijan-palic"
+  }
  },
  "PL4WkKeyD3kKICqPQsfNcUIOP8UEhTKXYG": {
   "name": "Alumni priča",
@@ -25710,6 +26018,7 @@
   }
  },
  "UCRe9wMqRzVfd0TiB-z09pbw": {
+  "slug": "tk-show",
   "name": "Tomislav Krajacic",
   "url": "https://www.youtube.com/channel/UCRe9wMqRzVfd0TiB-z09pbw/videos",
   "type": "channel",
@@ -25724,10 +26033,10 @@
    "avg_original_min": 45,
    "last_original": "20210925",
    "follower_count": 1190
-  },
-  "slug": "tk-show"
+  }
  },
  "PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b": {
+  "slug": "romano-bolkovic-1-na-1",
   "name": "Romano Bolković: 1 na 1 | HRT",
   "url": "https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b",
   "type": "playlist",
@@ -25742,8 +26051,7 @@
    "avg_original_min": 51,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "romano-bolkovic-1-na-1"
+  }
  },
  "PLuEWODEWd3kNT2GcFvUSyYI5FYkN7kTuD": {
   "name": "Što je klasik? | HRT",
@@ -25780,6 +26088,7 @@
   }
  },
  "PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu": {
+  "slug": "u-povjerenju-s-nevenom-ciganovicem",
   "name": "'U povjerenju' s Nevenom Ciganovićem",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu",
   "type": "playlist",
@@ -25794,10 +26103,10 @@
    "avg_original_min": 58,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "u-povjerenju-s-nevenom-ciganovicem"
+  }
  },
  "PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W": {
+  "slug": "sistematski-yammat-fm",
   "name": "SISTEMATSKI - TJEDNI INTERVJU TJEDNA",
   "url": "https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W",
   "type": "playlist",
@@ -25812,8 +26121,7 @@
    "avg_original_min": 38,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "sistematski-yammat-fm"
+  }
  },
  "PLAu-22Tvun_n9Su99phkC-VsomTL6GF3d": {
   "name": "Tribina Sučeljavanja u Matici hrvatskoj",
@@ -25850,6 +26158,7 @@
   }
  },
  "PLReBdy6RFj280mpxZ55AufvPhsZSRucoe": {
+  "slug": "veliki-judi",
   "name": "Veliki Judi",
   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj280mpxZ55AufvPhsZSRucoe",
   "type": "playlist",
@@ -25864,10 +26173,10 @@
    "avg_original_min": 32,
    "last_original": "20260920",
    "follower_count": null
-  },
-  "slug": "veliki-judi"
+  }
  },
  "PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss": {
+  "slug": "cronnect",
   "name": "Cronnect",
   "url": "https://www.youtube.com/playlist?list=PLwkAZA40UDULvSYsYuqcYVJZKyiQ70Pss",
   "type": "playlist",
@@ -25882,10 +26191,10 @@
    "avg_original_min": 43,
    "last_original": "20260904",
    "follower_count": null
-  },
-  "slug": "cronnect"
+  }
  },
  "PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0": {
+  "slug": "osvrt-tv-jadran",
   "name": "Osvrt",
   "url": "https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0",
   "type": "playlist",
@@ -25900,8 +26209,7 @@
    "avg_original_min": 33,
    "last_original": "20260917",
    "follower_count": null
-  },
-  "slug": "osvrt-tv-jadran"
+  }
  },
  "PLuEWODEWd3kObinvdS86MlleO-pMl6jQg": {
   "name": "Otvoreno  | HRT",
@@ -25921,6 +26229,7 @@
   }
  },
  "UC6TuJ0U9XM4zOVM-11V9OFg": {
+  "slug": "um-and-boom",
   "name": "Um&Boom",
   "url": "https://www.youtube.com/channel/UC6TuJ0U9XM4zOVM-11V9OFg/videos",
   "type": "channel",
@@ -25935,8 +26244,7 @@
    "avg_original_min": 57,
    "last_original": "20260725",
    "follower_count": 11400
-  },
-  "slug": "um-and-boom"
+  }
  },
  "PLC6qJhj5yOpi3Fv2tQzmWm-DITvvGx4Pi": {
   "name": "PODCAST",
@@ -25956,6 +26264,8 @@
   }
  },
  "PLNCweG78i4PyGTh1waPF3tAfYx9UNbzw1": {
+  "slug": "podcast-izvan-travnjaka",
+  "merged_into": "podcast-izvan-travnjaka",
   "name": "PODCAST 🟢IZVAN TRAVNJAKA🟢",
   "url": "https://www.youtube.com/playlist?list=PLNCweG78i4PyGTh1waPF3tAfYx9UNbzw1",
   "type": "playlist",
@@ -25970,11 +26280,10 @@
    "avg_original_min": 67,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "podcast-izvan-travnjaka",
-  "merged_into": "podcast-izvan-travnjaka"
+  }
  },
  "PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0": {
+  "slug": "01podcast",
   "name": "01Podcast",
   "url": "https://www.youtube.com/playlist?list=PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0",
   "type": "playlist",
@@ -25989,10 +26298,11 @@
    "avg_original_min": 30,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "01podcast"
+  }
  },
  "PLGeo9U3C2hxx2Z0W7-C_yrmBCEgWjbigD": {
+  "slug": "biciklizam-net-podcast",
+  "merged_into": "biciklizam-net-podcast",
   "name": "biciklizam.net Podcast",
   "url": "https://www.youtube.com/playlist?list=PLGeo9U3C2hxx2Z0W7-C_yrmBCEgWjbigD",
   "type": "playlist",
@@ -26007,11 +26317,10 @@
    "avg_original_min": 78,
    "last_original": "20260828",
    "follower_count": null
-  },
-  "slug": "biciklizam-net-podcast",
-  "merged_into": "biciklizam-net-podcast"
+  }
  },
  "PLDmHAu-mNqKpjreAvN1G1xqcd8n5yij4A": {
+  "slug": "baustelski-podcast",
   "name": "Bauštelski podcast",
   "url": "https://www.youtube.com/playlist?list=PLDmHAu-mNqKpjreAvN1G1xqcd8n5yij4A",
   "type": "playlist",
@@ -26026,10 +26335,11 @@
    "avg_original_min": 61,
    "last_original": "20260920",
    "follower_count": null
-  },
-  "slug": "baustelski-podcast"
+  }
  },
  "PL_TdJ96rX8HESB_hwz2fQ9L-cMQBWTur_": {
+  "slug": "dokunet-podcast",
+  "merged_into": "dokunet-podcast",
   "name": "Podcasti | Dokumentarni.net",
   "url": "https://www.youtube.com/playlist?list=PL_TdJ96rX8HESB_hwz2fQ9L-cMQBWTur_",
   "type": "playlist",
@@ -26044,11 +26354,10 @@
    "avg_original_min": 47,
    "last_original": "20260725",
    "follower_count": null
-  },
-  "slug": "dokunet-podcast",
-  "merged_into": "dokunet-podcast"
+  }
  },
  "UCC6yBUjYw86-AfTWl3Qmu7A": {
+  "slug": "fortunal-podcast",
   "name": "Fortunal Podcast",
   "url": "https://www.youtube.com/channel/UCC6yBUjYw86-AfTWl3Qmu7A/videos",
   "type": "channel",
@@ -26063,10 +26372,10 @@
    "avg_original_min": 46,
    "last_original": "20260904",
    "follower_count": 666
-  },
-  "slug": "fortunal-podcast"
+  }
  },
  "PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn": {
+  "slug": "crofutsal-megamix-radio-hvar-podcast",
   "name": "Podcast CROfutsal & Megamix Radio Hvar",
   "url": "https://www.youtube.com/playlist?list=PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn",
   "type": "playlist",
@@ -26081,10 +26390,10 @@
    "avg_original_min": 51,
    "last_original": "20230925",
    "follower_count": null
-  },
-  "slug": "crofutsal-megamix-radio-hvar-podcast"
+  }
  },
  "PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR": {
+  "slug": "rad-po-mjeri-covjeka",
   "name": "Podcast \"Rad po mjeri čovjeka\"",
   "url": "https://www.youtube.com/playlist?list=PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR",
   "type": "playlist",
@@ -26099,10 +26408,10 @@
    "avg_original_min": 36,
    "last_original": "20260825",
    "follower_count": null
-  },
-  "slug": "rad-po-mjeri-covjeka"
+  }
  },
  "UCGwf4Fx9u72inqSnvJMzHiA": {
+  "slug": "citanje-i-predrasude",
   "name": "Citanje i Predrasude™",
   "url": "https://www.youtube.com/channel/UCGwf4Fx9u72inqSnvJMzHiA/videos",
   "type": "channel",
@@ -26117,10 +26426,10 @@
    "avg_original_min": 34,
    "last_original": "20260924",
    "follower_count": 65
-  },
-  "slug": "citanje-i-predrasude"
+  }
  },
  "PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N": {
+  "slug": "mbz-podcast",
   "name": "MBZ Podcasti",
   "url": "https://www.youtube.com/playlist?list=PLH-hGyG6tFgtCgLtF9W08IpST-Lf872-N",
   "type": "playlist",
@@ -26135,10 +26444,10 @@
    "avg_original_min": 73,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "mbz-podcast"
+  }
  },
  "PLZjNpNK55Xrab3D439N7AIn58Z9EZYtDw": {
+  "slug": "journal-unfiltered",
   "name": "JOURNAL UNFILTERED",
   "url": "https://www.youtube.com/playlist?list=PLZjNpNK55Xrab3D439N7AIn58Z9EZYtDw",
   "type": "playlist",
@@ -26153,10 +26462,10 @@
    "avg_original_min": 43,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "journal-unfiltered"
+  }
  },
  "PLxQ_LCGoYKHv5OuPF6E0IDJpqZGKwsXVf": {
+  "slug": "na-entu",
   "name": "Na entu - sve epizode",
   "url": "https://www.youtube.com/playlist?list=PLxQ_LCGoYKHv5OuPF6E0IDJpqZGKwsXVf",
   "type": "playlist",
@@ -26171,10 +26480,11 @@
    "avg_original_min": 41,
    "last_original": "20210925",
    "follower_count": null
-  },
-  "slug": "na-entu"
+  }
  },
  "PLOUmVFmEH-PEvmeQBtYSBIg8su3BbnvxT": {
+  "slug": "arheocast",
+  "merged_into": "arheocast",
   "name": "ARHEOCAST",
   "url": "https://www.youtube.com/playlist?list=PLOUmVFmEH-PEvmeQBtYSBIg8su3BbnvxT",
   "type": "playlist",
@@ -26189,9 +26499,7 @@
    "avg_original_min": 33,
    "last_original": "20240925",
    "follower_count": null
-  },
-  "slug": "arheocast",
-  "merged_into": "arheocast"
+  }
  },
  "PLfwAwo8i6BJxv_uw7W5b0fg6WTmYmOoWU": {
   "name": "Press Play Podcast",
@@ -26211,6 +26519,7 @@
   }
  },
  "UCptUiwBhO4MfBPiVolHEgkw": {
+  "slug": "pricajmo-o-novcu",
   "name": "Pričajmo o novcu Podcast / Antešić",
   "url": "https://www.youtube.com/channel/UCptUiwBhO4MfBPiVolHEgkw/videos",
   "type": "channel",
@@ -26225,8 +26534,7 @@
    "avg_original_min": 85,
    "last_original": "20240925",
    "follower_count": 342
-  },
-  "slug": "pricajmo-o-novcu"
+  }
  },
  "UCtNUrUgDlId2UecrM1bgATw": {
   "name": "Čuješ Podcast",
@@ -26280,6 +26588,7 @@
   }
  },
  "PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr": {
+  "slug": "push-pauza",
   "name": "PushPauza",
   "url": "https://www.youtube.com/playlist?list=PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr",
   "type": "playlist",
@@ -26294,8 +26603,7 @@
    "avg_original_min": 57,
    "last_original": "20250925",
    "follower_count": null
-  },
-  "slug": "push-pauza"
+  }
  },
  "UCa9-8ruCWZSoOgdtEmq1Wcw": {
   "name": "Podcast Žuta Loptica",

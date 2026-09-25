@@ -1,6 +1,7 @@
 20220925|Razvoj Digitalnog Proizvoda / Designed & Developed Podcast / s01e10|https://youtu.be/6PE_tFgXj8M
 20220925|Interview with Bogdan Nicoara — CEO of Bright Spaces / Highway to Scale ep. 016|https://youtu.be/AAGGhtgbmxg
 20220925|Interview with Toms Blodnieks — COO of DeskTime / Highway to Scale ep. 015|https://youtu.be/X3DDulNbJ4U
+20220925|ZgPHP #123|https://youtu.be/MTMnM5KBY8w
 20210925|Interview with Liviu Dragan — CEO of DRUID / Highway to Scale ep. 014|https://youtu.be/CiYOha0tuQM
 20210925|Interview with James Burrows — CEO of Rentals United / Highway to Scale ep. 013|https://youtu.be/B6N6KyG1GmA
 20210925|Interview with Pierre Queinnec — CEO of Jenji / Highway to Scale ep. 012|https://youtu.be/JKtFMoNAmkI
@@ -27,4 +28,8 @@
 20200925|U4HR & Bornfight Webinar — Employee Onboarding Process|https://youtu.be/ItLYZ2CTgyc
 20200925|Open Dev Edu #1: Refactoring the right way|https://youtu.be/IXgmARUOsXM
 20200925|Software Development - BORNFIGHT PODCAST|https://youtu.be/BMo3b4MloJs
+20200925|Open Dev Edu #3: Behavior Driven Development|https://youtu.be/nqAhabMCrwo
+20200925|Kako smo formiranjem mobile unita došli do većeg fokusa i bržeg rasta|https://youtu.be/ONgvmSF_jFw
+20200925|Open Dev Edu #2 — tips & tricks za bolji kod|https://youtu.be/xBFclwkHSus
+20200925|Apps & Pizza Meetup #8|https://youtu.be/ZX-qf1KCnMo
 20190925|Apps&Pizza Mobile Meetup #1|https://youtu.be/WQ4Xhp2qwrY

@@ -2627,7 +2627,11 @@
  },
  "podcast-izvan-travnjaka": {
   "include_title_regex": "(?i)PODCAST",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCM1JkPEF4Jc8GccDdY5XI9w/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCM1JkPEF4Jc8GccDdY5XI9w/streams"
+  ]
  },
  "rezolucija-vodcast": {
   "include_title_regex": "(?i)REZOLUCIJA Vodcast #\\d+",
@@ -2647,7 +2651,11 @@
  },
  "podcast-8-24": {
   "exclude_title_regex": "(?i)^(press|najava)\\b",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCmnvmFyshLFSrRMDAhKkgHw/streams"
+  ]
  },
  "tanja-hrvatin-simicic": {
   "exclude_title_regex": "(?i)instagram live",
@@ -2683,15 +2691,27 @@
  },
  "sportcast": {
   "exclude_title_regex": "(?i)crypto|arbitrage|ethereum",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCG5nO6uUX2k-kJawutF_Wkw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCG5nO6uUX2k-kJawutF_Wkw/streams"
+  ]
  },
  "kripto-evolucija": {
   "include_title_regex": "(?i)kripto live",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCO5pYNV5S6ot7gXKW-Z7UGg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCO5pYNV5S6ot7gXKW-Z7UGg/streams"
+  ]
  },
  "prime-time": {
   "exclude_title_regex": "\\d+\\s*-\\s*\\d+",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCYBXVTm91Xh5wvgeCQXx-Cw/streams"
+  ]
  },
  "na-kavi-s-caplinski-portal": {
   "include_title_regex": "(?i)na kavi s",
@@ -2711,11 +2731,19 @@
  },
  "crofutsal": {
   "include_title_regex": "(?i)CROfutsal podcast",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UC0q-eC0mM3t_nUME5IcIdfA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC0q-eC0mM3t_nUME5IcIdfA/streams"
+  ]
  },
  "let-love-eho-radio": {
   "exclude_title_regex": "(?i)(JUTARNJI SHOW|ŠALJIVI TON)",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCgJSwKPHx2yF-rahKDyQn-A/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCgJSwKPHx2yF-rahKDyQn-A/streams"
+  ]
  },
  "projekt-snovi": {
   "include_title_regex": "(?i)Podcast projekta SNOVI",
@@ -2727,7 +2755,11 @@
  },
  "borna-zuber-liveqa": {
   "include_title_regex": "(?i)Live\\s?Q&A",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCfJAn7o4NNKT8cFNrIwWIaw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCfJAn7o4NNKT8cFNrIwWIaw/streams"
+  ]
  },
  "podkajst": {
   "include_title_regex": "(?i)^PodKAJst",
@@ -2735,7 +2767,11 @@
  },
  "autoscena": {
   "exclude_title_regex": "(?i)vlog",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCApQrl9RAycb8qgb6NhvBog/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCApQrl9RAycb8qgb6NhvBog/streams"
+  ]
  },
  "na-kaucu": {
   "exclude_title_regex": "(?i)trailer",
@@ -2751,7 +2787,11 @@
  },
  "samo-hajduk": {
   "exclude_title_regex": "(?i)^(najava|pregled protivnika)",
-  "from": "registry-discovery-2026-09 (claude:sonnet)"
+  "from": "registry-discovery-2026-09 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/streams"
+  ]
  },
  "hajduk-podcast": {
   "include_title_regex": "(?i)^HAJDUK PODCAST\\s*#\\d+",
@@ -2772,5 +2812,255 @@
  "push-pauza": {
   "include_title_regex": "(?i)#\\d+",
   "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "50-minuta": {
+  "include_title_regex": "(?i)50\\s*minuta",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "rendezvous": {
+  "include_title_regex": "(?i)rendezvous",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "redakcija-podcast": {
+  "include_title_regex": "(?i)redakcija podcast\\s*#\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "ton-slika-politika": {
+  "include_title_regex": "(?i)ton[- ]slika[- ]politika",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "nota-bene": {
+  "exclude_title_regex": "(?i)^\\[najava\\]",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "zona-zagreb": {
+  "include_title_regex": "(?i)zona zagreb\\s*\\d+",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "uvjereno": {
+  "exclude_title_regex": "(?i)najava",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "kristov-vojnik": {
+  "include_title_regex": "(?i)kristov vojnik",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "generacija-plus": {
+  "exclude_title_regex": "(?i)\\[najava\\]",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "kolumnisticki-dnevnik": {
+  "include_title_regex": "(?i)kolumnisti[cč]ki dnevnik",
+  "from": "registry-discovery-2026-09 (claude:sonnet)"
+ },
+ "tech-cakula-it-zajednica-rijeka": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC_m1oUYrvCWDmGJRM3TYLpQ/streams"
+  ]
+ },
+ "tapirlo": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UC8P837qhN0mpfipm2-7hL9A/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC8P837qhN0mpfipm2-7hL9A/streams"
+  ]
+ },
+ "noci-bez-cenzure": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/streams"
+  ]
+ },
+ "cycling-side": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCV6nc4qEigMeM6mwQU6OAdA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCV6nc4qEigMeM6mwQU6OAdA/streams"
+  ]
+ },
+ "vox-medicus": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCzGpSiF2BW0e0PDhEFwFkwQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCzGpSiF2BW0e0PDhEFwFkwQ/streams"
+  ]
+ },
+ "studentski-hr-tv": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCgqGjw2FvGg4PyUJE3NHZKA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCgqGjw2FvGg4PyUJE3NHZKA/streams"
+  ]
+ },
+ "dretva": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCvBpdH7d-Lm7KwLkC_adQ6w/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCvBpdH7d-Lm7KwLkC_adQ6w/streams"
+  ]
+ },
+ "osvrtnik": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UC-GWO0eo78mY0o3iEkle7HA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC-GWO0eo78mY0o3iEkle7HA/streams"
+  ]
+ },
+ "podcast-u-ringu": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCFhDjduMfQKbVCqm5lc3BxA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCFhDjduMfQKbVCqm5lc3BxA/streams"
+  ]
+ },
+ "bornfight-podcast": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCgJeoVM0zU50pjnqblKYqVg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCgJeoVM0zU50pjnqblKYqVg/streams"
+  ]
+ },
+ "financije-i-samo-financije": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCUgQcyJuN-FNBhgkXJtlBSQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCUgQcyJuN-FNBhgkXJtlBSQ/streams"
+  ]
+ },
+ "finax-croatia": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/streams"
+  ]
+ },
+ "podcast-nis-konkretno": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCGxQ4AH-PgDEqaL0Nq0eVhQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCGxQ4AH-PgDEqaL0Nq0eVhQ/streams"
+  ]
+ },
+ "podcast-sfera": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/streams"
+  ]
+ },
+ "poriloox": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UC3HTbeJA91UvQ2RKCJH9Fxw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC3HTbeJA91UvQ2RKCJH9Fxw/streams"
+  ]
+ },
+ "podcast-homeland": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCcuv5Z2EjWFp1bH-JAfht-g/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCcuv5Z2EjWFp1bH-JAfht-g/streams"
+  ]
+ },
+ "puba77": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCxHPp2RH_zf0sGqkVE3QNdA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCxHPp2RH_zf0sGqkVE3QNdA/streams"
+  ]
+ },
+ "hzv-siempre": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCL8IZuMhZG0Olk9BaRZVzwA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCL8IZuMhZG0Olk9BaRZVzwA/streams"
+  ]
+ },
+ "loptar": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCkCaKvPqkFihbCtZsjXsRdg/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCkCaKvPqkFihbCtZsjXsRdg/streams"
+  ]
+ },
+ "hajducka-storija": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCnrWxCloh2lAaT_VJjnP7JA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCnrWxCloh2lAaT_VJjnP7JA/streams"
+  ]
+ },
+ "framiko-frama-kocerin": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCpQtJl6aa7V2hdt87c3BDAQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCpQtJl6aa7V2hdt87c3BDAQ/streams"
+  ]
+ },
+ "zona-dinamo-podcast": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCII3jcTjD1sdXRV15OfEH-A/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCII3jcTjD1sdXRV15OfEH-A/streams"
+  ]
+ },
+ "zrela-veza": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCacGzbXouQkqR9pw5olGV-g/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCacGzbXouQkqR9pw5olGV-g/streams"
+  ]
+ },
+ "pravo-na-istinu": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCBBk8DEZxwF6zLVjOQbvo6w/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCBBk8DEZxwF6zLVjOQbvo6w/streams"
+  ]
+ },
+ "psz-podcast": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UC8N5iQ5ojnqKX5M_nzNqaTQ/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UC8N5iQ5ojnqKX5M_nzNqaTQ/streams"
+  ]
+ },
+ "iza-pjace": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCw0_lthGS4qChQec36LX8Mw/streams"
+  ]
+ },
+ "fraktura-booktalk": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/streams"
+  ]
+ },
+ "hcl-cast": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCSPCDN_O49pvGn6IFuDz2FA/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCSPCDN_O49pvGn6IFuDz2FA/streams"
+  ]
+ },
+ "bez-dlake-na-glavi": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/streams"
+  ]
+ },
+ "prgavi-podcast": {
+  "from": "registry-discovery-2026-09 (streams)",
+  "source_url": "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/streams"
+  ]
  }
 }
