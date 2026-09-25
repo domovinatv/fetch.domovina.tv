@@ -46,7 +46,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **(Ne)uspjeh prvaka** | [@neuspjehprvaka](https://www.youtube.com/@neuspjehprvaka/videos) | 1 | 74K | 186 | 🟢 aktivan | Slaven Bilić, Mirza Džomba, Mario Stanić | `sport` `football` `personal-development` | ✅ |
 | **40 dana za život - Hrvatska za Život** | [@40danazaživot-HrvatskazaŽivot](https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos) | 3 | 10K | — | ⚪ nepoznato | — | `pro-life` `religious-catholic` | ⚠️ |
-| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 820 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
+| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 819 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
 | **Ad Deum Podcast** | [@AdDeumPodcast](https://www.youtube.com/@AdDeumPodcast/videos) | 3 | 12K | 20 | 🟢 aktivan | Fra Andrija Majić, Fra Ivo Rastočić | `religious-catholic` | ✅ |
 | **Božanstvena Komedija** | [@BožanstvenaKomedija](https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos) | 3 | 26K | — | ⚪ nepoznato | — | `religious-catholic` `domoljubni` | ⚠️ |
 | **Božja pobjeda** | [@Božjapobjeda](https://www.youtube.com/@Bo%C5%BEjapobjeda/videos) | 3 | 65K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
@@ -89,7 +89,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Popcast by Darko Pavičić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU) | 1 | 117K | 40 | 🟢 aktivan | Darko Pavičić | `society` `religious-catholic` `culture` | ✅ |
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | 97K | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | 8K | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
-| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 356 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 360 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
 | **Slijedi svoj poziv — 1. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm) | 4 | 483 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Slijedi svoj poziv — 2. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY) | 4 | 483 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Sub Club by RevenueCat** | [UCeq8LcFQ3ee_p8b-eYTARsg](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | 0 | — | 🟢 aktivan | — | `technology` `business` `english` | — |

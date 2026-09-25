@@ -1,6 +1,6 @@
 # Praćenje kandidata (watch-only)
 
-Generirano 2026-09-25 10:49 UTC skriptom `automatic/watch_candidates.js`.
+Generirano 2026-09-25 11:49 UTC skriptom `automatic/watch_candidates.js`.
 Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = epizode otkrivene NAKON baselinea.
 
 **400 kanala** · 🟢 126 aktivno (original ≤30 d) · 🟡 86 usporava (≤120 d) · 🔴 188 uspavano · ⚪ 0 nepoznato · ⛔ 0 bez ijednog originala (vjerojatno nije podcast ili treba pravilo) · ⚠️ 0 greška

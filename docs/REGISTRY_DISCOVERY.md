@@ -174,3 +174,23 @@ direktoriju i skinuo bi sve otkriveno.
 
 Datumi uploada iz flat liste su približni („prije 3 tjedna"); datum otkrića u
 `events.jsonl` je točan, pa kadenca postaje precizna nakon par tjedana praćenja.
+
+## Otvorene stavke (stanje 2026-09-25)
+
+- **`hkm-argumenti`** pokazuje na crnogorski RTCG, ne na HKM (revizija 2026-09-24). Status je
+  `disputed`, pa ga watch i dalje prati (25.09. „otkrio" RTCG epizodu). Pravi HKM Argumenti su
+  `argumenti-sezona-7`. Odluka: ukloniti ili prebaciti na `not-hr` / `dead-url`.
+- **Glasački bazen**: `sync_voting_candidates.mjs --commit` NIJE pokrenut nakon revizije i
+  proširenja — 45 unosa (`not-podcast`, `dead-url`) bi dobilo `withdrawn`, ~225 novih ušlo bi u bazen.
+- **2 unosa bez točnog datuma** (`last_episode_date_approx`) — `exact-dates` ih pokušava svaku noć.
+- **Novi tagovi** koje je sweep agent predložio (tennis, cycling, chess, architecture, film,
+  books, relationships, audio-drama, labour, minorities) nisu u `tag_legend`; LLM klasifikacija
+  zato bira samo iz postojećih.
+- **Umbrella za VIDA** (U pravom licu + Zavidavanje kao djeca) — djeca su dodana kao zasebni
+  playlist unosi, parent `vida-podcast` nije pretvoren u umbrella.
+- **`sportklub-podcast` vs SK PODCAST (Sportklub Hrvatska)** — moguće preklapanje, neprovjereno.
+- **Veličina runova u gitu**: ~16 MB po mjesečnom prolazu (većinom `probe/`); ako naraste, gzip.
+- **Watch REPORT koristi približne datume** iz flat liste; registry/score koriste točne
+  (`exact-dates`). Za kanal s razlikom REPORT i landing mogu pokazati različit „zadnji original".
+- Nevezano uz registry, uočeno u nightly logu: `ingest_beamly` od 20.09. pada na
+  `ENOENT …/revenuecat/subclub/subclub-episodes.json` (ne-fatalno — Beamly epizode se ne uvoze).

@@ -14087,7 +14087,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 8200
+        "subscribers": 8210
       },
       "tracking": {
         "enabled": true
@@ -14673,7 +14673,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 356
+        "subscribers": 360
       },
       "tracking": {
         "enabled": true
@@ -19331,7 +19331,7 @@
         "last_episode": "2026-02",
         "average_duration_minutes": 89,
         "status": "active",
-        "subscribers": 820
+        "subscribers": 819
       },
       "tracking": {
         "enabled": true
