@@ -387,8 +387,19 @@ fi
 # odvoji originale od shortsa/isječaka/Q&A izreza i zapiše nove epizode u
 # automatic/watchlist/ (events.jsonl + REPORT.md). Ništa se ne skida ni ne obrađuje —
 # piše IZVAN automatic/podcasts/, pa ga fetch.js ne vidi. ~1 min za ~215 kanala.
+# Isti egress kao fetch (--via-iphone ili Tailscale --proxy) — exact-dates radi ne-flat
+# pozive koji nakon par stotina daju YouTube anti-bot na Ethernetu.
 run_step "watch-only kandidati (registry, bez obrade)" \
-    node "$REPO_DIR/automatic/watch_candidates.js" || true
+    node "$REPO_DIR/automatic/watch_candidates.js" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} || true
+
+# Točan datum zadnjeg originala (samo za unose kojima se promijenio najnoviji original
+# ili su ostali na približnom datumu) → status; pa `activity` (watch-state + praćeni
+# kanali s diska) → score v2 + md/csv. Mijenja data/podcasts_registry.* lokalno;
+# commit i deploy javnog landinga ostaju ručni (docs/REGISTRY_DISCOVERY.md).
+run_step "registry točni datumi zadnje epizode" \
+    node "$REPO_DIR/data/discovery/discover.js" exact-dates ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} || true
+run_step "registry aktivnost + score v2" \
+    node "$REPO_DIR/data/discovery/discover.js" activity --update-status || true
 
 # ─── 6. POTROŠNJA TOKENA (Claude Code sesije → pipeline queue) ──────
 # Zbroji tokene headless `claude -p` runova po videu (Magisterium MCP runbook,

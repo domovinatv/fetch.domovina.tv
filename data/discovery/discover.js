@@ -33,7 +33,7 @@
  *   node data/discovery/discover.js seed --file web/candidates.json --source web-research
  *   node data/discovery/discover.js classify --classifier manual   # piše prompt, LLM odgovor ručno
  *   node data/discovery/discover.js activity --update-status
- * Opcije: --run YYYY-MM-DD (default danas), --concurrency 4, --search-n 40, --via-iphone,
+ * Opcije: --run YYYY-MM-DD (default danas), --concurrency 4, --search-n 40, --via-iphone | --proxy URL,
  *         --model sonnet, --batch 25, --only-new-queries
  *
  * Runbook: docs/REGISTRY_DISCOVERY.md
@@ -96,6 +96,8 @@ const log = (...a) => console.log(...a);
 // promet ide kroz cellular, default route (Ethernet) ostaje netaknut. Isto kao
 // run_pipeline.sh --via-iphone. --source-address <ip> za ručni izbor.
 function sourceAddressArgs() {
+    const proxy = getArg("--proxy");                          // nightly: Tailscale iPhone HTTP proxy
+    if (proxy) return ["--proxy", proxy];
     const explicit = getArg("--source-address");
     if (explicit) return ["--source-address", explicit];
     if (!hasFlag("--via-iphone")) return [];

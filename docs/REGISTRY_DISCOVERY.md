@@ -9,7 +9,7 @@ Dva alata, dvije brzine:
 
 | Alat | Ritam | Što radi |
 |---|---|---|
-| `automatic/watch_candidates.js` | svaku noć (nightly korak 5b) | za nepraćene kandidate povuče popis videa, odvoji originale od derivata, zapiše nove epizode |
+| `automatic/watch_candidates.js` + `discover.js exact-dates` + `activity` | svaku noć (nightly korak 5b, egress kao fetch) | za nepraćene kandidate povuče popis videa, odvoji originale od derivata, zapiše nove epizode |
 | `data/discovery/discover.js` | jednom mjesečno, ručno | nađe nove kanale/playliste, klasificira ih i upiše u registry; iz watch podataka osvježi status postojećih |
 
 Nijedan ne skida medije ni ne pokreće obradu. Promocija kandidata u pravi pipeline
