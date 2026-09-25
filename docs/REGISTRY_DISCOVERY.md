@@ -57,6 +57,26 @@ ne-podcast odbacuje kod, bez LLM poziva. `--classifier manual` umjesto CLI poziv
 napiše prompt i čeka da `classify/batch_NN.raw.txt` popuni netko drugi (npr. Claude
 Code sesija ili subagent), pa je i taj put reproducibilan iz datoteka.
 
+## Score v2 — aktivnost ispred veličine (2026-09-25)
+
+`data/score_podcasts.js`: svježina (dana od zadnjeg originala) 30 + ritam (originala u
+90 d) 25 + format 15 + supstanca 10 + katalog 10 + doseg 10. v1 je davao 35 bodova
+veličini a 5 svježini, pa je napušten kanal sa 112k pratitelja nadjačavao živ mali
+podcast. Oznake: 🌱 `rising` (<5k pratitelja, ≥4 originala/90 d, zadnji ≤30 d) i 💤
+`dormant` (>365 d, score ≤39). Ulaz za score je `activity` (`discover.js activity`):
+nepraćeni iz watch-statea + `exact-dates`, praćeni iz imena datoteka u
+`storage/output/<kanal>/` i pratitelja iz `automatic/podcasts/<slug>-channel.json`.
+Javni landing prikazuje „Zadnja ep.", „Ep. 90 d", „Pratitelji" i filtre Aktivni/U usponu.
+
+Osvježavanje (npr. s iPhoneom na USB-u, `--via-iphone` zaobilazi anti-bot):
+
+```bash
+node automatic/watch_candidates.js --via-iphone
+node data/discovery/discover.js exact-dates --via-iphone
+node data/discovery/discover.js activity
+node dashboard/server.js --snapshot dashboard/public/registry.json   # + wrangler deploy
+```
+
 ## Izvori kandidata
 
 | Izvor | Korak | Prinos 2026-09-24 (prihvaćeno od 216) |

@@ -1,24 +1,26 @@
 #!/usr/bin/env node
 // Compute objective quality score (0-100) for each podcast in registry.
-// Idempotent — re-running produces same scores from same input.
+// Idempotent za isti ulaz i isti dan (svježina se računa od današnjeg datuma).
 //
 // Run: node data/score_podcasts.js
 //
-// Adds to each podcast entry:
-//   "quality_score": { "total": N, "breakdown": {...}, "tier": "..." }
+// RUBRIC v2 (2026-09-25) — AKTIVNOST ispred veličine:
+//   1. Svježina        (0-30)  — dana od zadnje ORIGINALNE epizode (točan datum gdje postoji)
+//   2. Ritam           (0-25)  — broj originala u zadnjih 90 dana
+//   3. Format          (0-15)  — ≥30 min razgovorni format
+//   4. Supstanca       (0-10)  — prosječno trajanje epizode
+//   5. Katalog         (0-10)  — dubina kataloga
+//   6. Doseg           (0-10)  — pratitelji, log-skalirano
 //
-// RUBRIC (max 100 points):
-//   1. Activity         (0-25)  — recency of last episode
-//   2. Catalog depth    (0-20)  — total episode count
-//   3. Audience reach   (0-15)  — log-scaled subscriber count
-//   4. Format compliance (0-15) — meets ≥30min/2+ person definition
-//   5. Production substance (0-10) — average episode duration
-//   6. Verification    (0-10)   — source agreement + URL quality
-//   7. Recency bonus   (0-5)    — fresh content in last cycle
+// Zašto: v1 je davao 35 bodova veličini (pratitelji + katalog) a 5 svježini, pa je
+// napušteni vlog kanal sa 112k pratitelja (zadnja epizoda 12/2022) nadjačavao živ
+// podcast sa 70 pratitelja i 5 epizoda u 2 mjeseca. Veličina kanala ne kaže radi li
+// podcast; ritam objavljivanja kaže. Oznake:
+//   rising  — mali kanal (<5k) koji aktivno objavljuje (≥4 originala / 90 d, zadnji ≤30 d)
+//   dormant — zadnji original prije >365 dana (score ograničen na 39)
 //
-// Score is INTENTIONALLY editorial-neutral. It does NOT consider topic,
-// political orientation, or fit with any particular editorial niche.
-// All Croatian podcasts are scored on the same axes.
+// Score je namjerno editorijalno neutralan: tematika, politika i vjerska
+// orijentacija NE ulaze u izračun.
 
 const fs = require("fs");
 const path = require("path");
@@ -28,58 +30,61 @@ const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
 
 // --- Component scorers ---
 
-function scoreActivity(p) {
-    const status = p.metadata?.status;
-    const last = p.metadata?.last_episode || "";
-    if (status === "rejected") return 0;
-    if (status === "inactive" || status === "completed") return 0;
-    if (status === "paused") return 5;
-    if (status === "active-slowing") return 18;
-    if (status === "disputed") return 12;
-    if (status === "active") return 25;
-    // No explicit status — try to infer from last_episode
-    if (/2026/.test(last)) return 25;
-    if (/2025/.test(last)) return 12;
-    if (/2024/.test(last)) return 5;
-    return 8; // default mid for unknown
+function lastEpisodeDate(p) {
+    const a = p.activity?.last_original_upload;                    // YYYYMMDD
+    const e = p.metadata?.last_episode_date;                       // YYYY-MM-DD (exact-dates)
+    const cands = [];
+    if (a && /^\d{8}$/.test(a)) cands.push(`${a.slice(0, 4)}-${a.slice(4, 6)}-${a.slice(6, 8)}`);
+    if (e && !p.metadata?.last_episode_date_approx) cands.push(e);
+    if (cands.length) return cands.sort().pop();
+    if (e) return e;
+    const m = /^(\d{4})-(\d{2})$/.exec(p.metadata?.last_episode || "");
+    return m ? `${m[1]}-${m[2]}-15` : null;                        // samo mjesec → sredina mjeseca
 }
 
-function scoreCatalog(p) {
-    const n = p.metadata?.episodes_estimate;
-    if (n == null) return 4; // default low
-    if (n >= 1000) return 20;
-    if (n >= 500) return 18;
-    if (n >= 200) return 15;
-    if (n >= 100) return 12;
-    if (n >= 50) return 9;
-    if (n >= 20) return 6;
-    if (n >= 5) return 3;
-    return 1;
+function daysSinceLast(p) {
+    const d = lastEpisodeDate(p);
+    return d ? Math.floor((Date.now() - Date.parse(d + "T12:00:00Z")) / 86400000) : null;
 }
 
-function scoreAudience(p) {
-    const subs = p.metadata?.subscribers;
-    if (subs == null) return 4; // default low-mid for unknown
-    if (subs >= 100000) return 15;
-    if (subs >= 30000) return 13;
-    if (subs >= 10000) return 11;
-    if (subs >= 3000) return 8;
-    if (subs >= 1000) return 5;
-    return 2;
+function scoreFreshness(days, p) {
+    if (days == null) {
+        const s = p.metadata?.status;
+        return s === "active" ? 15 : s === "active-slowing" ? 8 : 0;   // bez datuma: samo status
+    }
+    if (days <= 14) return 30;
+    if (days <= 30) return 27;
+    if (days <= 60) return 22;
+    if (days <= 120) return 14;
+    if (days <= 180) return 8;
+    if (days <= 365) return 3;
+    return 0;
+}
+
+function scoreCadence(p) {
+    const n = p.activity?.originals_90d;
+    if (n == null) {
+        const s = p.metadata?.status;
+        return s === "active" ? 10 : s === "active-slowing" ? 5 : 0;
+    }
+    if (n >= 12) return 25;       // tjedno ili češće
+    if (n >= 8) return 22;
+    if (n >= 5) return 18;        // npr. 5 epizoda u 2 mjeseca
+    if (n >= 3) return 12;
+    if (n >= 1) return 6;
+    return 0;
 }
 
 function scoreFormat(p) {
     const status = p.metadata?.status;
     const type = p.youtube?.type;
-    if (status === "rejected" || p.tracking?.permanently_excluded) return 0;
+    if (status === "rejected" || status === "not-podcast" || p.tracking?.permanently_excluded) return 0;
     if (type === "audio-primary" || type === "audio-only") return 6;
-    if (type === "disputed") return 8;
-    if (status === "disputed") return 8;
-    // Check for ≥30min meta
+    if (type === "disputed" || status === "disputed") return 8;
     const dur = p.metadata?.average_duration_minutes;
     if (dur != null && dur < 30) return 3;
     if (type === "channel" || type === "playlist") return 15;
-    return 10; // default — assume valid
+    return 10;
 }
 
 function scoreSubstance(p) {
@@ -92,34 +97,27 @@ function scoreSubstance(p) {
     return 2;
 }
 
-function scoreVerification(p) {
-    const hasUrl = !!p.youtube?.url;
-    const numSources = (p.sources || []).length;
-    const dq = p.data_quality;
-
-    let score = 0;
-    if (hasUrl) {
-        if (numSources >= 3) score = 8;
-        else if (numSources >= 2) score = 7;
-        else score = 5;
-    } else {
-        if (numSources >= 3) score = 4;
-        else if (numSources >= 2) score = 3;
-        else score = 1;
-    }
-    if (dq === "verified") score += 2;
-    else if (dq === "unverified") score = Math.max(0, score - 2);
-
-    return Math.min(10, score);
+function scoreCatalog(p) {
+    const n = p.metadata?.episodes_estimate ?? p.activity?.episodes_on_disk ?? p.activity?.originals_365d ?? p.metadata?.episodes_over_30min_sampled;
+    if (n == null) return 3;
+    if (n >= 200) return 10;
+    if (n >= 100) return 8;
+    if (n >= 50) return 6;
+    if (n >= 20) return 4;
+    if (n >= 5) return 2;
+    return 1;
 }
 
-function scoreRecency(p) {
-    const last = p.metadata?.last_episode || "";
-    if (/2026-0[3-9]|2026-1[0-2]|2026-04|2026-03/.test(last)) return 5;
-    if (/2026/.test(last)) return 4;
-    if (/2025/.test(last)) return 2;
-    if (/2024/.test(last)) return 1;
-    return 0;
+function scoreAudience(p) {
+    const subs = p.metadata?.subscribers;
+    if (subs == null) return 3;
+    if (subs >= 100000) return 10;
+    if (subs >= 30000) return 9;
+    if (subs >= 10000) return 8;
+    if (subs >= 3000) return 6;
+    if (subs >= 1000) return 5;
+    if (subs >= 100) return 3;
+    return 2;
 }
 
 // --- Tier classification ---
@@ -137,47 +135,61 @@ function tierForScore(s) {
 let stats = { tiers: {}, total: 0, sum: 0 };
 
 for (const p of registry.podcasts) {
+    const days = daysSinceLast(p);
     const breakdown = {
-        activity: scoreActivity(p),
-        catalog: scoreCatalog(p),
-        audience: scoreAudience(p),
+        freshness: scoreFreshness(days, p),
+        cadence: scoreCadence(p),
         format: scoreFormat(p),
         substance: scoreSubstance(p),
-        verification: scoreVerification(p),
-        recency: scoreRecency(p),
+        catalog: scoreCatalog(p),
+        audience: scoreAudience(p),
     };
-    const total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+    let total = Object.values(breakdown).reduce((a, b) => a + b, 0);
+    const dormant = days != null && days > 365;
+    if (dormant || p.metadata?.status === "not-podcast" || p.metadata?.status === "dead-url") total = Math.min(total, 39);
+    const subs = p.metadata?.subscribers;
+    const rising = !dormant && subs != null && subs < 5000 && (p.activity?.originals_90d || 0) >= 4 && days != null && days <= 30;
     const tier = tierForScore(total);
 
     p.quality_score = {
         total,
         tier,
         breakdown,
+        days_since_last_episode: days,
+        last_episode_date: lastEpisodeDate(p),
+        ...(rising ? { rising: true } : {}),
+        ...(dormant ? { dormant: true } : {}),
+        rubric: "v2",
     };
 
     stats.tiers[tier] = (stats.tiers[tier] || 0) + 1;
     stats.total++;
     stats.sum += total;
+    if (rising) stats.rising = (stats.rising || 0) + 1;
 }
 
 // Add rubric metadata to top-level for self-documentation
 registry.quality_score_rubric = {
+    version: "v2 (2026-09-25)",
     description:
-        "Objektivna kvantitativna metrika kvalitete podcasta (0-100). Editorialno neutralna — ne uzima u obzir tematiku, politiku ili vjersku orijentaciju. Mjeri samo: aktivnost, dubinu kataloga, doseg auditorija, format compliance, supstancu, verificiranost i svježinu.",
+        "Objektivna kvantitativna metrika podcasta (0-100). Editorialno neutralna — ne uzima u obzir tematiku, politiku ili vjersku orijentaciju. v2 mjeri prvenstveno AKTIVNOST (svježina + ritam = 55 bodova), a veličinu (katalog + doseg) samo 20: napušten kanal sa 100k pratitelja ne smije nadjačati živ mali podcast.",
     components: {
-        activity: { max: 25, description: "Recentnost zadnje epizode (active=25, disputed=12, paused=5, inactive=0)" },
-        catalog: { max: 20, description: "Ukupan broj epizoda (1000+=20, 500+=18, 200+=15, 100+=12...)" },
-        audience: { max: 15, description: "Broj YT pretplatnika, log-skaliran (100K+=15, 30K+=13, 10K+=11...)" },
-        format: { max: 15, description: "Zadovoljava li ≥30min razgovornu definiciju (channel=15, audio-only=6, rejected=0)" },
+        freshness: { max: 30, description: "Dana od zadnje originalne epizode (≤14=30, ≤30=27, ≤60=22, ≤120=14, ≤180=8, ≤365=3)" },
+        cadence: { max: 25, description: "Originala u zadnjih 90 dana (≥12=25, ≥8=22, ≥5=18, ≥3=12, ≥1=6)" },
+        format: { max: 15, description: "≥30 min razgovorni format (channel/playlist=15, audio-only=6, <30 min=3, not-podcast=0)" },
         substance: { max: 10, description: "Prosječno trajanje epizode (90+=10, 60+=8, 45+=7, 30+=5)" },
-        verification: { max: 10, description: "Broj nezavisnih izvora + verificirani URL + data_quality" },
-        recency: { max: 5, description: "Bonus za svježe epizode (2026=5, 2025=2, 2024=1)" },
+        catalog: { max: 10, description: "Broj epizoda (200+=10, 100+=8, 50+=6, 20+=4, 5+=2)" },
+        audience: { max: 10, description: "YT pratitelji, log-skalirano (100K+=10, 30K+=9, 10K+=8, 3K+=6, 1K+=5, 100+=3)" },
+    },
+    flags: {
+        rising: "Mali kanal (<5k pratitelja) koji aktivno objavljuje: ≥4 originala u 90 dana, zadnji ≤30 dana — potencijal rasta",
+        dormant: "Zadnji original prije >365 dana — score ograničen na 39 bez obzira na veličinu",
     },
     tiers: {
-        "🌟 elite": "80-100 — top kvaliteta, verificirano, aktivno",
-        "✅ strong": "60-79 — etablirano, vrijedi pratiti",
-        "👀 moderate": "40-59 — vrijedi promatrati, treba verifikacija",
-        "📦 weak": "20-39 — ograničeni podaci ili niska aktivnost",
+        "🌟 elite": "80-100 — aktivan, redovit, etabliran",
+        "✅ strong": "60-79 — aktivan, vrijedi pratiti",
+        "👀 moderate": "40-59 — povremen ili usporava",
+        "📦 weak": "20-39 — uspavan, ugašen ili premalo podataka",
         "❌ very-low": "0-19 — rejected, ugašen ili premalo podataka",
     },
 };
@@ -185,7 +197,7 @@ registry.quality_score_rubric = {
 fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2) + "\n", "utf8");
 
 const avg = (stats.sum / stats.total).toFixed(1);
-console.log(`✓ Scored ${stats.total} podcasts (avg ${avg}/100)`);
+console.log(`✓ Scored ${stats.total} podcasts (avg ${avg}/100, rubric v2, 🌱 rising ${stats.rising || 0})`);
 console.log("Tiers:");
 Object.entries(stats.tiers)
     .sort((a, b) => b[1] - a[1])

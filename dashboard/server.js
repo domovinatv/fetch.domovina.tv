@@ -149,6 +149,13 @@ function computeRegistry() {
             // (domovina.ai slug mapping = registry slug, 1:1, oba s hyphens).
             domovina_url: inPipeline ? `https://www.domovina.ai/c/${p.slug}` : null,
             episodes: p.metadata?.episodes_estimate ?? null,
+            // Aktivnost (rubric v2): koliko je dana od zadnje originalne epizode, ritam, doseg.
+            last_episode_date: p.quality_score?.last_episode_date || null,
+            days_since_last: p.quality_score?.days_since_last_episode ?? null,
+            originals_90d: p.activity?.originals_90d ?? null,
+            subscribers: p.metadata?.subscribers ?? null,
+            rising: p.quality_score?.rising === true,
+            dormant: p.quality_score?.dormant === true,
             status: p.metadata?.status || '',
             sources_count: (p.sources || []).length,
             voditelji_count: (p.voditelji || []).length,
@@ -191,6 +198,13 @@ function computeRegistry() {
             score: p.quality_score?.total || 0,
             tier: p.tier,
             episodes: p.metadata?.episodes_estimate ?? null,
+            // Aktivnost (rubric v2): koliko je dana od zadnje originalne epizode, ritam, doseg.
+            last_episode_date: p.quality_score?.last_episode_date || null,
+            days_since_last: p.quality_score?.days_since_last_episode ?? null,
+            originals_90d: p.activity?.originals_90d ?? null,
+            subscribers: p.metadata?.subscribers ?? null,
+            rising: p.quality_score?.rising === true,
+            dormant: p.quality_score?.dormant === true,
             url: p.youtube?.url || '',
         })),
         stubs_list: stubs.map(p => ({

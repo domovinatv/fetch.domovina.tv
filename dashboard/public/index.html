@@ -177,6 +177,8 @@ table td.slug { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace
 .tag.unverified { background: #f5d2d2; color: var(--bad); }
 .tag.live { background: var(--ok); color: var(--white); }
 .tag.tracked { background: var(--navy); color: var(--white); }
+.tag.rising { background: #e6f4ea; color: #1e6b34; }
+.tag.dormant { background: #eee; color: #777; }
 .tag.umbrella { background: #ddd; color: #555; }
 .tag.stub { background: var(--red); color: var(--white); }
 
@@ -309,6 +311,8 @@ footer.site a { color: var(--muted); }
         <span class="chip" data-filter="stub">Stubs</span>
         <span class="chip" data-filter="has_url">Ima URL</span>
         <span class="chip" data-filter="verified">Verified</span>
+        <span class="chip" data-filter="active30">Aktivni ≤30 d</span>
+        <span class="chip" data-filter="rising">🌱 U usponu</span>
       </div>
       <div class="table-wrap"><table id="exTable">
         <thead><tr>
@@ -320,7 +324,9 @@ footer.site a { color: var(--muted); }
           <th data-sort="data_quality">Quality</th>
           <th>Status</th>
           <th>Flags</th>
-          <th class="num" data-sort="episodes">Ep.</th>
+          <th class="num" data-sort="days_since_last" title="Dana od zadnje originalne epizode">Zadnja ep.</th>
+          <th class="num" data-sort="originals_90d" title="Originalnih epizoda u zadnjih 90 dana">Ep. 90 d</th>
+          <th class="num" data-sort="subscribers" title="YouTube pratitelji">Pratitelji</th>
           <th>Tags</th>
         </tr></thead>
         <tbody id="exTbody"></tbody>
@@ -513,6 +519,20 @@ function render() {
   renderExplorer();
 }
 
+function fmtDaysAgo(d) {
+  if (d == null) return '—';
+  if (d <= 0) return 'danas';
+  if (d < 60) return `${d} d`;
+  if (d < 730) return `${Math.round(d / 30)} mj.`;
+  return `${(d / 365).toFixed(1)} god.`;
+}
+function fmtCount(n) {
+  if (n == null) return '—';
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000) return (n >= 10000 ? Math.round(n / 1000) : (n / 1000).toFixed(1)) + 'k';
+  return String(n);
+}
+
 function renderExplorer() {
   const r = state.registry;
   if (!r) return;
@@ -528,6 +548,8 @@ function renderExplorer() {
       if (f === 'stub' && (e.has_url || e.type === 'umbrella')) return false;
       if (f === 'has_url' && !e.has_url) return false;
       if (f === 'verified' && e.data_quality !== 'verified') return false;
+      if (f === 'active30' && !(e.days_since_last != null && e.days_since_last <= 30)) return false;
+      if (f === 'rising' && !e.rising) return false;
     }
     return true;
   });
@@ -552,6 +574,8 @@ function renderExplorer() {
     if (e.in_pipeline) flags.push(el('span', { class: 'tag live' }, 'live'));
     if (!e.has_url && e.type !== 'umbrella') flags.push(el('span', { class: 'tag stub' }, 'stub'));
     if (e.type === 'umbrella') flags.push(el('span', { class: 'tag umbrella' }, 'umbrella'));
+    if (e.rising) flags.push(el('span', { class: 'tag rising', title: 'Mali kanal koji aktivno objavljuje' }, '🌱 u usponu'));
+    if (e.dormant) flags.push(el('span', { class: 'tag dormant', title: 'Zadnja epizoda prije više od godinu dana' }, '💤 uspavan'));
 
     const links = [];
     if (e.url) links.push(el('a', { class: 'link-icon yt', href: e.url, target: '_blank', rel: 'noopener', title: 'YouTube' }, 'YT'));
@@ -566,7 +590,9 @@ function renderExplorer() {
       el('td', {}, e.data_quality ? el('span', { class: 'tag ' + e.data_quality }, e.data_quality) : '—'),
       el('td', {}, e.status || '—'),
       el('td', {}, ...flags),
-      el('td', { class: 'num' }, e.episodes != null ? String(e.episodes) : '—'),
+      el('td', { class: 'num', title: e.last_episode_date || '' }, fmtDaysAgo(e.days_since_last)),
+      el('td', { class: 'num' }, e.originals_90d != null ? String(e.originals_90d) : '—'),
+      el('td', { class: 'num' }, fmtCount(e.subscribers)),
       el('td', {}, (e.tags || []).slice(0, 3).map(t => el('span', { class: 'tag' }, t))),
     ));
   }

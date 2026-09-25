@@ -33,7 +33,7 @@
  *   node data/discovery/discover.js seed --file web/candidates.json --source web-research
  *   node data/discovery/discover.js classify --classifier manual   # piše prompt, LLM odgovor ručno
  *   node data/discovery/discover.js activity --update-status
- * Opcije: --run YYYY-MM-DD (default danas), --concurrency 4, --search-n 40,
+ * Opcije: --run YYYY-MM-DD (default danas), --concurrency 4, --search-n 40, --via-iphone,
  *         --model sonnet, --batch 25, --only-new-queries
  *
  * Runbook: docs/REGISTRY_DISCOVERY.md
@@ -91,9 +91,25 @@ const hash = (s) => crypto.createHash("sha1").update(s).digest("hex").slice(0, 1
 const today = () => new Date().toISOString().slice(0, 10);
 const log = (...a) => console.log(...a);
 
+
+// --via-iphone: yt-dlp socket se veže na iPhone tether IP (172.20.10.0/28) → YouTube
+// promet ide kroz cellular, default route (Ethernet) ostaje netaknut. Isto kao
+// run_pipeline.sh --via-iphone. --source-address <ip> za ručni izbor.
+function sourceAddressArgs() {
+    const explicit = getArg("--source-address");
+    if (explicit) return ["--source-address", explicit];
+    if (!hasFlag("--via-iphone")) return [];
+    for (const list of Object.values(require("os").networkInterfaces())) {
+        for (const a of list || []) if (a.family === "IPv4" && /^172\.20\.10\.(\d+)$/.test(a.address) && a.address !== "172.20.10.1") return ["--source-address", a.address];
+    }
+    throw new Error("--via-iphone: nema 172.20.10.x adrese — je li Personal Hotspot uključen i iPhone spojen?");
+}
+let SRC_ARGS = null;
+
 function runYtdlp(a, timeoutMs = 120000) {
+    if (SRC_ARGS === null) SRC_ARGS = sourceAddressArgs();
     return new Promise((resolve) => {
-        const child = spawn(YTDLP, a, { stdio: ["ignore", "pipe", "pipe"] });
+        const child = spawn(YTDLP, [...SRC_ARGS, ...a], { stdio: ["ignore", "pipe", "pipe"] });
         let out = "", err = "";
         const t = setTimeout(() => child.kill("SIGKILL"), timeoutMs);
         child.stdout.on("data", (d) => (out += d));
@@ -644,14 +660,21 @@ function regenerateViews() {
 
 // ─── activity (watch-state iz nightlyja → registry) ────────────────
 
+function countWithin(dates, days) {
+    return dates.filter((d) => { const x = daysSince(d); return x != null && x <= days; }).length;
+}
+
 function watchStatus(ch) {
     const vids = Object.values(ch.seen || {});
     const orig = vids.filter((v) => v.cls === "original");
-    const last = orig.map((v) => v.upload_date).filter(Boolean).sort().pop() || null;
+    const dates = orig.map((v) => v.upload_date).filter(Boolean);
     return {
+        source: "watch",
         checked_at: (ch.last_check || "").slice(0, 10),
-        last_original_upload: last,
-        originals_90d: orig.filter((v) => { const d = daysSince(v.upload_date); return d != null && d <= 90; }).length,
+        last_original_upload: dates.slice().sort().pop() || null,
+        originals_60d: countWithin(dates, 60),
+        originals_90d: countWithin(dates, 90),
+        originals_365d: countWithin(dates, 365),
         new_originals_since_baseline: orig.filter((v) => !v.baseline).length,
         derivative_ratio: vids.length ? +(1 - orig.length / vids.length).toFixed(2) : null,
         min_duration_sec: ch.min_duration_sec || null,
@@ -660,18 +683,46 @@ function watchStatus(ch) {
     };
 }
 
+/** Praćeni kanal: datumi iz imena datoteka u storage/output/<kanal>/ ({YYYYMMDD}_…_yt_ID). */
+function pipelineStatus(slug) {
+    const dir = path.join(ROOT, "storage", "output", slug.replace(/-/g, "_"));
+    let files;
+    try { files = fs.readdirSync(dir); } catch { return null; }
+    const byId = {};
+    for (const f of files) {
+        const m = /^(\d{8})_.*_yt_([\w-]{11})\./.exec(f);
+        if (m) byId[m[2]] = m[1];
+    }
+    const dates = Object.values(byId);
+    if (!dates.length) return null;
+    return {
+        source: "pipeline", checked_at: today(),
+        last_original_upload: dates.slice().sort().pop(),
+        originals_60d: countWithin(dates, 60), originals_90d: countWithin(dates, 90), originals_365d: countWithin(dates, 365),
+        episodes_on_disk: dates.length,
+    };
+}
+
 function cmdActivity() {
     const reg = readJson(REGISTRY);
-    const st = readJson(WATCH_STATE, null);
-    if (!st) throw new Error(`nema ${WATCH_STATE} — pokreni prvo automatic/watch_candidates.js`);
+    const st = readJson(WATCH_STATE, { channels: {} });
     const UPDATE = hasFlag("--update-status");
     let n = 0; const changes = [];
     for (const p of reg.podcasts) {
+        const tracked = p.tracking?.enabled === true;
         const ch = st.channels[p.slug];
-        if (!ch || p.tracking?.enabled === true) continue;
-        const a = watchStatus(ch);
+        const a = tracked ? pipelineStatus(p.slug) : ch ? watchStatus(ch) : null;
+        if (!a) continue;
+        // Točan datum (exact-dates) ima prednost pred približnim iz flat liste.
+        const exact = !p.metadata?.last_episode_date_approx && p.metadata?.last_episode_date ? p.metadata.last_episode_date.replace(/-/g, "") : null;
+        if (exact && (!a.last_original_upload || exact >= a.last_original_upload || !tracked)) a.last_original_upload = exact;
         p.activity = a; n++;
-        if (UPDATE && !a.error && !a.no_originals && a.last_original_upload) {
+        // Praćeni kanal: pratitelji iz refresh_podcasts.sh metapodataka ({slug}-channel.json).
+        if (tracked) {
+            const cj = readJson(path.join(ROOT, "automatic", "podcasts", `${p.slug}-channel.json`), null);
+            if (cj?.channel_follower_count != null) p.metadata = { ...(p.metadata || {}), subscribers: cj.channel_follower_count };
+        }
+        if (!tracked && UPDATE && !a.error && !a.no_originals && a.last_original_upload) {
             const s = statusFrom(a.last_original_upload);
             const cur = p.metadata?.status;
             if (["active", "active-slowing", "inactive", "unknown"].includes(cur || "unknown") && s !== cur) {
@@ -686,7 +737,6 @@ function cmdActivity() {
     fs.writeFileSync(REGISTRY, JSON.stringify(reg, null, 2) + "\n");
     regenerateViews();
 }
-
 
 // ─── revise-apply (revizija postojećih unosa → registry + watch pravila) ─
 //

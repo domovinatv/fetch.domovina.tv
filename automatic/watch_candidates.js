@@ -30,7 +30,7 @@
  *   node automatic/watch_candidates.js --slug atma-podcast --verbose
  *   node automatic/watch_candidates.js --limit 10 --dry-run
  *   node automatic/watch_candidates.js --report-only   # samo regeneriraj REPORT.md
- *   Opcije: --concurrency 4, --items 30, --baseline-items 60, --proxy URL
+ *   Opcije: --concurrency 4, --items 30, --baseline-items 60, --proxy URL, --via-iphone
  */
 
 const fs = require("fs");
@@ -63,6 +63,19 @@ const ITEMS = parseInt(getArg("--items") || "30", 10);
 const BASELINE_ITEMS = parseInt(getArg("--baseline-items") || "60", 10);
 const PROXY = getArg("--proxy");
 const TIMEOUT_MS = 120 * 1000;
+// --via-iphone: yt-dlp socket se veže na iPhone tether IP (172.20.10.0/28) → YouTube
+// promet ide kroz cellular, default route (Ethernet) ostaje netaknut. Isto kao
+// run_pipeline.sh --via-iphone. --source-address <ip> za ručni izbor.
+function sourceAddressArgs() {
+    const explicit = getArg("--source-address");
+    if (explicit) return ["--source-address", explicit];
+    if (!hasFlag("--via-iphone")) return [];
+    for (const list of Object.values(require("os").networkInterfaces())) {
+        for (const a of list || []) if (a.family === "IPv4" && /^172\.20\.10\.(\d+)$/.test(a.address) && a.address !== "172.20.10.1") return ["--source-address", a.address];
+    }
+    throw new Error("--via-iphone: nema 172.20.10.x adrese — je li Personal Hotspot uključen i iPhone spojen?");
+}
+const SRC_ARGS = sourceAddressArgs();
 const YTDLP = process.env.YTDLP_BIN || "yt-dlp";
 
 // Pratimo i uspavane/neaktivne: jeftino je (jedan flat poziv), a tako vidimo kad se
@@ -127,7 +140,7 @@ function listVideos(url, items) {
             "--extractor-args", "youtubetab:approximate_date",
         ];
         if (PROXY) a.push("--proxy", PROXY);
-        a.push(url);
+        a.push(...SRC_ARGS, url);
         const child = spawn(YTDLP, a, { stdio: ["ignore", "pipe", "pipe"] });
         let out = "", err = "";
         const timer = setTimeout(() => child.kill("SIGKILL"), TIMEOUT_MS);
