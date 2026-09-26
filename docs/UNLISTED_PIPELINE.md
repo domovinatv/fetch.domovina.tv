@@ -10,6 +10,9 @@
 > transkripciju, normalni kanali). Ovaj dokument je **specifičan za unlisted** i naglašava
 > **što je moguće u kojem prolasku** te **po čemu se unlisted razlikuje** (nikad indeksiran,
 > privatni `/v/{id}`, ne ide u javni RAG/MCP).
+>
+> Lokalna audio datoteka (diktafon, Drive, ne YouTube) → članak bez ijedne izmjene koda:
+> [`2026-09-26-audio-datoteka-u-clanak.md`](./2026-09-26-audio-datoteka-u-clanak.md).
 
 ---
 
