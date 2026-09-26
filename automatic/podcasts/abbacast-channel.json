@@ -4,7 +4,7 @@
   "channel_id": "UCCLmXuMmUwOlcE829aTUjsQ",
   "title": "AbbaCast",
   "availability": "public",
-  "channel_follower_count": 819,
+  "channel_follower_count": 818,
   "description": "",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1790336163,
+  "epoch": 1790385052,
   "__files_to_move": {},
   "_version": {
     "version": "2026.08.19",

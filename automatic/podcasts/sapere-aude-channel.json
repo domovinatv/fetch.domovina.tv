@@ -4,7 +4,7 @@
   "channel_id": "UChAhWQJVle5xVM-xKRqq85w",
   "title": "Sapere Aude",
   "availability": "public",
-  "channel_follower_count": 360,
+  "channel_follower_count": 377,
   "description": "",
   "tags": [],
   "thumbnails": [
@@ -91,7 +91,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1790336137,
+  "epoch": 1790385030,
   "__files_to_move": {},
   "_version": {
     "version": "2026.08.19",
