@@ -921,7 +921,14 @@ function buildSummaryJson(geminiResult, srtFilename, channel, metadata) {
             youtube_id: youtubeId,
             title: metadata?.title || geminiResult.title_hr || base,
             upload_date: uploadDate,
-            duration_seconds: metadata?.duration || null
+            duration_seconds: metadata?.duration || null,
+            // Izvor iz info.json: `_source` (x, beamly…; bez njega = youtube), izvorni URL
+            // i `_local_file` (lokalna snimka bez web stranice i bez /v/{id} — npr. Zapis).
+            // Aditivna polja; stari JSON-i ih nemaju pa se ponašaju kao YouTube.
+            platform: metadata?._source || "youtube",
+            source_url: metadata?.webpage_url || null,
+            yt_matched: metadata?._yt_matched ?? null,
+            local_file: metadata?._local_file === true
         },
 
         // Gemini generirani sažetak
@@ -967,9 +974,15 @@ function buildSummaryMarkdown(summaryJson) {
     // Ovaj .md ide na CDN (`data/{id}/summary.md`) i dijeli se kao datoteka —
     // link mora voditi na domovina.ai, ne na YouTube. YouTube ostaje samo kao
     // neklikabilan navod izvora (atribucija nakladniku); ID je i dalje u JSON-u.
-    if (src.youtube_id) {
+    //
+    // Lokalna snimka (`local_file`) nema ni /v/{id} stranicu ni izvorni URL. Za ne-YouTube
+    // izvor (X, beamly bez YT para) youtube_id je SINTETIČKI, pa YouTube link ne postoji —
+    // navodi se izvorni URL, jednako neklikabilno.
+    const isYoutube = (src.platform || "youtube") === "youtube" && src.yt_matched !== false;
+    if (src.youtube_id && !src.local_file) {
         md += `**Epizoda:** ${SITE_BASE}/v/${src.youtube_id}  \n`;
-        md += `**Izvornik:** youtube.com/watch?v=${src.youtube_id}  \n`;
+        if (isYoutube) md += `**Izvornik:** youtube.com/watch?v=${src.youtube_id}  \n`;
+        else if (src.source_url) md += `**Izvornik:** ${src.source_url.replace(/^https?:\/\//, "")}  \n`;
     }
     md += `**Model:** ${summaryJson.model}  \n`;
     md += "\n";
