@@ -67,9 +67,10 @@ const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT 
 // generaciju (gemini.conf), pa je model konzistentan. SKUPLJI: $1.50 in / $9.00 out (global) vs
 // preview $0.50/$3.00 — free-trial krediti pokrivaju. Treba re-test sustained RPM-a na 3.5-flash.
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
-// Ovi modeli (3.x flash) DOSTUPNI su SAMO na global endpointu (regionalni vraćaju 404). Zato
-// global-only ovdje (regional rotacija je no-op). Override preko VERTEX_REGIONS env ako treba.
-const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || "global")
+// 3.8-flash postoji na global + eu/us multi-regijama (pojedinačne regije 404-aju, test
+// 28.09.2026.); svaka je zaseban DSQ bazen pa rotacija smanjuje 429. Regije: env pa
+// gemini.conf (isti izvor kao summarize/article), default global.
+const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global")
     .split(",").map(r => r.trim()).filter(Boolean);
 
 if (!VERTEX_PROJECT) {

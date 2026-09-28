@@ -298,10 +298,16 @@ function getAccessToken() {
     }
 }
 
-// Regija = prvi unos iz VERTEX_REGIONS (env pa gemini.conf), default global. gemini-3.8-flash
-// radi na global i na eu multi-regiji; pojedinačne europe-west regije 404-aju (28.09.2026.).
-const REFINE_REGION = ((process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global").split(",")[0] || "global").trim();
-const ENDPOINT = vertexEndpointUrl(VERTEX_PROJECT, REFINE_REGION, GEMINI_MODEL);
+// Regije iz VERTEX_REGIONS (env pa gemini.conf), default global. gemini-3.8-flash postoji SAMO
+// na global, eu i us (sve pojedinačne regije 404-aju, test 28.09.2026.). Svaka je ZASEBAN
+// DSQ bazen: poziv ide na trenutnu regiju, a 429 prebacuje na sljedeću BEZ čekanja —
+// čeka se tek kad su u nizu odbile sve (vidi docs/2026-09-28-vertex-eu-endpoint.md).
+const REFINE_REGIONS = (process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global")
+    .split(",").map((r) => r.trim()).filter(Boolean);
+let refineRegionIdx = 0;
+function currentEndpoint() {
+    return vertexEndpointUrl(VERTEX_PROJECT, REFINE_REGIONS[refineRegionIdx % REFINE_REGIONS.length], GEMINI_MODEL);
+}
 
 const SAFETY_OFF = [
     "HARM_CATEGORY_HATE_SPEECH",
@@ -413,7 +419,7 @@ async function callGemini(audioBuf, promptText, maxOut) {
         if (relaxSafety) body.safetySettings = SAFETY_OFF;
 
         try {
-            const res = await fetch(ENDPOINT, {
+            const res = await fetch(currentEndpoint(), {
                 method: "POST",
                 headers: { Authorization: `Bearer ${getAccessToken()}`, "Content-Type": "application/json" },
                 body: JSON.stringify(body),
@@ -430,9 +436,16 @@ async function callGemini(audioBuf, promptText, maxOut) {
                     // kvotni prozor — 4s×pokušaj ga ne dočeka. Mjereno 19.09.: dva
                     // paralelna runa su iscrpila svih 6 pokušaja u ~84 s i cijeli prozor
                     // (35 segmenata) pao na sigurnosni pod. Zato 429 dobiva svoj raspored.
-                    const delay = res.status === 429
+                    //
+                    // S više regija 429 najprije rotira na sljedeći bazen (1 s); puni
+                    // raspored čekanja kreće tek kad je krug regija u nizu odbio.
+                    let delay = res.status === 429
                         ? RATE_LIMIT_BASE_DELAY_MS * attempt
                         : RETRY_BASE_DELAY_MS * attempt;
+                    if (res.status === 429 && REFINE_REGIONS.length > 1) {
+                        refineRegionIdx++;
+                        if (attempt % REFINE_REGIONS.length !== 0) delay = 1000;
+                    }
                     usage.retries++;
                     process.stdout.write(` [${res.status}·retry ${attempt}/${MAX_RETRIES}, ${Math.round(delay / 1000)}s]`);
                     await sleep(delay);
