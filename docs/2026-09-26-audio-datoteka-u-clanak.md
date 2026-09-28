@@ -99,6 +99,8 @@ transkriptu („A Damir je tako rekao”), dakle nije halucinacija.
 
 ## Vezani dokumenti
 
+- `../zapis.domovina.ai/docs/2026-09-28-plan.md` — **nastavak: SaaS „Zapis” (zapis.domovina.ai)** — samoposluga, Stripe, Modal bez Maca
+
 - `docs/UNLISTED_PIPELINE.md` — ad-hoc YouTube/X put
 - `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md` — koraci 2.7/2.8
 - `docs/claude_code_backend_2026-07.md` — `GEMINI_BACKEND=claude`
