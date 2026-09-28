@@ -39,6 +39,7 @@
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
+const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const { execSync, spawn } = require("child_process");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
 
@@ -176,10 +177,8 @@ function getNextRegion() {
 }
 
 function buildEndpointUrl(region) {
-    if (region === "global") {
-        return `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
-    }
-    return `https://${region}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${region}/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+    // global | eu/us multi-regija (.rep.) | pojedinačna regija — vidi lib/vertex_auth.js
+    return vertexEndpointUrl(VERTEX_PROJECT, region, GEMINI_MODEL);
 }
 
 // Rate limiting
@@ -434,8 +433,8 @@ function srtToText(srtContent) {
 
 function getAccessToken() {
     try {
-        const acct = VERTEX_ACCOUNT ? ` --account=${VERTEX_ACCOUNT}` : "";
-        return execSync(`gcloud auth print-access-token${acct}`, { encoding: "utf-8" }).trim();
+        // VERTEX_ACCESS_TOKEN | VERTEX_SA_KEY_FILE | gcloud — vidi lib/vertex_auth.js
+        return vertexAccessToken({ account: VERTEX_ACCOUNT });
     } catch (err) {
         console.error("❌ Ne mogu dohvatiti access token. Pokreni: gcloud auth login");
         process.exit(1);

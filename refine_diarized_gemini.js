@@ -48,6 +48,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
 
@@ -287,8 +288,8 @@ function getAccessToken() {
     const now = Date.now();
     if (cachedToken && now < tokenExpiry) return cachedToken;
     try {
-        const acct = VERTEX_ACCOUNT ? ` --account=${VERTEX_ACCOUNT}` : "";
-        cachedToken = execSync(`gcloud auth print-access-token${acct}`, { encoding: "utf-8" }).trim();
+        // VERTEX_ACCESS_TOKEN | VERTEX_SA_KEY_FILE | gcloud — vidi lib/vertex_auth.js
+        cachedToken = vertexAccessToken({ account: VERTEX_ACCOUNT });
         tokenExpiry = now + 50 * 60 * 1000;
         return cachedToken;
     } catch (err) {
@@ -297,8 +298,10 @@ function getAccessToken() {
     }
 }
 
-// gemini-3.x flash je GLOBAL-ONLY (regionalni endpointi 404-aju) — vidi gemini.conf.
-const ENDPOINT = `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+// Regija = prvi unos iz VERTEX_REGIONS (env pa gemini.conf), default global. gemini-3.8-flash
+// radi na global i na eu multi-regiji; pojedinačne europe-west regije 404-aju (28.09.2026.).
+const REFINE_REGION = ((process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global").split(",")[0] || "global").trim();
+const ENDPOINT = vertexEndpointUrl(VERTEX_PROJECT, REFINE_REGION, GEMINI_MODEL);
 
 const SAFETY_OFF = [
     "HARM_CATEGORY_HATE_SPEECH",

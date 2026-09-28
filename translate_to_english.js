@@ -36,6 +36,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ────────────────────────────────────────────────
@@ -101,8 +102,8 @@ let tokenExpiry = 0;
 function getOrRefreshAccessToken() {
     if (cachedAccessToken && Date.now() < tokenExpiry) return cachedAccessToken;
     try {
-        const acct = VERTEX_ACCOUNT ? ` --account=${VERTEX_ACCOUNT}` : "";
-        cachedAccessToken = execSync(`gcloud auth print-access-token${acct}`, { encoding: "utf-8" }).trim();
+        // VERTEX_ACCESS_TOKEN | VERTEX_SA_KEY_FILE | gcloud — vidi lib/vertex_auth.js
+        cachedAccessToken = vertexAccessToken({ account: VERTEX_ACCOUNT });
         tokenExpiry = Date.now() + 50 * 60 * 1000; // 50 min cache
         return cachedAccessToken;
     } catch (err) {
@@ -121,10 +122,8 @@ function getNextRegion() {
 }
 
 function buildEndpointUrl(region) {
-    if (region === "global") {
-        return `https://aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/global/publishers/google/models/${GEMINI_MODEL}:generateContent`;
-    }
-    return `https://${region}-aiplatform.googleapis.com/v1/projects/${VERTEX_PROJECT}/locations/${region}/publishers/google/models/${GEMINI_MODEL}:generateContent`;
+    // global | eu/us multi-regija (.rep.) | pojedinačna regija — vidi lib/vertex_auth.js
+    return vertexEndpointUrl(VERTEX_PROJECT, region, GEMINI_MODEL);
 }
 
 // ─── STROGI TRANSLATOR PROMPT ─────────────────────────────────────
