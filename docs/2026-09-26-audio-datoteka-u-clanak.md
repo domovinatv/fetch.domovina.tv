@@ -90,6 +90,33 @@ transkriptu („A Damir je tako rekao”), dakle nije halucinacija.
    neupotrebljivo. `rclone backend copyid` radi po ID-u i za datoteke dijeljene
    s tobom; upload u tuđi folder ide s `--drive-root-folder-id`.
 
+## Drugi krug (30.09.2026.): vlč. Zlatko Sudac, klanjanje na Krku
+
+Ista pipeline, bez izmjene koda; 23 min m4a (22,9 MB) → isporuka za ~8 min.
+Nezavisni koraci pušteni **paralelno** (Canary ‖ Speechmatics, Gemini ‖ Opus u
+zasebnim dirovima), što je skratilo zid-sat s ~25 min (80-min snimka, serijski)
+na ~8 min.
+
+| Korak | Trajanje | Trošak |
+|---|---|---|
+| rclone `backend copyid` (22,9 MB) | 36 s | — |
+| Modal Canary ‖ Speechmatics | 2 min 0 s (paralelno) | Speechmatics ~$0,31 |
+| Gemini refine `--promote` (3 prozora, 4 poziva) | 1 min 24 s | ~$0,06 |
+| Sažetak + članak Gemini ‖ Opus | 2 min 5 s (paralelno) | Gemini ~$0,04; Opus ≈ $0,44 ekviv. (pretplata) |
+
+Isporuka: zaseban Drive folder po snimci (`Share with Matija/Zlatko Sudac - Krk
+2026 - obrada`), 5 Google Docsa — **prijepis** + članak/sažetak × 2 modela.
+Prijepis: `tools/srt_to_transcript_md.js` (odlomci po govorniku, s vremenima).
+
+Zamke dodane ovim krugom:
+
+5. **Sintetički ID s vodećom crticom** (`-Ybiu9r1J-i`) — CLI parseri ga čitaju
+   kao flag. Prvi znak zamijeni slovom (`ZYbiu9r1J-i`).
+6. **`name_audit` označi ime koje je samo u naslovu** (ovdje „Zlatko Sudac”, iz
+   ručnog `.info.json`). Nije halucinacija ako naslov dolazi od naručitelja.
+7. **WhatsApp:** Tomislav piše s LID-a `239388793540774@lid`; `list_messages`
+   po broju telefona ne nalazi nove poruke — traži po `chat_jid` ili `query`.
+
 ## Otvoreno
 
 - Nema `fetch.js --local-audio` ulaza; za aplikaciju za bilješke to bi bio
