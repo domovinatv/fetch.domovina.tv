@@ -175,6 +175,37 @@ direktoriju i skinuo bi sve otkriveno.
 Datumi uploada iz flat liste su približni („prije 3 tjedna"); datum otkrića u
 `events.jsonl` je točan, pa kadenca postaje precizna nakon par tjedana praćenja.
 
+### Provjera uhvaćenog nakon 8 noći (2026-10-03)
+
+Prvi tjedan (baseline 24./25.09., događaji 25.09.–02.10.): **93 od 400** praćenih kanala
+izbacilo je barem jedan novi original — 126 događaja, ~20 kanala/dan radnim danom, 8 vikendom;
+uz to 130 derivata/shortsa ispravno odvojenih. U `watch-state.json` je 445 kanala, ali 45 ima
+`last_check` 24.09. — ispali su iz watcha (praćeni ili novi status), nisu greška.
+
+Za svih 126 povučeni su puni metapodaci (`yt-dlp -J --skip-download`, 3 paralelno, ~3 min,
+nula LLM-a; 2 members-only, 1 nedostupan):
+
+- **Shortsa i reklama nema**: 0 portretnih (118 landscape, 4 kvadratna = audio podcast sa
+  statičnom slikom), najkraći 16 min. `classify()` ih već hvata (≤180 s, `#shorts`, prag trajanja).
+- **YouTube kategorija je beskorisna kao signal**: SBS = Entertainment, Lider = Film & Animation,
+  Poslovni FM = Music, legitimna epizoda digitalna-kultura = Gaming.
+- **`was_live`** (24/122) je dobar za pregled, ne za isključivanje — većina su prave epizode
+  (F1Puls, Tribina, Inkubator).
+- **Poglavlja** (44/122) su signal kvalitete, ali rijetka. Naslov + `rules.json` ostaje glavni alat.
+
+Lažni originali (nisu epizode podcasta): `osvrtnik` (gaming streamovi — Witcher 3, SND),
+`denis-podcast` „HNL LIVE / STADION MAKSIMIR", `netokracija-podcast` „Govor o stanju Unije
+2026." (175 min, retransmisija), `morina-kutija` „Predstavljanje 11. broja", `biciklizam-net-podcast`
+„Dream Bike Build" (vlog); granično `sbs-croatian` (dnevni radijski program) i `puba77` stream.
+
+Duplikati: isti ID `P9Gf-CG-ZBM` broji se na `vida-podcast` i `zavidavanje-by-lado-tomicic`
+(VIDA parent + dijete, vidi otvorene stavke); `poslovnifm` je isti naslov objavio pod dva ID-a.
+
+Otvoreno (čeka odluku usera):
+- `rules.json` pravila za osvrtnik / denis-podcast / netokracija-podcast — ili osvrtnik
+  izbaciti (`not-podcast`).
+- watcher da u `events.jsonl` upisuje `was_live` i dedupa isti ID preko kanala.
+
 ## Otvorene stavke (stanje 2026-09-25)
 
 - **`hkm-argumenti`** pokazuje na crnogorski RTCG, ne na HKM (revizija 2026-09-24). Status je
