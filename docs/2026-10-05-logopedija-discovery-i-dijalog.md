@@ -299,3 +299,20 @@ glavni rezultat.
    `youtube_alternatives`; ledger `merged_into`. `watch_candidates.js` sada preskače i
    `rejected` (prije bi spojeni duplikat i dalje pratio).
 6. Kategorija „Logopedija" u javnom katalogu — nightly KORAK 5c je deploya iz radne kopije.
+
+## 10. Otvoreno (stanje 2026-10-06 00:30)
+
+- **Prvi nightly s KORAKOM 1b (RSS)** (06.10. 03:00) nije pregledan: u logu treba stajati
+  `📥 KORAK 1b: RSS audio-only (DijaLOG)` i `fetched=0 skipped=55`. KORAK 2.7 ne smije uzeti
+  nijednu `dijalog` epizodu (mtime vraćen na datum objave).
+- **Kategorija Logopedija na podcast.domovina.ai** izlazi tek s nightly KORAKOM 5c — provjeriti da
+  se prikazuje (2 podcasta: DijaLOG, Norda Disleksija).
+- **`exact-dates`** za 7 novih YouTube unosa radi nightly; Norda/Radio Varaždin/Centar Pričaj mi
+  imaju približne datume iz flat liste.
+- **Stranica kanala `domovina.ai/c/dijalog`** nije vizualno provjerena (ekstenzija se odspojila);
+  CDN za svih 55 epizoda (article/audio/thumbnail) vraća 200, epizoda 54 provjerena u browseru.
+- **`.wav` mtime** za budući veliki RSS uvoz: `ingest_rss.mjs` postavlja datum objave samo na `.mp3`,
+  KORAK 2 napravi svjež `.wav` → Speechmatics ga može uzeti. Za DijaLOG riješeno ručno.
+- **Javiti se autoricama** (IG @podcastdijalog) prije promocije kanala.
+- Nove DijaLOG epizode (podcast je na pauzi) dobit će generički cover dok se ne dopiše mapiranje u
+  `dijalog-covers.json` i pokrene `tools/apply_episode_covers.mjs` prije KORAKA 12.
