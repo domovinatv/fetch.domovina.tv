@@ -103,6 +103,40 @@ normalno i nakon što se prozor zatvori.
   četiri dana zaredom. Tada ni raspored ni ograda ne pomažu — arbitar samo prestane
   retryati u zid.
 
+## Slučaj 05.10.2026. — sve epizode noći odgođene jer je korak 7 krenuo u 08:10
+
+Na domovina.ai su 4 nove epizode cijeli dan stajale na „pišemo članak". Nightly
+**nije pukao** (`PIPELINE ZAVRŠEN` 08:51); ograda je u KORAKU 7 odgodila sve četiri
+(`⏸️ [ODGOĐENO] … nov prozor bi trajao do 05.10. 13:10, preko 08:30`).
+
+Korak 7 inače krene oko 03:45. Tu je noć kasnio pet sati zbog dva koraka prije njega:
+
+| korak | od → do | trajanje |
+|---|---|---|
+| 1 (osvježavanje + preuzimanje) | 03:06 → 05:43 | **2 h 37 min** |
+| 2.8 (Gemini sluh, ~18 min/ep sekvencijalno) | 06:21 → 08:10 | **1 h 49 min** |
+
+Pouka: ograda prozora pretvara svako kašnjenje uzvodno u dan kašnjenja članka.
+Kad se to ponovi, gledaj trajanje koraka 1 i 2.8 u logu, ne korak 7. Lijek za 2.8 je
+spustiti **oba** capa (`SPEECHMATICS_MAX_FILES` i `GEMINI_REFINE_MAX_FILES`), vidi
+`docs/2026-09-19-speechmatics-kostur-gemini-sluh.md`.
+
+Ručni catch-up preko dana, po epizodi i preko Vertexa (≈ $0,5 za sve 4):
+
+```bash
+unset GEMINI_BACKEND   # default = vertex
+node summarize_gemini.js       --input-dir storage/output --channel <kanal> --video-id <ID>
+node generate_article_gemini.js --input-dir storage/output --channel <kanal> --video-id <ID>
+```
+
+⚠️ Time epizoda trajno dobiva **Flash** članak (`_gemini-3.8-flash.article.json`);
+nightly je više ne šalje Opusu jer sažetak i članak već postoje. To je svjestan
+kompromis protiv § „Odgoda, ne degradacija". Ovdje je korisnik izabrao brzinu.
+Koraci 9–13 (screenshoti, EPUB, R2, index) ostaju za idući nightly.
+
+Usput: log nightlyja od 04.10. prekida se usred KORAKA 2 u 07:32, bez sažetka.
+Uzrok nije istražen.
+
 ## Vezani dokumenti
 
 - `stepanic/launchd-menubar` → `SCHEDULING.md` — puna analiza, mjerenja, raspored svih
