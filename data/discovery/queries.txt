@@ -128,3 +128,10 @@ film|filmski podcast hrvatski
 music|glazbeni podcast hrvatski
 gaming|gaming podcast hrvatski 2026
 comedy|podcast smijeh gost hrvatski 2026
+# Logopedija (ciljani prolaz 2026-10-05; zadržani upiti s pogocima, ostalih 11 izbačeno — docs/2026-10-05-logopedija-discovery-i-dijalog.md §7)
+speech-therapy|logoped podcast
+speech-therapy|logopedinja savjeti roditeljima razvoj govora
+speech-therapy|mucanje podcast hrvatski
+speech-therapy|poremećaji govora i jezika logoped
+speech-therapy|disleksija disgrafija podcast
+speech-therapy|potpomognuta komunikacija AAC

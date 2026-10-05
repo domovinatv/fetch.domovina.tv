@@ -1,0 +1,434 @@
+{
+ "key": "UCm8tGtQ2lYF3rO62xOBDcUw",
+ "url": "https://www.youtube.com/channel/UCm8tGtQ2lYF3rO62xOBDcUw/videos",
+ "channel_id": "UCm8tGtQ2lYF3rO62xOBDcUw",
+ "playlist_id": null,
+ "title": "Consultório Aberto - Videos",
+ "channel": "Consultório Aberto",
+ "channel_url": "https://www.youtube.com/channel/UCm8tGtQ2lYF3rO62xOBDcUw",
+ "description": "Bem-vindo ao Consultório Aberto!\nAqui você encontra entrevistas com profissionais da saúde das mais diversas áreas, com o objetivo de levar informação confiável, acessível e de qualidade para o público em geral. Nosso canal é uma plataforma segura de conhecimento, onde você aprende, tira dúvidas e se conecta com especialistas que realmente entendem do assunto.\n\n🩺 Informação clara e sem complicação\n🎤 Conversas abertas, diretas e humanas\n📌 Novos episódios com especialistas em saúde, bem-estar, prevenção e qualidade de vida\n\nInscreva-se e fique por dentro de tudo que impacta a sua saúde!\n",
+ "follower_count": 1340,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "s-oR1ctcW6o",
+   "title": "#179 | Alana Marcassi | Fonoaudióloga",
+   "duration": 3582,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "KXXoXy8Garo",
+   "title": "#178 | Dra. Ana Thalita | Cirurgiã Cardíaca Pediátrica; Cardiopatia Congênita; Transplante Cardíaco",
+   "duration": 3962,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "Df5C2k5ZWcc",
+   "title": "#177 | Viviane Cappobianco | Fonoaudióloga",
+   "duration": 3906,
+   "live_status": null,
+   "upload_date": "20260908"
+  },
+  {
+   "id": "o7FPg1UqHng",
+   "title": "#176 | Varizes Não São Apenas Estética | Dr. Rodolpho Reis",
+   "duration": 4433,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "Bf957nFaT0E",
+   "title": "#175 | Canetas Emagrecedoras Funcionam Mesmo? │Dr. Breno Pitangui",
+   "duration": 3849,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "m-FsouzuEVA",
+   "title": "#174 | Dra. Denise Bastos | Otorrinolaringologista; Homeopata",
+   "duration": 3465,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "ZNdbUk_x-7g",
+   "title": "#173 | Naiara Windmöller | Psicóloga | Psicanalista em formação | Mestra em Psicologia Clínica (UnB)",
+   "duration": 4533,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "JdqHWVP6wrU",
+   "title": "#172 | Dra. Livia Portela | Médica Urologista | Urologia Feminina e Uroginecologia",
+   "duration": 4403,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "mL4BhuvQvJw",
+   "title": "#171 | Dra. Nadia Misael | Hematologia e Hemoterapia",
+   "duration": 5458,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "sqUcQnmIqjM",
+   "title": "#170 | Dr. Guilherme Souza | Implantodontia e Prótese",
+   "duration": 3676,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "mNSruMEhPWc",
+   "title": "#169 | Dr. Luan Góis | Médico Ortopedista | Intervenção em Dor | Medicina Regenerativa",
+   "duration": 3354,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "Kt8yiogT3yI",
+   "title": "#168 | Dra. Marcela Andrade | Oftalmologista; Plástica Ocular; Estética Facial",
+   "duration": 3843,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "J8OlZdmaDtw",
+   "title": "#167 | Dr. Luiz Melo | Alergia e Imunologia Clínica; Longevidade Humana; Modulação Hormonal",
+   "duration": 2694,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "LVF_ESFutvQ",
+   "title": "#166 | Dra. Laura Tavares | Farmacêutica Esteta | Especialista em Saúde Estética Avançada",
+   "duration": 3359,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "DOFSpOjnXpI",
+   "title": "#165 | Dra. Juliana Sobral | Pediatra | Puericultura | Aleitamento Materno",
+   "duration": 3913,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "nYBIdorAFUA",
+   "title": "#164 | Dra. Fernanda Zorzin | Oftalmologista | Especialista em Plástica Ocular",
+   "duration": 3577,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "uyvJwPsRhBU",
+   "title": "#163 | Dra. Flávia Campos | Nefrologista | Clínica Médica | Endocrinologia Clínica",
+   "duration": 2586,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "epdFz_z7-hI",
+   "title": "#162 | Fernanda Polsin | Psicóloga | Especialista em saúde mental materna e orientação parental",
+   "duration": 5020,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "WZzpadu_UvM",
+   "title": "#161 | Dr. Ruiter Arantes | Cardiologista | Especialista em Arritmias Cardíacas | Eletrofisiologista",
+   "duration": 4038,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "2hYDMtHS8ZY",
+   "title": "#160 | Dra. Danielle Leal | Cirurgiã-Dentista | Odontologia Oncológica | Periodontia | Laserterapia",
+   "duration": 2063,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "U8hPG9HjBKs",
+   "title": "#159| Dr. Jefferson di Lamartine | Cirurgião Plástico | Especialista em Cirurgia Facial e Cosmiatria",
+   "duration": 5473,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "I3W4pjO7IUQ",
+   "title": "#158 | Dr. José Roberto Viana | Ortopedia e Traumatologia | Cirurgia de Ombro e Cotovelo",
+   "duration": 4619,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "tUwXsZ0wW-w",
+   "title": "#157 | Dr. Gustavo Lara Rezende | Otorrinolaringologista | Cirurgia da Base do Crânio",
+   "duration": 3759,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "vi1dmibqKb4",
+   "title": "#156 | Dra. Amanda Valadares | Endocrinologia / Metabologia",
+   "duration": 4926,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "tagVFHnuyZY",
+   "title": "#155 | Dr. Alysson Zanatta | Ginecologia | Endometriose | Cirurgia Laparoscópica",
+   "duration": 3579,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "BnDjTzMAxA8",
+   "title": "#154 | Dra. Isabela Coimbra | Oftalmologia | Subespecialista em Plástica Ocular",
+   "duration": 1487,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "0sy3b4L-510",
+   "title": "#153 | Dra. Érika Jordão | Cirurgia Ginecológica Minimamente Invasiva | Cirurgia Robótica",
+   "duration": 4527,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "IZ5xbPRT5fs",
+   "title": "#152 | Dra. Cyntia Chesani | Homeopatia | Acupuntura | Prática Ortomolecular",
+   "duration": 2820,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "duL0lsrq3nM",
+   "title": "#151 | Dra. Tatiana Coimbra | Endocrinologia Pediátrica",
+   "duration": 4947,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "77TjxzIMAXo",
+   "title": "#150 | Dr. Tristão Maurício | Cirurgião Plástico",
+   "duration": 2881,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "QQ3_2i0VOB8",
+   "title": "#149 | Dra. Maria Olívia | Neurologista Pediátrica",
+   "duration": 5202,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "xXEaqMrbbN4",
+   "title": "#148 | Dra. Viviane Queli | Especialista em Cirurgia Endovascular e Ecografia Vascular com Doppler",
+   "duration": 3530,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "ghKL4Z5xNPI",
+   "title": "#147 | Ellen Morbeck | Fisioterapeuta | Especialista em Oncologia e Cuidados Paliativos",
+   "duration": 2146,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "tux-HwpzH7U",
+   "title": "#146 | Dr. Genês Lopes | Cirurgião Plástico | Membro da Sociedade Brasileira de Cirurgia Plástica",
+   "duration": 2289,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "I26IeuMoEVg",
+   "title": "#145 | Dra. Maria Bianca | Coloproctologia - Distúrbios do Assoalho Pélvico",
+   "duration": 3353,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "cggKuEKvTcM",
+   "title": "#144 | Sabrina Marçal | Enfermeira | Mestre em Doenças Infecciosas | Professora | Gestora de Clínica",
+   "duration": 3569,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "a_wt-c0_f4s",
+   "title": "#143 | Dr. Rafael Côrtes | Cardiointensivismo • Prevenção Cardiovascular • Longevidade",
+   "duration": 3164,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "joxSBuEO83k",
+   "title": "#142 | Dra. Tamara Goes | Medicina da Obesidade | Nutrologia e Ortomolecular",
+   "duration": 5792,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "v_EoW_AAzCo",
+   "title": "#141 | Dr. Amadeu Ribeiro | Médico Otorrinolaringologista | Otoneurologia e Medicina do Sono",
+   "duration": 5176,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "sQnOdiTtYpo",
+   "title": "#140 | Dra. Juliana Justi | Pneumologista Pediátrica",
+   "duration": 2304,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "enPMr2uOAAY",
+   "title": "#139 | Dr. Rodrigo Nascimento | Cirurgião Oncológico",
+   "duration": 3905,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "xuHfQhWCvcs",
+   "title": "#138 | Dra. Rafaela Frota | Ginecologia Regenerativa, Funcional e Estética - Obstetra",
+   "duration": 3046,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "jkaaPYTfhoM",
+   "title": "#137 | Dr. Acimar Júnior | Cirurgião Oncológico Pediátrico",
+   "duration": 3682,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "KLJeMRDGOIY",
+   "title": "#136 | Dr. Tiago Crossetti | Ginecologista, Ginecologia Endócrina, Climatério e Medicina Integrativa",
+   "duration": 4391,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "RMXDxtv5oH8",
+   "title": "#135 | Dra. Wanessa Caetano | Cardiologia • Arritmologia Clínica e Invasiva (Eletrofisiologia)",
+   "duration": 2897,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "dVXvxwp-PlI",
+   "title": "#134 | Dra. Amabel Brito| Cardiologista • Cardiologia Geriátrica • Medicina Integral • Suplementação",
+   "duration": 3106,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "P0vrKTYB-KE",
+   "title": "Nariz Entupido Todo Dia Não É Normal | Dr. João Mangussi",
+   "duration": 3998,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "mswZN2BDneA",
+   "title": "#133 | Dra. Sonaira Alves | Coloproctologia • Cirurgia Geral",
+   "duration": 4002,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "AZUgivGibvI",
+   "title": "#132 | Dr. Rodrigo Villalva | Urologista • Performance e Longevidade Masculina",
+   "duration": 4472,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "9jEEwkidQOA",
+   "title": "#131 | Dr. Clendes Pereira | Cirurgião Plástico",
+   "duration": 4642,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "KO4LnwB9mUQ",
+   "title": "#130 | Daniela Pires | Psicóloga Clínica • Especialista em Mindfulness e Autocompaixão (MSC e FSC)",
+   "duration": 4124,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "2JBXx8mJf-k",
+   "title": "#129 | Dra. Vanessa Rocha | Oftalmologista - Retina e Uveítes",
+   "duration": 2779,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "19fr1YOP6qU",
+   "title": "#128 | Dra. Rhaiana Gondim | Urologista | Especialista em Urologia Pediátrica",
+   "duration": 3271,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "XqAmuNYyRTY",
+   "title": "#127 | Dra. Raquel Lourenço | Oftalmologista | Especialista em Plástica Ocular & Blefaroplastia",
+   "duration": 2712,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "EGsGCwuo_5g",
+   "title": "#126 | Dra. Fernanda César | Intensivista Pediátrica • Fundadora PED HOME | Pediatria em Casa",
+   "duration": 2120,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "94ETquPbaQk",
+   "title": "#125 | Mariana Muniz Borges | Terapeuta Ocupacional",
+   "duration": 1796,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "ddnRKU4c6nE",
+   "title": "#124 | Dra. Elisa Leão | Psicóloga Clínica, Palestrante, Autora de livros sobre resiliência",
+   "duration": 3487,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "nMIGVV8RPEg",
+   "title": "#123 | Dra. Meirianne Sousa | Psicóloga Clínica - Especialista em Ansiedade e Psicologia da Mulher",
+   "duration": 2983,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "oDi9ISXGe2U",
+   "title": "#122 | Dra. Meire de Oliveira | Médica Radiologista, Ultrassonografia Geral e Dermatológica",
+   "duration": 3731,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "kPC8uNcU2lo",
+   "title": "#121 | Dra. Flaviana Núbia | Prótese Dentária e Harmonização Facial",
+   "duration": 6756,
+   "live_status": null,
+   "upload_date": "20260406"
+  }
+ ]
+}

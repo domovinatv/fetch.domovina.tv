@@ -1688,5 +1688,226 @@
    "channels": 10,
    "accepted": 1
   }
+ },
+ "razvoj govora djeca podcast": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 33,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 33,
+   "accepted": 2
+  }
+ },
+ "umjetna pužnica oštećenje sluha podcast": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 7,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 7,
+   "accepted": 0
+  }
+ },
+ "podcast Dijalog logoped": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 35,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 35,
+   "accepted": 0
+  }
+ },
+ "logopedija razgovor podcast": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 23,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 23,
+   "accepted": 0
+  }
+ },
+ "potpomognuta komunikacija AAC": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 14,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 14,
+   "accepted": 1
+  }
+ },
+ "dječja apraksija govora": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 30,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 30,
+   "accepted": 0
+  }
+ },
+ "logoped podcast": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 31,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 31,
+   "accepted": 1
+  }
+ },
+ "poremećaji govora i jezika logoped": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 35,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 35,
+   "accepted": 1
+  }
+ },
+ "disleksija disgrafija podcast": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 29,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 29,
+   "accepted": 1
+  }
+ },
+ "disfagija gutanje logoped": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 35,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 35,
+   "accepted": 0
+  }
+ },
+ "Edukacijsko-rehabilitacijski fakultet logopedija": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 29,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 29,
+   "accepted": 0
+  }
+ },
+ "logopedske vježbe za roditelje": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 31,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 31,
+   "accepted": 0
+  }
+ },
+ "logopedinja savjeti roditeljima razvoj govora": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 33,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 33,
+   "accepted": 2
+  }
+ },
+ "Hrvatsko logopedsko društvo": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 24,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 24,
+   "accepted": 0
+  }
+ },
+ "SUVAG poliklinika govor slušanje": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 3,
+  "accepted_total": 0,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 3,
+   "accepted": 0
+  }
+ },
+ "logopedski centar Zagreb": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 14,
+  "accepted_total": 1,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 14,
+   "accepted": 1
+  }
+ },
+ "mucanje podcast hrvatski": {
+  "cat": "speech-therapy",
+  "runs": [
+   "2026-10-05"
+  ],
+  "channels_total": 14,
+  "accepted_total": 2,
+  "last": {
+   "run": "2026-10-05",
+   "channels": 14,
+   "accepted": 2
+  }
  }
 }

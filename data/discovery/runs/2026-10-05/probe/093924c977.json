@@ -1,0 +1,35 @@
+{
+ "key": "UClvLR05AkQiw5mMznF7VXwQ",
+ "url": "https://www.youtube.com/channel/UClvLR05AkQiw5mMznF7VXwQ/videos",
+ "channel_id": "UClvLR05AkQiw5mMznF7VXwQ",
+ "playlist_id": null,
+ "title": "Udruga studenata socijalne pedagogije - Videos",
+ "channel": "Udruga studenata socijalne pedagogije",
+ "channel_url": "https://www.youtube.com/channel/UClvLR05AkQiw5mMznF7VXwQ",
+ "description": "",
+ "follower_count": 17,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "2AvxkFWs_7E",
+   "title": "Soc.ped.+",
+   "duration": 89,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "tMiNeIDwqe4",
+   "title": "ERF   Totalno drukčiji od drugih",
+   "duration": 388,
+   "live_status": null,
+   "upload_date": "20151006"
+  },
+  {
+   "id": "zZDsenbe8y8",
+   "title": "Kako je nastala Udruga studenata socijalne pedagogije   Pupovci",
+   "duration": 285,
+   "live_status": null,
+   "upload_date": "20151006"
+  }
+ ]
+}

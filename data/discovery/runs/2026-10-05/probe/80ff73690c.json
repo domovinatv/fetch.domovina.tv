@@ -1,0 +1,49 @@
+{
+ "key": "UC3sXXm0RB0-W5VcMwGP6hcg",
+ "url": "https://www.youtube.com/channel/UC3sXXm0RB0-W5VcMwGP6hcg/videos",
+ "channel_id": "UC3sXXm0RB0-W5VcMwGP6hcg",
+ "playlist_id": null,
+ "title": "Centar Dajte nam šansu-Zvjezdice - Videos",
+ "channel": "Centar Dajte nam šansu-Zvjezdice",
+ "channel_url": "https://www.youtube.com/channel/UC3sXXm0RB0-W5VcMwGP6hcg",
+ "description": "",
+ "follower_count": 47,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "fuDitsv4JM4",
+   "title": "Da živimo zajedno i sa razlikama!",
+   "duration": 114,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "V7XkEpdhAIY",
+   "title": "San dok ljubi me  -  Sara Spasojević, cover by Suzana Vujasin i Zvjezdice",
+   "duration": 180,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "sLK-fKUQy1Y",
+   "title": "Govorno jezicki poremećaji kod djece sa teškoćama u razvoju",
+   "duration": 462,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "dSrxLsCGo0M",
+   "title": "\"NE IZOSTAVLJAJTE NAS\" - Međunarodni dan osoba sa Down sindromom",
+   "duration": 323,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "g045MscgBCw",
+   "title": "Ljubav može sve",
+   "duration": 208,
+   "live_status": null,
+   "upload_date": "20191006"
+  }
+ ]
+}

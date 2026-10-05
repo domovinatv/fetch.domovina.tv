@@ -1,0 +1,434 @@
+{
+ "key": "UCn665NMYos2fWI55QDzoaKw",
+ "url": "https://www.youtube.com/channel/UCn665NMYos2fWI55QDzoaKw/videos",
+ "channel_id": "UCn665NMYos2fWI55QDzoaKw",
+ "playlist_id": null,
+ "title": "Dialog Meducativ - Videos",
+ "channel": "Dialog Meducativ",
+ "channel_url": "https://www.youtube.com/channel/UCn665NMYos2fWI55QDzoaKw",
+ "description": "Dialog Meducativ a fost creat din dorința de a oferi sfaturi utile despre sănătate, stare de bine și succes și de a educa pentru un stil de viață mai bun și mai echilibrat.\n",
+ "follower_count": 98300,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "-r0QNTjzsB4",
+   "title": "(Trailer) PATOLOGIILE RINICHILOR cu dr. Gheorghe Niță, medic primar urologie",
+   "duration": 28,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "hftE9SFZg9M",
+   "title": "PATOLOGIILE RINICHILOR cu dr. Gheorghe Niță, medic primar urologie | Podcast Dialog Meducativ 102",
+   "duration": 3405,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "maSqNUXV1YY",
+   "title": "(Trailer) FRICA DE DENTIST  cu dr. Dan Șerbănoiu",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20260926"
+  },
+  {
+   "id": "ogkVcX6y8LM",
+   "title": "FRICA DE DENTIST  cu dr. Dan Șerbănoiu | Podcast Dialog Meducativ 101",
+   "duration": 3329,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "9JlZTg0F35A",
+   "title": "(Trailer) CUM GESTIONĂM ARSURILE GRAVE? cu dr. Ana-Maria Popa",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "CzQ_OyLMQwY",
+   "title": "CUM GESTIONĂM ARSURILE GRAVE? cu dr. Ana-Maria Popa | Podcast Dialog Meducativ 100",
+   "duration": 2278,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "4ieoH4UrRjA",
+   "title": "(Trailer) ESTE CORTIZOLUL DUȘMANUL? cu dr. Antonela Burlacu",
+   "duration": 48,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "RKOKtU_GzXY",
+   "title": "ESTE CORTIZOLUL DUȘMANUL? cu dr. Antonela Burlacu | Podcast Dialog Meducativ 99",
+   "duration": 2699,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "QcPWfrj8QmE",
+   "title": "(Trailer) ÎNTOARCEREA LA ȘCOALĂ cu Yolanda Crețescu, psiholog",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "_9RNU7E_DVc",
+   "title": "ÎNTOARCEREA LA ȘCOALĂ cu Yolanda Crețescu, psiholog | Podcast Dialog Meducativ 98",
+   "duration": 4093,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "1fhKACc9qTo",
+   "title": "(Trailer) CUM NE AJUTĂ THETAHEALING®? Cu Alina Feder",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "gP_HQw0gU9c",
+   "title": "CUM NE AJUTĂ THETAHEALING®? Cu Alina Feder | Podcast Dialog Meducativ 97",
+   "duration": 2918,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "DoEBNV7689c",
+   "title": "(Trailer) DRENAJUL LIMFATIC MANUAL cu Sergiu Alexandriu, kinetoterapeut",
+   "duration": 37,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "1D41whJopYg",
+   "title": "DRENAJUL LIMFATIC MANUAL cu Sergiu Alexandriu, kinetoterapeut | Podcast Dialog Meducativ 96",
+   "duration": 3516,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "bCGuTVczmYY",
+   "title": "(Trailer) CUM SE POT PROTEJA CONSUMATORII? cu Sorin Mierlea, Președinte InfoCon",
+   "duration": 42,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "7rBtfNeYHf4",
+   "title": "CUM SE POT PROTEJA CONSUMATORII? cu Sorin Mierlea, Președinte InfoCons | Podcast Dialog Meducativ 95",
+   "duration": 3745,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "lMBkgr83D-Q",
+   "title": "(Trailer) PROTECȚIA PIELII VARA cu dr. Adriana Necula",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "y468SMJwOhE",
+   "title": "PROTECȚIA PIELII VARA cu dr. Adriana Necula | Podcast Dialog Meducativ 94",
+   "duration": 2049,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "S091AXdNVug",
+   "title": "(Trailer) VIAȚA CU DIABET cu dr. Andra Balcangiu-Stroescu",
+   "duration": 43,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "77rHadqW-7Q",
+   "title": "VIAȚA CU DIABET cu dr. Andra Balcangiu-Stroescu | Podcast Dialog Meducativ 93",
+   "duration": 3135,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "iMgZ3BDxsXw",
+   "title": "(Trailer) CUM POATE AJUTA TERAPIA HORMONALĂ DE SUBSTITUȚIE cu dr. Anca Sultan",
+   "duration": 36,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "75Nded8j3sY",
+   "title": "CUM POATE AJUTA TERAPIA HORMONALĂ DE SUBSTITUȚIE cu dr. Anca Sultan | Podcast Dialog Meducativ 92",
+   "duration": 2816,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "CoAxqnwA39w",
+   "title": "(Trailer) CUM SCĂPĂM DE OBICEIURILE NESĂNĂTOASE? cu Oana Voicu",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "wfc7adiQRVU",
+   "title": "CUM SCĂPĂM DE OBICEIURILE NESĂNĂTOASE? cu Oana Voicu | Podcast Dialog Meducativ 91",
+   "duration": 3292,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "RdfaAJp7Ysg",
+   "title": "(Trailer) CE NE OFERĂ MEDICINA INTEGRATIVĂ? Cu dr. Silvia Ene",
+   "duration": 33,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "b9VBU0Kqx64",
+   "title": "CE NE OFERĂ MEDICINA INTEGRATIVĂ? Cu dr. Silvia Ene | Podcast Dialog Meducativ 90",
+   "duration": 2385,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "sHjVsMN0rWo",
+   "title": "(Trailer) STUDIIND COMPASSIONATE INQUIRY® CU DR. GABOR MATÉ cu Monica Măgureanu",
+   "duration": 43,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "lwP2RwITKLo",
+   "title": "STUDIIND COMPASSIONATE INQUIRY® CU DR. GABOR MATÉ cu Monica Măgureanu | Podcast Dialog Meducativ 89",
+   "duration": 4992,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "uXyNLLqQLzs",
+   "title": "(Trailer) ÎNȚELEGE-ȚI MINTEA CU HARTA CREIERULUI cu dr. Alexandru Vlădășcău",
+   "duration": 38,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "rOUN0Dhi3-8",
+   "title": "ÎNȚELEGE-ȚI MINTEA CU HARTA CREIERULUI cu dr. Alexandru Vlădășcău | Podcast Dialog Meducativ 88",
+   "duration": 3935,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "pAHR_1RbYv8",
+   "title": "(Trailer) DANSUL LA ORICE VÂRSTĂ cu Cornel Tătaru, profesor de dans",
+   "duration": 28,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "QCWAPZRzMMk",
+   "title": "DANSUL LA ORICE VÂRSTĂ cu Cornel Tătaru, profesor de dans | Podcast Dialog Meducativ 87",
+   "duration": 3240,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "IBbSgy76sR8",
+   "title": "(Trailer) ALERGIILE SEZONIERE cu Dr. Brîndușa Petruțescu",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "PXM77QVYFbg",
+   "title": "ALERGIILE SEZONIERE cu Dr. Brîndușa Petruțescu | Podcast Dialog Meducativ 86",
+   "duration": 1564,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "_n09kXzyIZo",
+   "title": "(Trailer) DINCOLO DE ESTETICĂ ÎN ORTODONȚIE cu dr. Dan Șerbănoiu",
+   "duration": 26,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "YCKaHD6wtx8",
+   "title": "DINCOLO DE ESTETICĂ ÎN ORTODONȚIE cu dr. Dan Șerbănoiu | Podcast Dialog Meducativ 85",
+   "duration": 3205,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "KRRpEW5n4jQ",
+   "title": "(Trailer) NUTRIȚIE ȘI ALIMENTAȚIE ÎN TIROIDITA AUTOIMUNĂ cu Elena Coșbuc",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "ajHA69maWbY",
+   "title": "NUTRIȚIE ȘI ALIMENTAȚIE ÎN TIROIDITA AUTOIMUNĂ cu Elena Coșbuc | Podcast Dialog Meducativ 84",
+   "duration": 3551,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "nXEtM0gbEUU",
+   "title": "(Trailer) DINCOLO DE UȘILE DE LA TERAPIE INTENSIVĂ cu dr. Gabriel Petre Gorecki",
+   "duration": 34,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "CwdwVDcSVCk",
+   "title": "DINCOLO DE UȘILE DE LA TERAPIE INTENSIVĂ cu dr. Gabriel Petre Gorecki | Podcast Dialog Meducativ 83",
+   "duration": 2492,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "p61PC5U3Jso",
+   "title": "(Trailer) INTELIGENȚA EMOȚIONALĂ ÎN MEDIUL PROFESIONAL cu Cosmin Alexandru",
+   "duration": 33,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "m2aHBTZkB6Y",
+   "title": "INTELIGENȚA EMOȚIONALĂ ÎN MEDIUL PROFESIONAL cu Cosmin Alexandru | Podcast Dialog Meducativ 82",
+   "duration": 3382,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "dZerH5ead4g",
+   "title": "(Trailer) CE SUNT BOLILE AUTOIMUNE? cu dr. Daniela Opriș-Belinski",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "B8ObZux5X_A",
+   "title": "CE SUNT BOLILE AUTOIMUNE? cu dr. Daniela Opriș-Belinski | Podcast Dialog Meducativ 81",
+   "duration": 3843,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "RRA6yj7QgVs",
+   "title": "(Trailer) IMPACTUL JOCURILOR VIDEO ASUPRA ADOLESCENȚILOR cu Ștefan Zamfir",
+   "duration": 36,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "ky_VspgKknc",
+   "title": "IMPACTUL JOCURILOR VIDEO ASUPRA ADOLESCENȚILOR cu Ștefan Zamfir | Podcast Dialog Meducativ 80",
+   "duration": 3121,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "hAilRXh_qdA",
+   "title": "(Trailer) RISCURILE ESTETICII ALTERNATIVE cu dr. Nectara Mitroi",
+   "duration": 41,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "OpSa7dxHR9I",
+   "title": "RISCURILE ESTETICII ALTERNATIVE cu dr. Nectara Mitroi | Podcast Dialog Meducativ 79",
+   "duration": 4650,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "NM9BeEDA9_8",
+   "title": "(Trailer) EXPUNEREA LA TOXINE cu dr. Ciprian Ene",
+   "duration": 25,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "JDviXd6L3vI",
+   "title": "EXPUNEREA LA TOXINE cu dr. Ciprian Ene | Podcast Dialog Meducativ 78",
+   "duration": 3386,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "YMoYr6HCW40",
+   "title": "(Trailer) NOI TEHNICI ÎN MEDICINA REPRODUCTIVĂ cu dr. Anca Panaitescu",
+   "duration": 33,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "lbjb8we3cQE",
+   "title": "NOI TEHNICI ÎN MEDICINA REPRODUCTIVĂ cu dr. Anca Panaitescu | Podcast Dialog Meducativ 77",
+   "duration": 3180,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "gHF4FfdM0KE",
+   "title": "(Trailer) ZÂMBETUL ÎNTRE ESTETICĂ, SĂNĂTATE ȘI ÎNCREDERE cu dr. Florin Lăzărescu",
+   "duration": 27,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "xS1Ld6TxE0I",
+   "title": "ZÂMBETUL ÎNTRE ESTETICĂ, SĂNĂTATE ȘI ÎNCREDERE cu dr. Florin Lăzărescu | Podcast Dialog Meducativ 76",
+   "duration": 2855,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "ge8lezq1lYc",
+   "title": "(Trailer) CHIRURGIA PLASTICĂ DINCOLO DE FILTRE cu dr. Alin Bortolini",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "D6umywDoqxc",
+   "title": "CHIRURGIA PLASTICĂ DINCOLO DE FILTRE cu dr. Alin Bortolini | Podcast Dialog Meducativ 75",
+   "duration": 3048,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "MSRO-3qfJ6Y",
+   "title": "(Teaser) CÂND MUZICA DEVINE TERAPIE cu AMNA",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "FaKAVO6llSE",
+   "title": "CÂND MUZICA DEVINE TERAPIE cu AMNA | Podcast Dialog Meducativ 74",
+   "duration": 3841,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "Rw2UCF9Woz8",
+   "title": "(Teaser) VIAȚA DIN SPATELE PERSONAJULUI cu Codin Maticiuc",
+   "duration": 51,
+   "live_status": null,
+   "upload_date": "20260306"
+  },
+  {
+   "id": "aHqNFg8quKE",
+   "title": "VIAȚA DIN SPATELE PERSONAJULUI cu Codin Maticiuc | Podcast Dialog Meducativ 73",
+   "duration": 4614,
+   "live_status": null,
+   "upload_date": "20260306"
+  }
+ ]
+}

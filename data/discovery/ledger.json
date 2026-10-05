@@ -215,19 +215,19 @@
  },
  "UC7WVD1Fm6JY4gU5hNg2CkDw": {
   "name": "Bljesak.info",
-  "url": "https://www.youtube.com/channel/UC7WVD1Fm6JY4gU5hNg2CkDw",
+  "url": "https://www.youtube.com/channel/UC7WVD1Fm6JY4gU5hNg2CkDw/videos",
   "type": "channel",
-  "verdict": "uncertain",
-  "reason": "legacy: prošao triage, ručno odbačen (jezik/scope) 2026-07-27 — razlog nije zapisan pa ga idući prolaz ponovno presuđuje",
-  "judged_at": "2026-07-27",
-  "run": "2026-07-27",
-  "by": "legacy-yt-dlp-sweep",
+  "verdict": "institutional",
+  "reason": "Mostarski medijski portal (BiH Hrvati) čiji kanal nije u cijelosti podcast, ali ima podcast/talk emisije: Cancast, Imam ideju, Sport Centar FIFA 2026. Moguće posebne playliste.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
   "metrics": {
-   "sampled": 60,
+   "sampled": 62,
    "originals_30min": 30,
-   "avg_original_min": 61,
-   "last_original": "20260723",
-   "follower_count": 63300
+   "avg_original_min": 59,
+   "last_original": "20261002",
+   "follower_count": 63500
   }
  },
  "UCyBAgjmdneuPsmCJTb8PmUg": {
@@ -4748,19 +4748,19 @@
  },
  "UCmAoNqGvyPtP9hOAypvFzrg": {
   "name": "Oslobođenje",
-  "url": "https://www.youtube.com/channel/UCmAoNqGvyPtP9hOAypvFzrg",
+  "url": "https://www.youtube.com/channel/UCmAoNqGvyPtP9hOAypvFzrg/videos",
   "type": "channel",
-  "verdict": "uncertain",
-  "reason": "legacy: prošao triage, ručno odbačen (jezik/scope) 2026-07-27 — razlog nije zapisan pa ga idući prolaz ponovno presuđuje",
-  "judged_at": "2026-07-27",
-  "run": "2026-07-27",
-  "by": "legacy-yt-dlp-sweep",
+  "verdict": "not_hr",
+  "reason": "Sarajevski medij na bosanskom jeziku (Oslobođenje), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
   "metrics": {
-   "sampled": 60,
-   "originals_30min": 38,
-   "avg_original_min": 72,
-   "last_original": "20260706",
-   "follower_count": 239000
+   "sampled": 90,
+   "originals_30min": 39,
+   "avg_original_min": 80,
+   "last_original": "20261005",
+   "follower_count": 240000
   }
  },
  "UCNkkoIHG4LZEopeXBw0Y0iw": {
@@ -14303,7 +14303,7 @@
   }
  },
  "UCTnBAvMUWsM2a--hPr9MrPw": {
-  "slug": "gaj-tomas",
+  "slug": "bliski-susreti-jezicne-vrste",
   "name": "Gaj Tomaš",
   "url": "https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw/videos",
   "type": "channel",
@@ -14318,7 +14318,8 @@
    "avg_original_min": 74,
    "last_original": "20251125",
    "follower_count": 237
-  }
+  },
+  "merged_into": "bliski-susreti-jezicne-vrste"
  },
  "UC7NlsNY6sGS8rgr6ROTHFRA": {
   "name": "BIS Comedy",
@@ -26620,6 +26621,5130 @@
    "avg_original_min": 92,
    "last_original": "20210925",
    "follower_count": 48
+  }
+ },
+ "UClz2wZAgQ2g8gOOg-bX7hHg": {
+  "name": "Crtić Vrtić",
+  "url": "https://www.youtube.com/channel/UClz2wZAgQ2g8gOOg-bX7hHg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Edukativni crtići za djecu i kompilacije, nije razgovorni format.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 57,
+   "originals_30min": 11,
+   "avg_original_min": 61,
+   "last_original": "20251006",
+   "follower_count": 39900
+  }
+ },
+ "UCMCONjoZqrzqfRHdSGb9ttQ": {
+  "name": "XRPG 360",
+  "url": "https://www.youtube.com/channel/UCMCONjoZqrzqfRHdSGb9ttQ/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Hrvatski intervjui o tehnologiji i AI-ju (CyberFleet, numerirane epizode ~48 min). Zadnja epizoda je od lipnja 2026., nema novih u 90 dana.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 30,
+   "avg_original_min": 48,
+   "last_original": "20260606",
+   "follower_count": 749
+  },
+  "slug": "xrpg-360-cyberfleet"
+ },
+ "UCwKw8gii0zESVxnARKg2bBA": {
+  "name": "Logopedi Avramovic",
+  "url": "https://www.youtube.com/channel/UCwKw8gii0zESVxnARKg2bBA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 60, prosjek 33 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 2,
+   "avg_original_min": 33,
+   "last_original": "20231006",
+   "follower_count": 7690
+  }
+ },
+ "UCsGa1LeZ_6Vx6zXtQoLeVeg": {
+  "name": "4U pharma",
+  "url": "https://www.youtube.com/channel/UCsGa1LeZ_6Vx6zXtQoLeVeg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 56, prosjek 30 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 56,
+   "originals_30min": 0,
+   "avg_original_min": 30,
+   "last_original": "20201006",
+   "follower_count": 1690
+  }
+ },
+ "UCwx_VKrlzeN6D-OOnXfsJhw": {
+  "name": "MarkIN Sarajevo",
+  "url": "https://www.youtube.com/channel/UCwx_VKrlzeN6D-OOnXfsJhw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 366
+  }
+ },
+ "UCH9bvPGeRRD5KKeqaoHUQ0Q": {
+  "name": "Petar je mali borac",
+  "url": "https://www.youtube.com/channel/UCH9bvPGeRRD5KKeqaoHUQ0Q/videos",
+  "type": "channel",
+  "verdict": "too_small",
+  "reason": "Hrvatski obiteljski kanal s PMB Podcastom, ali samo 7 epizoda za sada.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 23,
+   "originals_30min": 7,
+   "avg_original_min": 74,
+   "last_original": "20260806",
+   "follower_count": 1280
+  }
+ },
+ "UC20pcVyWTCdvPJrtsTjWA-A": {
+  "name": "Lana Kihas",
+  "url": "https://www.youtube.com/channel/UC20pcVyWTCdvPJrtsTjWA-A/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Videoemisija/podcast na hrvatskom o ranom i predškolskom odgoju s gostima, 35 originala.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 55,
+   "originals_30min": 13,
+   "avg_original_min": 31,
+   "last_original": "20260206",
+   "follower_count": 399
+  },
+  "slug": "lana-kihas-zrnca-mudrosti"
+ },
+ "UCvaZ1Tb434BGYUG8QguxOiA": {
+  "name": "MIRIS POZITIVNOG DUHA Gordana Maksimovic",
+  "url": "https://www.youtube.com/channel/UCvaZ1Tb434BGYUG8QguxOiA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20251006",
+   "follower_count": 1110
+  }
+ },
+ "UCr6FCfJeMgYbLWPiqAOKbYw": {
+  "name": "DjecjaTV",
+  "url": "https://www.youtube.com/channel/UCr6FCfJeMgYbLWPiqAOKbYw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 63, prosjek 29 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 63,
+   "originals_30min": 2,
+   "avg_original_min": 29,
+   "last_original": "20241006",
+   "follower_count": 359000
+  }
+ },
+ "UCDqmRYvwh4ijNiPtHhXXmVQ": {
+  "name": "Kokolingo",
+  "url": "https://www.youtube.com/channel/UCDqmRYvwh4ijNiPtHhXXmVQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Webinari i promo videi tvrtke za predškolski program, ne podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 31,
+   "originals_30min": 6,
+   "avg_original_min": 64,
+   "last_original": "20251006",
+   "follower_count": 252
+  }
+ },
+ "UC_-gT_CXAeUxQQlHzGHLgVg": {
+  "name": "Obitelji 3plus",
+  "url": "https://www.youtube.com/channel/UC_-gT_CXAeUxQQlHzGHLgVg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Edukacije za roditelje, okrugli stolovi i predavanja udruge, ne podcast format.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 34,
+   "originals_30min": 14,
+   "avg_original_min": 67,
+   "last_original": "20251006",
+   "follower_count": 186
+  }
+ },
+ "UCM249sQcB6LlUDtOLbAHO1A": {
+  "name": "valentina škrapec",
+  "url": "https://www.youtube.com/channel/UCM249sQcB6LlUDtOLbAHO1A/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
+ },
+ "UCsn7mrmlyhVR8-Y0c7uSWlg": {
+  "name": "Svitac Udruzenje",
+  "url": "https://www.youtube.com/channel/UCsn7mrmlyhVR8-Y0c7uSWlg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 60, prosjek 27 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 2,
+   "avg_original_min": 27,
+   "last_original": "20251006",
+   "follower_count": 7150
+  }
+ },
+ "UCItqqz2CErbNnpR9WXeDk0Q": {
+  "name": "RTV Podgorica",
+  "url": "https://www.youtube.com/channel/UCItqqz2CErbNnpR9WXeDk0Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Crnogorska javna televizija (RTV Podgorica).",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 26,
+   "avg_original_min": 32,
+   "last_original": "20261005",
+   "follower_count": 21400
+  }
+ },
+ "UCVa5y5l1gB-5rQ30CqKj_og": {
+  "name": "NTC sistem ucenja",
+  "url": "https://www.youtube.com/channel/UCVa5y5l1gB-5rQ30CqKj_og/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 60, prosjek 28 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 2,
+   "avg_original_min": 28,
+   "last_original": "20211006",
+   "follower_count": 6100
+  }
+ },
+ "UCz1BukTMYPT-yJWGx-8wsTw": {
+  "name": "Edukatorica za odgoj",
+  "url": "https://www.youtube.com/channel/UCz1BukTMYPT-yJWGx-8wsTw/videos",
+  "type": "channel",
+  "verdict": "uncertain",
+  "reason": "Hrvatski kanal o odgoju, ali sadržaj su uglavnom snimke Instagram Live Q&A-a i kratki isječci; nejasno je li podcast format.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 58,
+   "originals_30min": 11,
+   "avg_original_min": 49,
+   "last_original": "20251006",
+   "follower_count": 3240
+  }
+ },
+ "UCF_vZWSzEzSn3Bm-RMI9Ncg": {
+  "name": "Nikola Stankovic",
+  "url": "https://www.youtube.com/channel/UCF_vZWSzEzSn3Bm-RMI9Ncg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 21, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 21,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 38
+  }
+ },
+ "UCNbyGr-JGln1oLCoXeD1eYw": {
+  "name": "BKC Sarajevo",
+  "url": "https://www.youtube.com/channel/UCNbyGr-JGln1oLCoXeD1eYw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Sarajevski kulturni centar, glazbeni festival, bez podcasta.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 5,
+   "avg_original_min": 100,
+   "last_original": "20211006",
+   "follower_count": 266
+  }
+ },
+ "UCVtA9rIrvGQqhFOtBQdJ_FQ": {
+  "name": "Vrtić od kuće",
+  "url": "https://www.youtube.com/channel/UCVtA9rIrvGQqhFOtBQdJ_FQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 46, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 46,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 348
+  }
+ },
+ "UCNOCbw41t5_mLKR3tvV-XkQ": {
+  "name": "Branislav Mihajlovic",
+  "url": "https://www.youtube.com/channel/UCNOCbw41t5_mLKR3tvV-XkQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 60, prosjek 29 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 3,
+   "avg_original_min": 29,
+   "last_original": "20260915",
+   "follower_count": 145000
+  }
+ },
+ "UCBPOVd5EXnOTmd8SUJ2hILw": {
+  "name": "Dečja Posla",
+  "url": "https://www.youtube.com/channel/UCBPOVd5EXnOTmd8SUJ2hILw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 15 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 15,
+   "last_original": "20251206",
+   "follower_count": 20800
+  }
+ },
+ "UCRMnWHnrIpMak-02E3Od9xw": {
+  "name": "RAS televizija",
+  "url": "https://www.youtube.com/channel/UCRMnWHnrIpMak-02E3Od9xw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpska televizija, ekavica i srpska tematika.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 41,
+   "avg_original_min": 36,
+   "last_original": "20261005",
+   "follower_count": 109000
+  }
+ },
+ "UCI_bmcgwlXnHszfzYhzAo9g": {
+  "name": "Program svjesno roditeljstvo",
+  "url": "https://www.youtube.com/channel/UCI_bmcgwlXnHszfzYhzAo9g/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Hrvatska predavanja o roditeljstvu, samo 4 originala, zadnji iz 2019.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 10,
+   "originals_30min": 3,
+   "avg_original_min": 40,
+   "last_original": "20191006",
+   "follower_count": 789
+  }
+ },
+ "UCArNRyDLHLskKhn03xVZfIA": {
+  "name": "Medipol Healthcare Group",
+  "url": "https://www.youtube.com/channel/UCArNRyDLHLskKhn03xVZfIA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 3120
+  }
+ },
+ "UCa_n6nb6cM-lHMYPfjJScKw": {
+  "name": "BIZNIS KREATIVNO ",
+  "url": "https://www.youtube.com/channel/UCa_n6nb6cM-lHMYPfjJScKw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 21 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 21,
+   "last_original": "20251006",
+   "follower_count": 443
+  }
+ },
+ "UCFMKC2j-TZD4vAluZH37d1w": {
+  "name": "zdravstvene informacije",
+  "url": "https://www.youtube.com/channel/UCFMKC2j-TZD4vAluZH37d1w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 1960
+  }
+ },
+ "UCImpe53wcvpdH4OGv7U2aVQ": {
+  "name": "Lasa Channel",
+  "url": "https://www.youtube.com/channel/UCImpe53wcvpdH4OGv7U2aVQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 5210
+  }
+ },
+ "UC8PLUDh3vDhdBDTfl3qEbpg": {
+  "name": "Vodič za roditelje",
+  "url": "https://www.youtube.com/channel/UC8PLUDh3vDhdBDTfl3qEbpg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 27 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 27,
+   "last_original": "20201006",
+   "follower_count": 21800
+  }
+ },
+ "UCBjlEoQbcxeDD3Ff-sZYKRQ": {
+  "name": "La Sorderia Buenos Aires",
+  "url": "https://www.youtube.com/channel/UCBjlEoQbcxeDD3Ff-sZYKRQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20181006",
+   "follower_count": 162
+  }
+ },
+ "UCyq_g4bQxJJkYjgxZ1rw1Ug": {
+  "name": "Kris Kris Stojanovic",
+  "url": "https://www.youtube.com/channel/UCyq_g4bQxJJkYjgxZ1rw1Ug/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 13, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 13,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 1750
+  }
+ },
+ "UCn665NMYos2fWI55QDzoaKw": {
+  "name": "Dialog Meducativ",
+  "url": "https://www.youtube.com/channel/UCn665NMYos2fWI55QDzoaKw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Rumunjski podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 29,
+   "avg_original_min": 55,
+   "last_original": "20261002",
+   "follower_count": 98300
+  }
+ },
+ "UCm8tGtQ2lYF3rO62xOBDcUw": {
+  "name": "Consultório Aberto",
+  "url": "https://www.youtube.com/channel/UCm8tGtQ2lYF3rO62xOBDcUw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 58,
+   "avg_original_min": 63,
+   "last_original": "20260915",
+   "follower_count": 1340
+  }
+ },
+ "UCIjVuAkbsAjQENQJLBk2Pdg": {
+  "name": "To The Moon And Back Again Productions",
+  "url": "https://www.youtube.com/channel/UCIjVuAkbsAjQENQJLBk2Pdg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o Downovom sindromu bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 28,
+   "avg_original_min": 58,
+   "last_original": "20260906",
+   "follower_count": 8040
+  }
+ },
+ "UCXRBJBfK_294R58U5bOyvUQ": {
+  "name": "ABA SPEECH ",
+  "url": "https://www.youtube.com/channel/UCXRBJBfK_294R58U5bOyvUQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 71,
+   "originals_30min": 16,
+   "avg_original_min": 27,
+   "last_original": "20260930",
+   "follower_count": 40400
+  }
+ },
+ "UCCdyiXqZPZij5PNpUcP5aDg": {
+  "name": "Dyslexia Achievement Center",
+  "url": "https://www.youtube.com/channel/UCCdyiXqZPZij5PNpUcP5aDg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o disleksiji bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 33,
+   "avg_original_min": 30,
+   "last_original": "20260930",
+   "follower_count": 12
+  }
+ },
+ "UCjxi05OInzs1kTRYtGtL4PQ": {
+  "name": "Interativ Poldcast",
+  "url": "https://www.youtube.com/channel/UCjxi05OInzs1kTRYtGtL4PQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 13,
+   "originals_30min": 6,
+   "avg_original_min": 73,
+   "last_original": "20260706",
+   "follower_count": 149
+  }
+ },
+ "UCxzAnY9eKUab2JoFQXOxjrQ": {
+  "name": "Jornalismo Uninta",
+  "url": "https://www.youtube.com/channel/UCxzAnY9eKUab2JoFQXOxjrQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilsko sveučilišno novinarstvo na portugalskom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 29,
+   "avg_original_min": 34,
+   "last_original": "20261003",
+   "follower_count": 1330
+  }
+ },
+ "UCxYKRIhBzMUydZ3Ewdf_fNg": {
+  "name": "Autism 30 Podcast",
+  "url": "https://www.youtube.com/channel/UCxYKRIhBzMUydZ3Ewdf_fNg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanadski podcast, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 33,
+   "avg_original_min": 33,
+   "last_original": "20181006",
+   "follower_count": 54
+  }
+ },
+ "UCKrOBgmigzgEqImAYg1OCvg": {
+  "name": "Portal Piauí Hoje",
+  "url": "https://www.youtube.com/channel/UCKrOBgmigzgEqImAYg1OCvg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portal na portugalskom/engleskom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 41,
+   "avg_original_min": 55,
+   "last_original": "20261005",
+   "follower_count": 5050
+  }
+ },
+ "UC3usB3s0qqOo4wImv3fgf5A": {
+  "name": "Dr Steven Lin",
+  "url": "https://www.youtube.com/channel/UC3usB3s0qqOo4wImv3fgf5A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast stomatologa bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 30,
+   "avg_original_min": 61,
+   "last_original": "20241006",
+   "follower_count": 5880
+  }
+ },
+ "UC_nsjAbH0GlhCSDafFxIgVw": {
+  "name": "Thiago Queiroz - Paizinho, Vírgula!",
+  "url": "https://www.youtube.com/channel/UC_nsjAbH0GlhCSDafFxIgVw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 20 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 20,
+   "last_original": "20260806",
+   "follower_count": 134000
+  }
+ },
+ "UCdObDYw3iwaIWyK9K1iIp2g": {
+  "name": "قناة سراة",
+  "url": "https://www.youtube.com/channel/UCdObDYw3iwaIWyK9K1iIp2g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Arapski medijski kanal.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 68,
+   "originals_30min": 51,
+   "avg_original_min": 93,
+   "last_original": "20260606",
+   "follower_count": 14700
+  }
+ },
+ "UCke8DgYGule_-7AAyzvf80A": {
+  "name": "Prepped and Polished ",
+  "url": "https://www.youtube.com/channel/UCke8DgYGule_-7AAyzvf80A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka tvrtka za podučavanje, engleski jezik, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 73,
+   "originals_30min": 14,
+   "avg_original_min": 38,
+   "last_original": "20260106",
+   "follower_count": 237000
+  }
+ },
+ "UCvHkU1SJM5mN20HXeATPtaA": {
+  "name": "Estúdios RTV",
+  "url": "https://www.youtube.com/channel/UCvHkU1SJM5mN20HXeATPtaA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski kanal (Alto Tietê), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 46,
+   "avg_original_min": 65,
+   "last_original": "20261005",
+   "follower_count": 16100
+  }
+ },
+ "UC7moDOtSaJzfrij9Jc1DqVQ": {
+  "name": "Pro90d Speech Mastery: Smooth & Confident",
+  "url": "https://www.youtube.com/channel/UC7moDOtSaJzfrij9Jc1DqVQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o mucanju, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 36,
+   "avg_original_min": 73,
+   "last_original": "20260906",
+   "follower_count": 15000
+  }
+ },
+ "UCRrUqXUfyAKunytZkyro4-w": {
+  "name": "Dani Suniga",
+  "url": "https://www.youtube.com/channel/UCRrUqXUfyAKunytZkyro4-w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 33,
+   "avg_original_min": 54,
+   "last_original": "20251006",
+   "follower_count": 265
+  }
+ },
+ "UC5UhrCSKW_3X_7Qdgv6WuDQ": {
+  "name": "FonoKompass",
+  "url": "https://www.youtube.com/channel/UC5UhrCSKW_3X_7Qdgv6WuDQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast o fonoaudiologiji.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 11,
+   "originals_30min": 10,
+   "avg_original_min": 60,
+   "last_original": "20260906",
+   "follower_count": 218
+  }
+ },
+ "UC4mx1oFB7TaxksBWRBdUR_g": {
+  "name": "The Tripolitan",
+  "url": "https://www.youtube.com/channel/UC4mx1oFB7TaxksBWRBdUR_g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o islamu i politici, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 10,
+   "originals_30min": 8,
+   "avg_original_min": 47,
+   "last_original": "20221006",
+   "follower_count": 107
+  }
+ },
+ "UCYlcPS-IGjnh1vA8y_bbROw": {
+  "name": "Podcast PodFalar1",
+  "url": "https://www.youtube.com/channel/UCYlcPS-IGjnh1vA8y_bbROw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski lokalni podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 41,
+   "avg_original_min": 64,
+   "last_original": "20260806",
+   "follower_count": 287
+  }
+ },
+ "UCbB4dmAoCH4JK2Xezam51hQ": {
+  "name": "STIRILAFIXDB",
+  "url": "https://www.youtube.com/channel/UCbB4dmAoCH4JK2Xezam51hQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Rumunjski podcast (Dâmbovița), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 35,
+   "avg_original_min": 33,
+   "last_original": "20251106",
+   "follower_count": 141
+  }
+ },
+ "UCAQo3XpkhovFCz48leT0-NA": {
+  "name": "Frederick Community College",
+  "url": "https://www.youtube.com/channel/UCAQo3XpkhovFCz48leT0-NA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki engleski institucijski kanal (Frederick Community College), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 5,
+   "avg_original_min": 46,
+   "last_original": "20260606",
+   "follower_count": 880
+  }
+ },
+ "UCTQSvJBlPQfx_xD4Xv7oEBQ": {
+  "name": "crefono6",
+  "url": "https://www.youtube.com/channel/UCTQSvJBlPQfx_xD4Xv7oEBQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski kanal strukovnog vijeća.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 89,
+   "originals_30min": 38,
+   "avg_original_min": 85,
+   "last_original": "20260806",
+   "follower_count": 2830
+  }
+ },
+ "UC6Mjl1hGdJ_4IOHah_MQD1w": {
+  "name": "FOX Rehabilitation",
+  "url": "https://www.youtube.com/channel/UC6Mjl1hGdJ_4IOHah_MQD1w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 63, prosjek 19 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 63,
+   "originals_30min": 0,
+   "avg_original_min": 19,
+   "last_original": "20201006",
+   "follower_count": 1200
+  }
+ },
+ "UCmpiX5dzDsuPH7T_GHWBlEQ": {
+  "name": "GEÓRGEA Francisco",
+  "url": "https://www.youtube.com/channel/UCmpiX5dzDsuPH7T_GHWBlEQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 1,
+   "avg_original_min": 29,
+   "last_original": "20221006",
+   "follower_count": 46
+  }
+ },
+ "UCGoSjuNXfx571GpWnoRBZPA": {
+  "name": "AUTISPOD",
+  "url": "https://www.youtube.com/channel/UCGoSjuNXfx571GpWnoRBZPA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast o autizmu.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 76,
+   "avg_original_min": 90,
+   "last_original": "20260206",
+   "follower_count": 58200
+  }
+ },
+ "UC8I2KhbQ8OFgQJ7ihh2EKsQ": {
+  "name": "Auticast Podcast",
+  "url": "https://www.youtube.com/channel/UC8I2KhbQ8OFgQJ7ihh2EKsQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast o autizmu.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 70,
+   "originals_30min": 52,
+   "avg_original_min": 73,
+   "last_original": "20260927",
+   "follower_count": 161
+  }
+ },
+ "UCfT0IEt36nTM2u7t8pxEjkg": {
+  "name": "Affect Autism",
+  "url": "https://www.youtube.com/channel/UCfT0IEt36nTM2u7t8pxEjkg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o autizmu, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 45,
+   "avg_original_min": 45,
+   "last_original": "20261003",
+   "follower_count": 1500
+  }
+ },
+ "UCHZQzeK1nI-N5D_fSHb2DDw": {
+  "name": "The Indian Stammering Association",
+  "url": "https://www.youtube.com/channel/UCHZQzeK1nI-N5D_fSHb2DDw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Indijska udruga, engleski jezik, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 70,
+   "avg_original_min": 92,
+   "last_original": "20260906",
+   "follower_count": 4700
+  }
+ },
+ "UCLvp645k1l7bcpsfrxH2DfA": {
+  "name": "SAY GLOBAL",
+  "url": "https://www.youtube.com/channel/UCLvp645k1l7bcpsfrxH2DfA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski/urdu sadržaj (Pakistan, Toastmasters), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 84,
+   "originals_30min": 40,
+   "avg_original_min": 87,
+   "last_original": "20261005",
+   "follower_count": 851
+  }
+ },
+ "UCReUrTop-6MREji5FMlW_Dw": {
+  "name": "Fofoca",
+  "url": "https://www.youtube.com/channel/UCReUrTop-6MREji5FMlW_Dw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast fonoaudiologa.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 19,
+   "originals_30min": 19,
+   "avg_original_min": 51,
+   "last_original": "20261003",
+   "follower_count": 919
+  }
+ },
+ "UCRa_rkeZqqOZ7KKiGHFeDrw": {
+  "name": "Cantinho em Prosa",
+  "url": "https://www.youtube.com/channel/UCRa_rkeZqqOZ7KKiGHFeDrw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast (São Carlos).",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 33,
+   "originals_30min": 33,
+   "avg_original_min": 118,
+   "last_original": "20241006",
+   "follower_count": 1510
+  }
+ },
+ "UCA67KsiYQUIku4qgZ7OGY5g": {
+  "name": " Fissured Pod",
+  "url": "https://www.youtube.com/channel/UCA67KsiYQUIku4qgZ7OGY5g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast o rascjepu usne i nepca.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 59,
+   "originals_30min": 52,
+   "avg_original_min": 61,
+   "last_original": "20251006",
+   "follower_count": 1530
+  }
+ },
+ "UCnTM3CeEbhI-k3OIv8XDi0A": {
+  "name": "Lilach Saperstein Au.D.",
+  "url": "https://www.youtube.com/channel/UCnTM3CeEbhI-k3OIv8XDi0A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski audiološki kanal, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 31,
+   "avg_original_min": 38,
+   "last_original": "20231006",
+   "follower_count": 101
+  }
+ },
+ "UCaDWJbu_6B5ahSPa5cA9QsA": {
+  "name": "POD Desquebrando a Cabeça",
+  "url": "https://www.youtube.com/channel/UCaDWJbu_6B5ahSPa5cA9QsA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski portugalski podcast o autizmu.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 87,
+   "originals_30min": 40,
+   "avg_original_min": 90,
+   "last_original": "20251006",
+   "follower_count": 7340
+  }
+ },
+ "UCqITx6MI21zh0MLPmPD2PHQ": {
+  "name": "teachmetotalk",
+  "url": "https://www.youtube.com/channel/UCqITx6MI21zh0MLPmPD2PHQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki engleski kanal logopeda, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 46,
+   "avg_original_min": 72,
+   "last_original": "20261005",
+   "follower_count": 76700
+  }
+ },
+ "UCZw6pXE4Gmj4XDoMqHzKgNA": {
+  "name": "Azul TV Productions",
+  "url": "https://www.youtube.com/channel/UCZw6pXE4Gmj4XDoMqHzKgNA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski/španjolski podcast (ABA terapija), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 12,
+   "avg_original_min": 30,
+   "last_original": "20231006",
+   "follower_count": 754
+  }
+ },
+ "UC2ttTViinY5muWmST0Pyhxg": {
+  "name": "Nicklaus Children's Hospital",
+  "url": "https://www.youtube.com/channel/UC2ttTViinY5muWmST0Pyhxg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 65, prosjek 27 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 65,
+   "originals_30min": 2,
+   "avg_original_min": 27,
+   "last_original": "20260706",
+   "follower_count": 113000
+  }
+ },
+ "UCspav2oMxzy5_mLPRSyj_iA": {
+  "name": "Moments of Joy Podcast",
+  "url": "https://www.youtube.com/channel/UCspav2oMxzy5_mLPRSyj_iA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast za roditelje djece s posebnim potrebama, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 41,
+   "originals_30min": 20,
+   "avg_original_min": 33,
+   "last_original": "20260606",
+   "follower_count": 1700
+  }
+ },
+ "UCyAvzbANasjK0TgdmZ0xEvA": {
+  "name": "Dive in Podcast ",
+  "url": "https://www.youtube.com/channel/UCyAvzbANasjK0TgdmZ0xEvA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpski podcast (ekavica, srpski zdravstveni sustav, Srbija), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 59,
+   "avg_original_min": 63,
+   "last_original": "20260925",
+   "follower_count": 10800
+  }
+ },
+ "UCFm2owGw9PBz8IrGpFpFufA": {
+  "name": "Red Door Pediatric Therapy",
+  "url": "https://www.youtube.com/channel/UCFm2owGw9PBz8IrGpFpFufA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 19 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 19,
+   "last_original": "20251006",
+   "follower_count": 920
+  }
+ },
+ "UCOb69ZcBjY0-BGgPlhCCcvg": {
+  "name": "Some Stutter, Luh!",
+  "url": "https://www.youtube.com/channel/UCOb69ZcBjY0-BGgPlhCCcvg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Kanadski engleski podcast (Newfoundland) o mucanju.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 52,
+   "avg_original_min": 53,
+   "last_original": "20260406",
+   "follower_count": 305
+  }
+ },
+ "UCyCMETF2zQ3DjKUKKtaGSsg": {
+  "name": "SLP Nerdcast",
+  "url": "https://www.youtube.com/channel/UCyCMETF2zQ3DjKUKKtaGSsg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o logopediji (SLP), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 58,
+   "avg_original_min": 61,
+   "last_original": "20261005",
+   "follower_count": 1870
+  }
+ },
+ "UCwqoK_YvH4CSqgyI2p5Gw9w": {
+  "name": "AutiParent",
+  "url": "https://www.youtube.com/channel/UCwqoK_YvH4CSqgyI2p5Gw9w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o autizmu, malezijski/američki gosti, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 24,
+   "originals_30min": 14,
+   "avg_original_min": 54,
+   "last_original": "20260906",
+   "follower_count": 13600
+  }
+ },
+ "UCZk7LpGEh_m0kLQlFarQPLw": {
+  "name": "LUWS PODCAST",
+  "url": "https://www.youtube.com/channel/UCZk7LpGEh_m0kLQlFarQPLw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast (urdu/engleski sadržaj), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 70,
+   "originals_30min": 4,
+   "avg_original_min": 25,
+   "last_original": "20260406",
+   "follower_count": 2820
+  }
+ },
+ "UCGHfBIQ-Nyuw-gr5o1WD1VQ": {
+  "name": "TTS Resources",
+  "url": "https://www.youtube.com/channel/UCGHfBIQ-Nyuw-gr5o1WD1VQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 4 originala ≥30 min od 60, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 4,
+   "avg_original_min": 24,
+   "last_original": "20260706",
+   "follower_count": 2910
+  }
+ },
+ "UCMwLbJDyV6OpNYa-5-w7Y7Q": {
+  "name": "This Is Purdue",
+  "url": "https://www.youtube.com/channel/UCMwLbJDyV6OpNYa-5-w7Y7Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Podcast američkog sveučilišta Purdue na engleskom, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 30,
+   "avg_original_min": 36,
+   "last_original": "20261003",
+   "follower_count": 18400
+  }
+ },
+ "UCU0As5uQ7vrhDEURvxz7vbA": {
+  "name": "Hallie Bulkin ",
+  "url": "https://www.youtube.com/channel/UCU0As5uQ7vrhDEURvxz7vbA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o pedijatrijskom hranjenju i terapiji, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 34,
+   "avg_original_min": 43,
+   "last_original": "20261004",
+   "follower_count": 2160
+  }
+ },
+ "UCTfjuWellsD5peP4rkarFVw": {
+  "name": "Speech Therapy PD",
+  "url": "https://www.youtube.com/channel/UCTfjuWellsD5peP4rkarFVw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal s tečajevima i webinarima za logopede, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 88,
+   "avg_original_min": 69,
+   "last_original": "20261005",
+   "follower_count": 2370
+  }
+ },
+ "UCNl2TY5y1ax8gW4FvQ2BUjg": {
+  "name": "Concussion Talk Podcast",
+  "url": "https://www.youtube.com/channel/UCNl2TY5y1ax8gW4FvQ2BUjg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o potresu mozga, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 35,
+   "avg_original_min": 34,
+   "last_original": "20260925",
+   "follower_count": 1680
+  }
+ },
+ "UCPDnEHYUBMqNRigxuMCXlIQ": {
+  "name": "SEND in the experts with Georgina Durrant",
+  "url": "https://www.youtube.com/channel/UCPDnEHYUBMqNRigxuMCXlIQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Britanski podcast o SEND-u na engleskom, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 33,
+   "avg_original_min": 38,
+   "last_original": "20260506",
+   "follower_count": 907
+  }
+ },
+ "UCiCM-TMFew8We5tI_ad5O2g": {
+  "name": "Long Island Speech",
+  "url": "https://www.youtube.com/channel/UCiCM-TMFew8We5tI_ad5O2g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal logopedske klinike s podcastom, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 20,
+   "avg_original_min": 47,
+   "last_original": "20260806",
+   "follower_count": 254
+  }
+ },
+ "UCYSyAnXuGP-Lor3yO25bhJg": {
+  "name": "4Kids Podcast",
+  "url": "https://www.youtube.com/channel/UCYSyAnXuGP-Lor3yO25bhJg/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Hrvatski podcast o djeci s teškoćama u razvoju i inkluziji (prije „Podcast ALL IN with Maida Arslanagić“); numerirane epizode ~20 min. Logopedske samo neke epizode (AAC, mucanje, logoped u vrtiću) — zato bez taga speech-therapy.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "manual",
+  "metrics": {
+   "sampled": 33,
+   "originals_30min": 0,
+   "avg_original_min": 21,
+   "last_original": "20251006",
+   "follower_count": 198
+  },
+  "slug": "4kids-podcast"
+ },
+ "UCzGbLInCGztnYA4v-1lwPQQ": {
+  "name": "Gradska knjižnica Ivan Goran Kovačić Karlovac",
+  "url": "https://www.youtube.com/channel/UCzGbLInCGztnYA4v-1lwPQQ/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Gradska knjižnica Karlovac; kanal nije podcast, mješavina predavanja, događanja i prilozi. Serijal 'Gost dana' je razgovorni, ali pretežno preuzet iz drugih medija.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 9,
+   "avg_original_min": 34,
+   "last_original": "20251006",
+   "follower_count": 252
+  }
+ },
+ "UC1RWxKMox_9HkPon0a9Glpw": {
+  "name": "Laboratorij za potpomognutu komunikaciju ERF",
+  "url": "https://www.youtube.com/channel/UC1RWxKMox_9HkPon0a9Glpw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 260
+  }
+ },
+ "UCXo3xeKCgXQbYUarbAfzAvw": {
+  "name": "E-Glas",
+  "url": "https://www.youtube.com/channel/UCXo3xeKCgXQbYUarbAfzAvw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Snimke cjelodnevne konferencije ATAAC 2024 (HR/EN) i kratki prilozi, nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 4,
+   "avg_original_min": 511,
+   "last_original": "20251006",
+   "follower_count": 77
+  }
+ },
+ "UC8mks259w9mKVCnLauNkZbA": {
+  "name": "jasmina def",
+  "url": "https://www.youtube.com/channel/UC8mks259w9mKVCnLauNkZbA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
+ },
+ "UCUj7TR1_EY-OwJY_PJQFj6g": {
+  "name": "Marko Torić",
+  "url": "https://www.youtube.com/channel/UCUj7TR1_EY-OwJY_PJQFj6g/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 27 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 27,
+   "last_original": "20201006",
+   "follower_count": 137
+  }
+ },
+ "UCHGoh4hkqx0kjBZmEw_J7zA": {
+  "name": "Tamara Milic",
+  "url": "https://www.youtube.com/channel/UCHGoh4hkqx0kjBZmEw_J7zA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 9, prosjek 27 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 9,
+   "originals_30min": 0,
+   "avg_original_min": 27,
+   "last_original": "20211006",
+   "follower_count": 11
+  }
+ },
+ "UC3hTFAEz9dc_1nReePaTLew": {
+  "name": "ICT-AAC",
+  "url": "https://www.youtube.com/channel/UC3hTFAEz9dc_1nReePaTLew/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 24, prosjek 30 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 24,
+   "originals_30min": 2,
+   "avg_original_min": 30,
+   "last_original": "20201006",
+   "follower_count": 138
+  }
+ },
+ "UCdGIcqxWl4aCYod7pPLBfcQ": {
+  "name": "Viktorija Matin",
+  "url": "https://www.youtube.com/channel/UCdGIcqxWl4aCYod7pPLBfcQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 24,
+   "last_original": "20251006",
+   "follower_count": 44
+  }
+ },
+ "UCakO72p30MX6ZovWn6Zy63Q": {
+  "name": "Federalna novinska agencija - FENA",
+  "url": "https://www.youtube.com/channel/UCakO72p30MX6ZovWn6Zy63Q/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Novinska agencija FBiH; snimke press-konferencija i izjava, nije podcast. Nema naznake podcast playliste.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 12,
+   "avg_original_min": 49,
+   "last_original": "20260406",
+   "follower_count": 8150
+  }
+ },
+ "UCSR-PtIMWK7QzRHKDKJItRA": {
+  "name": "Autism Live",
+  "url": "https://www.youtube.com/channel/UCSR-PtIMWK7QzRHKDKJItRA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki engleski webshow/podcast o autizmu, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 86,
+   "avg_original_min": 63,
+   "last_original": "20261002",
+   "follower_count": 53100
+  }
+ },
+ "UCzFuP7u-VC8ZMV_6baIdDzw": {
+  "name": "Mario Dilberovic",
+  "url": "https://www.youtube.com/channel/UCzFuP7u-VC8ZMV_6baIdDzw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 49, prosjek 80 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 49,
+   "originals_30min": 1,
+   "avg_original_min": 80,
+   "last_original": "20211006",
+   "follower_count": 112
+  }
+ },
+ "UC7iIZQk1SDywpbM4AIOXUGQ": {
+  "name": "Kaufman Children's Center *",
+  "url": "https://www.youtube.com/channel/UC7iIZQk1SDywpbM4AIOXUGQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 53, prosjek 46 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 53,
+   "originals_30min": 2,
+   "avg_original_min": 46,
+   "last_original": "20201006",
+   "follower_count": 2210
+  }
+ },
+ "UCGblQyc4NfpsQ2hLMUYRqZg": {
+  "name": "UChicago Medicine",
+  "url": "https://www.youtube.com/channel/UCGblQyc4NfpsQ2hLMUYRqZg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka bolnica, engleski sadržaj, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 76,
+   "originals_30min": 11,
+   "avg_original_min": 30,
+   "last_original": "20221006",
+   "follower_count": 18100
+  }
+ },
+ "UCneS7kmtcy3AeJCt1mlZGqg": {
+  "name": "Olga Komadina Apraxia Therapy - Australia ",
+  "url": "https://www.youtube.com/channel/UCneS7kmtcy3AeJCt1mlZGqg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 14, prosjek 33 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 14,
+   "originals_30min": 1,
+   "avg_original_min": 33,
+   "last_original": "20251006",
+   "follower_count": 123
+  }
+ },
+ "UCaJe5QoL4eTh7WO7c9ZzkqQ": {
+  "name": "Childhood Apraxia of Speech Info",
+  "url": "https://www.youtube.com/channel/UCaJe5QoL4eTh7WO7c9ZzkqQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski edukativni video o apraksiji govora, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 28,
+   "originals_30min": 8,
+   "avg_original_min": 79,
+   "last_original": "20201006",
+   "follower_count": 6610
+  }
+ },
+ "UCn6I6rz8tSke4mDBloEj2Yg": {
+  "name": "Andhaadhi Rehab Speech therapy",
+  "url": "https://www.youtube.com/channel/UCn6I6rz8tSke4mDBloEj2Yg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 61, prosjek 20 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 1,
+   "avg_original_min": 20,
+   "last_original": "20260906",
+   "follower_count": 45100
+  }
+ },
+ "UCDw2s9QXNAQ7lPtkSKPk1OA": {
+  "name": "Dr. Dana Johnson",
+  "url": "https://www.youtube.com/channel/UCDw2s9QXNAQ7lPtkSKPk1OA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o autizmu (Profound Parent Podcast), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 54,
+   "originals_30min": 7,
+   "avg_original_min": 44,
+   "last_original": "20261005",
+   "follower_count": 3390
+  }
+ },
+ "UCq9tGTU5NOoB5o7UecZUPLg": {
+  "name": "Toddler Talk",
+  "url": "https://www.youtube.com/channel/UCq9tGTU5NOoB5o7UecZUPLg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 28 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 28,
+   "last_original": "20231006",
+   "follower_count": 17500
+  }
+ },
+ "UCNScMKCxK8ecDnlCat9Tw1w": {
+  "name": "Brooklyn Letters",
+  "url": "https://www.youtube.com/channel/UCNScMKCxK8ecDnlCat9Tw1w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 60, prosjek 33 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 2,
+   "avg_original_min": 33,
+   "last_original": "20211006",
+   "follower_count": 432
+  }
+ },
+ "UC-FQDWDpoHrxB1WG99izK8g": {
+  "name": "NationwideChildrens",
+  "url": "https://www.youtube.com/channel/UC-FQDWDpoHrxB1WG99izK8g/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 108000
+  }
+ },
+ "UClabOuMfDb7SByrF8OovpvA": {
+  "name": "The Preschool SLP: KellyVessSLP",
+  "url": "https://www.youtube.com/channel/UClabOuMfDb7SByrF8OovpvA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal/podcast za logopede, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 70,
+   "originals_30min": 11,
+   "avg_original_min": 26,
+   "last_original": "20260922",
+   "follower_count": 3270
+  }
+ },
+ "UCYPuCqhDkfy1tApJOex9zJg": {
+  "name": "The Speech Scoop",
+  "url": "https://www.youtube.com/channel/UCYPuCqhDkfy1tApJOex9zJg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 17 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20231006",
+   "follower_count": 110000
+  }
+ },
+ "UCrCdsLuZlbxACUAbi1Fe5HQ": {
+  "name": "Bjorem Publications",
+  "url": "https://www.youtube.com/channel/UCrCdsLuZlbxACUAbi1Fe5HQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski izdavač logopedskih materijala, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 4,
+   "avg_original_min": 34,
+   "last_original": "20251006",
+   "follower_count": 7350
+  }
+ },
+ "UC2AjoX53lYlXpf9ccHyFq8w": {
+  "name": "Continua Kids",
+  "url": "https://www.youtube.com/channel/UC2AjoX53lYlXpf9ccHyFq8w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Indijski kanal (engleski/hindi), bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 22,
+   "avg_original_min": 35,
+   "last_original": "20261001",
+   "follower_count": 42900
+  }
+ },
+ "UCJ2we6uaxjczxATRB9jepCg": {
+  "name": "Carrie Clark, Speech and Language Kids",
+  "url": "https://www.youtube.com/channel/UCJ2we6uaxjczxATRB9jepCg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal logopedinje, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 9,
+   "avg_original_min": 26,
+   "last_original": "20260929",
+   "follower_count": 31700
+  }
+ },
+ "UCpCxjWqxYKKwdfJAsC220BQ": {
+  "name": "Across The Spectrum The Doc",
+  "url": "https://www.youtube.com/channel/UCpCxjWqxYKKwdfJAsC220BQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski obiteljski vlog o autizmu, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 13,
+   "avg_original_min": 27,
+   "last_original": "20260922",
+   "follower_count": 11700
+  }
+ },
+ "UCsMTgYAaJBd62ar5Zl3nXaQ": {
+  "name": "Logopeda Speech Therapy",
+  "url": "https://www.youtube.com/channel/UCsMTgYAaJBd62ar5Zl3nXaQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 49, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 49,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 10700
+  }
+ },
+ "UCfbPQcdF5an7ui8bwwry1Cw": {
+  "name": "WKBW TV | Buffalo, NY",
+  "url": "https://www.youtube.com/channel/UCfbPQcdF5an7ui8bwwry1Cw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka lokalna TV postaja (Buffalo), engleski, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 25,
+   "avg_original_min": 32,
+   "last_original": "20261005",
+   "follower_count": 130000
+  }
+ },
+ "UCAWIukHSNX8e0wZXtXt7q_w": {
+  "name": "Keys to Communicate Speech Pathology",
+  "url": "https://www.youtube.com/channel/UCAWIukHSNX8e0wZXtXt7q_w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 33, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 33,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 111
+  }
+ },
+ "UCgNsjf75nFuVY1og6fi6cnw": {
+  "name": "Speech Works by Elissa",
+  "url": "https://www.youtube.com/channel/UCgNsjf75nFuVY1og6fi6cnw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o govornoj terapiji, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 9,
+   "originals_30min": 1,
+   "avg_original_min": 30,
+   "last_original": "20260906",
+   "follower_count": 296
+  }
+ },
+ "UCqmK6e4D4Qml6gJUDL8-h3w": {
+  "name": "Undivided",
+  "url": "https://www.youtube.com/channel/UCqmK6e4D4Qml6gJUDL8-h3w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki engleski kanal o IEP-ovima i podršci osobama s invaliditetom, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 86,
+   "originals_30min": 12,
+   "avg_original_min": 49,
+   "last_original": "20261005",
+   "follower_count": 13300
+  }
+ },
+ "UC5l1d3JSBZJPKqhYq02vRUw": {
+  "name": "Medbridge",
+  "url": "https://www.youtube.com/channel/UC5l1d3JSBZJPKqhYq02vRUw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka platforma za zdravstveno obrazovanje, engleski, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 32,
+   "avg_original_min": 58,
+   "last_original": "20260922",
+   "follower_count": 32900
+  }
+ },
+ "UCbDNb4EyUuBL_l6DLLUAKBw": {
+  "name": "Goally Apps ",
+  "url": "https://www.youtube.com/channel/UCbDNb4EyUuBL_l6DLLUAKBw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 60, prosjek 34 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 3,
+   "avg_original_min": 34,
+   "last_original": "20251006",
+   "follower_count": 14700
+  }
+ },
+ "UC_ysRusnsxAC_sdJtIPlHxg": {
+  "name": "Top Chiropractic",
+  "url": "https://www.youtube.com/channel/UC_ysRusnsxAC_sdJtIPlHxg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 43, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 43,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 279
+  }
+ },
+ "UCOfTSujOAIBcIEY7SVW5Ctw": {
+  "name": "Laura Baskall-Smith MA CCC-SLP",
+  "url": "https://www.youtube.com/channel/UCOfTSujOAIBcIEY7SVW5Ctw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o dječjoj apraksiji govora, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 29,
+   "avg_original_min": 47,
+   "last_original": "20241006",
+   "follower_count": 2480
+  }
+ },
+ "UCvRJO05whAbY0VrerCpCsmg": {
+  "name": "APRAXIA",
+  "url": "https://www.youtube.com/channel/UCvRJO05whAbY0VrerCpCsmg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
+ },
+ "UCA2CQh6DT8C8QogxusKVqQA": {
+  "name": "News 5 WCYB",
+  "url": "https://www.youtube.com/channel/UCA2CQh6DT8C8QogxusKVqQA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka lokalna TV postaja (NBC, Virginia), engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 19,
+   "avg_original_min": 81,
+   "last_original": "20261004",
+   "follower_count": 69800
+  }
+ },
+ "UCJY1JCVsIgVgN5ePERZ_Upg": {
+  "name": "Doctors' Circle World's Largest Health Platform",
+  "url": "https://www.youtube.com/channel/UCJY1JCVsIgVgN5ePERZ_Upg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Indijska zdravstvena platforma na engleskom/hindiju, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 30,
+   "avg_original_min": 124,
+   "last_original": "20251206",
+   "follower_count": 2290000
+  }
+ },
+ "UC66o3KzGaKh9F65FJ-b65kA": {
+  "name": "Speech Sprouts Therapy",
+  "url": "https://www.youtube.com/channel/UC66o3KzGaKh9F65FJ-b65kA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 25
+  }
+ },
+ "UCaNswaH9ypGTpjGboeAVomA": {
+  "name": "Expressable Speech and Occupational Therapy",
+  "url": "https://www.youtube.com/channel/UCaNswaH9ypGTpjGboeAVomA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 62, prosjek 51 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 3,
+   "avg_original_min": 51,
+   "last_original": "20260706",
+   "follower_count": 7650
+  }
+ },
+ "UCMjTwGizoh8KTPY17vQ6Ncw": {
+  "name": "Părinți CuMinți by ZUnivers",
+  "url": "https://www.youtube.com/channel/UCMjTwGizoh8KTPY17vQ6Ncw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Rumunjski podcast o roditeljstvu.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 31,
+   "originals_30min": 31,
+   "avg_original_min": 69,
+   "last_original": "20260930",
+   "follower_count": 10500
+  }
+ },
+ "UCWxR5ncEOeIiDgt6I4sSFIA": {
+  "name": "Invizibil dar Important cu dr. Irina Fusu ",
+  "url": "https://www.youtube.com/channel/UCWxR5ncEOeIiDgt6I4sSFIA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Rumunjski/engleski zdravstveni podcast, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 37,
+   "originals_30min": 26,
+   "avg_original_min": 70,
+   "last_original": "20261004",
+   "follower_count": 3940
+  }
+ },
+ "UCHg2_8-L_Y8dNsYJyBTfdyQ": {
+  "name": "Na bosaka",
+  "url": "https://www.youtube.com/channel/UCHg2_8-L_Y8dNsYJyBTfdyQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Poljski podcast o vokalnoj karijeri.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 22,
+   "originals_30min": 21,
+   "avg_original_min": 75,
+   "last_original": "20231006",
+   "follower_count": 402
+  }
+ },
+ "UC5AZ28hZUqOzlAUUdeQKb7Q": {
+  "name": "CLASS MEDIA by Alketa Vejsiu",
+  "url": "https://www.youtube.com/channel/UC5AZ28hZUqOzlAUUdeQKb7Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Albanski kanal/podcast, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 32,
+   "avg_original_min": 41,
+   "last_original": "20260922",
+   "follower_count": 57800
+  }
+ },
+ "UCsxaapeNBja23gEuF_P3B3A": {
+  "name": "DORICLUB | ONA KASB | PODCAST",
+  "url": "https://www.youtube.com/channel/UCsxaapeNBja23gEuF_P3B3A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Uzbečki podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 41,
+   "originals_30min": 8,
+   "avg_original_min": 27,
+   "last_original": "20251006",
+   "follower_count": 1220
+  }
+ },
+ "UCORLbI_fwmG7hxurck_WmIg": {
+  "name": "Nyhetsmorgon",
+  "url": "https://www.youtube.com/channel/UCORLbI_fwmG7hxurck_WmIg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 22 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 22,
+   "last_original": "20260908",
+   "follower_count": 243000
+  }
+ },
+ "UCF-151n25NGD86lAFarDYdA": {
+  "name": "MaxLine Group",
+  "url": "https://www.youtube.com/channel/UCF-151n25NGD86lAFarDYdA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Uzbečki zdravstveni kanal.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 25,
+   "originals_30min": 6,
+   "avg_original_min": 58,
+   "last_original": "20260606",
+   "follower_count": 5310
+  }
+ },
+ "UCWRdPXFM223gAIkymseTHcA": {
+  "name": "Nilufar Abdumajitovna Defektolog - Logoped",
+  "url": "https://www.youtube.com/channel/UCWRdPXFM223gAIkymseTHcA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Uzbečki kanal logopeda/defektologa.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 28,
+   "originals_30min": 8,
+   "avg_original_min": 98,
+   "last_original": "20260929",
+   "follower_count": 3530
+  }
+ },
+ "UC87dgzshKkeQV_AJwyV8liA": {
+  "name": "Podręcznikarnia",
+  "url": "https://www.youtube.com/channel/UC87dgzshKkeQV_AJwyV8liA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Poljski izdavač i parenting podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 56,
+   "originals_30min": 21,
+   "avg_original_min": 32,
+   "last_original": "20260923",
+   "follower_count": 6930
+  }
+ },
+ "UCjm1E-aPw9fMu5QAwaXkNPw": {
+  "name": "StopStutter",
+  "url": "https://www.youtube.com/channel/UCjm1E-aPw9fMu5QAwaXkNPw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o mucanju, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 70,
+   "originals_30min": 22,
+   "avg_original_min": 48,
+   "last_original": "20261005",
+   "follower_count": 3420
+  }
+ },
+ "UCyyC9-3IqkScHi8dGQzuDEw": {
+  "name": "Anima Podcast",
+  "url": "https://www.youtube.com/channel/UCyyC9-3IqkScHi8dGQzuDEw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Brazilski podcast na portugalskom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 72,
+   "originals_30min": 17,
+   "avg_original_min": 141,
+   "last_original": "20261003",
+   "follower_count": 506000
+  }
+ },
+ "UCODTJuzfGVtr50dS5Z_DkEQ": {
+  "name": "Uniquely Human Podcast",
+  "url": "https://www.youtube.com/channel/UCODTJuzfGVtr50dS5Z_DkEQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki podcast o autizmu na engleskom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 60,
+   "avg_original_min": 58,
+   "last_original": "20260926",
+   "follower_count": 1140
+  }
+ },
+ "UCx2hGbeaOvy8P5m357V3gBw": {
+  "name": "PedsDocTalk",
+  "url": "https://www.youtube.com/channel/UCx2hGbeaOvy8P5m357V3gBw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američki pedijatrijski podcast na engleskom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 34,
+   "avg_original_min": 49,
+   "last_original": "20261001",
+   "follower_count": 173000
+  }
+ },
+ "UChG4RdiKcQaU2V_7rxrDlmg": {
+  "name": "Řeči o řeči",
+  "url": "https://www.youtube.com/channel/UChG4RdiKcQaU2V_7rxrDlmg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Češki podcast udruge logopeda.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 54,
+   "originals_30min": 29,
+   "avg_original_min": 35,
+   "last_original": "20260915",
+   "follower_count": 510
+  }
+ },
+ "UCYcVWVBgkKRKIEBkJdLZS0A": {
+  "name": "SACRAL",
+  "url": "https://www.youtube.com/channel/UCYcVWVBgkKRKIEBkJdLZS0A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Rumunjski pravoslavni podcast/brend.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 46,
+   "originals_30min": 9,
+   "avg_original_min": 104,
+   "last_original": "20260930",
+   "follower_count": 13000
+  }
+ },
+ "UCM8zw015rS1-SlwGP5LjLyA": {
+  "name": "Gazeta Shendeti",
+  "url": "https://www.youtube.com/channel/UCM8zw015rS1-SlwGP5LjLyA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Albanski zdravstveni medij.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 5,
+   "avg_original_min": 33,
+   "last_original": "20261005",
+   "follower_count": 6690
+  }
+ },
+ "UCZ63V734JIuYGPHXuUbJlKA": {
+  "name": "Success Made In Albania",
+  "url": "https://www.youtube.com/channel/UCZ63V734JIuYGPHXuUbJlKA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Albanski poduzetnički podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 41,
+   "avg_original_min": 48,
+   "last_original": "20261003",
+   "follower_count": 1700
+  }
+ },
+ "UCZ5Xv8UVg83hrpyOzL3yJIw": {
+  "name": "LOYIHA | PARDA PODCAST",
+  "url": "https://www.youtube.com/channel/UCZ5Xv8UVg83hrpyOzL3yJIw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Uzbečki podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 60,
+   "avg_original_min": 77,
+   "last_original": "20260606",
+   "follower_count": 42800
+  }
+ },
+ "UClItoe0f8dGD8w-1xTZnw0w": {
+  "name": "School's Out Podcast",
+  "url": "https://www.youtube.com/channel/UClItoe0f8dGD8w-1xTZnw0w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Švedski podcast o školi i ADHD-u.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 54,
+   "avg_original_min": 52,
+   "last_original": "20261003",
+   "follower_count": 9
+  }
+ },
+ "UCucgFvopH0odSz4gCxqKC1w": {
+  "name": "zahra fara",
+  "url": "https://www.youtube.com/channel/UCucgFvopH0odSz4gCxqKC1w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 6, prosjek 16 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 6,
+   "originals_30min": 0,
+   "avg_original_min": 16,
+   "last_original": "20221006",
+   "follower_count": 17
+  }
+ },
+ "UCxkuR6oeKIIeQGQ-KWDU8mA": {
+  "name": "Blossoming Together",
+  "url": "https://www.youtube.com/channel/UCxkuR6oeKIIeQGQ-KWDU8mA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o ABA terapiji, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 59,
+   "originals_30min": 20,
+   "avg_original_min": 56,
+   "last_original": "20251006",
+   "follower_count": 26000
+  }
+ },
+ "UCRMHVH7HxKC5dQZC9N4J3rA": {
+  "name": "RTV Marš Valjevo",
+  "url": "https://www.youtube.com/channel/UCRMHVH7HxKC5dQZC9N4J3rA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 63, prosjek 42 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 63,
+   "originals_30min": 1,
+   "avg_original_min": 42,
+   "last_original": "20260922",
+   "follower_count": 41100
+  }
+ },
+ "UClYLMgwwILNsz78sYC8VHTg": {
+  "name": "Centar Pričaj mi",
+  "url": "https://www.youtube.com/channel/UClYLMgwwILNsz78sYC8VHTg/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Zagrebački centar za psihološku podršku; podcast o roditeljstvu i djeci na hrvatskom (epizode označene 'Podcast 6'). Zadnja epizoda 2023.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 39,
+   "originals_30min": 10,
+   "avg_original_min": 41,
+   "last_original": "20231006",
+   "follower_count": 145
+  },
+  "slug": "centar-pricaj-mi"
+ },
+ "UCBTVjjc_bRCJZO_9n5i30nw": {
+  "name": "RTVGradiska",
+  "url": "https://www.youtube.com/channel/UCBTVjjc_bRCJZO_9n5i30nw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Radio-televizija iz Gradiške (Republika Srpska): ekavica/ijekavica srpskog izraza ('sedmice', 'časova'), SNSD, prijenosi sjednica; ni podcast ni hrvatski.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 29,
+   "avg_original_min": 158,
+   "last_original": "20260927",
+   "follower_count": 5960
+  }
+ },
+ "UC9CdflVcTa3xSlwAJFPVr5w": {
+  "name": "Poremećaji jezika, govora i slušanja",
+  "url": "https://www.youtube.com/channel/UC9CdflVcTa3xSlwAJFPVr5w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 6, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 6,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 28
+  }
+ },
+ "UC3NM9LTYjfwKp4Cpg8qAILg": {
+  "name": "Ministarstvo za odgoj i obrazovanje KS",
+  "url": "https://www.youtube.com/channel/UC3NM9LTYjfwKp4Cpg8qAILg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Ministarstvo Kantona Sarajevo, bosanski jezik ('Historija', 'Hemija'); institucijski kanal, ne podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 39,
+   "avg_original_min": 68,
+   "last_original": "20211006",
+   "follower_count": 389
+  }
+ },
+ "UCxmQKfPafCW7QvqutO_vMXQ": {
+  "name": "RTV Visoko",
+  "url": "https://www.youtube.com/channel/UCxmQKfPafCW7QvqutO_vMXQ/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Lokalna TV iz Visokog (BiH), kanal s vijestima i emisijama, nije podcast; ekavski/bosanski sadržaj i nema hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 63,
+   "originals_30min": 8,
+   "avg_original_min": 37,
+   "last_original": "20261005",
+   "follower_count": 6710
+  }
+ },
+ "UCz3JMGqDimuz2gOKXV1YEkA": {
+  "name": "Ivana Lazendic",
+  "url": "https://www.youtube.com/channel/UCz3JMGqDimuz2gOKXV1YEkA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 7, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 7,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 10
+  }
+ },
+ "UC0XhWdGh88904ZSUtH2p0Qg": {
+  "name": "RTV Šumadija",
+  "url": "https://www.youtube.com/channel/UC0XhWdGh88904ZSUtH2p0Qg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 60, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 3,
+   "avg_original_min": 24,
+   "last_original": "20261003",
+   "follower_count": 10300
+  }
+ },
+ "UCe8fXIwWROog7hNqhD8QKXA": {
+  "name": "logoped novi sad",
+  "url": "https://www.youtube.com/channel/UCe8fXIwWROog7hNqhD8QKXA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 8
+  }
+ },
+ "UCXQ1TZQHc4k-_lXoUYuzI9g": {
+  "name": "A1tvNet",
+  "url": "https://www.youtube.com/channel/UCXQ1TZQHc4k-_lXoUYuzI9g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Internet medij iz Novog Pazara (Srbija), ekavica, sandžački sadržaj.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 25,
+   "avg_original_min": 72,
+   "last_original": "20260906",
+   "follower_count": 27300
+  }
+ },
+ "UCQ4NPz1nEQognDar9uDjPlA": {
+  "name": "PRVA",
+  "url": "https://www.youtube.com/channel/UCQ4NPz1nEQognDar9uDjPlA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpska televizija PRVA, ekavica, srpska tematika.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 22,
+   "avg_original_min": 53,
+   "last_original": "20261005",
+   "follower_count": 740000
+  }
+ },
+ "UCGGDfpTbmFVcvtd4iwHk_WQ": {
+  "name": "Vijesti Online",
+  "url": "https://www.youtube.com/channel/UCGGDfpTbmFVcvtd4iwHk_WQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 62, prosjek 114 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 3,
+   "avg_original_min": 114,
+   "last_original": "20261004",
+   "follower_count": 113000
+  }
+ },
+ "UCrGA0DlHdns4Fj5PuXjbqBg": {
+  "name": "RTV Info",
+  "url": "https://www.youtube.com/channel/UCrGA0DlHdns4Fj5PuXjbqBg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 64, prosjek 184 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 64,
+   "originals_30min": 3,
+   "avg_original_min": 184,
+   "last_original": "20201006",
+   "follower_count": 142000
+  }
+ },
+ "UCF4Gm9y2-wjC2-wm3pA4-XQ": {
+  "name": "PortaLGnet1",
+  "url": "https://www.youtube.com/channel/UCF4Gm9y2-wjC2-wm3pA4-XQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 22 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 22,
+   "last_original": "20121006",
+   "follower_count": 221
+  }
+ },
+ "UC-CGB_6d86awPGEDTgD2E5Q": {
+  "name": "RTV Novi Pazar",
+  "url": "https://www.youtube.com/channel/UC-CGB_6d86awPGEDTgD2E5Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Televizija iz Novog Pazara (Srbija), ekavica, sandžačka tematika.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 75,
+   "originals_30min": 6,
+   "avg_original_min": 195,
+   "last_original": "20251006",
+   "follower_count": 59500
+  }
+ },
+ "UCQG3_1XEXZOTpYeAAyrT7Kg": {
+  "name": "ddicp cakovec",
+  "url": "https://www.youtube.com/channel/UCQG3_1XEXZOTpYeAAyrT7Kg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 6
+  }
+ },
+ "UCiS7k3a5TM2d_p1XM5S_-2w": {
+  "name": "SprachNetz digital",
+  "url": "https://www.youtube.com/channel/UCiS7k3a5TM2d_p1XM5S_-2w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 22, prosjek 17 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 22,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20260306",
+   "follower_count": 83
+  }
+ },
+ "UC0_wvd4UG-bw2cQ4fqtyk8w": {
+  "name": "Pedagoško Društvo Vojvodine",
+  "url": "https://www.youtube.com/channel/UC0_wvd4UG-bw2cQ4fqtyk8w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Pedagoško društvo iz Novog Sada, srpska ekavica.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 58,
+   "originals_30min": 20,
+   "avg_original_min": 63,
+   "last_original": "20260506",
+   "follower_count": 277
+  }
+ },
+ "UCxFlbRx2M5GpNUuiDyJT3RA": {
+  "name": "Institut IEFPG",
+  "url": "https://www.youtube.com/channel/UCxFlbRx2M5GpNUuiDyJT3RA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 9, prosjek 19 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 9,
+   "originals_30min": 0,
+   "avg_original_min": 19,
+   "last_original": "20171006",
+   "follower_count": 54
+  }
+ },
+ "UCbouitKVNgczTbcmRkT86oQ": {
+  "name": "BN TV",
+  "url": "https://www.youtube.com/channel/UCbouitKVNgczTbcmRkT86oQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "TV kuća iz Republike Srpske, prijenosi sjednica Narodne skupštine RS, nehrvatski sadržaj.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 66,
+   "originals_30min": 6,
+   "avg_original_min": 229,
+   "last_original": "20211006",
+   "follower_count": 170000
+  }
+ },
+ "UCsDINSOl-6210O6PuIKmVAw": {
+  "name": "Pitaj logopeda",
+  "url": "https://www.youtube.com/channel/UCsDINSOl-6210O6PuIKmVAw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 7, prosjek 20 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 7,
+   "originals_30min": 0,
+   "avg_original_min": 20,
+   "last_original": "20221006",
+   "follower_count": 112
+  }
+ },
+ "UC3sXXm0RB0-W5VcMwGP6hcg": {
+  "name": "Centar Dajte nam šansu-Zvjezdice",
+  "url": "https://www.youtube.com/channel/UC3sXXm0RB0-W5VcMwGP6hcg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 5, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 5,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 47
+  }
+ },
+ "UCB-4gTDYKnywBf3ZT6CnKbA": {
+  "name": "Prvi Portal Bajina Bašta",
+  "url": "https://www.youtube.com/channel/UCB-4gTDYKnywBf3ZT6CnKbA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 2120
+  }
+ },
+ "UCOWJltRVsHrm-dmFK0CjCsA": {
+  "name": "Kanal M RTV",
+  "url": "https://www.youtube.com/channel/UCOWJltRVsHrm-dmFK0CjCsA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 61, prosjek 31 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 2,
+   "avg_original_min": 31,
+   "last_original": "20260925",
+   "follower_count": 16000
+  }
+ },
+ "UCUzlx8pgU-osHbL1CVStODg": {
+  "name": "Igraj Uči Rasti / Play Learn Grow",
+  "url": "https://www.youtube.com/channel/UCUzlx8pgU-osHbL1CVStODg/videos",
+  "type": "channel",
+  "verdict": "too_small",
+  "reason": "Samo dvije podcast epizode (2019.), stari kanal bez novih epizoda; jezik je vjerojatno hrvatski/bosanski, ali premalo materijala.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 9,
+   "originals_30min": 2,
+   "avg_original_min": 60,
+   "last_original": "20191006",
+   "follower_count": 15
+  }
+ },
+ "UCWU4rsZX-t7_z5nah7R1Hvg": {
+  "name": "PU Bosko Buha",
+  "url": "https://www.youtube.com/channel/UCWU4rsZX-t7_z5nah7R1Hvg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 34, prosjek 62 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 34,
+   "originals_30min": 1,
+   "avg_original_min": 62,
+   "last_original": "20201006",
+   "follower_count": 105
+  }
+ },
+ "UC_-08vReDTAQJP7eg8NmaSQ": {
+  "name": "Logoped Torbica",
+  "url": "https://www.youtube.com/channel/UC_-08vReDTAQJP7eg8NmaSQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 23, prosjek 26 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 23,
+   "originals_30min": 1,
+   "avg_original_min": 26,
+   "last_original": "20231006",
+   "follower_count": 232
+  }
+ },
+ "UCc17zvtnZdXDYZGYYzffaWg": {
+  "name": "RTVTK",
+  "url": "https://www.youtube.com/channel/UCc17zvtnZdXDYZGYYzffaWg/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Radio-televizija Tuzlanskog kantona (BiH), TV prijenosi i dnevnik, nije podcast kanal; bosanski sadržaj.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 18,
+   "avg_original_min": 116,
+   "last_original": "20260206",
+   "follower_count": 37700
+  }
+ },
+ "UCXump8Cz6o1GU6ElplA3USA": {
+  "name": "RTL Pomaze Djeci",
+  "url": "https://www.youtube.com/channel/UCXump8Cz6o1GU6ElplA3USA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 1000
+  }
+ },
+ "UCu4LN1f9qC_04exifajyw9Q": {
+  "name": "Norda Disleksija",
+  "url": "https://www.youtube.com/channel/UCu4LN1f9qC_04exifajyw9Q/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Hrvatski kanal o disleksiji s podcastom i razgovorima o životu s disleksijom.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 12,
+   "avg_original_min": 31,
+   "last_original": "20241006",
+   "follower_count": 637
+  },
+  "slug": "norda-disleksija"
+ },
+ "UCv9xQPpWS08ocIlZNzF0GSQ": {
+  "name": "LD Expert with Jill Stowell",
+  "url": "https://www.youtube.com/channel/UCv9xQPpWS08ocIlZNzF0GSQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast iz SAD-a bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 54,
+   "avg_original_min": 51,
+   "last_original": "20260906",
+   "follower_count": 1570
+  }
+ },
+ "UCs8NQvITCFH_3l5hySHhUiQ": {
+  "name": "The Writing Glitch Podcast",
+  "url": "https://www.youtube.com/channel/UCs8NQvITCFH_3l5hySHhUiQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 69,
+   "originals_30min": 28,
+   "avg_original_min": 37,
+   "last_original": "20251006",
+   "follower_count": 222
+  }
+ },
+ "UCLoSYyyi7LSPvv847ME35Lg": {
+  "name": "Dyslexia Mom Life",
+  "url": "https://www.youtube.com/channel/UCLoSYyyi7LSPvv847ME35Lg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 15,
+   "avg_original_min": 36,
+   "last_original": "20251006",
+   "follower_count": 99
+  }
+ },
+ "UCEZsA0foAXVdeac9Zx4sKEg": {
+  "name": "Beyond 6 Seconds",
+  "url": "https://www.youtube.com/channel/UCEZsA0foAXVdeac9Zx4sKEg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 38,
+   "avg_original_min": 35,
+   "last_original": "20261005",
+   "follower_count": 1160
+  }
+ },
+ "UCwS8aLp4PiTlq8l2BsKGyRg": {
+  "name": "Literacy Untangled",
+  "url": "https://www.youtube.com/channel/UCwS8aLp4PiTlq8l2BsKGyRg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 30 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 30,
+   "last_original": "20241006",
+   "follower_count": 23
+  }
+ },
+ "UCuCLsAHoGBaiItEFJdl4h3w": {
+  "name": "Juliet Hahn",
+  "url": "https://www.youtube.com/channel/UCuCLsAHoGBaiItEFJdl4h3w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 69,
+   "avg_original_min": 51,
+   "last_original": "20261002",
+   "follower_count": 1090
+  }
+ },
+ "UCfrfKvwYZ5JLTehk6ZpBepQ": {
+  "name": "re:think dyslexia",
+  "url": "https://www.youtube.com/channel/UCfrfKvwYZ5JLTehk6ZpBepQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Australski engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 19,
+   "avg_original_min": 42,
+   "last_original": "20260922",
+   "follower_count": 262
+  }
+ },
+ "UCXvE5R2rk0AZJRlXnYg7Xhw": {
+  "name": "The Dyslexia Duo",
+  "url": "https://www.youtube.com/channel/UCXvE5R2rk0AZJRlXnYg7Xhw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 29,
+   "avg_original_min": 79,
+   "last_original": "20260706",
+   "follower_count": 163
+  }
+ },
+ "UClw3gQefVabKocu0Zi9HKSw": {
+  "name": "Leta Tap Styles (And My Autistic Life)",
+  "url": "https://www.youtube.com/channel/UClw3gQefVabKocu0Zi9HKSw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 70,
+   "originals_30min": 58,
+   "avg_original_min": 45,
+   "last_original": "20260506",
+   "follower_count": 81
+  }
+ },
+ "UCFXFGWxQGS6D-zeoxHRaygA": {
+  "name": "Nimble Youth Podcast",
+  "url": "https://www.youtube.com/channel/UCFXFGWxQGS6D-zeoxHRaygA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 31,
+   "originals_30min": 11,
+   "avg_original_min": 29,
+   "last_original": "20261001",
+   "follower_count": 24
+  }
+ },
+ "UCnXaqc8Qqsp6-EFrMO8vcbA": {
+  "name": "Dyslexia Friendly",
+  "url": "https://www.youtube.com/channel/UCnXaqc8Qqsp6-EFrMO8vcbA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 21, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 21,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 8
+  }
+ },
+ "UCg4IvvZn93Kx9h-IsKa-f-g": {
+  "name": "Cassandra's Podcast",
+  "url": "https://www.youtube.com/channel/UCg4IvvZn93Kx9h-IsKa-f-g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 3,
+   "avg_original_min": 52,
+   "last_original": "20231006",
+   "follower_count": 7
+  }
+ },
+ "UCEYtiuCtKjWEPLgyshSmbsw": {
+  "name": "Dixie and the King",
+  "url": "https://www.youtube.com/channel/UCEYtiuCtKjWEPLgyshSmbsw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 22,
+   "originals_30min": 20,
+   "avg_original_min": 43,
+   "last_original": "20211006",
+   "follower_count": 180
+  }
+ },
+ "UCbvXMghexdlMj1bk6XEyocg": {
+  "name": "Leadership Law & Lightwork by Illuminating Wisdom ",
+  "url": "https://www.youtube.com/channel/UCbvXMghexdlMj1bk6XEyocg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 49,
+   "originals_30min": 38,
+   "avg_original_min": 49,
+   "last_original": "20260606",
+   "follower_count": 116
+  }
+ },
+ "UCMAb6qla3K800fJSKhOne9g": {
+  "name": "Pacific Preparatory",
+  "url": "https://www.youtube.com/channel/UCMAb6qla3K800fJSKhOne9g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka škola, engleski sadržaj bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 59,
+   "originals_30min": 42,
+   "avg_original_min": 37,
+   "last_original": "20261005",
+   "follower_count": 38
+  }
+ },
+ "UCSDAhrGmTyhENRfvsYUAGkw": {
+  "name": "Olivia de Sousa",
+  "url": "https://www.youtube.com/channel/UCSDAhrGmTyhENRfvsYUAGkw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 5,
+   "avg_original_min": 26,
+   "last_original": "20251006",
+   "follower_count": 12
+  }
+ },
+ "UCj2GsM0PNOK5luHQtgIXybw": {
+  "name": "Melissa & Lori Love Literacy",
+  "url": "https://www.youtube.com/channel/UCj2GsM0PNOK5luHQtgIXybw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast za učitelje bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 54,
+   "avg_original_min": 47,
+   "last_original": "20260926",
+   "follower_count": 3940
+  }
+ },
+ "UCqzaGSdphuPF-rvn-Vvk1Bg": {
+  "name": "Stowell Learning Centers",
+  "url": "https://www.youtube.com/channel/UCqzaGSdphuPF-rvn-Vvk1Bg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 33 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 33,
+   "last_original": "20260806",
+   "follower_count": 473
+  }
+ },
+ "UCvyvy5NOMwFr-Nk5gaz1ntA": {
+  "name": "NOW! Programs®",
+  "url": "https://www.youtube.com/channel/UCvyvy5NOMwFr-Nk5gaz1ntA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski korporativni kanal bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 63,
+   "originals_30min": 35,
+   "avg_original_min": 62,
+   "last_original": "20251106",
+   "follower_count": 70100
+  }
+ },
+ "UCGwia7zwl5U5ZKOJId0tsSw": {
+  "name": "Mothers of Misfits Podcast",
+  "url": "https://www.youtube.com/channel/UCGwia7zwl5U5ZKOJId0tsSw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 19, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 19,
+   "originals_30min": 3,
+   "avg_original_min": 24,
+   "last_original": "20221006",
+   "follower_count": 20
+  }
+ },
+ "UC-_aWEhUBpH86D1VR0OhVrw": {
+  "name": "Medical Centric Podcast",
+  "url": "https://www.youtube.com/channel/UC-_aWEhUBpH86D1VR0OhVrw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski medicinski podcast bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 40,
+   "avg_original_min": 60,
+   "last_original": "20261005",
+   "follower_count": 724000
+  }
+ },
+ "UCAxKUbfwsv_Y_ZgQ1JXwvKw": {
+  "name": "Littles Love Learning",
+  "url": "https://www.youtube.com/channel/UCAxKUbfwsv_Y_ZgQ1JXwvKw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o učenju čitanja, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 23,
+   "avg_original_min": 30,
+   "last_original": "20251006",
+   "follower_count": 7330
+  }
+ },
+ "UCzE1_lOj-ORMJY_85ZErW1g": {
+  "name": "THE SJ CHILDS SHOW",
+  "url": "https://www.youtube.com/channel/UCzE1_lOj-ORMJY_85ZErW1g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o roditeljstvu i autizmu, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 81,
+   "originals_30min": 56,
+   "avg_original_min": 73,
+   "last_original": "20260930",
+   "follower_count": 367
+  }
+ },
+ "UCOWWDPwK5XrVdIr2t-g3Zdg": {
+  "name": "GK Media Studios",
+  "url": "https://www.youtube.com/channel/UCOWWDPwK5XrVdIr2t-g3Zdg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Irski produkcijski studio, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 35,
+   "avg_original_min": 51,
+   "last_original": "20260806",
+   "follower_count": 760
+  }
+ },
+ "UCArf1aRyQmIMGYRsQ4GoHjw": {
+  "name": "tactustherapy",
+  "url": "https://www.youtube.com/channel/UCArf1aRyQmIMGYRsQ4GoHjw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 10400
+  }
+ },
+ "UCD8b6UZ4rZmlPmHSQgnnW5A": {
+  "name": "stcloudent",
+  "url": "https://www.youtube.com/channel/UCD8b6UZ4rZmlPmHSQgnnW5A/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 36, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 36,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 117
+  }
+ },
+ "UCBHsITsa2nwCdngpXZAUFfg": {
+  "name": "Dr Boris Škarica  dipl. kiropraktičar DGAMM Berlin",
+  "url": "https://www.youtube.com/channel/UCBHsITsa2nwCdngpXZAUFfg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20241006",
+   "follower_count": 2320
+  }
+ },
+ "UCCBHrnGo-VGdrt2iJmWeiPg": {
+  "name": "emorycrmspeech",
+  "url": "https://www.youtube.com/channel/UCCBHrnGo-VGdrt2iJmWeiPg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 3, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 10
+  }
+ },
+ "UCLIereEQi0V64eRnVLPL3MA": {
+  "name": "ECL Person-centred Care",
+  "url": "https://www.youtube.com/channel/UCLIereEQi0V64eRnVLPL3MA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 170
+  }
+ },
+ "UCsyPyGmzu_GcSwKPCLE-6cQ": {
+  "name": "Smart Solutions Rehab Group",
+  "url": "https://www.youtube.com/channel/UCsyPyGmzu_GcSwKPCLE-6cQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 4, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 4
+  }
+ },
+ "UCeoIXwHqIJkK78JdJo7gQFA": {
+  "name": "Corona Hills Physical Therapy",
+  "url": "https://www.youtube.com/channel/UCeoIXwHqIJkK78JdJo7gQFA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 38, prosjek 26 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 38,
+   "originals_30min": 1,
+   "avg_original_min": 26,
+   "last_original": "20260908",
+   "follower_count": 232
+  }
+ },
+ "UCm9Z2AcrLQwMvGPCENf7_VQ": {
+  "name": "CranioRehab",
+  "url": "https://www.youtube.com/channel/UCm9Z2AcrLQwMvGPCENf7_VQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o medicinskim proizvodima, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 9,
+   "originals_30min": 1,
+   "avg_original_min": 38,
+   "last_original": "20241006",
+   "follower_count": 29
+  }
+ },
+ "UChmb4AK6dPPokjc-y1nveyg": {
+  "name": "NHS Ayrshire & Arran",
+  "url": "https://www.youtube.com/channel/UChmb4AK6dPPokjc-y1nveyg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Škotska zdravstvena služba, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 64,
+   "originals_30min": 7,
+   "avg_original_min": 77,
+   "last_original": "20260606",
+   "follower_count": 6430
+  }
+ },
+ "UC66kaH9xaBJ1gMuwkLtLvBQ": {
+  "name": "East Jefferson General Hospital",
+  "url": "https://www.youtube.com/channel/UC66kaH9xaBJ1gMuwkLtLvBQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 608
+  }
+ },
+ "UC7lLoAhRkSm2xLXmfZAw-Kg": {
+  "name": "Joe Morris - CATTS",
+  "url": "https://www.youtube.com/channel/UC7lLoAhRkSm2xLXmfZAw-Kg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 16, prosjek 26 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 16,
+   "originals_30min": 0,
+   "avg_original_min": 26,
+   "last_original": "20161006",
+   "follower_count": 42
+  }
+ },
+ "UCFaLp81iBdO-mQsy4k34CNw": {
+  "name": "ALS Tool Kit",
+  "url": "https://www.youtube.com/channel/UCFaLp81iBdO-mQsy4k34CNw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 32, prosjek 21 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 32,
+   "originals_30min": 0,
+   "avg_original_min": 21,
+   "last_original": "20211006",
+   "follower_count": 529
+  }
+ },
+ "UC9rRNq6sbZu5l7tYkhBV2bQ": {
+  "name": "Speech Secrets",
+  "url": "https://www.youtube.com/channel/UC9rRNq6sbZu5l7tYkhBV2bQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 55700
+  }
+ },
+ "UCd2__AjSkgY8xjli6gdiBzA": {
+  "name": "HomeCEU",
+  "url": "https://www.youtube.com/channel/UCd2__AjSkgY8xjli6gdiBzA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 560
+  }
+ },
+ "UC67de6xk8NFR63Zc_9ikk4A": {
+  "name": "CurePSP",
+  "url": "https://www.youtube.com/channel/UC67de6xk8NFR63Zc_9ikk4A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka neprofitna organizacija, engleski/španjolski.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 70,
+   "avg_original_min": 58,
+   "last_original": "20260925",
+   "follower_count": 9680
+  }
+ },
+ "UCYu8grGow8uKpMtjK4Q880A": {
+  "name": "Jefferson Community Health and Life",
+  "url": "https://www.youtube.com/channel/UCYu8grGow8uKpMtjK4Q880A/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 24, prosjek 21 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 24,
+   "originals_30min": 0,
+   "avg_original_min": 21,
+   "last_original": "20201006",
+   "follower_count": 23
+  }
+ },
+ "UCh87NjYgdNxEJEdrQb6Q_Rg": {
+  "name": "Asian ENT Care Centre",
+  "url": "https://www.youtube.com/channel/UCh87NjYgdNxEJEdrQb6Q_Rg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 17200
+  }
+ },
+ "UCpDAMXAmcXSnoPDXg3Dp55w": {
+  "name": "CASLPO OAOO",
+  "url": "https://www.youtube.com/channel/UCpDAMXAmcXSnoPDXg3Dp55w/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Kanadska strukovna komora, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 44,
+   "avg_original_min": 75,
+   "last_original": "20260706",
+   "follower_count": 179
+  }
+ },
+ "UCV2gWCGTtRJf0tAJR67suBw": {
+  "name": "National Foundation of Swallowing Disorders",
+  "url": "https://www.youtube.com/channel/UCV2gWCGTtRJf0tAJR67suBw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka zaklada, engleski webinari.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 56,
+   "avg_original_min": 74,
+   "last_original": "20260922",
+   "follower_count": 920
+  }
+ },
+ "UCRax0JQ0bjm90R2PSixQY0g": {
+  "name": "National Ataxia Foundation",
+  "url": "https://www.youtube.com/channel/UCRax0JQ0bjm90R2PSixQY0g/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Američka zaklada, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 55,
+   "avg_original_min": 65,
+   "last_original": "20260924",
+   "follower_count": 7360
+  }
+ },
+ "UCIfQc0q0KmDPyXK5ThY5Uvg": {
+  "name": "Summit Professional Education",
+  "url": "https://www.youtube.com/channel/UCIfQc0q0KmDPyXK5ThY5Uvg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski tečajevi trajnog obrazovanja, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 38,
+   "avg_original_min": 53,
+   "last_original": "20260922",
+   "follower_count": 366
+  }
+ },
+ "UCzGVTVfdKGIu0vSc8gEHnpA": {
+  "name": "Videos ASLP",
+  "url": "https://www.youtube.com/channel/UCzGVTVfdKGIu0vSc8gEHnpA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 14, prosjek 87 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 14,
+   "originals_30min": 2,
+   "avg_original_min": 87,
+   "last_original": "20260206",
+   "follower_count": 31
+  }
+ },
+ "UCYdYWQ4ZEVQ0bzJXSemzIjw": {
+  "name": "Healthy North Coast",
+  "url": "https://www.youtube.com/channel/UCYdYWQ4ZEVQ0bzJXSemzIjw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Australski kanal, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 13,
+   "avg_original_min": 47,
+   "last_original": "20161006",
+   "follower_count": 824
+  }
+ },
+ "UCTyaxOjVRnpN_bh5hqQq9bg": {
+  "name": "ElmatSpa",
+  "url": "https://www.youtube.com/channel/UCTyaxOjVRnpN_bh5hqQq9bg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 30 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 30,
+   "last_original": "20201006",
+   "follower_count": 2370
+  }
+ },
+ "UCvPJdTqmZz_0WX2FzrFX3pg": {
+  "name": "Speech Perfect",
+  "url": "https://www.youtube.com/channel/UCvPJdTqmZz_0WX2FzrFX3pg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 30, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 30,
+   "originals_30min": 1,
+   "avg_original_min": 24,
+   "last_original": "20241006",
+   "follower_count": 426
+  }
+ },
+ "UCUW1fIRLyvCeZ4e6TefB1xQ": {
+  "name": "UniversityofLimerick",
+  "url": "https://www.youtube.com/channel/UCUW1fIRLyvCeZ4e6TefB1xQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Irsko sveučilište, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 15,
+   "avg_original_min": 65,
+   "last_original": "20241006",
+   "follower_count": 9100
+  }
+ },
+ "UCODYyOiFIhHtAY-9t6e8iRg": {
+  "name": "Tan Tock Seng Hospital",
+  "url": "https://www.youtube.com/channel/UCODYyOiFIhHtAY-9t6e8iRg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 41300
+  }
+ },
+ "UCzN8NM4SL4-g__MqgH9zpyA": {
+  "name": "Ball State Immersive Learning",
+  "url": "https://www.youtube.com/channel/UCzN8NM4SL4-g__MqgH9zpyA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 264
+  }
+ },
+ "UCAcRzewGgB8s9TbWQR21yrw": {
+  "name": "RealGoodVideo",
+  "url": "https://www.youtube.com/channel/UCAcRzewGgB8s9TbWQR21yrw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal s propovijedima, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 19,
+   "avg_original_min": 48,
+   "last_original": "20261005",
+   "follower_count": 633
+  }
+ },
+ "UCPaW2-ZSVvcRzqRTtvwsjrQ": {
+  "name": "Memorial Hospital",
+  "url": "https://www.youtube.com/channel/UCPaW2-ZSVvcRzqRTtvwsjrQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 625
+  }
+ },
+ "UC0I9FDjwJR0L5svIGCvIqHA": {
+  "name": "IDDSI",
+  "url": "https://www.youtube.com/channel/UC0I9FDjwJR0L5svIGCvIqHA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Međunarodna organizacija, engleski webinari.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 34,
+   "avg_original_min": 64,
+   "last_original": "20260306",
+   "follower_count": 6540
+  }
+ },
+ "UCWqLyDLA4YAhqa2MwvrJ_Ug": {
+  "name": "KITRIN",
+  "url": "https://www.youtube.com/channel/UCWqLyDLA4YAhqa2MwvrJ_Ug/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal softverske tvrtke, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 37,
+   "avg_original_min": 53,
+   "last_original": "20241006",
+   "follower_count": 113
+  }
+ },
+ "UCRCDeywKcyiau6z4KnUPbGw": {
+  "name": "ERF UNIZG",
+  "url": "https://www.youtube.com/channel/UCRCDeywKcyiau6z4KnUPbGw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 3, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20221006",
+   "follower_count": 23
+  }
+ },
+ "UCQY8RzzEDgqc0wPqFdavuZQ": {
+  "name": "PRVI TV",
+  "url": "https://www.youtube.com/channel/UCQY8RzzEDgqc0wPqFdavuZQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 6 originala ≥30 min od 60, prosjek 24 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 6,
+   "avg_original_min": 24,
+   "last_original": "20191006",
+   "follower_count": 4950
+  }
+ },
+ "UC1Kv7iJstH6lkadGz6iPUyA": {
+  "name": "Sajam Studija",
+  "url": "https://www.youtube.com/channel/UC1Kv7iJstH6lkadGz6iPUyA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 21, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 21,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 24
+  }
+ },
+ "UCWiDbF_Ix-gqGX9F0nioiyA": {
+  "name": "RTV 7 Tuzla",
+  "url": "https://www.youtube.com/channel/UCWiDbF_Ix-gqGX9F0nioiyA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 22 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 22,
+   "last_original": "20261005",
+   "follower_count": 12100
+  }
+ },
+ "UCTy59GwP7Lh7WP_zjjGM9iA": {
+  "name": "Edukacija Rehabilitacija",
+  "url": "https://www.youtube.com/channel/UCTy59GwP7Lh7WP_zjjGM9iA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 2, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 2,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 6
+  }
+ },
+ "UCBoXrmXvnvrVlISESbUo_Jw": {
+  "name": "Radiotelevizija Herceg-Bosne",
+  "url": "https://www.youtube.com/channel/UCBoXrmXvnvrVlISESbUo_Jw/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Javni radiotelevizijski medij Hrvata u BiH; dnevnici i TV emisije, nije podcast kanal. Povremeno ima razgovorne emisije (Fokus, Vrijeme je za goste), moguća podcast playlista.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 38,
+   "avg_original_min": 68,
+   "last_original": "20261005",
+   "follower_count": 38200
+  }
+ },
+ "UC4hFNUKopSzq56J24u8zn2g": {
+  "name": "Ruzica D",
+  "url": "https://www.youtube.com/channel/UC4hFNUKopSzq56J24u8zn2g/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
+ },
+ "UCmTsG3b8SzhAEyvxm1SxhJw": {
+  "name": "AS MEDIA",
+  "url": "https://www.youtube.com/channel/UCmTsG3b8SzhAEyvxm1SxhJw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20260806",
+   "follower_count": 4250
+  }
+ },
+ "UCQzSVHDgLThSPmHbtCMvLog": {
+  "name": "Udruga Fokus",
+  "url": "https://www.youtube.com/channel/UCQzSVHDgLThSPmHbtCMvLog/videos",
+  "type": "channel",
+  "verdict": "too_small",
+  "reason": "Hrvatska udruga, svega 6 originala raznolikog sadržaja (recenzije, prezentacije, razgovori), zadnji 2024.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 6,
+   "avg_original_min": 89,
+   "last_original": "20241006",
+   "follower_count": 798
+  }
+ },
+ "UCClP4nncNpeBYrAi9QFeqNw": {
+  "name": "Radio Velika Gorica",
+  "url": "https://www.youtube.com/channel/UCClP4nncNpeBYrAi9QFeqNw/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Lokalna radijska postaja (Velika Gorica); kanal mješavina gostovanja i vijesti, nije čisti podcast. Moguća playlista RVG kava/gosti.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 5,
+   "avg_original_min": 35,
+   "last_original": "20260925",
+   "follower_count": 1250
+  }
+ },
+ "UClvLR05AkQiw5mMznF7VXwQ": {
+  "name": "Udruga studenata socijalne pedagogije",
+  "url": "https://www.youtube.com/channel/UClvLR05AkQiw5mMznF7VXwQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 3, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 3,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 17
+  }
+ },
+ "UCE9bJhlx098ddHnzeVXyQAA": {
+  "name": "Prava pacijenata u BiH",
+  "url": "https://www.youtube.com/channel/UCE9bJhlx098ddHnzeVXyQAA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 664
+  }
+ },
+ "UCIBIi8wFTnxg6oR3cxwnzsQ": {
+  "name": "Logopedija Filozofski",
+  "url": "https://www.youtube.com/channel/UCIBIi8wFTnxg6oR3cxwnzsQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 6
+  }
+ },
+ "UCYgUwDPKto9pTj97_pl84pg": {
+  "name": "Clarity Speech & Language - Practice Videos & More",
+  "url": "https://www.youtube.com/channel/UCYgUwDPKto9pTj97_pl84pg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 35
+  }
+ },
+ "UCcQFho1tTxMp5ukAb0LWGlw": {
+  "name": "Speech Therapy Supports for Parents",
+  "url": "https://www.youtube.com/channel/UCcQFho1tTxMp5ukAb0LWGlw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 15, prosjek 19 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 15,
+   "originals_30min": 0,
+   "avg_original_min": 19,
+   "last_original": "20231006",
+   "follower_count": 11
+  }
+ },
+ "UCrm5p4vTKgEaUWscCsbO_Lg": {
+  "name": "Speech Teacher",
+  "url": "https://www.youtube.com/channel/UCrm5p4vTKgEaUWscCsbO_Lg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 16, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 16,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 214
+  }
+ },
+ "UCQRtl1Gv9NKdAHAFoMzykOg": {
+  "name": "Cardiff and Vale University Health Board",
+  "url": "https://www.youtube.com/channel/UCQRtl1Gv9NKdAHAFoMzykOg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 6310
+  }
+ },
+ "UCgObqFGK8wKfjHAypexM4sQ": {
+  "name": "Star City Speech ",
+  "url": "https://www.youtube.com/channel/UCgObqFGK8wKfjHAypexM4sQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 48, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 48,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 12900
+  }
+ },
+ "UCuGrC0YhjLlv0hUrhQx83kQ": {
+  "name": "The Gift of Gab Speech Therapy",
+  "url": "https://www.youtube.com/channel/UCuGrC0YhjLlv0hUrhQx83kQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 18 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 18,
+   "last_original": "20251006",
+   "follower_count": 5910
+  }
+ },
+ "UCZvgmzodtv0e277qw_a2SRQ": {
+  "name": "Wellness Hub",
+  "url": "https://www.youtube.com/channel/UCZvgmzodtv0e277qw_a2SRQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 2000
+  }
+ },
+ "UCfMKnEWxFMXnMcvwAxHCPSw": {
+  "name": "Star City Speech for Parents",
+  "url": "https://www.youtube.com/channel/UCfMKnEWxFMXnMcvwAxHCPSw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 4, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 13
+  }
+ },
+ "UCfHqN-4iYp5J0Paaal3iyuA": {
+  "name": "My Own SLP",
+  "url": "https://www.youtube.com/channel/UCfHqN-4iYp5J0Paaal3iyuA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 51, prosjek 17 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 51,
+   "originals_30min": 0,
+   "avg_original_min": 17,
+   "last_original": "20251006",
+   "follower_count": 866
+  }
+ },
+ "UCvjA7dlKQ7PCYku9-ndU_3Q": {
+  "name": "Lil' Bits of Language ",
+  "url": "https://www.youtube.com/channel/UCvjA7dlKQ7PCYku9-ndU_3Q/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 16 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 16,
+   "last_original": "20260924",
+   "follower_count": 465
+  }
+ },
+ "UChiAAbpV2hS9H5TcVcQ-cjw": {
+  "name": "Megija Liva | Speech Therapy",
+  "url": "https://www.youtube.com/channel/UChiAAbpV2hS9H5TcVcQ-cjw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 1200
+  }
+ },
+ "UCWljNjpWYd83D9FHHZIporA": {
+  "name": "Dr. Mary Barbera - Turn Autism Around®",
+  "url": "https://www.youtube.com/channel/UCWljNjpWYd83D9FHHZIporA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski podcast o autizmu, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 29,
+   "avg_original_min": 34,
+   "last_original": "20261002",
+   "follower_count": 215000
+  }
+ },
+ "UCG1mVul2WkczGi9OQSqN_4g": {
+  "name": "Sarina Murrell",
+  "url": "https://www.youtube.com/channel/UCG1mVul2WkczGi9OQSqN_4g/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 56, prosjek 43 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 56,
+   "originals_30min": 2,
+   "avg_original_min": 43,
+   "last_original": "20211006",
+   "follower_count": 139
+  }
+ },
+ "UCGRQ02lKUJdQzls3RJ6fIpQ": {
+  "name": "NorthernSpeech",
+  "url": "https://www.youtube.com/channel/UCGRQ02lKUJdQzls3RJ6fIpQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 38 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 38,
+   "last_original": "20260924",
+   "follower_count": 6860
+  }
+ },
+ "UCTFvVcPsOLAwUh68vfdOXyg": {
+  "name": "Wear Your Energy",
+  "url": "https://www.youtube.com/channel/UCTFvVcPsOLAwUh68vfdOXyg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 485
+  }
+ },
+ "UCdx38HdjGvv_7_zA4ETJ9JQ": {
+  "name": "Praise Speech",
+  "url": "https://www.youtube.com/channel/UCdx38HdjGvv_7_zA4ETJ9JQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 5, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 5,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 3
+  }
+ },
+ "UCNf3qTOErhAjJkzZzR4WGnQ": {
+  "name": "MFNERC - Inclusive Education",
+  "url": "https://www.youtube.com/channel/UCNf3qTOErhAjJkzZzR4WGnQ/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Kanadski obrazovni kanal, engleski jezik.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 39,
+   "originals_30min": 12,
+   "avg_original_min": 40,
+   "last_original": "20211006",
+   "follower_count": 522
+  }
+ },
+ "UCX0lpbZYmfDxEKB-PXQoDjg": {
+  "name": "SLP Dharuni's Infinity Dreams",
+  "url": "https://www.youtube.com/channel/UCX0lpbZYmfDxEKB-PXQoDjg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 7, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 7,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 160
+  }
+ },
+ "UCWLAd0LQDTXl_9YJ0kl9a_w": {
+  "name": "Learn To Talk With Me",
+  "url": "https://www.youtube.com/channel/UCWLAd0LQDTXl_9YJ0kl9a_w/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 2 originala ≥30 min od 61, prosjek 35 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 2,
+   "avg_original_min": 35,
+   "last_original": "20260915",
+   "follower_count": 41000
+  }
+ },
+ "UCJFpZ1rfeP7Bi7vitgxWDrg": {
+  "name": "Stetoskop Bn Tv",
+  "url": "https://www.youtube.com/channel/UCJFpZ1rfeP7Bi7vitgxWDrg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 15 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 15,
+   "last_original": "20221006",
+   "follower_count": 2420
+  }
+ },
+ "UCU0DTSUOH-fYniAfDSjzpPQ": {
+  "name": "Logoped Marina Gavrić Govedarica",
+  "url": "https://www.youtube.com/channel/UCU0DTSUOH-fYniAfDSjzpPQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 12, prosjek 25 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 12,
+   "originals_30min": 1,
+   "avg_original_min": 25,
+   "last_original": "20221006",
+   "follower_count": 1020
+  }
+ },
+ "UCgGz9Vaf7dh26U5KrjhIJ1Q": {
+  "name": "Yumama",
+  "url": "https://www.youtube.com/channel/UCgGz9Vaf7dh26U5KrjhIJ1Q/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 61, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 9700
+  }
+ },
+ "UCumrDSGa4aXVR6RYXFHrekA": {
+  "name": " Neurofeedback centar",
+  "url": "https://www.youtube.com/channel/UCumrDSGa4aXVR6RYXFHrekA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 1840
+  }
+ },
+ "UC4qnndjB_HAGvopaWVXtauw": {
+  "name": "Roditelji me",
+  "url": "https://www.youtube.com/channel/UC4qnndjB_HAGvopaWVXtauw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Jezik i izrazi (bezbjednost, poslednji, TV E) upućuju na crnogorski kontekst.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 64,
+   "originals_30min": 15,
+   "avg_original_min": 71,
+   "last_original": "20260406",
+   "follower_count": 2320
+  }
+ },
+ "UCOtUK69H_S7FS0AsLFWb1Tg": {
+  "name": "BOJANATV",
+  "url": "https://www.youtube.com/channel/UCOtUK69H_S7FS0AsLFWb1Tg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Jezik (dobija, niko, biće, nafaka) i gosti upućuju na bosanski/srpski/crnogorski govor, bez hrvatske veze.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 14,
+   "originals_30min": 11,
+   "avg_original_min": 47,
+   "last_original": "20260806",
+   "follower_count": 618
+  }
+ },
+ "UC-Hv4YD8EKrTgN3nZsIru4Q": {
+  "name": "Savetnik TV Happy",
+  "url": "https://www.youtube.com/channel/UC-Hv4YD8EKrTgN3nZsIru4Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpska TV Happy, srpski jezik; također TV emisija.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 58,
+   "avg_original_min": 39,
+   "last_original": "20221006",
+   "follower_count": 2880
+  }
+ },
+ "UCQ92g_HfXozr2XVa1riTKzg": {
+  "name": "Jednostavno roditelj",
+  "url": "https://www.youtube.com/channel/UCQ92g_HfXozr2XVa1riTKzg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpska ekavica (šta, naučila, zauvek), srpski gosti.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 60,
+   "avg_original_min": 127,
+   "last_original": "20261001",
+   "follower_count": 10000
+  }
+ },
+ "UCxHNwB_iCI5R68He-pCVK7Q": {
+  "name": "RODITELJSTVO",
+  "url": "https://www.youtube.com/channel/UCxHNwB_iCI5R68He-pCVK7Q/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 3 originala ≥30 min od 60, prosjek 26 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 3,
+   "avg_original_min": 26,
+   "last_original": "20221006",
+   "follower_count": 4060
+  }
+ },
+ "UCOVV7FxKJrgf9ASYdbEMtBA": {
+  "name": "Gordana Galetić",
+  "url": "https://www.youtube.com/channel/UCOVV7FxKJrgf9ASYdbEMtBA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 50, prosjek 20 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 50,
+   "originals_30min": 0,
+   "avg_original_min": 20,
+   "last_original": "20201006",
+   "follower_count": 455
+  }
+ },
+ "UCNIy6wsV6-7LNwXsWk6lt0Q": {
+  "name": "Udruženje RTV Bum 018",
+  "url": "https://www.youtube.com/channel/UCNIy6wsV6-7LNwXsWk6lt0Q/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 22 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 22,
+   "last_original": "20260406",
+   "follower_count": 38
+  }
+ },
+ "UC-KR5h3qXj6oKq5IozWE7ew": {
+  "name": "Pitajte Pedijatra – Poliklinika Dr Raketić",
+  "url": "https://www.youtube.com/channel/UC-KR5h3qXj6oKq5IozWE7ew/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 49, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 49,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 2280
+  }
+ },
+ "UCu8yrxzJy5rPx12CNYmMYVw": {
+  "name": "Maxi Srbija",
+  "url": "https://www.youtube.com/channel/UCu8yrxzJy5rPx12CNYmMYVw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpski trgovački lanac (Maxi Srbija), ekavica/srpska ishrana; korporativni kanal.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 16,
+   "avg_original_min": 37,
+   "last_original": "20260926",
+   "follower_count": 13900
+  }
+ },
+ "UCinj0qQBiuvPGjjoYpVj5aA": {
+  "name": "TVDR",
+  "url": "https://www.youtube.com/channel/UCinj0qQBiuvPGjjoYpVj5aA/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Srpska TV emisije o zdravlju (ekavica, TV DR), nije hrvatski sadržaj.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 4,
+   "avg_original_min": 33,
+   "last_original": "20221006",
+   "follower_count": 18500
+  }
+ },
+ "UCtYY4prl-Y_XzAydBhBVntQ": {
+  "name": "Socijaldemokrati",
+  "url": "https://www.youtube.com/channel/UCtYY4prl-Y_XzAydBhBVntQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 19 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 19,
+   "last_original": "20241006",
+   "follower_count": 663
+  }
+ },
+ "UCxrQKslZ272ZAdPAEtignIg": {
+  "name": "Hrvatski Dom Petrinja",
+  "url": "https://www.youtube.com/channel/UCxrQKslZ272ZAdPAEtignIg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 8, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 8,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": null
+  }
+ },
+ "UCBlLp7XeJ17OwERlT_BAEIg": {
+  "name": "webgraf123",
+  "url": "https://www.youtube.com/channel/UCBlLp7XeJ17OwERlT_BAEIg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 60, prosjek 64 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 1,
+   "avg_original_min": 64,
+   "last_original": "20211006",
+   "follower_count": 225
+  }
+ },
+ "UC6uFWJP7wHqaG8Z-yS3Q07Q": {
+  "name": "skoo pula",
+  "url": "https://www.youtube.com/channel/UC6uFWJP7wHqaG8Z-yS3Q07Q/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 26 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 26,
+   "last_original": "20211006",
+   "follower_count": 1270
+  }
+ },
+ "UC8EcPtzuzTP-mQy7GbOHZcw": {
+  "name": "VaLMod centar logopedija",
+  "url": "https://www.youtube.com/channel/UC8EcPtzuzTP-mQy7GbOHZcw/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Logopedski centar; kanal skuplja TV gostovanja i promo isječke, nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 40,
+   "originals_30min": 6,
+   "avg_original_min": 48,
+   "last_original": "20231006",
+   "follower_count": 184
+  }
+ },
+ "UCIqBTH51Fnob4BciD-xk4zw": {
+  "name": "Ljevak Učenje bez granica",
+  "url": "https://www.youtube.com/channel/UCIqBTH51Fnob4BciD-xk4zw/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Nakladnik (Ljevak) obrazovnih sadržaja; serija 'Učitelji u fokusu' nalikuje predavanjima/webinarima, kanal nije podcast. Moguća playlista, ali podaci ne potvrđuju razgovorni format.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 38,
+   "avg_original_min": 65,
+   "last_original": "20260606",
+   "follower_count": 551
+  }
+ },
+ "UCGe8vaQtBu8Z9MpLoDDfOaw": {
+  "name": "Grad Lepoglava",
+  "url": "https://www.youtube.com/channel/UCGe8vaQtBu8Z9MpLoDDfOaw/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Službeni kanal Grada Lepoglave; gostovanja gradonačelnika u TV emisijama, nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 4,
+   "avg_original_min": 37,
+   "last_original": "20211006",
+   "follower_count": 319
+  }
+ },
+ "UCIKwz1U1PF0dpGrQk0vrSLw": {
+  "name": "rtvlukavac",
+  "url": "https://www.youtube.com/channel/UCIKwz1U1PF0dpGrQk0vrSLw/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Radio-televizija Lukavac (Tuzlanski kanton), bošnjački/bosanski medij, ne hrvatski; sjednice i TV prilozi.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 62,
+   "originals_30min": 4,
+   "avg_original_min": 110,
+   "last_original": "20260924",
+   "follower_count": 8890
+  }
+ },
+ "UCJChqaJQsT8CC_oSsuVYLAQ": {
+  "name": "ZagrebNews",
+  "url": "https://www.youtube.com/channel/UCJChqaJQsT8CC_oSsuVYLAQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 7, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 7,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 4
+  }
+ },
+ "UCV1qL2Hfu7RGywRNcACZOVA": {
+  "name": "Zapad",
+  "url": "https://www.youtube.com/channel/UCV1qL2Hfu7RGywRNcACZOVA/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Regionalna TV Zapad (Zaprešić); sjednice vijeća, vijesti i TV emisije. Možda ima razgovornu emisiju (npr. 'Ritam Zapada', 'Aktualni tjedan'), ali kanal nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 32,
+   "avg_original_min": 127,
+   "last_original": "20260930",
+   "follower_count": 10200
+  }
+ },
+ "UCKjPR8mb1J5tOdjTYdaqfuw": {
+  "name": "RTV HIT",
+  "url": "https://www.youtube.com/channel/UCKjPR8mb1J5tOdjTYdaqfuw/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Hit televizija Brčko; uglavnom prijenosi sjednica Skupštine Brčko distrikta i vijesti, bez hrvatskog podcast formata.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 18,
+   "avg_original_min": 120,
+   "last_original": "20260806",
+   "follower_count": 16100
+  }
+ },
+ "UCJYfjwf8ftt3VfP5UJ2s5Yg": {
+  "name": "Centar za mirovno obrazovanje",
+  "url": "https://www.youtube.com/channel/UCJYfjwf8ftt3VfP5UJ2s5Yg/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Udruga Centar za mirovno obrazovanje (BiH, franjevačka tradicija); radijska gostovanja i filmovi, tek poneki podcast uradak. Kanal nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 11,
+   "avg_original_min": 69,
+   "last_original": "20251006",
+   "follower_count": 161
+  }
+ },
+ "UCqmnvwPR4PWwLzLRidJkSow": {
+  "name": "City Televizija BiH HD",
+  "url": "https://www.youtube.com/channel/UCqmnvwPR4PWwLzLRidJkSow/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Prijenosi nogometnih i futsal utakmica (Čapljina, Velež), sport bez razgovora.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 87,
+   "avg_original_min": 92,
+   "last_original": "20260922",
+   "follower_count": 10300
+  }
+ },
+ "UC9l_RhIUjf3S5byJRXGArgQ": {
+  "name": "Studio Europa",
+  "url": "https://www.youtube.com/channel/UC9l_RhIUjf3S5byJRXGArgQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 1 originala ≥30 min od 61, prosjek 58 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 1,
+   "avg_original_min": 58,
+   "last_original": "20221006",
+   "follower_count": 908
+  }
+ },
+ "UCG67ZSnglKwhfx5NTDQTdzg": {
+  "name": "Poliklinika Bagatin",
+  "url": "https://www.youtube.com/channel/UCG67ZSnglKwhfx5NTDQTdzg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 21 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 21,
+   "last_original": "20221006",
+   "follower_count": 1950
+  }
+ },
+ "UCNkiovfy-5U4haBYwadLzqA": {
+  "name": "eZdravko",
+  "url": "https://www.youtube.com/channel/UCNkiovfy-5U4haBYwadLzqA/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 4, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 3
+  }
+ },
+ "UCtyxowN9NLv4L4ephIz0H3g": {
+  "name": "Centar Proventus",
+  "url": "https://www.youtube.com/channel/UCtyxowN9NLv4L4ephIz0H3g/videos",
+  "type": "channel",
+  "verdict": "institutional",
+  "reason": "Centar za psihoterapiju i edukaciju; webinari i promo isječci, nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 58,
+   "originals_30min": 6,
+   "avg_original_min": 53,
+   "last_original": "20260506",
+   "follower_count": 283
+  }
+ },
+ "UCJTR5NW9CPORjBdw-nJYKDg": {
+  "name": "Grad Pula",
+  "url": "https://www.youtube.com/channel/UCJTR5NW9CPORjBdw-nJYKDg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "Službeni kanal Grada Pule; prijenosi sjednica gradskog vijeća.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 90,
+   "originals_30min": 20,
+   "avg_original_min": 346,
+   "last_original": "20260806",
+   "follower_count": 1050
+  }
+ },
+ "UCjfczbbeVpDKoM1nYJvGIiw": {
+  "name": "Trend Medij",
+  "url": "https://www.youtube.com/channel/UCjfczbbeVpDKoM1nYJvGIiw/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Karlovački medij Trend Medij s dnevnom intervjuskom emisijom 'Gost dana by Eva Zadro' (razgovor s lokalnim gostima), puno epizoda i aktivan.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 66,
+   "originals_30min": 15,
+   "avg_original_min": 33,
+   "last_original": "20261005",
+   "follower_count": 11400
+  },
+  "slug": "trend-medij-gost-dana"
+ },
+ "UCbWCno7XaOZQi31uW7wBMgg": {
+  "name": "Almedin Imširović",
+  "url": "https://www.youtube.com/channel/UCbWCno7XaOZQi31uW7wBMgg/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 4, prosjek 22 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 4,
+   "originals_30min": 0,
+   "avg_original_min": 22,
+   "last_original": "20191006",
+   "follower_count": 21
+  }
+ },
+ "UCIlzByGh5ODgZtGSy8NinJg": {
+  "name": "tvk3",
+  "url": "https://www.youtube.com/channel/UCIlzByGh5ODgZtGSy8NinJg/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Televizija K3 iz Republike Srpske; srpski medij i politički program, ne hrvatski.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 86,
+   "originals_30min": 16,
+   "avg_original_min": 69,
+   "last_original": "20261005",
+   "follower_count": 58600
+  }
+ },
+ "UCMy0DqiWlfYaT3hQBARCF9A": {
+  "name": "Pancevo RTV",
+  "url": "https://www.youtube.com/channel/UCMy0DqiWlfYaT3hQBARCF9A/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "RTV Pančevo (Srbija); ekavica, srpski regionalni medij.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 5,
+   "avg_original_min": 30,
+   "last_original": "20261005",
+   "follower_count": 19600
+  }
+ },
+ "UC4DmZyA6kKr-j1ijK0pM0qQ": {
+  "name": "Dnevna Doza Zanimljivosti",
+  "url": "https://www.youtube.com/channel/UC4DmZyA6kKr-j1ijK0pM0qQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 60, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 60,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 465
+  }
+ },
+ "UC5n8I2MAslH0WCbninWShrQ": {
+  "name": "Smehotres balkana",
+  "url": "https://www.youtube.com/channel/UC5n8I2MAslH0WCbninWShrQ/videos",
+  "type": "channel",
+  "verdict": "not_podcast",
+  "reason": "auto: 0 originala ≥30 min od 1, prosjek 0 min",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "triage",
+  "metrics": {
+   "sampled": 1,
+   "originals_30min": 0,
+   "avg_original_min": 0,
+   "last_original": null,
+   "follower_count": 564
+  }
+ },
+ "UCDnKJsZEqjVZeb2ZMd5GumA": {
+  "name": "Radio Varaždin",
+  "url": "https://www.youtube.com/channel/UCDnKJsZEqjVZeb2ZMd5GumA/videos",
+  "type": "channel",
+  "verdict": "podcast_hr",
+  "reason": "Radio Varaždin, serija intervjua 'Intervju tjedna s Andreom Žigić Dolenec' u razgovornom formatu na hrvatskom; ali zadnja objava 2019. (arhivski kanal).",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 34,
+   "originals_30min": 25,
+   "avg_original_min": 33,
+   "last_original": "20191006",
+   "follower_count": 42
+  },
+  "slug": "radio-varazdin-intervju-tjedna"
+ },
+ "UCHfPWF6Pg7Cws5kZ6dFNP_Q": {
+  "name": "Timothy Lam",
+  "url": "https://www.youtube.com/channel/UCHfPWF6Pg7Cws5kZ6dFNP_Q/videos",
+  "type": "channel",
+  "verdict": "not_hr",
+  "reason": "Engleski kanal o londonskim autobusima, bez hrvatske veze; nije podcast.",
+  "judged_at": "2026-10-05",
+  "run": "2026-10-05",
+  "by": "claude:sonnet",
+  "metrics": {
+   "sampled": 61,
+   "originals_30min": 7,
+   "avg_original_min": 55,
+   "last_original": "20261005",
+   "follower_count": 5430
   }
  }
 }

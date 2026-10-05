@@ -2,24 +2,24 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-09-25
+**Generirano:** 2026-10-05
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
 
-- **Ukupno unosa:** 516
+- **Ukupno unosa:** 523
 - **Trenutno se prati:** 50
   - od toga `review_needed`: 5 (vidi sekciju dolje)
-- **Kandidati Faza 1** (postojeća niša, brzi dodaci): 355
+- **Kandidati Faza 1** (postojeća niša, brzi dodaci): 362
 - **Kandidati Faza 2** (veliki kanali, custom MIN_DURATION): 6
 - **Ostali kandidati** (sekularni / dijaspora / istražiti): 103
 - **Rejected** (permanentno isključeni): 2
 
-**Distribucija po tier-u:** tier 1: 27 · tier 3: 430 · tier 4: 38 · tier 2: 18 · —: 3
+**Distribucija po tier-u:** tier 1: 27 · tier 3: 437 · tier 4: 38 · tier 2: 18 · —: 3
 
-**Distribucija po data_quality:** verified ✅: 81 · partial ⚠️: 420 · complete —: 4 · unverified ❓: 9 · full —: 2
+**Distribucija po data_quality:** verified ✅: 81 · partial ⚠️: 427 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 163 · 🔴 neaktivan: 149 · ⚪ nepoznato: 117 · ⚪ nepoznato: 29 · ⚪ nepoznato: 43 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 176 · 🔴 neaktivan: 152 · ⚪ nepoznato: 108 · ⚪ nepoznato: 29 · ⚪ nepoznato: 43 · ⚪ nepoznato: 1 · ⚪ nepoznato: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ❌ rejected: 1 · ⚪ nepoznato: 2 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -35,6 +35,7 @@
 - **undefined**: undefined
 - **deep-research-micro-2026-08**: Deep Research — Istraživanje Hrvatskih Mikronišnih Podcasta (vjerski, B2B brand extension, regionalni) _(2026-08)_
 - **undefined**: undefined
+- **undefined**: undefined
 
 ---
 
@@ -46,20 +47,20 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **(Ne)uspjeh prvaka** | [@neuspjehprvaka](https://www.youtube.com/@neuspjehprvaka/videos) | 1 | 74K | 186 | 🟢 aktivan | Slaven Bilić, Mirza Džomba, Mario Stanić | `sport` `football` `personal-development` | ✅ |
 | **40 dana za život - Hrvatska za Život** | [@40danazaživot-HrvatskazaŽivot](https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos) | 3 | 10K | — | ⚪ nepoznato | — | `pro-life` `religious-catholic` | ⚠️ |
-| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 819 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
+| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 818 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
 | **Ad Deum Podcast** | [@AdDeumPodcast](https://www.youtube.com/@AdDeumPodcast/videos) | 3 | 12K | 20 | 🟢 aktivan | Fra Andrija Majić, Fra Ivo Rastočić | `religious-catholic` | ✅ |
 | **Božanstvena Komedija** | [@BožanstvenaKomedija](https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos) | 3 | 26K | — | ⚪ nepoznato | — | `religious-catholic` `domoljubni` | ⚠️ |
 | **Božja pobjeda** | [@Božjapobjeda](https://www.youtube.com/@Bo%C5%BEjapobjeda/videos) | 3 | 65K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Budi FRAjer** | [@budiFRAjer](https://www.youtube.com/@budiFRAjer/videos) | 3 | 62K | — | ⚪ nepoznato | — | `religious-catholic` `franciscan` | ⚠️ |
-| **Catholic Futurist** | [@CatholicFuturist](https://www.youtube.com/@CatholicFuturist/videos) | 3 | 187 | — | ⚪ nepoznato | — | `religious-catholic` `technology` | ⚠️ |
+| **Catholic Futurist** | [@CatholicFuturist](https://www.youtube.com/@CatholicFuturist/videos) | 3 | 191 | — | ⚪ nepoznato | — | `religious-catholic` `technology` | ⚠️ |
 | **Cryptoverse.hr — Kripto caffe** | [UCcQ4HZUBV_xpk1PbtQ_2ngw](https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb) | 3 | 17K | 55 | 🟢 aktivan | Veljko Skenderija | `technology` `finance` `interview` | ✅ |
 | **DOMOVINA.tv** | [@domovinatv](https://www.youtube.com/@domovinatv/videos) | — | 29 | — | 🟢 aktivan | — | `own-channel` `domoljubni` `technology` | ✅ |
 | **Duhovnost Hagio** | [@duhovnosthagio6031](https://www.youtube.com/@duhovnosthagio6031/videos) | 3 | 7K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Eho Projekt** | [@ehoprojekt](https://www.youtube.com/@ehoprojekt/videos) | 3 | 13K | — | ⚪ nepoznato | — | `religious-catholic` `education` | ⚠️ |
 | **Founder Talks (Promocija znanosti)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS) | 3 | 5K | 5 | 🟢 aktivan | — | `entrepreneurship` `business` `technology` `interview` | ✅ |
 | **Franjina ekonomija** | [@franjinaekonomijahrvatska8604](https://www.youtube.com/@franjinaekonomijahrvatska8604/videos) | 3 | 83 | — | ⚪ nepoznato | — | `economics` `religious-catholic` | ⚠️ |
-| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 591 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
-| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 377 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
+| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 593 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
+| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 378 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
 | **Gorica TV** | [@GoricaTV](https://www.youtube.com/@GoricaTV/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
 | **HCPI Podcast - Potresne priče** | [@hrvatskicentarzapotresnoin1185](https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn) | 4 | 238 | 2 | 🟢 aktivan | — | `education` `science` `engineering` | ✅ |
 | **Hercegovina Info** | [@HercegovinaInfo2](https://www.youtube.com/@HercegovinaInfo2/videos) | 3 | 4K | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
@@ -67,7 +68,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **HNB - Hrvatska narodna banka** | [@hrvatskanarodnabankacroati9475](https://www.youtube.com/@hrvatskanarodnabankacroati9475/videos) | 3 | 1K | — | ⚪ nepoznato | — | `institutional` `finance` | ⚠️ |
 | **Horizonti Liderstva** | [@HorizontiLiderstva](https://www.youtube.com/@HorizontiLiderstva/videos) | 3 | 109 | 15 | 🔴 neaktivan | Filip Đurović | `business` `leadership` | ✅ |
 | **IKRA Institut** | [@ikra-institut](https://www.youtube.com/@ikra-institut/videos) | 3 | 56 | — | ⚪ nepoznato | — | `education` | ⚠️ |
-| **Iva Kraljević** | [@ivakraljevic.](https://www.youtube.com/@ivakraljevic./videos) | 3 | 37K | — | ⚪ nepoznato | Iva Kraljević | `religious-catholic` | ⚠️ |
+| **Iva Kraljević** | [@ivakraljevic.](https://www.youtube.com/@ivakraljevic./videos) | 3 | 38K | — | ⚪ nepoznato | Iva Kraljević | `religious-catholic` | ⚠️ |
 | **KKO.hr** | [@kkohr](https://www.youtube.com/@kkohr/videos) | 3 | 10K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Launched by RevenueCat** | [UCHBZvDkQfz4A_fi-QbsY_lw](https://www.youtube.com/playlist?list=PLeRhggrXOh5EXa01b_9GN2cZXZagWEEv7) | 3 | 0 | — | 🟢 aktivan | — | `technology` `indie-dev` `english` | — |
 | **LOOD** | [@lood](https://www.youtube.com/@lood/videos) | 1 | 107K | 170 | 🟢 aktivan | Vinko Mihaljević | `personal-development` | ✅ |
@@ -83,13 +84,13 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Na novo rođeni** | [@nanovoroeni3392](https://www.youtube.com/@nanovoroeni3392/videos) | 3 | 50K | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
 | **Podcast Bitno.net-a** | [UCdeWIIyVKdg9Nq3CK5amFYA](https://www.youtube.com/playlist?list=PLuxH86sIsJ-aHROAlz-GEWkN4mGPcCa11) | 3 | 11K | 50 | 🟢 aktivan | — | `religious-catholic` `evangelization` | ✅ |
 | **Podcast by Niko** | [@PodcastbyNiko](https://www.youtube.com/@PodcastbyNiko/videos) | 3 | 4K | 5 | 🔴 neaktivan | Niko | `talk-show` | ✅ |
-| **Podcast Čušpajz** | [@podcastcuspajz](https://www.youtube.com/@podcastcuspajz/videos) | 1 | 6K | 920 | 🟢 aktivan | Alen Kristović | `political` `society` | ✅ |
+| **Podcast Čušpajz** | [@podcastcuspajz](https://www.youtube.com/@podcastcuspajz/videos) | 1 | 7K | 920 | 🟢 aktivan | Alen Kristović | `political` `society` | ✅ |
 | **Podcast za bolju Hrvatsku** | [@PodcastzaBoljuHrvatsku](https://www.youtube.com/@PodcastzaBoljuHrvatsku/videos) | 3 | 2K | — | ⚪ nepoznato | — | `political` `society` | ⚠️ |
 | **Poduzetništvo s povjerenjem** | [@poduzetnistvospovjerenjem](https://www.youtube.com/@poduzetnistvospovjerenjem/videos) | 3 | 1K | — | ⚪ nepoznato | — | `entrepreneurship` `religious-catholic` `business` | ⚠️ |
 | **Popcast by Darko Pavičić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU) | 1 | 117K | 40 | 🟢 aktivan | Darko Pavičić | `society` `religious-catholic` `culture` | ✅ |
-| **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | 97K | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
+| **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | 98K | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | 8K | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
-| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 360 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 402 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
 | **Slijedi svoj poziv — 1. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm) | 4 | 483 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Slijedi svoj poziv — 2. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY) | 4 | 483 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Sub Club by RevenueCat** | [UCeq8LcFQ3ee_p8b-eYTARsg](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | 0 | — | 🟢 aktivan | — | `technology` `business` `english` | — |
@@ -137,7 +138,7 @@ Kanali koje pratimo, ali Gemini istraživanje 03/2026 sugerira da nisu pravi pod
 
 ---
 
-## 🚀 Kandidati Faza 1 — postojeća niša (355)
+## 🚀 Kandidati Faza 1 — postojeća niša (362)
 
 Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVINA.tv (katoličko / domoljubno / hrvatski identitet / povijest). Treba samo potvrditi YouTube URL i dodati u `KANALI` array.
 
@@ -146,6 +147,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **#KiloMetri** | [UCDFJMnJN5qecz4lv1mZ63rg](https://www.youtube.com/channel/UCDFJMnJN5qecz4lv1mZ63rg/videos) | 3 | 3K | — | 🔴 neaktivan | Katarina Moskatelo | `travel` `culture` `lifestyle` | ⚠️ |
 | **01Podcast** | [UC9E5Dc0sdGAajZ7XT12ai1A](https://www.youtube.com/playlist?list=PL0s5WmozJdrhnkC0zlie3XEsX_8KNPr_0) | 3 | — | — | ⚪ nepoznato | Marijan Opačak | `political` `regional-media` `media` | ⚠️ |
 | **2Pogled na povijest Hrvatske i svijeta** | [UCQZjAfPH5XtOJ5ze66etQPw](https://www.youtube.com/channel/UCQZjAfPH5XtOJ5ze66etQPw/videos) | 3 | 2K | — | 🟢 aktivan | — | `history` | ⚠️ |
+| **4Kids Podcast (ALL IN with Maida Arslanagić)** | [UCYSyAnXuGP-Lor3yO25bhJg](https://www.youtube.com/channel/UCYSyAnXuGP-Lor3yO25bhJg/videos) | 3 | 198 | — | ⚪ nepoznato | Maida Arslanagić | `parenting` `health` `education` | ⚠️ |
 | **50 Minuta** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqTFr9a6d7TJX53_5FF8EOIQ) | 3 | — | — | ⚪ nepoznato | — | `political` `talk-show` `domoljubni` | ⚠️ |
 | **Actualitica Podcast** | [UCVdVBIcwZpKQfmxA488rQfA](https://www.youtube.com/channel/UCVdVBIcwZpKQfmxA488rQfA/videos) | 3 | 13K | — | 🟢 aktivan | — | `geopolitics` `political` `regional` | ⚠️ |
 | **AGAPE RTV** | [UCxV-_KkTuo-ZzZ7cHD64diQ](https://www.youtube.com/channel/UCxV-_KkTuo-ZzZ7cHD64diQ/videos) | 3 | 63K | — | 🟢 aktivan | — | `religious-catholic` `evangelization` | ⚠️ |
@@ -165,7 +167,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Bećar priče** | [UCYocODi5wXXvQstczBucIog](https://www.youtube.com/channel/UCYocODi5wXXvQstczBucIog/videos) | 3 | 6K | — | ⚪ nepoznato | — | `regional` `diaspora` `culture` | ⚠️ |
 | **Best Food Croatia** | [UCt1jNnOtFMVS7rFeq3BpQQg](https://www.youtube.com/channel/UCt1jNnOtFMVS7rFeq3BpQQg/videos) | 3 | 27K | — | 🟢 aktivan | Domagoj Delač | `lifestyle` `talk-show` `pop-culture` | ⚠️ |
 | **Bez Dlake Na Glavi** | [UCAfpzMev1SiUl-Jr569upow](https://www.youtube.com/channel/UCAfpzMev1SiUl-Jr569upow/videos) | 3 | 25K | — | 🟢 aktivan | — | `political` `geopolitics` `talk-show` | ⚠️ |
-| **Bez pardona** | [UCngES6navsTlEYf5ASu5-QA](https://www.youtube.com/channel/UCngES6navsTlEYf5ASu5-QA/videos) | 3 | 6K | — | ⚪ nepoznato | — | `women` `health` `talk-show` | ⚠️ |
+| **Bez pardona** | [UCngES6navsTlEYf5ASu5-QA](https://www.youtube.com/channel/UCngES6navsTlEYf5ASu5-QA/videos) | 3 | 6K | — | 🟢 aktivan | — | `women` `health` `talk-show` | ⚠️ |
 | **Bez uputnice** | [UCgOfDWsxLe3B8hUdPKx6S7A](https://www.youtube.com/playlist?list=PLCazT8AcMSrJhdU0tMXF0GWxp_qnKEAs5) | 3 | — | — | ⚪ nepoznato | Dina Šiljeg | `health` `talk-show` `media` | ⚠️ |
 | **biciklizam.net Podcast** | [UCiS-fovOPi9LCr_L8Mm-5SA](https://www.youtube.com/channel/UCiS-fovOPi9LCr_L8Mm-5SA/videos) | 3 | 4K | — | 🟢 aktivan | — | `sport` | ⚠️ |
 | **BIG PODCAST (Debela Barbara)** | [UC_ceo_aYfQpg3-WxVUSabMA](https://www.youtube.com/channel/UC_ceo_aYfQpg3-WxVUSabMA/videos) | 3 | 112K | — | 🔴 neaktivan | — | `lifestyle` `women` `comedy` | ⚠️ |
@@ -179,7 +181,8 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Bossy.** | [UC33a8nt-Y0LkhoBE8JjyMig](https://www.youtube.com/channel/UC33a8nt-Y0LkhoBE8JjyMig/videos) | 3 | 6K | — | 🔴 neaktivan | — | `women` `science` `personal-development` | ⚠️ |
 | **Briefing** | [UCoygYX3L4vBCR4T-EhafUTg](https://www.youtube.com/playlist?list=PL4ygmj--jCsNx5rqhVt6AvjGhry7scoEP) | 3 | — | — | 🟢 aktivan | — | `geopolitics` `political` `media` | ⚠️ |
 | **Budi heroj svoje priče** | [UCgZxjGrFlHDbgbPQHR8M_gw](https://www.youtube.com/channel/UCgZxjGrFlHDbgbPQHR8M_gw/videos) | 3 | 217 | — | ⚪ nepoznato | — | `personal-development` `health` | ⚠️ |
-| **Cancast** | [UC7WVD1Fm6JY4gU5hNg2CkDw](https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL) | 3 | — | — | ⚪ nepoznato | — | `sport` `pop-culture` `talk-show` | ⚠️ |
+| **Cancast** | [UC7WVD1Fm6JY4gU5hNg2CkDw](https://www.youtube.com/playlist?list=PLr703DZI18XEyZFpgyvQMgcbmRwdha5QL) | 3 | — | — | 🟢 aktivan | — | `sport` `pop-culture` `talk-show` | ⚠️ |
+| **Centar Pričaj mi** | [UClYLMgwwILNsz78sYC8VHTg](https://www.youtube.com/channel/UClYLMgwwILNsz78sYC8VHTg/videos) | 3 | 145 | — | 🔴 neaktivan | — | `parenting` `education` | ⚠️ |
 | **Chelsea Croatia** | [UCHq7FkKmD7ZDtYK-qZ5tHWA](https://www.youtube.com/channel/UCHq7FkKmD7ZDtYK-qZ5tHWA/videos) | 3 | 551 | — | 🔴 neaktivan | — | `sport` `football` | ⚠️ |
 | **COREdialog** | [UCsRB8TMe6iuSSwQ8fp2dOdw](https://www.youtube.com/channel/UCsRB8TMe6iuSSwQ8fp2dOdw/videos) | 3 | 238 | — | ⚪ nepoznato | — | `personal-development` `philosophy` `culture` | ⚠️ |
 | **CROfutsal & Megamix Radio Hvar Podcast** | [UC0q-eC0mM3t_nUME5IcIdfA](https://www.youtube.com/playlist?list=PLDQ_d7nNRr1PGLL7IugEXUQ6iKbsZX6pn) | 3 | — | — | 🔴 neaktivan | — | `sport` | ⚠️ |
@@ -203,13 +206,13 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Duhovna Obnova** | [UCpj2LQ0SuCuoHJEU7_0Za6Q](https://www.youtube.com/channel/UCpj2LQ0SuCuoHJEU7_0Za6Q/videos) | 3 | 63K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Duhovno duhovita večer** | [UCrfV3uhCoHNBaqiva1wCB4Q](https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o) | 3 | — | — | 🔴 neaktivan | — | `religious-catholic` `comedy` | ⚠️ |
 | **Duhovno duhoviti poziv** | [@frastjepanbrcina](https://www.youtube.com/@frastjepanbrcina) | 3 | — | — | ⚪ nepoznato | fra Stjepan Brčina | `religious-catholic` `youth` `personal-development` | ✅ |
-| **Evanđeosko teološko veleučilište u Osijeku** | [UCQsbGN8gkx7NB3RxHBZLglw](https://www.youtube.com/channel/UCQsbGN8gkx7NB3RxHBZLglw/videos) | 3 | 222 | — | ⚪ nepoznato | — | `religious-other` `theology` `institutional` | ⚠️ |
+| **Evanđeosko teološko veleučilište u Osijeku** | [UCQsbGN8gkx7NB3RxHBZLglw](https://www.youtube.com/channel/UCQsbGN8gkx7NB3RxHBZLglw/videos) | 3 | 222 | — | 🟢 aktivan | — | `religious-other` `theology` `institutional` | ⚠️ |
 | **Explora (HRT)** | [@explorahrt](https://www.youtube.com/@explorahrt/videos) | 2 | 17K | — | 🟢 aktivan | Elvis Mileta, Korado Korlević | `science` `technology` `education` `institutional` | — |
 | **Fake It Till You Make It Podcast** | [UCxxfZ7LhIiFuqPtacuXPLqw](https://www.youtube.com/channel/UCxxfZ7LhIiFuqPtacuXPLqw/videos) | 3 | 45 | — | 🔴 neaktivan | — | `culture` `lifestyle` | ⚠️ |
 | **Felix Contras** | [UCRrn5SObn87AoejwDkh7bEA](https://www.youtube.com/channel/UCRrn5SObn87AoejwDkh7bEA/videos) | 3 | 4K | — | ⚪ nepoznato | — | `geopolitics` `political` | ⚠️ |
 | **Filmopedija** | [UCKiC-dZx62RXeymJmR8E99g](https://www.youtube.com/channel/UCKiC-dZx62RXeymJmR8E99g/videos) | 3 | 191 | — | 🟢 aktivan | — | `pop-culture` `culture` | ⚠️ |
 | **Filmovi s Ruba** | [UCKwFccXL5XHo1JEaryEuTdw](https://www.youtube.com/channel/UCKwFccXL5XHo1JEaryEuTdw/videos) | 3 | 654 | — | ⚪ nepoznato | — | `pop-culture` `culture` | ⚠️ |
-| **FIMA** | [UCiKExDrDuOZcD-EBs05QW4w](https://www.youtube.com/channel/UCiKExDrDuOZcD-EBs05QW4w/videos) | 3 | 3K | — | ⚪ nepoznato | — | `finance` `business` | ⚠️ |
+| **FIMA** | [UCiKExDrDuOZcD-EBs05QW4w](https://www.youtube.com/channel/UCiKExDrDuOZcD-EBs05QW4w/videos) | 3 | 3K | — | 🟢 aktivan | — | `finance` `business` | ⚠️ |
 | **Financije i samo Financije** | [UCUgQcyJuN-FNBhgkXJtlBSQ](https://www.youtube.com/channel/UCUgQcyJuN-FNBhgkXJtlBSQ/videos) | 3 | 8K | — | 🔴 neaktivan | — | `finance` `business` | ⚠️ |
 | **Finax Croatia** | [UCE5wmfVlNSVWjWcjxzKcODg](https://www.youtube.com/channel/UCE5wmfVlNSVWjWcjxzKcODg/videos) | 3 | 9K | — | ⚪ nepoznato | Tamara Vrhovec Sekáč | `finance` `geopolitics` | ⚠️ |
 | **FIRE Podcast (Tetka & Škrti Otočanin)** | [UCvPVzHKlfYkq5ij9te0maiw](https://www.youtube.com/channel/UCvPVzHKlfYkq5ij9te0maiw/videos) | 3 | 9K | — | 🟢 aktivan | — | `finance` `personal-development` | ⚠️ |
@@ -217,12 +220,12 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Fondovske bajke** | [UCW97IZgXeXcU5zL-U9OdWgg](https://www.youtube.com/channel/UCW97IZgXeXcU5zL-U9OdWgg/videos) | 3 | 200 | — | ⚪ nepoznato | — | `business` `finance` | ⚠️ |
 | **Forbes Business Unplugged** | [UCbzmcyoz_CzJJgHonmkJ23g](https://www.youtube.com/playlist?list=PL279H2ix-v5XCJNLCpNMQ9ugDVBoZAG_b) | 3 | — | — | ⚪ nepoznato | — | `business` `economics` `leadership` | ⚠️ |
 | **Fortunal Podcast** | [UCC6yBUjYw86-AfTWl3Qmu7A](https://www.youtube.com/channel/UCC6yBUjYw86-AfTWl3Qmu7A/videos) | 3 | 666 | — | 🟢 aktivan | — | `lifestyle` `comedy` `talk-show` | ⚠️ |
-| **Fraktura BookTalk** | [UCKdC0rAJAG5pIBlk18BHsEw](https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/videos) | 3 | 2K | — | ⚪ nepoznato | — | `culture` `education` | ⚠️ |
+| **Fraktura BookTalk** | [UCKdC0rAJAG5pIBlk18BHsEw](https://www.youtube.com/channel/UCKdC0rAJAG5pIBlk18BHsEw/videos) | 3 | 2K | — | 🟢 aktivan | — | `culture` `education` | ⚠️ |
 | **Frama Tomislavgrad** | [UCmnfBcW8n2HmE8qig18whGQ](https://www.youtube.com/channel/UCmnfBcW8n2HmE8qig18whGQ/videos) | 3 | 553 | — | 🔴 neaktivan | — | `religious-catholic` `franciscan` `evangelization` | ⚠️ |
 | **FraMiKo - Frama Kočerin** | [UCpQtJl6aa7V2hdt87c3BDAQ](https://www.youtube.com/channel/UCpQtJl6aa7V2hdt87c3BDAQ/videos) | 3 | 2K | — | 🟢 aktivan | — | `religious-catholic` `franciscan` `testimonies` | ⚠️ |
 | **Freelance Roditelji** | [UCL1t5F5RlPQfI2Eu48Fxk0A](https://www.youtube.com/channel/UCL1t5F5RlPQfI2Eu48Fxk0A/videos) | 3 | 1K | — | 🟢 aktivan | Marko | `parenting` `business` `talk-show` | ⚠️ |
 | **Gaj Tomaš** | [UCTnBAvMUWsM2a--hPr9MrPw](https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw/videos) | 3 | 237 | — | ⚪ nepoznato | Gaj Tomaš | `language` `culture` `education` | ⚠️ |
-| **Game Changers Podcast** | [UCPLw4crqVFAUx98oIGXekug](https://www.youtube.com/channel/UCPLw4crqVFAUx98oIGXekug/videos) | 3 | 34 | — | 🟢 aktivan | Ivan Šafranić | `sport` `personal-development` | ⚠️ |
+| **Game Changers Podcast** | [UCPLw4crqVFAUx98oIGXekug](https://www.youtube.com/channel/UCPLw4crqVFAUx98oIGXekug/videos) | 3 | 34 | — | ⚪ nepoznato | Ivan Šafranić | `sport` `personal-development` | ⚠️ |
 | **Games Croatia** | [UC7pc63_aIVAga2QyJ7fsJfw](https://www.youtube.com/channel/UC7pc63_aIVAga2QyJ7fsJfw/videos) | 3 | 193 | — | ⚪ nepoznato | — | `gaming` `technology` | ⚠️ |
 | **Garaža** | [UCGp_gN9jbDXPuP5X5nFvxcg](https://www.youtube.com/channel/UCGp_gN9jbDXPuP5X5nFvxcg/videos) | 3 | 6K | — | 🔴 neaktivan | Luka, Tin | `talk-show` `lifestyle` | ⚠️ |
 | **Generacija+** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `personal-development` | ⚠️ |
@@ -271,10 +274,11 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Kulen Travel Podcast** | [UCDKOJTMbFsfkWPlzuchzR_A](https://www.youtube.com/channel/UCDKOJTMbFsfkWPlzuchzR_A/videos) | 3 | 181 | — | 🔴 neaktivan | — | `travel` `tourism` `culture` | ⚠️ |
 | **Kulturni štab** | [UCZGnOswyrNGy2esYmQeYNOQ](https://www.youtube.com/playlist?list=PLoYQojDUdig1zx05X3q48ndA77dpGbnZr) | 3 | — | — | 🔴 neaktivan | — | `culture` `history` | ⚠️ |
 | **Kyrios Books** | [UCQiOsHuy3jrCiwXaiuEAvbw](https://www.youtube.com/channel/UCQiOsHuy3jrCiwXaiuEAvbw/videos) | 3 | 12K | — | ⚪ nepoznato | — | `religious-catholic` `theology` | ⚠️ |
-| **La Vie Podcast** | [UCpHByrAFwng4tMNh7Z4V9jQ](https://www.youtube.com/channel/UCpHByrAFwng4tMNh7Z4V9jQ/videos) | 3 | 6K | — | 🟢 aktivan | — | `lifestyle` `culture` | ⚠️ |
+| **La Vie Podcast** | [UCpHByrAFwng4tMNh7Z4V9jQ](https://www.youtube.com/channel/UCpHByrAFwng4tMNh7Z4V9jQ/videos) | 3 | 6K | — | ⚪ nepoznato | — | `lifestyle` `culture` | ⚠️ |
+| **Lana Kihas – Zrnca mudrosti o odgoju** | [UC20pcVyWTCdvPJrtsTjWA-A](https://www.youtube.com/channel/UC20pcVyWTCdvPJrtsTjWA-A/videos) | 3 | 399 | — | ⚪ nepoznato | Lana Kihas | `education` `parenting` | ⚠️ |
 | **Let Love Eho Radio** | [UCgJSwKPHx2yF-rahKDyQn-A](https://www.youtube.com/channel/UCgJSwKPHx2yF-rahKDyQn-A/videos) | 3 | 1K | — | 🔴 neaktivan | — | `religious-other` `talk-show` | ⚠️ |
 | **Liberalni Podcast** | [UCmNlgTqn0BD2FdFSVuaVWxw](https://www.youtube.com/channel/UCmNlgTqn0BD2FdFSVuaVWxw/videos) | 3 | 350 | — | 🔴 neaktivan | — | `political` `economics` | ⚠️ |
-| **Libertas Talks podcast** | [UCeCk6GcwW18kYsLBKCeZo0A](https://www.youtube.com/channel/UCeCk6GcwW18kYsLBKCeZo0A/videos) | 3 | 781 | — | ⚪ nepoznato | — | `business` `education` | ⚠️ |
+| **Libertas Talks podcast** | [UCeCk6GcwW18kYsLBKCeZo0A](https://www.youtube.com/channel/UCeCk6GcwW18kYsLBKCeZo0A/videos) | 3 | 781 | — | 🟢 aktivan | — | `business` `education` | ⚠️ |
 | **Lider** | [UCboxxQjTe6vkiny3mkIo_BQ](https://www.youtube.com/channel/UCboxxQjTe6vkiny3mkIo_BQ/videos) | 3 | 8K | — | 🟢 aktivan | — | `business` `media` | ⚠️ |
 | **Loptar** | [UCkCaKvPqkFihbCtZsjXsRdg](https://www.youtube.com/channel/UCkCaKvPqkFihbCtZsjXsRdg/videos) | 3 | 8K | — | 🔴 neaktivan | — | `sport` `football` | ⚠️ |
 | **Mame kod Lane** | [UCWFmO4Alg0-LFfzCsD-8Img](https://www.youtube.com/channel/UCWFmO4Alg0-LFfzCsD-8Img/videos) | 3 | 33K | — | 🟢 aktivan | — | `parenting` `women` `lifestyle` | ⚠️ |
@@ -292,7 +296,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **MIXER** | [UCtTRM-loGOEQugE_CSaIcOg](https://www.youtube.com/channel/UCtTRM-loGOEQugE_CSaIcOg/videos) | 3 | 912 | — | ⚪ nepoznato | — | `culture` `media` | ⚠️ |
 | **MLGP Podcast** | [UCKYVCu4kNK4NnMObp7-7G4A](https://www.youtube.com/channel/UCKYVCu4kNK4NnMObp7-7G4A/videos) | 3 | 79 | — | 🔴 neaktivan | — | `gaming` | ⚠️ |
 | **Modul za rast** | [UCXUa2rxSiJoEuNe-lOj3PUg](https://www.youtube.com/channel/UCXUa2rxSiJoEuNe-lOj3PUg/videos) | 3 | 670 | — | 🟢 aktivan | Katarina Divjanović | `personal-development` `health` `women` | ⚠️ |
-| **Morina Kutija** | [UCZ1iv6WxK7_tClKR5-1XJhg](https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/videos) | 3 | 202 | — | ⚪ nepoznato | — | `culture` `talk-show` | ⚠️ |
+| **Morina Kutija** | [UCZ1iv6WxK7_tClKR5-1XJhg](https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/videos) | 3 | 202 | — | 🟢 aktivan | — | `culture` `talk-show` | ⚠️ |
 | **Most TV** | [UCoC_vH7Vp_atyV2AQCCKlZg](https://www.youtube.com/playlist?list=PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu) | 3 | — | — | 🔴 neaktivan | — | `political-party` `political` | ⚠️ |
 | **Možemo Podcast** | [UC-EG8D5Im29F-dvNC-wr8uw](https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A) | 3 | — | — | 🔴 neaktivan | — | `political-party` `political` | ⚠️ |
 | **Mrtvi Piksel (POPCAST)** | [UCLI1nI4jtUtOJjXOzDIp_1w](https://www.youtube.com/channel/UCLI1nI4jtUtOJjXOzDIp_1w/videos) | 3 | 3K | — | 🔴 neaktivan | — | `film` `pop-culture` `gaming` | ⚠️ |
@@ -306,11 +310,12 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Nađi Način** | [UCihFVvNAGGWomC6Q4cIE2xg](https://www.youtube.com/channel/UCihFVvNAGGWomC6Q4cIE2xg/videos) | 3 | 7K | — | 🟢 aktivan | Sara Peranić | `business` `entrepreneurship` `personal-development` | ⚠️ |
 | **Neka Nova Priča** | [UCEivQbBRJYKOBfko2YeQAnQ](https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos) | 3 | 2K | — | 🔴 neaktivan | Lucia Adžić | `personal-development` `lifestyle` | ⚠️ |
 | **NLO Arhivist** | [UCatMPoW3BfGVvlyRvQJtyqg](https://www.youtube.com/channel/UCatMPoW3BfGVvlyRvQJtyqg/videos) | 3 | 321 | — | 🟢 aktivan | — | `mystery` `science` | ⚠️ |
-| **Noći Bez Cenzure** | [UCrekW01JOy-dPoTCJk2SYNQ](https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos) | 3 | 2K | — | ⚪ nepoznato | — | `lifestyle` `talk-show` | ⚠️ |
+| **Noći Bez Cenzure** | [UCrekW01JOy-dPoTCJk2SYNQ](https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos) | 3 | 2K | — | 🟢 aktivan | — | `lifestyle` `talk-show` | ⚠️ |
 | **Nominis (Udruga eCommerce Hrvatska)** | [UCXHKfN-xMjwMXRZAgJqIK9g](https://www.youtube.com/channel/UCXHKfN-xMjwMXRZAgJqIK9g/videos) | 3 | 1K | — | ⚪ nepoznato | — | `business` `digital` `technology` | ⚠️ |
+| **Norda Disleksija** | [UCu4LN1f9qC_04exifajyw9Q](https://www.youtube.com/channel/UCu4LN1f9qC_04exifajyw9Q/videos) | 3 | 637 | — | 🔴 neaktivan | Anja Norda | `speech-therapy` `education` `testimonies` | ⚠️ |
 | **Nota Bene** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh) | 3 | — | — | 🔴 neaktivan | — | `pop-culture` `testimonies` | ⚠️ |
 | **NOVA: O svemiru i svemu ostalom** | [UC2ZncwZyQBHyBKIzg7UGZvw](https://www.youtube.com/channel/UC2ZncwZyQBHyBKIzg7UGZvw/videos) | 3 | 1K | — | ⚪ nepoznato | — | `science` `education` `history` | ⚠️ |
-| **Novo srce** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ) | 3 | — | — | ⚪ nepoznato | — | `testimonies` `religious-catholic` | ⚠️ |
+| **Novo srce** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ) | 3 | — | — | 🟢 aktivan | — | `testimonies` `religious-catholic` | ⚠️ |
 | **O, tempora!** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo) | 3 | — | — | 🔴 neaktivan | — | `theology` `philosophy` `religious-catholic` | ⚠️ |
 | **Oasis in tempore** | [@oasisintempore](https://www.youtube.com/@oasisintempore/videos) | 3 | 6K | — | 🟢 aktivan | Petar Jurčević | `religious-catholic` `evangelization` `testimonies` | — |
 | **Occamova britva** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kP9vpOEFF41xwWLHtt49oi0) | 3 | — | — | 🟢 aktivan | Dario Špelić | `philosophy` | ⚠️ |
@@ -354,7 +359,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Podcast Rampa** | [UCa0iFqekHmAyAidAmhNVXCw](https://www.youtube.com/channel/UCa0iFqekHmAyAidAmhNVXCw/videos) | 3 | 812 | — | ⚪ nepoznato | — | `sport` `culture` | ⚠️ |
 | **Podcast Rijeke Smijeha** | [UCJPMZwh6qj1AZQWd1jl3ISw](https://www.youtube.com/channel/UCJPMZwh6qj1AZQWd1jl3ISw/videos) | 3 | 103 | — | 🔴 neaktivan | — | `comedy` `talk-show` | ⚠️ |
 | **Podcast s Brezom** | [UCvtVoRVW7ARC7KGQLLl7_fQ](https://www.youtube.com/channel/UCvtVoRVW7ARC7KGQLLl7_fQ/videos) | 3 | 11K | — | 🟢 aktivan | Boris Brezo | `political` `geopolitics` `talk-show` | ⚠️ |
-| **Podcast Sekstant** | [UCUm0HNMAJ5PXiEQb-q3zFDQ](https://www.youtube.com/channel/UCUm0HNMAJ5PXiEQb-q3zFDQ/videos) | 3 | 12K | — | 🟢 aktivan | — | `philosophy` `mystery` `regional` | ⚠️ |
+| **Podcast Sekstant** | [UCUm0HNMAJ5PXiEQb-q3zFDQ](https://www.youtube.com/channel/UCUm0HNMAJ5PXiEQb-q3zFDQ/videos) | 3 | 12K | — | ⚪ nepoznato | — | `philosophy` `mystery` `regional` | ⚠️ |
 | **Podcast SFERA** | [UCut75WmrjhrgrEiQ6Zmn5Gg](https://www.youtube.com/channel/UCut75WmrjhrgrEiQ6Zmn5Gg/videos) | 3 | 11K | — | ⚪ nepoznato | — | `culture` `business` | ⚠️ |
 | **Podcast Svjedok** | [UCs9cbK1jnbAU1auzty9Qlrw](https://www.youtube.com/channel/UCs9cbK1jnbAU1auzty9Qlrw/videos) | 3 | 924 | — | 🟢 aktivan | — | `domovinski-rat` `history` `testimonies` | ⚠️ |
 | **Podcast Tanje Hrvatin Šimičić** | [UCG2iMPiH6Pzetmmv6Ypdv6Q](https://www.youtube.com/channel/UCG2iMPiH6Pzetmmv6Ypdv6Q/videos) | 3 | 4K | — | 🟢 aktivan | Tanja Hrvatin Šimičić | `parenting` `women` `personal-development` | ⚠️ |
@@ -396,11 +401,12 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **PULS.E Podcast (Sanja Žuljević)** | [UC5rBE0XRP7JYxmzWuClbLWQ](https://www.youtube.com/channel/UC5rBE0XRP7JYxmzWuClbLWQ/videos) | 3 | 2K | — | ⚪ nepoznato | — | `health` `women` `fitness` | ⚠️ |
 | **Purgeraj** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kNH7hdKf4g88Iddb_D4g85E) | 3 | — | — | 🔴 neaktivan | — | `culture` `lifestyle` | ⚠️ |
 | **PushPauza Podcast** | [UCoHhMJgd9ZTXIUdy1c2Mi-w](https://www.youtube.com/playlist?list=PLQ13j7SloUbNVJfSM2CSXwVscqV0n5JMr) | 3 | — | — | 🔴 neaktivan | — | `culture` `sport` `entrepreneurship` | ⚠️ |
-| **Rad po mjeri čovjeka** | [UCJyQ5SzpHCcTbw1RvcsHBfA](https://www.youtube.com/playlist?list=PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR) | 3 | — | — | 🟢 aktivan | Nediljka Junaković | `society` `advocacy` | ⚠️ |
+| **Rad po mjeri čovjeka** | [UCJyQ5SzpHCcTbw1RvcsHBfA](https://www.youtube.com/playlist?list=PLB7pVVlOWZu8r5Bj3ji9n6-1zpjJReIrR) | 3 | — | — | ⚪ nepoznato | Nediljka Junaković | `society` `advocacy` | ⚠️ |
 | **Radio Benkovac** | [UCSmXdXBDxfmeL98o_Qm-qMA](https://www.youtube.com/channel/UCSmXdXBDxfmeL98o_Qm-qMA/videos) | 3 | 55 | — | 🟢 aktivan | — | `religious-catholic` `culture` `regional-media` | ⚠️ |
 | **Radio Marija u BiH** | [UCEeV5Hg4lLI3XjIouI0ykug](https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug/videos) | 3 | 23K | — | ⚪ nepoznato | — | `religious-catholic` `diaspora` | ⚠️ |
 | **Radio Tvornica** | [UCQfu-cfE5w09IWc2ifCZfnA](https://www.youtube.com/channel/UCQfu-cfE5w09IWc2ifCZfnA/videos) | 3 | 342 | — | 🔴 neaktivan | — | `talk-show` `culture` | ⚠️ |
-| **Razgovor s razlogom** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja) | 3 | — | — | ⚪ nepoznato | Morana Kasapović | `culture` `talk-show` | ⚠️ |
+| **Radio Varaždin – Intervju tjedna** | [UCDnKJsZEqjVZeb2ZMd5GumA](https://www.youtube.com/channel/UCDnKJsZEqjVZeb2ZMd5GumA/videos) | 3 | 42 | — | 🔴 neaktivan | Andrea Žigić Dolenec | `regional-media` `talk-show` `society` | ⚠️ |
+| **Razgovor s razlogom** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kM04GjT-z9NpJgi39Z_v4Ja) | 3 | — | — | 🟢 aktivan | Morana Kasapović | `culture` `talk-show` | ⚠️ |
 | **Razgovori** | [UCVfz6I7XISePfuN02Hx4bCA](https://www.youtube.com/playlist?list=PLFSB3SakI85fOcko8Plmw0HGNvjNJsg6L) | 3 | — | — | ⚪ nepoznato | — | `culture` `talk-show` | ⚠️ |
 | **Razgovori s (nad)biskupima** | [UCrfV3uhCoHNBaqiva1wCB4Q](https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-) | 3 | — | — | ⚪ nepoznato | — | `religious-catholic` `talk-show` | ⚠️ |
 | **Razvojni kod** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kPOPGkWwIYBkXrJBoMMr_Nz) | 3 | — | — | 🟢 aktivan | Tatjana Kaštelan | `society` `business` | ⚠️ |
@@ -410,7 +416,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Rendezvous** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqSgLA8v8pobwXWVk6mRg6Oq) | 3 | — | — | ⚪ nepoznato | Ratko Martinović | `talk-show` `culture` `political` | ⚠️ |
 | **Retronauti** | [UCMr5ZbeesbHwBSxOQdYp34w](https://www.youtube.com/channel/UCMr5ZbeesbHwBSxOQdYp34w/videos) | 3 | 39 | — | 🔴 neaktivan | — | `film` `pop-culture` | ⚠️ |
 | **REZOLUCIJA Vodcast** | [UCzckNCisVvpuIsJY0uZwXCw](https://www.youtube.com/channel/UCzckNCisVvpuIsJY0uZwXCw/videos) | 3 | 1K | — | 🔴 neaktivan | — | `talk-show` `sport` `culture` | ⚠️ |
-| **Ril Tok Podcast** | [UCctBtR3ROI8bcgq__bQEwIw](https://www.youtube.com/channel/UCctBtR3ROI8bcgq__bQEwIw/videos) | 3 | 18K | — | ⚪ nepoznato | — | `talk-show` `sport` | ⚠️ |
+| **Ril Tok Podcast** | [UCctBtR3ROI8bcgq__bQEwIw](https://www.youtube.com/channel/UCctBtR3ROI8bcgq__bQEwIw/videos) | 3 | 18K | — | 🟢 aktivan | — | `talk-show` `sport` | ⚠️ |
 | **Rock Portal** | [UCP2LgGiAHQzaykKidqdOIOA](https://www.youtube.com/channel/UCP2LgGiAHQzaykKidqdOIOA/videos) | 3 | 129 | — | ⚪ nepoznato | — | `music` `media` | ⚠️ |
 | **Romano Bolković: 1 na 1** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kOBpCz0FqspWIbF3t4hdE8b) | 3 | — | — | 🔴 neaktivan | Romano Bolković | `political` `geopolitics` `talk-show` | ⚠️ |
 | **Rooftop TV** | [UCMUZ619OQG0Z2oYV00EMfGQ](https://www.youtube.com/channel/UCMUZ619OQG0Z2oYV00EMfGQ/videos) | 3 | 1K | — | 🔴 neaktivan | — | `sport` `comedy` `talk-show` | ⚠️ |
@@ -425,7 +431,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Seksurbacije Podcast** | [UCdMkKtMvFlOEF6tKowy4C6g](https://www.youtube.com/playlist?list=PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a) | 3 | — | — | 🔴 neaktivan | Marina Krleža | `lifestyle` `health` | ⚠️ |
 | **Shegrt** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5) | 3 | — | — | 🔴 neaktivan | — | `business` `finance` `education` | ⚠️ |
 | **Show na kvadrat** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUIMAAs0RT11eQJE2WRkGLUF) | 3 | — | — | 🟢 aktivan | Zvonimir Milaković | `pop-culture` `talk-show` `media` | ⚠️ |
-| **Sindikalni megafon (Sindikat!)** | [UCyHGMK7bYeQMYCGU2mf0IaQ](https://www.youtube.com/channel/UCyHGMK7bYeQMYCGU2mf0IaQ/videos) | 3 | 387 | — | ⚪ nepoznato | — | `political` `society` `education` | ⚠️ |
+| **Sindikalni megafon (Sindikat!)** | [UCyHGMK7bYeQMYCGU2mf0IaQ](https://www.youtube.com/channel/UCyHGMK7bYeQMYCGU2mf0IaQ/videos) | 3 | 387 | — | 🟢 aktivan | — | `political` `society` `education` | ⚠️ |
 | **Sistematski - Yammatov tjedni intervju tjedna** | [UC0pZKoY0N8b6yFiNYoKrGDQ](https://www.youtube.com/playlist?list=PLEqmJVtQ3nWnILlqPs9sg0hBO11ur5B5W) | 3 | — | — | ⚪ nepoznato | — | `culture` `political` `media` | ⚠️ |
 | **SKAC Palma** | [UCh3-BFGjXuSi1nw05RcdUlQ](https://www.youtube.com/channel/UCh3-BFGjXuSi1nw05RcdUlQ/videos) | 3 | 3K | — | ⚪ nepoznato | — | `religious-catholic` `evangelization` | ⚠️ |
 | **Skrivena strana poroda** | [UC469rilyuy-vErL3AkZ6TOg](https://www.youtube.com/channel/UC469rilyuy-vErL3AkZ6TOg/videos) | 3 | 774 | — | ⚪ nepoznato | — | `parenting` `women` `health` | ⚠️ |
@@ -459,6 +465,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Tonecast (Music Shop No1)** | [UCE5nN4MTLjJ-tLMoIiGUQ-Q](https://www.youtube.com/channel/UCE5nN4MTLjJ-tLMoIiGUQ-Q/videos) | 3 | 3K | — | 🟢 aktivan | — | `music` `culture` | ⚠️ |
 | **Top Fighting Zone Podcast** | [UCE-TwuQToHiy8tyxEIW_cTA](https://www.youtube.com/channel/UCE-TwuQToHiy8tyxEIW_cTA/videos) | 3 | 269 | — | 🟢 aktivan | — | `sport` `mma` | ⚠️ |
 | **Treći element** | [UC3Xxn8WDEM8eRn1bqLv7VfQ](https://www.youtube.com/channel/UC3Xxn8WDEM8eRn1bqLv7VfQ/videos) | 3 | 6K | — | 🔴 neaktivan | — | `science` `education` | ⚠️ |
+| **Trend Medij – Gost dana** | [UCjfczbbeVpDKoM1nYJvGIiw](https://www.youtube.com/channel/UCjfczbbeVpDKoM1nYJvGIiw/videos) | 3 | 11K | — | 🟢 aktivan | Eva Zadro | `regional-media` `talk-show` `society` | ⚠️ |
 | **Tri strane - podcast o obrazovanju** | [UCcohM3KBg8Rm8LHS5FfSq2A](https://www.youtube.com/channel/UCcohM3KBg8Rm8LHS5FfSq2A/videos) | 3 | 69 | — | 🔴 neaktivan | — | `education` | ⚠️ |
 | **U povjerenju s Nevenom Ciganovićem** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUKzOJ5YONNTYXXKKVjy-_Tu) | 3 | — | — | 🔴 neaktivan | Neven Ciganović | `pop-culture` `talk-show` `lifestyle` | ⚠️ |
 | **U pravom licu by Antonela Marušić** | [UCZGnOswyrNGy2esYmQeYNOQ](https://www.youtube.com/playlist?list=PLoYQojDUdig0zntHKSZtQnsleQThdyEsx) | 3 | — | — | 🟢 aktivan | Antonela Marušić | `culture` `pop-culture` | ⚠️ |
@@ -485,6 +492,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Vrijeme za zdravlje s Doktorom za srce** | [UCFX4Srv6SEU3Oa7bQtT8FqQ](https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ/videos) | 3 | 359 | — | ⚪ nepoznato | Davor Miličić | `health` `science` `education` | ⚠️ |
 | **Vrisak Podcast** | [UCk2N0DjcMQgOilSMic09hQg](https://www.youtube.com/channel/UCk2N0DjcMQgOilSMic09hQg/videos) | 3 | 3K | — | ⚪ nepoznato | — | `talk-show` `regional-media` `culture` | ⚠️ |
 | **Vrući krumpir** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4) | 3 | — | — | 🔴 neaktivan | Davor Dretar | `talk-show` `political` | ⚠️ |
+| **XRPG 360 / CyberFleet** | [UCMCONjoZqrzqfRHdSGb9ttQ](https://www.youtube.com/channel/UCMCONjoZqrzqfRHdSGb9ttQ/videos) | 3 | 749 | — | ⚪ nepoznato | — | `technology` `business` | ⚠️ |
 | **You go You grow Podcast** | [UCDUycd8sVTE9FvZe1xc3S8g](https://www.youtube.com/channel/UCDUycd8sVTE9FvZe1xc3S8g/videos) | 3 | 16 | — | 🔴 neaktivan | — | `personal-development` `women` | ⚠️ |
 | **Zabavni radio (NA TI Podcast)** | [UCMgTpHyTm1f6P9HynG1Lhng](https://www.youtube.com/playlist?list=PLfjVhYtv5z7UtnEMbk8XgFSzNQdKln6th) | 3 | 188 | — | ⚪ nepoznato | — | `comedy` `talk-show` `regional-media` | ⚠️ |
 | **Zaja Mind** | [UCaEpQ2To0BK5Bpnit-j921Q](https://www.youtube.com/channel/UCaEpQ2To0BK5Bpnit-j921Q/videos) | 3 | 3K | — | ⚪ nepoznato | — | `personal-development` `fitness` | ⚠️ |
@@ -496,7 +504,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Zona Zagreb** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqSLNJbp8_knr9i-uImUdvvM) | 3 | — | — | ⚪ nepoznato | Renato Petek | `political` `society` | ⚠️ |
 | **Zrela Veza Podcast** | [UCacGzbXouQkqR9pw5olGV-g](https://www.youtube.com/channel/UCacGzbXouQkqR9pw5olGV-g/videos) | 3 | 13K | — | ⚪ nepoznato | — | `personal-development` `masculinity` `lifestyle` | ⚠️ |
 | **Ženska priča (Marijana Perinić)** | [UCvguXMDYahdklYdmtuS1zHg](https://www.youtube.com/channel/UCvguXMDYahdklYdmtuS1zHg/videos) | 3 | 3K | — | ⚪ nepoznato | — | `women` `talk-show` | ⚠️ |
-| **Životne priče by Dea Redžić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7) | 3 | — | — | ⚪ nepoznato | Dea Redžić | `culture` `talk-show` `media` | ⚠️ |
+| **Životne priče by Dea Redžić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUL9cxpo13IAO6CYJO9K0oZ7) | 3 | — | — | 🟢 aktivan | Dea Redžić | `culture` `talk-show` `media` | ⚠️ |
 | **Župa sv. Ilije proroka Metković** | [UC6zO38vRsP6bV8gNsaQWqVw](https://www.youtube.com/channel/UC6zO38vRsP6bV8gNsaQWqVw/videos) | 3 | 15K | — | ⚪ nepoznato | — | `religious-catholic` `institutional` | ⚠️ |
 
 
@@ -583,7 +591,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Pametni ljudi** | — | 1 | 8K | 150 | 🟢 aktivan | — | `business` `education` | ✅ |
 | **Podcast Centra Tić** | [@CentarTić](https://www.youtube.com/@CentarTi%C4%87) | 4 | — | — | ⚪ nepoznato | Centar Tić Rijeka | `personal-development` `education` | ✅ |
 | **Podcast s Barbarom** | [@dulist9341](https://www.youtube.com/@dulist9341) | 3 | — | 110 | 🟢 aktivan | Barbara Đurasović | `culture` `domoljubni` `business` | ✅ |
-| **Podkist (FER)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS) | 3 | — | — | ⚪ nepoznato | — | `science` `technology` `education` | ⚠️ |
+| **Podkist (FER)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9mKLHJ8SGniYcM6lB7PvydS) | 3 | — | — | 🟢 aktivan | — | `science` `technology` `education` | ⚠️ |
 | **Pogled s Čuke** | [@pogledscuke](https://www.youtube.com/c/pogledscuke) | 3 | — | 30 | 🔴 neaktivan | Jozo, Peco | `domovinski-rat` `history` `domoljubni` | ❓ |
 | **Povijest četvrtkom** | [@Povijestcetvrtkom](https://www.youtube.com/playlist?list=PLuEWODEWd3kOu_jXe6bTPCbr6IlvDRtJ1) | 4 | — | — | 🟢 aktivan | Dario Špelić | `history` | ⚠️ |
 | **Prvi glas (Telegram.hr)** | [UCV_gCZEP2ikrjZVTRulR7sw](https://www.youtube.com/playlist?list=PL3YKTluJTGBqgGQQfP9DcdrDWuFZcSuqE) | 4 | — | — | 🟢 aktivan | — | `media` `society` | ⚠️ |
@@ -600,7 +608,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Stanarica podcast o nekretninama** | [@Stanarica](https://www.youtube.com/@Stanarica) | 3 | — | — | ⚪ nepoznato | Ivana Alfier | `business` `realestate` `finance` | ✅ |
 | **Superhuman Life** | [@Superhumanlife](https://www.youtube.com/c/Superhumanlife) | 1 | 25K | 100 | ⚪ nepoznato | — | `personal-development` | ⚠️ |
 | **Surove Strasti** | [@SuroveStrasti](https://www.youtube.com/c/SuroveStrasti) | 1 | — | 422 | 🔴 neaktivan | Saša Tenodi, Ivan Voras | `business` `lifestyle` | ✅ |
-| **Špica s Macanom** | [@SpicasMacanom](https://www.youtube.com/@SpicasMacanom) | 1 | 10K | 80 | ⚪ nepoznato | Krešimir Macan, Neven Kepeski | `political` `society` `economics` | ✅ |
+| **Špica s Macanom** | [@SpicasMacanom](https://www.youtube.com/@SpicasMacanom) | 1 | 10K | 80 | 🟢 aktivan | Krešimir Macan, Neven Kepeski | `political` `society` `economics` | ✅ |
 | **Tribina** | [@Tribina_HR](https://www.youtube.com/@Tribina_HR) | 2 | — | 200 | 🟢 aktivan | J. Korda, M. Topić | `sport` `football` | ✅ |
 | **Tribina — 1 na 1 s Vladom na ti** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPte5VZ_i_DQriMGP1HPQbBJq) | 3 | — | 6 | 🟢 aktivan | — | `sport` `interview` | ✅ |
 | **Tribina — EURO 2024** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPteTOD8Vru6QfMEL8z1kEtqG) | 4 | — | 33 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
@@ -613,7 +621,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Tribina — Niže lige specijal** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtcu0Fb6mfx3RCx8Ic6RSKjn) | 3 | — | 14 | 🔴 neaktivan | — | `sport` `football` | ✅ |
 | **Tribina — Podcast s gostom** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtelZlOXnDayM0BhmZO0yE2P) | 2 | — | 159 | 🟢 aktivan | — | `sport` `football` `interview` | ✅ |
 | **Tribina — Q&A** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtfPUJYzWYxtgKWS7Jo5oWmj) | 2 | — | 26 | ⚪ nepoznato | — | `sport` `qa` | ✅ |
-| **Tribina — Reprezentacija** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3) | 3 | — | 19 | ⚪ nepoznato | — | `sport` `football` `reprezentacija` | ✅ |
+| **Tribina — Reprezentacija** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtcCPfByXSVDupDX8T97QRU3) | 3 | — | 19 | 🟢 aktivan | — | `sport` `football` `reprezentacija` | ✅ |
 | **Tribina — Robert Knjaz** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtfern4kqsBM5CPr0mbNZbPr) | 3 | — | 4 | ⚪ nepoznato | — | `sport` `interview` | ✅ |
 | **Tribina — SP Qatar 2022** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtcQtqRw96SiQkKRTwqVTvsU) | 4 | — | 36 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |
 | **Tribina — SP Rusija 2018** | [UCjTiZ9ebMJumhPMsciuevxg](https://www.youtube.com/playlist?list=PL04FaKq-cPtf-Q2F8Ssi9izyoJR_WweuN) | 4 | — | 70 | ⚪ nepoznato | — | `sport` `football` `event-archive` | ✅ |

@@ -1,0 +1,70 @@
+{
+ "key": "UC1RWxKMox_9HkPon0a9Glpw",
+ "url": "https://www.youtube.com/channel/UC1RWxKMox_9HkPon0a9Glpw/videos",
+ "channel_id": "UC1RWxKMox_9HkPon0a9Glpw",
+ "playlist_id": null,
+ "title": "Laboratorij za potpomognutu komunikaciju ERF - Videos",
+ "channel": "Laboratorij za potpomognutu komunikaciju ERF",
+ "channel_url": "https://www.youtube.com/channel/UC1RWxKMox_9HkPon0a9Glpw",
+ "description": "",
+ "follower_count": 260,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "uvSbQ0lcjcs",
+   "title": "Specijalistički studij Rana intervencija u edukacijskoj rehabilitaciji (2006. - 2026.)",
+   "duration": 531,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "9r1-m58CJ6A",
+   "title": "Mjesec svjesnosti #aacaware2025",
+   "duration": 231,
+   "live_status": null,
+   "upload_date": "20251106"
+  },
+  {
+   "id": "hS8cXEoHa4A",
+   "title": "Potpomognuta komunikacija od jutra do sutra",
+   "duration": 198,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "etkjeXd2LJw",
+   "title": "Uhvati ritam s potpomognutom komunikacijom - Parni valjak",
+   "duration": 256,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "fToTGV6N-mE",
+   "title": "Potpomognuta komunikacija u ritmu",
+   "duration": 256,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "SpvhYuefEsc",
+   "title": "Modeliranje u potpomognutoj komunikaciji",
+   "duration": 461,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "qpzNoRLHIMw",
+   "title": "Amazing things happen croatian version",
+   "duration": 330,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "Z-LW6hd1jyY",
+   "title": "Potpomognuta komunikacija  kako je vide studenti logopedije",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20181006"
+  }
+ ]
+}

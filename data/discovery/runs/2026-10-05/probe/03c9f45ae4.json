@@ -1,0 +1,455 @@
+{
+ "key": "UCr6FCfJeMgYbLWPiqAOKbYw",
+ "url": "https://www.youtube.com/channel/UCr6FCfJeMgYbLWPiqAOKbYw/videos",
+ "channel_id": "UCr6FCfJeMgYbLWPiqAOKbYw",
+ "playlist_id": null,
+ "title": "DjecjaTV - Videos",
+ "channel": "DjecjaTV",
+ "channel_url": "https://www.youtube.com/channel/UCr6FCfJeMgYbLWPiqAOKbYw",
+ "description": "Dječja televizija ( DTV ) je prva hrvatska televizija s programom namijenjenim isključivo djeci. Nastaje u produkciji tvrtke Croatia film d.o.o., najstarije hrvatske filmske kuće, osnovane 1946.godine, u sklopu koje su nastali mnogi poznati kratkometražni i dugometražni animinirani filmovi za djecu i odrasle, nekoliko animiranih serijala te mnogo poznatih reklamnih filmova. Na programu Dječje televizije su crtani, igrani i lutkarski serijali te snimljene emisije u kojima sudjeluju djeca, kao što su Top lista, U gostima i Pošalji svoj video.",
+ "follower_count": 359000,
+ "streams_count": 3,
+ "videos": [
+  {
+   "id": "KrcEkYWz7u0",
+   "title": "Viktor Kolmar - Moja si pjesma znaj",
+   "duration": 294,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "JasnoW-K3Q8",
+   "title": "Zabavan, film za cijelu obitelj - KRISTALNI PLANET od 27.08. U KINIMA",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "COL14XYHqw4",
+   "title": "Vole pomagati i nikad ne lažu - upoznajte Zlobce! U kinima od 27.08. u filmu KRISTALNI PLANET",
+   "duration": 30,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "dsI0zjkYFD0",
+   "title": "Upoznajte Zlobce - duo koji će vas oduševiti! Očekuju vas u kinu od 27.08. u filmu KRISTALNI PLANET",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "jjJc0e9rnAY",
+   "title": "U animiranom filmu KRISTALNI PLANET pjesmu GDJE LJUBAV ČEKA NAS izvodi FRANKA (u kinima od 27.08.)",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "8aloAbDXtjs",
+   "title": "Dobitnik ZLATNE ARENE na 73. Pulskom festivalu, animirani film KRISTALNI PLANET od 27.08. U KINIMA",
+   "duration": 60,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "ULcSguTRxSI",
+   "title": "Kristalni planet - u kinima od 27.8.",
+   "duration": 148,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "kuzybNzSaME",
+   "title": "Popi i dječji zbor Marijini anđeli - Na putu do zvijezda",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "q79ZzTnAl48",
+   "title": "PLAVI MJESEC - SAMO SMIJEM SE 2",
+   "duration": 186,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "pYvY9jpXpZs",
+   "title": "PLAVI MJESEC - Samo smijem se 1",
+   "duration": 186,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "UPlAPfF3ulc",
+   "title": "Želim biti Dee Jay! Bella nastup 2",
+   "duration": 70,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Kg_vYrUDVLI",
+   "title": "Želim biti Dee Jay! 9. Korištenje EFEKATA",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "zfWbJ9q-ilI",
+   "title": "Želim biti Dee Jay! 8. Korištenje SYNC funkcije",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "ReUeQodzWEw",
+   "title": "Želim biti Dee Jay! Bella nastup 1",
+   "duration": 71,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "pYEJfStnL88",
+   "title": "Želim biti Dee Jay! 7. Korištenje CUE i LOOP funkcija",
+   "duration": 49,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "CSCI2SvjWjM",
+   "title": "Želim biti Dee Jay! 6. Korištenje PITCH funkcije",
+   "duration": 36,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "lInMleJJWc0",
+   "title": "Želim biti Dee Jay! 5. Korištenje CROSSFADER funkcije",
+   "duration": 46,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "BXeqW31PJTQ",
+   "title": "Želim biti Dee Jay! 4. Korištenje EQUALIZER funkcije",
+   "duration": 49,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "BwzZWJlmVUg",
+   "title": "Želim biti Dee Jay! 3. Korištenje PLAY/STOP i JOG funkcije",
+   "duration": 45,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "S6ayFpA6dDk",
+   "title": "Želim biti Dee Jay! 2. Što nam je sve potrebno?",
+   "duration": 57,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "zKVNMK6vftc",
+   "title": "Želim biti Dee Jay! 1. Upoznajte Bellu!",
+   "duration": 31,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "FNLqF0yQ174",
+   "title": "VIJOLICE - IMAM SEKU, IMAM BRATA",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "KEPjVjSNe6g",
+   "title": "OŠ FRANA GALOVIĆA - Strane svijeta",
+   "duration": 158,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "s9TEJ1PuBRk",
+   "title": "PJEVAJMO MAMI",
+   "duration": 2025,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "EV2GqWslivA",
+   "title": "Dječja TV - Pjevajmo o sreći",
+   "duration": 1092,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "2b_kJaWVkWo",
+   "title": "PJEVAJMO O LJUBAVI MIX - 05",
+   "duration": 839,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "bXpB5smqDiY",
+   "title": "PJEVAJMO O LJUBAVI MIX - 04",
+   "duration": 924,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "Nh6AHEB1Wsw",
+   "title": "PJEVAJMO O LJUBAVI MIX - 03",
+   "duration": 1064,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "jdgODxw5jx8",
+   "title": "PJEVAJMO O LJUBAVI MIX - 02",
+   "duration": 888,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "kFuGaCRJ9sQ",
+   "title": "PJEVAJMO O LJUBAVI MIX - 01",
+   "duration": 1083,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "j-12zAe9Zjs",
+   "title": "PLAVI MJESEC - ROĐENDAN",
+   "duration": 180,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "M0rNKgSRRII",
+   "title": "Otkrijte čaroban svijet igračaka u INTERSPAR-u",
+   "duration": 15,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "fi__YVE21mw",
+   "title": "Barbie i Barbie kućica INTERSPAR",
+   "duration": 61,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "EQyIlJScD7s",
+   "title": "Čovjek koji voli jelene 🦌",
+   "duration": 1451,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "ywHIIIXGgIg",
+   "title": "RI STARS ANAMARIJA - LIPA MALA (TEKST/LYRICS)",
+   "duration": 170,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "g8WwRwvovLg",
+   "title": "NOTA - U LJUBAVI JE SPAS (TEKST/LYRICS)",
+   "duration": 183,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "_wBHzXcD00Y",
+   "title": "MEDENJACI - DUDA (TEKST/LYRICS)",
+   "duration": 186,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "wl99JMIWCn0",
+   "title": "T.C.T. - SPASIMO PLANETU (TEKST/LYRICS)",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "Mk2mnSjweN8",
+   "title": "LIBRETIĆI - JEDNO LJETO ZA NAS (TEKST/LYRICS)",
+   "duration": 183,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "J7eByahDGOE",
+   "title": "KIKIĆI - DREKEC VILA (TEKST/LYRICS)",
+   "duration": 149,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "LKN4_FuOmUM",
+   "title": "PLAVI MJESEC - IDEM NA MORE",
+   "duration": 174,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "N0bMKzfdT9U",
+   "title": "NIKA I LORI - PRIJATELJICE",
+   "duration": 154,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "n41nALTAUQ8",
+   "title": "DV SIGET - HIMNA",
+   "duration": 194,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "g4-yELvt9KI",
+   "title": "VIJOLICE - PAŠKA BURA",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "atmk9oLqeWM",
+   "title": "OŠ FRANA GALOVIĆA - MAĆUHICA (TEKST/LYRICS)",
+   "duration": 144,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "xjOJWLtaSIQ",
+   "title": "LEPTIRIĆI - LEPTIRIĆ (TEKST/LYRICS)",
+   "duration": 197,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "lRqhCEmKLN4",
+   "title": "OŠ PIROVAC - SUTRA JE NOVI DAN (TEKST/LYRICS)",
+   "duration": 139,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "FxSs31vRQJA",
+   "title": "VIKTOR - Pjesme pišem",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "pcCs2wc7VtU",
+   "title": "GENIJALCI - SLIME (TEKST/LYRICS)",
+   "duration": 179,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "YnJl2WWZ-k4",
+   "title": "MEDENJACI - LETI LETI PČELICE (TEKST/LYRICS)",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "aZoXXqd7L3g",
+   "title": "BAJKA - ABECEDA (TEKST/LYRICS)",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "5ABABcN3tzY",
+   "title": "VIJOLICE - MOJ BICIKL (TEKST/LYRICS)",
+   "duration": 165,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "Hf5B1iEosAQ",
+   "title": "DORA, MIA I PRIJATELJI - KNJIGE (TEKST/LYRICS)",
+   "duration": 158,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "X6dFdSUpbD4",
+   "title": "LIBRETIĆI - PJESMA CVIJEĆA (TEKST/LYRICS)",
+   "duration": 193,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "6cVF4AySYZM",
+   "title": "TVORNICA SMIJEHA - URNEBES (TEKST/LYRICS)",
+   "duration": 170,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "n1VKSYeEkvE",
+   "title": "KIKIĆI I GENIJALCI - ŠEĆERNA VUNA (TEKST/LYRICS)",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "aLkqRHNjlFo",
+   "title": "LUCIJA, JAKOV I LASTAVICE - LJUBAV (TEKST/LYRICS)",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "GqxILD0jVao",
+   "title": "LIBRETIĆI - LJUBAV JE ČUDO (TEKST/LYRICS)",
+   "duration": 208,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "gkmoEbpD2v4",
+   "title": "EMA - PJESMA JE MOJ SAN (TEKST/LYRICS)",
+   "duration": 182,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "ScflAvrTnDc",
+   "title": "ANJA I LOTA - LOTICA (TEKST/LYRICS)",
+   "duration": 155,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "QBKvr8FVfdA",
+   "title": "Proglašenje hitova Top liste Dječje televizije 2017.",
+   "duration": 4412,
+   "live_status": "was_live",
+   "upload_date": "20181006"
+  },
+  {
+   "id": "vkEtUf2O0oM",
+   "title": "🔴 Libretici snimanje Zagreb",
+   "duration": 57,
+   "live_status": "was_live",
+   "upload_date": "20181006"
+  },
+  {
+   "id": "8CIyIQUGKBU",
+   "title": "Dječja TV - Poštujte naše znakove - Zebra",
+   "duration": 172,
+   "live_status": "was_live",
+   "upload_date": "20181006"
+  }
+ ]
+}

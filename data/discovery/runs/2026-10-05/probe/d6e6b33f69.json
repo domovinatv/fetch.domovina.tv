@@ -1,0 +1,35 @@
+{
+ "key": "UCmpiX5dzDsuPH7T_GHWBlEQ",
+ "url": "https://www.youtube.com/channel/UCmpiX5dzDsuPH7T_GHWBlEQ/videos",
+ "channel_id": "UCmpiX5dzDsuPH7T_GHWBlEQ",
+ "playlist_id": null,
+ "title": "GEÓRGEA Francisco - Videos",
+ "channel": "GEÓRGEA Francisco",
+ "channel_url": "https://www.youtube.com/channel/UCmpiX5dzDsuPH7T_GHWBlEQ",
+ "description": "Nesse canal vou divulgar vários assuntos relacionados a fonoaudiologia no nosso podcast Fonodialogar ",
+ "follower_count": 46,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "iII7K9TND_M",
+   "title": "Podcast Fonodialogar - Geórgea Francisco e Ada Soares",
+   "duration": 1532,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "SYsGEEGwxOg",
+   "title": "Podcast Fonodialogar - Geórgea Francisco e Patricia Camargo",
+   "duration": 2553,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "AsnHN0N5So0",
+   "title": "Podcast Fonodialogar - Com Mabila Nascimento",
+   "duration": 1147,
+   "live_status": null,
+   "upload_date": "20221006"
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "key": "UCI_bmcgwlXnHszfzYhzAo9g",
+ "url": "https://www.youtube.com/channel/UCI_bmcgwlXnHszfzYhzAo9g/videos",
+ "channel_id": "UCI_bmcgwlXnHszfzYhzAo9g",
+ "playlist_id": null,
+ "title": "Program svjesno roditeljstvo - Videos",
+ "channel": "Program svjesno roditeljstvo",
+ "channel_url": "https://www.youtube.com/channel/UCI_bmcgwlXnHszfzYhzAo9g",
+ "description": "",
+ "follower_count": 789,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "WF1a8K_PHvc",
+   "title": "Program Svjesno roditeljstvo",
+   "duration": 105,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "0TSV2TD1bKE",
+   "title": "Mihaela Richter, Osnovna mapa emocija, Program Svjesno Roditeljstvo",
+   "duration": 925,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "smYoG4cp0cg",
+   "title": "Matea Blažević, Osmogodišnjaci, Program Svjesno Roditeljstvo",
+   "duration": 207,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "P_T7XCv9Fyw",
+   "title": "Laszlo Pinter, Vezivanje i partnerstvo, Program Svjesno Roditeljstvo",
+   "duration": 237,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "G3Wh_O0VfMI",
+   "title": "Tomislav Senečić, Kriticizam, Program Svjesno Roditeljstvo",
+   "duration": 168,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "6lcOk1KhPXM",
+   "title": "Mihaela Richter, Zrcaljenje u komunikaciji, Program Svjesno roditeljstvo",
+   "duration": 84,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "A6_ShiSiOSA",
+   "title": "Tomislav Senečić, Razvojne faze djeteta od 0-3 godine, Program Svjesno roditeljstvo",
+   "duration": 3480,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "VCSHok61vWo",
+   "title": "Matea Blažević, Kazna ili nagrada?, Program Svjesno roditeljstvo",
+   "duration": 2314,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "GWqaBrswY8A",
+   "title": "Mihaela Richter, Izljevi emocija kod djece, Program Svjesno roditeljstvo",
+   "duration": 2996,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "wjcxsmxiftk",
+   "title": "dr.sc. Maja Petković, Tko je moje dijete ili priča o temperamentu, Program Svjesno roditeljstvo",
+   "duration": 626,
+   "live_status": null,
+   "upload_date": "20181006"
+  }
+ ]
+}

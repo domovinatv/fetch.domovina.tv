@@ -1,0 +1,70 @@
+{
+ "key": "UCM249sQcB6LlUDtOLbAHO1A",
+ "url": "https://www.youtube.com/channel/UCM249sQcB6LlUDtOLbAHO1A/videos",
+ "channel_id": "UCM249sQcB6LlUDtOLbAHO1A",
+ "playlist_id": null,
+ "title": "valentina škrapec - Videos",
+ "channel": "valentina škrapec",
+ "channel_url": "https://www.youtube.com/channel/UCM249sQcB6LlUDtOLbAHO1A",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "AD-KAONns4o",
+   "title": "Glazbeni doživljaj u Narodnom Sveučilištu Sesvete: Gudački kvartet Porin",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20251206"
+  },
+  {
+   "id": "l84q927iKy0",
+   "title": "Izvođenje pjesmice \"Proljetno kolo\" uz pratnju gudačog kvarteta \"Porin\"",
+   "duration": 77,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Hc07D79q3ZM",
+   "title": "Djeca u ulozi dirigenta",
+   "duration": 95,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "qhlpR3CuQ8g",
+   "title": "developing motor skill - Crawl like a caterpillar",
+   "duration": 86,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "N1586fEe424",
+   "title": "Fly like a butterfly - kids yoga",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "o_XfI5WgkTo",
+   "title": "Sportske aktivnosti u zajedničkom međuodnosu sa govorom",
+   "duration": 147,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "BTpvyLVWyeA",
+   "title": "\"Save the Planet Song by Bears\", Dv Sesvete",
+   "duration": 107,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "aYbcDNea-Ww",
+   "title": "\"Save the Planet Song by Bears\"",
+   "duration": 102,
+   "live_status": null,
+   "upload_date": "20231006"
+  }
+ ]
+}

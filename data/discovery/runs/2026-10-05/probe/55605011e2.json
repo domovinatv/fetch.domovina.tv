@@ -1,0 +1,70 @@
+{
+ "key": "UCxrQKslZ272ZAdPAEtignIg",
+ "url": "https://www.youtube.com/channel/UCxrQKslZ272ZAdPAEtignIg/videos",
+ "channel_id": "UCxrQKslZ272ZAdPAEtignIg",
+ "playlist_id": null,
+ "title": "Hrvatski Dom Petrinja - Videos",
+ "channel": "Hrvatski Dom Petrinja",
+ "channel_url": "https://www.youtube.com/channel/UCxrQKslZ272ZAdPAEtignIg",
+ "description": "Youtube kanal POU Hrvatski dom Petrinja",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "9htLaZJOy8M",
+   "title": "Sudioničko upravljanje",
+   "duration": 46,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "Wpw3aXMu1Dc",
+   "title": "Rezultati ankete PETRINJA: Analiza stanja i potreba u kulturi",
+   "duration": 83,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "LoZRGixJsKM",
+   "title": "Petrinjci skrenuli pozornost na autizam",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "WAeIqiXDky4",
+   "title": "Otvorenje Kabineta za logopedsku podršku",
+   "duration": 212,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "1XaMbuipnh0",
+   "title": "Posadimo mir za buduće naraštaje",
+   "duration": 424,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "UMvrH1sehdE",
+   "title": "Škola zdravlja u Savjetovalištu",
+   "duration": 74,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "iKBXWDvKSmQ",
+   "title": "Prevencija nasilja među mladima",
+   "duration": 142,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "zO4rz6vqFnk",
+   "title": "Terapijska radionica Savjetovališta u Dnevniku",
+   "duration": 140,
+   "live_status": null,
+   "upload_date": "20191006"
+  }
+ ]
+}

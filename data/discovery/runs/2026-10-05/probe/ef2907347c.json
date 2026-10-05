@@ -1,0 +1,448 @@
+{
+ "key": "UCIKwz1U1PF0dpGrQk0vrSLw",
+ "url": "https://www.youtube.com/channel/UCIKwz1U1PF0dpGrQk0vrSLw/videos",
+ "channel_id": "UCIKwz1U1PF0dpGrQk0vrSLw",
+ "playlist_id": null,
+ "title": "rtvlukavac - Videos",
+ "channel": "rtvlukavac",
+ "channel_url": "https://www.youtube.com/channel/UCIKwz1U1PF0dpGrQk0vrSLw",
+ "description": "Zvanični kanal Javne ustanove Radio-televizije Lukavac gdje možete pronać TV priloge, emisije i ostali autentični sadržaj sa područja Grada Lukavac i Tuzlanskog kantona.",
+ "follower_count": 8890,
+ "streams_count": 2,
+ "videos": [
+  {
+   "id": "Vvm8WkQ-uJA",
+   "title": "Manifestacija „Izazov generacija kroz igru“ održana u Poljicu",
+   "duration": 209,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "mOzdWbc4XlU",
+   "title": "Kako je proteklo glasanje? Građani Lukavca iznijeli svoje utiske",
+   "duration": 203,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "xPUuqHVHZBw",
+   "title": "Izborni dan u Lukavcu: Otklonjeni problemi u biračkim mjestima, glasanje protiče nesmetano",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "I31XuJYtnJU",
+   "title": "\"Opšti izbori 2026.\" GIK Lukavac: Kašnjenja na više biračkih mjesta",
+   "duration": 347,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "kD424KLA-iM",
+   "title": "Srednje škole u Lukavcu dobijaju novi sportski kompleks",
+   "duration": 276,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "G1xvvIgYkSM",
+   "title": "Obilježen Dan oslobođenja Lukavca - 30. septembar",
+   "duration": 192,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "KQSBKV3rR1M",
+   "title": "Pjesmom, crtežima i pričama u vrtiću proslavljen Međunarodni dan starijih osoba",
+   "duration": 282,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "N5aEst1JpMs",
+   "title": "Grad Lukavac preuzima Filter stanicu – rješenje za vodosnabdijevanje i radnike Koksare",
+   "duration": 344,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "tj9yW4CiWUw",
+   "title": "U područnoj školi Kruševica u toku izgradnja sportskog poligona",
+   "duration": 211,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "D5R3Vsozb8Y",
+   "title": "OK 7 Lukavac pred premijerligaškim izazovima",
+   "duration": 367,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "NNRSE8DjaRQ",
+   "title": "\"Neposredno obraćanje\" - Jasmina Mahovkić",
+   "duration": 229,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "4RU0XiT5jFo",
+   "title": "Neposredno obraćanje - Jozo Tunjić",
+   "duration": 204,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "tER6rJXbXrA",
+   "title": "\"Neposredno obraćanje\" - Ameldina Suljkić",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "XVKO3pDHecc",
+   "title": "\"Neposredno obraćanje\" -  Abida Mulahusejnović",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "kfJYzqa6bA4",
+   "title": "\"Neposredno obraćanje\"  - Ernes Prelic",
+   "duration": 183,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "uHJIlgCfce8",
+   "title": "Društveni dom i ambulanta u Gnojnici u završnoj fazi radova",
+   "duration": 270,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "T7ME7tUG7MM",
+   "title": "Generacije zajedno kroz igru: Poljičke pripremaju druženje povodom Dana grada",
+   "duration": 276,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "4q3x4Nj1nqY",
+   "title": "Gomile starih guma u Huskićima zabrinule i uznemirile mještane, slučaj prijavljen inspekciji",
+   "duration": 153,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "3eLQKpK5kRw",
+   "title": "Lukavac: Druženje ljubitelja knjige i stvaranje novih planova i ideja povodom Mjeseca knjige",
+   "duration": 256,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "BQQz7dO-_bE",
+   "title": "Zdenko Lučić - kandidat za hrvatskog člana predsjedništva BiH",
+   "duration": 451,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "8z9O06bQza8",
+   "title": "Edin Delić - kandidat za parlament BiH",
+   "duration": 896,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "YShpts8GtGY",
+   "title": "Ilija Cvitanović - predsjednik HDZ 1990",
+   "duration": 314,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "7HqqTNf148I",
+   "title": "34 godine od formiranja 2. korpusa Armije RBiH: U Lukavcu odana počast poginulim borcima i šehidima",
+   "duration": 316,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "Bv0tRVp6y5A",
+   "title": "U vrtić  „Evropa“ Puračić upisano 48 djece",
+   "duration": 307,
+   "live_status": null,
+   "upload_date": "20260930"
+  },
+  {
+   "id": "X0bqcK3nZ70",
+   "title": "Velika ulaganja u Dom zdravlja Lukavac: Sanacija krova, nova stolarija i planovi za solarne panele",
+   "duration": 275,
+   "live_status": null,
+   "upload_date": "20260926"
+  },
+  {
+   "id": "goeNUuGjtZs",
+   "title": "Novi projekti Vijeća mladih: Prilika za ideje i rad mladih u Lukavcu",
+   "duration": 228,
+   "live_status": null,
+   "upload_date": "20260926"
+  },
+  {
+   "id": "ucrngGb8aQ0",
+   "title": "Infinitiv - Kemal Bašić",
+   "duration": 1819,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "ktvyz_BIr3Y",
+   "title": "Počeli radovi na novom sistemu vodosnabdijevanja Lukavca",
+   "duration": 320,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "FA0KAsKyKR8",
+   "title": "Grad Lukavac: Podrška proizvođačima, krompir za pomoć",
+   "duration": 277,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "Q4WAMix2308",
+   "title": "Održana večer italijanske kulture u Lukavcu",
+   "duration": 367,
+   "live_status": null,
+   "upload_date": "20260924"
+  },
+  {
+   "id": "2MpfuD1Fnkg",
+   "title": "Dan ispunjen ponosom i sjećanjem: Uspješno održan Memorijalni kuglaški turnir „Lukavac 2026.",
+   "duration": 281,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "zjfM4bsdwwY",
+   "title": "Sjećanje na sportsku legendu: Održan Memorijalni turnir „Elmir Elo Salihović“",
+   "duration": 175,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "avjb3TtgrDY",
+   "title": "Lukavac: Smanjen broj nesreća, ali povećan broj poginulih u 2025.",
+   "duration": 248,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "kRYLKR7BIZ0",
+   "title": "Puračko ćaskanje: Tradicija, gastronomija i druženje u Puračiću",
+   "duration": 353,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "00aWctsRe2A",
+   "title": "Druge „Igre bez granica“ okupile žene iz Devetaka i okolnih mjesta",
+   "duration": 330,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "Vzf6xIXwRz4",
+   "title": "Svečanom akademijom obilježen Dan grada Lukavac",
+   "duration": 468,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "6H8rCe-kw6U",
+   "title": "Dječija graja i osmijesi na Gradskom šetalištu: Mališani čestitali rođendan Lukavcu",
+   "duration": 380,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "eXvRxDjdc1I",
+   "title": "Lukavac u znaku sporta: Održan prvi Sajam sporta koji je okupio brojne kolektive",
+   "duration": 320,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "RcIuImfIGqU",
+   "title": "Svečano otvoren novouređeni poligon “Panjići”",
+   "duration": 173,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "-haEjFThhOQ",
+   "title": "Praznik dječije radosti: Tradicionalna biciklijada ponovo na ulicama Lukavca",
+   "duration": 222,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "VJDceFhZjas",
+   "title": "Planinari iz Lukavca pozivaju u subotu na tradicionalni pohod Čika Mišinom stazom",
+   "duration": 323,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "TeAM7cloU1s",
+   "title": "Ernes Prelić,  koordinator sportskih aktivnosti grada Lukavac",
+   "duration": 769,
+   "live_status": null,
+   "upload_date": "20260922"
+  },
+  {
+   "id": "vwQ2w8px19U",
+   "title": "Testni izbori u Lukavcu: Uspješna provjera novih izbornih tehnologija",
+   "duration": 216,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "Ae9nnejkJG0",
+   "title": "Prvi  Sajam sporta  u Lukavcu  18 septembra okupit će brojne  sportske kolektiva",
+   "duration": 147,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "9hbcidwXGJ4",
+   "title": "Počela  nova mektebska godina",
+   "duration": 205,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "wUpiV9xyKlg",
+   "title": "U okviru Dana grada: Održan XXVI Karate kup „Memorijal Mehmed Halilović“ u Lukavcu",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "FoQkvJfgrFg",
+   "title": "20. REDOVNA SJEDNICA GRADSKOG VIJEĆA LUKAVAC",
+   "duration": 14049,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "mZGdfgLguag",
+   "title": "Edin Delić: Radimo na rješenju za kontinuitet vodosnabdijevanja",
+   "duration": 243,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "Oug5ag6Tjpo",
+   "title": "20. sjednica Gradskog vijeća Lukavac obilježena burnim raspravama i brojnim diskusijama",
+   "duration": 213,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "YC3_8QXbk_E",
+   "title": "Infinitiv   Elvir Ibeljić",
+   "duration": 1283,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "3HF1xVXlUNY",
+   "title": "Oko 500 kandidata do kraja sedmice polaže vozački ispit u TK",
+   "duration": 255,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "9NPBKCPy3K8",
+   "title": "Vlada TK: 249 KM mjesečno za smještaj i ishranu studenata",
+   "duration": 140,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "0thrmUcQyEU",
+   "title": "Udruženje veterana rata 212. bbr. obilježava 31. godišnjicu bitke za Vozuću",
+   "duration": 208,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "T1YXE6sVwSo",
+   "title": "Energetska obnova škole u Lukavcu: Vlada TK osigurala 760 hiljada",
+   "duration": 269,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "E5iIwI2gYEk",
+   "title": "Omogućeno ponovno raspisivanje poziva za stipendije učenicima i studentima iz povratničkih zajednica",
+   "duration": 170,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "i8WknX0cYKM",
+   "title": "Infinitiv - Divanhana",
+   "duration": 2159,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "yeFlbG486Qc",
+   "title": "10. septembra redovna sjednica GV Lukavac",
+   "duration": 318,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "qzFpSNBoODU",
+   "title": "700.000 KM za regulaciju 4. faze brane jezera Modrac",
+   "duration": 265,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "yjDEB_EHv6M",
+   "title": "SKISO „Sinovi Bosne“ Lukavac osvojili 31. Memorijal Edin Ibraković",
+   "duration": 282,
+   "live_status": null,
+   "upload_date": "20260908"
+  },
+  {
+   "id": "qPxBf_W5FJ0",
+   "title": "Jezero Kop Šićki Brod: Mjesto susreta ljubitelja ronjenja i podvodne fotografije",
+   "duration": 325,
+   "live_status": null,
+   "upload_date": "20260908"
+  },
+  {
+   "id": "waXicwkwbe4",
+   "title": "5. vanredna sjednica GV Lukavac",
+   "duration": 18956,
+   "live_status": "was_live",
+   "upload_date": "20251106"
+  },
+  {
+   "id": "M6Q3VMg6G4g",
+   "title": "Lukavac na dlanu - Munib Efendić",
+   "duration": 1375,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  }
+ ]
+}

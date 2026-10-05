@@ -1,0 +1,42 @@
+{
+ "key": "UCg4IvvZn93Kx9h-IsKa-f-g",
+ "url": "https://www.youtube.com/channel/UCg4IvvZn93Kx9h-IsKa-f-g/videos",
+ "channel_id": "UCg4IvvZn93Kx9h-IsKa-f-g",
+ "playlist_id": null,
+ "title": "Cassandra's Podcast - Videos",
+ "channel": "Cassandra's Podcast",
+ "channel_url": "https://www.youtube.com/channel/UCg4IvvZn93Kx9h-IsKa-f-g",
+ "description": "I created a four part podcast called the Dyslexic Dossier podcast for my Girl Scout Gold Award. Each episode I interview versus people such as a psychologist and teachers to talk about dyslexia and what to look for when identifying in young children. I also dive into my own journey with dyslexia and my struggles to give teen something to relate to. From each episode I want people to take away how you can better help your child in the public education setting!",
+ "follower_count": 7,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "IpLkPoI_Ldg",
+   "title": "The Dyslexia Dossier podcast Ep. 4",
+   "duration": 1665,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "4UZTCIfFdcY",
+   "title": "The Dyslexia Dossier Podcast Ep. 3",
+   "duration": 4341,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "hJDxSNrwh6s",
+   "title": "The Dyslexic's Dossier Podcast Ep. 2",
+   "duration": 3830,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "A_qxdZvVzW8",
+   "title": "The Dyslexia's Dossier Podcast Ep. 1",
+   "duration": 2637,
+   "live_status": null,
+   "upload_date": "20231006"
+  }
+ ]
+}

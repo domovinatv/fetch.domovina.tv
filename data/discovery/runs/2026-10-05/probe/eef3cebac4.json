@@ -1,0 +1,112 @@
+{
+ "key": "UCzGVTVfdKGIu0vSc8gEHnpA",
+ "url": "https://www.youtube.com/channel/UCzGVTVfdKGIu0vSc8gEHnpA/videos",
+ "channel_id": "UCzGVTVfdKGIu0vSc8gEHnpA",
+ "playlist_id": null,
+ "title": "Videos ASLP - Videos",
+ "channel": "Videos ASLP",
+ "channel_url": "https://www.youtube.com/channel/UCzGVTVfdKGIu0vSc8gEHnpA",
+ "description": "",
+ "follower_count": 31,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "PsON8-7egwE",
+   "title": "Wise Use of Technology Webinar",
+   "duration": 5261,
+   "live_status": null,
+   "upload_date": "20260206"
+  },
+  {
+   "id": "YvlK5LEbPmM",
+   "title": "Year in Review 1",
+   "duration": 95,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "HvlzfHiBmIc",
+   "title": "Living with Parkinson's disease: introducing methods for an improved quality of life",
+   "duration": 5168,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "IOzseEdsBzE",
+   "title": "World Voice Day ASLP 2020",
+   "duration": 192,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "xKME5fOHRlw",
+   "title": "Autism Spectrum Disorders Awareness ASLP mlt",
+   "duration": 121,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "pkJXS37Ebew",
+   "title": "Autism Spectrum Disorders Awareness ASLP eng",
+   "duration": 105,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "UbxBsh3TwA4",
+   "title": "Dysphagia 2017 MALTESE",
+   "duration": 108,
+   "live_status": null,
+   "upload_date": "20171006"
+  },
+  {
+   "id": "wW1c0LOXPGc",
+   "title": "Dysphagia 2017 ENGLISH",
+   "duration": 108,
+   "live_status": null,
+   "upload_date": "20171006"
+  },
+  {
+   "id": "yHID_hGvcfs",
+   "title": "World Voice Day 2016 - Malta",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "Ze0by3gEjMM",
+   "title": "World Voice Day 2016 - Malta (eng)",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "zUWU3jWxQtk",
+   "title": "World Voice Day 2016 Eng",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "-nH0zjVBrmk",
+   "title": "World Voice Day 2016 Mlt",
+   "duration": 67,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "L72dwUpO9uM",
+   "title": "SLT Day 2010   NET TV Newsroom Feature Part 2",
+   "duration": 366,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "aIpeJetlHhI",
+   "title": "SLT Day 2010   NET TV Newsroom Feature Part 1",
+   "duration": 361,
+   "live_status": null,
+   "upload_date": "20161006"
+  }
+ ]
+}

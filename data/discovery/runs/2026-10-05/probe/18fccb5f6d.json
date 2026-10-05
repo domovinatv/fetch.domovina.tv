@@ -1,0 +1,42 @@
+{
+ "key": "UCNkiovfy-5U4haBYwadLzqA",
+ "url": "https://www.youtube.com/channel/UCNkiovfy-5U4haBYwadLzqA/videos",
+ "channel_id": "UCNkiovfy-5U4haBYwadLzqA",
+ "playlist_id": null,
+ "title": "eZdravko - Videos",
+ "channel": "eZdravko",
+ "channel_url": "https://www.youtube.com/channel/UCNkiovfy-5U4haBYwadLzqA",
+ "description": " CRM rješenje za efikasnije vođenje poliklinike\n\neZdravko je napredno tehnološko CRM (Customer Relationship Manager) rješenje za zdravstveni sektor koje donosi brojne prednosti za poslovanje poliklinika. U potpunosti je razvijen u suradnji s medicinskom strukom, pomaže poliklinikama u poboljšanju učinkovitosti, unapređenju odnosa s pacijentima i osiguravanju bolje usluge, istovremeno osiguravajući usklađenost s propisima poput GDPR-a.\n\n\n",
+ "follower_count": 3,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "HH5stq9Cv2Q",
+   "title": "eZdravko - iskustvo Logopedskog centra LogoArt",
+   "duration": 248,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "e_Q-oB1mr7g",
+   "title": "eZdravko - iskustvo Poliklinike Omnia Medicus",
+   "duration": 325,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "CmG1YI9VJg4",
+   "title": "eZdravko - CRM rješenje za efikasnije vođenje Vaše poliklinike",
+   "duration": 35,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Na22lv3ieAw",
+   "title": "eZdravko - iskustvo Poliklinike Pupillam",
+   "duration": 149,
+   "live_status": null,
+   "upload_date": "20251006"
+  }
+ ]
+}

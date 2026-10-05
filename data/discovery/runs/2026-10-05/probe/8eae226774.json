@@ -1,0 +1,42 @@
+{
+ "key": "UCbWCno7XaOZQi31uW7wBMgg",
+ "url": "https://www.youtube.com/channel/UCbWCno7XaOZQi31uW7wBMgg/videos",
+ "channel_id": "UCbWCno7XaOZQi31uW7wBMgg",
+ "playlist_id": null,
+ "title": "Almedin Imširović - Videos",
+ "channel": "Almedin Imširović",
+ "channel_url": "https://www.youtube.com/channel/UCbWCno7XaOZQi31uW7wBMgg",
+ "description": "",
+ "follower_count": 21,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "7if7O9-Zk4U",
+   "title": "UG \"Mali svijet\" - Lukavac *Međunarodni Dan svjesnosti o Autizmu*",
+   "duration": 142,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "Fa1dfwP6wCY",
+   "title": "Centar za ranu Intervenciju  \"Mali svijet\" - Bistarac Donji (Lukavac) .",
+   "duration": 1332,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "_NZ_PbZoXeU",
+   "title": "\"Da rata ne bude\" - Amina Kasumović & Ismar Suljić ( Udruženje mladih Poljice)",
+   "duration": 203,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "yS9fhjHHdqw",
+   "title": "Tradicionalne romske igre - Vranjanska svita",
+   "duration": 486,
+   "live_status": null,
+   "upload_date": "20171006"
+  }
+ ]
+}

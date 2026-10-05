@@ -1,0 +1,28 @@
+{
+ "key": "UC66o3KzGaKh9F65FJ-b65kA",
+ "url": "https://www.youtube.com/channel/UC66o3KzGaKh9F65FJ-b65kA/videos",
+ "channel_id": "UC66o3KzGaKh9F65FJ-b65kA",
+ "playlist_id": null,
+ "title": "Speech Sprouts Therapy - Videos",
+ "channel": "Speech Sprouts Therapy",
+ "channel_url": "https://www.youtube.com/channel/UC66o3KzGaKh9F65FJ-b65kA",
+ "description": "",
+ "follower_count": 25,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "B_XNzhL22Ss",
+   "title": "Pumpkin, Pumpkin, Where Can You Be?",
+   "duration": 48,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "UXwGx1Je1Kc",
+   "title": "Childhood Apraxia of Speech: Assessment and treatment for SLPs",
+   "duration": 568,
+   "live_status": null,
+   "upload_date": "20191006"
+  }
+ ]
+}

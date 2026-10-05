@@ -1,0 +1,28 @@
+{
+ "key": "UCTy59GwP7Lh7WP_zjjGM9iA",
+ "url": "https://www.youtube.com/channel/UCTy59GwP7Lh7WP_zjjGM9iA/videos",
+ "channel_id": "UCTy59GwP7Lh7WP_zjjGM9iA",
+ "playlist_id": null,
+ "title": "Edukacija Rehabilitacija - Videos",
+ "channel": "Edukacija Rehabilitacija",
+ "channel_url": "https://www.youtube.com/channel/UCTy59GwP7Lh7WP_zjjGM9iA",
+ "description": "",
+ "follower_count": 6,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "6UyxZNliuNg",
+   "title": "Edukacijsko-rehabilitacijski fakultet Univerziteta u Tuzli",
+   "duration": 277,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "4vGKsHBiGMM",
+   "title": "Međunarodni dan osoba sa Down sindromom",
+   "duration": 195,
+   "live_status": null,
+   "upload_date": "20181006"
+  }
+ ]
+}

@@ -229,6 +229,13 @@ na CDN. 57 `inactive` kanala nema avatar jer nisu kandidati — sync ih nikad ne
 registry + watch-state + CDN `channels/data/index_bundle.json`; nightly KORAK 5c ga builda i
 deploya. Arhitektura i pravila kategorija: README tog repoa.
 
+## Ciljani (tematski) prolazi
+
+- **Logopedija, 2026-10-05** — [`2026-10-05-logopedija-discovery-i-dijalog.md`](2026-10-05-logopedija-discovery-i-dijalog.md):
+  tag `speech-therapy`, 2 HR podcasta (DijaLOG audio-only, Norda Disleksija). Za stručne niše
+  YouTube sweep je slab, a web research nosi rezultat. `not_podcast` redove pregledaj ručno, jer
+  prag od 30 min reže epizode od 20 min.
+
 ## Otvorene stavke (stanje 2026-09-25)
 
 - **`hkm-argumenti`** pokazuje na crnogorski RTCG, ne na HKM (revizija 2026-09-24). Status je

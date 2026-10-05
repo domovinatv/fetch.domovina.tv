@@ -1,0 +1,63 @@
+{
+ "key": "UCz3JMGqDimuz2gOKXV1YEkA",
+ "url": "https://www.youtube.com/channel/UCz3JMGqDimuz2gOKXV1YEkA/videos",
+ "channel_id": "UCz3JMGqDimuz2gOKXV1YEkA",
+ "playlist_id": null,
+ "title": "Ivana Lazendic - Videos",
+ "channel": "Ivana Lazendic",
+ "channel_url": "https://www.youtube.com/channel/UCz3JMGqDimuz2gOKXV1YEkA",
+ "description": "",
+ "follower_count": 10,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "zHcPaTyy014",
+   "title": "Drugi deo videa pokazuje mamu koja ne obraća pažnju na dete jer je na telefonu.",
+   "duration": 82,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "KuX_BHMPWR8",
+   "title": "Pitanja i odgovori - logoped Govorno - jezicki razvoj kod dece",
+   "duration": 87,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "kyyAmQOkydI",
+   "title": "Igra \"Nađi 5\"",
+   "duration": 81,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "HgIs0dCL8Jc",
+   "title": "Logopedske igre",
+   "duration": 147,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "UhKZXf7Tbd4",
+   "title": "\"Igra slogova\"",
+   "duration": 111,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "XZjrwwR8OhA",
+   "title": "Igra \"Šta smo čuli\"",
+   "duration": 121,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "QVOv9z4Tx1U",
+   "title": "Igra \"Priča u pokretu\"",
+   "duration": 113,
+   "live_status": null,
+   "upload_date": "20201006"
+  }
+ ]
+}

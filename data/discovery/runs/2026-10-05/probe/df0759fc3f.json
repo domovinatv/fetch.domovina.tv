@@ -1,0 +1,539 @@
+{
+ "key": "UC-CGB_6d86awPGEDTgD2E5Q",
+ "url": "https://www.youtube.com/channel/UC-CGB_6d86awPGEDTgD2E5Q/videos",
+ "channel_id": "UC-CGB_6d86awPGEDTgD2E5Q",
+ "playlist_id": null,
+ "title": "RTV Novi Pazar - Videos",
+ "channel": "RTV Novi Pazar",
+ "channel_url": "https://www.youtube.com/channel/UC-CGB_6d86awPGEDTgD2E5Q",
+ "description": "Mi smo prva televizija u Sandžaku, koju možete gledati i putem interneta. Cilj nam je bio da kvalitetnim i raznovrsnim programom budemo broj 1 u srcu gledalaca! I u tome smo uspeli!",
+ "follower_count": 59500,
+ "streams_count": 15,
+ "videos": [
+  {
+   "id": "USlW7rIyDoI",
+   "title": "Biševac i Vlahović obišli radove na energetskoj sanaciji objekta „Dečija radost“",
+   "duration": 241,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "ElK2KFEn9t4",
+   "title": "Ljajiću Ribarićima: Želimo snagu da odlučujemo",
+   "duration": 465,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "DrpsKrDXD6Q",
+   "title": "Turnir u malom fudbalu u organizaciji liste \"Rasim Ljajić-ljudski\"",
+   "duration": 149,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "EphrvKexfwc",
+   "title": "SDA Sandžaka –ČUVARI SANDŽAKA predstavili program građanima Novog Pazara",
+   "duration": 98,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "Vlk99YAhDAs",
+   "title": "Zukorlić visited several cities and spoke with citizens",
+   "duration": 62,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "GzeOHuY7rMg",
+   "title": "U Novom Pazaru održan skup SNS a",
+   "duration": 206,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "BiyGpGPsiG0",
+   "title": "Skup \"Studentske liste\" u Novom Pazaru",
+   "duration": 180,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "-bGtDQKMSK4",
+   "title": "Koalicija 'Snaga'",
+   "duration": 55,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "6O91VPp2mrY",
+   "title": "U Novom Pazaru počela Dečija nedelja",
+   "duration": 162,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "wo6ERuFk_U8",
+   "title": "Futsal tim Novog Pazara poražen od Partizana",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "sfSuNCe6SC0",
+   "title": "Vremenska prognoza za Novi Pazar 06.10.2026.",
+   "duration": 16,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "wl5pNgp4x1E",
+   "title": "Dnevnik Radio televizije Novi Pazar (05.10.2026.)",
+   "duration": 2051,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "DeXyEJo2nBo",
+   "title": "Vijesti u 15h (05.10.2026.)",
+   "duration": 120,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "jKDZt1_BAZc",
+   "title": "Nekada se živelo glasnije, veselije i sa mnogo više dece",
+   "duration": 306,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "j3xTahlWhaA",
+   "title": "Vijesti u 10h (05.10.2026.)",
+   "duration": 178,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "wuzVVVGUxdI",
+   "title": "Vijesti u 8h (05.10.2026.)",
+   "duration": 161,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "gX-J-CBlGu0",
+   "title": "Ljajić: Ovoliki broj ljudi daje snagu da budemo još uspješniji",
+   "duration": 137,
+   "live_status": null,
+   "upload_date": "20261005"
+  },
+  {
+   "id": "Mff0xFnW3wQ",
+   "title": "Pressek 03.10.2026.",
+   "duration": 2227,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "cEN7Ixorejs",
+   "title": "Vremenska prognoza za Novi Pazar 03.10.2026.",
+   "duration": 21,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "3Ha83el9780",
+   "title": "DNEVNIK u 22:30h (02.10.2026.)",
+   "duration": 2035,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "Lbf-1T3naWw",
+   "title": "DNK - Pristina (02.10.2026.)",
+   "duration": 1596,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "CFh4cre9uGA",
+   "title": "Vijesti u 21h (02.10.2026.)",
+   "duration": 256,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "lAlp1qBa62o",
+   "title": "Cijene goriva nepromijenjene u narednih sedam dana",
+   "duration": 29,
+   "live_status": null,
+   "upload_date": "20261004"
+  },
+  {
+   "id": "T_Np8igQyUY",
+   "title": "Ribolovačka staza na Gazivodama mora biti dostupna takmičarima",
+   "duration": 77,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "E2SPrSiZ484",
+   "title": "U Novom Pazaru održan skup u okviru projekta „Krokodili dolaze“",
+   "duration": 146,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "l2mwFrF9cAs",
+   "title": "Okrugli sto „Regionalna migracija književnosti“",
+   "duration": 105,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "BK7CzPYSmKE",
+   "title": "Otvoreni XI Književni susreti FEMILI u Novom Pazaru",
+   "duration": 289,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "u6488Uo9g8I",
+   "title": "Predata lista „Usame Zukorlić–Pokret za ujedinjenje Bošnjaka“za izbore za BNV",
+   "duration": 133,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "ObnhlEN-Des",
+   "title": "Sutra istićče rok za glasače u inostranstvu",
+   "duration": 50,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "UDRtT3ZL6wk",
+   "title": "Ugljanin uputio pismo podrške SDA i Bakiru Izetbegoviću pred izbore u BiH",
+   "duration": 87,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "usaIHUTjs_E",
+   "title": "Studenti pozvali sutra na skup u Novom Pazaru",
+   "duration": 46,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "ZUOQP0Iwj1c",
+   "title": "Memić sa Orange festa: Želimo da zbližimo ljude i vodimo kampanju ljudskosti i normalnosti",
+   "duration": 138,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "iEjqB2cRMgo",
+   "title": "Rasim Ljajić i Dženan Palamar sa građanima na Orange festu kod Sebilja",
+   "duration": 394,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "u_c-SSot0pU",
+   "title": "Dvije osobe uhapšene u Novom Pazaru zbog trgovine ljudima",
+   "duration": 49,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "lK--q06bUcI",
+   "title": "Uhapšen muškarac zbog sumnje da je napao majku i kćerku",
+   "duration": 28,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "FLtDNt-QwOA",
+   "title": "MUP predstavio upotrebu dronova u kontroli saobraćaja",
+   "duration": 223,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "4DdjLZOmI2c",
+   "title": "Dnevnik Radio televizije Novi Pazar (02.10.2026.)",
+   "duration": 2038,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "IINNxusfwAw",
+   "title": "Sandžački kraj koji vredno radi i ide napred",
+   "duration": 605,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "gWclFkwCzbk",
+   "title": "Vremenska prognoza za Novi Pazar 02.10.2026.",
+   "duration": 56,
+   "live_status": null,
+   "upload_date": "20261003"
+  },
+  {
+   "id": "P7rPqhdVYe0",
+   "title": "Vijesti u 20h (01.11.2026.)",
+   "duration": 221,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "e0taqwQlH-w",
+   "title": "Dnevnik Radio televizije Novi Pazar (01.10.2026.)",
+   "duration": 1642,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "XC4yzaXjidc",
+   "title": "Otvoren Novopazarski sajam knjiga: „Čitaj svoju knjigu“",
+   "duration": 224,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "ALCk3mnbRV4",
+   "title": "Škola za dizajn tekstila i kože obeležila 141 godinu postojanja",
+   "duration": 114,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "qLOLwF3IndI",
+   "title": "DUNP: Brucošima podeljeni indeksi",
+   "duration": 54,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "QtGukxqv_Og",
+   "title": "RIK proglasio listu ''Čuvari Sandžaka“za izbore za BNV''",
+   "duration": 134,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "-RUKqKctFHY",
+   "title": "Koalicija SNAGA predala izbornu listu za parlamentarne izbore",
+   "duration": 59,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "CueHw7u0jWU",
+   "title": "Zukorliću Paralovu i Selakovcu: U fokusu infrastruktura i grijanje",
+   "duration": 49,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "faRdQBdszRE",
+   "title": "SDA Sjenice: Alarmantno ponašanje vlasti u Sjenici",
+   "duration": 108,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "9wnj_Ljiqr4",
+   "title": "Razgovor sa meštanima Mura",
+   "duration": 202,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "j3dJj05D-eQ",
+   "title": "Biševac obišao Gerontološki centar povodom Međunarodnog dana starijih",
+   "duration": 217,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "M2_oTk1-T0Y",
+   "title": "Skupština grada: Usvojen plan za unapređenje položaja osoba sa invaliditetom",
+   "duration": 199,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "dsFLVIL3jQs",
+   "title": "Nema tog dunjaluka koji miriše kao naš Sandžak",
+   "duration": 887,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "05d8EjeurfA",
+   "title": "Vremenska prognoza za Novi Pazar 01.10.2026.",
+   "duration": 19,
+   "live_status": null,
+   "upload_date": "20261002"
+  },
+  {
+   "id": "PzT02ZYUFhM",
+   "title": "Vesti 20h (30.09.2026.)",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "jDspENN3bsk",
+   "title": "„ORANGE FEST“ U PETAK KOD SEBILJA: DVA SATA ZABAVE, MUZIKE I POKLONA",
+   "duration": 52,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "TLGnEhY20AI",
+   "title": "MTB Kup Srbije u Novom Pazaru: Pazarci 15 puta na postolju",
+   "duration": 332,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "Vricbitz-5g",
+   "title": "Dnevnik Radio televizije Novi Pazar (30.09.2026.)",
+   "duration": 1134,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "AUyroeYrrxo",
+   "title": "Okrugli sto Od priče do pjesme",
+   "duration": 78,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "82LHldyYU3k",
+   "title": "Novi Pazar domaćin 11. Festivala manjinske literature i prvog Novopazarskog sajma knjiga",
+   "duration": 247,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "R5bfSKegyHE",
+   "title": "SDP daje značajno mesto ženama na izbornoj listi",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20261001"
+  },
+  {
+   "id": "yCJuRnbNGQU",
+   "title": "Novi Pazar uživo",
+   "duration": 146,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "o_5TzfBwLx4",
+   "title": "Novi Pazar uživo",
+   "duration": 2710,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "-PKQpn0TYbM",
+   "title": "Novi Pazar uživo",
+   "duration": 42900,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "024hx3Km10c",
+   "title": "Novi Pazar uživo",
+   "duration": 51,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "4ZFAjhCAIOw",
+   "title": "Novi Pazar uživo",
+   "duration": 8521,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "_QnfPZo96qU",
+   "title": "Novi Pazar uživo",
+   "duration": 5216,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "uKPJhOFkOq0",
+   "title": "Ramazanski turniri u malom fudbalu dan 8.",
+   "duration": 88,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "uF6sbdawh9A",
+   "title": "Ramazanski turniri u malom fudbalu dan 8.",
+   "duration": 243,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "Eve90FV-7a8",
+   "title": "Ramazanski turniri u malom fudbalu dan 7.",
+   "duration": 3651,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "gV5f-K3vJpI",
+   "title": "Ramazanski turniri u malom fudbalu dan 7.",
+   "duration": 615,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "rBFJJblFGxw",
+   "title": "Ramazanski turniri u malom fudbalu dan 7.",
+   "duration": 635,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "mOgUGjZBORY",
+   "title": "Novi Pazar - FON Banjica 5:4 (2:2) Prva futsal liga Srbije 4.mart 2023. dvorana Pendik",
+   "duration": 7025,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "J8Z6Vx-XjQE",
+   "title": "KMF NOVI PAZAR - KMF FON BANJICA",
+   "duration": 35,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "Sz4smmTLU1I",
+   "title": "SDP konferencija za stampu",
+   "duration": 662,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  },
+  {
+   "id": "9ZhGVL4rFmY",
+   "title": "Jusufović: SDP po peti put pobedio u Novom Pazaru.",
+   "duration": 1289,
+   "live_status": "was_live",
+   "upload_date": "20241006"
+  }
+ ]
+}

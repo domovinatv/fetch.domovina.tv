@@ -1,0 +1,63 @@
+{
+ "key": "UCJChqaJQsT8CC_oSsuVYLAQ",
+ "url": "https://www.youtube.com/channel/UCJChqaJQsT8CC_oSsuVYLAQ/videos",
+ "channel_id": "UCJChqaJQsT8CC_oSsuVYLAQ",
+ "playlist_id": null,
+ "title": "ZagrebNews - Videos",
+ "channel": "ZagrebNews",
+ "channel_url": "https://www.youtube.com/channel/UCJChqaJQsT8CC_oSsuVYLAQ",
+ "description": "",
+ "follower_count": 4,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "1u6RayKnkMA",
+   "title": "Zagreb News (2) 17.03.2010. 4.dio",
+   "duration": 110,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "X8nCvEjiQJA",
+   "title": "Zagreb News (2) 17.03.2010. 3.dio",
+   "duration": 593,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "ASK-jWWupCU",
+   "title": "Zagreb News (2) 17.03.2010. 2.dio",
+   "duration": 593,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "TF0E0BYp2ck",
+   "title": "Zagreb News (2) 17.03.2010. 1.dio",
+   "duration": 592,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "xxXLuUf8NeM",
+   "title": "Zagreb News (1) 03.02.2010. 3.dio",
+   "duration": 433,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "Fk2gz-M2Kro",
+   "title": "Zagreb News (1) 03.02.2010. 2.dio",
+   "duration": 595,
+   "live_status": null,
+   "upload_date": "20101006"
+  },
+  {
+   "id": "N4MaE_WKl8k",
+   "title": "Zagreb News (1) 03.02.2010. 1.dio",
+   "duration": 594,
+   "live_status": null,
+   "upload_date": "20101006"
+  }
+ ]
+}

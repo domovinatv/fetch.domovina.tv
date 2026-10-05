@@ -1,0 +1,39 @@
+{
+ "cat": "speech-therapy",
+ "q": "SUVAG poliklinika govor slušanje",
+ "at": "2026-10-05T18:53:53.007Z",
+ "hits": [
+  {
+   "channel_id": "UC9l_RhIUjf3S5byJRXGArgQ",
+   "channel": "Studio Europa",
+   "channel_url": "https://www.youtube.com/channel/UC9l_RhIUjf3S5byJRXGArgQ",
+   "id": "WI0M-AIR8Lg",
+   "title": "Jedna od samo tri u Hrvatskoj: Poliklinika proširila kapacitete | Studio Europa",
+   "duration": 128
+  },
+  {
+   "channel_id": "UCG67ZSnglKwhfx5NTDQTdzg",
+   "channel": "Poliklinika Bagatin",
+   "channel_url": "https://www.youtube.com/channel/UCG67ZSnglKwhfx5NTDQTdzg",
+   "id": "zogmWXGCcqQ",
+   "title": "Pomoć gluhoslijepom Mariu Doliću. Pomaganje je uvijek IN!",
+   "duration": 120
+  },
+  {
+   "channel_id": "UCG67ZSnglKwhfx5NTDQTdzg",
+   "channel": "Poliklinika Bagatin",
+   "channel_url": "https://www.youtube.com/channel/UCG67ZSnglKwhfx5NTDQTdzg",
+   "id": "yM17UUMbFpw",
+   "title": "Mario Dolić - životna priča gluhoslijepe osobe. Pomaganje je uvijek IN!",
+   "duration": 801
+  },
+  {
+   "channel_id": "UCsoLIkULxkv8Ovd33tONdBQ",
+   "channel": "BHRT - Radiotelevizija Bosne i Hercegovine",
+   "channel_url": "https://www.youtube.com/channel/UCsoLIkULxkv8Ovd33tONdBQ",
+   "id": "bilYBnsBrQs",
+   "title": "Banjaluka: Centar za obrazovanje i vaspitanje i rehabilitaciju slušanja i govora",
+   "duration": 232
+  }
+ ]
+}

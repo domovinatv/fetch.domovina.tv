@@ -1,0 +1,21 @@
+{
+ "key": "UCe8fXIwWROog7hNqhD8QKXA",
+ "url": "https://www.youtube.com/channel/UCe8fXIwWROog7hNqhD8QKXA/videos",
+ "channel_id": "UCe8fXIwWROog7hNqhD8QKXA",
+ "playlist_id": null,
+ "title": "logoped novi sad - Videos",
+ "channel": "logoped novi sad",
+ "channel_url": "https://www.youtube.com/channel/UCe8fXIwWROog7hNqhD8QKXA",
+ "description": "",
+ "follower_count": 8,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "r-S9XBFiiFw",
+   "title": "Logoped Novi Sad - Logoped i defektolog za decu i odrasle",
+   "duration": 53,
+   "live_status": null,
+   "upload_date": "20201006"
+  }
+ ]
+}

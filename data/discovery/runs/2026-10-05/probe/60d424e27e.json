@@ -1,0 +1,63 @@
+{
+ "key": "UCsDINSOl-6210O6PuIKmVAw",
+ "url": "https://www.youtube.com/channel/UCsDINSOl-6210O6PuIKmVAw/videos",
+ "channel_id": "UCsDINSOl-6210O6PuIKmVAw",
+ "playlist_id": null,
+ "title": "Pitaj logopeda - Videos",
+ "channel": "Pitaj logopeda",
+ "channel_url": "https://www.youtube.com/channel/UCsDINSOl-6210O6PuIKmVAw",
+ "description": "Službeni youtube kanal web platforme Pitajlogopeda.hr",
+ "follower_count": 112,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Y2qbmUDSMUY",
+   "title": "Procjena i dijagnostika disfagije",
+   "duration": 1640,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "Te6YNZ04Fgk",
+   "title": "Multidisciplinarnost- želja ili stvarnost logopeda?",
+   "duration": 1030,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "LkMBi6KnwG0",
+   "title": "Logoped na doktorskom studiju Neuroznanosti?",
+   "duration": 1007,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "tm7aCbFc5T8",
+   "title": "Uloga logopeda u radu s disfagijom",
+   "duration": 891,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "wDw45IYkUis",
+   "title": "Logoped na jedinicama intenzivnog liječenja",
+   "duration": 805,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "N0RZyxLgp6M",
+   "title": "Uloga logopeda u rehabilitaciji nakon totalne laringektomije",
+   "duration": 1165,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "ru7XwHi2WfQ",
+   "title": "Jezično-govorni poremećaji nakon moždanog udara",
+   "duration": 499,
+   "live_status": null,
+   "upload_date": "20211006"
+  }
+ ]
+}

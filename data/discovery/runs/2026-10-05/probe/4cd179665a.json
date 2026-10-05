@@ -1,0 +1,35 @@
+{
+ "key": "UCRCDeywKcyiau6z4KnUPbGw",
+ "url": "https://www.youtube.com/channel/UCRCDeywKcyiau6z4KnUPbGw/videos",
+ "channel_id": "UCRCDeywKcyiau6z4KnUPbGw",
+ "playlist_id": null,
+ "title": "ERF UNIZG - Videos",
+ "channel": "ERF UNIZG",
+ "channel_url": "https://www.youtube.com/channel/UCRCDeywKcyiau6z4KnUPbGw",
+ "description": "Edukacijsko-rehabilitacijski fakultet Sveučilišta u Zagrebu jedina je visokoškolska institucija u Republici Hrvatskoj koja ustrojava i izvodi sveučilišne studijske programe logopedije, edukacijske rehabilitacije i socijalne pedagogije te razvija znanstveno-istraživački i visokostručni rad u tim područjima.",
+ "follower_count": 23,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "Fs63oH-yj_4",
+   "title": "Edukacijsko-rehabilitacijski fakultet na 27. Smotri Sveučilišta u Zagrebu (10.‒12. studenoga 2022.)",
+   "duration": 171,
+   "live_status": null,
+   "upload_date": "20231006"
+  },
+  {
+   "id": "ORrvCaObheY",
+   "title": "60. godina Edukacijsko-rehabiltacijskog fakulteta Sveučilišta u Zagrebu (1962. – 2022.)",
+   "duration": 1073,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "EZRHq5sQRzM",
+   "title": "Edukacijsko-rehabilitacijski fakultet kroz povijest (1962. - 2012.)",
+   "duration": 745,
+   "live_status": null,
+   "upload_date": "20131006"
+  }
+ ]
+}

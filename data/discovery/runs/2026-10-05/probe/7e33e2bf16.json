@@ -1,0 +1,357 @@
+{
+ "key": "UC-KR5h3qXj6oKq5IozWE7ew",
+ "url": "https://www.youtube.com/channel/UC-KR5h3qXj6oKq5IozWE7ew/videos",
+ "channel_id": "UC-KR5h3qXj6oKq5IozWE7ew",
+ "playlist_id": null,
+ "title": "Pitajte Pedijatra – Poliklinika Dr Raketić - Videos",
+ "channel": "Pitajte Pedijatra – Poliklinika Dr Raketić",
+ "channel_url": "https://www.youtube.com/channel/UC-KR5h3qXj6oKq5IozWE7ew",
+ "description": "Kanal posvećen najčešćim pitanjima vezanim za zdravlje i negu beba i dece.",
+ "follower_count": 2280,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "r6BAsDbvUqU",
+   "title": "Uvodjenje sokića u bebinu ishranu - Dr Nevenka Raketić",
+   "duration": 95,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "_h1HJOgm36I",
+   "title": "Inulin u ishrani beba",
+   "duration": 45,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "VTT2jsM5Y30",
+   "title": "Prilagodjavanje ishrane bebe godišnjim dobima",
+   "duration": 53,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "JcaSQ35swZ0",
+   "title": "Šta dati bebi da jede pre spavanja?",
+   "duration": 65,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "eP4IRybOcFg",
+   "title": "Uvodjenje nemlečne hrane za bebe",
+   "duration": 91,
+   "live_status": null,
+   "upload_date": "20241006"
+  },
+  {
+   "id": "e-UCiN7bsZM",
+   "title": "Malokrvnost kod dece - govori Brana Racić pedijatar",
+   "duration": 343,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "92TrjFJDHIA",
+   "title": "Soor ili Mlečac - govori Zorica Čolović pedijatrijska sestra",
+   "duration": 294,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "IQw1ccC8lDg",
+   "title": "Afte - govori Zorica Čolović pedijatrijska sestra",
+   "duration": 204,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "7W5-zm9uT1s",
+   "title": "Mucanje - govori Brana Racić pedijatar",
+   "duration": 344,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "B5V8LQd-W-o",
+   "title": "I LETI I ZIMI - TREBAJU NAM VITAMINI, govori Danka Gačić, medicinska sestra",
+   "duration": 194,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "UO1DuYih_NE",
+   "title": "DEČIJE GLISTE - govori Danka Gačić, pedijatrijska sestra",
+   "duration": 247,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "AgPt__ka2uU",
+   "title": "KAKO PRIPREMITI DETE ZA VAKCINACIJU - govori Danka Gačić, pedijatrijska sestra",
+   "duration": 223,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "zgYXT1meU-A",
+   "title": "SARLAH",
+   "duration": 309,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "PBAHslkvnCU",
+   "title": "Pitajte pedijatra - Infektivna mononukleoza",
+   "duration": 350,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "eTmdPGqqPF4",
+   "title": "Pitajte pedijatra - Bolest ruku, nogu i usta",
+   "duration": 342,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "PFCovsGwIR4",
+   "title": "Pitajte pedijatra - Febrilne konvulzije - fras kod dece",
+   "duration": 346,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "uQGshlZWOmM",
+   "title": "Pitajte pedijatra - Kile (hernije) kod dece",
+   "duration": 259,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "zwv4HKEvRM0",
+   "title": "Pitajte pedijatra - Fimoze",
+   "duration": 273,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "QxkUdVOcfOQ",
+   "title": "Pitajte pedijatra - Uspostavljanje prvih higijenskih navika kod dece",
+   "duration": 406,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "ZKSYtiQ_Ga8",
+   "title": "Pitajte pedijatra - Jačanje imuniteta kod dece",
+   "duration": 488,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "JY5FEAgLM04",
+   "title": "Pitajte pedijatra - Lekarski pregled pred polazak u kolektiv",
+   "duration": 248,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "WRbiMC0Vb7A",
+   "title": "Pitajte pedijatra - Poremećaji spavanja kod dece",
+   "duration": 327,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "dqLFAChTVJ0",
+   "title": "Pitajte pedijatra - Fontanele kod beba",
+   "duration": 343,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "YWOItLHcF0A",
+   "title": "Pitajte pedijatra - Uzimanje urina za laboratoriju",
+   "duration": 452,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "6sBLELMgeA0",
+   "title": "Pitajte pedijatra - Obrada rane",
+   "duration": 225,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "k9YJK1g0rMI",
+   "title": "Pitajte pedijatra - Kako zaustaviti proliv (dijareju) kod dece",
+   "duration": 212,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "ISQ6FUOKAQo",
+   "title": "Pitajte pedijatra - Kako pomoći detetu koje povraća?",
+   "duration": 331,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "hyik3tCEzRM",
+   "title": "Pitajte pedijatra - Pneumokokna i MMR vakcina (akcija 2019.)",
+   "duration": 427,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "b4zkqWCxr8o",
+   "title": "Pitajte pedijatra - Zaštita od krpelja kod dece",
+   "duration": 352,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "2z3cH5NDtbw",
+   "title": "Pitajte pedijatra - Sve o primeni probiotika kod dece",
+   "duration": 346,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "cq_8ZswsDdE",
+   "title": "Pitajte pedijatra - Sa decom na letovanju (putna apoteka)",
+   "duration": 238,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "TO1MSVqtYbw",
+   "title": "Pitajte pedijatra - Zaštita dece od sunca",
+   "duration": 329,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "FbJ6UV4pw2M",
+   "title": "Pitajte pedijatra - Prvih 20 snimaka",
+   "duration": 503,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "KK_LtUEXY9I",
+   "title": "Pitajte pedijatra - Uzimanje uzorka krvi",
+   "duration": 262,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "sN4hFMexCyw",
+   "title": "Pitajte pedijatra - Kako držati dete za vreme pedijatrijskog pregleda",
+   "duration": 215,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "FM4Ga9we-cI",
+   "title": "Pitajte pedijatra - Kako pripremiti dete za posetu pedijatru?",
+   "duration": 460,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "BH7vcXPjo0s",
+   "title": "Pitajte pedijatra - Konjuktivitis",
+   "duration": 303,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "GdZCTF41_-o",
+   "title": "Pitajte pedijatra - Šta raditi kad dete boli uvo",
+   "duration": 232,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "O64oLomceGc",
+   "title": "Pitajte pedijatra - Kako sniziti temperaturu kod dece",
+   "duration": 304,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "Uz_L98jWWfA",
+   "title": "Pitajte pedijatra - Sistematski pregledi pred upis u školu",
+   "duration": 333,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "4V1cFpkpG1Q",
+   "title": "Pitajte pedijatra - Kako inhalirati dete",
+   "duration": 446,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "WWvROljalNc",
+   "title": "Pitajte pedijatra - Kako pomoći detetu koje kašlje?",
+   "duration": 322,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "7FrMjQef6Ns",
+   "title": "Pitajte pedijatra - Šta raditi kad dete boli grlo?",
+   "duration": 302,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "RZbHHoCxkdc",
+   "title": "Pitajte pedijatra - Kako očistiti detetu nos",
+   "duration": 382,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "OH6W1NGh2lM",
+   "title": "Pitajte pedijatra - Slinavo dete",
+   "duration": 209,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "9-AzVQGzt5g",
+   "title": "Pitajte pedijatra - Bakterijske infekcije kod dece",
+   "duration": 194,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "Vw3HgYcHXjs",
+   "title": "Pitajte pedijatra - Virusne infekcije kod dece",
+   "duration": 288,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "CAodifXatOU",
+   "title": "Pitajte pedijatra - Najčešće infekcije u zimskom periodu",
+   "duration": 261,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "L6jk-8bYbJ0",
+   "title": "Pitajte pedijatra - Predstavljanje kanala",
+   "duration": 258,
+   "live_status": null,
+   "upload_date": "20191006"
+  }
+ ]
+}

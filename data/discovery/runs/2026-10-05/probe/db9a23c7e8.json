@@ -1,0 +1,77 @@
+{
+ "key": "UCHGoh4hkqx0kjBZmEw_J7zA",
+ "url": "https://www.youtube.com/channel/UCHGoh4hkqx0kjBZmEw_J7zA/videos",
+ "channel_id": "UCHGoh4hkqx0kjBZmEw_J7zA",
+ "playlist_id": null,
+ "title": "Tamara Milic - Videos",
+ "channel": "Tamara Milic",
+ "channel_url": "https://www.youtube.com/channel/UCHGoh4hkqx0kjBZmEw_J7zA",
+ "description": "",
+ "follower_count": 11,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "d0KfEP5BezY",
+   "title": "Cowid 19 influence on CwD in MNE",
+   "duration": 1622,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "2m5UuTqcZd8",
+   "title": "Nikola, Cboard i boje",
+   "duration": 98,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "iAkSjMmg3Ko",
+   "title": "Komunikacija uz Cboard",
+   "duration": 104,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "6gKyI6LOpNE",
+   "title": "Oj vesela, veselice",
+   "duration": 191,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "h5dqv36SxVA",
+   "title": "Je li kome kano srcu mome",
+   "duration": 247,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "nUF0HBUPbzE",
+   "title": "Milica jedna u majke",
+   "duration": 281,
+   "live_status": null,
+   "upload_date": "20181006"
+  },
+  {
+   "id": "tZDRjavM8L0",
+   "title": "Gibonni - Sarajevo 08.03.2017. Posoljeni zrak",
+   "duration": 461,
+   "live_status": null,
+   "upload_date": "20171006"
+  },
+  {
+   "id": "e80VnPs5gAc",
+   "title": "Djavolcicu Djavolcicu",
+   "duration": 22,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "D6ufApfryRQ",
+   "title": "Gibonni 26.07.2015. Tajna vjestina",
+   "duration": 336,
+   "live_status": null,
+   "upload_date": "20151006"
+  }
+ ]
+}

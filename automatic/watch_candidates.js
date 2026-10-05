@@ -80,7 +80,7 @@ const YTDLP = process.env.YTDLP_BIN || "yt-dlp";
 
 // Pratimo i uspavane/neaktivne: jeftino je (jedan flat poziv), a tako vidimo kad se
 // podcast vrati. Van su samo zaključeni arhivski unosi i oni presuđeni kao ne-podcast.
-const SKIP_STATUSES = new Set(["archive", "completed", "not-podcast", "dead-url"]);
+const SKIP_STATUSES = new Set(["archive", "completed", "not-podcast", "dead-url", "rejected"]);   // rejected = i spojeni duplikati (merged_into)
 const SHORT_MAX_SEC = 180;      // YouTube Shorts su ≤3 min
 const FLOOR_MIN_SEC = 901;      // isti prag kao refresh_podcasts.sh (15:01)
 const ADAPTIVE_FACTOR = 0.35;   // original ≥ 35 % tipične duge epizode kanala

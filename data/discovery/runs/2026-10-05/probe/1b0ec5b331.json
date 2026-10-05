@@ -1,0 +1,21 @@
+{
+ "key": "UC8mks259w9mKVCnLauNkZbA",
+ "url": "https://www.youtube.com/channel/UC8mks259w9mKVCnLauNkZbA/videos",
+ "channel_id": "UC8mks259w9mKVCnLauNkZbA",
+ "playlist_id": null,
+ "title": "jasmina def - Videos",
+ "channel": "jasmina def",
+ "channel_url": "https://www.youtube.com/channel/UC8mks259w9mKVCnLauNkZbA",
+ "description": "",
+ "follower_count": null,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "8wbcR9iZRQg",
+   "title": "prilog hrt4",
+   "duration": 45,
+   "live_status": null,
+   "upload_date": "20141006"
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "key": "UCUzlx8pgU-osHbL1CVStODg",
+ "url": "https://www.youtube.com/channel/UCUzlx8pgU-osHbL1CVStODg/videos",
+ "channel_id": "UCUzlx8pgU-osHbL1CVStODg",
+ "playlist_id": null,
+ "title": "Igraj Uči Rasti / Play Learn Grow - Videos",
+ "channel": "Igraj Uči Rasti / Play Learn Grow",
+ "channel_url": "https://www.youtube.com/channel/UCUzlx8pgU-osHbL1CVStODg",
+ "description": "",
+ "follower_count": 15,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "SLkVzNvLbwg",
+   "title": "Šta znači biti pionir?",
+   "duration": 119,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "tVbx3RggIbI",
+   "title": "Šta je STEM obrazovanje?",
+   "duration": 428,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "vQG6nUoVBXA",
+   "title": "STEM Upitnik",
+   "duration": 59,
+   "live_status": null,
+   "upload_date": "20211006"
+  },
+  {
+   "id": "Mr-mqBBGfzQ",
+   "title": "Igraj Uči Rasti slavi 3. rođendan",
+   "duration": 227,
+   "live_status": null,
+   "upload_date": "20201006"
+  },
+  {
+   "id": "z-otJyLeD8A",
+   "title": "Igraj Uči Rasti Podcast #2: Poremećaji govorno-jezičkog razvoja",
+   "duration": 4996,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "_Re8SKxpauw",
+   "title": "Igraj Uči Rasti Podcast 01: Strahovi kod djece predškolskog uzrasta",
+   "duration": 2175,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "Vcs0wz7o0YM",
+   "title": "Igraj Uči Rasti slavi 2. rođendan!",
+   "duration": 75,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "UHH7_A_Ue80",
+   "title": "Pozdrav od Igraj Uči Rasti",
+   "duration": 64,
+   "live_status": null,
+   "upload_date": "20191006"
+  },
+  {
+   "id": "sEPAR5WHDw8",
+   "title": "Zašto kupiti od nas? - Igraj Uči Rasti",
+   "duration": 54,
+   "live_status": null,
+   "upload_date": "20191006"
+  }
+ ]
+}

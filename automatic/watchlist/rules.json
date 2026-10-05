@@ -3062,5 +3062,28 @@
   "extra_source_urls": [
    "https://www.youtube.com/channel/UCUuKqP2o5JUd692Lw26rrpw/streams"
   ]
+ },
+ "4kids-podcast": {
+  "exclude_title_regex": "(?i)the best of|^podcast all in with maida arslanagić$",
+  "include_title_regex": null,
+  "min_duration_sec": 600,
+  "from": "registry-discovery-2026-10 (manual)"
+ },
+ "norda-disleksija": {
+  "exclude_title_regex": "(?i)radionica|RTWN|dobitnici",
+  "include_title_regex": null,
+  "from": "registry-discovery-2026-10 (claude:sonnet)"
+ },
+ "trend-medij-gost-dana": {
+  "include_title_regex": "(?i)gost dana",
+  "from": "registry-discovery-2026-10 (claude:sonnet)",
+  "source_url": "https://www.youtube.com/channel/UCjfczbbeVpDKoM1nYJvGIiw/videos",
+  "extra_source_urls": [
+   "https://www.youtube.com/channel/UCjfczbbeVpDKoM1nYJvGIiw/streams"
+  ]
+ },
+ "radio-varazdin-intervju-tjedna": {
+  "include_title_regex": "(?i)intervju tjedna",
+  "from": "registry-discovery-2026-10 (claude:sonnet)"
  }
 }

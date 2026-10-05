@@ -1,0 +1,56 @@
+{
+ "key": "UC9CdflVcTa3xSlwAJFPVr5w",
+ "url": "https://www.youtube.com/channel/UC9CdflVcTa3xSlwAJFPVr5w/videos",
+ "channel_id": "UC9CdflVcTa3xSlwAJFPVr5w",
+ "playlist_id": null,
+ "title": "Poremećaji jezika, govora i slušanja - Videos",
+ "channel": "Poremećaji jezika, govora i slušanja",
+ "channel_url": "https://www.youtube.com/channel/UC9CdflVcTa3xSlwAJFPVr5w",
+ "description": "",
+ "follower_count": 28,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "0c-mb7T93jw",
+   "title": "Odnos komunikacijskih sposobnosti i ranih ekspresivnih jezičnih sposobnosti u djece s PSA",
+   "duration": 181,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "e_CvJm2jjKM",
+   "title": "Međuodnos komunikacijskih funkcija, jezičnog unosa majke i jezičnog razvoja",
+   "duration": 345,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "bKdAttktwYc",
+   "title": "Varijabilnost ranog jezičnog razvoja s obzirom na biološke i okolinske čimbenike",
+   "duration": 246,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "3jof080olkg",
+   "title": "Prediktori receptivnog jezika kod djece s kohlearnim implantatom",
+   "duration": 236,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "fHQv98kLvOo",
+   "title": "Razumijevanje pročitanog - obrada anaforičkih odnosa u djece s jezičnim poremećajem",
+   "duration": 261,
+   "live_status": null,
+   "upload_date": "20221006"
+  },
+  {
+   "id": "wFG3WWbDnM8",
+   "title": "Obrada prefiksalno izvedenih riječi kod djece s razvojnim jezičnim poremećajem",
+   "duration": 263,
+   "live_status": null,
+   "upload_date": "20221006"
+  }
+ ]
+}

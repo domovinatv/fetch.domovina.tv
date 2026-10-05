@@ -1,0 +1,35 @@
+{
+ "key": "UCCBHrnGo-VGdrt2iJmWeiPg",
+ "url": "https://www.youtube.com/channel/UCCBHrnGo-VGdrt2iJmWeiPg/videos",
+ "channel_id": "UCCBHrnGo-VGdrt2iJmWeiPg",
+ "playlist_id": null,
+ "title": "emorycrmspeech - Videos",
+ "channel": "emorycrmspeech",
+ "channel_url": "https://www.youtube.com/channel/UCCBHrnGo-VGdrt2iJmWeiPg",
+ "description": "",
+ "follower_count": 10,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "VjMjiT1u50U",
+   "title": "dysphagia1",
+   "duration": 596,
+   "live_status": null,
+   "upload_date": "20091006"
+  },
+  {
+   "id": "CyBbDKXnTX4",
+   "title": "dysphagia3",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20091006"
+  },
+  {
+   "id": "yZlIWz0y9n4",
+   "title": "dysphagia2",
+   "duration": 489,
+   "live_status": null,
+   "upload_date": "20091006"
+  }
+ ]
+}

@@ -1,0 +1,504 @@
+{
+ "key": "UC8I2KhbQ8OFgQJ7ihh2EKsQ",
+ "url": "https://www.youtube.com/channel/UC8I2KhbQ8OFgQJ7ihh2EKsQ/videos",
+ "channel_id": "UC8I2KhbQ8OFgQJ7ihh2EKsQ",
+ "playlist_id": null,
+ "title": "Auticast Podcast - Videos",
+ "channel": "Auticast Podcast",
+ "channel_url": "https://www.youtube.com/channel/UC8I2KhbQ8OFgQJ7ihh2EKsQ",
+ "description": "O AUTICAST é um espaço dedicado a autistas, familiares, profissionais de saúde e todas as pessoas neurodivergentes que buscam informações, apoio e troca de experiências. Nossa missão é promover a inclusão, a compreensão e o respeito à diversidade neurocognitiva, oferecendo conteúdo relevante sobre o universo do autismo e outras condições neurodivergentes.\n​\nNo AUTICAST, acreditamos na importância de ouvir e amplificar as vozes da comunidade neuroatípica, compartilhando relatos, pesquisas, estratégias de apoio e discussões sobre temas como saúde mental, educação, e direitos. Somos um ponto de encontro para aqueles que desejam aprender mais, se apoiar mutuamente e, juntos, construir um ambiente mais acolhedor e inclusivo para todos.\n\nSeja você neurodivergente, familiar, profissional ou interessado no tema, nossa missão é lhe oferecer um conteúdo de qualidade que respeite as diferentes perspectivas e contribua para a construção de um mundo mais empático e compreensivo.\n",
+ "follower_count": 161,
+ "streams_count": 14,
+ "videos": [
+  {
+   "id": "LY--Zl1EFyM",
+   "title": "Dr. Jaque Jones - Setembro Amarelo",
+   "duration": 3505,
+   "live_status": null,
+   "upload_date": "20260927"
+  },
+  {
+   "id": "Ofu7IyrPpgc",
+   "title": "A Espera É de Mim - Canção para o Setembro Amarelo",
+   "duration": 419,
+   "live_status": null,
+   "upload_date": "20260923"
+  },
+  {
+   "id": "zJYZ9xmUBnk",
+   "title": "Auticast Podcast - Drª Liliam Simões - Protocolo de gênero no autismo",
+   "duration": 4097,
+   "live_status": null,
+   "upload_date": "20260915"
+  },
+  {
+   "id": "SBEiMZ0odUE",
+   "title": "Auticast Podcast - Pastor Rogerinho - Mês dos Pais",
+   "duration": 4283,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "Ft_NN4IFZH0",
+   "title": "Auticast Podcast - Dr. Jaque Jones Costa - Transtorno Borderline",
+   "duration": 3211,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "v1RA0XNQJDM",
+   "title": "Especial Mês dos Pais - Alessandro Nicácio - Pai Atípico",
+   "duration": 3733,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "r86Sce-S3Uk",
+   "title": "Especial Mês dos Pais - Junio Vicente - Pai Atípico e fundador da AFAAI",
+   "duration": 3654,
+   "live_status": null,
+   "upload_date": "20260906"
+  },
+  {
+   "id": "XTOWa6RBmB8",
+   "title": "Auticast Podcast - Jaque Costa - Relaxamento Induzido",
+   "duration": 2936,
+   "live_status": null,
+   "upload_date": "20260806"
+  },
+  {
+   "id": "xZItQZ8UaQw",
+   "title": "Auticast Podcast - Tayana Nicacio - Neuropsicopedagoga e psicomotricista",
+   "duration": 3977,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "Z_JtnRYimQY",
+   "title": "Auticast Podcast - Mikaelly Pimentel e Carolaine Andrade - Fonoaudiólogas Itamed",
+   "duration": 3897,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "K-jVdqKcpQM",
+   "title": "Auticast Podcast - Fátima Aparecida - pedagoga APAE Itaperuna",
+   "duration": 3293,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "M79hY3GwMpc",
+   "title": "Inauguração da sede do Partido do Autista - Campos, 10/06/2026",
+   "duration": 373,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "d18PprmNg8g",
+   "title": "Auticast Podcast - Dr. Kevin Ferreira - Psicólogo Itamed",
+   "duration": 3724,
+   "live_status": null,
+   "upload_date": "20260706"
+  },
+  {
+   "id": "i_dY6PHpvCI",
+   "title": "Auticast Podcast - Dr. Jaque Jones - Neuropsicólogo e presidente da APAE Itaperuna",
+   "duration": 3111,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "VR5Dyjf548Q",
+   "title": "Auticast Podcast - Dr  Fernando Freitas - Odontologia inclusiva, integralista e humanizada.",
+   "duration": 3220,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "ZYVSzTOuxMU",
+   "title": "Auticast Podcast - Daiane Motta - Psicóloga Itamed",
+   "duration": 3737,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "9vXpP_JpZWk",
+   "title": "Auticast Podcast - Gleyce Paquiela - Clínica CEF & Neuroterapias",
+   "duration": 3477,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "3dFjL2wDn44",
+   "title": "Auticast Podcast  - Aline Mota - Fisioterapeuta e psicomotricista  Itamed",
+   "duration": 3524,
+   "live_status": null,
+   "upload_date": "20260606"
+  },
+  {
+   "id": "MLLLepsWWUY",
+   "title": "Auticast Podcast - Vitor Pavão - Neuropsicopedagogo ITAMED",
+   "duration": 3092,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "hElG5SJwtYY",
+   "title": "Afya promove roda de conversa sobre autismo em Itaperuna",
+   "duration": 5111,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "Ne4zBc0d72Y",
+   "title": "Auticast Podcast - Kaio Veiga - Psicólogo Itamed",
+   "duration": 3847,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "kD6ma13rvAM",
+   "title": "Auticast Podcast - Lucas Fávaro - Professor de Musicalização",
+   "duration": 3772,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "EWp_wC5ASbo",
+   "title": "5ª Caminhada Pela Conscientização do Autismo - Itaperuna, 12/04/2026",
+   "duration": 1014,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "IVmudwIYTjM",
+   "title": "Auticast Podcast - Verônica Lopes - Neuropsicopedagoga da ITAMED",
+   "duration": 3708,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "YrxwwhmxBXA",
+   "title": "Auticast Podcast - Lucas Oliveira (neuropsicopedagogo do CEF)",
+   "duration": 3136,
+   "live_status": null,
+   "upload_date": "20260506"
+  },
+  {
+   "id": "WoI-iE_zDiQ",
+   "title": "Auticast Podcast - Drª Mª Inez Caraline e Dr. Jaque Jones Costa",
+   "duration": 3704,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "t1TL26ejuoo",
+   "title": "🎙️ Os desafios são grandes, mas o compromisso com a inclusão é ainda maior 💙",
+   "duration": 159,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "xHN-l2K3YvA",
+   "title": "Danny Oliveira - Presidente da AFAAI - Associação dos Familiares e Amigos dos Autistas de Itaperuna",
+   "duration": 335,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "rBNJP7rLw9w",
+   "title": "🎙️💙 Percília Lemos, mãe atípica! Histórias reais que inspiram!",
+   "duration": 173,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "YE9wRhboLEE",
+   "title": "🎙️ Professor João Lucas Lima - Informação que transforma realidades!",
+   "duration": 464,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "CuUhyW1k8iQ",
+   "title": "🎙️ Caravana da Inclusão! A informação transforma. A inclusão começa por ela.",
+   "duration": 1314,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "TTdgVTN4Cdk",
+   "title": "Auticast Podcast - Gleyce Paquiela - Fonoaudióloga",
+   "duration": 4258,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "e7keD_mcJ0I",
+   "title": "“O caminho até o diagnóstico: um relato real sobre o autismo”",
+   "duration": 240,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "UNWMiC5xPsA",
+   "title": "Jaque Jonas Costa - Neuropsicólogo e presidente da APAE Itaperuna",
+   "duration": 3372,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "SbflD0k9Hiw",
+   "title": "Auticast Podcast - Sheyla Rangel e Gabriella Rodrigues - Itamed",
+   "duration": 3762,
+   "live_status": null,
+   "upload_date": "20260406"
+  },
+  {
+   "id": "WHNnfrpPqiE",
+   "title": "Dr. Fábio de Castro Jr. - Promotor de Justiça - Inclusão Escolar e os direitos das pessoas com TEA",
+   "duration": 4535,
+   "live_status": null,
+   "upload_date": "20260206"
+  },
+  {
+   "id": "_y-svOnQCxI",
+   "title": "Vídeo - Cadastramento e certificação das empresas prestadoras de serviço às pessoas com Deficiência",
+   "duration": 369,
+   "live_status": null,
+   "upload_date": "20251106"
+  },
+  {
+   "id": "KpJEgih7kQs",
+   "title": "💉💬 Quando a mentira vira política, a vida vira estatística.",
+   "duration": 252,
+   "live_status": null,
+   "upload_date": "20251106"
+  },
+  {
+   "id": "BsyQLFgPuTA",
+   "title": "Projeto Saúde em Foco -  Instituto Mulheres que Contam",
+   "duration": 760,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "E2t3RnsGV78",
+   "title": "Entrevista Dr  Carlos Henrique - Mantenedor da  Famesc",
+   "duration": 151,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "n-NeTbkRugg",
+   "title": "Entrevista com Prof. Dr. Cláudio Joaquim -Coordenador da UPPES Sindicato",
+   "duration": 272,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Dw5L4gNTmRU",
+   "title": "Entrevista com Toninho Gualhano   Prefeito de Bom Jesus do Norte   ES",
+   "duration": 138,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "r9fDd23CJro",
+   "title": "Entrevista com Paulo Sergio Cyrillo - Prefeito de Bom Jesus do Itabapoana",
+   "duration": 198,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "5nmYQJufNzk",
+   "title": "Entrevista com Alessandra Carvalho   Embaixadora do I Congresso Internacional de Práticas Integrativ",
+   "duration": 242,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "N_lxRNkrhCY",
+   "title": "I Congresso Internacional de Práticas Integrativas em Autismo do Noroeste Fluminense",
+   "duration": 3538,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Kpdc5h1x3co",
+   "title": "Auticast Podcast #11 - Saulo Machado - Acadêmico de Medicina e Pesquisador Científico",
+   "duration": 4559,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "um3i6izjM94",
+   "title": "Auticast Podcast #10 - Kenia Gentiluci - Psicopedagoga",
+   "duration": 4063,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "H6Uqlr0tMfo",
+   "title": "Auticast Podcast #09 - Ana Schelk",
+   "duration": 3295,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "bSEYf3SOE6E",
+   "title": "Sophia Filgueiras - Nutricionista - Auticast Podcast #8",
+   "duration": 2822,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "rIjI6PWYU6Q",
+   "title": "Andreia Domingos - Mãe atípica e fisioterapeuta - Auticast Podcast #07",
+   "duration": 2765,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "mB3HnEoFZj4",
+   "title": "Danny Oliveira - Presidente da AFAAI - Auticast Podcast #06",
+   "duration": 3798,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "tF7Ba6zTUiQ",
+   "title": "Edmar Kiffer - mestre em artes marciais - Auticast Podcast #05",
+   "duration": 1847,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "VWj0icKVG_0",
+   "title": "Kaio Veiga - psicólogo e professor de judô - Auticast Podcast #04",
+   "duration": 2842,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "ieBRxR0AJUs",
+   "title": "Viviani Fávaro - Fisioterapeuta e Musicoterapeuta - Auticast Podcast #03",
+   "duration": 2639,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "Lea52KeFD0Q",
+   "title": "Auticast Podcast 02 - Entrevista com Percília Lemos, mãe atípica",
+   "duration": 2659,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "RBUUQg7gupc",
+   "title": "Auticast podcast #01   Seletividade Alimentar e Neurodivergências",
+   "duration": 3946,
+   "live_status": null,
+   "upload_date": "20251006"
+  },
+  {
+   "id": "9g7wAT0icxc",
+   "title": "Janeiro Branco: cuidar da mente é um ato de amor",
+   "duration": 7202,
+   "live_status": "was_live",
+   "upload_date": "20260206"
+  },
+  {
+   "id": "fWPXFsjHmJA",
+   "title": "Auticast Podcast - Matheus Pereira - Fonoaudiólogo",
+   "duration": 6191,
+   "live_status": "was_live",
+   "upload_date": "20251206"
+  },
+  {
+   "id": "x_VI2km1aXg",
+   "title": "Auticast Podcast | Jayna Barros - Neuropsicóloga",
+   "duration": 7935,
+   "live_status": "was_live",
+   "upload_date": "20251206"
+  },
+  {
+   "id": "HwFOnkBIRmQ",
+   "title": "Auticast Podcast - Letícia Rodrigues - Neuropsicopedagoga",
+   "duration": 5477,
+   "live_status": "was_live",
+   "upload_date": "20251106"
+  },
+  {
+   "id": "3npmpewr4gE",
+   "title": "Desfralde e a importância da atenção aos marcos de desenvolvimento das crianças",
+   "duration": 6192,
+   "live_status": "was_live",
+   "upload_date": "20251106"
+  },
+  {
+   "id": "PgApZRmF2_g",
+   "title": "Auticast Podcast  | Thalita Roeles - Psicóloga",
+   "duration": 5970,
+   "live_status": "was_live",
+   "upload_date": "20251106"
+  },
+  {
+   "id": "2NaZF-i2b-M",
+   "title": "AUTICAST PODCAST - CÍNTIA EGIDI E JOCINEIA RODRIGUES",
+   "duration": 4925,
+   "live_status": "was_live",
+   "upload_date": "20251106"
+  },
+  {
+   "id": "WXagF3He1dQ",
+   "title": "AUTICAST PODCAST - Dr. Daniel Gama e Drª Thayná Bizarro - Advogados",
+   "duration": 7075,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "azSlfVZvuH8",
+   "title": "Liana Faria | Fisioterapeuta | Auticast Podcast",
+   "duration": 6851,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "uNlZF5mFdac",
+   "title": "Felipe Gama - psicopedagogo | AUTICAST PODCAST",
+   "duration": 6313,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "ptOw7f5PfB0",
+   "title": "Maria Marães - Maternidade sem Manual - Histórias de Uma Mãe Atípica",
+   "duration": 7171,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "FPiZVstKgwg",
+   "title": "AUTICAST PODCAST - Psicologia e Autismo: Avaliação, Diagnóstico e Intervenção Terapêutica.",
+   "duration": 6906,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "J1wSHuXHpG4",
+   "title": "Drª Mariana Ramos | Mindfulness no cotidiano de crianças e adolescentes com TEA.",
+   "duration": 6468,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  },
+  {
+   "id": "do3kM0gY3ic",
+   "title": "Auticast Podcast - Terapia Ocupacional na atuação do TEA",
+   "duration": 5255,
+   "live_status": "was_live",
+   "upload_date": "20251006"
+  }
+ ]
+}

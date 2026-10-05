@@ -1,0 +1,173 @@
+{
+ "candidates": [
+  {
+   "display_name": "Norda Disleksija (Podcast o disleksiji / Razgovori o disleksiji)",
+   "hosts": [
+    "Anja Norda (president, Udruga disleksičara Norda Disleksija, Vodice)"
+   ],
+   "language_country": "hr / Croatia",
+   "youtube_url": "https://www.youtube.com/channel/UCu4LN1f9qC_04exifajyw9Q/videos",
+   "channel_id": "UCu4LN1f9qC_04exifajyw9Q",
+   "playlist_id": "PLt4C3DQ1aH5w4szAOnRy6ORo2wFkZMpNT",
+   "spotify_url": null,
+   "apple_url": null,
+   "rss_url": null,
+   "episodes": "69 channel videos total; 'Razgovori o disleksiji i slično' playlist = 14; only 2 explicitly titled PODCAST (No.1, No.2); rest are interviews + online workshops",
+   "first_episode": "2021-02-06",
+   "last_episode": "2023-10-20",
+   "status": "inactive",
+   "evidence": "Dyslexia association YouTube channel: 'PODCAST O DISLEKSIJI No. 1 - Dobrodošli u svijet disleksije', 'Važnost predškolskih znakova disleksije - PODCAST No. 2', interview series 'Razgovor o životu s disleksijom', workshops for parents. Topic is dyslexia (in scope) but host is a person with dyslexia, not a logoped; format is only partly podcast.",
+   "source_urls": [
+    "https://www.youtube.com/channel/UCu4LN1f9qC_04exifajyw9Q/videos",
+    "https://www.youtube.com/watch?v=npub4WETYMc",
+    "https://linktr.ee/norda.disleksija.hr",
+    "https://www.srednja.hr/novosti/maturantici-anji-u-trecem-je-razredu-dijagnosticirana-disleksija-a-sada-je-napisala-knjigu-o-toj-poteskoci/"
+   ],
+   "confidence": "medium",
+   "tags": [
+    "dyslexia",
+    "speech-therapy-adjacent"
+   ],
+   "primary_logopedic": true
+  },
+  {
+   "display_name": "Bliski susreti jezične vrste",
+   "hosts": [
+    "Gaj Tomaš"
+   ],
+   "language_country": "hr / Croatia",
+   "youtube_url": "https://www.youtube.com/channel/UCTnBAvMUWsM2a--hPr9MrPw/videos",
+   "channel_id": "UCTnBAvMUWsM2a--hPr9MrPw",
+   "playlist_id": null,
+   "spotify_url": null,
+   "apple_url": "https://podcasts.apple.com/hr/podcast/id1503912072",
+   "rss_url": "https://anchor.fm/s/f8e25010/podcast/rss",
+   "episodes": 252,
+   "first_episode": null,
+   "last_episode": "2025-11-08 (Apple feed)",
+   "status": "unknown",
+   "evidence": "General linguistics/language podcast; has logopedic episodes: Ep.#82 Mucanje, Ep.#97 Disleksija, Ep.#202 'Razvojni govorno-jezični poremećaji, uloga logopeda i roditelja' (Ana Matić Škorić). Main topic is language, not therapy.",
+   "source_urls": [
+    "https://itunes.apple.com/search?media=podcast&country=hr&term=mucanje"
+   ],
+   "confidence": "high",
+   "tags": [
+    "linguistics",
+    "speech-therapy-episodes"
+   ],
+   "primary_logopedic": false
+  },
+  {
+   "display_name": "4Kids Podcast (formerly 'Podcast ALL IN with Maida Arslanagić')",
+   "hosts": [
+    "Maida Arslanagić"
+   ],
+   "language_country": "hr / Croatia (guests incl. Croatian ombudsman for children office)",
+   "youtube_url": "https://www.youtube.com/channel/UCYSyAnXuGP-Lor3yO25bhJg/videos",
+   "channel_id": "UCYSyAnXuGP-Lor3yO25bhJg",
+   "playlist_id": null,
+   "spotify_url": null,
+   "apple_url": null,
+   "rss_url": null,
+   "episodes": 33,
+   "first_episode": "2021-06-24",
+   "last_episode": "2024-11-29",
+   "status": "inactive",
+   "evidence": "Children with developmental difficulties / inclusion; episodes on AAC (ep.3), speech therapist in kindergarten (ep.10), stuttering (ep.16), picture books and speech-language development (ep.21), sensory integration, autism.",
+   "source_urls": [
+    "https://www.youtube.com/channel/UCYSyAnXuGP-Lor3yO25bhJg/videos"
+   ],
+   "confidence": "medium",
+   "tags": [
+    "parenting",
+    "disability",
+    "inclusion",
+    "speech-therapy-episodes"
+   ],
+   "primary_logopedic": false
+  },
+  {
+   "display_name": "Rastući s djecom (Bljesak.info)",
+   "hosts": [
+    "Bljesak.info (Mostar)"
+   ],
+   "language_country": "hr / BiH Croats (Mostar)",
+   "youtube_url": "https://www.youtube.com/channel/UC7WVD1Fm6JY4gU5hNg2CkDw/videos",
+   "channel_id": "UC7WVD1Fm6JY4gU5hNg2CkDw",
+   "playlist_id": null,
+   "spotify_url": null,
+   "apple_url": null,
+   "rss_url": null,
+   "episodes": null,
+   "first_episode": null,
+   "last_episode": null,
+   "status": "unknown",
+   "evidence": "Parenting podcast; episode 'Ivana Dodig: Roditelji, ne čekajte 3. godinu za dolazak logopedu'. Channel is the general Bljesak.info news channel (series playlist not resolved). Already in the domovina.ai registry as rastuci_s_djecom.",
+   "source_urls": [
+    "https://www.youtube.com/results?search_query=Rastu%C4%87i+s+djecom+Ivana+Dodig+logoped"
+   ],
+   "confidence": "medium",
+   "tags": [
+    "parenting",
+    "speech-therapy-episodes"
+   ],
+   "primary_logopedic": false
+  },
+  {
+   "display_name": "PMB Podcast (Petar je mali borac)",
+   "hosts": [
+    "parents of Petar (family channel)"
+   ],
+   "language_country": "hr / Croatia (some English-titled uploads)",
+   "youtube_url": "https://www.youtube.com/channel/UCH9bvPGeRRD5KKeqaoHUQ0Q/videos",
+   "channel_id": "UCH9bvPGeRRD5KKeqaoHUQ0Q",
+   "playlist_id": null,
+   "spotify_url": null,
+   "apple_url": null,
+   "rss_url": null,
+   "episodes": "23 channel videos (subset are PMB Podcast)",
+   "first_episode": null,
+   "last_episode": null,
+   "status": "unknown",
+   "evidence": "Family of a child with complex diagnoses; one episode 'LUCIJA HORVAT: O logopediji, svakodnevnom radu i iskustvu s Petrom'; others on autism, celiac, hydronephrosis.",
+   "source_urls": [
+    "https://www.youtube.com/channel/UCH9bvPGeRRD5KKeqaoHUQ0Q/videos"
+   ],
+   "confidence": "medium",
+   "tags": [
+    "disability",
+    "parenting",
+    "speech-therapy-episodes"
+   ],
+   "primary_logopedic": false
+  },
+  {
+   "display_name": "Centar Pričaj mi (podcast)",
+   "hosts": [
+    "Centar za psihološku podršku i razvoj 'Pričaj mi' (Zagreb)"
+   ],
+   "language_country": "hr / Croatia",
+   "youtube_url": "https://www.youtube.com/channel/UClYLMgwwILNsz78sYC8VHTg/videos",
+   "channel_id": "UClYLMgwwILNsz78sYC8VHTg",
+   "playlist_id": null,
+   "spotify_url": null,
+   "apple_url": null,
+   "rss_url": null,
+   "episodes": "39 channel videos",
+   "first_episode": null,
+   "last_episode": null,
+   "status": "unknown",
+   "evidence": "Psychology/parenting podcast; 'PODCAST 4: Razvoj komunikacije, jezika i govora kod djece - logopedinja Dora Pribanić Mald...'. Mostly psychology topics.",
+   "source_urls": [
+    "https://www.youtube.com/channel/UClYLMgwwILNsz78sYC8VHTg/videos"
+   ],
+   "confidence": "medium",
+   "tags": [
+    "parenting",
+    "psychology",
+    "speech-therapy-episodes"
+   ],
+   "primary_logopedic": false
+  }
+ ]
+}

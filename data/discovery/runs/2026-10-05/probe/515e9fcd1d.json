@@ -1,0 +1,28 @@
+{
+ "key": "UCQG3_1XEXZOTpYeAAyrT7Kg",
+ "url": "https://www.youtube.com/channel/UCQG3_1XEXZOTpYeAAyrT7Kg/videos",
+ "channel_id": "UCQG3_1XEXZOTpYeAAyrT7Kg",
+ "playlist_id": null,
+ "title": "ddicp cakovec - Videos",
+ "channel": "ddicp cakovec",
+ "channel_url": "https://www.youtube.com/channel/UCQG3_1XEXZOTpYeAAyrT7Kg",
+ "description": "",
+ "follower_count": 6,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "7PkGWBVGPik",
+   "title": "Govorne vježbe",
+   "duration": 28,
+   "live_status": null,
+   "upload_date": "20161006"
+  },
+  {
+   "id": "gWK1JqQO5CM",
+   "title": "Govorne vježbe",
+   "duration": 74,
+   "live_status": null,
+   "upload_date": "20161006"
+  }
+ ]
+}

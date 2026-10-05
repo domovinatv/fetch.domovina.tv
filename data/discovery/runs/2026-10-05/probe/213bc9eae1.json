@@ -1,0 +1,77 @@
+{
+ "key": "UCxFlbRx2M5GpNUuiDyJT3RA",
+ "url": "https://www.youtube.com/channel/UCxFlbRx2M5GpNUuiDyJT3RA/videos",
+ "channel_id": "UCxFlbRx2M5GpNUuiDyJT3RA",
+ "playlist_id": null,
+ "title": "Institut IEFPG - Videos",
+ "channel": "Institut IEFPG",
+ "channel_url": "https://www.youtube.com/channel/UCxFlbRx2M5GpNUuiDyJT3RA",
+ "description": "",
+ "follower_count": 54,
+ "streams_count": 0,
+ "videos": [
+  {
+   "id": "WIi6Aj27H2s",
+   "title": "Prof  Mirjana Sovilj Emisija INFOKLINIKA 130",
+   "duration": 1138,
+   "live_status": null,
+   "upload_date": "20171006"
+  },
+  {
+   "id": "iJhD2Z0SKIE",
+   "title": "Prof  Mirjana Sovilj   emisija Biljana za vas 01 02 2017",
+   "duration": 293,
+   "live_status": null,
+   "upload_date": "20171006"
+  },
+  {
+   "id": "sYFxOHvv6oo",
+   "title": "SKOLA LEPOG GOVORA \"CAROBNJACI RECI\" HEPPY TELEVIZIJA",
+   "duration": 704,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "p0nE1cyuFf0",
+   "title": "MUCANJE SE NAJBOLJE KORIGUJE U POČETNOJ FAZI - Institut za eksperimentalnu fo",
+   "duration": 338,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "ZLtWzYeTyr4",
+   "title": "PROMENA ISHRANE POMAŽE TRETMAN MUCANJA - Institut za eksperimentalnu",
+   "duration": 692,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "vTXI4HMhvCc",
+   "title": "DISLEKSIJA I DISGRAFIJA SE MOGU PREVENTIRATI - Institut za eksperimentalnu",
+   "duration": 691,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "x-tZslXZeCY",
+   "title": "SVE JE VIŠE AUTISTIČNE DECE - Institut za eksperimentalnu fonetiku i patologiju govora",
+   "duration": 177,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "Qu9n5T4opAI",
+   "title": "STRPLJENJEM PROTIV MUCANJA - Institut za eksperimentalnu fonetiku i patologiju govora",
+   "duration": 353,
+   "live_status": null,
+   "upload_date": "20131006"
+  },
+  {
+   "id": "vRjgnjbEa4U",
+   "title": "Strani jezik, tek kada se savlada maternji! - Institut za eksperimentalnu fonetiku",
+   "duration": 185,
+   "live_status": null,
+   "upload_date": "20131006"
+  }
+ ]
+}
