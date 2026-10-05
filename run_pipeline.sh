@@ -277,6 +277,8 @@ WITH_MAGISTERIUM=false
 WITH_EBOOK=true
 # Sponzori ugrađeni u snimku (KORAK 9.85): default ON (nula API troška, ~6 ms/ep) — gasi se s --no-sponsors.
 WITH_SPONSORS=true
+# Vrijeme po riječi za titl (KORAK 9.87): default ON (nula API troška, katalog ~1 s) — gasi se s --no-words.
+WITH_WORDS=true
 WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
@@ -375,6 +377,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--no-sponsors" ]; then
         WITH_SPONSORS=false
+        i=$((i + 1))
+    elif [ "$arg" = "--no-words" ]; then
+        WITH_WORDS=false
         i=$((i + 1))
     elif [ "$arg" = "--with-ebook-transcript" ]; then
         # Doslovan prijepis kao dodatak knjige. Opt-in: knjiga time prestaje biti
@@ -1495,6 +1500,42 @@ node "$SCRIPT_DIR/detect_sponsors.js" "${SPONSORS_ARGS[@]}" "${PRIORITY_SCOPE_AR
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 9.85 (sponzori u snimci) — zadan je --no-sponsors"
+fi
+
+# --- KORAK 9.87: VRIJEME PO RIJEČI ZA TITL (generate_words_json.js) ---
+# {base}.words.json: za svaku riječ kanonskog diarized.srt (početak, kraj) u ms, da
+# titl na domovina.ai ističe riječ koja se upravo izgovara. Izvor vremena je
+# {audio}.speechmatics.json (KORAK 2.7); Canary epizode ga zasad nemaju i preskaču se.
+# Stoji ovdje, a ne iza 2.8, jer kanonski SRT može doći i iz KORAKA 6 (pyannote) —
+# words.json vrijedi samo za točno onaj SRT koji ide na CDN.
+# NULA API poziva — cijeli katalog ~1 s. Ispod 60 % usidrenih riječi (EN zvuk, HR tekst)
+# piše se .words.skipped.json, koji ne ide na CDN.
+# Ugovor: ../domovina.ai/docs/2026-10-06-titlovi-rijec-po-rijec.md §3,
+# backfill i mjerenja: docs/2026-10-06-words-json-titlovi.md.
+if [ "$WITH_WORDS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 9.87: vrijeme po riječi za titl (diarized.srt + speechmatics.json → words.json)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+WORDS_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        WORDS_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    WORDS_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/generate_words_json.js" "${WORDS_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri generiranju words.json, nastavljam..."
+}
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 9.87 (vrijeme po riječi) — zadan je --no-words"
 fi
 
 # --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---

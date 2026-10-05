@@ -155,6 +155,11 @@ const UPLOAD_SUFFIXES = [
     // i prazan, da Flutter dobije 200 umjesto keširanog 404. Odvojeno od dinamičkih
     // sponzorstava koja se na domovina.ai kupuju nakon snimanja.
     ".sponsors_in_video.json",
+    // Vrijeme po riječi za titl (generate_words_json.js, KORAK 9.87). Namjerno NIJE u
+    // REPAIRABLE_BASENAMES: vrijedi samo uz diarized.srt s kojim je izveden, a ni taj se
+    // ne popravlja driftom — zato oba ostaju par i na CDN-u. Ručna izmjena: --force + purge.
+    // `.words.skipped.json` (ispod praga usidrenosti) namjerno NE završava na `.words.json`.
+    ".words.json",
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -549,6 +554,9 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.sponsors_in_video.json`)
         return `data/${videoId}/sponsors_in_video.json`;
 
+    if (filename === `${videoBase}.words.json`)
+        return `data/${videoId}/words.json`;
+
     // Responsive WebP varijante → images/{id}/thumb-{w}.webp
     const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
     if (webpMatch && webpMatch[1] === videoBase)
@@ -654,6 +662,7 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
                 if (suffix.endsWith(".webp") && filename !== `${videoBase}${suffix}`) continue;
                 if (suffix === ".mkv" && filename !== `${videoBase}.mkv`) continue;
                 if (suffix === ".mp4" && filename !== `${videoBase}.mp4`) continue;
+                if (suffix === ".words.json" && filename !== `${videoBase}.words.json`) continue;
                 shouldUpload = true;
                 break;
             }

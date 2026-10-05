@@ -43,13 +43,18 @@ function extractVideoId(name) { const m = name.match(/.*_yt_([A-Za-z0-9_-]{11})(
 function s3() { return new _S3.S3Client({ region: "auto", endpoint: `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
     credentials: { accessKeyId: process.env.R2_ACCESS_KEY_ID, secretAccessKey: process.env.R2_SECRET_ACCESS_KEY } }); }
 
-function loadKeysCache() { try { if (fs.existsSync(KEYS_CACHE_PATH)) { const a = JSON.parse(fs.readFileSync(KEYS_CACHE_PATH, "utf-8")); if (Array.isArray(a)) return new Set(a); } } catch {} return null; }
-function saveKeysCache(set) { try { fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify([...set]), "utf-8"); } catch {} }
+// Cache je v2 ({v:2, sizes:{key:size}}, upload_to_r2.js) — čita se i stari v1 (goli niz).
+// Prije 06.10.2026. ovdje se čitao SAMO v1: v2 je ispadao kao "nema cache" → puni LIST
+// svake noći → prepis u v1 → upload_to_r2 gubio veličine, a s njima i drift-provjeru.
+function loadKeysCache() { try { if (fs.existsSync(KEYS_CACHE_PATH)) { const a = JSON.parse(fs.readFileSync(KEYS_CACHE_PATH, "utf-8"));
+    if (Array.isArray(a)) return new Map(a.map(k => [k, null]));
+    if (a && a.v === 2 && a.sizes) return new Map(Object.entries(a.sizes)); } } catch {} return null; }
+function saveKeysCache(map) { try { fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify({ v: 2, sizes: Object.fromEntries(map) }), "utf-8"); } catch {} }
 
 async function listAllKeys(client) {
-    const keys = new Set(); let token, pages = 0;
+    const keys = new Map(); let token, pages = 0;
     do { const r = await client.send(new _S3.ListObjectsV2Command({ Bucket: R2_BUCKET, ContinuationToken: token, MaxKeys: 1000 }));
-        for (const o of r.Contents || []) keys.add(o.Key); token = r.IsTruncated ? r.NextContinuationToken : undefined;
+        for (const o of r.Contents || []) keys.set(o.Key, o.Size); token = r.IsTruncated ? r.NextContinuationToken : undefined;
         if (++pages % 10 === 0) process.stdout.write(`\r   📋 LIST str ${pages} (${keys.size})   `);
     } while (token); process.stdout.write("\n"); return keys;
 }
@@ -91,7 +96,7 @@ async function listAllKeys(client) {
             await client.send(new _S3.PutObjectCommand({ Bucket: R2_BUCKET, Key: t.key,
                 Body: fs.createReadStream(t.mp3), ContentType: "audio/mpeg", ContentLength: size,
                 CacheControl: CACHE_CONTROL_IMMUTABLE }));
-            keySet.add(t.key); ok++;
+            keySet.set(t.key, size); ok++;
             const eta = ((Date.now() - t0) / n * (pending.length - n) / 1000 / 60).toFixed(0);
             console.log(`   ⬆️ [${n}/${pending.length}] ${t.key} (${(size / 1e6).toFixed(1)} MB, ETA ~${eta}min)`);
         } catch (e) { console.log(`   ❌ ${t.key}: ${e.message}`); fail++; }

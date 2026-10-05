@@ -114,7 +114,9 @@ function loadR2KeysCache() {
     try {
         if (!fs.existsSync(R2_KEYS_CACHE_PATH)) return null;
         const arr = JSON.parse(fs.readFileSync(R2_KEYS_CACHE_PATH, "utf-8"));
-        return Array.isArray(arr) ? new Set(arr) : null;
+        if (Array.isArray(arr)) return new Set(arr);                                   // v1
+        if (arr && arr.v === 2 && arr.sizes) return new Set(Object.keys(arr.sizes));   // v2 (upload_to_r2.js)
+        return null;
     } catch {
         return null;   // corrupt cache → tretiraj kao da ga nema (fail-safe: radi kao prije)
     }

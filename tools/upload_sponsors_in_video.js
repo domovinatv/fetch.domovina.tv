@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 "use strict";
 /**
- * tools/upload_sponsors_in_video.js — bulk upload `data/{videoId}/sponsors_in_video.json`.
+ * tools/upload_sponsors_in_video.js — bulk upload `data/{videoId}/sponsors_in_video.json`
+ * (ili, s `--suffix .words.json`, `data/{videoId}/words.json` — generate_words_json.js).
  *
  * Fast-path za katalog-wide backfill KORAKA 9.85 (detect_sponsors.js). `upload_to_r2.js`
  * nije alat za jedan sufiks preko cijelog kataloga — usput bi objavio sve ostalo što
@@ -22,6 +23,7 @@
  *   node tools/upload_sponsors_in_video.js --channel rastuci_s_djecom
  *   node tools/upload_sponsors_in_video.js --limit 20
  *   node tools/upload_sponsors_in_video.js            # cijeli katalog
+ *   node tools/upload_sponsors_in_video.js --suffix .words.json --dry-run
  */
 
 const fs = require("fs");
@@ -48,11 +50,18 @@ const R2_PUBLIC_URL = (process.env.R2_PUBLIC_URL || "https://cdn.domovina.ai").r
 const CF_PURGE_TOKEN = process.env.DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE;
 const CF_ZONE_NAME = "domovina.ai";
 const CACHE_CONTROL_IMMUTABLE = "public, max-age=31536000, immutable";
-const SUFFIX = ".sponsors_in_video.json";
 const KEYS_CACHE = path.join(ROOT, ".r2_keys_cache.json");
 
 const args = process.argv.slice(2);
 const getArg = (n) => { const i = args.indexOf(n); return i !== -1 && i + 1 < args.length ? args[i + 1] : null; };
+// Lokalni sufiks → data/{id}/{sufiks bez točke}. Samo sufiksi koje upload_to_r2.js isto mapira.
+const ALLOWED_SUFFIXES = [".sponsors_in_video.json", ".words.json"];
+const SUFFIX = getArg("--suffix") || ".sponsors_in_video.json";
+if (!ALLOWED_SUFFIXES.includes(SUFFIX)) {
+    console.error(`❌ --suffix mora biti jedan od: ${ALLOWED_SUFFIXES.join(", ")}`);
+    process.exit(1);
+}
+const KEY_NAME = SUFFIX.slice(1);
 const INPUT_DIR = getArg("--input-dir") || path.join(ROOT, "storage", "output");
 const ONLY_CHANNEL = getArg("--channel");
 const LIMIT = parseInt(getArg("--limit") || "0", 10) || 0;
@@ -76,7 +85,13 @@ function loadKeysCache() {
         console.error("❌ .r2_keys_cache.json ne postoji — pokreni upload_to_r2.js jednom da se cache napuni.");
         process.exit(1);
     }
-    return JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8"));
+    return normalizeCache(JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8")));
+}
+
+// v2 = {v:2, sizes:{key:size}}; v1 = goli niz ključeva (veličine nepoznate → null).
+function normalizeCache(raw) {
+    if (Array.isArray(raw)) return { v: 2, sizes: Object.fromEntries(raw.map((k) => [k, null])) };
+    return raw && raw.sizes ? raw : { v: 2, sizes: {} };
 }
 
 async function cfZoneId() {
@@ -127,7 +142,7 @@ async function main() {
     const published = new Set(Object.keys(sizes)
         .map((k) => k.match(/^data\/([A-Za-z0-9_-]+)\/info\.json$/))
         .filter(Boolean).map((m) => m[1]));
-    console.log(`🤝 Upload sponsors_in_video.json — objavljenih epizoda na R2: ${published.size}`);
+    console.log(`🤝 Upload ${KEY_NAME} — objavljenih epizoda na R2: ${published.size}`);
     if (DRY_RUN) console.log("   ⚠️  DRY RUN — ništa se ne šalje niti purgea");
 
     const byKey = new Map();
@@ -135,13 +150,15 @@ async function main() {
     for (const channel of (ONLY_CHANNEL ? [ONLY_CHANNEL] : listChannelDirs(INPUT_DIR))) {
         const dir = path.join(INPUT_DIR, channel);
         let files;
-        try { files = fs.readdirSync(dir).filter((f) => f.endsWith(SUFFIX) && !f.startsWith("._")); }
+        // Samo `{…_yt_ID}{SUFFIX}` — ne npr. `.wav.canary.word_ts.json` ni neki budući `.x.words.json`.
+        try { files = fs.readdirSync(dir).filter((f) => f.endsWith(SUFFIX) && !f.startsWith("._")
+            && /_yt_[A-Za-z0-9_-]{11}$/.test(f.slice(0, -SUFFIX.length))); }
         catch { continue; }
         for (const f of files) {
             const videoId = extractVideoId(f);
             if (!videoId) continue;
             if (!published.has(videoId)) { notPublished++; continue; }
-            const key = `data/${videoId}/sponsors_in_video.json`;
+            const key = `data/${videoId}/${KEY_NAME}`;
             const localPath = path.join(dir, f);
             const size = fs.statSync(localPath).size;
             if (sizes[key] === size) { unchanged++; continue; }
@@ -196,8 +213,7 @@ async function main() {
 
     // Keys-cache: svježe pročitan (nightly je mogao pisati u međuvremenu), samo naši ključevi.
     try {
-        const fresh = JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8"));
-        fresh.sizes = fresh.sizes || {};
+        const fresh = normalizeCache(JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8")));
         for (const j of sent) fresh.sizes[j.key] = j.size;
         fs.writeFileSync(KEYS_CACHE, JSON.stringify(fresh));
         console.log(`🗂️  keys-cache ažuriran (+${sent.length})`);

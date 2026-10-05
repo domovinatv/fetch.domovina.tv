@@ -43,6 +43,7 @@ GPU: A100-40GB (40 GB VRAM). 3h WAV ima ~28 GB peak → ~12 GB headroom. Za 5h+
 """
 
 import datetime
+import json
 import os
 import time
 
@@ -131,6 +132,33 @@ def _generate_srt(segments: list) -> str:
         lines.append(ts["segment"])
         lines.append("")
     return "\n".join(lines)
+
+
+def _generate_words(out0):
+    """`timestamp["word"]` → `.wav.canary.word_ts.json` (vrijeme po riječi za titl).
+
+    Canary ga vraća uz `timestamps=True` besplatno, uz segmente. Do 06.10.2026. se
+    bacao; za stare epizode bi trebao novi GPU prolaz. generate_words_json.js
+    (KORAK 9.87) iz ovoga gradi `{base}.words.json` kad nema Speechmatics kostura.
+    Format: {"v":1,"source":"canary","words":[[start_ms,end_ms,"riječ"],…]}.
+    """
+    words = (out0.timestamp or {}).get("word") or []
+    rows = []
+    for w in words:
+        text = (w.get("word") or w.get("char") or "").strip()
+        if not text or w.get("start") is None or w.get("end") is None:
+            continue
+        rows.append([round(w["start"] * 1000), round(w["end"] * 1000), text])
+    if not rows:
+        return None
+    return json.dumps({"v": 1, "source": "canary", "words": rows},
+                      ensure_ascii=False, separators=(",", ":"))
+
+
+def _write_words(wav_path: str, res: dict) -> None:
+    if res.get("words"):
+        with open(wav_path + ".canary.word_ts.json", "w", encoding="utf-8") as f:
+            f.write(res["words"])
 
 
 def _sec_to_hms(seconds: float) -> str:
@@ -277,6 +305,7 @@ class Canary:
                 "status": "transcribed",
                 "srt": _generate_srt(segments),
                 "csv": _generate_csv(segments),
+                "words": _generate_words(out[0]),
                 "segments": len(segments),
                 "elapsed": elapsed,
                 "peak_vram_gb": round(peak_gb, 2) if peak_gb else None,
@@ -367,6 +396,7 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
         f.write(res["srt"])
     with open(csv_out, "w", encoding="utf-8") as f:
         f.write(res["csv"])
+    _write_words(wav, res)
     vram = (f" | peak VRAM {res['peak_vram_gb']} / {res['total_vram_gb']} GB na {res['gpu']}"
             if res.get("peak_vram_gb") else "")
     print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
@@ -398,6 +428,7 @@ def from_volume(remote: str, out: str = "", source_lang: str = "hr",
         f.write(res["srt"])
     with open(csv_out, "w", encoding="utf-8") as f:
         f.write(res["csv"])
+    _write_words(out or os.path.basename(remote), res)
     vram = (f" | peak VRAM {res['peak_vram_gb']} / {res['total_vram_gb']} GB na {res['gpu']}"
             if res.get("peak_vram_gb") else "")
     print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
@@ -482,6 +513,7 @@ def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
             f.write(res["srt"])
         with open(wav_path + ".canary.csv", "w", encoding="utf-8") as f:
             f.write(res["csv"])
+        _write_words(wav_path, res)
         done = len([s for s in stats if s["status"] == "transcribed"]) + 1
         infer = res["elapsed"]
         print(f"   ✅ [{done}/{len(pending)}] {mb:6.0f} MB  {infer:5.0f}s infer / {wall:5.0f}s wall  "

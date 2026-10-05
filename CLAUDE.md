@@ -107,6 +107,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
 | 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep. Gradi i `{base}.en.epub` kad postoji `.article.en.json` (`docs/ebook_epub_pipeline.md`) |
 | 9.85 | `detect_sponsors.js` | Sponzori UGRAĐENI u snimku → `{base}.sponsors_in_video.json` (tko + gdje: spot / host_read / rubric / mention). **Nula API poziva**, katalog ~19 s. Default ON, `--no-sponsors` gasi (`docs/2026-09-23-sponzori-u-snimci.md`) |
+| 9.87 | `generate_words_json.js` | Vrijeme po riječi za titl → `{base}.words.json` (`data/{id}/words.json`) iz kanonskog SRT-a + `.speechmatics.json` ili `.wav.canary.word_ts.json`. **Nula API poziva**, katalog ~1 s. Ispod 60 % usidrenih riječi → `.words.skipped.json` (ne ide na CDN). `--no-words` gasi (`docs/2026-10-06-words-json-titlovi.md`) |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 
