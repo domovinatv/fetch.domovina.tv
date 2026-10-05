@@ -401,6 +401,17 @@ run_step "registry točni datumi zadnje epizode" \
 run_step "registry aktivnost + score v2" \
     node "$REPO_DIR/data/discovery/discover.js" activity --update-status || true
 
+# ─── 5c. JAVNI KATALOG (podcast.domovina.ai) ───────────────────────
+# Sibling repo ../podcast.domovina.ai: catalog.json iz registryja + watch-statea +
+# CDN bundlea (zato ide NAKON 5b i nakon KORAKA 3 meta uploada), astro build,
+# wrangler deploy. Nula LLM-a, ~20 s. catalog.json ostaje necommitan u tom repou —
+# deploy ne ovisi o gitu.
+PODCAST_CATALOG_DIR="$REPO_DIR/../podcast.domovina.ai"
+if [ -x "$PODCAST_CATALOG_DIR/scripts/refresh.sh" ]; then
+    run_step "javni katalog podcast.domovina.ai (build + deploy)" \
+        "$PODCAST_CATALOG_DIR/scripts/refresh.sh" || true
+fi
+
 # ─── 6. POTROŠNJA TOKENA (Claude Code sesije → pipeline queue) ──────
 # Zbroji tokene headless `claude -p` runova po videu (Magisterium MCP runbook,
 # --gemini-backend claude) iz ~/.claude/projects i pošalji u queue servis, gdje se
