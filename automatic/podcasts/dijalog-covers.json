@@ -1,0 +1,280 @@
+{
+  "_about": "DijaLOG: Instagram objava (@podcastdijalog) čija prva slika služi kao cover epizode (gost + tema). Ključ = rss ID iz ingest_rss.mjs. Spajanje 2026-10-05: opis objave = početak RSS opisa, inače prezime gosta. Koristi ingest_rss.mjs (covers).",
+  "covers": {
+    "8ceedb2770a": {
+      "episode": 1,
+      "instagram": "C3qDuGAoaCW",
+      "match": "prezime gosta u opisu"
+    },
+    "a3d7b39bc7f": {
+      "episode": 2,
+      "instagram": "C374podMhT6",
+      "match": "ručno — throwback objava prve sezone"
+    },
+    "1ff29821668": {
+      "episode": 3,
+      "instagram": "C4gXSU2spHG",
+      "match": "ručno — throwback objava prve sezone"
+    },
+    "54a0b1655ba": {
+      "episode": 4,
+      "instagram": "C5DsRWGMI_q",
+      "match": "caption=RSS opis"
+    },
+    "2828bfdf636": {
+      "episode": 5,
+      "instagram": "C5X8G8doNSD",
+      "match": "caption=RSS opis"
+    },
+    "a3264df49d6": {
+      "episode": 6,
+      "instagram": "C5n9phSsx8w",
+      "match": "prezime gosta u opisu"
+    },
+    "8f98024a366": {
+      "episode": 7,
+      "instagram": "CrfrZiiNjrN",
+      "match": "caption=RSS opis"
+    },
+    "d00b1442094": {
+      "episode": 8,
+      "instagram": "CrxohapNzX6",
+      "match": "caption=RSS opis"
+    },
+    "a083772aed0": {
+      "episode": 9,
+      "instagram": "CsDowquI2X1",
+      "match": "caption=RSS opis"
+    },
+    "9a7399ea3b3": {
+      "episode": 10,
+      "instagram": "CsVok3TNTlC",
+      "match": "caption=RSS opis"
+    },
+    "dfff47be471": {
+      "episode": 11,
+      "instagram": "CsntXXZrbhO",
+      "match": "caption=RSS opis"
+    },
+    "ea84ace75b8": {
+      "episode": 12,
+      "instagram": "Cs5sgz6r_jA",
+      "match": "caption=RSS opis"
+    },
+    "26d0d0cb57a": {
+      "episode": 13,
+      "instagram": "CtLrFyprYBG",
+      "match": "prezime gosta u opisu"
+    },
+    "8c287694e28": {
+      "episode": 14,
+      "instagram": "Culy6--MtTm",
+      "match": "caption=RSS opis"
+    },
+    "470704fc211": {
+      "episode": 15,
+      "instagram": "Cu4CvbHM0r8",
+      "match": "caption=RSS opis"
+    },
+    "8b1d95c96ef": {
+      "episode": 16,
+      "instagram": "CvJ9wPqsExO",
+      "match": "prezime gosta u opisu"
+    },
+    "49e904cd7c7": {
+      "episode": null,
+      "instagram": "Cz3H1xyMECe",
+      "match": "caption=RSS opis"
+    },
+    "8e827c3d3ed": {
+      "episode": 17,
+      "instagram": "Cz8kMu9MpFd",
+      "match": "prezime gosta u opisu"
+    },
+    "d25ddf03ea8": {
+      "episode": 18,
+      "instagram": "C0OkgNiMijF",
+      "match": "caption=RSS opis"
+    },
+    "dd63ac3ea12": {
+      "episode": 19,
+      "instagram": "C0gmQuQszhS",
+      "match": "caption=RSS opis"
+    },
+    "7f69d1e4e4c": {
+      "episode": 20,
+      "instagram": "C0ykW99sPp-",
+      "match": "caption=RSS opis"
+    },
+    "fd8e13cc5b8": {
+      "episode": 21,
+      "instagram": "C1FXkY_MolE",
+      "match": "caption=RSS opis"
+    },
+    "1732df81236": {
+      "episode": 22,
+      "instagram": "C1XSYmHMDHl",
+      "match": "prezime gosta u opisu"
+    },
+    "1cbab1a21f1": {
+      "episode": 23,
+      "instagram": "C1pRSs2s1IQ",
+      "match": "caption=RSS opis"
+    },
+    "1bc275d7252": {
+      "episode": 24,
+      "instagram": "C17UUzHMJtu",
+      "match": "caption=RSS opis"
+    },
+    "ecfe41f3bbb": {
+      "episode": 25,
+      "instagram": "C2NbFNEMLwr",
+      "match": "caption=RSS opis"
+    },
+    "f16ad0e0ee4": {
+      "episode": 26,
+      "instagram": "C2fQ6enMN_y",
+      "match": "caption=RSS opis"
+    },
+    "0556d18cef6": {
+      "episode": 27,
+      "instagram": "C3VO_yVIWWU",
+      "match": "caption=RSS opis"
+    },
+    "1d56ea5c6e6": {
+      "episode": 28,
+      "instagram": "C4LY6WdMIIo",
+      "match": "prezime gosta u opisu"
+    },
+    "34f5185078e": {
+      "episode": 29,
+      "instagram": "C6_Il_8s9Dm",
+      "match": "caption=RSS opis"
+    },
+    "df83765e06f": {
+      "episode": 30,
+      "instagram": "C8q_qULMJu8",
+      "match": "caption=RSS opis"
+    },
+    "5d3a195c2ca": {
+      "episode": 31,
+      "instagram": "C885JDrMALo",
+      "match": "caption=RSS opis"
+    },
+    "ee4ac13e3b9": {
+      "episode": 32,
+      "instagram": "C9PppLUMqdX",
+      "match": "caption=RSS opis"
+    },
+    "af3e1e5682c": {
+      "episode": 33,
+      "instagram": "C9hpL8JMGyZ",
+      "match": "caption=RSS opis"
+    },
+    "785093db96b": {
+      "episode": 34,
+      "instagram": "DAncqauuS0h",
+      "match": "caption=RSS opis"
+    },
+    "da8381c6116": {
+      "episode": 35,
+      "instagram": "DA5yRggs3fH",
+      "match": "caption=RSS opis"
+    },
+    "9b32be0df12": {
+      "episode": 36,
+      "instagram": "DBME_XAsa3W",
+      "match": "caption=RSS opis"
+    },
+    "f18d39ffe3c": {
+      "episode": 37,
+      "instagram": "DBeDVeRssL0",
+      "match": "caption=RSS opis"
+    },
+    "fe5789f6a76": {
+      "episode": 38,
+      "instagram": "DFxLpcisExz",
+      "match": "caption=RSS opis"
+    },
+    "9639b9f0899": {
+      "episode": 39,
+      "instagram": "DF-mt3nMbtX",
+      "match": "caption=RSS opis"
+    },
+    "90478817d72": {
+      "episode": 40,
+      "instagram": "DGQlP23MUcD",
+      "match": "caption=RSS opis"
+    },
+    "90cddb14f29": {
+      "episode": 41,
+      "instagram": "DGiz8JpsYoB",
+      "match": "caption=RSS opis"
+    },
+    "f7a7e3e1c68": {
+      "episode": 42,
+      "instagram": "DG1AbImM7Mf",
+      "match": "caption=RSS opis"
+    },
+    "3393248aacd": {
+      "episode": 43,
+      "instagram": "DHG8WITsuzg",
+      "match": "caption=RSS opis"
+    },
+    "9a69dfa45fb": {
+      "episode": 44,
+      "instagram": "DL4eM72sRBP",
+      "match": "caption=RSS opis"
+    },
+    "a1ef32c4885": {
+      "episode": 45,
+      "instagram": "DMLAo8VM3np",
+      "match": "caption=RSS opis"
+    },
+    "1d3fbe0a338": {
+      "episode": 46,
+      "instagram": "DMdFtxANexw",
+      "match": "caption=RSS opis"
+    },
+    "52629405b70": {
+      "episode": 47,
+      "instagram": "DMvZhStM1rS",
+      "match": "caption=RSS opis"
+    },
+    "d1f50f049e7": {
+      "episode": 48,
+      "instagram": "DNAotQgsPmb",
+      "match": "caption=RSS opis"
+    },
+    "410835aea64": {
+      "episode": 49,
+      "instagram": "DRhMvR4CEKA",
+      "match": "caption=RSS opis"
+    },
+    "459c8df8718": {
+      "episode": 50,
+      "instagram": "DRzuJ_XiOJh",
+      "match": "caption=RSS opis"
+    },
+    "fb80fa7ab38": {
+      "episode": 51,
+      "instagram": "DSIm7OZCK2n",
+      "match": "caption=RSS opis"
+    },
+    "b01e2bcc3a4": {
+      "episode": 52,
+      "instagram": "DVLqtq5iHXN",
+      "match": "caption=RSS opis"
+    },
+    "1f168b50162": {
+      "episode": 53,
+      "instagram": "DVd_lc1iLC0",
+      "match": "caption=RSS opis"
+    },
+    "f898a3f0774": {
+      "episode": 54,
+      "instagram": "DVwFKY5CI3j",
+      "match": "caption=RSS opis"
+    }
+  }
+}

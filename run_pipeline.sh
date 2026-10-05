@@ -620,6 +620,17 @@ elif [ -f "$SCRIPT_DIR/ingest_beamly.mjs" ]; then
   node "$SCRIPT_DIR/ingest_beamly.mjs" || echo "   ⚠️ ingest_beamly nije uspio — NE-FATALNO, nastavljam."
 fi
 
+# --- KORAK 1b (RSS): audio-only podcasti bez YouTubea (DijaLOG…) ---
+# Isti ugovor kao beamly: ingest_rss.mjs čita javni RSS, skida <enclosure>, pretvara
+# u .mp3 i piše info.json s `_yt_matched:false` (audio-only marker). Spotify je DRM,
+# zato RSS. Izvori su u SOURCES na vrhu skripte. Vidi
+# docs/2026-10-05-logopedija-discovery-i-dijalog.md §6. NE-FATALNO.
+if [ "$PRIORITY_FAST_PATH" != true ] && [ -f "$SCRIPT_DIR/ingest_rss.mjs" ]; then
+  echo ""
+  echo "   📥 KORAK 1b: RSS audio-only (DijaLOG)"
+  node "$SCRIPT_DIR/ingest_rss.mjs" || echo "   ⚠️ ingest_rss nije uspio — NE-FATALNO, nastavljam."
+fi
+
 echo ""
 
 # --- KORAK 2: MP3 → WAV ---
