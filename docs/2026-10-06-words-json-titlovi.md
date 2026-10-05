@@ -85,3 +85,29 @@ Neizmjereno prije eventualnog backfilla:
    onoga što bi takav prag odrezao kod zdravih epizoda.
 2. Korekcija pomaka od ~95 ms (izmjeriti na više epizoda).
 3. Batch način (jedan proces, model jednom).
+
+## 4. Usput: keys-cache je svaku noć gubio veličine (popravljeno)
+
+`.r2_keys_cache.json` je v2 (`{v:2, sizes:{key:size}}`) da `upload_to_r2.js` vidi
+drift disk≠R2 po veličini. `upload_audio_only.js` (KORAK 12.6) čitao je samo stari
+v1 niz. v2 mu je zato izgledao kao „nema cache”, pa je svake noći radio puni LIST i
+prepisao cache u v1, bez veličina. Drift-provjera u KORAKU 12 time je bila mrtva.
+`screenshot_youtube.js` je čitao također samo v1. Oba sada čitaju oba formata, a
+audio-only piše v2.
+
+Veličine su vraćene bez ijednog uploada:
+`node upload_to_r2.js --input-dir storage/output --dry-run --verify-r2`
+(LIST 184 459 ključeva za ~80 s; cache se sprema i u dry-runu).
+
+Taj dry-run je našao 12 novih ključeva i **8 s driftom**. Nightly ih popravlja
+prepisivanjem diska preko R2, a **u 3 slučaja je R2 veći od diska**, pa bi se
+CDN degradirao (vidi MEMORY „Provjeri SMJER drifta”):
+
+```
+data/6ueR_Leq6uE/article.en.json          R2 58.7 KB  → disk 43.8 KB
+data/oxq1U0xypu8/article.magisterium.json R2 770.6 KB → disk 642.4 KB
+data/MGLq9v3AtvE/article.magisterium.json R2 1.6 MB   → disk 861.9 KB
+```
+
+Ostalih 5 (4× `article.en.json` gdje je disk veći, 1× `sponsors_in_video.json`
+170 → 169 B) su ispravan smjer.
