@@ -206,13 +206,35 @@ Otvoreno (čeka odluku usera):
   izbaciti (`not-podcast`).
 - watcher da u `events.jsonl` upisuje `was_live` i dedupa isti ID preko kanala.
 
+### Stanje nakon 10 noći (2026-10-05)
+
+Watch 25.09.–05.10.: **173 originala sa 107 od 400 kanala**, 193 derivata odvojena;
+~20–24 originala dnevno radnim danom, 8 vikendom. Noć 04.10. nema nijedan događaj u
+`events.jsonl` iako je nightly radio (commit 04:55) — 05.10. je uhvatio 58, pa ništa nije
+izgubljeno (watch je state-based), ali log watch koraka te noći nije pregledan.
+
+**Registry ne raste između ručnih prolaza.** Nightly radi samo watch + `exact-dates` +
+`activity`; nove kanale otkriva jedino mjesečni `discover.js`. Prazni direktoriji
+`data/discovery/runs/<datum>/` su nuspojava `exact-dates`/`activity` (`RUN_DIR`), ne propušten
+posao. Povijest: 111 (04.) → 142 (07.) → 273 (27.07. sweep) → 291 → **516 (25.09.)** → 516.
+Ledger: 1760 presuda, 367 `podcast_hr`.
+
+**Glasački bazen sinkroniziran** (`sync_voting_candidates.mjs --commit`, 05.10.): 256 kandidata,
+130 novih, **91 withdrawn** (ne 45 kako je pisalo gore — filtar bazena `active|active-slowing|unknown`
+izbacuje i 46 kanala koje je nightly `activity --update-status` prebacio u `inactive`, npr.
+vecernji-podcast, nova-eva; vraćaju se sami kad opet postanu aktivni), 132 avatara iz yt-dlp
+na CDN. 57 `inactive` kanala nema avatar jer nisu kandidati — sync ih nikad ne dira.
+
+**Javni katalog** https://podcast.domovina.ai (repo `../podcast.domovina.ai`, public) čita
+registry + watch-state + CDN `channels/data/index_bundle.json`; nightly KORAK 5c ga builda i
+deploya. Arhitektura i pravila kategorija: README tog repoa.
+
 ## Otvorene stavke (stanje 2026-09-25)
 
 - **`hkm-argumenti`** pokazuje na crnogorski RTCG, ne na HKM (revizija 2026-09-24). Status je
   `disputed`, pa ga watch i dalje prati (25.09. „otkrio" RTCG epizodu). Pravi HKM Argumenti su
   `argumenti-sezona-7`. Odluka: ukloniti ili prebaciti na `not-hr` / `dead-url`.
-- **Glasački bazen**: `sync_voting_candidates.mjs --commit` NIJE pokrenut nakon revizije i
-  proširenja — 45 unosa (`not-podcast`, `dead-url`) bi dobilo `withdrawn`, ~225 novih ušlo bi u bazen.
+- ~~**Glasački bazen**~~ — RIJEŠENO 2026-10-05, vidi „Stanje nakon 10 noći" ispod.
 - **2 unosa bez točnog datuma** (`last_episode_date_approx`) — `exact-dates` ih pokušava svaku noć.
 - **Novi tagovi** koje je sweep agent predložio (tennis, cycling, chess, architecture, film,
   books, relationships, audio-drama, labour, minorities) nisu u `tag_legend`; LLM klasifikacija
