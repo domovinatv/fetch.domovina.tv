@@ -268,3 +268,4 @@ Live: `https://cdn.domovina.ai/data/KtMMSnQ7SP0/article.magisterium.json`
 | `magisterium_mcp_assemble.js` | raw MCP responses (+url-map) → the 3 CDN artifacts |
 | `docs/magisterium_mcp_hybrid_2026-05.md` | operational runbook (SSOT) |
 | `enrich_magisterium*.js` | legacy direct-API variants (per-section / batch / full) — **paid**, not used |
+| `docs/2026-10-06-magisterium-headless-needs-auth-cache.md` | troubleshooting: headless „nije autoriziran“ iako je konektor Connected (stari `~/.claude/mcp-needs-auth-cache.json`) |
