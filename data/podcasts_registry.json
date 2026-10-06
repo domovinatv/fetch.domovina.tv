@@ -229,13 +229,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 11,
         "originals_90d": 17,
         "originals_365d": 37,
         "new_originals_since_baseline": 2,
-        "derivative_ratio": 0.42,
+        "derivative_ratio": 0.43,
         "min_duration_sec": 1500,
         "no_originals": false,
         "error": null
@@ -257,7 +257,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 9970
+        "subscribers": 9980
       },
       "tracking": {
         "enabled": true
@@ -286,7 +286,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 4,
         "originals_90d": 4,
@@ -357,7 +357,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 12,
         "originals_90d": 17,
@@ -421,7 +421,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260809",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -491,7 +491,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 5,
         "originals_90d": 6,
@@ -567,7 +567,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260725",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -640,7 +640,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260708",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -715,7 +715,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240627",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -791,7 +791,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260927",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -866,7 +866,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240205",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -940,13 +940,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 18,
         "originals_90d": 18,
         "originals_365d": 21,
         "new_originals_since_baseline": 5,
-        "derivative_ratio": 0.72,
+        "derivative_ratio": 0.73,
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
@@ -1012,7 +1012,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240118",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1255,7 +1255,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -1331,7 +1331,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260921",
         "originals_60d": 9,
         "originals_90d": 9,
@@ -1409,7 +1409,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210330",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1487,7 +1487,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251108",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1571,7 +1571,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250113",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1647,7 +1647,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241124",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1704,7 +1704,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260616",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1756,7 +1756,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260618",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1830,7 +1830,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231114",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -1937,7 +1937,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 3,
         "originals_90d": 3,
@@ -2144,7 +2144,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260917",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -2215,7 +2215,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220623",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -2412,7 +2412,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 5,
         "originals_90d": 9,
@@ -2476,7 +2476,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260303",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -2620,7 +2620,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 26,
         "originals_90d": 36,
@@ -2696,7 +2696,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221222",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -2753,7 +2753,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260730",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -2829,7 +2829,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -2903,7 +2903,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260702",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -2978,7 +2978,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250326",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -3182,7 +3182,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221017",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -3257,7 +3257,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 14,
         "originals_90d": 20,
@@ -3314,7 +3314,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260522",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -3385,7 +3385,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -3466,7 +3466,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 4,
         "originals_90d": 4,
@@ -3546,7 +3546,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 5,
         "originals_90d": 8,
@@ -3688,7 +3688,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260407",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -3763,7 +3763,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221211",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -3837,7 +3837,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -3863,14 +3863,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 33,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 24,
         "subscribers": 8580,
         "status": "active",
-        "last_episode_date": "2026-09-23",
-        "last_episode_video": "wv-C4u9dUUw"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "n7Jcfc4IAJI"
       },
       "tracking": {
         "enabled": false,
@@ -3894,8 +3894,8 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 12,
-        "last_episode_date": "2026-09-23",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -3911,12 +3911,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260923",
-        "originals_60d": 10,
-        "originals_90d": 12,
-        "originals_365d": 30,
-        "new_originals_since_baseline": 0,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 11,
+        "originals_90d": 13,
+        "originals_365d": 31,
+        "new_originals_since_baseline": 1,
         "derivative_ratio": 0.21,
         "min_duration_sec": 1500,
         "no_originals": false,
@@ -3987,7 +3987,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240405",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4059,7 +4059,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251105",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4133,7 +4133,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260702",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -4168,7 +4168,7 @@
         "last_episode": null,
         "average_duration_minutes": 47,
         "status": "active",
-        "subscribers": 5360
+        "subscribers": 5370
       },
       "tracking": {
         "enabled": true
@@ -4196,7 +4196,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260623",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4249,7 +4249,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260506",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4319,7 +4319,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260611",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4394,7 +4394,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250518",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4451,7 +4451,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260410",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4511,7 +4511,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220425",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4581,7 +4581,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260901",
         "originals_60d": 1,
         "originals_90d": 4,
@@ -4731,7 +4731,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210413",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4920,7 +4920,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251121",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -4993,7 +4993,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251204",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -5108,7 +5108,7 @@
         "last_episode": "2026-04",
         "average_duration_minutes": 73,
         "status": "active",
-        "subscribers": 238
+        "subscribers": 239
       },
       "tracking": {
         "enabled": true
@@ -5137,7 +5137,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260528",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -5234,11 +5234,11 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 23,
+        "originals_365d": 22,
         "episodes_on_disk": 44
       }
     },
@@ -5359,7 +5359,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260405",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -5441,7 +5441,7 @@
       "previous_display_name": "Argumenti (Hrvatska katolička mreža)",
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 4,
         "originals_90d": 4,
@@ -5498,7 +5498,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260922",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -5568,7 +5568,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 7,
         "originals_90d": 11,
@@ -5635,7 +5635,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251125",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -5706,7 +5706,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260914",
         "originals_60d": 3,
         "originals_90d": 5,
@@ -5781,7 +5781,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220830",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -5860,7 +5860,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260720",
         "originals_60d": 0,
         "originals_90d": 4,
@@ -5896,8 +5896,8 @@
         "last_episode": "2026-10",
         "average_duration_minutes": 42,
         "status": "active",
-        "last_episode_date": "2026-10-01",
-        "last_episode_video": "9zhKwntBY7U"
+        "last_episode_date": "2026-10-03",
+        "last_episode_video": "iljZGECYQQs"
       },
       "tracking": {
         "enabled": false
@@ -5919,8 +5919,8 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 4,
-        "last_episode_date": "2026-10-01",
+        "days_since_last_episode": 2,
+        "last_episode_date": "2026-10-03",
         "rubric": "v2"
       },
       "revision": {
@@ -5946,12 +5946,12 @@
       ],
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20261001",
-        "originals_60d": 13,
-        "originals_90d": 23,
-        "originals_365d": 64,
-        "new_originals_since_baseline": 4,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261003",
+        "originals_60d": 14,
+        "originals_90d": 24,
+        "originals_365d": 65,
+        "new_originals_since_baseline": 5,
         "derivative_ratio": 0,
         "min_duration_sec": 1200,
         "no_originals": false,
@@ -6002,7 +6002,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251206",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -6073,7 +6073,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230421",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -6147,7 +6147,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260821",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -6280,7 +6280,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 3,
         "originals_90d": 4,
@@ -6354,7 +6354,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260507",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -6428,7 +6428,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 8,
         "originals_90d": 12,
@@ -6484,7 +6484,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260429",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -6554,13 +6554,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260920",
         "originals_60d": 1,
         "originals_90d": 2,
         "originals_365d": 13,
         "new_originals_since_baseline": 0,
-        "derivative_ratio": 0.76,
+        "derivative_ratio": 0.77,
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
@@ -6702,7 +6702,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260708",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -6783,7 +6783,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261005",
         "originals_60d": 11,
         "originals_90d": 15,
@@ -6933,7 +6933,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260627",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -7127,7 +7127,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260802",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -7262,7 +7262,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260826",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -7409,7 +7409,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -7479,14 +7479,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 34,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 31,
         "subscribers": 7730,
         "status": "active",
-        "last_episode_date": "2026-09-30",
-        "last_episode_video": "GDAlRQo0XT4"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "O2u2xejB7mk"
       },
       "tracking": {
         "enabled": false,
@@ -7510,8 +7510,8 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 5,
-        "last_episode_date": "2026-09-30",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -7527,12 +7527,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260930",
-        "originals_60d": 8,
-        "originals_90d": 13,
-        "originals_365d": 47,
-        "new_originals_since_baseline": 2,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 9,
+        "originals_90d": 14,
+        "originals_365d": 48,
+        "new_originals_since_baseline": 3,
         "derivative_ratio": 0.25,
         "min_duration_sec": 1500,
         "no_originals": false,
@@ -7659,9 +7659,9 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
-        "originals_60d": 11,
+        "originals_60d": 10,
         "originals_90d": 15,
         "originals_365d": 56,
         "episodes_on_disk": 233
@@ -7772,7 +7772,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260923",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -7849,7 +7849,7 @@
       "previous_display_name": "Maria Vision Medjugorje",
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260911",
         "originals_60d": 5,
         "originals_90d": 8,
@@ -7923,7 +7923,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260604",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -7980,7 +7980,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241104",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8050,7 +8050,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260121",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8109,7 +8109,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260311",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8235,7 +8235,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250607",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8305,7 +8305,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 4,
         "originals_90d": 5,
@@ -8453,7 +8453,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250218",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8517,7 +8517,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260411",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8591,7 +8591,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 4,
         "originals_90d": 5,
@@ -8653,7 +8653,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 1,
         "originals_90d": 3,
@@ -8709,10 +8709,10 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260829",
         "originals_60d": 5,
-        "originals_90d": 10,
+        "originals_90d": 9,
         "originals_365d": 12,
         "episodes_on_disk": 69
       }
@@ -8779,7 +8779,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200705",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8871,7 +8871,7 @@
       ],
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260621",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -8946,7 +8946,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 1,
         "originals_90d": 4,
@@ -9075,7 +9075,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260922",
         "originals_60d": 4,
         "originals_90d": 5,
@@ -9147,7 +9147,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221231",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9175,7 +9175,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 7680
+        "subscribers": 7710
       },
       "tracking": {
         "enabled": true
@@ -9204,7 +9204,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 9,
         "originals_90d": 14,
@@ -9275,7 +9275,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230612",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9309,7 +9309,7 @@
         "last_episode": "2026-02",
         "average_duration_minutes": 49,
         "status": "active",
-        "subscribers": 483
+        "subscribers": 484
       },
       "tracking": {
         "enabled": true
@@ -9337,7 +9337,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260216",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9408,7 +9408,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250727",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9435,7 +9435,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 49900
+        "subscribers": 50000
       },
       "tracking": {
         "enabled": true
@@ -9474,7 +9474,7 @@
       ],
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260616",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9544,7 +9544,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251110",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9627,7 +9627,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260517",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9776,7 +9776,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260713",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -9851,7 +9851,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220117",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -9928,7 +9928,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20191009",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10005,7 +10005,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221214",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10081,7 +10081,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -10113,11 +10113,11 @@
       "voditelji": [],
       "metadata": {
         "episodes_estimate": 253,
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 42,
         "status": "active",
-        "last_episode_date": "2026-09-16",
-        "last_episode_video": "vWKdRtvN8j8"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "Lhre9uF5F1Y"
       },
       "tracking": {
         "enabled": false,
@@ -10130,18 +10130,18 @@
       ],
       "notes": "Eksplicitno spomenut od korisnika. 253 epizode, prosjek 42 min.",
       "quality_score": {
-        "total": 78,
-        "tier": "✅ strong",
+        "total": 81,
+        "tier": "🌟 elite",
         "breakdown": {
-          "freshness": 27,
+          "freshness": 30,
           "cadence": 18,
           "format": 15,
           "substance": 5,
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 19,
-        "last_episode_date": "2026-09-16",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -10157,12 +10157,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260916",
-        "originals_60d": 2,
-        "originals_90d": 5,
-        "originals_365d": 35,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 3,
+        "originals_90d": 6,
+        "originals_365d": 36,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0.05,
         "min_duration_sec": 900,
         "no_originals": false,
@@ -10235,7 +10235,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260504",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10303,7 +10303,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260812",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -10447,7 +10447,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260605",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10596,7 +10596,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260909",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -10629,8 +10629,8 @@
         "episodes_over_30min_sampled": 58,
         "subscribers": 7880,
         "status": "active",
-        "last_episode_date": "2026-10-03",
-        "last_episode_video": "jY6vTfTQvXA"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "TgMiI95sRo4"
       },
       "tracking": {
         "enabled": false,
@@ -10654,8 +10654,8 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 2,
-        "last_episode_date": "2026-10-03",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -10671,12 +10671,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20261003",
-        "originals_60d": 18,
-        "originals_90d": 28,
-        "originals_365d": 62,
-        "new_originals_since_baseline": 3,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 19,
+        "originals_90d": 29,
+        "originals_365d": 63,
+        "new_originals_since_baseline": 4,
         "derivative_ratio": 0.2,
         "min_duration_sec": 1800,
         "no_originals": false,
@@ -10746,7 +10746,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250404",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10821,7 +10821,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260604",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10896,7 +10896,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250713",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -10970,7 +10970,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260911",
         "originals_60d": 2,
         "originals_90d": 2,
@@ -11045,7 +11045,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260711",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -11168,7 +11168,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260918",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -11243,7 +11243,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260218",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -11318,7 +11318,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250603",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -11461,7 +11461,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 6,
         "originals_90d": 9,
@@ -11535,7 +11535,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260331",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -11567,7 +11567,7 @@
         "last_episode": "2026-03",
         "average_duration_minutes": 60,
         "status": "active",
-        "subscribers": 10900
+        "subscribers": 11000
       },
       "tracking": {
         "enabled": true
@@ -11607,7 +11607,7 @@
       ],
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251130",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -11668,7 +11668,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240510",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -11693,7 +11693,7 @@
         "Alen Kristović"
       ],
       "metadata": {
-        "subscribers": 6660,
+        "subscribers": 6690,
         "subscribers_as_of": "2026-03",
         "episodes_estimate": 920,
         "last_episode": "2026-03",
@@ -11729,7 +11729,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 14,
         "originals_90d": 21,
@@ -11890,7 +11890,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 27,
         "originals_90d": 30,
@@ -11966,7 +11966,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 6,
         "originals_90d": 15,
@@ -12042,7 +12042,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 4,
         "originals_90d": 5,
@@ -12118,7 +12118,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 9,
         "originals_90d": 13,
@@ -12192,7 +12192,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260503",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12267,7 +12267,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260927",
         "originals_60d": 6,
         "originals_90d": 10,
@@ -12342,7 +12342,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260804",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -12418,7 +12418,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 6,
         "originals_90d": 8,
@@ -12492,7 +12492,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230918",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12567,7 +12567,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230221",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12642,7 +12642,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240814",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12699,7 +12699,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260411",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12770,7 +12770,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231117",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -12799,11 +12799,11 @@
       "voditelji": [],
       "metadata": {
         "first_episode": "2023",
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 81,
         "status": "active",
-        "last_episode_date": "2026-09-28",
-        "last_episode_video": "PGUehBAqWq8"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "NUVIc8u4JoI"
       },
       "tracking": {
         "enabled": false
@@ -12825,8 +12825,8 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 7,
-        "last_episode_date": "2026-09-28",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -12842,12 +12842,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260928",
-        "originals_60d": 1,
-        "originals_90d": 1,
-        "originals_365d": 21,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 2,
+        "originals_90d": 2,
+        "originals_365d": 22,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
         "min_duration_sec": 1800,
         "no_originals": false,
@@ -12974,7 +12974,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260807",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -13046,7 +13046,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220302",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -13121,7 +13121,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250604",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -13186,7 +13186,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260914",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -13257,7 +13257,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 8,
         "originals_90d": 11,
@@ -13339,7 +13339,7 @@
       ],
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 10,
         "originals_90d": 15,
@@ -13413,7 +13413,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260519",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -13488,7 +13488,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260920",
         "originals_60d": 3,
         "originals_90d": 4,
@@ -13563,7 +13563,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231015",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -13652,7 +13652,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 4,
         "originals_90d": 11,
@@ -13723,7 +13723,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261005",
         "originals_60d": 29,
         "originals_90d": 50,
@@ -13756,8 +13756,8 @@
         "episodes_over_30min_sampled": 7,
         "subscribers": 8970,
         "status": "active",
-        "last_episode_date": "2026-09-21",
-        "last_episode_video": "W8AL2qb7Kbg"
+        "last_episode_date": "2026-09-28",
+        "last_episode_video": "QzmmLa7WaaU"
       },
       "tracking": {
         "enabled": false,
@@ -13771,18 +13771,18 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 74,
-        "tier": "✅ strong",
+        "total": 80,
+        "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 12,
+          "cadence": 18,
           "format": 15,
           "substance": 7,
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 14,
-        "last_episode_date": "2026-09-21",
+        "days_since_last_episode": 7,
+        "last_episode_date": "2026-09-28",
         "rubric": "v2"
       },
       "revision": {
@@ -13798,12 +13798,12 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260921",
-        "originals_60d": 4,
-        "originals_90d": 4,
-        "originals_365d": 41,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20260928",
+        "originals_60d": 5,
+        "originals_90d": 5,
+        "originals_365d": 42,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0.04,
         "min_duration_sec": 1800,
         "no_originals": false,
@@ -13873,7 +13873,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260104",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14078,7 +14078,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 5,
         "originals_90d": 6,
@@ -14102,7 +14102,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 8280
+        "subscribers": 8290
       },
       "tracking": {
         "enabled": true
@@ -14131,7 +14131,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260917",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -14209,7 +14209,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230418",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14284,7 +14284,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210526",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14358,7 +14358,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -14432,7 +14432,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260722",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -14507,7 +14507,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 9,
         "originals_90d": 13,
@@ -14581,7 +14581,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260525",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14660,7 +14660,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260617",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14688,7 +14688,7 @@
       "voditelji": [],
       "metadata": {
         "status": "unknown",
-        "subscribers": 402
+        "subscribers": 404
       },
       "tracking": {
         "enabled": true
@@ -14717,7 +14717,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251220",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -14784,13 +14784,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261005",
         "originals_60d": 17,
         "originals_90d": 17,
         "originals_365d": 17,
         "new_originals_since_baseline": 6,
-        "derivative_ratio": 0.81,
+        "derivative_ratio": 0.82,
         "min_duration_sec": 2400,
         "no_originals": false,
         "error": null
@@ -14934,7 +14934,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251011",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -15009,7 +15009,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 1,
         "originals_90d": 3,
@@ -15083,7 +15083,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260519",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -15117,7 +15117,7 @@
         "last_episode": "2025-03",
         "average_duration_minutes": 27,
         "status": "concluded",
-        "subscribers": 483
+        "subscribers": 484
       },
       "tracking": {
         "enabled": true
@@ -15146,7 +15146,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250318",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -15176,7 +15176,7 @@
         "last_episode": "2026-02",
         "average_duration_minutes": 27,
         "status": "concluded",
-        "subscribers": 483
+        "subscribers": 484
       },
       "tracking": {
         "enabled": true
@@ -15204,7 +15204,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260213",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -15271,7 +15271,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260630",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -15349,7 +15349,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -15503,7 +15503,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260921",
         "originals_60d": 8,
         "originals_90d": 8,
@@ -15632,7 +15632,7 @@
       ],
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 5,
         "originals_90d": 6,
@@ -15855,7 +15855,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260606",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -15916,7 +15916,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260902",
         "originals_60d": 2,
         "originals_90d": 5,
@@ -15985,7 +15985,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260625",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -16064,7 +16064,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240514",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -16214,7 +16214,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 6,
         "originals_90d": 9,
@@ -16288,7 +16288,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260927",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -16362,7 +16362,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260819",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -16437,7 +16437,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230613",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -16511,7 +16511,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250601",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -16667,7 +16667,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260830",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -16802,7 +16802,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260916",
         "originals_60d": 7,
         "originals_90d": 8,
@@ -16877,7 +16877,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260820",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -16952,7 +16952,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260921",
         "originals_60d": 8,
         "originals_90d": 8,
@@ -17027,7 +17027,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260511",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -17105,7 +17105,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260922",
         "originals_60d": 6,
         "originals_90d": 9,
@@ -17179,7 +17179,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 5,
         "originals_90d": 5,
@@ -17254,7 +17254,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250723",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -17329,7 +17329,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 3,
         "originals_90d": 4,
@@ -17403,7 +17403,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260524",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -17478,7 +17478,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 1,
         "originals_90d": 8,
@@ -17750,7 +17750,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250212",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -17885,7 +17885,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260920",
         "originals_60d": 3,
         "originals_90d": 3,
@@ -17955,7 +17955,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20211124",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18029,7 +18029,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251230",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18104,7 +18104,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230424",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18178,7 +18178,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -18257,7 +18257,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240903",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18388,7 +18388,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240202",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18462,7 +18462,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251222",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18537,7 +18537,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241115",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18563,14 +18563,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 57,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 5,
         "subscribers": 72800,
         "status": "active",
-        "last_episode_date": "2026-09-28",
-        "last_episode_video": "P9Gf-CG-ZBM"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "0FBLOgnc8z0"
       },
       "tracking": {
         "enabled": false,
@@ -18594,8 +18594,8 @@
           "catalog": 2,
           "audience": 9
         },
-        "days_since_last_episode": 7,
-        "last_episode_date": "2026-09-28",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "revision": {
@@ -18614,13 +18614,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260928",
-        "originals_60d": 5,
-        "originals_90d": 5,
-        "originals_365d": 5,
-        "new_originals_since_baseline": 1,
-        "derivative_ratio": 0.94,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 6,
+        "originals_90d": 6,
+        "originals_365d": 6,
+        "new_originals_since_baseline": 2,
+        "derivative_ratio": 0.93,
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
@@ -18739,7 +18739,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230716",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18890,7 +18890,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260607",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -18964,7 +18964,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260529",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -19033,7 +19033,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241208",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -19182,7 +19182,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260916",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -19240,10 +19240,10 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 5,
-        "originals_90d": 9,
+        "originals_90d": 8,
         "originals_365d": 28,
         "episodes_on_disk": 167
       }
@@ -19374,7 +19374,7 @@
       },
       "activity": {
         "source": "pipeline",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260214",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -19857,7 +19857,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260611",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20161,7 +20161,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230207",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20238,7 +20238,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 12,
         "originals_90d": 17,
@@ -20313,7 +20313,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260610",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20388,7 +20388,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 5,
         "originals_90d": 5,
@@ -20465,7 +20465,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260618",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20540,7 +20540,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260617",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20617,7 +20617,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260817",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -20698,7 +20698,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 8,
         "originals_90d": 16,
@@ -20775,7 +20775,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221223",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20854,7 +20854,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241129",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -20935,7 +20935,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 10,
         "originals_90d": 14,
@@ -21014,7 +21014,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 7,
         "originals_90d": 10,
@@ -21090,7 +21090,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260826",
         "originals_60d": 2,
         "originals_90d": 2,
@@ -21166,7 +21166,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 1,
         "originals_90d": 3,
@@ -21242,7 +21242,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260619",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21320,7 +21320,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260623",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21398,7 +21398,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221214",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21476,7 +21476,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250824",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21557,7 +21557,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 3,
         "originals_90d": 3,
@@ -21633,7 +21633,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260520",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21715,7 +21715,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250624",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21803,7 +21803,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221015",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21880,7 +21880,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210607",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -21961,7 +21961,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 4,
         "originals_90d": 6,
@@ -22040,7 +22040,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260713",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -22117,7 +22117,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260629",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -22195,7 +22195,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260721",
         "originals_60d": 0,
         "originals_90d": 3,
@@ -22271,7 +22271,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260520",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22348,7 +22348,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250615",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22425,7 +22425,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230428",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22502,7 +22502,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250126",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22581,7 +22581,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260922",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -22661,7 +22661,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260924",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -22743,7 +22743,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210630",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22819,7 +22819,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250416",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -22897,7 +22897,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 5,
         "originals_90d": 8,
@@ -22976,7 +22976,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 10,
         "originals_90d": 14,
@@ -23053,7 +23053,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251020",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23132,7 +23132,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260216",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23218,7 +23218,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260630",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -23296,7 +23296,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260124",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23377,7 +23377,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 18,
         "originals_90d": 24,
@@ -23456,7 +23456,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260909",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -23532,7 +23532,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20150917",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23608,7 +23608,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260627",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -23693,7 +23693,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 9,
         "originals_90d": 10,
@@ -23774,7 +23774,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220902",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23854,7 +23854,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210809",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -23931,7 +23931,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251218",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24009,7 +24009,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221107",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24085,7 +24085,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230531",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24148,12 +24148,12 @@
       },
       "notes": "Spojeno u bliski-susreti-jezicne-vrste 2026-10-05 (docs/2026-10-05-logopedija-discovery-i-dijalog.md §8). Hrvatski monolog-podcast o jeziku i lingvistici, jasno numerirane epizode.",
       "quality_score": {
-        "total": 30,
-        "tier": "📦 weak",
+        "total": 15,
+        "tier": "❌ very-low",
         "breakdown": {
           "freshness": 3,
           "cadence": 0,
-          "format": 15,
+          "format": 0,
           "substance": 8,
           "catalog": 1,
           "audience": 3
@@ -24254,7 +24254,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240517",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24333,7 +24333,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -24413,7 +24413,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200704",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24490,7 +24490,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250726",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24525,8 +24525,8 @@
         "episodes_over_30min_sampled": 55,
         "subscribers": 10600,
         "status": "active",
-        "last_episode_date": "2026-10-02",
-        "last_episode_video": "ixACN7RugKU"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "7KI-OpYVmdc"
       },
       "tracking": {
         "enabled": false,
@@ -24567,18 +24567,18 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 3,
-        "last_episode_date": "2026-10-02",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20261002",
-        "originals_60d": 30,
-        "originals_90d": 42,
-        "originals_365d": 62,
-        "new_originals_since_baseline": 4,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 31,
+        "originals_90d": 43,
+        "originals_365d": 63,
+        "new_originals_since_baseline": 5,
         "derivative_ratio": 0.03,
         "min_duration_sec": 1030,
         "no_originals": false,
@@ -24651,7 +24651,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231113",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24728,7 +24728,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231219",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24806,7 +24806,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220113",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24882,7 +24882,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250731",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -24961,7 +24961,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260306",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25037,7 +25037,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251225",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25112,7 +25112,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260608",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25188,7 +25188,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241109",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25264,7 +25264,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260909",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -25343,7 +25343,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210924",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25424,7 +25424,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230523",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25504,7 +25504,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260909",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -25579,7 +25579,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260629",
         "originals_60d": 0,
         "originals_90d": 3,
@@ -25655,7 +25655,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 5,
         "originals_90d": 6,
@@ -25732,7 +25732,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260615",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25808,7 +25808,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260913",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -25887,7 +25887,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231018",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -25965,7 +25965,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260401",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26043,7 +26043,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200628",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26120,7 +26120,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 13,
         "originals_90d": 15,
@@ -26146,14 +26146,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 150,
         "episodes_sampled": 90,
         "episodes_over_30min_sampled": 38,
         "subscribers": 2290,
         "status": "active",
-        "last_episode_date": "2026-09-30",
-        "last_episode_video": "SrfegEgxTT4"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "xFbF3-QJO1s"
       },
       "tracking": {
         "enabled": false,
@@ -26190,21 +26190,21 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 5,
-        "last_episode_date": "2026-09-30",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rising": true,
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260930",
-        "originals_60d": 18,
-        "originals_90d": 25,
-        "originals_365d": 60,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 19,
+        "originals_90d": 26,
+        "originals_365d": 61,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0.5,
-        "min_duration_sec": 4239,
+        "min_duration_sec": 4286,
         "no_originals": false,
         "error": null
       }
@@ -26273,7 +26273,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240723",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26348,7 +26348,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 20,
         "originals_90d": 20,
@@ -26426,7 +26426,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230227",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26506,7 +26506,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20201110",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26534,14 +26534,14 @@
         "Ivan Šafranić"
       ],
       "metadata": {
-        "last_episode": "2026-07",
+        "last_episode": "2026-10",
         "average_duration_minutes": 46,
         "episodes_sampled": 16,
         "episodes_over_30min_sampled": 13,
         "subscribers": 34,
-        "status": "active-slowing",
-        "last_episode_date": "2026-07-29",
-        "last_episode_video": "hkvP2lZ4SNg"
+        "status": "active",
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "7Aoj8TiuFLc"
       },
       "tracking": {
         "enabled": false,
@@ -26568,28 +26568,28 @@
       },
       "notes": "Hrvatski sportski intervju-podcast s vrhunskim sportašima.",
       "quality_score": {
-        "total": 46,
-        "tier": "👀 moderate",
+        "total": 62,
+        "tier": "✅ strong",
         "breakdown": {
-          "freshness": 14,
+          "freshness": 30,
           "cadence": 6,
           "format": 15,
           "substance": 7,
           "catalog": 2,
           "audience": 2
         },
-        "days_since_last_episode": 68,
-        "last_episode_date": "2026-07-29",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260729",
-        "originals_60d": 1,
-        "originals_90d": 1,
-        "originals_365d": 10,
-        "new_originals_since_baseline": 0,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 2,
+        "originals_90d": 2,
+        "originals_365d": 11,
+        "new_originals_since_baseline": 1,
         "derivative_ratio": 0.06,
         "min_duration_sec": 1203,
         "no_originals": false,
@@ -26661,7 +26661,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260916",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -26739,7 +26739,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 14,
         "originals_90d": 25,
@@ -26818,7 +26818,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 4,
         "originals_90d": 4,
@@ -26895,7 +26895,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250310",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -26973,7 +26973,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200930",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -27049,7 +27049,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241006",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -27127,7 +27127,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -27203,7 +27203,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260924",
         "originals_60d": 13,
         "originals_90d": 15,
@@ -27277,7 +27277,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260710",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -27303,14 +27303,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-08",
+        "last_episode": "2026-10",
         "average_duration_minutes": 88,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 26,
         "subscribers": 321,
         "status": "active",
-        "last_episode_date": "2026-08-10",
-        "last_episode_video": "8KiI0qZo4JA"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "M7Bo6lmb5zw"
       },
       "tracking": {
         "enabled": false,
@@ -27336,29 +27336,29 @@
       },
       "notes": "Hrvatski razgovorni podcast o NLO fenomenu, astronomiji i vojnim projektima s gostima znanstvenicima.",
       "quality_score": {
-        "total": 56,
-        "tier": "👀 moderate",
+        "total": 70,
+        "tier": "✅ strong",
         "breakdown": {
-          "freshness": 22,
-          "cadence": 6,
+          "freshness": 30,
+          "cadence": 12,
           "format": 15,
           "substance": 8,
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 56,
-        "last_episode_date": "2026-08-10",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260810",
-        "originals_60d": 1,
-        "originals_90d": 2,
-        "originals_365d": 17,
-        "new_originals_since_baseline": 0,
-        "derivative_ratio": 0.57,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 2,
+        "originals_90d": 3,
+        "originals_365d": 18,
+        "new_originals_since_baseline": 1,
+        "derivative_ratio": 0.56,
         "min_duration_sec": 1886,
         "no_originals": false,
         "error": null
@@ -27431,7 +27431,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260531",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -27507,13 +27507,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260308",
         "originals_60d": 0,
         "originals_90d": 0,
         "originals_365d": 9,
         "new_originals_since_baseline": 0,
-        "derivative_ratio": 0.69,
+        "derivative_ratio": 0.7,
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
@@ -27583,7 +27583,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231020",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -27659,7 +27659,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230915",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -27735,7 +27735,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260916",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -27814,7 +27814,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260926",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -27894,7 +27894,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260927",
         "originals_60d": 2,
         "originals_90d": 6,
@@ -27971,7 +27971,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260708",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -28050,7 +28050,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251203",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28128,7 +28128,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240618",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28206,7 +28206,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260904",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -28284,7 +28284,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260705",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -28362,7 +28362,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210710",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28443,7 +28443,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250324",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28524,7 +28524,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250106",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28600,7 +28600,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260529",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28677,7 +28677,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260717",
         "originals_60d": 0,
         "originals_90d": 2,
@@ -28754,7 +28754,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230131",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28831,7 +28831,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210430",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -28907,7 +28907,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -28985,7 +28985,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200706",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29061,7 +29061,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220528",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29138,7 +29138,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260718",
         "originals_60d": 0,
         "originals_90d": 2,
@@ -29217,7 +29217,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220604",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29296,7 +29296,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -29372,7 +29372,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260217",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29451,7 +29451,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260915",
         "originals_60d": 3,
         "originals_90d": 3,
@@ -29527,7 +29527,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260304",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29603,7 +29603,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240514",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29681,7 +29681,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20211221",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -29707,14 +29707,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 94,
         "episodes_sampled": 90,
         "episodes_over_30min_sampled": 39,
         "subscribers": 10300,
         "status": "active",
-        "last_episode_date": "2026-09-26",
-        "last_episode_video": "jTtzdauPVIw"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "Oz_SaTLsais"
       },
       "tracking": {
         "enabled": false,
@@ -29751,20 +29751,20 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 9,
-        "last_episode_date": "2026-09-26",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260926",
-        "originals_60d": 15,
-        "originals_90d": 20,
-        "originals_365d": 59,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 16,
+        "originals_90d": 21,
+        "originals_365d": 60,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0.52,
-        "min_duration_sec": 2594,
+        "min_duration_sec": 2559,
         "no_originals": false,
         "error": null
       }
@@ -29834,7 +29834,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260928",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -29910,7 +29910,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -29986,7 +29986,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241111",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30062,7 +30062,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250626",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30143,7 +30143,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220518",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30220,13 +30220,13 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 8,
         "originals_90d": 11,
         "originals_365d": 53,
         "new_originals_since_baseline": 2,
-        "derivative_ratio": 0.5,
+        "derivative_ratio": 0.51,
         "min_duration_sec": 4162,
         "no_originals": false,
         "error": null
@@ -30297,7 +30297,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260506",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30374,7 +30374,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260419",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30452,7 +30452,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241126",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30529,7 +30529,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210512",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30606,7 +30606,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251203",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -30683,7 +30683,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 4,
         "originals_90d": 5,
@@ -30714,14 +30714,14 @@
         "Zvonimir Milaković"
       ],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 72,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 17,
         "subscribers": null,
         "status": "active",
-        "last_episode_date": "2026-09-22",
-        "last_episode_video": "dNFMOh2b-sc"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "YJUpTDXb2Fg"
       },
       "tracking": {
         "enabled": false,
@@ -30746,29 +30746,29 @@
       },
       "notes": "Talk-show s poznatim gostima, voditelj Zvonimir Milaković, dugi originalni razgovori.",
       "quality_score": {
-        "total": 64,
+        "total": 70,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 30,
-          "cadence": 6,
+          "cadence": 12,
           "format": 15,
           "substance": 8,
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 13,
-        "last_episode_date": "2026-09-22",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260922",
-        "originals_60d": 2,
-        "originals_90d": 2,
-        "originals_365d": 14,
-        "new_originals_since_baseline": 0,
-        "derivative_ratio": 0.72,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 3,
+        "originals_90d": 3,
+        "originals_365d": 15,
+        "new_originals_since_baseline": 1,
+        "derivative_ratio": 0.7,
         "min_duration_sec": 1737,
         "no_originals": false,
         "error": null
@@ -30839,7 +30839,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 4,
         "originals_90d": 7,
@@ -30916,7 +30916,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -30995,7 +30995,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -31073,7 +31073,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231202",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31150,7 +31150,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 2,
         "originals_90d": 3,
@@ -31226,7 +31226,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260720",
         "originals_60d": 0,
         "originals_90d": 6,
@@ -31303,7 +31303,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 1,
         "originals_90d": 3,
@@ -31378,7 +31378,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260525",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31455,7 +31455,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260511",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31535,7 +31535,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240412",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31612,7 +31612,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260922",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -31688,7 +31688,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251029",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31815,7 +31815,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250612",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31892,7 +31892,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250611",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -31969,7 +31969,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250602",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32046,7 +32046,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20221123",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32123,7 +32123,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240530",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32203,7 +32203,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260617",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32283,7 +32283,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241031",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32361,7 +32361,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260929",
         "originals_60d": 9,
         "originals_90d": 15,
@@ -32439,7 +32439,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240301",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32518,7 +32518,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260528",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32597,7 +32597,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20211223",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32675,7 +32675,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250724",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32752,7 +32752,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240703",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -32829,7 +32829,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 4,
         "originals_90d": 4,
@@ -32907,7 +32907,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260911",
         "originals_60d": 5,
         "originals_90d": 10,
@@ -32985,7 +32985,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 2,
         "originals_90d": 2,
@@ -33060,7 +33060,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260702",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -33140,7 +33140,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260613",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33219,7 +33219,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250615",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33296,7 +33296,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250107",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33373,7 +33373,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240611",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33450,7 +33450,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250526",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33528,7 +33528,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230825",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33603,7 +33603,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20251216",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33681,7 +33681,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230224",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33756,7 +33756,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260505",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -33833,7 +33833,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -33908,7 +33908,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261003",
         "originals_60d": 5,
         "originals_90d": 7,
@@ -33982,7 +33982,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 16,
         "originals_90d": 18,
@@ -34057,7 +34057,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260910",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -34133,7 +34133,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250601",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34208,7 +34208,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260923",
         "originals_60d": 3,
         "originals_90d": 5,
@@ -34282,7 +34282,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 16,
         "originals_90d": 20,
@@ -34360,7 +34360,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261002",
         "originals_60d": 7,
         "originals_90d": 11,
@@ -34437,7 +34437,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241209",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34512,7 +34512,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 7,
         "originals_90d": 10,
@@ -34588,7 +34588,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 16,
         "originals_90d": 25,
@@ -34664,7 +34664,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20201022",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34741,7 +34741,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200717",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34818,7 +34818,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20201002",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34897,7 +34897,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250408",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -34976,7 +34976,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20241024",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -35052,7 +35052,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260625",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -35128,7 +35128,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 11,
         "originals_90d": 15,
@@ -35204,7 +35204,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261001",
         "originals_60d": 5,
         "originals_90d": 8,
@@ -35280,7 +35280,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 9,
         "originals_90d": 13,
@@ -35356,7 +35356,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -35434,7 +35434,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260626",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -35509,7 +35509,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260919",
         "originals_60d": 3,
         "originals_90d": 4,
@@ -35584,7 +35584,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260925",
         "originals_60d": 4,
         "originals_90d": 6,
@@ -35659,7 +35659,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230117",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -35736,7 +35736,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260727",
         "originals_60d": 1,
         "originals_90d": 2,
@@ -35811,7 +35811,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260930",
         "originals_60d": 10,
         "originals_90d": 14,
@@ -35890,7 +35890,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240417",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -35967,7 +35967,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250110",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36045,7 +36045,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210501",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36120,7 +36120,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20231102",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36197,7 +36197,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250520",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36273,7 +36273,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260615",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36351,7 +36351,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260609",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36428,7 +36428,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200229",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36504,7 +36504,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200422",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36582,7 +36582,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260924",
         "originals_60d": 3,
         "originals_90d": 6,
@@ -36660,7 +36660,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250604",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36738,7 +36738,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20211004",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -36815,7 +36815,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260927",
         "originals_60d": 3,
         "originals_90d": 5,
@@ -36890,7 +36890,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260726",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -36920,14 +36920,14 @@
         "Lado Tomičić"
       ],
       "metadata": {
-        "last_episode": "2026-09",
+        "last_episode": "2026-10",
         "average_duration_minutes": 65,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 59,
         "subscribers": null,
         "status": "active",
-        "last_episode_date": "2026-09-28",
-        "last_episode_video": "P9Gf-CG-ZBM"
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "0FBLOgnc8z0"
       },
       "tracking": {
         "enabled": false,
@@ -36961,20 +36961,20 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 7,
-        "last_episode_date": "2026-09-28",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
-        "last_original_upload": "20260928",
-        "originals_60d": 3,
-        "originals_90d": 3,
-        "originals_365d": 39,
-        "new_originals_since_baseline": 1,
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 4,
+        "originals_90d": 4,
+        "originals_365d": 40,
+        "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
-        "min_duration_sec": 1459,
+        "min_duration_sec": 1444,
         "no_originals": false,
         "error": null
       }
@@ -37045,7 +37045,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260603",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37121,7 +37121,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240928",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37195,7 +37195,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260414",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37271,7 +37271,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20200930",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37348,7 +37348,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260529",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37424,7 +37424,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20250423",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37503,7 +37503,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20210930",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37580,7 +37580,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20220927",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37656,7 +37656,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20160513",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37731,7 +37731,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260614",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -37806,7 +37806,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20261004",
         "originals_60d": 1,
         "originals_90d": 1,
@@ -37881,7 +37881,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260629",
         "originals_60d": 0,
         "originals_90d": 1,
@@ -37958,7 +37958,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20260924",
         "originals_60d": 2,
         "originals_90d": 4,
@@ -38034,7 +38034,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20230929",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -38113,7 +38113,7 @@
       },
       "activity": {
         "source": "watch",
-        "checked_at": "2026-10-05",
+        "checked_at": "2026-10-06",
         "last_original_upload": "20240115",
         "originals_60d": 0,
         "originals_90d": 0,
@@ -38144,7 +38144,9 @@
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 30,
         "subscribers": 749,
-        "status": "active-slowing"
+        "status": "active-slowing",
+        "last_episode_date": "2026-06-01",
+        "last_episode_video": "EhU7Gsr5hQ0"
       },
       "tracking": {
         "enabled": false,
@@ -38171,19 +38173,32 @@
       },
       "notes": "Hrvatski intervjui o tehnologiji i AI-ju (CyberFleet, numerirane epizode ~48 min). Zadnja epizoda je od lipnja 2026., nema novih u 90 dana.",
       "quality_score": {
-        "total": 48,
-        "tier": "👀 moderate",
+        "total": 37,
+        "tier": "📦 weak",
         "breakdown": {
-          "freshness": 14,
-          "cadence": 5,
+          "freshness": 8,
+          "cadence": 0,
           "format": 15,
           "substance": 7,
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 112,
-        "last_episode_date": "2026-06-15",
+        "days_since_last_episode": 126,
+        "last_episode_date": "2026-06-01",
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20260601",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 31,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.47,
+        "min_duration_sec": 1144,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38202,12 +38217,14 @@
         "Lana Kihas"
       ],
       "metadata": {
-        "last_episode": "2026-02",
+        "last_episode": "2026-01",
         "average_duration_minutes": 31,
         "episodes_sampled": 55,
         "episodes_over_30min_sampled": 13,
         "subscribers": 399,
-        "status": "active-slowing"
+        "status": "active-slowing",
+        "last_episode_date": "2026-01-28",
+        "last_episode_video": "w4A6NwurP8k"
       },
       "tracking": {
         "enabled": false,
@@ -38233,19 +38250,32 @@
       },
       "notes": "Videoemisija/podcast na hrvatskom o ranom i predškolskom odgoju s gostima, 35 originala.",
       "quality_score": {
-        "total": 33,
+        "total": 28,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 3,
-          "cadence": 5,
+          "cadence": 0,
           "format": 15,
           "substance": 5,
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 232,
-        "last_episode_date": "2026-02-15",
+        "days_since_last_episode": 250,
+        "last_episode_date": "2026-01-28",
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20260128",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 11,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.36,
+        "min_duration_sec": 901,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38265,12 +38295,14 @@
         "Maida Arslanagić"
       ],
       "metadata": {
-        "last_episode": "2025-10",
+        "last_episode": "2024-11",
         "average_duration_minutes": 21,
         "episodes_sampled": 33,
         "episodes_over_30min_sampled": 0,
         "subscribers": 198,
-        "status": "active-slowing"
+        "status": "inactive",
+        "last_episode_date": "2024-11-29",
+        "last_episode_video": "t1yFBeMowFM"
       },
       "tracking": {
         "enabled": false,
@@ -38299,19 +38331,33 @@
       },
       "notes": "Hrvatski podcast o djeci s teškoćama u razvoju i inkluziji (prije „Podcast ALL IN with Maida Arslanagić“); numerirane epizode ~20 min. Logopedske samo neke epizode (AAC, mucanje, logoped u vrtiću) — zato bez taga speech-therapy.",
       "quality_score": {
-        "total": 17,
+        "total": 9,
         "tier": "❌ very-low",
         "breakdown": {
-          "freshness": 3,
-          "cadence": 5,
+          "freshness": 0,
+          "cadence": 0,
           "format": 3,
           "substance": 2,
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 355,
-        "last_episode_date": "2025-10-15",
+        "days_since_last_episode": 675,
+        "last_episode_date": "2024-11-29",
+        "dormant": true,
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20241129",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 2,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.09,
+        "min_duration_sec": 600,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38328,12 +38374,14 @@
       ],
       "voditelji": [],
       "metadata": {
-        "last_episode": "2023-10",
+        "last_episode": "2023-09",
         "average_duration_minutes": 41,
         "episodes_sampled": 39,
         "episodes_over_30min_sampled": 10,
         "subscribers": 145,
-        "status": "inactive"
+        "status": "inactive",
+        "last_episode_date": "2023-09-22",
+        "last_episode_video": "yU-EBlPbA-0"
       },
       "tracking": {
         "enabled": false,
@@ -38361,20 +38409,33 @@
       },
       "notes": "Zagrebački centar za psihološku podršku; podcast o roditeljstvu i djeci na hrvatskom (epizode označene 'Podcast 6'). Zadnja epizoda 2023.",
       "quality_score": {
-        "total": 25,
+        "total": 24,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
           "cadence": 0,
           "format": 15,
           "substance": 5,
-          "catalog": 2,
+          "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1086,
-        "last_episode_date": "2023-10-15",
+        "days_since_last_episode": 1109,
+        "last_episode_date": "2023-09-22",
         "dormant": true,
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20230922",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 0,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.64,
+        "min_duration_sec": 1235,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38394,12 +38455,14 @@
         "Anja Norda"
       ],
       "metadata": {
-        "last_episode": "2024-10",
+        "last_episode": "2023-10",
         "average_duration_minutes": 31,
         "episodes_sampled": 60,
         "episodes_over_30min_sampled": 12,
         "subscribers": 637,
-        "status": "inactive"
+        "status": "inactive",
+        "last_episode_date": "2023-10-20",
+        "last_episode_video": "w9-urZrk7_g"
       },
       "tracking": {
         "enabled": false,
@@ -38425,20 +38488,33 @@
       },
       "notes": "Hrvatski kanal o disleksiji s podcastom i razgovorima o životu s disleksijom.",
       "quality_score": {
-        "total": 25,
+        "total": 24,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
           "cadence": 0,
           "format": 15,
           "substance": 5,
-          "catalog": 2,
+          "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 720,
-        "last_episode_date": "2024-10-15",
+        "days_since_last_episode": 1081,
+        "last_episode_date": "2023-10-20",
         "dormant": true,
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20231020",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 0,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.57,
+        "min_duration_sec": 901,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38463,7 +38539,9 @@
         "episodes_sampled": 66,
         "episodes_over_30min_sampled": 15,
         "subscribers": 11400,
-        "status": "active"
+        "status": "active",
+        "last_episode_date": "2026-10-05",
+        "last_episode_video": "HBgmvn-xvU4"
       },
       "tracking": {
         "enabled": false,
@@ -38489,19 +38567,32 @@
       },
       "notes": "Karlovački medij Trend Medij s dnevnom intervjuskom emisijom 'Gost dana by Eva Zadro' (razgovor s lokalnim gostima), puno epizoda i aktivan.",
       "quality_score": {
-        "total": 70,
-        "tier": "✅ strong",
+        "total": 89,
+        "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 10,
+          "cadence": 25,
           "format": 15,
           "substance": 5,
-          "catalog": 2,
+          "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": -10,
-        "last_episode_date": "2026-10-15",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-05",
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20261005",
+        "originals_60d": 29,
+        "originals_90d": 34,
+        "originals_365d": 57,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0.14,
+        "min_duration_sec": 901,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38521,12 +38612,14 @@
         "Andrea Žigić Dolenec"
       ],
       "metadata": {
-        "last_episode": "2019-10",
+        "last_episode": "2019-03",
         "average_duration_minutes": 33,
         "episodes_sampled": 34,
         "episodes_over_30min_sampled": 25,
         "subscribers": 42,
-        "status": "inactive"
+        "status": "inactive",
+        "last_episode_date": "2019-03-01",
+        "last_episode_video": "HOlhiAZmPwk"
       },
       "tracking": {
         "enabled": false,
@@ -38552,20 +38645,33 @@
       },
       "notes": "Radio Varaždin, serija intervjua 'Intervju tjedna s Andreom Žigić Dolenec' u razgovornom formatu na hrvatskom; ali zadnja objava 2019. (arhivski kanal).",
       "quality_score": {
-        "total": 26,
+        "total": 23,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
           "cadence": 0,
           "format": 15,
           "substance": 5,
-          "catalog": 4,
+          "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 2547,
-        "last_episode_date": "2019-10-15",
+        "days_since_last_episode": 2775,
+        "last_episode_date": "2019-03-01",
         "dormant": true,
         "rubric": "v2"
+      },
+      "activity": {
+        "source": "watch",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20190301",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 0,
+        "new_originals_since_baseline": 0,
+        "derivative_ratio": 0,
+        "min_duration_sec": 901,
+        "no_originals": false,
+        "error": null
       }
     },
     {
@@ -38608,7 +38714,7 @@
         "last_episode_date": "2026-03-11",
         "episodes_estimate": 54,
         "average_duration_minutes": 52,
-        "subscribers": null
+        "subscribers": 0
       },
       "tracking": {
         "enabled": true
@@ -38618,7 +38724,31 @@
       "sources": [
         "web-research-2026-10-05"
       ],
-      "notes": "Prvi hrvatski logopedski podcast — logopedinje s ERF-a Zagreb (studentska udruga Logomotiva). Audio-only (Spotify for Podcasters/anchor.fm), nema YouTube; ingest preko RSS-a (ingest_rss.mjs). Izlazi u sezonama. Vidi docs/2026-10-05-logopedija-discovery-i-dijalog.md."
+      "notes": "Prvi hrvatski logopedski podcast — logopedinje s ERF-a Zagreb (studentska udruga Logomotiva). Audio-only (Spotify for Podcasters/anchor.fm), nema YouTube; ingest preko RSS-a (ingest_rss.mjs). Izlazi u sezonama. Vidi docs/2026-10-05-logopedija-discovery-i-dijalog.md.",
+      "quality_score": {
+        "total": 24,
+        "tier": "📦 weak",
+        "breakdown": {
+          "freshness": 3,
+          "cadence": 0,
+          "format": 6,
+          "substance": 7,
+          "catalog": 6,
+          "audience": 2
+        },
+        "days_since_last_episode": 208,
+        "last_episode_date": "2026-03-11",
+        "rubric": "v2"
+      },
+      "activity": {
+        "source": "pipeline",
+        "checked_at": "2026-10-06",
+        "last_original_upload": "20260311",
+        "originals_60d": 0,
+        "originals_90d": 0,
+        "originals_365d": 6,
+        "episodes_on_disk": 55
+      }
     }
   ],
   "philosophy": {
