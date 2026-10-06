@@ -1,6 +1,6 @@
 # Data contract: fetch.domovina.tv → downstream consumers
 
-**Verzija:** 1.0 (2026-05-12)
+**Verzija:** 1.2 (2026-10-06) — v1.2 dodaje `*.segments.jsonl` (§14)
 **Status:** Aktivan
 **Cilj:** Formalizirati shape podataka koje pipeline ovdje (data producer) proizvodi, tako da
        downstream consumeri (npr. novi `domovina-rag` repo za RAG/agent backend, ili `domovina.ai`
@@ -35,6 +35,7 @@ storage/output/{channel}/                            # symlink-ana po kanalu
 ├── {basename}.rag.jsonl                             # RAG chunkanje (speaker-aware fixed-size)
 ├── {basename}.rag_import.jsonl                      # RAG chunkanje (outline-aware)
 ├── {basename}.rag_combined.jsonl                    # 🟢 PRIMARNA RAG datoteka (hybrid)
+├── {basename}.segments.jsonl                        # 1 red = 1 SRT segment s imenom govornika (§14)
 └── screenshots/                                     # opcionalno (--with-screenshots)
     └── {timestamp}.jpg
 ```
@@ -420,8 +421,58 @@ Da bude jasno što nije pokriveno:
 | `*.canary.summary.json/md` | `summarize_gemini.js` |
 | `*.outline.json`, `*.article.json` | `generate_article_gemini.js` |
 | `*.rag*.jsonl` | `prepare_rag.js`, `prepare_rag_import.js`, `prepare_rag_combined.js` |
+| `*.segments.jsonl` | `prepare_rag_combined.js` (isti prolaz, vidi §14) |
 | `*.canary.summary.blocked.json` | `summarize_gemini.js` (marker za Gemini block) |
 | R2 CDN | `upload_to_r2.js` |
+
+---
+
+## 14. `*.segments.jsonl` — segmenti transkripta s imenima (v1.2)
+
+**Consumer:** `domovina-rag` → Meili index `segments` → MCP alat `find_in_transcript`
+(plan: `domovina-rag/docs/plans/2026-10-06-meili-segments-pretraga-transkripta.md`).
+Svrha: na pitanje „u kojem trenutku X kaže Y" odgovoriti točnom sekundom, a ne
+početkom poglavlja kao `rag_combined.jsonl`.
+
+JSONL, UTF-8, jedan red = jedan cue **kanonskog** diariziranog SRT-a. Kanonski je
+točno onaj koji `prepare_rag_combined.js` bira u `resolveDiarizedSrt()`
+(homily → gemini-refine → sortformer → canary). Ime govornika dolazi iz iste mape
+kao u `rag_combined.jsonl` (`summary.speakers[].suggested_name`). Consumer zato ne
+ponavlja ni izbor SRT-a ni mapiranje imena.
+
+```json
+{"id":"35Oq01CmGWE_24","youtube_id":"35Oq01CmGWE","channel":"40_dana_za_zivot","upload_date":"2026-10-02","seq":24,"start_sec":117.49,"end_sec":120.57,"speaker_id":"SPEAKER_00","speaker":"Ante Čaljkušić","srt_source":"canary","text":"Matija, hoćeš ti za djecu svoju? Aj dođi."}
+```
+
+| Polje | Tip | Napomena |
+|---|---|---|
+| `id` | string | `{youtube_id}_{seq}`. Smije sadržavati samo `[A-Za-z0-9_-]` (Meili primary key). |
+| `youtube_id` | string | 11 znakova, isti kao u `rag_combined.jsonl` |
+| `channel` | string | slug kanala (§3) |
+| `upload_date` | string \| null | `YYYY-MM-DD` iz basenamea |
+| `seq` | integer | 1-based, redoslijed po `start_sec`; jedinstven unutar epizode |
+| `start_sec`, `end_sec` | number | sekunde, preciznost ms (3 decimale) |
+| `speaker_id` | string \| null | `SPEAKER_XX` iz SRT-a; `null` ako cue nema tag |
+| `speaker` | string \| null | ime iz `summary.json`; `null` ako ga nema (consumer NE smije pisati `SPEAKER_XX` kao ime) |
+| `srt_source` | string | `canary` \| `sortformer` \| `gemini-refine` \| `homily` |
+| `text` | string | tekst cue-a bez `[SPEAKER_XX]` prefiksa, `trim()`; cue s praznim tekstom se izostavlja |
+
+Pravila:
+
+- **Ista epizoda, isti izlaz.** Datoteka je deterministička: bez vremena generiranja
+  i bez nasumičnog redoslijeda. Consumer otkriva promjenu po SHA-256 sadržaja i
+  re-indeksira epizodu samo kad se hash promijeni. Nedeterministički izlaz bi svaku
+  noć re-indeksirao cijeli katalog.
+- **Svježina neovisna o done-cacheu.** Datoteka se (re)generira kad ne postoji ili
+  kad je kanonski SRT ili `summary.json` noviji od nje. Zato se ne smije oslanjati
+  na `.rag_combined` done-cache, jer bi tada promovirani gemini-refine SRT ili
+  naknadno dodana imena ostali nevidljivi.
+- **Atomarni zapis** (`.tmp` + `rename`), da consumer nikad ne pročita pola datoteke.
+- **Imena su opcionalna.** Epizoda bez `summary.json` i dalje dobiva datoteku, uz
+  `speaker: null`.
+- **Ne ide na R2.** Consumer čita lokalni disk, kao i `rag_combined.jsonl`.
+- Veličina: cijeli katalog (3 387 epizoda, 06.10.2026.) ima ≈1,42 M segmenata i
+  ≈460 MB JSONL-a.
 
 ---
 

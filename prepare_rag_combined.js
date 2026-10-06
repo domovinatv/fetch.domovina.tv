@@ -603,6 +603,10 @@ function parseArgs() {
     const limit = getArg("--limit") ? parseInt(getArg("--limit"), 10) : null;
     const dryRun = args.includes("--dry-run");
     const rebuildState = args.includes("--rebuild-state");
+    // segments.jsonl (data_contract §14): zaseban prolaz, neovisan o done-cacheu
+    const onlySegments = args.includes("--only-segments");
+    const noSegments = args.includes("--no-segments");
+    const rebuildSegments = args.includes("--rebuild-segments");
 
     if (!inputDir) {
         console.error("❌ Obavezan argument: --input-dir <putanja>");
@@ -615,16 +619,198 @@ function parseArgs() {
         console.error("  node prepare_rag_combined.js --input-dir ... --limit 10");
         console.error("  node prepare_rag_combined.js --input-dir ... --dry-run");
         console.error("  node prepare_rag_combined.js --input-dir ... --rebuild-state");
+        console.error("  node prepare_rag_combined.js --input-dir ... --only-segments [--rebuild-segments]");
         process.exit(1);
     }
 
-    return { inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState };
+    return { inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState,
+             onlySegments, noSegments, rebuildSegments };
+}
+
+// ─── SEGMENTS.JSONL (data_contract.md §14) ──────────────────────
+//
+// Jedan red = jedan cue KANONSKOG diariziranog SRT-a (isti izbor kao gore u
+// resolveDiarizedSrt), s imenom govornika iz iste speakerMap. Consumer
+// (domovina-rag → Meili `segments` → find_in_transcript) iz toga odgovara na
+// „u kojoj sekundi X kaže Y".
+//
+// Tri pravila iz ugovora koja ovdje drže kod:
+//   1. Deterministički izlaz — consumer re-indeksira po SHA-256 sadržaja.
+//   2. Svježina NEOVISNA o rag-combined done-cacheu: datoteka se gradi za SVAKU
+//      epizodu s kanonskim SRT-om (ne treba outline/article) i obnavlja kad je
+//      neki ulaz noviji. Inače promovirani gemini-refine SRT ili naknadna imena
+//      nikad ne stignu do consumera.
+//   3. Atomarni zapis (.tmp + rename).
+// Ne ide na R2 — consumer čita lokalni disk.
+
+const SEGMENTS_SUFFIX = ".segments.jsonl";
+
+// Ime govornika ili null. Placeholder ("SPEAKER_03") nije ime — ugovor kaže null.
+function speakerNameFor(speakerId, speakerMap) {
+    if (!speakerId) return null;
+    const name = speakerMap[speakerId];
+    if (typeof name !== "string") return null;
+    const trimmed = name.trim();
+    if (!trimmed || /^SPEAKER_\w+$/i.test(trimmed)) return null;
+    return trimmed;
+}
+
+function round3(x) {
+    return Math.round(x * 1000) / 1000;
+}
+
+/**
+ * Segmenti (parseSrt) → JSONL sadržaj. Čista funkcija: isti ulaz, isti bajtovi.
+ */
+function buildSegmentsJsonl(segments, { youtubeId, channel, uploadDate, srtSource, speakerMap }) {
+    const ordered = segments
+        .map((seg, i) => ({ seg, i }))
+        .sort((a, b) => (a.seg.startSec - b.seg.startSec) || (a.i - b.i))
+        .map(x => x.seg);
+
+    const lines = ordered.map((seg, i) => {
+        const seq = i + 1;
+        const speakerId = seg.speaker && seg.speaker !== "UNKNOWN" ? seg.speaker : null;
+        return JSON.stringify({
+            id: `${youtubeId}_${seq}`,
+            youtube_id: youtubeId,
+            channel,
+            upload_date: uploadDate,
+            seq,
+            start_sec: round3(seg.startSec),
+            end_sec: round3(seg.endSec),
+            speaker_id: speakerId,
+            speaker: speakerNameFor(speakerId, speakerMap),
+            srt_source: srtSource,
+            text: seg.text
+        });
+    });
+    return lines.length ? lines.join("\n") + "\n" : "";
+}
+
+function mtimeMs(p) {
+    try { return fs.statSync(p).mtimeMs; } catch (_) { return 0; }
+}
+
+function discoverCanonicalSrts(inputDir, channelFilter, videoIdFilter) {
+    const results = [];
+    for (const entry of fs.readdirSync(inputDir, { withFileTypes: true })) {
+        if (!(entry.isDirectory() || entry.isSymbolicLink())) continue;
+        if (entry.name.startsWith(".")) continue;
+        if (channelFilter && entry.name !== channelFilter) continue;
+        const channelDir = path.join(inputDir, entry.name);
+        let files;
+        try { files = fs.readdirSync(channelDir); } catch (_) { continue; }
+        for (const f of files) {
+            if (!f.endsWith(".wav" + DIARIZED_SRT_SUFFIX) || f.startsWith("._")) continue;
+            if (videoIdFilter && !f.includes(`_yt_${videoIdFilter}`)) continue;
+            results.push({ srtPath: path.join(channelDir, f), channel: entry.name });
+        }
+    }
+    results.sort((a, b) => a.srtPath.localeCompare(b.srtPath));
+    return results;
+}
+
+function runSegments({ inputDir, channel, videoId, dryRun, rebuildSegments }) {
+    console.log("");
+    console.log("╔══════════════════════════════════════════════════╗");
+    console.log("║   🔎 SEGMENTS.JSONL — cue po cue, s imenima      ║");
+    console.log("╚══════════════════════════════════════════════════╝");
+    if (rebuildSegments) console.log("   🔄 REBUILD — ignoriram mtime provjeru");
+
+    if (!fs.existsSync(inputDir)) {
+        console.error(`❌ Input direktorij ne postoji: ${inputDir}`);
+        process.exit(1);
+    }
+    const all = discoverCanonicalSrts(inputDir, channel, videoId);
+    const stats = { total: all.length, fresh: 0, written: 0, unchanged: 0, empty: 0, noId: 0, rows: 0, bytes: 0 };
+
+    for (const { srtPath, channel: ch } of all) {
+        const dir = path.dirname(srtPath);
+        const base = path.basename(srtPath).replace(/\.wav\.canary\.diarized\.srt$/, "");
+        const outPath = path.join(dir, base + SEGMENTS_SUFFIX);
+        const { path: actualSrt, source } = resolveDiarizedSrt(srtPath);
+
+        // Ulazi o kojima izlaz ovisi. homily.json je tu jer o njemu ovisi
+        // IZBOR SRT-a, a summary.json nosi imena.
+        const inputsMtime = Math.max(
+            mtimeMs(srtPath),
+            mtimeMs(actualSrt),
+            mtimeMs(path.join(dir, base + ".wav" + SUMMARY_JSON_SUFFIX)),
+            mtimeMs(path.join(dir, base + HOMILY_META_SUFFIX))
+        );
+        const outMtime = mtimeMs(outPath);
+        if (!rebuildSegments && outMtime > 0 && outMtime >= inputsMtime) {
+            stats.fresh++;
+            continue;
+        }
+
+        const youtubeId = extractVideoIdFromFilename(base);
+        if (!youtubeId) {
+            stats.noId++;
+            console.log(`   ⚠️  [BEZ YT ID-a] ${base}`);
+            continue;
+        }
+
+        const segments = parseSrt(fs.readFileSync(actualSrt, "utf-8"));
+        if (segments.length === 0) {
+            stats.empty++;
+            continue;
+        }
+
+        const summary = loadSummary(srtPath);
+        const content = buildSegmentsJsonl(segments, {
+            youtubeId,
+            channel: ch,
+            uploadDate: extractDateFromFilename(base),
+            srtSource: source,
+            speakerMap: summary?.speakerMap || {}
+        });
+
+        stats.rows += segments.length;
+        stats.bytes += Buffer.byteLength(content);
+        if (dryRun) { stats.written++; continue; }
+
+        // Isti bajtovi → ne prepisuj (hash consumera ostaje isti), samo pomakni
+        // mtime da idući run ne gradi ponovno.
+        let existing = null;
+        try { existing = fs.readFileSync(outPath, "utf-8"); } catch (_) { /* nema je */ }
+        if (existing === content) {
+            const now = new Date();
+            fs.utimesSync(outPath, now, now);
+            stats.unchanged++;
+            continue;
+        }
+
+        const tmpPath = outPath + ".tmp";
+        fs.writeFileSync(tmpPath, content, "utf-8");
+        fs.renameSync(tmpPath, outPath);
+        stats.written++;
+    }
+
+    console.log(`   📊 Epizoda s kanonskim SRT-om: ${stats.total}`);
+    console.log(`   ✅ Svježe (preskočeno):        ${stats.fresh}`);
+    console.log(`   ✍️  ${dryRun ? "Za zapis (dry-run)" : "Zapisano"}:              ${stats.written}`);
+    if (stats.unchanged) console.log(`   🟰 Isti sadržaj (samo mtime):  ${stats.unchanged}`);
+    if (stats.empty) console.log(`   ⚠️  Prazan SRT:                 ${stats.empty}`);
+    if (stats.noId) console.log(`   ⚠️  Bez YouTube ID-a:           ${stats.noId}`);
+    console.log(`   🧩 Segmenata (obrađene ep.):   ${stats.rows}`);
+    console.log(`   📦 Veličina (obrađene ep.):    ${(stats.bytes / 1048576).toFixed(1)} MB`);
+    console.log("");
+    return stats;
 }
 
 // ─── MAIN ───────────────────────────────────────────────────────
 
 function main() {
-    const { inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState } = parseArgs();
+    const opts = parseArgs();
+    if (!opts.onlySegments) runRagCombined(opts);
+    if (!opts.noSegments) runSegments(opts);
+}
+
+// ─── RAG COMBINED ───────────────────────────────────────────────
+
+function runRagCombined({ inputDir, outputDir, channel, videoId, limit, dryRun, rebuildState }) {
     const finalOutputDir = outputDir || inputDir;
 
     console.log("");
@@ -823,4 +1009,6 @@ function main() {
     console.log("");
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { parseSrt, buildSegmentsJsonl, speakerNameFor, resolveDiarizedSrt };

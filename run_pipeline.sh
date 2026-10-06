@@ -1259,6 +1259,9 @@ korak "KORAK 9/11: RAG priprema (chunkanje i import)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
+# prepare_rag_combined.js u istom pozivu piše i {base}.segments.jsonl za SVAKU
+# epizodu s kanonskim SRT-om (data_contract.md §14) — neovisno o done-cacheu,
+# po mtimeu ulaza (SRT / summary.json / homily.json). Nula API poziva, katalog ~12 s.
 node "$SCRIPT_DIR/prepare_rag_combined.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"
 node "$SCRIPT_DIR/prepare_rag_import.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"
 node "$SCRIPT_DIR/prepare_rag.js" --input-dir "$OUTPUT_DIR" "${PRIORITY_SCOPE_ARGS[@]}"

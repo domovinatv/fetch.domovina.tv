@@ -103,7 +103,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 6 | `diarize_canary.py` | pyannote diarization — **run LOCALLY on Mac Mini M4 Pro**, NOT Colab (see "Diarization Cost/Performance Note" below) |
 | 7 | `summarize_gemini.js` | Gemini summarization (Vertex AI) |
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
-| 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) |
+| 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) + `{base}.segments.jsonl` (1 red = 1 cue kanonskog SRT-a s imenom govornika, za `find_in_transcript` u domovina-rag). Segments prolaz je neovisan o done-cacheu (mtime ulaza), deterministički, NE ide na R2; `--only-segments` / `--rebuild-segments` / `--no-segments` (`docs/data_contract.md` §14) |
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
 | 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep. Gradi i `{base}.en.epub` kad postoji `.article.en.json` (`docs/ebook_epub_pipeline.md`) |
 | 9.85 | `detect_sponsors.js` | Sponzori UGRAĐENI u snimku → `{base}.sponsors_in_video.json` (tko + gdje: spot / host_read / rubric / mention). **Nula API poziva**, katalog ~19 s. Default ON, `--no-sponsors` gasi (`docs/2026-09-23-sponzori-u-snimci.md`) |
