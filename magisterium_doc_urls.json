@@ -5272,6 +5272,34 @@
     {
       "match": "Address to the Plenary Assembly of the Pontifical Commission for Social Communications",
       "uuid": "630ffdd9-550e-46d3-aebf-0ad2fb014bd3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2019",
+      "uuid": "be3b46a3-3bef-4082-9364-2feb98e4c1cb"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2003",
+      "uuid": "95eb97d4-4c82-4874-81a8-2b424a106615"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2021",
+      "uuid": "f7dba578-8779-4222-acf7-62d44c377893"
+    },
+    {
+      "match": "To the Austrian Parliamentary members (March 22, 1997)",
+      "uuid": "74e4d4f9-e1a9-4158-bcd5-878e2b8b6e58"
+    },
+    {
+      "match": "To Jubilee pilgrims from Bosnia and Hercegovina (March 30, 2000)",
+      "uuid": "0ebefdb9-d573-4a27-8463-e5fdcd18d7e8"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 2023",
+      "uuid": "4c503007-e74a-4a05-892b-348fc37bd92d"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, 2018",
+      "uuid": "a1fcebdc-465e-4ff6-ab75-493544c12992"
     }
   ]
 }
