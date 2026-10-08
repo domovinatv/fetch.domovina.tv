@@ -651,9 +651,21 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
             'sections_en': dict(sorted(manifest_sections_en.items(), key=lambda kv: int(kv[0]))),
         }
         manifest_path = og_dir / 'manifest.json'
-        manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(manifest_path, 'w', encoding='utf-8') as f:
-            json.dump(manifest, f, ensure_ascii=False, indent=2)
+        # Ne prepisuj manifest ako se sadržaj nije promijenio — inače svaki
+        # nightly osvježi samo generated_at i dataset sync commita sve epizode.
+        unchanged = False
+        if manifest_path.exists():
+            try:
+                with open(manifest_path, encoding='utf-8') as f:
+                    old = json.load(f)
+                strip = lambda m: {k: v for k, v in m.items() if k != 'generated_at'}
+                unchanged = strip(old) == strip(manifest)
+            except (OSError, json.JSONDecodeError):
+                pass
+        if not unchanged:
+            manifest_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(manifest_path, 'w', encoding='utf-8') as f:
+                json.dump(manifest, f, ensure_ascii=False, indent=2)
 
     result['status'] = 'ok'
     return result
