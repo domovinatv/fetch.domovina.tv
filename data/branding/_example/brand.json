@@ -8,9 +8,9 @@
     "method": "computed styles / CSS varijable / brand book"
   },
   "colors": {
-    "background": "#0B1F3A",
-    "primary": "#1E5797",
-    "accent": "#E85726",
+    "background": "#101820",
+    "primary": "#2A4D8F",
+    "accent": "#D94F30",
     "highlight": "#FFD400",
     "text": "#FFFFFF"
   },
