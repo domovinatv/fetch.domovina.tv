@@ -24,8 +24,20 @@
  *        channel dir. NE publisha: nightly KORAK 13 (index + meta upload) slijedi
  *        odmah iza ovog koraka.
  *
+ *   3. --video-id <ID> --replace   (PONOVNA OBRADA iz pipeline.domovina.ai, bridge
+ *      priority_poller.js nakon run_pipeline.sh --reprocess):
+ *      • kanal VEĆ ima obradu → njegove stare izvedene fajlove skloni u .reprocess_bak/
+ *        (tools/reprocess_episode.js, rename na istom volumenu, nikad delete), pa reuse
+ *        prekopira NOVU _unlisted obradu pod pravim channel basenameom + reindex.
+ *      • Bez ovoga channel dir ostane na starom članku/prijepisu, a upload_to_r2.js kod
+ *        drifta veličine uvijek uzme DISK → sljedeći upload iz kanala vrati STARO na CDN.
+ *      • CDN prepis (diarized.srt + words.json iz istog prolaza, članak, epub) je već
+ *        napravio run_pipeline.sh KORAK 12.1 iz _unlisted; isti sadržaj je sad i u kanalu.
+ *      • exit 1 ako prepis nije uspio (bridge tada job označi kao failed).
+ *
  * Usage:
  *   node auto_reuse_adhoc.js --video-id dDDwWZPVS0s [--dry-run]
+ *   node auto_reuse_adhoc.js --video-id dDDwWZPVS0s --replace [--dry-run]
  *   node auto_reuse_adhoc.js --sweep [--dry-run]
  *
  * Uvijek exit 0 na "nema posla" putevima (soft, ne smije rušiti launchd tick).
@@ -46,7 +58,12 @@ const PODCASTS_DIR = path.join(__dirname, "automatic", "podcasts");
 const VIDEO_ID = getArg("--video-id");
 const SWEEP = args.includes("--sweep");
 const DRY_RUN = args.includes("--dry-run");
+const REPLACE = args.includes("--replace");
 
+if (REPLACE && !VIDEO_ID) {
+    console.error("❌ --replace radi samo uz --video-id <ID>.");
+    process.exit(1);
+}
 if (!VIDEO_ID && !SWEEP) {
     console.error("❌ Zadaj --video-id <ID> (priority fast-path) ili --sweep (nightly catch-up).");
     process.exit(1);
@@ -141,6 +158,7 @@ if (VIDEO_ID) {
         process.exit(0);
     }
     let totalReused = 0;
+    let replaceFailed = false;
     for (const channel of channels) {
         const entries = channelEntriesFor(channel, VIDEO_ID);
         if (entries === null) {
@@ -148,7 +166,37 @@ if (VIDEO_ID) {
             continue;
         }
         if (entries.some((n) => n.endsWith(".wav.canary.diarized.srt"))) {
-            console.log(`✅ ${VIDEO_ID}: kanal ${channel} već ima diarized obradu — no-op.`);
+            if (!REPLACE) {
+                console.log(`✅ ${VIDEO_ID}: kanal ${channel} već ima diarized obradu — no-op.`);
+                continue;
+            }
+            // Ponovna obrada: nova _unlisted obrada MORA biti dovršena prije nego dirnemo
+            // kanal — inače bismo sklonili staro i ostavili kanal bez ičega.
+            const unlisted = channelEntriesFor("_unlisted", VIDEO_ID) || [];
+            const srcDone = unlisted.some((n) => n.endsWith(".wav.canary.diarized.srt"))
+                && unlisted.some((n) => n.endsWith(".article.json"));
+            if (!srcDone) {
+                console.error(`❌ ${VIDEO_ID}: --replace, ali _unlisted obrada NIJE dovršena (diarized+article) — kanal ${channel} ostaje netaknut.`);
+                replaceFailed = true;
+                continue;
+            }
+            console.log(`🔁 ${VIDEO_ID}: --replace — sklanjam staru obradu kanala ${channel} u .reprocess_bak/`);
+            const st = spawnSync("node", [
+                path.join(__dirname, "tools", "reprocess_episode.js"), "stash",
+                "--input-dir", INPUT_DIR, "--dir", channel, "--video-id", VIDEO_ID, "--scope", "derived",
+                ...(DRY_RUN ? ["--dry-run"] : []),
+            ], { cwd: __dirname, stdio: "inherit" });
+            if (st.status !== 0) {
+                console.error(`❌ ${VIDEO_ID}: sklanjanje stare obrade kanala ${channel} nije uspjelo.`);
+                replaceFailed = true;
+                continue;
+            }
+            const n = runReuse(channel, VIDEO_ID);
+            if (n === 0 && !DRY_RUN) {
+                console.error(`❌ ${VIDEO_ID}: reuse u ${channel} nije ništa prekopirao nakon sklanjanja — provjeri .reprocess_bak/.`);
+                replaceFailed = true;
+            }
+            totalReused += n;
             continue;
         }
         if (!entries.length) {
@@ -159,7 +207,7 @@ if (VIDEO_ID) {
         totalReused += runReuse(channel, VIDEO_ID);
     }
     if (totalReused > 0) publish();
-    process.exit(0);
+    process.exit(replaceFailed ? 1 : 0);
 }
 
 // ─── Mode 2: --sweep (nightly catch-up) ──────────────────────────────────────

@@ -14,7 +14,7 @@
  *
  * Uporaba:
  *   node force_upload.js --video-id VID --channel CH \
- *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,epub]
+ *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,words,sponsors,epub]
  *   (default targets: article,magisterium,article-en,magisterium-en)
  */
 
@@ -68,6 +68,10 @@ const TARGET_MAP = {
     "outline":        { suffix: ".outline.json",                r2: "outline.json" },
     "diarized":       { suffix: ".wav.canary.diarized.srt",     r2: "diarized.srt", contentType: "text/plain; charset=utf-8" },
     "epub":           { suffix: ".epub",                        r2: "book.epub", contentType: "application/epub+zip" },
+    // words.json je poravnat 1:1 s diarized.srt (Flutter speaker_timeline.dart uparuje po
+    // početku cue-a i broju riječi) → nakon novog prijepisa MORA ići zajedno s `diarized`.
+    "words":          { suffix: ".words.json",                  r2: "words.json" },
+    "sponsors":       { suffix: ".sponsors_in_video.json",      r2: "sponsors_in_video.json" },
 };
 
 const dir = path.join("storage/output", channel);

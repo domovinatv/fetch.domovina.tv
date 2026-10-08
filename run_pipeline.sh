@@ -237,6 +237,15 @@ echo ""
 #                            svježine (SPEECHMATICS_FRESH_DAYS=3) i capom
 #                            (SPEECHMATICS_MAX_FILES=5). Traži SPEECHMATICS_API_KEY u .env.
 #                            Mjerenja: docs/speechmatics_evaluation_2026-09.md
+#   --reprocess           → PONOVNA OBRADA već objavljene epizode (samo uz --modal-only):
+#                            prije runa skloni stare izvedene fajlove iz _unlisted u
+#                            .reprocess_bak/ (inače bi 2.8/7/8 vidjeli „već postoji"), a
+#                            nakon KORAKA 12 prisilno prepiše immutable CDN ključeve
+#                            (diarized.srt + words.json iz ISTOG prolaza, članak, epub…).
+#   --reprocess-article <ID> → samo novi sažetak + članak nad POSTOJEĆIM prijepisom
+#                            epizode (nađe njen kanal), bez fetcha i transkripcije; stari
+#                            članak/sažetak/slike u .reprocess_bak/, pa koraci 7→12 i
+#                            prisilni CDN prepis. Poziva ga pipeline.domovina.ai bridge.
 #   --via-iphone          → bind yt-dlp socket na iPhone USB tether IP (172.20.10.x)
 #                            bez diranja default route. Auto-detektira IP iz ifconfig-a.
 #                            Use case: Ethernet je primarni link (gigabit za rad), ali
@@ -282,6 +291,9 @@ WITH_WORDS=true
 WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
+# Ponovna obrada (pipeline.domovina.ai „🔁 Ponovna obrada"): vidi --reprocess / --reprocess-article.
+REPROCESS=false
+REPROCESS_ARTICLE_ID=""
 # --with-speechmatics (2026-09-01): EKSPERIMENTALNI cloud ASR+diarizacija (KORAK 2.7).
 # Default OFF. Izlaz ide u odvojen namespace (.speechmatics.*) i NE dira produkciju.
 # Dvije tvrde financijske ograde, jer je ovo evaluacija a ne obavezan korak:
@@ -348,6 +360,12 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--only-summaries" ]; then
         ONLY_SUMMARIES=true
         i=$((i + 1))
+    elif [ "$arg" = "--reprocess" ]; then
+        REPROCESS=true
+        i=$((i + 1))
+    elif [ "$arg" = "--reprocess-article" ]; then
+        REPROCESS_ARTICLE_ID="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
     elif [ "$arg" = "--with-whisper" ]; then
         WITH_WHISPER=true
         i=$((i + 1))
@@ -549,6 +567,55 @@ if [ -n "$MODAL_ONLY_ID" ]; then
     echo "      → preskačem batch rclone Drive round-tripove + refresh_podcasts (O(n))"
     echo "      → scope-am sve korake na _unlisted/$MODAL_ONLY_ID (O(1))"
     echo "      → screenshotovi (KORAK 10) prisilno ON za ovaj video"
+fi
+
+# ─── PONOVNA OBRADA (pipeline.domovina.ai „🔁 Ponovna obrada") ────────────────
+# Pipeline je idempotentan po postojanju izvedenih fajlova, pa ponovna obrada bez ovoga
+# ništa ne napravi: KORAK 2.8 ne promovira Speechmatics prijepis jer stari
+# .wav.canary.diarized.srt postoji, 7+8 preskaču postojeći sažetak/članak itd. Zato se
+# stari izvedeni fajlovi PRIJE runa sklone u .reprocess_bak/ (rename na istom volumenu,
+# nikad delete) — tools/reprocess_episode.js. Mediji ostaju (nema ponovnog downloada).
+# Nakon KORAKA 12 ide prisilni CDN prepis (KORAK 12.1), jer upload_to_r2.js postojeće
+# immutable ključeve (diarized.srt, book.epub…) preskače — a words.json je nov ključ, pa
+# bi na CDN-u završio NOVI words.json uz STARI prijepis i Flutter ne bi isticao riječi.
+REPROCESS_VIDEO_ID=""
+REPROCESS_DIR=""
+REPROCESS_DRY=()
+[[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]] && REPROCESS_DRY=(--dry-run)
+if [ -n "$REPROCESS_ARTICLE_ID" ]; then
+    REPROCESS_VIDEO_ID="$REPROCESS_ARTICLE_ID"
+    if ! REPROCESS_DIR=$(node "$SCRIPT_DIR/tools/reprocess_episode.js" locate --input-dir "$OUTPUT_DIR" --video-id "$REPROCESS_VIDEO_ID"); then
+        echo "❌ --reprocess-article $REPROCESS_VIDEO_ID: epizoda nema prijepis ni u jednom kanalu — nema nad čim pisati članak."
+        exit 1
+    fi
+    REPROCESS=true
+    ONLY_ARTICLES=true
+    PRIORITY_FAST_PATH=true
+    PRIORITY_SCOPE_ARGS=(--channel "$REPROCESS_DIR" --video-id "$REPROCESS_VIDEO_ID")
+    PRIORITY_CHANNEL_ARGS=(--channel "$REPROCESS_DIR")
+    WITH_SCREENSHOTS=true
+    WITH_R2_UPLOAD=true
+    echo ""
+    echo "   🔁 PONOVNA OBRADA ČLANKA: $REPROCESS_VIDEO_ID u $REPROCESS_DIR (postojeći prijepis, koraci 7→12)"
+    node "$SCRIPT_DIR/tools/reprocess_episode.js" stash --input-dir "$OUTPUT_DIR" --dir "$REPROCESS_DIR" \
+        --video-id "$REPROCESS_VIDEO_ID" --scope article "${REPROCESS_DRY[@]}" || {
+        echo "❌ Sklanjanje starog članka nije uspjelo — prekidam (inače bi 7+8 preskočili epizodu)."
+        exit 1
+    }
+elif [ "$REPROCESS" = true ]; then
+    if [ -z "$MODAL_ONLY_ID" ]; then
+        echo "❌ --reprocess radi samo uz prioritetni fast-path (--modal-only <ID>)."
+        exit 1
+    fi
+    REPROCESS_VIDEO_ID="$MODAL_ONLY_ID"
+    REPROCESS_DIR="_unlisted"
+    echo ""
+    echo "   🔁 PONOVNA OBRADA: $REPROCESS_VIDEO_ID — sklanjam stare izvedene fajlove iz _unlisted"
+    node "$SCRIPT_DIR/tools/reprocess_episode.js" stash --input-dir "$OUTPUT_DIR" --dir _unlisted \
+        --video-id "$REPROCESS_VIDEO_ID" --scope derived "${REPROCESS_DRY[@]}" || {
+        echo "❌ Sklanjanje starih fajlova nije uspjelo — prekidam (inače bi run tiho zadržao stari prijepis)."
+        exit 1
+    }
 fi
 
 if [ "$ONLY_ARTICLES" = false ] && [ "$ONLY_SUMMARIES" = false ]; then
@@ -1618,6 +1685,36 @@ node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" "${PRIORITY_SCOPE_ARGS
 }
 fi
 
+# --- KORAK 12.1: PONOVNA OBRADA — PRISILNI PREPIS IMMUTABLE CDN KLJUČEVA ---
+# upload_to_r2.js postojeće immutable ključeve preskače (diarized.srt, book.epub,
+# sponsors_in_video.json), a words.json je nov ključ → bez ovoga CDN dobije NOVI
+# words.json uz STARI prijepis i Flutter (speaker_timeline.dart, uparivanje po početku
+# cue-a i broju riječi) ne ističe nijednu riječ. Pravilo: SRT i words.json na CDN-u
+# uvijek iz istog prolaza. force_upload.js preskače target bez lokalnog fajla, pa
+# neuspjela transkripcija NE pregazi CDN ničim — ostaje staro.
+REPROCESS_UPLOAD_FAILED=false
+if [ "$REPROCESS" = true ] && [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.1: Ponovna obrada — prisilni prepis CDN ključeva ($REPROCESS_VIDEO_ID)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+if [ -n "$REPROCESS_ARTICLE_ID" ]; then
+    REPROCESS_TARGETS="article,summary,outline,epub"
+else
+    REPROCESS_TARGETS="diarized,words,sponsors,article,summary,outline,epub"
+fi
+if [ ${#REPROCESS_DRY[@]} -gt 0 ]; then
+    echo "   [dry] force_upload.js --video-id $REPROCESS_VIDEO_ID --channel $REPROCESS_DIR --targets $REPROCESS_TARGETS"
+else
+    (cd "$SCRIPT_DIR" && env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+        node force_upload.js --video-id "$REPROCESS_VIDEO_ID" --channel "$REPROCESS_DIR" --targets "$REPROCESS_TARGETS") || {
+        echo "   ❌ Prisilni CDN prepis nije uspio — CDN možda još servira staru obradu."
+        REPROCESS_UPLOAD_FAILED=true
+    }
+fi
+fi
+
 # --- KORAK 12.5: H.264 CROSS-PLATFORM VIDEO (video_h264.mp4) ---
 # upload_to_r2.js (KORAK 12) puni LEGACY data/{id}/video.mp4 remuxom `-c:v copy` koji
 # zadrži izvorni VP9/AV1 codec → ne svira na Safari/iOS web ni starijim TV-ima bez AV1 HW
@@ -1728,3 +1825,7 @@ echo "║   ✅ PIPELINE ZAVRŠEN                            ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo "   ⏱️  Kraj: $(date '+%Y-%m-%d %H:%M:%S')"
 echo ""
+# Bridge (article-only mod) čita exit kod: neuspjeli prisilni CDN prepis = job failed.
+if [ "$REPROCESS_UPLOAD_FAILED" = true ]; then
+    exit 1
+fi
