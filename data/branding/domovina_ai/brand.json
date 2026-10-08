@@ -1,0 +1,20 @@
+{
+  "channel": "domovina_ai",
+  "name": "domovina.ai",
+  "role": "technology",
+  "source": {
+    "url": "https://github.com/domovinatv/mediakit.domovina.tv",
+    "captured": "2026-10-08",
+    "method": "mediakit README (paleta) + domovina_ai_logo_square.svg"
+  },
+  "colors": {
+    "red": "#FF0000",
+    "white": "#FFFFFF",
+    "navy": "#002F6C"
+  },
+  "logo": {
+    "square": "logo_square.png",
+    "square_svg": "logo_square.svg"
+  },
+  "credit": "Napravljeno s domovina.ai"
+}

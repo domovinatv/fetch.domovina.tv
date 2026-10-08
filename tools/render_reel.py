@@ -19,12 +19,19 @@ rezala cijeli ekran na ×1.78 — preuzak kadar, mekša slika, tekst pod kontrol
         --title "Naslov reela" --badge "Mladen Barać · Domovinski pokret"
         --footer "Cijeli razgovor na domovina.ai · Mladi za domovinu #113"
         (--youtube-id ID | --segment dio.mp4 --segment-start SEK)
+        [--brand data/branding/<kanal>/brand.json] [--partner data/branding/domovina_ai/brand.json]
 
 `start`/`end` su sekunde ili HH:MM:SS u epizodi. Bez `--segment` skripta sama
 skine traženi raspon s YouTubea (1080p H.264). Ovisnosti:
 `pip install opencv-python-headless numpy pillow`, ffmpeg, yt-dlp. Model za lica
 (YuNet, MIT, 230 KB) se skine sam u ~/.cache/domovina-reels/.
 Fontovi su macOS (Arial / Arial Black) — na drugom sustavu zadaj `--font-dir`.
+
+Brendiranje (`--brand`): boje, font i logotip KANALA (autor sadržaja je primaran) —
+logo iznad naslova, pozadina zatonirana bojom kanala, traka u bojama logotipa,
+aktivna riječ i bedž u isticajnoj boji kanala. `--partner` doda mali potpis
+tehnologije (logo domovina.ai + `credit`) u donji red. Format brand.json i kako se
+skuplja: docs/2026-10-08-reels-poc.md §Brendiranje. Bez `--brand` = bijelo-žuti v2.
 """
 import argparse, json, os, re, subprocess, sys, tempfile, urllib.request
 
@@ -39,6 +46,27 @@ PANEL_Y, PANEL_H = 500, 1180          # govornik u panelu 1080×1180
 FEATHER = 60                          # meki rub panela (px)
 CAP_Y0, CAP_Y1 = 1300, 1520           # titl: preko ruku/mikrofona, ne preko lica
 YELLOW, WHITE = (255, 212, 0, 255), (255, 255, 255, 255)
+# brendirani raspored: logo kanala (~y 260–378) iznad naslova gura panel niže
+BRAND_PANEL_Y, BRAND_PANEL_H = 630, 1040
+
+
+def hex_rgba(h, a=255):
+    h = h.lstrip("#")
+    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16), a)
+
+
+def load_brand(path):
+    """brand.json + putovi relativni na njegov direktorij; uloge boja razriješene u RGBA."""
+    b = json.load(open(path, encoding="utf-8"))
+    base = os.path.dirname(os.path.abspath(path))
+    rel = lambda p: os.path.normpath(os.path.join(base, p))
+    b["_logo"] = {k: rel(v) for k, v in b.get("logo", {}).items()}
+    b["_font"] = {k: rel(v) for k, v in b.get("typography", {}).items() if v.endswith((".ttf", ".otf"))}
+    col = b.get("colors", {})
+    role = lambda r: hex_rgba(col.get(r, r) if not r.startswith("#") else r)
+    b["_reel"] = {k: ([role(x) for x in v] if isinstance(v, list) else role(v))
+                  for k, v in b.get("reel", {}).items()}
+    return b
 
 
 def to_sec(v):
@@ -127,13 +155,17 @@ def wrap(draw, text, font, maxw):
     return lines + [line]
 
 
-def static_overlay(title, badge, footer, f_bold):
-    """Naslov + bedž odmah iznad panela (odozdo prema gore), potpis na dnu panela."""
+def static_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=None):
+    """Naslov + bedž odmah iznad panela (odozdo prema gore), potpis na dnu panela.
+    S brendom: logo kanala iznad naslova i traka u bojama logotipa na rubu panela."""
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    ft, fb = ImageFont.truetype(f_bold, 62), ImageFont.truetype(f_bold, 34)
+    ft, fb = ImageFont.truetype(f_title, 62), ImageFont.truetype(f_bold, 34)
+    r = brand["_reel"] if brand else {}
+    badge_bg = r.get("badge_bg", (255, 212, 0, 240))
+    badge_fg = r.get("badge_text", (20, 20, 20, 255))
     tl = wrap(d, title, ft, 960)
-    by1 = PANEL_Y - 18
+    by1 = PANEL_Y - 18 - (14 if brand else 0)
     by0 = by1 - 56
     y = by0 - 14 - 74 * len(tl)
     for line in tl:
@@ -142,11 +174,33 @@ def static_overlay(title, badge, footer, f_bold):
         y += 74
     if badge:
         bw = d.textlength(badge, font=fb)
-        d.rounded_rectangle(((W - bw) / 2 - 22, by0, (W + bw) / 2 + 22, by1), 28, fill=(255, 212, 0, 240))
-        d.text(((W - bw) / 2, by0 + 8), badge, font=fb, fill=(20, 20, 20, 255))
-    if footer:
-        d.text(((W - d.textlength(footer, font=fb)) / 2, PANEL_Y + PANEL_H - 125), footer, font=fb,
-               fill=WHITE, stroke_width=3, stroke_fill=(0, 0, 0, 220))
+        d.rounded_rectangle(((W - bw) / 2 - 22, by0, (W + bw) / 2 + 22, by1), 28, fill=badge_bg)
+        d.text(((W - bw) / 2, by0 + 8), badge, font=fb, fill=badge_fg)
+    if brand and brand["_logo"].get("wide"):
+        # logo kanala iznad naslova, u sigurnoj zoni (ispod kontrola playera)
+        logo = Image.open(brand["_logo"]["wide"]).convert("RGBA")
+        lh = 118
+        logo = logo.resize((round(logo.width * lh / logo.height), lh), Image.LANCZOS)
+        ly = by0 - 14 - 74 * len(tl) - 22 - lh
+        im.alpha_composite(logo, ((W - logo.width) // 2, max(ly, 250)))
+    if brand and r.get("stripe"):
+        # tanka traka u bojama logotipa točno na gornjem rubu panela
+        c0, c1 = [np.array(c[:3], np.float32) for c in r["stripe"][:2]]
+        grad = (c0[None, :] * (1 - np.linspace(0, 1, W)[:, None]) + c1[None, :] * np.linspace(0, 1, W)[:, None])
+        strip = np.concatenate([np.repeat(grad[None], 8, 0), np.full((8, W, 1), 255, np.float32)], 2)
+        im.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (0, PANEL_Y - 4))
+    fy = PANEL_Y + PANEL_H - (115 if brand else 125)
+    if footer or partner:
+        txt = footer or (partner.get("credit", "") if partner else "")
+        icon = None
+        if partner and partner["_logo"].get("square"):
+            icon = Image.open(partner["_logo"]["square"]).convert("RGBA").resize((60, 60), Image.LANCZOS)
+        tw = d.textlength(txt, font=fb) + (60 + 14 if icon else 0)
+        x = (W - tw) / 2
+        if icon:
+            im.alpha_composite(icon, (int(x), int(fy - 11)))
+            x += 60 + 14
+        d.text((x, fy), txt, font=fb, fill=WHITE, stroke_width=3, stroke_fill=(0, 0, 0, 220))
     a = np.asarray(im).astype(np.float32)
     rows = np.where(a[:, :, 3].max(axis=1) > 0)[0]
     y0, y1 = rows.min(), rows.max() + 1
@@ -169,15 +223,31 @@ def main():
     ap.add_argument("--segment", help="već skinuti dio epizode (umjesto --youtube-id)")
     ap.add_argument("--segment-start", type=float, default=0.0, help="sekunda epizode na t=0 segmenta")
     ap.add_argument("--font-dir", default="/System/Library/Fonts/Supplemental")
+    ap.add_argument("--brand", help="brand.json kanala (autor sadržaja)")
+    ap.add_argument("--partner", help="brand.json tehnološkog partnera (potpis u donjem redu)")
     args = ap.parse_args()
 
+    global PANEL_Y, PANEL_H
+    brand = load_brand(args.brand) if args.brand else None
+    partner = load_brand(args.partner) if args.partner else None
     f_cap = os.path.join(args.font_dir, "Arial Black.ttf")
     f_bold = os.path.join(args.font_dir, "Arial Bold.ttf")
+    f_title = f_bold
+    highlight = YELLOW
+    if brand:
+        PANEL_Y, PANEL_H = BRAND_PANEL_Y, BRAND_PANEL_H
+        f_cap = brand["_font"].get("caption", f_cap)
+        f_bold = brand["_font"].get("body", f_bold)
+        f_title = brand["_font"].get("title", f_bold)
+        highlight = brand["_reel"].get("caption_active", YELLOW)
+    tint = np.array(brand["_reel"]["bg_tint"][:3], np.float32) if brand and "bg_tint" in brand["_reel"] else None
     words, starts, ends = load_words(args.srt, args.words)
 
     # reel granice = granice cue-ova najbližih traženim vremenima
     r_s = min(starts, key=lambda x: abs(x - to_sec(args.start))) - 0.12
-    r_e = min(ends, key=lambda x: abs(x - to_sec(args.end))) + 0.45
+    # kraj samo među cue-ovima NAKON početka — kratak raspon bi se inače zalijepio
+    # na kraj cue-a prije početka i dao negativno trajanje
+    r_e = min((e for e in ends if e > r_s + 1), key=lambda x: abs(x - to_sec(args.end))) + 0.45
     dur = r_e - r_s
     spans = make_chunks([w for w in words if r_s - 0.05 <= w[1] < r_e - 0.2], r_s)
 
@@ -193,7 +263,7 @@ def main():
 
     SW, SH, FPS = probe(src)
     crop_w = round(SH * W / PANEL_H)
-    S_Y0, s_rgb, s_a = static_overlay(args.title, args.badge, args.footer, f_bold)
+    S_Y0, s_rgb, s_a = static_overlay(args.title, args.badge, args.footer, f_bold, f_title, brand, partner)
     panel_mask = np.ones((PANEL_H, 1), np.float32)
     for i in range(FEATHER):
         panel_mask[i] = panel_mask[PANEL_H - 1 - i] = (i / FEATHER) ** 1.5
@@ -217,7 +287,7 @@ def main():
             size -= 4
         x, yy = (W - total) / 2, (CAP_Y1 - CAP_Y0 - size) / 2
         for i, t in enumerate(toks):
-            dd.text((x, yy), t, font=f, fill=YELLOW if i == active else WHITE,
+            dd.text((x, yy), t, font=f, fill=highlight if i == active else WHITE,
                     stroke_width=9, stroke_fill=(0, 0, 0, 255))
             x += dd.textlength(t, font=f) + sp
         a = np.asarray(im).astype(np.float32)
@@ -272,6 +342,8 @@ def main():
         # pozadina: cijeli kadar, cover na 9:16, jako zamućen i zatamnjen (jeftino, na malom)
         bg = cv2.resize(fr[:, bx0:bx0 + bw], (135, 240), interpolation=cv2.INTER_AREA)
         bg = cv2.GaussianBlur(bg, (0, 0), 6) * 0.45
+        if tint is not None:                  # pozadina zatonirana bojom kanala
+            bg = bg * 0.35 + tint * 0.65
         out_f = cv2.resize(bg, (W, H), interpolation=cv2.INTER_LINEAR).astype(np.float32)
         panel = cv2.resize(fr[:, x0:x0 + crop_w], (W, PANEL_H), interpolation=cv2.INTER_LANCZOS4)
         reg = out_f[PANEL_Y:PANEL_Y + PANEL_H]
