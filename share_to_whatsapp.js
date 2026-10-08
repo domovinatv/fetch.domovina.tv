@@ -162,6 +162,28 @@ function ambiguous(query, matches) {
     );
 }
 
+/**
+ * `--to`: izravni chat. Prima SAMO točan osobni JID — ime se namjerno ne
+ * razrješava, jer „Ivan" pogađa više kontakata, a poslano se ne briše.
+ * Ime se tek ispisuje iz `messages.db` da se vidi kome ide.
+ */
+function resolveDirectChat(jid, dbPath) {
+    const q = String(jid || "").trim();
+    if (!/^\d{6,15}@s\.whatsapp\.net$/.test(q)) {
+        throw new Error(`--to traži točan osobni JID (npr. 385911234567@s.whatsapp.net), dobiveno "${q}"`);
+    }
+    let name = "(ime nepoznato)";
+    try {
+        const out = execFileSync("sqlite3", [dbPath, `SELECT name FROM chats WHERE jid = '${q}'`], {
+            encoding: "utf8",
+        }).trim();
+        if (out) name = out;
+    } catch {
+        // ime je samo za ispis
+    }
+    return { jid: q, name };
+}
+
 /** Poruke kojih još nema u chatu. Usporedba je po točnom URL-u. */
 function filterUnsent(messages, alreadySent) {
     const sent = new Set(alreadySent);
@@ -286,6 +308,8 @@ share_to_whatsapp.js — epizoda + sva poglavlja u WhatsApp grupu, jedna poruka 
 
   --video-id <ID>       YouTube ID epizode (obavezno, osim uz --list-groups)
   --group <JID|ime>     grupa: točan JID, točno ime ili jednoznačan podniz imena
+  --to <JID>            ILI izravni chat s osobom: samo točan JID (385…@s.whatsapp.net),
+                        nikad ime — kriva osoba se ne može odbrisati
   --commit              stvarno pošalji (bez toga je suho pokretanje)
   --list-groups [upit]  ispiši grupe s JID-om i zajednicom, pa izađi
 
@@ -336,8 +360,9 @@ async function main() {
 
     const videoId = getArg(args, "--video-id");
     const groupQuery = getArg(args, "--group");
-    if (!videoId || !groupQuery) {
-        console.error("❌ Trebaju i --video-id i --group (ili --list-groups).");
+    const directJid = getArg(args, "--to");
+    if (!videoId || !!groupQuery === !!directJid) {
+        console.error("❌ Trebaju --video-id i TOČNO jedno od --group / --to (ili --list-groups).");
         usage();
         process.exit(1);
     }
@@ -366,14 +391,20 @@ async function main() {
     if (chapters.length === 0) throw new Error("Članak nema nijedno poglavlje s timestampom.");
     console.log(`   ${chapters.length} poglavlja, model: ${article.metadata?.model || "nepoznat"}`);
 
-    console.log(`\n🔍 Tražim grupu "${groupQuery}"…`);
-    const group = resolveGroup(await listGroups(bridgeUrl, null), groupQuery);
-    const community = group.community_name || group.community_jid;
-    console.log(`   ${group.name}  ${group.jid}`);
-    console.log(
-        `   ${group.participant_count} članova${community ? `, zajednica: ${community}` : ""}` +
-            `${group.is_announce ? ", SAMO ADMINI PIŠU" : ""}`
-    );
+    let group;
+    if (directJid) {
+        group = resolveDirectChat(directJid, DEFAULT_STORE_DB);
+        console.log(`\n👤 Izravni chat: ${group.name}  ${group.jid}`);
+    } else {
+        console.log(`\n🔍 Tražim grupu "${groupQuery}"…`);
+        group = resolveGroup(await listGroups(bridgeUrl, null), groupQuery);
+        const community = group.community_name || group.community_jid;
+        console.log(`   ${group.name}  ${group.jid}`);
+        console.log(
+            `   ${group.participant_count} članova${community ? `, zajednica: ${community}` : ""}` +
+                `${group.is_announce ? ", SAMO ADMINI PIŠU" : ""}`
+        );
+    }
 
     let messages = buildMessages({ videoId, chapters, siteBase, includeIntro });
     const total = messages.length;
@@ -441,6 +472,7 @@ module.exports = {
     buildMessages,
     pickLatestArticle,
     resolveGroup,
+    resolveDirectChat,
     filterUnsent,
 };
 

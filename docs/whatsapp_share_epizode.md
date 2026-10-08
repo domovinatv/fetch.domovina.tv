@@ -79,7 +79,8 @@ Usporedba je po **točnom** URL-u, pa `/t/27` i `/t/270` nisu ista stvar
 | Zastavica | Default | Što radi |
 |---|---|---|
 | `--video-id <ID>` | — | YouTube ID epizode (obavezno) |
-| `--group <JID\|ime>` | — | grupa (obavezno); JID > točno ime > podniz |
+| `--group <JID\|ime>` | — | grupa; JID > točno ime > podniz |
+| `--to <JID>` | — | umjesto `--group`: izravni chat s osobom, samo točan `…@s.whatsapp.net` (nikad ime) |
 | `--commit` | isključeno | bez njega je suho pokretanje |
 | `--list-groups [upit]` | — | ispiši grupe s JID-om, brojem članova i zajednicom |
 | `--source cdn\|disk` | `cdn` | odakle poglavlja |
