@@ -57,3 +57,14 @@ data/podscan_coverage_report.json
 
 # Prevedeni OCR alat (gradi se sa `swiftc`, vidi sabor_pipeline/tools/ocr/README.md)
 sabor_pipeline/tools/ocr/vision_ocr
+
+# Branding kanala/organizacija je lokalna konfiguracija, ne dio pipelinea.
+# U repou su samo format (README, _example) i domovina.ai potpis; ostalo živi lokalno
+# ili u direktoriju iz DOMOVINA_BRANDING_DIR.
+data/branding/*
+!data/branding/README.md
+!data/branding/_example/
+!data/branding/domovina_ai/
+
+# Privatne bilješke (osobe, grupe, isporuke) — nikad u javni repo
+docs/private/

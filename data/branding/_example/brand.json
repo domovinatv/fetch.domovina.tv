@@ -1,0 +1,36 @@
+{
+  "channel": "<ime_direktorija>",
+  "name": "<Ime kanala ili organizacije>",
+  "role": "creator | guest | technology",
+  "source": {
+    "url": "https://<stranica>",
+    "captured": "YYYY-MM-DD",
+    "method": "computed styles / CSS varijable / brand book"
+  },
+  "colors": {
+    "background": "#0B1F3A",
+    "primary": "#1E5797",
+    "accent": "#E85726",
+    "highlight": "#FFD400",
+    "text": "#FFFFFF"
+  },
+  "color_roles": {
+    "primary": "gdje se boja vidi na izvoru (zašto je izabrana)"
+  },
+  "typography": {
+    "original": "font kanala; ako je licenciran, ovdje upisati i zamjenu",
+    "title": "../fonts/<Font>-Black.ttf",
+    "body": "../fonts/<Font>-Bold.ttf",
+    "caption": "../fonts/<Font>-Black.ttf"
+  },
+  "logo": {
+    "wide": "logo_wide.png"
+  },
+  "reel": {
+    "caption_active": "highlight",
+    "badge_bg": "highlight",
+    "badge_text": "background",
+    "stripe": ["accent", "primary"],
+    "bg_tint": "background"
+  }
+}

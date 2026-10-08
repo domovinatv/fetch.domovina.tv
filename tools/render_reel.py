@@ -16,10 +16,10 @@ stoji preko ruku i mikrofona, nikad preko lica. Zoom ×1.09 (prva verzija je
 rezala cijeli ekran na ×1.78 — preuzak kadar, mekša slika, tekst pod kontrolama).
 
     python3 tools/render_reel.py <diarized.srt> <words.json> <start> <end> <out.mp4>
-        --title "Naslov reela" --badge "Mladen Barać · Domovinski pokret"
-        --footer "Cijeli razgovor na domovina.ai · Mladi za domovinu #113"
+        --title "Naslov reela" --badge "Ime Prezime · uloga"
+        [--footer "Podcast <kanal> #<broj>"]
         (--youtube-id ID | --segment dio.mp4 --segment-start SEK)
-        [--brand data/branding/<kanal>/brand.json] [--partner data/branding/domovina_ai/brand.json]
+        [--brand <ime|put/do/brand.json>] [--partner domovina_ai]
 
 `start`/`end` su sekunde ili HH:MM:SS u epizodi. Bez `--segment` skripta sama
 skine traženi raspon s YouTubea (1080p H.264). Ovisnosti:
@@ -30,8 +30,10 @@ Fontovi su macOS (Arial / Arial Black) — na drugom sustavu zadaj `--font-dir`.
 Brendiranje (`--brand`): boje, font i logotip KANALA (autor sadržaja je primaran) —
 logo iznad naslova, pozadina zatonirana bojom kanala, traka u bojama logotipa,
 aktivna riječ i bedž u isticajnoj boji kanala. `--partner` doda mali potpis
-tehnologije (logo domovina.ai + `credit`) u donji red. Format brand.json i kako se
-skuplja: docs/2026-10-08-reels-poc.md §Brendiranje. Bez `--brand` = bijelo-žuti v2.
+tehnologije (logo domovina.ai + `credit`) u donji red; uz `--footer` oba retka.
+`--brand most` = $DOMOVINA_BRANDING_DIR/most/brand.json (default data/branding/).
+Brendovi kanala NISU u repou (lokalna konfiguracija); format: data/branding/README.md
+i data/branding/_example/. Bez `--brand` = bijelo-žuti v2.
 """
 import argparse, json, os, re, subprocess, sys, tempfile, urllib.request
 
@@ -55,8 +57,23 @@ def hex_rgba(h, a=255):
     return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16), a)
 
 
+BRANDING_DIR = os.environ.get("DOMOVINA_BRANDING_DIR") or os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "..", "data", "branding")
+
+
+def resolve_brand(arg):
+    """Putanja do brand.json ili ime direktorija u DOMOVINA_BRANDING_DIR."""
+    if os.path.isfile(arg):
+        return arg
+    p = os.path.join(BRANDING_DIR, arg, "brand.json")
+    if not os.path.isfile(p):
+        sys.exit(f"brand '{arg}' ne postoji ({p}) — vidi data/branding/README.md")
+    return p
+
+
 def load_brand(path):
     """brand.json + putovi relativni na njegov direktorij; uloge boja razriješene u RGBA."""
+    path = resolve_brand(path)
     b = json.load(open(path, encoding="utf-8"))
     base = os.path.dirname(os.path.abspath(path))
     rel = lambda p: os.path.normpath(os.path.join(base, p))
@@ -190,6 +207,12 @@ def static_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=No
         strip = np.concatenate([np.repeat(grad[None], 8, 0), np.full((8, W, 1), 255, np.float32)], 2)
         im.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (0, PANEL_Y - 4))
     fy = PANEL_Y + PANEL_H - (115 if brand else 125)
+    if footer and partner:
+        # oboje: izvor (footer) manjim slovima iznad, potpis tehnologije ispod
+        fs = ImageFont.truetype(f_bold, 30)
+        d.text(((W - d.textlength(footer, font=fs)) / 2, fy - 50), footer, font=fs, fill=WHITE,
+               stroke_width=3, stroke_fill=(0, 0, 0, 220))
+        footer = ""
     if footer or partner:
         txt = footer or (partner.get("credit", "") if partner else "")
         icon = None
@@ -223,8 +246,8 @@ def main():
     ap.add_argument("--segment", help="već skinuti dio epizode (umjesto --youtube-id)")
     ap.add_argument("--segment-start", type=float, default=0.0, help="sekunda epizode na t=0 segmenta")
     ap.add_argument("--font-dir", default="/System/Library/Fonts/Supplemental")
-    ap.add_argument("--brand", help="brand.json kanala (autor sadržaja)")
-    ap.add_argument("--partner", help="brand.json tehnološkog partnera (potpis u donjem redu)")
+    ap.add_argument("--brand", help="ime brenda u DOMOVINA_BRANDING_DIR ili put do brand.json (primaran brend)")
+    ap.add_argument("--partner", help="ime ili brand.json tehnološkog partnera (potpis u donjem redu), npr. domovina_ai")
     args = ap.parse_args()
 
     global PANEL_Y, PANEL_H
