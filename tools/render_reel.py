@@ -19,7 +19,7 @@ rezala cijeli ekran na ×1.78 — preuzak kadar, mekša slika, tekst pod kontrol
         --title "Naslov reela" --badge "Ime Prezime · uloga"
         [--footer "Podcast <kanal> #<broj>"]
         (--youtube-id ID | --segment dio.mp4 --segment-start SEK)
-        [--brand <ime|put/do/brand.json>] [--partner domovina_ai]
+        [--brand <ime|put/do/brand.json>] [--partner domovina_ai] [--layout whatsapp|social]
 
 `start`/`end` su sekunde ili HH:MM:SS u epizodi. Bez `--segment` skripta sama
 skine traženi raspon s YouTubea (1080p H.264). Ovisnosti:
@@ -32,6 +32,9 @@ logo iznad naslova, pozadina zatonirana bojom kanala, traka u bojama logotipa,
 aktivna riječ i bedž u isticajnoj boji kanala. `--partner` doda mali potpis
 tehnologije (logo domovina.ai + `credit`) u donji red; uz `--footer` oba retka.
 `--brand most` = $DOMOVINA_BRANDING_DIR/most/brand.json (default data/branding/).
+`--layout social` (v4, za Reels/TikTok/Shorts): puni kadar s praćenjem lica, sav tekst
+u presjeku službenih sigurnih zona (x 120–888, y 288–1248): logo + potpis gore, hook u
+kutiji, ime gosta prvih 4.5 s, titl na y 1040–1240. Default `whatsapp` = panel + footer (v3).
 Brendovi kanala NISU u repou (lokalna konfiguracija); format: data/branding/README.md
 i data/branding/_example/. Bez `--brand` = bijelo-žuti v2.
 """
@@ -50,6 +53,12 @@ CAP_Y0, CAP_Y1 = 1300, 1520           # titl: preko ruku/mikrofona, ne preko lic
 YELLOW, WHITE = (255, 212, 0, 255), (255, 255, 255, 255)
 # brendirani raspored: logo kanala (~y 260–378) iznad naslova gura panel niže
 BRAND_PANEL_Y, BRAND_PANEL_H = 630, 1040
+# --layout social (v4): sav tekst u presjeku službenih overlaya Meta/Google/TikTok,
+# vidi docs/2026-10-08-reels-layout-best-practices.md
+SAFE_L, SAFE_R, SAFE_T, SAFE_B = 120, 888, 288, 1248
+SOCIAL_CAP = (1040, 1240)             # titl odmah ispod brade, iznad donje UI zone
+SOCIAL_CAP_W = 680                    # x 200–880, centrirano
+BADGE_SEC = 4.5                       # ime gosta samo na početku
 
 
 def hex_rgba(h, a=255):
@@ -234,6 +243,77 @@ def static_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=No
     return y0, a[y0:y1, :, :3], a[y0:y1, :, 3:] / 255
 
 
+def _crop_alpha(im):
+    a = np.asarray(im).astype(np.float32)
+    rows = np.where(a[:, :, 3].max(axis=1) > 0)[0]
+    y0, y1 = rows.min(), rows.max() + 1
+    return y0, a[y0:y1, :, :3], a[y0:y1, :, 3:] / 255
+
+
+def social_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=None):
+    """v4 za mreže: logo kanala + potpis partnera gore, hook ispod, izvor ispod hooka.
+    Vraća (statični sloj, sloj s imenom gosta koji stoji samo prvih BADGE_SEC s)."""
+    r = brand["_reel"] if brand else {}
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    # meki tamni gradijent gore: logo i potpis čitljivi preko svijetle pozadine
+    g = (np.linspace(150, 0, 640) ** 1.0).astype(np.uint8)
+    grad = np.zeros((640, W, 4), np.uint8)
+    grad[:, :, 3] = g[:, None]
+    im.alpha_composite(Image.fromarray(grad, "RGBA"), (0, 0))
+    row_y, row_h = SAFE_T + 14, 80
+    if brand and brand["_logo"].get("wide"):
+        logo = Image.open(brand["_logo"]["wide"]).convert("RGBA")
+        logo = logo.resize((round(logo.width * row_h / logo.height), row_h), Image.LANCZOS)
+        im.alpha_composite(logo, (SAFE_L, row_y))
+    if partner:
+        credit = partner.get("credit", "")
+        fc = ImageFont.truetype(f_bold, 23)
+        ih = 44
+        tw = d.textlength(credit, font=fc)
+        pw = 12 + ih + 12 + tw + 22
+        px0, py0 = SAFE_R - pw, row_y + (row_h - (ih + 16)) / 2
+        d.rounded_rectangle((px0, py0, SAFE_R, py0 + ih + 16), (ih + 16) / 2, fill=(8, 12, 22, 225))
+        if partner["_logo"].get("square"):
+            icon = Image.open(partner["_logo"]["square"]).convert("RGBA").resize((ih, ih), Image.LANCZOS)
+            im.alpha_composite(icon, (int(px0 + 12), int(py0 + 8)))
+        d.text((px0 + 12 + ih + 12, py0 + 8 + ih / 2), credit, font=fc, fill=WHITE, anchor="lm")
+    # hook: kutija u širini sigurne zone, ≤ 2 retka, traka u bojama kanala na dnu
+    ft = ImageFont.truetype(f_title, 56)
+    tl = wrap(d, title, ft, SAFE_R - SAFE_L - 56)[:2]
+    hy0 = row_y + row_h + 22
+    hy1 = hy0 + 20 + 68 * len(tl) + 14
+    d.rounded_rectangle((SAFE_L, hy0, SAFE_R, hy1), 22, fill=(0, 0, 0, 170))
+    y = hy0 + 18
+    for line in tl:
+        d.text(((SAFE_L + SAFE_R - d.textlength(line, font=ft)) / 2, y), line, font=ft, fill=WHITE)
+        y += 68
+    if r.get("stripe"):
+        c0, c1 = [np.array(c[:3], np.float32) for c in r["stripe"][:2]]
+        sw = SAFE_R - SAFE_L - 44
+        t = np.linspace(0, 1, sw)[:, None]
+        strip = np.concatenate([np.repeat((c0 * (1 - t) + c1 * t)[None], 6, 0),
+                                np.full((6, sw, 1), 255, np.float32)], 2)
+        im.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (SAFE_L + 22, int(hy1 - 6)))
+    if footer:
+        fs = ImageFont.truetype(f_bold, 26)
+        d.text(((SAFE_L + SAFE_R) / 2, hy1 + 14), footer, font=fs, fill=(255, 255, 255, 235), anchor="ma",
+               stroke_width=3, stroke_fill=(0, 0, 0, 200))
+    static = _crop_alpha(im)
+    timed = None
+    if badge:
+        bi = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        bd = ImageDraw.Draw(bi)
+        fb = ImageFont.truetype(f_bold, 34)
+        bw = bd.textlength(badge, font=fb)
+        by0 = 890
+        bd.rounded_rectangle((SAFE_L, by0, SAFE_L + bw + 52, by0 + 66), 33,
+                             fill=r.get("badge_bg", (255, 212, 0, 245)))
+        bd.text((SAFE_L + 26, by0 + 33), badge, font=fb, fill=r.get("badge_text", (20, 20, 20, 255)), anchor="lm")
+        timed = _crop_alpha(bi)
+    return static, timed
+
+
 def blend(base, y0, rgb, a):
     reg = base[y0:y0 + rgb.shape[0]].astype(np.float32)
     base[y0:y0 + rgb.shape[0]] = (reg * (1 - a) + rgb * a).astype(np.uint8)
@@ -252,9 +332,11 @@ def main():
     ap.add_argument("--font-dir", default="/System/Library/Fonts/Supplemental")
     ap.add_argument("--brand", help="ime brenda u DOMOVINA_BRANDING_DIR ili put do brand.json (primaran brend)")
     ap.add_argument("--partner", help="ime ili brand.json tehnološkog partnera (potpis u donjem redu), npr. domovina_ai")
+    ap.add_argument("--layout", choices=["whatsapp", "social"], default="whatsapp",
+                    help="whatsapp = panel + footer ispod (v3); social = puni kadar, sav tekst u sigurnoj zoni mreža (v4)")
     args = ap.parse_args()
 
-    global PANEL_Y, PANEL_H
+    global PANEL_Y, PANEL_H, CAP_Y0, CAP_Y1
     brand = load_brand(args.brand) if args.brand else None
     partner = load_brand(args.partner) if args.partner else None
     f_cap = os.path.join(args.font_dir, "Arial Black.ttf")
@@ -267,6 +349,12 @@ def main():
         f_bold = brand["_font"].get("body", f_bold)
         f_title = brand["_font"].get("title", f_bold)
         highlight = brand["_reel"].get("caption_active", YELLOW)
+    social = args.layout == "social"
+    cap_maxw = 980
+    if social:
+        PANEL_Y, PANEL_H = 0, H
+        CAP_Y0, CAP_Y1 = SOCIAL_CAP
+        cap_maxw = SOCIAL_CAP_W
     tint = np.array(brand["_reel"]["bg_tint"][:3], np.float32) if brand and "bg_tint" in brand["_reel"] else None
     words, starts, ends = load_words(args.srt, args.words)
 
@@ -290,9 +378,14 @@ def main():
 
     SW, SH, FPS = probe(src)
     crop_w = round(SH * W / PANEL_H)
-    S_Y0, s_rgb, s_a = static_overlay(args.title, args.badge, args.footer, f_bold, f_title, brand, partner)
+    timed = None
+    if social:
+        (S_Y0, s_rgb, s_a), timed = social_overlay(args.title, args.badge, args.footer, f_bold, f_title,
+                                                   brand, partner)
+    else:
+        S_Y0, s_rgb, s_a = static_overlay(args.title, args.badge, args.footer, f_bold, f_title, brand, partner)
     panel_mask = np.ones((PANEL_H, 1), np.float32)
-    for i in range(FEATHER):
+    for i in range(0 if social else FEATHER):
         panel_mask[i] = panel_mask[PANEL_H - 1 - i] = (i / FEATHER) ** 1.5
     panel_mask = panel_mask[:, :, None]
 
@@ -309,7 +402,7 @@ def main():
             dd = ImageDraw.Draw(im)
             sp = dd.textlength(" ", font=f)
             total = sum(dd.textlength(t, font=f) for t in toks) + sp * (len(toks) - 1)
-            if total <= 980 or size <= 56:
+            if total <= cap_maxw or size <= 56:
                 break
             size -= 4
         x, yy = (W - total) / 2, (CAP_Y1 - CAP_Y0 - size) / 2
@@ -377,6 +470,8 @@ def main():
         out_f[PANEL_Y:PANEL_Y + PANEL_H] = reg * (1 - panel_mask) + panel.astype(np.float32) * panel_mask
         out_f = np.ascontiguousarray(out_f.astype(np.uint8))
         blend(out_f, S_Y0, s_rgb, s_a)
+        if timed and t < BADGE_SEC:
+            blend(out_f, *timed)
         while k + 1 < len(spans) and t >= spans[k + 1][0]:
             k += 1
         if spans and spans[k][0] <= t < spans[k][1]:

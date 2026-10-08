@@ -112,10 +112,23 @@ gumba ni opisa ispod videa. Za Instagram, TikTok i Shorts pada ovako:
 | Izvor („Podcast … #N“) | y ≈ 1555 | uz ime gosta ili u opisu objave | u UI zoni |
 | Footer s domovina.ai | tamna kutija y ≈ 1690–1890 | uz logo gore | **u UI zoni na svim mrežama**; na TikToku i Reelsu stalno je pokriven opisom i imenom kanala, ne samo dok je video pauziran |
 
-Za WhatsApp je v3 u redu. **Za objavu na Instagramu, TikToku i Shortsima treba drugi
-raspored („v4“):** puni kadar s praćenjem lica, logo i potpis domovina.ai gore u
-sigurnoj zoni, titl na y ≈ 1040–1230. Najbolje kao `--layout social|whatsapp` u
-`render_reel.py`, da isti alat izbacuje obje varijante. To još nije napravljeno.
+Za WhatsApp je v3 u redu. **Za Instagram, TikTok i Shorts postoji v4: `render_reel.py
+--layout social`** (default ostaje `whatsapp` = v3). v4 je složen po ovom dokumentu:
+
+| Element | v4 (`--layout social`) |
+|---|---|
+| Kadar | puni 9:16, praćenje lica (izrez 608 px iz 1080p, ×1.78) |
+| Gore | meki tamni gradijent y 0–640; logo kanala lijevo (80 px, x 120, y 302); potpis domovina.ai desno u tamnoj kapsuli (završava na x 888) |
+| Hook | kutija x 120–888 od y≈404, ≤ 2 retka (56 px), traka u bojama kanala (`stripe`) na dnu; tekst centriran na kutiju |
+| Izvor | `--footer` 26 px odmah ispod hooka |
+| Ime gosta | kapsula na y 890–956, x od 120, samo prvih 4.5 s (`BADGE_SEC`) |
+| Titl | y 1040–1240, širina ≤ 680 px (x 200–880) |
+| Donjih 35 % | čisti kadar |
+
+Provjereno s `tools/reels_layout_guide.py --frame`: ništa ne izlazi iz sigurne zone.
+Mana: izvor je 1080p, pa je izrez za puni kadar mekši nego panel u v3. Kod kanala sa
+svijetlim ili tankim logom (npr. obojeni wordmark) gornji gradijent je nužan za
+čitljivost.
 
 Provjera bilo kojeg kadra: `python3 tools/reels_layout_guide.py out.jpg --frame kadar.png`
 crta zone preko gotovog 1080×1920 framea.
