@@ -207,23 +207,27 @@ def static_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=No
         strip = np.concatenate([np.repeat(grad[None], 8, 0), np.full((8, W, 1), 255, np.float32)], 2)
         im.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (0, PANEL_Y - 4))
     fy = PANEL_Y + PANEL_H - (115 if brand else 125)
-    if footer and partner:
-        # oboje: izvor (footer) manjim slovima iznad, potpis tehnologije ispod
-        fs = ImageFont.truetype(f_bold, 30)
-        d.text(((W - d.textlength(footer, font=fs)) / 2, fy - 50), footer, font=fs, fill=WHITE,
+    if footer:
+        # izvor (npr. „Podcast X #N“) u dnu panela
+        d.text(((W - d.textlength(footer, font=fb)) / 2, fy), footer, font=fb, fill=WHITE,
                stroke_width=3, stroke_fill=(0, 0, 0, 220))
-        footer = ""
-    if footer or partner:
-        txt = footer or (partner.get("credit", "") if partner else "")
+    if partner:
+        # potpis tehnologije ispod panela: tamna podloga, logo u prvom redu, bijeli tekst u drugom
+        credit = partner.get("credit", "")
+        fc = ImageFont.truetype(f_bold, 36)
+        lh = 84
         icon = None
-        if partner and partner["_logo"].get("square"):
-            icon = Image.open(partner["_logo"]["square"]).convert("RGBA").resize((60, 60), Image.LANCZOS)
-        tw = d.textlength(txt, font=fb) + (60 + 14 if icon else 0)
-        x = (W - tw) / 2
+        if partner["_logo"].get("square"):
+            icon = Image.open(partner["_logo"]["square"]).convert("RGBA").resize((lh, lh), Image.LANCZOS)
+        bw = max(d.textlength(credit, font=fc), lh) + 96
+        y0 = PANEL_Y + PANEL_H + 18
+        y1 = y0 + 22 + (lh + 14 if icon else 0) + 46 + 20
+        d.rounded_rectangle(((W - bw) / 2, y0, (W + bw) / 2, y1), 26, fill=(8, 12, 22, 230))
+        ty = y0 + 22
         if icon:
-            im.alpha_composite(icon, (int(x), int(fy - 11)))
-            x += 60 + 14
-        d.text((x, fy), txt, font=fb, fill=WHITE, stroke_width=3, stroke_fill=(0, 0, 0, 220))
+            im.alpha_composite(icon, ((W - lh) // 2, int(ty)))
+            ty += lh + 14
+        d.text(((W - d.textlength(credit, font=fc)) / 2, ty), credit, font=fc, fill=WHITE)
     a = np.asarray(im).astype(np.float32)
     rows = np.where(a[:, :, 3].max(axis=1) > 0)[0]
     y0, y1 = rows.min(), rows.max() + 1
