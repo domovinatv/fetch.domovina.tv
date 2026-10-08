@@ -229,6 +229,38 @@ na CDN. 57 `inactive` kanala nema avatar jer nisu kandidati — sync ih nikad ne
 registry + watch-state + CDN `channels/data/index_bundle.json`; nightly KORAK 5c ga builda i
 deploya. Arhitektura i pravila kategorija: README tog repoa.
 
+
+### Konvergiramo li prema aktivnim kanalima? (2026-10-08)
+
+Zaglavlje `REPORT.md` kroz commitove:
+
+| datum | kanala | 🟢 aktivno (≤30 d) | 🟡 usporava (≤120 d) | 🔴 uspavano |
+|---|---|---|---|---|
+| 24.09. | 173 | 69 | 35 | 69 |
+| 25.09. | 400 | 126 | 86 | 188 |
+| 06.10. | 406 | 145 | 69 | 192 |
+| 08.10. | 406 | 149 | 66 | 191 |
+
+**Rast 126 → 149 je sezona, ne konvergencija.** 30-dnevni prozor je 25.09. pokrivao ljetnu
+pauzu, a 08.10. pokriva rujanski povratak; gotovo sav prirast došao je iz 🟡 (86 → 66), dok
+🔴 stoji na ~190. Watch sam ne izbacuje nikoga (registry `status` mijenja samo
+`activity --update-status`, i to reverzibilno).
+
+**Presuda odgođena do kraja studenog 2026.** Tada je iza nas cijela jesenska sezona:
+- 🔴 koji su i dalje bez originala 120+ dana → stvarno mrtvi; kandidati za rjeđu (tjednu)
+  provjeru ili trajni `inactive`.
+- 🟢 bi se trebao slegnuti na stvarnu bazu (procjena ~150 ±10).
+
+**Sumnjive klasifikacije iz noći 07.–08.10.** (pravila nisu dirana):
+- `podcast-8-24`: `exclude_title_regex` `^(press|najava)` odbacio je *Najava derbija &
+  aktualnosti / Dvajsčetvorka #286* od **110 min** — puna epizoda; regex treba i uvjet trajanja.
+- `bez-dlake-na-glavi`: *BDNG PRIČAMO #33* (36 min) ispod adaptivnog praga 69 min — možda
+  zaseban format s gostom.
+- `tapirlo`: *The Offside 412* (26 min) ispod praga 48 min — možda zaseban format.
+- `J1HER54Jfv4` je original i na `poslovni-dnevnik-podcast` i na
+  `poslovni-svijet-s-ilijom-jandricem` (ista playlista medijske kuće) — duplikat tek ako se
+  oba ikad prate.
+
 ## Ciljani (tematski) prolazi
 
 - **Logopedija, 2026-10-05** — [`2026-10-05-logopedija-discovery-i-dijalog.md`](2026-10-05-logopedija-discovery-i-dijalog.md):
