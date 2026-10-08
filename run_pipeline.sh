@@ -893,10 +893,16 @@ if ! grep -qE '^\s*SPEECHMATICS_API_KEY\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null
 elif [ ! -f "$SM_SCRIPT" ]; then
     echo "   ⚠️ Nema $SM_SCRIPT — preskačem."
 else
+    # FAST-PATH: scope na JEDAN video i bez prozora svježine — prioritetni job je
+    # eksplicitna (plaćena) narudžba za taj video, a ponovna obrada starog ad-hoc videa
+    # ima WAV stariji od 3 dana. Bez scopea bi tick platio i do 5 drugih svježih WAV-ova.
+    SM_FRESH_DAYS="$SPEECHMATICS_FRESH_DAYS"
+    [ "$PRIORITY_FAST_PATH" = true ] && SM_FRESH_DAYS=0
     SM_ARGS=(--input-dir "$OUTPUT_DIR"
-             --fresh-days "$SPEECHMATICS_FRESH_DAYS"
+             --fresh-days "$SM_FRESH_DAYS"
              --limit "$SPEECHMATICS_MAX_FILES"
-             --timeout-minutes "$SPEECHMATICS_TIMEOUT_MIN")
+             --timeout-minutes "$SPEECHMATICS_TIMEOUT_MIN"
+             "${PRIORITY_SCOPE_ARGS[@]}")
     if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         SM_ARGS+=(--dry-run)
     fi
@@ -937,9 +943,13 @@ REFINE_SCRIPT="$SCRIPT_DIR/refine_diarized_gemini.js"
 if [ ! -f "$REFINE_SCRIPT" ]; then
     echo "   ⚠️ Nema $REFINE_SCRIPT — preskačem."
 else
+    # FAST-PATH: isto kao KORAK 2.7 — samo taj video, bez prozora svježine.
+    REFINE_FRESH_DAYS="$GEMINI_REFINE_FRESH_DAYS"
+    [ "$PRIORITY_FAST_PATH" = true ] && REFINE_FRESH_DAYS=0
     REFINE_ARGS=(--input-dir "$OUTPUT_DIR"
-                 --fresh-days "$GEMINI_REFINE_FRESH_DAYS"
-                 --limit "$GEMINI_REFINE_MAX_FILES")
+                 --fresh-days "$REFINE_FRESH_DAYS"
+                 --limit "$GEMINI_REFINE_MAX_FILES"
+                 "${PRIORITY_SCOPE_ARGS[@]}")
     if [ "$GEMINI_REFINE_PROMOTE" = true ]; then
         REFINE_ARGS+=(--promote)
         echo "   ⬆️  Promocija UKLJUČENA — popunjava .wav.canary.diarized.srt gdje ga nema."

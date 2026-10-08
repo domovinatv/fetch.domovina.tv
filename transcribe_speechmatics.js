@@ -22,6 +22,7 @@
  *   node transcribe_speechmatics.js --file storage/output/kanal/ep.mp3
  *   node transcribe_speechmatics.js --file ep.mp3 --language hr --sensitivity 0.6
  *   node transcribe_speechmatics.js --input-dir storage/output --channel podcast_cuspajz --limit 2
+ *   node transcribe_speechmatics.js --channel _unlisted --video-id 6e1MW97dv10   # prioritetni fast-path
  *   node transcribe_speechmatics.js --file ep.mp3 --translate en   # bonus: HR→EN prijevod
  */
 
@@ -56,6 +57,9 @@ const API_KEY = process.env.SPEECHMATICS_API_KEY;
 const FILE = getArg("--file");
 const INPUT_DIR = getArg("--input-dir", "storage/output");
 const CHANNEL = getArg("--channel");
+// Scope na JEDAN video (run_pipeline.sh PRIORITY_SCOPE_ARGS u prioritetnom fast-pathu).
+// Bez ovoga bi prioritetni tick platio Speechmatics i za druge svježe WAV-ove u kanalu.
+const VIDEO_ID = getArg("--video-id");
 const LIMIT = parseInt(getArg("--limit", "1"), 10);
 const LANGUAGE = getArg("--language", "hr");
 const OPERATING_POINT = getArg("--operating-point", "enhanced");
@@ -387,6 +391,7 @@ function collectCandidates() {
         try { files = fs.readdirSync(dir); } catch { continue; }
         for (const f of files) {
             if (ORPHAN_FRAGMENT.test(f)) continue;
+            if (VIDEO_ID && !f.includes(`_yt_${VIDEO_ID}`)) continue;
             const ext = path.extname(f).toLowerCase();
             const rank = FORMAT_RANK[ext];
             if (rank === undefined) continue;
