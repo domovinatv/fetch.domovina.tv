@@ -119,13 +119,21 @@ Za WhatsApp je v3 u redu. **Za Instagram, TikTok i Shorts postoji v4: `render_re
 |---|---|
 | Kadar | puni 9:16, praćenje lica (izrez 608 px iz 1080p, ×1.78) |
 | Gore | meki tamni gradijent y 0–640; logo kanala lijevo (80 px, x 120, y 302); potpis domovina.ai desno u tamnoj kapsuli (završava na x 888) |
-| Hook | kutija x 120–888 od y≈404, ≤ 2 retka (56 px), traka u bojama kanala (`stripe`) na dnu; tekst centriran na kutiju |
-| Izvor | `--footer` 26 px odmah ispod hooka |
-| Ime gosta | kapsula na y 890–956, x od 120, samo prvih 4.5 s (`BADGE_SEC`) |
+| Hook | **samo 0–3.5 s** (`HOOK_SEC`), zatim pretapanje 0.35 s; kutija x 120–888 od y≈404, ≤ 2 retka (56 px), traka u bojama kanala (`stripe`); tekst centriran na kutiju |
+| Ime gosta + izvor | **3.5–7.5 s** (`BADGE_SEC`): kapsula na y 890–956 od x 120, ispod nje `--footer` 26 px |
+| Ostatak klipa | samo logo i potpis gore te titl; ništa preko lica |
 | Titl | y 1040–1240, širina ≤ 680 px (x 200–880) |
 | Donjih 35 % | čisti kadar |
 
 Provjereno s `tools/reels_layout_guide.py --frame`: ništa ne izlazi iz sigurne zone.
+
+**v4 → v4.1 (Matijina presuda):** prva v4 držala je naslov i izvor cijelo vrijeme, pa je
+gore bilo naslagano pet elemenata, a natpis je stajao preko čela kroz cijeli klip
+(provjereno na kadrovima u 1, 6, 14, 25 i 35 s). Lice, naslov i titl ne stanu zajedno u
+y 288–1248 a da naslov ne prekrije lice. Spuštanje lica gura bradu u titl. Zato se poruke
+slažu **u vremenu, a ne u prostoru**: naslov prvih 3.5 s, zatim ime gosta i izvor, pa
+čisto. To je i najčešća praksa alata (naslov prvih 3–5 s). Ako je kraj isječka na istoj
+misli kao početak, poruka se vrati kad se reel zavrti u krug.
 Mana: izvor je 1080p, pa je izrez za puni kadar mekši nego panel u v3. Kod kanala sa
 svijetlim ili tankim logom (npr. obojeni wordmark) gornji gradijent je nužan za
 čitljivost.

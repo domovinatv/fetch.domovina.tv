@@ -34,7 +34,7 @@ tehnologije (logo domovina.ai + `credit`) u donji red; uz `--footer` oba retka.
 `--brand most` = $DOMOVINA_BRANDING_DIR/most/brand.json (default data/branding/).
 `--layout social` (v4, za Reels/TikTok/Shorts): puni kadar s praćenjem lica, sav tekst
 u presjeku službenih sigurnih zona (x 120–888, y 288–1248): logo + potpis gore, hook u
-kutiji, ime gosta prvih 4.5 s, titl na y 1040–1240. Default `whatsapp` = panel + footer (v3).
+kutiji, naslov prve 3.5 s, zatim ime gosta + izvor 4 s, pa samo logo, potpis i titl. Default `whatsapp` = panel + footer (v3).
 Brendovi kanala NISU u repou (lokalna konfiguracija); format: data/branding/README.md
 i data/branding/_example/. Bez `--brand` = bijelo-žuti v2.
 """
@@ -58,7 +58,11 @@ BRAND_PANEL_Y, BRAND_PANEL_H = 630, 1040
 SAFE_L, SAFE_R, SAFE_T, SAFE_B = 120, 888, 288, 1248
 SOCIAL_CAP = (1040, 1240)             # titl odmah ispod brade, iznad donje UI zone
 SOCIAL_CAP_W = 680                    # x 200–880, centrirano
-BADGE_SEC = 4.5                       # ime gosta samo na početku
+# v4 slaže poruke u vremenu, ne u prostoru: lice + naslov + titl ne stanu u y 288–1248
+# a da naslov ne prekrije čelo. Naslov prvih HOOK_SEC, pa ime gosta + izvor, pa čisto.
+HOOK_SEC = 3.5
+BADGE_SEC = 4.0                       # koliko dugo stoji ime gosta (od HOOK_SEC)
+FADE = 0.35
 
 
 def hex_rgba(h, a=255):
@@ -251,14 +255,15 @@ def _crop_alpha(im):
 
 
 def social_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=None):
-    """v4 za mreže: logo kanala + potpis partnera gore, hook ispod, izvor ispod hooka.
-    Vraća (statični sloj, sloj s imenom gosta koji stoji samo prvih BADGE_SEC s)."""
+    """v4 za mreže. Stalno: logo kanala + potpis partnera gore (iznad glave).
+    Vremenski slojevi (sloj, od, do): naslov 0–HOOK_SEC, zatim ime gosta + izvor BADGE_SEC s.
+    Vraća (statični sloj, [vremenski slojevi])."""
     r = brand["_reel"] if brand else {}
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     # meki tamni gradijent gore: logo i potpis čitljivi preko svijetle pozadine
-    g = (np.linspace(150, 0, 640) ** 1.0).astype(np.uint8)
-    grad = np.zeros((640, W, 4), np.uint8)
+    g = (np.linspace(150, 0, 520) ** 1.0).astype(np.uint8)
+    grad = np.zeros((520, W, 4), np.uint8)
     grad[:, :, 3] = g[:, None]
     im.alpha_composite(Image.fromarray(grad, "RGBA"), (0, 0))
     row_y, row_h = SAFE_T + 14, 80
@@ -278,15 +283,19 @@ def social_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=No
             icon = Image.open(partner["_logo"]["square"]).convert("RGBA").resize((ih, ih), Image.LANCZOS)
             im.alpha_composite(icon, (int(px0 + 12), int(py0 + 8)))
         d.text((px0 + 12 + ih + 12, py0 + 8 + ih / 2), credit, font=fc, fill=WHITE, anchor="lm")
-    # hook: kutija u širini sigurne zone, ≤ 2 retka, traka u bojama kanala na dnu
+    static = _crop_alpha(im)
+    timed = []
+    # naslov: kutija u širini sigurne zone, ≤ 2 retka, traka u bojama kanala na dnu
+    hi = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    hd = ImageDraw.Draw(hi)
     ft = ImageFont.truetype(f_title, 56)
-    tl = wrap(d, title, ft, SAFE_R - SAFE_L - 56)[:2]
+    tl = wrap(hd, title, ft, SAFE_R - SAFE_L - 56)[:2]
     hy0 = row_y + row_h + 22
     hy1 = hy0 + 20 + 68 * len(tl) + 14
-    d.rounded_rectangle((SAFE_L, hy0, SAFE_R, hy1), 22, fill=(0, 0, 0, 170))
+    hd.rounded_rectangle((SAFE_L, hy0, SAFE_R, hy1), 22, fill=(0, 0, 0, 170))
     y = hy0 + 18
     for line in tl:
-        d.text(((SAFE_L + SAFE_R - d.textlength(line, font=ft)) / 2, y), line, font=ft, fill=WHITE)
+        hd.text(((SAFE_L + SAFE_R - hd.textlength(line, font=ft)) / 2, y), line, font=ft, fill=WHITE)
         y += 68
     if r.get("stripe"):
         c0, c1 = [np.array(c[:3], np.float32) for c in r["stripe"][:2]]
@@ -294,23 +303,24 @@ def social_overlay(title, badge, footer, f_bold, f_title, brand=None, partner=No
         t = np.linspace(0, 1, sw)[:, None]
         strip = np.concatenate([np.repeat((c0 * (1 - t) + c1 * t)[None], 6, 0),
                                 np.full((6, sw, 1), 255, np.float32)], 2)
-        im.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (SAFE_L + 22, int(hy1 - 6)))
-    if footer:
-        fs = ImageFont.truetype(f_bold, 26)
-        d.text(((SAFE_L + SAFE_R) / 2, hy1 + 14), footer, font=fs, fill=(255, 255, 255, 235), anchor="ma",
-               stroke_width=3, stroke_fill=(0, 0, 0, 200))
-    static = _crop_alpha(im)
-    timed = None
-    if badge:
+        hi.alpha_composite(Image.fromarray(strip.astype(np.uint8), "RGBA"), (SAFE_L + 22, int(hy1 - 6)))
+    timed.append((_crop_alpha(hi), 0.0, HOOK_SEC))
+    # ime gosta (+ izvor u drugom retku) nakon naslova, na visini ovratnika
+    if badge or footer:
         bi = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         bd = ImageDraw.Draw(bi)
-        fb = ImageFont.truetype(f_bold, 34)
-        bw = bd.textlength(badge, font=fb)
+        fb, fs = ImageFont.truetype(f_bold, 34), ImageFont.truetype(f_bold, 26)
         by0 = 890
-        bd.rounded_rectangle((SAFE_L, by0, SAFE_L + bw + 52, by0 + 66), 33,
-                             fill=r.get("badge_bg", (255, 212, 0, 245)))
-        bd.text((SAFE_L + 26, by0 + 33), badge, font=fb, fill=r.get("badge_text", (20, 20, 20, 255)), anchor="lm")
-        timed = _crop_alpha(bi)
+        if badge:
+            bw = bd.textlength(badge, font=fb)
+            bd.rounded_rectangle((SAFE_L, by0, SAFE_L + bw + 52, by0 + 66), 33,
+                                 fill=r.get("badge_bg", (255, 212, 0, 245)))
+            bd.text((SAFE_L + 26, by0 + 33), badge, font=fb, fill=r.get("badge_text", (20, 20, 20, 255)),
+                    anchor="lm")
+        if footer:
+            bd.text((SAFE_L + 26, by0 + (78 if badge else 0)), footer, font=fs, fill=WHITE,
+                    stroke_width=3, stroke_fill=(0, 0, 0, 220))
+        timed.append((_crop_alpha(bi), HOOK_SEC, HOOK_SEC + BADGE_SEC))
     return static, timed
 
 
@@ -378,7 +388,7 @@ def main():
 
     SW, SH, FPS = probe(src)
     crop_w = round(SH * W / PANEL_H)
-    timed = None
+    timed = []
     if social:
         (S_Y0, s_rgb, s_a), timed = social_overlay(args.title, args.badge, args.footer, f_bold, f_title,
                                                    brand, partner)
@@ -470,8 +480,10 @@ def main():
         out_f[PANEL_Y:PANEL_Y + PANEL_H] = reg * (1 - panel_mask) + panel.astype(np.float32) * panel_mask
         out_f = np.ascontiguousarray(out_f.astype(np.uint8))
         blend(out_f, S_Y0, s_rgb, s_a)
-        if timed and t < BADGE_SEC:
-            blend(out_f, *timed)
+        for (ty0, trgb, ta), t0, t1 in timed:     # pretapanje ulaz/izlaz
+            if t0 <= t < t1:
+                k_in = 1.0 if t0 == 0 else min(1.0, (t - t0) / FADE)
+                blend(out_f, ty0, trgb, ta * min(k_in, (t1 - t) / FADE, 1.0))
         while k + 1 < len(spans) and t >= spans[k + 1][0]:
             k += 1
         if spans and spans[k][0] <= t < spans[k][1]:
