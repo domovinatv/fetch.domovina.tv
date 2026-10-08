@@ -18,6 +18,13 @@
  * Izvorni mediji i fetch metapodaci (mp3/wav/video, info.json, description, loudnorm)
  * se NE diraju — ponovna obrada ih koristi, a fetch.js ih ne bi ponovno skinuo.
  *
+ * Uz fajlove se čiste i DONE CACHEOVI u korijenu storage/output/ (`summarize-done.json`,
+ * `articles-done.json`, `rag-*-done.json` = { completed: [basename…] }). Koraci 7, 8 i 9
+ * gledaju njih PRIJE diska — bez ovoga je ponovna obrada 09.10. sklonila stari članak,
+ * a 7+8 svejedno javili „Preskočeno (cache): 1" i ništa nisu napisali. Ključ je goli
+ * basename (dijeljen između kanala), pa se briše svaki unos s `_yt_<ID>`; netaknuti
+ * kanal ga sljedeći run sam vrati („FS check → dodano u cache").
+ *
  * Usage:
  *   node tools/reprocess_episode.js stash  --dir <channel> --video-id <ID> --scope derived|article [--dry-run]
  *   node tools/reprocess_episode.js locate --video-id <ID>
@@ -113,6 +120,34 @@ function stash(dirName, scope) {
     }
 }
 
+// Makni sve unose ovog videa iz done cacheova (atomski: tmp + rename).
+function clearDoneCaches() {
+    let names;
+    try {
+        names = fs.readdirSync(INPUT_DIR).filter((n) => n.endsWith("-done.json"));
+    } catch {
+        return;
+    }
+    for (const name of names) {
+        const p = path.join(INPUT_DIR, name);
+        let data;
+        try {
+            data = JSON.parse(fs.readFileSync(p, "utf-8"));
+        } catch {
+            continue;
+        }
+        if (!data || !Array.isArray(data.completed)) continue;
+        const kept = data.completed.filter((k) => suffixAfterId(String(k), VIDEO_ID) === null);
+        const removed = data.completed.length - kept.length;
+        if (!removed) continue;
+        console.log(`   🧹 ${name}: mičem ${removed} unos(a) za ${VIDEO_ID}${DRY_RUN ? "  (DRY RUN)" : ""}`);
+        if (DRY_RUN) continue;
+        const tmp = `${p}.tmp-${process.pid}`;
+        fs.writeFileSync(tmp, JSON.stringify({ ...data, completed: kept }, null, 2));
+        fs.renameSync(tmp, p);
+    }
+}
+
 function locate() {
     let dirs;
     try {
@@ -151,6 +186,7 @@ if (CMD === "stash") {
         process.exit(1);
     }
     stash(dirName, scope);
+    clearDoneCaches();
 } else if (CMD === "locate") {
     locate();
 } else {
