@@ -6,9 +6,17 @@
  * Generira statične JSON index datoteke za sve kanale i njihove videe.
  * Namijenjeno za master-detail pattern u Flutter appu — offline listing.
  *
- * Output (storage/meta/):
- *   channels/index.json           — popis svih kanala s metapodacima
- *   channels/{channelId}.json     — detalji kanala sa svim videima
+ * Output (storage/meta/channels/data/):
+ *   index.json           — popis svih kanala s metapodacima
+ *   {channelId}.json     — detalji kanala sa svim videima
+ *   index_bundle.json    — svi kanali u jednoj datoteci
+ *   home.json            — bazen epizoda za naslovnicu (ugovor v1, vidi buildHomeSnapshot)
+ *   search.json          — sažetak/teme/govornici za lokalnu pretragu (ugovor v1)
+ *
+ * `generated_at` se mijenja SAMO kad se sadržaj promijenio (writeJsonStable):
+ * nepromijenjena datoteka ostane bajt-ista, uploader je preskoči po MD5-u i
+ * ETag na CDN-u vrijedi danima, pa klijent dobije 304 umjesto punog downloada.
+ * Ugovor i mjerenja: ../domovina.ai/docs/2026-10-08-brzina-ucitavanja-naslovnice.md
  *
  * Svaki video sadrži podatke za sortiranje:
  *   datum, naslov, trajanje, pregledi, svidanja, magisterium score
@@ -99,6 +107,125 @@ function readJson(filePath) {
     } catch {
         return null;
     }
+}
+
+// Piše JSON samo kad se sadržaj BEZ `generated_at` promijenio. Inače ostavi
+// datoteku netaknutu (i njezin stari `generated_at`) → isti MD5 → uploader je
+// preskoči → ETag na CDN-u ostaje isti i klijent dobije 304. Prije ovoga je
+// noćni run prepisao svih 50 listinga svaki dan, pa je 304 vrijedio samo unutar dana.
+// Vraća true ako je datoteka zapisana.
+function writeJsonStable(filePath, data, space) {
+    const withoutStamp = o => JSON.stringify({ ...o, generated_at: undefined });
+    const prev = readJson(filePath);
+    if (prev && withoutStamp(prev) === withoutStamp(data)) {
+        data.generated_at = prev.generated_at;
+        return false;
+    }
+    fs.writeFileSync(filePath, JSON.stringify(data, null, space), 'utf-8');
+    return true;
+}
+
+// Bitmask `pipeline` zastavica za home.json (`p`). Redoslijed je ugovor s
+// klijentom (VideoPipeline.fromBits u domovina.ai lib/models/channel_detail.dart):
+// smije se samo NADOPUNJAVATI na kraju, nikad mijenjati postojeće bitove.
+const PIPELINE_BITS = [
+    'has_transcript', 'has_diarized', 'has_summary', 'has_article', 'has_magisterium',
+    'has_translation_en', 'has_summary_en', 'has_article_en', 'has_magisterium_en',
+];
+
+function pipelineBits(pipeline) {
+    return PIPELINE_BITS.reduce((acc, flag, i) => (pipeline?.[flag] ? acc | (1 << i) : acc), 0);
+}
+
+// Lokalni datum (Europe/Zagreb na Macu) kao YYYY-MM-DD, pomaknut za `days`.
+// Lokalni, ne UTC: nightly krene oko 03 h, kad je UTC još prethodni dan.
+function localDate(days = 0) {
+    const d = new Date();
+    d.setDate(d.getDate() + days);
+    return d.toLocaleDateString('sv-SE');
+}
+
+function addDays(isoDate, days) {
+    const d = new Date(`${isoDate}T12:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + days);
+    return d.toISOString().slice(0, 10);
+}
+
+const HOME_RECENT_DAYS     = 45;  // hero tier 1 (14 d) + „Upravo stiglo" (30 d)
+const HOME_TOP_MAGISTERIUM = 20;  // hero tier 2
+const HOME_MIN_SCORE       = 70;
+const HOME_LATEST_ARTICLES = 30;  // rail „Najnovije"
+
+// Najnoviji prvi; isti datum → po ID-u, da izbor na granici bude deterministički
+// (inače bi se home.json mijenjao bez stvarne promjene i ETag bi pao).
+function byDateDesc(a, b) {
+    return (b.video.date || '').localeCompare(a.video.date || '') || a.video.id.localeCompare(b.video.id);
+}
+
+// Svaki YouTube ID jednom, prvi kanal pobjeđuje (kanali su sortirani po ID-u).
+function uniqueEpisodes(channels) {
+    const seen = new Set();
+    const out = [];
+    for (const ch of channels) {
+        for (const video of ch.videos || []) {
+            if (seen.has(video.id)) continue;
+            seen.add(video.id);
+            out.push({ channelId: ch.id, video });
+        }
+    }
+    return out;
+}
+
+/**
+ * channels/data/home.json (v1) — BAZEN epizoda za naslovnicu, ne odluka: hero
+ * izbor ostaje u klijentu (HomeFeed.pickFeaturedCarousel). Unija bez duplikata:
+ *   1. sve s datumom unutar zadnjih 45 dana,
+ *   2. do 20 s has_magisterium i score ≥ 70 (najbolji prvi, bilo koji datum),
+ *   3. 30 najnovijih s has_article.
+ * Uz ta tri pravila klijent nad bazenom bira isto što i nad cijelim katalogom
+ * (provjereno 9.10.2026. na 40 simuliranih dana, 40/40).
+ */
+function buildHomeEpisodes(channels, today) {
+    const all = uniqueEpisodes(channels).sort(byDateDesc);
+    const cutoff = addDays(today, -HOME_RECENT_DAYS);
+
+    const recent = all.filter(e => e.video.date && e.video.date >= cutoff);
+    const topMagisterium = all
+        .filter(e => e.video.pipeline?.has_magisterium && (e.video.magisterium_score ?? 0) >= HOME_MIN_SCORE)
+        .sort((a, b) => b.video.magisterium_score - a.video.magisterium_score || byDateDesc(a, b))
+        .slice(0, HOME_TOP_MAGISTERIUM);
+    const latestArticles = all.filter(e => e.video.pipeline?.has_article).slice(0, HOME_LATEST_ARTICLES);
+
+    const picked = new Set([...recent, ...topMagisterium, ...latestArticles]);
+    return all.filter(e => picked.has(e)).map(({ channelId, video: v }) => {
+        const ep = { c: channelId, id: v.id, title: v.title };
+        if (v.title_hr && v.title_hr !== v.title) ep.title_hr = v.title_hr;
+        if (v.date) ep.date = v.date;
+        if (v.duration_seconds) ep.duration_seconds = v.duration_seconds;
+        if (v.magisterium_score != null) ep.magisterium_score = v.magisterium_score;
+        ep.p = pipelineBits(v.pipeline);
+        return ep;
+    });
+}
+
+/**
+ * channels/data/search.json (v1) — tekst za lokalnu pretragu, odvojen od
+ * listinga: `{ "<id>": { a: sažetak, t: [teme], s: [suggested_name] } }`.
+ * Prazna polja se izostavljaju; epizoda bez ijednog polja ne ulazi.
+ */
+function buildSearchEpisodes(channels) {
+    const out = {};
+    for (const { video: v } of uniqueEpisodes(channels)) {
+        const entry = {};
+        if (v.abstract) entry.a = v.abstract;
+        if (v.topics?.length) entry.t = v.topics;
+        const names = (v.speakers || [])
+            .map(s => (typeof s === 'string' ? s : s?.suggested_name || s?.name))
+            .filter(Boolean);
+        if (names.length) entry.s = names;
+        if (Object.keys(entry).length) out[v.id] = entry;
+    }
+    return out;
 }
 
 // Preuzima datoteku s URL-a na disk. Podržava redirecte.
@@ -399,9 +526,7 @@ async function main() {
         channelDetails.push(channelDetail);
 
         const detailPath = path.join(OUTPUT_DIR, 'channels', 'data', `${channelId}.json`);
-        if (!DRY_RUN) {
-            fs.writeFileSync(detailPath, JSON.stringify(channelDetail, null, 2), 'utf-8');
-        }
+        const detailChanged = !DRY_RUN && writeJsonStable(detailPath, channelDetail, 2);
 
         // ── Dodaj u index ─────────────────────────────────────────
         channelIndex.push({
@@ -429,7 +554,7 @@ async function main() {
         console.log(`${videos.length} videa | ${articled} članaka | ${magScored} magisterium | avg score: ${avgMagisterium ?? 'N/A'}`);
 
         if (!DRY_RUN) {
-            console.log(`     → ${detailPath}`);
+            console.log(`     → ${detailPath}${detailChanged ? '' : ' (nepromijenjeno)'}`);
         }
     }
 
@@ -467,8 +592,8 @@ async function main() {
     };
 
     if (!DRY_RUN) {
-        fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2), 'utf-8');
-        console.log(`\n  ✅ Index: ${indexPath} (${finalChannels.length} kanala)`);
+        const changed = writeJsonStable(indexPath, indexData, 2);
+        console.log(`\n  ✅ Index: ${indexPath} (${finalChannels.length} kanala)${changed ? '' : ' — nepromijenjeno'}`);
     } else {
         console.log(`\n  ✅ [DRY RUN] channels/index.json: ${finalChannels.length} kanala`);
     }
@@ -481,9 +606,11 @@ async function main() {
     // Kad je aktivan --channel filtar, mergea s postojećim bundleom.
     const bundlePath = path.join(OUTPUT_DIR, 'channels', 'data', 'index_bundle.json');
     let finalDetails = channelDetails;
+    let catalogComplete = !CHANNEL_FILTER;
     if (CHANNEL_FILTER) {
         const existingBundle = readJson(bundlePath);
         if (existingBundle?.channels) {
+            catalogComplete = true;
             const others = existingBundle.channels.filter(c => c.id !== CHANNEL_FILTER);
             finalDetails = [...others, ...channelDetails].sort((a, b) => a.id.localeCompare(b.id));
         }
@@ -497,17 +624,54 @@ async function main() {
     };
 
     if (!DRY_RUN) {
-        fs.writeFileSync(bundlePath, JSON.stringify(bundleData), 'utf-8');
+        const changed = writeJsonStable(bundlePath, bundleData);
         const bundleSize = (fs.statSync(bundlePath).size / 1024).toFixed(0);
-        console.log(`  ✅ Bundle: ${bundlePath} (${bundleSize} KB)`);
+        console.log(`  ✅ Bundle: ${bundlePath} (${bundleSize} KB)${changed ? '' : ' — nepromijenjeno'}`);
     } else {
         console.log(`  ✅ [DRY RUN] channels/data/index_bundle.json: ${finalDetails.length} kanala`);
+    }
+
+    // ── channels/data/home.json + search.json ────────────────────
+    // Računaju se nad CIJELIM katalogom; uz --channel bez postojećeg bundlea
+    // imali bismo samo jedan kanal, pa ih tada ne diramo.
+    if (!catalogComplete) {
+        console.log('  ⚠️  home.json/search.json preskočeni: --channel bez postojećeg index_bundle.json');
+    } else {
+        const today = getArg('--today') || localDate();
+        const homeData = {
+            version:      1,
+            generated_at: new Date().toISOString(),
+            episodes:     buildHomeEpisodes(finalDetails, today),
+        };
+        const searchData = {
+            version:      1,
+            generated_at: new Date().toISOString(),
+            episodes:     buildSearchEpisodes(finalDetails),
+        };
+        for (const [name, data, count] of [
+            ['home.json', homeData, homeData.episodes.length],
+            ['search.json', searchData, Object.keys(searchData.episodes).length],
+        ]) {
+            const p = path.join(OUTPUT_DIR, 'channels', 'data', name);
+            if (DRY_RUN) {
+                const kb = (Buffer.byteLength(JSON.stringify(data)) / 1024).toFixed(1);
+                console.log(`  ✅ [DRY RUN] channels/data/${name}: ${count} epizoda, ${kb} KB`);
+                continue;
+            }
+            const changed = writeJsonStable(p, data);
+            const kb = (fs.statSync(p).size / 1024).toFixed(1);
+            console.log(`  ✅ ${name}: ${count} epizoda, ${kb} KB${changed ? '' : ' — nepromijenjeno'}`);
+        }
     }
 
     console.log(`\n  Upload: node upload_to_r2.js --meta-dir ${OUTPUT_DIR}\n`);
 }
 
-main().catch(e => {
-    console.error('❌ Fatalna greška:', e.message);
-    process.exit(1);
-});
+if (require.main === module) {
+    main().catch(e => {
+        console.error('❌ Fatalna greška:', e.message);
+        process.exit(1);
+    });
+}
+
+module.exports = { buildHomeEpisodes, buildSearchEpisodes, pipelineBits, writeJsonStable, addDays };
