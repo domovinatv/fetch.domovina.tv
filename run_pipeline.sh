@@ -17,6 +17,7 @@
 #  11. import_to_vertex.js   — Upload RAG JSONL u Vertex AI Agent Builder
 #  12. upload_to_r2.js       — Cloudflare R2 upload (samo uz --with-r2-upload)
 #  12.5 backfill_video_h264.js — H.264 cross-platform video → video_h264.mp4 (uz --with-r2-upload)
+#  12.7 build_episode_bundle.js — data/{id}/episode.json (popis datoteka + inline JSON), uz --with-r2-upload
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -1679,7 +1680,8 @@ fi
 # R2 upload eksplicitno zaobilazi telefon-residential-proxy. @aws-sdk/client-s3
 # ionako ne honora HTTPS_PROXY env var po defaultu, ali ako se ikad zamijeni
 # transport sloj, ovaj env -u garantira da R2 put nije ovisan o proxyju.
-env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+# EPISODE_BUNDLE_SKIP: episode.json slaže KORAK 12.7, nakon videa (12.5) i audija (12.6).
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy EPISODE_BUNDLE_SKIP=1 \
 node "$SCRIPT_DIR/upload_to_r2.js" "${R2_UPLOAD_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri R2 uploadu, nastavljam..."
 }
@@ -1786,6 +1788,36 @@ fi
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/upload_audio_only.js" "${AUDIO_ONLY_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri audio-only uploadu, nastavljam..."
+}
+fi
+
+# --- KORAK 12.7: data/{id}/episode.json (uz --with-r2-upload) ---
+# Jedna datoteka po epizodi: izmjereni popis datoteka pod data/{id}/ + inline sadržaj
+# za prvi prikaz (domovina.ai 3 zahtjeva umjesto ~29). MORA biti zadnji upload u data/:
+# klijent ne traži datoteku koje nema u bundleu. Nightly radi cijeli katalog (~28 LIST
+# stranica; nepromijenjena epizoda ne košta nijedan GET), pa sve što su uploadali
+# alati izvan pipelinea (Magisterium, bulk backfilli) konvergira do jutra.
+# Nula LLM poziva. Vidi docs/2026-10-09-episode-json-bundle.md.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.7: episode.json bundle (data/{id}/episode.json)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+BUNDLE_ARGS=(--all)
+if [ -n "$REPROCESS_VIDEO_ID" ]; then
+    BUNDLE_ARGS=(--video-id "$REPROCESS_VIDEO_ID")
+elif [ -n "$MODAL_ONLY_ID" ]; then
+    BUNDLE_ARGS=(--video-id "$MODAL_ONLY_ID")
+fi
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    BUNDLE_ARGS+=("--dry-run")
+fi
+
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/build_episode_bundle.js" "${BUNDLE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri episode.json bundleu, nastavljam (idući run ga dovršava)..."
 }
 fi
 

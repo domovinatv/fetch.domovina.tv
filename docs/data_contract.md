@@ -424,6 +424,7 @@ Da bude jasno što nije pokriveno:
 | `*.segments.jsonl` | `prepare_rag_combined.js` (isti prolaz, vidi §14) |
 | `*.canary.summary.blocked.json` | `summarize_gemini.js` (marker za Gemini block) |
 | R2 CDN | `upload_to_r2.js` |
+| R2 `data/{id}/episode.json` | `build_episode_bundle.js` (KORAK 12.7, vidi §15) |
 
 ---
 
@@ -473,6 +474,37 @@ Pravila:
 - **Ne ide na R2.** Consumer čita lokalni disk, kao i `rag_combined.jsonl`.
 - Veličina: cijeli katalog (3 387 epizoda, 06.10.2026.) ima ≈1,42 M segmenata i
   ≈460 MB JSONL-a.
+
+---
+
+## 15. `data/{id}/episode.json` — bundle epizode (v1)
+
+Jedna datoteka po epizodi za ekran epizode na domovina.ai: popis datoteka koje
+postoje + sadržaj za prvi prikaz. Klijentski ugovor i parser:
+`../domovina.ai/lib/models/episode_bundle.dart`.
+
+```json
+{ "version": 1,
+  "generated_at": "2026-10-09T18:49:08Z",
+  "files": ["article.json", "book.epub", "diarized.srt", "info.json", "outline.json",
+            "sponsors_in_video.json", "summary.json", "video_h264.mp4"],
+  "inline": { "info.json": {…}, "summary.json": {…}, "outline.json": {…},
+              "article.json": {…}, "article.magisterium.json": {…} } }
+```
+
+- **`files` je izmjeren**, ne namjera pipelinea: LIST R2 prefiksa `data/{id}/`, imena
+  kako ih servira CDN (`book.epub`, ne pipeline ime), uključujući medije, sortirano,
+  bez samog `episode.json`. Klijent ne traži datoteku koje nema na popisu.
+- **`inline`** = sadržaj tih pet datoteka, samo onih koje postoje, pročitan s R2 (ono
+  što CDN servira). Titlovi, `words.json` i EN prijevodi namjerno ostaju vani.
+  Nečitljiv JSON se ne ulaže (klijent ga traži zasebno).
+- **Regenerira se nakon svakog uploada u `data/{id}/`**: KORAK 12.7 (nightly cijeli
+  katalog), `upload_to_r2.js` i `force_upload.js` za epizode koje su dirnuli.
+  Alati koji samo prepisuju postojeće ključeve (e-knjige, sponzori) ne mijenjaju bundle.
+- **Upload samo kad se sadržaj (bez `generated_at`) promijeni** → stabilan ETag.
+- `Cache-Control: public, max-age=60, must-revalidate` (kao listinzi), ne immutable.
+  Novi bundle se purgea u obje `Vary: Origin` varijante.
+- Nepoznata verzija → klijent ide starim putem (datoteku po datoteku), koji ostaje.
 
 ---
 

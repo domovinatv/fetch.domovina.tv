@@ -127,6 +127,12 @@ async function main() {
 
     if (!purgeUrls.length) { console.log("Ništa za upload."); return; }
 
+    // Bundle čita s R2, pa ide odmah nakon PUT-a (prije purge bloka koji zna izaći ranije).
+    if (process.env.EPISODE_BUNDLE_SKIP !== "1") {
+        require("child_process").spawnSync("node",
+            [path.join(__dirname, "build_episode_bundle.js"), "--video-id", videoId], { stdio: "inherit" });
+    }
+
     if (!CF_PURGE_TOKEN) {
         console.log("⚠️  CF_PURGE_TOKEN nije postavljen — purge-aj ručno:");
         purgeUrls.forEach(u => console.log("   " + u));

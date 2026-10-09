@@ -68,3 +68,4 @@ data/branding/*
 
 # Privatne bilješke (osobe, grupe, isporuke) — nikad u javni repo
 docs/private/
+.episode_bundle_state.json

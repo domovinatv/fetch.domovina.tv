@@ -209,7 +209,7 @@ function cacheControlFor(r2Key) {
     const basename = r2Key.split("/").pop();
     // Isti popis kao `isContentMutable` — vidi ondje zašto je og-sections.json tu.
     if (basename === "_manifest.json" || basename === "manifest.json"
-        || basename === "og-sections.json") return CACHE_CONTROL_MUTABLE;
+        || basename === "og-sections.json" || basename === "episode.json") return CACHE_CONTROL_MUTABLE;
     return CACHE_CONTROL_IMMUTABLE;
 }
 
@@ -913,9 +913,11 @@ function isContentMutable(r2Key) {
     // dana: nove sekcije i cijela `sections_en` mapa (manifest v1.1) nikad ne
     // stignu do workera, iako su slike na R2. Izmjereno 15.9.2026. na
     // pNSblshqEuU — R2 je držao v1.0 dok su -en.jpg slike već bile gore.
+    // `episode.json` (build_episode_bundle.js) se mijenja sa svakim uploadom u data/{id}/.
     return basename === "_manifest.json"
         || basename === "manifest.json"
-        || basename === "og-sections.json";
+        || basename === "og-sections.json"
+        || basename === "episode.json";
 }
 
 /**
@@ -1570,6 +1572,24 @@ if (inputDir) {
             const urls = freshData.map(k => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${k}`);
             log("🧹", `CDN purge za ${urls.length} novih data/ ključeva (obrana od zapamćenog 404) ...`);
             await purgeCloudflareCache(urls);
+        }
+    }
+
+    // data/{id}/episode.json mora pratiti svaki upload u data/{id}/: klijent ne traži
+    // datoteku koje nema u bundleu, pa bi zastario bundle sakrio upravo uploadanu.
+    // run_pipeline.sh postavlja EPISODE_BUNDLE_SKIP=1 jer KORAK 12.7 to radi nakon
+    // 12.5/12.6 (inače bi prvi bundle izašao bez video_h264.mp4 pa odmah bio prepisan).
+    if (!dryRun && process.env.EPISODE_BUNDLE_SKIP !== "1") {
+        const ids = [...new Set([...uploadedKeys]
+            .filter(k => k.startsWith("data/"))
+            .map(k => k.split("/")[1]))];
+        if (ids.length) {
+            // Iznad ~200 epizoda je jedan LIST cijelog data/ prefiksa jeftiniji od LIST-a po epizodi.
+            const scope = ids.length > 200 ? ["--all"] : ["--video-id", ids.join(",")];
+            log("📦", `episode.json za ${ids.length} epizoda ...`);
+            const r = require("child_process").spawnSync("node",
+                [path.join(__dirname, "build_episode_bundle.js"), ...scope], { stdio: "inherit" });
+            if (r.status !== 0) log("⚠️", "build_episode_bundle.js nije uspio — KORAK 12.7 / idući run ga dovršava.");
         }
     }
 
