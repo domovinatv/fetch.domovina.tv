@@ -25,7 +25,7 @@
  *   node automatic/backfill_days.js                    # inkrementalno (zadnjih 7 dana + novi kanali od --since)
  *   node automatic/backfill_days.js --full             # sve od --since ispočetka
  *   node automatic/backfill_days.js --slug lood-podcast --verbose
- *   Opcije: --since 2026-01-01, --limit N, --dry-run, --max-units 9000
+ *   Opcije: --since YYYY-MM-DD (default: granica iz backfill.json), --limit N, --dry-run, --max-units 9000
  */
 
 const fs = require("fs");
@@ -44,7 +44,9 @@ function getArg(name) {
 }
 const hasFlag = (n) => args.includes(n);
 
-const SINCE = getArg("--since") || "2026-01-01";
+// Bez --since vrijedi granica zadnjeg punog prolaza iz backfill.json — inače bi nightly
+// (bez argumenata) zbog razlike u granici svaku noć ponovio puni prolaz.
+const SINCE = getArg("--since") || (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "watchlist", "backfill.json"), "utf8")).since; } catch { return null; } })() || "2026-01-01";
 const FULL = hasFlag("--full");
 const DRY_RUN = hasFlag("--dry-run");
 const VERBOSE = hasFlag("--verbose");
