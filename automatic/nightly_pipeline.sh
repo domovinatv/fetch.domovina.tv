@@ -392,6 +392,12 @@ fi
 run_step "watch-only kandidati (registry, bez obrade)" \
     node "$REPO_DIR/automatic/watch_candidates.js" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} || true
 
+# Dnevni snapshot: koliko novih epizoda (kandidati + praćeni) stigne po noći, 7-dnevni
+# prosjek, dan u tjednu, trajanja → automatic/watchlist/DAILY.md + daily.json.
+# Nula mreže, deterministički iz events.jsonl + git povijesti lista; ide NAKON 5b.
+run_step "dnevni snapshot novih epizoda" \
+    node "$REPO_DIR/automatic/daily_snapshot.js" || true
+
 # Točan datum zadnjeg originala (samo za unose kojima se promijenio najnoviji original
 # ili su ostali na približnom datumu) → status; pa `activity` (watch-state + praćeni
 # kanali s diska) → score v2 + md/csv. Mijenja data/podcasts_registry.* lokalno;
