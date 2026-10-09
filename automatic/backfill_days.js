@@ -54,7 +54,7 @@ const ONLY_SLUG = getArg("--slug");
 const LIMIT = parseInt(getArg("--limit") || "0", 10);
 const MAX_UNITS = parseInt(getArg("--max-units") || "9000", 10);
 const INCREMENTAL_OVERLAP_DAYS = 7;   // premijere i naknadno javni videi znaju doći s ranijim datumom
-const MAX_PAGES_CUSTOM = 40;          // ne-uploads playlista nije sortirana po datumu → čitamo cijelu (do 2 000)
+const MAX_PAGES_CUSTOM = 200;         // ne-uploads playlista nije sortirana po datumu → čitamo cijelu (do 10 000)
 const CONCURRENCY = 4;
 
 // .env ručno, bez dotenv dependencyja (isti obrazac kao upload_to_r2.js)
@@ -156,7 +156,7 @@ async function listPlaylist(src, sinceIso) {
         for (const it of r.items || []) {
             const at = it.contentDetails?.videoPublishedAt;
             if (!at) continue;                                    // privatni / obrisani video u playlisti
-            if (at >= sinceIso) ids.push(it.contentDetails.videoId); else older++;
+            if (at >= sinceIso) ids.push({ id: it.contentDetails.videoId, at }); else older++;
         }
         pageToken = r.nextPageToken;
         if (!pageToken) break;
@@ -206,10 +206,22 @@ function loadEntries() {
 
 // ─── jedan kanal ───────────────────────────────────────────────────
 
+/** incremental = ista granica, samo novo · extend = dublja granica, poznati raspon se ne dohvaća ponovno · fresh = sve ispočetka */
+function modeFor(prev) {
+    const ok = prev && !prev.error && prev.since && prev.covered_until;
+    if (FULL || !ok) return "fresh";
+    if (prev.since === SINCE) return "incremental";
+    return SINCE < prev.since ? "extend" : "fresh";
+}
+
 async function processEntry(e, p, prev, watchCh) {
-    const fresh = FULL || !prev || prev.since !== SINCE || prev.error;
-    const fromDay = fresh ? SINCE : addDays(prev.covered_until.slice(0, 10), -INCREMENTAL_OVERLAP_DAYS);
-    const fromIso = `${fromDay}T00:00:00Z`;
+    const mode = modeFor(prev);
+    const fresh = mode === "fresh";
+    // Poznati raspon [knownFrom, knownTo): detalji videa već su klasificirani u prethodnom prolazu.
+    // knownTo je 7 dana prije covered_until — premijere i naknadno javni videi dođu s ranijim datumom.
+    const knownTo = fresh ? null : `${addDays(prev.covered_until.slice(0, 10), -INCREMENTAL_OVERLAP_DAYS)}T00:00:00Z`;
+    const knownFrom = fresh ? null : `${prev.since}T00:00:00Z`;
+    const fromIso = mode === "incremental" ? knownTo : `${SINCE}T00:00:00Z`;
     const startedAt = new Date().toISOString();
 
     // Inkrementalno: playliste su već razriješene (štedi forHandle pozive), osim kad se izvor promijenio.
@@ -218,26 +230,30 @@ async function processEntry(e, p, prev, watchCh) {
         : await sourcesFor(e, p);
     if (!sources.length) throw new Error("nema YouTube izvora (channel_id/handle/playlist)");
     const ids = new Set();
-    for (const s of sources) for (const id of await listPlaylist(s, fromIso)) ids.add(id);
+    for (const s of sources) for (const { id, at } of await listPlaylist(s, fromIso)) {
+        if (!fresh && at >= knownFrom && at < knownTo) continue;          // već klasificirano
+        ids.add(id);
+    }
     const vids = (await videoDetails([...ids])).filter((v) => v.published_at && v.published_at >= fromIso);
 
     // Prag „pune epizode": ručno pravilo → nightly prag kanala → adaptivno iz ovog uzorka.
     const pool = {};
     for (const [id, v] of Object.entries(watchCh?.seen || {})) if (v.duration) pool[id] = { duration: v.duration };
     for (const v of vids) pool[v.id] = { duration: v.duration };
-    const minDur = e.rule.min_duration_sec || watchCh?.min_duration_sec || adaptiveMinDuration(pool);
+    // Kod extend/incremental prag ostaje isti kao u prethodnom prolazu, da se stari i novi dio ne klasificiraju različito.
+    const minDur = e.rule.min_duration_sec || (!fresh && prev.min_duration_sec) || watchCh?.min_duration_sec || adaptiveMinDuration(pool);
 
     const originals = fresh ? {} : { ...(prev.originals || {}) };
     const counts = fresh ? { derivative: 0, short: 0 } : { ...(prev.counts || { derivative: 0, short: 0 }) };
-    // Inkrementalno: preklapanje se ponovno klasificira, pa ga prvo makni.
-    if (!fresh) for (const [id, o] of Object.entries(originals)) if (o.published_at >= fromIso) delete originals[id];
+    // Preklapanje (od knownTo) se ponovno klasificira, pa ga prvo makni.
+    if (!fresh) for (const [id, o] of Object.entries(originals)) if (o.published_at >= knownTo) delete originals[id];
     let pending = 0;
     for (const v of vids) {
         const r = classify({ duration: v.duration, title: v.title, live_status: v.live === "live" ? "is_live" : v.live === "upcoming" ? "is_upcoming" : null }, e.rule, minDur);
         if (r.cls === "pending") { pending++; continue; }
         if (r.cls === "original") {
             originals[v.id] = { date: zagrebDate(v.published_at), published_at: v.published_at, duration: v.duration, title: v.title.slice(0, 160) };
-        } else if (fresh || v.published_at >= prev.covered_until) {
+        } else if (fresh || v.published_at >= prev.covered_until || v.published_at < knownFrom) {
             counts[r.cls] = (counts[r.cls] || 0) + 1;              // preklapanje je već prebrojano
         }
         if (VERBOSE) console.log(`     ${r.cls.padEnd(10)} ${zagrebDate(v.published_at)} ${String(Math.round((v.duration || 0) / 60)).padStart(4)} min  ${v.title.slice(0, 70)}${r.reason ? `  (${r.reason})` : ""}`);
@@ -247,6 +263,8 @@ async function processEntry(e, p, prev, watchCh) {
         tracked: e.tracked,
         since: SINCE,
         // Pokriveno do trenutka kad je popis povučen — video objavljen poslije toga ide u idući prolaz.
+        // Kod extend se zadržava stari covered_until: novi dio (od knownTo) jest dohvaćen, ali pokrivenost
+        // do sada je ionako potvrđena ovim prolazom.
         covered_until: startedAt,
         source: e.source,
         playlists: sources.map((s) => s.playlistId),
@@ -283,6 +301,12 @@ async function main() {
     let watch = {};
     try { watch = JSON.parse(fs.readFileSync(STATE_FILE, "utf8")).channels || {}; } catch { /* bez watch-statea */ }
 
+    // Inkrementi (svježina zadnjih dana) prvi; dublji/puni prolazi zadnji — ako kvota stane,
+    // stane na njima, a sutrašnji run nastavlja (kanal je ili cijeli novi ili netaknut stari).
+    const rank = (e) => ({ incremental: 0, extend: 1, fresh: 2 })[modeFor(data.channels[e.slug])];
+    list.sort((a, b) => rank(a) - rank(b));
+    const modes = list.reduce((m, e) => ((m[modeFor(data.channels[e.slug])] = (m[modeFor(data.channels[e.slug])] || 0) + 1), m), {});
+    console.log(`   načini: ${Object.entries(modes).map(([k, v]) => `${k} ${v}`).join(", ")}`);
     console.log(`📅 Backfill točnih datuma od ${SINCE}: ${list.length} unosa (${FULL ? "puni" : "inkrementalni"}${DRY_RUN ? ", DRY RUN" : ""})`);
     const t0 = Date.now();
     let idx = 0, done = 0, errors = 0, origTotal = 0, stopped = null;
