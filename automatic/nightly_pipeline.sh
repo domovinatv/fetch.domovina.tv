@@ -398,6 +398,12 @@ run_step "watch-only kandidati (registry, bez obrade)" \
 run_step "dnevni snapshot novih epizoda" \
     node "$REPO_DIR/automatic/daily_snapshot.js" || true
 
+# Točni datumi objave (YouTube Data API, YOUTUBE_API_KEY u .env) za arhivu po danima na
+# podcast.domovina.ai/dani/ — flat lista iz 5b daje samo „prije N dana". Inkrementalno:
+# zadnjih 7 dana po kanalu, ~1 000 jedinica kvote od 10 000/dan. Ide PRIJE 5c.
+run_step "točni datumi objave (YouTube Data API)" \
+    node "$REPO_DIR/automatic/backfill_days.js" || true
+
 # Točan datum zadnjeg originala (samo za unose kojima se promijenio najnoviji original
 # ili su ostali na približnom datumu) → status; pa `activity` (watch-state + praćeni
 # kanali s diska) → score v2 + md/csv. Mijenja data/podcasts_registry.* lokalno;
