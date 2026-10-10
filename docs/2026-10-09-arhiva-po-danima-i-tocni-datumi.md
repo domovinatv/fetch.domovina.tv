@@ -90,17 +90,26 @@ exact-dates` već hvata anti-bot nakon par stotina na Ethernetu).
 
 ## Otvoreno
 
-- **Dovršetak dubokog backfilla**: 109 kanala još je na granici 2025. Nightly
-  10.10. u 03:00 troši ostatak kvote 09.10. (~1 250), nightly **11.10. u 03:00** ima
-  svježu kvotu i trebao bi dovršiti. Provjera:
-  `node -e 'const c=Object.values(require("./automatic/watchlist/backfill.json").channels);console.log(c.filter(x=>x.since!=="2005-01-01").length)'` → `0`.
-  Tada se arhiva sama proširi na 2020. (~2 100 dana) u koraku 5c.
+- ~~Dovršetak dubokog backfilla~~ — **gotovo 10.10.** (vidi poglavlje ispod).
 - Nightly **ne commita** `automatic/watchlist/` (`backfill.json`, `events.jsonl`,
   `DAILY.md`). Predloženo, nije napravljeno: commit korak u nightlyju odmah iza snapshota.
 - `podcasts_registry.*` u radnoj kopiji mijenja nightly (`discover.js activity`), commit
   ostaje ručan.
 - Feed „Upravo stiglo" i popisi epizoda kanala na naslovnici još koriste približne
   watch datume; mogli bi uzeti točne iz `backfill.json`.
+
+## Dovršetak backfilla (10.10.2026.)
+
+- Nightly 10.10. u 03:00 potrošio je ostatak kvote 09.10. (1 246 jedinica) i stao na
+  429/456; ostalo je 27 kanala na granici 2025.
+- Ručno u 17:12 (svježa kvota od 09:00), isti poziv bez argumenata
+  (`node automatic/backfill_days.js`): **456/456, 1 634 jedinice, 192 s, 0 grešaka,
+  37 212 originala**. Cijela povijest do 2005. stala je u ~16 % jedne dnevne kvote
+  (plus ~5 000 iz 09.10.), a ne u dva dana kako je procijenjeno.
+- `build-catalog.mjs` je sam prebacio arhivu na 2020.: **2 474 dana (01.01.2020. →
+  09.10.2026.), 32 071 epizoda**. `days.json` je narastao 2,7 → **7,1 MB** (samo build
+  ulaz, ne ide u stranice); deploy je dodao ~2 000 stranica `/dani/YYYY-MM-DD/`.
+- Od sada nightly radi samo inkrement (~1 000 jedinica/noć), ostatak kvote je slobodan.
 
 ## Vezani dokumenti
 
