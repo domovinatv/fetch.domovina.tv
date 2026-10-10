@@ -111,7 +111,19 @@ exact-dates` već hvata anti-bot nakon par stotina na Ethernetu).
   ulaz, ne ide u stranice); deploy je dodao ~2 000 stranica `/dani/YYYY-MM-DD/`.
 - Od sada nightly radi samo inkrement (~1 000 jedinica/noć), ostatak kvote je slobodan.
 
+## Nastavak 11.10.2026.: dani na naslovnici + ★ Moji
+
+Arhiva je bila dostupna samo kroz poveznicu u footeru. `podcast.domovina.ai` commit
+`0a6baed` premjestio ju je u lijevi stupac naslovnice: na vrhu je traka zadnjih 14 dana
+i kalendar u skočnom prozoru. Feed sada čita `days.json` umjesto `catalog.feed`, pa su
+brojevi isti kao na `/dani/`. Prije je naslovnica za 08.10. pokazivala 22 epizode, a
+dnevna stranica 28. Uz to je dodan „☆ Prati" (samo `localStorage`). Sljedeći korak, za
+sada samo ideja: sviđa/ne sviđa + preporuke + obavijesti, vidi
+`../podcast.domovina.ai/docs/2026-10-11-ideja-svidja-ne-svidja-i-obavijesti.md`.
+
 ## Vezani dokumenti
+
+- `../podcast.domovina.ai/docs/2026-10-11-ideja-svidja-ne-svidja-i-obavijesti.md` — ideja: interesi korisnika + obavijesti
 
 - `automatic/watch_candidates.js` (zaglavlje) — watch i klasifikacija original/derivat
 - `../podcast.domovina.ai/README.md` §„Nove epizode po danima"
