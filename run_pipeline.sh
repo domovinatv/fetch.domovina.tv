@@ -1726,6 +1726,8 @@ fi
 # Idempotentno (HEAD-skip + web.mp4 mtime). BEZ --delete-old (additivno; legacy video.mp4
 # ostaje fallback dok backfill ne bude validiran catalog-wide). SSOT recepta = ova skripta.
 # Vidi docs/video_crossplatform_strategy_2026-06.md.
+# Od 2026-10-11 isti korak uploada i data/{id}/video_h264_fmp4.mp4 (iste struje, fragmentirani
+# MP4 + sidx → brz prvi frame); samo za NOVE epizode, katalog se ne backfilla. --no-fmp4 gasi.
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

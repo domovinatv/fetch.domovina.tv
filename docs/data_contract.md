@@ -317,6 +317,7 @@ https://cdn.domovina.ai/data/{youtube_id}/summary.json
 | Ključ | Kada postoji | Producer |
 |---|---|---|
 | `data/{id}/video_h264.mp4` | Epizoda IMA video (YouTube ili YT-matchana beamly). H.264 Main, univerzalno HW-dekodira. | `backfill_video_h264.js` (KORAK 12.5) |
+| `data/{id}/video_h264_fmp4.mp4` | Epizode od 11.10.2026. (stari katalog se NE backfilla). ISTE struje kao `video_h264.mp4`, fragmentirani MP4 + `sidx` → zaglavlje ~11 KB umjesto ~2,7 MB `moov`-a, prvi frame na Slow 4G 2,6 s umjesto 15,9 s. Uploada se PRIJE `video_h264.mp4`. | `backfill_video_h264.js` (KORAK 12.5); pojedinačno `--fmp4-only --video-id …` |
 | `data/{id}/audio.mp3` | **AUDIO-ONLY** epizoda (nema YouTube video → nema video_h264). beamly subclub/launched s `_yt_matched===false`. | `upload_audio_only.js` (KORAK 12.6) |
 | `images/{id}/thumbnail.png` | Sve epizode (YT thumbnail; audio-only dobiju iz beamly itunesImage ako postoji). | `upload_to_r2.js` |
 | `images/{id}/thumb-{320,640,1280}.webp` | Epizode koje IMAJU `thumbnail.png` (dakle ne audio-only bez slike). In-app responsive varijante, q80. Vidi [`2026-08-25-webp-thumbnails.md`](2026-08-25-webp-thumbnails.md). | `generate_webp_thumbs.js` (KORAK 9.7) |
@@ -327,6 +328,8 @@ https://cdn.domovina.ai/data/{youtube_id}/summary.json
 fallbackom na PNG ako varijanta 404-a. Call-siteovi ne znaju za varijante.
 
 **CONSUMER (domovina.ai) — media resolution mora biti:**
+0. Ako `episode.json` navodi `video_h264_fmp4.mp4` ⇒ taj video (bez probe-a; na WebKitu
+   ostaje `video_h264.mp4` dok Safari ne bude isproban). Bez bundlea se fmp4 ne probe-a.
 1. HEAD `data/{id}/video_h264.mp4` → 200 ⇒ video playback (`CdnConfig.videoH264Url`).
 2. inače HEAD `data/{id}/audio.mp3` → 200 ⇒ **audio playback** (`CdnConfig.audioUrl`, preko `background_audio` servisa).
 3. inače (legacy) `data/{id}/video.mp4`.
