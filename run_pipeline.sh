@@ -17,6 +17,7 @@
 #  11. import_to_vertex.js   — Upload RAG JSONL u Vertex AI Agent Builder
 #  12. upload_to_r2.js       — Cloudflare R2 upload (samo uz --with-r2-upload)
 #  12.5 backfill_video_h264.js — H.264 cross-platform video → video_h264.mp4 (uz --with-r2-upload)
+#  12.65 generate_webp_screenshots.js — WebP 960 uz PNG screenshotove (od 10.10.2026., uz --with-r2-upload)
 #  12.7 build_episode_bundle.js — data/{id}/episode.json (popis datoteka + inline JSON), uz --with-r2-upload
 #
 # PREDUVJETI:
@@ -1790,6 +1791,36 @@ fi
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/upload_audio_only.js" "${AUDIO_ONLY_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri audio-only uploadu, nastavljam..."
+}
+fi
+
+# --- KORAK 12.65: WEBP SCREENSHOTOVI (uz --with-r2-upload) ---
+# PNG screenshot je 1920×1080 (~1,3 MB), app ga crta na ≤480×270: 26 kadrova = 33 MB
+# koji na sporoj vezi guše video. Uz svaki PNG ide images/{id}/screenshots/{ts}-960.webp
+# (~19 KB) + oznaka data/{id}/screenshots_webp.json, koju 12.7 upiše u episode.json.
+# PNG ostaje netaknut (trajni originali). SAMO screenshotovi od 10.10.2026. — stari
+# katalog se ne backfilla. Idempotentno (oznaka na R2). Nula LLM poziva.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.65: WebP screenshotovi (960 px q80, PNG ostaje)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SS_WEBP_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        SS_WEBP_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    SS_WEBP_ARGS+=("--dry-run")
+fi
+
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/generate_webp_screenshots.js" "${SS_WEBP_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri WebP screenshotovima, nastavljam (app ostaje na PNG-u)..."
 }
 fi
 

@@ -321,6 +321,7 @@ https://cdn.domovina.ai/data/{youtube_id}/summary.json
 | `data/{id}/audio.mp3` | **AUDIO-ONLY** epizoda (nema YouTube video → nema video_h264). beamly subclub/launched s `_yt_matched===false`. | `upload_audio_only.js` (KORAK 12.6) |
 | `images/{id}/thumbnail.png` | Sve epizode (YT thumbnail; audio-only dobiju iz beamly itunesImage ako postoji). | `upload_to_r2.js` |
 | `images/{id}/thumb-{320,640,1280}.webp` | Epizode koje IMAJU `thumbnail.png` (dakle ne audio-only bez slike). In-app responsive varijante, q80. Vidi [`2026-08-25-webp-thumbnails.md`](2026-08-25-webp-thumbnails.md). | `generate_webp_thumbs.js` (KORAK 9.7) |
+| `images/{id}/screenshots/{HH-MM-SS}-960.webp` + `data/{id}/screenshots_webp.json` | Screenshotovi nastali od 10.10.2026. (stari katalog se NE backfilla). WebP 960 px q80 (~20 KB) uz netaknuti PNG 1920×1080 (~1,3 MB, trajni original). Oznaka ide zadnja; klijent bira WebP samo kad je `episode.json` navodi, a pojedini kadar bez WebP-a pada na PNG. | `generate_webp_screenshots.js` (KORAK 12.65) |
 | `images/{id}/og-share.jpg` | Kao thumbnail. 1200×630 JPEG za `og:image` — **namjerno NIJE WebP** (link-preview crawleri ga ne dokumentiraju). | `generate_og_image.js` (KORAK 9.5) |
 
 **CONSUMER (domovina.ai) — slike:** `CachedThumbnail` sam nadograđuje kanonski
