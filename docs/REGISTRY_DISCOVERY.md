@@ -267,12 +267,16 @@ pauzu, a 08.10. pokriva rujanski povratak; gotovo sav prirast došao je iz 🟡 
   tag `speech-therapy`, 2 HR podcasta (DijaLOG audio-only, Norda Disleksija). Za stručne niše
   YouTube sweep je slab, a web research nosi rezultat. `not_podcast` redove pregledaj ručno, jer
   prag od 30 min reže epizode od 20 min.
+- **Institucionalni mediji (HKM, Laudato, Radio Marija HR/BiH, Radio MIR, HRT), 2026-10-14** —
+  [`2026-10-14-katolicki-mediji-playliste.md`](2026-10-14-katolicki-mediji-playliste.md):
+  umbrella po kanalu + samo razgovorne playliste kao djeca (50 novih). Metoda: trajanja iz
+  `--flat-playlist`, a svježina iz YouTube Data API `playlistItems` **samo nad epizodama ≥30 min**
+  — inače kratki isječak glumi živu emisiju (HRT Otvoreno / Nedjeljom u 2 na glavnom kanalu).
 
 ## Otvorene stavke (stanje 2026-09-25)
 
-- **`hkm-argumenti`** pokazuje na crnogorski RTCG, ne na HKM (revizija 2026-09-24). Status je
-  `disputed`, pa ga watch i dalje prati (25.09. „otkrio" RTCG epizodu). Pravi HKM Argumenti su
-  `argumenti-sezona-7`. Odluka: ukloniti ili prebaciti na `not-hr` / `dead-url`.
+- ~~**`hkm-argumenti`** pokazuje na crnogorski RTCG~~ — riješeno 14.10.2026.: slug `rtcg-argumenti`,
+  HKR-ovi Argumenti su `argumenti-sezona-7` / `argumenti-sezona-8` pod umbrellom `hkm`.
 - ~~**Glasački bazen**~~ — RIJEŠENO 2026-10-05, vidi „Stanje nakon 10 noći" ispod.
 - **2 unosa bez točnog datuma** (`last_episode_date_approx`) — `exact-dates` ih pokušava svaku noć.
 - **Novi tagovi** koje je sweep agent predložio (tennis, cycling, chess, architecture, film,

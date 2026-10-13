@@ -132,3 +132,19 @@ Zamke: playliste Otvoreno i Nedjeljom u 2 na glavnom HRT kanalu su **zastarjele*
 epizoda 04/2025 odnosno 2022) — subagentov „zadnja 08.10." bio je kratki isječak. Isto za
 Romano Bolković 1 na 1: unos prebačen na živu playlistu HRT vijesti (stara u `youtube_alternatives`).
 Nisu pregledani: radijski podcasti (radio.hrt.hr, RSS) i @HRTkultura.
+
+## Otvorene stavke
+
+- **Editorial odluka o praćenju** (sve je `tracking.enabled: false`). Prijedlog prvog vala:
+  Laudato Odaziv, Papa s nama, More milosrđa, In Familia Dei; MIR Susret, Sitan kamen do kamena;
+  HRT Otvoreno, Nedjeljom u 2, Peti dan, Povijest četvrtkom; HKM Argumenti 8.
+  Praćenje = ručno u `automatic/refresh_podcasts.sh` (registry ga ne sinkronizira).
+- **Na rubu znanosti (HRT)** — pseudoznanost; odluka uključiti/ne.
+- **Nepregledano:** HRT radijski podcasti (radio.hrt.hr → RSS ingest kao DijaLOG), @HRTkultura
+  (Art a la carte, Kultura s nogu, Klub čitatelja), Mladifest (MIR) kao tier-4 arhiva.
+- Radio Marija videi su statična slika → screenshot korak (10) i og-sections ne donose ništa;
+  ako se prate, razmisliti o preskakanju kao za audio-only Beamly.
+
+## Vezani dokumenti
+
+- [`REGISTRY_DISCOVERY.md`](REGISTRY_DISCOVERY.md) — runbook discoveryja, ledger, watch
