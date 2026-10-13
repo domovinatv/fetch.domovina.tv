@@ -2,6 +2,378 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "Forming Consciences for Faithful Citizenship: A Call to Political Responsibility",
+      "uuid": "e0c2bab8-b9f7-45f5-9fa2-bfc599ab612b"
+    },
+    {
+      "match": "Forming Consciences for Faithful Citizenship",
+      "uuid": "6f6b065a-e02c-4bbd-b1b2-7dfe4bf0dec8"
+    },
+    {
+      "match": "\"La Bible en ses Traditions\" The New Project of the École biblique et archéologique française de Jérusalem Presented as a “Fourth-Generation” Enterprise",
+      "uuid": "78cf9622-ef0a-4456-9cc2-1694aefd8d77"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Meeting with representatives of civil society, the political, academic, cultural, and business world, the diplomatic corps, and religious leaders gathered in the National Croatian Theatre (Zagreb, 4 June 2011)",
+      "uuid": "efdfb213-08e6-43ed-8dcb-5748515a4c13"
+    },
+    {
+      "match": "Catholicism and Democracy in America",
+      "uuid": "8a42f602-1ef8-4057-8e74-8c969c9b1e30"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2011",
+      "uuid": "a8551e46-4525-438e-8f09-38ab21c556b2"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 2010",
+      "uuid": "ff3e6311-e384-46a3-ae05-f6fe8d9dd7d7"
+    },
+    {
+      "match": "Ecology Policy Summary",
+      "uuid": "9ac12e87-cfe8-46f6-b581-c36f66983c6c"
+    },
+    {
+      "match": "Three Themes in Pope Benedict XVI’s Caritas in Veritate",
+      "uuid": "ca25bda8-4bf3-4980-84e9-94e067e4aa1b"
+    },
+    {
+      "match": "On the Recovery of Experience and the Search for a Christian Environmentalism",
+      "uuid": "ff46474a-5795-488e-a744-b5867a125005"
+    },
+    {
+      "match": "Habits of Presence and the Generosity of Creation: Ecology in Light of Integral Human Development",
+      "uuid": "25671bf6-a7e7-4751-92d2-3818016636bc"
+    },
+    {
+      "match": "Perennial Wisdom: Notes Toward a Green Thomism",
+      "uuid": "3566587a-6836-4b1f-95c3-cf419d6c1a39"
+    },
+    {
+      "match": "General Audience of 26 August 2009: Safeguarding of Creation",
+      "uuid": "e0bc5412-a485-41fd-92b3-5795e9b41541"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, 2015",
+      "uuid": "7396832f-abd4-4ed5-94ef-fcdce77ab7c4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 1987",
+      "uuid": "d5d3328c-1a9b-4691-9586-8e137cc620f9"
+    },
+    {
+      "match": "Creation and Covenant in Contemporary Theology: A Synthesis of the Principal Interpretative Keys",
+      "uuid": "7a0c56ab-f363-48c2-bc71-15c5d7fc2e95"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2012",
+      "uuid": "c3dd5020-9a81-47fa-86ec-8d9e3be9e8dc"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, 2016",
+      "uuid": "986b666f-9729-4028-88fd-f2f5a85ba1a4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2010",
+      "uuid": "9a31abad-12fc-4aa9-98a0-9ab39fb84e5a"
+    },
+    {
+      "match": "To the participants in the 4th World Congress on the Pastoral Care for Migrants and Refugees (October 9, 1998)",
+      "uuid": "343475e8-8311-4161-9c47-a436672cd313"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2023",
+      "uuid": "c608d260-5ace-4089-ab21-171ab557471f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 1991",
+      "uuid": "4d97ee5a-0e67-4241-9b1f-aaaebf656654"
+    },
+    {
+      "match": "Ecclesia in Medio Oriente",
+      "uuid": "45f38976-29aa-4098-90f8-b6fde297040f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2019",
+      "uuid": "e488cbac-0d95-45bb-9976-ad4bd45f1e1d"
+    },
+    {
+      "match": "General Audience of 8 June 2011: Apostolic Journey to Croatia",
+      "uuid": "82e3c055-cd87-4016-b7b2-eb3e4c33257f"
+    },
+    {
+      "match": "Ad Sinarum Gentem",
+      "uuid": "48a483d3-fe7d-4dbd-993d-80475646f634"
+    },
+    {
+      "match": "To participants in a Conference on public morality (November 29, 1982) - Speech",
+      "uuid": "56705da8-a77e-4f59-8954-9551d8390e76"
+    },
+    {
+      "match": "General Audience of 23 March 1966",
+      "uuid": "e9a3f782-ad2f-4b2c-a0f1-05a20c71c953"
+    },
+    {
+      "match": "To Australian Parliament Members in Camp Hill (Canberra, 24 November 1986) - Speech",
+      "uuid": "be7ad722-bd3a-452f-837b-343c2c10f40b"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, February, 1951",
+      "uuid": "5c367639-6fc5-4627-8ce3-89edad77f4ff"
+    },
+    {
+      "match": "On Catholic Responses to Our Devastated Saeculum",
+      "uuid": "d7275337-8d1b-40b3-beaa-55ee3f5b7d20"
+    },
+    {
+      "match": "General Audience of 27 January 2010: Saint Francis of Assisi",
+      "uuid": "308eb78b-e976-4654-ba70-63de28bd281c"
+    },
+    {
+      "match": "Without Gloss: Francis of Assisi and Western Catholicism",
+      "uuid": "1e5ba3ba-b165-408e-b7d3-0253ab302137"
+    },
+    {
+      "match": "General Audience of 26 October 1988",
+      "uuid": "47893d80-12eb-4f87-a186-ff38534028b6"
+    },
+    {
+      "match": "General Audience of 20 September 1972",
+      "uuid": "8d2930b6-63fd-47bb-96a2-4c26f264fda5"
+    },
+    {
+      "match": "Meeting with young people in Budokan, Tokyo (February 24, 1981)",
+      "uuid": "22804bdb-926f-4903-9165-08f79730e031"
+    },
+    {
+      "match": "General Audience of 7 July 1993",
+      "uuid": "6b23633d-a348-42e7-821d-af01bcbdc8b3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 2020",
+      "uuid": "2063e53e-609a-471b-8448-1b828a77411a"
+    },
+    {
+      "match": "Celebration of the Sacrament of Penance (29 March 2019)",
+      "uuid": "a9e38e12-d0e5-41f3-9f2d-eec3e28af74f"
+    },
+    {
+      "match": "17 June 2007: Eucharistic Concelebration at the Lower Square of the Basilica of Saint Francis",
+      "uuid": "77817e2c-6cad-4c0f-9e75-6351def030c2"
+    },
+    {
+      "match": "17 September 1993: Eucharistic Concelebration at the Franciscan Shrine of La Verna",
+      "uuid": "df356851-4fbb-4a2c-b60e-02e03c279b0d"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 2021",
+      "uuid": "4e191fdc-5d33-4767-804b-782ea9b347b6"
+    },
+    {
+      "match": "General Audience of 13 February 2013",
+      "uuid": "ccb90a6d-5103-4f1d-b0ff-3d390a0ac430"
+    },
+    {
+      "match": "11 June 1988: Canonization of Blessed Eustochia Calafato",
+      "uuid": "c9fec204-139f-4897-90df-343635284fd7"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2023",
+      "uuid": "d2121be1-be22-41d7-bbfe-593aa6e33739"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, 2018",
+      "uuid": "dd8e475e-8be2-41b3-aaf0-7ab454a67952"
+    },
+    {
+      "match": "Eustochia Smeralda Calafato (1434-1485)",
+      "uuid": "bd18836f-a6d8-4683-899c-fdc46d71ec40"
+    },
+    {
+      "match": "Apostolic Journey to the United States: Meeting with young people and seminarians at St. Joseph Seminary in Yonkers, New York (April 19, 2008",
+      "uuid": "eadb3618-8bbd-453e-a194-a634e5c397c7"
+    },
+    {
+      "match": "General Audience of 11 May 1961",
+      "uuid": "c77aa3c3-0666-40da-8406-90bd8fd7816b"
+    },
+    {
+      "match": "Letter 107 - To Laeta",
+      "uuid": "c6b8cc66-5d0b-4428-b00a-e69722a4efe5"
+    },
+    {
+      "match": "Address on the occasion of the 25th anniversary of the Young Women of Italian Catholic Action (April 24, 1943)",
+      "uuid": "72aa3699-67cd-4397-b85d-51213bd05623"
+    },
+    {
+      "match": "Maria Bertilla Boscardin (1888-1922) - Homily",
+      "uuid": "afcb48f7-188a-484c-afa2-d20dcec3dbce"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, 2016",
+      "uuid": "24059478-ab42-49a3-96fd-e0532a7f10d2"
+    },
+    {
+      "match": "General Audience of 26 August 2015: The family - 24. Prayer",
+      "uuid": "8dd9c87f-5356-486c-b1fc-91c7ab08906c"
+    },
+    {
+      "match": "To the Hungarian Bishops (Bishopric of Gyor, September 7, 1996) - Speech",
+      "uuid": "b7e7c7ce-ca14-4c36-a62d-182368a475f4"
+    },
+    {
+      "match": "24 January 1982: Pastoral Visit to the Roman Parish of St Theresa outside \"Porta Salaria\" - Homily",
+      "uuid": "489743a6-77dc-4a13-82eb-52241d72db74"
+    },
+    {
+      "match": "To Bishops of Portugal on their ad Limina visit (July 6, 1987) - Speech",
+      "uuid": "441fa494-7bc0-49b0-ae0a-8683b3f456b7"
+    },
+    {
+      "match": "Ordo Penitentiae (The Order of Penance)",
+      "uuid": "3513af17-2aac-400a-84a8-7d1893d37029"
+    },
+    {
+      "match": "To the young people gathered in the \"Aranci Stadium\" of Formia (June 25, 1989) - Speech",
+      "uuid": "e669b306-f4ef-4fc8-b67f-abd86e546470"
+    },
+    {
+      "match": "Address of the Holy Father to Young People (October 5, 1986) - Speech",
+      "uuid": "17d0c6ff-c8ba-463e-bd12-f2ac99d56403"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, 2018",
+      "uuid": "24a39cd9-2ed6-42e9-be4b-a7cec8f94439"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, 2018",
+      "uuid": "88be9bea-c9a4-4081-9717-06d3c4c8fa10"
+    },
+    {
+      "match": "General Audience of 22 May 2013",
+      "uuid": "912346dc-1c3c-4010-8772-5a5fb22d9406"
+    },
+    {
+      "match": "30 May 1965: Mass in preparation of Pentecost",
+      "uuid": "155c386d-9cb8-41ec-aa31-0021468a4584"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2023",
+      "uuid": "1951a142-006c-4da0-ae73-3b4f26ae227b"
+    },
+    {
+      "match": "Holy Mass on the Solemnity of Pentecost (9 June 2019)",
+      "uuid": "0536d63c-622f-493e-a7ca-f6c77c0439c8"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1966",
+      "uuid": "3b413678-783e-45d7-a128-4f4e9093db0c"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, July, 2013",
+      "uuid": "6d4b67cd-c134-402e-95d7-1596802a888a"
+    },
+    {
+      "match": "General Audience of 13 July 1994",
+      "uuid": "b805c02d-2a8b-41df-9502-f06dd01458aa"
+    },
+    {
+      "match": "Anna Schäffer (1882-1925) - Beatification homily",
+      "uuid": "38aa552d-8293-490f-8ff4-614c5183c900"
+    },
+    {
+      "match": "Solemnity of the Conversion of Saint Paul the Apostle - Celebration of Vespers (25 January 2015)",
+      "uuid": "db4dacfa-9217-4a94-81b8-b4849a9accdb"
+    },
+    {
+      "match": "Pastoral Visit to the Parish of “S. Maria della Presentazione” (8 March 2026)",
+      "uuid": "79c7b180-ef4b-4482-b207-4820886ffcec"
+    },
+    {
+      "match": "General Audience of 10 August 1988",
+      "uuid": "5d3ba42d-4b41-432a-a463-2f707520f471"
+    },
+    {
+      "match": "24 February 2008: Pastoral visit to the Parish of 'Santa Maria Liberatrice' at Monte Testaccio in Rome",
+      "uuid": "64f7b545-fd45-497b-9b7a-c1c98515aee2"
+    },
+    {
+      "match": "General Audience of 10 February 2021: Catechesis on prayer - 24. Prayer in daily life",
+      "uuid": "ceafea5c-14b6-43b2-82c7-4607722c7e38"
+    },
+    {
+      "match": "U dijalogu s Gospodinom",
+      "uuid": "a08c0076-203d-4ca1-a75a-a63c32c615b4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2002",
+      "uuid": "4de8854f-7bcd-472d-9353-2fd3977162f5"
+    },
+    {
+      "match": "È Gesù che passa",
+      "uuid": "a5b57337-b792-4af5-9738-90bdbb65083b"
+    },
+    {
+      "match": "General Audience of 18 May 2022 - Catechesis on Old Age: 10. Job. The trial of faith, the blessing of waiting",
+      "uuid": "840fa5dc-7fd7-4468-a640-e781b3eaeb5a"
+    },
+    {
+      "match": "Extraordinary Jubilee of Mercy: Holy Mass and Opening of the Holy Door at the Basilica of St Mary Major (1st January 2016)",
+      "uuid": "0ce52628-5f51-4944-b175-e46842641e03"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, October, 1940",
+      "uuid": "66f55c70-c5d6-43ef-a91c-78f26c4e27e3"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1983",
+      "uuid": "cf3e98fa-1584-4761-a68c-bd981d23a1e6"
+    },
+    {
+      "match": "Elements of Christian Anthropology in Relation to the Unity and Indissolubility of Marriage, 1997, Issue 3, pp. 449–475",
+      "uuid": "7dd494b6-c400-43af-b9f6-58d7be1d88a1"
+    },
+    {
+      "match": "General Audience of 16 October 1985",
+      "uuid": "f212f588-42da-41ed-88ce-bc4f9cedf552"
+    },
+    {
+      "match": "On the Apparel of Women",
+      "uuid": "c587b6ee-c0a0-44f7-8e81-ee7b031e2067"
+    },
+    {
+      "match": "General Audience of 3 March 1999",
+      "uuid": "6415dfd1-07d0-4347-956f-1acaf04f21e6"
+    },
+    {
+      "match": "Dubious Letters",
+      "uuid": "7b3875a7-a357-4837-9350-14bb6bf222a4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 1954",
+      "uuid": "dd8c3bb7-b724-48df-9404-bd8c421d7c5f"
+    },
+    {
+      "match": "Apostolic Journey to Canada: Vespers with Bishops, Priests, Deacons, Consecrated persons, Seminarians and Pastoral workers in the Cathedral of Notre Dame (Québec, 28 July 2022)",
+      "uuid": "0f54106b-21a4-4ba4-a18c-e3ebe17a3b56"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 2019",
+      "uuid": "e3491840-4704-4dd3-8fef-bc36760d0cb4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, August, 2013",
+      "uuid": "65147961-2ef8-4e22-9261-d0fc9bed57b3"
+    },
+    {
+      "match": "General Audience of 28 September 2022 - Catechesis On Discernment: 3. The elements of discernment. Familiarity with the Lord",
+      "uuid": "a89ab0d9-1080-4647-b20e-8f9b2876ce46"
+    },
+    {
+      "match": "Gaudete in Domino",
+      "uuid": "db34fab9-53d3-4454-abad-cf77bc49cc8d"
+    },
+    {
       "match": "29 January 1985: Eucharistic celebration for workers in Ciudad Guayana",
       "uuid": "773a89d6-8606-4800-aa63-61a5a45d8a6f"
     },
@@ -5480,6 +5852,30 @@
     {
       "match": "The Incipient Probabilism of Francisco de Vitoria",
       "uuid": "4a99ce27-9181-400f-af51-30881b4ae4e2"
+    },
+    {
+      "match": "29 June 2007: Eucharistic Concelebration on the Solemnity of the Holy Apostles Peter and Paul",
+      "uuid": "b4192adc-1a25-4bf7-a83d-81316ef213c0"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 9, September, 2011",
+      "uuid": "894516e1-d83f-4705-8d4a-256654ae878b"
+    },
+    {
+      "match": "The Dialogue of Divine Providence",
+      "uuid": "e210516b-5eca-409c-90fe-57dfeb22455a"
+    },
+    {
+      "match": "General Audience of 17 September 1986",
+      "uuid": "c6280aff-6538-4080-91c6-8aafb8d56f8e"
+    },
+    {
+      "match": "Veritatem facientes (March 27, 1952)",
+      "uuid": "e991ccff-2cf8-45e0-8e24-916809cbf2d2"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, August, 2010",
+      "uuid": "0265fc24-4ee8-47d6-bd45-198df98a84a6"
     }
   ]
 }
