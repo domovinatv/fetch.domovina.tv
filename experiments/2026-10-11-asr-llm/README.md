@@ -62,3 +62,46 @@ Izlaz eksperimenta NIJE privremen — to je proizveden sadržaj za tih 14 epizod
   GitHubu — `--commit --push` objavljuje i ove datoteke.
 - Audio (`data/audio/`, WAV + MP3 + webm) ostaje trajno na DOMOVINA1TB; sync ga
   ne dira (samo tekst).
+
+## Stanje 14.10.2026. — faza 1 GOTOVA (14/14 za svaki alat)
+
+Skripte: `asr_cloud.js` (1a), `modal_asr_diar.py` (1b), `diar_pyannoteai.js` (1c),
+`evaluate_asr.py` (3a → `results/asr_metrics.md` + `.json`). Logovi i stanje računa
+prije/poslije: `data/logs/`.
+
+| alat | trošak (stvarni / procjena) | brzina |
+|---|---|---|
+| Speechmatics Enhanced | 12 poslova, 18,71 h (usage API); ~$14,6 po $0,80/h. 2 ref. epizode preuzete iz produkcije | 3 h ep ≈ 10 min |
+| Deepgram Nova-3 `hr` | procjena ~$5,30; balans $200 → $199,15 nakon runa, usage API isti dan prazan — **provjeriti ponovno** | 3 h ep ≈ 45 s |
+| AssemblyAI Universal-2 | procjena ~$3,90 (`speech_models: ["universal-2"]`, stari `speech_model` ukinut) | 3 h ep ≈ 5 min |
+| Modal A100-40GB (Canary + Parakeet + pyannote, 1 kontejner/ep) | **$3,10** za cijeli dan (billing report, app `domovina-exp-asr-20261011`), uklj. ~7 srušenih kontejnera | wall 2,5–6,7 min/ep |
+| pyannoteAI precision-3 | trial | 30–160 s/ep |
+
+**Ključni nalaz 1b:** pyannote community-1 na A100 = **39–49 s po satu zvuka**
+(cilj 30–60) → diarizacija stane u isti Modal kontejner kao transkripcija, Mac izlazi
+iz kritičnog puta. Canary 19–35 s/h (bf16), Parakeet 24–37 s/h (fp32), učitavanje
+modela ~60–80 s po kontejneru.
+
+**Ključni nalazi 3a** (referenca Speechmatics, nije istina):
+- Najčešće „greške" su izbačene poštapalice/veznici (`i`, `je`, `dakle`, `pa`) —
+  Speechmatics je doslovniji. Na urednim razgovorima svi su 9–17 % WER.
+- Canary ≈ Deepgram ≈ AssemblyAI na razgovorima; Canary lošiji na sportskim/uživo
+  emisijama (4s5SI 40,6 vs 34,6; v6Qd 51,8 vs 43,3). Parakeet najlošiji i jedini
+  ispušta (IjoWv3 6 min).
+- **pyannote-c1 (Modal) vs pyannoteAI precision-3: međusobni DER 2–5 % na 11/14
+  epizoda** → plaćeni hosted diarizator ne donosi ništa bitno.
+- v6QdSjd8NAE (Ril Tok #202): svi ~43–52 % WER i ~50 % DER, Speechmatics jedini vidi 20
+  govornika (ostali 4–5) → sumnja na referencu, ručno pregledati.
+
+**Zamke 1b** (popravljeno u skripti):
+- Parakeet u bf16 + CUDA graph dekoder: DRUGI `transcribe()` u istom procesu →
+  `illegal memory access` (Xid 31), Modal je srušeni input ponavljao u petlji.
+  Sada fp32, `use_cuda_graph_decoder=False`, `retries=0`.
+- Parakeet fp32 123 min u komadu = OOM na 40 GB → komad 80 min.
+
+Sljedeće: faza 2 (LLM). Odluke 14.10.: OpenRouter uplata PRESKOČENA (Gemma, Nemotron,
+Inkling otpadaju); Sonnet 5.5 ide preko Claude Code PRETPLATE (`claude -p --model sonnet
+--tools ''`, neutralan cwd, nikad `--bare` — vidi `docs/claude_code_backend_2026-07.md`).
+Kandidati: Gemini 3.8 Flash (osnovica) + Gemini 4 Argon (Vertex, krediti), Haiku 5.5
+(exp ključ), Sonnet 5.5 (pretplata). GCP krediti prije: $216,92 (`data/logs/gcp_krediti_prije_faza2.json`).
+Slijepu ocjenu članaka i analizu rade Opus subagenti.

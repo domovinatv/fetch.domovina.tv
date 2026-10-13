@@ -238,3 +238,23 @@ Gemma 4 je open-weight, pa dobar rezultat znači i opciju self-hosta kasnije (na
 Modalu uz Canary). Zamka: aktivni `gcloud` account se opet prebacio na
 `play-publisher@domovina-production` (403 na Vertexu) — testne skripte moraju
 koristiti `--account=$VERTEX_ACCOUNT` kao i pipeline.
+
+## Mjerenje 14.10.2026. — faza 1 benchmarka (14 ep, ~23 h)
+
+Puni rezultati i zamke: `experiments/2026-10-11-asr-llm/README.md` §Stanje 14.10.,
+tablice `experiments/2026-10-11-asr-llm/results/asr_metrics.md`.
+
+- **Pretpostavka iz §Alternative potvrđena:** pyannote community-1 na Modal A100-40GB =
+  **39–49 s po satu zvuka**. Canary + Parakeet + pyannote u jednom kontejneru, 14 epizoda,
+  cijeli dan eksperimenta **$3,10** (uklj. ~7 srušenih kontejnera) → red veličine
+  **~$0,15–0,25 po epizodi**, Mac izlazi iz kritičnog puta.
+- **pyannoteAI precision-3 vs vlastiti pyannote-c1:** međusobni DER 2–5 % na 11/14 →
+  hosted diarizacija se ne isplati (otpada redak „pyannoteAI hosted" iz kandidata).
+- **ASR, WER prema Speechmatics Enhanced** (doslovniji je — poštapalice dižu WER svima):
+  na razgovorima Canary ≈ Deepgram ≈ AssemblyAI (9–17 %); na sportskim/uživo emisijama
+  Canary 5–8 bodova lošiji od Deepgrama. Parakeet najlošiji i jedini ispušta (do 6 min).
+  Nijedan servis ne ispušta sadržaj kao Canary EN→HR (§TRANSCRIPT_GAP).
+- Deepgram je najbrži (3 h → 45 s), AssemblyAI najjeftiniji plaćeni (~$0,19/h).
+- Otvoreno: Speechmatics kao referenca je slab na emisijama s puno glasova (Ril Tok #202:
+  20 govornika naspram 4–5 kod svih ostalih) → ručno ispravljeni isječci i dalje trebaju.
+- GCP krediti prije faze 2 (LLM): **$216,92 / $300** (14.10. 01:27).

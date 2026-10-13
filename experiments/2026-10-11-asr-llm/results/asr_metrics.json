@@ -1,0 +1,1238 @@
+{
+ "-P5TCG_aN2c": {
+  "audio_s": 3438,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.1535,
+    "sub": 557,
+    "del": 513,
+    "ins": 286,
+    "ref_words": 8833,
+    "hyp_words": 8606,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 210,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.1748,
+    "sub": 753,
+    "del": 544,
+    "ins": 247,
+    "ref_words": 8833,
+    "hyp_words": 8536,
+    "pomak_ms_median": 60,
+    "pomak_ms_p90": 192,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.1518,
+    "sub": 652,
+    "del": 401,
+    "ins": 288,
+    "ref_words": 8833,
+    "hyp_words": 8720,
+    "pomak_ms_median": 1740,
+    "pomak_ms_p90": 3220,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0036,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.1678,
+    "sub": 714,
+    "del": 591,
+    "ins": 177,
+    "ref_words": 8833,
+    "hyp_words": 8419,
+    "pomak_ms_median": 90,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0471
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0442
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0878,
+    "der_prema_pyannoteai": 0.0327
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0693
+   }
+  }
+ },
+ "ja995FNQP3A": {
+  "audio_s": 4340,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0057,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.1236,
+    "sub": 710,
+    "del": 544,
+    "ins": 174,
+    "ref_words": 11553,
+    "hyp_words": 11183,
+    "pomak_ms_median": 115,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0056,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.1374,
+    "sub": 953,
+    "del": 390,
+    "ins": 244,
+    "ref_words": 11553,
+    "hyp_words": 11407,
+    "pomak_ms_median": 54,
+    "pomak_ms_p90": 145,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0057,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.1185,
+    "sub": 670,
+    "del": 468,
+    "ins": 231,
+    "ref_words": 11553,
+    "hyp_words": 11316,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 280,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0116,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.1581,
+    "sub": 967,
+    "del": 647,
+    "ins": 213,
+    "ref_words": 11553,
+    "hyp_words": 11119,
+    "pomak_ms_median": 90,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0159,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0311
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0155
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0383,
+    "der_prema_pyannoteai": 0.0318
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.1009
+   }
+  }
+ },
+ "2FeLIaMDprw": {
+  "audio_s": 6243,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.2258,
+    "sub": 1715,
+    "del": 831,
+    "ins": 523,
+    "ref_words": 13591,
+    "hyp_words": 13283,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 205,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2393,
+    "sub": 1942,
+    "del": 771,
+    "ins": 540,
+    "ref_words": 13591,
+    "hyp_words": 13360,
+    "pomak_ms_median": 62,
+    "pomak_ms_p90": 209,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.2264,
+    "sub": 1707,
+    "del": 699,
+    "ins": 671,
+    "ref_words": 13591,
+    "hyp_words": 13563,
+    "pomak_ms_median": 180,
+    "pomak_ms_p90": 1940,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.258,
+    "sub": 2197,
+    "del": 846,
+    "ins": 463,
+    "ref_words": 13591,
+    "hyp_words": 13208,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0501
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0354
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.1113,
+    "der_prema_pyannoteai": 0.0266
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.1157
+   }
+  }
+ },
+ "4s5SI-n7270": {
+  "audio_s": 11321,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0013,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.3456,
+    "sub": 5389,
+    "del": 2508,
+    "ins": 1081,
+    "ref_words": 25980,
+    "hyp_words": 24553,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 210,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0058,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.3768,
+    "sub": 5821,
+    "del": 2900,
+    "ins": 1068,
+    "ref_words": 25980,
+    "hyp_words": 24148,
+    "pomak_ms_median": 60,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0039,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.4061,
+    "sub": 6211,
+    "del": 2586,
+    "ins": 1753,
+    "ref_words": 25980,
+    "hyp_words": 25147,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 240,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0092,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.4361,
+    "sub": 6345,
+    "del": 4199,
+    "ins": 785,
+    "ref_words": 25980,
+    "hyp_words": 22566,
+    "pomak_ms_median": 102,
+    "pomak_ms_p90": 202,
+    "ispusteno_s": 60,
+    "ispusteni_prozori_min": [
+     33
+    ],
+    "gap_ratio": 0.0299,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 4
+   },
+   "deepgram-nova3": {
+    "govornika": 4,
+    "der_prema_sm": 0.116
+   },
+   "assemblyai-universal2": {
+    "govornika": 3,
+    "der_prema_sm": 0.13
+   },
+   "pyannote-c1": {
+    "govornika": 4,
+    "der_prema_sm": 0.1575,
+    "der_prema_pyannoteai": 0.0547
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 4,
+    "der_prema_sm": 0.1299
+   }
+  }
+ },
+ "dK_cN6D3dDQ": {
+  "audio_s": 2087,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.1501,
+    "sub": 267,
+    "del": 468,
+    "ins": 107,
+    "ref_words": 5608,
+    "hyp_words": 5247,
+    "pomak_ms_median": 115,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.1141,
+    "sub": 319,
+    "del": 164,
+    "ins": 157,
+    "ref_words": 5608,
+    "hyp_words": 5601,
+    "pomak_ms_median": 56,
+    "pomak_ms_p90": 158,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.0909,
+    "sub": 241,
+    "del": 113,
+    "ins": 156,
+    "ref_words": 5608,
+    "hyp_words": 5651,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 220,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.1223,
+    "sub": 354,
+    "del": 211,
+    "ins": 121,
+    "ref_words": 5608,
+    "hyp_words": 5518,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 3,
+    "der_prema_sm": 0.0764
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0236
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0394,
+    "der_prema_pyannoteai": 0.0176
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0384
+   }
+  }
+ },
+ "IBKliva4oYk": {
+  "audio_s": 3850,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.3289,
+    "sub": 1801,
+    "del": 904,
+    "ins": 443,
+    "ref_words": 9570,
+    "hyp_words": 9109,
+    "pomak_ms_median": 115,
+    "pomak_ms_p90": 210,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0036,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.3412,
+    "sub": 1761,
+    "del": 1055,
+    "ins": 449,
+    "ref_words": 9570,
+    "hyp_words": 8964,
+    "pomak_ms_median": 60,
+    "pomak_ms_p90": 221,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.334,
+    "sub": 1733,
+    "del": 943,
+    "ins": 520,
+    "ref_words": 9570,
+    "hyp_words": 9147,
+    "pomak_ms_median": 110,
+    "pomak_ms_p90": 220,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0094,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.4789,
+    "sub": 2330,
+    "del": 1984,
+    "ins": 269,
+    "ref_words": 9570,
+    "hyp_words": 7855,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 60,
+    "ispusteni_prozori_min": [
+     16
+    ],
+    "gap_ratio": 0.0516,
+    "gap_flag": "warn"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 5
+   },
+   "deepgram-nova3": {
+    "govornika": 3,
+    "der_prema_sm": 0.1275
+   },
+   "assemblyai-universal2": {
+    "govornika": 3,
+    "der_prema_sm": 0.1372
+   },
+   "pyannote-c1": {
+    "govornika": 3,
+    "der_prema_sm": 0.1244,
+    "der_prema_pyannoteai": 0.0438
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 3,
+    "der_prema_sm": 0.1328
+   }
+  }
+ },
+ "IjoWv3AmbvA": {
+  "audio_s": 9775,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0095,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.2106,
+    "sub": 2463,
+    "del": 1010,
+    "ins": 848,
+    "ref_words": 20518,
+    "hyp_words": 20356,
+    "pomak_ms_median": 125,
+    "pomak_ms_p90": 211,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0561,
+    "gap_flag": "warn"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2261,
+    "sub": 2876,
+    "del": 1138,
+    "ins": 625,
+    "ref_words": 20518,
+    "hyp_words": 20005,
+    "pomak_ms_median": 60,
+    "pomak_ms_p90": 158,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0388,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.2348,
+    "sub": 2713,
+    "del": 1164,
+    "ins": 941,
+    "ref_words": 20518,
+    "hyp_words": 20295,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 230,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0428,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.2838,
+    "sub": 3201,
+    "del": 2125,
+    "ins": 498,
+    "ref_words": 20518,
+    "hyp_words": 18891,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 360,
+    "ispusteni_prozori_min": [
+     13,
+     14,
+     83,
+     114,
+     118,
+     143
+    ],
+    "gap_ratio": 0.1135,
+    "gap_flag": "warn"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 48
+   },
+   "deepgram-nova3": {
+    "govornika": 18,
+    "der_prema_sm": 0.1051
+   },
+   "assemblyai-universal2": {
+    "govornika": 5,
+    "der_prema_sm": 0.1258
+   },
+   "pyannote-c1": {
+    "govornika": 30,
+    "der_prema_sm": 0.1352,
+    "der_prema_pyannoteai": 0.0511
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 36,
+    "der_prema_sm": 0.1611
+   }
+  }
+ },
+ "O72WoKYazQ0": {
+  "audio_s": 7390,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0014,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.317,
+    "sub": 3349,
+    "del": 1767,
+    "ins": 785,
+    "ref_words": 18616,
+    "hyp_words": 17634,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 210,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0115,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.3422,
+    "sub": 3606,
+    "del": 1866,
+    "ins": 898,
+    "ref_words": 18616,
+    "hyp_words": 17648,
+    "pomak_ms_median": 62,
+    "pomak_ms_p90": 180,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0161,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.3364,
+    "sub": 3365,
+    "del": 1847,
+    "ins": 1050,
+    "ref_words": 18616,
+    "hyp_words": 17819,
+    "pomak_ms_median": 110,
+    "pomak_ms_p90": 220,
+    "ispusteno_s": 60,
+    "ispusteni_prozori_min": [
+     1
+    ],
+    "gap_ratio": 0.0335,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.3612,
+    "sub": 3991,
+    "del": 2000,
+    "ins": 733,
+    "ref_words": 18616,
+    "hyp_words": 17349,
+    "pomak_ms_median": 99,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 120,
+    "ispusteni_prozori_min": [
+     0,
+     1
+    ],
+    "gap_ratio": 0.0266,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 5
+   },
+   "deepgram-nova3": {
+    "govornika": 4,
+    "der_prema_sm": 0.0955
+   },
+   "assemblyai-universal2": {
+    "govornika": 4,
+    "der_prema_sm": 0.0925
+   },
+   "pyannote-c1": {
+    "govornika": 5,
+    "der_prema_sm": 0.1062,
+    "der_prema_pyannoteai": 0.1013
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 6,
+    "der_prema_sm": 0.1456
+   }
+  }
+ },
+ "PFeTdbx-09c": {
+  "audio_s": 2868,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0074,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.2163,
+    "sub": 922,
+    "del": 600,
+    "ins": 285,
+    "ref_words": 8356,
+    "hyp_words": 8041,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 205,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0097,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2367,
+    "sub": 967,
+    "del": 750,
+    "ins": 261,
+    "ref_words": 8356,
+    "hyp_words": 7867,
+    "pomak_ms_median": 58,
+    "pomak_ms_p90": 170,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0098,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.2046,
+    "sub": 951,
+    "del": 368,
+    "ins": 391,
+    "ref_words": 8356,
+    "hyp_words": 8379,
+    "pomak_ms_median": 1480,
+    "pomak_ms_p90": 2780,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0109,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.2615,
+    "sub": 1185,
+    "del": 751,
+    "ins": 249,
+    "ref_words": 8356,
+    "hyp_words": 7854,
+    "pomak_ms_median": 90,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0339,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 7
+   },
+   "deepgram-nova3": {
+    "govornika": 6,
+    "der_prema_sm": 0.0736
+   },
+   "assemblyai-universal2": {
+    "govornika": 5,
+    "der_prema_sm": 0.0696
+   },
+   "pyannote-c1": {
+    "govornika": 6,
+    "der_prema_sm": 0.0724,
+    "der_prema_pyannoteai": 0.0265
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 6,
+    "der_prema_sm": 0.0981
+   }
+  }
+ },
+ "PlPyI-TPlgw": {
+  "audio_s": 1733,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.1635,
+    "sub": 309,
+    "del": 252,
+    "ins": 65,
+    "ref_words": 3828,
+    "hyp_words": 3641,
+    "pomak_ms_median": 115,
+    "pomak_ms_p90": 205,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.1554,
+    "sub": 329,
+    "del": 167,
+    "ins": 99,
+    "ref_words": 3828,
+    "hyp_words": 3760,
+    "pomak_ms_median": 59,
+    "pomak_ms_p90": 184,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.1293,
+    "sub": 259,
+    "del": 140,
+    "ins": 96,
+    "ref_words": 3828,
+    "hyp_words": 3784,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 230,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.1528,
+    "sub": 353,
+    "del": 155,
+    "ins": 77,
+    "ref_words": 3828,
+    "hyp_words": 3750,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.037
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0292
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0529,
+    "der_prema_pyannoteai": 0.0229
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0551
+   }
+  }
+ },
+ "soQ8jSlBT1Y": {
+  "audio_s": 4279,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.2575,
+    "sub": 1742,
+    "del": 665,
+    "ins": 598,
+    "ref_words": 11670,
+    "hyp_words": 11603,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 205,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2721,
+    "sub": 1927,
+    "del": 572,
+    "ins": 676,
+    "ref_words": 11670,
+    "hyp_words": 11774,
+    "pomak_ms_median": 58,
+    "pomak_ms_p90": 132,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.2565,
+    "sub": 1678,
+    "del": 655,
+    "ins": 660,
+    "ref_words": 11670,
+    "hyp_words": 11675,
+    "pomak_ms_median": 110,
+    "pomak_ms_p90": 220,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0082,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.2763,
+    "sub": 2038,
+    "del": 667,
+    "ins": 520,
+    "ref_words": 11670,
+    "hyp_words": 11523,
+    "pomak_ms_median": 90,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0026,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0927
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0651
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0993,
+    "der_prema_pyannoteai": 0.0678
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.1058
+   }
+  }
+ },
+ "v6QdSjd8NAE": {
+  "audio_s": 9886,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.4332,
+    "sub": 6706,
+    "del": 3409,
+    "ins": 1714,
+    "ref_words": 27304,
+    "hyp_words": 25609,
+    "pomak_ms_median": 130,
+    "pomak_ms_p90": 225,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0046,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.4566,
+    "sub": 6431,
+    "del": 4196,
+    "ins": 1840,
+    "ref_words": 27304,
+    "hyp_words": 24948,
+    "pomak_ms_median": 67,
+    "pomak_ms_p90": 227,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0147,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.5178,
+    "sub": 7776,
+    "del": 4339,
+    "ins": 2024,
+    "ref_words": 27304,
+    "hyp_words": 24989,
+    "pomak_ms_median": 150,
+    "pomak_ms_p90": 1620,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0471,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.517,
+    "sub": 7237,
+    "del": 6079,
+    "ins": 801,
+    "ref_words": 27304,
+    "hyp_words": 22026,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 195,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0252,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 20
+   },
+   "deepgram-nova3": {
+    "govornika": 5,
+    "der_prema_sm": 0.5087
+   },
+   "assemblyai-universal2": {
+    "govornika": 5,
+    "der_prema_sm": 0.5572
+   },
+   "pyannote-c1": {
+    "govornika": 4,
+    "der_prema_sm": 0.5157,
+    "der_prema_pyannoteai": 0.1719
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 4,
+    "der_prema_sm": 0.4958
+   }
+  }
+ },
+ "wXPHSvY9Cek": {
+  "audio_s": 3807,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0037,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.2137,
+    "sub": 1101,
+    "del": 563,
+    "ins": 249,
+    "ref_words": 8950,
+    "hyp_words": 8636,
+    "pomak_ms_median": 115,
+    "pomak_ms_p90": 210,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0038,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2253,
+    "sub": 1267,
+    "del": 480,
+    "ins": 269,
+    "ref_words": 8950,
+    "hyp_words": 8739,
+    "pomak_ms_median": 58,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0039,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.1933,
+    "sub": 919,
+    "del": 521,
+    "ins": 290,
+    "ref_words": 8950,
+    "hyp_words": 8719,
+    "pomak_ms_median": 110,
+    "pomak_ms_p90": 220,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0039,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.2472,
+    "sub": 1314,
+    "del": 670,
+    "ins": 228,
+    "ref_words": 8950,
+    "hyp_words": 8508,
+    "pomak_ms_median": 90,
+    "pomak_ms_p90": 190,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0038,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 2
+   },
+   "deepgram-nova3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0472
+   },
+   "assemblyai-universal2": {
+    "govornika": 2,
+    "der_prema_sm": 0.0396
+   },
+   "pyannote-c1": {
+    "govornika": 2,
+    "der_prema_sm": 0.0681,
+    "der_prema_pyannoteai": 0.0207
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 2,
+    "der_prema_sm": 0.0817
+   }
+  }
+ },
+ "Y89lSaTRAqQ": {
+  "audio_s": 4127,
+  "asr": {
+   "speechmatics-enhanced": {
+    "gap_ratio": 0.0041,
+    "gap_flag": "ok"
+   },
+   "deepgram-nova3": {
+    "wer": 0.262,
+    "sub": 1687,
+    "del": 640,
+    "ins": 479,
+    "ref_words": 10709,
+    "hyp_words": 10548,
+    "pomak_ms_median": 125,
+    "pomak_ms_p90": 215,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0113,
+    "gap_flag": "ok"
+   },
+   "assemblyai-universal2": {
+    "wer": 0.2843,
+    "sub": 1678,
+    "del": 900,
+    "ins": 467,
+    "ref_words": 10709,
+    "hyp_words": 10276,
+    "pomak_ms_median": 62,
+    "pomak_ms_p90": 185,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0062,
+    "gap_flag": "ok"
+   },
+   "canary-1b-v2": {
+    "wer": 0.2508,
+    "sub": 1600,
+    "del": 476,
+    "ins": 610,
+    "ref_words": 10709,
+    "hyp_words": 10843,
+    "pomak_ms_median": 120,
+    "pomak_ms_p90": 230,
+    "ispusteno_s": 0,
+    "ispusteni_prozori_min": [],
+    "gap_ratio": 0.0069,
+    "gap_flag": "ok"
+   },
+   "parakeet-tdt-0.6b-v3": {
+    "wer": 0.3758,
+    "sub": 2186,
+    "del": 1509,
+    "ins": 329,
+    "ref_words": 10709,
+    "hyp_words": 9529,
+    "pomak_ms_median": 100,
+    "pomak_ms_p90": 200,
+    "ispusteno_s": 60,
+    "ispusteni_prozori_min": [
+     66
+    ],
+    "gap_ratio": 0.0274,
+    "gap_flag": "ok"
+   }
+  },
+  "diar": {
+   "speechmatics-enhanced": {
+    "govornika": 4
+   },
+   "deepgram-nova3": {
+    "govornika": 4,
+    "der_prema_sm": 0.0444
+   },
+   "assemblyai-universal2": {
+    "govornika": 4,
+    "der_prema_sm": 0.0425
+   },
+   "pyannote-c1": {
+    "govornika": 4,
+    "der_prema_sm": 0.0769,
+    "der_prema_pyannoteai": 0.0221
+   },
+   "pyannoteai-precision-3": {
+    "govornika": 4,
+    "der_prema_sm": 0.0978
+   }
+  }
+ }
+}
