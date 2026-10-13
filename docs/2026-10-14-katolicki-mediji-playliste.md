@@ -109,3 +109,26 @@ Ne: Glazbe svijeta, Vremeplov klasične glazbe (glazba). Neaktivno: Credo, Agape
 Upisano u registry 14.10.2026.: 4 umbrella unosa + 37 novih playlista-kandidata (sve `tracking.enabled: false`).
 Sirovi podaci (yt-dlp dumpovi + `dates.json`) bili su u scratchpadu sesije, nisu sačuvani;
 ponoviti se mogu za ~1 min yt-dlp + ~270 jedinica YouTube API kvote.
+
+## Dodatak: HRT (isti dan)
+
+Pregled HRT YouTube kanala (subagent: 147 + 18 + 20 playlista; datumi provjereni YouTube API-jem).
+Umbrella `hrt` s 23 djece: 10 novih kandidata + 13 postojećih HRT unosa.
+
+| Novo | Izvor | ≥30 min | n365 | Zadnja |
+|---|---|---|---|---|
+| Otvoreno | HRT vijesti playlista | 1096 | 150 | 2026-10-13 |
+| Nedjeljom u 2 | zaseban kanal @nedjeljomu2HRT, `watch.min_duration_sec: 1800` | 421 | 52 | 2026-10-12 |
+| Peti dan | glavni kanal | 244 | 33 | 2026-10-09 |
+| Povijest četvrtkom | glavni kanal | 164 | 52 | 2026-10-08 |
+| Globalna Hrvatska | HRT vijesti | 95 | 45 | 2026-10-09 |
+| KRIK | glavni kanal | 138 | 47 | 2026-09-29 |
+| Pozitivno | glavni kanal | 130 | 20 | 2026-10-11 |
+| Što je klasik? | glavni kanal | 63 | 16 | 2026-10-06 |
+| Veterani mira | glavni kanal | 50 | 30 | 2026-06-01 |
+| Na rubu znanosti | glavni kanal (pseudoznanost — editorial odluka) | 353 | 67 | 2026-06-15 |
+
+Zamke: playliste Otvoreno i Nedjeljom u 2 na glavnom HRT kanalu su **zastarjele** (zadnja duga
+epizoda 04/2025 odnosno 2022) — subagentov „zadnja 08.10." bio je kratki isječak. Isto za
+Romano Bolković 1 na 1: unos prebačen na živu playlistu HRT vijesti (stara u `youtube_alternatives`).
+Nisu pregledani: radijski podcasti (radio.hrt.hr, RSS) i @HRTkultura.
