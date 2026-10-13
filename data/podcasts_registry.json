@@ -7138,28 +7138,28 @@
       "slug": "laudato-tv",
       "display_name": "Laudato TV",
       "youtube": {
-        "url": "https://www.youtube.com/@LaudatoTV/videos",
+        "url": "https://www.youtube.com/@LaudatoTV",
         "handle": "@LaudatoTV",
-        "type": "channel",
+        "type": "umbrella",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA"
       },
       "tags": [
         "religious-catholic",
-        "regional-media"
+        "regional-media",
+        "institutional"
       ],
       "voditelji": [],
       "metadata": {
-        "status": "not-podcast",
+        "status": "active",
         "last_episode": "2026-09",
         "average_duration_minutes": 56,
         "last_episode_date": "2026-09-24",
-        "last_episode_video": "ytO4vaGjCa8"
+        "last_episode_video": "ytO4vaGjCa8",
+        "children_count": 16
       },
       "tracking": {
         "enabled": false,
-        "reason_disabled": "Veliki TV kanal s miješanim sadržajem (vijesti, dugi razgovori, emisije). Broji samo epizode ≥30 min razgovornog formata.",
-        "min_duration_override": 1800,
-        "candidate_phase": 2
+        "reason_disabled": "Umbrella entry — sadržaj se prati per-playlist child entries, ne direktno preko kanala (kanal miješa liturgiju, molitvu, glazbu i prijenose)."
       },
       "tier": 3,
       "data_quality": "partial",
@@ -7167,14 +7167,14 @@
         "current-commented",
         "report"
       ],
-      "notes": "Prva HR obiteljska TV s kršćanskim vrijednostima. Mnogi formati su podcast-style.",
+      "notes": "Umbrella entry za YouTube kanal Laudato TV. Prate se samo razgovorne emisije (child_slugs); analiza playlista 14.10.2026.: docs/2026-10-14-katolicki-mediji-playliste.md. Ranije: Prva HR obiteljska TV s kršćanskim vrijednostima. Mnogi formati su podcast-style.",
       "quality_score": {
-        "total": 39,
-        "tier": "📦 weak",
+        "total": 74,
+        "tier": "✅ strong",
         "breakdown": {
           "freshness": 27,
           "cadence": 25,
-          "format": 0,
+          "format": 10,
           "substance": 7,
           "catalog": 2,
           "audience": 3
@@ -7206,7 +7206,26 @@
         "min_duration_sec": 1060,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_youtube_type": "channel",
+      "child_slugs": [
+        "laudato-odaziv",
+        "laudato-papa-s-nama",
+        "laudato-in-familia-dei",
+        "laudato-more-milosrda",
+        "laudato-otvori-spomenar",
+        "laudato-susret-u-rijeci",
+        "laudato-radost-ljubavi-u-braku",
+        "laudato-zivot-i-zdravlje",
+        "laudato-totus-tuus",
+        "laudato-novi-zivot",
+        "prosudbe",
+        "nota-bene",
+        "o-tempora",
+        "uvjereno",
+        "novo-srce",
+        "generacija-plus"
+      ]
     },
     {
       "slug": "launched",
@@ -13955,13 +13974,14 @@
       "slug": "radio-marija-bih",
       "display_name": "Radio Marija u BiH",
       "youtube": {
-        "url": "https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug/videos",
-        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
-        "type": "channel"
+        "url": "https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "umbrella",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug"
       },
       "tags": [
         "religious-catholic",
-        "diaspora"
+        "diaspora",
+        "institutional"
       ],
       "voditelji": [],
       "metadata": {
@@ -13969,29 +13989,30 @@
         "average_duration_minutes": 58,
         "episodes_sampled": 59,
         "episodes_over_30min_sampled": 21,
-        "subscribers": 22900,
-        "status": "not-podcast",
+        "subscribers": 23500,
+        "status": "active",
         "last_episode_date": "2026-09-24",
-        "last_episode_video": "v74TA3G_Vuo"
+        "last_episode_video": "v74TA3G_Vuo",
+        "children_count": 11,
+        "subscribers_as_of": "2026-10"
       },
       "tracking": {
         "enabled": false,
-        "reason_disabled": "Backlog kandidat iz yt-dlp search sweepa 2026-07-27 — verificiran format, čeka editorial odluku o praćenju.",
-        "candidate_phase": 1
+        "reason_disabled": "Umbrella entry — sadržaj se prati per-playlist child entries, ne direktno preko kanala (kanal miješa liturgiju, molitvu, glazbu i prijenose)."
       },
       "tier": 3,
       "data_quality": "partial",
       "sources": [
         "yt-dlp-search-sweep-2026-07"
       ],
-      "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
+      "notes": "Umbrella entry za YouTube kanal Radio Marija u BiH. Prate se samo razgovorne emisije (child_slugs); analiza playlista 14.10.2026.: docs/2026-10-14-katolicki-mediji-playliste.md. Ranije: Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 39,
-        "tier": "📦 weak",
+        "total": 81,
+        "tier": "🌟 elite",
         "breakdown": {
           "freshness": 27,
           "cadence": 25,
-          "format": 0,
+          "format": 10,
           "substance": 7,
           "catalog": 4,
           "audience": 8
@@ -14023,7 +14044,21 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_youtube_type": "channel",
+      "child_slugs": [
+        "radio-marija-bih-o-medugorju",
+        "radio-marija-bih-arka",
+        "radio-marija-bih-krscanine-upoznaj-svoje-dostojanstvo",
+        "radio-marija-bih-idi-i-popravi-moju-crkvu",
+        "radio-marija-bih-savrseno-veselje",
+        "radio-marija-bih-pozvani-na-slobodu",
+        "radio-marija-bih-medicinsko-psiholoski-savjeti",
+        "radio-marija-bih-crtice-iz-povijesti",
+        "radio-marija-bih-stvaramo-mostove",
+        "radio-marija-bih-da-progledam-gospodine",
+        "radio-marija-bih-razgovor-bez-maski"
+      ]
     },
     {
       "slug": "radio-mreznica",
@@ -36373,7 +36408,7 @@
     },
     {
       "slug": "prosudbe",
-      "display_name": "Prosudbe",
+      "display_name": "Prosudbe (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cjrZy90ow6pW93ogbB-N27",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -36446,7 +36481,9 @@
         "min_duration_sec": 1201,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Prosudbe",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "most-tv",
@@ -37067,7 +37104,7 @@
     },
     {
       "slug": "nota-bene",
-      "display_name": "Nota Bene",
+      "display_name": "Nota Bene (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -37139,7 +37176,9 @@
         "min_duration_sec": 1186,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Nota Bene",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "sat-za-zdravlje",
@@ -37525,7 +37564,7 @@
     },
     {
       "slug": "o-tempora",
-      "display_name": "O, tempora!",
+      "display_name": "O, tempora! (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ewPmB1OCTSNRA9GXZ1gwKo",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -37598,11 +37637,13 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "O, tempora!",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "uvjereno",
-      "display_name": "Uvjereno",
+      "display_name": "Uvjereno (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eL-JLq8bqS3AbcksmoLrZE",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -37674,7 +37715,9 @@
         "min_duration_sec": 1298,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Uvjereno",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "kristov-vojnik",
@@ -37753,7 +37796,7 @@
     },
     {
       "slug": "novo-srce",
-      "display_name": "Novo srce",
+      "display_name": "Novo srce (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fn91EMsC85PXxi_xOhnffJ",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -37824,11 +37867,13 @@
         "min_duration_sec": 1045,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Novo srce",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "generacija-plus",
-      "display_name": "Generacija+",
+      "display_name": "Generacija+ (Laudato)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_daz_HGyjiqqHcVIgeib9fj",
         "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
@@ -37899,7 +37944,9 @@
         "min_duration_sec": 983,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Generacija+",
+      "parent_slug": "laudato-tv"
     },
     {
       "slug": "u-pravom-licu-by-antonela-marusic",
@@ -38972,6 +39019,2027 @@
           "substance": 4,
           "catalog": 3,
           "audience": 8
+        },
+        "days_since_last_episode": null,
+        "last_episode_date": null,
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-odaziv",
+      "display_name": "Odaziv (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fnKCSx6E3IKktF_Z8yrI1-",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_fnKCSx6E3IKktF_Z8yrI1-",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2020-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 55,
+        "episodes_estimate": 152,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-12"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Odaziv\" kanala Laudato TV. 152 epizoda ≥30 min (2020-09-09–2026-10-12), 41 u zadnjih 365 dana, medijan 55 min.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 1,
+        "last_episode_date": "2026-10-12",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-papa-s-nama",
+      "display_name": "Papa s nama (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_e7U07_b_w7XjDAPh9PSy_w",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_e7U07_b_w7XjDAPh9PSy_w",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2014-03",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 61,
+        "episodes_estimate": 392,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-08"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Papa s nama\" kanala Laudato TV. 392 epizoda ≥30 min (2014-03-09–2026-10-08), 28 u zadnjih 365 dana, medijan 61 min.",
+      "quality_score": {
+        "total": 76,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 10,
+          "audience": 3
+        },
+        "days_since_last_episode": 5,
+        "last_episode_date": "2026-10-08",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-in-familia-dei",
+      "display_name": "In Familia Dei (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fIcRe7WrbpbJCe0rQhIbeD",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_fIcRe7WrbpbJCe0rQhIbeD",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "parenting"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2017-10",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 46,
+        "episodes_estimate": 154,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-05"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „In Familia Dei\" kanala Laudato TV. 154 epizoda ≥30 min (2017-10-27–2026-10-05), 18 u zadnjih 365 dana, medijan 46 min.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 8,
+        "last_episode_date": "2026-10-05",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-more-milosrda",
+      "display_name": "More milosrđa (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cHhG-SdFm8ZyZ1yeX0fyvJ",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_cHhG-SdFm8ZyZ1yeX0fyvJ",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2018-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 87,
+        "episodes_estimate": 128,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-13"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „More milosrđa\" kanala Laudato TV. 128 epizoda ≥30 min (2018-09-21–2026-10-13), 14 u zadnjih 365 dana, medijan 87 min.",
+      "quality_score": {
+        "total": 74,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-13",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-otvori-spomenar",
+      "display_name": "Otvori spomenar (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eZluFgn8sbOu0XvLdJ3za1",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_eZluFgn8sbOu0XvLdJ3za1",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2018-01",
+        "last_episode": "2026-09",
+        "average_duration_minutes": 55,
+        "episodes_estimate": 133,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-09-24"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Otvori spomenar\" kanala Laudato TV. 133 epizoda ≥30 min (2018-01-11–2026-09-24), 14 u zadnjih 365 dana, medijan 55 min.",
+      "quality_score": {
+        "total": 70,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 27,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 19,
+        "last_episode_date": "2026-09-24",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-susret-u-rijeci",
+      "display_name": "Susret u Riječi (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_fFScqgU5l-CspgjfRJmY8V",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_fFScqgU5l-CspgjfRJmY8V",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2017-12",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 45,
+        "episodes_estimate": 118,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-13"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Susret u Riječi\" kanala Laudato TV. 118 epizoda ≥30 min (2017-12-13–2026-10-13), 13 u zadnjih 365 dana, medijan 45 min.",
+      "quality_score": {
+        "total": 73,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-13",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-radost-ljubavi-u-braku",
+      "display_name": "Radost ljubavi u braku (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cZC0PpVppz8okHDwWPE39o",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_cZC0PpVppz8okHDwWPE39o",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "parenting"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2019-01",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 69,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-03"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Radost ljubavi u braku\" kanala Laudato TV. 69 epizoda ≥30 min (2019-01-21–2026-10-03), 10 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 72,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 10,
+        "last_episode_date": "2026-10-03",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-zivot-i-zdravlje",
+      "display_name": "Život i zdravlje (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cbzALK15lg8YDYWkKDaFe1",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_cbzALK15lg8YDYWkKDaFe1",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "health"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2016-04",
+        "last_episode": "2026-09",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 115,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-09-21"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Život i zdravlje\" kanala Laudato TV. 115 epizoda ≥30 min (2016-04-06–2026-09-21), 9 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 27,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 8,
+          "audience": 3
+        },
+        "days_since_last_episode": 22,
+        "last_episode_date": "2026-09-21",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-totus-tuus",
+      "display_name": "Totus Tuus (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_c9vgsj1QK3CjJoS4Ho58ke",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_c9vgsj1QK3CjJoS4Ho58ke",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2020-03",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 61,
+        "episodes_estimate": 94,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-06"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Totus Tuus\" kanala Laudato TV. 94 epizoda ≥30 min (2020-03-03–2026-10-06), 7 u zadnjih 365 dana, medijan 61 min.",
+      "quality_score": {
+        "total": 72,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 7,
+        "last_episode_date": "2026-10-06",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "laudato-novi-zivot",
+      "display_name": "Novi Život (Laudato)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ex6eeLnf_Z0LBVYwa3ad_n",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "playlist",
+        "playlist_id": "PLgrvM2s1LQ_ex6eeLnf_Z0LBVYwa3ad_n",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-04",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 73,
+        "episodes_estimate": 7,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-04"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Playlista „Novi Život\" kanala Laudato TV. 7 epizoda ≥30 min (2026-04-05–2026-10-04), 7 u zadnjih 365 dana, medijan 73 min.",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 9,
+        "last_episode_date": "2026-10-04",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-ljubav-nikad-ne-prestaje",
+      "display_name": "Ljubav nikad ne prestaje (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-vwKtbfG7ey9rhx5V2EkMWM",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-vwKtbfG7ey9rhx5V2EkMWM",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2024-03",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 54,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-06"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „LJUBAV NIKAD NE PRESTAJE\" kanala Radio Marija Hrvatska. 54 epizoda ≥30 min (2024-03-11–2026-10-06), 17 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 72,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 7,
+        "last_episode_date": "2026-10-06",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-kursiljo",
+      "display_name": "Kursiljo (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-tXNyCmn7eMs_z5DgevsNQN",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-tXNyCmn7eMs_z5DgevsNQN",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2025-10",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 50,
+        "episodes_estimate": 9,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-08"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „KURSILJO NA RADIO MARIJI\" kanala Radio Marija Hrvatska. 9 epizoda ≥30 min (2025-10-14–2026-06-08), 9 u zadnjih 365 dana, medijan 50 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 127,
+        "last_episode_date": "2026-06-08",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bit-cu-ljubav",
+      "display_name": "Bit ću ljubav (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-v7d0-4453LWGm_Jv5OcscH",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-v7d0-4453LWGm_Jv5OcscH",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-01",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 58,
+        "episodes_estimate": 9,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-19"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „BIT ĆU LJUBAV\" kanala Radio Marija Hrvatska. 9 epizoda ≥30 min (2026-01-20–2026-05-19), 9 u zadnjih 365 dana, medijan 58 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 147,
+        "last_episode_date": "2026-05-19",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-kulturni-usklicnik",
+      "display_name": "Kulturni uskličnik (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-sDV4Mv_NgDjyZBlKAqLXkP",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-sDV4Mv_NgDjyZBlKAqLXkP",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-11",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 67,
+        "episodes_estimate": 32,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-22"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „KULTURNI USKLIČNIK\" kanala Radio Marija Hrvatska. 32 epizoda ≥30 min (2021-11-29–2026-05-22), 7 u zadnjih 365 dana, medijan 67 min.",
+      "quality_score": {
+        "total": 48,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 144,
+        "last_episode_date": "2026-05-22",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-snaga-hrvatske",
+      "display_name": "Snaga Hrvatske (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-vlbMabZnjH9k0Wq10jHGG4",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-vlbMabZnjH9k0Wq10jHGG4",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "domoljubni"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-04",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 58,
+        "episodes_estimate": 16,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-04-15"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „SNAGA HRVATSKE\" kanala Radio Marija Hrvatska. 16 epizoda ≥30 min (2022-04-13–2026-04-15), 6 u zadnjih 365 dana, medijan 58 min.",
+      "quality_score": {
+        "total": 40,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 3,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 181,
+        "last_episode_date": "2026-04-15",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-didaskalije",
+      "display_name": "Didaskalije (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-tXdWfH1kbSt087G3deCX_1",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-tXdWfH1kbSt087G3deCX_1",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-02",
+        "last_episode": "2026-04",
+        "average_duration_minutes": 50,
+        "episodes_estimate": 30,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-04-15"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „DIDASKALIJE - fusnota na život\" kanala Radio Marija Hrvatska. 30 epizoda ≥30 min (2022-02-10–2026-04-15), 5 u zadnjih 365 dana, medijan 50 min.",
+      "quality_score": {
+        "total": 42,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 3,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 181,
+        "last_episode_date": "2026-04-15",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-fides-per-musicam",
+      "display_name": "Fides per musicam (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-v6pgeZsEVLxvTDFc0m3JjW",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-v6pgeZsEVLxvTDFc0m3JjW",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "culture"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2023-10",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 52,
+        "episodes_estimate": 19,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-07"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „FIDES PER MUSICAM\" kanala Radio Marija Hrvatska. 19 epizoda ≥30 min (2023-10-05–2026-05-07), 5 u zadnjih 365 dana, medijan 52 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 159,
+        "last_episode_date": "2026-05-07",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-nadom-noseni",
+      "display_name": "Nadom nošeni (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-uxRcGEAHkpitIJM7vz-yAA",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-uxRcGEAHkpitIJM7vz-yAA",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "health"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-03",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 50,
+        "episodes_estimate": 29,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-26"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „NADOM NOŠENI\" kanala Radio Marija Hrvatska. 29 epizoda ≥30 min (2022-03-29–2026-05-26), 4 u zadnjih 365 dana, medijan 50 min.",
+      "quality_score": {
+        "total": 47,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 140,
+        "last_episode_date": "2026-05-26",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-kap-dobrote",
+      "display_name": "Kap dobrote (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-tAHOiL8N2cQvLf0hpgq8_C",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-tAHOiL8N2cQvLf0hpgq8_C",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-02",
+        "last_episode": "2026-08",
+        "average_duration_minutes": 48,
+        "episodes_estimate": 14,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-08-20"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „KAP DOBROTE\" kanala Radio Marija Hrvatska. 14 epizoda ≥30 min (2022-02-17–2026-08-20), 4 u zadnjih 365 dana, medijan 48 min.",
+      "quality_score": {
+        "total": 59,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 22,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 54,
+        "last_episode_date": "2026-08-20",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-zivimo-zajedno",
+      "display_name": "Živimo zajedno (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-tMHcIa1-5QHcjg4HVwqV93",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-tMHcIa1-5QHcjg4HVwqV93",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-10",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 56,
+        "episodes_estimate": 16,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-13"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „ŽIVIMO ZAJEDNO\" kanala Radio Marija Hrvatska. 16 epizoda ≥30 min (2022-10-12–2026-05-13), 4 u zadnjih 365 dana, medijan 56 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 153,
+        "last_episode_date": "2026-05-13",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-ne-boj-se",
+      "display_name": "Ne boj se (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-s9INEUzcuEPQjqbs-q6j8G",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-s9INEUzcuEPQjqbs-q6j8G",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2024-11",
+        "last_episode": "2026-05",
+        "average_duration_minutes": 57,
+        "episodes_estimate": 8,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-05-09"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „Ne boj se\" kanala Radio Marija Hrvatska. 8 epizoda ≥30 min (2024-11-28–2026-05-09), 4 u zadnjih 365 dana, medijan 57 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 157,
+        "last_episode_date": "2026-05-09",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-vjera-te-tvoja-spasila",
+      "display_name": "Vjera te tvoja spasila (Radio Marija)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLzkuvx_23v-t65hrb_q4d6ceho_yMgrOx",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "playlist",
+        "playlist_id": "PLzkuvx_23v-t65hrb_q4d6ceho_yMgrOx",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-02",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 58,
+        "episodes_estimate": 28,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-27"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Playlista „VJERA TE TVOJA SPASILA - svjedočanstva obraćenja i života u vjeri\" kanala Radio Marija Hrvatska. 28 epizoda ≥30 min (2022-02-23–2026-06-27), 3 u zadnjih 365 dana, medijan 58 min.",
+      "quality_score": {
+        "total": 53,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 14,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 108,
+        "last_episode_date": "2026-06-27",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-hr",
+      "display_name": "Radio Marija Hrvatska",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "umbrella",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ"
+      },
+      "tags": [
+        "religious-catholic",
+        "institutional"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "children_count": 12,
+        "subscribers": 9500,
+        "subscribers_as_of": "2026-10"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Umbrella entry — sadržaj se prati per-playlist child entries, ne direktno preko kanala (kanal miješa liturgiju, molitvu, glazbu i prijenose)."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Umbrella entry za YouTube kanal Radio Marija Hrvatska. Prate se samo razgovorne emisije (child_slugs); analiza playlista 14.10.2026.: docs/2026-10-14-katolicki-mediji-playliste.md.",
+      "child_slugs": [
+        "radio-marija-ljubav-nikad-ne-prestaje",
+        "radio-marija-kursiljo",
+        "radio-marija-bit-cu-ljubav",
+        "radio-marija-kulturni-usklicnik",
+        "radio-marija-snaga-hrvatske",
+        "radio-marija-didaskalije",
+        "radio-marija-fides-per-musicam",
+        "radio-marija-nadom-noseni",
+        "radio-marija-kap-dobrote",
+        "radio-marija-zivimo-zajedno",
+        "radio-marija-ne-boj-se",
+        "radio-marija-vjera-te-tvoja-spasila"
+      ],
+      "quality_score": {
+        "total": 48,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 15,
+          "cadence": 10,
+          "format": 10,
+          "substance": 4,
+          "catalog": 3,
+          "audience": 6
+        },
+        "days_since_last_episode": null,
+        "last_episode_date": null,
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-o-medugorju",
+      "display_name": "O Međugorju (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUgiJ0iVDW8Ic4D6KBM12Oa",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGUgiJ0iVDW8Ic4D6KBM12Oa",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2025-02",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 42,
+        "episodes_estimate": 22,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-13"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „O Međugorju\" kanala Radio Marija u BiH. 22 epizoda ≥30 min (2025-02-18–2026-10-13), 12 u zadnjih 365 dana, medijan 42 min.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-13",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-arka",
+      "display_name": "Arka (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXfFFMZ-HsiRkb0RmFmlkD7",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGXfFFMZ-HsiRkb0RmFmlkD7",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-04",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 80,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-04"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Arka\" kanala Radio Marija u BiH. 80 epizoda ≥30 min (2021-04-14–2026-06-04), 11 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 50,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 131,
+        "last_episode_date": "2026-06-04",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-krscanine-upoznaj-svoje-dostojanstvo",
+      "display_name": "Kršćanine upoznaj svoje dostojanstvo (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGWSfG0ZSW95ZqLFgbimcN0j",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-05",
+        "last_episode": "2026-09",
+        "average_duration_minutes": 47,
+        "episodes_estimate": 46,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-09-26"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Kršćanine upoznaj svoje dostojanstvo\" kanala Radio Marija u BiH. 46 epizoda ≥30 min (2021-05-29–2026-09-26), 9 u zadnjih 365 dana, medijan 47 min.",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 27,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 17,
+        "last_episode_date": "2026-09-26",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-idi-i-popravi-moju-crkvu",
+      "display_name": "Idi i popravi moju Crkvu (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGUlpIfbroIp0ZN_FupuVz6h",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGUlpIfbroIp0ZN_FupuVz6h",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "franciscan"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-04",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 42,
+        "episodes_estimate": 36,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-03"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Idi i popravi moju Crkvu\" kanala Radio Marija u BiH. 36 epizoda ≥30 min (2021-04-17–2026-10-03), 9 u zadnjih 365 dana, medijan 42 min.",
+      "quality_score": {
+        "total": 67,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 10,
+        "last_episode_date": "2026-10-03",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-savrseno-veselje",
+      "display_name": "Savršeno veselje (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGVB287FRCEQhZihaQBmfr7L",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGVB287FRCEQhZihaQBmfr7L",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "franciscan"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-11",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 37,
+        "episodes_estimate": 52,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-05"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Savršeno veselje\" kanala Radio Marija u BiH. 52 epizoda ≥30 min (2021-11-19–2026-06-05), 8 u zadnjih 365 dana, medijan 37 min.",
+      "quality_score": {
+        "total": 47,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 130,
+        "last_episode_date": "2026-06-05",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-pozvani-na-slobodu",
+      "display_name": "Pozvani na slobodu (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGU9ay5YzxbCUdpPDAE7q7nz",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGU9ay5YzxbCUdpPDAE7q7nz",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-04",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 45,
+        "episodes_estimate": 38,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-07"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Pozvani na slobodu\" kanala Radio Marija u BiH. 38 epizoda ≥30 min (2022-04-01–2026-10-07), 7 u zadnjih 365 dana, medijan 45 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 6,
+        "last_episode_date": "2026-10-07",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-medicinsko-psiholoski-savjeti",
+      "display_name": "Medicinsko-psihološki savjeti (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGV0FfuNHNFREh6VSfR_826y",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGV0FfuNHNFREh6VSfR_826y",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "health"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2021-04",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 32,
+        "episodes_estimate": 20,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-19"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Medicinsko-psihološki savjeti\" kanala Radio Marija u BiH. 20 epizoda ≥30 min (2021-04-03–2026-06-19), 7 u zadnjih 365 dana, medijan 32 min.",
+      "quality_score": {
+        "total": 51,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 14,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 116,
+        "last_episode_date": "2026-06-19",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-crtice-iz-povijesti",
+      "display_name": "Crtice iz povijesti (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXoNIuLUz_JGvOM0eZfXVnu",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGXoNIuLUz_JGvOM0eZfXVnu",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "history"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2023-10",
+        "last_episode": "2026-09",
+        "average_duration_minutes": 32,
+        "episodes_estimate": 16,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-09-29"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Crtice iz povijesti\" kanala Radio Marija u BiH. 16 epizoda ≥30 min (2023-10-23–2026-09-29), 6 u zadnjih 365 dana, medijan 32 min.",
+      "quality_score": {
+        "total": 65,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 14,
+        "last_episode_date": "2026-09-29",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-stvaramo-mostove",
+      "display_name": "Stvaramo mostove (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGURr4FZbwniPRBGxNqH9KId",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGURr4FZbwniPRBGxNqH9KId",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2024-10",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 51,
+        "episodes_estimate": 16,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-12"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Stvaramo mostove\" kanala Radio Marija u BiH. 16 epizoda ≥30 min (2024-10-11–2026-06-12), 6 u zadnjih 365 dana, medijan 51 min.",
+      "quality_score": {
+        "total": 45,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 2,
+          "audience": 3
+        },
+        "days_since_last_episode": 123,
+        "last_episode_date": "2026-06-12",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-da-progledam-gospodine",
+      "display_name": "Da progledam Gospodine (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXGAzIY-jk06PGMWG292_6p",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGXGAzIY-jk06PGMWG292_6p",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "testimonies"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2022-07",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 41,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-20"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Da progledam Gospodine\" kanala Radio Marija u BiH. 41 epizoda ≥30 min (2022-07-16–2026-06-20), 6 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 54,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 14,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 4,
+          "audience": 3
+        },
+        "days_since_last_episode": 115,
+        "last_episode_date": "2026-06-20",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-bih-razgovor-bez-maski",
+      "display_name": "Razgovor bez maski (Radio Marija BiH)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PL4BCELLg-DGXziLGgOv3KaKmnK0vIUXlA",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "playlist",
+        "playlist_id": "PL4BCELLg-DGXziLGgOv3KaKmnK0vIUXlA",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-03",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 50,
+        "episodes_estimate": 4,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-26"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "Playlista „Razgovor bez maski\" kanala Radio Marija u BiH. 4 epizoda ≥30 min (2026-03-27–2026-06-26), 4 u zadnjih 365 dana, medijan 50 min.",
+      "quality_score": {
+        "total": 50,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 14,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 1,
+          "audience": 3
+        },
+        "days_since_last_episode": 109,
+        "last_episode_date": "2026-06-26",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje-susret",
+      "display_name": "Susret (Radio MIR)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJ0rpsM6k2AdpCwx2_jAf8izGI4pqFk2N",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "playlist",
+        "playlist_id": "PLJ0rpsM6k2AdpCwx2_jAf8izGI4pqFk2N",
+        "parent_channel": "Radio MIR Međugorje"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2015-03",
+        "last_episode": "2026-06",
+        "average_duration_minutes": 60,
+        "episodes_estimate": 218,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-06-12"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-mir-medjugorje",
+      "notes": "Playlista „SUSRET\" kanala Radio MIR Međugorje. 218 epizoda ≥30 min (2015-03-24–2026-06-12), 24 u zadnjih 365 dana, medijan 60 min.",
+      "quality_score": {
+        "total": 54,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 8,
+          "cadence": 10,
+          "format": 15,
+          "substance": 8,
+          "catalog": 10,
+          "audience": 3
+        },
+        "days_since_last_episode": 123,
+        "last_episode_date": "2026-06-12",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje-sitan-kamen-do-kamena",
+      "display_name": "Sitan kamen do kamena (Radio MIR)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJ0rpsM6k2AedUJhxptZV5BJtug0_SBTF",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "playlist",
+        "playlist_id": "PLJ0rpsM6k2AedUJhxptZV5BJtug0_SBTF",
+        "parent_channel": "Radio MIR Međugorje"
+      },
+      "tags": [
+        "religious-catholic",
+        "franciscan"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2020-10",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 55,
+        "episodes_estimate": 77,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-05"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-mir-medjugorje",
+      "notes": "Playlista „SITAN KAMEN DO KAMENA\" kanala Radio MIR Međugorje. 77 epizoda ≥30 min (2020-10-16–2026-10-05), 10 u zadnjih 365 dana, medijan 55 min.",
+      "quality_score": {
+        "total": 71,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 8,
+        "last_episode_date": "2026-10-05",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje-miris-zavicaja",
+      "display_name": "Miris zavičaja (Radio MIR)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJ0rpsM6k2Aemb5swiXF8wKAovM0XYMFh",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "playlist",
+        "playlist_id": "PLJ0rpsM6k2Aemb5swiXF8wKAovM0XYMFh",
+        "parent_channel": "Radio MIR Međugorje"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2017-11",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 31,
+        "episodes_estimate": 79,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-09"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-mir-medjugorje",
+      "notes": "Playlista „MIRIS ZAVIČAJA\" kanala Radio MIR Međugorje. 79 epizoda ≥30 min (2017-11-27–2026-10-09), 8 u zadnjih 365 dana, medijan 31 min.",
+      "quality_score": {
+        "total": 69,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 6,
+          "audience": 3
+        },
+        "days_since_last_episode": 4,
+        "last_episode_date": "2026-10-09",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje-na-putu-zivota",
+      "display_name": "Na putu života (Radio MIR)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLPl5BvVYSCgU",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "playlist",
+        "playlist_id": "PLPl5BvVYSCgU",
+        "parent_channel": "Radio MIR Međugorje"
+      },
+      "tags": [
+        "religious-catholic"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 51,
+        "episodes_estimate": 4,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-08"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. iz analize playlista (docs/2026-10-14-katolicki-mediji-playliste.md) — kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-mir-medjugorje",
+      "notes": "Playlista „NA PUTU ŽIVOTA\" kanala Radio MIR Međugorje. 4 epizoda ≥30 min (2026-09-18–2026-10-08), 4 u zadnjih 365 dana, medijan 51 min.",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 1,
+          "audience": 3
+        },
+        "days_since_last_episode": 5,
+        "last_episode_date": "2026-10-08",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje",
+      "display_name": "Radio MIR Međugorje",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "umbrella",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA"
+      },
+      "tags": [
+        "religious-catholic",
+        "institutional"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "children_count": 4,
+        "subscribers": 75400,
+        "subscribers_as_of": "2026-10"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Umbrella entry — sadržaj se prati per-playlist child entries, ne direktno preko kanala (kanal miješa liturgiju, molitvu, glazbu i prijenose)."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Umbrella entry za YouTube kanal Radio MIR Međugorje. Prate se samo razgovorne emisije (child_slugs); analiza playlista 14.10.2026.: docs/2026-10-14-katolicki-mediji-playliste.md.",
+      "child_slugs": [
+        "radio-mir-medjugorje-susret",
+        "radio-mir-medjugorje-sitan-kamen-do-kamena",
+        "radio-mir-medjugorje-miris-zavicaja",
+        "radio-mir-medjugorje-na-putu-zivota"
+      ],
+      "quality_score": {
+        "total": 51,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 15,
+          "cadence": 10,
+          "format": 10,
+          "substance": 4,
+          "catalog": 3,
+          "audience": 9
         },
         "days_since_last_episode": null,
         "last_episode_date": null,
