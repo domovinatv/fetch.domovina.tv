@@ -210,7 +210,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rising": true,
         "rubric": "v2"
@@ -279,7 +279,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -339,7 +339,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -414,7 +414,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 64,
+        "days_since_last_episode": 65,
         "last_episode_date": "2026-08-09",
         "rubric": "v2"
       },
@@ -473,7 +473,7 @@
           "catalog": 4,
           "audience": 9
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -549,7 +549,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 79,
+        "days_since_last_episode": 80,
         "last_episode_date": "2026-07-25",
         "rubric": "v2"
       },
@@ -622,7 +622,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 96,
+        "days_since_last_episode": 97,
         "last_episode_date": "2026-07-08",
         "rubric": "v2"
       },
@@ -696,7 +696,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 837,
+        "days_since_last_episode": 838,
         "last_episode_date": "2024-06-27",
         "dormant": true,
         "rubric": "v2"
@@ -773,7 +773,7 @@
           "catalog": 8,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -847,7 +847,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 980,
+        "days_since_last_episode": 981,
         "last_episode_date": "2024-02-05",
         "dormant": true,
         "rubric": "v2"
@@ -922,7 +922,7 @@
           "catalog": 4,
           "audience": 10
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -993,7 +993,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 998,
+        "days_since_last_episode": 999,
         "last_episode_date": "2024-01-18",
         "dormant": true,
         "rubric": "v2"
@@ -1111,7 +1111,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 211,
+        "days_since_last_episode": 212,
         "last_episode_date": "2026-03-15",
         "rubric": "v2"
       }
@@ -1162,7 +1162,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 23,
+        "days_since_last_episode": 24,
         "last_episode_date": "2026-09-19",
         "rubric": "v2"
       },
@@ -1237,7 +1237,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rubric": "v2"
       },
@@ -1312,7 +1312,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -1390,7 +1390,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 2022,
+        "days_since_last_episode": 2023,
         "last_episode_date": "2021-03-30",
         "dormant": true,
         "rubric": "v2"
@@ -1469,7 +1469,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 338,
+        "days_since_last_episode": 339,
         "last_episode_date": "2025-11-08",
         "rubric": "v2"
       },
@@ -1552,7 +1552,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 637,
+        "days_since_last_episode": 638,
         "last_episode_date": "2025-01-13",
         "dormant": true,
         "rubric": "v2"
@@ -1628,7 +1628,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 687,
+        "days_since_last_episode": 688,
         "last_episode_date": "2024-11-24",
         "dormant": true,
         "rubric": "v2"
@@ -1697,7 +1697,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 118,
+        "days_since_last_episode": 119,
         "last_episode_date": "2026-06-16",
         "rubric": "v2"
       },
@@ -1749,7 +1749,7 @@
           "catalog": 6,
           "audience": 9
         },
-        "days_since_last_episode": 116,
+        "days_since_last_episode": 117,
         "last_episode_date": "2026-06-18",
         "rubric": "v2"
       },
@@ -1811,7 +1811,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 1063,
+        "days_since_last_episode": 1064,
         "last_episode_date": "2023-11-14",
         "dormant": true,
         "rubric": "v2"
@@ -1885,7 +1885,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 2127,
+        "days_since_last_episode": 2128,
         "last_episode_date": "2020-12-15",
         "dormant": true,
         "rubric": "v2"
@@ -1930,7 +1930,7 @@
           "catalog": 10,
           "audience": 9
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -1989,7 +1989,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rising": true,
         "rubric": "v2"
@@ -2065,7 +2065,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 159,
+        "days_since_last_episode": 160,
         "last_episode_date": "2026-05-06",
         "rubric": "v2"
       },
@@ -2137,7 +2137,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 25,
+        "days_since_last_episode": 26,
         "last_episode_date": "2026-09-17",
         "rubric": "v2"
       },
@@ -2196,7 +2196,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1572,
+        "days_since_last_episode": 1573,
         "last_episode_date": "2022-06-23",
         "dormant": true,
         "rubric": "v2"
@@ -2272,7 +2272,7 @@
           "catalog": 1,
           "audience": 8
         },
-        "days_since_last_episode": 1799,
+        "days_since_last_episode": 1800,
         "last_episode_date": "2021-11-08",
         "dormant": true,
         "rubric": "v2"
@@ -2345,7 +2345,7 @@
           "catalog": 3,
           "audience": 3
         },
-        "days_since_last_episode": 211,
+        "days_since_last_episode": 212,
         "last_episode_date": "2026-03-15",
         "rubric": "v2"
       }
@@ -2394,7 +2394,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -2469,7 +2469,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 223,
+        "days_since_last_episode": 224,
         "last_episode_date": "2026-03-03",
         "rubric": "v2"
       },
@@ -2518,17 +2518,17 @@
       ],
       "notes": "Mladi tim iz Trogira. Jedan od rijetkih pravih regionalnih hrvatskih podcasta (Dalmacija). Dalmacija/mladi/trendovi.",
       "quality_score": {
-        "total": 39,
+        "total": 37,
         "tier": "📦 weak",
         "breakdown": {
-          "freshness": 8,
+          "freshness": 3,
           "cadence": 0,
           "format": 15,
           "substance": 7,
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 180,
+        "days_since_last_episode": 181,
         "last_episode_date": "2026-04-15",
         "rubric": "v2"
       },
@@ -2602,7 +2602,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -2677,7 +2677,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1390,
+        "days_since_last_episode": 1391,
         "last_episode_date": "2022-12-22",
         "dormant": true,
         "rubric": "v2"
@@ -2746,7 +2746,7 @@
           "catalog": 2,
           "audience": 2
         },
-        "days_since_last_episode": 74,
+        "days_since_last_episode": 75,
         "last_episode_date": "2026-07-30",
         "rubric": "v2"
       },
@@ -2811,7 +2811,7 @@
           "catalog": 8,
           "audience": 9
         },
-        "days_since_last_episode": 12,
+        "days_since_last_episode": 13,
         "last_episode_date": "2026-09-30",
         "rubric": "v2"
       },
@@ -2885,7 +2885,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 102,
+        "days_since_last_episode": 103,
         "last_episode_date": "2026-07-02",
         "rubric": "v2"
       },
@@ -2959,7 +2959,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 565,
+        "days_since_last_episode": 566,
         "last_episode_date": "2025-03-26",
         "dormant": true,
         "rubric": "v2"
@@ -3034,7 +3034,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 19,
+        "days_since_last_episode": 20,
         "last_episode_date": "2026-09-23",
         "rubric": "v2"
       },
@@ -3107,7 +3107,7 @@
           "catalog": 4,
           "audience": 9
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -3174,7 +3174,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 1456,
+        "days_since_last_episode": 1457,
         "last_episode_date": "2022-10-17",
         "dormant": true,
         "rubric": "v2"
@@ -3238,7 +3238,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rising": true,
         "rubric": "v2"
@@ -3307,7 +3307,7 @@
           "catalog": 8,
           "audience": 8
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -3367,7 +3367,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -3448,7 +3448,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rubric": "v2"
       },
@@ -3528,7 +3528,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -3595,7 +3595,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 469,
+        "days_since_last_episode": 470,
         "last_episode_date": "2025-06-30",
         "dormant": true,
         "rubric": "v2"
@@ -3670,7 +3670,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 188,
+        "days_since_last_episode": 189,
         "last_episode_date": "2026-04-07",
         "rubric": "v2"
       },
@@ -3744,7 +3744,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1401,
+        "days_since_last_episode": 1402,
         "last_episode_date": "2022-12-11",
         "dormant": true,
         "rubric": "v2"
@@ -3819,7 +3819,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 12,
+        "days_since_last_episode": 13,
         "last_episode_date": "2026-09-30",
         "rubric": "v2"
       },
@@ -3893,7 +3893,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 7,
+        "days_since_last_episode": 8,
         "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
@@ -3968,7 +3968,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 920,
+        "days_since_last_episode": 921,
         "last_episode_date": "2024-04-05",
         "dormant": true,
         "rubric": "v2"
@@ -4041,7 +4041,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 341,
+        "days_since_last_episode": 342,
         "last_episode_date": "2025-11-05",
         "rubric": "v2"
       },
@@ -4115,7 +4115,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 102,
+        "days_since_last_episode": 103,
         "last_episode_date": "2026-07-02",
         "rubric": "v2"
       },
@@ -4189,7 +4189,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 111,
+        "days_since_last_episode": 112,
         "last_episode_date": "2026-06-23",
         "rubric": "v2"
       },
@@ -4242,7 +4242,7 @@
           "catalog": 4,
           "audience": 2
         },
-        "days_since_last_episode": 159,
+        "days_since_last_episode": 160,
         "last_episode_date": "2026-05-06",
         "rubric": "v2"
       },
@@ -4301,7 +4301,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 123,
+        "days_since_last_episode": 124,
         "last_episode_date": "2026-06-11",
         "rubric": "v2"
       },
@@ -4375,7 +4375,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 512,
+        "days_since_last_episode": 513,
         "last_episode_date": "2025-05-18",
         "dormant": true,
         "rubric": "v2"
@@ -4444,7 +4444,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 185,
+        "days_since_last_episode": 186,
         "last_episode_date": "2026-04-10",
         "rubric": "v2"
       },
@@ -4503,7 +4503,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1631,
+        "days_since_last_episode": 1632,
         "last_episode_date": "2022-04-25",
         "dormant": true,
         "rubric": "v2"
@@ -4563,7 +4563,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 41,
+        "days_since_last_episode": 42,
         "last_episode_date": "2026-09-01",
         "rubric": "v2"
       },
@@ -4637,7 +4637,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 834,
+        "days_since_last_episode": 835,
         "last_episode_date": "2024-06-30",
         "dormant": true,
         "rubric": "v2"
@@ -4712,7 +4712,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2008,
+        "days_since_last_episode": 2009,
         "last_episode_date": "2021-04-13",
         "dormant": true,
         "rubric": "v2"
@@ -4829,7 +4829,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -4902,7 +4902,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 325,
+        "days_since_last_episode": 326,
         "last_episode_date": "2025-11-21",
         "rubric": "v2"
       },
@@ -4975,7 +4975,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 312,
+        "days_since_last_episode": 313,
         "last_episode_date": "2025-12-04",
         "rubric": "v2"
       },
@@ -5055,7 +5055,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rising": true,
         "rubric": "v2"
@@ -5130,7 +5130,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 137,
+        "days_since_last_episode": 138,
         "last_episode_date": "2026-05-28",
         "rubric": "v2"
       },
@@ -5226,7 +5226,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 12,
+        "days_since_last_episode": 13,
         "last_episode_date": "2026-09-30",
         "rising": true,
         "rubric": "v2"
@@ -5286,7 +5286,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 1841,
+        "days_since_last_episode": 1842,
         "last_episode_date": "2021-09-27",
         "dormant": true,
         "rubric": "v2"
@@ -5352,7 +5352,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 190,
+        "days_since_last_episode": 191,
         "last_episode_date": "2026-04-05",
         "rubric": "v2"
       },
@@ -5367,37 +5367,32 @@
       }
     },
     {
-      "slug": "hkm-argumenti",
+      "slug": "rtcg-argumenti",
       "display_name": "Argumenti (RTCG)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLcQXSuJQoJAoa83nORkJFrd3DvvlQh6nZ",
-        "handle": "@Hrvatskakatolickamreza",
+        "handle": "@rtcgYT",
         "type": "playlist",
         "channel_id": "UC-wb2t0TEiMtfmdiB169MPw"
       },
       "tags": [
-        "religious-catholic",
-        "society",
-        "media"
+        "political",
+        "geopolitics",
+        "regional-media",
+        "talk-show"
       ],
-      "voditelji": [
-        "Tanja Maleš",
-        "Katarina Varenica",
-        "Dalija Mock",
-        "Branimir Gubić",
-        "Marino Erceg"
-      ],
+      "voditelji": [],
       "metadata": {
         "episodes_estimate": 500,
         "last_episode": "2026-10",
         "average_duration_minutes": 75,
-        "status": "disputed",
+        "status": "active",
         "last_episode_date": "2026-10-09",
         "last_episode_video": "29tqWjsH3b4"
       },
       "tracking": {
         "enabled": false,
-        "reason_disabled": "VISOKI PRIORITET ali status sporan između 3 izvora — treba ručna verifikacija prije dodavanja u pipeline."
+        "reason_disabled": "Nije hrvatski podcast: RTCG (Crnogorska javna TV) politička debata. Ranije krivo mapiran kao HKM (slug hkm-argumenti), ispravljeno 14.10.2026. Ostaje kao regionalni referentni unos."
       },
       "tier": 3,
       "data_quality": "partial",
@@ -5407,19 +5402,19 @@
         "perplexity",
         "claude-opus"
       ],
-      "notes": "MAJOR DISPUTE između 3 izvora: (1) Gemini = AKTIVAN 03/2026, povratak nakon ukidanja u 06/2025, urednik Marino Erceg. (2) Perplexity = NEAKTIVAN, posljednje YT epizode 06/2025, nakon 12.06.2025. nema novih objava. (3) Claude Opus = AKTIVAN u 7. sezoni od 2025., emitira ponedjeljak-četvrtak 8:10 na HKR-u, urednici Tanja Maleš, Katarina Varenica, Dalija Mock, Branimir Gubić, isječci na HKM YouTube. Treba ručno provjeriti HKM YouTube kanal i status emisije. hkr.hkm.hr je matični site.",
+      "notes": "RTCG-ova (Radio-televizija Crne Gore) tjedna politička debata, 60–90 min. Unos je iz istraživanja 2026-05 krivo pripisan Hrvatskoj katoličkoj mreži (tri izvora su miješala RTCG-ove Argumente s HKR-ovim). HKR-ovi Argumenti su argumenti-sezona-7 / argumenti-sezona-8 pod umbrellom hkm.",
       "quality_score": {
-        "total": 77,
-        "tier": "✅ strong",
+        "total": 84,
+        "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 18,
-          "format": 8,
+          "format": 15,
           "substance": 8,
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -5450,7 +5445,8 @@
         "min_duration_sec": 2400,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_slug": "hkm-argumenti"
     },
     {
       "slug": "hnb",
@@ -5491,7 +5487,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -5550,7 +5546,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -5628,7 +5624,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 321,
+        "days_since_last_episode": 322,
         "last_episode_date": "2025-11-25",
         "rubric": "v2"
       },
@@ -5687,7 +5683,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 28,
+        "days_since_last_episode": 29,
         "last_episode_date": "2026-09-14",
         "rising": true,
         "rubric": "v2"
@@ -5762,7 +5758,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1504,
+        "days_since_last_episode": 1505,
         "last_episode_date": "2022-08-30",
         "dormant": true,
         "rubric": "v2"
@@ -5842,7 +5838,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 84,
+        "days_since_last_episode": 85,
         "last_episode_date": "2026-07-20",
         "rubric": "v2"
       },
@@ -5918,7 +5914,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -5995,7 +5991,7 @@
           "catalog": 4,
           "audience": 2
         },
-        "days_since_last_episode": 310,
+        "days_since_last_episode": 311,
         "last_episode_date": "2025-12-06",
         "rubric": "v2"
       },
@@ -6054,7 +6050,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1270,
+        "days_since_last_episode": 1271,
         "last_episode_date": "2023-04-21",
         "dormant": true,
         "rubric": "v2"
@@ -6129,7 +6125,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -6204,7 +6200,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 262,
+        "days_since_last_episode": 263,
         "last_episode_date": "2026-01-23",
         "rubric": "v2"
       },
@@ -6273,7 +6269,7 @@
           "catalog": 6,
           "audience": 9
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -6336,7 +6332,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 158,
+        "days_since_last_episode": 159,
         "last_episode_date": "2026-05-07",
         "rubric": "v2"
       },
@@ -6410,7 +6406,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -6477,7 +6473,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 166,
+        "days_since_last_episode": 167,
         "last_episode_date": "2026-04-29",
         "rubric": "v2"
       },
@@ -6536,7 +6532,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 22,
+        "days_since_last_episode": 23,
         "last_episode_date": "2026-09-20",
         "rubric": "v2"
       },
@@ -6610,7 +6606,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 45,
+        "days_since_last_episode": 46,
         "last_episode_date": "2026-08-28",
         "rubric": "v2"
       },
@@ -6684,7 +6680,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 96,
+        "days_since_last_episode": 97,
         "last_episode_date": "2026-07-08",
         "rubric": "v2"
       },
@@ -6765,7 +6761,7 @@
           "catalog": 10,
           "audience": 8
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -6839,7 +6835,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1671,
+        "days_since_last_episode": 1672,
         "last_episode_date": "2022-03-16",
         "dormant": true,
         "rubric": "v2"
@@ -6915,7 +6911,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 107,
+        "days_since_last_episode": 108,
         "last_episode_date": "2026-06-27",
         "rubric": "v2"
       },
@@ -7035,7 +7031,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 48,
+        "days_since_last_episode": 49,
         "last_episode_date": "2026-08-25",
         "rubric": "v2"
       },
@@ -7109,7 +7105,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -7183,7 +7179,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -7255,7 +7251,7 @@
           "catalog": 8,
           "audience": 2
         },
-        "days_since_last_episode": 47,
+        "days_since_last_episode": 48,
         "last_episode_date": "2026-08-26",
         "rubric": "v2"
       },
@@ -7316,7 +7312,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 511,
+        "days_since_last_episode": 512,
         "last_episode_date": "2025-05-19",
         "dormant": true,
         "rubric": "v2"
@@ -7391,7 +7387,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -7509,7 +7505,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -7586,7 +7582,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 1397,
+        "days_since_last_episode": 1398,
         "last_episode_date": "2022-12-15",
         "dormant": true,
         "rubric": "v2"
@@ -7652,7 +7648,7 @@
           "catalog": 8,
           "audience": 10
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -7754,7 +7750,7 @@
           "catalog": 4,
           "audience": 9
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -7830,7 +7826,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 31,
+        "days_since_last_episode": 32,
         "last_episode_date": "2026-09-11",
         "rubric": "v2"
       },
@@ -7905,7 +7901,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 130,
+        "days_since_last_episode": 131,
         "last_episode_date": "2026-06-04",
         "rubric": "v2"
       },
@@ -7972,7 +7968,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 707,
+        "days_since_last_episode": 708,
         "last_episode_date": "2024-11-04",
         "dormant": true,
         "rubric": "v2"
@@ -8032,7 +8028,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 264,
+        "days_since_last_episode": 265,
         "last_episode_date": "2026-01-21",
         "rubric": "v2"
       },
@@ -8102,7 +8098,7 @@
           "catalog": 2,
           "audience": 9
         },
-        "days_since_last_episode": 215,
+        "days_since_last_episode": 216,
         "last_episode_date": "2026-03-11",
         "rubric": "v2"
       },
@@ -8159,7 +8155,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -8227,7 +8223,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 492,
+        "days_since_last_episode": 493,
         "last_episode_date": "2025-06-07",
         "dormant": true,
         "rubric": "v2"
@@ -8286,7 +8282,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 11,
+        "days_since_last_episode": 12,
         "last_episode_date": "2026-10-01",
         "rising": true,
         "rubric": "v2"
@@ -8360,7 +8356,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -8434,7 +8430,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 601,
+        "days_since_last_episode": 602,
         "last_episode_date": "2025-02-18",
         "dormant": true,
         "rubric": "v2"
@@ -8510,7 +8506,7 @@
           "catalog": 6,
           "audience": 9
         },
-        "days_since_last_episode": 184,
+        "days_since_last_episode": 185,
         "last_episode_date": "2026-04-11",
         "rubric": "v2"
       },
@@ -8573,7 +8569,7 @@
           "catalog": 10,
           "audience": 6
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -8646,7 +8642,7 @@
           "catalog": 8,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -8702,7 +8698,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 44,
+        "days_since_last_episode": 45,
         "last_episode_date": "2026-08-29",
         "rubric": "v2"
       },
@@ -8760,7 +8756,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 2290,
+        "days_since_last_episode": 2291,
         "last_episode_date": "2020-07-05",
         "dormant": true,
         "rubric": "v2"
@@ -8843,7 +8839,7 @@
           "catalog": 8,
           "audience": 9
         },
-        "days_since_last_episode": 113,
+        "days_since_last_episode": 114,
         "last_episode_date": "2026-06-21",
         "rubric": "v2"
       },
@@ -8917,17 +8913,17 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 71,
+        "total": 68,
         "tier": "✅ strong",
         "breakdown": {
-          "freshness": 30,
+          "freshness": 27,
           "cadence": 12,
           "format": 15,
           "substance": 7,
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 14,
+        "days_since_last_episode": 15,
         "last_episode_date": "2026-09-28",
         "rising": true,
         "rubric": "v2"
@@ -9001,7 +8997,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 35,
+        "days_since_last_episode": 36,
         "last_episode_date": "2026-09-07",
         "rubric": "v2"
       },
@@ -9068,7 +9064,7 @@
           "catalog": 8,
           "audience": 6
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -9128,7 +9124,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1381,
+        "days_since_last_episode": 1382,
         "last_episode_date": "2022-12-31",
         "dormant": true,
         "rubric": "v2"
@@ -9197,7 +9193,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -9256,7 +9252,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1218,
+        "days_since_last_episode": 1219,
         "last_episode_date": "2023-06-12",
         "dormant": true,
         "rubric": "v2"
@@ -9330,7 +9326,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 238,
+        "days_since_last_episode": 239,
         "last_episode_date": "2026-02-16",
         "rubric": "v2"
       },
@@ -9389,7 +9385,7 @@
           "catalog": 1,
           "audience": 9
         },
-        "days_since_last_episode": 442,
+        "days_since_last_episode": 443,
         "last_episode_date": "2025-07-27",
         "dormant": true,
         "rubric": "v2"
@@ -9457,7 +9453,7 @@
           "catalog": 10,
           "audience": 9
         },
-        "days_since_last_episode": 118,
+        "days_since_last_episode": 119,
         "last_episode_date": "2026-06-16",
         "rubric": "v2"
       },
@@ -9526,7 +9522,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 336,
+        "days_since_last_episode": 337,
         "last_episode_date": "2025-11-10",
         "rubric": "v2"
       },
@@ -9609,7 +9605,7 @@
           "catalog": 10,
           "audience": 9
         },
-        "days_since_last_episode": 148,
+        "days_since_last_episode": 149,
         "last_episode_date": "2026-05-17",
         "rubric": "v2"
       },
@@ -9684,7 +9680,7 @@
           "catalog": 8,
           "audience": 6
         },
-        "days_since_last_episode": 27,
+        "days_since_last_episode": 28,
         "last_episode_date": "2026-09-15",
         "rubric": "v2"
       },
@@ -9755,7 +9751,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 91,
+        "days_since_last_episode": 92,
         "last_episode_date": "2026-07-13",
         "rubric": "v2"
       },
@@ -9832,7 +9828,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 1729,
+        "days_since_last_episode": 1730,
         "last_episode_date": "2022-01-17",
         "dormant": true,
         "rubric": "v2"
@@ -9909,7 +9905,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 2560,
+        "days_since_last_episode": 2561,
         "last_episode_date": "2019-10-09",
         "dormant": true,
         "rubric": "v2"
@@ -9986,7 +9982,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1398,
+        "days_since_last_episode": 1399,
         "last_episode_date": "2022-12-14",
         "dormant": true,
         "rubric": "v2"
@@ -10063,7 +10059,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -10139,7 +10135,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -10214,7 +10210,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 161,
+        "days_since_last_episode": 162,
         "last_episode_date": "2026-05-04",
         "rubric": "v2"
       },
@@ -10296,7 +10292,7 @@
           "catalog": 8,
           "audience": 9
         },
-        "days_since_last_episode": 61,
+        "days_since_last_episode": 62,
         "last_episode_date": "2026-08-12",
         "rubric": "v2"
       },
@@ -10354,7 +10350,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 23,
+        "days_since_last_episode": 24,
         "last_episode_date": "2026-09-19",
         "rubric": "v2"
       },
@@ -10429,7 +10425,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 129,
+        "days_since_last_episode": 130,
         "last_episode_date": "2026-06-05",
         "rubric": "v2"
       },
@@ -10500,7 +10496,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 27,
+        "days_since_last_episode": 28,
         "last_episode_date": "2026-09-15",
         "rubric": "v2"
       },
@@ -10578,7 +10574,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 33,
+        "days_since_last_episode": 34,
         "last_episode_date": "2026-09-09",
         "rubric": "v2"
       },
@@ -10653,7 +10649,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -10727,7 +10723,7 @@
           "catalog": 1,
           "audience": 8
         },
-        "days_since_last_episode": 556,
+        "days_since_last_episode": 557,
         "last_episode_date": "2025-04-04",
         "dormant": true,
         "rubric": "v2"
@@ -10803,7 +10799,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 130,
+        "days_since_last_episode": 131,
         "last_episode_date": "2026-06-04",
         "rubric": "v2"
       },
@@ -10877,7 +10873,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 456,
+        "days_since_last_episode": 457,
         "last_episode_date": "2025-07-13",
         "dormant": true,
         "rubric": "v2"
@@ -10952,7 +10948,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 31,
+        "days_since_last_episode": 32,
         "last_episode_date": "2026-09-11",
         "rubric": "v2"
       },
@@ -11027,7 +11023,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 93,
+        "days_since_last_episode": 94,
         "last_episode_date": "2026-07-11",
         "rubric": "v2"
       },
@@ -11100,7 +11096,7 @@
           "catalog": 8,
           "audience": 6
         },
-        "days_since_last_episode": 211,
+        "days_since_last_episode": 212,
         "last_episode_date": "2026-03-15",
         "rubric": "v2"
       }
@@ -11150,7 +11146,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 24,
+        "days_since_last_episode": 25,
         "last_episode_date": "2026-09-18",
         "rubric": "v2"
       },
@@ -11225,7 +11221,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 236,
+        "days_since_last_episode": 237,
         "last_episode_date": "2026-02-18",
         "rubric": "v2"
       },
@@ -11299,7 +11295,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 496,
+        "days_since_last_episode": 497,
         "last_episode_date": "2025-06-03",
         "dormant": true,
         "rubric": "v2"
@@ -11442,7 +11438,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rising": true,
         "rubric": "v2"
@@ -11517,7 +11513,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 195,
+        "days_since_last_episode": 196,
         "last_episode_date": "2026-03-31",
         "rubric": "v2"
       },
@@ -11590,7 +11586,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 316,
+        "days_since_last_episode": 317,
         "last_episode_date": "2025-11-30",
         "rubric": "v2"
       },
@@ -11660,7 +11656,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 885,
+        "days_since_last_episode": 886,
         "last_episode_date": "2024-05-10",
         "dormant": true,
         "rubric": "v2"
@@ -11722,7 +11718,7 @@
           "catalog": 10,
           "audience": 6
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -11781,7 +11777,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 90,
+        "days_since_last_episode": 91,
         "last_episode_date": "2026-07-14",
         "rubric": "v2"
       },
@@ -11872,7 +11868,7 @@
           "catalog": 10,
           "audience": 10
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -11948,7 +11944,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -12024,7 +12020,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -12100,7 +12096,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -12174,7 +12170,7 @@
           "catalog": 2,
           "audience": 10
         },
-        "days_since_last_episode": 162,
+        "days_since_last_episode": 163,
         "last_episode_date": "2026-05-03",
         "rubric": "v2"
       },
@@ -12248,7 +12244,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 15,
+        "days_since_last_episode": 16,
         "last_episode_date": "2026-09-27",
         "rising": true,
         "rubric": "v2"
@@ -12324,7 +12320,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -12399,7 +12395,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rising": true,
         "rubric": "v2"
@@ -12473,7 +12469,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1120,
+        "days_since_last_episode": 1121,
         "last_episode_date": "2023-09-18",
         "dormant": true,
         "rubric": "v2"
@@ -12548,7 +12544,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1329,
+        "days_since_last_episode": 1330,
         "last_episode_date": "2023-02-21",
         "dormant": true,
         "rubric": "v2"
@@ -12623,7 +12619,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 789,
+        "days_since_last_episode": 790,
         "last_episode_date": "2024-08-14",
         "dormant": true,
         "rubric": "v2"
@@ -12692,7 +12688,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 184,
+        "days_since_last_episode": 185,
         "last_episode_date": "2026-04-11",
         "rubric": "v2"
       },
@@ -12751,7 +12747,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 1060,
+        "days_since_last_episode": 1061,
         "last_episode_date": "2023-11-17",
         "dormant": true,
         "rubric": "v2"
@@ -12824,7 +12820,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 7,
+        "days_since_last_episode": 8,
         "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
@@ -12898,7 +12894,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 169,
+        "days_since_last_episode": 170,
         "last_episode_date": "2026-04-26",
         "rubric": "v2"
       },
@@ -12967,7 +12963,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 66,
+        "days_since_last_episode": 67,
         "last_episode_date": "2026-08-07",
         "rubric": "v2"
       },
@@ -13027,7 +13023,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1685,
+        "days_since_last_episode": 1686,
         "last_episode_date": "2022-03-02",
         "dormant": true,
         "rubric": "v2"
@@ -13102,7 +13098,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 495,
+        "days_since_last_episode": 496,
         "last_episode_date": "2025-06-04",
         "dormant": true,
         "rubric": "v2"
@@ -13179,7 +13175,7 @@
           "catalog": 4,
           "audience": 10
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -13238,7 +13234,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -13311,7 +13307,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -13395,7 +13391,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 146,
+        "days_since_last_episode": 147,
         "last_episode_date": "2026-05-19",
         "rubric": "v2"
       },
@@ -13469,7 +13465,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 22,
+        "days_since_last_episode": 23,
         "last_episode_date": "2026-09-20",
         "rising": true,
         "rubric": "v2"
@@ -13544,7 +13540,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 1093,
+        "days_since_last_episode": 1094,
         "last_episode_date": "2023-10-15",
         "dormant": true,
         "rubric": "v2"
@@ -13634,7 +13630,7 @@
           "catalog": 10,
           "audience": 9
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -13705,7 +13701,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -13780,7 +13776,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -13855,7 +13851,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 281,
+        "days_since_last_episode": 282,
         "last_episode_date": "2026-01-04",
         "rubric": "v2"
       },
@@ -13925,7 +13921,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2114,
+        "days_since_last_episode": 2115,
         "last_episode_date": "2020-12-28",
         "dormant": true,
         "rubric": "v2"
@@ -14000,7 +13996,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -14071,7 +14067,7 @@
           "catalog": 10,
           "audience": 9
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -14124,7 +14120,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -14190,7 +14186,7 @@
           "catalog": 10,
           "audience": 8
         },
-        "days_since_last_episode": 1273,
+        "days_since_last_episode": 1274,
         "last_episode_date": "2023-04-18",
         "dormant": true,
         "rubric": "v2"
@@ -14265,7 +14261,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 1965,
+        "days_since_last_episode": 1966,
         "last_episode_date": "2021-05-26",
         "dormant": true,
         "rubric": "v2"
@@ -14340,7 +14336,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -14414,7 +14410,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 82,
+        "days_since_last_episode": 83,
         "last_episode_date": "2026-07-22",
         "rubric": "v2"
       },
@@ -14488,7 +14484,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 17,
+        "days_since_last_episode": 18,
         "last_episode_date": "2026-09-25",
         "rising": true,
         "rubric": "v2"
@@ -14563,7 +14559,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 140,
+        "days_since_last_episode": 141,
         "last_episode_date": "2026-05-25",
         "rubric": "v2"
       },
@@ -14642,7 +14638,7 @@
           "catalog": 6,
           "audience": 9
         },
-        "days_since_last_episode": 117,
+        "days_since_last_episode": 118,
         "last_episode_date": "2026-06-17",
         "rubric": "v2"
       },
@@ -14710,7 +14706,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 296,
+        "days_since_last_episode": 297,
         "last_episode_date": "2025-12-20",
         "rubric": "v2"
       },
@@ -14766,7 +14762,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -14841,7 +14837,7 @@
           "catalog": 1,
           "audience": 8
         },
-        "days_since_last_episode": 410,
+        "days_since_last_episode": 411,
         "last_episode_date": "2025-08-28",
         "dormant": true,
         "rubric": "v2"
@@ -14916,7 +14912,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 366,
+        "days_since_last_episode": 367,
         "last_episode_date": "2025-10-11",
         "dormant": true,
         "rubric": "v2"
@@ -14992,7 +14988,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rubric": "v2"
       },
@@ -15066,7 +15062,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 146,
+        "days_since_last_episode": 147,
         "last_episode_date": "2026-05-19",
         "rubric": "v2"
       },
@@ -15139,7 +15135,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 573,
+        "days_since_last_episode": 574,
         "last_episode_date": "2025-03-18",
         "dormant": true,
         "rubric": "v2"
@@ -15198,7 +15194,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 241,
+        "days_since_last_episode": 242,
         "last_episode_date": "2026-02-13",
         "rubric": "v2"
       },
@@ -15254,7 +15250,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 104,
+        "days_since_last_episode": 105,
         "last_episode_date": "2026-06-30",
         "rubric": "v2"
       },
@@ -15332,7 +15328,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -15406,7 +15402,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -15483,7 +15479,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 21,
+        "days_since_last_episode": 22,
         "last_episode_date": "2026-09-21",
         "rubric": "v2"
       },
@@ -15605,7 +15601,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rubric": "v2"
       },
@@ -15690,7 +15686,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 84,
+        "days_since_last_episode": 85,
         "last_episode_date": "2026-07-20",
         "rubric": "v2"
       },
@@ -15764,7 +15760,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 326,
+        "days_since_last_episode": 327,
         "last_episode_date": "2025-11-20",
         "rubric": "v2"
       },
@@ -15838,7 +15834,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 128,
+        "days_since_last_episode": 129,
         "last_episode_date": "2026-06-06",
         "rubric": "v2"
       },
@@ -15910,7 +15906,7 @@
           "catalog": 8,
           "audience": 2
         },
-        "days_since_last_episode": 40,
+        "days_since_last_episode": 41,
         "last_episode_date": "2026-09-02",
         "rubric": "v2"
       },
@@ -15968,7 +15964,7 @@
           "catalog": 8,
           "audience": 8
         },
-        "days_since_last_episode": 109,
+        "days_since_last_episode": 110,
         "last_episode_date": "2026-06-25",
         "rubric": "v2"
       },
@@ -16046,7 +16042,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 881,
+        "days_since_last_episode": 882,
         "last_episode_date": "2024-05-14",
         "dormant": true,
         "rubric": "v2"
@@ -16122,7 +16118,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 104,
+        "days_since_last_episode": 105,
         "last_episode_date": "2026-06-30",
         "rubric": "v2"
       },
@@ -16197,7 +16193,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -16271,7 +16267,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 15,
+        "days_since_last_episode": 16,
         "last_episode_date": "2026-09-27",
         "rubric": "v2"
       },
@@ -16345,7 +16341,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 54,
+        "days_since_last_episode": 55,
         "last_episode_date": "2026-08-19",
         "rubric": "v2"
       },
@@ -16419,7 +16415,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 1217,
+        "days_since_last_episode": 1218,
         "last_episode_date": "2023-06-13",
         "dormant": true,
         "rubric": "v2"
@@ -16493,7 +16489,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 498,
+        "days_since_last_episode": 499,
         "last_episode_date": "2025-06-01",
         "dormant": true,
         "rubric": "v2"
@@ -16568,7 +16564,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 27,
+        "days_since_last_episode": 28,
         "last_episode_date": "2026-09-15",
         "rubric": "v2"
       },
@@ -16650,7 +16646,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 43,
+        "days_since_last_episode": 44,
         "last_episode_date": "2026-08-30",
         "rubric": "v2"
       },
@@ -16723,7 +16719,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 819,
+        "days_since_last_episode": 820,
         "last_episode_date": "2024-07-15",
         "dormant": true,
         "rubric": "v2"
@@ -16785,7 +16781,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 26,
+        "days_since_last_episode": 27,
         "last_episode_date": "2026-09-16",
         "rubric": "v2"
       },
@@ -16860,7 +16856,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 53,
+        "days_since_last_episode": 54,
         "last_episode_date": "2026-08-20",
         "rubric": "v2"
       },
@@ -16935,7 +16931,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -17010,7 +17006,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 154,
+        "days_since_last_episode": 155,
         "last_episode_date": "2026-05-11",
         "rubric": "v2"
       },
@@ -17085,7 +17081,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": -1,
+        "days_since_last_episode": 0,
         "last_episode_date": "2026-10-13",
         "rubric": "v2"
       },
@@ -17162,7 +17158,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -17236,7 +17232,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 446,
+        "days_since_last_episode": 447,
         "last_episode_date": "2025-07-23",
         "dormant": true,
         "rubric": "v2"
@@ -17312,7 +17308,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 11,
+        "days_since_last_episode": 12,
         "last_episode_date": "2026-10-01",
         "rubric": "v2"
       },
@@ -17386,7 +17382,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 141,
+        "days_since_last_episode": 142,
         "last_episode_date": "2026-05-24",
         "rubric": "v2"
       },
@@ -17461,7 +17457,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -17535,7 +17531,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2471,
+        "days_since_last_episode": 2472,
         "last_episode_date": "2020-01-06",
         "dormant": true,
         "rubric": "v2"
@@ -17609,7 +17605,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1427,
+        "days_since_last_episode": 1428,
         "last_episode_date": "2022-11-15",
         "dormant": true,
         "rubric": "v2"
@@ -17670,7 +17666,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 3072,
+        "days_since_last_episode": 3073,
         "last_episode_date": "2018-05-15",
         "dormant": true,
         "rubric": "v2"
@@ -17732,7 +17728,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 607,
+        "days_since_last_episode": 608,
         "last_episode_date": "2025-02-12",
         "dormant": true,
         "rubric": "v2"
@@ -17806,7 +17802,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1945,
+        "days_since_last_episode": 1946,
         "last_episode_date": "2021-06-15",
         "dormant": true,
         "rubric": "v2"
@@ -17868,7 +17864,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 22,
+        "days_since_last_episode": 23,
         "last_episode_date": "2026-09-20",
         "rubric": "v2"
       },
@@ -17937,7 +17933,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1783,
+        "days_since_last_episode": 1784,
         "last_episode_date": "2021-11-24",
         "dormant": true,
         "rubric": "v2"
@@ -18012,7 +18008,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 286,
+        "days_since_last_episode": 287,
         "last_episode_date": "2025-12-30",
         "rubric": "v2"
       },
@@ -18086,7 +18082,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1267,
+        "days_since_last_episode": 1268,
         "last_episode_date": "2023-04-24",
         "dormant": true,
         "rubric": "v2"
@@ -18161,7 +18157,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rubric": "v2"
       },
@@ -18236,7 +18232,7 @@
           "catalog": 10,
           "audience": 3
         },
-        "days_since_last_episode": 769,
+        "days_since_last_episode": 770,
         "last_episode_date": "2024-09-03",
         "dormant": true,
         "rubric": "v2"
@@ -18300,17 +18296,17 @@
       ],
       "notes": "HNS-ov službeni podcast. Nogomet/reprezentacija.",
       "quality_score": {
-        "total": 44,
-        "tier": "👀 moderate",
+        "total": 39,
+        "tier": "📦 weak",
         "breakdown": {
-          "freshness": 8,
+          "freshness": 3,
           "cadence": 10,
           "format": 15,
           "substance": 5,
           "catalog": 3,
           "audience": 3
         },
-        "days_since_last_episode": 180,
+        "days_since_last_episode": 181,
         "last_episode_date": "2026-04-15",
         "rubric": "v2"
       },
@@ -18370,7 +18366,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 983,
+        "days_since_last_episode": 984,
         "last_episode_date": "2024-02-02",
         "dormant": true,
         "rubric": "v2"
@@ -18445,7 +18441,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 294,
+        "days_since_last_episode": 295,
         "last_episode_date": "2025-12-22",
         "rubric": "v2"
       },
@@ -18519,7 +18515,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 696,
+        "days_since_last_episode": 697,
         "last_episode_date": "2024-11-15",
         "dormant": true,
         "rubric": "v2"
@@ -18594,7 +18590,7 @@
           "catalog": 2,
           "audience": 9
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -18721,7 +18717,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 1184,
+        "days_since_last_episode": 1185,
         "last_episode_date": "2023-07-16",
         "dormant": true,
         "rubric": "v2"
@@ -18796,7 +18792,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -18873,7 +18869,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 127,
+        "days_since_last_episode": 128,
         "last_episode_date": "2026-06-07",
         "rubric": "v2"
       },
@@ -18947,7 +18943,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 136,
+        "days_since_last_episode": 137,
         "last_episode_date": "2026-05-29",
         "rubric": "v2"
       },
@@ -19015,7 +19011,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 673,
+        "days_since_last_episode": 674,
         "last_episode_date": "2024-12-08",
         "dormant": true,
         "rubric": "v2"
@@ -19090,7 +19086,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 18,
+        "days_since_last_episode": 19,
         "last_episode_date": "2026-09-24",
         "rubric": "v2"
       },
@@ -19165,7 +19161,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 26,
+        "days_since_last_episode": 27,
         "last_episode_date": "2026-09-16",
         "rubric": "v2"
       },
@@ -19234,7 +19230,7 @@
           "catalog": 8,
           "audience": 6
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -19293,7 +19289,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 91,
+        "days_since_last_episode": 92,
         "last_episode_date": "2026-07-13",
         "rubric": "v2"
       },
@@ -19368,7 +19364,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 240,
+        "days_since_last_episode": 241,
         "last_episode_date": "2026-02-14",
         "rubric": "v2"
       },
@@ -19426,7 +19422,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 23,
+        "days_since_last_episode": 24,
         "last_episode_date": "2026-09-19",
         "rubric": "v2"
       },
@@ -19692,7 +19688,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 150,
+        "days_since_last_episode": 151,
         "last_episode_date": "2026-05-15",
         "rubric": "v2"
       },
@@ -19840,7 +19836,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 123,
+        "days_since_last_episode": 124,
         "last_episode_date": "2026-06-11",
         "rubric": "v2"
       },
@@ -19915,7 +19911,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 410,
+        "days_since_last_episode": 411,
         "last_episode_date": "2025-08-28",
         "dormant": true,
         "rubric": "v2"
@@ -20065,7 +20061,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 87,
+        "days_since_last_episode": 88,
         "last_episode_date": "2026-07-17",
         "rubric": "v2"
       },
@@ -20140,7 +20136,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1343,
+        "days_since_last_episode": 1344,
         "last_episode_date": "2023-02-07",
         "dormant": true,
         "rubric": "v2"
@@ -20221,7 +20217,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 9,
+        "days_since_last_episode": 10,
         "last_episode_date": "2026-10-03",
         "rubric": "v2"
       },
@@ -20296,7 +20292,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 124,
+        "days_since_last_episode": 125,
         "last_episode_date": "2026-06-10",
         "rubric": "v2"
       },
@@ -20371,7 +20367,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -20448,7 +20444,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -20523,7 +20519,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 117,
+        "days_since_last_episode": 118,
         "last_episode_date": "2026-06-17",
         "rubric": "v2"
       },
@@ -20600,7 +20596,7 @@
           "catalog": 8,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -20691,7 +20687,7 @@
           "catalog": 4,
           "audience": 2
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rising": true,
         "rubric": "v2"
@@ -20768,7 +20764,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1389,
+        "days_since_last_episode": 1390,
         "last_episode_date": "2022-12-23",
         "dormant": true,
         "rubric": "v2"
@@ -20847,7 +20843,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 682,
+        "days_since_last_episode": 683,
         "last_episode_date": "2024-11-29",
         "dormant": true,
         "rubric": "v2"
@@ -20928,7 +20924,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rising": true,
         "rubric": "v2"
@@ -21008,7 +21004,7 @@
           "catalog": 4,
           "audience": 9
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -21084,7 +21080,7 @@
           "catalog": 1,
           "audience": 10
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -21150,17 +21146,17 @@
       },
       "notes": "Hrvatski razgovorni podcast s gostima o osobnim/kontroverznim temama, numerirane epizode bez kratkih izrezaka.",
       "quality_score": {
-        "total": 73,
+        "total": 70,
         "tier": "✅ strong",
         "breakdown": {
-          "freshness": 30,
+          "freshness": 27,
           "cadence": 12,
           "format": 15,
           "substance": 7,
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 14,
+        "days_since_last_episode": 15,
         "last_episode_date": "2026-09-28",
         "rubric": "v2"
       },
@@ -21236,7 +21232,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 115,
+        "days_since_last_episode": 116,
         "last_episode_date": "2026-06-19",
         "rubric": "v2"
       },
@@ -21314,7 +21310,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rubric": "v2"
       },
@@ -21391,7 +21387,7 @@
           "catalog": 1,
           "audience": 10
         },
-        "days_since_last_episode": 1398,
+        "days_since_last_episode": 1399,
         "last_episode_date": "2022-12-14",
         "dormant": true,
         "rubric": "v2"
@@ -21469,7 +21465,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 414,
+        "days_since_last_episode": 415,
         "last_episode_date": "2025-08-24",
         "dormant": true,
         "rubric": "v2"
@@ -21551,7 +21547,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -21627,7 +21623,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 145,
+        "days_since_last_episode": 146,
         "last_episode_date": "2026-05-20",
         "rubric": "v2"
       },
@@ -21708,7 +21704,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 475,
+        "days_since_last_episode": 476,
         "last_episode_date": "2025-06-24",
         "dormant": true,
         "rubric": "v2"
@@ -21796,7 +21792,7 @@
           "catalog": 1,
           "audience": 8
         },
-        "days_since_last_episode": 1458,
+        "days_since_last_episode": 1459,
         "last_episode_date": "2022-10-15",
         "dormant": true,
         "rubric": "v2"
@@ -21873,7 +21869,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1953,
+        "days_since_last_episode": 1954,
         "last_episode_date": "2021-06-07",
         "dormant": true,
         "rubric": "v2"
@@ -21954,7 +21950,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -22034,7 +22030,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 91,
+        "days_since_last_episode": 92,
         "last_episode_date": "2026-07-13",
         "rubric": "v2"
       },
@@ -22111,7 +22107,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 105,
+        "days_since_last_episode": 106,
         "last_episode_date": "2026-06-29",
         "rubric": "v2"
       },
@@ -22189,7 +22185,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 83,
+        "days_since_last_episode": 84,
         "last_episode_date": "2026-07-21",
         "rubric": "v2"
       },
@@ -22265,7 +22261,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 145,
+        "days_since_last_episode": 146,
         "last_episode_date": "2026-05-20",
         "rubric": "v2"
       },
@@ -22341,7 +22337,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 484,
+        "days_since_last_episode": 485,
         "last_episode_date": "2025-06-15",
         "dormant": true,
         "rubric": "v2"
@@ -22418,7 +22414,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1263,
+        "days_since_last_episode": 1264,
         "last_episode_date": "2023-04-28",
         "dormant": true,
         "rubric": "v2"
@@ -22495,7 +22491,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 624,
+        "days_since_last_episode": 625,
         "last_episode_date": "2025-01-26",
         "dormant": true,
         "rubric": "v2"
@@ -22575,7 +22571,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -22654,7 +22650,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rising": true,
         "rubric": "v2"
@@ -22736,7 +22732,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1930,
+        "days_since_last_episode": 1931,
         "last_episode_date": "2021-06-30",
         "dormant": true,
         "rubric": "v2"
@@ -22812,7 +22808,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 544,
+        "days_since_last_episode": 545,
         "last_episode_date": "2025-04-16",
         "dormant": true,
         "rubric": "v2"
@@ -22890,7 +22886,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rising": true,
         "rubric": "v2"
@@ -22970,7 +22966,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -23047,7 +23043,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 357,
+        "days_since_last_episode": 358,
         "last_episode_date": "2025-10-20",
         "rubric": "v2"
       },
@@ -23126,7 +23122,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 238,
+        "days_since_last_episode": 239,
         "last_episode_date": "2026-02-16",
         "rubric": "v2"
       },
@@ -23212,7 +23208,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 104,
+        "days_since_last_episode": 105,
         "last_episode_date": "2026-06-30",
         "rubric": "v2"
       },
@@ -23290,7 +23286,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 261,
+        "days_since_last_episode": 262,
         "last_episode_date": "2026-01-24",
         "rubric": "v2"
       },
@@ -23371,7 +23367,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -23450,7 +23446,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 33,
+        "days_since_last_episode": 34,
         "last_episode_date": "2026-09-09",
         "rubric": "v2"
       },
@@ -23525,7 +23521,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 4043,
+        "days_since_last_episode": 4044,
         "last_episode_date": "2015-09-17",
         "dormant": true,
         "rubric": "v2"
@@ -23602,7 +23598,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 107,
+        "days_since_last_episode": 108,
         "last_episode_date": "2026-06-27",
         "rubric": "v2"
       },
@@ -23686,7 +23682,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rising": true,
         "rubric": "v2"
@@ -23767,7 +23763,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1501,
+        "days_since_last_episode": 1502,
         "last_episode_date": "2022-09-02",
         "dormant": true,
         "rubric": "v2"
@@ -23847,7 +23843,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 1890,
+        "days_since_last_episode": 1891,
         "last_episode_date": "2021-08-09",
         "dormant": true,
         "rubric": "v2"
@@ -23925,7 +23921,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 298,
+        "days_since_last_episode": 299,
         "last_episode_date": "2025-12-18",
         "rubric": "v2"
       },
@@ -24002,7 +23998,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1435,
+        "days_since_last_episode": 1436,
         "last_episode_date": "2022-11-07",
         "dormant": true,
         "rubric": "v2"
@@ -24078,7 +24074,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1230,
+        "days_since_last_episode": 1231,
         "last_episode_date": "2023-05-31",
         "dormant": true,
         "rubric": "v2"
@@ -24158,7 +24154,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 338,
+        "days_since_last_episode": 339,
         "last_episode_date": "2025-11-08",
         "rubric": "v2"
       },
@@ -24247,7 +24243,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 878,
+        "days_since_last_episode": 879,
         "last_episode_date": "2024-05-17",
         "dormant": true,
         "rubric": "v2"
@@ -24317,17 +24313,17 @@
       },
       "notes": "Hrvatski gastro talk-show format, razgovori s poznatim gostima u restoranima.",
       "quality_score": {
-        "total": 78,
+        "total": 75,
         "tier": "✅ strong",
         "breakdown": {
-          "freshness": 30,
+          "freshness": 27,
           "cadence": 18,
           "format": 15,
           "substance": 5,
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 14,
+        "days_since_last_episode": 15,
         "last_episode_date": "2026-09-28",
         "rubric": "v2"
       },
@@ -24406,7 +24402,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 2291,
+        "days_since_last_episode": 2292,
         "last_episode_date": "2020-07-04",
         "dormant": true,
         "rubric": "v2"
@@ -24483,7 +24479,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 443,
+        "days_since_last_episode": 444,
         "last_episode_date": "2025-07-26",
         "dormant": true,
         "rubric": "v2"
@@ -24567,7 +24563,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -24644,7 +24640,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1064,
+        "days_since_last_episode": 1065,
         "last_episode_date": "2023-11-13",
         "dormant": true,
         "rubric": "v2"
@@ -24721,7 +24717,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1028,
+        "days_since_last_episode": 1029,
         "last_episode_date": "2023-12-19",
         "dormant": true,
         "rubric": "v2"
@@ -24799,7 +24795,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1733,
+        "days_since_last_episode": 1734,
         "last_episode_date": "2022-01-13",
         "dormant": true,
         "rubric": "v2"
@@ -24875,7 +24871,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 438,
+        "days_since_last_episode": 439,
         "last_episode_date": "2025-07-31",
         "dormant": true,
         "rubric": "v2"
@@ -24955,7 +24951,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 220,
+        "days_since_last_episode": 221,
         "last_episode_date": "2026-03-06",
         "rubric": "v2"
       },
@@ -25031,7 +25027,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 291,
+        "days_since_last_episode": 292,
         "last_episode_date": "2025-12-25",
         "rubric": "v2"
       },
@@ -25106,7 +25102,7 @@
           "catalog": 1,
           "audience": 9
         },
-        "days_since_last_episode": 126,
+        "days_since_last_episode": 127,
         "last_episode_date": "2026-06-08",
         "rubric": "v2"
       },
@@ -25181,7 +25177,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 702,
+        "days_since_last_episode": 703,
         "last_episode_date": "2024-11-09",
         "dormant": true,
         "rubric": "v2"
@@ -25257,7 +25253,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 33,
+        "days_since_last_episode": 34,
         "last_episode_date": "2026-09-09",
         "rubric": "v2"
       },
@@ -25335,7 +25331,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 1844,
+        "days_since_last_episode": 1845,
         "last_episode_date": "2021-09-24",
         "dormant": true,
         "rubric": "v2"
@@ -25416,7 +25412,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1238,
+        "days_since_last_episode": 1239,
         "last_episode_date": "2023-05-23",
         "dormant": true,
         "rubric": "v2"
@@ -25497,7 +25493,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 33,
+        "days_since_last_episode": 34,
         "last_episode_date": "2026-09-09",
         "rubric": "v2"
       },
@@ -25572,7 +25568,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 105,
+        "days_since_last_episode": 106,
         "last_episode_date": "2026-06-29",
         "rubric": "v2"
       },
@@ -25647,7 +25643,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rising": true,
         "rubric": "v2"
@@ -25725,7 +25721,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -25801,7 +25797,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -25880,7 +25876,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1090,
+        "days_since_last_episode": 1091,
         "last_episode_date": "2023-10-18",
         "dormant": true,
         "rubric": "v2"
@@ -25959,7 +25955,7 @@
           "catalog": 1,
           "audience": 8
         },
-        "days_since_last_episode": 194,
+        "days_since_last_episode": 195,
         "last_episode_date": "2026-04-01",
         "rubric": "v2"
       },
@@ -26036,7 +26032,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 2297,
+        "days_since_last_episode": 2298,
         "last_episode_date": "2020-06-28",
         "dormant": true,
         "rubric": "v2"
@@ -26113,7 +26109,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 9,
+        "days_since_last_episode": 10,
         "last_episode_date": "2026-10-03",
         "rising": true,
         "rubric": "v2"
@@ -26190,7 +26186,7 @@
           "catalog": 6,
           "audience": 5
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rising": true,
         "rubric": "v2"
@@ -26266,7 +26262,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 811,
+        "days_since_last_episode": 812,
         "last_episode_date": "2024-07-23",
         "dormant": true,
         "rubric": "v2"
@@ -26342,7 +26338,7 @@
           "catalog": 4,
           "audience": 8
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -26419,7 +26415,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1323,
+        "days_since_last_episode": 1324,
         "last_episode_date": "2023-02-27",
         "dormant": true,
         "rubric": "v2"
@@ -26499,7 +26495,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 2162,
+        "days_since_last_episode": 2163,
         "last_episode_date": "2020-11-10",
         "dormant": true,
         "rubric": "v2"
@@ -26578,7 +26574,7 @@
           "catalog": 2,
           "audience": 2
         },
-        "days_since_last_episode": 7,
+        "days_since_last_episode": 8,
         "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
@@ -26655,7 +26651,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 26,
+        "days_since_last_episode": 27,
         "last_episode_date": "2026-09-16",
         "rubric": "v2"
       },
@@ -26732,7 +26728,7 @@
           "catalog": 4,
           "audience": 2
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rising": true,
         "rubric": "v2"
@@ -26811,7 +26807,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rising": true,
         "rubric": "v2"
@@ -26888,7 +26884,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 581,
+        "days_since_last_episode": 582,
         "last_episode_date": "2025-03-10",
         "dormant": true,
         "rubric": "v2"
@@ -26966,7 +26962,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2203,
+        "days_since_last_episode": 2204,
         "last_episode_date": "2020-09-30",
         "dormant": true,
         "rubric": "v2"
@@ -27042,7 +27038,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 736,
+        "days_since_last_episode": 737,
         "last_episode_date": "2024-10-06",
         "dormant": true,
         "rubric": "v2"
@@ -27120,7 +27116,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -27196,7 +27192,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -27271,7 +27267,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 94,
+        "days_since_last_episode": 95,
         "last_episode_date": "2026-07-10",
         "rubric": "v2"
       },
@@ -27346,7 +27342,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 7,
+        "days_since_last_episode": 8,
         "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
@@ -27425,7 +27421,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 134,
+        "days_since_last_episode": 135,
         "last_episode_date": "2026-05-31",
         "rubric": "v2"
       },
@@ -27501,7 +27497,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 218,
+        "days_since_last_episode": 219,
         "last_episode_date": "2026-03-08",
         "rubric": "v2"
       },
@@ -27576,7 +27572,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1088,
+        "days_since_last_episode": 1089,
         "last_episode_date": "2023-10-20",
         "dormant": true,
         "rubric": "v2"
@@ -27652,7 +27648,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1123,
+        "days_since_last_episode": 1124,
         "last_episode_date": "2023-09-15",
         "dormant": true,
         "rubric": "v2"
@@ -27729,7 +27725,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 26,
+        "days_since_last_episode": 27,
         "last_episode_date": "2026-09-16",
         "rubric": "v2"
       },
@@ -27807,7 +27803,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rising": true,
         "rubric": "v2"
@@ -27887,7 +27883,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rising": true,
         "rubric": "v2"
@@ -27965,7 +27961,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 96,
+        "days_since_last_episode": 97,
         "last_episode_date": "2026-07-08",
         "rubric": "v2"
       },
@@ -28044,7 +28040,7 @@
           "catalog": 2,
           "audience": 2
         },
-        "days_since_last_episode": 313,
+        "days_since_last_episode": 314,
         "last_episode_date": "2025-12-03",
         "rubric": "v2"
       },
@@ -28121,7 +28117,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 846,
+        "days_since_last_episode": 847,
         "last_episode_date": "2024-06-18",
         "dormant": true,
         "rubric": "v2"
@@ -28200,7 +28196,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 38,
+        "days_since_last_episode": 39,
         "last_episode_date": "2026-09-04",
         "rubric": "v2"
       },
@@ -28278,7 +28274,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 99,
+        "days_since_last_episode": 100,
         "last_episode_date": "2026-07-05",
         "rubric": "v2"
       },
@@ -28355,7 +28351,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1920,
+        "days_since_last_episode": 1921,
         "last_episode_date": "2021-07-10",
         "dormant": true,
         "rubric": "v2"
@@ -28436,7 +28432,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 567,
+        "days_since_last_episode": 568,
         "last_episode_date": "2025-03-24",
         "dormant": true,
         "rubric": "v2"
@@ -28517,7 +28513,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 644,
+        "days_since_last_episode": 645,
         "last_episode_date": "2025-01-06",
         "dormant": true,
         "rubric": "v2"
@@ -28594,7 +28590,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 136,
+        "days_since_last_episode": 137,
         "last_episode_date": "2026-05-29",
         "rubric": "v2"
       },
@@ -28671,7 +28667,7 @@
           "catalog": 2,
           "audience": 6
         },
-        "days_since_last_episode": 87,
+        "days_since_last_episode": 88,
         "last_episode_date": "2026-07-17",
         "rubric": "v2"
       },
@@ -28747,7 +28743,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1350,
+        "days_since_last_episode": 1351,
         "last_episode_date": "2023-01-31",
         "dormant": true,
         "rubric": "v2"
@@ -28824,7 +28820,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1991,
+        "days_since_last_episode": 1992,
         "last_episode_date": "2021-04-30",
         "dormant": true,
         "rubric": "v2"
@@ -28901,7 +28897,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -28978,7 +28974,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 2289,
+        "days_since_last_episode": 2290,
         "last_episode_date": "2020-07-06",
         "dormant": true,
         "rubric": "v2"
@@ -29054,7 +29050,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1598,
+        "days_since_last_episode": 1599,
         "last_episode_date": "2022-05-28",
         "dormant": true,
         "rubric": "v2"
@@ -29132,7 +29128,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 86,
+        "days_since_last_episode": 87,
         "last_episode_date": "2026-07-18",
         "rubric": "v2"
       },
@@ -29210,7 +29206,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 1591,
+        "days_since_last_episode": 1592,
         "last_episode_date": "2022-06-04",
         "dormant": true,
         "rubric": "v2"
@@ -29290,7 +29286,7 @@
           "catalog": 4,
           "audience": 6
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rubric": "v2"
       },
@@ -29366,7 +29362,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 237,
+        "days_since_last_episode": 238,
         "last_episode_date": "2026-02-17",
         "rubric": "v2"
       },
@@ -29445,7 +29441,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rising": true,
         "rubric": "v2"
@@ -29522,7 +29518,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 222,
+        "days_since_last_episode": 223,
         "last_episode_date": "2026-03-04",
         "rubric": "v2"
       },
@@ -29597,7 +29593,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 881,
+        "days_since_last_episode": 882,
         "last_episode_date": "2024-05-14",
         "dormant": true,
         "rubric": "v2"
@@ -29675,7 +29671,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 1756,
+        "days_since_last_episode": 1757,
         "last_episode_date": "2021-12-21",
         "dormant": true,
         "rubric": "v2"
@@ -29752,7 +29748,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -29828,7 +29824,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -29905,7 +29901,7 @@
           "catalog": 2,
           "audience": 5
         },
-        "days_since_last_episode": 17,
+        "days_since_last_episode": 18,
         "last_episode_date": "2026-09-25",
         "rubric": "v2"
       },
@@ -29980,7 +29976,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 700,
+        "days_since_last_episode": 701,
         "last_episode_date": "2024-11-11",
         "dormant": true,
         "rubric": "v2"
@@ -30056,7 +30052,7 @@
           "catalog": 1,
           "audience": 6
         },
-        "days_since_last_episode": 473,
+        "days_since_last_episode": 474,
         "last_episode_date": "2025-06-26",
         "dormant": true,
         "rubric": "v2"
@@ -30137,7 +30133,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1608,
+        "days_since_last_episode": 1609,
         "last_episode_date": "2022-05-18",
         "dormant": true,
         "rubric": "v2"
@@ -30215,7 +30211,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -30292,7 +30288,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 159,
+        "days_since_last_episode": 160,
         "last_episode_date": "2026-05-06",
         "rubric": "v2"
       },
@@ -30369,7 +30365,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 176,
+        "days_since_last_episode": 177,
         "last_episode_date": "2026-04-19",
         "rubric": "v2"
       },
@@ -30446,7 +30442,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 685,
+        "days_since_last_episode": 686,
         "last_episode_date": "2024-11-26",
         "dormant": true,
         "rubric": "v2"
@@ -30523,7 +30519,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1979,
+        "days_since_last_episode": 1980,
         "last_episode_date": "2021-05-12",
         "dormant": true,
         "rubric": "v2"
@@ -30601,7 +30597,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 313,
+        "days_since_last_episode": 314,
         "last_episode_date": "2025-12-03",
         "rubric": "v2"
       },
@@ -30678,7 +30674,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -30757,7 +30753,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 7,
+        "days_since_last_episode": 8,
         "last_episode_date": "2026-10-05",
         "rubric": "v2"
       },
@@ -30834,7 +30830,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 11,
+        "days_since_last_episode": 12,
         "last_episode_date": "2026-10-01",
         "rubric": "v2"
       },
@@ -30911,7 +30907,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -30990,7 +30986,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 10,
+        "days_since_last_episode": 11,
         "last_episode_date": "2026-10-02",
         "rubric": "v2"
       },
@@ -31067,7 +31063,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1045,
+        "days_since_last_episode": 1046,
         "last_episode_date": "2023-12-02",
         "dormant": true,
         "rubric": "v2"
@@ -31145,7 +31141,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 11,
+        "days_since_last_episode": 12,
         "last_episode_date": "2026-10-01",
         "rubric": "v2"
       },
@@ -31221,7 +31217,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 84,
+        "days_since_last_episode": 85,
         "last_episode_date": "2026-07-20",
         "rubric": "v2"
       },
@@ -31298,7 +31294,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 12,
+        "days_since_last_episode": 13,
         "last_episode_date": "2026-09-30",
         "rubric": "v2"
       },
@@ -31373,7 +31369,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 140,
+        "days_since_last_episode": 141,
         "last_episode_date": "2026-05-25",
         "rubric": "v2"
       },
@@ -31450,7 +31446,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 154,
+        "days_since_last_episode": 155,
         "last_episode_date": "2026-05-11",
         "rubric": "v2"
       },
@@ -31529,7 +31525,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 913,
+        "days_since_last_episode": 914,
         "last_episode_date": "2024-04-12",
         "dormant": true,
         "rubric": "v2"
@@ -31550,7 +31546,7 @@
     },
     {
       "slug": "aktualno-hkm",
-      "display_name": "Aktualno",
+      "display_name": "Aktualno (HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_KKobxbAsGKLe0cJhbywuU",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -31607,7 +31603,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 20,
+        "days_since_last_episode": 21,
         "last_episode_date": "2026-09-22",
         "rubric": "v2"
       },
@@ -31623,11 +31619,13 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Aktualno",
+      "parent_slug": "hkm"
     },
     {
       "slug": "razgovori-s-nadbiskupima",
-      "display_name": "Razgovori s (nad)biskupima",
+      "display_name": "Razgovori s (nad)biskupima (HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg_gWhrtYNlWcuFajfTQaqw-",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -31683,7 +31681,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 348,
+        "days_since_last_episode": 349,
         "last_episode_date": "2025-10-29",
         "rubric": "v2"
       },
@@ -31699,11 +31697,13 @@
         "min_duration_sec": 1006,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Razgovori s (nad)biskupima",
+      "parent_slug": "hkm"
     },
     {
       "slug": "argumenti-sezona-7",
-      "display_name": "Argumenti (7. sezona)",
+      "display_name": "Argumenti (7. sezona, HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8WI8twkrEvAP-JMlspLEn7",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -31809,7 +31809,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 487,
+        "days_since_last_episode": 488,
         "last_episode_date": "2025-06-12",
         "dormant": true,
         "rubric": "v2"
@@ -31826,11 +31826,13 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Argumenti (7. sezona)",
+      "parent_slug": "hkm"
     },
     {
       "slug": "pod-krizem",
-      "display_name": "Pod križem",
+      "display_name": "Pod križem (HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg8HyCuHfyp-MItrAdCt32WR",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -31886,7 +31888,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 488,
+        "days_since_last_episode": 489,
         "last_episode_date": "2025-06-11",
         "dormant": true,
         "rubric": "v2"
@@ -31903,11 +31905,13 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Pod križem",
+      "parent_slug": "hkm"
     },
     {
       "slug": "s-druge-strane-ogledala",
-      "display_name": "S druge strane ogledala",
+      "display_name": "S druge strane ogledala (HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg__oVIvOswWNXt0264kqzCc",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -31963,7 +31967,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 497,
+        "days_since_last_episode": 498,
         "last_episode_date": "2025-06-02",
         "dormant": true,
         "rubric": "v2"
@@ -31980,11 +31984,13 @@
         "min_duration_sec": 901,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "S druge strane ogledala",
+      "parent_slug": "hkm"
     },
     {
       "slug": "duhovno-duhovite-veceri",
-      "display_name": "Duhovno duhovita večer",
+      "display_name": "Duhovno duhovita večer (HKM)",
       "youtube": {
         "url": "https://www.youtube.com/playlist?list=PLVDKMx1rtcg-Y31hy0ENjJn8yQAIMy64o",
         "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
@@ -32040,7 +32046,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1419,
+        "days_since_last_episode": 1420,
         "last_episode_date": "2022-11-23",
         "dormant": true,
         "rubric": "v2"
@@ -32057,7 +32063,9 @@
         "min_duration_sec": 1196,
         "no_originals": false,
         "error": null
-      }
+      },
+      "previous_display_name": "Duhovno duhovita večer",
+      "parent_slug": "hkm"
     },
     {
       "slug": "vatreni-podcast-psk-2024",
@@ -32117,7 +32125,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 865,
+        "days_since_last_episode": 866,
         "last_episode_date": "2024-05-30",
         "dormant": true,
         "rubric": "v2"
@@ -32198,7 +32206,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 117,
+        "days_since_last_episode": 118,
         "last_episode_date": "2026-06-17",
         "rubric": "v2"
       },
@@ -32277,7 +32285,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 711,
+        "days_since_last_episode": 712,
         "last_episode_date": "2024-10-31",
         "dormant": true,
         "rubric": "v2"
@@ -32356,7 +32364,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 13,
+        "days_since_last_episode": 14,
         "last_episode_date": "2026-09-29",
         "rubric": "v2"
       },
@@ -32433,7 +32441,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 955,
+        "days_since_last_episode": 956,
         "last_episode_date": "2024-03-01",
         "dormant": true,
         "rubric": "v2"
@@ -32513,7 +32521,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 137,
+        "days_since_last_episode": 138,
         "last_episode_date": "2026-05-28",
         "rubric": "v2"
       },
@@ -32591,7 +32599,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1754,
+        "days_since_last_episode": 1755,
         "last_episode_date": "2021-12-23",
         "dormant": true,
         "rubric": "v2"
@@ -32669,7 +32677,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 445,
+        "days_since_last_episode": 446,
         "last_episode_date": "2025-07-24",
         "dormant": true,
         "rubric": "v2"
@@ -32746,7 +32754,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 831,
+        "days_since_last_episode": 832,
         "last_episode_date": "2024-07-03",
         "dormant": true,
         "rubric": "v2"
@@ -32824,7 +32832,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -32902,7 +32910,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 31,
+        "days_since_last_episode": 32,
         "last_episode_date": "2026-09-11",
         "rubric": "v2"
       },
@@ -32980,7 +32988,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -33055,7 +33063,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 102,
+        "days_since_last_episode": 103,
         "last_episode_date": "2026-07-02",
         "rubric": "v2"
       },
@@ -33135,7 +33143,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 121,
+        "days_since_last_episode": 122,
         "last_episode_date": "2026-06-13",
         "rubric": "v2"
       },
@@ -33213,7 +33221,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 484,
+        "days_since_last_episode": 485,
         "last_episode_date": "2025-06-15",
         "dormant": true,
         "rubric": "v2"
@@ -33290,7 +33298,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 643,
+        "days_since_last_episode": 644,
         "last_episode_date": "2025-01-07",
         "dormant": true,
         "rubric": "v2"
@@ -33367,7 +33375,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 853,
+        "days_since_last_episode": 854,
         "last_episode_date": "2024-06-11",
         "dormant": true,
         "rubric": "v2"
@@ -33444,7 +33452,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 504,
+        "days_since_last_episode": 505,
         "last_episode_date": "2025-05-26",
         "dormant": true,
         "rubric": "v2"
@@ -33522,7 +33530,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1144,
+        "days_since_last_episode": 1145,
         "last_episode_date": "2023-08-25",
         "dormant": true,
         "rubric": "v2"
@@ -33598,7 +33606,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 300,
+        "days_since_last_episode": 301,
         "last_episode_date": "2025-12-16",
         "rubric": "v2"
       },
@@ -33675,7 +33683,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1326,
+        "days_since_last_episode": 1327,
         "last_episode_date": "2023-02-24",
         "dormant": true,
         "rubric": "v2"
@@ -33751,7 +33759,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 6,
+        "days_since_last_episode": 7,
         "last_episode_date": "2026-10-06",
         "rubric": "v2"
       },
@@ -33828,7 +33836,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -33903,7 +33911,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 9,
+        "days_since_last_episode": 10,
         "last_episode_date": "2026-10-03",
         "rubric": "v2"
       },
@@ -33976,7 +33984,7 @@
           "catalog": 6,
           "audience": 6
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rising": true,
         "rubric": "v2"
@@ -34052,7 +34060,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 32,
+        "days_since_last_episode": 33,
         "last_episode_date": "2026-09-10",
         "rubric": "v2"
       },
@@ -34127,7 +34135,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 498,
+        "days_since_last_episode": 499,
         "last_episode_date": "2025-06-01",
         "dormant": true,
         "rubric": "v2"
@@ -34203,7 +34211,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -34276,7 +34284,7 @@
           "catalog": 4,
           "audience": 5
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rising": true,
         "rubric": "v2"
@@ -34355,7 +34363,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -34431,7 +34439,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -34506,7 +34514,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 24,
+        "days_since_last_episode": 25,
         "last_episode_date": "2026-09-18",
         "rubric": "v2"
       },
@@ -34582,7 +34590,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -34657,7 +34665,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2181,
+        "days_since_last_episode": 2182,
         "last_episode_date": "2020-10-22",
         "dormant": true,
         "rubric": "v2"
@@ -34734,7 +34742,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 2278,
+        "days_since_last_episode": 2279,
         "last_episode_date": "2020-07-17",
         "dormant": true,
         "rubric": "v2"
@@ -34811,7 +34819,7 @@
           "catalog": 1,
           "audience": 5
         },
-        "days_since_last_episode": 2201,
+        "days_since_last_episode": 2202,
         "last_episode_date": "2020-10-02",
         "dormant": true,
         "rubric": "v2"
@@ -34890,7 +34898,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 552,
+        "days_since_last_episode": 553,
         "last_episode_date": "2025-04-08",
         "dormant": true,
         "rubric": "v2"
@@ -34969,7 +34977,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 718,
+        "days_since_last_episode": 719,
         "last_episode_date": "2024-10-24",
         "dormant": true,
         "rubric": "v2"
@@ -35046,7 +35054,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 109,
+        "days_since_last_episode": 110,
         "last_episode_date": "2026-06-25",
         "rubric": "v2"
       },
@@ -35122,7 +35130,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 2,
+        "days_since_last_episode": 3,
         "last_episode_date": "2026-10-10",
         "rubric": "v2"
       },
@@ -35198,7 +35206,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -35274,7 +35282,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rubric": "v2"
       },
@@ -35350,7 +35358,7 @@
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 17,
+        "days_since_last_episode": 18,
         "last_episode_date": "2026-09-25",
         "rubric": "v2"
       },
@@ -35428,7 +35436,7 @@
           "catalog": 6,
           "audience": 3
         },
-        "days_since_last_episode": 108,
+        "days_since_last_episode": 109,
         "last_episode_date": "2026-06-26",
         "rubric": "v2"
       },
@@ -35503,7 +35511,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 23,
+        "days_since_last_episode": 24,
         "last_episode_date": "2026-09-19",
         "rubric": "v2"
       },
@@ -35577,7 +35585,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rising": true,
         "rubric": "v2"
@@ -35652,7 +35660,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1364,
+        "days_since_last_episode": 1365,
         "last_episode_date": "2023-01-17",
         "dormant": true,
         "rubric": "v2"
@@ -35730,7 +35738,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 77,
+        "days_since_last_episode": 78,
         "last_episode_date": "2026-07-27",
         "rubric": "v2"
       },
@@ -35804,7 +35812,7 @@
           "catalog": 4,
           "audience": 2
         },
-        "days_since_last_episode": 5,
+        "days_since_last_episode": 6,
         "last_episode_date": "2026-10-07",
         "rising": true,
         "rubric": "v2"
@@ -35883,7 +35891,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 908,
+        "days_since_last_episode": 909,
         "last_episode_date": "2024-04-17",
         "dormant": true,
         "rubric": "v2"
@@ -35960,7 +35968,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 640,
+        "days_since_last_episode": 641,
         "last_episode_date": "2025-01-10",
         "dormant": true,
         "rubric": "v2"
@@ -36038,7 +36046,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1990,
+        "days_since_last_episode": 1991,
         "last_episode_date": "2021-05-01",
         "dormant": true,
         "rubric": "v2"
@@ -36113,7 +36121,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1075,
+        "days_since_last_episode": 1076,
         "last_episode_date": "2023-11-02",
         "dormant": true,
         "rubric": "v2"
@@ -36190,7 +36198,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 510,
+        "days_since_last_episode": 511,
         "last_episode_date": "2025-05-20",
         "dormant": true,
         "rubric": "v2"
@@ -36267,7 +36275,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 119,
+        "days_since_last_episode": 120,
         "last_episode_date": "2026-06-15",
         "rubric": "v2"
       },
@@ -36345,7 +36353,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 125,
+        "days_since_last_episode": 126,
         "last_episode_date": "2026-06-09",
         "rubric": "v2"
       },
@@ -36421,7 +36429,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2417,
+        "days_since_last_episode": 2418,
         "last_episode_date": "2020-02-29",
         "dormant": true,
         "rubric": "v2"
@@ -36497,7 +36505,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2364,
+        "days_since_last_episode": 2365,
         "last_episode_date": "2020-04-22",
         "dormant": true,
         "rubric": "v2"
@@ -36576,7 +36584,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -36653,7 +36661,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 495,
+        "days_since_last_episode": 496,
         "last_episode_date": "2025-06-04",
         "dormant": true,
         "rubric": "v2"
@@ -36731,7 +36739,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1834,
+        "days_since_last_episode": 1835,
         "last_episode_date": "2021-10-04",
         "dormant": true,
         "rubric": "v2"
@@ -36809,7 +36817,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 1,
+        "days_since_last_episode": 2,
         "last_episode_date": "2026-10-11",
         "rubric": "v2"
       },
@@ -36884,7 +36892,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 78,
+        "days_since_last_episode": 79,
         "last_episode_date": "2026-07-26",
         "rubric": "v2"
       },
@@ -36961,7 +36969,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 0,
+        "days_since_last_episode": 1,
         "last_episode_date": "2026-10-12",
         "rubric": "v2"
       },
@@ -37039,7 +37047,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 131,
+        "days_since_last_episode": 132,
         "last_episode_date": "2026-06-03",
         "rubric": "v2"
       },
@@ -37114,7 +37122,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 744,
+        "days_since_last_episode": 745,
         "last_episode_date": "2024-09-28",
         "dormant": true,
         "rubric": "v2"
@@ -37189,7 +37197,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 181,
+        "days_since_last_episode": 182,
         "last_episode_date": "2026-04-14",
         "rubric": "v2"
       },
@@ -37264,7 +37272,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 2203,
+        "days_since_last_episode": 2204,
         "last_episode_date": "2020-09-30",
         "dormant": true,
         "rubric": "v2"
@@ -37342,7 +37350,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 136,
+        "days_since_last_episode": 137,
         "last_episode_date": "2026-05-29",
         "rubric": "v2"
       },
@@ -37417,7 +37425,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 537,
+        "days_since_last_episode": 538,
         "last_episode_date": "2025-04-23",
         "dormant": true,
         "rubric": "v2"
@@ -37496,7 +37504,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1838,
+        "days_since_last_episode": 1839,
         "last_episode_date": "2021-09-30",
         "dormant": true,
         "rubric": "v2"
@@ -37573,7 +37581,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1476,
+        "days_since_last_episode": 1477,
         "last_episode_date": "2022-09-27",
         "dormant": true,
         "rubric": "v2"
@@ -37649,7 +37657,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 3804,
+        "days_since_last_episode": 3805,
         "last_episode_date": "2016-05-13",
         "dormant": true,
         "rubric": "v2"
@@ -37715,17 +37723,17 @@
       },
       "notes": "Razgovori i osobna svjedočanstva na hrvatskom, jasan podcast format s gostima.",
       "quality_score": {
-        "total": 42,
-        "tier": "👀 moderate",
+        "total": 36,
+        "tier": "📦 weak",
         "breakdown": {
-          "freshness": 14,
+          "freshness": 8,
           "cadence": 0,
           "format": 15,
           "substance": 8,
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 120,
+        "days_since_last_episode": 121,
         "last_episode_date": "2026-06-14",
         "rubric": "v2"
       },
@@ -37800,7 +37808,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 8,
+        "days_since_last_episode": 9,
         "last_episode_date": "2026-10-04",
         "rubric": "v2"
       },
@@ -37875,7 +37883,7 @@
           "catalog": 2,
           "audience": 3
         },
-        "days_since_last_episode": 105,
+        "days_since_last_episode": 106,
         "last_episode_date": "2026-06-29",
         "rubric": "v2"
       },
@@ -37952,7 +37960,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 4,
+        "days_since_last_episode": 5,
         "last_episode_date": "2026-10-08",
         "rubric": "v2"
       },
@@ -38027,7 +38035,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1109,
+        "days_since_last_episode": 1110,
         "last_episode_date": "2023-09-29",
         "dormant": true,
         "rubric": "v2"
@@ -38106,7 +38114,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1001,
+        "days_since_last_episode": 1002,
         "last_episode_date": "2024-01-15",
         "dormant": true,
         "rubric": "v2"
@@ -38183,7 +38191,7 @@
           "catalog": 4,
           "audience": 3
         },
-        "days_since_last_episode": 133,
+        "days_since_last_episode": 134,
         "last_episode_date": "2026-06-01",
         "rubric": "v2"
       },
@@ -38260,7 +38268,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 257,
+        "days_since_last_episode": 258,
         "last_episode_date": "2026-01-28",
         "rubric": "v2"
       },
@@ -38341,7 +38349,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 682,
+        "days_since_last_episode": 683,
         "last_episode_date": "2024-11-29",
         "dormant": true,
         "rubric": "v2"
@@ -38419,7 +38427,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1116,
+        "days_since_last_episode": 1117,
         "last_episode_date": "2023-09-22",
         "dormant": true,
         "rubric": "v2"
@@ -38498,7 +38506,7 @@
           "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 1088,
+        "days_since_last_episode": 1089,
         "last_episode_date": "2023-10-20",
         "dormant": true,
         "rubric": "v2"
@@ -38577,7 +38585,7 @@
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 3,
+        "days_since_last_episode": 4,
         "last_episode_date": "2026-10-09",
         "rubric": "v2"
       },
@@ -38655,7 +38663,7 @@
           "catalog": 1,
           "audience": 2
         },
-        "days_since_last_episode": 2782,
+        "days_since_last_episode": 2783,
         "last_episode_date": "2019-03-01",
         "dormant": true,
         "rubric": "v2"
@@ -38736,7 +38744,7 @@
           "catalog": 6,
           "audience": 2
         },
-        "days_since_last_episode": 215,
+        "days_since_last_episode": 216,
         "last_episode_date": "2026-03-11",
         "rubric": "v2"
       },
@@ -38748,6 +38756,226 @@
         "originals_90d": 0,
         "originals_365d": 6,
         "episodes_on_disk": 55
+      }
+    },
+    {
+      "slug": "argumenti-sezona-8",
+      "display_name": "Argumenti (8. sezona, HKM)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLWPfXSJsO6Wk",
+        "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+        "type": "playlist",
+        "playlist_id": "PLWPfXSJsO6Wk",
+        "parent_channel": "Hrvatska katolička mreža"
+      },
+      "tags": [
+        "religious-catholic",
+        "society",
+        "talk-show"
+      ],
+      "voditelji": [
+        "Ana Dagelić",
+        "Ivica Zadro"
+      ],
+      "metadata": {
+        "first_episode": "2026-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 42,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-07",
+        "last_episode_video": "fXN91qo5kAc"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. na prijedlog (WhatsApp) — kandidat za praćenje; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "hkm",
+      "notes": "Argumenti HKR-a/HKM-a, 8. sezona — povratak nakon pauze od lipnja 2025. (zadnja epizoda 7. sezone 12.06.2025.) do rujna 2026. Na HKR-u srijedom u 8:10 (hkr.hkm.hr/program/), tjedno umjesto ranijih 3–4 puta tjedno; urednici u novim epizodama Ana Dagelić i Ivica Zadro. Službene objave povratka ni razloga pauze nema; tvrdnja o ukidanju 06/2025 nije potvrđena. Izvor: hkr.hkm.hr/oznake/argumenti/ (14.10.2026.). Nasljednik unosa argumenti-sezona-7.",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 3,
+          "audience": 3
+        },
+        "days_since_last_episode": 6,
+        "last_episode_date": "2026-10-07",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "hkm-zivjeti-evandelje",
+      "display_name": "Živjeti Evanđelje (HKM)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLKpvODpM6LBs",
+        "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+        "type": "playlist",
+        "playlist_id": "PLKpvODpM6LBs",
+        "parent_channel": "Hrvatska katolička mreža"
+      },
+      "tags": [
+        "religious-catholic",
+        "theology",
+        "evangelization"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 50,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-10",
+        "last_episode_video": "Ry-4jhCvzMM"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. — nova jesenska emisija HKM-a, kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "hkm",
+      "notes": "Tjedna emisija HKM-a uz nedjeljno evanđelje, subotom, ~50 min. Počela u rujnu 2026.",
+      "quality_score": {
+        "total": 68,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 7,
+          "catalog": 3,
+          "audience": 3
+        },
+        "days_since_last_episode": 3,
+        "last_episode_date": "2026-10-10",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "hkm-u-zdravlju-i-bolesti",
+      "display_name": "U zdravlju i bolesti (HKM)",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLWbD7ok_IvCU",
+        "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q",
+        "type": "playlist",
+        "playlist_id": "PLWbD7ok_IvCU",
+        "parent_channel": "Hrvatska katolička mreža"
+      },
+      "tags": [
+        "religious-catholic",
+        "health"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "first_episode": "2026-09",
+        "last_episode": "2026-10",
+        "average_duration_minutes": 42,
+        "subscribers": null,
+        "status": "active",
+        "last_episode_date": "2026-10-07",
+        "last_episode_video": "-2vnO7rQ7yk"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 14.10.2026. — nova jesenska emisija HKM-a, kandidat; čeka editorial odluku.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "hkm",
+      "notes": "Tjedna zdravstvena emisija HKM-a s liječnicima gostima, srijedom, 38–48 min. Počela u rujnu 2026.; playlista sadrži i kraće najave (<30 min).",
+      "quality_score": {
+        "total": 66,
+        "tier": "✅ strong",
+        "breakdown": {
+          "freshness": 30,
+          "cadence": 10,
+          "format": 15,
+          "substance": 5,
+          "catalog": 3,
+          "audience": 3
+        },
+        "days_since_last_episode": 6,
+        "last_episode_date": "2026-10-07",
+        "rubric": "v2"
+      }
+    },
+    {
+      "slug": "hkm",
+      "display_name": "Hrvatska katolička mreža (HKM / HKR)",
+      "youtube": {
+        "url": "https://www.youtube.com/@hrvatskakatolickamreza",
+        "handle": "@hrvatskakatolickamreza",
+        "type": "umbrella",
+        "channel_id": "UCrfV3uhCoHNBaqiva1wCB4Q"
+      },
+      "tags": [
+        "religious-catholic",
+        "society",
+        "media",
+        "institutional"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "subscribers": 11700,
+        "subscribers_as_of": "2026-10",
+        "status": "active",
+        "children_count": 9
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Umbrella entry — sadržaj se prati per-playlist child entries, ne direktno preko kanala (kanal miješa krunice, najave, isječke i koncerte)."
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "notes": "Umbrella entry za YouTube kanal Hrvatske katoličke mreže (HKR, IKA, HKM). Prate se samo playliste-emisije (child_slugs). Prijedlog za dodavanje stigao 13.10.2026. (WhatsApp), umbrella dodan 14.10.2026.",
+      "child_slugs": [
+        "argumenti-sezona-8",
+        "hkm-zivjeti-evandelje",
+        "hkm-u-zdravlju-i-bolesti",
+        "aktualno-hkm",
+        "argumenti-sezona-7",
+        "razgovori-s-nadbiskupima",
+        "pod-krizem",
+        "s-druge-strane-ogledala",
+        "duhovno-duhovite-veceri"
+      ],
+      "quality_score": {
+        "total": 50,
+        "tier": "👀 moderate",
+        "breakdown": {
+          "freshness": 15,
+          "cadence": 10,
+          "format": 10,
+          "substance": 4,
+          "catalog": 3,
+          "audience": 8
+        },
+        "days_since_last_episode": null,
+        "last_episode_date": null,
+        "rubric": "v2"
       }
     }
   ],
