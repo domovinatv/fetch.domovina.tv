@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## ⛔ HARD RULES — READ FIRST
 
 0. **☁️ GCP PROJEKT = `bimbo-sync-prod`. SAMO TAJ.** (od 14.09.2026.)
-   Billing `01FAEA-72A278-819B25`, novi free-trial krediti. Svi Vertex pozivi —
+   Billing `01FAEA-72A278-819B25`, novi free-trial krediti: **$216.93 od $300 preostalo (14.10.2026., 72 %), istječu 14.12.2026.** Svi Vertex pozivi —
    summary, članak, EN prijevod, RAG vector/person map — idu na njega.
    **Stari `project-a275a620-ef0c-45ae-99e` se VIŠE NE KORISTI** (krediti potrošeni
    31.08.2026., dalje bi išlo na karticu); `domovina-sync-ms` je prije toga pao u
