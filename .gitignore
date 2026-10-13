@@ -25,6 +25,7 @@ node_modules/
 # Cookies & Secrets
 automatic/cookies.txt
 .env
+.env.experiments
 
 # State & History
 *-state.json
@@ -69,3 +70,6 @@ data/branding/*
 # Privatne bilješke (osobe, grupe, isporuke) — nikad u javni repo
 docs/private/
 .episode_bundle_state.json
+
+# eksperimenti: mediji i sirovi API odgovori žive na vanjskom disku (symlink)
+experiments/*/data
