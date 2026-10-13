@@ -62,3 +62,7 @@ Privremeni Flutter test u domovina.ai (obrisan) pustio je `HomeFeed` nad
 - Otvoreno pitanje iz frontend doca (koliko se kanala sadržajno mijenja dnevno)
   sad je mjerljivo iz logova: `generate_channel_index.js` piše „(nepromijenjeno)"
   uz svaki listing koji nije dirao.
+
+## Vezani dokumenti
+
+- [2026-10-13-pretrazivost-ad-hoc-epizoda.md](2026-10-13-pretrazivost-ad-hoc-epizoda.md) — `search.json` nema `_unlisted` epizode; full-text za njih ide kroz Meili
