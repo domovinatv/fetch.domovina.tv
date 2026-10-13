@@ -333,3 +333,7 @@ objavi u međuvremenu.
 - `docs/transcription_colab_vs_modal_cost_2026-07.md` — Colab batch vs Modal ad-hoc
 - `docs/diarization_research_2026-05.md` — zašto je pyannote CPU-bound
 - `docs/2026-08-28-konvergencija-pipelinea.md` — zašto KORAK 2.6 NEMA prozor svježine
+
+---
+
+**Nastavak (13.10.2026.):** puna dnevna obrada, tržišne alternative i benchmark — `docs/2026-10-13-procjena-troska-pune-dnevne-obrade.md`, `experiments/2026-10-11-asr-llm/README.md`.

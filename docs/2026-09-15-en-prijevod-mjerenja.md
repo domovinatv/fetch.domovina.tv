@@ -244,3 +244,7 @@ na katalog, **D** za prioritetne epizode.
 - batchanje (A + H) nije izvedeno — čeka odluku.
 - `.canary.summary.md` i dalje nema R2 mapping u `getFlutterKey()`.
 - tri CDN knjige sa sintetičkim ID-evima ostaju sa starim linkovima.
+
+---
+
+**Nastavak (13.10.2026.):** puna dnevna obrada, tržišne alternative i benchmark — `docs/2026-10-13-procjena-troska-pune-dnevne-obrade.md`, `experiments/2026-10-11-asr-llm/README.md`.

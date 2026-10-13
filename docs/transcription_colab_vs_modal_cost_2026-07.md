@@ -215,3 +215,7 @@ Colab-ova prednost postaje iznos koji se isplati optimizirati.
 
 > Brojke su parametrizirane u §4.1 — ako se cijene (Colab credit, Modal $/h, free tier) promijene,
 > ažuriraj pretpostavke i preračunaj §4.3/§4.4. Model je namjerno transparentan da ostane provjerljiv.
+
+---
+
+**Nastavak (13.10.2026.):** puna dnevna obrada, tržišne alternative i benchmark — `docs/2026-10-13-procjena-troska-pune-dnevne-obrade.md`, `experiments/2026-10-11-asr-llm/README.md`.
