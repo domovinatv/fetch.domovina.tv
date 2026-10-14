@@ -133,6 +133,31 @@ epizoda 04/2025 odnosno 2022) — subagentov „zadnja 08.10." bio je kratki isj
 Romano Bolković 1 na 1: unos prebačen na živu playlistu HRT vijesti (stara u `youtube_alternatives`).
 Nisu pregledani: radijski podcasti (radio.hrt.hr, RSS) i @HRTkultura.
 
+## Što se događa s novim unosom registryja (provjereno u kodu 14.10.2026.)
+
+```mermaid
+flowchart LR
+  R["podcasts_registry.json<br/>(ručni upis)"] -->|"nightly 5b/5c, AUTOMATSKI<br/>svaki ne-umbrella, status nije not-podcast/dead-url/rejected/disputed"| C["podcast.domovina.ai<br/>katalog + watch + /dani/"]
+  R -->|"launchd ai.domovina.voting-drift --sync, AUTOMATSKI<br/>tracking=false, status active/slowing/unknown, ne-umbrella"| V["vote_candidates<br/>(Izborni dan)"]
+  R -.->|"RUČNO: tracking.enabled=true<br/>+ automatic/refresh_podcasts.sh (+ storage.conf)"| D["domovina.ai<br/>puna obrada"]
+```
+
+- Nijedan nightly ni launchd job ne postavlja `tracking.enabled` niti piše u `refresh_podcasts.sh`.
+  `discover.js activity --update-status` nepraćenima mijenja samo active/active-slowing/inactive.
+- `tracking.enabled: true` bez unosa u `refresh_podcasts.sh` = kanal na katalogu ima „D" oznaku,
+  a pipeline ga ne vuče (prazno). Uvijek oboje zajedno.
+- Umbrella unosi su od 14.10. isključeni iz kataloga (`podcast.domovina.ai` build-catalog.mjs) i iz
+  glasanja (`sync_voting_candidates.mjs`); watch i backfill_days su ih već preskakali.
+
+**Povijest za novi kanal:**
+- `/dani/` arhiva — DA: `backfill_days.js` (nightly) novom kanalu dohvaća sve od `since`
+  (2005-01-01) preko YouTube API-ja; veliki kanali (Otvoreno ~1160, Nedjeljom u 2 ~1380 videa)
+  stanu u dnevni cap 9000 jedinica, višak se dovrši idući dan.
+- Feed „nove epizode" / ★ Moji — NE: prvi watch prolaz je baseline (60 videa, `baseline: true`),
+  novo je samo ono objavljeno nakon toga.
+- domovina.ai obrada — tek ručnim uključenjem; `fetch.js` tada vuče cijelu listu kanala
+  (`refresh_podcasts.sh` reže <15 min) → procijeni trošak ili skrati listu na zadnjih N.
+
 ## Otvorene stavke
 
 - **Editorial odluka o praćenju** (sve je `tracking.enabled: false`). Prijedlog prvog vala:
