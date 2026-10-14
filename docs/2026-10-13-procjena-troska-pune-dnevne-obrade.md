@@ -258,3 +258,30 @@ tablice `experiments/2026-10-11-asr-llm/results/asr_metrics.md`.
 - Otvoreno: Speechmatics kao referenca je slab na emisijama s puno glasova (Ril Tok #202:
   20 govornika naspram 4–5 kod svih ostalih) → ručno ispravljeni isječci i dalje trebaju.
 - GCP krediti prije faze 2 (LLM): **$216,92 / $300** (14.10. 01:27).
+
+## Mjerenje 14.10.2026. — faza 2 (LLM) + slijepa ocjena (14 ep)
+
+Puni rezultati: `experiments/2026-10-11-asr-llm/results/llm_metrics.md`, nalazi i zamke u
+`experiments/2026-10-11-asr-llm/README.md` §Stanje 14.10. 02:55. Isti ulaz (Speechmatics SRT),
+isti produkcijski promptovi, 14 Opus ocjenjivača slijepo (A–E).
+
+| model | ukupna ocjena | teške greške | $/ep (sažetak + članak + EN) |
+|---|---|---|---|
+| Gemini 4 Argon | **7,5** | 8 | 0,71 |
+| Sonnet 5.5 (pretplata) | 7,3 | **0** | 2,14 ekv. |
+| Gemini 3.8 Flash (produkcija) | 6,2 | 6 | 0,31 |
+| Haiku 5.5 | 3,6 | 24 | 0,12 |
+| produkcijski Opus (n=2) | 8,5 | 0 | ~2,4 |
+
+Posljedice za procjenu troška:
+- **Haiku 5.5 otpada za članke** — red „Haiku ~$6/mj za sažetak + članak" u §Alternative nije
+  ostvariv bez gubitka kvalitete.
+- **Argon umjesto Flasha** za nightly: +$0,40/ep, ≈ +$240/mj na 600 ep (standard, bez batcha).
+  Bolji na 12/14, ali halucinira imena na sportskim emisijama.
+- **Sonnet 5.5 kao zamjena za Opus** za prioritetne: blizu ocjene, nula teških grešaka, ~10 %
+  jeftiniji ekvivalent od Opusa; prespor za nightly (107 s/poziv, EN duge epizode 8 min).
+- EN cijelog članka u **jednom** pozivu radi na svim modelima (oblik sačuvan 14/14) — potvrđena
+  pretpostavka iz preporuke 1.
+- Strani znakovi (ćirilica, kineski, japanski) usred riječi kod svih modela → post-filter.
+- GCP krediti: faza 2 potrošila ~$14,35 (Flash $4,35 + Argon $10,00) po izračunu iz tokena;
+  konzola to još ne pokazuje (billing kasni) — očitati 15.10. (prije $216,92).

@@ -105,3 +105,75 @@ Inkling otpadaju); Sonnet 5.5 ide preko Claude Code PRETPLATE (`claude -p --mode
 Kandidati: Gemini 3.8 Flash (osnovica) + Gemini 4 Argon (Vertex, krediti), Haiku 5.5
 (exp ključ), Sonnet 5.5 (pretplata). GCP krediti prije: $216,92 (`data/logs/gcp_krediti_prije_faza2.json`).
 Slijepu ocjenu članaka i analizu rade Opus subagenti.
+
+## Faza 2 (LLM) — `llm_phase2.js`
+
+Ulaz za sve modele: `<base>.exp-20261011.speechmatics-enhanced.dijariziran.srt`.
+Promptovi se **izvlače doslovno** iz produkcije pri svakom pokretanju (`SYSTEM_PROMPT` iz
+`summarize_gemini.js`, `SYSTEM_PROMPT_1/2` + `STRICT_NAMING_CLAUSE` iz
+`generate_article_gemini.js`, `TRANSLATOR_PROMPT` iz `translate_to_english.js`), pa
+promjena produkcijskog prompta automatski ulazi u eksperiment. Ako se prompt prepiše
+tako da ima `${…}` interpolaciju, skripta puca umjesto da tiho koristi krivi tekst.
+
+| slug | put | postavke |
+|---|---|---|
+| `gemini-3-8-flash` | Vertex global, `bimbo-sync-prod` | kao produkcija: temp 0,2, `responseMimeType: application/json`, thinking default |
+| `gemini-4-argon` | Vertex global | isto |
+| `haiku-5-5` | Anthropic API (`ANTHROPIC_API_KEY_HAIKU_EXPERIMENT`), raw fetch + SSE | effort default (medium), adaptive thinking; cijena ×5 iznad 100k prompta |
+| `sonnet-5-5` | `claude -p --model sonnet --effort high --tools ''`, neutralan cwd, pretplata | `ANTHROPIC_API_KEY` se briše iz env-a djeteta; skripta odbija start ako je postavljen |
+
+Koraci po epizodi: sažetak → outline → N iteracija (+1 schema-fix poziv kad fali polje,
+kao produkcija) → EN cijelog članka u **jednom** pozivu. Službeni kontekst za članak
+(govornici) gradi se iz sažetka **istog** modela. Mjerenja po pozivu u
+`data/logs/faza2_pozivi.jsonl`: tokeni (Gemini daje `thoughtsTokenCount` zasebno;
+Anthropic razmišljanje uračunava u `output_tokens`), ms, $, `jsonStrict` (čisti
+`JSON.parse`) i `jsonLenient` (nakon skidanja ```` ``` ```` ograde). `--summary` zbraja.
+
+**Proba 14.10. (PlPyI-TPlgw, 29 min):** sva 4 modela prošla bez greške, EN oblik sačuvan.
+Claude modeli (Haiku, Sonnet) outline/iteraciju omotaju u ```` ```json ```` ogradu
+(→ „blago"), Gemini nikad (forsiran MIME). $/ep: Flash 0,085, Argon 0,20, Haiku 0,020,
+Sonnet 0,64 (ekvivalent). Argon ne prijavljuje tokene razmišljanja (0). Članak: Flash 6
+sekcija / 7,9k znakova, Argon 6 / 13,3k, Haiku 16 / 15,8k, Sonnet 15 / 17,5k.
+Tokenizer: isti ulaz je Geminiju 9,3k, Claudeu 14,2k tokena (~1,5×).
+
+## Stanje 14.10.2026. 02:55 — faza 2 + 3b GOTOVE (14/14, sva 4 modela)
+
+312 poziva, **nula grešaka poziva**, svi članci kompletni, EN oblik sačuvan 14/14 za svaki model.
+Slijepa ocjena: `judge_prep.js` (paketi A–E, ključ `data/slijepo/kljuc.json`) → 14 Opus
+subagenata po `judge_prompt.md` (svaki ~140–260k tokena, 2–5 min) → `judge_report.js` →
+**`results/llm_metrics.md`** (+ `.json`, sve greške s citatom i vremenom u `data/slijepo/<id>/ocjena.json`).
+
+| model | ukupno (1–10) | utemelj. | imena | pokriv. | jezik | 1. mjesta | teške greške | $/ep | s/poziv |
+|---|---|---|---|---|---|---|---|---|---|
+| produkcija-opus (n=2, drugi transkript) | 8,5 | 8,0 | 8,0 | 10 | 9,0 | 1 | 0 | ~2,4 | — |
+| **gemini-4-argon** | **7,5** | 7,5 | 7,6 | 8,9 | 8,4 | **8** | 8 | 0,71 | 37 |
+| **sonnet-5-5** (pretplata) | 7,3 | **8,0** | 6,9 | **9,7** | 7,2 | 5 | **0** | 2,14 ekv. | 107 |
+| gemini-3-8-flash (današnja produkcija) | 6,2 | 6,6 | 6,8 | 6,6 | 7,8 | 0 | 6 | 0,31 | 47 |
+| haiku-5-5 | 3,6 | 4,3 | 4,6 | 6,7 | 5,8 | 0 | 24 | 0,12 | 46 |
+
+Nalazi:
+- **Argon > Flash za +0,40 $/ep** — bolji na 12/14 epizoda, ali kad griješi, griješi teško
+  (izmišljena imena igrača/klubova na sportskim emisijama, 5 halucinacija).
+- **Sonnet nema nijednu tešku grešku** i najbolje pokriva snimku, ali je predug, imena ostavlja
+  anonimnima ili prepisuje ASR šum („Madunić i Kadoić kao dva igrača"), slabiji hrvatski.
+- **Flash (produkcija) je prekratak** — pokrivenost 6,6; izostavlja kraj razgovora.
+- **Haiku 5.5 je neupotrebljiv za članke na hrvatskom**: krivo pripisane izjave, izmišljeni
+  opisi slika, meta-rečenice u tekstu. Za sažetak/EN eventualno, za članak ne.
+- **Strani znakovi usred hrvatskih riječi (ćirilica, kineski, japanski) javljaju se kod SVIH
+  modela osim produkcijskog Opusa** (Flash „nagラスak", Argon, Sonnet, Haiku). Potreban
+  deterministički post-filter u pipelineu bez obzira na model.
+- JSON: Gemini 100 % strogo (forsiran MIME); Claude modeli ~40–60 % omotaju u ```` ```json ````
+  — produkcijski parser to već skida, dakle 100 % upotrebljivo.
+- Claude tokenizer: isti ulaz ~1,35× više tokena. Haiku iznad 100k prompta ×5 cijena
+  (duge epizode) → $0,12/ep umjesto procijenjenih $0,03.
+- Trošak cijelog runa: Flash $4,35 + Argon $10,00 (GCP krediti), Haiku $1,64 (API),
+  Sonnet $29,98 ekvivalenta (pretplata, ~4,5 M ulaz + 1,3 M izlaz; EN najdulje epizode 89k
+  tokena izlaza / 8 min).
+
+Zamka u ovoj sesiji: `A && B && X=… && node … & node $X …` — `&` pozadini CIJELI `&&` lanac,
+pa varijable ne postoje u sljedećim naredbama; 2 od 3 Sonnet procesa su tiho pala (log na `/`).
+Varijable postavljati u zasebnim linijama prije `&`.
+
+Otvoreno: GCP krediti poslije (billing kasni — očitati 15.10., prije $216,92, očekivano ~$203);
+odluka Argon vs Flash za nightly (+$0,40/ep ≈ +$240/mj na 600 ep); Sonnet za prioritetne
+umjesto Opusa; post-filter stranih znakova; Deepgram balans; Ril Tok referenca.
