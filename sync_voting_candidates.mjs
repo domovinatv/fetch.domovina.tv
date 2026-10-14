@@ -15,6 +15,7 @@
  *   tracking.enabled === false            (već praćeni kanali NISU kandidati)
  *   AND youtube.url postoji
  *   AND metadata.status ∈ {active, active-slowing, unknown}
+ *   AND youtube.type !== "umbrella"     (krovni unos kanala; kandidati su njegova djeca)
  * Registar v1.2 (273 zapisa) daje točno 181 kandidata.
  * Filtar je NAMJERNO samo tehnički — registar je „free speech aggregator" i
  * bazen ne smije biti ideološki predfiltriran, inače glasanje nema legitimitet.
@@ -153,6 +154,7 @@ function isCandidate(p) {
     p?.tracking?.enabled === false &&
     typeof p?.youtube?.url === "string" &&
     p.youtube.url.length > 0 &&
+    p.youtube.type !== "umbrella" &&
     ALLOWED_STATUS.has(p?.metadata?.status)
   );
 }
