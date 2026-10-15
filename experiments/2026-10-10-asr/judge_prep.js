@@ -3,6 +3,7 @@
 //
 //   node experiments/2026-10-10-asr/judge_prep.js            # svih 15
 //   node experiments/2026-10-10-asr/judge_prep.js --id X
+//   node experiments/2026-10-10-asr/judge_prep.js --set 4   # 4. krug: + Gemini sluh (agy) → data/slijepo4/, A–D i W–Z
 //
 // Kopija ../2026-10-11-asr-llm/judge_prep.js; ključ je ovdje ASR, ne model.
 // Izlaz: data/slijepo/<id>/{A,B,C}.md (sažetak + članak) i transkript_{X,Y,Z}.srt (sva tri
@@ -13,14 +14,19 @@
 const fs = require("fs"), path = require("path"), crypto = require("crypto");
 
 const EXP = __dirname;
-const OUT = path.join(EXP, "data/output"), DST = path.join(EXP, "data/slijepo");
+const args = process.argv.slice(2);
+// zaseban krug = zaseban dir i ključ: ponovno miješanje u data/slijepo/ bi pomaknulo slova
+// ispod već zapisanih ocjena.json
+const SET4 = (() => { const i = args.indexOf("--set"); return i !== -1 && args[i + 1] === "4"; })();
+const OUT = path.join(EXP, "data/output"), DST = path.join(EXP, SET4 ? "data/slijepo4" : "data/slijepo");
 const TAG = "exp-20261010";
 const ASR = {
     "speechmatics-enhanced": "speechmatics-enhanced",
     "deepgram-nova3": "deepgram-nova3",
     "canary-1b-v2+pyannote-c1": "canary-1b-v2+pyannote-c1",
+    ...(SET4 ? { "canary-1b-v2+pyannote-c1+agy-gemini-3-8-flash": "canary-1b-v2+pyannote-c1+agy-gemini-3-8-flash" } : {}),
 };
-const args = process.argv.slice(2);
+const TR_BASE = SET4 ? 87 : 88; // transkripti W–Z (4) ili X–Z (3)
 const onlyId = (() => { const i = args.indexOf("--id"); return i !== -1 ? args[i + 1] : null; })();
 
 function render(summary, article) {
@@ -71,7 +77,7 @@ for (const [id, kanal, base] of rows) {
         key[id].clanci[L] = a;
     });
     shuffled(asrs, `transkript-${id}`).forEach((a, i) => {
-        const L = String.fromCharCode(88 + i); // X, Y, Z
+        const L = String.fromCharCode(TR_BASE + i);
         fs.copyFileSync(path.join(dir, `${base}.${TAG}.${a}.dijariziran.srt`), path.join(ed, `transkript_${L}.srt`));
         key[id].transkripti[L] = a;
     });

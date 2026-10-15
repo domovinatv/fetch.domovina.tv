@@ -39,7 +39,7 @@ const OUT = path.join(EXP, "data/output");
 const LOGS = path.join(EXP, "data/logs");
 const CALLS_LOG = path.join(LOGS, "llm_pozivi.jsonl");
 const TAG = "exp-20261010";
-const INPUTS = ["speechmatics-enhanced", "deepgram-nova3", "canary-1b-v2+pyannote-c1"];
+const INPUTS = ["speechmatics-enhanced", "deepgram-nova3", "canary-1b-v2+pyannote-c1", "canary-1b-v2+pyannote-c1+agy-gemini-3-8-flash"];
 
 const args = process.argv.slice(2);
 function getArg(name, def = null) {

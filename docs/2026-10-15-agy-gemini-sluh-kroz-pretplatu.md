@@ -97,8 +97,9 @@ Isti posao na Vertexu: ~$0,0086 po minuti zvuka, dakle ~$10 dnevno za 20 epizoda
 ## Otvoreno (stanje 15.10. 15:30)
 
 1. ~~Ponoviti 8 palih prozora~~ — gotovo (`--reuse`).
-2. Opus članak iz sluh-prijepisa + slijepa ocjena kao četvrti kandidat. Pitanje je
-   diže li sluh članak iznad Deepgrama i Canaryja (6,93).
+2. ~~Opus članak + slijepa ocjena~~ — gotovo: sluh **8,67**, prvi u 15/15, nula teških
+   grešaka (Canary 7,00, Speechmatics 6,27, Deepgram 6,00). Tablica i ograde u
+   `experiments/2026-10-10-asr/README.md` §4. krug.
 3. Popraviti ili označiti `--gemini-backend agy` u produkcijskim skriptama.
 
 Vezani dokumenti: `experiments/2026-10-10-asr/README.md` (slijepa ocjena ASR-ova),

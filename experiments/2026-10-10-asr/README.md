@@ -78,6 +78,32 @@ Veliki judi 8/7/6, Živjeti Evanđelje 7/8/9, Actualitica 6/6/7, 2Pogled 6/7/8, 
 Bijela kronika 7/6/6, Libertas 7/7/8, Mjesto zločina 8/7/7, Čušpajz 8/6/6, Projekt SNOVI 9/6/8,
 Samo Hajduk 5/4/7, Špica s Mačanom 7/8/6.
 
+## Slijepa ocjena, 4. krug (15.10.2026. navečer) — + Gemini sluh nad Canary kosturom
+
+Četvrti ulaz: `canary-1b-v2+pyannote-c1+agy-gemini-3-8-flash` (KORAK 2.8 kroz `agy`, vidi
+`docs/2026-10-15-agy-gemini-sluh-kroz-pretplatu.md`). Članci su napisani istim Opusom
+(`llm_opus.js`). `judge_prep.js --set 4` → `data/slijepo4/` (A–D, prijepisi W–Z, zaseban
+`kljuc.json`), ocjenjivač `judge_prompt4.md`, 15 Opus subagenata.
+
+| ulaz | ukupno | utemelj. | imena | pokriv. | jezik | rang 1./2./3./4. | teške / srednje / lake |
+|---|---|---|---|---|---|---|---|
+| **Canary + pyannote + Gemini sluh** | **8,67** | **8,73** | **8,73** | **9,20** | **8,47** | **15**/0/0/0 | **0** / 8 / 44 |
+| Canary + pyannote | 7,00 | 7,27 | 6,80 | 8,73 | 8,00 | 0/9/4/2 | 5 / 41 / 62 |
+| Speechmatics Enhanced | 6,27 | 6,80 | 6,07 | 8,53 | 7,60 | 0/3/6/6 | 15 / 47 / 61 |
+| Deepgram Nova-3 | 6,00 | 6,20 | 6,47 | 8,33 | 7,53 | 0/3/5/7 | 12 / 45 / 62 |
+
+Sluh je prvi u **svih 15** epizoda i nema nijednu tešku grešku. Najveći skok je u imenima
+(+1,9 nad Canaryjem), dakle upravo ondje gdje su ASR-ovi griješili.
+
+Ograde:
+- **Referenca se promijenila.** Sluh-prijepis je i sam bio jedan od četiri referentna
+  prijepisa. Dijeli kostur s Canaryjem, pa pravilo „istina je ono u čemu se slaže većina“
+  vuče prema Canary obitelji. Vidi se po tome što je Deepgram pao sa 6,93 (3. krug) na
+  6,00, iako mu se članci nisu promijenili. Apsolutne brojke između krugova zato nisu
+  usporedive, a rang unutar kruga jest.
+- Ocjenjivač je isti model kao pisac (Opus). To vrijedi jednako za sva četiri ulaza.
+
+
 Nalazi:
 - **Nema jasnog pobjednika**: razlika između ASR-ova (≤0,33) manja je od raspona među epizodama.
   Hipoteza iz ručnog pregleda (Deepgram ≥ Speechmatics > Canary) se NE potvrđuje.
