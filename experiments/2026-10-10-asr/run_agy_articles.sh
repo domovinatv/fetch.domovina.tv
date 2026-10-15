@@ -56,7 +56,7 @@ reap_gk() {
 reap_gk & REAPER=$!
 trap 'kill $REAPER 2>/dev/null' EXIT
 
-i=0
+i=0; PIDS=""
 while IFS= read -r ids; do
     i=$((i + 1)); s="agyc$i"
     [ -z "$ids" ] && continue
@@ -69,6 +69,8 @@ while IFS= read -r ids; do
         done
         echo "[$s] red gotov"
     ) &
+    PIDS="$PIDS $!"
 done <<< "$QUEUES"   # ne cijev: while u podljusci, pa wait ne bi čekao redove
-wait
+# samo redovi: goli `wait` bi čekao i beskonačnu reap_gk petlju (run je 15.10. visio nakon kraja)
+wait $PIDS
 echo "GOTOVO"
