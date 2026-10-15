@@ -61,12 +61,39 @@ nastavljene nakon reseta — skripta nastavlja od zadnje gotove iteracije.
 Hipoteza nakon 2 epizode: Deepgram ≥ Speechmatics > Canary (Canary kvari imena osoba i daje
 najkraći članak). Potvrditi slijepom ocjenom.
 
+## Slijepa ocjena 15.10.2026. — 45 članaka, 15 Opus ocjenjivača
+
+`judge_prep.js` → `data/slijepo/<id>/` (članci A/B/C i prijepisi X/Y/Z miješani NEOVISNO, pa
+ocjenjivač ne može spariti članak s prijepisom; sva tri prijepisa su referenca jer nijedan nije
+istina) → Opus subagent po `judge_prompt.md` → `ocjena.json`. Ključ: `data/slijepo/kljuc.json`.
+
+| ulaz | ukupno | utemelj. | imena | pokriv. | jezik | rang 1./2./3. | teške / srednje / lake |
+|---|---|---|---|---|---|---|---|
+| Canary + pyannote | **6,93** | **7,40** | 6,80 | 8,67 | **8,33** | 6/6/3 | 11 / 29 / 70 |
+| Deepgram Nova-3 | **6,93** | 6,87 | **7,07** | 8,67 | 8,13 | 6/3/6 | **9** / 41 / 59 |
+| Speechmatics Enhanced | 6,60 | 7,07 | 6,40 | 8,73 | 7,93 | 3/6/6 | 13 / 37 / 58 |
+
+Po epizodi (ukupno CA / SM / DG): Hajdučka štorija 6/4/7, Veterani mira 5/8/7, Muževni budite 8/8/7,
+Veliki judi 8/7/6, Živjeti Evanđelje 7/8/9, Actualitica 6/6/7, 2Pogled 6/7/8, ATMA 7/7/5,
+Bijela kronika 7/6/6, Libertas 7/7/8, Mjesto zločina 8/7/7, Čušpajz 8/6/6, Projekt SNOVI 9/6/8,
+Samo Hajduk 5/4/7, Špica s Mačanom 7/8/6.
+
+Nalazi:
+- **Nema jasnog pobjednika**: razlika između ASR-ova (≤0,33) manja je od raspona među epizodama.
+  Hipoteza iz ručnog pregleda (Deepgram ≥ Speechmatics > Canary) se NE potvrđuje.
+- **Speechmatics, najskuplji (~$0,70/h), je zadnji** po ukupnoj ocjeni, imenima i teškim greškama.
+- **Canary + pyannote (~$0,15/h na Modalu) je izjednačen s Deepgramom**; najbolji jezik i utemeljenost,
+  ali slab na **sportu** (Hajdučka štorija 6, Samo Hajduk 5 — imena igrača) gdje Deepgram vodi (7, 7).
+- Greške gotovo uvijek potječu iz prijepisa (imena, spojeni govornici, ispuštene niječnice);
+  Opus ih vjerno prenosi. Meta-napomene „(kako piše u transkriptu)” procure u tekst kod svih ulaza.
+
+Trošak ocjene: 15 ocjenjivača, 140–240k tokena i 2–4,5 min svaki (raste sporije od duljine:
+18 min → 150k, 92 min → 238k). Kvota pretplate (`api/oauth/usage`, cijeli postoci, uklj. glavnu
+sesiju): 5-satni prozor 16 → 36 %, tjedni 75 → 78 %.
+
 ## Otvoreno
 
-1. **Slijepa ocjena 45 članaka** — po uzoru na `../2026-10-11-asr-llm/judge_prep.js` /
-   `judge_prompt.md` / `judge_report.js`: anonimizirati A/B/C po epizodi, 15 Opus
-   ocjenjivača (svaki vidi sva 3 transkripta kao referencu + 3 članka), ~2–4 M tokena kvote.
-   Kopije skripti treba prilagoditi: ključ je ulaz (ASR), ne model.
+1. ~~Slijepa ocjena 45 članaka~~ — gotovo 15.10., vidi gore.
 2. Modal trošak dana (app `domovina-exp-asr-20261010`) očitati s billinga.
 3. Soniox ($0,10/h) i ElevenLabs Scribe v2 ($0,22/h) — kandidati bez ključa; ne testirani.
 4. Lokalni preglednik usporedbe (3 članka jedan uz drugi) — predložen, nije napravljen.
