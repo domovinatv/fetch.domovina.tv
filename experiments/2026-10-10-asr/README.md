@@ -91,6 +91,13 @@ Trošak ocjene: 15 ocjenjivača, 140–240k tokena i 2–4,5 min svaki (raste sp
 18 min → 150k, 92 min → 238k). Kvota pretplate (`api/oauth/usage`, cijeli postoci, uklj. glavnu
 sesiju): 5-satni prozor 16 → 36 %, tjedni 75 → 78 %.
 
+## Gemini sluh nad Canary kostur (15.10.)
+
+`agy_refine.js --backend agy|vertex` provodi KORAK 2.8 (doslovni `SKELETON_PROMPT`)
+nad kosturom Canary + pyannote. `agy` ide kroz Google AI Pro pretplatu u tmuxu
+(`run_agy_queue.sh <sesija> <trusted-dir> <ID…>`). Mjerenja, zamke `agy -p` i stanje
+paralelnog runa: `docs/2026-10-15-agy-gemini-sluh-kroz-pretplatu.md`.
+
 ## Otvoreno
 
 1. ~~Slijepa ocjena 45 članaka~~ — gotovo 15.10., vidi gore.
