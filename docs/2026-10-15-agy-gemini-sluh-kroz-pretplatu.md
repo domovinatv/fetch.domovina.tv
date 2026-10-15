@@ -102,6 +102,6 @@ Isti posao na Vertexu: ~$0,0086 po minuti zvuka, dakle ~$10 dnevno za 20 epizoda
    `experiments/2026-10-10-asr/README.md` §4. krug.
 3. Popraviti ili označiti `--gemini-backend agy` u produkcijskim skriptama.
 
-Vezani dokumenti: `experiments/2026-10-10-asr/README.md` (slijepa ocjena ASR-ova),
+Vezani dokumenti: `experiments/2026-10-10-asr/README.md` (slijepa ocjena ASR-ova), `docs/2026-10-15-varijante-eksperimenta-linkovi.md` (linkovi na domovina.ai),
 `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md` (KORAK 2.8 na Vertexu),
 `docs/claude_code_backend_2026-07.md`.

@@ -148,3 +148,5 @@ skripta preskače (zamjena = ponovna obrada, admin 🔁).
 sažetak, outline i iteracije kroz interaktivni agy (Google AI Pro pretplata, $0). Paralelno:
 `run_agy_articles.sh <N> <model> <ulaz>`. Radni dir `data/agy_work/` (agy-trusted). Probni prolaz
 Hajdučka štorija: 3 poziva, 4,9 min, JSON strogo ispravan iz prvog pokušaja.
+
+Popis svih objavljenih linkova (izvorni ID i varijante `_1`–`_5`) s ocjenama: `docs/2026-10-15-varijante-eksperimenta-linkovi.md`.
