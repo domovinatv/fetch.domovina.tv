@@ -66,14 +66,37 @@ ATMA 97 min → 58 min).
 | 2Pogled (M8OUH8QIG3Q) | 270/335 | 1 |
 | Samo Hajduk (q28ivn-YEp4) | 560/570 | 1 |
 
-Uzrok nije provjeren. Mogući su `agy` koji piše prozu umjesto JSON-a, prekratak timeout
-za prozor od 10 min ili zaglavljen potez. `agy_refine.js` zasad ne zna ponoviti samo
-pale prozore, pa to treba dodati prije ocjenjivanja (ili te 4 epizode ocijeniti uz napomenu).
+**Ponovljeno 15.10. navečer: sve 4 epizode su sada potpune.** Dva različita uzroka:
+
+- **Mjesto zločina (4 prozora): prekratak timeout.** agy je sva 4 izlaza ipak zapisao,
+  valjana, 1–8 min nakon što je skripta odustala. `--reuse` ih je pokupio bez ijednog
+  novog poziva (1077/1077).
+- **Ostala 3 prozora: prolazni zastoj.** Izlaza nije bilo nikakvog, iako je jedan isječak
+  trajao samo 0,9 min. Na ponovnom pokušaju (3 paralelne sesije, timeout 25 min) prošla
+  su za 4,6–7,7 min.
+
+`agy_refine.js` sada ima dvije stvari:
+- `--reuse` uzima valjan postojeći `{stem}.izlaz.json` i agy pita samo za rupe.
+- Nakon isteka šalje Escape, da zaglavljeni potez ne zadrži `/clear` i idući upit u redu.
+
+## Skaliranje na ~20 epizoda dnevno (mjereno 15.10.)
+
+20 epizoda × ~56 min ≈ 19 h zvuka. Uz ~1× stvarnog vremena po sesiji to traje ~5 h na
+4 sesije, ~2,5 h na 8 i ~1 h na 20. Za noćni prozor je dovoljno 6–8 sesija. Dvije
+prepreke prije skaliranja:
+
+- **Curenje procesa.** Svaka agy sesija svakih ~30 s pokrene nov GitKraken `gk mcp`
+  proces i ne ugasi ga. Nakon 8 h s 4 sesije bilo ih je 255 (2,2 GB). Uz to agy
+  sam naraste s 38 na ~500 MB. Treba ugasiti GitLens ekstenziju u Antigravityju i
+  pokretati svježu sesiju po epizodi.
+- **Kvota.** 4 paralelne sesije i ~120 zahtjeva u 4 h prošle su bez odbijanja. Iznad
+  toga nije mjereno.
+
+Isti posao na Vertexu: ~$0,0086 po minuti zvuka, dakle ~$10 dnevno za 20 epizoda.
 
 ## Otvoreno (stanje 15.10. 15:30)
 
-1. Ponoviti 8 palih prozora (dodati `--only-windows` ili nastavak iz postojećih
-   `*.izlaz.json` u radnom diru).
+1. ~~Ponoviti 8 palih prozora~~ — gotovo (`--reuse`).
 2. Opus članak iz sluh-prijepisa + slijepa ocjena kao četvrti kandidat. Pitanje je
    diže li sluh članak iznad Deepgrama i Canaryja (6,93).
 3. Popraviti ili označiti `--gemini-backend agy` u produkcijskim skriptama.

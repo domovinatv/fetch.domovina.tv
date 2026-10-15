@@ -25,6 +25,7 @@ const WORK = getArg("--work-dir");             // agy-trusted direktorij (cwd tm
 const WINDOW_SEC = parseFloat(getArg("--window-min", "10")) * 60;
 const MAX_SEGS = parseInt(getArg("--max-segments", "70"), 10);
 const TIMEOUT_MS = parseInt(getArg("--timeout-min", "15"), 10) * 60000;
+const REUSE = args.includes("--reuse");        // valjan postojeći {stem}.izlaz.json → ne pitaj agy ponovno (ponavljanje samo palih prozora)
 const BACKEND = getArg("--backend", "agy");     // agy | vertex (ista podjela na prozore, isti prompt)
 const MODEL_SLUG = getArg("--slug", BACKEND === "vertex" ? "vertex-gemini-3-8-flash" : "agy-gemini-3-8-flash");
 if (!ID || !WORK) { console.error("Treba --id i --work-dir"); process.exit(2); }
@@ -105,24 +106,32 @@ async function ask(text) {
         execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-ss", String(b), "-t", String(dur), "-i", audio, "-c:a", "libmp3lame", "-b:a", "64k", clip]);
         const listing = idx.map(j => ({ id: j, od: Math.round((segs[j].start - b) * 10) / 10, do: Math.round((segs[j].end - b) * 10) / 10, govornik: segs[j].speaker, speechmatics: segs[j].text }));
         fs.writeFileSync(pf, PROMPT + JSON.stringify(listing));
-        try { fs.unlinkSync(of); } catch (_) {}
-
         const tw = Date.now();
-        log(`prozor ${w + 1}/${wins.length}: ${idx.length} seg., ${(dur / 60).toFixed(1)} min zvuka`);
         let parsed = null;
-        if (BACKEND === "vertex") {
+        if (REUSE) {
+            // agy zna zapisati izlaz i nakon isteka timeouta — taj izlaz je valjan, samo zakasnio
+            try { const p = JSON.parse(fs.readFileSync(of, "utf-8").replace(/^```(json)?\s*|\s*```$/g, "")); if (Array.isArray(p) && p.some(o => idx.includes(o.id))) parsed = p; } catch (_) {}
+        }
+        if (parsed) log(`prozor ${w + 1}/${wins.length}: postojeći izlaz`);
+        else { try { fs.unlinkSync(of); } catch (_) {} log(`prozor ${w + 1}/${wins.length}: ${idx.length} seg., ${(dur / 60).toFixed(1)} min zvuka`); }
+        if (parsed) { /* preskoči poziv */ } else if (BACKEND === "vertex") {
             try { parsed = JSON.parse(await callVertex(clip, fs.readFileSync(pf, "utf-8"))); } catch (e) { log(`   Vertex greška: ${e.message}`); }
         } else {
             await ask("/clear"); await sleep(3000);
             await ask(`Pročitaj upute u datoteci ${stem}.upute.md i izvrši ih nad zvučnim isječkom ${stem}.mp3 (poslušaj zvuk). ` +
                 `Izlaz (samo JSON niz, ništa drugo) zapiši u datoteku ${stem}.izlaz.json. Ne pokreći skripte ni alate za transkripciju.`);
         }
-        while (BACKEND === "agy" && Date.now() - tw < TIMEOUT_MS) {
+        while (!parsed && BACKEND === "agy" && Date.now() - tw < TIMEOUT_MS) {
             await sleep(5000);
             if (!fs.existsSync(of)) continue;
             try { parsed = JSON.parse(fs.readFileSync(of, "utf-8").replace(/^```(json)?\s*|\s*```$/g, "")); break; } catch (_) { /* još piše */ }
         }
-        if (!parsed) { log(`⚠️  prozor ${w + 1}: nema valjanog izlaza nakon ${TIMEOUT_MS / 60000} min — zadržavam kostur`); continue; }
+        if (!parsed) {
+            log(`⚠️  prozor ${w + 1}: nema valjanog izlaza nakon ${TIMEOUT_MS / 60000} min — zadržavam kostur`);
+            // prekini zaglavljeni potez, inače /clear i idući upit čekaju u redu iza njega
+            if (BACKEND === "agy") { tmux("send-keys", "-t", SESSION, "Escape"); await sleep(2000); tmux("send-keys", "-t", SESSION, "Escape"); await sleep(3000); }
+            continue;
+        }
         let n = 0;
         for (const o of parsed) if (idx.includes(o.id) && typeof o.text === "string") { texts.set(o.id, o.text.trim()); n++; }
         const s = (Date.now() - tw) / 1000; perWin.push(s);
