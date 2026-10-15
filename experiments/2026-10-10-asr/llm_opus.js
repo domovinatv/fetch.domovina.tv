@@ -27,6 +27,12 @@
 //   node experiments/2026-10-10-asr/llm_opus.js --model opus-5-5 --dry-run    # plan poziva + tokeni
 //   node experiments/2026-10-10-asr/llm_opus.js --summary   # zbroj iz llm_pozivi.jsonl
 //
+// agy (Antigravity CLI, Google AI Pro pretplata): `agy -p` 1.3.5 ne vraća odgovor, pa skripta tipka
+// u interaktivnu tmux sesiju (kao agy_refine.js). Jedan proces = jedna sesija; više paralelnih =
+// run_agy_articles.sh. Radni dir mora biti „trusted" u agy-ju.
+//   node experiments/2026-10-10-asr/llm_opus.js --model agy-gemini-3-8-flash --input <ulaz> --id X \
+//        --session agyc1 --work-dir <dir> [--agy-timeout-min 30]
+//
 // Idempotentno: postojeći sazetak/clanak/clanak.en se preskaču; članak se nastavlja po iteraciji
 // (sirove iteracije u _raw/ se ponovno koriste).
 "use strict";
@@ -63,7 +69,12 @@ const MODELS = {
     "sonnet-5-5":       { kind: "claude-cli", model: "sonnet", effort: "high", priceIn: 2.00, priceOut: 10.00 },
     // Produkcijski Opus (claude backend, effort high kao CLAUDE_EFFORT default u generate_article_gemini.js).
     "opus-5-5":         { kind: "claude-cli", model: "opus", effort: "high", priceIn: 5.00, priceOut: 25.00 },
+    // agy pod Google AI Pro pretplatom — $0; model = ID iz `agy models`
+    "agy-gemini-3-8-flash": { kind: "agy", model: "gemini-3.8-flash-high", priceIn: 0, priceOut: 0 },
+    "agy-opus-5-5":         { kind: "agy", model: "claude-opus-5-5-high", priceIn: 0, priceOut: 0 },
 };
+const AGY_SESSION = getArg("--session"), AGY_WORK = getArg("--work-dir");
+const AGY_TIMEOUT_MS = parseFloat(getArg("--agy-timeout-min", "30")) * 60000;
 
 // ─── Promptovi doslovno iz produkcije ───
 function extractConst(file, name) {
@@ -335,6 +346,39 @@ function callClaudeCli(cfg, system, user) {
     });
 }
 
+// ─── Backend: agy kroz interaktivnu tmux sesiju ───
+// Upute + ulaz idu u datoteku (transkript ima i 120 KB), agy je pročita i zapiše JSON u izlaznu
+// datoteku. Gotovo = izlaz je valjan JSON i veličina mu se ne mijenja 10 s (agy zna pisati u dijelovima).
+const tmuxCmd = (...a) => execFileSync("tmux", a, { stdio: ["ignore", "pipe", "pipe"] }).toString();
+async function agyType(text) { tmuxCmd("send-keys", "-t", AGY_SESSION, "-l", text); await sleep(500); tmuxCmd("send-keys", "-t", AGY_SESSION, "Enter"); }
+let agyCallNo = 0;
+async function callAgy(cfg, system, user, ctx, step) {
+    if (!AGY_SESSION || !AGY_WORK) throw new Error("agy backend treba --session i --work-dir");
+    const stem = `${ctx.id}-${ctx.label.replace(/[^\w.-]+/g, "_")}-${step}-${Date.now().toString(36)}${agyCallNo++}`;
+    const pf = path.join(AGY_WORK, `${stem}.upute.md`), of = path.join(AGY_WORK, `${stem}.izlaz.json`);
+    fs.writeFileSync(pf, `# SUSTAVSKE UPUTE\n\n${system}\n\n# ULAZ\n\n${user}\n\n=== KRAJ DATOTEKE ===\n`);
+    await agyType("/clear"); await sleep(3000);
+    await agyType(`Pročitaj datoteku ${stem}.upute.md CIJELU, do retka "=== KRAJ DATOTEKE ===" (ako je čitaš u dijelovima, nastavi dok ne dođeš do tog retka). ` +
+        `Ona sadrži sustavske upute (odjeljak SUSTAVSKE UPUTE) i ulaz (odjeljak ULAZ). Izvrši upute nad ulazom. ` +
+        `Odgovor — SAMO valjani JSON, bez ikakvog drugog teksta — zapiši u datoteku ${stem}.izlaz.json. ` +
+        `Ne pokreći skripte ni druge alate osim čitanja te datoteke i pisanja izlaza.`);
+    const t0 = Date.now();
+    let lastSize = -1, stableSince = 0;
+    while (Date.now() - t0 < AGY_TIMEOUT_MS) {
+        await sleep(5000);
+        if (!fs.existsSync(of)) continue;
+        const size = fs.statSync(of).size;
+        if (size !== lastSize) { lastSize = size; stableSince = Date.now(); continue; }
+        if (Date.now() - stableSince < 10000) continue;
+        const text = fs.readFileSync(of, "utf-8");
+        if (!parseJson(text).lenient) continue;   // još piše ili je pokvaren — čekaj do timeouta
+        return { text, finish: null, raw: { agy_model: cfg.model, stem }, inTok: 0, outTok: 0, thinkTok: null, cachedTok: 0, costUsd: 0, transientRetries: 0 };
+    }
+    // prekini zaglavljeni potez, inače /clear i idući upit čekaju u redu iza njega
+    tmuxCmd("send-keys", "-t", AGY_SESSION, "Escape"); await sleep(2000); tmuxCmd("send-keys", "-t", AGY_SESSION, "Escape"); await sleep(3000);
+    throw new Error(`agy: nema valjanog izlaza nakon ${AGY_TIMEOUT_MS / 60000} min (${stem})`);
+}
+
 function priceCall(cfg, r) {
     if (r.costUsd != null) return r.costUsd;
     const long = cfg.longAbove && r.inTok > cfg.longAbove;
@@ -345,12 +389,12 @@ function priceCall(cfg, r) {
 // Jedan logički poziv: do 2 pokušaja ako JSON ni blago ne prolazi. Bilježi svaki pokušaj.
 async function llmJson(ctx, step, system, user) {
     const cfg = MODELS[ctx.model];
-    const fn = cfg.kind === "vertex" ? callVertex : cfg.kind === "anthropic" ? callAnthropic : callClaudeCli;
+    const fn = cfg.kind === "vertex" ? callVertex : cfg.kind === "anthropic" ? callAnthropic : cfg.kind === "agy" ? callAgy : callClaudeCli;
     let firstStrict = null, firstLenient = null;
     for (let attempt = 1; attempt <= 2; attempt++) {
         const t0 = Date.now();
         let r, err = null;
-        try { r = await fn(cfg, system, user); } catch (e) { err = e; }
+        try { r = await fn(cfg, system, user, ctx, step); } catch (e) { err = e; }
         const ms = Date.now() - t0;
         if (err) {
             logCall(ctx, step, attempt, { ms, error: err.message.slice(0, 300) });

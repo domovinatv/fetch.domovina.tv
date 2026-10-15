@@ -131,3 +131,20 @@ paralelnog runa: `docs/2026-10-15-agy-gemini-sluh-kroz-pretplatu.md`.
 3. Soniox ($0,10/h) i ElevenLabs Scribe v2 ($0,22/h) — kandidati bez ključa; ne testirani.
 4. Lokalni preglednik usporedbe (3 članka jedan uz drugi) — predložen, nije napravljen.
    Članci NISU na domovina.ai i nightly ih neće pokupiti (izvan `storage/output`, ne-produkcijska imena).
+
+## Promocija u produkciju (15.10.2026.)
+
+`promote_to_unlisted.js` (suho po defaultu, `--commit` zapisuje) kopira pobjedničku varijantu
+(Canary + pyannote + Gemini sluh → Opus članak) u `storage/output/_unlisted/` s produkcijskim
+imenima: `.wav.canary.diarized.srt`, `.wav.canary.srt`, `.wav.canary.word_ts.json` (ms), `.wav.canary.summary.json`,
+`…diarized_<datum>_opus.{outline,article}.json`. Nightly vidi gotov članak (ne zove LLM) i
+dovrši screenshotove, EPUB, words.json, sponzore, RAG i R2 → `domovina.ai/v/<ID>` (neindeksirano).
+Promovirano 13 epizoda. Muževni budite i Čušpajz su već objavljeni s produkcijskim člankom, pa ih
+skripta preskače (zamjena = ponovna obrada, admin 🔁).
+
+## agy piše članke (15.10.2026. navečer)
+
+`llm_opus.js --model agy-gemini-3-8-flash|agy-opus-5-5 --session <tmux> --work-dir <dir>` piše
+sažetak, outline i iteracije kroz interaktivni agy (Google AI Pro pretplata, $0). Paralelno:
+`run_agy_articles.sh <N> <model> <ulaz>`. Radni dir `data/agy_work/` (agy-trusted). Probni prolaz
+Hajdučka štorija: 3 poziva, 4,9 min, JSON strogo ispravan iz prvog pokušaja.
