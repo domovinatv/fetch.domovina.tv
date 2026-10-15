@@ -285,3 +285,15 @@ Posljedice za procjenu troška:
 - Strani znakovi (ćirilica, kineski, japanski) usred riječi kod svih modela → post-filter.
 - GCP krediti: faza 2 potrošila ~$14,35 (Flash $4,35 + Argon $10,00) po izračunu iz tokena;
   konzola to još ne pokazuje (billing kasni) — očitati 15.10. (prije $216,92).
+
+## Mjerenje 14.10.2026. — isti Opus nad tri ASR-a (dan 10.10., 15 ep)
+
+Puni rezultati: `experiments/2026-10-10-asr/README.md`. Faza 2 od 11.10. mjerila je LLM-ove
+nad ISTIM transkriptom; ovdje je LLM fiksan (Opus 5.5, pretplata), a mijenja se ASR.
+
+- ASR za 13,3 h: Speechmatics ~$9,29, Deepgram ~$3,46 (4–22 s/ep), Canary + pyannote na
+  Modalu ~$2 (14 ep za 8,6 min). Deepgram sam diarizira — pyannote treba samo uz Canary.
+- Opus trošak isti za sva tri ulaza (~$1,64–1,73 ekv./ep); 45 članaka = ~5,8 M + 1,6 M
+  tokena = jedan cijeli 5-satni prozor pretplate.
+- Ručni pregled 2 ep: Deepgram ≥ Speechmatics > Canary (Canary kvari imena osoba:
+  „Medvedev”, „Vujčić”). Slijepa ocjena 45 članaka još nije napravljena.
