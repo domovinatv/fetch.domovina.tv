@@ -49,12 +49,31 @@ prijepisu: Speechmatics ima 4 kriva imena, a Canary + `agy` nijedno.
 Na isječku od 60 s `agy` razlikuje i govornike (G1/G2) gdje su ih Speechmatics i Canary
 spojili. Vremena su pomaknuta 2–3 s, pa za titlove ne valja.
 
-## Otvoreno (stanje 15.10. 11:45)
+## Paralelni run: 4 sesije, 14 epizoda (15.10. 11:43 → 15:27)
 
-1. **Paralelni run** 4 `agy` sesije (`agy1`–`agy4`) nad preostalih 14 epizoda dana
-   10.10. (~13 h zvuka) pokrenut je u 11:43. Logovi su u scratchpadu sesije (ne preživljavaju),
-   a izlaz u `experiments/2026-10-10-asr/data/output/<kanal>/<base>.exp-20261010.canary-1b-v2+pyannote-c1+agy-gemini-3-8-flash.dijariziran.srt`.
-   Ovaj run mjeri skalira li pretplata na 4 paralelne sesije i gdje udara kvota.
+`run_agy_queue.sh` je pokrenut na 4 tmux sesije (`agy1`–`agy4`) za ~13 h zvuka. Run je
+završio za **3 h 44 min**, dakle pretplata podnosi 4 paralelne sesije, bez ijednog
+odbijanja zbog kvote. Brzina po sesiji ostaje ~1× stvarnog vremena (Špica 74 min → 68 min,
+ATMA 97 min → 58 min).
+
+**10 od 14 epizoda je čisto (svi segmenti prepisani).** Kod 4 epizode je 8 prozora (od
+~120) isteklo nakon 15 min bez valjanog izlaza. Ti segmenti zadržavaju Canary tekst:
+
+| epizoda | prepisano | prozori bez izlaza |
+|---|---|---|
+| Mjesto zločina (lCmUjIkTECw) | 796/1077 | 4 (150 min ukupno) |
+| Actualitica (pD7lyjjlot8) | 757/827 | 1 |
+| 2Pogled (M8OUH8QIG3Q) | 270/335 | 1 |
+| Samo Hajduk (q28ivn-YEp4) | 560/570 | 1 |
+
+Uzrok nije provjeren. Mogući su `agy` koji piše prozu umjesto JSON-a, prekratak timeout
+za prozor od 10 min ili zaglavljen potez. `agy_refine.js` zasad ne zna ponoviti samo
+pale prozore, pa to treba dodati prije ocjenjivanja (ili te 4 epizode ocijeniti uz napomenu).
+
+## Otvoreno (stanje 15.10. 15:30)
+
+1. Ponoviti 8 palih prozora (dodati `--only-windows` ili nastavak iz postojećih
+   `*.izlaz.json` u radnom diru).
 2. Opus članak iz sluh-prijepisa + slijepa ocjena kao četvrti kandidat. Pitanje je
    diže li sluh članak iznad Deepgrama i Canaryja (6,93).
 3. Popraviti ili označiti `--gemini-backend agy` u produkcijskim skriptama.
