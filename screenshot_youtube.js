@@ -449,6 +449,9 @@ async function processArticle(articlePath) {
     // synthId pa `yt-dlp --get-url https://youtube.com/watch?v=<synthId>` ne postoji.
     // → idi ODMAH na lokalni-file (ffmpeg) put, bez uzaludnog YouTube stream pokušaja.
     let localOnly = false;
+    // Varijanta epizode (eksperiment, sintetički ID npr. OspwepfLO_2): kadrovi su iz izvornog
+    // YouTube videa (`_variant_of`), a ključevi/datoteke ostaju na sintetičkom ID-u.
+    let streamVideoId = videoId;
     const infoPath = path.join(dir, `${videoBase}.info.json`);
     if (fs.existsSync(infoPath)) {
         try {
@@ -465,6 +468,10 @@ async function processArticle(articlePath) {
             // postoji jer se za matchane epizode i ne skida.
             if (info._source && info._source !== "youtube" && info._yt_matched !== true) {
                 localOnly = true;
+            }
+            if (typeof info._variant_of === "string" && /^[\w-]{11}$/.test(info._variant_of)) {
+                streamVideoId = info._variant_of;
+                console.log(`   🔀 Varijanta od ${streamVideoId} — kadrovi iz izvornog videa`);
             }
         } catch (_) { /* nevažeći info.json — nastavi normalno (yt-dlp put) */ }
     }
@@ -543,7 +550,7 @@ async function processArticle(articlePath) {
         // Dohvati stream URL (jednom za sve screenshotove istog videa)
         console.log(`   🔗 Dohvaćam stream URL za ${videoId} (best quality)...`);
         try {
-            const streamUrl = getStreamUrl(videoId);
+            const streamUrl = getStreamUrl(streamVideoId);
             if (streamUrl) {
                 source = streamUrl;
                 sourceLabel = "yt-dlp stream (best quality)";
