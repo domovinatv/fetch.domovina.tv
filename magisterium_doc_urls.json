@@ -5876,6 +5876,18 @@
     {
       "match": "Acta Apostolicae Sedis: Issue 8, August, 2010",
       "uuid": "0265fc24-4ee8-47d6-bd45-198df98a84a6"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, 2018",
+      "uuid": "62376685-92f6-4068-be01-7c8a33334653"
+    },
+    {
+      "match": "Faith and Science: Towards COP26",
+      "uuid": "ec61c10f-612d-42a4-9a2a-f00169f8a9bb"
+    },
+    {
+      "match": "To farmers at the plant of Agricultural Products in Faenza",
+      "uuid": "499adaa8-25d5-48f2-b1f1-8a1af2d57c96"
     }
   ]
 }
