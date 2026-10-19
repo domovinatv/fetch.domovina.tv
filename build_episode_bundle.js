@@ -26,8 +26,10 @@
  *      epizoda ne košta nijedan GET. Prepis medija ili e-knjige ne mijenja otisak.
  *
  * Cache-Control kao listinzi (`max-age=60, must-revalidate`), NE immutable — bundle
- * se mijenja pod istim imenom. Novi bundle se purgea (obje `Vary: Origin` varijante),
- * jer je edge možda zapamtio 404 dok ga klijent tražio prije backfilla.
+ * se mijenja pod istim imenom. Svaki zapisani bundle se purgea (obje `Vary: Origin`
+ * varijante): novi jer je edge možda zapamtio 404 prije backfilla, a promijenjeni jer
+ * edge TTL ne poštuje max-age=60 — 19.10. je yD9r0grKCkA uz Origin satima dobivao
+ * bundle bez article.magisterium.json (HIT, age 7006 s), pa preglednik nije vidio članak.
  *
  * Trošak: LIST `data/` prefiksa je ~28 stranica (28k objekata) za cijeli katalog;
  * GET-ovi samo za epizode kojima se otisak promijenio. Nula LLM poziva.
@@ -199,7 +201,7 @@ async function purge(urls) {
             console.log(`⚠️  purge batch iznimka: ${e.message}`);
         }
     }
-    console.log(`🧹 CDN purge: ${urls.length} novih bundleova × 2 Vary varijante = ${ok}/${entries.length}`);
+    console.log(`🧹 CDN purge: ${urls.length} zapisanih bundleova × 2 Vary varijante = ${ok}/${entries.length}`);
 }
 
 // ─── STATE ────────────────────────────────────────────────────────────────
@@ -272,7 +274,7 @@ async function main() {
     const work = limit ? todo.slice(0, limit) : todo;
     console.log(`📋 ${byId.size} epizoda pod data/ · nepromijenjeno ${stats.unchanged} · za provjeru ${work.length}${limit && todo.length > limit ? ` (od ${todo.length}, --limit)` : ""} (${((Date.now() - t0) / 1000).toFixed(1)} s)`);
 
-    const createdUrls = [];
+    const purgeUrls = [];
     let bytes = 0;
     await runConcurrent(work, CONCURRENCY, async ({ id, entries, files, fp }) => {
         try {
@@ -300,7 +302,7 @@ async function main() {
             } else {
                 await putBundle(client, id, bundle);
                 state[id] = fp;
-                if (!existed) createdUrls.push(`${R2_PUBLIC_URL}/data/${id}/${BUNDLE_NAME}`);
+                purgeUrls.push(`${R2_PUBLIC_URL}/data/${id}/${BUNDLE_NAME}`);
             }
             bytes += size;
             stats.written++;
@@ -313,7 +315,7 @@ async function main() {
 
     if (!dryRun) {
         saveState(state);
-        if (!noPurge) await purge(createdUrls);
+        if (!noPurge) await purge(purgeUrls);
     }
 
     console.log(`✅ episode.json: ${dryRun ? "bi zapisao" : "zapisano"} ${stats.written} (novih ${stats.created}, ${(bytes / 1024 / 1024).toFixed(1)} MB) · isti sadržaj ${stats.sameBody} · nepromijenjen otisak ${stats.unchanged}${stats.failed ? ` · ❌ ${stats.failed}` : ""} · ${((Date.now() - t0) / 1000).toFixed(1)} s`);
