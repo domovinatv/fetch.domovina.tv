@@ -119,6 +119,7 @@ dobiven, ništa nije objavljeno → stani i prijavi to kao blocker (HR rezultat 
 ```bash
 automatic/with_pipeline_lock.sh bash -c "
   node generate_channel_index.js --channel <channel> &&
+  { node generate_ebook.js --video-id $VID; node tools/force_upload_epubs.js --changed-only --video-id $VID; true; } &&  # knjiga dobiva prosudbu (9.8 je bila prije Magisteriuma); ne-fatalno
   node upload_to_r2.js --input-dir storage/output --video-id $VID &&  # HR .magisterium.json (+ .en.json SAMO ako je korak 6 pokrenut)
   node upload_to_r2.js --meta-dir storage/meta                        # channel index
 "

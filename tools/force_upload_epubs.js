@@ -21,6 +21,14 @@
  *   node tools/force_upload_epubs.js --limit 5
  *   node tools/force_upload_epubs.js --channel muzevni_budite
  *   node tools/force_upload_epubs.js              # cijeli katalog
+ *   node tools/force_upload_epubs.js --changed-only [--video-id ID]   # nightly KORAK 12.66
+ *
+ * `--changed-only`: šalje samo knjige čija se veličina na disku razlikuje od one
+ * u keys-cacheu, i to samo kad je lokalna VEĆA. Tako do CDN-a stižu knjige koje je
+ * generate_ebook.js nadogradio (npr. dopisao Magisterium prosudbu koja je stigla
+ * nakon KORAKA 9.8), a nikad knjiga koja je na disku osiromašena (nestali
+ * screenshotovi). Poslije uploada upisuje nove veličine u keys-cache, pa je idući
+ * prolaz no-op.
  */
 
 const fs = require("fs");
@@ -56,6 +64,9 @@ const LIMIT = parseInt(getArg("--limit") || "0", 10) || 0;
 const DRY_RUN = args.includes("--dry-run");
 const CONCURRENCY = parseInt(getArg("--concurrency") || "4", 10);
 const NO_PURGE = args.includes("--no-purge");
+const CHANGED_ONLY = args.includes("--changed-only");
+const ONLY_VIDEO_ID = getArg("--video-id");
+const KEYS_CACHE = path.join(ROOT, ".r2_keys_cache.json");
 
 function extractVideoId(filename) {
     const m = [...filename.matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
@@ -76,9 +87,9 @@ function loadPublishedKeys() {
     }
     const cache = JSON.parse(fs.readFileSync(p, "utf8"));
     const sizes = cache.sizes || {};
-    const keys = new Set();
+    const keys = new Map();   // key → objavljena veličina
     for (const k of Object.keys(sizes)) {
-        if (/^data\/[A-Za-z0-9_-]+\/book(\.en)?\.epub$/.test(k)) keys.add(k);
+        if (/^data\/[A-Za-z0-9_-]+\/book(\.en)?\.epub$/.test(k)) keys.set(k, sizes[k]);
     }
     return { keys, mtime: fs.statSync(p).mtime.toISOString().slice(0, 16).replace("T", " ") };
 }
@@ -141,11 +152,14 @@ async function main() {
         for (const f of files) {
             const videoId = extractVideoId(f);
             if (!videoId) continue;
+            if (ONLY_VIDEO_ID && videoId !== ONLY_VIDEO_ID) continue;
             // `{base}.en.epub` ide na SVOJ ključ — inače bi englesko izdanje
             // pregazilo hrvatsku knjigu na `book.epub`.
             const key = `data/${videoId}/book${f.endsWith(".en.epub") ? ".en" : ""}.epub`;
             if (!published.has(key)) continue;   // nije objavljeno → nije naš posao
-            jobs.push({ videoId, localPath: path.join(dir, f), key });
+            const localPath = path.join(dir, f);
+            const size = fs.statSync(localPath).size;
+            jobs.push({ videoId, localPath, key, size });
             if (LIMIT && jobs.length >= LIMIT) break;
         }
         if (LIMIT && jobs.length >= LIMIT) break;
@@ -173,6 +187,19 @@ async function main() {
     jobs.length = 0;
     jobs.push(...byKey.values());
 
+    if (CHANGED_ONLY) {
+        let shrunk = 0;
+        const changed = jobs.filter((j) => {
+            const pub = published.get(j.key);
+            if (typeof pub !== "number" || pub === j.size) return false;
+            if (j.size < pub) { shrunk++; return false; }
+            return true;
+        });
+        if (shrunk) console.log(`   ⚠️  ${shrunk} knjiga je na disku MANJA nego na CDN-u — ne šaljem (provjeri screenshotove)`);
+        jobs.length = 0;
+        jobs.push(...changed);
+    }
+
     console.log(`   🎯 za slanje: ${jobs.length}`);
     if (!jobs.length || DRY_RUN) {
         if (DRY_RUN) jobs.slice(0, 5).forEach((j) => console.log(`   • ${j.key} ← ${path.basename(j.localPath)}`));
@@ -190,6 +217,7 @@ async function main() {
     });
 
     const purgeUrls = [];
+    const sent = [];
     let done = 0, failed = 0, bytes = 0;
     const started = Date.now();
 
@@ -207,6 +235,7 @@ async function main() {
                 }));
                 bytes += body.length;
                 purgeUrls.push(`${R2_PUBLIC_URL}/${job.key}`);
+                sent.push(job);
             } catch (e) {
                 failed++;
                 console.log(`   ❌ ${job.key} — ${e.message}`);
@@ -220,6 +249,20 @@ async function main() {
     const queue = jobs.slice();
     await Promise.all(Array.from({ length: Math.max(1, CONCURRENCY) }, () => worker(queue)));
     console.log(`\n⬆️  Poslano: ${purgeUrls.length} · greške: ${failed} · ${(bytes / 1024 / 1024 / 1024).toFixed(2)} GB`);
+
+    // Keys-cache: svježe pročitan (nightly je mogao pisati u međuvremenu), samo naši ključevi.
+    // Bez ovoga bi --changed-only svaku noć ponovno slao iste knjige.
+    if (sent.length) {
+        try {
+            const fresh = JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8"));
+            fresh.sizes = fresh.sizes || {};
+            for (const j of sent) fresh.sizes[j.key] = j.size;
+            fs.writeFileSync(KEYS_CACHE, JSON.stringify(fresh));
+            console.log(`🗂️  keys-cache ažuriran (${sent.length})`);
+        } catch (e) {
+            console.log(`⚠️  keys-cache nije ažuriran: ${e.message} — idući prolaz ih šalje ponovno (bezopasno)`);
+        }
+    }
 
     console.log(`🧹 Purge ${purgeUrls.length} URL-ova × 2 Vary varijante …`);
     const purged = await purge(purgeUrls);

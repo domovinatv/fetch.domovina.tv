@@ -45,7 +45,7 @@ const path = require("path");
 const os = require("os");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
-const { ZipWriter } = require("./lib/zip_writer");
+const { ZipWriter, listZipEntries } = require("./lib/zip_writer");
 
 const args = process.argv.slice(2);
 function getArg(name) {
@@ -723,6 +723,16 @@ function buildTranscriptXhtml(srtPath, speakers, videoId, lang = "hr") {
 // Obrada jedne epizode
 // ─────────────────────────────────────────────────────────────────────────────
 
+function epubHasMagisterium(epubPath) {
+    try {
+        const names = listZipEntries(fs.readFileSync(epubPath));
+        // Nečitljiva arhiva → ne diraj (null), neka je to posao drugog alata.
+        return names ? names.includes("OEBPS/magisterium.xhtml") : true;
+    } catch {
+        return true;
+    }
+}
+
 function processEpisode(channel, channelDir, ep, lang = "hr") {
     const { base, articleFile, articlePrefix } = ep;
     const EN = lang === "en";
@@ -731,10 +741,17 @@ function processEpisode(channel, channelDir, ep, lang = "hr") {
 
     const oldStat = fs.existsSync(outPath) ? fs.statSync(outPath) : null;
     const oldSize = oldStat ? oldStat.size : 0;
-    if (oldSize && !FORCE) {
+    const magisterium = readJson(path.join(channelDir, `${articlePrefix}.article.magisterium${EN ? ".en" : ""}.json`))
+        || (EN ? readJson(path.join(channelDir, `${articlePrefix}.article.magisterium.json`)) : null);
+    // Magisterium MCP stiže NAKON 9.8 (zaseban poller, sati kasnije), pa bi knjiga
+    // izgrađena bez njega ostala bez teološke prosudbe zauvijek. Zato postojeća
+    // knjiga nije gotova ako prosudba postoji, a stranice u knjizi nema. Gleda se
+    // SADRŽAJ arhive, ne mtime — mtime laže nakon kopiranja i bulk restorea.
+    const missingMagisterium = !!(oldSize && magisterium && magisterium.overall && !epubHasMagisterium(outPath));
+    if (oldSize && !FORCE && !missingMagisterium) {
         return { status: "skip", reason: "epub već postoji" };
     }
-    if (OLDER_THAN && oldStat && oldStat.mtimeMs >= OLDER_THAN) {
+    if (OLDER_THAN && oldStat && oldStat.mtimeMs >= OLDER_THAN && !missingMagisterium) {
         return { status: "skip", reason: "već regenerirana" };
     }
     // EN izdanje se gradi iz `.article.en.json` (aditivan prijevod: HR i EN polja
@@ -747,8 +764,6 @@ function processEpisode(channel, channelDir, ep, lang = "hr") {
     }
     const summary = readJson(path.join(channelDir, `${base}.wav.canary.summary${EN ? ".en" : ""}.json`))
         || (EN ? readJson(path.join(channelDir, `${base}.wav.canary.summary.json`)) : null);
-    const magisterium = readJson(path.join(channelDir, `${articlePrefix}.article.magisterium${EN ? ".en" : ""}.json`))
-        || (EN ? readJson(path.join(channelDir, `${articlePrefix}.article.magisterium.json`)) : null);
     const info = readJson(path.join(channelDir, `${base}.info.json`));
 
     if (DRY_RUN) {
@@ -813,7 +828,7 @@ function processEpisode(channel, channelDir, ep, lang = "hr") {
         fs.writeFileSync(outPath, result.buffer);
         return {
             status: "ok",
-            reason: `${(result.buffer.length / 1024 / 1024).toFixed(1)} MB · ${result.chapters} poglavlja · ${result.pages} stranica · ${result.imageCount} slika`,
+            reason: `${missingMagisterium ? "dopuna: Magisterium · " : ""}${(result.buffer.length / 1024 / 1024).toFixed(1)} MB ·${result.chapters} poglavlja · ${result.pages} stranica · ${result.imageCount} slika`,
             outPath,
         };
     } finally {

@@ -1824,6 +1824,30 @@ node "$SCRIPT_DIR/generate_webp_screenshots.js" "${SS_WEBP_ARGS[@]}" "${PRIORITY
 }
 fi
 
+# --- KORAK 12.66: nadograđene e-knjige na CDN (uz --with-r2-upload) ---
+# book.epub je immutable u upload_to_r2.js (veliki, write-once). Kad 9.8 nadogradi
+# postojeću knjigu — npr. dopiše Magisterium prosudbu koja je stigla nakon prvog
+# builda — ovaj korak je pošalje: samo knjige VEĆE od objavljene (keys-cache), s
+# purgeom, pa osiromašena knjiga nikad ne pregazi bogatu. Mora ići prije 12.7.
+# Nula LLM poziva. Vidi docs/ebook_epub_pipeline.md §Magisterium stiže kasnije.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+korak "KORAK 12.66: nadograđene e-knjige (book.epub) na CDN"
+EPUB_UP_ARGS=(--changed-only)
+if [ -n "$REPROCESS_VIDEO_ID" ]; then
+    EPUB_UP_ARGS+=(--video-id "$REPROCESS_VIDEO_ID")
+elif [ -n "$MODAL_ONLY_ID" ]; then
+    EPUB_UP_ARGS+=(--video-id "$MODAL_ONLY_ID")
+fi
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    EPUB_UP_ARGS+=("--dry-run")
+fi
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/tools/force_upload_epubs.js" "${EPUB_UP_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri uploadu nadograđenih e-knjiga, nastavljam (idući run ponavlja)..."
+}
+fi
+
 # --- KORAK 12.7: data/{id}/episode.json (uz --with-r2-upload) ---
 # Jedna datoteka po epizodi: izmjereni popis datoteka pod data/{id}/ + inline sadržaj
 # za prvi prikaz (domovina.ai 3 zahtjeva umjesto ~29). MORA biti zadnji upload u data/:

@@ -202,3 +202,30 @@ Navigacija: `nav.xhtml` (EPUB 3) **i** `toc.ncx` (stariji čitači, Kindle konve
 - `docs/2026-09-15-linkovi-kroz-domovina-ai.md` — zašto svi klikabilni linkovi u
   offline artefaktima idu kroz domovina.ai, audit svih artefakata, runbook za
   backfill i brojke izvedenog prolaza (3 331 knjiga, 3 277 na CDN).
+
+## Magisterium stiže kasnije (20.10.2026.)
+
+KORAK 9.8 gradi knjigu u nightlyju ili prioritetnom runu, a Magisterium MCP radi
+**sate kasnije** (zaseban poller, `docs/MAGISTERIUM_MCP_RUN.md`). `generate_ebook.js`
+je dotad preskakao svaku postojeću knjigu, pa je prosudba ulazila samo slučajno:
+302 knjige su je imale jer je katalog 15.09. prisilno regeneriran zbog linkova, a
+41 knjiga ju je imala na disku, ali ne i u knjizi (od toga 13 Thompsonovih pjesama).
+
+Popravak, determinističan i bez mtimea (mtime laže nakon kopiranja i bulk restorea):
+
+1. `generate_ebook.js`: postojeća knjiga NIJE gotova ako postoji
+   `{articlePrefix}.article.magisterium.json` s `.overall`, a u arhivi nema
+   `OEBPS/magisterium.xhtml` (`listZipEntries` u `lib/zip_writer.js` čita samo
+   central directory). Ograda `--allow-shrink` i dalje vrijedi.
+2. `tools/force_upload_epubs.js --changed-only`: šalje samo objavljene knjige
+   VEĆE od veličine u keys-cacheu, s purgeom, i upisuje novu veličinu (idući prolaz
+   je no-op). Nightly KORAK 12.66, prije 12.7. Runbook Magisterium MCP-a zove oba
+   za svoj `$VID`, pa knjiga stigne odmah, ne tek idući nightly.
+
+Backfill 20.10.: 40 knjiga obnovljeno, 28 poslano na CDN (ostalo su `_unlisted`
+duplikati ili neobjavljene). Namjerno NIJE u knjizi:
+- **60** Magisterium prosudbi pripada STARIJEM članku (Gemini), a servira se noviji
+  Opus članak. Prosudba drugog teksta ne smije ući u knjigu.
+- **7** prosudbi su stari format iz ožujka 2026. (bez `.overall`), `domovina_tv`.
+- `6e1MW97dv10`: nova knjiga bi bila 1,2 → 0,3 MB (nedostaju screenshotovi), pa je
+  ograda odbila prepis.

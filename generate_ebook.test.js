@@ -79,3 +79,13 @@ test("extractVideoId uzima ZADNJI _yt_ (naslovi ga znaju sadržavati)", () => {
     assert.equal(extractVideoId("20260101_o_yt_kanalu_i_jos_nesto_yt_AAzm0ftoqsg"), "AAzm0ftoqsg");
     assert.equal(extractVideoId("20260101_obicna_epizoda_yt_rAAplrRelPM"), "rAAplrRelPM");
 });
+
+test("listZipEntries čita imena iz central directoryja (i za deflate zapise)", () => {
+    const { ZipWriter, listZipEntries } = require("./lib/zip_writer");
+    const zip = new ZipWriter();
+    zip.add("mimetype", "application/epub+zip", { store: true });
+    zip.add("OEBPS/magisterium.xhtml", "<html>" + "x".repeat(5000) + "</html>");
+    const buf = zip.toBuffer();
+    assert.deepEqual(listZipEntries(buf), ["mimetype", "OEBPS/magisterium.xhtml"]);
+    assert.equal(listZipEntries(Buffer.from("nije zip arhiva, samo tekst dulji od dvadeset dva bajta")), null);
+});
