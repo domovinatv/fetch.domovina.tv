@@ -112,10 +112,16 @@ učita kao EN overlay kad je jezik engleski. Idempotentno (preskače ako `.en.js
 — za prisilni re-translate obriši stari `.en.json`).
 
 ### 7. Channel index + R2 + verifikacija
+Objava ide **pod dijeljenim pipeline lockom** (`with_pipeline_lock.sh`): prioritetni/noćni
+run u istom trenutku regenerira i uploada isti channel index. Wrapper čeka dok se lock ne
+oslobodi (do 30 min) — pokreni ga u **foregroundu** i pričekaj. Izlaz **75** = lock nije
+dobiven, ništa nije objavljeno → stani i prijavi to kao blocker (HR rezultat ostaje na disku).
 ```bash
-node generate_channel_index.js --channel <channel>
-node upload_to_r2.js --input-dir storage/output --video-id "$VID"   # HR .magisterium.json (+ .en.json SAMO ako je korak 6 pokrenut)
-node upload_to_r2.js --meta-dir storage/meta                         # channel index
+automatic/with_pipeline_lock.sh bash -c "
+  node generate_channel_index.js --channel <channel> &&
+  node upload_to_r2.js --input-dir storage/output --video-id $VID &&  # HR .magisterium.json (+ .en.json SAMO ako je korak 6 pokrenut)
+  node upload_to_r2.js --meta-dir storage/meta                        # channel index
+"
 # GET-verifikacija (NE HEAD — CDN cache-ira 404):
 curl -s -o /dev/null -w "%{http_code} article.magisterium.json\n" "https://cdn.domovina.ai/data/$VID/article.magisterium.json"
 # EN verificiraj SAMO ako je korak 6 pokrenut:

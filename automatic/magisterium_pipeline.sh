@@ -8,9 +8,12 @@
 # Magisterium MCP workflow (docs/MAGISTERIUM_MCP_RUN.md) headless preko Claude Code CLI, pa
 # verificira artefakt na CDN-u. Idempotentno: već obrađeni videi (artefakt 200) → odmah done.
 #
-# Ustupa noćnom bulku / prioritetu preko dijeljenog mutexa (pipeline_lock.sh): ako je
-# run_pipeline već zauzet → preskoči ovaj tick i probaj kasnije (sprječava channel-index/R2 race
-# između Magisterium publisha i nightly/priority publisha nad istim kanalom).
+# Lockovi (2026-10-19): Magisterium ima SVOJ mutex (.magisterium.lock.d) za cijeli tick, pa
+# dva Magisterium runa nikad ne idu istovremeno (MCP chat je sekvencijalan, 15 req/min), a
+# prioritetni single-video runovi ga više ne blokiraju satima. Dijeljeni pipeline lock uzima
+# samo objava (runbook korak 7: channel index + R2) kroz with_pipeline_lock.sh — tamo je bio
+# stvarni race s nightly/priority publishom nad istim kanalom. Noćni bulk drži pipeline lock
+# satima, pa za njegova trajanja tick i dalje preskačemo (objava bi čekala dulje od timeouta).
 # Sve NE-fatalno: bez PIPELINE_QUEUE_INGEST_KEY u .env → poller soft-exit 0.
 
 set -e
@@ -39,13 +42,19 @@ find "$LOG_DIR" -name 'magisterium_*.log' -type f -mtime +14 -delete 2>/dev/null
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
 
 BRIDGE="${PIPELINE_QUEUE_BRIDGE_DIR:-$REPO_DIR/../pipeline.domovina.ai/bridge}"
-PIPELINE_LOCK="$LOG_DIR/.pipeline.lock.d"
+# Noćni bulk drži dijeljeni pipeline lock → preskoči tick (prioritetni run NE blokira).
+SHARED_LOCK_PID="$(cat "$LOG_DIR/.pipeline.lock.d/pid" 2>/dev/null || true)"
+if [ -n "$SHARED_LOCK_PID" ] && ps -o command= -p "$SHARED_LOCK_PID" 2>/dev/null | grep -q nightly_pipeline; then
+    echo "$(date '+%F %T') ⏭️  noćni bulk drži pipeline lock — preskačem Magisterium tick."
+    exit 0
+fi
+
+# Vlastiti mutex: jedan Magisterium run u isto vrijeme (run ~14 min > tick 10 min).
+PIPELINE_LOCK="$LOG_DIR/.magisterium.lock.d"
 # shellcheck source=/dev/null
 . "$SCRIPT_DIR/pipeline_lock.sh"
-
-# Ustupi run_pipeline procesima (nightly/priority): zauzet lock → preskoči tick.
 if ! acquire_pipeline_lock nowait; then
-    echo "$(date '+%F %T') ⏭️  pipeline lock zauzet (nightly/priorno) — preskačem Magisterium tick."
+    echo "$(date '+%F %T') ⏭️  prethodni Magisterium run još traje — preskačem tick."
     exit 0
 fi
 trap 'release_pipeline_lock' EXIT INT TERM
