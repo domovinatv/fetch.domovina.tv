@@ -70,6 +70,12 @@ node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" \
 > datoteke (podatkovni ugovor). `--out-full` postoji samo za HR-only ad-hoc preglede.
 
 ### 6. Engleski overlay (dvojezičnost) — ⚠️ OPCIONALNO, samo na eksplicitni zahtjev
+> **Od 21.10.2026. poller (`pipeline.domovina.ai/bridge/magisterium_poller.js`) EN zahtjeve NE
+> šalje kroz ovaj runbook** — sam pokreće `translate_to_english.js --channel …` + korak 7, s rokom po
+> broju sekcija (u `claude -p` EN nikad nije stao u limit: Bash alat ga nakon 10 min prebaci u
+> pozadinu). Ovaj korak vrijedi za ručni/interaktivni run. Vidi
+> `pipeline.domovina.ai/docs/2026-10-21-inventar-epizoda.md`.
+
 > **PRESKOČI OVAJ KORAK po defaultu.** Pokreni ga **samo** ako je korisnik izričito tražio
 > engleski (npr. `+EN`, "i engleski", "bilingual"). Inače idi ravno na korak 7 i uploadaj
 > isključivo HR `article.magisterium.json`.
