@@ -87,6 +87,9 @@ if (!VERTEX_PROJECT) {
 const MAX_RETRIES = parseInt(process.env.TRANSLATE_MAX_RETRIES || "8", 10);
 const RETRY_BASE_DELAY_MS = 3000;
 const RETRY_MAX_DELAY_MS = parseInt(process.env.TRANSLATE_RETRY_MAX_MS || "60000", 10);
+// Jedan Vertex poziv bez roka zna visjeti beskonačno i držati cijelu epizodu (21.10.2026.:
+// A-oDNz3nvdQ sažetak 15 min umjesto ~3, run ubijen na 60 min). Abort ulazi u postojeći retry.
+const REQ_TIMEOUT_MS = parseInt(process.env.TRANSLATE_REQ_TIMEOUT_MS || "180000", 10);
 
 /** 3s → 6 → 12 → 24 → 48 → 60 … uz jitter, da paralelni pozivi ne udare u isti trenutak. */
 function backoff429(attempt) {
@@ -231,7 +234,8 @@ async function translateOne(croatianText, dryRun) {
             const response = await fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-                body: JSON.stringify(buildPayload(bypass))
+                body: JSON.stringify(buildPayload(bypass)),
+                signal: AbortSignal.timeout(REQ_TIMEOUT_MS)
             });
 
             if (!response.ok) {
@@ -274,6 +278,7 @@ async function translateOne(croatianText, dryRun) {
             return parsed.en;
         } catch (err) {
             if (attempt === MAX_RETRIES) throw err;
+            if (err.name === "TimeoutError") process.stderr.write(`\n      ⏱ ${region} bez odgovora ${REQ_TIMEOUT_MS / 1000}s — ponovni pokušaj (${attempt}/${MAX_RETRIES})`);
             await sleep(RETRY_BASE_DELAY_MS * attempt);
         }
     }
