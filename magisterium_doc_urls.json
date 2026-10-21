@@ -2,6 +2,282 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "The Interpretation of Dogma",
+      "uuid": "aa8fad13-1a4b-4e89-a134-85ddb9e58d83"
+    },
+    {
+      "match": "Message to the participants in the National Meeting of the Catholic Youth of Croatia (June 2, 1996)",
+      "uuid": "da73c0d2-ea23-4126-a9a6-8c6b26e76c43"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2022",
+      "uuid": "b9f798d1-2e14-4b4b-971b-6e0915629d8e"
+    },
+    {
+      "match": "Apostolic Journey to Bulgaria: Holy Mass in Knyaz Alexandar I Square (Sofia, 5 May 2019)",
+      "uuid": "6e7bf457-0e41-4a6a-aa57-112e155c117c"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, 2018",
+      "uuid": "3d0cee12-17c9-4f51-824e-03d086a06adc"
+    },
+    {
+      "match": "Apostolic Voyage in Azerbaijan and Bulgaria: Meeting with Youth, Cathedral of Plovdiv (May 26, 2002) - Speech",
+      "uuid": "1906c71c-c9d9-4482-ad95-3c29bc654700"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, 2018",
+      "uuid": "0d34836c-005a-4769-b4b9-4fb35953515a"
+    },
+    {
+      "match": "15 July 1979: Mass for a group of the Communion and Liberation Movement - Homily",
+      "uuid": "2fbebc6b-755a-4f2f-974f-032bbb932a17"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1995",
+      "uuid": "7c6e6928-0932-43ff-b0a1-c2965a1ae935"
+    },
+    {
+      "match": "Tertio Millennio Adveniente",
+      "uuid": "7dae43e3-4c1e-4a35-ac55-8f202f029f32"
+    },
+    {
+      "match": "To participants in the fourth Plenary Assembly of the Pontifical Council for the Family (October 10, 1986) - Speech",
+      "uuid": "260d65fb-c96a-4d48-91bb-1d9d5574c695"
+    },
+    {
+      "match": "General Audience of 3 December 1969",
+      "uuid": "6abac569-10fa-4349-8b7b-3f9290a05724"
+    },
+    {
+      "match": "19 March 1987: Eucharistic concelebration in Civitavecchia (Italy) - Homily",
+      "uuid": "0464b339-ec54-40a5-b456-5b33eaa73997"
+    },
+    {
+      "match": "General Audience of 25 March 1942",
+      "uuid": "68641ecb-ff97-44f4-91c2-a8051357b037"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 1989",
+      "uuid": "effec767-4ee9-4e0b-bc8d-c386a0dee145"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 2012",
+      "uuid": "a090b764-f022-4e6f-b9e4-2bc718bb053d"
+    },
+    {
+      "match": "17 November 1980: Apostolic journey to West Germany, Mass in Fulda - Homily",
+      "uuid": "c137a34a-10de-4e9c-a213-5ed25d16390d"
+    },
+    {
+      "match": "8 April 1987: Holy Mass for families in Córdoba, Argentina - Homily",
+      "uuid": "195338a9-2a19-4245-bc1c-160e152e312c"
+    },
+    {
+      "match": "Instructions for Religious",
+      "uuid": "0e54d26b-943f-408d-b461-c51b5980a91a"
+    },
+    {
+      "match": "To the Bishops of the Croatian Episcopal Conference on their ad limina visit (November 9, 1992) - Speech",
+      "uuid": "e1617582-5926-4ccb-a0ae-a78330d944f8"
+    },
+    {
+      "match": "To the Italian Bishops of the region Emilia Romagna on their ad Limina visit (March 1, 1991) - Speech",
+      "uuid": "bf0276d2-47c6-48ff-91c6-6aabc7982fb7"
+    },
+    {
+      "match": "In Danielem",
+      "uuid": "4de29566-bc59-4429-9446-d53d3a616ca6"
+    },
+    {
+      "match": "General Audience of 30 November 2022 - Catechesis on Discernment. 10. The true consolation",
+      "uuid": "6ec01c3e-a3d1-4c56-b78b-ab7a29315d07"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 1983",
+      "uuid": "9351cef7-bd27-481d-9b27-57c3f748d235"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 1991",
+      "uuid": "23332f9c-ca25-4df5-bf0c-e4df4c2ae490"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, 2017",
+      "uuid": "c6366273-6037-478f-a0b9-03f80ec74d13"
+    },
+    {
+      "match": "13 May 1991: Eucharistic Celebration at the Marian Shrine of Fatima - Homily",
+      "uuid": "d2e0f166-ebae-473b-a2e2-aa5b192b7f4f"
+    },
+    {
+      "match": "Luigi Beltrame Quattrocchi e Maria Corsini: Omelia di beatificazione (21 ottobre 2001)",
+      "uuid": "9937c441-9d3a-4675-b64f-d39d5f2a8617"
+    },
+    {
+      "match": "To Presidents of the Episcopal Commissions for the Family and Life of Europe (June 13, 2003) - Speech",
+      "uuid": "ae73c843-ea72-44a0-9e48-807d14539169"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issues 17-18, December, 1951",
+      "uuid": "3ceb1bad-b602-4050-8f4b-856b8d319075"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2019",
+      "uuid": "88b17fd6-4580-4c12-aac4-34dc45b965fd"
+    },
+    {
+      "match": "Abnegation as Key to Providence: Six Spiritual Theologians on Providence",
+      "uuid": "4b9d057f-718d-48ed-8656-b15b33f97293"
+    },
+    {
+      "match": "General Audience of 11 June 1986",
+      "uuid": "6196a8cb-722e-4b49-bc8e-09e3b13ae8cf"
+    },
+    {
+      "match": "Recent Proposals for the Pastoral Care of the Divorced and Remarried: A Theological Assessment",
+      "uuid": "f68ce615-1ea0-4f16-bd22-c77ac6bb5baf"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 2021",
+      "uuid": "f7f122b4-6b5a-4df6-9b6e-fa4986c4218e"
+    },
+    {
+      "match": "Love That Waits for You",
+      "uuid": "9504ae19-f46b-404e-a98c-e7183ca278bf"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 6, June, 2012",
+      "uuid": "87a718f1-b8b2-49f7-9bc8-838c8dd946ec"
+    },
+    {
+      "match": "Theological Perspectives on Marriage",
+      "uuid": "eecf5533-460d-45c8-9bc9-9a3a07ded1b8"
+    },
+    {
+      "match": "General Audience of 21 November 1984",
+      "uuid": "568b133d-a541-4b1c-b323-c1dc2d0f93e4"
+    },
+    {
+      "match": "19 March 2009: Eucharistic Celebration on the occasion of the publication of the Instrumentum Laboris at Amadou Ahidjo Stadium (Yaoundé)",
+      "uuid": "c37f09d6-bd4e-4cf2-9099-e8d77e1cb194"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1982",
+      "uuid": "b65fd566-f3eb-4794-9959-24c81749a5a8"
+    },
+    {
+      "match": "10 May 1990: Liturgy of the Word in Chihuahua (Mexico) - Homily",
+      "uuid": "4c0d214b-8429-40c6-a177-a9ba5961412f"
+    },
+    {
+      "match": "General Audience of 8 April 1942",
+      "uuid": "032e9193-5f4e-4d0d-98f2-685ac66167bb"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 2009",
+      "uuid": "e866edc3-d423-4e08-ac7d-da20d6c59849"
+    },
+    {
+      "match": "Message to participants in the 12th Plenary Assembly of the Pontifical Council for the Family (September 29, 1995)",
+      "uuid": "534c14e5-b708-4418-be36-2be1e5412f4f"
+    },
+    {
+      "match": "Apostolic Journey to the United States of America: Holy Mass for youth at Central Park in New York (7 October 1995)",
+      "uuid": "ffe24e64-9b0e-47d1-89dc-468c0fd9498d"
+    },
+    {
+      "match": "Message to the 12th Plenary Assembly of the Pontifical Council for the Family (September 29, 1995) - Speech",
+      "uuid": "c4f89f51-942a-4511-9890-ef0f993620b6"
+    },
+    {
+      "match": "Conversations with Saint Josemaría Escrivá",
+      "uuid": "b5d35dec-b164-4316-9748-a2bad97b4c00"
+    },
+    {
+      "match": "1 October 1979: Visit to Limerick",
+      "uuid": "12be63f1-28e3-4cd8-94c6-41fa8226405b"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, 2015",
+      "uuid": "8d8c90f6-eb2d-4c5a-89aa-3b5328ac28cb"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 7, July, 2004",
+      "uuid": "ac5bae39-ab50-4514-841a-cfbf43252b77"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 2002",
+      "uuid": "b7a4b5af-394a-4c30-807e-dadffb40514e"
+    },
+    {
+      "match": "Apostolic Journey to Equatorial Guinea: Meeting with Young People and Families (Bata Stadium, 22 April 2026)",
+      "uuid": "ad43a64f-2ba9-4e04-9446-4a609e94a525"
+    },
+    {
+      "match": "9 October 1989: Holy Mass in the Stadium of \"Istora Senayan\" in Jakarta, Indonesia - Homily",
+      "uuid": "b16e289d-0e39-45cd-9d60-d55051dd3e42"
+    },
+    {
+      "match": "21 October 1990: Pastoral visit to the Parish of Saint Mary of the Trust in Rome - Homily",
+      "uuid": "841784b9-6bd6-4d12-940d-1cf41b9d96ae"
+    },
+    {
+      "match": "16 October 2011: Holy Mass for the New Evangelization",
+      "uuid": "7c45f70f-2418-4c7c-abec-dc1b91de6166"
+    },
+    {
+      "match": "To Caesar and to God",
+      "uuid": "a7de9093-1932-43ad-9c72-14a46128e9b6"
+    },
+    {
+      "match": "\"Way of the Cross\" from the Palatine to the Colosseum (April 20, 1973)",
+      "uuid": "ab250de2-2904-4f27-a81d-5513bd48fb16"
+    },
+    {
+      "match": "Apostolic Journey to Croatia: Beatification of the Servant of God Alojzije Stepinac",
+      "uuid": "c2959c0d-d7fe-4c8c-9789-751f1d20e538"
+    },
+    {
+      "match": "Alojzije Stepinac: Omelia di beatificazione (3 ottobre 1998)",
+      "uuid": "20dd8cf1-6337-4d9f-95fe-2ce1e729f0d1"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1960",
+      "uuid": "a8e8a22d-d93f-4cf5-9c09-fd447bc6cca7"
+    },
+    {
+      "match": "17 February 1960, Funeral Mass for Cardinal Alojzije Viktor Stepinac",
+      "uuid": "ae6bc0a0-75b7-4b42-b87c-e0638cc093d9"
+    },
+    {
+      "match": "Radio message Con inmenso gozo to the Spanish faithful",
+      "uuid": "c7c7dc12-5c0f-4d54-9e63-27c505ee18b6"
+    },
+    {
+      "match": "Martiri del Vietnam (1745-1862)",
+      "uuid": "5a333f62-b20b-4a79-83c4-d873ece1c3cd"
+    },
+    {
+      "match": "7 April 2008: Liturgy of the Word on the occasion of the memory of the witnesses to the faith",
+      "uuid": "fc607362-bc50-44d8-a2da-071fdaa41a9c"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 1980",
+      "uuid": "2a544b2e-c0d6-406b-b1c6-ed9646b8a9c0"
+    },
+    {
+      "match": "Incarnationis mysterium",
+      "uuid": "27ed211f-843a-4a18-a577-5bbdaa601b54"
+    },
+    {
+      "match": "Nicola Tavelić, Stefano da Cuneo, Deodato da Ruticinio",
+      "uuid": "6e16c327-fbb1-410b-982b-84fc79efae7d"
+    },
+    {
+      "match": "21 June 1970: Canonization of four Martyrs",
+      "uuid": "05ec5035-47d0-4073-bb86-e4dfccd6fda2"
+    },
+    {
       "match": "Forming Consciences for Faithful Citizenship: A Call to Political Responsibility",
       "uuid": "e0c2bab8-b9f7-45f5-9fa2-bfc599ab612b"
     },
@@ -6008,6 +6284,330 @@
     {
       "match": "Farewell Ceremony at the International Airport of Zagreb (September 11, 1994)",
       "uuid": "846239e8-65b4-4e52-91b6-294b5d2a0728"
+    },
+    {
+      "match": "General Audience of 2 April 2003",
+      "uuid": "901f2592-c743-47f2-9feb-e2ca594a6010"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 1960",
+      "uuid": "de10bb1c-373e-437c-b49d-906871fb9a90"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1998",
+      "uuid": "700b798c-ae12-4197-8969-ee3cce99b2f2"
+    },
+    {
+      "match": "To the Sacred College (December 22, 1972)",
+      "uuid": "c68b30de-e623-41df-8620-a3d0572438bd"
+    },
+    {
+      "match": "General Audience of 23 June 2004",
+      "uuid": "b8510aaa-3ef4-445f-83e0-cae32c599ceb"
+    },
+    {
+      "match": "General Audience of 10 November 2004",
+      "uuid": "e34cd58e-20db-4671-b0dd-bd9e3797f0fa"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, July, 1979",
+      "uuid": "b57eb2be-d2b3-4706-83d1-e181036cfbe1"
+    },
+    {
+      "match": "To participants in the National Convention of the Catholic Action Youth (December 7, 1987)",
+      "uuid": "3eecd4d2-16cc-4d99-9d0a-5292a358e93e"
+    },
+    {
+      "match": "The Church's Anti-Death Penalty Position",
+      "uuid": "ef1c86ad-67c0-4981-bf8b-88818df20b3d"
+    },
+    {
+      "match": "Catholic Campaign to End the Use of the Death Penalty Info Sheet",
+      "uuid": "1b41ceb5-9c99-4dd3-aa46-cf978c90e5a4"
+    },
+    {
+      "match": "General Audience of 2 June 1999",
+      "uuid": "010dfba2-09ce-4985-8617-0775bac98519"
+    },
+    {
+      "match": "Marian Apparitions as a Locus Theologicus?",
+      "uuid": "d83334c1-4b2e-4f60-96a8-10841595af11"
+    },
+    {
+      "match": "General Audience of 22 October 1997",
+      "uuid": "836edd7b-74f4-4e09-89b7-e8a86cb4deab"
+    },
+    {
+      "match": "7 November 1982: Liturgy of the Word at the Shrine of Montserrat",
+      "uuid": "d5a46d1f-a07a-4ee4-81c9-b5fb738e8da4"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 16, December, 1964",
+      "uuid": "1dab7675-fbc4-4fc1-bc1a-e8c43c1bee02"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, 2017",
+      "uuid": "f4a02cc4-916d-4348-852e-637cc93d4bf4"
+    },
+    {
+      "match": "General Audience of 2 November 1994",
+      "uuid": "352d0053-34a0-45f8-b3bf-5b6a7ab3cd3c"
+    },
+    {
+      "match": "Dum maerenti animo",
+      "uuid": "deced23f-4033-4b6e-b448-bfe1576a3deb"
+    },
+    {
+      "match": "Funeral Oration on Meletius",
+      "uuid": "eddb2622-9729-4bf5-ac59-6b42ab2c0d0e"
+    },
+    {
+      "match": "Homily 6 on First Thessalonians",
+      "uuid": "bb089037-d092-45cf-8b35-1c0e6ee599fe"
+    },
+    {
+      "match": "University of Riga (September 9, 1993)",
+      "uuid": "7d63e589-82e9-48f7-953b-e5afaa230f24"
+    },
+    {
+      "match": "Oration and Panegyric Addressed to Origen",
+      "uuid": "71ca8d1b-08ab-4374-809a-c9800abb24a9"
+    },
+    {
+      "match": "Homily on First Corinthians",
+      "uuid": "32c1b4c0-5228-4199-876a-78f9574b870d"
+    },
+    {
+      "match": "Holy Mass for the Commemoration of all the Faithful Departed (Prima Porta Cemetery, 2 November 2016)",
+      "uuid": "75560ece-ccc7-4818-b6ed-df9906c50040"
+    },
+    {
+      "match": "National Day of Croatian Catholic Families in the Zagreb Hippodrome",
+      "uuid": "0ec75f24-690b-486b-a659-23d4d1afe847"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, 2016",
+      "uuid": "154e2db2-6516-4b3f-8a38-392f70d8f997"
+    },
+    {
+      "match": "Mass for families near the airport of",
+      "uuid": "af1dc831-500a-43db-b20a-fc5a5195f677"
+    },
+    {
+      "match": "Meeting with the people of Zagreb (October 2, 1998)",
+      "uuid": "d960bdc8-2cff-4c8e-9527-01c384b95723"
+    },
+    {
+      "match": "Sportive Airport of Osijek",
+      "uuid": "272ed813-5a01-480b-8305-d3c61a1da9c7"
+    },
+    {
+      "match": "Message to those taking part in the recitation of the Rosary (February 6, 1999)",
+      "uuid": "88eecc8e-e761-4b66-98cb-f4c471a60a97"
+    },
+    {
+      "match": "Argentinean Bishops of the Metropolitan Curia of Buenos Aires (June 12, 1982)",
+      "uuid": "61846ba9-097d-4bd9-a456-fdb7504e73b8"
+    },
+    {
+      "match": "27 June 1988: Holy Mass for the faithful of the Diocese of Innsbruck",
+      "uuid": "38a83d64-1143-44af-8ca5-d4566c468c8f"
+    },
+    {
+      "match": "8 April 1987: Liturgy of the Word in Tucumán",
+      "uuid": "2d6dd580-1610-40dd-9b54-4489bd31c5a1"
+    },
+    {
+      "match": "To the Italian Medical Biological Union \"San Luca\"",
+      "uuid": "cff4feb8-4c41-4909-a701-3cd82108cd50"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 1956",
+      "uuid": "9a87ab08-ca0e-4eba-8f00-717f0fab499e"
+    },
+    {
+      "match": "Looking Death Straight in the Eye",
+      "uuid": "8015ec57-a7c1-4978-89d9-15c76d492d02"
+    },
+    {
+      "match": "Anglican Difficulties",
+      "uuid": "3d98d692-742a-4c3a-a427-a1bba6612cdf"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 16, November, 1952",
+      "uuid": "3b65c7ac-8a87-4bd3-8da2-ad35f7c869a6"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 2010",
+      "uuid": "ebcd4406-eee6-47da-a1c3-fff5f53e116c"
+    },
+    {
+      "match": "Militarism and Pacifism",
+      "uuid": "995d7f25-0074-4df6-b626-8757a4325cad"
+    },
+    {
+      "match": "17 June 1983: Concelebration in honour of Our Lady of Grace in the Stadium of Warsaw",
+      "uuid": "20c1d74d-f728-4dcf-aadd-cef000a766fc"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1999",
+      "uuid": "efae3421-9626-4bff-aa52-ae09b3277eed"
+    },
+    {
+      "match": "ninth centenary of the diocese of Zagreb",
+      "uuid": "cffeee3c-b525-42fc-a8b5-3c8127868713"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 8, 2016",
+      "uuid": "de7530b1-d5ca-4ffc-ae77-ef685f788912"
+    },
+    {
+      "match": "To the new Ambassadors accredited to the Holy See (March 25, 1995)",
+      "uuid": "0df8e087-65c2-45f1-bab8-8ab9ab78663f"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, November, 1983",
+      "uuid": "52c6ae8b-c5d6-4f70-b9d9-a9a6f8111d85"
+    },
+    {
+      "match": "Anni Sacri",
+      "uuid": "de9b5672-9c5d-431e-a8b8-7167bf9c637b"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 17, December, 1956",
+      "uuid": "295ebad1-1cf6-48d6-a008-1b1753653041"
+    },
+    {
+      "match": "31 May 1980: Pastoral visit to Paris and Lisieux",
+      "uuid": "886f578d-91d5-41a2-99ae-e5bf086ec726"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 13, December, 1990",
+      "uuid": "cc7b398f-20a4-4b9e-8aa4-84ff48573860"
+    },
+    {
+      "match": "Totum Amoris Est",
+      "uuid": "a3a8e22d-c978-4066-809c-ac012c2b1413"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2022",
+      "uuid": "d3468477-4729-4a28-a2c6-fd367458d04b"
+    },
+    {
+      "match": "To workers of Central America (San Pedro Sula in Honduras, March 8, 1983)",
+      "uuid": "1dad12a6-6692-42c2-ba43-8eb3dd01c645"
+    },
+    {
+      "match": "General Audience of 30 April 1986",
+      "uuid": "e1271b7d-0542-4190-8285-c5b8aa08eb43"
+    },
+    {
+      "match": "18 September 1988: Liturgy of the Word with the youth in the Cathedral of Maputo (Mozambique)",
+      "uuid": "410bfa83-ce31-4255-aa56-a5c665f33f50"
+    },
+    {
+      "match": "26 June 1988: Holy Mass for the faithful of the Archdiocese of Salzburg",
+      "uuid": "c5bd0fe5-0382-4d45-9d43-42615ea52094"
+    },
+    {
+      "match": "To youth (May 6, 1984)",
+      "uuid": "56ba7253-5d34-4f62-b601-6dae4bac1036"
+    },
+    {
+      "match": "13 May 2010: Apostolic Journey to Portugal on the occasion of the 10th Anniversary of the Beatification of Jacinta and Francisco",
+      "uuid": "f612a81e-a2ff-4306-92e4-f33d68c14761"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 2010",
+      "uuid": "edcc71c2-ec15-4bdb-9315-671b585fd812"
+    },
+    {
+      "match": "General Audience of 7 June 2000",
+      "uuid": "6def33fa-9e83-493c-a37e-50a7a7a8e963"
+    },
+    {
+      "match": "Ad Caeli Reginam",
+      "uuid": "765e7954-60fc-4aae-a465-62dc2613d477"
+    },
+    {
+      "match": "Women at the service of the Gospel",
+      "uuid": "f985e786-d6ba-4a5a-a61d-0864f4d91ade"
+    },
+    {
+      "match": "Cum Multa",
+      "uuid": "b075270d-4602-43c2-8e03-bfb12e37354e"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 12, December, 2009",
+      "uuid": "2ba75ef4-d353-4d10-b918-d4e991b80e20"
+    },
+    {
+      "match": "Homily 1 Hebrews 1:1-4",
+      "uuid": "1c11b6b0-8c7d-4734-9997-17583f6938d8"
+    },
+    {
+      "match": "Acta Sanctorum: November, Tomus I",
+      "uuid": "acae8ccd-f766-47d6-9e50-5ec02b8fcddd"
+    },
+    {
+      "match": "Acta Sanctorum: Aprilis, Tomus I",
+      "uuid": "5267304b-81d8-4e58-9956-1f1cfd966997"
+    },
+    {
+      "match": "Acta Sanctorum: Augustus, Tomus V",
+      "uuid": "50c13a20-42f9-4b77-9462-8387705629ca"
+    },
+    {
+      "match": "Acta Sanctorum: Maius, Tomus VI",
+      "uuid": "c14151d5-5402-4f20-be9e-a35398582661"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 4, April, 2019",
+      "uuid": "8aab1e61-55f3-4113-be66-ee844e9d3773"
+    },
+    {
+      "match": "21 July 1987: Mass for the young people from the Netherlands - Homily",
+      "uuid": "ec2a7326-62ff-4a04-ae5f-6cd2a94a6964"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 10, October, 2013",
+      "uuid": "be646a79-e848-451e-b7aa-21d316d7f0e3"
+    },
+    {
+      "match": "General Audience of 27 May 2015: The family - 16. Engagement",
+      "uuid": "9d636191-d241-46f7-a6b7-447f1bb0e45a"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 2013",
+      "uuid": "e4af7d91-2138-4687-a1b2-aae9f58ee90a"
+    },
+    {
+      "match": "31 January 1990: Holy Mass in Sarh (Chad) - Homily",
+      "uuid": "8b856de1-199c-4558-8ef4-8d8086680fe9"
+    },
+    {
+      "match": "Pastoral care of divorced and remarried (January, 1997) - Speech",
+      "uuid": "6943a62f-308a-45c5-bfa1-6b80edd23fe8"
+    },
+    {
+      "match": "Canonical Aspects of Instruction In continuity of November 4, 2005, 2006, Issue 3, pp. 391–448",
+      "uuid": "acca9c31-3f16-4642-b9ec-deb675cbba3d"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 2019",
+      "uuid": "db07684d-1634-4f08-9c18-9bab10494398"
+    },
+    {
+      "match": "Apostolic Journet to Uganda: Eucharistic Celebration in the square in front of the Bishopric of Kasese in Uganda (8 February 1993)",
+      "uuid": "d7279a4b-fe92-41f1-81ff-04b24dfa6039"
+    },
+    {
+      "match": "Santa Messa per gli Sposi nella Basilica di San Pietro (9 ottobre 1983)",
+      "uuid": "10133c4c-aebb-4d39-b25b-d00a2671c153"
+    },
+    {
+      "match": "Joint Letter on Artificial Intelligence Principles and Priorities",
+      "uuid": "c290a864-8266-4070-a8b9-51362011a758"
     }
   ]
 }
