@@ -64,8 +64,8 @@ tiče se Studija), 27/27 WCAG AA kontrast.
   bude na x 540. Na rezu kamere treba `tl.set("#video-wrap", {left, transformOrigin})`
   — ovdje 59.0 s prelazi na široki kadar (lice s 64.5 % na 69 % širine). Rez se nađe s
   `ffmpeg -vf "select='gt(scene,0.2)',showinfo"`.
-- **Pojas kartica y 770–1100**, titl od y 1150. Na y 690 kartice su prekrivale bradu
-  (lice u ovom kadru je na y ≈ 430–640).
+- ~~Pojas kartica y 770–1100~~ — **krivo izmjereno**: YuNet kaže da je lice u ovom kadru
+  y 387–879 (krupni plan), pa su kartice prekrivale bradu. Riješeno rasporedom ispod (v2).
 - **Početak raspona** se lijepi na cue koji može početi ostatkom prethodne rečenice
   („…svoj grob."). Ovdje je odrezano 2.9 s (`OFF`). `render_reel.py` ima istu manu.
 - **Slojevi u vremenu, ne u prostoru** (povratna informacija na v4): kartice se
@@ -78,3 +78,33 @@ tiče se Studija), 27/27 WCAG AA kontrast.
   (tip, vrijeme, tekst, broj), a generator piše HTML — umjesto ručnog predloška.
 - Praćenje lica u HyperFrames: izvesti putanju iz YuNeta (render_reel.py) kao keyframeove
   za `#video-wrap`.
+
+## v2 (22.10.2026.): raspored koji ne piše preko lica
+
+Povratna informacija na v1: potpis „Napravljeno s domovina.ai“ je stajao preko glave;
+HyperFrames se svidio, ali raspored mora sam paziti da (1) ništa ne ide preko lica i
+(2) sav tekst ostane izvan kontrola TikToka/Reelsa/Shortsa/Facebooka.
+
+- **Potpis** je trajno dolje desno, malen (22 px). Namjerno je IZVAN sigurne zone: neka
+  ga UI mreže smije prekriti, ali ostaje upečen u video.
+- `face_track.py` → `faces.json`: YuNet na 5 fps, rezovi kamere, kadriranje po snimci
+  (medijan lica, skok samo na rezu). Za 62 s videa treba ~3 s.
+- `reel_layout.js` radi raspored u pregledniku, unutar `document.fonts.ready` i PRIJE
+  tweenova kartica. Kartica je `.slot` (njime upravlja raspored); animacije ciljaju
+  unutarnje elemente. Prioriteti:
+  1. lice + kosa/brada (YuNet okvir proširen gore 30 %, dolje 14 %, bočno 16 %) je zabranjeno za tekst,
+  2. sav tekst je u x 120–888, y 288–1248,
+  3. kartica ne stane → `#cam` se glatko pomakne gore (tjeme ostaje u kadru),
+  4. ni to ne stane → `#cam` se odzumira do 0.78; rub prekrije zamućena kopija kadra (`#bg-blur`),
+  5. tek onda se kartica smanji; ispod 0.72 piše upozorenje u `window.__reelLayout`.
+  Titl stoji na stalnoj liniji na dnu sigurne zone i seli se samo kad bi dirnuo lice ili karticu.
+  Zoom kamere iz predloška (`camera:` callback) ulazi u izračun veličine lica.
+- `build_composition.py ... --debug` iscrta sigurnu zonu, zabranjenu zonu lica i izvještaj
+  rasporeda u sam kadar → `npx hyperframes snapshot --at ... --describe false` je QA.
+- Rezultat na srećki: svih 7 kartica pune veličine. Kamera se pomakne −35 do −157 px, a
+  srećka/dobitak/jednadžba se i odzumiraju (0.86–0.93). Render 49.9 s.
+- Punch-in na dobitku je maknut: povećano lice ne ostavlja mjesta brojaču.
+- Zamka: `snapshot` po defaultu zove Gemini vision ako je `GEMINI_API_KEY` postavljen —
+  uvijek `--describe false`.
+- Mana: dok je kamera odzumirana, na dnu se vidi zamućena traka (~150 px). Ta traka pada u
+  donju zonu UI-ja mreža.

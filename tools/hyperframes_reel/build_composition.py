@@ -1,12 +1,18 @@
 """Gradi HyperFrames kompoziciju (9:16): titl-klipovi riječ po riječ iz transcript.json + predložak s karticama.
 
-    python3 build_composition.py <workdir> [OFF] [DUR] [template.html]
-"""
-import json, re, sys, html
+    python3 build_composition.py <workdir> [OFF] [DUR] [template.html] [--debug]
 
-W = sys.argv[1]
-OFF = float(sys.argv[2]) if len(sys.argv) > 2 else 2.9   # odrezano s početka segmenta (ostatak prethodnog cue-a)
-DUR = float(sys.argv[3]) if len(sys.argv) > 3 else 61.92
+Uz <workdir>/faces.json (face_track.py nad public/input-video.mp4) — raspored kartica i
+titla radi reel_layout.js u pregledniku (kopira se u public/). --debug iscrta sigurnu
+zonu i zabranjenu zonu lica, za `npx hyperframes snapshot --at`.
+"""
+import json, os, re, shutil, sys, html
+
+DEBUG = "--debug" in sys.argv
+argv = [a for a in sys.argv if a != "--debug"]
+W = argv[1]
+OFF = float(argv[2]) if len(argv) > 2 else 2.9   # odrezano s početka segmenta (ostatak prethodnog cue-a)
+DUR = float(argv[3]) if len(argv) > 3 else 61.92
 FPS = 25
 d = json.load(open(f"{W}/transcript.json"))
 words = [dict(w, start=w["start"] - OFF, end=w["end"] - OFF) for w in d["words"] if w["start"] >= OFF - 0.05]
@@ -34,7 +40,10 @@ for i, c in enumerate(chunks):
         if j:  # prethodna riječ se vraća u bijelo
             cap_js.append(f'tl.set("#w{i}_{j-1}",{{color:"#fff"}},{q(max(s, x["start"]))});')
 
-tpl = open(sys.argv[4] if len(sys.argv) > 4 else f"{W}/template.html").read()
-out = tpl.replace("{{CAPTIONS}}", "\n".join(cap_html)).replace("{{CAPTION_JS}}", "\n".join(cap_js)).replace("{{DUR}}", str(DUR))
+tpl = open(argv[4] if len(argv) > 4 else f"{W}/template.html").read()
+faces = open(f"{W}/faces.json").read()
+out = (tpl.replace("{{CAPTIONS}}", "\n".join(cap_html)).replace("{{CAPTION_JS}}", "\n".join(cap_js))
+       .replace("{{DUR}}", str(DUR)).replace("{{FACES}}", faces).replace("{{DEBUG}}", "true" if DEBUG else "false"))
+shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "reel_layout.js"), f"{W}/public/reel_layout.js")
 open(f"{W}/public/index.html", "w").write(out)
 print(len(words), "riječi,", len(chunks), "komada titla")
