@@ -108,3 +108,17 @@ HyperFrames se svidio, ali raspored mora sam paziti da (1) ništa ne ide preko l
   uvijek `--describe false`.
 - Mana: dok je kamera odzumirana, na dnu se vidi zamućena traka (~150 px). Ta traka pada u
   donju zonu UI-ja mreža.
+
+## v3 (22.10.2026.): branding kanala
+
+`build_composition.py ... --brand muzevni_budite` čita `data/branding/<ime>/brand.json`
+(lokalno, gitignored) i prepiše CSS varijable predloška: `--paper` = pozadina kanala,
+`--edge` = zlatni rub, `--wine` / `--gold` = primarna boja / boja aktivne riječi,
+`--f-head` / `--f-body` / `--f-cap` = fontovi kanala. Logo kanala stoji na prvoj i zadnjoj kartici.
+Fontovi i logo se kopiraju u `public/brand/`. Bez `--brand` izgled ostaje kao u v2.
+
+- Predmeti unutar kartica (srećka) imaju **fiksne** boje: zlatni naslov na krem kuponu je
+  bio nečitljiv kad je pratio boju kanala.
+- Muževni budite brand je izveden s portala (muzevnibudite.com), NE iz `projekt-41`:
+  to je zaseban znak programa (cijan, štit).
+- Libre Baskerville je širi od Montserrata, ali raspored je i dalje dao sve kartice pune veličine.
