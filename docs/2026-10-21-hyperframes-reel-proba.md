@@ -145,3 +145,22 @@ traktor dođe i vozi ga 10 km. 9 kartica, jedna po jedna (hook, ime, ruta s broj
 - „5. kolovoza" na kartici je zaključeno (Dan domovinske zahvalnosti), gost datum ne izgovara.
 - Poslano Zvonimiru Žulju na WhatsApp (bridge `/api/send`, video + potpis kao caption);
   kontakta nema u bridgeu, slanje ide izravno na JID `<broj>@s.whatsapp.net`.
+
+## Radni dir „srećke“ obnovljen (23.10.2026.)
+
+Prvi radni dir je bio u Claudeovom scratchpadu i obrisan je, zajedno s venvom koji je imao
+opencv. Obnovljen je u `../hyperframes-domovina-ai/videos/redefinicija-srecka/` (nije
+commitan, 226 MB). Postupak, ako opet zatreba:
+
+1. `python3 -m venv .venv && .venv/bin/pip install opencv-python-headless numpy pillow`
+2. `yt-dlp` raspon `*2330-2410` u 1080p avc1 → `raw.mp4` (lokalni `.mkv` je 360p AV1)
+3. `words_for_range.py <canary.diarized.srt> <words.json> 2339 2403 transcript.json` → r_s 2338.91, 64.8 s
+4. `ffmpeg -ss (r_s-2330) -t 64.8 … -g 25` → `public/input-video.mp4`
+5. `face_track.py` → `faces.json` (rez kamere 61.88 s)
+6. `vendor/gsap.min.js` iz `~/.claude/skills/talking-head-recut/assets/vendor/`, fontovi iz
+   `data/branding/fonts/`. Kao `domovina_logo.png` je stavljen `data/branding/domovina_ai/logo_square.png`,
+   jer izvorni logo nije pronađen.
+7. `build_composition.py <W> 2.9 61.92 template.html --brand muzevni_budite`
+8. `npx hyperframes preview --background --port 3010 public` → Studio na localhost:3010
+
+`check`: 0 grešaka. Nastavak ideje kao desktop aplikacije: `docs/2026-10-23-reel-studio-desktop.md`.
