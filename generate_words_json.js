@@ -13,8 +13,9 @@
  *   {"v":1,"source":"speechmatics","anchored":0.876,
  *    "cues":[{"s":0,"e":15000,"w":[120,300,300,450,…],"a":0.91},…]}
  *
- * Izvor vremena: `{base}.{audio}.speechmatics.json` (KORAK 2.7) ili
- * `{base}.wav.canary.word_ts.json` (canary_modal.py od 06.10.2026.). Kad postoje oba,
+ * Izvor vremena: `{base}.{audio}.speechmatics.json` (KORAK 2.7),
+ * `{base}.{audio}.soniox.words.json` (KORAK 2.7b, transcribe_soniox.js) ili
+ * `{base}.wav.canary.word_ts.json` (canary_modal.py od 06.10.2026.). Kad ih ima više,
  * pobjeđuje onaj s više izravno usidrenih riječi. Tekst i granice cue-a:
  * KANONSKI `{base}.wav.canary.diarized.srt` — ugovor je SRT, ne Speechmatics. Frontend
  * prihvaća cue samo ako se broj riječi točno slaže, pa regenerirani SRT ne može dati
@@ -34,6 +35,7 @@
  *   node generate_words_json.js --dry-run
  *   node generate_words_json.js --channel 40_dana_za_zivot
  *   node generate_words_json.js --video-id fln3cFCwHcs --force
+ *   node generate_words_json.js --video-id f2HIRJPHHK4 --with-soniox --force   # + Soniox izvor
  */
 
 const fs = require("fs");
@@ -51,10 +53,14 @@ const ONLY_VIDEO = getArg("--video-id");
 const MIN_ANCHORED = parseFloat(getArg("--min-anchored") || "0.6");
 const FORCE = args.includes("--force");
 const DRY_RUN = args.includes("--dry-run");
+// Soniox izvor je opt-in dok mjerenje (docs/2026-10-24-soniox-pyannote-roadmap.md) ne
+// dobije OK: bez ograde bi nightly sam regenerirao words.json čim se pojavi .soniox.*.
+const WITH_SONIOX = args.includes("--with-soniox");
 const VERBOSE = args.includes("--verbose");
 
 const SRT_SUFFIX = ".wav.canary.diarized.srt";
 const SM_SUFFIX = ".speechmatics.json";
+const SX_SUFFIX = ".soniox.words.json";
 const CANARY_WORDS_SUFFIX = ".wav.canary.word_ts.json";
 const OUT_SUFFIX = ".words.json";
 const SKIP_SUFFIX = ".words.skipped.json";
@@ -164,6 +170,13 @@ function speechmaticsWords(json) {
         .map((r) => [roundHalfEven(r.start_time * 1000), roundHalfEven(r.end_time * 1000), r.alternatives[0].content]);
 }
 
+// lib/asr/words.js format: interpunkcija je zasebna stavka i nije riječ titla.
+function sonioxWords(json) {
+    return json.words
+        .filter((w) => !w.punct)
+        .map((w) => [roundHalfEven(w.start * 1000), roundHalfEven(w.end * 1000), w.w]);
+}
+
 function canaryWords(json) {
     return json.words.map(([a, b, w]) => [a, b, w]);
 }
@@ -255,11 +268,13 @@ function main() {
         let files;
         try { files = fs.readdirSync(dir).filter((f) => !f.startsWith("._")); } catch { continue; }
         const smByBase = new Map();
+        const sxByBase = new Map();
         for (const f of files) {
-            if (!f.endsWith(SM_SUFFIX)) continue;
-            // {base}.{mp3|m4a|…}.speechmatics.json
-            const m = f.slice(0, -SM_SUFFIX.length).match(/^(.+)\.[A-Za-z0-9]+$/);
-            if (m) smByBase.set(m[1], f);
+            const suffix = f.endsWith(SM_SUFFIX) ? SM_SUFFIX : f.endsWith(SX_SUFFIX) ? SX_SUFFIX : null;
+            if (!suffix) continue;
+            // {base}.{mp3|m4a|…}.speechmatics.json / .soniox.words.json
+            const m = f.slice(0, -suffix.length).match(/^(.+)\.[A-Za-z0-9]+$/);
+            if (m) (suffix === SM_SUFFIX ? smByBase : sxByBase).set(m[1], f);
         }
         for (const f of files) {
             if (!f.endsWith(SRT_SUFFIX)) continue;
@@ -268,6 +283,7 @@ function main() {
             const srtPath = path.join(dir, f);
             const sources = [];
             if (smByBase.has(base)) sources.push({ name: "speechmatics", path: path.join(dir, smByBase.get(base)), read: speechmaticsWords });
+            if (WITH_SONIOX && sxByBase.has(base)) sources.push({ name: "soniox", path: path.join(dir, sxByBase.get(base)), read: sonioxWords });
             const cwPath = path.join(dir, base + CANARY_WORDS_SUFFIX);
             if (fs.existsSync(cwPath)) sources.push({ name: "canary", path: cwPath, read: canaryWords });
             if (!sources.length) { stats.noSource++; continue; }
@@ -318,4 +334,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { pyRound, norm, matchingBlocks, parseCues, buildWords, roundHalfEven, speechmaticsWords, canaryWords };
+module.exports = { pyRound, norm, matchingBlocks, parseCues, buildWords, roundHalfEven, speechmaticsWords, sonioxWords, canaryWords };

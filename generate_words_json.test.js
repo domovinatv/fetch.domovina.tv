@@ -58,3 +58,12 @@ test("buildWords: broj parova = broj riječi, monotono, kratki rep upija sidra (
     assert.ok(last[1] - last[0] >= 120, `zadnja riječ ${last} kraća od 120 ms`);
     assert.equal(last[1], 4000);
 });
+
+test("sonioxWords: interpunkcija nije riječ titla, vremena u ms", () => {
+    const { sonioxWords } = require("./generate_words_json");
+    const W = sonioxWords({ words: [
+        { w: "Dobar", start: 0.12, end: 0.4 }, { w: "dan", start: 0.5, end: 0.81 },
+        { w: ".", start: 0.5, end: 0.81, punct: true, eos: true },
+    ] });
+    assert.deepEqual(W, [[120, 400, "Dobar"], [500, 810, "dan"]]);
+});
