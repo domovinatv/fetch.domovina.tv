@@ -122,3 +122,26 @@ Fontovi i logo se kopiraju u `public/brand/`. Bez `--brand` izgled ostaje kao u 
 - Muževni budite brand je izveden s portala (muzevnibudite.com), NE iz `projekt-41`:
   to je zaseban znak programa (cijan, štit).
 - Libre Baskerville je širi od Montserrata, ali raspored je i dalje dao sve kartice pune veličine.
+
+## v4 (23.10.2026.): drugi reel — re:DEFINICIJA ep. 9 „traktor"
+
+Predložak `tools/hyperframes_reel/f2HIRJPHHK4_traktor.template.html` (Zlatko Krznarić,
+isječak 23:20.7–24:20.2 = 1400.679–1460.209 s, 59.53 s, `--brand muzevni_budite`).
+Priča: biciklom s protezom Čakovec → Međugorje, pukla guma kod Krašića, molitva
+„pošalji mi jednog traktora da budem u zavjetrini", na Dan domovinske zahvalnosti
+traktor dođe i vozi ga 10 km. 9 kartica, jedna po jedna (hook, ime, ruta s brojačem
+580 km, Krašić, guma, citat molitve, blagdan, SVG traktor + pečat USLIŠANO, brojač 10 km).
+
+- Radni dir: `../hyperframes-domovina-ai/videos/redefinicija-traktor/` (NIJE commitan —
+  repo je javan, a radni dir drži `raw.mp4` i render; isto kao `redefinicija-srecka/`).
+  `boards/storyboard.html` = 9 stillova s vremenima i bilješkom o pokretu.
+- Render 47.5 s, 1080×1920, 44.9 MB. `check`: 0 grešaka, 31/31 WCAG AA.
+- **Krupni plan je teži od srednjeg:** lice zauzima toliko da je raspored kartice „guma" i
+  „traktor" smanjio (ispod pune veličine), a odzumiravanje ostavlja zamućenu traku na dnu.
+  Kod biranja trenutka vrijedi gledati i KADAR, ne samo priču.
+- **ASR ispravke ručno u `transcript.json`** (Canary): Oizije→Alojzija, „bude zavjetrini"→
+  „budem u zavjetrini", suprug→supruzi, „Koje bi"→„Što mi". Nisu preslušane. Skripta za
+  ispravke ne smije mijenjati riječi na mjestu ako sljedeće pravilo gleda prethodnu riječ.
+- „5. kolovoza" na kartici je zaključeno (Dan domovinske zahvalnosti), gost datum ne izgovara.
+- Poslano Zvonimiru Žulju na WhatsApp (bridge `/api/send`, video + potpis kao caption);
+  kontakta nema u bridgeu, slanje ide izravno na JID `<broj>@s.whatsapp.net`.
