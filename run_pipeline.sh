@@ -239,6 +239,10 @@ echo ""
 #                            svježine (SPEECHMATICS_FRESH_DAYS=3) i capom
 #                            (SPEECHMATICS_MAX_FILES=5). Traži SPEECHMATICS_API_KEY u .env.
 #                            Mjerenja: docs/speechmatics_evaluation_2026-09.md
+#   --with-soniox         → KORAK 2.7b: cloud ASR preko Soniox stt-async-v5 (~$0.12/h),
+#                            fallback Speechmatics. Odvojen namespace (.soniox.*), non-fatal,
+#                            ograde SONIOX_FRESH_DAYS=3 / SONIOX_MAX_FILES=5. Default OFF,
+#                            NIJE u nightlyju. Plan: docs/2026-10-24-soniox-pyannote-roadmap.md
 #   --reprocess           → PONOVNA OBRADA već objavljene epizode (samo uz --modal-only):
 #                            prije runa skloni stare izvedene fajlove iz _unlisted u
 #                            .reprocess_bak/ (inače bi 2.8/7/8 vidjeli „već postoji"), a
@@ -303,6 +307,12 @@ REPROCESS_ARTICLE_ID=""
 #   SPEECHMATICS_MAX_FILES  (5) — medijan priljeva je 2-3 epizode, 5 pokriva i špicu
 # Worst case ≈ 5 × 45 min × $0.80/h ≈ $3.00/noć.
 WITH_SPEECHMATICS=false
+# --with-soniox (2026-10-24): KORAK 2.7b — Soniox primarno, Speechmatics fallback.
+# Iste ograde kao 2.7 (prozor svježine + cap), cijena ~5 × 45 min × $0.12/h ≈ $0.45/noć.
+WITH_SONIOX=false
+SONIOX_FRESH_DAYS="${SONIOX_FRESH_DAYS:-3}"
+SONIOX_MAX_FILES="${SONIOX_MAX_FILES:-5}"
+SONIOX_TIMEOUT_MIN="${SONIOX_TIMEOUT_MIN:-30}"
 # --with-gemini-refine (2026-09-19): KORAK 2.8 — Gemini sluh nad Speechmatics kosturom.
 #   GEMINI_REFINE_PROMOTE=true  → smije popuniti .wav.canary.diarized.srt (nikad prepisati)
 #   Prozor/cap kao 2.7: prati priljev, NE konvergira nad katalogom (v. komentar uz korak).
@@ -411,6 +421,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-speechmatics" ]; then
         WITH_SPEECHMATICS=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-soniox" ]; then
+        WITH_SONIOX=true
         i=$((i + 1))
     elif [ "$arg" = "--with-gemini-refine" ]; then
         WITH_GEMINI_REFINE=true
@@ -982,6 +995,45 @@ fi
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 2.7 (Speechmatics) — nije zadan --with-speechmatics (eksperiment, default OFF)"
+fi
+
+# --- KORAK 2.7b: SONIOX CLOUD ASR (--with-soniox), fallback Speechmatics ---
+# Soniox stt-async-v5 daje tekst (na hrvatskom bolji od Speechmaticsa u 86 % slijepo
+# preslušanih razlika, NEWS-1034) uz ~$0.12/h. Govornike Soniox SPAJA, pa je
+# .soniox.diarized.srt samo pomoćni — govornici dolaze iz pyannoteAI.
+# Izlaz je odvojen namespace (.soniox.*), korak je non-fatal i ništa ne promovira.
+# Sken kandidata je u Nodeu (macOS TCC pod launchd-om, vidi KORAK 2.7).
+if [ "$WITH_SONIOX" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 2.7b: Soniox cloud ASR [--with-soniox] (fallback Speechmatics)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+SX_SCRIPT="$SCRIPT_DIR/transcribe_soniox.js"
+if ! grep -qE '^\s*SONIOX_API_KEY\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null; then
+    echo "   ⏭️  Nema SONIOX_API_KEY u .env — preskačem."
+elif [ ! -f "$SX_SCRIPT" ]; then
+    echo "   ⚠️ Nema $SX_SCRIPT — preskačem."
+else
+    # FAST-PATH: samo taj video, bez prozora svježine (isto kao 2.7).
+    SX_FRESH_DAYS="$SONIOX_FRESH_DAYS"
+    [ "$PRIORITY_FAST_PATH" = true ] && SX_FRESH_DAYS=0
+    SX_ARGS=(--input-dir "$OUTPUT_DIR"
+             --fresh-days "$SX_FRESH_DAYS"
+             --limit "$SONIOX_MAX_FILES"
+             --timeout-minutes "$SONIOX_TIMEOUT_MIN"
+             "${PRIORITY_SCOPE_ARGS[@]}")
+    if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        SX_ARGS+=(--dry-run)
+    fi
+    echo "   🧪 Prozor ${SONIOX_FRESH_DAYS}d, cap ${SONIOX_MAX_FILES} epizoda, timeout ${SONIOX_TIMEOUT_MIN} min/ep (~\$0.09/ep pri 45 min)"
+    node "$SX_SCRIPT" "${SX_ARGS[@]}" \
+      || echo "   ⚠️ Soniox korak nije uspio — nastavljam (non-fatal)."
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.7b (Soniox) — nije zadan --with-soniox (default OFF)"
 fi
 
 # --- KORAK 2.8: GEMINI SLUH NAD SPEECHMATICS KOSTUROM (--with-gemini-refine) ---
