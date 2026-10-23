@@ -512,5 +512,26 @@ postoje + sadržaj za prvi prikaz. Klijentski ugovor i parser:
 
 ---
 
+## 16. `{base}.processing.json` — kako je epizoda obrađena (v1, SAMO DISK)
+
+Provenance po epizodi: ASR izvori (`canary`, `soniox`, `speechmatics`), diarizacija
+(`pyannote_ai`, `pyannote_local`), Gemini sluh (KORAK 2.8), **što je kanonski
+`.wav.canary.diarized.srt` zapravo** (`canonical_srt.origin`, prepoznato po SADRŽAJU
+usporedbom s kandidatima, ne po imenu), model sažetka i članka (`article.served` =
+leksikografski najveće ime, kako dedupa downstream), Magisterium `source_article` i
+izvor `words.json`.
+
+- **Izvodi se iz datoteka na disku**, nula API poziva (`lib/processing_manifest.js`).
+  „Update u koraku” = ponovno izvođenje: `transcribe_soniox.js` i `diarize_pyannote_ai.js`
+  ga pišu sami, backfill i provjera: `node tools/build_processing_manifest.js`.
+- Piše se samo kad se sadržaj (bez `generated_at`) promijeni.
+- **NE ide na R2.** Sadrži job ID-jeve providera i procjene troška, što nije za javni
+  CDN, a nijedan klijent ga ne treba. Ako frontendu jednom zatreba „tko je prepisao ovu
+  epizodu”, to je zasebna, očišćena datoteka, ne ova.
+- Polja su opisna, ne ugovor za automatiku: koraci pipelinea i dalje odlučuju po
+  postojanju izvedenih datoteka (memory „izvedeni fajlovi su signal idempotencije”).
+
+---
+
 **Kraj kontrakta.** Svako pitanje o ovom dokumentu otvori kao issue u ovom repu;
 breaking promjene kao PR s bumpom verzije i CHANGELOG zapisom.

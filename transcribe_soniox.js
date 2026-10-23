@@ -35,6 +35,7 @@ const { execFileSync } = require("child_process");
 const soniox = require("./lib/asr/soniox");
 const speechmatics = require("./lib/asr/speechmatics");
 const { sonioxToWords, speechmaticsToWords, buildSegments, renderSrt } = require("./lib/asr/words");
+const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
 
 // ─── .env loader (isti minimalni obrazac kao ostatak repoa) ───
 function loadEnv() {
@@ -265,7 +266,10 @@ function collectCandidates() {
     for (const t of targets) {
         try {
             const r = await processFile(t);
-            if (r.ok) ok++;
+            if (r.ok) {
+                ok++;
+                writeManifest(path.dirname(t), baseFromAudio(t));
+            }
         } catch (err) {
             fail++;
             console.error(`   ❌ ${path.basename(t)}: ${err.message}`);

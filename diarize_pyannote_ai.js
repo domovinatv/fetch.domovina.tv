@@ -33,6 +33,7 @@ const fs = require("fs");
 const path = require("path");
 const { sonioxToWords, speechmaticsToWords, buildSegments, renderSrt } = require("./lib/asr/words");
 const { pyannoteSegments, assignSpeakers } = require("./lib/asr/hybrid");
+const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
 
 function loadEnv() {
     const envPath = path.join(__dirname, ".env");
@@ -236,7 +237,12 @@ function collectCandidates() {
     console.log(`📋 Kandidata: ${targets.length} (model ${MODEL})`);
     let ok = 0, fail = 0;
     for (const t of targets) {
-        try { if ((await processFile(t)).ok) ok++; } catch (err) { fail++; console.error(`   ❌ ${path.basename(t)}: ${err.message}`); }
+        try {
+            if ((await processFile(t)).ok) {
+                ok++;
+                writeManifest(path.dirname(t), baseFromAudio(t));
+            }
+        } catch (err) { fail++; console.error(`   ❌ ${path.basename(t)}: ${err.message}`); }
     }
     console.log(`\n📊 Uspješnih: ${ok} | Neuspjelih: ${fail}`);
     if (fail > 0) process.exit(1);
