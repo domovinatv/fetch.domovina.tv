@@ -73,6 +73,7 @@ flowchart LR
 
 ## Vezano
 
+- Stanje serije re:DEFINICIJA: `docs/2026-10-24-redefinicija-stanje-obrade.md`.
 - Prototip: `tools/reel_studio/prototype-v2.html` (ASR „Soniox → fallback Speechmatics (plan)”).
 - Speechmatics + Gemini sluh: `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md`.
 - agy kroz pretplatu: `docs/2026-10-15-agy-gemini-sluh-kroz-pretplatu.md`.
