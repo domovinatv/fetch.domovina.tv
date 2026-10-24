@@ -239,7 +239,7 @@ sequenceDiagram
 ```
 
 **Empirijski (12 epizoda, ~100 `chat` poziva):**
-- **batch-size skaliranje:** male epizode (6 sekcija) → batch-4; velike svjetovne (50 sekcija) → batch-6 + `--max-words 40` (manje poziva bez timeout rizika; lever je KRATAK sadržaj po sekciji, NE manji batch).
+- ~~**batch-size skaliranje:** male epizode (6 sekcija) → batch-4; velike svjetovne (50 sekcija) → batch-6 + `--max-words 40` (manje poziva bez timeout rizika; lever je KRATAK sadržaj po sekciji, NE manji batch).~~ **Zastarjelo 24.10.2026.:** default je batch-size 1 + `--max-words 600` (cijela sekcija); rezanje na 40–80 riječi spuštalo je ocjene jer je model vidio pola misli (`docs/2026-10-24-magisterium-mcp-bez-llm-a.md`).
 - **3 failure-mode-a koje treba ručno gurnuti:**
   1. **timeout** (~5% poziva) → retry s kraćim sadržajem.
   2. **refuse** (sekularni/stranački sadržaj) → "ne mogu izvan katolicizma" → preformuliraj kroz socijalni nauk ("moralno-teološka procjena, ne stranačka").

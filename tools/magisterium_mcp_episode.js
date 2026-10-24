@@ -13,7 +13,7 @@
  *
  * Uporaba:
  *   node tools/magisterium_mcp_episode.js --video-id <VID> [--channel <kanal>]
- *        [--force] [--no-publish] [--batch-size 1] [--max-words 80]
+ *        [--force] [--no-publish] [--batch-size 1] [--max-words 600]
  * Exit: 0 = objavljeno i md5 se slaže (ili već postoji), 1 = greška, 2 = chat pozivi nisu prošli.
  * Statistika koraka: <results>/episode_stats.json
  */
@@ -88,7 +88,7 @@ async function main() {
     const force = args.includes('--force');
     const publish = !args.includes('--no-publish');
     const batchSize = getArg('--batch-size') || '1';
-    const maxWords = getArg('--max-words') || '80';
+    const maxWords = getArg('--max-words') || '600';
     const langRetries = parseInt(getArg('--lang-retries') || '2', 10);
     const steps = [];
     const step = async (name, fn) => {

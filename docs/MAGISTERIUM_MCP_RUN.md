@@ -46,7 +46,7 @@ Detaljni nalazi: [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_
 ```bash
 VID=<YOUTUBE_ID>
 ART=$(find -L storage/output -name "*_yt_${VID}*.article.json" | grep -v '/\._' | sort | tail -1)
-node magisterium_mcp_prep.js --article "$ART" --batch-size 4   # default --max-words 60 (timeout-safe)
+node magisterium_mcp_prep.js --article "$ART" --batch-size 1   # default --max-words 600 = cijela sekcija, rez samo na kraju rečenice
 ```
 Zapamti `basename`, `RESULTS=/tmp/mag_hybrid/<basename>.results` (napravi `mkdir -p`),
 `PROMPTS=/tmp/mag_hybrid/<basename>.prompts`. Iz ispisa znaš koliko batchova.

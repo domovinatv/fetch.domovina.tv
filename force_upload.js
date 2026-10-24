@@ -14,7 +14,7 @@
  *
  * Uporaba:
  *   node force_upload.js --video-id VID --channel CH \
- *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,words,sponsors,epub]
+ *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,words,sponsors,epub,epub-en]
  *   (default targets: article,magisterium,article-en,magisterium-en)
  */
 
@@ -67,7 +67,10 @@ const TARGET_MAP = {
     // Reobrada epizode (novi ASR + novi članak) mijenja i ove immutable ključeve.
     "outline":        { suffix: ".outline.json",                r2: "outline.json" },
     "diarized":       { suffix: ".wav.canary.diarized.srt",     r2: "diarized.srt", contentType: "text/plain; charset=utf-8" },
-    "epub":           { suffix: ".epub",                        r2: "book.epub", contentType: "application/epub+zip" },
+    // `.epub` bi uhvatio i `{base}.en.epub` (HR je pobjeđivao samo zato što 'p' > 'n') → exclude.
+    "epub":           { suffix: ".epub",    exclude: ".en.epub",   r2: "book.epub", contentType: "application/epub+zip" },
+    // Prvu EN knjigu objavljuje upload_to_r2.js; ovo je prepis nakon regeneracije.
+    "epub-en":        { suffix: ".en.epub",                     r2: "book.en.epub", contentType: "application/epub+zip" },
     // words.json je poravnat 1:1 s diarized.srt (Flutter speaker_timeline.dart uparuje po
     // početku cue-a i broju riječi) → nakon novog prijepisa MORA ići zajedno s `diarized`.
     "words":          { suffix: ".words.json",                  r2: "words.json" },
@@ -76,10 +79,11 @@ const TARGET_MAP = {
 
 const dir = path.join("storage/output", channel);
 
-function findLocal(suffix) {
+function findLocal(suffix, exclude) {
     const files = fs.readdirSync(dir).filter(f =>
         f.includes("_yt_" + videoId) &&
         f.endsWith(suffix) &&
+        !(exclude && f.endsWith(exclude)) &&
         !f.startsWith("._") &&
         !f.endsWith(".bak")
     );
@@ -110,7 +114,7 @@ async function main() {
     for (const t of targetsArg.split(",").map(s => s.trim()).filter(Boolean)) {
         const map = TARGET_MAP[t];
         if (!map) { console.error(`⚠️  nepoznat target: ${t}`); continue; }
-        const local = findLocal(map.suffix);
+        const local = findLocal(map.suffix, map.exclude);
         if (!local) { console.error(`⏭️  nema lokalnog fajla za '${t}' (${map.suffix})`); continue; }
         const key = `data/${videoId}/${map.r2}`;
         const body = fs.readFileSync(local);

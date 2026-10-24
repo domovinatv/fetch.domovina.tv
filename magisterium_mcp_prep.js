@@ -31,24 +31,27 @@ function getArg(name) {
 
 const articlePath = getArg('--article');
 const BATCH_SIZE  = parseInt(getArg('--batch-size') || '4', 10);
-// Default 60 rij./sekciji: empirijski timeout-safe. Pune ~100-rij. sekcije u batch-of-4
-// znaju time-outati `chat` (usko grlo je dubina generacije po sekciji). Diže se preko
-// --max-words kad treba više konteksta, ali tada očekuj povremene timeoute → retry kraće.
-const MAX_CONTENT_WORDS = parseInt(getArg('--max-words') || '60', 10);
+// Default 600 rij./sekciji = praktički CIJELA sekcija (tipično 150–450 rij.). Rez se događa
+// samo iznad granice, i to na kraju rečenice. Stari default 60/80 rezao je usred misli:
+// re:DEFINICIJA ep. 6 „Spomenik u Sisku…" stao je iza „nitko ih nije ubijao" bez konteksta
+// koji slijedi → score 40; cijela sekcija (432 rij.) → 62. Timeouti iz batch-of-4 ere
+// ne vrijede za batch-size 1 (default magisterium_mcp_episode.js).
+const MAX_CONTENT_WORDS = parseInt(getArg('--max-words') || '600', 10);
 const outDir      = getArg('--out-dir') || '/tmp/mag_hybrid';
-
-if (!articlePath) {
-    console.error('Uporaba: node magisterium_mcp_prep.js --article <path.article.json> [--batch-size 4] [--out-dir /tmp/mag_hybrid]');
-    process.exit(1);
-}
 
 // --- Helpers (copy-paste konvencija, vidi CLAUDE.md) ---
 
+// Ispod granice vraća tekst netaknut. Iznad nje reže na zadnjem kraju rečenice unutar
+// granice, osim ako bi to odbacilo više od trećine — tada tvrdi rez s '...'.
 function trimToWords(text, maxWords) {
     if (!text) return '';
-    const words = text.split(/\s+/);
+    const words = text.trim().split(/\s+/);
     if (words.length <= maxWords) return text;
-    return words.slice(0, maxWords).join(' ') + '...';
+    const head = words.slice(0, maxWords);
+    for (let i = head.length - 1; i >= Math.floor(maxWords * 2 / 3); i--) {
+        if (/[.!?…]["”»')\]]*$/.test(head[i])) return head.slice(0, i + 1).join(' ');
+    }
+    return head.join(' ') + '...';
 }
 
 function readJson(p) {
@@ -145,83 +148,94 @@ Skala usklađenosti:
 
 // --- Main ---
 
-const article = readJson(articlePath);
-const basename = path.basename(articlePath).replace(/\.article\.json$/, '');
-const podcastTitle = (article.metadata && (article.metadata.title || article.metadata.naslov)) || basename;
-const iterations = article.iterations || article.iteracije || [];
+function main() {
+    if (!articlePath) {
+        console.error('Uporaba: node magisterium_mcp_prep.js --article <path.article.json> [--batch-size 4] [--max-words 600] [--out-dir /tmp/mag_hybrid]');
+        process.exit(1);
+    }
 
-const outlinePath = findOutlinePath(articlePath);
-const outline = outlinePath ? readJson(outlinePath) : null;
+    const article = readJson(articlePath);
+    const basename = path.basename(articlePath).replace(/\.article\.json$/, '');
+    const podcastTitle = (article.metadata && (article.metadata.title || article.metadata.naslov)) || basename;
+    const iterations = article.iterations || article.iteracije || [];
 
-// Flatten sekcije s globalnim indeksom + (itIdx, secIdx) za assembly
-const flat = [];
-iterations.forEach((it, itIdx) => {
-    (it.sections || []).forEach((section, secIdx) => {
-        flat.push({
-            globalIndex: flat.length,
-            itIdx, secIdx,
-            iterationTheme: it.theme || '',
-            section,
+    const outlinePath = findOutlinePath(articlePath);
+    const outline = outlinePath ? readJson(outlinePath) : null;
+
+    // Flatten sekcije s globalnim indeksom + (itIdx, secIdx) za assembly
+    const flat = [];
+    iterations.forEach((it, itIdx) => {
+        (it.sections || []).forEach((section, secIdx) => {
+            flat.push({
+                globalIndex: flat.length,
+                itIdx, secIdx,
+                iterationTheme: it.theme || '',
+                section,
+            });
         });
     });
-});
 
-// Grupiraj u batcheve
-const batches = [];
-for (let i = 0; i < flat.length; i += BATCH_SIZE) {
-    const chunk = flat.slice(i, i + BATCH_SIZE);
-    batches.push({
-        batchIndex: batches.length,
-        // localIndex u promptu == redoslijed u chunku; mapiramo na globalni i (itIdx,secIdx)
-        sectionRefs: chunk.map((item, localIndex) => ({
-            localIndex,
-            globalIndex: item.globalIndex,
-            itIdx: item.itIdx,
-            secIdx: item.secIdx,
-            subtitle: item.section.subtitle || '',
+    // Grupiraj u batcheve
+    const batches = [];
+    for (let i = 0; i < flat.length; i += BATCH_SIZE) {
+        const chunk = flat.slice(i, i + BATCH_SIZE);
+        batches.push({
+            batchIndex: batches.length,
+            // localIndex u promptu == redoslijed u chunku; mapiramo na globalni i (itIdx,secIdx)
+            sectionRefs: chunk.map((item, localIndex) => ({
+                localIndex,
+                globalIndex: item.globalIndex,
+                itIdx: item.itIdx,
+                secIdx: item.secIdx,
+                subtitle: item.section.subtitle || '',
+            })),
+            prompt: buildBatchPrompt(podcastTitle, chunk.map(c => ({
+                iterationTheme: c.iterationTheme,
+                section: c.section,
+            }))),
+        });
+    }
+
+    const holisticPrompt = buildHolisticPrompt(podcastTitle, iterations, outline);
+
+    fs.mkdirSync(outDir, { recursive: true });
+    const jobPath = path.join(outDir, `${basename}.job.json`);
+    const job = {
+        basename,
+        articlePath: path.resolve(articlePath),
+        outlinePath: outlinePath ? path.resolve(outlinePath) : null,
+        podcastTitle,
+        batchSize: BATCH_SIZE,
+        maxContentWords: MAX_CONTENT_WORDS,
+        sectionCount: flat.length,
+        iterationMeta: iterations.map(it => ({
+            iteration_number: it.iteration_number,
+            start_time: it.start_time,
+            end_time: it.end_time,
+            theme: it.theme,
+            sectionCount: (it.sections || []).length,
         })),
-        prompt: buildBatchPrompt(podcastTitle, chunk.map(c => ({
-            iterationTheme: c.iterationTheme,
-            section: c.section,
-        }))),
+        holisticPrompt,
+        batches,
+    };
+    fs.writeFileSync(jobPath, JSON.stringify(job, null, 2), 'utf-8');
+
+    // Spremi i čitljive .txt promptove (transparentnost / web-chat copy-paste)
+    const promptDir = path.join(outDir, `${basename}.prompts`);
+    fs.mkdirSync(promptDir, { recursive: true });
+    fs.writeFileSync(path.join(promptDir, 'holistic.txt'), holisticPrompt, 'utf-8');
+    batches.forEach(b => {
+        fs.writeFileSync(path.join(promptDir, `batch_${String(b.batchIndex).padStart(2, '0')}.txt`), b.prompt, 'utf-8');
     });
+
+    console.log(`✝️  Magisterium MCP hibrid — priprema`);
+    console.log(`   Podcast: ${podcastTitle}`);
+    console.log(`   Sekcija: ${flat.length} | batch-size: ${BATCH_SIZE} | batchova: ${batches.length}`);
+    console.log(`   chat poziva (procjena): 1 holistički + ${batches.length} batch = ${1 + batches.length}`);
+    console.log(`   Job: ${jobPath}`);
+    console.log(`   Promptovi: ${promptDir}/`);
 }
 
-const holisticPrompt = buildHolisticPrompt(podcastTitle, iterations, outline);
+if (require.main === module) main();
 
-fs.mkdirSync(outDir, { recursive: true });
-const jobPath = path.join(outDir, `${basename}.job.json`);
-const job = {
-    basename,
-    articlePath: path.resolve(articlePath),
-    outlinePath: outlinePath ? path.resolve(outlinePath) : null,
-    podcastTitle,
-    batchSize: BATCH_SIZE,
-    maxContentWords: MAX_CONTENT_WORDS,
-    sectionCount: flat.length,
-    iterationMeta: iterations.map(it => ({
-        iteration_number: it.iteration_number,
-        start_time: it.start_time,
-        end_time: it.end_time,
-        theme: it.theme,
-        sectionCount: (it.sections || []).length,
-    })),
-    holisticPrompt,
-    batches,
-};
-fs.writeFileSync(jobPath, JSON.stringify(job, null, 2), 'utf-8');
-
-// Spremi i čitljive .txt promptove (transparentnost / web-chat copy-paste)
-const promptDir = path.join(outDir, `${basename}.prompts`);
-fs.mkdirSync(promptDir, { recursive: true });
-fs.writeFileSync(path.join(promptDir, 'holistic.txt'), holisticPrompt, 'utf-8');
-batches.forEach(b => {
-    fs.writeFileSync(path.join(promptDir, `batch_${String(b.batchIndex).padStart(2, '0')}.txt`), b.prompt, 'utf-8');
-});
-
-console.log(`✝️  Magisterium MCP hibrid — priprema`);
-console.log(`   Podcast: ${podcastTitle}`);
-console.log(`   Sekcija: ${flat.length} | batch-size: ${BATCH_SIZE} | batchova: ${batches.length}`);
-console.log(`   chat poziva (procjena): 1 holistički + ${batches.length} batch = ${1 + batches.length}`);
-console.log(`   Job: ${jobPath}`);
-console.log(`   Promptovi: ${promptDir}/`);
+module.exports = { trimToWords };

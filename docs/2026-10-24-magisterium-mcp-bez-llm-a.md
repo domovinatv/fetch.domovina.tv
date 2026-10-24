@@ -32,6 +32,33 @@ node tools/magisterium_mcp_episode.js --video-id <VID> --no-publish # samo na di
 Latencija servera po pozivu: run A 22–35 s (prosjek 26 s), run B 29–77 s (prosjek 41 s).
 Isti promptovi, isti dan, razmak od 15 min, dakle varijanca je na strani Magisteriuma.
 
+### Cijela sekcija umjesto 80 riječi (25.10.2026.)
+
+Prep je do 25.10. slao samo prvih 80 riječi sekcije (`--max-words 80`), pa je rez znao pasti
+usred misli. Na re:DEFINICIJA ep. 6 (`ouoZvcpBt9Y`, „Spomenik u Sisku i kozaračka djeca”)
+stao je iza „nitko ih nije ubijao”, bez nastavka koji rečenicu objašnjava: ocjena 40, s cijelom
+sekcijom (432 riječi) 62. Default je sada **`--max-words 600`**: ispod granice sekcija ide
+cijela, iznad nje rez pada na zadnji kraj rečenice (ako bi to odbacilo više od trećine,
+tvrdi rez s `...`). Tipične sekcije imaju 150–450 riječi, pa se rez praktički ne događa.
+
+Mjereno na `Qt6T9XX4VNA` (13 sekcija od 160 do 379 riječi, sve poslane cijele, holistički
+poziv preuzet iz prethodnog runa jer je prompt isti), izravno u scratch dir, bez objave:
+
+| | 80 riječi (24.10., run A / B) | cijela sekcija (25.10.) |
+|---|---|---|
+| prompt po sekciji | ~1 000 znakova | 2 250–3 580 znakova |
+| latencija po pozivu | 22–35 s / 29–77 s (prosjek 26 / 41 s) | 30–48 s (prosjek 38,8 s) |
+| 13 sekcija, zid | — | 505,6 s |
+| timeouti / retry / rate-limit čekanja | 0 / 0 / 0 | 0 / 0 / 0 |
+| strani fragmenti (2b) | 1 (run B) | 0 |
+| root `overall_score` | 83 | 84 |
+
+Latencija je unutar varijance koju Magisterium ima i na istom promptu, pa duži ulaz ne
+košta mjerljivo vrijeme. Ocjene po sekciji pomiču se u oba smjera (−12 do +8; prosjek 83,0
+→ 83,8), dakle nema sustavnog pomaka: dobitak je u tome što model ocjenjuje ono što je rečeno,
+a ne krnji odlomak. Timeouti iz batch-of-4 ere (zbog kojih je default bio 60) ne vrijede za
+batch-size 1. Test: `magisterium_mcp_prep.test.js`.
+
 ### Stari način (Claude agent u petlji, mjerenja od 24.10. na re:DEFINICIJA)
 
 | Epizoda | chat poziva | Trajanje | s/poziv | Kontekst |
