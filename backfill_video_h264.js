@@ -265,6 +265,12 @@ const FMP4_NAME = "video_h264_fmp4.mp4";
 // `global_sidx` je ono što radi: bez njega Chrome ne zna gdje je koji fragment i
 // skenira datoteku (izmjereno: 140 range zahtjeva, nije krenuo u 120 s).
 const FMP4_MOVFLAGS = "+frag_keyframe+empty_moov+default_base_moof+global_sidx";
+// Bez `frag_interleave` fragment od ~10 s nosi sav video pa sav audio (100–200 KB
+// razmaka). Demuxer koji čita po dts-u (libmpv/ffmpeg) tada skače natrag-naprijed
+// ~22×/s, a preko CDN-a (`Connection: close`) svaki skok može biti novi TLS
+// handshake: kmVTa8OjHpc je u iOS appu zapinjao (460 zahtjeva za 2 min videa).
+// Sa 25 uzoraka po trunu redoslijed bajtova prati dts → nula skokova, +0,15 % veličine.
+const FMP4_INTERLEAVE = "25";
 // Zaglavlje (ftyp+moov+sidx) za 1 h je ~11 KB; prag ostavlja mjesta za epizode
 // od više sati, a i dalje hvata slučaj da je ffmpeg pao natrag na klasični moov.
 const FMP4_MAX_HEADER = 512 * 1024;
@@ -276,7 +282,7 @@ function ffmpegRemuxFmp4(src, out) {
         const p = spawn("ffmpeg", [
             "-nostdin", "-v", "error", "-y", "-i", src,
             "-map", "0", "-c", "copy",
-            "-movflags", FMP4_MOVFLAGS, tmp,
+            "-movflags", FMP4_MOVFLAGS, "-frag_interleave", FMP4_INTERLEAVE, tmp,
         ]);
         let err = "";
         p.stderr.on("data", d => { err += d.toString(); });
@@ -321,6 +327,15 @@ function verifyFmp4(file) {
         throw new Error(`fmp4: nema sidx prije prvog fragmenta (${types.slice(0, 6).join(",")})`);
     if (firstMoof === -1 || (firstMdat !== -1 && firstMdat < firstMoof))
         throw new Error(`fmp4: nema moof u prvih ${FMP4_MAX_HEADER} B ili mdat dolazi prije njega`);
+    // Interleaving: s frag_interleave svaki traf ima više trunova. Jedan trun po
+    // trafu = cijeli video pa cijeli audio → ping-pong u libmpv-u (vidi FMP4_INTERLEAVE).
+    const moof = boxes[firstMoof];
+    const moofBuf = buf.subarray(moof.offset + 8, Math.min(moof.offset + moof.size, n));
+    const trafs = topLevelBoxes(moofBuf).filter(b => b.type === "traf");
+    const truns = trafs.reduce((sum, t) =>
+        sum + topLevelBoxes(moofBuf.subarray(t.offset + 8, t.offset + t.size)).filter(b => b.type === "trun").length, 0);
+    if (trafs.length > 1 && truns <= trafs.length)
+        throw new Error(`fmp4: audio i video nisu izmiješani u fragmentu (${trafs.length} traf, ${truns} trun)`);
     return { header: boxes[firstMoof].offset };
 }
 
