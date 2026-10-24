@@ -74,8 +74,40 @@ Plan i stanje pipelinea: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 | 1. Gemini sluh nad Soniox+pyannote kosturom + `--force-promote` | ✅ 10/10 · ~$0,17–0,21/ep, ~8–27 min/ep · stari kanonski SRT kao `.bak` |
 | 2. `--reprocess-article` (Claude Opus, pretplata) → sažetak, članak, screenshotovi, epub, CDN | ✅ 10/10 · **~7 min/ep** (12:24–13:40), ne 20 kako je procijenjeno |
 | 3. `generate_words_json.js --with-soniox --force` + `force_upload --targets diarized,words,sponsors` | ✅ 10/10 · CDN GET md5 = disk za diarized.srt, words.json, article.json |
-| 4. Magisterium MCP HR | ep. 1 ✅ (25 sekcija, score 86) · ostalo u tijeku, jedan subagent po epizodi |
-| 4. EN (`translate_to_english.js`) | u tijeku od ep. 1 |
+| 4. Magisterium MCP HR (jedan subagent po epizodi, `--batch-size 1 --max-words 80`) | ✅ 10/10 |
+| 4. EN (`translate_to_english.js`, batch po bloku od `cf926987`) + objava | ✅ 10/10 · 5–25 min/ep |
+| 5. E-knjige s Magisteriumom (HR + EN), `force_upload_epubs` + `upload_to_r2` za nove `book.en.epub` | ✅ 10/10 |
+
+**Završno stanje (24.10.2026., 21:40), provjereno GET-om na `data/{id}/episode.json`**: svih 10 ima
+članak `claude-code:opus`, Magisterium nad člankom od 24.10., `article.en.json`,
+`article.magisterium.en.json`, `book.en.epub` i `words.json`; md5 svake EN datoteke i knjige = disk.
+
+| Ep | ID | sekcija | Magisterium (prosjek sekcija / holistički) | raspon sekcija | HR trajanje | chat poziva |
+|---|---|---|---|---|---|---|
+| 1 | LnjTZ39Tsdc | 25 | 86 | — | — | (batch 2, 45 riječi) |
+| 2 | -bOmDXC7rlA | — | 75 | 58–76 | — | (45 riječi — oprezne ocjene) |
+| 3 | 1--IUSQILFA | — | 80 | 72–89 | — | — |
+| 4 | kCa7edJS-Lo | — | 85 | 65–95 | — | — |
+| 5 | Yoln5fe9RdY | 35 | 76 / 78 | 45–88 | 2,4 h | 36 |
+| 6 | ouoZvcpBt9Y | 36 | 80 / 81 | 40–95 | 2,4 h | 38 |
+| 7 | ZkMcSRvajCw | 27 | 72 / 72 | 56–88 | 21 min | 28 |
+| 8 | h_6vqQEL2uc | 33 | 79 / 63 | 55–94 | 27 min | 35 |
+| 9 | f2HIRJPHHK4 | 22 | 80 / 87 | 62–94 | 15 min | 24 |
+| 10 | DOfcONrRyDY | 25 | 84 / 90 | 67–96 | 22 min | 26 |
+
+Usko grlo HR Magisteriuma je orkestrator (Claude agent), ne Magisterium server: isti tip
+prompta 45 s/poziv (ep. 7–10, odgovori spremani skriptom iz transkripta) prema ~4 min/poziv
+(ep. 5–6, odgovori prepisivani ručno, kontekst raste do 260k). Optimizacija (izravni MCP
+klijent bez LLM-a u petlji) je zaseban zadatak.
+
+Otvoreno:
+
+- Ep. 6, sekcija „Spomenik u Sisku i kozaračka djeca" (40): Magisterium je kaznio rečenicu
+  „nitko nije ubijao", a sažetak u promptu prekida se baš na njoj — preslušati prije
+  korištenja epizode kao reference.
+- Ep. 1–2 su rađene s `--max-words 45`; ponoviti s 80 ako želimo ujednačene ocjene.
+- `force_upload.js --targets epub` nema EN varijantu; prvi `book.en.epub` objavljuje
+  `upload_to_r2.js --video-id`, a `tools/force_upload_epubs.js` šalje samo već objavljene.
 
 Zamke naučene usput:
 
