@@ -1,0 +1,20 @@
+{
+  "stavki": 662,
+  "tally": {
+    "soniox": 475,
+    "canonical": 53,
+    "oba": 10,
+    "nijedno": 124,
+    "ne_cuje_se": 0,
+    "bez_presude": 0
+  },
+  "male_1_2_rijeci": {
+    "soniox": 243,
+    "canonical": 45,
+    "oba": 4,
+    "nijedno": 26,
+    "ne_cuje_se": 0,
+    "bez_presude": 0
+  },
+  "soniox_pobjeda_od_odlucenih": 0.9
+}

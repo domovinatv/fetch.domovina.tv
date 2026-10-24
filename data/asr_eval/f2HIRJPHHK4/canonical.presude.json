@@ -1,0 +1,3319 @@
+{
+ "video_id": "f2HIRJPHHK4",
+ "against": "canonical",
+ "model": "gemini-3.8-flash",
+ "stavke": [
+  {
+   "id": 0,
+   "presuda": "A",
+   "cuje_se": "stao"
+  },
+  {
+   "id": 1,
+   "presuda": "A",
+   "cuje_se": "me"
+  },
+  {
+   "id": 2,
+   "presuda": "A",
+   "cuje_se": "priklještila"
+  },
+  {
+   "id": 3,
+   "presuda": "B",
+   "cuje_se": "Desnu"
+  },
+  {
+   "id": 4,
+   "presuda": "A",
+   "cuje_se": "lijevu"
+  },
+  {
+   "id": 5,
+   "presuda": "nijedno",
+   "cuje_se": "odjedanput nađe"
+  },
+  {
+   "id": 6,
+   "presuda": "B",
+   "cuje_se": "opljačkan"
+  },
+  {
+   "id": 7,
+   "presuda": "A",
+   "cuje_se": "Hvaljen Isus i Marija i sveti Josip Dobrodošli u novu epizodu našeg podcasta Redefinicija u kojem je danas naš brat u Kristu Zlatko Krznarić Dragi brate Zlatko dobro nam došao Hvala"
+  },
+  {
+   "id": 8,
+   "presuda": "A",
+   "cuje_se": "evo prije nego"
+  },
+  {
+   "id": 9,
+   "presuda": "B",
+   "cuje_se": "dijete Božje na to sam ponosan"
+  },
+  {
+   "id": 10,
+   "presuda": "A",
+   "cuje_se": "Evo tako Otac sam petero"
+  },
+  {
+   "id": 11,
+   "presuda": "nijedno",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 12,
+   "presuda": "A",
+   "cuje_se": "uspona"
+  },
+  {
+   "id": 13,
+   "presuda": "B",
+   "cuje_se": "Bogu"
+  },
+  {
+   "id": 14,
+   "presuda": "A",
+   "cuje_se": "i biti Evo Zlatko"
+  },
+  {
+   "id": 15,
+   "presuda": "A",
+   "cuje_se": "život"
+  },
+  {
+   "id": 16,
+   "presuda": "A",
+   "cuje_se": "izgleda"
+  },
+  {
+   "id": 17,
+   "presuda": "B",
+   "cuje_se": "moraš sad ići u"
+  },
+  {
+   "id": 18,
+   "presuda": "A",
+   "cuje_se": "ono"
+  },
+  {
+   "id": 19,
+   "presuda": "B",
+   "cuje_se": "u"
+  },
+  {
+   "id": 20,
+   "presuda": "B",
+   "cuje_se": "tak to I onda ono"
+  },
+  {
+   "id": 21,
+   "presuda": "A",
+   "cuje_se": "skupa ti"
+  },
+  {
+   "id": 22,
+   "presuda": "A",
+   "cuje_se": "odbacio"
+  },
+  {
+   "id": 23,
+   "presuda": "A",
+   "cuje_se": "93."
+  },
+  {
+   "id": 24,
+   "presuda": "B",
+   "cuje_se": "to"
+  },
+  {
+   "id": 25,
+   "presuda": "A",
+   "cuje_se": "tako"
+  },
+  {
+   "id": 26,
+   "presuda": "B",
+   "cuje_se": "u"
+  },
+  {
+   "id": 27,
+   "presuda": "B",
+   "cuje_se": "svjetovni imaš na izvan ono sve osjećao"
+  },
+  {
+   "id": 28,
+   "presuda": "nijedno",
+   "cuje_se": "falilo Bez obzira kaj"
+  },
+  {
+   "id": 29,
+   "presuda": "B",
+   "cuje_se": "i tak nije to bio"
+  },
+  {
+   "id": 30,
+   "presuda": "A",
+   "cuje_se": "I evo tad"
+  },
+  {
+   "id": 31,
+   "presuda": "A",
+   "cuje_se": "sat"
+  },
+  {
+   "id": 32,
+   "presuda": "B",
+   "cuje_se": "odrješenje od grijeha palo je ogromno"
+  },
+  {
+   "id": 33,
+   "presuda": "A",
+   "cuje_se": "kao"
+  },
+  {
+   "id": 34,
+   "presuda": "B",
+   "cuje_se": "trena"
+  },
+  {
+   "id": 35,
+   "presuda": "B",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 36,
+   "presuda": "A",
+   "cuje_se": "je jedna veza jel tako Koja se"
+  },
+  {
+   "id": 37,
+   "presuda": "B",
+   "cuje_se": "pa ako"
+  },
+  {
+   "id": 38,
+   "presuda": "A",
+   "cuje_se": "ispričati"
+  },
+  {
+   "id": 39,
+   "presuda": "B",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 40,
+   "presuda": "A",
+   "cuje_se": "dvije"
+  },
+  {
+   "id": 41,
+   "presuda": "B",
+   "cuje_se": "mislio sam"
+  },
+  {
+   "id": 42,
+   "presuda": "A",
+   "cuje_se": "ja kužim"
+  },
+  {
+   "id": 43,
+   "presuda": "nijedno",
+   "cuje_se": ""
+  },
+  {
+   "id": 44,
+   "presuda": "B",
+   "cuje_se": "neke mi je fal'o"
+  },
+  {
+   "id": 45,
+   "presuda": "A",
+   "cuje_se": "bez Boga"
+  },
+  {
+   "id": 46,
+   "presuda": "A",
+   "cuje_se": "ja"
+  },
+  {
+   "id": 47,
+   "presuda": "B",
+   "cuje_se": "ne znam sredi dana otiđem na pol"
+  },
+  {
+   "id": 48,
+   "presuda": "A",
+   "cuje_se": "čvenk"
+  },
+  {
+   "id": 49,
+   "presuda": "A",
+   "cuje_se": "i"
+  },
+  {
+   "id": 50,
+   "presuda": "B",
+   "cuje_se": "ono kao"
+  },
+  {
+   "id": 51,
+   "presuda": "A",
+   "cuje_se": "mali kao makovo zrno i došao sam reći"
+  },
+  {
+   "id": 52,
+   "presuda": "nijedno",
+   "cuje_se": "sam bio slijep"
+  },
+  {
+   "id": 53,
+   "presuda": "nijedno",
+   "cuje_se": "me"
+  },
+  {
+   "id": 54,
+   "presuda": "A",
+   "cuje_se": "ne moramo biti prijatelji"
+  },
+  {
+   "id": 55,
+   "presuda": "A",
+   "cuje_se": "i tak i"
+  },
+  {
+   "id": 56,
+   "presuda": "A",
+   "cuje_se": "časnu sestru, da li za brak, čudila se kaj je sad došo,"
+  },
+  {
+   "id": 57,
+   "presuda": "A",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 58,
+   "presuda": "A",
+   "cuje_se": "prijateljevati"
+  },
+  {
+   "id": 59,
+   "presuda": "B",
+   "cuje_se": "vidla"
+  },
+  {
+   "id": 60,
+   "presuda": "A",
+   "cuje_se": "evo ovoga"
+  },
+  {
+   "id": 61,
+   "presuda": "A",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 62,
+   "presuda": "nijedno",
+   "cuje_se": "petoro"
+  },
+  {
+   "id": 63,
+   "presuda": "A",
+   "cuje_se": "imam najbolju ženu"
+  },
+  {
+   "id": 64,
+   "presuda": "B",
+   "cuje_se": "koji je bio"
+  },
+  {
+   "id": 65,
+   "presuda": "A",
+   "cuje_se": "premali"
+  },
+  {
+   "id": 66,
+   "presuda": "B",
+   "cuje_se": "Ispravi me"
+  },
+  {
+   "id": 67,
+   "presuda": "nijedno",
+   "cuje_se": "moš nam"
+  },
+  {
+   "id": 68,
+   "presuda": "A",
+   "cuje_se": "Možda sam evo,"
+  },
+  {
+   "id": 69,
+   "presuda": "B",
+   "cuje_se": "ovo kaj si sad rekel ovoga znači hodali"
+  },
+  {
+   "id": 70,
+   "presuda": "B",
+   "cuje_se": "sve ono kaj svijet nudi"
+  },
+  {
+   "id": 71,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 72,
+   "presuda": "nijedno",
+   "cuje_se": "sam otkrio njezinu unutarnju ljepotu"
+  },
+  {
+   "id": 73,
+   "presuda": "B",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 74,
+   "presuda": "A",
+   "cuje_se": "kaj god u životu dojde, ti se"
+  },
+  {
+   "id": 75,
+   "presuda": "B",
+   "cuje_se": "savez"
+  },
+  {
+   "id": 76,
+   "presuda": "A",
+   "cuje_se": "ovoga evo tak krenuli smo znači u brak"
+  },
+  {
+   "id": 77,
+   "presuda": "oba",
+   "cuje_se": "devedesetosme"
+  },
+  {
+   "id": 78,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 79,
+   "presuda": "A",
+   "cuje_se": "nekak slažeš onak"
+  },
+  {
+   "id": 80,
+   "presuda": "B",
+   "cuje_se": "smo"
+  },
+  {
+   "id": 81,
+   "presuda": "B",
+   "cuje_se": "je sudjelovalo u"
+  },
+  {
+   "id": 82,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 83,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 84,
+   "presuda": "A",
+   "cuje_se": "ovoga ma"
+  },
+  {
+   "id": 85,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 86,
+   "presuda": "A",
+   "cuje_se": "znači"
+  },
+  {
+   "id": 87,
+   "presuda": "B",
+   "cuje_se": "ovoga kak"
+  },
+  {
+   "id": 88,
+   "presuda": "A",
+   "cuje_se": "nekih"
+  },
+  {
+   "id": 89,
+   "presuda": "A",
+   "cuje_se": "imao nesreću saobraćajnu"
+  },
+  {
+   "id": 90,
+   "presuda": "B",
+   "cuje_se": "onak"
+  },
+  {
+   "id": 91,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 92,
+   "presuda": "nijedno",
+   "cuje_se": "mostecu mostiću"
+  },
+  {
+   "id": 93,
+   "presuda": "nijedno",
+   "cuje_se": "stao na mjestu ovoga tad ti je"
+  },
+  {
+   "id": 94,
+   "presuda": "A",
+   "cuje_se": "priklještila mi obje noge, desnu"
+  },
+  {
+   "id": 95,
+   "presuda": "A",
+   "cuje_se": "lijevu"
+  },
+  {
+   "id": 96,
+   "presuda": "nijedno",
+   "cuje_se": "nađeš se"
+  },
+  {
+   "id": 97,
+   "presuda": "A",
+   "cuje_se": "tučeš"
+  },
+  {
+   "id": 98,
+   "presuda": "B",
+   "cuje_se": "ono to je bilo ovoga"
+  },
+  {
+   "id": 99,
+   "presuda": "A",
+   "cuje_se": "tak iznenada ležao"
+  },
+  {
+   "id": 100,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 101,
+   "presuda": "B",
+   "cuje_se": "ja se ono"
+  },
+  {
+   "id": 102,
+   "presuda": "A",
+   "cuje_se": "kak bi rek'o"
+  },
+  {
+   "id": 103,
+   "presuda": "B",
+   "cuje_se": "primiti v kutu si"
+  },
+  {
+   "id": 104,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 105,
+   "presuda": "B",
+   "cuje_se": "I ja gledam"
+  },
+  {
+   "id": 106,
+   "presuda": "B",
+   "cuje_se": "i imali smo onaj"
+  },
+  {
+   "id": 107,
+   "presuda": "A",
+   "cuje_se": "sve je bilo pod hipotekom. Jako isplativo, jako isplativo"
+  },
+  {
+   "id": 108,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 109,
+   "presuda": "nijedno",
+   "cuje_se": "i ona kad"
+  },
+  {
+   "id": 110,
+   "presuda": "B",
+   "cuje_se": "ovoga tad me ona"
+  },
+  {
+   "id": 111,
+   "presuda": "A",
+   "cuje_se": "kaže mi"
+  },
+  {
+   "id": 112,
+   "presuda": "B",
+   "cuje_se": "od"
+  },
+  {
+   "id": 113,
+   "presuda": "A",
+   "cuje_se": "to dijete uzeti ja bum"
+  },
+  {
+   "id": 114,
+   "presuda": "A",
+   "cuje_se": "bum"
+  },
+  {
+   "id": 115,
+   "presuda": "B",
+   "cuje_se": "to to je"
+  },
+  {
+   "id": 116,
+   "presuda": "A",
+   "cuje_se": "kaj mi je trebalo"
+  },
+  {
+   "id": 117,
+   "presuda": "B",
+   "cuje_se": "ono"
+  },
+  {
+   "id": 118,
+   "presuda": "A",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 119,
+   "presuda": "B",
+   "cuje_se": "i tak dalje i kak sam ja više nabraj'o"
+  },
+  {
+   "id": 120,
+   "presuda": "nijedno",
+   "cuje_se": "velečasni Milan Lončarić i reći mu"
+  },
+  {
+   "id": 121,
+   "presuda": "nijedno",
+   "cuje_se": "nisam uplatio prije nesreće, evo 0 kuna meni sve, i on veli"
+  },
+  {
+   "id": 122,
+   "presuda": "nijedno",
+   "cuje_se": "i ja ga gledam, je l' on"
+  },
+  {
+   "id": 123,
+   "presuda": "A",
+   "cuje_se": "rek'o proročke riječi, rek'o"
+  },
+  {
+   "id": 124,
+   "presuda": "nijedno",
+   "cuje_se": "da mu predaš sve"
+  },
+  {
+   "id": 125,
+   "presuda": "B",
+   "cuje_se": "o"
+  },
+  {
+   "id": 126,
+   "presuda": "A",
+   "cuje_se": "Imat ćeš pravu"
+  },
+  {
+   "id": 127,
+   "presuda": "A",
+   "cuje_se": "koji"
+  },
+  {
+   "id": 128,
+   "presuda": "A",
+   "cuje_se": "ja ga gledam, ne mrem vjerovati"
+  },
+  {
+   "id": 129,
+   "presuda": "nijedno",
+   "cuje_se": "ja mu takvu nevolju isprič'o, on meni nekaj sasvim deseto, ali kasnije je rekel"
+  },
+  {
+   "id": 130,
+   "presuda": "B",
+   "cuje_se": "dole"
+  },
+  {
+   "id": 131,
+   "presuda": "B",
+   "cuje_se": "predao sam svoj život Bogu. Spustio se"
+  },
+  {
+   "id": 132,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 133,
+   "presuda": "A",
+   "cuje_se": "tad je počela moja"
+  },
+  {
+   "id": 134,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 135,
+   "presuda": "A",
+   "cuje_se": "da"
+  },
+  {
+   "id": 136,
+   "presuda": "B",
+   "cuje_se": "dugove odavno uz Božju"
+  },
+  {
+   "id": 137,
+   "presuda": "B",
+   "cuje_se": "nadnaravan"
+  },
+  {
+   "id": 138,
+   "presuda": "B",
+   "cuje_se": "proročkih riječi, evo"
+  },
+  {
+   "id": 139,
+   "presuda": "A",
+   "cuje_se": "i govoriti,"
+  },
+  {
+   "id": 140,
+   "presuda": "B",
+   "cuje_se": "obistinilo. 2017. tebi"
+  },
+  {
+   "id": 141,
+   "presuda": "A",
+   "cuje_se": "naziva"
+  },
+  {
+   "id": 142,
+   "presuda": "A",
+   "cuje_se": "jedan"
+  },
+  {
+   "id": 143,
+   "presuda": "B",
+   "cuje_se": "čitavu"
+  },
+  {
+   "id": 144,
+   "presuda": "A",
+   "cuje_se": "doživio"
+  },
+  {
+   "id": 145,
+   "presuda": "A",
+   "cuje_se": "dakle"
+  },
+  {
+   "id": 146,
+   "presuda": "A",
+   "cuje_se": "obraćenja"
+  },
+  {
+   "id": 147,
+   "presuda": "nijedno",
+   "cuje_se": "dogodio, dubljeg obraćenja"
+  },
+  {
+   "id": 148,
+   "presuda": "nijedno",
+   "cuje_se": "ispunila su"
+  },
+  {
+   "id": 149,
+   "presuda": "B",
+   "cuje_se": "gledaš"
+  },
+  {
+   "id": 150,
+   "presuda": "B",
+   "cuje_se": "\"Ti si"
+  },
+  {
+   "id": 151,
+   "presuda": "B",
+   "cuje_se": "je"
+  },
+  {
+   "id": 152,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 153,
+   "presuda": "A",
+   "cuje_se": "je"
+  },
+  {
+   "id": 154,
+   "presuda": "nijedno",
+   "cuje_se": "ovog"
+  },
+  {
+   "id": 155,
+   "presuda": "A",
+   "cuje_se": "napravio lekturu"
+  },
+  {
+   "id": 156,
+   "presuda": "nijedno",
+   "cuje_se": "svece gore i mučenike radi toga. Bilo je posla,"
+  },
+  {
+   "id": 157,
+   "presuda": "nijedno",
+   "cuje_se": "evo bilo je, nije to"
+  },
+  {
+   "id": 158,
+   "presuda": "A",
+   "cuje_se": "napišem knjigu, ovoga,"
+  },
+  {
+   "id": 159,
+   "presuda": "B",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 160,
+   "presuda": "A",
+   "cuje_se": "pisat ćeš o njemu evo to to mi je"
+  },
+  {
+   "id": 161,
+   "presuda": "A",
+   "cuje_se": "ja meni to jedno uho unutra drugo"
+  },
+  {
+   "id": 162,
+   "presuda": "nijedno",
+   "cuje_se": "posle nesreće"
+  },
+  {
+   "id": 163,
+   "presuda": "nijedno",
+   "cuje_se": "dobi' sam"
+  },
+  {
+   "id": 164,
+   "presuda": "A",
+   "cuje_se": "ovoga pita' sam"
+  },
+  {
+   "id": 165,
+   "presuda": "nijedno",
+   "cuje_se": "činiti"
+  },
+  {
+   "id": 166,
+   "presuda": "nijedno",
+   "cuje_se": "dobi' sam"
+  },
+  {
+   "id": 167,
+   "presuda": "nijedno",
+   "cuje_se": "niti računat da piši"
+  },
+  {
+   "id": 168,
+   "presuda": "nijedno",
+   "cuje_se": "izašao sam van iz"
+  },
+  {
+   "id": 169,
+   "presuda": "nijedno",
+   "cuje_se": "tak jer bio sam jedan"
+  },
+  {
+   "id": 170,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 171,
+   "presuda": "A",
+   "cuje_se": "sjest"
+  },
+  {
+   "id": 172,
+   "presuda": "A",
+   "cuje_se": "pisat ma ma"
+  },
+  {
+   "id": 173,
+   "presuda": "nijedno",
+   "cuje_se": "ko će čitat to"
+  },
+  {
+   "id": 174,
+   "presuda": "nijedno",
+   "cuje_se": "otišla"
+  },
+  {
+   "id": 175,
+   "presuda": "nijedno",
+   "cuje_se": "i tak dalje ovoga Bog ima plan i ovoga"
+  },
+  {
+   "id": 176,
+   "presuda": "nijedno",
+   "cuje_se": "ono par tisuća i ovaj koji tiskaru ima oni su se čudili"
+  },
+  {
+   "id": 177,
+   "presuda": "nijedno",
+   "cuje_se": "velim"
+  },
+  {
+   "id": 178,
+   "presuda": "B",
+   "cuje_se": "tu"
+  },
+  {
+   "id": 179,
+   "presuda": "nijedno",
+   "cuje_se": "ovoga to je tak nevjerojatno da je on ono kao nevjernik taj vlasnik tiskare"
+  },
+  {
+   "id": 180,
+   "presuda": "nijedno",
+   "cuje_se": "ono tko si ti? Rek'o ja sam nitko i"
+  },
+  {
+   "id": 181,
+   "presuda": "nijedno",
+   "cuje_se": "koji me je potaknuo"
+  },
+  {
+   "id": 182,
+   "presuda": "nijedno",
+   "cuje_se": "ogolio sam"
+  },
+  {
+   "id": 183,
+   "presuda": "B",
+   "cuje_se": "nekaj kaj je"
+  },
+  {
+   "id": 184,
+   "presuda": "B",
+   "cuje_se": "nekaj kaj"
+  },
+  {
+   "id": 185,
+   "presuda": "nijedno",
+   "cuje_se": "intime od razgolio sam"
+  },
+  {
+   "id": 186,
+   "presuda": "nijedno",
+   "cuje_se": "nemam nemam pisat neke veliko"
+  },
+  {
+   "id": 187,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 188,
+   "presuda": "A",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 189,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 190,
+   "presuda": "nijedno",
+   "cuje_se": "samo je pitanje gdje smo li mi"
+  },
+  {
+   "id": 191,
+   "presuda": "A",
+   "cuje_se": "Reci mi"
+  },
+  {
+   "id": 192,
+   "presuda": "B",
+   "cuje_se": "Evo koje ti"
+  },
+  {
+   "id": 193,
+   "presuda": "A",
+   "cuje_se": "s guštom sjećaš"
+  },
+  {
+   "id": 194,
+   "presuda": "A",
+   "cuje_se": "neke"
+  },
+  {
+   "id": 195,
+   "presuda": "nijedno",
+   "cuje_se": "na na primjer napišem"
+  },
+  {
+   "id": 196,
+   "presuda": "B",
+   "cuje_se": "završit zaglavlje onih"
+  },
+  {
+   "id": 197,
+   "presuda": "nijedno",
+   "cuje_se": "jedanput jedan svećenik me"
+  },
+  {
+   "id": 198,
+   "presuda": "nijedno",
+   "cuje_se": "I ja ču- ja slušam gle kak je ovo lijepo rek'o"
+  },
+  {
+   "id": 199,
+   "presuda": "B",
+   "cuje_se": "ono kaj"
+  },
+  {
+   "id": 200,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 201,
+   "presuda": "B",
+   "cuje_se": "si mislio joj Bože stvarno ljudi ne... ja nisam svjestan"
+  },
+  {
+   "id": 202,
+   "presuda": "B",
+   "cuje_se": "Tak"
+  },
+  {
+   "id": 203,
+   "presuda": "A",
+   "cuje_se": "kaj me nadahnjival kaj me držal"
+  },
+  {
+   "id": 204,
+   "presuda": "A",
+   "cuje_se": "svjedočanstva"
+  },
+  {
+   "id": 205,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 206,
+   "presuda": "A",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 207,
+   "presuda": "nijedno",
+   "cuje_se": "sad te opet nemam treba bit ići u peto izdanje i"
+  },
+  {
+   "id": 208,
+   "presuda": "A",
+   "cuje_se": "okej završio"
+  },
+  {
+   "id": 209,
+   "presuda": "B",
+   "cuje_se": "da izdam uvijek"
+  },
+  {
+   "id": 210,
+   "presuda": "B",
+   "cuje_se": "meni ono Ideš"
+  },
+  {
+   "id": 211,
+   "presuda": "A",
+   "cuje_se": "Idem"
+  },
+  {
+   "id": 212,
+   "presuda": "B",
+   "cuje_se": "ovoga i onda već veli nisi se još obratio nije se obratio ali veli ti nisi uračunljiv ti"
+  },
+  {
+   "id": 213,
+   "presuda": "B",
+   "cuje_se": "jer"
+  },
+  {
+   "id": 214,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 215,
+   "presuda": "B",
+   "cuje_se": "ne Moje"
+  },
+  {
+   "id": 216,
+   "presuda": "B",
+   "cuje_se": "najdraži dio iz knjige jest"
+  },
+  {
+   "id": 217,
+   "presuda": "A",
+   "cuje_se": "održavala"
+  },
+  {
+   "id": 218,
+   "presuda": "A",
+   "cuje_se": "obraćenjem"
+  },
+  {
+   "id": 219,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 220,
+   "presuda": "A",
+   "cuje_se": "sam dobio"
+  },
+  {
+   "id": 221,
+   "presuda": "B",
+   "cuje_se": "je"
+  },
+  {
+   "id": 222,
+   "presuda": "nijedno",
+   "cuje_se": "jednom mi poticaj od Gospodina"
+  },
+  {
+   "id": 223,
+   "presuda": "A",
+   "cuje_se": "ja reko Gospodine pa jedem kaj sad i onda izađi ne i izađem ja"
+  },
+  {
+   "id": 224,
+   "presuda": "A",
+   "cuje_se": "ono pitam se kaj"
+  },
+  {
+   "id": 225,
+   "presuda": "B",
+   "cuje_se": "i onda veli tko si"
+  },
+  {
+   "id": 226,
+   "presuda": "A",
+   "cuje_se": "ovoga počne me daviti"
+  },
+  {
+   "id": 227,
+   "presuda": "A",
+   "cuje_se": "onak otarasim"
+  },
+  {
+   "id": 228,
+   "presuda": "A",
+   "cuje_se": "i ovoga"
+  },
+  {
+   "id": 229,
+   "presuda": "A",
+   "cuje_se": "očevid"
+  },
+  {
+   "id": 230,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 231,
+   "presuda": "B",
+   "cuje_se": "ne I ovoga"
+  },
+  {
+   "id": 232,
+   "presuda": "A",
+   "cuje_se": "I"
+  },
+  {
+   "id": 233,
+   "presuda": "B",
+   "cuje_se": "rekao"
+  },
+  {
+   "id": 234,
+   "presuda": "B",
+   "cuje_se": "na"
+  },
+  {
+   "id": 235,
+   "presuda": "A",
+   "cuje_se": "Božji"
+  },
+  {
+   "id": 236,
+   "presuda": "B",
+   "cuje_se": "ispričao se ispričavao"
+  },
+  {
+   "id": 237,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 238,
+   "presuda": "A",
+   "cuje_se": "Božji"
+  },
+  {
+   "id": 239,
+   "presuda": "B",
+   "cuje_se": "ono ova zajednica čitava je molila za toga čovjeka i evo"
+  },
+  {
+   "id": 240,
+   "presuda": "B",
+   "cuje_se": "ono muško ono"
+  },
+  {
+   "id": 241,
+   "presuda": "A",
+   "cuje_se": "i evo to je"
+  },
+  {
+   "id": 242,
+   "presuda": "A",
+   "cuje_se": "kroz"
+  },
+  {
+   "id": 243,
+   "presuda": "B",
+   "cuje_se": "sam isto upisao ne"
+  },
+  {
+   "id": 244,
+   "presuda": "B",
+   "cuje_se": "neko neko"
+  },
+  {
+   "id": 245,
+   "presuda": "nijedno",
+   "cuje_se": "događao zbilja"
+  },
+  {
+   "id": 246,
+   "presuda": "B",
+   "cuje_se": "u"
+  },
+  {
+   "id": 247,
+   "presuda": "A",
+   "cuje_se": "te"
+  },
+  {
+   "id": 248,
+   "presuda": "nijedno",
+   "cuje_se": "moš nam"
+  },
+  {
+   "id": 249,
+   "presuda": "B",
+   "cuje_se": "ti"
+  },
+  {
+   "id": 250,
+   "presuda": "A",
+   "cuje_se": "ovoga to se tak dogodilo imali smo"
+  },
+  {
+   "id": 251,
+   "presuda": "A",
+   "cuje_se": "moj"
+  },
+  {
+   "id": 252,
+   "presuda": "B",
+   "cuje_se": "prvu"
+  },
+  {
+   "id": 253,
+   "presuda": "nijedno",
+   "cuje_se": "rekao je nek"
+  },
+  {
+   "id": 254,
+   "presuda": "A",
+   "cuje_se": "niko"
+  },
+  {
+   "id": 255,
+   "presuda": "B",
+   "cuje_se": "onda reko ajde budeš ti Zlatko ne reko ajde dobro ako neće niko budem ja i tak"
+  },
+  {
+   "id": 256,
+   "presuda": "B",
+   "cuje_se": "taj"
+  },
+  {
+   "id": 257,
+   "presuda": "A",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 258,
+   "presuda": "B",
+   "cuje_se": "kaj sam rekao ovoga"
+  },
+  {
+   "id": 259,
+   "presuda": "B",
+   "cuje_se": "đakona reko"
+  },
+  {
+   "id": 260,
+   "presuda": "B",
+   "cuje_se": "ovoga nekoga drugoga dobro ja se nasmijem i"
+  },
+  {
+   "id": 261,
+   "presuda": "A",
+   "cuje_se": "uđem"
+  },
+  {
+   "id": 262,
+   "presuda": "B",
+   "cuje_se": "kak mi je on rekao Bože kakav đakon kaj"
+  },
+  {
+   "id": 263,
+   "presuda": "B",
+   "cuje_se": "ulazim"
+  },
+  {
+   "id": 264,
+   "presuda": "B",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 265,
+   "presuda": "nijedno",
+   "cuje_se": "neke blizu ultara"
+  },
+  {
+   "id": 266,
+   "presuda": "A",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 267,
+   "presuda": "B",
+   "cuje_se": "počnem raspitivati kaj"
+  },
+  {
+   "id": 268,
+   "presuda": "A",
+   "cuje_se": "đakon ne"
+  },
+  {
+   "id": 269,
+   "presuda": "B",
+   "cuje_se": "đakona"
+  },
+  {
+   "id": 270,
+   "presuda": "A",
+   "cuje_se": "recimo"
+  },
+  {
+   "id": 271,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 272,
+   "presuda": "A",
+   "cuje_se": "trebaš"
+  },
+  {
+   "id": 273,
+   "presuda": "B",
+   "cuje_se": "faksa"
+  },
+  {
+   "id": 274,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 275,
+   "presuda": "nijedno",
+   "cuje_se": "bio za"
+  },
+  {
+   "id": 276,
+   "presuda": "B",
+   "cuje_se": "I ja tu stalno propitkujem se Gospodin me"
+  },
+  {
+   "id": 277,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 278,
+   "presuda": "B",
+   "cuje_se": "ići ovoga ići sam"
+  },
+  {
+   "id": 279,
+   "presuda": "oba",
+   "cuje_se": "kilometara"
+  },
+  {
+   "id": 280,
+   "presuda": "A",
+   "cuje_se": "Dobivao"
+  },
+  {
+   "id": 281,
+   "presuda": "B",
+   "cuje_se": "si \"Ajde izmolit ću tisuću Zdravo"
+  },
+  {
+   "id": 282,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 283,
+   "presuda": "nijedno",
+   "cuje_se": "podvučem crtu"
+  },
+  {
+   "id": 284,
+   "presuda": "B",
+   "cuje_se": "šta"
+  },
+  {
+   "id": 285,
+   "presuda": "A",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 286,
+   "presuda": "B",
+   "cuje_se": "Gospodin bio s menom na tom"
+  },
+  {
+   "id": 287,
+   "presuda": "B",
+   "cuje_se": "bacio"
+  },
+  {
+   "id": 288,
+   "presuda": "A",
+   "cuje_se": "jednom onakvom ja bum došo ja idem Gospi i tak I ovoga"
+  },
+  {
+   "id": 289,
+   "presuda": "nijedno",
+   "cuje_se": "Alojzija Stepinca"
+  },
+  {
+   "id": 290,
+   "presuda": "B",
+   "cuje_se": "u Krašiću"
+  },
+  {
+   "id": 291,
+   "presuda": "nijedno",
+   "cuje_se": "pa evo"
+  },
+  {
+   "id": 292,
+   "presuda": "B",
+   "cuje_se": "pukne mi guma I ovoga"
+  },
+  {
+   "id": 293,
+   "presuda": "nijedno",
+   "cuje_se": "malu pumpu sam imao"
+  },
+  {
+   "id": 294,
+   "presuda": "B",
+   "cuje_se": "sam izgubio vrijeme tak"
+  },
+  {
+   "id": 295,
+   "presuda": "B",
+   "cuje_se": "da mi bude u"
+  },
+  {
+   "id": 296,
+   "presuda": "A",
+   "cuje_se": "bio"
+  },
+  {
+   "id": 297,
+   "presuda": "A",
+   "cuje_se": "pojavi se pred menom"
+  },
+  {
+   "id": 298,
+   "presuda": "nijedno",
+   "cuje_se": "i špagu otraga ne Ja sam supruzi"
+  },
+  {
+   "id": 299,
+   "presuda": "B",
+   "cuje_se": "kaj mi"
+  },
+  {
+   "id": 300,
+   "presuda": "nijedno",
+   "cuje_se": "poslo mi traktora nekih jedno 10 kilometara"
+  },
+  {
+   "id": 301,
+   "presuda": "A",
+   "cuje_se": "Ovoga idem dalje dojdem ovoga"
+  },
+  {
+   "id": 302,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 303,
+   "presuda": "nijedno",
+   "cuje_se": "ja tebi kaj sad tu spavam u nekom kanalu reko pa"
+  },
+  {
+   "id": 304,
+   "presuda": "A",
+   "cuje_se": "daj"
+  },
+  {
+   "id": 305,
+   "presuda": "nijedno",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 306,
+   "presuda": "A",
+   "cuje_se": "veli"
+  },
+  {
+   "id": 307,
+   "presuda": "nijedno",
+   "cuje_se": "imam smještaj dođite pogledajte"
+  },
+  {
+   "id": 308,
+   "presuda": "B",
+   "cuje_se": "pogledam"
+  },
+  {
+   "id": 309,
+   "presuda": "A",
+   "cuje_se": "ali ovak"
+  },
+  {
+   "id": 310,
+   "presuda": "B",
+   "cuje_se": "jel"
+  },
+  {
+   "id": 311,
+   "presuda": "B",
+   "cuje_se": "Ovoga"
+  },
+  {
+   "id": 312,
+   "presuda": "B",
+   "cuje_se": "jao"
+  },
+  {
+   "id": 313,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 314,
+   "presuda": "A",
+   "cuje_se": "da mi nekaj"
+  },
+  {
+   "id": 315,
+   "presuda": "A",
+   "cuje_se": "baš sam bil i pokraj gdje"
+  },
+  {
+   "id": 316,
+   "presuda": "A",
+   "cuje_se": "vam"
+  },
+  {
+   "id": 317,
+   "presuda": "oba",
+   "cuje_se": "self servis"
+  },
+  {
+   "id": 318,
+   "presuda": "A",
+   "cuje_se": "tak ja to napumpam riješim Ali"
+  },
+  {
+   "id": 319,
+   "presuda": "B",
+   "cuje_se": "rezervnu gumu kak ću sad ovoga tam"
+  },
+  {
+   "id": 320,
+   "presuda": "A",
+   "cuje_se": "pristigne"
+  },
+  {
+   "id": 321,
+   "presuda": "B",
+   "cuje_se": "trkačim biciklom kak"
+  },
+  {
+   "id": 322,
+   "presuda": "nijedno",
+   "cuje_se": "otprilike ne znam 10 15 kilometara kasnije on dole"
+  },
+  {
+   "id": 323,
+   "presuda": "B",
+   "cuje_se": "ovak ja si mislim ono pa kaj mu se dogodilo stanem jesi ti dobro jesam ma"
+  },
+  {
+   "id": 324,
+   "presuda": "A",
+   "cuje_se": "i tak"
+  },
+  {
+   "id": 325,
+   "presuda": "nijedno",
+   "cuje_se": "ide iz Zagreba ja velim idem iz Čakovca"
+  },
+  {
+   "id": 326,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 327,
+   "presuda": "B",
+   "cuje_se": "ak"
+  },
+  {
+   "id": 328,
+   "presuda": "B",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 329,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 330,
+   "presuda": "B",
+   "cuje_se": "ovak krunicu kak"
+  },
+  {
+   "id": 331,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 332,
+   "presuda": "A",
+   "cuje_se": "nutarnju",
+   "napomena": "Čuje se 'nutarnju' ili 'unutarnju' s vrlo tihim u"
+  },
+  {
+   "id": 333,
+   "presuda": "B",
+   "cuje_se": "kaj je meni trebalo to je poklon od"
+  },
+  {
+   "id": 334,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 335,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 336,
+   "presuda": "B",
+   "cuje_se": "tam"
+  },
+  {
+   "id": 337,
+   "presuda": "B",
+   "cuje_se": "bil susret Robert Rukavina ko organizira"
+  },
+  {
+   "id": 338,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 339,
+   "presuda": "B",
+   "cuje_se": "žuti"
+  },
+  {
+   "id": 340,
+   "presuda": "nijedno",
+   "cuje_se": "ovoga s kojim"
+  },
+  {
+   "id": 341,
+   "presuda": "oba",
+   "cuje_se": "petsto"
+  },
+  {
+   "id": 342,
+   "presuda": "nijedno",
+   "cuje_se": "sad govorim možda i 600 uglavnom ono"
+  },
+  {
+   "id": 343,
+   "presuda": "nijedno",
+   "cuje_se": "misu fra Petar"
+  },
+  {
+   "id": 344,
+   "presuda": "B",
+   "cuje_se": "sa"
+  },
+  {
+   "id": 345,
+   "presuda": "A",
+   "cuje_se": "i"
+  },
+  {
+   "id": 346,
+   "presuda": "nijedno",
+   "cuje_se": "fra Petar da li netko"
+  },
+  {
+   "id": 347,
+   "presuda": "A",
+   "cuje_se": "dijelitelj"
+  },
+  {
+   "id": 348,
+   "presuda": "nijedno",
+   "cuje_se": "sastavi ja"
+  },
+  {
+   "id": 349,
+   "presuda": "nijedno",
+   "cuje_se": "viru a Sandra meni"
+  },
+  {
+   "id": 350,
+   "presuda": "nijedno",
+   "cuje_se": "reko"
+  },
+  {
+   "id": 351,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 352,
+   "presuda": "A",
+   "cuje_se": "tam"
+  },
+  {
+   "id": 353,
+   "presuda": "nijedno",
+   "cuje_se": ""
+  },
+  {
+   "id": 354,
+   "presuda": "B",
+   "cuje_se": "po kaj"
+  },
+  {
+   "id": 355,
+   "presuda": "B",
+   "cuje_se": "otišo moram još jedanput da se sjetim pa kak ću ja fakultet ama nemogu ja to ja"
+  },
+  {
+   "id": 356,
+   "presuda": "B",
+   "cuje_se": "ovoga onak u"
+  },
+  {
+   "id": 357,
+   "presuda": "A",
+   "cuje_se": "reci mi i ovoga tak u"
+  },
+  {
+   "id": 358,
+   "presuda": "B",
+   "cuje_se": "ne znam"
+  },
+  {
+   "id": 359,
+   "presuda": "A",
+   "cuje_se": "onak čujem odgovor čekat ću"
+  },
+  {
+   "id": 360,
+   "presuda": "B",
+   "cuje_se": "Joj užas Onda tak"
+  },
+  {
+   "id": 361,
+   "presuda": "A",
+   "cuje_se": "klanjanje"
+  },
+  {
+   "id": 362,
+   "presuda": "nijedno",
+   "cuje_se": "onak prebira"
+  },
+  {
+   "id": 363,
+   "presuda": "A",
+   "cuje_se": "da"
+  },
+  {
+   "id": 364,
+   "presuda": "A",
+   "cuje_se": "svojom"
+  },
+  {
+   "id": 365,
+   "presuda": "A",
+   "cuje_se": "nadahnuću to izgovorim i"
+  },
+  {
+   "id": 366,
+   "presuda": "B",
+   "cuje_se": "unutarnji"
+  },
+  {
+   "id": 367,
+   "presuda": "nijedno",
+   "cuje_se": "Joj Bože ono meni dođu"
+  },
+  {
+   "id": 368,
+   "presuda": "nijedno",
+   "cuje_se": "ono vidi me ovaj kolega kaj"
+  },
+  {
+   "id": 369,
+   "presuda": "nijedno",
+   "cuje_se": "sav u suzama I on pita"
+  },
+  {
+   "id": 370,
+   "presuda": "A",
+   "cuje_se": "niš"
+  },
+  {
+   "id": 371,
+   "presuda": "A",
+   "cuje_se": "veze"
+  },
+  {
+   "id": 372,
+   "presuda": "A",
+   "cuje_se": "ne Nisam"
+  },
+  {
+   "id": 373,
+   "presuda": "B",
+   "cuje_se": "tu"
+  },
+  {
+   "id": 374,
+   "presuda": "nijedno",
+   "cuje_se": "ovoga onda sam išo"
+  },
+  {
+   "id": 375,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 376,
+   "presuda": "A",
+   "cuje_se": "ja ga"
+  },
+  {
+   "id": 377,
+   "presuda": "B",
+   "cuje_se": "imam"
+  },
+  {
+   "id": 378,
+   "presuda": "B",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 379,
+   "presuda": "nijedno",
+   "cuje_se": "I on veli dobro može i on se počne moliti E"
+  },
+  {
+   "id": 380,
+   "presuda": "nijedno",
+   "cuje_se": "te zov'o Pogledaj u njega"
+  },
+  {
+   "id": 381,
+   "presuda": "B",
+   "cuje_se": "gledaj u"
+  },
+  {
+   "id": 382,
+   "presuda": "nijedno",
+   "cuje_se": "joj joj užas ono sad mi je to sve skup opet ono ja bi da mi netko"
+  },
+  {
+   "id": 383,
+   "presuda": "nijedno",
+   "cuje_se": "ne I tak još"
+  },
+  {
+   "id": 384,
+   "presuda": "nijedno",
+   "cuje_se": "ono vide da"
+  },
+  {
+   "id": 385,
+   "presuda": "nijedno",
+   "cuje_se": "reko biskup varaždinski Bože"
+  },
+  {
+   "id": 386,
+   "presuda": "A",
+   "cuje_se": "riješim"
+  },
+  {
+   "id": 387,
+   "presuda": "nijedno",
+   "cuje_se": "ovoga ja sam to za Poput mišljenja drugog doktora E tak"
+  },
+  {
+   "id": 388,
+   "presuda": "B",
+   "cuje_se": "zabrio i ono I dođem ja kod njega i ispričam mu"
+  },
+  {
+   "id": 389,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 390,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 391,
+   "presuda": "B",
+   "cuje_se": "tak ne I ono ja si"
+  },
+  {
+   "id": 392,
+   "presuda": "nijedno",
+   "cuje_se": "i ovoga tak"
+  },
+  {
+   "id": 393,
+   "presuda": "B",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 394,
+   "presuda": "A",
+   "cuje_se": "I"
+  },
+  {
+   "id": 395,
+   "presuda": "B",
+   "cuje_se": "govoril Bogu \"Pa ono"
+  },
+  {
+   "id": 396,
+   "presuda": "nijedno",
+   "cuje_se": "ko je vidio s 50 godina iti na faks ono pa to pa to niko ni išel I"
+  },
+  {
+   "id": 397,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 398,
+   "presuda": "B",
+   "cuje_se": "velim pa ono tak razmišljam si malo nekaj"
+  },
+  {
+   "id": 399,
+   "presuda": "B",
+   "cuje_se": "tu"
+  },
+  {
+   "id": 400,
+   "presuda": "A",
+   "cuje_se": "s"
+  },
+  {
+   "id": 401,
+   "presuda": "B",
+   "cuje_se": "i nekaj završio i rek'o o pa ovaj je"
+  },
+  {
+   "id": 402,
+   "presuda": "B",
+   "cuje_se": "tak ovoga"
+  },
+  {
+   "id": 403,
+   "presuda": "A",
+   "cuje_se": "kak"
+  },
+  {
+   "id": 404,
+   "presuda": "A",
+   "cuje_se": "Bog"
+  },
+  {
+   "id": 405,
+   "presuda": "A",
+   "cuje_se": "da"
+  },
+  {
+   "id": 406,
+   "presuda": "A",
+   "cuje_se": "ja"
+  },
+  {
+   "id": 407,
+   "presuda": "A",
+   "cuje_se": "se ti buniš Ja a ja sam to odluči"
+  },
+  {
+   "id": 408,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 409,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 410,
+   "presuda": "A",
+   "cuje_se": "kapelica trajnog klanjanja To"
+  },
+  {
+   "id": 411,
+   "presuda": "nijedno",
+   "cuje_se": "presretan sam kaj"
+  },
+  {
+   "id": 412,
+   "presuda": "nijedno",
+   "cuje_se": "Nedelišću jedanput mjesečno cjelodnevno"
+  },
+  {
+   "id": 413,
+   "presuda": "A",
+   "cuje_se": "ono obično kak"
+  },
+  {
+   "id": 414,
+   "presuda": "B",
+   "cuje_se": "godišnji"
+  },
+  {
+   "id": 415,
+   "presuda": "A",
+   "cuje_se": "danu"
+  },
+  {
+   "id": 416,
+   "presuda": "B",
+   "cuje_se": "sam cijeli tam"
+  },
+  {
+   "id": 417,
+   "presuda": "A",
+   "cuje_se": "zanima"
+  },
+  {
+   "id": 418,
+   "presuda": "A",
+   "cuje_se": "ne može"
+  },
+  {
+   "id": 419,
+   "presuda": "B",
+   "cuje_se": "iskoristiti"
+  },
+  {
+   "id": 420,
+   "presuda": "A",
+   "cuje_se": "nekaj nekaj najvažnije nekaj"
+  },
+  {
+   "id": 421,
+   "presuda": "A",
+   "cuje_se": "dojdem"
+  },
+  {
+   "id": 422,
+   "presuda": "A",
+   "cuje_se": "dojdem ovim zemaljskima"
+  },
+  {
+   "id": 423,
+   "presuda": "A",
+   "cuje_se": "i tak I tak"
+  },
+  {
+   "id": 424,
+   "presuda": "B",
+   "cuje_se": "pater Mijo Nikić"
+  },
+  {
+   "id": 425,
+   "presuda": "A",
+   "cuje_se": "dojdem"
+  },
+  {
+   "id": 426,
+   "presuda": "B",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 427,
+   "presuda": "A",
+   "cuje_se": "zapamtio sam si"
+  },
+  {
+   "id": 428,
+   "presuda": "B",
+   "cuje_se": "pet"
+  },
+  {
+   "id": 429,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 430,
+   "presuda": "nijedno",
+   "cuje_se": "bu mi znak da si ti"
+  },
+  {
+   "id": 431,
+   "presuda": "A",
+   "cuje_se": "dojdem ja"
+  },
+  {
+   "id": 432,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 433,
+   "presuda": "B",
+   "cuje_se": "O kad bi bi"
+  },
+  {
+   "id": 434,
+   "presuda": "B",
+   "cuje_se": "redoviti studenti ovak"
+  },
+  {
+   "id": 435,
+   "presuda": "B",
+   "cuje_se": "to je super ja reko o"
+  },
+  {
+   "id": 436,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 437,
+   "presuda": "A",
+   "cuje_se": "kroz kroz faks"
+  },
+  {
+   "id": 438,
+   "presuda": "B",
+   "cuje_se": "i latinski i grčki i"
+  },
+  {
+   "id": 439,
+   "presuda": "B",
+   "cuje_se": "Ne"
+  },
+  {
+   "id": 440,
+   "presuda": "B",
+   "cuje_se": "nego govorim u"
+  },
+  {
+   "id": 441,
+   "presuda": "oba",
+   "cuje_se": "na primjer"
+  },
+  {
+   "id": 442,
+   "presuda": "oba",
+   "cuje_se": "petsto"
+  },
+  {
+   "id": 443,
+   "presuda": "B",
+   "cuje_se": "meni Sandra pa ja to vidim"
+  },
+  {
+   "id": 444,
+   "presuda": "B",
+   "cuje_se": "ovak"
+  },
+  {
+   "id": 445,
+   "presuda": "B",
+   "cuje_se": "da dojdem ovoga da dojdem"
+  },
+  {
+   "id": 446,
+   "presuda": "A",
+   "cuje_se": "je"
+  },
+  {
+   "id": 447,
+   "presuda": "A",
+   "cuje_se": "kak tko to"
+  },
+  {
+   "id": 448,
+   "presuda": "B",
+   "cuje_se": "treba"
+  },
+  {
+   "id": 449,
+   "presuda": "B",
+   "cuje_se": "dojde"
+  },
+  {
+   "id": 450,
+   "presuda": "A",
+   "cuje_se": "ono"
+  },
+  {
+   "id": 451,
+   "presuda": "B",
+   "cuje_se": "to"
+  },
+  {
+   "id": 452,
+   "presuda": "A",
+   "cuje_se": "ono i skripta još nekih sto"
+  },
+  {
+   "id": 453,
+   "presuda": "A",
+   "cuje_se": "i navečer"
+  },
+  {
+   "id": 454,
+   "presuda": "B",
+   "cuje_se": "ujutro na svetoj misi i obično navečer"
+  },
+  {
+   "id": 455,
+   "presuda": "B",
+   "cuje_se": "se u tišini i"
+  },
+  {
+   "id": 456,
+   "presuda": "B",
+   "cuje_se": "se uzme biciklom"
+  },
+  {
+   "id": 457,
+   "presuda": "nijedno",
+   "cuje_se": "i ide s biciklom kak"
+  },
+  {
+   "id": 458,
+   "presuda": "B",
+   "cuje_se": "ovoga htio sam ići to ponavljati si tak navečer i pita mene Sandra ideš"
+  },
+  {
+   "id": 459,
+   "presuda": "A",
+   "cuje_se": "idi"
+  },
+  {
+   "id": 460,
+   "presuda": "B",
+   "cuje_se": "rek'o letim i ovoga otišao sam onak s radošću na misu i čekam kaj bi se sad dogodilo i dojdem"
+  },
+  {
+   "id": 461,
+   "presuda": "B",
+   "cuje_se": "tam"
+  },
+  {
+   "id": 462,
+   "presuda": "A",
+   "cuje_se": "pita me"
+  },
+  {
+   "id": 463,
+   "presuda": "B",
+   "cuje_se": "rek'o"
+  },
+  {
+   "id": 464,
+   "presuda": "nijedno",
+   "cuje_se": "i on meni neke"
+  },
+  {
+   "id": 465,
+   "presuda": "A",
+   "cuje_se": "pitao prošao sam"
+  },
+  {
+   "id": 466,
+   "presuda": "B",
+   "cuje_se": "ovoga nikad više poslije toga studenta nisam vidio"
+  },
+  {
+   "id": 467,
+   "presuda": "A",
+   "cuje_se": "jedan jedan ovoga ispit"
+  },
+  {
+   "id": 468,
+   "presuda": "B",
+   "cuje_se": "sve"
+  },
+  {
+   "id": 469,
+   "presuda": "B",
+   "cuje_se": "čut ćemo povratne informacije nakon podcasta",
+   "napomena": "drugi govornik"
+  },
+  {
+   "id": 470,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 471,
+   "presuda": "oba",
+   "cuje_se": "trideset četrdeset"
+  },
+  {
+   "id": 472,
+   "presuda": "B",
+   "cuje_se": "pismeni kad to zadovoljim"
+  },
+  {
+   "id": 473,
+   "presuda": "B",
+   "cuje_se": "dojdem opet pred pa ja uvijek kad dojdem"
+  },
+  {
+   "id": 474,
+   "presuda": "B",
+   "cuje_se": "kapelica trajnog klanjanja pred Presveto"
+  },
+  {
+   "id": 475,
+   "presuda": "A",
+   "cuje_se": "I"
+  },
+  {
+   "id": 476,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 477,
+   "presuda": "B",
+   "cuje_se": "daj ovi tu trideset četrdeset"
+  },
+  {
+   "id": 478,
+   "presuda": "B",
+   "cuje_se": "ovoga već budem ono"
+  },
+  {
+   "id": 479,
+   "presuda": "nijedno",
+   "cuje_se": "tak onda"
+  },
+  {
+   "id": 480,
+   "presuda": "A",
+   "cuje_se": "to bi mi"
+  },
+  {
+   "id": 481,
+   "presuda": "B",
+   "cuje_se": "dojdem"
+  },
+  {
+   "id": 482,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 483,
+   "presuda": "B",
+   "cuje_se": "znam"
+  },
+  {
+   "id": 484,
+   "presuda": "A",
+   "cuje_se": "pismenog ma"
+  },
+  {
+   "id": 485,
+   "presuda": "B",
+   "cuje_se": "ovoga dođem ja na ispit profesor uzme"
+  },
+  {
+   "id": 486,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 487,
+   "presuda": "A",
+   "cuje_se": "ovak"
+  },
+  {
+   "id": 488,
+   "presuda": "B",
+   "cuje_se": "niže"
+  },
+  {
+   "id": 489,
+   "presuda": "nijedno",
+   "cuje_se": "kaj sam se molil"
+  },
+  {
+   "id": 490,
+   "presuda": "A",
+   "cuje_se": "veli e"
+  },
+  {
+   "id": 491,
+   "presuda": "B",
+   "cuje_se": "usmeno E rek'o dobro Pita on mene usmeno ja Bogu hvala sve sam dao"
+  },
+  {
+   "id": 492,
+   "presuda": "B",
+   "cuje_se": "ovoga dobio sam dobio sam ovoga"
+  },
+  {
+   "id": 493,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 494,
+   "presuda": "A",
+   "cuje_se": "vama"
+  },
+  {
+   "id": 495,
+   "presuda": "A",
+   "cuje_se": "I"
+  },
+  {
+   "id": 496,
+   "presuda": "B",
+   "cuje_se": "mu odgovorim ovoga a"
+  },
+  {
+   "id": 497,
+   "presuda": "nijedno",
+   "cuje_se": "gde"
+  },
+  {
+   "id": 498,
+   "presuda": "B",
+   "cuje_se": "i"
+  },
+  {
+   "id": 499,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 500,
+   "presuda": "nijedno",
+   "cuje_se": "de"
+  },
+  {
+   "id": 501,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 502,
+   "presuda": "B",
+   "cuje_se": "idi"
+  },
+  {
+   "id": 503,
+   "presuda": "nijedno",
+   "cuje_se": "ja idem ovoga"
+  },
+  {
+   "id": 504,
+   "presuda": "nijedno",
+   "cuje_se": "tam i ja projdem evo ovoga"
+  },
+  {
+   "id": 505,
+   "presuda": "B",
+   "cuje_se": "recimo evo"
+  },
+  {
+   "id": 506,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 507,
+   "presuda": "B",
+   "cuje_se": "onak pripremi kak"
+  },
+  {
+   "id": 508,
+   "presuda": "B",
+   "cuje_se": "I ovoga"
+  },
+  {
+   "id": 509,
+   "presuda": "nijedno",
+   "cuje_se": "na večer ponavljal ujutro"
+  },
+  {
+   "id": 510,
+   "presuda": "nijedno",
+   "cuje_se": "uzma bicikla van s biciklom do faksa zadihani dođem"
+  },
+  {
+   "id": 511,
+   "presuda": "nijedno",
+   "cuje_se": "oveh"
+  },
+  {
+   "id": 512,
+   "presuda": "nijedno",
+   "cuje_se": "neću iti s njima ne hajde hodi ti pa reko meni"
+  },
+  {
+   "id": 513,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 514,
+   "presuda": "B",
+   "cuje_se": "li da idem Gospodin veli idi i negdje možda sat"
+  },
+  {
+   "id": 515,
+   "presuda": "B",
+   "cuje_se": "pitao nas šest onak rešeta"
+  },
+  {
+   "id": 516,
+   "presuda": "oba",
+   "cuje_se": "i tak"
+  },
+  {
+   "id": 517,
+   "presuda": "B",
+   "cuje_se": "ti dijeli"
+  },
+  {
+   "id": 518,
+   "presuda": "nijedno",
+   "cuje_se": "ovome to meni da osmicu ovome desetku ovima nekima slabije i tak"
+  },
+  {
+   "id": 519,
+   "presuda": "nijedno",
+   "cuje_se": "mene veli vi"
+  },
+  {
+   "id": 520,
+   "presuda": "B",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 521,
+   "presuda": "A",
+   "cuje_se": "ja"
+  },
+  {
+   "id": 522,
+   "presuda": "B",
+   "cuje_se": "I"
+  },
+  {
+   "id": 523,
+   "presuda": "B",
+   "cuje_se": "veli \"Kolega vidiš koliko je tebi rekao"
+  },
+  {
+   "id": 524,
+   "presuda": "nijedno",
+   "cuje_se": "Pa reko"
+  },
+  {
+   "id": 525,
+   "presuda": "A",
+   "cuje_se": "i svakaj"
+  },
+  {
+   "id": 526,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 527,
+   "presuda": "B",
+   "cuje_se": "ne I tak"
+  },
+  {
+   "id": 528,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 529,
+   "presuda": "nijedno",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 530,
+   "presuda": "nijedno",
+   "cuje_se": "ni"
+  },
+  {
+   "id": 531,
+   "presuda": "nijedno",
+   "cuje_se": "ti evo"
+  },
+  {
+   "id": 532,
+   "presuda": "A",
+   "cuje_se": "ići"
+  },
+  {
+   "id": 533,
+   "presuda": "B",
+   "cuje_se": "da da dobivam"
+  },
+  {
+   "id": 534,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 535,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 536,
+   "presuda": "nijedno",
+   "cuje_se": "na sve posvud"
+  },
+  {
+   "id": 537,
+   "presuda": "nijedno",
+   "cuje_se": "dal"
+  },
+  {
+   "id": 538,
+   "presuda": "A",
+   "cuje_se": "masu"
+  },
+  {
+   "id": 539,
+   "presuda": "A",
+   "cuje_se": "i"
+  },
+  {
+   "id": 540,
+   "presuda": "B",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 541,
+   "presuda": "B",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 542,
+   "presuda": "B",
+   "cuje_se": "jer"
+  },
+  {
+   "id": 543,
+   "presuda": "B",
+   "cuje_se": "onda"
+  },
+  {
+   "id": 544,
+   "presuda": "A",
+   "cuje_se": "faksa"
+  },
+  {
+   "id": 545,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 546,
+   "presuda": "nijedno",
+   "cuje_se": "redili đakone ne znam neki dugi"
+  },
+  {
+   "id": 547,
+   "presuda": "B",
+   "cuje_se": "ne znam 10 15"
+  },
+  {
+   "id": 548,
+   "presuda": "A",
+   "cuje_se": "ređenja"
+  },
+  {
+   "id": 549,
+   "presuda": "B",
+   "cuje_se": "I ovoga"
+  },
+  {
+   "id": 550,
+   "presuda": "A",
+   "cuje_se": "nekaj ne znam prst fali ili nekaj ovo ono ne brešiti za đakona ne Rek'o \"Dobro pa Rek'o \"Ne al meni je Gospodin rekao ja Gospodinu vjerujem ne"
+  },
+  {
+   "id": 551,
+   "presuda": "A",
+   "cuje_se": "ovoga"
+  },
+  {
+   "id": 552,
+   "presuda": "B",
+   "cuje_se": "evo kak ja imam protezu na primjer Počeli su rediti"
+  },
+  {
+   "id": 553,
+   "presuda": "nijedno",
+   "cuje_se": "je završi"
+  },
+  {
+   "id": 554,
+   "presuda": "A",
+   "cuje_se": "misi"
+  },
+  {
+   "id": 555,
+   "presuda": "B",
+   "cuje_se": "sprovod"
+  },
+  {
+   "id": 556,
+   "presuda": "A",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 557,
+   "presuda": "B",
+   "cuje_se": "rečeno supstancijalnu"
+  },
+  {
+   "id": 558,
+   "presuda": "nijedno",
+   "cuje_se": "tijelo Kristovo Supstancijalna"
+  },
+  {
+   "id": 559,
+   "presuda": "B",
+   "cuje_se": "sad"
+  },
+  {
+   "id": 560,
+   "presuda": "A",
+   "cuje_se": "na primjer kad"
+  },
+  {
+   "id": 561,
+   "presuda": "B",
+   "cuje_se": "zapališ"
+  },
+  {
+   "id": 562,
+   "presuda": "B",
+   "cuje_se": "pepel To je supstancijalna promjena evo"
+  },
+  {
+   "id": 563,
+   "presuda": "A",
+   "cuje_se": "đakon"
+  },
+  {
+   "id": 564,
+   "presuda": "B",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 565,
+   "presuda": "A",
+   "cuje_se": "pričest"
+  },
+  {
+   "id": 566,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 567,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 568,
+   "presuda": "B",
+   "cuje_se": "i i ovoga"
+  },
+  {
+   "id": 569,
+   "presuda": "B",
+   "cuje_se": "bolesničko pomazanje"
+  },
+  {
+   "id": 570,
+   "presuda": "B",
+   "cuje_se": "to je to je"
+  },
+  {
+   "id": 571,
+   "presuda": "B",
+   "cuje_se": "ne"
+  },
+  {
+   "id": 572,
+   "presuda": "B",
+   "cuje_se": "đakon može evo tak Dakle zapravo smo suočeni"
+  },
+  {
+   "id": 573,
+   "presuda": "A",
+   "cuje_se": "đakonat"
+  },
+  {
+   "id": 574,
+   "presuda": "B",
+   "cuje_se": "prisutniji"
+  },
+  {
+   "id": 575,
+   "presuda": "B",
+   "cuje_se": "ti"
+  },
+  {
+   "id": 576,
+   "presuda": "A",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 577,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 578,
+   "presuda": "B",
+   "cuje_se": "ili"
+  },
+  {
+   "id": 579,
+   "presuda": "A",
+   "cuje_se": "đakonatu evo neke"
+  },
+  {
+   "id": 580,
+   "presuda": "B",
+   "cuje_se": "je dobio"
+  },
+  {
+   "id": 581,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 582,
+   "presuda": "A",
+   "cuje_se": "taj jedan strah hoću li ja to moći i"
+  },
+  {
+   "id": 583,
+   "presuda": "B",
+   "cuje_se": "djetinjstva kad nekaj nisi znao pa"
+  },
+  {
+   "id": 584,
+   "presuda": "A",
+   "cuje_se": "tak ono pa kak sad"
+  },
+  {
+   "id": 585,
+   "presuda": "B",
+   "cuje_se": "s 50 godina ono Bože mili zašto i tak ne I"
+  },
+  {
+   "id": 586,
+   "presuda": "A",
+   "cuje_se": "desetero"
+  },
+  {
+   "id": 587,
+   "presuda": "A",
+   "cuje_se": "ti ti pozivi Božji"
+  },
+  {
+   "id": 588,
+   "presuda": "A",
+   "cuje_se": "li"
+  },
+  {
+   "id": 589,
+   "presuda": "B",
+   "cuje_se": "li"
+  },
+  {
+   "id": 590,
+   "presuda": "B",
+   "cuje_se": "li"
+  },
+  {
+   "id": 591,
+   "presuda": "B",
+   "cuje_se": "pa ideš"
+  },
+  {
+   "id": 592,
+   "presuda": "B",
+   "cuje_se": "u"
+  },
+  {
+   "id": 593,
+   "presuda": "A",
+   "cuje_se": "kaj me"
+  },
+  {
+   "id": 594,
+   "presuda": "B",
+   "cuje_se": "ti"
+  },
+  {
+   "id": 595,
+   "presuda": "A",
+   "cuje_se": "si"
+  },
+  {
+   "id": 596,
+   "presuda": "B",
+   "cuje_se": "upotrebljiv"
+  },
+  {
+   "id": 597,
+   "presuda": "nijedno",
+   "cuje_se": "izresetira da te"
+  },
+  {
+   "id": 598,
+   "presuda": "B",
+   "cuje_se": "neke"
+  },
+  {
+   "id": 599,
+   "presuda": "A",
+   "cuje_se": "stavi ti novo odijelo stavi ti novu ruhu stavi nekaj novo"
+  },
+  {
+   "id": 600,
+   "presuda": "B",
+   "cuje_se": "nek"
+  },
+  {
+   "id": 601,
+   "presuda": "nijedno",
+   "cuje_se": "gde evo tak"
+  },
+  {
+   "id": 602,
+   "presuda": "B",
+   "cuje_se": "trajnog"
+  },
+  {
+   "id": 603,
+   "presuda": "A",
+   "cuje_se": "6 do 7 zakaj? Zato kaj"
+  },
+  {
+   "id": 604,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 605,
+   "presuda": "A",
+   "cuje_se": "I sad subotu"
+  },
+  {
+   "id": 606,
+   "presuda": "A",
+   "cuje_se": "nekaj"
+  },
+  {
+   "id": 607,
+   "presuda": "A",
+   "cuje_se": "žrtvicu,"
+  },
+  {
+   "id": 608,
+   "presuda": "B",
+   "cuje_se": "sat"
+  },
+  {
+   "id": 609,
+   "presuda": "nijedno",
+   "cuje_se": "molimo krunicu na koljenima tam. Ovoga"
+  },
+  {
+   "id": 610,
+   "presuda": "oba",
+   "cuje_se": "šest"
+  },
+  {
+   "id": 611,
+   "presuda": "B",
+   "cuje_se": "si"
+  },
+  {
+   "id": 612,
+   "presuda": "nijedno",
+   "cuje_se": "Kut me želiš? I, i"
+  },
+  {
+   "id": 613,
+   "presuda": "A",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 614,
+   "presuda": "B",
+   "cuje_se": "odmaknemo"
+  },
+  {
+   "id": 615,
+   "presuda": "nijedno",
+   "cuje_se": "Idi, idem kud ti kud ti želiš, ne?"
+  },
+  {
+   "id": 616,
+   "presuda": "B",
+   "cuje_se": "računa"
+  },
+  {
+   "id": 617,
+   "presuda": "B",
+   "cuje_se": "kaj"
+  },
+  {
+   "id": 618,
+   "presuda": "A",
+   "cuje_se": "mi drag brat u"
+  },
+  {
+   "id": 619,
+   "presuda": "nijedno",
+   "cuje_se": "podcast biti isto jedna neka"
+  },
+  {
+   "id": 620,
+   "presuda": "A",
+   "cuje_se": "samog"
+  },
+  {
+   "id": 621,
+   "presuda": "nijedno",
+   "cuje_se": "bi te izrešetao"
+  },
+  {
+   "id": 622,
+   "presuda": "B",
+   "cuje_se": "Nemoj iz teologije! Nisu teologija, to su pitanja formata ili-ili."
+  },
+  {
+   "id": 623,
+   "presuda": "nijedno",
+   "cuje_se": "ovoga provocirati, nemoj me zamjeriti. Ovoga, dakle, ponudit ću"
+  },
+  {
+   "id": 624,
+   "presuda": "A",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 625,
+   "presuda": "A",
+   "cuje_se": "Nije"
+  },
+  {
+   "id": 626,
+   "presuda": "nijedno",
+   "cuje_se": "zeznuto povremenom."
+  },
+  {
+   "id": 627,
+   "presuda": "B",
+   "cuje_se": "sad, evo, na poč- za početak, evo"
+  },
+  {
+   "id": 628,
+   "presuda": "B",
+   "cuje_se": "koji ti je draži?"
+  },
+  {
+   "id": 629,
+   "presuda": "A",
+   "cuje_se": "Eto, dvojka sigurna."
+  },
+  {
+   "id": 630,
+   "presuda": "B",
+   "cuje_se": "molitvu"
+  },
+  {
+   "id": 631,
+   "presuda": "B",
+   "cuje_se": "bježim"
+  },
+  {
+   "id": 632,
+   "presuda": "nijedno",
+   "cuje_se": "sem"
+  },
+  {
+   "id": 633,
+   "presuda": "nijedno",
+   "cuje_se": "mi je rekel"
+  },
+  {
+   "id": 634,
+   "presuda": "A",
+   "cuje_se": "tak"
+  },
+  {
+   "id": 635,
+   "presuda": "B",
+   "cuje_se": "s"
+  },
+  {
+   "id": 636,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 637,
+   "presuda": "B",
+   "cuje_se": "htio"
+  },
+  {
+   "id": 638,
+   "presuda": "B",
+   "cuje_se": "htio"
+  },
+  {
+   "id": 639,
+   "presuda": "A",
+   "cuje_se": "Tak tak"
+  },
+  {
+   "id": 640,
+   "presuda": "A",
+   "cuje_se": "dobim"
+  },
+  {
+   "id": 641,
+   "presuda": "A",
+   "cuje_se": "svojina, taj"
+  },
+  {
+   "id": 642,
+   "presuda": "A",
+   "cuje_se": "čujem"
+  },
+  {
+   "id": 643,
+   "presuda": "nijedno",
+   "cuje_se": "kaj dobim unutarnji odgovor. Tak da kaj"
+  },
+  {
+   "id": 644,
+   "presuda": "A",
+   "cuje_se": "od toga veli išo bih"
+  },
+  {
+   "id": 645,
+   "presuda": "A",
+   "cuje_se": "Može."
+  },
+  {
+   "id": 646,
+   "presuda": "A",
+   "cuje_se": "Ha"
+  },
+  {
+   "id": 647,
+   "presuda": "nijedno",
+   "cuje_se": "svjedočio bi"
+  },
+  {
+   "id": 648,
+   "presuda": "A",
+   "cuje_se": "spreman sam platiti"
+  },
+  {
+   "id": 649,
+   "presuda": "A",
+   "cuje_se": "spremati ispite, prave ispite"
+  },
+  {
+   "id": 650,
+   "presuda": "A",
+   "cuje_se": "radije odazvao"
+  },
+  {
+   "id": 651,
+   "presuda": "A",
+   "cuje_se": "I tak"
+  },
+  {
+   "id": 652,
+   "presuda": "A",
+   "cuje_se": "ovo prvo, ne? Hvala ti"
+  },
+  {
+   "id": 653,
+   "presuda": "A",
+   "cuje_se": "podcastu i"
+  },
+  {
+   "id": 654,
+   "presuda": "A",
+   "cuje_se": "što činiš i što ćeš činiti to jest"
+  },
+  {
+   "id": 655,
+   "presuda": "A",
+   "cuje_se": "tebe"
+  },
+  {
+   "id": 656,
+   "presuda": "B",
+   "cuje_se": "evo"
+  },
+  {
+   "id": 657,
+   "presuda": "B",
+   "cuje_se": ""
+  },
+  {
+   "id": 658,
+   "presuda": "A",
+   "cuje_se": ""
+  },
+  {
+   "id": 659,
+   "presuda": "A",
+   "cuje_se": "podcasta Redefinicija"
+  },
+  {
+   "id": 660,
+   "presuda": "B",
+   "cuje_se": "subscribeajte"
+  },
+  {
+   "id": 661,
+   "presuda": "oba",
+   "cuje_se": "i tako dalje"
+  }
+ ]
+}
