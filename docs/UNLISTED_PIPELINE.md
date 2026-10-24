@@ -14,6 +14,32 @@
 > Lokalna audio datoteka (diktafon, Drive, ne YouTube) → članak bez ijedne izmjene koda:
 > [`2026-09-26-audio-datoteka-u-clanak.md`](./2026-09-26-audio-datoteka-u-clanak.md).
 
+> ⚠️ **Stanje 24.10.2026.: dva prolaska s ručnim Colabom više NISU default za ad-hoc.**
+> Narudžba s `pipeline.domovina.ai` ide kroz **prioritetni fast-path** (`priority_poller.js` →
+> `bridge/plan.js` → `run_pipeline.sh --unlisted-url … --modal-only <ID>`) i završi u **jednom
+> runu**: transkripcija je u cloudu, a svi koraci su scopeani na taj jedan video
+> (`PRIORITY_SCOPE_ARGS`, `--fresh-days 0`). Dijagram ispod je taj tok. §0–§4 opisuju stari
+> Colab put, koji vrijedi samo kad se video obradi ručnim `fetch.js --unlisted-url` bez
+> cloud transkripcije. §5 (po čemu se `_unlisted` razlikuje) i dalje vrijedi u cijelosti.
+
+```mermaid
+flowchart TB
+    A["admin / API: transcription = soniox (default)"] --> B["priority_poller.js + bridge/plan.js"]
+    B --> C["GEMINI_REFINE_SKELETON=auto run_pipeline.sh<br/>--unlisted-url URL --modal-only ID<br/>--with-soniox --with-pyannote-ai --gemini-refine-promote"]
+    C --> K1["KORAK 1-2: download u _unlisted + WAV"]
+    K1 --> K26["2.6 Modal Canary (osigurač)"]
+    K1 --> K27["2.7b Soniox, fallback Speechmatics<br/>2.7c pyannoteAI + hibrid"]
+    K27 --> K28["2.8 Gemini sluh → .wav.canary.diarized.srt"]
+    K26 --> K6["6 lokalni pyannote, samo ako 2.8 nije promovirao"]
+    K28 --> K7["7-10, 9.8-9.87: sažetak, članak (Opus), RAG,<br/>screenshotovi, e-knjiga, sponzori, words.json"]
+    K6 --> K7
+    K7 --> K12["12 upload_to_r2 + 12.7 episode.json → /v/ID"]
+    K12 --> D["job done (reconcile: CDN article 200)"]
+    D --> M["Worker cron enqueue → magisterium_poller.js<br/>magisterium_mcp_episode.js (bez LLM-a)"]
+    D --> R["auto_reuse_adhoc.js → praćeni kanal, ako video pripada kanalu"]
+    B -->|transcription = canary| C2["isto, ali samo Modal Canary + pyannote"]
+```
+
 ---
 
 ## 0. ZAKON: svaki video treba TOČNO DVA PROLASKA

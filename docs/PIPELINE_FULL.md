@@ -9,68 +9,98 @@
 
 ## 1. Pregled cijelog pipelinea (0 → 13)
 
+> **Usklađeno s kodom 24.10.2026.** Izvor istine je linija u `automatic/nightly_pipeline.sh`
+> (`run_step "run_pipeline.sh (faza A + faza B)"`) i `../pipeline.domovina.ai/bridge/plan.js`
+> za prioritetni fast-path; oba šalju isti cloud tok. Detalji i put za povratak:
+> [`2026-10-24-pipeline-trenutno-stanje.md`](./2026-10-24-pipeline-trenutno-stanje.md).
+> Ovaj dijagram je do 24.10. prikazivao stanje iz lipnja (Colab Canary → lokalni pyannote →
+> Gemini na Vertexu); §2 i §3 su i dalje zapis runa od 08.06. i ne opisuju današnji tok.
+
 ```mermaid
 flowchart TB
-    subgraph COLAB["☁️ Colab G4 (uzvodno, izvan ovog runa)"]
-        C["transcribe_canary.py → {base}.wav.canary.srt na Drive"]
+    subgraph INGEST["📥 Ulaz (Mac)"]
+        K1["KORAK 1 — fetch.js (yt-dlp) / ingest_rss.mjs<br/>→ mp3 + mkv + info.json"]
+        K2["KORAK 2 — convert_to_wav.js → 16 kHz WAV"]
     end
 
-    subgraph K0["KORAK 0 — Sync (rclone)"]
-        K0a["rclone copy google_drive_ms:.../canary_wav<br/>filteri: +.canary.* +.sortformer.* −loudnorm −._*"]
+    subgraph ASR["☁️ Transkripcija (cloud)"]
+        K26["KORAK 2.6 — Modal Canary 1B v2<br/>→ .wav.canary.srt + .wav.canary.word_ts.json"]
+        K27b["KORAK 2.7b — transcribe_soniox.js<br/>Soniox stt-async-v5, fallback Speechmatics<br/>→ .soniox.* / .speechmatics.json"]
+        K27c["KORAK 2.7c — diarize_pyannote_ai.js<br/>pyannoteAI precision-3 + hibrid riječ→govornik<br/>→ .{izvor}_pyannote.words.json"]
+        K28["KORAK 2.8 — refine_diarized_gemini.js<br/>Gemini 3.8 Flash sluh, kostur auto<br/>promocija u kanonski SRT"]
     end
 
-    subgraph LOCAL["💻 Mac Mini M4 Pro — lokalno, free"]
-        K6["KORAK 6 — diarize_canary.py (pyannote, MPS)<br/>→ {base}.wav.canary.diarized.srt"]
+    subgraph LOCAL["💻 Mac — fallback"]
+        K6["KORAK 6 — diarize_canary.py (pyannote, MPS)<br/>samo kad 2.8 nije promovirao"]
     end
 
-    subgraph VERTEX["🤖 Vertex AI (bimbo-sync-prod, OAuth)"]
-        K7["KORAK 7 — summarize_gemini.js → summary.json"]
+    CANON[".wav.canary.diarized.srt<br/>STRIKTAN PREDUVJET 7-12"]
+
+    subgraph LLM["✍️ Uredništvo — Claude Opus (pretplata)"]
+        K7["KORAK 7 — summarize_gemini.js --gemini-backend claude<br/>→ summary.json"]
         K8["KORAK 8 — generate_article_gemini.js<br/>faza1 outline.json + faza2 article.json"]
-        K65["KORAK 6.5 — translate_to_english.js<br/>(REGIONAL-ONLY, bez global) → *.en.json"]
     end
 
-    subgraph MCP["✝️ Magisterium MCP (Claude Pro, free, SEKVENCIJALNO)"]
-        K85["KORAK 8.5 — hibrid: prep.js → chat (holistic + batch) → assemble.js<br/>→ article.magisterium.json"]
+    subgraph MEDIA["🖼️ Izvedeno (lokalno, nula LLM poziva)"]
+        K9["KORAK 9 — prepare_rag_combined.js<br/>→ rag_combined.jsonl + segments.jsonl"]
+        K10["KORAK 10 — screenshot_youtube.js"]
+        K96["KORAK 9.6 — og-sections"]
+        K98["KORAK 9.8 — generate_ebook.js → epub"]
+        K985["KORAK 9.85 — detect_sponsors.js"]
+        K987["KORAK 9.87 — generate_words_json.js<br/>izvor: Speechmatics ili Canary word_ts"]
     end
 
-    subgraph MEDIA["🖼️ Media (lokalno)"]
-        K9["KORAK 9 — prepare_rag_combined.js → rag_combined.jsonl"]
-        K10["KORAK 10 — screenshot_youtube.js (yt-dlp→ffmpeg fallback) → *_screenshots/"]
-        K96["KORAK 9.6 — generate_og_sections.py (ImageMagick) → og-sections/"]
+    subgraph ASYNC["⏱️ Odvojeni launchd poller (svakih 10 min)"]
+        K85["Magisterium HR — magisterium_mcp_episode.js<br/>MCP izravno, OAuth Pro, bez LLM-a<br/>→ article.magisterium.json + objava"]
+        K65["EN — translate_to_english.js<br/>Vertex, jedan poziv po bloku → *.en.json"]
     end
 
     subgraph DIST["🚀 Distribucija"]
-        K11["KORAK 11/13 — generate_channel_index.js → channels/data/*.json + index.json"]
-        K12["KORAK 12 — upload_to_r2.js → cdn.domovina.ai (HEAD-skip idempotent)"]
-        V["GET-verifikacija (NE HEAD — CDN cache-ira 404)"]
+        K12["KORAK 12 — upload_to_r2.js → cdn.domovina.ai"]
+        K127["KORAK 12.7 — build_episode_bundle.js → episode.json"]
+        K13["KORAK 13 — generate_channel_index.js"]
     end
 
-    C -.Drive.-> K0a --> K6 --> K7 --> K8
-    K8 --> K85
-    K8 --> K9
-    K8 --> K10 --> K96
-    K8 --> K65
-    K7 --> K65
-    K85 --> K65
-    K7 --> K11
-    K8 --> K11
-    K85 --> K11
-    K65 --> K11
-    K11 --> K12 --> V
-    K9 -.opcionalno.-> K12
-    K10 --> K12
-    K96 --> K12
+    PJ[".processing.json — provenance, samo disk"]
 
+    K1 --> K2 --> K26
+    K1 --> K27b --> K27c --> K28
+    K28 -->|promovira| CANON
+    K26 --> K6 -->|ako kanonski ne postoji| CANON
+    CANON --> K7 --> K8
+    K8 --> K9
+    K8 --> K10 --> K96 --> K98
+    K8 --> K985
+    CANON --> K987
+    K26 -.word_ts.-> K987
+    K27b -.-> PJ
+    K27c -.-> PJ
+    K9 --> K12
+    K98 --> K12
+    K985 --> K12
+    K987 --> K12
+    K8 --> K12
+    K12 --> K127
+    K12 --> K13
+    K8 -.cron enqueue.-> K85
+    K85 -.na zahtjev.-> K65
+    K85 --> K127
+    K65 --> K127
+
+    style CANON fill:#f8d7da
+    style K28 fill:#d4edda
     style K85 fill:#f8d7da
-    style K65 fill:#d4edda
     style K6 fill:#d1ecf1
     style K12 fill:#cce5ff
 ```
 
 **Striktni preduvjeti (chain dependencies):**
 1. `.canary.diarized.srt` mora postojati prije AI sloja (7/8) — inače RAG degradira bez govornika.
+   Ime je povijesno: danas ga najčešće piše 2.8 (Soniox/pyannoteAI kostur + Gemini sluh), a ne Canary.
 2. `article.json` + `outline.json` moraju postojati prije Magisterium MCP (8.5) i RAG (9).
-3. EN prijevod (6.5) treba summary + article + magisterium (prevodi sva tri additivno).
+3. KORAK 9.8 (e-knjiga) mora ići nakon KORAKA 10, inače knjiga izađe bez slika i više se ne regenerira.
+4. EN prijevod treba summary + article + magisterium (prevodi sva tri additivno).
+5. `episode.json` (12.7) je zadnji upload u `data/{id}/` — zastario bundle sakriva novu datoteku.
 
 ---
 
@@ -101,7 +131,7 @@ Dva ranija projekta **se više ne koriste** — ne vraćaj ih iz starih dokumena
 | `domovina-sync-ms` | `0140D3-08E99F-E8C697` | Dunning — `403 PERMISSION_DENIED "Lightning dunning decision is deny for project: projects/1091687353506"` | do 08.06.2026. |
 | `project-a275a620-ef0c-45ae-99e` | `016BE2-D24293-12968B` | Free-trial krediti potrošeni **31.08.2026.** → svaki poziv ide na karticu. Zbog toga je 09.09. pauziran cijeli launchd (`2026-09-09-launchd-pauza-gcp-billing.md`) | 08.06.–14.09.2026. |
 
-- **Cementirano na 4 mjesta** (svako mora pokazivati na isti projekt):
+- **Cementirano na 6 mjesta** (svako mora pokazivati na isti projekt; popis u `CLAUDE.md` pravilo 0):
   `gemini.conf VERTEX_PROJECT`, hardkodirani fallbacks u `summarize_gemini.js` i
   `generate_article_gemini.js`, te `export VERTEX_PROJECT` u `run_pipeline.sh`.
   Fallbacks postoje jer standalone pozivi (bez `run_pipeline.sh`) inače padnu na default.
@@ -110,6 +140,28 @@ Dva ranija projekta **se više ne koriste** — ne vraćaj ih iz starih dokumena
   pola sustava da gađa mrtav projekt.
 
 ### 2.2 EN prijevod: izbaci `global` endpoint iz rotacije
+
+> **Zastarjelo od 24.10.2026. (commit `cf926987`).** Ovo je zapis iz lipnja, kad se prevodilo
+> polje po polje (~300–1000 poziva po epizodi) na projektu s 1 RPM. Danas `translate_to_english.js`
+> šalje jedan Vertex poziv po bloku (`gemini-3.8-flash`, regije iz `VERTEX_REGIONS`), sekcije
+> paralelno, pa epizoda od 25 sekcija traje ~7 min. Ako odgovor nema isti oblik ili ga Gemini
+> blokira, samo taj blok pada natrag na stari prijevod polje po polje. Mjerenja:
+> [`2026-09-15-en-prijevod-mjerenja.md`](./2026-09-15-en-prijevod-mjerenja.md).
+
+```mermaid
+flowchart LR
+    E[epizoda] --> B1["sažetak: 1 poziv"]
+    E --> B2["zaglavlje Magisteriuma: 1 poziv"]
+    E --> B3["po iteraciji: tema, 1 poziv"]
+    E --> B4["po sekciji: sekcija + njena<br/>Magisterium prosudba, 1 poziv<br/>TRANSLATE_CONCURRENCY=4"]
+    B4 --> Q{"isti ključevi i duljine nizova?"}
+    Q -->|da| OK["_en polja"]
+    Q -->|ne / PROHIBITED_CONTENT| FB["taj blok polje po polje<br/>s bypass ljestvicom"]
+    FB --> OK
+    B1 --> OK
+    B2 --> OK
+    B3 --> OK
+```
 
 `translate_to_english.js` rotira 9 regija uključujući `global`. Na svježem projektu **`global` endpoint je
 rate-limited (429)**, dok **regionalni endpointi rade (200)**. Posljedice:
@@ -149,6 +201,23 @@ od ~80 polja koliko treba za par zaostalih fajlova. Pravilo:
   pokreću izolirano. Backfill-skripta: `/tmp/patient_backfill_en.sh` (retry-do-uspjeha + auto-finalize).
 
 ### 2.3 Magisterium MCP hibrid — stvarni flow i brojke
+
+> **Od 24.10.2026. HR Magisterium ne treba Claudea.** `tools/magisterium_mcp_episode.js` odradi
+> prep → chat → assemble → objavu → CDN provjeru sam, preko izravnog MCP klijenta
+> (`tools/magisterium_mcp_client.js`, OAuth token na Pro pretplati, ne API ključ). Poller ga zove
+> po defaultu (`MAG_RUNNER=direct`). Ispod je zapis Claude-in-the-loop runa od 08.06., koji je i
+> danas fallback (`MAG_RUNNER=claude`). Detalji:
+> [`2026-10-24-magisterium-mcp-bez-llm-a.md`](./2026-10-24-magisterium-mcp-bez-llm-a.md).
+
+```mermaid
+flowchart LR
+    P["1 prep<br/>magisterium_mcp_prep.js"] --> C["2 chat<br/>magisterium_mcp_client.js<br/>sekvencijalno, ~2,5 poziva/min"]
+    C --> L{"2b fragmenti na<br/>drugom jeziku?"}
+    L -->|da| C
+    L -->|ne| A["3 assemble<br/>magisterium_mcp_assemble.js"]
+    A --> PUB["4 publish<br/>with_pipeline_lock + publish_hr_episode.sh"]
+    PUB --> V["5 verify<br/>CDN GET, md5 diska = md5 CDN-a"]
+```
 
 ```mermaid
 sequenceDiagram

@@ -7,6 +7,12 @@
 **Vezani dokumenti:** [launchd QoS i transkodiranje](2026-09-19-launchd-qos-i-transkodiranje.md)
 **Povod:** dvije epizode zapele u nightlyju 19.09. + primjedba da Canary zna ispisati istu riječ 30+ puta
 
+> **Stanje 24.10.2026.:** arhitektura 2.8 (kostur + Gemini sluh) ostaje, ali kostur u nightlyju
+> i fast-pathu više nije Speechmatics nego **Soniox tekst + pyannoteAI govornici**
+> (`GEMINI_REFINE_SKELETON=auto`: `soniox_pyannote` → `speechmatics_pyannote` → `speechmatics`).
+> Speechmatics radi samo kao fallback unutar KORAKA 2.7b. §6.1 opisuje nightly od 19.09. do 24.10.
+> Trenutno stanje: [`2026-10-24-pipeline-trenutno-stanje.md`](2026-10-24-pipeline-trenutno-stanje.md).
+
 ---
 
 ## Zaključak u jednoj rečenici

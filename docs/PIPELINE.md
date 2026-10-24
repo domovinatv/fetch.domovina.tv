@@ -2,6 +2,13 @@
 
 > **Što ovo radi**: uzima hrvatski katolički podcast s YouTube-a, kroz 12 koraka ga transformira u potpuno obrađenu, teološki verificiranu, pretražnu i prevedivu epizodu na `domovina.ai`. Sve s lokalnim hardverom, free MCP-jevima, i strogom garancijom da AI ne halucinira.
 
+> **Stanje 24.10.2026.:** dijagrami u ovom dokumentu usklađeni su s kodom (cloud transkripcija
+> Soniox + pyannoteAI + Gemini sluh, članci kroz Claude Opus, Magisterium HR bez LLM-a, EN
+> prijevod po bloku). Narativ ispod dijagrama je mjestimice iz svibnja 2026. i opisuje referentnu
+> epizodu `6ueR_Leq6uE`; za trenutni tok vidi
+> [`2026-10-24-pipeline-trenutno-stanje.md`](./2026-10-24-pipeline-trenutno-stanje.md) i
+> [`PIPELINE_FULL.md`](./PIPELINE_FULL.md) §1.
+
 ---
 
 ## Zašto je ovo posebno
@@ -31,30 +38,35 @@ flowchart TB
         WAV["2. convert_to_wav.js (16kHz mono PCM)"]
     end
 
-    subgraph COLAB["Colab G4 GPU (95 GB VRAM)"]
-        CANARY["4. transcribe_canary.py (NVIDIA Canary 1B)"]
+    subgraph CLOUD["Cloud transkripcija"]
+        CANARY["2.6. Modal Canary 1B v2 (osigurač)"]
+        SONIOX["2.7b. Soniox (fallback Speechmatics)"]
+        PYAI["2.7c. pyannoteAI + hibrid riječ→govornik"]
+        REFINE["2.8. Gemini 3.8 Flash sluh → kanonski SRT"]
     end
 
-    subgraph MAC["Local — pyannote on M4 Pro (CPU clustering)"]
-        DIAR["6. diarize_canary.py (community-1)"]
+    subgraph MAC["Local — fallback"]
+        DIAR["6. diarize_canary.py (pyannote, samo ako 2.8 nije promovirao)"]
     end
 
     subgraph AI["AI Editorial Layer"]
-        SUM["7. summarize_gemini.js / Opus 4.7"]
-        ART["8. generate_article_gemini.js / Opus 4.7"]
-        MAG["8.5. Magisterium MCP (theological scoring)"]
-        TRANS["6.5. translate_to_english.js (no hallucinations)"]
+        SUM["7. sažetak — Claude Opus (pretplata)"]
+        ART["8. članak — Claude Opus (pretplata)"]
+        MAG["8.5. Magisterium MCP — magisterium_mcp_episode.js, bez LLM-a"]
+        TRANS["6.5. translate_to_english.js (po bloku)"]
     end
 
     subgraph MEDIA["Media Generation"]
         RAG["9. prepare_rag_combined.js (47 chunkova)"]
         SS["10. screenshot_youtube.js (19 frame-ova)"]
         OG["9.6. generate_og_sections.py (19 social slika)"]
+        EXTRA["9.8 e-knjiga · 9.85 sponzori · 9.87 words.json"]
     end
 
     subgraph DIST["Distribution"]
-        IDX["11. generate_channel_index.js (channel manifest)"]
         R2["12. upload_to_r2.js (cdn.domovina.ai)"]
+        BUNDLE["12.7. build_episode_bundle.js (episode.json)"]
+        IDX["13. generate_channel_index.js (channel manifest)"]
     end
 
     subgraph CONSUMERS["Consumer ekosistem"]
@@ -63,26 +75,27 @@ flowchart TB
         SUPABASE["domovina-api (user state)"]
     end
 
-    URL --> FETCH --> WAV
-    WAV -.rclone.-> CANARY
-    CANARY -.rclone.-> DIAR
-    DIAR --> SUM --> ART --> MAG
-    ART --> TRANS
+    URL --> FETCH --> WAV --> CANARY
+    FETCH --> SONIOX --> PYAI --> REFINE
+    CANARY --> DIAR
+    REFINE --> SUM
+    DIAR -.fallback.-> SUM
+    SUM --> ART --> MAG
     MAG --> TRANS
     ART --> RAG
-    ART --> SS --> OG
-    SUM --> IDX
-    ART --> IDX
-    MAG --> IDX
-    TRANS --> IDX
-    IDX --> R2
-    SS --> R2
-    OG --> R2
-    RAG -.opcionalno.-> MCP
-    R2 --> FLUTTER
-    R2 --> MCP
+    ART --> SS --> OG --> EXTRA
+    ART --> R2
+    RAG --> R2
+    EXTRA --> R2
+    MAG --> R2
+    TRANS --> R2
+    R2 --> BUNDLE
+    R2 --> IDX
+    RAG -.nightly sync.-> MCP
+    BUNDLE --> FLUTTER
+    IDX --> FLUTTER
 
-    style CANARY fill:#fff3cd
+    style REFINE fill:#fff3cd
     style DIAR fill:#d1ecf1
     style MAG fill:#f8d7da
     style TRANS fill:#d4edda
@@ -90,10 +103,10 @@ flowchart TB
 ```
 
 **Legenda boja**:
-- 🟡 Canary na Colab G4 (jedini step koji zahtjeva pricey GPU)
-- 🔵 Diarizacija lokalno na M4 Pro (~2 min za 52-min audio)
-- 🔴 Magisterium MCP (free, Pro subscription, unlimited)
-- 🟢 No-hallucination English translation
+- 🟡 Gemini sluh nad Soniox/pyannoteAI kosturom piše kanonski prijepis
+- 🔵 Lokalni pyannote, samo kad 2.8 ne promovira
+- 🔴 Magisterium MCP (Pro pretplata, izravni klijent, bez LLM-a)
+- 🟢 EN prijevod po bloku
 - 💙 CDN distribution
 
 ---
@@ -105,7 +118,7 @@ Kad korisnik pošalje ovaj dokument zajedno s YouTube ID-em (npr. `@docs/PIPELIN
 1. **Konstatiraj stanje** — `find storage/output -name "*<VID>*"` + provjeri `automatic/podcasts/*-state.json`. Lista što već postoji, što fali.
 2. **Očisti duplikate** — `(1).wav.canary.*` lokalno (MD5-verify identičnost s canonical, briši bez pitanja). Drive 403 = preskoči, benigno.
 3. **Provedi sve preostale korake redom 1→12** — preskoči one koji već imaju output. Striktan preduvjet: diarized SRT mora postojati prije AI sloja.
-4. **Magisterium MCP (korak 8.5) je OBAVEZAN** — koristi **hibridni flow iz [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md)** (holistički + batch + assemble.js), NE naivni per-section. Ne preskači zbog content-type procjene ("ovo nije katolički sadržaj"). Korisnik traži teološku procjenu kao default jer je to najvažniji output sustava; čak i za sekularni/politički sadržaj scoring je informativan (low score + "nije teološki sadržaj" je validan rezultat, ne razlog za skip). Ako se u budućnosti uvede content classification, mora biti eksplicitan opt-out flag, ne agentska procjena.
+4. **Magisterium MCP (korak 8.5) je OBAVEZAN** — od 24.10.2026. default je **`node tools/magisterium_mcp_episode.js --video-id <VID>`** (izravni MCP klijent, bez Claudea u petlji, sam objavi i provjeri md5 na CDN-u). Fallback je hibridni flow iz [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md) (holistički + batch + assemble.js), NE naivni per-section. Ne preskači zbog content-type procjene ("ovo nije katolički sadržaj"). Korisnik traži teološku procjenu kao default jer je to najvažniji output sustava; čak i za sekularni/politički sadržaj scoring je informativan (low score + "nije teološki sadržaj" je validan rezultat, ne razlog za skip). Ako se u budućnosti uvede content classification, mora biti eksplicitan opt-out flag, ne agentska procjena.
 5. **Stani samo na pravim blocker-ima** (missing HF token, GCP auth expired, R2 creds, anti-bot ABORT, Magisterium MCP unavailable) i tada javi konkretan blocker + što treba.
 6. **Završi jednom sumarnom porukom** — što je gotovo, CDN URL, sve pipeline flagove (`has_article`, `has_magisterium`, `has_translation_en`).
 
@@ -123,6 +136,10 @@ Memory pointer: `pipeline_md_vid_means_autonomous_full_run.md`.
 ## Tri "neobična" izbora — i zašto
 
 ### Izbor 1 — Hardware-aware podjela: Colab za Canary, M4 Pro za pyannote
+
+> Povijesni izbor (svibanj 2026.). Od 24.10. kanonski prijepis u nightlyju i fast-pathu dolazi iz
+> clouda (Soniox + pyannoteAI + Gemini sluh); Canary (sada na Modalu) i lokalni pyannote ostaju
+> kao osigurač. Logika „skupi GPU samo gdje radi razliku" i dalje vrijedi za taj osigurač.
 
 ```mermaid
 graph LR
@@ -178,22 +195,26 @@ graph TB
 
 ### Izbor 3 — Zero-hallucination engleski prijevod
 
+Od 24.10.2026. (`cf926987`) prijevod ide **po bloku**, ne po polju: ~30–50 poziva po epizodi
+umjesto ~1000, epizoda od 25 sekcija ~7 min umjesto >1 h.
+
 ```mermaid
 sequenceDiagram
     participant T as translate_to_english.js
-    participant V as Vertex AI<br/>(9 regija rotacija)
-    participant G as Gemini 2.5 Flash<br/>(temperature=0)
+    participant V as Vertex AI<br/>(VERTEX_REGIONS rotacija)
+    participant G as Gemini 3.8 Flash<br/>(temperature=0)
 
-    Note over T: Per-field translation<br/>(NIKAD cijeli JSON odjednom)
-    T->>+V: title_hr (1 string)
-    V->>G: System prompt: 10 strogih pravila
-    G-->>V: {"en": "literal English"}
-    V-->>-T: title_en
-    Note over T: 200ms pauza
-    T->>+V: abstract_hr
-    V-->>-T: abstract_en
-    Note over T: ...19 sekcija × 5 polja = ~100 poziva
-    Note over T: 429 retry → drugi region
+    Note over T: blok = JSON objekt s više polja<br/>(sažetak, tema iteracije, sekcija + Magisterium prosudba)
+    T->>+V: sažetak (svi stringovi i nizovi odjednom)
+    V->>G: System prompt: stroga pravila + „isti ključevi"
+    G-->>V: isti JSON, prevedene vrijednosti
+    V-->>-T: summary _en polja
+    par sekcije paralelno (TRANSLATE_CONCURRENCY=4)
+        T->>V: sekcija 1 + njena prosudba
+        T->>V: sekcija 2 + njena prosudba
+    end
+    Note over T: batchShapeError ili PROHIBITED_CONTENT<br/>→ samo taj blok polje po polje
+    Note over T: 429 retry → druga regija
 ```
 
 **Pravila u system prompt-u**:
@@ -213,13 +234,19 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    A[YouTube URL] -->|1. fetch.js| B[mp4 + mp3 + wav + info.json]
-    B -->|2. convert_to_wav.js| C[16kHz mono PCM]
-    C -.upload.-> D[Google Drive]
-    D -->|4. Canary on Colab G4| E[wav.canary.srt]
-    E -.rclone down.-> F[Local Mac]
-    F -->|6. pyannote local| G[wav.canary.diarized.srt<br/>2 govornika, 298 segmenata]
+    A[YouTube URL] -->|1. fetch.js| B[mkv + mp3 + info.json]
+    B -->|2. convert_to_wav.js| C[16kHz mono WAV]
+    C -->|2.6 Modal Canary| E[wav.canary.srt + word_ts.json]
+    B -->|2.7b Soniox / Speechmatics| S[riječi s vremenima]
+    B -->|2.7c pyannoteAI| P[govornici]
+    S --> H[hibrid: soniox_pyannote.words.json]
+    P --> H
+    H -->|2.8 Gemini sluh, promocija| G[wav.canary.diarized.srt]
+    E -->|6. pyannote lokalno, samo ako 2.8 nije promovirao| G
 ```
+
+> Referentna epizoda `6ueR_Leq6uE` (svibanj) prošla je starim putem: Canary na Colabu →
+> rclone → lokalni pyannote (2 govornika, 298 segmenata). Koraci 4 i 6 ispod opisuju taj put.
 
 **Koraci**:
 
@@ -262,8 +289,8 @@ flowchart LR
     A[diarized.srt] --> B[7. summary.json<br/>title_hr, abstract, topics,<br/>speakers, key_points]
     A --> C[8a. outline.json<br/>2-3 iteracije,<br/>35-45 min po iteraciji]
     A --> D[8b. article.json<br/>per-iteration sekcije,<br/>screenshots_timestamps]
-    D -->|po sekciji| E[8.5. Magisterium MCP<br/>score, concerns, citations]
-    D -->|po polju| F[6.5. EN translation<br/>temperature=0]
+    D -->|holistički + po sekciji| E[8.5. Magisterium MCP<br/>score, concerns, citations]
+    D -->|po bloku| F[6.5. EN translation<br/>temperature=0]
     B --> F
     E --> F
 ```
@@ -313,7 +340,12 @@ Za `6ueR_Leq6uE` (referentni primjer): napravljeno u Opus 4.7 chat-u, 19 sekcija
 
 #### 8.5. Magisterium MCP — teološka verifikacija
 
-> **▶ IZVRŠAVANJE: slijedi hibridni runbook [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md).**
+> **▶ IZVRŠAVANJE od 24.10.2026.: `node tools/magisterium_mcp_episode.js --video-id <VID>`** —
+> isti hibrid, ali `chat` zove skripta preko izravnog MCP klijenta (OAuth na Pro pretplati), bez
+> Claudea; poller to radi sam (`MAG_RUNNER=direct`). Dijagram ispod je Claude-in-the-loop put,
+> koji ostaje fallback. Vidi [`2026-10-24-magisterium-mcp-bez-llm-a.md`](./2026-10-24-magisterium-mcp-bez-llm-a.md).
+>
+> **▶ Fallback: hibridni runbook [`docs/MAGISTERIUM_MCP_RUN.md`](./MAGISTERIUM_MCP_RUN.md).**
 > Taj turnkey flow je produkcijski standard (memorija `magisterium_mcp_hybrid_workflow`) i **zamjenjuje** naivni "1 chat po sekciji" pristup koji je ovaj dokument ranije opisivao. Sažeto, hibrid ima tri sloja:
 > 1. **Holistički** (1× `chat`) — jedna sveobuhvatna evaluacija cijelog podcasta (`overall` blok: `overall_score`, `assessment`, `seeds_of_logos`, `concerns`, `theological_context`).
 > 2. **Granularno** (⌈sekcija/N⌉× `chat`, **batch-of-N**, SEKVENCIJALNO) — per-sekciju `{score, assessment, concerns, enrichment}`.
@@ -368,7 +400,7 @@ sequenceDiagram
 
 #### 6.5. `translate_to_english.js` — zero-hallucination prijevod
 
-Vertex AI Gemini 2.5 Flash, `temperature=0`, per-field translation, strogi prompt (10 pravila). Output: `summary.en.json`, `article.en.json`, `article.magisterium.en.json` (paralelni fajlovi, superset HR+EN).
+Vertex AI `gemini-3.8-flash`, `temperature=0`, prijevod po bloku (od 24.10.2026.; prije po polju), strogi prompt. Output: `summary.en.json`, `article.en.json`, `article.magisterium.en.json` (paralelni fajlovi, superset HR+EN).
 
 ---
 

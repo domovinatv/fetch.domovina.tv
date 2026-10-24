@@ -16,12 +16,19 @@ recent Vatican notes (e.g. *Antiqua et Nova*). We evaluate via **two integration
 | Mode | Transport | Cost | When |
 |---|---|---|---|
 | **Direct API** | `magisterium.com/api/v1/chat/completions` | paid per-token | `enrich_magisterium*.js` (legacy) |
-| **MCP (hybrid)** ⭐ | Magisterium MCP `chat`/`search`/`fetch` | free under Pro (15 req/min) | `magisterium_mcp_{prep,assemble}.js` + Claude-in-the-loop |
+| **MCP, direct client** ⭐ (since 2026-10-24) | Magisterium MCP server over OAuth (Pro) | free under Pro, ~2.5 `chat`/min | `tools/magisterium_mcp_episode.js` — no LLM in the loop |
+| **MCP (hybrid), Claude-in-the-loop** | claude.ai Magisterium connector | free under Pro (15 req/min) | `magisterium_mcp_{prep,assemble}.js` + Claude; fallback (`MAG_RUNNER=claude`) |
 
 The **hybrid MCP workflow** is the current best approach: it combines a **holistic
 whole-podcast pass** with **granular per-section scoring** and **citation→URL
 resolution**, cutting the number of slow LLM calls ~3× versus naive per-section calls
 while keeping full granularity and adding clickable Catholic sources.
+
+Since 2026-10-24 the hybrid runs **without Claude**: `tools/magisterium_mcp_episode.js` calls
+the Magisterium MCP server directly with its own OAuth token (Pro subscription, not an API key),
+then assembles, publishes and checks the CDN copy by md5. The poller in
+`pipeline.domovina.ai` runs it by default (`MAG_RUNNER=direct`). Details:
+[`2026-10-24-magisterium-mcp-bez-llm-a.md`](./2026-10-24-magisterium-mcp-bez-llm-a.md).
 
 ---
 
@@ -31,10 +38,9 @@ while keeping full granularity and adding clickable Catholic sources.
 flowchart LR
   YT[YouTube] --> F[fetch.js]
   F --> W[convert_to_wav.js]
-  W --> C["Canary 1B v2<br/>transcribe (Colab G4)"]
-  C --> D["pyannote diarize<br/>(Mac M4 Pro)"]
-  D --> S[summarize_gemini.js]
-  S --> A[generate_article_gemini.js]
+  W --> C["Soniox + pyannoteAI + Gemini listening<br/>(cloud; Canary + local pyannote as fallback)"]
+  C --> S["summary (Claude Opus)"]
+  S --> A["article (Claude Opus)"]
   A --> M{{"Magisterium AI<br/>theological eval"}}
   M --> R[prepare_rag_combined.js]
   R --> SC[screenshot_youtube.js]
@@ -86,11 +92,12 @@ flowchart TD
     AJ --> JOB[job.json: batch→section map]
   end
 
-  subgraph MCP["② Claude-in-the-loop (Magisterium MCP, sequential, ≤15/min)"]
+  subgraph MCP["② magisterium_mcp_client.js (direct MCP, OAuth, sequential, ~2.5/min)"]
     HP --> L1["SLOJ 1: 1× chat<br/>→ overall_score, assessment,<br/>seeds_of_logos, concerns, context"]
     BP --> L2["SLOJ 2: N× chat<br/>→ per-section score+assessment<br/>+concerns+enrichment+citations"]
-    L1 --> L3["SLOJ 3: search (parallel ok)<br/>→ citation → source_url"]
-    L2 --> L3
+    L1 --> LR{"fragments in another<br/>language? re-ask"}
+    L2 --> LR
+    LR --> L3["SLOJ 3: references already carry source_url<br/>(Claude fallback: search + url cache)"]
   end
 
   subgraph ASM["③ magisterium_mcp_assemble.js (deterministic)"]
@@ -115,9 +122,12 @@ flowchart TD
   `magisterium.com` URLs via `search`. Best-effort (canonical docs resolve exactly; very
   recent/niche ones may not), so the `document`+`reference` text is always kept.
 
-> **MCP tools are only callable inside a Claude Code chat**, not from a standalone Node
-> script. So the workflow is *Claude-in-the-loop*: two deterministic scripts with Claude
-> executing the MCP calls between them.
+> **Until 2026-10-24 MCP tools were only callable inside a Claude Code chat**, so the
+> workflow was *Claude-in-the-loop*: two deterministic scripts with Claude executing the MCP
+> calls between them. Now `tools/magisterium_mcp_client.js` speaks MCP to the server itself
+> (its own OAuth client, token in `~/.config/magisterium-mcp/token.json`), and the direct
+> client's references already include `source_url`, so SLOJ 3 needs no `search` calls.
+> The Claude path stays as the fallback.
 
 ---
 
@@ -126,7 +136,7 @@ flowchart TD
 ```mermaid
 sequenceDiagram
   participant P as prep.js
-  participant Cl as Claude (MCP)
+  participant Cl as magisterium_mcp_client.js<br/>(or Claude, fallback)
   participant Mag as Magisterium AI
   participant As as assemble.js
   participant St as storage/output
@@ -139,13 +149,14 @@ sequenceDiagram
     Cl->>Mag: chat(prompt)
     Mag-->>Cl: JSON + References ([^N]→doc,ref)
   end
-  par citation resolution (parallel ok)
+  opt Claude fallback only: citation resolution
     Cl->>Mag: search(document title)
     Mag-->>Cl: {id, url} (carries doc UUID)
   end
-  Cl->>As: raw responses + url-map
+  Cl->>As: raw responses (*.mcp.json carry source_url)
   As->>St: .article.magisterium.json + _full.json + _full_prompt.md
-  St->>R2: upload_to_r2.js --video-id
+  St->>R2: publish_hr_episode.sh (under pipeline lock)
+  R2-->>St: verify: CDN GET md5 == disk md5
   R2->>CDN: data/{VID}/article.magisterium*.json
   Fl->>CDN: GET data/{VID}/article.magisterium*.json
   CDN-->>Fl: render "Evaluacija" tab (score + markdown + citations)
@@ -266,6 +277,8 @@ Live: `https://cdn.domovina.ai/data/KtMMSnQ7SP0/article.magisterium.json`
 |---|---|
 | `magisterium_mcp_prep.js` | article+outline → holistic + batch prompts + `job.json` |
 | `magisterium_mcp_assemble.js` | raw MCP responses (+url-map) → the 3 CDN artifacts |
+| `tools/magisterium_mcp_episode.js` | one episode end-to-end without an LLM: prep → chat → assemble → publish → CDN md5 (default since 2026-10-24) |
+| `tools/magisterium_mcp_client.js` | direct MCP client (OAuth login, token refresh, `run` over prompts) |
 | `docs/magisterium_mcp_hybrid_2026-05.md` | operational runbook (SSOT) |
 | `enrich_magisterium*.js` | legacy direct-API variants (per-section / batch / full) — **paid**, not used |
 | `docs/2026-10-06-magisterium-headless-needs-auth-cache.md` | troubleshooting: headless „nije autoriziran“ iako je konektor Connected (stari `~/.claude/mcp-needs-auth-cache.json`) |

@@ -1,8 +1,8 @@
 # Ponovna obrada objavljene epizode (fetch strana)
 
 Admin `pipeline.domovina.ai` → „🔁 Ponovna obrada" sada podiže staru epizodu na razinu
-nove (Speechmatics + Gemini sluh, Opus članak, words.json, Magisterium) bez Claude Code
-sesije. Ovaj dokument je **fetch.domovina.tv** strana: što run radi, i pet zamki koje su
+nove (od 24.10.2026. Soniox + pyannoteAI + Gemini sluh, prije Speechmatics + Gemini sluh;
+Opus članak, words.json, Magisterium) bez Claude Code sesije. Ovaj dokument je **fetch.domovina.tv** strana: što run radi, i pet zamki koje su
 na testnoj epizodi `6e1MW97dv10` (08.–09.10.2026.) redom pokazale da „run je prošao" ≠
 „CDN servira novo".
 
@@ -16,9 +16,9 @@ Vezani dokumenti:
 ```mermaid
 flowchart TD
   A[admin: Ponovna obrada<br/>reprocess=1, transcription, redo_article] --> B[priority_poller.js<br/>plan.js]
-  B -->|transcription≠none| C["run_pipeline.sh --unlisted-url … --modal-only ID<br/>[--with-speechmatics --gemini-refine-promote] --reprocess"]
+  B -->|transcription≠none| C["GEMINI_REFINE_SKELETON=auto run_pipeline.sh --unlisted-url … --modal-only ID<br/>[--with-soniox --with-pyannote-ai --gemini-refine-promote] --reprocess"]
   B -->|transcription=none| D["run_pipeline.sh --reprocess-article ID"]
-  C --> C1["tools/reprocess_episode.js stash --dir _unlisted --scope derived<br/>(+ čisti *-done.json)"]
+  C --> C1["tools/reprocess_episode.js stash --dir _unlisted --scope derived<br/>(+ .soniox.*, .pyannote_ai.*, *_pyannote.*, .processing.json; čisti *-done.json)"]
   C1 --> C2[KORACI 2.6 → 12 u _unlisted]
   C2 --> C3["KORAK 12.1 force_upload.js<br/>diarized,words,sponsors,article,summary,outline,epub"]
   C3 --> E["auto_reuse_adhoc.js --video-id ID --replace<br/>kanal: stash derived → reuse kopija → reindex"]
@@ -27,7 +27,7 @@ flowchart TD
   D2 --> D3["KORAK 12.1 force_upload.js<br/>article,summary,outline,epub"]
   E --> F[job done → Worker cron enqueuea Magisterium force=1]
   D3 --> F
-  F --> G["magisterium_poller.js --force → force_upload --targets magisterium"]
+  F --> G["magisterium_poller.js --force → magisterium_mcp_episode.js --force<br/>(MAG_RUNNER=direct, od 24.10.)"]
 ```
 
 Stari fajlovi se nikad ne brišu: `<realpath kanala>/../.reprocess_bak/<kanal>/<ID>_<ts>/`
@@ -43,7 +43,10 @@ Stari fajlovi se nikad ne brišu: `<realpath kanala>/../.reprocess_bak/<kanal>/<
    ne ističe NIJEDNU riječ. Pravilo: SRT i words.json na CDN-u uvijek iz istog prolaza →
    KORAK 12.1.
 3. **KORAK 2.8 promovira samo ako `.wav.canary.diarized.srt` ne postoji.** Ponovni run u
-   `_unlisted` bi platio Speechmatics i zadržao stari prijepis → `stash` PRIJE runa.
+   `_unlisted` bi platio Speechmatics (od 24.10. Soniox + pyannoteAI) i zadržao stari
+   prijepis → `stash` PRIJE runa. `--scope derived` sklanja i stari kostur (`.soniox.*`,
+   `.pyannote_ai.*`, `*_pyannote.*`), inače bi 2.8 `auto` uzeo prošli prolaz
+   (`tools/reprocess_episode.test.js`).
 4. **Done cacheovi (`storage/output/{summarize,articles,rag-*}-done.json`).** Drugi pokušaj
    (09.10. 00:01) sklonio je fajlove, ali 7+8 su javili „Preskočeno (cache): 1" i ništa
    nisu napisali; `--replace` je ispravno odbio dirati kanal (job failed). Ključ je goli

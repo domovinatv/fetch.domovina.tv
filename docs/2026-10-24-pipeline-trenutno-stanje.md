@@ -1,10 +1,20 @@
 # Pipeline danas (24.10.2026.): što nightly stvarno radi i što fali do Soniox puta
 
-> **Ažurirano 24.10. navečer: prebačeno.** Od nightlyja 25.10. vrijedi ciljno stanje iz §2.
-> Nightly linija je sada `GEMINI_REFINE_SKELETON=auto … --with-soniox --with-pyannote-ai
-> --gemini-refine-promote` (§5 točke 1–2 izvedene). §1 opisuje put do 24.10. i ostaje kao
-> povijest i put za povratak. Prioritetni fast-path (`pipeline.domovina.ai/bridge/plan.js`,
-> izbor „speechmatics”) je i dalje stari put — nije prebačen.
+> **Ažurirano 24.10. navečer: prebačeno, i nightly i ad-hoc.** Od nightlyja 25.10. vrijedi
+> stanje iz §2. Nightly linija je sada `GEMINI_REFINE_SKELETON=auto … --with-soniox
+> --with-pyannote-ai --gemini-refine-promote` (§5 točke 1–2 izvedene). Prioritetni fast-path
+> šalje isto (`pipeline.domovina.ai` commit `1052cf8`, `bridge/plan.js`: izbor `soniox` je
+> default, `speechmatics` je zastarjela vrijednost starih D1 redaka). §1 opisuje put do 24.10.
+> i ostaje kao povijest i put za povratak.
+>
+> Isti dan su se promijenila još dva koraka koja nisu transkripcija:
+> - **Magisterium HR bez Claudea.** `magisterium_poller.js` po defaultu (`MAG_RUNNER=direct`,
+>   commit `10d424f` u pipeline.domovina.ai) pokreće `tools/magisterium_mcp_episode.js`, koji
+>   Magisterium MCP zove izravno (OAuth token na Pro pretplati). Claude kvota se ne troši;
+>   `MAG_RUNNER=claude` je stari runbook i fallback. `docs/2026-10-24-magisterium-mcp-bez-llm-a.md`.
+> - **EN prijevod po bloku** (`cf926987`): jedan Vertex poziv po bloku (sažetak, sekcija +
+>   njena Magisterium prosudba) umjesto po polju, sekcije paralelno (`TRANSLATE_CONCURRENCY=4`).
+>   ~1000 → ~30–50 poziva po epizodi, ~7 min umjesto >1 h. `docs/2026-09-15-en-prijevod-mjerenja.md`.
 
 **Kratko (stanje do 24.10.): Soniox + pyannoteAI još NIJE bio u nightlyju.** Alati postoje od danas
 (`transcribe_soniox.js`, `diarize_pyannote_ai.js`, `refine_diarized_gemini.js --skeleton`),
@@ -13,7 +23,7 @@ Speechmatics + Gemini sluh, s Canaryjem i lokalnim pyannoteom kao fallbackom. Č
 **Claude Opus kroz pretplatu**, ne Gemini na Vertexu.
 
 Izvor istine za ovaj dokument je linija u `automatic/nightly_pipeline.sh` (`run_step
-"run_pipeline.sh (faza A + faza B)"`), ne planovi:
+"run_pipeline.sh (faza A + faza B)"`), ne planovi. Do 24.10. je glasila:
 
 ```
 env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 run_pipeline.sh \
@@ -22,9 +32,18 @@ env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 run_pipeline.sh \
   --with-speechmatics --gemini-refine-promote
 ```
 
-## 1. Što se danas događa s novom epizodom
+Od 25.10.:
 
-Tri launchd joba: `tv.domovina.fetch.nightly` (01:00, sve epizode), `tv.domovina.fetch.priority`
+```
+env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 GEMINI_REFINE_SKELETON=auto run_pipeline.sh \
+  --with-local-canary-diarize --with-screenshots --with-r2-upload \
+  --gemini-backend claude --with-modal-transcribe --modal-scope channels \
+  --with-soniox --with-pyannote-ai --gemini-refine-promote
+```
+
+## 1. Što se do 24.10. događalo s novom epizodom (povijest)
+
+Tri launchd joba: `tv.domovina.fetch.nightly` (03:00, sve epizode), `tv.domovina.fetch.priority`
 (svakih ~90 s, narudžbe s pipeline.domovina.ai) i `tv.domovina.fetch.magisterium` (svakih 10 min).
 
 ```mermaid
@@ -52,32 +71,54 @@ flowchart TD
 | 2.8 | Gemini sluh nad Speechmatics kosturom, promocija u kanonski SRT | Vertex `gemini-3.8-flash` | ~$0,2–0,45/ep |
 | 6 | pyannote, samo kad 2.8 nije promovirao | lokalni Mac | 0 |
 | 7+8 | sažetak + članak | `claude -p --model opus` (pretplata), uz `CLAUDE_WINDOW_GUARD` | kvota pretplate |
-| Magisterium | ocjena članka | `magisterium_poller.js`, `claude --model opus` + Magisterium MCP (nikad API) | kvota pretplate |
+| Magisterium | ocjena članka | `magisterium_poller.js`, `claude --model opus` + Magisterium MCP (nikad API); od 24.10. izravni MCP klijent, v. §2 | kvota pretplate (do 24.10.) |
 
 Ograde u 2.7/2.8: prozor svježine 3 dana, najviše 5 epizoda po noći.
 
-**Govornici danas dolaze od Speechmaticsa** (koji ih razbija, 5 → 17 na adria mjerenju), a ne
+**Govornici su do 24.10. dolazili od Speechmaticsa** (koji ih razbija, 5 → 17 na adria mjerenju), a ne
 od pyannoteAI. Na našim epizodama to prolazi jer su razgovori 2–3 osobe.
 
-## 2. Ciljno stanje (Matijina presuda, 24.10.)
+## 2. Stanje od 25.10. (Matijina presuda, 24.10.)
 
 Soniox + pyannoteAI = super, Speechmatics + pyannoteAI = vrlo dobro, bilo koje od ta dva +
-Gemini prepis = vrhunski.
+Gemini prepis = vrhunski. Isti tok vrti nightly (prozor 3 dana, najviše 5 epizoda po koraku) i
+prioritetni fast-path (jedna epizoda, `--fresh-days 0`, `PRIORITY_SCOPE_ARGS`).
 
 ```mermaid
 flowchart TD
-    W[MP3] --> SX{KORAK 2.7b Soniox stt-async-v5<br/>~$0,12/h}
-    SX -->|greška / nema kredita / dulje od 300 min| SM[Speechmatics fallback<br/>~$0,80/h]
-    W --> PA[pyannoteAI precision-3<br/>~$0,13/h]
-    SX --> H[hibrid: riječ dobiva govornika<br/>po najvećem preklapanju]
+    YT[YouTube / RSS] --> F[KORAK 1 fetch.js]
+    F --> W[KORAK 2 MP3 u WAV]
+    W --> M[KORAK 2.6 Modal Canary<br/>osigurač + word_ts za words.json]
+    F --> SX{KORAK 2.7b Soniox stt-async-v5<br/>~$0,12/h}
+    SX -->|greška / nema kredita / dulje od 300 min| SM[Speechmatics fallback<br/>unutar 2.7b, ~$0,80/h]
+    F --> PA[KORAK 2.7c pyannoteAI precision-3<br/>cloud, ~$0,13/h]
+    SX --> H[hibrid u 2.7c: riječ dobiva govornika<br/>po najvećem preklapanju]
     SM --> H
     PA --> H
-    H --> G[KORAK 2.8 Gemini sluh<br/>--skeleton soniox_pyannote / speechmatics_pyannote]
-    G -->|promocija| C[.wav.canary.diarized.srt]
-    C --> S7[KORACI 7+8 sažetak + članak]
-    S7 --> R[9-12 kao danas]
-    S7 -.-> MG[Magisterium MCP, Opus]
+    H --> G[KORAK 2.8 Gemini 3.8 Flash sluh<br/>GEMINI_REFINE_SKELETON=auto:<br/>soniox_pyannote, pa speechmatics_pyannote, pa speechmatics]
+    G -->|promocija ako kanonski ne postoji| C[.wav.canary.diarized.srt]
+    M --> P6[KORAK 6 pyannote LOKALNO na Macu]
+    P6 -->|samo ako 2.8 nije promovirao| C
+    C --> S7[KORACI 7+8 sažetak + članak<br/>Claude Opus, pretplata]
+    S7 --> R[KORACI 9-10 RAG, e-knjiga, sponzori,<br/>words.json, screenshotovi]
+    R --> U[KORAK 12 R2 / CDN + 12.7 episode.json]
+    S7 -.cron enqueue.-> MG[Magisterium poller, MAG_RUNNER=direct<br/>magisterium_mcp_episode.js, MCP bez LLM-a]
+    MG --> U
+    MG -.na zahtjev.-> EN[EN prijevod po bloku<br/>translate_to_english.js, Vertex]
+    EN --> U
+    SX -.-> PJ[processing.json<br/>provenance, samo disk]
+    PA -.-> PJ
 ```
+
+Dvije stvari na dijagramu nisu očite:
+
+- **Modal Canary (2.6) se i dalje vrti** za svaku epizodu praćenog kanala. On je osigurač kad
+  2.8 ne promovira (pa lokalni pyannote u KORAKU 6 diarizira Canary), a njegov
+  `.wav.canary.word_ts.json` je izvor vremena za words.json (9.87).
+- **words.json (9.87) još ne čita Soniox.** `generate_words_json.js` zna čitati
+  `.soniox.words.json`, ali samo uz `--with-soniox`, a `run_pipeline.sh` taj flag ne prosljeđuje
+  (namjerno, dok mjerenje ne dobije OK). U pipelineu izvor ostaje Speechmatics (kad je radio
+  fallback) ili Canary word_ts.
 
 ## 3. Što postoji, a što fali
 
@@ -91,9 +132,11 @@ flowchart TD
 | Gemini sluh nad Soniox/pyannote kosturom | ✅ `--skeleton soniox_pyannote` | `refine_diarized_gemini.js` |
 | 2.8 u run_pipeline bira kostur | ✅ `GEMINI_REFINE_SKELETON=auto`: po epizodi `soniox_pyannote` → `speechmatics_pyannote` → `speechmatics` | `run_pipeline.sh`, `refine_diarized_gemini.js` |
 | Nightly linija | ✅ `--with-soniox --with-pyannote-ai --gemini-refine-promote` (24.10.) | `automatic/nightly_pipeline.sh` |
-| Prioritetni fast-path | ❌ izbor „speechmatics” i dalje `--with-speechmatics` | `../pipeline.domovina.ai/bridge/plan.js` |
+| Prioritetni fast-path | ✅ izbor `soniox` (default): `--with-soniox --with-pyannote-ai --gemini-refine-promote` + `GEMINI_REFINE_SKELETON=auto` (24.10., `1052cf8`) | `../pipeline.domovina.ai/bridge/plan.js` |
 | Speechmatics u fallbacku dobiva pyannoteAI govornike | ✅ `diarize_pyannote_ai.js --words-from speechmatics` | ručno, ne u pipelineu |
-| words.json iz Sonioxa | ✅ uz `--with-soniox` (opt-in) | `generate_words_json.js` |
+| words.json iz Sonioxa | ⚠️ skripta zna (`--with-soniox`, opt-in), ali `run_pipeline.sh` KORAK 9.87 flag ne prosljeđuje | `generate_words_json.js` |
+| Magisterium HR bez Claudea | ✅ `MAG_RUNNER=direct` (default), `magisterium_mcp_episode.js` | `../pipeline.domovina.ai/bridge/magisterium_poller.js` |
+| EN prijevod po bloku | ✅ ~30–50 Vertex poziva/ep umjesto ~1000 | `translate_to_english.js` |
 | Provenance po epizodi | ✅ `{base}.processing.json`, samo disk | `lib/processing_manifest.js`, data_contract §16 |
 | Članak na Gemini Vertexu | ⚠️ **nije tako**: nightly piše Opusom (`--gemini-backend claude`) od 29.07. | vidi §4 |
 
@@ -142,4 +185,4 @@ Slijepi sudac (`tools/judge_asr_diffs.js`) se više ne pokreće automatski: pres
 - Plan i izvori brojki: `docs/2026-10-24-soniox-pyannote-roadmap.md`
 - Speechmatics + Gemini sluh: `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md`
 - Claude kao backend 7+8: `docs/claude_code_backend_2026-07.md`
-- Cijeli pipeline, koraci 0–13: `docs/PIPELINE_FULL.md` (stanje prije Sonioxa)
+- Cijeli pipeline, koraci 0–13: `docs/PIPELINE_FULL.md` (§1 usklađen 24.10.)
