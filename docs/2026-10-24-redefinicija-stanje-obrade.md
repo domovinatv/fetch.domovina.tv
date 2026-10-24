@@ -84,12 +84,12 @@ Plan i stanje pipelinea: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 
 | Ep | ID | sekcija | Magisterium (prosjek sekcija / holistički) | raspon sekcija | HR trajanje | chat poziva |
 |---|---|---|---|---|---|---|
-| 1 | LnjTZ39Tsdc | 25 | 86 | — | — | (batch 2, 45 riječi) |
-| 2 | -bOmDXC7rlA | — | 75 | 58–76 | — | (45 riječi — oprezne ocjene) |
-| 3 | 1--IUSQILFA | — | 80 | 72–89 | — | — |
-| 4 | kCa7edJS-Lo | — | 85 | 65–95 | — | — |
+| 1 | LnjTZ39Tsdc | 25 | 82 / 83 (ponovljeno s 80 riječi; s 45 bilo 86) | 62–95 | 28 min | 30 |
+| 2 | -bOmDXC7rlA | 25 | 76 / 78 (ponovljeno s 80 riječi; s 45 bilo 75) | 54–88 | 22 min | 26 |
+| 3 | 1--IUSQILFA | 24 | 80 / 82 | 72–89 | — | — |
+| 4 | kCa7edJS-Lo | 27 | 85 / 88 | 65–95 | — | — |
 | 5 | Yoln5fe9RdY | 35 | 76 / 78 | 45–88 | 2,4 h | 36 |
-| 6 | ouoZvcpBt9Y | 36 | 80 / 81 | 40–95 | 2,4 h | 38 |
+| 6 | ouoZvcpBt9Y | 36 | 80 / 81 | 54–95 (sekcija Sisak 40 → 62, vidi dolje) | 2,4 h | 38 + 1 |
 | 7 | ZkMcSRvajCw | 27 | 72 / 72 | 56–88 | 21 min | 28 |
 | 8 | h_6vqQEL2uc | 33 | 79 / 63 | 55–94 | 27 min | 35 |
 | 9 | f2HIRJPHHK4 | 22 | 80 / 87 | 62–94 | 15 min | 24 |
@@ -100,12 +100,20 @@ prompta 45 s/poziv (ep. 7–10, odgovori spremani skriptom iz transkripta) prema
 (ep. 5–6, odgovori prepisivani ručno, kontekst raste do 260k). Optimizacija (izravni MCP
 klijent bez LLM-a u petlji) je zaseban zadatak.
 
+Riješeno 24.10. navečer:
+
+- **Ep. 6, sekcija „Spomenik u Sisku i kozaračka djeca": 40 → 62.** Uzrok je bio prep, ne
+  epizoda: `--max-words 80` odrezao je sadržaj točno iza rečenice „nitko ih nije ubijao", bez
+  nastavka („došli su gladni, bolesni, umirući… umrli od gladi i bolesti"). Sekcija je
+  ponovno poslana s cijelim tekstom (432 riječi, `--max-words 400`), ostalih 35 sekcija
+  identično. Primjedbe koje ostaju: kategorička povijesna tvrdnja bez izvora, ton, dijalog
+  uvjetovan spomenikom. Pouka: rez na N riječi može ispasti baš iza sporne rečenice —
+  prep bi trebao slati cijelu sekciju i rezati tek iznad razumne granice, na kraju rečenice.
+- **Ep. 1–2 ponovljene s `--batch-size 1 --max-words 80`** (stari rezultati `.bak45`), uz
+  novi EN Magisterium i e-knjige. CDN md5 = disk za sve.
+
 Otvoreno:
 
-- Ep. 6, sekcija „Spomenik u Sisku i kozaračka djeca" (40): Magisterium je kaznio rečenicu
-  „nitko nije ubijao", a sažetak u promptu prekida se baš na njoj — preslušati prije
-  korištenja epizode kao reference.
-- Ep. 1–2 su rađene s `--max-words 45`; ponoviti s 80 ako želimo ujednačene ocjene.
 - `force_upload.js --targets epub` nema EN varijantu; prvi `book.en.epub` objavljuje
   `upload_to_r2.js --video-id`, a `tools/force_upload_epubs.js` šalje samo već objavljene.
 
