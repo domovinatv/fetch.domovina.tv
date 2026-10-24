@@ -30,7 +30,10 @@
  *   node tools/reprocess_episode.js locate --video-id <ID>
  *
  *   --scope derived  sve izvedeno (prijepisi, diarizacija, sažetak, članak, RAG, slike,
- *                    epub, words, segments, sponsors, speechmatics…) — za puni re-run
+ *                    epub, words, segments, sponsors, speechmatics, soniox, pyannote_ai,
+ *                    *_pyannote kostur, *.gemini.* sluh, processing.json…) — za puni
+ *                    re-run. Lista je DENY-lista izvora (SOURCE_SUFFIX), pa novi artefakt
+ *                    ulazi sam; tools/reprocess_episode.test.js to drži.
  *   --scope article  samo ono što ovisi o članku (sažetak, outline/article/magisterium,
  *                    _raw, RAG, screenshotovi, og-sections, og-share, epub, usage) —
  *                    prijepis, words.json, segments i sponsors ostaju
