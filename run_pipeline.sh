@@ -577,6 +577,12 @@ done
 #   • SVE downstream korake scope-amo na _unlisted/<video-id> (--video-id / --file /
 #     --channel _unlisted) → diarize/summary/article/rag/screenshot/r2 diraju 1 fajl,
 #     ne stat-aju ~3000.
+#   • cloud transkripcija (2.7 Speechmatics, 2.7b Soniox, 2.7c pyannoteAI, 2.8 Gemini
+#     sluh) dobiva PRIORITY_SCOPE_ARGS i --fresh-days 0 — ad-hoc video smije biti star
+#     godinama, a prozor svježine (3 d) bi ga tiho izbacio. Bridge od 24.10.2026. po
+#     defaultu šalje isto što i nightly: --with-soniox --with-pyannote-ai
+#     --gemini-refine-promote + env GEMINI_REFINE_SKELETON=auto (pipeline.domovina.ai
+#     bridge/plan.js). Novi korak MORA dobiti PRIORITY_SCOPE_ARGS, inače skenira katalog.
 # Nightly (bez MODAL_ONLY_ID) prolazi kroz sve grane nepromijenjeno.
 PRIORITY_FAST_PATH=false
 PRIORITY_SCOPE_ARGS=()      # za skripte koje podržavaju --video-id (+ --channel)
