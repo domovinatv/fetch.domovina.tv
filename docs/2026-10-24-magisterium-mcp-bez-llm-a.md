@@ -45,6 +45,26 @@ orkestrator bio usko grlo, a ne Magisterium. Ukupni input tokeni za epizodu s 28
 reda veličine 28 × ~150k ≈ **4M (procjena; uglavnom cache read)**. Stvarni broj nije
 izmjeren, jer transkripti subagenata s 24.10. nisu sačuvani.
 
+### Trajanje po satu snimke (prva dva produkcijska runa, 24.10. navečer)
+
+Holistički poziv je u oba slučaja bio gotov od ranije, pa ga je skripta preskočila.
+
+| | `dYqKlE_pEXI` (budi_frajer) | `c2vZO7dHBTE` (nanovoroeni) |
+|---|---|---|
+| snimka | 32,4 min | 77,5 min |
+| sekcija (sekcija/h snimke) | 16 (30/h) | 31 (24/h) |
+| 2 chat | 455,9 s (~28,5 s/poziv) | 890,7 s (~28,7 s/poziv) |
+| 2b jezik | 0 s | 103,6 s (`batch_17` + holistic, 1 krug) |
+| 4 publish + 5 md5 | 23,6 s | 25,5 s |
+| rate-limit čekanja | 4 | 10 |
+| ukupno | 8,0 min | 17,0 min |
+| **po satu snimke** | **14,8 min** | **13,2 min** (11,8 bez jezičnog retryja) |
+| `overall_score` | 78 | 83 |
+
+Vrijeme raste s brojem sekcija, a ne izravno s trajanjem snimke. Za planiranje:
+**trajanje ≈ 1 min + 0,5 min × sekcija**. Bez outlinea računaj **~15 min po satu snimke
++ 1 min po epizodi**: 10 h backloga ≈ 2,5 h, sekvencijalno. Osnova su samo dvije epizode.
+
 ### Usporedba po pozivu
 
 | | Stari | Novi |
