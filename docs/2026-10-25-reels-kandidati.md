@@ -165,6 +165,15 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 
 ## Otvoreno
 
+- **launchd `tv.domovina.fetch.reels` NIJE instaliran** (25.10.2026.). Prije
+  `automatic/launchd/install.sh reels`: (1) pričekati da završi ručni render ostatka
+  re:DEFINICIJE, (2) preračunati `render.fingerprint` u reels.json gotovih reelova — run je
+  krenuo sa starom formulom (mtime brand.json), nova hashira sadržaj brenda; bez migracije bi
+  job sve renderirao ponovno. Migracija: za svaki reel s `render.file` postaviti
+  `render.fingerprint = renderFingerprint(reel, loadBrand(kanal))` (export iz render_reels.js).
+- **Ep. 10 #1 (`DOfcONrRyDY`) pao na `hyperframes check`** u ručnom runu — pogledati
+  `render.error` u reels.json i radni dir (`--keep-work`).
+
 - Konfiguracija prompta po kanalu (ton, vrste kartica, koliko kandidata) i bogatije
   kartice (ruta, ilustracije) koje danas rade samo ručni predlošci.
 - domovina.ai još ne prikazuje reelove (`reels.json` + `render.url` su spremni).
