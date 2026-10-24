@@ -568,7 +568,10 @@ function parseArgs() {
         return i !== -1 && i + 1 < args.length ? args[i + 1] : null;
     };
     // Vrijednosti (npr. "storage/output") preskačemo — provjeravamo samo `--`/`-` tokene.
-    const unknown = args.filter((a) => a.startsWith("-") && !KNOWN_FLAGS.has(a));
+    // Token iza opcije s vrijednošću je VRIJEDNOST i kad počinje crticom: YouTube ID
+    // `-bOmDXC7rlA` je inače bio odbijen kao „nepoznata opcija" (24.10.2026.).
+    const VALUE_FLAGS = new Set(["--input-dir", "--channel", "--video-id", "--limit"]);
+    const unknown = args.filter((a, i) => a.startsWith("-") && !KNOWN_FLAGS.has(a) && !VALUE_FLAGS.has(args[i - 1]));
     if (unknown.length) {
         console.error(`❌ Nepoznata opcija: ${unknown.join(", ")}`);
         console.error(USAGE);
