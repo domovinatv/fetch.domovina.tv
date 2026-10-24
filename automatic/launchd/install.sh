@@ -4,6 +4,7 @@
 #   • tv.domovina.fetch.nightly     — noćni bulk pipeline (03:00)
 #   • tv.domovina.fetch.priority    — prioritetni fast-path poller (svakih 90s)
 #   • tv.domovina.fetch.magisterium — Magisterium (re)obrada poller (svakih 600s)
+#   • tv.domovina.fetch.reels       — render + objava brendiranih reelova (svakih 1800s, iza nightlyja)
 #
 # Kopira plistove u ~/Library/LaunchAgents/ i bootstrap-a ih u GUI launchd domenu.
 # Idempotentno — ako je već instaliran, prvo unload-a pa ponovo load-a.
@@ -25,8 +26,9 @@ case "${1:-all}" in
     nightly)     LABELS=("tv.domovina.fetch.nightly") ;;
     priority)    LABELS=("tv.domovina.fetch.priority") ;;
     magisterium) LABELS=("tv.domovina.fetch.magisterium") ;;
-    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium") ;;
-    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority|magisterium)" >&2; exit 1 ;;
+    reels)       LABELS=("tv.domovina.fetch.reels") ;;
+    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium" "tv.domovina.fetch.reels") ;;
+    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority|magisterium|reels)" >&2; exit 1 ;;
 esac
 
 for LABEL in "${LABELS[@]}"; do

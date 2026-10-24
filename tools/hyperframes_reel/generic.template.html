@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8" />
+<!-- Generički predložak reela: kartice dolaze iz reels.json (select_reels.js), slaže ih compose_reel.js.
+     Ručni predlošci (*.template.html) ostaju za istaknute reelove s posebnim animacijama. -->
+<style>
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Bold.ttf") format("truetype"); font-weight: 700; font-display: block; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-ExtraBold.ttf") format("truetype"); font-weight: 800; font-display: block; }
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat-Black.ttf") format("truetype"); font-weight: 900; font-display: block; }
+/* zadani izgled (bez brenda); compose_reel.js prepiše varijable iz brand.json */
+:root { --paper: #f5eedf; --ink: #1e1a16; --ink-soft: #4a4038; --rule: rgba(30,26,22,.15); --wine: #8e1b1b;
+  --gold: #f2c14e; --edge: transparent; --bar-ink: #fff; --f-head: "Montserrat"; --f-body: "Montserrat"; --f-cap: "Montserrat"; }
+.brand-logo { display: none; }
+{{BRAND_CSS}}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000;
+  font-family: var(--f-head), var(--f-body), sans-serif; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+
+/* 16:9 kadar razvučen na visinu 1920 → 3413 px širine; kadar po licu postavlja reel_layout.js */
+#bg-blur { position: absolute; inset: -60px; width: 1200px; height: 2040px; object-fit: cover;
+  filter: blur(36px) brightness(.45); }
+#cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+#video-wrap { position: absolute; left: 0; top: 0; width: 3413px; height: 1920px; }
+#video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+#shade { position: absolute; inset: 0; background:
+  linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 48%, rgba(0,0,0,.55) 100%); }
+
+/* potpis: trajno dolje desno, namjerno izvan sigurne zone */
+.credit { position: absolute; right: 26px; bottom: 34px; z-index: 50;
+  display: flex; align-items: center; gap: 10px; padding: 7px 16px 7px 8px; border-radius: 30px;
+  background: rgba(10,10,10,.55); color: rgba(255,255,255,.92); font: 700 22px "Montserrat"; white-space: nowrap; }
+.credit img { width: 32px; height: 32px; border-radius: 7px; }
+
+.card-host { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none; }
+.slot { position: absolute; left: 0; top: 0; }
+.paper { position: relative; width: 740px; background: var(--paper); color: var(--ink); border: 3px solid var(--edge);
+  border-radius: 22px; padding: 34px 44px; box-shadow: 0 18px 50px rgba(0,0,0,.45); }
+
+.hook { font: 900 60px/1.08 var(--f-head); text-align: center; }
+.hook .wd { display: inline-block; }
+.hook .wd.hl { color: var(--wine); }
+
+.lt .bar { background: var(--wine); color: var(--bar-ink); font: 900 50px var(--f-head); padding: 16px 30px; border-radius: 14px 14px 14px 0; display: inline-block; }
+.lt .sub { background: var(--paper); color: var(--ink); font: 700 34px var(--f-body); padding: 12px 26px; border-radius: 0 0 14px 14px; display: inline-block; }
+
+.ctx { font: 700 40px/1.28 var(--f-body); }
+.ctx::before { content: ""; display: block; width: 72px; height: 8px; border-radius: 4px; background: var(--wine); margin-bottom: 22px; }
+
+.quote .q { font: 900 46px/1.22 var(--f-head); }
+.quote .who { font: 700 28px var(--f-body); color: var(--ink-soft); margin-top: 20px; letter-spacing: .04em; }
+
+.num { text-align: center; }
+.num .v { font: 900 120px/1 var(--f-head); color: var(--wine); }
+.num .s { font: 700 38px/1.25 var(--f-body); margin-top: 16px; padding-top: 16px; border-top: 3px solid var(--rule); }
+
+.pin { display: flex; gap: 30px; align-items: center; }
+.pin svg { flex: 0 0 96px; }
+.pin .v { font: 900 58px/1.05 var(--f-head); }
+.pin .s { font: 700 32px/1.25 var(--f-body); margin-top: 10px; color: var(--ink-soft); }
+
+.endc { text-align: center; }
+.endc .t { font: 900 48px/1.15 var(--f-head); }
+.endc .src { font: 700 30px var(--f-body); color: var(--ink-soft); margin-top: 22px; padding-top: 18px; border-top: 3px solid var(--rule); letter-spacing: .03em; }
+.endc .url { color: var(--wine); font-weight: 800; }
+
+/* titl: ≤3 riječi, aktivna riječ zlatna; položaj i veličinu postavlja reel_layout.js */
+.cap { position: absolute; left: 120px; width: 768px; top: 1150px; text-align: center;
+  font: 900 70px/1.12 var(--f-cap); color: #fff;
+  text-shadow: 0 0 6px #000, 0 4px 14px rgba(0,0,0,.9), 0 0 2px #000; -webkit-text-stroke: 3px rgba(0,0,0,.85); paint-order: stroke fill; }
+</style>
+</head>
+<body>
+<div id="stage" data-composition-id="{{COMP_ID}}" data-start="0" data-duration="{{DUR}}" data-fps="25" data-width="1080" data-height="1920">
+
+  <video id="bg-blur" src="input-video.mp4" muted playsinline data-has-audio="false"
+    data-start="0" data-duration="{{DUR}}" data-track-index="0"></video>
+  <div id="cam"><div id="video-wrap">
+    <video id="bg-video" src="input-video.mp4" playsinline data-has-audio="true"
+      data-start="0" data-duration="{{DUR}}" data-track-index="1"></video>
+  </div></div>
+  <div id="shade"></div>
+
+  <div class="credit"><img src="domovina_logo.png" alt="" />Napravljeno s domovina.ai</div>
+
+  {{CARDS}}
+
+  {{CAPTIONS}}
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="reel_layout.js"></script>
+  <script>window.REEL_FACES = {{FACES}};</script>
+  <script>
+  document.fonts.ready.then(function () {
+    const tl = gsap.timeline({ paused: true });
+    ReelLayout.run(tl, { faces: window.REEL_FACES, debug: {{DEBUG}}, camera: function (tl) {
+      tl.fromTo("#video-wrap", { scale: 1 }, { scale: 1.04, duration: {{DUR}}, ease: "none" }, 0);
+    } });
+    tl.from(".credit", { opacity: 0, duration: 0.5, ease: "power2.out" }, 0.1);
+    function count(id, to, at, dur) {
+      const o = { v: 0 };
+      tl.to(o, { v: to, duration: dur, ease: "power2.out", onUpdate: function () {
+        const el = document.getElementById(id); if (el) el.textContent = Math.round(o.v).toLocaleString("hr-HR"); } }, at);
+    }
+
+    {{CARD_JS}}
+
+    {{CAPTION_JS}}
+
+    window.__timelines["{{COMP_ID}}"] = tl;
+  });
+  </script>
+</div>
+</body>
+</html>

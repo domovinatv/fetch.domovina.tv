@@ -12,6 +12,7 @@ GUI_DOMAIN="gui/$(id -u)"
 case "${1:-all}" in
     nightly)  LABELS=("tv.domovina.fetch.nightly") ;;
     priority) LABELS=("tv.domovina.fetch.priority") ;;
+    reels)    LABELS=("tv.domovina.fetch.reels") ;;
     all|"")   LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority") ;;
     *) echo "❌ Nepoznat argument: $1 (all|nightly|priority)" >&2; exit 1 ;;
 esac

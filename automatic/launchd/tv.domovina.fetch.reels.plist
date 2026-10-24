@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    launchd plist za RENDER BRENDIRANIH REELOVA (svakih 1800 s / 30 min).
+
+    reels.json (KORAK 9.9 u nightlyju) → top 2 trenutka po epizodi → HyperFrames render s
+    brandingom kanala → cdn.domovina.ai/data/{id}/reels/. Samo kanali s
+    data/branding/<kanal>/brand.json. Tick se preskače dok radi nightly ili run_pipeline.sh,
+    pa je render u praksi IZA nightlyja.
+
+    Lokacija: ~/Library/LaunchAgents/tv.domovina.fetch.reels.plist
+    Install:  automatic/launchd/install.sh reels
+    Logs:     automatic/logs/reels_YYYY-MM-DD.log
+
+    ProcessType Standard, NE Background: Background veže proces na efficiency jezgre
+    (12,7× sporije, memory launchd_processtype_throttles_cpu).
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>tv.domovina.fetch.reels</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/reels_render.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv</string>
+
+    <key>StartInterval</key>
+    <integer>1800</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.reels.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.reels.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/ms</string>
+        <key>PATH</key>
+        <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <key>ProcessType</key>
+    <string>Standard</string>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

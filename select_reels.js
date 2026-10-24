@@ -131,7 +131,14 @@ function findEpisodes() {
             out.push({ channel: ch, dir, base, vid, segPath: path.join(dir, f), outPath: path.join(dir, base + OUT_SUFFIX) });
         }
     }
-    return out;
+    return dropUnlistedDuplicates(out);
+}
+
+// Ista epizoda u kanalu i u `_unlisted` (auto_reuse_adhoc.js) → kanalska pobjeđuje, inače
+// bi ista epizoda dobila dva LLM poziva (ep. 7 re:DEFINICIJE, 25.10.2026.).
+function dropUnlistedDuplicates(eps) {
+    const inChannel = new Set(eps.filter(e => e.channel !== "_unlisted").map(e => e.vid));
+    return eps.filter(e => e.channel !== "_unlisted" || !inChannel.has(e.vid));
 }
 
 function readSegments(p) {
@@ -451,4 +458,4 @@ if (require.main === module) {
     main().catch(err => { console.error(`❌ ${err.stack || err.message}`); process.exit(1); });
 }
 
-module.exports = { normalizeReels, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };
+module.exports = { dropUnlistedDuplicates, normalizeReels, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };

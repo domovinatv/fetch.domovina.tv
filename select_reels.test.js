@@ -62,3 +62,9 @@ test("parseJsonLoose skida markdown ogradu", () => {
 test("extractVideoId uzima zadnji _yt_", () => {
     assert.equal(extractVideoId("x_yt_naslov_yt_f2HIRJPHHK4.segments.jsonl"), "f2HIRJPHHK4");
 });
+
+test("_unlisted kopija ne dobiva poziv kad je epizoda i u kanalu", () => {
+    const { dropUnlistedDuplicates } = require("./select_reels");
+    const eps = [{ channel: "_unlisted", vid: "A" }, { channel: "kanal", vid: "A" }, { channel: "_unlisted", vid: "B" }];
+    assert.deepEqual(dropUnlistedDuplicates(eps).map(e => `${e.channel}/${e.vid}`), ["kanal/A", "_unlisted/B"]);
+});
