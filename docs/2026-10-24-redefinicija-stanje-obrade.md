@@ -26,7 +26,43 @@ Pokazuje kako je katalog nastajao slojevito, svaka epizoda alatima svog vremena.
    479 min: kroz Speechmatics ~$6,2, kroz Soniox ~$1 (`docs/2026-10-24-soniox-pyannote-roadmap.md`).
 4. Vrijeme izmjene datoteka nije pouzdano: kod ep. 7 prijepis ima kasnije vrijeme od sažetka.
 
-Recompute: skripta je bila jednokratna (čita `*.meta.json`, `summary.json`, `article.json`
+Recompute: danas `node tools/build_processing_manifest.js --channel muzevni_budite --print`
+(`{base}.processing.json`, data_contract §16). Prva verzija skripte je bila jednokratna (čita `*.meta.json`, `summary.json`, `article.json`
 metadata, `gemini_usage.json` i uspoređuje `.diarized.srt` sa `.speechmatics*.diarized.srt`
 da odredi izvor). CDN: `inline["article.json"].metadata.model` i
 `inline["article.magisterium.json"].source_article`.
+
+
+## Soniox + pyannoteAI za svih 10 (24.10. navečer)
+
+Gotovo za svih 10, ništa nije promovirano ni poslano na CDN. Izlaz je
+`{audio}.soniox.*`, `{audio}.pyannote_ai.json` i `{audio}.soniox_pyannote.{diarized.srt,words.json}`.
+
+| ep | zvuk | Soniox | pyannoteAI | govornika Soniox / pyannote |
+|---|---|---|---|---|
+| 1 | 64:41 | $0,129 | $0,139 | 2 / 2 |
+| 2 | 55:17 | $0,111 | $0,118 | 2 / 3 |
+| 3 | 43:02 | $0,086 | $0,092 | 2 / 2 |
+| 4 | 48:35 | $0,097 | $0,104 | 2 / 3 |
+| 5 | 62:53 | $0,126 | $0,135 | 2 / 3 |
+| 6 | 63:40 | $0,127 | $0,137 | 3 / 3 |
+| 7 | 68:41 | $0,137 | $0,147 | 2 / 3 |
+| 8 | 71:41 | $0,143 | $0,153 | 2 / 3 |
+| 9 | 51:21 | $0,103 | $0,109 | 3 / 3 |
+| 10 | 61:59 | $0,124 | $0,132 | 3 / 3 |
+
+Soniox obrađuje ~39× brže od realnog vremena. Treći pyannote govornik na ep. 2, 4, 5, 7 i 8 nije
+preslušan: vjerojatno je to uvodni isječak ili kratka upadica, a obrazac odgovara onome da
+Soniox spaja govornike.
+
+Ep. 9 već ima Gemini prepis nad tim kosturom (`.soniox_pyannote.gemini.diarized.srt`,
+7528 → 7593 riječi, 8 min, $0,17), također nepromoviran.
+
+**Sljedeći prolaz (dogovoren 24.10.):** svih 10 epizoda kao referentna obrada. Redom:
+
+1. Gemini prepis i promocija.
+2. Novi sažetak i članak s poglavljima.
+3. words.json iz Sonioxa, pa CDN i bundle.
+4. Magisterium MCP, HR **i** EN, za svih 10.
+
+Plan i stanje pipelinea: `docs/2026-10-24-pipeline-trenutno-stanje.md`.

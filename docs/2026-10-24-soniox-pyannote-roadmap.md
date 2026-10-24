@@ -1,6 +1,6 @@
 # Roadmap: Soniox primarno + pyannoteAI, Speechmatics fallback (24.10.2026.)
 
-**Status: plan, nije implementirano.** Cilj je da cloud ASR u pipelineu (KORAK 2.7/2.8) i u
+**Status (24.10. navečer): implementirano, a nightly je prebačen.** Stanje, što je izvedeno i put za povratak su u `docs/2026-10-24-pipeline-trenutno-stanje.md`. Ispod je izvorni plan. Cilj je da cloud ASR u pipelineu (KORAK 2.7/2.8) i u
 Reel Studiju (`tools/reel_studio/prototype-v2.html`) preuzme obrazac koji je u adria-analytics
 izmjeren i ugrađen u newsroom-be (NEWS-971 live, NEWS-1034 batch).
 
