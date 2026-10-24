@@ -24,7 +24,7 @@ flowchart LR
 
 Na prvih 5 min: ~6500 skokova unatrag (≈22/s). Je li skok jeftin ovisi o tome
 je li ciljni bajt već u bufferu; ako nije → novi HTTP zahtjev. CDN vraća
-`Connection: close`, app ima mpv `cache=no` → **svaki skok = novi TCP+TLS handshake**.
+`Connection: close` → **svaki skok = novi TCP+TLS handshake**. Mobilni player ima readahead (media_kit: `cache=yes`, 32 MB), ali ga uz ping-pong ne stiže puniti; TV sesija je imala `cache=no` (ispravljeno u domovina.ai `b39f9fe`).
 
 ## Mjerenja (ffmpeg 8.1.1 s Maca preko cdn.domovina.ai, `-ss 18 -t 120`)
 
