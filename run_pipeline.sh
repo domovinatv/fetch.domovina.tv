@@ -242,7 +242,11 @@ echo ""
 #   --with-soniox         → KORAK 2.7b: cloud ASR preko Soniox stt-async-v5 (~$0.12/h),
 #                            fallback Speechmatics. Odvojen namespace (.soniox.*), non-fatal,
 #                            ograde SONIOX_FRESH_DAYS=3 / SONIOX_MAX_FILES=5. Default OFF,
-#                            NIJE u nightlyju. Plan: docs/2026-10-24-soniox-pyannote-roadmap.md
+#                            Plan: docs/2026-10-24-soniox-pyannote-roadmap.md
+#   --with-pyannote-ai    → KORAK 2.7c: govornici iz pyannoteAI precision-3 (cloud, ~$0.13/h)
+#                            + hibrid riječ→govornik nad 2.7b/2.7 riječima. Ograde kao 2.7b.
+#   GEMINI_REFINE_SKELETON → kostur za 2.8: speechmatics (default) | soniox_pyannote |
+#                            speechmatics_pyannote | auto (prvi koji postoji, tim redom)
 #   --reprocess           → PONOVNA OBRADA već objavljene epizode (samo uz --modal-only):
 #                            prije runa skloni stare izvedene fajlove iz _unlisted u
 #                            .reprocess_bak/ (inače bi 2.8/7/8 vidjeli „već postoji"), a
@@ -313,6 +317,13 @@ WITH_SONIOX=false
 SONIOX_FRESH_DAYS="${SONIOX_FRESH_DAYS:-3}"
 SONIOX_MAX_FILES="${SONIOX_MAX_FILES:-5}"
 SONIOX_TIMEOUT_MIN="${SONIOX_TIMEOUT_MIN:-30}"
+# --with-pyannote-ai (2026-10-24): KORAK 2.7c — pyannoteAI govornici + hibrid.
+WITH_PYANNOTE_AI=false
+PYANNOTE_AI_FRESH_DAYS="${PYANNOTE_AI_FRESH_DAYS:-3}"
+PYANNOTE_AI_MAX_FILES="${PYANNOTE_AI_MAX_FILES:-5}"
+PYANNOTE_AI_TIMEOUT_MIN="${PYANNOTE_AI_TIMEOUT_MIN:-30}"
+# Kostur za KORAK 2.8 (refine_diarized_gemini.js --skeleton). Default = stari put.
+GEMINI_REFINE_SKELETON="${GEMINI_REFINE_SKELETON:-speechmatics}"
 # --with-gemini-refine (2026-09-19): KORAK 2.8 — Gemini sluh nad Speechmatics kosturom.
 #   GEMINI_REFINE_PROMOTE=true  → smije popuniti .wav.canary.diarized.srt (nikad prepisati)
 #   Prozor/cap kao 2.7: prati priljev, NE konvergira nad katalogom (v. komentar uz korak).
@@ -424,6 +435,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--with-soniox" ]; then
         WITH_SONIOX=true
+        i=$((i + 1))
+    elif [ "$arg" = "--with-pyannote-ai" ]; then
+        WITH_PYANNOTE_AI=true
         i=$((i + 1))
     elif [ "$arg" = "--with-gemini-refine" ]; then
         WITH_GEMINI_REFINE=true
@@ -1036,6 +1050,45 @@ else
     echo "   ⏭️  Preskačem KORAK 2.7b (Soniox) — nije zadan --with-soniox (default OFF)"
 fi
 
+# --- KORAK 2.7c: PYANNOTEAI GOVORNICI + HIBRID (--with-pyannote-ai) ---
+# pyannoteAI precision-3 (cloud, api.pyannote.ai — NE lokalni Mac) daje TKO govori KADA;
+# hibrid svakoj riječi iz 2.7b (Soniox, ili Speechmatics kad je radio fallback) ili 2.7
+# dodijeli govornika po najvećem vremenskom preklapanju → {audio}.{izvor}_pyannote.words.json,
+# kostur za KORAK 2.8 (GEMINI_REFINE_SKELETON=auto). Mora ići NAKON 2.7b/2.7: bez riječi
+# se samo diarizira, a hibrid složi idući run (nula API poziva).
+# Non-fatal, ništa ne promovira; ograde kao 2.7b.
+if [ "$WITH_PYANNOTE_AI" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 2.7c: pyannoteAI govornici + hibrid [--with-pyannote-ai]"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+PA_SCRIPT="$SCRIPT_DIR/diarize_pyannote_ai.js"
+if ! grep -qE '^\s*PYANNOTE_API_KEY\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null; then
+    echo "   ⏭️  Nema PYANNOTE_API_KEY u .env — preskačem."
+elif [ ! -f "$PA_SCRIPT" ]; then
+    echo "   ⚠️ Nema $PA_SCRIPT — preskačem."
+else
+    PA_FRESH_DAYS="$PYANNOTE_AI_FRESH_DAYS"
+    [ "$PRIORITY_FAST_PATH" = true ] && PA_FRESH_DAYS=0
+    PA_ARGS=(--input-dir "$OUTPUT_DIR"
+             --fresh-days "$PA_FRESH_DAYS"
+             --limit "$PYANNOTE_AI_MAX_FILES"
+             --timeout-minutes "$PYANNOTE_AI_TIMEOUT_MIN"
+             "${PRIORITY_SCOPE_ARGS[@]}")
+    if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+        PA_ARGS+=(--dry-run)
+    fi
+    echo "   🧪 Prozor ${PYANNOTE_AI_FRESH_DAYS}d, cap ${PYANNOTE_AI_MAX_FILES} epizoda (~\$0.10/ep pri 45 min)"
+    node "$PA_SCRIPT" "${PA_ARGS[@]}" \
+      || echo "   ⚠️ pyannoteAI korak nije uspio — nastavljam (non-fatal)."
+fi
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.7c (pyannoteAI) — nije zadan --with-pyannote-ai (default OFF)"
+fi
+
 # --- KORAK 2.8: GEMINI SLUH NAD SPEECHMATICS KOSTUROM (--with-gemini-refine) ---
 # Speechmatics dade kostur (TKO govori, KADA — akustika, word-level vremena), a
 # Gemini 3.8 Flash preko Vertexa ČUJE zvuk unutar tih granica i napiše ŠTO je rečeno.
@@ -1056,7 +1109,7 @@ fi
 if [ "$WITH_GEMINI_REFINE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-korak "KORAK 2.8: Gemini sluh nad Speechmatics kosturom [--with-gemini-refine]"
+korak "KORAK 2.8: Gemini sluh nad kosturom ($GEMINI_REFINE_SKELETON) [--with-gemini-refine]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1068,6 +1121,7 @@ else
     REFINE_FRESH_DAYS="$GEMINI_REFINE_FRESH_DAYS"
     [ "$PRIORITY_FAST_PATH" = true ] && REFINE_FRESH_DAYS=0
     REFINE_ARGS=(--input-dir "$OUTPUT_DIR"
+                 --skeleton "$GEMINI_REFINE_SKELETON"
                  --fresh-days "$REFINE_FRESH_DAYS"
                  --limit "$GEMINI_REFINE_MAX_FILES"
                  "${PRIORITY_SCOPE_ARGS[@]}")

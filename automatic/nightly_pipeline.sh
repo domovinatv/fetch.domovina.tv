@@ -331,8 +331,16 @@ acquire_pipeline_lock wait
 #   Jeftinija alternativa koja NIJE izabrana: pusti Canary pa 2.8 okini samo kad
 #   detektor collapsea (max_run >= 30, tools/compare_transcripts.js) plane — ~20x jeftinije,
 #   ali zadržava Mac kao obavezan stroj. Odluka 19.09. je cloud-readiness, ne cijena.
+# 🦴 SONIOX + PYANNOTEAI (2026-10-24): --with-speechmatics → --with-soniox --with-pyannote-ai,
+#   GEMINI_REFINE_SKELETON=auto. Tekst = Soniox stt-async-v5 (~$0.12/h; Speechmatics je
+#   fallback UNUTAR 2.7b kad Soniox padne ili nema kredita), govornici = pyannoteAI
+#   precision-3 (cloud), pa 2.8 Gemini sluh nad tim kosturom i promocija kao dosad.
+#   Matijina presuda 24.10.: Soniox/Speechmatics + pyannoteAI + Gemini prepis = vrhunski.
+#   Sve troje je cloud; lokalni pyannote (KORAK 6) ostaje fallback kad 2.8 ne promovira.
+#   🔙 POVRATAK: vrati `--with-speechmatics` umjesto `--with-soniox --with-pyannote-ai` i
+#   makni GEMINI_REFINE_SKELETON=auto. Stanje i razlozi: docs/2026-10-24-pipeline-trenutno-stanje.md
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-speechmatics --gemini-refine-promote || true
+    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 GEMINI_REFINE_SKELETON=auto "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-soniox --with-pyannote-ai --gemini-refine-promote || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego

@@ -149,17 +149,27 @@ const SKELETONS = {
     speechmatics_pyannote: { input: ".speechmatics_pyannote.words.json", hint: "natuknica", label: "Speechmatics+pyannote" },
     soniox: { input: ".soniox.words.json", hint: "natuknica", label: "Soniox" },
 };
-const SKELETON = getArg("--skeleton", "speechmatics");
-if (!SKELETONS[SKELETON]) {
-    console.error(`❌ Nepoznat --skeleton ${SKELETON}; moguće: ${Object.keys(SKELETONS).join(", ")}`);
+// `auto` (KORAK 2.8 u nightlyju od 24.10.): po epizodi prvi kostur koji postoji, ovim redom.
+// Soniox+pyannote je primarni put; speechmatics_pyannote je Speechmatics fallback iz 2.7b;
+// goli speechmatics ostaje za epizode obrađene starim putem (2.7 bez pyannotea).
+const AUTO_ORDER = ["soniox_pyannote", "speechmatics_pyannote", "speechmatics"];
+const SKELETON_ARG = getArg("--skeleton", "speechmatics");
+if (SKELETON_ARG !== "auto" && !SKELETONS[SKELETON_ARG]) {
+    console.error(`❌ Nepoznat --skeleton ${SKELETON_ARG}; moguće: auto, ${Object.keys(SKELETONS).join(", ")}`);
     process.exit(1);
 }
-const SK = SKELETONS[SKELETON];
 
-// Sufiksi
-const SPEECHMATICS_JSON = SK.input;   // ulaz kostura (ime zadržano zbog povijesti)
-const OUT_SRT = `.${SKELETON}.gemini.diarized.srt`;
-const OUT_META = `.${SKELETON}.gemini.meta.json`;
+// Trenutni kostur. Epizode se obrađuju jedna po jedna, pa ga useSkeleton() postavlja
+// prije svake (u `auto` načinu može biti drukčiji po epizodi).
+let SKELETON, SK, SPEECHMATICS_JSON, OUT_SRT, OUT_META;
+function useSkeleton(name) {
+    SKELETON = name;
+    SK = SKELETONS[name];
+    SPEECHMATICS_JSON = SK.input;   // ulaz kostura (ime zadržano zbog povijesti)
+    OUT_SRT = `.${name}.gemini.diarized.srt`;
+    OUT_META = `.${name}.gemini.meta.json`;
+}
+useSkeleton(SKELETON_ARG === "auto" ? AUTO_ORDER[0] : SKELETON_ARG);
 const CANONICAL_SRT = ".wav.canary.diarized.srt";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -826,6 +836,23 @@ function findCandidates(root) {
         }
     };
     walk(root);
+    return out;
+}
+
+/** Kandidati za trenutni ili (auto) svaki kostur: [{audioPath, skeleton}], već sortirani. */
+function collectCandidates(root) {
+    const names = SKELETON_ARG === "auto" ? AUTO_ORDER : [SKELETON_ARG];
+    const claimed = new Set();   // epizoda pripada PRVOM kosturu koji za nju postoji
+    const picked = [];
+    for (const name of names) {
+        useSkeleton(name);
+        const found = findCandidates(root).filter((a) => !claimed.has(a));
+        for (const a of found) picked.push({ audioPath: a, skeleton: name, mtime: fs.statSync(a + SPEECHMATICS_JSON).mtimeMs });
+        // I epizode koje ovaj kostur već ima (gotove) blokiraju slabije kosture.
+        if (SKELETON_ARG === "auto") {
+            for (const a of findInputs(root, SPEECHMATICS_JSON)) claimed.add(a);
+        }
+    }
     // Poredak (2026-09-19): PRVO epizode kojima kanonski `.canary.diarized.srt`
     // NEDOSTAJE — samo one od ovog koraka imaju stvarnu korist, jer samo njih
     // promocija moze otkljucati za korake 7-12. Epizoda koja ga vec ima obraduje
@@ -835,18 +862,41 @@ function findCandidates(root) {
     //   iza nje sat vremena.
     // Unutar iste skupine: najnovije prvo — svjez priljev je vrjedniji od backloga.
     const needsCanonical = (a) => !fs.existsSync(a.replace(/\.[^.]+$/, "") + CANONICAL_SRT);
-    return out.sort((a, b) => {
-        const na = needsCanonical(a), nb = needsCanonical(b);
+    return picked.sort((a, b) => {
+        const na = needsCanonical(a.audioPath), nb = needsCanonical(b.audioPath);
         if (na !== nb) return na ? -1 : 1;
-        return fs.statSync(b + SPEECHMATICS_JSON).mtimeMs - fs.statSync(a + SPEECHMATICS_JSON).mtimeMs;
+        return b.mtime - a.mtime;
     });
+}
+
+/** Sve audio putanje koje imaju ulaz `suffix` (bez filtara gotovosti). */
+function findInputs(root, suffix) {
+    const out = [];
+    const walk = (dir) => {
+        let entries;
+        try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch (_) { return; }
+        for (const e of entries) {
+            const p = path.join(dir, e.name);
+            if (e.isDirectory() || e.isSymbolicLink()) {
+                let st;
+                try { st = fs.statSync(p); } catch (_) { continue; }
+                if (st.isDirectory()) walk(p);
+                continue;
+            }
+            if (!e.name.endsWith(suffix)) continue;
+            if (VIDEO_ID && !p.includes(`_yt_${VIDEO_ID}`)) continue;
+            out.push(p.slice(0, -suffix.length));
+        }
+    };
+    walk(root);
+    return out;
 }
 
 async function main() {
     console.log("╔══════════════════════════════════════════════════╗");
     console.log("║  KOSTUR + GEMINI SLUH (KORAK 2.8)                ║");
     console.log("╚══════════════════════════════════════════════════╝");
-    console.log(`   Kostur:  ${SK.label} (${SK.input})`);
+    console.log(`   Kostur:  ${SKELETON_ARG === "auto" ? `auto (${AUTO_ORDER.join(" → ")})` : `${SK.label} (${SK.input})`}`);
     console.log(`   Model:   ${GEMINI_MODEL} @ ${VERTEX_PROJECT} (global)`);
     console.log(`   Prozor:  ${WINDOW_MIN} min / max ${MAX_SEGS_PER_WINDOW} seg · pod pokrivenosti ${(COVERAGE_MIN * 100).toFixed(0)}%`);
 
@@ -859,15 +909,19 @@ async function main() {
 
     let candidates;
     if (FILE) {
+        if (SKELETON_ARG === "auto") {
+            const hit = AUTO_ORDER.find((n) => fs.existsSync(FILE + SKELETONS[n].input));
+            if (hit) useSkeleton(hit);
+        }
         const audioPath = FILE.endsWith(SPEECHMATICS_JSON) ? FILE.slice(0, -SPEECHMATICS_JSON.length) : FILE;
         if (!fs.existsSync(audioPath + SPEECHMATICS_JSON)) {
             console.error(`❌ Nema ${path.basename(audioPath)}${SPEECHMATICS_JSON} — pokreni prvo ${SKELETON === "speechmatics" ? "KORAK 2.7" : "transcribe_soniox.js / diarize_pyannote_ai.js"}.`);
             process.exit(1);
         }
-        candidates = [audioPath];
+        candidates = [{ audioPath, skeleton: SKELETON }];
     } else {
         const root = CHANNEL ? path.join(INPUT_DIR, CHANNEL) : INPUT_DIR;
-        candidates = findCandidates(root).slice(0, LIMIT);
+        candidates = collectCandidates(root).slice(0, LIMIT);
     }
 
     if (candidates.length === 0) {
@@ -879,8 +933,10 @@ async function main() {
     const work = fs.mkdtempSync(path.join(os.tmpdir(), "refine-gemini-"));
     let ok = 0, fail = 0;
     try {
-        for (const audioPath of candidates) {
+        for (const { audioPath, skeleton } of candidates) {
             try {
+                useSkeleton(skeleton);
+                if (SKELETON_ARG === "auto") console.log(`\n   🦴 kostur: ${SK.label}`);
                 const r = await processFile(audioPath, work);
                 if (r && r.ok) ok++;
             } catch (err) {

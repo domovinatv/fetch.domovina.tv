@@ -1,6 +1,12 @@
 # Pipeline danas (24.10.2026.): što nightly stvarno radi i što fali do Soniox puta
 
-**Kratko: Soniox + pyannoteAI još NIJE u nightlyju.** Alati postoje od danas
+> **Ažurirano 24.10. navečer: prebačeno.** Od nightlyja 25.10. vrijedi ciljno stanje iz §2.
+> Nightly linija je sada `GEMINI_REFINE_SKELETON=auto … --with-soniox --with-pyannote-ai
+> --gemini-refine-promote` (§5 točke 1–2 izvedene). §1 opisuje put do 24.10. i ostaje kao
+> povijest i put za povratak. Prioritetni fast-path (`pipeline.domovina.ai/bridge/plan.js`,
+> izbor „speechmatics”) je i dalje stari put — nije prebačen.
+
+**Kratko (stanje do 24.10.): Soniox + pyannoteAI još NIJE bio u nightlyju.** Alati postoje od danas
 (`transcribe_soniox.js`, `diarize_pyannote_ai.js`, `refine_diarized_gemini.js --skeleton`),
 ali nijedan launchd job ih ne poziva. Nightly i dalje radi kao od 19.09.:
 Speechmatics + Gemini sluh, s Canaryjem i lokalnim pyannoteom kao fallbackom. Članke piše
@@ -81,10 +87,11 @@ flowchart TD
 | Fallback Soniox → Speechmatics | ✅ u skripti: svaka Soniox greška (i 4xx na kreditu) ide na Speechmatics, kao i zvuk dulji od 300 min | `transcribe_soniox.js` |
 | KORAK 2.7b u run_pipeline | ✅ flag `--with-soniox`, default OFF | `run_pipeline.sh` |
 | pyannoteAI + hibrid | ✅ skripta | `diarize_pyannote_ai.js` |
-| pyannoteAI kao KORAK u run_pipeline | ❌ **nema flaga** | treba `--with-pyannote-ai` iza 2.7b |
+| pyannoteAI kao KORAK u run_pipeline | ✅ KORAK 2.7c `--with-pyannote-ai` (24.10.) | `run_pipeline.sh` |
 | Gemini sluh nad Soniox/pyannote kosturom | ✅ `--skeleton soniox_pyannote` | `refine_diarized_gemini.js` |
-| 2.8 u run_pipeline bira kostur | ❌ uvijek `speechmatics` | treba `GEMINI_REFINE_SKELETON` (s automatskim padom na `speechmatics_pyannote` kad Sonioxa nema) |
-| Nightly linija | ❌ i dalje `--with-speechmatics --gemini-refine-promote` | `automatic/nightly_pipeline.sh` |
+| 2.8 u run_pipeline bira kostur | ✅ `GEMINI_REFINE_SKELETON=auto`: po epizodi `soniox_pyannote` → `speechmatics_pyannote` → `speechmatics` | `run_pipeline.sh`, `refine_diarized_gemini.js` |
+| Nightly linija | ✅ `--with-soniox --with-pyannote-ai --gemini-refine-promote` (24.10.) | `automatic/nightly_pipeline.sh` |
+| Prioritetni fast-path | ❌ izbor „speechmatics” i dalje `--with-speechmatics` | `../pipeline.domovina.ai/bridge/plan.js` |
 | Speechmatics u fallbacku dobiva pyannoteAI govornike | ✅ `diarize_pyannote_ai.js --words-from speechmatics` | ručno, ne u pipelineu |
 | words.json iz Sonioxa | ✅ uz `--with-soniox` (opt-in) | `generate_words_json.js` |
 | Provenance po epizodi | ✅ `{base}.processing.json`, samo disk | `lib/processing_manifest.js`, data_contract §16 |
@@ -103,7 +110,7 @@ default u `run_pipeline.sh` i ostaje rezerva. Ako članak treba prebaciti na Gem
 Vertexu, to je jedan flag (`--gemini-backend vertex`). Prije toga treba odlučiti što s tim
 incidentom.
 
-## 5. Prebacivanje nightlyja (prijedlog, NIJE izvedeno)
+## 5. Prebacivanje nightlyja (točke 1–2 izvedene 24.10.)
 
 1. `run_pipeline.sh`: KORAK 2.7c `--with-pyannote-ai` (`diarize_pyannote_ai.js`, iste ograde
    3 dana / 5 epizoda) i `GEMINI_REFINE_SKELETON=auto`. To je `soniox_pyannote` kad postoji, inače
