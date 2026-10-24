@@ -26,6 +26,7 @@
  *   node diarize_pyannote_ai.js --channel muzevni_budite --video-id f2HIRJPHHK4
  *   node diarize_pyannote_ai.js --file ep.mp3 --num-speakers 2
  *   node diarize_pyannote_ai.js --channel muzevni_budite --video-id f2HIRJPHHK4 --hybrid-only
+ *   node diarize_pyannote_ai.js … --hybrid-only --words-from speechmatics   # Speechmatics+pyannote kostur
  */
 "use strict";
 
@@ -68,6 +69,8 @@ const POLL_S = parseInt(getArg("--poll-seconds", "15"), 10);
 const FORCE = hasFlag("--force");
 const DRY_RUN = hasFlag("--dry-run");
 const HYBRID_ONLY = hasFlag("--hybrid-only");
+// Izvor riječi za hibrid: auto (Soniox pa Speechmatics) | soniox | speechmatics.
+const WORDS_FROM = getArg("--words-from", "auto");
 // pyannoteAI precision batch ≈ €0,11/h; samo za procjenu u logu.
 const USD_PER_HOUR = parseFloat(process.env.PYANNOTE_USD_PER_HOUR || "0.13");
 
@@ -129,12 +132,16 @@ async function diarize(audioPath) {
 
 /** Izvor riječi za hibrid: Soniox ima prednost (bolji tekst), inače Speechmatics. */
 function wordSource(audioPath) {
+    if (WORDS_FROM === "speechmatics") {
+        const sm = audioPath + ".speechmatics.json";
+        return fs.existsSync(sm) ? { name: "speechmatics", words: speechmaticsToWords(JSON.parse(fs.readFileSync(sm, "utf-8"))) } : null;
+    }
     const sx = audioPath + ".soniox.words.json";
     if (fs.existsSync(sx)) return { name: "soniox", words: JSON.parse(fs.readFileSync(sx, "utf-8")).words };
     const sxRaw = audioPath + ".soniox.json";
     if (fs.existsSync(sxRaw)) return { name: "soniox", words: sonioxToWords(JSON.parse(fs.readFileSync(sxRaw, "utf-8"))) };
     const sm = audioPath + ".speechmatics.json";
-    if (fs.existsSync(sm)) return { name: "speechmatics", words: speechmaticsToWords(JSON.parse(fs.readFileSync(sm, "utf-8"))) };
+    if (WORDS_FROM === "auto" && fs.existsSync(sm)) return { name: "speechmatics", words: speechmaticsToWords(JSON.parse(fs.readFileSync(sm, "utf-8"))) };
     return null;
 }
 

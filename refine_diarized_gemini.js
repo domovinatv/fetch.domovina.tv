@@ -32,8 +32,19 @@
  * `{base}.wav.canary.diarized.srt` (kanonsko ime koje koraci 7-12 čitaju) i to
  * SAMO ako ga nema. Prepisivanje postojećeg traži `--force-promote`.
  *
+ * KOSTUR (`--skeleton`, 24.10.2026.): odakle dolaze segmenti, govornici i natuknica.
+ *   speechmatics (default)  {audio}.speechmatics.json → {audio}.speechmatics.gemini.*
+ *   soniox_pyannote         {audio}.soniox_pyannote.words.json (diarize_pyannote_ai.js)
+ *                           → {audio}.soniox_pyannote.gemini.*
+ *   speechmatics_pyannote   {audio}.speechmatics_pyannote.words.json → …speechmatics_pyannote.gemini.*
+ *   soniox                  {audio}.soniox.words.json (Soniox govornici — SPAJA ih, za probu)
+ *   Default put je bajt-za-bajt isti kao prije (isti prompt, isti izlaz), pa nightly
+ *   KORAK 2.8 ne mijenja ponašanje. Matijina presuda: Soniox ili Speechmatics + pyannoteAI
+ *   + ovaj prepis = vrhunski (memory asr_quality_verdict_no_auto_judge).
+ *
  * KORIŠTENJE
  *   node refine_diarized_gemini.js --input-dir storage/output --limit 3
+ *   node refine_diarized_gemini.js --skeleton soniox_pyannote --channel muzevni_budite --video-id f2HIRJPHHK4
  *   node refine_diarized_gemini.js --video-id aue1GuuMsbA --promote
  *   node refine_diarized_gemini.js --file <put/do/audio.mp3> --dry-run
  *
@@ -48,6 +59,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const asrWords = require("./lib/asr/words");
 const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
@@ -128,10 +140,26 @@ const RETRY_BASE_DELAY_MS = 4000;
 const RATE_LIMIT_BASE_DELAY_MS = 10000;
 const REQUEST_DELAY_MS = 1000;
 
+// ─── Kostur ───
+// `hint` = ime polja s natuknicom u promptu; za speechmatics ostaje „speechmatics”
+// da default prompt bude identičan izmjerenom.
+const SKELETONS = {
+    speechmatics: { input: ".speechmatics.json", hint: "speechmatics", label: "Speechmatics" },
+    soniox_pyannote: { input: ".soniox_pyannote.words.json", hint: "natuknica", label: "Soniox+pyannote" },
+    speechmatics_pyannote: { input: ".speechmatics_pyannote.words.json", hint: "natuknica", label: "Speechmatics+pyannote" },
+    soniox: { input: ".soniox.words.json", hint: "natuknica", label: "Soniox" },
+};
+const SKELETON = getArg("--skeleton", "speechmatics");
+if (!SKELETONS[SKELETON]) {
+    console.error(`❌ Nepoznat --skeleton ${SKELETON}; moguće: ${Object.keys(SKELETONS).join(", ")}`);
+    process.exit(1);
+}
+const SK = SKELETONS[SKELETON];
+
 // Sufiksi
-const SPEECHMATICS_JSON = ".speechmatics.json";
-const OUT_SRT = ".speechmatics.gemini.diarized.srt";
-const OUT_META = ".speechmatics.gemini.meta.json";
+const SPEECHMATICS_JSON = SK.input;   // ulaz kostura (ime zadržano zbog povijesti)
+const OUT_SRT = `.${SKELETON}.gemini.diarized.srt`;
+const OUT_META = `.${SKELETON}.gemini.meta.json`;
 const CANONICAL_SRT = ".wav.canary.diarized.srt";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -342,7 +370,7 @@ PRAVILA
    - NIKADA NE PREKIDAJ PRIJEPIS NA MEĐUPAUZI: govornik unutar \`[od, do]\` često zastane
      pola sekunde pa nastavi. Prijepis MORA obuhvatiti sav njegov govor od prve do zadnje
      sekunde intervala.
-3. ZVUK JE ISTINA, NATUKNICA JE SIDRO: polje \`speechmatics\` pokazuje okvirni sadržaj.
+3. ZVUK JE ISTINA, NATUKNICA JE SIDRO: polje \`%HINT_FIELD%\` pokazuje okvirni sadržaj.
    Zvuk je vrhovni autoritet za točnost i formulaciju, ali natuknica pomaže odrediti
    granice misli — NE prelijevaj sadržaj iz susjednih segmenata.
    - Natuknice često fonetski izobliče strane pojmove i imena. Vjeruj zvuku i napiši
@@ -536,10 +564,14 @@ async function processFile(audioPath, work) {
     }
 
     const raw = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-    const lang = resolveLanguage(audioPath, raw);
-    const { segments, speakerCount } = buildSegments(raw);
+    const lang = resolveLanguage(audioPath, SKELETON === "speechmatics" ? raw : null);
+    // Speechmatics: izvorna kopija buildSegments (izmjereni put, ne diramo ga).
+    // Ostali kosturi: riječi iz lib/asr (ista pravila segmentacije).
+    const { segments, speakerCount } = SKELETON === "speechmatics"
+        ? buildSegments(raw)
+        : asrWords.buildSegments(raw.words || []);
     if (segments.length === 0) {
-        console.log("   ⚠️  Speechmatics JSON nema segmenata — preskačem.");
+        console.log(`   ⚠️  ${SK.label} kostur nema segmenata — preskačem.`);
         return { skipped: true };
     }
 
@@ -547,7 +579,7 @@ async function processFile(audioPath, work) {
     const windows = buildWindows(segments, WINDOW_MIN * 60);
     const baseWords = segments.reduce((s, x) => s + wordCount(x.text), 0);
 
-    console.log(`   📐 [${lang}] ${segments.length} segmenata · ${speakerCount} govornika · ${(totalDur / 60).toFixed(1)} min · ${windows.length} prozora · ${baseWords} riječi (Speechmatics)`);
+    console.log(`   📐 [${lang}] ${segments.length} segmenata · ${speakerCount} govornika · ${(totalDur / 60).toFixed(1)} min · ${windows.length} prozora · ${baseWords} riječi (${SK.label})`);
 
     if (DRY_RUN) {
         const estTokens = totalDur * 25;
@@ -572,18 +604,18 @@ async function processFile(audioPath, work) {
             od: Math.round((segments[j].start - base) * 10) / 10,
             do: Math.round((segments[j].end - base) * 10) / 10,
             govornik: segments[j].speaker,
-            speechmatics: segments[j].text,
+            [SK.hint]: segments[j].text,
         }));
 
         // Izlaz je prijepis istog govora — strop vežemo uz duljinu natuknice,
         // s velikom rezervom, umjesto fiksnih 8192 (ta pretpostavka je u izvornom
         // eksperimentu bila kriva i skupo se platila).
-        const hintTokens = listing.reduce((s, x) => s + wordCount(x.speechmatics), 0) * 3;
+        const hintTokens = listing.reduce((s, x) => s + wordCount(x[SK.hint]), 0) * 3;
         const maxOut = Math.min(65536, Math.max(4096, hintTokens * 3));
 
         let res;
         try {
-            res = await callGemini(buf, SKELETON_PROMPT.replace("%JEZIK%", langPhrase(lang)) + JSON.stringify(listing), maxOut);
+            res = await callGemini(buf, SKELETON_PROMPT.replace("%JEZIK%", langPhrase(lang)).replace("%HINT_FIELD%", SK.hint) + JSON.stringify(listing), maxOut);
         } finally {
             try { fs.unlinkSync(clip); } catch (_) {}
         }
@@ -618,7 +650,7 @@ async function processFile(audioPath, work) {
         try {
             byId = await runWindow(win);
         } catch (err) {
-            console.log(` ❌ ${err.message} — Speechmatics tekst ostaje`);
+            console.log(` ❌ ${err.message} — ${SK.label} tekst ostaje`);
             // NE broji fallback ovdje: sklapanje ispod prolazi kroz SVE segmente i
             // prebroji svaki `refined === null` kao fallback. Dvostruko brojanje je
             // 19.09. dalo 958+70=1028 za 993 segmenta.
@@ -690,7 +722,7 @@ async function processFile(audioPath, work) {
     const elapsed = (Date.now() - t0) / 1000;
     const meta = {
         base: baseName,
-        source: "speechmatics+gemini",
+        source: SKELETON === "speechmatics" ? "speechmatics+gemini" : `${SKELETON.replace("_", "+")}+gemini`,
         skeleton: path.basename(jsonPath),
         model: GEMINI_MODEL,
         project: VERTEX_PROJECT,
@@ -699,7 +731,7 @@ async function processFile(audioPath, work) {
         speakers: speakerCount,
         windows: windows.length,
         audio_seconds: Math.round(totalDur),
-        words_speechmatics: baseWords,
+        ...(SKELETON === "speechmatics" ? { words_speechmatics: baseWords } : { words_skeleton: baseWords }),
         words_refined: refinedWords,
         stats,
         calls: usage.calls,
@@ -713,7 +745,7 @@ async function processFile(audioPath, work) {
     };
     fs.writeFileSync(outMeta, JSON.stringify(meta, null, 2), "utf-8");
 
-    console.log(`   ✅ ${stats.accepted} prihvaćeno · ${stats.repaired} popravljeno · ${stats.fallback} na Speechmaticsu · ${stats.halved} raspolavljanja`);
+    console.log(`   ✅ ${stats.accepted} prihvaćeno · ${stats.repaired} popravljeno · ${stats.fallback} na kosturu (${SK.label}) · ${stats.halved} raspolavljanja`);
     console.log(`   📝 ${baseWords} → ${refinedWords} riječi · ${fmtDur(elapsed)} · ≈$${usage.usd.toFixed(4)}`);
     console.log(`      → ${path.basename(outSrt)}`);
 
@@ -812,8 +844,9 @@ function findCandidates(root) {
 
 async function main() {
     console.log("╔══════════════════════════════════════════════════╗");
-    console.log("║  SPEECHMATICS KOSTUR + GEMINI SLUH (KORAK 2.8)  ║");
+    console.log("║  KOSTUR + GEMINI SLUH (KORAK 2.8)                ║");
     console.log("╚══════════════════════════════════════════════════╝");
+    console.log(`   Kostur:  ${SK.label} (${SK.input})`);
     console.log(`   Model:   ${GEMINI_MODEL} @ ${VERTEX_PROJECT} (global)`);
     console.log(`   Prozor:  ${WINDOW_MIN} min / max ${MAX_SEGS_PER_WINDOW} seg · pod pokrivenosti ${(COVERAGE_MIN * 100).toFixed(0)}%`);
 
@@ -828,7 +861,7 @@ async function main() {
     if (FILE) {
         const audioPath = FILE.endsWith(SPEECHMATICS_JSON) ? FILE.slice(0, -SPEECHMATICS_JSON.length) : FILE;
         if (!fs.existsSync(audioPath + SPEECHMATICS_JSON)) {
-            console.error(`❌ Nema ${path.basename(audioPath)}${SPEECHMATICS_JSON} — pokreni prvo KORAK 2.7.`);
+            console.error(`❌ Nema ${path.basename(audioPath)}${SPEECHMATICS_JSON} — pokreni prvo ${SKELETON === "speechmatics" ? "KORAK 2.7" : "transcribe_soniox.js / diarize_pyannote_ai.js"}.`);
             process.exit(1);
         }
         candidates = [audioPath];
@@ -838,7 +871,7 @@ async function main() {
     }
 
     if (candidates.length === 0) {
-        console.log("\n   ⏭️  Nema kandidata (treba .speechmatics.json bez .speechmatics.gemini.diarized.srt).");
+        console.log(`\n   ⏭️  Nema kandidata (treba ${SPEECHMATICS_JSON} bez ${OUT_SRT}).`);
         return;
     }
     console.log(`   📋 Kandidata: ${candidates.length}\n`);
