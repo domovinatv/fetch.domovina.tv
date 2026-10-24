@@ -298,6 +298,9 @@ WITH_EBOOK=true
 WITH_SPONSORS=true
 # Vrijeme po riječi za titl (KORAK 9.87): default ON (nula API troška, katalog ~1 s) — gasi se s --no-words.
 WITH_WORDS=true
+# Kandidati za reels/shorts (KORAK 9.9): default ON — 1 LLM poziv po NOVOJ epizodi (zadnjih
+# 21 dan, najviše 20 po runu), backend kao koraci 7+8. Gasi se s --no-reels.
+WITH_REELS=true
 WITH_EBOOK_TRANSCRIPT=false
 WITH_MODAL_TRANSCRIBE=false
 MODAL_ONLY_ID=""
@@ -421,6 +424,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--no-words" ]; then
         WITH_WORDS=false
+        i=$((i + 1))
+    elif [ "$arg" = "--no-reels" ]; then
+        WITH_REELS=false
         i=$((i + 1))
     elif [ "$arg" = "--with-ebook-transcript" ]; then
         # Doslovan prijepis kao dodatak knjige. Opt-in: knjiga time prestaje biti
@@ -1731,6 +1737,41 @@ node "$SCRIPT_DIR/generate_words_json.js" "${WORDS_ARGS[@]}" "${PRIORITY_SCOPE_A
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 9.87 (vrijeme po riječi) — zadan je --no-words"
+fi
+
+# --- KORAK 9.9: KANDIDATI ZA REELS / SHORTS (select_reels.js) ---
+# {base}.reels.json: rangirani samostalni trenuci od 30–90 s (raspon na granicama cue-ova,
+# naslov, hook, zašto radi) + kartice za animaciju (hook, lower-third, citat, brojka,
+# mjesto), usidrene na riječ preko words.json. Zato stoji IZA 9.87.
+# 1 LLM poziv po epizodi (~28k in / ~6k out na Opusu), backend = GEMINI_BACKEND kao 7+8;
+# uz claude backend poštuje claude-window ogradu (⏸️ [ODGOĐENO] = probat će idući run).
+# Doseg: epizode iz zadnjih 21 dan bez svježeg reels.json — katalog se NE backfilla sam.
+# Ne ide na CDN (još) — render i branding čitaju datoteku lokalno.
+# Vidi docs/2026-10-25-reels-kandidati.md.
+if [ "$WITH_REELS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 9.9: kandidati za reels/shorts (segments.jsonl + words.json → reels.json)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+REELS_ARGS=("--input-dir" "$OUTPUT_DIR")
+for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
+    if [[ "${COMMON_ARGS[$j]}" == "--channel" ]]; then
+        REELS_ARGS+=("--channel" "${COMMON_ARGS[$((j+1))]}")
+        break
+    fi
+done
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    REELS_ARGS+=("--dry-run")
+fi
+
+node "$SCRIPT_DIR/select_reels.js" "${REELS_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri biranju reels kandidata, nastavljam..."
+}
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 9.9 (reels kandidati) — zadan je --no-reels"
 fi
 
 # --- KORAK 11: VERTEX AI RAG IMPORT (opcionalno, --with-vertex-import) ---
