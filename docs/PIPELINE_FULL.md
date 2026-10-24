@@ -47,7 +47,7 @@ flowchart TB
         K96["KORAK 9.6 — og-sections"]
         K98["KORAK 9.8 — generate_ebook.js → epub"]
         K985["KORAK 9.85 — detect_sponsors.js"]
-        K987["KORAK 9.87 — generate_words_json.js<br/>izvor: Speechmatics ili Canary word_ts"]
+        K987["KORAK 9.87 — generate_words_json.js<br/>izvor: Soniox → Speechmatics → Canary"]
     end
 
     subgraph ASYNC["⏱️ Odvojeni launchd poller (svakih 10 min)"]
@@ -72,7 +72,8 @@ flowchart TB
     K8 --> K10 --> K96 --> K98
     K8 --> K985
     CANON --> K987
-    K26 -.word_ts.-> K987
+    K27b -.->|soniox words| K987
+    K26 -.->|word_ts, tercijarno| K987
     K27b -.-> PJ
     K27c -.-> PJ
     K9 --> K12

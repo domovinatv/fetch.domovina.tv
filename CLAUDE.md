@@ -39,6 +39,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    Claude-in-the-loop MCP pozivi → `magisterium_mcp_assemble.js`. Detalji: `docs/MAGISTERIUM_MCP_RUN.md`,
    `docs/adhoc_video_processing.md` (§3.5), `docs/magisterium_ai_integration.md`.
 
+3. **ASR prioritet: Soniox → Speechmatics → Canary.** (odluka 25.10.2026.)
+   **Soniox** (stt-async-v5) je primarni izvor teksta i vremena riječi za SVE (KORAK 2.7b,
+   kostur 2.8, words.json 9.87), **Speechmatics** sekundarni (fallback unutar 2.7b),
+   **Canary** (Modal 2.6 / Colab) tercijarni. Govornici = **pyannoteAI** precision-3
+   (cloud), lokalni pyannote je samo fallback. Sva tri ASR-a i lokalni pyannote ostaju u
+   kodu kao fallback — ne brisati. **Dugoročni cilj je samo Soniox + pyannoteAI, pa
+   Gemini (sluh, prijevod) i Opus (sažetak, članak).** Novi kod koji bira izvor mora
+   poštovati ovaj redoslijed, ne „najbolji udio”. Odluka i mjerenja:
+   `docs/2026-10-25-asr-prioritet-soniox.md`; stanje toka: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
+
 ## Build & Test Commands
 
 ```bash
@@ -111,7 +121,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 10 | `screenshot_youtube.js` | Extract frames at article timestamps |
 | 9.8 | `generate_ebook.js` | EPUB e-knjiga iz article.json + screenshotova — **nula API poziva**, ~1.5s/ep. Gradi i `{base}.en.epub` kad postoji `.article.en.json` (`docs/ebook_epub_pipeline.md`) |
 | 9.85 | `detect_sponsors.js` | Sponzori UGRAĐENI u snimku → `{base}.sponsors_in_video.json` (tko + gdje: spot / host_read / rubric / mention). **Nula API poziva**, katalog ~19 s. Default ON, `--no-sponsors` gasi (`docs/2026-09-23-sponzori-u-snimci.md`) |
-| 9.87 | `generate_words_json.js` | Vrijeme po riječi za titl → `{base}.words.json` (`data/{id}/words.json`) iz kanonskog SRT-a + `.speechmatics.json` ili `.wav.canary.word_ts.json`. **Nula API poziva**, katalog ~1 s. Ispod 60 % usidrenih riječi → `.words.skipped.json` (ne ide na CDN). `--no-words` gasi (`docs/2026-10-06-words-json-titlovi.md`) |
+| 9.87 | `generate_words_json.js` | Vrijeme po riječi za titl → `{base}.words.json` (`data/{id}/words.json`) iz kanonskog SRT-a + izvor vremena po prioritetu `.soniox.words.json` → `.speechmatics.json` → `.wav.canary.word_ts.json`. **Nula API poziva**, katalog ~1 s. Ispod 60 % usidrenih riječi → `.words.skipped.json` (ne ide na CDN). `--no-words` gasi (`docs/2026-10-06-words-json-titlovi.md`) |
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 | 12.7 | `build_episode_bundle.js` | `data/{id}/episode.json` = izmjereni LIST `data/{id}/` + inline info/summary/outline/article/magisterium s R2 (ekran epizode: 3 zahtjeva umjesto ~29). **Zadnji upload u `data/`** — zastario bundle sakriva novu datoteku; zovu ga i `upload_to_r2.js`/`force_upload.js`. Piše samo kad se sadržaj promijeni, nula LLM poziva (`docs/2026-10-09-episode-json-bundle.md`, `docs/data_contract.md` §15) |

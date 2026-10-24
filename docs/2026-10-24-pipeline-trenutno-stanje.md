@@ -113,12 +113,11 @@ flowchart TD
 Dvije stvari na dijagramu nisu očite:
 
 - **Modal Canary (2.6) se i dalje vrti** za svaku epizodu praćenog kanala. On je osigurač kad
-  2.8 ne promovira (pa lokalni pyannote u KORAKU 6 diarizira Canary), a njegov
-  `.wav.canary.word_ts.json` je izvor vremena za words.json (9.87).
-- **words.json (9.87) još ne čita Soniox.** `generate_words_json.js` zna čitati
-  `.soniox.words.json`, ali samo uz `--with-soniox`, a `run_pipeline.sh` taj flag ne prosljeđuje
-  (namjerno, dok mjerenje ne dobije OK). U pipelineu izvor ostaje Speechmatics (kad je radio
-  fallback) ili Canary word_ts.
+  2.8 ne promovira (pa lokalni pyannote u KORAKU 6 diarizira Canary) i tercijarni izvor vremena
+  za words.json.
+- **words.json (9.87) od 25.10. bira izvor po prioritetu** Soniox → Speechmatics → Canary
+  (prvi iznad praga od 60 %). Do tada je Soniox bio opt-in, pa je nightly vidio samo Canary.
+  Odluka i mjerenja: [`2026-10-25-asr-prioritet-soniox.md`](./2026-10-25-asr-prioritet-soniox.md).
 
 ## 3. Što postoji, a što fali
 
@@ -134,7 +133,7 @@ Dvije stvari na dijagramu nisu očite:
 | Nightly linija | ✅ `--with-soniox --with-pyannote-ai --gemini-refine-promote` (24.10.) | `automatic/nightly_pipeline.sh` |
 | Prioritetni fast-path | ✅ izbor `soniox` (default): `--with-soniox --with-pyannote-ai --gemini-refine-promote` + `GEMINI_REFINE_SKELETON=auto` (24.10., `1052cf8`) | `../pipeline.domovina.ai/bridge/plan.js` |
 | Speechmatics u fallbacku dobiva pyannoteAI govornike | ✅ `diarize_pyannote_ai.js --words-from speechmatics` | ručno, ne u pipelineu |
-| words.json iz Sonioxa | ⚠️ skripta zna (`--with-soniox`, opt-in), ali `run_pipeline.sh` KORAK 9.87 flag ne prosljeđuje | `generate_words_json.js` |
+| words.json iz Sonioxa | ✅ primarni izvor od 25.10. (Soniox → Speechmatics → Canary), backfill 5 epizoda na CDN | `generate_words_json.js`, `docs/2026-10-25-asr-prioritet-soniox.md` |
 | Magisterium HR bez Claudea | ✅ `MAG_RUNNER=direct` (default), `magisterium_mcp_episode.js` | `../pipeline.domovina.ai/bridge/magisterium_poller.js` |
 | EN prijevod po bloku | ✅ ~30–50 Vertex poziva/ep umjesto ~1000 | `translate_to_english.js` |
 | Provenance po epizodi | ✅ `{base}.processing.json`, samo disk | `lib/processing_manifest.js`, data_contract §16 |

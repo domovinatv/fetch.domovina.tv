@@ -6,6 +6,9 @@
 `upload_to_r2.js` (sufiks + `getFlutterKey`), `run_pipeline.sh` KORAK 9.87,
 `modal_canary/canary_modal.py` (`.wav.canary.word_ts.json`), prototip `tools/forced_align_words.py`
 
+> **25.10.2026.:** izvor vremena se bira po prioritetu Soniox → Speechmatics → Canary, a ne po
+> najvećem udjelu. Vidi [`2026-10-25-asr-prioritet-soniox.md`](./2026-10-25-asr-prioritet-soniox.md).
+
 ## Zaključak
 
 Speechmatics epizode imaju `data/<id>/words.json` na CDN-u (52 od 57). Nightly
