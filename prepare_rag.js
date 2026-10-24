@@ -81,17 +81,23 @@ const SORTFORMER_DIARIZED_SRT_SUFFIX = ".sortformer.diarized.srt";
 // Isti helper postoji u summarize_gemini.js, generate_article_gemini.js i
 // prepare_rag{,_combined,_import}.js — mijenjaj u SVIH PET kopija.
 const REFINED_AUDIO_EXTS = [".mp3", ".wav", ".m4a", ".opus", ".ogg", ".flac"];
+// Kosturi KORAKA 2.8 (refine_diarized_gemini.js SKELETONS). Do 25.10.2026. ovdje je bio samo
+// `speechmatics`, pa Soniox prepis (primarni od 24.10.) nije prepoznat i Sortformer je
+// zasjenio kanonski SRT (re:DEFINICIJA ep. 1–4: sažetak, članak i segments iz starog teksta).
+const REFINED_SKELETONS = ["soniox_pyannote", "soniox", "speechmatics_pyannote", "speechmatics"];
 function isPromotedRefine(canarySrtPath) {
     const base = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, "");
     if (base === canarySrtPath || !fs.existsSync(canarySrtPath)) return false;
     let canonical = null;
     for (const ext of REFINED_AUDIO_EXTS) {
-        const refined = base + ext + ".speechmatics.gemini.diarized.srt";
-        if (!fs.existsSync(refined)) continue;
-        try {
-            if (!canonical) canonical = fs.readFileSync(canarySrtPath);
-            if (canonical.equals(fs.readFileSync(refined))) return true;
-        } catch (_) { /* nečitljivo → nije dokaz promocije */ }
+        for (const skeleton of REFINED_SKELETONS) {
+            const refined = base + ext + "." + skeleton + ".gemini.diarized.srt";
+            if (!fs.existsSync(refined)) continue;
+            try {
+                if (!canonical) canonical = fs.readFileSync(canarySrtPath);
+                if (canonical.equals(fs.readFileSync(refined))) return true;
+            } catch (_) { /* nečitljivo → nije dokaz promocije */ }
+        }
     }
     return false;
 }
