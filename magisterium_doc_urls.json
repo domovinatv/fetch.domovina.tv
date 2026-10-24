@@ -2,6 +2,58 @@
   "_comment": "Keš Magisterium document_title (substring) → doc UUID, za SLOJ 3 (citat→source_url) BEZ search poziva. Raste sa svakim videom: kad assemble prijavi nerazriješeni dokument, pokreni Magisterium MCP search, uzmi doc UUID iz vraćenog URL-a (.../docs/{uuid}/ref/...) i dodaj ovdje. URL se gradi kao https://www.magisterium.com/docs/{uuid}/ref/{document_reference}. Poredak bitan: specifičniji substring prije općenitijeg.",
   "docs": [
     {
+      "match": "Letter 39 - To Paula (Rome)",
+      "uuid": "f824afc0-ff6b-4a07-989f-7f6a2074a17e"
+    },
+    {
+      "match": "The Book of Pastoral Rule",
+      "uuid": "a78ece3a-6789-483a-a202-5bdeaf839c95"
+    },
+    {
+      "match": "Pastoral Rule",
+      "uuid": "135d8a48-9502-4797-883c-c5fa3ea3054a"
+    },
+    {
+      "match": "56th World Day of Social Communications: Listening with the ear of the heart",
+      "uuid": "6fd754a9-0ab7-44d9-9ba0-e24b053725fe"
+    },
+    {
+      "match": "LVII World Communications Day, 2023",
+      "uuid": "8071ba59-91eb-4f09-a68c-c073db7d7fab"
+    },
+    {
+      "match": "General Audience of 14 July 1982",
+      "uuid": "be1d8444-bdae-4542-90f4-2e07655ddd84"
+    },
+    {
+      "match": "3 June 2012: Eucharistic Celebration in Bresso Park",
+      "uuid": "faaa652f-dc21-45b5-8721-31269d192b4d"
+    },
+    {
+      "match": "To the participants in the Congress held on the first centenary of the birth of Blessed Josemaría Escrivá de Balaguer, founder of the Opus Dei (January 12, 2002) - Speech",
+      "uuid": "fb5c1a18-f62d-4c54-a053-b7f53fe74758"
+    },
+    {
+      "match": "La economía de la salvación y la secularidad cristiana",
+      "uuid": "1709bb07-950f-4571-ac21-662ada198b86"
+    },
+    {
+      "match": "To the participants in the Third National Ultreya of the Cursillos de Cristiandad (November 24, 1990) - Speech",
+      "uuid": "c2868b0d-381b-47b6-a174-025162664da7"
+    },
+    {
+      "match": "10 May 1986: Mass for families at the Cathedral of St Peter Apostle in Faenza - Homily",
+      "uuid": "56b2bb8a-4403-4e9f-949f-df19b8d6b3e8"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 11, 2015",
+      "uuid": "3ec7f96c-8138-4bb7-8963-89f310210f33"
+    },
+    {
+      "match": "The Redemption and Divinization of Human Sexuality through the Sacrament of Marriage: A Thomistic Approach",
+      "uuid": "eb8b64ad-d0a1-4826-a7c3-a68e0082e7e4"
+    },
+    {
       "match": "The Interpretation of Dogma",
       "uuid": "aa8fad13-1a4b-4e89-a134-85ddb9e58d83"
     },
@@ -6712,6 +6764,66 @@
     {
       "match": "Acta Apostolicae Sedis: Issue 11, November, 1980",
       "uuid": "699a23b9-1449-404d-bada-9767c13f665d"
+    },
+    {
+      "match": "9 April 1987: Liturgy of the Word reflecting on the theme of immigration in Paraná, Argentina - Homily",
+      "uuid": "d80c5552-71a3-4988-ba57-a5617bc5ed38"
+    },
+    {
+      "match": "21 October 1989: Mass for the Croatian community in the church of \"San Girolamo\", Rome - Homily",
+      "uuid": "e8837c38-b859-43c2-b696-c3269a830f0b"
+    },
+    {
+      "match": "Meeting with the world of entrepreneurs in Agrigento (May 9, 1993) - Speech",
+      "uuid": "87e8f24e-e963-4e82-99d6-40b0f6cc240e"
+    },
+    {
+      "match": "8 May 2011: Holy Mass in San Giuliano Park, Mestre",
+      "uuid": "5aaad17b-e873-421a-984e-c600b40bb193"
+    },
+    {
+      "match": "Meeting with the people of Magliano Sabina (March 19, 1993) - Speech",
+      "uuid": "a4000356-2363-478f-8ad1-74a93cd79079"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 2, February, 1988",
+      "uuid": "f9eb0a0e-c489-4d15-bdfe-4965bff3fc28"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 5, May, 1982",
+      "uuid": "086afefb-f518-461f-9345-565d930aeb33"
+    },
+    {
+      "match": "To participants in the Convention of the Italian Catholic Church in Loreto (April 11, 1985) - Speech",
+      "uuid": "6bc26d07-ff6b-4fff-abf7-021ff4978f08"
+    },
+    {
+      "match": "To the Bishops of Austria on their ad Limina visit (April 25, 1992) - Speech",
+      "uuid": "d6db4f91-2398-4d20-aee0-b881ad69fc59"
+    },
+    {
+      "match": "Meeting of John Paul II with the president of the republic and the diplomatic corps at the \"Wiener Hofburg\", Vienna (June 23, 1988) - Speech",
+      "uuid": "a8ac4904-756d-4a12-84d4-6370cae233db"
+    },
+    {
+      "match": "4 November 1982: Mass at the Shrine of Our Lady of Guadalupe, Madrid - Homily",
+      "uuid": "fbdf79fb-7168-47d5-8900-751ecb7b4fbb"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 1, January, 2019",
+      "uuid": "d1768ed7-3388-4553-aec3-6734060a4c36"
+    },
+    {
+      "match": "4 February 1985: Liturgy of the Word in Piura, Peru - Homily",
+      "uuid": "72d57ffb-b346-4785-93f4-d206603c68bd"
+    },
+    {
+      "match": "To participants in the 6th Symposium of the Council of the Episcopal Conferences of Europe (October 11, 1985) - Speech",
+      "uuid": "d9e4b1d6-d121-40b8-a4e3-0656514e3e34"
+    },
+    {
+      "match": "Acta Apostolicae Sedis: Issue 3, March, 1990",
+      "uuid": "14c0576b-a328-416d-8fde-99d8853e12e0"
     }
   ]
 }
