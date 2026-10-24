@@ -241,7 +241,7 @@ na katalog, **D** za prioritetne epizode.
   01:00 (kraj 01:46, svi koraci OK) sagradio ih je u KORAKU 9.8 i objavio u KORAKU 12.
   Provjereno: `pDrMN_ysSDA`, `CUJmOc91C64`, `biRibr8NByE`, `fO7iltytw0I`, `6ueR_Leq6uE`
   → svih pet `data/{id}/book.en.epub` vraća **200** s CDN-a. Lokalno 44 EN knjige.
-- batchanje (A + H) nije izvedeno — čeka odluku.
+- batchanje (A + H) nije izvedeno — čeka odluku. **→ Izvedeno 24.10.2026. (commit `cf926987`): jedan poziv po bloku, ep. od 25 sekcija ~7 min umjesto >1 h.**
 - `.canary.summary.md` i dalje nema R2 mapping u `getFlutterKey()`.
 - tri CDN knjige sa sintetičkim ID-evima ostaju sa starim linkovima.
 
