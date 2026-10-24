@@ -67,3 +67,16 @@ test("sonioxWords: interpunkcija nije riječ titla, vremena u ms", () => {
     ] });
     assert.deepEqual(W, [[120, 400, "Dobar"], [500, 810, "dan"]]);
 });
+
+test("pickSource: prioritet Soniox → Speechmatics → Canary, ne najveći udio", () => {
+    const { pickSource } = require("./generate_words_json");
+    const r = (source, anchored, tot = 100) => ({ doc: { source, anchored }, anch: anchored * tot, tot });
+    // Speechmatics ima više usidrenih, ali Soniox prolazi prag → Soniox (EN epizoda nuNw4qWs0r4: 91,3 vs 93,5)
+    assert.equal(pickSource([r("speechmatics", 0.935), r("soniox", 0.913), r("canary", 0.03)], 0.6).doc.source, "soniox");
+    // Soniox ispod praga → Speechmatics
+    assert.equal(pickSource([r("canary", 0.9), r("soniox", 0.4), r("speechmatics", 0.7)], 0.6).doc.source, "speechmatics");
+    // samo Canary prolazi → Canary
+    assert.equal(pickSource([r("canary", 0.72), r("speechmatics", 0.5)], 0.6).doc.source, "canary");
+    // nijedan ne prolazi → najviše usidrenih (za .words.skipped.json)
+    assert.equal(pickSource([r("soniox", 0.3), r("canary", 0.5)], 0.6).doc.source, "canary");
+});

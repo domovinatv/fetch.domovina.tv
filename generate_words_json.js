@@ -15,8 +15,10 @@
  *
  * Izvor vremena: `{base}.{audio}.speechmatics.json` (KORAK 2.7),
  * `{base}.{audio}.soniox.words.json` (KORAK 2.7b, transcribe_soniox.js) ili
- * `{base}.wav.canary.word_ts.json` (canary_modal.py od 06.10.2026.). Kad ih ima više,
- * pobjeđuje onaj s više izravno usidrenih riječi. Tekst i granice cue-a:
+ * `{base}.wav.canary.word_ts.json` (canary_modal.py od 06.10.2026.). Od 25.10.2026. izvor se
+ * bira po PRIORITETU, ne po najvećem udjelu: Soniox → Speechmatics → Canary, prvi koji
+ * prijeđe prag usidrenosti (odluka: docs/2026-10-25-asr-prioritet-soniox.md). Na 7 epizoda
+ * sa svim izvorima Soniox je usidrio 84–97 %, Canary 69–90 % (na EN zvuku 3 %). Tekst i granice cue-a:
  * KANONSKI `{base}.wav.canary.diarized.srt` — ugovor je SRT, ne Speechmatics. Frontend
  * prihvaća cue samo ako se broj riječi točno slaže, pa regenerirani SRT ne može dati
  * krivo isticanje, samo nikakvo.
@@ -35,7 +37,8 @@
  *   node generate_words_json.js --dry-run
  *   node generate_words_json.js --channel 40_dana_za_zivot
  *   node generate_words_json.js --video-id fln3cFCwHcs --force
- *   node generate_words_json.js --video-id f2HIRJPHHK4 --with-soniox --force   # + Soniox izvor
+ *   node generate_words_json.js --video-id f2HIRJPHHK4 --force
+ *   node generate_words_json.js --video-id f2HIRJPHHK4 --no-soniox --force     # povratak bez Sonioxa
  */
 
 const fs = require("fs");
@@ -53,9 +56,11 @@ const ONLY_VIDEO = getArg("--video-id");
 const MIN_ANCHORED = parseFloat(getArg("--min-anchored") || "0.6");
 const FORCE = args.includes("--force");
 const DRY_RUN = args.includes("--dry-run");
-// Soniox izvor je opt-in dok mjerenje (docs/2026-10-24-soniox-pyannote-roadmap.md) ne
-// dobije OK: bez ograde bi nightly sam regenerirao words.json čim se pojavi .soniox.*.
-const WITH_SONIOX = args.includes("--with-soniox");
+// Soniox je primarni izvor od 25.10.2026. (bio opt-in `--with-soniox`, koji se i dalje prihvaća).
+// `--no-soniox` je samo za povratak/usporedbu.
+const WITH_SONIOX = !args.includes("--no-soniox");
+// Redoslijed izvora vremena: Soniox primarni, Speechmatics sekundarni, Canary tercijarni.
+const SOURCE_PRIORITY = ["soniox", "speechmatics", "canary"];
 const VERBOSE = args.includes("--verbose");
 
 const SRT_SUFFIX = ".wav.canary.diarized.srt";
@@ -254,6 +259,16 @@ function listChannelDirs(dir) {
         .map((e) => e.name).sort();
 }
 
+// Prvi izvor po SOURCE_PRIORITY koji prijeđe prag; ako nijedan ne prijeđe, onaj s najviše
+// usidrenih riječi (za `.words.skipped.json` — razlog i udio). results: [{doc, anch, tot}].
+function pickSource(results, minAnchored) {
+    const ranked = [...results].sort((a, b) =>
+        SOURCE_PRIORITY.indexOf(a.doc.source) - SOURCE_PRIORITY.indexOf(b.doc.source));
+    const ok = ranked.find((r) => r.tot && r.doc.anchored >= minAnchored);
+    if (ok) return ok;
+    return ranked.reduce((best, r) => (!best || r.anch > best.anch ? r : best), null);
+}
+
 function mtime(p) {
     try { return fs.statSync(p).mtimeMs; } catch { return 0; }
 }
@@ -295,12 +310,9 @@ function main() {
 
             try {
                 const cues = parseCues(fs.readFileSync(srtPath, "utf8"));
-                let best = null;
-                for (const src of sources) {
-                    const r = buildWords(cues, src.read(JSON.parse(fs.readFileSync(src.path, "utf8"))), src.name);
-                    if (!best || r.anch > best.anch) best = r;
-                }
-                const { doc, anch, tot } = best;
+                const results = sources.map((src) =>
+                    buildWords(cues, src.read(JSON.parse(fs.readFileSync(src.path, "utf8"))), src.name));
+                const { doc, anch, tot } = pickSource(results, MIN_ANCHORED);
                 const pct = tot ? (anch / tot * 100).toFixed(1) : "0.0";
                 const label = `${channel}/${extractVideoId(base) || base}`;
                 if (!tot || doc.anchored < MIN_ANCHORED) {
@@ -334,4 +346,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { pyRound, norm, matchingBlocks, parseCues, buildWords, roundHalfEven, speechmaticsWords, sonioxWords, canaryWords };
+module.exports = { pyRound, norm, matchingBlocks, parseCues, buildWords, roundHalfEven, speechmaticsWords, sonioxWords, canaryWords, pickSource };

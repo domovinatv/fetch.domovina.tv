@@ -1698,8 +1698,9 @@ fi
 
 # --- KORAK 9.87: VRIJEME PO RIJEČI ZA TITL (generate_words_json.js) ---
 # {base}.words.json: za svaku riječ kanonskog diarized.srt (početak, kraj) u ms, da
-# titl na domovina.ai ističe riječ koja se upravo izgovara. Izvor vremena je
-# {audio}.speechmatics.json (KORAK 2.7); Canary epizode ga zasad nemaju i preskaču se.
+# titl na domovina.ai ističe riječ koja se upravo izgovara. Izvor vremena po prioritetu
+# (od 25.10.2026.): .soniox.words.json (2.7b) → .speechmatics.json (2.7) → Canary
+# .wav.canary.word_ts.json (2.6), prvi iznad praga. docs/2026-10-25-asr-prioritet-soniox.md
 # Stoji ovdje, a ne iza 2.8, jer kanonski SRT može doći i iz KORAKA 6 (pyannote) —
 # words.json vrijedi samo za točno onaj SRT koji ide na CDN.
 # NULA API poziva — cijeli katalog ~1 s. Ispod 60 % usidrenih riječi (EN zvuk, HR tekst)
@@ -1709,7 +1710,7 @@ fi
 if [ "$WITH_WORDS" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-korak "KORAK 9.87: vrijeme po riječi za titl (diarized.srt + speechmatics.json → words.json)"
+korak "KORAK 9.87: vrijeme po riječi za titl (diarized.srt + Soniox/Speechmatics/Canary → words.json)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
