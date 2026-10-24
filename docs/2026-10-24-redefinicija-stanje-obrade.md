@@ -66,3 +66,29 @@ Ep. 9 već ima Gemini prepis nad tim kosturom (`.soniox_pyannote.gemini.diarized
 4. Magisterium MCP, HR **i** EN, za svih 10.
 
 Plan i stanje pipelinea: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
+
+## Referentna obrada — napredak (24.10.2026., dan)
+
+| korak | stanje |
+|---|---|
+| 1. Gemini sluh nad Soniox+pyannote kosturom + `--force-promote` | ✅ 10/10 · ~$0,17–0,21/ep, ~8–27 min/ep · stari kanonski SRT kao `.bak` |
+| 2. `--reprocess-article` (Claude Opus, pretplata) → sažetak, članak, screenshotovi, epub, CDN | ✅ 10/10 · **~7 min/ep** (12:24–13:40), ne 20 kako je procijenjeno |
+| 3. `generate_words_json.js --with-soniox --force` + `force_upload --targets diarized,words,sponsors` | ✅ 10/10 · CDN GET md5 = disk za diarized.srt, words.json, article.json |
+| 4. Magisterium MCP HR | ep. 1 ✅ (25 sekcija, score 86) · ostalo u tijeku, jedan subagent po epizodi |
+| 4. EN (`translate_to_english.js`) | u tijeku od ep. 1 |
+
+Zamke naučene usput:
+
+- **`CLAUDE_WINDOW_GUARD=1` u ručnom runu odgodi korake 7+8**, a `--reprocess-article` je
+  stari članak već sklonio u `.reprocess_bak/` → epizoda ostane bez članka na disku (CDN
+  netaknut jer 12.1 nema što uploadati). Za ručni reprocess pusti bez ograde.
+- **`--reprocess-article` NE prepisuje `diarized.srt` ni `words.json`** na CDN-u (samo
+  article, summary, outline, epub). Uz novi prijepis treba zaseban `force_upload`.
+- **`publish_hr_episode.sh` sam nije dovoljan** kad stari `magisterium.json` već postoji na
+  R2: dodaj `force_upload --targets magisterium` i provjeri md5, ne samo status 200.
+- **Magisterium `chat` pada na timeout** kod dugih promptova; prep s `--batch-size 2
+  --max-words 45`. Ručno skraćivanje promptova na ep. 1 izmislilo je sadržaj u 4 batcha
+  (subagent je to sam uhvatio i ponovio) — promptove slati doslovno.
+- Prvi nightly na Soniox putu (24.10.): 5 epizoda, 0 grešaka. Tri epizode od 20.–22.10.
+  već su imale Speechmatics kanonski SRT pa ih je 2.7b/2.7c/2.8 ponovno obradio (unutar
+  prozora od 3 dana) bez promocije — jednokratni trošak prijelaza ~$1,5.
