@@ -31,8 +31,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    unlimited, 15 req/min, sekvencijalno — jedan invoke po messageu). **NE pokretati**
    `enrich_magisterium.js` / `enrich_magisterium_full.js` / `enrich_magisterium_batch.js`
    ni `run_pipeline.sh --with-magisterium` — svi koriste `MAGISTERIUM_API_KEY*` (odvojen,
-   vrlo skup per-token plan). Workflow: `magisterium_mcp_prep.js` → Claude-in-the-loop MCP
-   pozivi → `magisterium_mcp_assemble.js`. Detalji: `docs/MAGISTERIUM_MCP_RUN.md`,
+   vrlo skup per-token plan). **Default od 24.10.2026.: `node tools/magisterium_mcp_episode.js
+   --video-id <VID>`** — zove Magisterium MCP server izravno (OAuth token na Pro pretplati u
+   `~/.config/magisterium-mcp/token.json`, NIJE API ključ), bez Claudea u petlji, ~10 min/13
+   sekcija, pa objavi i provjeri md5. `chat` stvarno propušta ~2,5 poziva/min — ne paraleliziraj
+   (`docs/2026-10-24-magisterium-mcp-bez-llm-a.md`). Fallback: `magisterium_mcp_prep.js` →
+   Claude-in-the-loop MCP pozivi → `magisterium_mcp_assemble.js`. Detalji: `docs/MAGISTERIUM_MCP_RUN.md`,
    `docs/adhoc_video_processing.md` (§3.5), `docs/magisterium_ai_integration.md`.
 
 ## Build & Test Commands

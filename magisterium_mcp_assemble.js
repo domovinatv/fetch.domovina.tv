@@ -68,7 +68,7 @@ function urlFromRegistry(document, ref) {
 
 // interni citat {n, document, author, ref, citation_text} → konzumirana Flutter shema
 function toConsumedCitation(c) {
-    const url = urlMap[`${c.document}|${c.ref}`] || urlMap[c.document]
+    const url = c.source_url || urlMap[`${c.document}|${c.ref}`] || urlMap[c.document]
         || urlFromRegistry(c.document || '', c.ref || '');
     if (!url && c.document) unresolvedDocs.add(c.document);
     return {
@@ -179,6 +179,37 @@ function stripMarkers(t) {
     return (t || '').replace(/\s*\[\^\d+\]/g, '').replace(/\s{2,}/g, ' ').trim();
 }
 
+// Strukturirani MCP odgovor {answer, references[]} (tools/magisterium_mcp_client.js)
+// → refMap bez parsiranja teksta: [^N] = references[N-1], source_url dolazi sa servera.
+// Zato ga ne lome naslovi s ugniježđenim zagradama i ne treba SLOJ 3 (search/keš).
+function refMapFromMcp(references) {
+    const refs = {};
+    (references || []).forEach((x, i) => {
+        refs[i + 1] = {
+            n: i + 1,
+            document: x.document_title || '',
+            author: x.document_author || '',
+            ref: x.document_reference || '',
+            citation_text: `${x.document_title} (${x.document_author || ''}), ${x.document_reference || ''}`,
+            source_url: x.source_url || null,
+        };
+    });
+    return refs;
+}
+
+// <name>.mcp.json ima prednost; inače <name>.raw.txt (ručno spremljen tekst, stari tok).
+function loadResult(name) {
+    const mcpPath = path.join(resultsDir, `${name}.mcp.json`);
+    if (fs.existsSync(mcpPath)) {
+        const r = JSON.parse(fs.readFileSync(mcpPath, 'utf-8'));
+        return { parsed: extractJson(r.answer || ''), refMap: refMapFromMcp(r.references) };
+    }
+    const rawPath = path.join(resultsDir, `${name}.raw.txt`);
+    if (!fs.existsSync(rawPath)) return null;
+    const raw = fs.readFileSync(rawPath, 'utf-8');
+    return { parsed: extractJson(raw), refMap: parseReferences(raw) };
+}
+
 // --- Učitaj job + rezultate ---
 
 const job = JSON.parse(fs.readFileSync(jobPath, 'utf-8'));
@@ -187,11 +218,10 @@ const iterations = article.iterations || article.iteracije || [];
 
 // holistic
 let holistic = null, holisticCitations = [];
-const holisticPath = path.join(resultsDir, 'holistic.raw.txt');
-if (fs.existsSync(holisticPath)) {
-    const raw = fs.readFileSync(holisticPath, 'utf-8');
-    holistic = extractJson(raw);
-    const refMap = parseReferences(raw);
+const holisticRes = loadResult('holistic');
+if (holisticRes) {
+    holistic = holisticRes.parsed;
+    const refMap = holisticRes.refMap;
     if (holistic) {
         holisticCitations = collectCitations([
             holistic.assessment, holistic.theological_context,
@@ -210,11 +240,9 @@ if (fs.existsSync(holisticPath)) {
 const sectionMag = new Map();
 let parsedBatches = 0, missingBatches = [];
 for (const b of job.batches) {
-    const fp = path.join(resultsDir, `batch_${String(b.batchIndex).padStart(2, '0')}.raw.txt`);
-    if (!fs.existsSync(fp)) { missingBatches.push(b.batchIndex); continue; }
-    const raw = fs.readFileSync(fp, 'utf-8');
-    const parsed = extractJson(raw);
-    const refMap = parseReferences(raw);
+    const res = loadResult(`batch_${String(b.batchIndex).padStart(2, '0')}`);
+    if (!res) { missingBatches.push(b.batchIndex); continue; }
+    const { parsed, refMap } = res;
     if (!parsed || !Array.isArray(parsed.results)) { missingBatches.push(b.batchIndex); continue; }
     parsedBatches++;
     for (const r of parsed.results) {

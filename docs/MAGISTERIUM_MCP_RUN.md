@@ -13,6 +13,23 @@
 > ne uploadaj nikakav `.en.json`. EN se uvijek može dodati naknadno (korak 6) bez ponavljanja
 > HR koraka.
 
+## ⚡ 0. DEFAULT: jedna naredba, bez LLM-a (od 24.10.2026.)
+
+```bash
+node tools/magisterium_mcp_episode.js --video-id <VID>          # HR: prep → chat → assemble → publish → CDN md5
+node tools/magisterium_mcp_episode.js --video-id <VID> --force  # ponovna obrada (stari .json → .bak, force_upload)
+```
+Skripta zove Magisterium MCP (`https://mcp.magisterium.com`) **izravno**, OAuth tokenom na
+Pro pretplati (`~/.config/magisterium-mcp/token.json`). To NIJE API ključ i ne troši Claude
+kvotu. 13 sekcija traje ~7–11 min. Exit 0 znači objavljeno i md5 disk == CDN.
+**Ako to radiš kao Claude agent: pokreni ovu naredbu u foregroundu (Bash `timeout` 600000;
+za >15 sekcija pokreni je s `run_in_background` i čekaj notifikaciju) i NE šalji `chat`
+pozive sam.** Koraci 1–5 ispod su fallback samo za slučaj da skripta javi
+`nema tokena` ili `invalid_token` i nema nikoga da pokrene
+`node tools/magisterium_mcp_client.js login` (OAuth u browseru, Brave `ms@ff.hr`).
+Mjerenja, zamke (rate limit ~2,5 chata/min, a ne 15) i usporedba sa starim tokom:
+[`2026-10-24-magisterium-mcp-bez-llm-a.md`](./2026-10-24-magisterium-mcp-bez-llm-a.md).
+
 Ovo je izvršni runbook. Pozadina/arhitektura: [`magisterium_ai_integration.md`](./magisterium_ai_integration.md).
 Detaljni nalazi: [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_2026-05.md).
 
@@ -20,10 +37,10 @@ Detaljni nalazi: [`magisterium_mcp_hybrid_2026-05.md`](./magisterium_mcp_hybrid_
 - Magisterium AI MCP dostupan u sesiji (`mcp__..._Magisterium_AI__chat` / `__search`).
   **Samo MCP, NIKAD API ključevi** (vidi memoriju `magisterium_mcp_only_never_api_keys`).
 - Postoji `*.article.json` za video (leksikografski najnoviji `_{date}_{model}`).
-- `chat` je **sekvencijalan-only** (paralelno → greške); `search` **je parallel-safe**.
-  Rate limit **15 req/min** dijeljen.
+- `chat` je **sekvencijalan-only** (paralelno → `rate_limit_exceeded`); `search` **je parallel-safe**.
+  Deklarirano 15 req/min, ali `chat` stvarno propušta **~2,5/min** po korisniku (izmjereno 24.10.2026.).
 
-## Koraci
+## Koraci (FALLBACK — agent u petlji; default je korak 0)
 
 ### 1. Nađi article + pripremi promptove
 ```bash
@@ -35,17 +52,21 @@ Zapamti `basename`, `RESULTS=/tmp/mag_hybrid/<basename>.results` (napravi `mkdir
 `PROMPTS=/tmp/mag_hybrid/<basename>.prompts`. Iz ispisa znaš koliko batchova.
 
 ### 2. SLOJ 1 — holistički (1× `chat`)
-Pošalji sadržaj `PROMPTS/holistic.txt` kroz `chat`. (Smiješ zamijeniti ružni basename-naslov
-čistim naslovom epizode radi kvalitete.) Spremi **cijeli sirovi odgovor** (JSON blok +
-`References:` lista) u `RESULTS/holistic.raw.txt`.
+Pošalji sadržaj `PROMPTS/holistic.txt` kroz `chat` **doslovno** (ne skraćuj, ne mijenjaj
+naslov: ručno skraćeni promptovi izmišljaju sadržaj). `chat` vraća JSON
+`{"answer": …, "references": [...]}`. Spremi ga **nepromijenjenog** (Write alat, točno tekst
+tool resulta) u `RESULTS/holistic.mcp.json`. `assemble` čita reference i `source_url` izravno
+iz tog JSON-a. NE prepisuj odgovor u `References:` format i NE gradi url-map ručno.
 
 ### 3. SLOJ 2 — granularno (⌈sekcija/4⌉× `chat`, SEKVENCIJALNO)
-Za svaki `PROMPTS/batch_NN.txt`: pošalji kroz `chat`, spremi sirovi odgovor u
-`RESULTS/batch_NN.raw.txt`. **Jedan `chat` po poruci** (ne paralelno).
+Za svaki `PROMPTS/batch_NN.txt`: pošalji kroz `chat` doslovno, spremi JSON tool resulta
+nepromijenjen u `RESULTS/batch_NN.mcp.json`. **Jedan `chat` po poruci** (ne paralelno).
+Odgovor s fragmentima na drugom jeziku (ćirilica, finski, litavski): pošalji **isti** prompt
+ponovno. Ne prevodi ručno i ne mijenjaj score.
 - Ako `chat` **time-outa**: ponovi s **kraćim sadržajem** (sažmi svaku sekciju na 1–2
   rečenice). Ako i to time-outa: razdvoji batch na 2 manja. Tek onda odustani.
 
-### 4. SLOJ 3 — citat→URL (najprije keš, pa `search` za nepoznato)
+### 4. SLOJ 3 — citat→URL (samo za stare `.raw.txt` rezultate; `.mcp.json` ovo NE treba)
 Sastavi probno (bez `--url-map`) da vidiš koje dokumente keš ne pokriva:
 ```bash
 node magisterium_mcp_assemble.js --job "$JOB" --results-dir "$RESULTS" --out /tmp/probe.json
@@ -171,7 +192,15 @@ Ti si teološki analitičar. Evaluiraj usklađenost sljedećih N odlomaka … Vr
 - NE prepisuj postojeće; piši nove datoteke (`assemble` to i radi).
 - `chat` uvijek doda markdown `References` — `assemble.js` ih robusno parsira (`[^N]`).
 
-## Bulk backfill (više epizoda) — naučeno 2026-06-13
+## Bulk backfill (više epizoda)
+
+**Od 24.10.2026.:** petlja u shellu, bez subagenata:
+`for v in VID1 VID2 …; do node tools/magisterium_mcp_episode.js --video-id "$v" || echo "FAIL $v"; done`
+(ili isti VID-ovi kroz queue, gdje ih poller radi jedan po jedan). ETA ≈ **(sekcija + 1) × 30–45 s**
+po epizodi, jer je rate limit `chat`a usko grlo, pa paralelne epizode ne ubrzavaju.
+Sekcije ispod su povijest starog toka (subagent po epizodi).
+
+### Naučeno 2026-06-13 (stari tok)
 
 - **NE radi cijelu sekvencu u jednom chatu.** ~17 epizoda u jednom kontekstu = ~724k/1M tokena. Magisterium `chat` je **stateless** (nema server-side miješanja između epizoda), ali sve-u-jednom-chatu pojede kontekst i nosi orkestracijski rizik (LLM drži sav sadržaj). **Bolje: jedan subagent po epizodi, SEKVENCIJALNO** (chat nije parallel-safe, 15 req/min). Svaki subagent: prep→holistic→batches→assemble→publish; vrati samo score+CDN status.
 - **HR-only je DEFAULT** (i za bulk): po epizodi assemble → `publish_hr_episode.sh <VID>` (instant upload+reindex+meta+GET). EN se radi **samo ako je izričito tražen**, i može se dodati naknadno (`translate_to_english.js`, ~25-30 min/ep jer je per-field) bez ponavljanja HR koraka.
