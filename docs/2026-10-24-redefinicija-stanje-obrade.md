@@ -89,7 +89,7 @@ Plan i stanje pipelinea: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 | 3 | 1--IUSQILFA | 24 | 80 / 82 | 72–89 | — | — |
 | 4 | kCa7edJS-Lo | 27 | 85 / 88 | 65–95 | — | — |
 | 5 | Yoln5fe9RdY | 35 | 76 / 78 | 45–88 | 2,4 h | 36 |
-| 6 | ouoZvcpBt9Y | 36 | 80 / 81 | 54–95 (sekcija Sisak 40 → 62, vidi dolje) | 2,4 h | 38 + 1 |
+| 6 | ouoZvcpBt9Y | 36 | 80 / 81 | 56–95 (sekcija Sisak 40 → 62, vidi dolje) | 2,4 h | 38 + 1 |
 | 7 | ZkMcSRvajCw | 27 | 72 / 72 | 56–88 | 21 min | 28 |
 | 8 | h_6vqQEL2uc | 33 | 79 / 63 | 55–94 | 27 min | 35 |
 | 9 | f2HIRJPHHK4 | 22 | 80 / 87 | 62–94 | 15 min | 24 |
