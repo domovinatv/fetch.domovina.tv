@@ -174,10 +174,16 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 - ✅ **Ep. 3 #1 i ep. 10 #1 su pali na `hyperframes check`** (content_overlap kartice i titla).
   Uzrok: kartica s brojačem mjerila se dok je pisalo „0", a brojač ju je kasnije raširio. Span
   sada nosi `data-to`, `reel_layout.js` mjeri s konačnim brojem i zaključa okvir (5cd385d3).
-- ✅ Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 već su iz ispravnog SRT-a. Kanonski
-  `.wav.canary.diarized.srt` je bajt-po-bajt jednak `.soniox_pyannote.gemini.diarized.srt`
-  (promoviran s `--force-promote` 24.10. u 04:48), a `--reprocess-article` je radio poslije
-  (12:24–13:40). CDN `diarized.srt` ima isti md5. Bug iz 775ea03f ih nije pogodio.
+- ❌ **Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 su iz STAROG Sortformer teksta** — treba
+  ih ponovno napraviti. Kanonski `.wav.canary.diarized.srt` je ispravan (bajt-po-bajt
+  `.soniox_pyannote.gemini.diarized.srt`, i na CDN-u), ali `--reprocess-article` 24.10.
+  (12:24–13:40) je za sve četiri ispisao `🎭 Dijarizacija: sortformer` (logovi
+  `reart_ep1-3.log`, `reart_ep4-10.log`): bez prepoznatog Soniox refinea Sortformer
+  pobjeđuje kanonski SRT (bug iz 775ea03f). Ep. 5–10 te linije nemaju. Potvrđeno i
+  sadržajem: sve riječi koje su samo u Sortformer SRT-u nalaze se u `rag_combined.jsonl`.
+  Metapodatak `source_file` u article.json LAŽE (piše kanonsko ime i kad je čitan Sortformer).
+  Magisterium i EN prijevod ep. 1–4 su izvedeni iz tog članka, pa idu ponovno s njim.
+  Reelovi su u redu (`segments.jsonl` je regeneriran 25.10. 01:01, nakon popravka).
 
 - Konfiguracija prompta po kanalu (ton, vrste kartica, koliko kandidata) i bogatije
   kartice (ruta, ilustracije) koje danas rade samo ručni predlošci.
