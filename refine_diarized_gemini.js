@@ -63,6 +63,7 @@ const asrWords = require("./lib/asr/words");
 const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
+const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
 
 // ─── .env (SPEECHMATICS se ne treba, ali VERTEX_* smije doći odavde) ───
 function loadEnv() {
@@ -791,6 +792,10 @@ async function processFile(audioPath, work) {
     prevRuns = prevRuns.filter((r) => r.step !== "refine").concat(rec);
     const totUsd = Math.round(prevRuns.reduce((s, r) => s + (r.est_usd || 0), 0) * 1e6) / 1e6;
     fs.writeFileSync(usagePath, JSON.stringify({ base: baseName, total_est_usd: totUsd, runs: prevRuns }, null, 2), "utf-8");
+
+    // processing.json: inače ostaje stanje iz 2.7b/2.7c (canonical_srt i gemini_ear = null).
+    try { writeManifest(path.dirname(audioPath), baseFromAudio(audioPath)); }
+    catch (e) { console.log(`   ⚠️  processing.json nije osvježen: ${e.message}`); }
 
     return { ok: true, meta };
 }

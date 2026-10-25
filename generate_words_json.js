@@ -43,6 +43,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { writeManifest } = require("./lib/processing_manifest");
 
 const args = process.argv.slice(2);
 function getArg(name) {
@@ -324,6 +325,7 @@ function main() {
                             min_anchored: MIN_ANCHORED, words: tot, at: new Date().toISOString(),
                         }, null, 2) + "\n");
                         if (fs.existsSync(outPath)) fs.renameSync(outPath, outPath + ".bak");
+                        writeManifest(dir, base);
                     }
                     continue;
                 }
@@ -332,6 +334,7 @@ function main() {
                 if (!DRY_RUN) {
                     fs.writeFileSync(outPath, JSON.stringify(doc));
                     if (fs.existsSync(skipPath)) fs.unlinkSync(skipPath);
+                    writeManifest(dir, base);
                 }
             } catch (e) {
                 stats.errors++;
