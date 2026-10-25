@@ -165,18 +165,22 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 
 ## Otvoreno
 
-- **launchd `tv.domovina.fetch.reels` NIJE instaliran** (25.10.2026.). Prije
-  `automatic/launchd/install.sh reels`: (1) pričekati da završi ručni render ostatka
-  re:DEFINICIJE, (2) preračunati `render.fingerprint` u reels.json gotovih reelova — run je
-  krenuo sa starom formulom (mtime brand.json), nova hashira sadržaj brenda; bez migracije bi
-  job sve renderirao ponovno. Migracija: za svaki reel s `render.file` postaviti
-  `render.fingerprint = renderFingerprint(reel, loadBrand(kanal))` (export iz render_reels.js).
-- **Ep. 10 #1 (`DOfcONrRyDY`) pao na `hyperframes check`** u ručnom runu — pogledati
-  `render.error` u reels.json i radni dir (`--keep-work`).
+- ✅ **launchd `tv.domovina.fetch.reels` instaliran 25.10.2026.** Prije toga je 17 gotovih
+  reelova re:DEFINICIJE migrirano na novu formulu otiska (`renderFingerprint(reel,
+  loadBrand(kanal))`, oba se izvoze iz render_reels.js; stari otisak ostaje u
+  `render.fingerprint_old`). Prvi tick (09:42–09:49) renderirao je i objavio 2 nova reela za
+  `-OKU0UM6TIk`, bez grešaka. Predložak (`reel_layout.js`, `compose_reel.js`) NIJE u otisku, pa
+  popravak rasporeda ne renderira ponovno gotove reelove; za to se diže `RENDER_VERSION`.
+- ✅ **Ep. 3 #1 i ep. 10 #1 su pali na `hyperframes check`** (content_overlap kartice i titla).
+  Uzrok: kartica s brojačem mjerila se dok je pisalo „0", a brojač ju je kasnije raširio. Span
+  sada nosi `data-to`, `reel_layout.js` mjeri s konačnim brojem i zaključa okvir (5cd385d3).
+- ✅ Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 već su iz ispravnog SRT-a. Kanonski
+  `.wav.canary.diarized.srt` je bajt-po-bajt jednak `.soniox_pyannote.gemini.diarized.srt`
+  (promoviran s `--force-promote` 24.10. u 04:48), a `--reprocess-article` je radio poslije
+  (12:24–13:40). CDN `diarized.srt` ima isti md5. Bug iz 775ea03f ih nije pogodio.
 
 - Konfiguracija prompta po kanalu (ton, vrste kartica, koliko kandidata) i bogatije
   kartice (ruta, ilustracije) koje danas rade samo ručni predlošci.
 - domovina.ai još ne prikazuje reelove (`reels.json` + `render.url` su spremni).
-- Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 ponovno iz ispravnog SRT-a.
 - Model ne vidi kadar. Trenutak može biti dobar u priči, a loš u slici (gost okrenut,
   totalni plan) — `docs/2026-10-21-hyperframes-reel-proba.md`.

@@ -442,4 +442,4 @@ if (require.main === module) {
     main().catch((e) => { console.error(`❌ ${e.stack || e.message}`); process.exit(1); });
 }
 
-module.exports = { renderFingerprint, reelWords };
+module.exports = { renderFingerprint, reelWords, loadBrand };
