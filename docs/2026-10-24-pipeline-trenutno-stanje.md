@@ -179,6 +179,51 @@ words.json backfill nakon OK-a. Ništa od toga nije promovirano u kanonski SRT n
 Slijepi sudac (`tools/judge_asr_diffs.js`) se više ne pokreće automatski: presuda je zadana
 (memory `asr_quality_verdict_no_auto_judge`).
 
+## 7. Prvi nightly sa Soniox putom (25.10.2026.): provjereno
+
+Log `automatic/logs/nightly_2026-10-25.log`, 03:00–04:23, status samo audit exit 1.
+
+| Korak | Rezultat |
+|---|---|
+| 2.7b Soniox | 4/4, nijedan Speechmatics fallback, ~50× realtime, ≈$0,46 ukupno |
+| 2.7c pyannoteAI precision-3 | 4/4, hibrid `soniox_pyannote` napravljen, ≈$0,50 |
+| 2.8 Gemini sluh (`auto`) | 4/4 na kosturu Soniox+pyannote, pokrivenost 100–104 %, 0–10 ispravaka po epizodi, jedan 429 riješen retryjem, ≈$0,69 |
+| promocija u kanonski SRT | 3 epizode; `kmVTa8OjHpc` je već imao kanonski (Speechmatics+Gemini iz ranijeg prolaza) i bez `--force-promote` nije diran |
+| 7 + 8 (Opus) | 3 sažetka, 3 članka, 0 grešaka; članci na CDN-u |
+| 9.87 words.json | izvor `soniox` za sve 4 |
+
+Što je prvi run otkrio (popravljeno istog dana):
+
+1. **Natpis „Speechmatics + Gemini sluh” bio je hardkodiran** u pet kopija (`summarize_gemini.js`,
+   `generate_article_gemini.js`, `prepare_rag{,_import,_combined}.js`). Log zato nije mogao
+   potvrditi Soniox put. Sad `isPromotedRefine` vraća kostur (commit 444fa58c).
+2. **`processing.json` je ostao na stanju iz 2.7c** (`canonical_srt`, `gemini_ear`, `words_json`
+   = null), jer manifest pišu samo 2.7b/2.7c. Sad ga pišu i 2.8 i 9.87 (commit b63cec19).
+   Za provjeru jedne epizode i dalje vrijedi `node tools/build_processing_manifest.js --video-id <ID> --print`.
+
+Usput nađeno i otvoreno:
+
+- **KORAK 6 (lokalni pyannote, mreža za Canary put) nije se pokrenuo**: 11,3 GB slobodno na `/`,
+  prag 12 GB. Te noći nije trebao, ali dok je disk ovako pun mreža ne postoji.
+- Iznos „≈$” uz svaku epizodu u 2.8 je kumulativ runa, ne trošak epizode.
+- 9.9 reels: 5 gotovo, 15 odgođeno ogradom claude-window (prozor kvote) — očekivano.
+
+### Magisterium na CDN-u nije pripadao članku na CDN-u
+
+Audit je javio drift `article.magisterium.json` za `MGLq9v3AtvE` i `oxq1U0xypu8` (disk veći od R2).
+Smjer nije bio „CDN bogatiji”: CDN je posluživao članak iz verzije `2026-03-20_gemini-2.5-flash`,
+a Magisterium iz verzije `2026-03-17_gemini-3-flash-preview`, dakle prosudbu drugog članka.
+
+Uzrok je poznata podjela strategija (memory `article_json_dedup_latest_per_video`):
+`upload_to_r2.js` bira **po mtime-u**, a Magisterium za sve tri verzije pisan je 30.03. obrnutim
+redom (03-20 u 14:56, 03-17 u 15:06), pa je najstarija verzija dobila najnoviji mtime. Članci su
+pisani kronološki, pa kod njih nije bilo razlike.
+
+Popravak: `node force_upload.js --video-id <ID> --channel domovina_tv --targets magisterium`
+(`force_upload` bira leksikografski = 03-20), CDN md5 = disk md5, audit 3476/3477.
+Isti obrazac može postojati drugdje gdje je Magisterium rađen za više verzija članka odjednom;
+audit ga hvata samo kad se veličine razlikuju.
+
 ## Vezano
 
 - Plan i izvori brojki: `docs/2026-10-24-soniox-pyannote-roadmap.md`
