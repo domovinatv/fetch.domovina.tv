@@ -132,3 +132,34 @@ Zamke naučene usput:
 - Prvi nightly na Soniox putu (24.10.): 5 epizoda, 0 grešaka. Tri epizode od 20.–22.10.
   već su imale Speechmatics kanonski SRT pa ih je 2.7b/2.7c/2.8 ponovno obradio (unutar
   prozora od 3 dana) bez promocije — jednokratni trošak prijelaza ~$1,5.
+
+## Ponovna obrada ep. 1–4 iz Soniox teksta (25.10.2026., 17:19–19:11)
+
+`--reprocess-article` 24.10. je za ep. 1–4 čitao `.sortformer.diarized.srt` (bug
+`isPromotedRefine`, popravljen u 775ea03f), pa su sažetak, članak, RAG, Magisterium i EN
+bili iz starog Canary teksta. Ponovljeno nakon popravka, epizoda po epizoda:
+
+1. `env -u CLAUDE_WINDOW_GUARD ./run_pipeline.sh --reprocess-article <ID> --gemini-backend claude`
+   — ~8,5 min/ep, 0 grešaka; u logu `Transkript: Soniox + pyannoteAI + Gemini sluh`, nijedna
+   linija `Dijarizacija: sortformer`.
+2. `node tools/magisterium_mcp_episode.js --video-id <ID> --force` — ~14 min/ep, bez Claude kvote.
+3. `translate_to_english.js` + `force_upload --targets article-en,magisterium-en,summary-en`,
+   `generate_ebook.js --force` + `tools/force_upload_epubs.js`. `--force` za EN nije trebao:
+   reprocess je stari `summary.en.json` sklonio u `.reprocess_bak/`.
+
+| Ep | ID | Magisterium (prosjek sekcija) | Sortformer riječi u RAG prijepisu, prije → poslije |
+|---|---|---|---|
+| 1 | LnjTZ39Tsdc | 85 | — → 0/28 |
+| 2 | -bOmDXC7rlA | 79 | 22/22 → 0/22 |
+| 3 | 1--IUSQILFA | 83 | 19/19 → 0/19 (1 lažni pogodak, „pomoć" je i u Soniox SRT-u) |
+| 4 | kCa7edJS-Lo | 85 | 22/22 → 0/22 |
+
+Provjereno GET-om: md5 disk = CDN za article, magisterium, article.en, magisterium.en,
+summary.en, book.epub i book.en.epub; `episode.json` inline nosi samo sadržaj od 25.10.
+Kvota: 5-satni prozor 0 → 12 %, tjedni 27 → 28 %.
+
+Zamka mjerenja: `rag_combined.jsonl` ima `topic_transcript` (doslovni prijepis) **i**
+`article_summary` (proza članka). Provjera „riječi samo iz Sortformera” mora gledati samo
+`topic_transcript`, inače obične riječi iz članka („kada”, „vjerovati”) izgledaju kao curenje
+(ep. 1: 15/28 na cijeloj datoteci, 0/28 na prijepisu). U članku i sažetku taj signal ionako
+šumi; tamo su dokaz samo pogrešno napisana imena (ranije „julian”, „jose”, „potplaničkog”).

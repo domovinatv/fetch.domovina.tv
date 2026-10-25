@@ -174,8 +174,8 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 - ✅ **Ep. 3 #1 i ep. 10 #1 su pali na `hyperframes check`** (content_overlap kartice i titla).
   Uzrok: kartica s brojačem mjerila se dok je pisalo „0", a brojač ju je kasnije raširio. Span
   sada nosi `data-to`, `reel_layout.js` mjeri s konačnim brojem i zaključa okvir (5cd385d3).
-- ❌ **Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 su iz STAROG Sortformer teksta** — treba
-  ih ponovno napraviti. Kanonski `.wav.canary.diarized.srt` je ispravan (bajt-po-bajt
+- ✅ **Sažetak, članak i RAG za re:DEFINICIJA ep. 1–4 bili su iz STAROG Sortformer teksta** —
+  ponovno napravljeni 25.10. (vidi `docs/2026-10-24-redefinicija-stanje-obrade.md` §Ponovna obrada ep. 1–4). Kanonski `.wav.canary.diarized.srt` je ispravan (bajt-po-bajt
   `.soniox_pyannote.gemini.diarized.srt`, i na CDN-u), ali `--reprocess-article` 24.10.
   (12:24–13:40) je za sve četiri ispisao `🎭 Dijarizacija: sortformer` (logovi
   `reart_ep1-3.log`, `reart_ep4-10.log`): bez prepoznatog Soniox refinea Sortformer
