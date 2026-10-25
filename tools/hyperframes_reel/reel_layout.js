@@ -91,7 +91,15 @@
     const cards = [];
     [...document.querySelectorAll(".slot")].map(el => ({ el, w: win(el) })).sort((a, b) => a.w[0] - b.w[0]).forEach(({ el, w }) => {
       const [s, e] = w;
-      const { cw, ch } = measure(el, () => ({ cw: el.offsetWidth, ch: el.offsetHeight }));
+      // brojač: izmjeri s konačnom vrijednošću i zaključaj okvir, da „0 → 750“ ne raširi karticu
+      const { cw, ch } = measure(el, () => {
+        const ns = [...el.querySelectorAll("[data-to]")].map(n => [n, n.textContent]);
+        ns.forEach(([n]) => { n.textContent = n.dataset.to; });
+        const r = { cw: el.offsetWidth, ch: el.offsetHeight };
+        ns.forEach(([n, t]) => { n.textContent = t; });
+        if (ns.length) Object.assign(el.firstElementChild.style, { width: r.cw + "px", height: r.ch + "px", boxSizing: "border-box" });
+        return r;
+      });
       // bez lica (prazan kadar) = cijela sigurna zona je slobodna
       const env = envelope(s, e, false) || { x0: 0, x1: 0, y0: SAFE.t - GAP, y1: SAFE.t - GAP };
       const scW = Math.min(1, (SAFE.r - SAFE.l) / cw);
@@ -147,8 +155,11 @@
       const ok = y => y >= SAFE.t && y + h <= SAFE.b && ![env, ...busy].some(r => r && hit(r, { x0: SAFE.l, x1: SAFE.r, y0: y - 6, y1: y + h + 6 }));
       const tries = [SAFE.b - h, ...busy.map(r => r.y1 + GAP), env ? env.y1 + GAP : SAFE.b - h, env ? env.y0 - GAP - h : SAFE.t];
       let y = tries.find(ok);
-      if (y == null) for (let yy = SAFE.b - h; yy >= SAFE.t; yy -= 8) if (!env || !hit(env, { x0: SAFE.l, x1: SAFE.r, y0: yy, y1: yy + h })) { y = yy; break; }
-      if (y == null) { y = SAFE.b - h; report.push({ id: c.id, warn: "titl preko lica (nema mjesta)" }); }
+      // nema mjesta ni za lice ni za karticu: titl smije preko lica, nikad preko teksta kartice
+      const free = y => !busy.some(r => hit(r, { x0: SAFE.l, x1: SAFE.r, y0: y - 6, y1: y + h + 6 }));
+      if (y == null) for (let yy = SAFE.b - h; yy >= SAFE.t; yy -= 8) if (free(yy) && (!env || !hit(env, { x0: SAFE.l, x1: SAFE.r, y0: yy, y1: yy + h }))) { y = yy; break; }
+      if (y == null) for (let yy = SAFE.b - h; yy >= SAFE.t; yy -= 8) if (free(yy)) { y = yy; report.push({ id: c.id, warn: "titl preko lica (nema mjesta)" }); break; }
+      if (y == null) { y = SAFE.b - h; report.push({ id: c.id, warn: "titl preko kartice (nema mjesta)" }); }
       gsap.set(c, { left: SAFE.l, top: y });
     });
 

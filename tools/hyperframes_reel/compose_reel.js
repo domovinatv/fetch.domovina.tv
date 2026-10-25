@@ -104,7 +104,8 @@ function cardMarkup(c, id, ctx) {
             return host(`<div class="paper quote"><div class="q">„${esc(String(c.text).replace(/^[„"“]+|[“"”]+$/g, ""))}“</div>${ctx.speaker ? `<div class="who">— ${esc(ctx.speaker)}</div>` : ""}</div>`);
         case "number": {
             const p = parseNumber(c.value);
-            const v = p ? `<span id="${id}-n">0</span>${esc(p.rest)}` : esc(c.value || "");
+            // data-to: reel_layout.js mjeri karticu s konačnim brojem (brojač je inače raširi u titl)
+            const v = p ? `<span id="${id}-n" data-to="${p.n.toLocaleString("hr-HR")}">0</span>${esc(p.rest)}` : esc(c.value || "");
             return host(`<div class="paper num"><div class="v">${v}</div>${c.text ? `<div class="s">${esc(c.text)}</div>` : ""}</div>`);
         }
         case "pin":
