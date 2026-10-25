@@ -212,6 +212,8 @@ const REFINED_AUDIO_EXTS = [".mp3", ".wav", ".m4a", ".opus", ".ogg", ".flac"];
 // `speechmatics`, pa Soniox prepis (primarni od 24.10.) nije prepoznat i Sortformer je
 // zasjenio kanonski SRT (re:DEFINICIJA ep. 1–4: sažetak, članak i segments iz starog teksta).
 const REFINED_SKELETONS = ["soniox_pyannote", "soniox", "speechmatics_pyannote", "speechmatics"];
+// Natpisi za log. isPromotedRefine vraća kostur (truthy) ili false, da log kaže Soniox ili Speechmatics.
+const REFINED_SKELETON_LABELS = { soniox_pyannote: "Soniox + pyannoteAI", soniox: "Soniox", speechmatics_pyannote: "Speechmatics + pyannoteAI", speechmatics: "Speechmatics" };
 function isPromotedRefine(canarySrtPath) {
     const base = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, "");
     if (base === canarySrtPath || !fs.existsSync(canarySrtPath)) return false;
@@ -222,7 +224,7 @@ function isPromotedRefine(canarySrtPath) {
             if (!fs.existsSync(refined)) continue;
             try {
                 if (!canonical) canonical = fs.readFileSync(canarySrtPath);
-                if (canonical.equals(fs.readFileSync(refined))) return true;
+                if (canonical.equals(fs.readFileSync(refined))) return skeleton;
             } catch (_) { /* nečitljivo → nije dokaz promocije */ }
         }
     }
@@ -258,8 +260,9 @@ function resolveDiarizedSrt(canarySrtPath) {
             } catch (_) { /* neispravan meta → padaj na puni transkript */ }
         }
     }
-    if (isPromotedRefine(canarySrtPath)) {
-        return { path: canarySrtPath, source: "gemini-refine" };
+    const refinedSkeleton = isPromotedRefine(canarySrtPath);
+    if (refinedSkeleton) {
+        return { path: canarySrtPath, source: "gemini-refine", skeleton: refinedSkeleton };
     }
     const sortformerPath = canarySrtPath.replace(
         /\.canary\.diarized\.srt$/,
@@ -1325,9 +1328,9 @@ async function main() {
 
             try {
                 // 1. Čitaj SRT transkript — sortformer ima prioritet ako postoji
-                const { path: _actualSrtPath, source: _diarSource } = resolveDiarizedSrt(srtPath);
+                const { path: _actualSrtPath, source: _diarSource, skeleton: _diarSkeleton } = resolveDiarizedSrt(srtPath);
                 if (_diarSource === "sortformer") console.log(`      🎭 Dijarizacija: sortformer (override canary)`);
-                if (_diarSource === "gemini-refine") console.log(`      🎧 Transkript: Speechmatics + Gemini sluh (KORAK 2.8, promoviran)`);
+                if (_diarSource === "gemini-refine") console.log(`      🎧 Transkript: ${REFINED_SKELETON_LABELS[_diarSkeleton] || _diarSkeleton} + Gemini sluh (KORAK 2.8, promoviran)`);
                 if (_diarSource === "homily") console.log(`      ⛪ Izvor: SAMO PROPOVIJED (.homily.srt, confidence=high) — liturgija izostavljena`);
                 const srtContent = fs.readFileSync(_actualSrtPath, "utf-8");
                 const transcriptText = srtToText(srtContent);
