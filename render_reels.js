@@ -298,6 +298,11 @@ function ensurePoster(ep, r, mp4) {
     } finally { fs.rmSync(png, { force: true }); }
 }
 
+function consented(channel) {
+    const brand = loadBrand(channel);
+    return !!(brand && brand.json.reel && brand.json.reel.auto === true);
+}
+
 function writeReels(ep, doc) {
     const tmp = ep.reelsPath + ".tmp";
     fs.writeFileSync(tmp, JSON.stringify(doc, null, 2) + "\n");
@@ -312,7 +317,7 @@ function renderPhase(eps) {
         if (!brand) { noBrand++; continue; }
         // Automatski (bez --video-id) samo uz izričit pristanak kanala u brand.json:
         // "reel": { "auto": true }. Sam brand.json nije pristanak (npr. logo poslan na odobrenje).
-        if (!ONLY_VIDEO && !(brand.json.reel && brand.json.reel.auto === true)) { noConsent++; continue; }
+        if (!ONLY_VIDEO && !consented(ep.channel)) { noConsent++; continue; }
         if (!ONLY_VIDEO && SINCE_DAYS > 0) {
             const d = uploadDate(ep);
             if (!d || (Date.now() - Date.parse(d)) / 86400000 > SINCE_DAYS) { outside++; continue; }
@@ -408,7 +413,10 @@ async function publishPhase(eps) {
             else waiting++;
             continue;
         }
-        const needs = doc.reels.some((r) => r.render && r.render.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.render.file))
+        // Video (logo kanala) ide van pod istom ogradom kao render: reel.auto ili izričit --video-id.
+        // Bez nje bi launchd tick (--publish-only) objavio i reel izrenderiran samo za pregled.
+        ep.videoConsent = !!ONLY_VIDEO || consented(ep.channel);
+        const needs = ep.videoConsent && doc.reels.some((r) => r.render && r.render.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.render.file))
             && (!r.render.url || !r.render.url.includes(r.render.sha256.slice(0, 8)) || !r.render.poster_url));
         // Kandidati (istaknuti trenuci na timelineu) idu na CDN za SVAKU epizodu, i bez
         // brenda i pristanka kanala: to su samo vremena i naslovi, bez loga i videa.
@@ -440,7 +448,7 @@ async function publishPhase(eps) {
         const doc = readJson(ep.reelsPath);   // svježe — render je mogao pisati
         try {
             for (const r of doc.reels) {
-                if (!r.render || !r.render.file) continue;
+                if (!ep.videoConsent || !r.render || !r.render.file) continue;
                 const local = path.join(ep.dir, ep.base + ".reels", r.render.file);
                 if (!fs.existsSync(local)) continue;
                 const v = r.render.sha256.slice(0, 8);

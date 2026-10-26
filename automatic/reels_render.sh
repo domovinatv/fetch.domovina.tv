@@ -27,7 +27,7 @@ LOG_DIR="$SCRIPT_DIR/logs"
 mkdir -p "$LOG_DIR"
 LOG="$LOG_DIR/reels_$(date +%Y-%m-%d).log"
 
-if pgrep -f "nightly_pipeline.sh|run_pipeline.sh" >/dev/null 2>&1; then
+if pgrep -f "nightly_pipeline.sh|run_pipeline.sh|render_reels.js" >/dev/null 2>&1; then
     echo "$(date '+%H:%M:%S') ⏭️  pipeline radi — reels tick preskočen" >> "$LOG"
     exit 0
 fi
