@@ -21,17 +21,22 @@ const q = (t) => Math.round(Math.round(t * FPS) / FPS * 10000) / 10000;
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 // ─── raspored kartica u vremenu ────────────────────────────────────
-// Jedna kartica u isto vrijeme (kao u ručnim predlošcima): hook 0–3 s, lower-third odmah
-// iza, ostale na svoje sidro ili čim prethodna nestane, kraj zadnjih ~4.5 s.
-const HOOK_DUR = 3.0;
-const GAP = 0.15;
-const MIN_DUR = 2.8;
-const MAX_DUR = 7.0;
-const END_DUR = 4.5;
+// Jedna kartica u isto vrijeme (kao u ručnim predlošcima): hook 0–4.5 s, lower-third iza,
+// ostale na svoje sidro ili čim prethodna nestane, kraj zadnjih ~5.5 s.
+// Mirno, ne TikTok (Matija, 26.10.2026.): kartica stoji dok se ne pročita (~11 znakova/s),
+// između kartica je sekunda samo videa, a sljedeća kartica čeka umjesto da skrati prethodnu.
+// Kartica koja bi zakasnila više od MAX_LATE za izgovorenim sidrom otpada.
+const HOOK_DUR = 4.5;
+const LT_DUR = 5.0;
+const GAP = 1.0;
+const MIN_DUR = 4.5;
+const MAX_DUR = 10.0;
+const END_DUR = 5.5;
+const MAX_LATE = 6.0;
 
 function readDuration(card) {
     const len = String(card.text || "").length + String(card.value || "").length;
-    return Math.min(MAX_DUR, Math.max(MIN_DUR, 2.2 + len / 16));
+    return Math.min(MAX_DUR, Math.max(MIN_DUR, 1.5 + len / 11));
 }
 
 function scheduleCards(reel, dur, ctx) {
@@ -52,10 +57,11 @@ function scheduleCards(reel, dur, ctx) {
     for (let i = 0; i < middle.length; i++) {
         const c = middle[i];
         const start = Math.max(c._at, t);
+        // usidrena kartica prekasno za izgovorenim više ne pripada tom trenutku
+        if (c.type !== "lower_third" && c.anchored === true && start - c._at > MAX_LATE) continue;
         if (start > endStart - MIN_DUR) break;           // ne stane prije završne kartice
-        const want = c.type === "lower_third" ? 3.6 : readDuration(c);
-        const next = middle[i + 1] ? Math.max(middle[i + 1]._at, start + MIN_DUR) : endStart;
-        const d = Math.max(MIN_DUR, Math.min(want, next - start - GAP, endStart - start - GAP));
+        const want = c.type === "lower_third" ? LT_DUR : readDuration(c);
+        const d = Math.max(MIN_DUR, Math.min(want, endStart - start - GAP));
         out.push({ ...c, start, dur: d });
         t = start + d + GAP;
     }
@@ -119,31 +125,26 @@ function cardMarkup(c, id, ctx) {
 }
 
 function cardTimeline(c, id) {
+    // Mirno: samo fade s malim pomakom, bez back/bounce/scale „popa"; izlaz je čisti fade.
     const s = c.start, e = q(c.start + c.dur);
     const out = [];
     const sel = `#${id}`;
-    if (c.type === "hook") {
-        out.push(`tl.from("${sel} .paper", { opacity: 0, y: 30, scale: 0.94, duration: 0.35, ease: "back.out(1.6)" }, ${s});`);
-        out.push(`tl.from("${sel} .wd", { opacity: 0, y: 18, duration: 0.25, stagger: 0.1, ease: "power2.out" }, ${q(s + 0.1)});`);
-        out.push(`tl.to("${sel} .paper", { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, ${q(e - 0.25)});`);
-    } else if (c.type === "lower_third") {
-        out.push(`tl.from("${sel} .bar", { clipPath: "inset(0 100% 0 0)", duration: 0.45, ease: "power2.inOut" }, ${s});`);
-        out.push(`tl.from("${sel} .sub", { clipPath: "inset(0 100% 0 0)", duration: 0.45, ease: "power2.inOut" }, ${q(s + 0.25)});`);
-        out.push(`tl.to("${sel} .lt", { opacity: 0, duration: 0.25 }, ${q(e - 0.25)});`);
+    const IN = `opacity: 0, y: 16, duration: 0.6, ease: "power1.out"`;
+    const OUT = (el) => `tl.to("${sel} ${el}", { opacity: 0, duration: 0.5, ease: "power1.in" }, ${q(e - 0.5)});`;
+    if (c.type === "lower_third") {
+        out.push(`tl.from("${sel} .bar", { clipPath: "inset(0 100% 0 0)", duration: 0.7, ease: "power1.inOut" }, ${s});`);
+        out.push(`tl.from("${sel} .sub", { clipPath: "inset(0 100% 0 0)", duration: 0.7, ease: "power1.inOut" }, ${q(s + 0.3)});`);
+        out.push(OUT(".lt"));
     } else if (c.type === "end") {
-        out.push(`tl.from("${sel} .paper", { opacity: 0, y: 40, scale: 0.95, duration: 0.45, ease: "back.out(1.5)" }, ${s});`);
-        out.push(`tl.from("${sel} .src", { opacity: 0, y: 14, duration: 0.35 }, ${q(s + 0.6)});`);
+        out.push(`tl.from("${sel} .paper", { ${IN} }, ${s});`);
+        out.push(`tl.from("${sel} .src", { opacity: 0, duration: 0.6, ease: "power1.out" }, ${q(s + 0.6)});`);
     } else {
-        const fromX = c.type === "context";
-        out.push(fromX
-            ? `tl.from("${sel} .paper", { opacity: 0, x: -80, duration: 0.4, ease: "power2.out" }, ${s});`
-            : `tl.from("${sel} .paper", { opacity: 0, y: 40, duration: 0.4, ease: "back.out(1.5)" }, ${s});`);
-        if (c.type === "pin") out.push(`tl.from("${sel} svg", { y: -90, opacity: 0, duration: 0.55, ease: "bounce.out" }, ${q(s + 0.1)});`);
+        out.push(`tl.from("${sel} .paper", { ${IN} }, ${s});`);
         if (c.type === "number") {
             const p = parseNumber(c.value);
             if (p) out.push(`count("${id}-n", ${p.n}, ${q(s + 0.3)}, ${Math.min(1.6, Math.max(0.6, c.dur - 1.2))});`);
         }
-        out.push(`tl.to("${sel} .paper", { opacity: 0, ${fromX ? "x: 60" : "y: -20"}, duration: 0.25, ease: "power2.in" }, ${q(e - 0.25)});`);
+        out.push(OUT(".paper"));
     }
     return out.join("\n    ");
 }
@@ -168,7 +169,7 @@ function captions(words, dur) {
         if (e - s <= 0) return;
         const spans = c.map((x, j) => `<span class="w" id="w${i}_${j}">${esc(x.text)}</span>`).join(" ");
         html.push(`<div class="cap clip" id="c${i}" data-start="${s}" data-duration="${q(e - s)}" data-track-index="9">${spans}</div>`);
-        js.push(`tl.fromTo("#c${i}",{opacity:0,y:14,scale:0.96},{opacity:1,y:0,scale:1,duration:0.14,ease:"power2.out"},${s});`);
+        js.push(`tl.fromTo("#c${i}",{opacity:0},{opacity:1,duration:0.12,ease:"power1.out"},${s});`);
         c.forEach((x, j) => {
             const t = q(Math.max(s, x.start));
             js.push(`tl.set("#w${i}_${j}",{color:"var(--gold)"},${t});`);
@@ -190,6 +191,30 @@ function loadBrand(name) {
     return { dir, json: JSON.parse(fs.readFileSync(p, "utf8")) };
 }
 
+// ─── kontrast (WCAG 2.x) ───────────────────────────────────────────
+// Boje brenda su s weba kanala, ne iz videa: primary često stoji na tamnoj podlozi
+// (Mladi za domovinu: bordo #840C0C na navy #071A35 = 1,6 : 1, nečitljivo).
+function luminance(hex) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || "").trim());
+    if (!m) return null;
+    const ch = [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16) / 255)
+        .map((v) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2];
+}
+
+function contrast(a, b) {
+    const la = luminance(a), lb = luminance(b);
+    if (la === null || lb === null) return 0;
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
+/** Prva boja s popisa koja na `bg` ima kontrast ≥ min; inače ona s najvećim. */
+function pickContrast(candidates, bg, min = 4.5) {
+    const list = candidates.filter((x) => luminance(x) !== null);
+    return list.find((x) => contrast(x, bg) >= min)
+        || list.reduce((best, x) => (contrast(x, bg) > contrast(best, bg) ? x : best), list[0]);
+}
+
 function brandCss(brand, publicDir) {
     if (!brand) return "";
     const b = brand.json;
@@ -209,12 +234,18 @@ function brandCss(brand, publicDir) {
         fs.copyFileSync(path.join(brand.dir, logo), path.join(publicDir, "brand", "logo.png"));
     }
     const r = b.reel || {};
+    // --wine je TEKST na podlozi kartice (brojka, istaknuta riječ, URL) i pozadina trake s
+    // imenom; --bar-ink je tekst na toj traci. Uloga iz brand.json ima prednost ako prolazi prag.
+    const paper = col("background");
+    const wine = pickContrast([r.accent_text, "primary", "accent", "highlight", "secondary", "text"]
+        .filter(Boolean).map(col), paper) || col("primary");
+    const barInk = pickContrast([col("background"), col("text"), "#000000", "#FFFFFF"], wine) || col("background");
     const font = (role, fb) => faces.some((f) => f.includes(`Brand-${role}`)) ? `"Brand-${role}"` : fb;
     return faces.join("\n") + `
 :root { --paper: ${col("background")}; --ink: ${col("text")}; --ink-soft: rgba(255,255,255,.72); --rule: rgba(255,255,255,.18);
-  --wine: ${col("primary")}; --gold: ${col(r.caption_active || "highlight")}; --edge: ${col("primary")}; --bar-ink: ${col("background")};
+  --wine: ${wine}; --gold: ${col(r.caption_active || "highlight")}; --edge: ${col("primary")}; --bar-ink: ${barInk};
   --f-head: ${font("title", '"Montserrat"')}; --f-body: ${font("body", '"Montserrat"')}; --f-cap: ${font("caption", '"Montserrat"')}; }
-${logo ? ".brand-logo { display: block; height: 92px; margin: 0 auto 18px; }" : ""}`;
+`;
 }
 
 // ─── public/ ───────────────────────────────────────────────────────
@@ -242,11 +273,15 @@ function preparePublic(publicDir, o) {
     const cap = captions(o.words, o.dur);
     const compId = `reel-${o.videoId}-${o.reel.rank}`.replace(/[^A-Za-z0-9_-]/g, "-");
 
+    // logo kanala trajno gore desno (.bug u predlošku), zrcalno potpisu domovina.ai dolje desno
+    const css = brandCss(o.brand, publicDir);   // prvo: kopira brand/logo.png
+    const hasLogo = fs.existsSync(path.join(publicDir, "brand", "logo.png"));
     const tpl = fs.readFileSync(path.join(HERE, "generic.template.html"), "utf8");
     const html = tpl
         .replaceAll("{{COMP_ID}}", compId)
         .replaceAll("{{DUR}}", String(q(o.dur)))
-        .replace("{{BRAND_CSS}}", brandCss(o.brand, publicDir))
+        .replace("{{BRAND_CSS}}", css)
+        .replace("{{CHANNEL_BUG}}", hasLogo ? '<div class="bug"><img src="brand/logo.png" alt="" /></div>' : "")
         .replace("{{CARDS}}", cardHtml)
         .replace("{{CARD_JS}}", cardJs)
         .replace("{{CAPTIONS}}", cap.html)
@@ -257,4 +292,4 @@ function preparePublic(publicDir, o) {
     return { compId, cards, captions: cap.count };
 }
 
-module.exports = { scheduleCards, parseNumber, captions, splitName, preparePublic, loadBrand, brandingDir };
+module.exports = { contrast, pickContrast, scheduleCards, parseNumber, captions, splitName, preparePublic, loadBrand, brandingDir };

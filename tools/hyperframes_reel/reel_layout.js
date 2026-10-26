@@ -22,7 +22,7 @@
   const MIN_SCALE = 0.72;
   const MAX_SHIFT = 300;          // koliko smije kamera pomaknuti kadar zbog kartice
   const KEEP_HEAD = 30;           // tjeme ostaje barem toliko u kadru
-  const MOVE = 0.45;              // trajanje pomaka kamere (s)
+  const MOVE = 0.8;               // trajanje pomaka kamere (s) — mirno, ne trzaj
   const MIN_ZOOM = 0.78;          // najviše odzumiranja #cam (ishodište x 540, y 0)
   const CAP_MIN_FONT = 50;
 
@@ -142,8 +142,8 @@
     lift.forEach((k, i) => {
       const prev = lift[i - 1], next = lift[i + 1];
       const at = !prev || k.s - prev.e > 1.2 ? Math.max(0, k.s - MOVE) : Math.max(prev.e, k.s - MOVE);
-      tl.to(cam, { y: k.d, scale: k.z, duration: MOVE, ease: "power2.inOut" }, at);
-      if (!next || next.s - k.e > 1.2) tl.to(cam, { y: 0, scale: 1, duration: MOVE, ease: "power2.inOut" }, k.e);
+      tl.to(cam, { y: k.d, scale: k.z, duration: MOVE, ease: "sine.inOut" }, at);
+      if (!next || next.s - k.e > 1.2) tl.to(cam, { y: 0, scale: 1, duration: MOVE, ease: "sine.inOut" }, k.e);
     });
     // liftAt mora vidjeti i razmake između susjednih kartica kao pomaknute
     lift = lift.map((k, i) => { const n = lift[i + 1]; return n && n.s - k.e <= 1.2 ? Object.assign({}, k, { e: n.s }) : k; });

@@ -159,6 +159,72 @@ flowchart TD
 4. **Zastario `segments.jsonl` (ep. 1–4).** Kartice se nisu usidrile (0 od ~30), jer
    segments nije odgovarao `words.json`. Uzrok je bio stvaran bug u pipelineu, ispod.
 
+5. **Boja brenda nije nužno čitljiva na podlozi kartice (26.10.2026.).** `brandCss()` je
+   slijepo stavljao `primary` kao tekst na `background` (brojka, istaknuta riječ hooka, URL) i
+   kao pozadinu trake s imenom. Mladi za domovinu: bordo `#840C0C` na navy `#071A35` =
+   **1,69 : 1**, a crvena `#BE3C28` = 3,2 : 1. Sad `pickContrast()` u `compose_reel.js` bira
+   prvu boju (`reel.accent_text` → primary → accent → highlight → secondary → text) s WCAG
+   kontrastom ≥ 4,5 : 1, a tekst na traci je ona od background/text/crna/bijela koja na njoj
+   jače kontrastira. Za Mlade to je zlatna `#EFC465` (10,6 : 1) s navy tekstom na traci. Za
+   Muževne budite CSS je bajt-isti (zlatni primary već ima 7,8 : 1), pa `RENDER_VERSION` nije
+   dignut. Nov brand.json: provjeri ga suhim izračunom prije rendera, ne na storyboardu.
+6. **Objava videa nije provjeravala pristanak (26.10.2026.).** Render je tražio `reel.auto`,
+   objava nije, pa bi launchd tick (`--publish-only`) na CDN poslao i reel izrenderiran ručno
+   samo za pregled. Sad video (mp4/poster/storyboard) ide van samo uz `reel.auto` ili izričit
+   `--video-id`; `reels.json` s kandidatima i dalje za svaku epizodu. `reels_render.sh` uz to
+   preskače tick dok radi ručni `render_reels.js` (oba pišu isti `reels.json`).
+
+7. **Otisak ne prati predložak.** Nakon promjene `compose_reel.js`/`generic.template.html`
+   običan run kaže „0 reelova čeka". Za jednu epizodu: `--video-id X --top 8 --force`
+   (renderira sve rangove, i gotove). Za cijeli katalog: diži `RENDER_VERSION`.
+
+## Mirni stil i logo kanala (26.10.2026.)
+
+Prvi brendirani reelovi Mladih za domovinu (ep. 118, `ja70p_gJWZA`, svih 8 kandidata,
+objavljeno na Matijin zahtjev uz `--video-id`; `reel.auto` za kanal i dalje NIJE upaljen).
+Matijin feedback, ugrađen u generički predložak (vrijedi za sve kanale od idućeg rendera;
+gotovi reelovi Muževnih budite NISU ponovno renderirani):
+
+- **Ne TikTok.** Kartice su bile prekratke za čitanje i izmjenjivale su se „flash" ritmom.
+  Sad: trajanje po brzini čitanja `1,5 s + znakovi/11` (min 4,5 s, max 10 s; hook 4,5 s,
+  lower-third 5 s, kraj 5,5 s), **1 s samo videa između kartica**, kartica se ne skraćuje
+  zbog sljedeće (sljedeća čeka), usidrena kartica koja bi kasnila > 6 s za izgovorenim
+  otpada (`MAX_LATE`; s 4 s je reel #1 izgubio ključnu karticu „puška se raspala").
+  Animacije: fade 0,6 s + 16 px, bez back/bounce/scale; titl bez „popa"; kamera 0,8 s sine.
+  Cijena: 49 → 43 kartice na 8 reelova (najviše #5: 7 → 4).
+- **Logo kanala trajno gore desno**, zrcalno potpisu „Napravljeno s domovina.ai" dolje
+  desno (`right 26px`, `top 34px`, kapsula u boji podloge brenda). Namjerno IZVAN sigurne
+  zone: prvi pokušaj unutar nje (y 300–392, kako kaže `2026-10-08-reels-layout-best-practices.md`)
+  sudarao se s glavom govornika i Matija ga je odbacio. Logo na hook/end kartici maknut
+  (bio bi dvaput). Zamka: `brandCss()` kopira `brand/logo.png`, pa se `hasLogo` smije
+  provjeriti tek nakon njega.
+- Mjerenje: 8 reelova × ~3,3 min = 27 min (yt-dlp + lica + snapshot + render), 30–46 MB/reel.
+
+## Prijedlog: premium reel (LLM režija po reelu) — NIJE izvedeno
+
+Generički put: LLM (9.9) daje samo **sadržaj** kartica, izgled i animacije su fiksni.
+Premium put bi dodao **režiju** po reelu, kao ručni „traktor"/„srećka", ali kao postupak:
+
+```mermaid
+flowchart TD
+  R["reels.json (9.9)"] --> D["režija: Opus, 1 poziv<br/>riječi raspona + ton + brand + katalog komponenti"]
+  D --> B["beats.json: takt po izgovorenoj riječi<br/>komponenta + parametri + intenzitet pokreta"]
+  B --> C["sastavljanje: biblioteka komponenti<br/>+ ograničen SVG/GSAP slot"]
+  C --> K["hyperframes check + sigurna zona + lice"]
+  K --> S["storyboard"] --> V["kritika: Opus gleda storyboard, 1 poziv → 1 revizija"]
+  V --> H["čovjek odobri storyboard"] --> P["render → CDN"]
+```
+
+- Komponente (ruta/karta, brojač, mjera udaljenosti, vremenska crta, obris predmeta,
+  pečat, citat, usporedba) pišu se jednom i izvlače iz ručnih predložaka; slobodan HTML iz
+  LLM-a ruši `check`, brand i ujednačenost.
+- Registar tona (svjedočanstvo / humor / objašnjenje / molitva) određuje intenzitet: ratno
+  svjedočanstvo traži suzdržanost, ne efekte.
+- Trošak: ~3 Opus poziva po reelu (~20k/4k režija, ~15k/3k kritika sa slikama), 8 reelova
+  ≈ 24 poziva ≈ 0,5 M tokena ≈ jedan dvofazni članak. Render isti CPU.
+- Pilot predložen na `ja70p_gJWZA` #1 („puška": rasprsnuta puška na „raspala", mjera
+  1 m na „metar", tihi citat na kraju) uz standardni render istog trenutka.
+
 ### Bug: Sortformer je zasjenio Soniox prepis (ispravljeno 25.10.2026.)
 
 `resolveDiarizedSrt()` (5 kopija: summarize, article, prepare_rag{,_import,_combined})

@@ -52,3 +52,28 @@ test("titl: najviše 3 riječi, lom na interpunkciji", () => {
     assert.equal(c.count, 3);   // „Jedan dva tri" | „četiri." | „Pet"
     assert.match(c.html, /Jedan.*dva.*tri<\/span><\/div>/);
 });
+
+test("kontrast: tamni primary na tamnoj podlozi ustupa prvoj čitljivoj boji brenda", () => {
+    const { contrast, pickContrast } = require("./compose_reel");
+    assert.ok(contrast("#000000", "#FFFFFF") > 20.9);
+    // Mladi za domovinu: bordo i crvena na navy padaju, zlatna prolazi
+    assert.equal(pickContrast(["#840C0C", "#BE3C28", "#EFC465"], "#071A35"), "#EFC465");
+    // Muževni budite: zlatni primary već prolazi i ostaje
+    assert.equal(pickContrast(["#C6A15B", "#F15F22"], "#0D1216"), "#C6A15B");
+    // tekst na zlatnoj traci: navy, ne bijela
+    assert.equal(pickContrast(["#071A35", "#FFFFFF"], "#EFC465"), "#071A35");
+    // nitko ne prolazi → najbolji dostupni
+    assert.equal(pickContrast(["#222222", "#444444"], "#000000", 21), "#444444");
+});
+
+test("mirno: kartica se ne skraćuje zbog sljedeće; usidrena koja bi kasnila > 6 s otpada", () => {
+    const out = scheduleCards({ hook: "h", cards: [
+        { type: "context", at_sec: 6, text: "x".repeat(66), anchored: true },   // 1,5 + 6 = 7,5 s
+        { type: "quote", at_sec: 7, text: "prekasno", anchored: true },        // bi počela na 14,5 s (7,5 s kasno)
+        { type: "number", at_sec: 15, text: "km", value: "10 km", anchored: true },
+    ] }, 60, ctx);
+    const cx = out.find((c) => c.type === "context");
+    assert.ok(Math.abs(cx.dur - 7.5) < 0.05);   // zaokruženo na kadar (25 fps)
+    assert.ok(!out.some((c) => c.type === "quote"));
+    assert.equal(out.find((c) => c.type === "number").start, 15);
+});
