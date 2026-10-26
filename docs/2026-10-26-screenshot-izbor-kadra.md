@@ -72,8 +72,17 @@ node generate_ebook.js --video-id <VID> --force
 node upload_to_r2.js --input-dir storage/output --channel <kanal> --video-id <VID> \
      --force-og --force-screenshots          # re-upload + CF purge
 node force_upload.js --video-id <VID> --channel <kanal> --targets epub
+node generate_webp_screenshots.js --video-id <VID> --force   # APP ČITA OVO, ne PNG
+# + CF purge images/{id}/screenshots/{ts}-960.webp (obje Vary varijante) — skripta ga NE radi
 node build_episode_bundle.js --video-id <VID>
 ```
+
+⚠️ **Aplikacija crta `{ts}-960.webp`, ne PNG** (KORAK 12.65, od 10.10.2026.,
+kad postoji `data/{id}/screenshots_webp.json`). Za `ja70p_gJWZA` je prvi prolaz
+prepisao PNG-ove, og slike i EPUB, a stranica je i dalje pokazivala stare kadrove
+dok WebP-ovi nisu regenerirani i purgeani. `generate_webp_screenshots.js` je
+idempotentan po oznaci (preskače epizodu kad oznaka nabraja sve kadrove), pa
+`--force` treba, a purge treba ručno jer su WebP-ovi `immutable`.
 
 `--force-screenshots` je dodan u `upload_to_r2.js` uz ovu promjenu (analogno
 `--force-og`). Provjera je GET s i bez `Origin` headera i usporedba md5 s diskom.
