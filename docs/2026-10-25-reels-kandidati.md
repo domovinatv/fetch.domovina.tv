@@ -131,6 +131,14 @@ flowchart TD
   immutable), `data/{id}/reels.json` bez polja `rejected`, uz `render.url`. Objavljuje se
   samo epizoda koja je već na CDN-u (`data/{id}/info.json` u keys-cacheu). Nakon objave se
   regenerira `episode.json`, inače ekran epizode ne vidi nove datoteke.
+- **Kandidati na CDN za SVAKU epizodu (26.10.2026.).** Objava (`--publish-only`, reels tick
+  svakih 30 min) šalje `data/{id}/reels.json` i za epizode bez rendera, bez obzira na brand i
+  `reel.auto`: markeri na timelineu su samo vremena i naslovi, bez loga i videa. Prije toga
+  ga je nosio samo render, pa su istaknute trenutke imale samo izrenderirane epizode
+  `muzevni_budite`; noćne epizode ostalih kanala imale su `reels.json` samo na disku (CDN 404).
+  Okidač je drift veličine u keys-cacheu, pa se nepromijenjena datoteka ne šalje ponovno.
+  Prvi prolaz: 24 epizode. Nova epizoda dobije trenutke u prvom reels ticku nakon što je
+  nightly objavi (`info.json` na CDN-u).
 - **Mjerenja (ep. 9):** 75 s reel → 2,7 min ukupno (yt-dlp + lica + snapshot + render),
   31 MB; drugi reel 1,8 min / 28 MB. Noću: ~13 novih epizoda × 2 ≈ 50–60 min CPU-a.
 - **launchd:** svakih 30 min; tick se preskače dok radi `nightly_pipeline.sh` ili bilo koji

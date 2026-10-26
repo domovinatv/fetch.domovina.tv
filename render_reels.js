@@ -387,19 +387,40 @@ async function purge(urls) {
     return n;
 }
 
+// data/{id}/reels.json = lokalni reels.json bez `rejected` (odbačeni kandidati nisu za klijenta)
+function publicReelsJson(doc) {
+    const pubDoc = { ...doc };
+    delete pubDoc.rejected;
+    return JSON.stringify(pubDoc);
+}
+
 async function publishPhase(eps) {
     const cache = loadKeysCache();
     const published = (id) => Object.prototype.hasOwnProperty.call(cache.sizes, `data/${id}/info.json`);
     const jobs = [];
+    let waiting = 0, candidatesOnly = 0;
     for (const ep of eps) {
         const doc = readJson(ep.reelsPath);
-        if (!doc || !(doc.reels || []).some((r) => r.render && r.render.file)) continue;
-        if (!published(ep.vid)) { console.log(`   ⏭️  ${ep.vid}: epizoda još nije na CDN-u — objavit će se kad bude`); continue; }
+        if (!doc || !(doc.reels || []).length) continue;
+        const rendered = doc.reels.some((r) => r.render && r.render.file);
+        if (!published(ep.vid)) {
+            if (rendered) console.log(`   ⏭️  ${ep.vid}: epizoda još nije na CDN-u — objavit će se kad bude`);
+            else waiting++;
+            continue;
+        }
         const needs = doc.reels.some((r) => r.render && r.render.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.render.file))
             && (!r.render.url || !r.render.url.includes(r.render.sha256.slice(0, 8)) || !r.render.poster_url));
-        if (needs || FORCE) jobs.push({ ep, doc });
+        // Kandidati (istaknuti trenuci na timelineu) idu na CDN za SVAKU epizodu, i bez
+        // brenda i pristanka kanala: to su samo vremena i naslovi, bez loga i videa.
+        // Drift po veličini kao u keys-cacheu (upload_to_r2.js): nova ili promijenjena datoteka.
+        const jsonDrift = cache.sizes[`data/${ep.vid}/reels.json`] !== Buffer.byteLength(publicReelsJson(doc));
+        if (needs || jsonDrift || FORCE) {
+            jobs.push({ ep, doc });
+            if (!rendered) candidatesOnly++;
+        }
     }
-    console.log(`☁️  objava: ${jobs.length} epizoda s novim reelovima`);
+    if (waiting) console.log(`   ⏭️  ${waiting} epizoda s kandidatima još nije na CDN-u`);
+    console.log(`☁️  objava: ${jobs.length} epizoda (od toga samo kandidati: ${candidatesOnly})`);
     if (!jobs.length || DRY_RUN) return { ok: 0 };
 
     const { S3Client, PutObjectCommand } = require(path.join(ROOT, "node_modules", "@aws-sdk", "client-s3"));
@@ -451,11 +472,9 @@ async function publishPhase(eps) {
                 }
                 console.log(`   ⬆️  ${key} (${(r.render.bytes / 1e6).toFixed(1)} MB)`);
             }
-            writeReels(ep, doc);
-            const pubDoc = { ...doc };
-            delete pubDoc.rejected;
+            if (doc.reels.some((r) => r.render && r.render.file)) writeReels(ep, doc);
             const jkey = `data/${ep.vid}/reels.json`;
-            await put(jkey, Buffer.from(JSON.stringify(pubDoc)), "application/json; charset=utf-8", CACHE_MUTABLE);
+            await put(jkey, Buffer.from(publicReelsJson(doc)), "application/json; charset=utf-8", CACHE_MUTABLE);
             purgeUrls.push(`${R2_PUBLIC_URL}/${jkey}`);
             bundleIds.push(ep.vid);
         } catch (err) {
