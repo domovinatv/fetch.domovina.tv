@@ -187,7 +187,11 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 
 - Konfiguracija prompta po kanalu (ton, vrste kartica, koliko kandidata) i bogatije
   kartice (ruta, ilustracije) koje danas rade samo ručni predlošci.
-- domovina.ai: player u izradi (26.10., sesija u domovina.ai repou). Markeri na timelineu za
+- ✅ **domovina.ai prikazuje reelove od v2.0.197 (26.10.2026., domovina.ai 8493395, 1ee7d71).**
+  **Ugovor o kojem klijent ovisi — ne lomiti:** `reels.json` naveden u `episode.json` `files`;
+  `reels.json` mutable; `render.url` + `render.poster_url`; stabilni `start_sec`/`end_sec`
+  izrenderiranih reelova (`keepRendered`).
+  Prije: player u izradi (26.10., sesija u domovina.ai repou). Markeri na timelineu za
   SVE kandidate (i bez rendera = „istaknuti trenutak”), pa `start_sec`/`end_sec`/`title`/`hook`
   moraju biti pouzdani i za neizrenderirane.
 - ✅ **26.10.: `render.poster_url`** = `data/{id}/reels/{rank}-{sha8}.poster.webp`, 540×960,
