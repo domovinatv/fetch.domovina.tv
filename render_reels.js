@@ -176,15 +176,19 @@ function localVideo(ep) {
 }
 
 // ─── render jednog reela ───────────────────────────────────────────
-function renderOne(ep, info, reel, brand) {
-    const work = path.join(WORK_ROOT, `${ep.vid}_${reel.rank}`);
+// Koraci su odvojene funkcije jer ih dijeli i premium put (render_reel_premium.js).
+
+/**
+ * Isječak (1080p, -g 25) u {work}/public/input-video.mp4 + lica u {work}/faces.json.
+ * `tail` (s) produlji isječak iza zadnje riječi uz stišan zvuk (premium: mjesto za kraj).
+ */
+function prepareClip(ep, reel, work, { tail = 0 } = {}) {
     fs.rmSync(work, { recursive: true, force: true });
     const pub = path.join(work, "public");
     fs.mkdirSync(pub, { recursive: true });
-    const t0 = Date.now();
 
     const r_s = Math.max(0, reel.start_sec - PAD_START);
-    const r_e = reel.end_sec + PAD_END;
+    const r_e = reel.end_sec + PAD_END + tail;
     const dur = +(r_e - r_s).toFixed(3);
 
     // 1. isječak
@@ -203,6 +207,7 @@ function renderOne(ep, info, reel, brand) {
     const input = path.join(pub, "input-video.mp4");
     run("ffmpeg", ["-y", "-loglevel", "error", "-ss", off.toFixed(3), "-i", src, "-t", dur.toFixed(3),
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-g", "25", "-pix_fmt", "yuv420p",
+        ...(tail > 0 ? ["-af", `afade=t=out:st=${(dur - tail - 0.2).toFixed(3)}:d=1.2`] : []),
         "-c:a", "aac", "-b:a", "160k", input]);
     const pr = probe(input);
     if (pr.h < 720) throw new Error(`isječak je ${pr.w}×${pr.h}, treba ≥720p`);
@@ -211,19 +216,48 @@ function renderOne(ep, info, reel, brand) {
     // 2. lica
     const facesPath = path.join(work, "faces.json");
     run(PY, [path.join(ROOT, "tools", "hyperframes_reel", "face_track.py"), input, facesPath], { cwd: ROOT });
+    return { pub, dur, r_s, source: local ? "local" : "youtube", faces: readJson(facesPath) };
+}
+
+/** `hyperframes check` + snapshot u trenucima `at` (s) → jedna JPG ploča. Vraća put ploče ili null. */
+function storyboard(pub, work, at, name = "storyboard", { check = true, geometry = "270x480+6+6" } = {}) {
+    if (check) run(NPX, ["--yes", HF, "check", pub], { timeout: 5 * 60 * 1000 });
+    const boards = path.join(work, `${name}_frames`);
+    fs.rmSync(boards, { recursive: true, force: true });
+    run(NPX, ["--yes", HF, "snapshot", pub, "--at", at.join(","), "--no-end", "--describe", "false", "-o", boards], { timeout: 5 * 60 * 1000, env: { GEMINI_API_KEY: "" } });
+    const stills = fs.readdirSync(boards).filter((f) => f.endsWith(".png")).sort().map((f) => path.join(boards, f));
+    if (!stills.length) return null;
+    const board = path.join(work, `${name}.jpg`);
+    // montage i za prazan natpis traži font — bez -font pada s „unable to read font"
+    run("montage", ["-font", path.join(ROOT, "data", "branding", "fonts", "Montserrat-Bold.ttf"), "-label", "", ...stills, "-tile", `${Math.min(4, stills.length)}x`, "-geometry", geometry, "-background", "#111", "-quality", "82", board]);
+    return board;
+}
+
+/** Render kompozicije u {work}/final.mp4 (faststart). */
+function renderVideo(pub, work) {
+    const raw = path.join(work, "render.mp4");
+    run(NPX, ["--yes", HF, "render", pub, "-o", raw, "--crf", "20", "--quiet"], { timeout: 20 * 60 * 1000 });
+    const final = path.join(work, "final.mp4");
+    run("ffmpeg", ["-y", "-loglevel", "error", "-i", raw, "-c", "copy", "-movflags", "+faststart", final]);
+    return final;
+}
+
+function renderOne(ep, info, reel, brand) {
+    const work = path.join(WORK_ROOT, `${ep.vid}_${reel.rank}`);
+    const t0 = Date.now();
+    const { pub, dur, r_s, source, faces } = prepareClip(ep, reel, work);
 
     // 3. kompozicija
     const comp = preparePublic(pub, {
         reel, dur, debug: DEBUG, brand,
         words: reelWords(ep, reel, r_s),
-        faces: readJson(facesPath),
+        faces,
         videoId: ep.vid,
         title: info.title,
         channelName: (brand && brand.json.name) || info.channel || ep.channel,
     });
 
     // 4. provjera, storyboard, render
-    run(NPX, ["--yes", HF, "check", pub], { timeout: 5 * 60 * 1000 });
     // number: snimi tek kad brojač stane (compose_reel: start+0.3, trajanje min(1.6, max(0.6, dur-1.2))),
     // inače ploča pokaže međuvrijednost („4.569 €" umjesto „5.000 €")
     const at = comp.cards.map((c) => {
@@ -232,18 +266,8 @@ function renderOne(ep, info, reel, brand) {
             : c.start + Math.min(1.2, c.dur / 2);
         return Math.min(dur - 0.1, t).toFixed(2);
     });
-    const boards = path.join(work, "boards");
-    run(NPX, ["--yes", HF, "snapshot", pub, "--at", at.join(","), "--no-end", "--describe", "false", "-o", boards], { timeout: 5 * 60 * 1000, env: { GEMINI_API_KEY: "" } });
-    const stills = fs.readdirSync(boards).filter((f) => f.endsWith(".png")).sort().map((f) => path.join(boards, f));
-    const board = path.join(work, "storyboard.jpg");
-    if (stills.length) {
-        // montage i za prazan natpis traži font — bez -font pada s „unable to read font"
-        run("montage", ["-font", path.join(ROOT, "data", "branding", "fonts", "Montserrat-Bold.ttf"), "-label", "", ...stills, "-tile", `${Math.min(4, stills.length)}x`, "-geometry", "270x480+6+6", "-background", "#111", "-quality", "82", board]);
-    }
-    const raw = path.join(work, "render.mp4");
-    run(NPX, ["--yes", HF, "render", pub, "-o", raw, "--crf", "20", "--quiet"], { timeout: 20 * 60 * 1000 });
-    const final = path.join(work, "final.mp4");
-    run("ffmpeg", ["-y", "-loglevel", "error", "-i", raw, "-c", "copy", "-movflags", "+faststart", final]);
+    const board = storyboard(pub, work, at);
+    const final = renderVideo(pub, work);
 
     // 5. uz epizodu
     const outDir = path.join(ep.dir, ep.base + ".reels");
@@ -251,14 +275,14 @@ function renderOne(ep, info, reel, brand) {
     const mp4 = path.join(outDir, `${reel.rank}.mp4`);
     fs.copyFileSync(final, mp4);
     let boardOut = null;
-    if (fs.existsSync(board)) { boardOut = path.join(outDir, `${reel.rank}.storyboard.jpg`); fs.copyFileSync(board, boardOut); }
+    if (board) { boardOut = path.join(outDir, `${reel.rank}.storyboard.jpg`); fs.copyFileSync(board, boardOut); }
     if (!KEEP_WORK) fs.rmSync(work, { recursive: true, force: true });
 
     return {
         version: RENDER_VERSION,
         rendered_at: new Date().toISOString(),
         seconds: Math.round((Date.now() - t0) / 1000),
-        source: local ? "local" : "youtube",
+        source,
         clip_start_sec: +r_s.toFixed(3),
         duration_sec: dur,
         cards: comp.cards.map((c) => ({ type: c.type, start: c.start, dur: c.dur })),
@@ -520,4 +544,4 @@ if (require.main === module) {
     main().catch((e) => { console.error(`❌ ${e.stack || e.message}`); process.exit(1); });
 }
 
-module.exports = { renderFingerprint, reelWords, loadBrand };
+module.exports = { renderFingerprint, reelWords, loadBrand, prepareClip, storyboard, renderVideo, run, readJson, probe, WORK_ROOT, HF, NPX };
