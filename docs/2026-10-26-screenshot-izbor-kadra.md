@@ -37,6 +37,26 @@ Odluka ide u `_manifest.json` po kadru (`best_frame`: `offset_sec`, `score`,
 
 Gašenje: `--no-best-frame` ili `SCREENSHOT_BEST_FRAME=0`.
 
+### Fallback na agy kad Vertex vraća 429
+
+Kad Vertex za isti list dvaput zaredom vrati 429 (dvije regije), list ide kroz
+**agy** (Antigravity CLI, `gemini-3.8-flash-high`, Google AI Pro pretplata, $0)
+u tmux sesiji `agyss`, radni dir `~/git/.agy-screenshots`. `agy -p` ne vraća
+odgovor, pa upit ide kroz `tmux send-keys` i agy JSON zapiše u datoteku (obrazac
+iz `~/.claude/scripts/agy_glasovna.sh`). Pozivi su serijalizirani (jedna sesija).
+Ako agy ne uspije, Vertex nastavlja s preostalim pokušajima; ako se agy uopće ne
+pokrene (nije prijavljen), fallback se gasi do kraja runa. U manifestu je tada
+`model: "agy:gemini-3.8-flash-high"`, a sažetak runa ispisuje broj agy poziva.
+
+- `SCREENSHOT_AGY_FALLBACK=0` gasi fallback.
+- `SCREENSHOT_BEST_FRAME_BACKEND=agy` ide odmah na agy, bez Vertexa (test, ili
+  kad je Vertex kvota danima puna).
+- Gledanje: `tmux attach -t agyss -r`. Sesija ostaje živa za idući run.
+- Test 26.10. (`BACKEND=agy`, 3 kadra ja70p_gJWZA): 3/3 izabrano, ocjene 4–5 → 9.
+  Sam okidač na pravi 429 nije uhvaćen uživo (Vertex tada nije vraćao 429).
+- Pod launchd-om agy još nije isproban; ako nije prijavljen, run javi
+  „agy se nije pokrenuo" i nastavi kao prije.
+
 ## Mjerenja
 
 | | |

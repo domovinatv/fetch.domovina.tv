@@ -51,7 +51,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync, spawn } = require("child_process");
+const { execSync, spawn, spawnSync } = require("child_process");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -450,7 +450,7 @@ const GEMINI_PRICE_OUT = parseFloat(GEMINI_CONF.GEMINI_PRICE_OUT || "3.75");
 let regionIndex = 0;
 let cachedAccessToken = null;
 let tokenExpiry = 0;
-const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0 };
+const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0, agyCalls: 0 };
 
 function getOrRefreshAccessToken() {
     const now = Date.now();
@@ -494,6 +494,12 @@ function runProcess(cmd, args) {
 }
 
 async function askGeminiBestFrame(sheetPath, n, originalLabel) {
+    // SCREENSHOT_BEST_FRAME_BACKEND=agy → odmah agy, bez Vertexa (test, ili kad je
+    // Vertex kvota danima puna). Ako agy ne uspije, ide se na Vertex.
+    if (AGY_FIRST && agyAvailable()) {
+        const verdict = await askAgyBestFrame(sheetPath, n, originalLabel);
+        if (verdict) return verdict;
+    }
     const { vertexEndpointUrl } = require("./lib/vertex_auth");
     const payload = {
         contents: [{
@@ -510,6 +516,8 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
         }
     };
 
+    let consecutive429 = 0;
+    let agyTried = false;
     for (let attempt = 1; attempt <= BEST_FRAME_MAX_RETRIES; attempt++) {
         const region = VERTEX_REGIONS[regionIndex++ % VERTEX_REGIONS.length];
         // Bez timeouta je poziv znao visjeti minutama (test 26.10.), a "fetch failed"
@@ -531,6 +539,15 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
         }
         if (!response.ok) {
             if (response.status === 401) { cachedAccessToken = null; continue; }
+            if (response.status === 429) consecutive429++;
+            else consecutive429 = 0;
+            // Dva 429 zaredom (dvije regije) = DSQ je pun → isti list kroz agy.
+            // Ako agy ne uspije, Vertex nastavlja s preostalim pokušajima.
+            if (consecutive429 >= AGY_AFTER_429 && !agyTried && agyAvailable()) {
+                agyTried = true;
+                const verdict = await askAgyBestFrame(sheetPath, n, originalLabel);
+                if (verdict) return verdict;
+            }
             if (response.status === 429 || response.status >= 500) {
                 await sleep(Math.min(5000 * attempt, 30000));
                 continue;
@@ -543,15 +560,123 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
         bestFrameUsage.promptTokens += um.promptTokenCount || 0;
         bestFrameUsage.outputTokens += (um.candidatesTokenCount || 0) + (um.thoughtsTokenCount || 0);
         const text = data.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("") || "";
-        return JSON.parse(text);
+        return { ...JSON.parse(text), model: GEMINI_MODEL };
     }
     throw new Error(`Gemini: ${BEST_FRAME_MAX_RETRIES} neuspjelih pokušaja`);
 }
 
+// ─── agy FALLBACK (Gemini kroz Antigravity CLI, tmux) ──────────
+//
+// Kad Vertex vraća 429 (DSQ pun, izmjereno 26.10. na eu i global), isti list ide
+// kroz agy: Gemini 3.8 Flash na Google AI Pro pretplati, $0 i neovisno o Vertex
+// kvoti. `agy -p` ne vraća odgovor (bug od 1.3.5), pa upit ide kroz `tmux
+// send-keys`, a agy odgovor zapiše u datoteku (isti obrazac kao
+// ~/.claude/scripts/agy_glasovna.sh). Jedna sesija → pozivi idu jedan po jedan.
+// Sporije od Vertexa (prototip ~37 s po listu), zato samo kao fallback.
+//
+// Radni dir mora biti „trusted" u agy-ju (~/git je trusted roditelj), inače agy
+// pita i visi. Ako se agy ne pokrene (nije prijavljen), gasi se do kraja runa.
+// Gasi se i s SCREENSHOT_AGY_FALLBACK=0. Gledanje: tmux attach -t agyss -r
+
+const AGY_AFTER_429 = 2;
+const AGY_FIRST = process.env.SCREENSHOT_BEST_FRAME_BACKEND === "agy";
+const AGY_SESSION = process.env.SCREENSHOT_AGY_SESSION || "agyss";
+const AGY_MODEL = process.env.SCREENSHOT_AGY_MODEL || "gemini-3.8-flash-high";
+const AGY_DIR = path.join(require("os").homedir(), "git", ".agy-screenshots");
+const AGY_TIMEOUT_MS = 180000;
+let agyDisabled = process.env.SCREENSHOT_AGY_FALLBACK === "0";
+let agyReady = false;
+let agyQueue = Promise.resolve();
+
+function agyAvailable() {
+    if (agyDisabled) return false;
+    const which = (bin) => spawnSync("sh", ["-c", `command -v ${bin}`]).status === 0;
+    if (!which("tmux") || !which("agy")) { agyDisabled = true; return false; }
+    return true;
+}
+
+function tmux(...a) {
+    return spawnSync("tmux", a, { encoding: "utf-8" });
+}
+
+async function agyEnsureSession() {
+    if (agyReady && tmux("has-session", "-t", AGY_SESSION).status === 0) return true;
+    agyReady = false;
+    fs.mkdirSync(AGY_DIR, { recursive: true });
+    if (tmux("has-session", "-t", AGY_SESSION).status !== 0) {
+        tmux("new-session", "-d", "-s", AGY_SESSION, "-x", "180", "-y", "50", "-c", AGY_DIR);
+        tmux("send-keys", "-t", AGY_SESSION, `agy --model ${AGY_MODEL} --dangerously-skip-permissions`, "Enter");
+    }
+    for (let i = 0; i < 60; i++) {
+        await sleep(1000);
+        const screen = tmux("capture-pane", "-p", "-t", AGY_SESSION).stdout || "";
+        // Novi direktorij: agy pita za povjerenje. Prva opcija je „Yes".
+        if (/trust the contents/i.test(screen)) { tmux("send-keys", "-t", AGY_SESSION, "Enter"); continue; }
+        if (screen.includes("for shortcuts")) { agyReady = true; return true; }
+    }
+    console.log(`   ⚠️  agy se nije pokrenuo (prijava?) — fallback ugašen do kraja runa`);
+    tmux("kill-session", "-t", AGY_SESSION);
+    agyDisabled = true;
+    return false;
+}
+
+function agySend(text) {
+    tmux("send-keys", "-t", AGY_SESSION, "-l", text);
+    spawnSync("sleep", ["0.5"]);
+    tmux("send-keys", "-t", AGY_SESSION, "Enter");
+}
+
+async function agyAsk(sheetPath, n, originalLabel) {
+    if (!(await agyEnsureSession())) return null;
+    const stem = `req-${process.pid}-${Date.now()}`;
+    const img = path.join(AGY_DIR, `${stem}.jpg`);
+    const out = path.join(AGY_DIR, `${stem}.json`);
+    fs.copyFileSync(sheetPath, img);
+    try {
+        agySend("/clear");
+        await sleep(3000);
+        agySend(`Pogledaj sliku ${stem}.jpg. ${BEST_FRAME_PROMPT(n, originalLabel).replace(/\n+/g, " ")} ` +
+            `Write ONLY the JSON object {"best","best_score","original_score","reason"} to the file ${stem}.json. ` +
+            `Do not run scripts or other tools, do not crop or edit the image — just look at it and write the file.`);
+        const t0 = Date.now();
+        while (Date.now() - t0 < AGY_TIMEOUT_MS) {
+            await sleep(3000);
+            if (!fs.existsSync(out)) continue;
+            try {
+                const v = JSON.parse(fs.readFileSync(out, "utf-8"));
+                if (v && v.best) {
+                    bestFrameUsage.agyCalls++;
+                    return { ...v, model: `agy:${AGY_MODEL}` };
+                }
+            } catch { /* agy još piše datoteku */ }
+        }
+        console.log(`   ⚠️  agy: nema odgovora nakon ${AGY_TIMEOUT_MS / 1000} s`);
+        // Prekini zaglavljeni potez, inače /clear i idući upit čekaju u redu iza njega.
+        tmux("send-keys", "-t", AGY_SESSION, "Escape");
+        await sleep(2000);
+        tmux("send-keys", "-t", AGY_SESSION, "Escape");
+        return null;
+    } finally {
+        fs.rmSync(img, { force: true });
+        fs.rmSync(out, { force: true });
+    }
+}
+
+// Serijalizira pozive iz BEST_FRAME_CONCURRENCY workera kroz jednu tmux sesiju.
+function askAgyBestFrame(sheetPath, n, originalLabel) {
+    const run = agyQueue.then(() => agyAsk(sheetPath, n, originalLabel)).catch(() => null);
+    agyQueue = run;
+    return run;
+}
+
 function logBestFrameUsage() {
-    if (!bestFrameUsage.calls) return;
-    const usd = bestFrameUsage.promptTokens / 1e6 * GEMINI_PRICE_IN + bestFrameUsage.outputTokens / 1e6 * GEMINI_PRICE_OUT;
-    console.log(`   🎯 Izbor kadra (${GEMINI_MODEL}): ${bestFrameUsage.calls} poziva · ${bestFrameUsage.promptTokens} in / ${bestFrameUsage.outputTokens} out · ~$${usd.toFixed(3)}`);
+    if (bestFrameUsage.calls) {
+        const usd = bestFrameUsage.promptTokens / 1e6 * GEMINI_PRICE_IN + bestFrameUsage.outputTokens / 1e6 * GEMINI_PRICE_OUT;
+        console.log(`   🎯 Izbor kadra (${GEMINI_MODEL}): ${bestFrameUsage.calls} poziva · ${bestFrameUsage.promptTokens} in / ${bestFrameUsage.outputTokens} out · ~$${usd.toFixed(3)}`);
+    }
+    if (bestFrameUsage.agyCalls) {
+        console.log(`   🎯 Izbor kadra (agy:${AGY_MODEL}, fallback na Vertex 429): ${bestFrameUsage.agyCalls} poziva · $0`);
+    }
 }
 
 /**
@@ -598,7 +723,7 @@ async function captureBestFrame(source, timestamp, outputPath) {
             original_score: verdict.original_score,
             reason: verdict.reason,
             candidates: frames.length,
-            model: GEMINI_MODEL
+            model: verdict.model || GEMINI_MODEL
         };
     } finally {
         fs.rmSync(tmpDir, { recursive: true, force: true });
