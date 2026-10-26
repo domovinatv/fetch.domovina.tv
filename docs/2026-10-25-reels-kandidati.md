@@ -187,6 +187,24 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 
 - Konfiguracija prompta po kanalu (ton, vrste kartica, koliko kandidata) i bogatije
   kartice (ruta, ilustracije) koje danas rade samo ručni predlošci.
-- domovina.ai još ne prikazuje reelove (`reels.json` + `render.url` su spremni).
+- domovina.ai: player u izradi (26.10., sesija u domovina.ai repou). Markeri na timelineu za
+  SVE kandidate (i bez rendera = „istaknuti trenutak”), pa `start_sec`/`end_sec`/`title`/`hook`
+  moraju biti pouzdani i za neizrenderirane.
+- ✅ **26.10.: `render.poster_url`** = `data/{id}/reels/{rank}-{sha8}.poster.webp`, 540×960,
+  čist kadar (sredina najduljeg razmaka bez kartica, `render.poster_sec`; titl ostaje u kadru).
+  Radi se u objavi, pa reel objavljen prije postera dobije ga bez ponovnog rendera (backfill
+  22 reela gotov). Lokalni ffmpeg nema libwebp → PNG pa `magick`.
+- ✅ **26.10.: `data/{id}/reels.json` je MUTABLE** (`max-age=60, must-revalidate` + ETag), i u
+  `render_reels.js` i u `upload_to_r2.js` (`cacheControlFor`/`isContentMutable`). Prije je bio
+  immutable na godinu, a prepisuje se pri svakom novom renderu/posteru. mp4/jpg/webp ostaju immutable
+  (verzionirani ključevi).
+- ✅ **26.10.: storyboard** snima `number` karticu tek kad brojač stane (ploča je pokazivala
+  „4.569 €” umjesto „5.000 €”; sam video je bio ispravan).
+- ⚠️ **Ponovni izbor (9.9) briše `render{}` iz lokalnog `reels.json`.** 25.10. 16:27–16:55
+  `--reprocess-article` ep. 1–4 je obnovio `segments.jsonl`, 9.9 je izabrao nove trenutke i
+  prepisao datoteku bez rendera, dok su CDN i lokalni mp4 ostali na starom izboru. 26.10. je
+  lokalno vraćena CDN verzija (sha256 mp4 = render.sha256), novi izbor je u
+  `….reels.json.reselect_20261025`. `select_reels.js` ne zna za `render` — popravak otvoren
+  (zadržati izrenderirane reelove ili ih svjesno zamijeniti).
 - Model ne vidi kadar. Trenutak može biti dobar u priči, a loš u slici (gost okrenut,
   totalni plan) — `docs/2026-10-21-hyperframes-reel-proba.md`.

@@ -209,7 +209,8 @@ function cacheControlFor(r2Key) {
     const basename = r2Key.split("/").pop();
     // Isti popis kao `isContentMutable` — vidi ondje zašto je og-sections.json tu.
     if (basename === "_manifest.json" || basename === "manifest.json"
-        || basename === "og-sections.json" || basename === "episode.json") return CACHE_CONTROL_MUTABLE;
+        || basename === "og-sections.json" || basename === "episode.json"
+        || basename === "reels.json") return CACHE_CONTROL_MUTABLE;
     return CACHE_CONTROL_IMMUTABLE;
 }
 
@@ -917,7 +918,9 @@ function isContentMutable(r2Key) {
     return basename === "_manifest.json"
         || basename === "manifest.json"
         || basename === "og-sections.json"
-        || basename === "episode.json";
+        || basename === "episode.json"
+        // `reels.json` (render_reels.js) dobiva render.url/poster_url nakon prvog uploada
+        || basename === "reels.json";
 }
 
 /**

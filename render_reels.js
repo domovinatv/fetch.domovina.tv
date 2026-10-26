@@ -78,6 +78,8 @@ const R2_BUCKET = process.env.R2_BUCKET_NAME || "cdn-domovina-ai";
 const R2_PUBLIC_URL = (process.env.R2_PUBLIC_URL || "https://cdn.domovina.ai").replace(/\/$/, "");
 const KEYS_CACHE = path.join(ROOT, ".r2_keys_cache.json");
 const CACHE_IMMUTABLE = "public, max-age=31536000, immutable";
+// reels.json se prepisuje (novi render, poster) pod istim ključem — kao episode.json/listinzi
+const CACHE_MUTABLE = "public, max-age=60, must-revalidate";
 
 // ─── pomoćne ───────────────────────────────────────────────────────
 function extractVideoId(filename) {
@@ -267,6 +269,35 @@ function renderOne(ep, info, reel, brand) {
     };
 }
 
+// Poster za sličicu: čist kadar bez kartica (naslov/hook klijent ionako piše uz sliku) —
+// sredina najduljeg razmaka između kartica. Titl riječ po riječ je i dalje u kadru.
+function posterSec(render) {
+    const dur = render.duration_sec;
+    const busy = (render.cards || []).map((c) => [c.start - 0.3, c.start + c.dur + 0.3]).sort((a, b) => a[0] - b[0]);
+    let best = [0, 0], t = 0.5;
+    for (const [a, b] of [...busy, [dur - 0.5, dur]]) {
+        if (a - t > best[1] - best[0]) best = [t, a];
+        t = Math.max(t, b);
+    }
+    return +(best[1] > best[0] ? (best[0] + best[1]) / 2 : dur / 2).toFixed(2);
+}
+
+function ensurePoster(ep, r, mp4) {
+    const out = path.join(ep.dir, ep.base + ".reels", `${r.rank}.poster.webp`);
+    const at = posterSec(r.render);
+    if (fs.existsSync(out) && fs.statSync(out).mtimeMs >= fs.statSync(mp4).mtimeMs && r.render.poster_sec === at) return out;
+    const png = path.join(os.tmpdir(), `reel_poster_${ep.vid}_${r.rank}.png`);
+    try {
+        run("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(at), "-i", mp4, "-frames:v", "1", "-vf", "scale=540:960", png]);
+        run("magick", [png, "-quality", "80", out]);   // lokalni ffmpeg nema libwebp
+        r.render.poster_sec = at;
+        return out;
+    } catch (e) {
+        console.log(`   ⚠️  poster ${ep.vid} #${r.rank}: ${e.message}`);
+        return null;
+    } finally { fs.rmSync(png, { force: true }); }
+}
+
 function writeReels(ep, doc) {
     const tmp = ep.reelsPath + ".tmp";
     fs.writeFileSync(tmp, JSON.stringify(doc, null, 2) + "\n");
@@ -365,7 +396,7 @@ async function publishPhase(eps) {
         if (!doc || !(doc.reels || []).some((r) => r.render && r.render.file)) continue;
         if (!published(ep.vid)) { console.log(`   ⏭️  ${ep.vid}: epizoda još nije na CDN-u — objavit će se kad bude`); continue; }
         const needs = doc.reels.some((r) => r.render && r.render.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.render.file))
-            && (!r.render.url || !r.render.url.includes(r.render.sha256.slice(0, 8))));
+            && (!r.render.url || !r.render.url.includes(r.render.sha256.slice(0, 8)) || !r.render.poster_url));
         if (needs || FORCE) jobs.push({ ep, doc });
     }
     console.log(`☁️  objava: ${jobs.length} epizoda s novim reelovima`);
@@ -392,7 +423,20 @@ async function publishPhase(eps) {
                 const local = path.join(ep.dir, ep.base + ".reels", r.render.file);
                 if (!fs.existsSync(local)) continue;
                 const v = r.render.sha256.slice(0, 8);
-                if (r.render.url && r.render.url.includes(v) && !FORCE) continue;
+                const fresh = !(r.render.url && r.render.url.includes(v)) || FORCE;
+                // poster stiže i reelu objavljenom prije njega (backfill bez ponovnog rendera)
+                if (fresh || !r.render.poster_url) {
+                    const pl = ensurePoster(ep, r, local);
+                    if (pl) {
+                        const pkey = `data/${ep.vid}/reels/${r.rank}-${v}.poster.webp`;
+                        await put(pkey, fs.readFileSync(pl), "image/webp");
+                        r.render.poster = path.basename(pl);
+                        r.render.poster_url = `${R2_PUBLIC_URL}/${pkey}`;
+                        purgeUrls.push(r.render.poster_url);
+                        console.log(`   🖼️  ${pkey} (t=${r.render.poster_sec} s)`);
+                    }
+                }
+                if (!fresh) continue;
                 const key = `data/${ep.vid}/reels/${r.rank}-${v}.mp4`;
                 await put(key, fs.readFileSync(local), "video/mp4");
                 r.render.url = `${R2_PUBLIC_URL}/${key}`;
@@ -411,7 +455,7 @@ async function publishPhase(eps) {
             const pubDoc = { ...doc };
             delete pubDoc.rejected;
             const jkey = `data/${ep.vid}/reels.json`;
-            await put(jkey, Buffer.from(JSON.stringify(pubDoc)), "application/json; charset=utf-8");
+            await put(jkey, Buffer.from(JSON.stringify(pubDoc)), "application/json; charset=utf-8", CACHE_MUTABLE);
             purgeUrls.push(`${R2_PUBLIC_URL}/${jkey}`);
             bundleIds.push(ep.vid);
         } catch (err) {
