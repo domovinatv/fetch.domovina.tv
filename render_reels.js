@@ -222,7 +222,14 @@ function renderOne(ep, info, reel, brand) {
 
     // 4. provjera, storyboard, render
     run(NPX, ["--yes", HF, "check", pub], { timeout: 5 * 60 * 1000 });
-    const at = comp.cards.map((c) => Math.min(dur - 0.1, c.start + Math.min(1.2, c.dur / 2)).toFixed(2));
+    // number: snimi tek kad brojač stane (compose_reel: start+0.3, trajanje min(1.6, max(0.6, dur-1.2))),
+    // inače ploča pokaže međuvrijednost („4.569 €" umjesto „5.000 €")
+    const at = comp.cards.map((c) => {
+        const t = c.type === "number"
+            ? Math.min(c.start + c.dur - 0.3, c.start + 0.3 + Math.min(1.6, Math.max(0.6, c.dur - 1.2)) + 0.2)
+            : c.start + Math.min(1.2, c.dur / 2);
+        return Math.min(dur - 0.1, t).toFixed(2);
+    });
     const boards = path.join(work, "boards");
     run(NPX, ["--yes", HF, "snapshot", pub, "--at", at.join(","), "--no-end", "--describe", "false", "-o", boards], { timeout: 5 * 60 * 1000, env: { GEMINI_API_KEY: "" } });
     const stills = fs.readdirSync(boards).filter((f) => f.endsWith(".png")).sort().map((f) => path.join(boards, f));
