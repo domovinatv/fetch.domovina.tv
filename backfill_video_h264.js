@@ -56,7 +56,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { spawn } = require("child_process");
+const { spawn, spawnSync } = require("child_process");
 
 // ─── CLI (Pattern B) ──────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -264,7 +264,12 @@ function ffmpegTranscode(src, out) {
 const FMP4_NAME = "video_h264_fmp4.mp4";
 // `global_sidx` je ono što radi: bez njega Chrome ne zna gdje je koji fragment i
 // skenira datoteku (izmjereno: 140 range zahtjeva, nije krenuo u 120 s).
-const FMP4_MOVFLAGS = "+frag_keyframe+empty_moov+default_base_moof+global_sidx";
+// `cmaf` je obavezan uz `frag_interleave`: bez njega video `sidx` nosi
+// earliest_presentation_time 1024 (pomak B-frameova) uz `tfdt` 0, i Chromium
+// nakon skoka sjedne usred GOP-a → PIPELINE_ERROR_DECODE, reprodukcija mrtva.
+// PPXbSP14H4Y @3403 s: jedan skok dovoljan; s `cmaf` 0 grešaka (26.10.2026.,
+// domovina.ai docs/2026-10-26-fmp4-seek-decode-error.md). Čuva verifyFmp4Seek.
+const FMP4_MOVFLAGS = "+frag_keyframe+empty_moov+default_base_moof+global_sidx+cmaf";
 // Bez `frag_interleave` fragment od ~10 s nosi sav video pa sav audio (100–200 KB
 // razmaka). Demuxer koji čita po dts-u (libmpv/ffmpeg) tada skače natrag-naprijed
 // ~22×/s, a preko CDN-a (`Connection: close`) svaki skok može biti novi TLS
@@ -288,7 +293,7 @@ function ffmpegRemuxFmp4(src, out) {
         p.stderr.on("data", d => { err += d.toString(); });
         p.on("close", code => {
             if (code !== 0) { try { fs.unlinkSync(tmp); } catch {} return reject(new Error(err.slice(-400))); }
-            try { verifyFmp4(tmp); } catch (e) { try { fs.unlinkSync(tmp); } catch {} return reject(e); }
+            try { verifyFmp4(tmp); verifyFmp4Seek(tmp); } catch (e) { try { fs.unlinkSync(tmp); } catch {} return reject(e); }
             fs.renameSync(tmp, out); resolve();
         });
         p.on("error", reject);
@@ -337,6 +342,26 @@ function verifyFmp4(file) {
     if (trafs.length > 1 && truns <= trafs.length)
         throw new Error(`fmp4: audio i video nisu izmiješani u fragmentu (${trafs.length} traf, ${truns} trun)`);
     return { header: boxes[firstMoof].offset };
+}
+
+/**
+ * Skok mora sjesti na čist kadar. ffmpeg-ov mov demuxer je isti koji Chromium
+ * koristi za progresivni MP4: greška dekodera ovdje je u pregledniku
+ * PIPELINE_ERROR_DECODE (zvuk i slika se raziđu, refresh na spremljenu poziciju
+ * ne učita ništa). Klasični video_h264.mp4 i fmp4 s `cmaf` daju 0 linija.
+ */
+function verifyFmp4Seek(file) {
+    const pr = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file], { encoding: "utf8" });
+    const dur = parseFloat(pr.stdout);
+    if (!(dur > 0)) throw new Error(`fmp4: ffprobe ne zna trajanje (${(pr.stderr || "").slice(-200)})`);
+    const bad = [];
+    for (const f of [0.09, 0.23, 0.41, 0.58, 0.77, 0.94]) {
+        const t = (dur * f).toFixed(1);
+        const r = spawnSync("ffmpeg", ["-nostdin", "-v", "error", "-ss", t, "-i", file, "-t", "6", "-f", "null", "-"], { encoding: "utf8" });
+        const lines = (r.stderr || "").split("\n").filter(l => /\[h264|\[aac/.test(l));
+        if (lines.length) bad.push(`@${t}s: ${lines[0].trim()}`);
+    }
+    if (bad.length) throw new Error(`fmp4: skok ne sjeda na čist kadar (${bad.length}/6) — ${bad.join(" | ")}`);
 }
 
 // Treba li (re)transkodirati: nema web.mp4, ili je stariji od source-a, ili --force.
