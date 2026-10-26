@@ -1056,6 +1056,10 @@ async function main() {
     // immutable kao .mp4, pa bi regenerirana slika (npr. popravljen layout)
     // ostala nevidljiva na CDN-u: lokalno nova, na R2 stara, upload "0 novih".
     const forceOg = hasFlag("--force-og");
+    // --force-screenshots → isto za images/{id}/screenshots/{ts}.png. Treba kad
+    // se kadar ponovno bira (KORAK 10 izbor najljepšeg kadra) za već objavljenu
+    // epizodu: ključ (timestamp) ostaje isti, sadržaj se mijenja.
+    const forceScreenshots = hasFlag("--force-screenshots");
 
     console.log("");
     console.log("╔══════════════════════════════════════════════════╗");
@@ -1436,6 +1440,17 @@ if (inputDir) {
         }
     }
 
+    // --force-screenshots: isto za screenshot PNG-ove (vidi komentar uz flag gore).
+    const isScreenshotKey = (k) => /\/screenshots\/\d\d-\d\d-\d\d\.png$/.test(k);
+    if (forceScreenshots) {
+        const forced = existingImmutable.filter(f => isScreenshotKey(f.r2Key));
+        if (forced.length) {
+            existingImmutable = existingImmutable.filter(f => !isScreenshotKey(f.r2Key));
+            newFiles.push(...forced);
+            log("🔁", `--force-screenshots: ${forced.length} postojećih screenshot ključeva → re-upload`);
+        }
+    }
+
     // Immutable file-ovi koji već postoje na R2 = automatski skip
     skipped += existingImmutable.length;
 
@@ -1605,6 +1620,16 @@ if (inputDir) {
         if (ogUrls.length) {
             log("🧹", `Pokrećem CDN purge za ${ogUrls.length} prepisanih og-t slika ...`);
             await purgeCloudflareCache(ogUrls);
+        }
+    }
+
+    if (forceScreenshots && !dryRun) {
+        const ssUrls = newFiles
+            .filter(f => isScreenshotKey(f.r2Key))
+            .map(f => `${R2_PUBLIC_URL.replace(/\/$/, "")}/${f.r2Key}`);
+        if (ssUrls.length) {
+            log("🧹", `Pokrećem CDN purge za ${ssUrls.length} prepisanih screenshotova ...`);
+            await purgeCloudflareCache(ssUrls);
         }
     }
 
