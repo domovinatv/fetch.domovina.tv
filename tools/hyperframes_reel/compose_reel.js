@@ -292,4 +292,5 @@ function preparePublic(publicDir, o) {
     return { compId, cards, captions: cap.count };
 }
 
-module.exports = { contrast, pickContrast, scheduleCards, parseNumber, captions, splitName, preparePublic, loadBrand, brandingDir };
+module.exports = { contrast, pickContrast, scheduleCards, parseNumber, captions, splitName, preparePublic, loadBrand, brandingDir,
+    brandCss, esc, q, readDuration, FPS };

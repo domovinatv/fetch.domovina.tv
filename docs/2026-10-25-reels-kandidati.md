@@ -200,7 +200,7 @@ gotovi reelovi Muževnih budite NISU ponovno renderirani):
   provjeriti tek nakon njega.
 - Mjerenje: 8 reelova × ~3,3 min = 27 min (yt-dlp + lica + snapshot + render), 30–46 MB/reel.
 
-## Prijedlog: premium reel (LLM režija po reelu) — NIJE izvedeno
+## Premium reel (LLM režija po reelu) — pilot izveden i objavljen 26.10.2026.
 
 Generički put: LLM (9.9) daje samo **sadržaj** kartica, izgled i animacije su fiksni.
 Premium put bi dodao **režiju** po reelu, kao ručni „traktor"/„srećka", ali kao postupak:
@@ -224,6 +224,57 @@ flowchart TD
   ≈ 24 poziva ≈ 0,5 M tokena ≈ jedan dvofazni članak. Render isti CPU.
 - Pilot predložen na `ja70p_gJWZA` #1 („puška": rasprsnuta puška na „raspala", mjera
   1 m na „metar", tihi citat na kraju) uz standardni render istog trenutka.
+
+### Pilot 26.10.2026.: `render_reel_premium.js` (ep. 118 `ja70p_gJWZA` #1, „puška")
+
+Izvedeno kao zaseban put, generički render se ne mijenja:
+
+- `tools/hyperframes_reel/premium/compose_premium.js` + `premium.css`: 11 komponenti (hook,
+  lower_third, context, quote card/quiet + reveal spoken, counter, distance, illustration,
+  steps, stamp, compare, end), kamera (zoom keyframeovi na riječ) i mood (dim/mono). Isti
+  `generic.template.html` (tri umetka: CSS, `#mood`, `{{CAMERA_JS}}`), isti `reel_layout.js`.
+  SVG slot prima samo path/rect/circle/line/polyline/polygon s brojevima i tokenima boja
+  (ink|wine|gold|paper|soft); slobodan HTML iz modela se ne prima.
+- Slagač provodi tvrda pravila generičkog puta (jedna kartica, 1 s razmaka, brzina čitanja,
+  `MAX_LATE`) i sve prilagodbe vraća kao upozorenja, koja kritika vidi uz sliku.
+- `render_reel_premium.js`: riječi → režija (Opus, 1 poziv) → isječak (ovisi o `tail_sec`
+  režije) → check + storyboard → kritika (Opus s `--tools Read`, čita veću ploču 432×768 po
+  kadru) → jedna revizija → storyboard v2 → `--render` lokalno. Ništa ne objavljuje i ne dira
+  reels.json. `--beats` preskače režiju, `--no-critique` kritiku, `--hint` je ideja urednika.
+- Koraci `prepareClip` / `storyboard` / `renderVideo` izvučeni su iz `renderOne` u
+  `render_reels.js` (ponašanje isto) i izvoze se; `prepareClip({tail})` produlji isječak iza
+  govora uz `afade` (zvuk −58 dB u repu).
+
+Mjerenja: režija ~6k in / 2–4k out, kritika ~22k in / 5–6k out (2 turna); 4 poziva u dva
+prolaza ≈ 56k in / 17k out. Režija + ploče ~2 min, render 80 s reela 132 s, 34 MB.
+
+Što je pilot naučio:
+
+1. **Bez urednikove ideje režija je oprezna.** Prvi prolaz je sam preskočio crtež puške
+   (pravilo „bolje bez crteža nego nejasan"); s `--hint` je nacrtao prepoznatljivu siluetu
+   (kundak, sanduk, cijev, okvir s oprugom) koja se rasprsne točno na „iskakalo". Za
+   istaknute reelove `--hint` ostaje dio postupka.
+2. **Kraj reela nema mjesta** kad govor traje do zadnje riječi: end + 1 s razmaka gurne
+   najjači citat van (i generički reel ga je izgubio). Rješenje: `tail_sec` (0–4 s videa iza
+   govora, zvuk stišan) i end se skraćuje do 3,5 s prije nego što kartica otpadne. Citat
+   `reveal: spoken` traje koliko i izgovor (+0,8 s), ne po brzini čitanja.
+3. **Kritika vjeruje pravilima iz prompta više nego slagaču.** S pogrešnim pravilom
+   („najmanje 4,5 s") proglasila je citat nespasivim i izbacila ga; pravila u promptu
+   moraju biti ista kao u slagaču.
+4. **Kritika koja vidi sliku stvarno popravlja crtež** (okvir u `wine` nestao na tamnoj
+   kartici → `soft`, opruga veća i zlatna) i sidra (ravnalo 0,9 s prije „metar").
+5. `burst` rotira svaku grupu oko vlastitog središta (`transformOrigin 50% 50%`); oko
+   središta crteža dijelovi izlete iz kartice.
+
+Objava (Matijin zahtjev, `--video-id`): standardni #1 je lokalno preimenovan u
+`1.standard.{mp4,storyboard.jpg,poster.webp}` (+ `reels.json.bak_premium_20261026`), premium
+je postao `1.mp4` s `render.premium` i `render.replaced` (stari sha/url), pa
+`with_pipeline_lock.sh node render_reels.js --video-id ja70p_gJWZA --publish-only` →
+`data/ja70p_gJWZA/reels/1-95dd6512.mp4` + poster + episode.json. **Zamka:** `render.fingerprint`
+je ostao stari, pa `--force` ili dignut `RENDER_VERSION` prepisuje premium standardnim.
+
+Otvoreno: tamna traka na dnu kadra je u premiumu izraženija (kamera se diže zbog visoke
+kartice s crtežom); premium nije u launchd-u ni u otisku; nema testova za compose_premium.
 
 ### Bug: Sortformer je zasjenio Soniox prepis (ispravljeno 25.10.2026.)
 

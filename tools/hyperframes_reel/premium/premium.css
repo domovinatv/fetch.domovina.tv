@@ -1,0 +1,55 @@
+/* ─── premium komponente (compose_premium.js); varijable brenda iz generic.template.html ─── */
+#mood { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+.hook .hl, .ctx .hl, .quote .hl { color: var(--wine); }
+.paper .k { font: 800 28px var(--f-head); letter-spacing: .14em; text-transform: uppercase; color: var(--wine); margin-bottom: 14px; }
+
+/* citat bez kartice: krupna slova na zatamnjenom kadru */
+.veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.62) 40%, rgba(0,0,0,.62) 70%, rgba(0,0,0,.3)); }
+.quiet { width: 768px; text-align: center; color: #fff; padding: 10px 6px; }
+.quiet .q { font: 900 60px/1.2 var(--f-head); text-shadow: 0 4px 24px rgba(0,0,0,.8); }
+.quiet .who { font: 700 28px var(--f-body); color: rgba(255,255,255,.75); margin-top: 26px; letter-spacing: .05em; }
+.qw { opacity: .18; }
+
+/* mjera: ravnalo + vrijednost */
+.dist { display: flex; gap: 34px; align-items: center; }
+.dist .rul { position: relative; flex: 0 0 120px; width: 120px; height: 300px; }
+.dist .ln { position: absolute; left: 57px; top: 46px; bottom: 46px; width: 6px; background: var(--wine); transform-origin: 50% 0; }
+.dist .tk { position: absolute; left: 30px; width: 60px; height: 6px; border-radius: 3px; background: var(--wine); }
+.dist .tk.a { top: 43px; } .dist .tk.b { bottom: 43px; }
+.dist .la, .dist .lb { position: absolute; left: -20px; right: -20px; text-align: center; font: 800 30px/1 var(--f-body); color: var(--ink-soft); white-space: nowrap; }
+.dist .la { top: 4px; } .dist .lb { bottom: 4px; }
+.dist .txt { flex: 1; }
+.dist .v { font: 900 110px/1 var(--f-head); color: var(--wine); }
+.dist .s { font: 700 36px/1.25 var(--f-body); margin-top: 16px; }
+.dist.h { flex-direction: column; align-items: stretch; gap: 18px; text-align: center; }
+.dist.h .rul { flex: 0 0 110px; width: 100%; height: 110px; }
+.dist.h .ln { left: 46px; right: 46px; top: 52px; bottom: auto; width: auto; height: 6px; transform-origin: 0 50%; }
+.dist.h .tk { top: 30px; width: 6px; height: 50px; } .dist.h .tk.a { left: 43px; } .dist.h .tk.b { left: auto; right: 43px; }
+.dist.h .la, .dist.h .lb { top: auto; bottom: 0; right: auto; left: 0; text-align: left; }
+.dist.h .lb { left: auto; right: 0; text-align: right; }
+
+/* crtež predmeta (ograničen SVG slot) */
+.ill { text-align: center; }
+.ill-svg { display: block; margin: 6px auto; max-width: 100%; overflow: visible; }
+.ill .s { font: 700 36px/1.25 var(--f-body); margin-top: 16px; padding-top: 16px; border-top: 3px solid var(--rule); }
+
+/* slijed */
+.steps .track { position: relative; height: 130px; margin: 18px 14px 0; }
+.steps .line, .steps .fill { position: absolute; left: 0; right: 0; top: 22px; height: 8px; border-radius: 4px; background: var(--rule); }
+.steps .fill { background: var(--wine); transform-origin: left center; }
+.steps .st { position: absolute; top: 10px; width: 32px; height: 32px; margin-left: -16px; border-radius: 50%; background: var(--paper); border: 6px solid var(--wine); }
+.steps .st span { position: absolute; top: 46px; left: 50%; transform: translateX(-50%); white-space: nowrap; font: 700 27px var(--f-body); color: var(--ink); }
+
+/* pečat */
+.stampc { text-align: center; }
+.stampc .v { font: 900 50px/1.15 var(--f-head); }
+.stampc .stamp { display: inline-block; margin-top: 22px; border: 6px solid var(--wine); color: var(--wine);
+  font: 900 46px var(--f-head); letter-spacing: .16em; padding: 6px 24px; border-radius: 10px; transform: rotate(-5deg); }
+
+/* usporedba */
+.cmp .t { font: 900 40px/1.2 var(--f-head); text-align: center; margin-bottom: 18px; }
+.cmp .cols { display: flex; align-items: stretch; gap: 26px; }
+.cmp .col { flex: 1; text-align: center; }
+.cmp .sep { width: 3px; background: var(--rule); }
+.cmp .k { margin-bottom: 8px; }
+.cmp .v { font: 900 48px/1.1 var(--f-head); }
