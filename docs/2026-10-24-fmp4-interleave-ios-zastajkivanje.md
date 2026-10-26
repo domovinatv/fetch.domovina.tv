@@ -71,5 +71,7 @@ ffmpeg -nostdin -v debug -ss 18 -i https://cdn.domovina.ai/data/<ID>/video_h264_
 
 ## Vezani dokumenti
 
+- `docs/2026-10-26-fmp4-analiza-regresije-seeka.md` — **ovaj popravak (interleave bez `+cmaf`) pokvario je seek**; ispravljeno 26.10.
+
 - `../domovina.ai/docs/2026-10-11-brzi-start-videa-fmp4.md` — zašto fmp4 postoji
 - `docs/data_contract.md` §15 — episode.json bundle (navodi `video_h264_fmp4.mp4`)
