@@ -194,6 +194,7 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
   čist kadar (sredina najduljeg razmaka bez kartica, `render.poster_sec`; titl ostaje u kadru).
   Radi se u objavi, pa reel objavljen prije postera dobije ga bez ponovnog rendera (backfill
   22 reela gotov). Lokalni ffmpeg nema libwebp → PNG pa `magick`.
+- **Odluka 26.10.: nema 720p varijante** — reelovi ostaju samo 1080×1920 (~35 MB), bez `render.variants`.
 - ✅ **26.10.: `data/{id}/reels.json` je MUTABLE** (`max-age=60, must-revalidate` + ETag), i u
   `render_reels.js` i u `upload_to_r2.js` (`cacheControlFor`/`isContentMutable`). Prije je bio
   immutable na godinu, a prepisuje se pri svakom novom renderu/posteru. mp4/jpg/webp ostaju immutable
