@@ -32,6 +32,13 @@
  *   4. Forsiraj re-snimanje i onoga što je već na R2:
  *      node screenshot_youtube.js --input-dir ... --ignore-r2
  *
+ * IZBOR NAJLJEPŠEG KADRA (default ON od 26.10.2026.): umjesto kadra točno na
+ * timestampu izvuče se 21 kandidat u prozoru ±5 s (2 fps), složi u numerirani
+ * list i Gemini (Vertex, gemini.conf) izabere kadar s otvorenim očima, glavom
+ * gore i bez grimase, iste osobe kao na timestampu. Svaka greška → stari točni
+ * kadar. Gasi se s `--no-best-frame` ili SCREENSHOT_BEST_FRAME=0. Odluka ide u
+ * `_manifest.json` (`best_frame`). Vidi docs/2026-10-26-screenshot-izbor-kadra.md.
+ *
  * R2-AWARE SKIP: frame koji postoji na R2 (`.r2_keys_cache.json`) se NE snima
  * ponovno ni kad lokalnog PNG-a nema. Vidi komentar uz R2_KEYS niže — bez toga
  * brisanje lokalnih izvedenih fajlova znači 62.000 uzaludnih yt-dlp poziva.
@@ -395,6 +402,209 @@ function captureFrame(source, timestamp, outputPath) {
     });
 }
 
+// ─── IZBOR NAJLJEPŠEG KADRA (Gemini vision) ─────────────────────
+//
+// Problem (26.10.2026., ja70p_gJWZA): kadar točno na timestampu često uhvati
+// zatvorene oči, pogled u stol, grimasu usred riječi ili pretapanje kamera —
+// na 29 screenshotova jedne epizode barem 7 loših. Timestamp ne mora biti na
+// sekundu, pa se bira najljepši kadar u prozoru ±BEST_FRAME_WINDOW_SEC.
+//
+// Jedan ffmpeg prolaz (seek + 10 s dekodiranja, ~8 s iz 1080p streama) daje sve
+// kandidate u punoj rezoluciji; list za model je smanjen (640 px po ćeliji).
+// Prototip kroz agy je za 29 kadrova dao prosjek 4.8 → 8.9/10.
+
+let BEST_FRAME = process.env.SCREENSHOT_BEST_FRAME !== "0";
+const BEST_FRAME_WINDOW_SEC = 5;
+const BEST_FRAME_FPS = 2;
+const BEST_FRAME_CONCURRENCY = 3;
+// Vertex 3.8 Flash zna danima vraćati 429 (dijeljena kvota, DSQ) na eu i global
+// (izmjereno 26.10.) — zato više pokušaja i duže čekanje; na kraju točni kadar.
+const BEST_FRAME_MAX_RETRIES = 8;
+const BEST_FRAME_REQ_TIMEOUT_MS = 90000;   // tipičan poziv ~12 s (zadano razmišljanje)
+const FONT_PATH = "/System/Library/Fonts/Supplemental/Arial.ttf";
+
+function loadGeminiConf() {
+    const confPath = path.join(__dirname, "gemini.conf");
+    const conf = {};
+    if (fs.existsSync(confPath)) {
+        for (const line of fs.readFileSync(confPath, "utf-8").split("\n")) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith("#")) continue;
+            const eqIdx = trimmed.indexOf("=");
+            if (eqIdx === -1) continue;
+            conf[trimmed.slice(0, eqIdx).trim()] = trimmed.slice(eqIdx + 1).trim();
+        }
+    }
+    return conf;
+}
+
+const GEMINI_CONF = loadGeminiConf();
+const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
+const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";
+const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT || "";
+const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global")
+    .split(",").map(r => r.trim()).filter(Boolean);
+const GEMINI_PRICE_IN = parseFloat(GEMINI_CONF.GEMINI_PRICE_IN || "0.75");
+const GEMINI_PRICE_OUT = parseFloat(GEMINI_CONF.GEMINI_PRICE_OUT || "3.75");
+
+let regionIndex = 0;
+let cachedAccessToken = null;
+let tokenExpiry = 0;
+const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0 };
+
+function getOrRefreshAccessToken() {
+    const now = Date.now();
+    if (cachedAccessToken && now < tokenExpiry) return cachedAccessToken;
+    const { vertexAccessToken } = require("./lib/vertex_auth");
+    cachedAccessToken = vertexAccessToken({ account: VERTEX_ACCOUNT });
+    tokenExpiry = now + 50 * 60 * 1000;
+    return cachedAccessToken;
+}
+
+const BEST_FRAME_PROMPT = (n, originalLabel) => `This contact sheet shows ${n} numbered candidate frames (c01..c${String(n).padStart(2, "0")}) from one podcast video, 0.5 s apart. ${originalLabel} is the frame at the exact timestamp. Pick the single best frame to illustrate an article section.
+
+Rules, in order:
+1. Show the SAME PERSON (same camera shot) as ${originalLabel}, unless ${originalLabel} is a transition/crossfade, blurred, black or shows nobody — then pick the best clean frame of whoever is on screen.
+2. The person's eyes are open, head up, looking forward or at the conversation partner — not down at the table, lap or notes.
+3. Natural neutral or pleasant expression: no grimace, no squint, no pressed or twisted lips, mouth not frozen mid-word.
+4. No motion blur, no crossfade/double exposure, no hand covering the face.
+If several frames are equally good, prefer the one closest to ${originalLabel}.
+
+Reply with JSON: best (label like "c07"), best_score (1-10), original_score (1-10 for ${originalLabel}), reason (one short sentence in Croatian).`;
+
+const BEST_FRAME_SCHEMA = {
+    type: "OBJECT",
+    properties: {
+        best: { type: "STRING" },
+        best_score: { type: "INTEGER" },
+        original_score: { type: "INTEGER" },
+        reason: { type: "STRING" }
+    },
+    required: ["best", "best_score", "original_score", "reason"]
+};
+
+function runProcess(cmd, args) {
+    return new Promise((resolve) => {
+        const proc = spawn(cmd, args, { stdio: ["ignore", "pipe", "pipe"] });
+        let stderr = "";
+        proc.stderr.on("data", (chunk) => { stderr += chunk.toString(); });
+        proc.on("close", (code) => resolve({ code, stderr }));
+        proc.on("error", (err) => resolve({ code: -1, stderr: err.message }));
+    });
+}
+
+async function askGeminiBestFrame(sheetPath, n, originalLabel) {
+    const { vertexEndpointUrl } = require("./lib/vertex_auth");
+    const payload = {
+        contents: [{
+            role: "user",
+            parts: [
+                { text: BEST_FRAME_PROMPT(n, originalLabel) },
+                { inlineData: { mimeType: "image/jpeg", data: fs.readFileSync(sheetPath).toString("base64") } }
+            ]
+        }],
+        generationConfig: {
+            temperature: 0,
+            responseMimeType: "application/json",
+            responseSchema: BEST_FRAME_SCHEMA
+        }
+    };
+
+    for (let attempt = 1; attempt <= BEST_FRAME_MAX_RETRIES; attempt++) {
+        const region = VERTEX_REGIONS[regionIndex++ % VERTEX_REGIONS.length];
+        // Bez timeouta je poziv znao visjeti minutama (test 26.10.), a "fetch failed"
+        // (mrežna greška) se baca umjesto da vrati status — oboje ide u retry.
+        let response;
+        try {
+            response = await fetch(vertexEndpointUrl(VERTEX_PROJECT, region, GEMINI_MODEL), {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${getOrRefreshAccessToken()}`
+                },
+                body: JSON.stringify(payload),
+                signal: AbortSignal.timeout(BEST_FRAME_REQ_TIMEOUT_MS)
+            });
+        } catch (err) {
+            await sleep(2000 * attempt);
+            continue;
+        }
+        if (!response.ok) {
+            if (response.status === 401) { cachedAccessToken = null; continue; }
+            if (response.status === 429 || response.status >= 500) {
+                await sleep(Math.min(5000 * attempt, 30000));
+                continue;
+            }
+            throw new Error(`Gemini HTTP ${response.status} (${region}): ${(await response.text()).slice(0, 200)}`);
+        }
+        const data = await response.json();
+        const um = data.usageMetadata || {};
+        bestFrameUsage.calls++;
+        bestFrameUsage.promptTokens += um.promptTokenCount || 0;
+        bestFrameUsage.outputTokens += (um.candidatesTokenCount || 0) + (um.thoughtsTokenCount || 0);
+        const text = data.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("") || "";
+        return JSON.parse(text);
+    }
+    throw new Error(`Gemini: ${BEST_FRAME_MAX_RETRIES} neuspjelih pokušaja`);
+}
+
+function logBestFrameUsage() {
+    if (!bestFrameUsage.calls) return;
+    const usd = bestFrameUsage.promptTokens / 1e6 * GEMINI_PRICE_IN + bestFrameUsage.outputTokens / 1e6 * GEMINI_PRICE_OUT;
+    console.log(`   🎯 Izbor kadra (${GEMINI_MODEL}): ${bestFrameUsage.calls} poziva · ${bestFrameUsage.promptTokens} in / ${bestFrameUsage.outputTokens} out · ~$${usd.toFixed(3)}`);
+}
+
+/**
+ * Izvuče kandidate oko timestampa, pita Gemini za najljepši i spremi ga u outputPath.
+ * @returns {object|null} odluka za manifest, ili null → pozivatelj radi stari captureFrame
+ */
+async function captureBestFrame(source, timestamp, outputPath) {
+    const sec = timestampToSeconds(timestamp);
+    const start = Math.max(0, sec - BEST_FRAME_WINDOW_SEC);
+    const tmpDir = fs.mkdtempSync(path.join(require("os").tmpdir(), "bestframe-"));
+    try {
+        const { code } = await runProcess("ffmpeg", [
+            "-loglevel", "error",
+            "-ss", String(start),
+            "-i", source,
+            "-t", String(sec - start + BEST_FRAME_WINDOW_SEC + 0.4),
+            "-vf", `fps=${BEST_FRAME_FPS}`,
+            path.join(tmpDir, "c%02d.png")
+        ]);
+        const frames = fs.readdirSync(tmpDir).filter(f => /^c\d\d\.png$/.test(f)).sort();
+        if (code !== 0 || frames.length < 3) return null;
+
+        const originalIdx = Math.min(frames.length, Math.round((sec - start) * BEST_FRAME_FPS) + 1);
+        const originalLabel = `c${String(originalIdx).padStart(2, "0")}`;
+
+        const sheetPath = path.join(tmpDir, "sheet.jpg");
+        const montageArgs = ["montage", ...frames.map(f => path.join(tmpDir, f))];
+        if (fs.existsSync(FONT_PATH)) montageArgs.push("-font", FONT_PATH);
+        montageArgs.push("-resize", "640x", "-set", "label", "%t", "-pointsize", "30",
+            "-tile", "5x", "-geometry", "+4+4", "-quality", "85", sheetPath);
+        const m = await runProcess("magick", montageArgs);
+        if (m.code !== 0 || !fs.existsSync(sheetPath)) return null;
+
+        const verdict = await askGeminiBestFrame(sheetPath, frames.length, originalLabel);
+        const chosen = /^c\d\d$/.test(verdict.best || "") && frames.includes(`${verdict.best}.png`)
+            ? verdict.best : originalLabel;
+        fs.copyFileSync(path.join(tmpDir, `${chosen}.png`), outputPath);
+        if (fs.statSync(outputPath).size <= 1000) return null;
+
+        const idx = parseInt(chosen.slice(1), 10);
+        return {
+            offset_sec: Math.round(((start + (idx - 1) / BEST_FRAME_FPS) - sec) * 10) / 10,
+            score: verdict.best_score,
+            original_score: verdict.original_score,
+            reason: verdict.reason,
+            candidates: frames.length,
+            model: GEMINI_MODEL
+        };
+    } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+}
+
 // ─── ARTICLE PROCESSING ──────────────────────────────────────────
 
 /**
@@ -599,21 +809,49 @@ async function processArticle(articlePath) {
     let captured = 0;
     let failed = 0;
 
-    for (const ss of pending) {
-        process.stdout.write(`      📸 ${ss.timestamp} — ${ss.section_subtitle.substring(0, 50)}... `);
-        const ok = await captureFrame(source, ss.timestamp, ss.outputFile);
+    // Izbor kadra radi BEST_FRAME_CONCURRENCY timestampova paralelno (ffmpeg seek
+    // iz streama + Gemini poziv), pa se ispisuje cijeli redak odjednom.
+    const bestFrames = {};
+    const captureOne = async (ss) => {
+        let decision = null;
+        if (BEST_FRAME) {
+            try {
+                decision = await captureBestFrame(source, ss.timestamp, ss.outputFile);
+            } catch (err) {
+                console.log(`      ⚠️  ${ss.timestamp} izbor kadra pao (${err.message.slice(0, 120)}) — točni kadar`);
+            }
+        }
+        const ok = decision ? true : await captureFrame(source, ss.timestamp, ss.outputFile);
+        const label = `      📸 ${ss.timestamp} — ${ss.section_subtitle.substring(0, 50)}... `;
         if (ok) {
             const sizeKb = (fs.statSync(ss.outputFile).size / 1024).toFixed(0);
-            console.log(`✅ (${sizeKb} KB)`);
+            const pick = decision
+                ? ` 🎯 ${decision.offset_sec >= 0 ? "+" : ""}${decision.offset_sec}s ${decision.original_score}→${decision.score}/10`
+                : "";
+            console.log(`${label}✅ (${sizeKb} KB)${pick}`);
+            if (decision) bestFrames[ss.timestamp] = decision;
             captured++;
         } else {
-            console.log(`❌`);
+            console.log(`${label}❌`);
             failed++;
         }
-    }
+    };
+    const queue = [...pending];
+    const workers = Array.from({ length: BEST_FRAME ? BEST_FRAME_CONCURRENCY : 1 }, async () => {
+        while (queue.length) await captureOne(queue.shift());
+    });
+    await Promise.all(workers);
+
+    // Odluke iz ranijih runova (kadrovi koji su sada preskočeni) ostaju u manifestu.
+    const manifestPath = path.join(screenshotDir, "_manifest.json");
+    let previousBest = {};
+    try {
+        for (const s of JSON.parse(fs.readFileSync(manifestPath, "utf-8")).screenshots || []) {
+            if (s.best_frame) previousBest[s.timestamp] = s.best_frame;
+        }
+    } catch {}
 
     // Spremi manifest s metapodacima za sve screenshotove
-    const manifestPath = path.join(screenshotDir, "_manifest.json");
     const manifest = {
         video_id: videoId,
         video_base: videoBase,
@@ -624,7 +862,9 @@ async function processArticle(articlePath) {
             filename: `${videoBase}_${sanitizeTimestamp(ss.timestamp)}.png`,
             description: ss.description,
             section_subtitle: ss.section_subtitle,
-            iteration: ss.iteration_number
+            iteration: ss.iteration_number,
+            ...((bestFrames[ss.timestamp] || previousBest[ss.timestamp])
+                ? { best_frame: bestFrames[ss.timestamp] || previousBest[ss.timestamp] } : {})
         }))
     };
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), "utf-8");
@@ -723,6 +963,11 @@ function parseArgs() {
         SOURCE_ADDR_ARGS = ["--source-address", sourceAddr];
     }
 
+    // --no-best-frame: stari način — jedan kadar točno na timestampu, bez Geminija.
+    if (args.includes("--no-best-frame")) {
+        BEST_FRAME = false;
+    }
+
     // --ignore-r2: forsiraj re-snimanje i onoga što je na R2 (npr. kad su frameovi
     // na R2 loši/360p pa ih namjerno želiš prepisati). Default je R2-aware skip.
     if (!args.includes("--ignore-r2")) {
@@ -791,6 +1036,7 @@ async function main() {
         const result = await processArticle(opts.file);
         console.log("");
         console.log(`   📊 Ukupno: ${result.total} | Novo: ${result.captured} | Preskočeno: ${result.skipped} | Neuspjelo: ${result.failed}`);
+        logBestFrameUsage();
         console.log("");
         return;
     }
@@ -909,6 +1155,7 @@ async function main() {
     }
     if (totalFailed > 0) console.log(`   ❌ Neuspjelih:           ${totalFailed}`);
     console.log(`   🎬 Videa obrađenih:      ${videosProcessed}`);
+    logBestFrameUsage();
     console.log("");
 }
 
