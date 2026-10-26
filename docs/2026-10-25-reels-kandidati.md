@@ -276,6 +276,13 @@ je ostao stari, pa `--force` ili dignut `RENDER_VERSION` prepisuje premium stand
 Otvoreno: tamna traka na dnu kadra je u premiumu izraženija (kamera se diže zbog visoke
 kartice s crtežom); premium nije u launchd-u ni u otisku; nema testova za compose_premium.
 
+**Na domovina.ai se premium u popisu ne razlikuje (Matija, 26.10.).** Tri uzroka, sva po
+dizajnu: „Istaknuti trenuci" su poredani po `start_sec` (rang 1 je ondje 7. od 8), klijent ne
+čita `render.premium`, a poster je čist kadar (`posterSec()` → 57.56 s, samo govornik). Razlika
+se vidi tek u 9:16 playeru („Pogledaj"). Oznaka u retku je posao za domovina.ai (signal:
+`render.premium != null`, polje je već na CDN-u); poster iz ključnog kadra premiuma
+(`poster_sec` override, bez rerendera) ostaje opcija ovdje ako je Matija zatraži.
+
 ### Bug: Sortformer je zasjenio Soniox prepis (ispravljeno 25.10.2026.)
 
 `resolveDiarizedSrt()` (5 kopija: summarize, article, prepare_rag{,_import,_combined})
