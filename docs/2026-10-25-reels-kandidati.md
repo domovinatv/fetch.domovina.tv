@@ -204,7 +204,9 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
   `--reprocess-article` ep. 1–4 je obnovio `segments.jsonl`, 9.9 je izabrao nove trenutke i
   prepisao datoteku bez rendera, dok su CDN i lokalni mp4 ostali na starom izboru. 26.10. je
   lokalno vraćena CDN verzija (sha256 mp4 = render.sha256), novi izbor je u
-  `….reels.json.reselect_20261025`. `select_reels.js` ne zna za `render` — popravak otvoren
-  (zadržati izrenderirane reelove ili ih svjesno zamijeniti).
+  `….reels.json.reselect_20261025`. ✅ Popravljeno istog dana: `keepRendered()` u
+  `select_reels.js` zadrži izrenderirane reelove (rang, raspon, tekst, `render{}`), novi
+  kandidati koji se s njima preklapaju idu u `rejected`, ostali popune slobodne rangove do
+  `--count`. Svjesna zamjena izrenderiranog reela = ručno makni `render` iz `reels.json`.
 - Model ne vidi kadar. Trenutak može biti dobar u priči, a loš u slici (gost okrenut,
   totalni plan) — `docs/2026-10-21-hyperframes-reel-proba.md`.

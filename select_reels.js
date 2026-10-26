@@ -374,6 +374,30 @@ function normalizeReels(raw, segs, words = null) {
     return { reels: kept.map(r => ({ rank: r.rank, ...r })), rejected };
 }
 
+// Ponovni izbor ne smije pregaziti izrenderirane reelove: mp4 na CDN-u i lokalno je izrezan
+// iz TOG raspona, a domovina.ai ih prikazuje kao markere. Izrenderirani ostaju kakvi jesu
+// (s rangom), novi kandidati koji se s njima preklapaju idu u rejected, ostali popunjavaju
+// slobodne rangove. 25.10. je reprocess ep. 1–4 ovako izgubio render{} (CDN ostao na starom).
+function keepRendered(prev, reels, rejected, count) {
+    const done = ((prev && prev.reels) || []).filter(r => r.render && (r.render.file || r.render.url));
+    if (!done.length) return { reels, rejected };
+    const fresh = [];
+    for (const r of reels) {
+        const clash = done.find(k => Math.min(k.end_sec, r.end_sec) - Math.max(k.start_sec, r.start_sec) > 0);
+        if (clash) rejected.push({ title: r.title, reason: `preklapa se s izrenderiranim „${clash.title}"` });
+        else fresh.push(r);
+    }
+    const used = new Set(done.map(r => r.rank));
+    let rank = 1;
+    const out = [...done];
+    for (const r of fresh.slice(0, Math.max(0, count - done.length))) {
+        while (used.has(rank)) rank++;
+        used.add(rank);
+        out.push({ ...r, rank });
+    }
+    return { reels: out.sort((a, b) => a.rank - b.rank), rejected };
+}
+
 // ─── glavni tok ────────────────────────────────────────────────────
 function isStale(ep) {
     if (FORCE || !fs.existsSync(ep.outPath)) return true;
@@ -424,7 +448,8 @@ async function main() {
             const t0 = Date.now();
             const res = BACKEND === "claude" ? await callClaude(SYSTEM_PROMPT, user) : await callVertex(SYSTEM_PROMPT, user);
             const words = readJson(path.join(ep.dir, ep.base + ".words.json"));
-            const { reels, rejected } = normalizeReels(parseJsonLoose(res.text), ep.segs, words);
+            const norm = normalizeReels(parseJsonLoose(res.text), ep.segs, words);
+            const { reels, rejected } = keepRendered(readJson(ep.outPath), norm.reels, norm.rejected, COUNT);
             const doc = {
                 version: SCHEMA_VERSION,
                 video_id: ep.vid,
@@ -458,4 +483,4 @@ if (require.main === module) {
     main().catch(err => { console.error(`❌ ${err.stack || err.message}`); process.exit(1); });
 }
 
-module.exports = { dropUnlistedDuplicates, normalizeReels, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };
+module.exports = { dropUnlistedDuplicates, normalizeReels, keepRendered, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };

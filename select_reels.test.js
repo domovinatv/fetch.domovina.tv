@@ -68,3 +68,23 @@ test("_unlisted kopija ne dobiva poziv kad je epizoda i u kanalu", () => {
     const eps = [{ channel: "_unlisted", vid: "A" }, { channel: "kanal", vid: "A" }, { channel: "_unlisted", vid: "B" }];
     assert.deepEqual(dropUnlistedDuplicates(eps).map(e => `${e.channel}/${e.vid}`), ["kanal/A", "_unlisted/B"]);
 });
+
+test("ponovni izbor čuva izrenderirane reelove i njihov rang", () => {
+    const { keepRendered } = require("./select_reels");
+    const prev = { reels: [
+        { rank: 1, start_sec: 100, end_sec: 160, title: "A", render: { url: "u1" } },
+        { rank: 2, start_sec: 300, end_sec: 360, title: "B", render: { file: "2.mp4" } },
+        { rank: 3, start_sec: 500, end_sec: 560, title: "C" },
+    ] };
+    const fresh = [
+        { rank: 1, start_sec: 120, end_sec: 180, title: "preklop s A" },
+        { rank: 2, start_sec: 700, end_sec: 760, title: "N1" },
+        { rank: 3, start_sec: 900, end_sec: 960, title: "N2" },
+    ];
+    const { reels, rejected } = keepRendered(prev, fresh, [], 3);
+    assert.deepEqual(reels.map(r => `${r.rank}:${r.title}`), ["1:A", "2:B", "3:N1"]);
+    assert.equal(reels[0].render.url, "u1");
+    assert.match(rejected[0].reason, /izrenderiranim „A"/);
+    // bez prethodnog rendera izbor prolazi netaknut
+    assert.deepEqual(keepRendered(null, fresh, [], 8).reels, fresh);
+});
