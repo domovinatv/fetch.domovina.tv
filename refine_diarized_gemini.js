@@ -64,6 +64,7 @@ const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
 const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
+const { detectDrift } = require("./lib/refine_drift");
 
 // ─── .env (SPEECHMATICS se ne treba, ali VERTEX_* smije doći odavde) ───
 function loadEnv() {
@@ -599,7 +600,16 @@ async function processFile(audioPath, work) {
     }
 
     const t0 = Date.now();
-    const stats = { accepted: 0, repaired: 0, fallback: 0, emptied: 0, halved: 0 };
+    const stats = { accepted: 0, repaired: 0, fallback: 0, emptied: 0, halved: 0, drift_windows: 0, drift_fallback: 0 };
+
+    // Ograda pomaka id-a (26.10.2026., ja70p_gJWZA): model zna točne riječi upisati pod
+    // id SLJEDEĆEG segmenta i zaostatak raste kroz prozor. Pokrivenost riječi to ne vidi
+    // (riječi ima dovoljno), pa se tekst svakog segmenta uspoređuje s kosturom svog i
+    // susjednih id-ova. Vraća indekse (iz `idx`) koji su u nizu pomaka.
+    const driftIn = (idx) => {
+        const { suspect } = detectDrift(idx.map((j) => segments[j].refined || ""), idx.map((j) => segments[j].text));
+        return [...suspect].map((k) => idx[k]);
+    };
     let repairsLeft = MAX_REPAIRS;
 
     // Jedan prozor; vraća mapu id → tekst. Na blokadi/krnjem izlazu raspolovi.
@@ -717,7 +727,42 @@ async function processFile(audioPath, work) {
             await sleep(REQUEST_DELAY_MS);
         }
 
+        // Pomak id-a: jedan ponovni pokušaj u dvije polovice (kraći prozor manje „klizi"),
+        // a što i dalje klizi pada na kostur. Kostur ima točna vremena riječi, pa je
+        // lošiji tekst na pravom mjestu bolji od dobrog teksta na krivom.
+        let drifted = driftIn(win.idx);
+        if (drifted.length) {
+            stats.drift_windows++;
+            process.stdout.write(`      ↪️  pomak id-a u ${drifted.length} seg — ponavljam prozor u dvije polovice …`);
+            const mid = Math.ceil(win.idx.length / 2);
+            const halves = [win.idx.slice(0, mid), win.idx.slice(mid)].filter((h) => h.length);
+            try {
+                for (const h of halves) {
+                    const byHalf = await runWindow({ od: segments[h[0]].start, do: segments[h[h.length - 1]].end, idx: h }, 1);
+                    for (const j of h) {
+                        const got = byHalf.get(j);
+                        if (typeof got !== "undefined" && got.trim()) segments[j].refined = got.trim();
+                    }
+                    await sleep(REQUEST_DELAY_MS);
+                }
+            } catch (err) {
+                process.stdout.write(` ❌ ${err.message}`);
+            }
+            drifted = driftIn(win.idx);
+            for (const j of drifted) segments[j].refined = null;
+            stats.drift_fallback += drifted.length;
+            console.log(drifted.length ? ` ${drifted.length} seg na kosturu` : " riješeno");
+        }
+
         await sleep(REQUEST_DELAY_MS);
+    }
+
+    // Isti test nad cijelom epizodom: hvata niz koji prelazi granicu prozora.
+    {
+        const all = segments.map((_, j) => j);
+        const drifted = driftIn(all).filter((j) => segments[j].refined !== null);
+        for (const j of drifted) segments[j].refined = null;
+        stats.drift_fallback += drifted.length;
     }
 
     // ─── Sklapanje: sigurnosni pod je UVIJEK Speechmatics tekst ───
@@ -756,7 +801,7 @@ async function processFile(audioPath, work) {
     };
     fs.writeFileSync(outMeta, JSON.stringify(meta, null, 2), "utf-8");
 
-    console.log(`   ✅ ${stats.accepted} prihvaćeno · ${stats.repaired} popravljeno · ${stats.fallback} na kosturu (${SK.label}) · ${stats.halved} raspolavljanja`);
+    console.log(`   ✅ ${stats.accepted} prihvaćeno · ${stats.repaired} popravljeno · ${stats.fallback} na kosturu (${SK.label}) · ${stats.halved} raspolavljanja · ${stats.drift_fallback} pomaknutih na kosturu (${stats.drift_windows} prozora)`);
     console.log(`   📝 ${baseWords} → ${refinedWords} riječi · ${fmtDur(elapsed)} · ≈$${usage.usd.toFixed(4)}`);
     console.log(`      → ${path.basename(outSrt)}`);
 

@@ -278,6 +278,7 @@ sekundi** zvuka (60 s → 1500 tokena).
 | `maxOutputTokens` vezan uz duljinu natuknice | fiksnih 8192 je u izvornom eksperimentu bila kriva pretpostavka (stvarni strop je 65 536) |
 | raspolavljanje prozora na blokadi | mjereno drugdje: 3/6 prozora `blockReason: OTHER` nedeterministično, isti zvuk drugdje prođe |
 | ponovljeni `id` se **spaja**, ne pregazi | model zna podijeliti segment u dva zapisa |
+| **ograda pomaka id-a** (od 27.10.) | model zna točne riječi upisati pod id SLJEDEĆEG segmenta, zaostatak raste kroz prozor; pokrivenost to ne vidi. `lib/refine_drift.js`, vidi `docs/2026-10-27-gemini-sluh-pomak-id.md` |
 
 ### 3.3 Zašto promocija nije automatska
 
