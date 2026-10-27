@@ -1523,7 +1523,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     OG_IMAGE_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
+node "$SCRIPT_DIR/generate_og_image.js" "${OG_IMAGE_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG image varijanti, nastavljam..."
 }
 
@@ -1555,7 +1555,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     WEBP_THUMB_ARGS+=("--dry-run")
 fi
 
-node "$SCRIPT_DIR/generate_webp_thumbs.js" "${WEBP_THUMB_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
+node "$SCRIPT_DIR/generate_webp_thumbs.js" "${WEBP_THUMB_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju WebP thumbnail varijanti, nastavljam..."
 }
 
@@ -1625,7 +1625,7 @@ if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
     OG_SECTIONS_ARGS+=("--dry-run")
 fi
 
-"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_CHANNEL_ARGS[@]}" || {
+"$PYTHON_BIN" "$SCRIPT_DIR/generate_og_sections.py" "${OG_SECTIONS_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri generiranju OG-sections composite-a, nastavljam..."
 }
 

@@ -677,6 +677,7 @@ def main():
     parser = argparse.ArgumentParser(description='Generate per-section OG composite images')
     parser.add_argument('--input-dir', default='storage/output')
     parser.add_argument('--channel', default=None, help='Filter na samo taj kanal')
+    parser.add_argument('--video-id', default=None, help='Samo taj video (prioritetni slot)')
     parser.add_argument('--limit', type=int, default=None, help='Procesiraj max N videa')
     parser.add_argument('--force', action='store_true', help='Regeneriraj sve')
     parser.add_argument('--dry-run', action='store_true', help='Ispis bez pisanja')
@@ -717,6 +718,8 @@ def main():
 
     for ch_name, ch_dir in channels:
         videos = discover_videos(ch_dir)
+        if args.video_id:
+            videos = [v for v in videos if args.video_id in v['video_base']]
         if not videos:
             continue
         log('📺', f'{ch_name} — {len(videos)} videa')

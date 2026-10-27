@@ -11,8 +11,8 @@
 # Lockovi (2026-10-19): Magisterium ima SVOJ mutex (.magisterium.lock.d) za cijeli tick, pa
 # dva Magisterium runa nikad ne idu istovremeno (MCP chat je sekvencijalan, 15 req/min), a
 # prioritetni single-video runovi ga više ne blokiraju satima. Dijeljeni pipeline lock uzima
-# samo objava (runbook korak 7: channel index + R2) kroz with_pipeline_lock.sh — tamo je bio
-# stvarni race s nightly/priority publishom nad istim kanalom. Noćni bulk drži pipeline lock
+# samo objava (runbook korak 7: channel index + R2) kroz with_pipeline_lock.sh — od 27.10. je to
+# uski publish lock (sekunde), pa prioritetni slotovi objavu više ne blokiraju. Noćni bulk drži pipeline lock
 # satima, pa za njegova trajanja tick i dalje preskačemo (objava bi čekala dulje od timeouta).
 # Sve NE-fatalno: bez PIPELINE_QUEUE_INGEST_KEY u .env → poller soft-exit 0.
 

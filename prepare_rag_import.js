@@ -27,6 +27,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const atomicJson = require("./lib/atomic_json");
 
 // ─── PARSIRANJE ARGUMENATA ──────────────────────────────────────
 
@@ -123,23 +124,11 @@ function resolveDiarizedSrt(canarySrtPath) {
 }
 
 function loadDoneState(baseDir) {
-    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
-    try {
-        if (fs.existsSync(statePath)) {
-            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
-            return new Set(Array.isArray(data.completed) ? data.completed : []);
-        }
-    } catch (e) {
-        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
-    }
-    return new Set();
+    return atomicJson.loadDoneState(path.join(baseDir, DONE_STATE_FILENAME));
 }
 
 function saveDoneState(baseDir, doneSet) {
-    const statePath = path.join(baseDir, DONE_STATE_FILENAME);
-    const tempPath = statePath + ".tmp";
-    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
-    fs.renameSync(tempPath, statePath);
+    atomicJson.saveDoneState(path.join(baseDir, DONE_STATE_FILENAME), doneSet);
 }
 
 // ─── SRT PARSER ─────────────────────────────────────────────────

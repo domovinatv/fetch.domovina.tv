@@ -43,6 +43,7 @@
 
 const fs    = require('fs');
 const path  = require('path');
+const { writeFileAtomic } = require('./lib/atomic_json');
 const https = require('https');
 const http  = require('http');
 
@@ -121,7 +122,7 @@ function writeJsonStable(filePath, data, space) {
         data.generated_at = prev.generated_at;
         return false;
     }
-    fs.writeFileSync(filePath, JSON.stringify(data, null, space), 'utf-8');
+    writeFileAtomic(filePath, JSON.stringify(data, null, space));
     return true;
 }
 

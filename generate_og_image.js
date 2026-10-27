@@ -170,6 +170,9 @@ function discoverChannels(inputDir, channelFilter) {
 async function main() {
     const inputDir = getArg("--input-dir") || DEFAULT_INPUT_DIR;
     const channelFilter = getArg("--channel");
+    // --video-id: samo taj video (prioritetni slot) — paralelni run ne smije generirati
+    // tuđe slike u isti fajl.
+    const videoIdFilter = getArg("--video-id");
     const limitArg = getArg("--limit");
     const limit = limitArg ? parseInt(limitArg, 10) : null;
     const dryRun = hasFlag("--dry-run");
@@ -202,7 +205,8 @@ async function main() {
     let processed = 0;
 
     for (const channel of channels) {
-        const thumbs = discoverThumbnails(channel.dir);
+        const thumbs = discoverThumbnails(channel.dir)
+            .filter(t => !videoIdFilter || path.basename(t.pngPath).includes(videoIdFilter));
         if (thumbs.length === 0) continue;
 
         log("📺", `${channel.name} — ${thumbs.length} thumbnail(a)`);

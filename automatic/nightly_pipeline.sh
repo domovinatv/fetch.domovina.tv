@@ -278,8 +278,30 @@ fi
 # Diarize ide PRIJE summary/article u istom prolazu → nove epizode s pristiglim
 # .canary.srt (Colab) dobiju .canary.diarized.srt pa odmah idu kroz AI sloj.
 # PROXY_ARGS je prazan ako probe nije našao živ iPhone proxy (guard za set -u + bash 3).
-# Dijeljeni mutex: pričekaj da prioritetni fast-path (ako radi) završi run_pipeline, pa preuzmi.
+# Dijeljeni mutex: uzmi globalni lock (od 27.10. ga prioritetni slotovi više ne drže), pa
+# pričekaj da završe slotovi koji već rade i objava u tijeku. Dok globalni lock postoji,
+# priority_pipeline.sh ne otvara nove slotove, a with_pipeline_lock.sh ne objavljuje.
 acquire_pipeline_lock wait
+export PIPELINE_GLOBAL_HOLDER=$$
+wait_priority_slots() {
+    local deadline=$(( $(date +%s) + ${NIGHTLY_SLOT_WAIT_S:-10800} )) announced=0 busy d pid
+    while true; do
+        busy=""
+        for d in "$LOG_DIR/.priority.d"/slot-* "$LOG_DIR/.publish.lock.d"; do
+            [ -d "$d" ] || continue
+            pid="$(cat "$d/pid" 2>/dev/null || echo "")"
+            if [ -z "$pid" ] || kill -0 "$pid" 2>/dev/null; then busy="$busy $(basename "$d")"; fi
+        done
+        [ -z "$busy" ] && return 0
+        if [ "$(date +%s)" -ge "$deadline" ]; then
+            echo "⚠️  i dalje zauzeto ($busy) nakon ${NIGHTLY_SLOT_WAIT_S:-10800}s — krećem svejedno."
+            return 0
+        fi
+        [ "$announced" = 0 ] && echo "⏳ čekam prioritetne slotove / objavu:$busy" && announced=1
+        sleep 30
+    done
+}
+wait_priority_slots
 # --gemini-backend claude + CLAUDE_MODEL=opus (2026-07-29): koraci 7+8 za SVE nove
 # epizode idu preko Claude Opusa (pretplata) umjesto Gemini Flasha — odluka nakon
 # incidenta atribucije imena (Ivan Voras / cb4CsFDCDho): Flash je prekršio strict
@@ -353,14 +375,17 @@ run_step "run_pipeline.sh (faza A + faza B)" \
 run_step "auto_reuse_adhoc.js --sweep" \
     node "$REPO_DIR/auto_reuse_adhoc.js" --sweep || true
 release_pipeline_lock
+unset PIPELINE_GLOBAL_HOLDER
 
 # ─── 2. CHANNEL INDEX REGEN ───────────────────────────────────────
+# Pod publish lockom (with_pipeline_lock.sh): globalni je već otpušten, a prioritetni slot
+# (auto_reuse reindex) ili Magisterium objava pišu isti storage/meta.
 run_step "generate_channel_index.js" \
-    node "$REPO_DIR/generate_channel_index.js" || true
+    "$SCRIPT_DIR/with_pipeline_lock.sh" node "$REPO_DIR/generate_channel_index.js" || true
 
 # ─── 3. META UPLOAD (channels/data/* na CDN) ──────────────────────
 run_step "upload_to_r2.js --meta-dir storage/meta" \
-    node "$REPO_DIR/upload_to_r2.js" --meta-dir storage/meta || true
+    "$SCRIPT_DIR/with_pipeline_lock.sh" node "$REPO_DIR/upload_to_r2.js" --meta-dir storage/meta || true
 
 # ─── 3.5 KONVERGENCIJSKI AUDIT (disk vs R2, samo izvještaj) ─────────
 # `count_progress.js` broji datoteke i zato je 26 noći pokazivao 100 % dok je

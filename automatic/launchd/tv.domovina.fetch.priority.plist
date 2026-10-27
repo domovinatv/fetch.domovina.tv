@@ -56,6 +56,12 @@
     <key>ProcessType</key>
     <string>Standard</string>
 
+    <!-- Tick (dispatcher) izlazi odmah, a worker slota (priority_worker.sh) radi 30–60 min:
+         launchd ga ne smije ubiti s grupom procesa ticka. Worker je i u vlastitoj sesiji
+         (setsid), ovo je drugi pojas. -->
+    <key>AbandonProcessGroup</key>
+    <true/>
+
     <!-- StartInterval već re-launcha; ne treba respawn-on-exit. -->
     <key>KeepAlive</key>
     <false/>

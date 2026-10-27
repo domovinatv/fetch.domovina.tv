@@ -145,7 +145,10 @@ function publish() {
         ["node", [path.join(__dirname, "generate_channel_index.js")]],
         ["node", [path.join(__dirname, "upload_to_r2.js"), "--meta-dir", path.join(__dirname, "storage", "meta")]],
     ]) {
-        const r = spawnSync(cmd[0], cmd[1], { cwd: __dirname, stdio: "inherit" });
+        // Pod publish lockom: od 27.10. prioritetni slotovi rade paralelno i bez globalnog
+        // locka, a reindex piše isti storage/meta kao Magisterium objava i nightly.
+        const withLock = path.join(__dirname, "automatic", "with_pipeline_lock.sh");
+        const r = spawnSync(withLock, [cmd[0], ...cmd[1]], { cwd: __dirname, stdio: "inherit" });
         if (r.status !== 0) console.error(`   ⚠️ ${path.basename(cmd[1][0])} exit ${r.status} — nightly KORAK 13 će nadoknaditi.`);
     }
 }

@@ -43,6 +43,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { writeFileAtomic } = require("./lib/atomic_json");
 const crypto = require("crypto");
 
 // ─── .env UČITAVANJE (ručno, mirror upload_to_r2.js — bez dotenv dependency) ───
@@ -215,7 +216,7 @@ function loadState() {
 }
 
 function saveState(ids) {
-    try { fs.writeFileSync(STATE_PATH, JSON.stringify({ v: 1, ids }), "utf-8"); } catch { /* nije kritično */ }
+    try { writeFileAtomic(STATE_PATH, JSON.stringify({ v: 1, ids: { ...loadState(), ...ids } })); } catch { /* nije kritično */ }
 }
 
 // ─── MAIN ─────────────────────────────────────────────────────────────────

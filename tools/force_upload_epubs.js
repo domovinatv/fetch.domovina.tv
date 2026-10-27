@@ -33,6 +33,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { writeFileAtomic } = require("../lib/atomic_json");
 
 const ROOT = path.join(__dirname, "..");
 
@@ -257,7 +258,7 @@ async function main() {
             const fresh = JSON.parse(fs.readFileSync(KEYS_CACHE, "utf8"));
             fresh.sizes = fresh.sizes || {};
             for (const j of sent) fresh.sizes[j.key] = j.size;
-            fs.writeFileSync(KEYS_CACHE, JSON.stringify(fresh));
+            writeFileAtomic(KEYS_CACHE, JSON.stringify(fresh));
             console.log(`🗂️  keys-cache ažuriran (${sent.length})`);
         } catch (e) {
             console.log(`⚠️  keys-cache nije ažuriran: ${e.message} — idući prolaz ih šalje ponovno (bezopasno)`);

@@ -39,6 +39,7 @@
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
+const atomicJson = require("./lib/atomic_json");
 const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
 const { execSync, spawn } = require("child_process");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
@@ -1100,23 +1101,11 @@ function parseArgs() {
 const DONE_STATE_FILENAME = "summarize-done.json";
 
 function loadDoneState(inputDir) {
-    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
-    try {
-        if (fs.existsSync(statePath)) {
-            const data = JSON.parse(fs.readFileSync(statePath, "utf-8"));
-            return new Set(Array.isArray(data.completed) ? data.completed : []);
-        }
-    } catch (e) {
-        console.error(`   ⚠️  Neispravan done-state: ${statePath} — rebuildam cache`);
-    }
-    return new Set();
+    return atomicJson.loadDoneState(path.join(inputDir, DONE_STATE_FILENAME));
 }
 
 function saveDoneState(inputDir, doneSet) {
-    const statePath = path.join(inputDir, DONE_STATE_FILENAME);
-    const tempPath = statePath + ".tmp";
-    fs.writeFileSync(tempPath, JSON.stringify({ completed: [...doneSet] }, null, 2));
-    fs.renameSync(tempPath, statePath);
+    atomicJson.saveDoneState(path.join(inputDir, DONE_STATE_FILENAME), doneSet);
 }
 
 // ─── DISCOVERY: PRONAĐI SVE DATOTEKE ZA OBRADU ──────────────────

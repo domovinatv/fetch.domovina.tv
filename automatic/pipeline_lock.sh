@@ -21,6 +21,13 @@ acquire_pipeline_lock() {   # $1 = wait|nowait (default wait)
         # Zauzet — je li holder još živ?
         local holder
         holder="$(cat "$PIPELINE_LOCK/pid" 2>/dev/null || echo "")"
+        # Prazan pid u svježem direktoriju = holder je upravo napravio mkdir i još nije
+        # upisao pid (s više slotova/objava ta rupa više nije teorijska) → zauzet.
+        if [ -z "$holder" ] && [ $(( $(date +%s) - $(stat -f %m "$PIPELINE_LOCK" 2>/dev/null || echo 0) )) -lt 30 ]; then
+            [ "$mode" = "nowait" ] && return 1
+            sleep 5
+            continue
+        fi
         if [ -z "$holder" ] || ! kill -0 "$holder" 2>/dev/null; then
             echo "ℹ️  stale pipeline lock (PID '${holder:-?}' mrtav) — preuzimam."
             rm -rf "$PIPELINE_LOCK"

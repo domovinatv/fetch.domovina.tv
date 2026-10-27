@@ -89,6 +89,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { writeFileAtomic } = require("./lib/atomic_json");
 const crypto = require("crypto");
 const { execSync, spawn } = require("child_process");
 
@@ -286,9 +287,12 @@ function loadMd5Cache() {
     return {};
 }
 
+// Spajanje s diskom: paralelni run (drugi prioritetni slot, Magisterium objava) je mogao
+// u međuvremenu dopisati svoje unose — bez toga bi ih ovaj run prepisao.
 function saveMd5Cache(cache) {
     try {
-        fs.writeFileSync(MD5_CACHE_PATH, JSON.stringify(cache), "utf-8");
+        const merged = { ...loadMd5Cache(), ...cache };
+        writeFileAtomic(MD5_CACHE_PATH, JSON.stringify(merged));
     } catch { /* disk full ili permissions — nije kritično */ }
 }
 
@@ -350,11 +354,17 @@ function loadKeysCache() {
     return null;
 }
 
-function saveKeysCache(keyMap) {
+// merge=false samo kad je keyMap svjež LIST bucketa (autoritativno stanje R2). Inače se
+// spaja s diskom, jer je paralelni run mogao dopisati ključeve koje ovaj nema.
+function saveKeysCache(keyMap, { merge = true } = {}) {
     try {
         const sizes = {};
+        if (merge) {
+            const disk = loadKeysCache();
+            if (disk) for (const [k, v] of disk) sizes[k] = v;
+        }
         for (const [k, v] of keyMap) sizes[k] = v;
-        fs.writeFileSync(KEYS_CACHE_PATH, JSON.stringify({ v: 2, sizes }), "utf-8");
+        writeFileAtomic(KEYS_CACHE_PATH, JSON.stringify({ v: 2, sizes }));
     } catch { /* disk full ili permissions — nije kritično */ }
 }
 
@@ -1367,7 +1377,7 @@ if (inputDir) {
                 ? `--verify-r2: LIST svih R2 ključeva (rebuild cache, paginirano)...`
                 : `Nema keys-cache-a — LIST svih R2 ključeva (seed cache, paginirano)...`);
             remoteKeySet = await listAllR2Keys(client);
-            saveKeysCache(remoteKeySet);   // seed je čisti R2-read → spremi i u dry-run
+            saveKeysCache(remoteKeySet, { merge: false });   // seed je čisti R2-read → spremi i u dry-run
             log("📊", `R2 sadrži ${remoteKeySet.size} ključeva ukupno (cache osvježen)`);
         }
 

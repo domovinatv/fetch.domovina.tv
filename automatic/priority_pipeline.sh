@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# priority_pipeline.sh — prioritetni fast-path tick (launchd StartInterval, npr. 90s).
+# priority_pipeline.sh — prioritetni DISPATCHER (launchd StartInterval 90 s).
 #
-# Claima prioritetne jobove iz pipeline.domovina.ai i za svaki odmah pokrene PUNI
-# single-video pipeline s Modal transkripcijom (~10-15 min do domovina.ai članka).
-# Standard jobovi ostaju na noćnom Colab bulku (nightly_pipeline.sh, 03:00).
-#
-# Ustupa noćnom bulku preko dijeljenog mutexa (pipeline_lock.sh): ako je run_pipeline
-# već zauzet (nightly ili prethodni priority tick) → preskoči ovaj tick i probaj za 90s.
+# Od 27.10.2026. više prioritetnih videa ide PARALELNO (docs: pipeline.domovina.ai
+# docs/2026-10-27-paralelna-obrada.md). Svaki tick:
+#   1. nightly / ručni bulk drži globalni lock (.pipeline.lock.d) → ne otvara slot
+#   2. traži slobodan slot logs/.priority.d/slot-1..PRIORITY_SLOTS (default 2); slot 2+
+#      samo uz ≥ PRIORITY_MIN_FREE_GB slobodnog diska (default 25)
+#   3. u slotu pokrene priority_worker.sh u VLASTITOJ sesiji (setsid), koji claima 1 job i
+#      vrti PUNI single-video pipeline (~30–60 min) — tick odmah izlazi
+#   4. reconcile (article.json live na CDN → done)
+# Najviše jedan novi worker po ticku: claimovi su ≥90 s razmaknuti (dnevni budžet, yt-dlp).
+# launchd ne pali novi tick dok stari živi — zato worker NE smije biti dijete ticka koje
+# launchd ubije na izlazu (setsid + AbandonProcessGroup u plistu).
 # Sve NE-fatalno: bez PIPELINE_QUEUE_INGEST_KEY u .env → poller soft-exit 0.
 
 set -e
@@ -38,26 +43,51 @@ find "$LOG_DIR" -name 'priority_*.log' -type f -mtime +14 -delete 2>/dev/null ||
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
 
 BRIDGE="${PIPELINE_QUEUE_BRIDGE_DIR:-$REPO_DIR/../pipeline.domovina.ai/bridge}"
-PIPELINE_LOCK="$LOG_DIR/.pipeline.lock.d"
+
+SLOTS="${PRIORITY_SLOTS:-2}"
+MIN_FREE_GB="${PRIORITY_MIN_FREE_GB:-25}"
+SLOT_DIR="$LOG_DIR/.priority.d"
+GLOBAL_LOCK="$LOG_DIR/.pipeline.lock.d"
+mkdir -p "$SLOT_DIR"
 # shellcheck source=/dev/null
 . "$SCRIPT_DIR/pipeline_lock.sh"
 
-# Prioritet USTUPA noćnom bulku: zauzet lock → preskoči tick (probat ćemo za 90s).
-if ! acquire_pipeline_lock nowait; then
-    echo "$(date '+%F %T') ⏭️  pipeline lock zauzet (nightly/priorno) — preskačem tick."
+reconcile() { [ -f "$BRIDGE/reconcile.js" ] && node "$BRIDGE/reconcile.js" || true; }
+
+# 1. Nightly/bulk (živ holder globalnog locka, ili upravo uzet) → prioritet ustupa.
+if [ -d "$GLOBAL_LOCK" ]; then
+    holder="$(cat "$GLOBAL_LOCK/pid" 2>/dev/null || echo "")"
+    if [ -z "$holder" ] || kill -0 "$holder" 2>/dev/null; then
+        echo "$(date '+%F %T') ⏭️  nightly/bulk drži pipeline lock — ne otvaram slot."
+        exit 0
+    fi
+fi
+
+# 2. Slobodan slot.
+free_gb="$(df -g "$REPO_DIR" | awk 'NR==2 {print $4}')"
+slot=""
+busy=""
+for k in $(seq 1 "$SLOTS"); do
+    if [ "$k" -gt 1 ] && [ "${free_gb:-0}" -lt "$MIN_FREE_GB" ]; then
+        [ -z "$slot" ] && busy="$busy (slot $k+: disk ${free_gb} GB < ${MIN_FREE_GB} GB)"
+        break
+    fi
+    PIPELINE_LOCK="$SLOT_DIR/slot-$k"
+    if acquire_pipeline_lock nowait; then slot="$k"; break; fi
+    busy="$busy slot-$k"
+done
+
+if [ -z "$slot" ]; then
+    echo "$(date '+%F %T') ⏭️  nema slobodnog slota:$busy"
+    reconcile
     exit 0
 fi
-trap 'release_pipeline_lock' EXIT INT TERM
 
-echo ""
-echo "$(date '+%F %T') ⚡ ─── PRIORITY TICK START ───"
-# Poller po uspješnom jobu poziva i auto_reuse_adhoc.js --video-id (reuse ad-hoc
-# obrade u channel dir praćenog kanala + reindex SAMO kad je nešto kopirano) —
-# sve unutar ovog ticka, tj. pod pipeline lockom koji već držimo.
-# CLAUDE_WINDOW_GUARD se nasljeđuje kroz priority_poller.js (env: {...process.env}) do
-# koraka 7+8. Preko dana arbitar propušta, pa ad-hoc zahtjevi nisu sporiji; blokira samo
-# ~03:20–08:30 da tick u 07:50 ne otvori prozor kvote. Vidi launchd-menubar/SCHEDULING.md.
-[ -f "$BRIDGE/priority_poller.js" ] && CLAUDE_WINDOW_GUARD=1 node "$BRIDGE/priority_poller.js" || echo "   ⚠️ nema priority_poller.js — preskačem."
-# Javi gotove (article.json live na CDN → done + detail_url) odmah.
-[ -f "$BRIDGE/reconcile.js" ] && node "$BRIDGE/reconcile.js" || true
-echo "$(date '+%F %T') ⚡ ─── PRIORITY TICK DONE ───"
+# 3. Worker u vlastitoj sesiji (preživi izlazak ticka); pid workera preuzima slot.
+PRIORITY_SLOT="$slot" PRIORITY_SLOT_LOCK="$SLOT_DIR/slot-$slot" PRIORITY_LOG_FILE="$LOG_FILE" BRIDGE="$BRIDGE" \
+    perl -MPOSIX -e 'POSIX::setsid(); exec @ARGV' bash "$SCRIPT_DIR/priority_worker.sh" </dev/null >/dev/null 2>&1 &
+echo "$!" > "$SLOT_DIR/slot-$slot/pid"
+echo "$(date '+%F %T') ⚡ slot $slot → worker PID $! (disk ${free_gb} GB slobodno)"
+
+# 4. Javi gotove.
+reconcile
