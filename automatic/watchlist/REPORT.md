@@ -1,6 +1,6 @@
 # Praćenje kandidata (watch-only)
 
-Generirano 2026-10-27 14:41 UTC skriptom `automatic/watch_candidates.js`.
+Generirano 2026-10-27 14:49 UTC skriptom `automatic/watch_candidates.js`.
 Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = epizode otkrivene NAKON baselinea.
 
 **455 kanala** · 🟢 190 aktivno (original ≤30 d) · 🟡 44 usporava (≤120 d) · 🔴 221 uspavano · ⚪ 0 nepoznato · ⛔ 0 bez ijednog originala (vjerojatno nije podcast ili treba pravilo) · ⚠️ 0 greška
@@ -70,6 +70,17 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 2026-10-27 | hrt-veterani-mira | 26 | [Veterani mira: Veza u ratu - kibernetička sigurnost u miru](https://youtu.be/2ujuUg5acCs) |
 | 2026-10-27 | hrt-na-rubu-znanosti | 49 | [Na rubu znanosti: Izvantjelesno iskustvo i Institut Monroe](https://youtu.be/LKMayqwCnY0) |
 | 2026-10-27 | hrt-pozitivno | 30 | [Pozitivno: Ángel González de Rábago](https://youtu.be/k9EGdyMXNXQ) |
+| 2026-10-27 | bez-pardona | 86 | [Josipa Lisac BEZ PARDONA](https://youtu.be/QeEa-o6e9bc) |
+| 2026-10-27 | eduza-show | 84 | [4 greške uslužnih firmi koje elegantno rješava tehnologija / Laura Plantak](https://youtu.be/cPSZXjrrgyk) |
+| 2026-10-27 | prvi-glas-telegram | 23 | [Vučić pometen: Studenti kreću u najopasniju misiju](https://youtu.be/ySgK3rfWS98) |
+| 2026-10-27 | vedran-soric-podcast | 53 | [S4F_2025 - Karim Rashid](https://youtu.be/8PTSsnpzdoY) |
+| 2026-10-27 | vedran-soric-podcast | 48 | [S4F_2025 - Amelia Sordel](https://youtu.be/CqlYjOKYTlc) |
+| 2026-10-27 | vedran-soric-podcast | 41 | [S4F_2025 - Panel: Dražen Forgač & Vaso Bakočević](https://youtu.be/9X9-jB2_uZQ) |
+| 2026-10-27 | vox-medicus | 26 | [PRVI POROD BEZ PANIKE, Erika Spirić, bacc. obs., primalja](https://youtu.be/Nq1jfq-OQew) |
+| 2026-10-27 | hajducka-storija | 18 | [Ispuštena dva gola prednosti / DOJMOVI NA DRUGU](https://youtu.be/CEhv20a6HuU) |
+| 2026-10-27 | nadji-nacin | 33 | [Svi izazovi i benefiti proizvodnog biznisa (uz 2 male djece)](https://youtu.be/JoMWbLkKNGA) |
+| 2026-10-27 | samo-hajduk | 65 | [Samo Hajduk Podcast #53: Zašto Garcia mrzi zamjene? / 11. kolo vs Istra](https://youtu.be/mKtp6lyLzzM) |
+| 2026-10-27 | laudato-more-milosrda | 85 | [Susret s papom Lavom XIV. │More Milosrđa](https://youtu.be/0B-S7LC7UwQ) |
 | 2026-10-26 | actualitica-podcast | 41 | [Actualitica Podcast #74 – Marinko Ogorec: Ukrajina, Iran i budućnost ratovanja](https://youtu.be/OK9lubx7k-k) |
 | 2026-10-26 | all-things-croatia | 34 | [Petra Bandula Plays for Mizzou and Croatia's U19 Women's Team!](https://youtu.be/s7llKJUr4ws) |
 | 2026-10-26 | ana-radisic-podcast | 32 | [Što Nikada Ne Treba Objaviti: Koliko Privatnosti Treba Žrtvovati Za Autentičnost](https://youtu.be/6Bf0DqHMUVc) |
@@ -78,29 +89,18 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 2026-10-26 | podcast-inkubator | 75 | [Podcast Inkubator #1504 - Rale i Mrle](https://youtu.be/H7zu9fsS9h4) |
 | 2026-10-26 | ril-tok-podcast | 133 | [Ril Tok Podcast #204 - MACA](https://youtu.be/LTi76U--Rm4) |
 | 2026-10-26 | sbs-croatian | 49 | [Program SBS-a na hrvatskom za ponedjeljak, 26.10.2026.](https://youtu.be/nMuQ3r0LtEU) |
-| 2026-10-26 | tribina-weitzermania | 106 | [Dino Štiglec / Weitzermania #12](https://youtu.be/_Sk-Vyw8toQ) |
-| 2026-10-26 | vedran-soric-podcast | 50 | [KADA KVALITETA  POSTAJE PRIORITET? // Kata Pavlović](https://youtu.be/gfQm_Ihv97w) |
-| 2026-10-26 | vrijeme-za-zdravlje-s-doktorom-za-srce | 33 | [Vrijeme za zdravlje s Doktorom za srce: KARDIOLOGIJA I TELEMEDICINA](https://youtu.be/B0-WvlRQHxQ) |
-| 2026-10-26 | pomalo-too-much | 59 | [pomalo too much: Je li u tebi problem? Priče iz stvarnog života](https://youtu.be/02fJK_3-uv4) |
-| 2026-10-26 | osvrtnik | 95 | [Ostao sam bez glasa, Srbija srećom nije -  SND](https://youtu.be/Lk6gbxySezY) |
-| 2026-10-26 | best-food-croatia | 43 | [Ivana Petrović: „Kad sam to vidjela, pustila sam suzu” / Restoran Tomassino – Sh](https://youtu.be/PLSS9gwJwIA) |
-| 2026-10-26 | nlo-arhivist | 52 | [Astronomi i AATIP 69: Radonić, Korlević, Jelić i Aleksić komentiraju izjavu Obam](https://youtu.be/op8GkXc9u8Q) |
-| 2026-10-26 | kontrapovijest-by-hrvoje-klasic | 30 | [Kontrapovijest by Hrvoje Klasić #75 – Ankica Čakardić – Tko su bili kritičari sv](https://youtu.be/y2ZPOW0zBGc) |
-| 2026-10-26 | generacija-plus | 48 | [Mogu li saznati Božju volju za svoj život? Razlučivanje 101│Generacija plus S04E](https://youtu.be/4dUWmK5K5C4) |
-| 2026-10-25 | denis-podcast | 80 | [#279 - Dragoslav Stepanović :"Skoblar je bio bolji od Džajića"](https://youtu.be/kx636VkPtzI) |
-| 2026-10-25 | felix-contras | 37 | [Robert Šimrak: Kuća u Veneciji umjesto tenka, i zašto Hrvatska zaboravlja svoje ](https://youtu.be/OqoPDRtAByY) |
 
 ## Kanali
 
 | status | kanal | zadnji original | originala 90 d | novih od baselinea | derivata % | prag min |
 |---|---|---|---|---|---|---|
-| 🟢 aktivan | More milosrđa (Laudato) `laudato-more-milosrda` | 20261014 (13 d) | 3 | 28 | 16 | 53 |
+| 🟢 aktivan | More milosrđa (Laudato) `laudato-more-milosrda` | 20261027 (0 d) | 4 | 29 | 16 | 53 |
 | 🟢 aktivan | Život i zdravlje (Laudato) `laudato-zivot-i-zdravlje` | 20260927 (30 d) | 1 | 28 | 3 | 22 |
-| 🟢 aktivan | Prvi glas (Telegram.hr) `prvi-glas-telegram` | 20261026 (1 d) | 44 | 22 | 1 | 15 ✎ |
-| 🟢 aktivan | SBS Croatian `sbs-croatian` | 20261027 (0 d) | 30 | 19 | 81 | 40 ✎ |
+| 🟢 aktivan | Prvi glas (Telegram.hr) `prvi-glas-telegram` | 20261027 (0 d) | 45 | 23 | 1 | 15 ✎ |
+| 🟢 aktivan | SBS Croatian `sbs-croatian` | 20261027 (0 d) | 30 | 19 | 82 | 40 ✎ |
+| 🟢 aktivan | Hajdučka štorija `hajducka-storija` | 20261027 (0 d) | 33 | 15 | 64 | 15 |
 | 🟢 aktivan | Ofenziva - Sportski podcast `ofenziva-sportski-podcast` | 20261026 (1 d) | 30 | 15 | 19 | 30 ✎ |
 | 🟢 aktivan | Podcast Inkubator `podcast-inkubator` | 20261025 (2 d) | 37 | 14 | 86 | 48 ✎ |
-| 🟢 aktivan | Hajdučka štorija `hajducka-storija` | 20261026 (1 d) | 32 | 14 | 65 | 15 |
 | 🟢 aktivan | Atma `atma-podcast` | 20261026 (1 d) | 26 | 13 | 74 | 30 ✎ |
 | 🟢 aktivan | Ideje.hr `ideje-hr` | 20261025 (2 d) | 22 | 13 | 0 | 20 ✎ |
 | 🟢 aktivan | Podcast s Brezom `podcast-s-brezom` | 20261026 (1 d) | 38 | 12 | 4 | 17 |
@@ -112,28 +112,29 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Radio Benkovac `radio-benkovac` | 20261020 (7 d) | 20 | 8 | 0 | 22 |
 | 🟢 aktivan | Actualitica Podcast `actualitica-podcast` | 20261025 (2 d) | 18 | 8 | 31 | 20 ✎ |
 | 🟢 aktivan | poslovniFM `poslovnifm` | 20261023 (4 d) | 14 | 8 | 32 | 15 |
-| 🟢 aktivan | Špica s Macanom `spica-s-macanom` | 20261024 (3 d) | 8 | 8 | 6 | 30 ✎ |
+| 🟢 aktivan | Vedran Sorić Podcast `vedran-soric-podcast` | 20261027 (0 d) | 13 | 8 | 14 | 20 |
+| 🟢 aktivan | Špica s Macanom `spica-s-macanom` | 20261024 (3 d) | 8 | 8 | 7 | 30 ✎ |
 | 🟢 aktivan | Denis Podcast `denis-podcast` | 20261026 (1 d) | 30 | 7 | 46 | 20 ✎ |
 | 🟢 aktivan | Otvoreno (HRT) `hrt-otvoreno` | 20261026 (1 d) | 29 | 7 | 0 | 15 |
 | 🟢 aktivan | Podcast 8_24 `podcast-8-24` | 20261022 (5 d) | 22 | 7 | 66 | 45 |
-| 🟢 aktivan | Lider `lider-podcast` | 20261026 (1 d) | 13 | 7 | 25 | 25 ✎ |
+| 🟢 aktivan | Samo Hajduk `samo-hajduk` | 20261027 (0 d) | 22 | 7 | 41 | 31 |
+| 🟢 aktivan | Lider `lider-podcast` | 20261026 (1 d) | 13 | 7 | 26 | 25 ✎ |
 | 🟢 aktivan | VIDA `vida-podcast` | 20261026 (1 d) | 11 | 7 | 92 | 30 ✎ |
 | 🟢 aktivan | Poslovni svijet s Ilijom Jandrićem `poslovni-svijet-s-ilijom-jandricem` | 20261026 (1 d) | 8 | 7 | 1 | 22 |
-| 🟢 aktivan | Samo Hajduk `samo-hajduk` | 20261023 (4 d) | 21 | 6 | 42 | 32 |
 | 🟢 aktivan | Iza Pjace `iza-pjace` | 20261023 (4 d) | 20 | 6 | 52 | 43 |
+| 🟢 aktivan | Eduza Show `eduza-show` | 20261027 (0 d) | 19 | 6 | 2 | 40 ✎ |
 | 🟢 aktivan | Podcast Velebit (Projekt Velebit) `projekt-velebit` | 20261024 (3 d) | 8 | 6 | 15 | 40 ✎ |
 | 🟢 aktivan | Viza (HRT) `viza` | 20261015 (12 d) | 6 | 6 | 0 | 18 |
-| 🟢 aktivan | Eduza Show `eduza-show` | 20261021 (6 d) | 18 | 5 | 2 | 40 ✎ |
 | 🟢 aktivan | 2Pogled na povijest Hrvatske i svijeta `2pogled-povijest` | 20261017 (10 d) | 14 | 5 | 41 | 25 ✎ |
 | 🟢 aktivan | Kriminalno dobre priče `kriminalno-dobre-price` | 20261026 (1 d) | 14 | 5 | 2 | 25 ✎ |
 | 🟢 aktivan | Veliki Judi `veliki-judi` | 20261023 (4 d) | 14 | 5 | 0 | 15 |
 | 🟢 aktivan | Mysterium `podcast-inkubator-mysterium` | 20261026 (1 d) | 13 | 5 | 0 | 40 ✎ |
 | 🟢 aktivan | biciklizam.net Podcast `biciklizam-net-podcast` | 20261025 (2 d) | 12 | 5 | 70 | 29 |
 | 🟢 aktivan | Tribina — NBA & košarka `tribina-nba-kosarka` | 20261021 (6 d) | 11 | 5 | 5 | 40 ✎ |
-| 🟢 aktivan | Vedran Sorić Podcast `vedran-soric-podcast` | 20261025 (2 d) | 10 | 5 | 8 | 20 |
 | 🟢 aktivan | Reci! `reci` | 20261023 (4 d) | 10 | 5 | 0 | 15 |
 | 🟢 aktivan | A1 Nogometni Podcast `podcast-inkubator-a1-nogometni` | 20261023 (4 d) | 9 | 5 | 51 | 48 ✎ |
 | 🟢 aktivan | Zadarski podcast `zadarski-podcast` | 20261022 (5 d) | 9 | 5 | 32 | 8 ✎ |
+| 🟢 aktivan | Nađi Način `nadji-nacin` | 20261027 (0 d) | 9 | 5 | 8 | 15 |
 | 🟢 aktivan | VL Stativa `vl-stativa` | 20261019 (8 d) | 9 | 5 | 7 | 15 |
 | 🟢 aktivan | AGAPE RTV `agape-rtv` | 20261023 (4 d) | 8 | 5 | 26 | 30 ✎ |
 | 🟢 aktivan | Netokracija — Office Talks Podcast `netokracija-office-talks` | 20261023 (4 d) | 8 | 5 | 3 | 20 ✎ |
@@ -143,7 +144,7 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Zavidavanje by Lado Tomičić `zavidavanje-by-lado-tomicic` | 20261026 (1 d) | 7 | 5 | 0 | 24 |
 | 🟢 aktivan | Netokracija — Netokracija Podcast `netokracija-podcast` | 20261026 (1 d) | 6 | 5 | 5 | 15 ✎ |
 | 🟢 aktivan | Razvojni kod (HRT) `razvojni-kod` | 20261022 (5 d) | 6 | 5 | 3 | 15 |
-| 🟢 aktivan | Trend Medij – Gost dana `trend-medij-gost-dana` | 20261009 (18 d) | 38 | 4 | 25 | 15 |
+| 🟢 aktivan | Trend Medij – Gost dana `trend-medij-gost-dana` | 20261009 (18 d) | 38 | 4 | 26 | 15 |
 | 🟢 aktivan | Zona Dinamo Podcast `zona-dinamo-podcast` | 20261023 (4 d) | 17 | 4 | 0 | 36 |
 | 🟢 aktivan | Puba77 `puba77` | 20261022 (5 d) | 15 | 4 | 15 | 92 |
 | 🟢 aktivan | Povijest četvrtkom `povijest-cetvrtkom` | 20261022 (5 d) | 13 | 4 | 0 | 18 |
@@ -155,7 +156,6 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Tipsy Podcast `tipsy-podcast` | 20261022 (5 d) | 9 | 4 | 33 | 30 ✎ |
 | 🟢 aktivan | Planet Formula `planet-formula` | 20261026 (1 d) | 9 | 4 | 7 | 27 |
 | 🟢 aktivan | Tribina — NFL `tribina-nfl` | 20261021 (6 d) | 8 | 4 | 0 | 40 ✎ |
-| 🟢 aktivan | Nađi Način `nadji-nacin` | 20261020 (7 d) | 8 | 4 | 8 | 15 |
 | 🟢 aktivan | Cronnect `cronnect` | 20261021 (6 d) | 8 | 4 | 8 | 17 |
 | 🟢 aktivan | Explora (HRT) `explora-hrt` | 20261020 (7 d) | 7 | 4 | 0 | 40 ✎ |
 | 🟢 aktivan | Extra Runda `podcast-inkubator-extra-runda` | 20261021 (6 d) | 7 | 4 | 0 | 40 ✎ |
@@ -166,6 +166,7 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Libertas Talks podcast `libertas-talks` | 20261024 (3 d) | 4 | 4 | 13 | 25 ✎ |
 | 🟢 aktivan | Ril Tok Podcast `ril-tok-podcast` | 20261025 (2 d) | 4 | 4 | 84 | 60 ✎ |
 | 🟢 aktivan | Sindikalni megafon (Sindikat!) `sindikalni-megafon` | 20261022 (5 d) | 4 | 4 | 46 | 30 ✎ |
+| 🟢 aktivan | Vox Medicus `vox-medicus` | 20261027 (0 d) | 4 | 4 | 3 | 16 |
 | 🟢 aktivan | Zona Filma // Strujanja `zona-filma-strujanja` | 20261020 (7 d) | 4 | 4 | 9 | 15 |
 | 🟢 aktivan | Razgovor s razlogom (HRT) `razgovor-s-razlogom` | 20261021 (6 d) | 4 | 4 | 26 | 15 |
 | 🟢 aktivan | Generacija+ (Laudato) `generacija-plus` | 20261025 (2 d) | 4 | 4 | 3 | 16 |
@@ -188,7 +189,6 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Ovisnici o knjigama `ovisnici-o-knjigama` | 20261026 (1 d) | 4 | 3 | 10 | 19 |
 | 🟢 aktivan | Podkist (FER) `podkist-fer` | 20261026 (1 d) | 3 | 3 | 0 | 30 ✎ |
 | 🟢 aktivan | Kišobran UNIRI Podcast `kisobran-uniri-podcast` | 20261021 (6 d) | 3 | 3 | 17 | 40 ✎ |
-| 🟢 aktivan | Vox Medicus `vox-medicus` | 20261020 (7 d) | 3 | 3 | 3 | 16 |
 | 🟢 aktivan | Fraktura BookTalk `fraktura-booktalk` | 20261023 (4 d) | 3 | 3 | 12 | 21 |
 | 🟢 aktivan | Pravi smjer `pravi-smjer` | 20261020 (7 d) | 3 | 3 | 0 | 15 |
 | 🟢 aktivan | Ton-slika-politika `ton-slika-politika` | 20261023 (4 d) | 3 | 3 | 67 | 32 |
@@ -225,6 +225,7 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Bijela kronika `bijela-kronika` | 20261010 (17 d) | 3 | 2 | 0 | 15 |
 | 🟢 aktivan | PSZ Podcast `psz-podcast` | 20261022 (5 d) | 3 | 2 | 40 | 26 |
 | 🟢 aktivan | Imam Ideju `imam-ideju` | 20261021 (6 d) | 3 | 2 | 2 | 22 |
+| 🟢 aktivan | Bez pardona `bez-pardona` | 20261027 (0 d) | 2 | 2 | 0 | 30 ✎ |
 | 🟢 aktivan | Felix Contras `felix-contras` | 20261024 (3 d) | 2 | 2 | 77 | 30 ✎ |
 | 🟢 aktivan | Human LAB Podcast `human-lab-podcast` | 20261025 (2 d) | 2 | 2 | 41 | 40 ✎ |
 | 🟢 aktivan | Tribina — Reprezentacija `tribina-reprezentacija` | 20261007 (20 d) | 2 | 2 | 6 | 40 ✎ |
@@ -255,7 +256,6 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Novi Život (Laudato) `laudato-novi-zivot` | 20261019 (8 d) | 2 | 1 | 11 | 27 |
 | 🟢 aktivan | Što je klasik? (HRT) `hrt-sto-je-klasik` | 20261020 (7 d) | 2 | 1 | 2 | 15 |
 | 🟢 aktivan | All Things Croatia `all-things-croatia` | 20261025 (2 d) | 1 | 1 | 17 | 20 ✎ |
-| 🟢 aktivan | Bez pardona `bez-pardona` | 20260929 (28 d) | 1 | 1 | 0 | 30 ✎ |
 | 🟢 aktivan | Evanđeosko teološko veleučilište u Osijeku `etvos-osijek` | 20261002 (25 d) | 1 | 1 | 85 | 30 ✎ |
 | 🟢 aktivan | FIMA `fima-podcast` | 20260930 (27 d) | 1 | 1 | 62 | 20 ✎ |
 | 🟢 aktivan | Morina Kutija `morina-kutija` | 20260930 (27 d) | 1 | 1 | 5 | 25 ✎ |

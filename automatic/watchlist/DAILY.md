@@ -1,46 +1,46 @@
 # Dnevni snapshot novih epizoda
 
-Generirano 2026-10-27 02:43 UTC skriptom `automatic/daily_snapshot.js` — nula mrežnih poziva, deterministički iz `events.jsonl` (kandidati, samo originali) i git povijesti `automatic/podcasts/*-lista.txt` (praćeni).
+Generirano 2026-10-27 14:49 UTC skriptom `automatic/daily_snapshot.js` — nula mrežnih poziva, deterministički iz `events.jsonl` (kandidati, samo originali) i git povijesti `automatic/podcasts/*-lista.txt` (praćeni).
 
-**Zadnja noć (2026-10-27): 59 novih epizoda u 31 kanala** — 59 kandidata + 0 praćenih, 58.9 h audia kod kandidata, 2 kanal(a) s više od jedne.
+**Zadnja noć (2026-10-27): 70 novih epizoda u 38 kanala** — 70 kandidata + 0 praćenih, 68.3 h audia kod kandidata, 4 kanal(a) s više od jedne.
 
-**Prozor 2026-09-27 → 2026-10-27** (30/31 noći s runom): 747 epizoda iz 198 kanala · **24.9/dan** · 737.1 h audia kod kandidata · 13 duplikata spojeno (isti video u dva unosa).
+**Prozor 2026-09-27 → 2026-10-27** (30/31 noći s runom): 758 epizoda iz 198 kanala · **25.3/dan** · 746.5 h audia kod kandidata · 13 duplikata spojeno (isti video u dva unosa).
 
 ## Po noći
 
 | noć | dan | ukupno | kandidati | praćeni | kanala | h (kand.) | 7d prosjek | |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-27 | uto | **59** | 59 | 0 | 31 | 58.9 | 30.1 | ████████████████████ |
-| 2026-10-26 | pon | **18** | 17 | 1 | 18 | 18.2 | 29.7 | ██████ |
-| 2026-10-25 | ned | **17** | 14 | 3 | 17 | 14.2 | 30 | ██████ |
-| 2026-10-24 | sub | **24** | 22 | 2 | 22 | 22.9 | 30.1 | ████████ |
-| 2026-10-23 | pet | **28** | 25 | 3 | 27 | 26.5 | 31 | █████████ |
-| 2026-10-22 | čet | **35** | 30 | 5 | 32 | 29.6 | 31.7 | ████████████ |
-| 2026-10-21 | sri | **30** | 27 | 3 | 26 | 24.8 | 30.1 | ██████████ |
-| 2026-10-20 | uto | **56** | 56 | 0 | 27 | 70.3 | 30 | ███████████████████ |
-| 2026-10-19 | pon | **20** | 19 | 1 | 19 | 25.9 | 26 | ███████ |
-| 2026-10-18 | ned | **18** | 16 | 2 | 17 | 13.7 | 25.1 | ██████ |
-| 2026-10-17 | sub | **30** | 27 | 3 | 28 | 24 | 24.9 | ██████████ |
-| 2026-10-16 | pet | **33** | 30 | 3 | 28 | 28 | 23.9 | ███████████ |
-| 2026-10-15 | čet | **24** | 21 | 3 | 24 | 21.5 | 22.3 | ████████ |
-| 2026-10-14 | sri | **29** | 27 | 2 | 26 | 29.9 | 22.4 | ██████████ |
-| 2026-10-13 | uto | **28** | 28 | 0 | 27 | 31 | 20.9 | █████████ |
-| 2026-10-12 | pon | **14** | 12 | 2 | 13 | 16.5 | 18.9 | █████ |
+| 2026-10-27 | uto | **70** | 70 | 0 | 38 | 68.3 | 31.7 | ████████████████████ |
+| 2026-10-26 | pon | **18** | 17 | 1 | 18 | 18.2 | 29.7 | █████ |
+| 2026-10-25 | ned | **17** | 14 | 3 | 17 | 14.2 | 30 | █████ |
+| 2026-10-24 | sub | **24** | 22 | 2 | 22 | 22.9 | 30.1 | ███████ |
+| 2026-10-23 | pet | **28** | 25 | 3 | 27 | 26.5 | 31 | ████████ |
+| 2026-10-22 | čet | **35** | 30 | 5 | 32 | 29.6 | 31.7 | ██████████ |
+| 2026-10-21 | sri | **30** | 27 | 3 | 26 | 24.8 | 30.1 | █████████ |
+| 2026-10-20 | uto | **56** | 56 | 0 | 27 | 70.3 | 30 | ████████████████ |
+| 2026-10-19 | pon | **20** | 19 | 1 | 19 | 25.9 | 26 | ██████ |
+| 2026-10-18 | ned | **18** | 16 | 2 | 17 | 13.7 | 25.1 | █████ |
+| 2026-10-17 | sub | **30** | 27 | 3 | 28 | 24 | 24.9 | █████████ |
+| 2026-10-16 | pet | **33** | 30 | 3 | 28 | 28 | 23.9 | █████████ |
+| 2026-10-15 | čet | **24** | 21 | 3 | 24 | 21.5 | 22.3 | ███████ |
+| 2026-10-14 | sri | **29** | 27 | 2 | 26 | 29.9 | 22.4 | ████████ |
+| 2026-10-13 | uto | **28** | 28 | 0 | 27 | 31 | 20.9 | ████████ |
+| 2026-10-12 | pon | **14** | 12 | 2 | 13 | 16.5 | 18.9 | ████ |
 | 2026-10-11 | ned | **16** | 14 | 2 | 16 | 15.9 | 20.4 | █████ |
-| 2026-10-10 | sub | **23** | 19 | 4 | 22 | 17.9 | 18.4 | ████████ |
-| 2026-10-09 | pet | **22** | 20 | 2 | 22 | 18.5 | 19.1 | ███████ |
-| 2026-10-08 | čet | **25** | 23 | 2 | 25 | 27 | 19.3 | ████████ |
-| 2026-10-07 | sri | **18** | 15 | 3 | 18 | 13.6 | 18.9 | ██████ |
-| 2026-10-06 | uto | **14** | 14 | 0 | 14 | 15.5 | 19.6 | █████ |
-| 2026-10-05 | pon | **25** | 23 | 2 | 25 | 25.6 | 20.7 | ████████ |
+| 2026-10-10 | sub | **23** | 19 | 4 | 22 | 17.9 | 18.4 | ███████ |
+| 2026-10-09 | pet | **22** | 20 | 2 | 22 | 18.5 | 19.1 | ██████ |
+| 2026-10-08 | čet | **25** | 23 | 2 | 25 | 27 | 19.3 | ███████ |
+| 2026-10-07 | sri | **18** | 15 | 3 | 18 | 13.6 | 18.9 | █████ |
+| 2026-10-06 | uto | **14** | 14 | 0 | 14 | 15.5 | 19.6 | ████ |
+| 2026-10-05 | pon | **25** | 23 | 2 | 25 | 25.6 | 20.7 | ███████ |
 | 2026-10-04 | ned | — | — | 2 | — | — | 18.4 | _watch nije radio; sljedeća noć nosi dva dana_ |
-| 2026-10-03 | sub | **28** | 24 | 4 | 26 | 27.5 | 19.9 | █████████ |
-| 2026-10-02 | pet | **23** | 21 | 2 | 22 | 26.2 | — | ████████ |
-| 2026-10-01 | čet | **22** | 20 | 2 | 22 | 27.7 | — | ███████ |
-| 2026-09-30 | sri | **23** | 22 | 1 | 22 | 22.8 | — | ████████ |
-| 2026-09-29 | uto | **22** | 22 | 0 | 21 | 24.8 | — | ███████ |
+| 2026-10-03 | sub | **28** | 24 | 4 | 26 | 27.5 | 19.9 | ████████ |
+| 2026-10-02 | pet | **23** | 21 | 2 | 22 | 26.2 | — | ███████ |
+| 2026-10-01 | čet | **22** | 20 | 2 | 22 | 27.7 | — | ██████ |
+| 2026-09-30 | sri | **23** | 22 | 1 | 22 | 22.8 | — | ███████ |
+| 2026-09-29 | uto | **22** | 22 | 0 | 21 | 24.8 | — | ██████ |
 | 2026-09-28 | pon | **9** | 8 | 1 | 9 | 9.5 | — | ███ |
-| 2026-09-27 | ned | **12** | 8 | 4 | 12 | 8.8 | — | ████ |
+| 2026-09-27 | ned | **12** | 8 | 4 | 12 | 8.8 | — | ███ |
 
 ## Po danu objave u tjednu (kandidati)
 
@@ -49,7 +49,7 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | dan | epizoda | prosjek/dan | |
 |---|---|---|---|
 | pon | 148 | 37 | ████████████████████ |
-| uto | 95 | 23.8 | █████████████ |
+| uto | 106 | 26.5 | ██████████████ |
 | sri | 95 | 23.8 | █████████████ |
 | čet | 91 | 22.8 | ████████████ |
 | pet | 109 | 27.3 | ███████████████ |
@@ -60,23 +60,23 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 
 | trajanje | epizoda |
 |---|---|
-| <30 min | 75 |
-| 30–60 min | 302 |
-| 60–90 min | 178 |
+| <30 min | 78 |
+| 30–60 min | 306 |
+| 60–90 min | 182 |
 | 90–120 min | 74 |
 | ≥120 min | 54 |
 
 ## Kanali u prozoru
 
-198 kanala objavilo je barem jednu epizodu; 52 točno jednu.
+198 kanala objavilo je barem jednu epizodu; 51 točno jednu.
 
 | kanal | izvor | epizoda | h | zadnja noć |
 |---|---|---|---|---|
-| `laudato-more-milosrda` | kandidat | 28 | 42.7 | 2026-10-20 |
+| `laudato-more-milosrda` | kandidat | 29 | 44.2 | 2026-10-27 |
 | `laudato-zivot-i-zdravlje` | kandidat | 28 | 27.2 | 2026-10-27 |
-| `prvi-glas-telegram` | kandidat | 21 | 9.3 | 2026-10-27 |
+| `prvi-glas-telegram` | kandidat | 22 | 9.7 | 2026-10-27 |
 | `sbs-croatian` | kandidat | 18 | 15.3 | 2026-10-27 |
-| `hajducka-storija` | kandidat | 14 | 5.3 | 2026-10-27 |
+| `hajducka-storija` | kandidat | 15 | 5.6 | 2026-10-27 |
 | `ofenziva-sportski-podcast` | kandidat | 14 | 18.9 | 2026-10-27 |
 | `podcast-inkubator` | kandidat | 14 | 20.9 | 2026-10-26 |
 | `atma-podcast` | kandidat | 12 | 16.9 | 2026-10-27 |
@@ -93,29 +93,30 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `poslovnifm` | kandidat | 8 | 5.6 | 2026-10-24 |
 | `radio-benkovac` | kandidat | 8 | 6.4 | 2026-10-21 |
 | `spica-s-macanom` | kandidat | 8 | 8.9 | 2026-10-25 |
+| `vedran-soric-podcast` | kandidat | 8 | 7.6 | 2026-10-27 |
 | `budi-frajer` | praćeni | 7 | — | 2026-10-24 |
 | `hrt-otvoreno` | kandidat | 7 | 3.6 | 2026-10-27 |
 | `lider-podcast` | kandidat | 7 | 4 | 2026-10-27 |
+| `samo-hajduk` | kandidat | 7 | 10.6 | 2026-10-27 |
 | `vida-podcast` | kandidat | 7 | 6.5 | 2026-10-27 |
 | `denis-podcast` | kandidat | 6 | 7.5 | 2026-10-27 |
+| `eduza-show` | kandidat | 6 | 7.5 | 2026-10-27 |
 | `iza-pjace` | kandidat | 6 | 12 | 2026-10-24 |
 | `mladi-za-domovinu` | praćeni | 6 | — | 2026-10-26 |
 | `podcast-8-24` | kandidat | 6 | 8.9 | 2026-10-23 |
 | `projekt-velebit` | kandidat | 6 | 11.8 | 2026-10-25 |
-| `samo-hajduk` | kandidat | 6 | 9.5 | 2026-10-24 |
 | `viza` | kandidat | 6 | 4.8 | 2026-10-16 |
 | `2pogled-povijest` | kandidat | 5 | 4.3 | 2026-10-18 |
-| `eduza-show` | kandidat | 5 | 6.1 | 2026-10-22 |
 | `kriminalno-dobre-price` | kandidat | 5 | 3.9 | 2026-10-27 |
 | `lood-podcast` | praćeni | 5 | — | 2026-10-23 |
 | `mjesto-zlocina` | kandidat | 5 | 4.2 | 2026-10-25 |
 | `muzevni-budite` | praćeni | 5 | — | 2026-10-25 |
+| `nadji-nacin` | kandidat | 5 | 3.1 | 2026-10-27 |
 | `netokracija-podcast` | kandidat | 5 | 4.7 | 2026-10-27 |
 | `podcast-inkubator-mysterium` | kandidat | 5 | 11.2 | 2026-10-27 |
 | `psihologija-hrt` | kandidat | 5 | 4.8 | 2026-10-27 |
 | `razvojni-kod` | kandidat | 5 | 2.8 | 2026-10-23 |
 | `tribina-nba-kosarka` | kandidat | 5 | 8 | 2026-10-22 |
-| `vedran-soric-podcast` | kandidat | 5 | 5.3 | 2026-10-26 |
 | `veliki-judi` | kandidat | 5 | 2.7 | 2026-10-24 |
 | `vl-stativa` | kandidat | 5 | 3.1 | 2026-10-20 |
 | `zadarski-podcast` | kandidat | 5 | 2.7 | 2026-10-23 |
@@ -130,7 +131,6 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `hrt-na-rubu-znanosti` | kandidat | 4 | 3.4 | 2026-10-27 |
 | `libertas-talks` | kandidat | 4 | 4.1 | 2026-10-25 |
 | `metabolic-friendly` | kandidat | 4 | 3.2 | 2026-10-16 |
-| `nadji-nacin` | kandidat | 4 | 2.5 | 2026-10-21 |
 | `netokracija-office-talks` | kandidat | 4 | 2.4 | 2026-10-24 |
 | `nlo-arhivist` | kandidat | 4 | 2.9 | 2026-10-26 |
 | `occamova-britva` | kandidat | 4 | 2.1 | 2026-10-23 |
@@ -147,6 +147,7 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `tipsy-podcast` | kandidat | 4 | 5.6 | 2026-10-23 |
 | `trend-medij-gost-dana` | kandidat | 4 | 1.9 | 2026-10-10 |
 | `tribina-nfl` | kandidat | 4 | 6.4 | 2026-10-22 |
+| `vox-medicus` | kandidat | 4 | 1.9 | 2026-10-27 |
 | `zona-dinamo-podcast` | kandidat | 4 | 6 | 2026-10-24 |
 | `zona-filma-strujanja` | kandidat | 4 | 1.9 | 2026-10-21 |
 | `40-dana-za-zivot` | praćeni | 3 | — | 2026-10-16 |
@@ -173,10 +174,10 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `srednja-hr-podcast` | kandidat | 3 | 2.5 | 2026-10-07 |
 | `svijet-plus` | kandidat | 3 | 2 | 2026-10-22 |
 | `ton-slika-politika` | kandidat | 3 | 2.6 | 2026-10-24 |
-| `vox-medicus` | kandidat | 3 | 1.4 | 2026-10-21 |
 | `zeljka-markic-i-narod-hr` | praćeni | 3 | — | 2026-10-21 |
 | `50-minuta` | kandidat | 2 | 1.8 | 2026-10-27 |
 | `argumenti-sezona-8` | kandidat | 2 | 1.5 | 2026-10-22 |
+| `bez-pardona` | kandidat | 2 | 2.8 | 2026-10-27 |
 | `bijela-kronika` | kandidat | 2 | 1 | 2026-10-11 |
 | `cancast` | kandidat | 2 | 2.8 | 2026-10-17 |
 | `citanje-i-predrasude` | kandidat | 2 | 1.2 | 2026-10-08 |
@@ -221,7 +222,6 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `agroklub-podcast` | kandidat | 1 | 1.3 | 2026-10-15 |
 | `all-things-croatia` | kandidat | 1 | 0.6 | 2026-10-26 |
 | `baustelahr-podcast` | kandidat | 1 | 1.2 | 2026-09-30 |
-| `bez-pardona` | kandidat | 1 | 1.4 | 2026-09-30 |
 | `bez-uputnice` | kandidat | 1 | 0.8 | 2026-10-27 |
 | `bozja-pobjeda` | praćeni | 1 | — | 2026-10-16 |
 | `catholic-futurist` | praćeni | 1 | — | 2026-10-21 |
@@ -334,4 +334,15 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `hrt-veterani-mira` | kandidat | 26 | [Veterani mira: Veza u ratu - kibernetička sigurnost u miru](https://youtu.be/2ujuUg5acCs) |
 | `hrt-na-rubu-znanosti` | kandidat | 49 | [Na rubu znanosti: Izvantjelesno iskustvo i Institut Monroe](https://youtu.be/LKMayqwCnY0) |
 | `hrt-pozitivno` | kandidat | 30 | [Pozitivno: Ángel González de Rábago](https://youtu.be/k9EGdyMXNXQ) |
+| `bez-pardona` | kandidat | 86 | [Josipa Lisac BEZ PARDONA](https://youtu.be/QeEa-o6e9bc) |
+| `eduza-show` | kandidat | 84 | [4 greške uslužnih firmi koje elegantno rješava tehnologija / Laura Plantak](https://youtu.be/cPSZXjrrgyk) |
+| `prvi-glas-telegram` | kandidat | 23 | [Vučić pometen: Studenti kreću u najopasniju misiju](https://youtu.be/ySgK3rfWS98) |
+| `vedran-soric-podcast` | kandidat | 53 | [S4F_2025 - Karim Rashid](https://youtu.be/8PTSsnpzdoY) |
+| `vedran-soric-podcast` | kandidat | 48 | [S4F_2025 - Amelia Sordel](https://youtu.be/CqlYjOKYTlc) |
+| `vedran-soric-podcast` | kandidat | 41 | [S4F_2025 - Panel: Dražen Forgač & Vaso Bakočević](https://youtu.be/9X9-jB2_uZQ) |
+| `vox-medicus` | kandidat | 26 | [PRVI POROD BEZ PANIKE, Erika Spirić, bacc. obs., primalja](https://youtu.be/Nq1jfq-OQew) |
+| `hajducka-storija` | kandidat | 18 | [Ispuštena dva gola prednosti / DOJMOVI NA DRUGU](https://youtu.be/CEhv20a6HuU) |
+| `nadji-nacin` | kandidat | 33 | [Svi izazovi i benefiti proizvodnog biznisa (uz 2 male djece)](https://youtu.be/JoMWbLkKNGA) |
+| `samo-hajduk` | kandidat | 65 | [Samo Hajduk Podcast #53: Zašto Garcia mrzi zamjene? / 11. kolo vs Istra](https://youtu.be/mKtp6lyLzzM) |
+| `laudato-more-milosrda` | kandidat | 85 | [Susret s papom Lavom XIV. │More Milosrđa](https://youtu.be/0B-S7LC7UwQ) |
 

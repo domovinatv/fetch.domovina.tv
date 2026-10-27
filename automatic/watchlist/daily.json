@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T02:43:34.191Z",
+ "generated_at": "2026-10-27T14:49:03.514Z",
  "window": {
   "from": "2026-09-27",
   "to": "2026-10-27",
@@ -7,24 +7,24 @@
   "nights_with_run": 30
  },
  "totals": {
-  "episodes": 747,
-  "candidates": 683,
+  "episodes": 758,
+  "candidates": 694,
   "tracked": 64,
   "channels": 198,
-  "candidate_hours": 737.1,
-  "per_run_avg": 24.9,
-  "per_day_avg": 24.9,
+  "candidate_hours": 746.5,
+  "per_run_avg": 25.3,
+  "per_day_avg": 25.3,
   "duplicates_merged": 13
  },
  "last_night": {
   "night": "2026-10-27",
   "watch_ran": true,
-  "candidates": 59,
+  "candidates": 70,
   "tracked": 0,
-  "total": 59,
-  "channels": 31,
-  "candidate_hours": 58.9,
-  "avg7": 30.1,
+  "total": 70,
+  "channels": 38,
+  "candidate_hours": 68.3,
+  "avg7": 31.7,
   "episodes": [
    {
     "id": "XUHFdw7FDO0",
@@ -438,6 +438,83 @@
     "source": "kandidat",
     "duration": 1811,
     "title": "Pozitivno: Ángel González de Rábago"
+   },
+   {
+    "id": "QeEa-o6e9bc",
+    "slug": "bez-pardona",
+    "source": "kandidat",
+    "duration": 5130,
+    "title": "Josipa Lisac BEZ PARDONA"
+   },
+   {
+    "id": "cPSZXjrrgyk",
+    "slug": "eduza-show",
+    "source": "kandidat",
+    "duration": 5036,
+    "title": "4 greške uslužnih firmi koje elegantno rješava tehnologija | Laura Plantak"
+   },
+   {
+    "id": "ySgK3rfWS98",
+    "slug": "prvi-glas-telegram",
+    "source": "kandidat",
+    "duration": 1397,
+    "title": "Vučić pometen: Studenti kreću u najopasniju misiju"
+   },
+   {
+    "id": "8PTSsnpzdoY",
+    "slug": "vedran-soric-podcast",
+    "source": "kandidat",
+    "duration": 3205,
+    "title": "S4F_2025 - Karim Rashid"
+   },
+   {
+    "id": "CqlYjOKYTlc",
+    "slug": "vedran-soric-podcast",
+    "source": "kandidat",
+    "duration": 2864,
+    "title": "S4F_2025 - Amelia Sordel"
+   },
+   {
+    "id": "9X9-jB2_uZQ",
+    "slug": "vedran-soric-podcast",
+    "source": "kandidat",
+    "duration": 2451,
+    "title": "S4F_2025 - Panel: Dražen Forgač & Vaso Bakočević"
+   },
+   {
+    "id": "Nq1jfq-OQew",
+    "slug": "vox-medicus",
+    "source": "kandidat",
+    "duration": 1552,
+    "title": "PRVI POROD BEZ PANIKE, Erika Spirić, bacc. obs., primalja"
+   },
+   {
+    "id": "CEhv20a6HuU",
+    "slug": "hajducka-storija",
+    "source": "kandidat",
+    "duration": 1098,
+    "title": "Ispuštena dva gola prednosti | DOJMOVI NA DRUGU"
+   },
+   {
+    "id": "JoMWbLkKNGA",
+    "slug": "nadji-nacin",
+    "source": "kandidat",
+    "duration": 1999,
+    "title": "Svi izazovi i benefiti proizvodnog biznisa (uz 2 male djece)"
+   },
+   {
+    "id": "mKtp6lyLzzM",
+    "slug": "samo-hajduk",
+    "source": "kandidat",
+    "duration": 3920,
+    "title": "Samo Hajduk Podcast #53: Zašto Garcia mrzi zamjene? | 11. kolo vs Istra"
+   },
+   {
+    "id": "0B-S7LC7UwQ",
+    "slug": "laudato-more-milosrda",
+    "source": "kandidat",
+    "duration": 5124,
+    "title": "Susret s papom Lavom XIV. │More Milosrđa"
    }
   ]
  },
@@ -745,12 +822,12 @@
   {
    "night": "2026-10-27",
    "watch_ran": true,
-   "candidates": 59,
+   "candidates": 70,
    "tracked": 0,
-   "total": 59,
-   "channels": 31,
-   "candidate_hours": 58.9,
-   "avg7": 30.1
+   "total": 70,
+   "channels": 38,
+   "candidate_hours": 68.3,
+   "avg7": 31.7
   }
  ],
  "weekday": [
@@ -766,7 +843,7 @@
   },
   {
    "weekday": "uto",
-   "episodes": 95,
+   "episodes": 106,
    "days": 4
   },
   {
@@ -793,15 +870,15 @@
  "durations": [
   {
    "label": "<30 min",
-   "count": 75
+   "count": 78
   },
   {
    "label": "30–60 min",
-   "count": 302
+   "count": 306
   },
   {
    "label": "60–90 min",
-   "count": 178
+   "count": 182
   },
   {
    "label": "90–120 min",
@@ -816,9 +893,9 @@
   {
    "slug": "laudato-more-milosrda",
    "source": "kandidat",
-   "count": 28,
-   "seconds": 153889,
-   "last": "2026-10-20"
+   "count": 29,
+   "seconds": 159013,
+   "last": "2026-10-27"
   },
   {
    "slug": "laudato-zivot-i-zdravlje",
@@ -830,8 +907,8 @@
   {
    "slug": "prvi-glas-telegram",
    "source": "kandidat",
-   "count": 21,
-   "seconds": 33518,
+   "count": 22,
+   "seconds": 34915,
    "last": "2026-10-27"
   },
   {
@@ -844,8 +921,8 @@
   {
    "slug": "hajducka-storija",
    "source": "kandidat",
-   "count": 14,
-   "seconds": 19214,
+   "count": 15,
+   "seconds": 20312,
    "last": "2026-10-27"
   },
   {
@@ -961,6 +1038,13 @@
    "last": "2026-10-25"
   },
   {
+   "slug": "vedran-soric-podcast",
+   "source": "kandidat",
+   "count": 8,
+   "seconds": 27528,
+   "last": "2026-10-27"
+  },
+  {
    "slug": "budi-frajer",
    "source": "praćeni",
    "count": 7,
@@ -982,6 +1066,13 @@
    "last": "2026-10-27"
   },
   {
+   "slug": "samo-hajduk",
+   "source": "kandidat",
+   "count": 7,
+   "seconds": 38184,
+   "last": "2026-10-27"
+  },
+  {
    "slug": "vida-podcast",
    "source": "kandidat",
    "count": 7,
@@ -993,6 +1084,13 @@
    "source": "kandidat",
    "count": 6,
    "seconds": 26838,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "eduza-show",
+   "source": "kandidat",
+   "count": 6,
+   "seconds": 27069,
    "last": "2026-10-27"
   },
   {
@@ -1024,13 +1122,6 @@
    "last": "2026-10-25"
   },
   {
-   "slug": "samo-hajduk",
-   "source": "kandidat",
-   "count": 6,
-   "seconds": 34264,
-   "last": "2026-10-24"
-  },
-  {
    "slug": "viza",
    "source": "kandidat",
    "count": 6,
@@ -1043,13 +1134,6 @@
    "count": 5,
    "seconds": 15482,
    "last": "2026-10-18"
-  },
-  {
-   "slug": "eduza-show",
-   "source": "kandidat",
-   "count": 5,
-   "seconds": 22033,
-   "last": "2026-10-22"
   },
   {
    "slug": "kriminalno-dobre-price",
@@ -1078,6 +1162,13 @@
    "count": 5,
    "seconds": 0,
    "last": "2026-10-25"
+  },
+  {
+   "slug": "nadji-nacin",
+   "source": "kandidat",
+   "count": 5,
+   "seconds": 11042,
+   "last": "2026-10-27"
   },
   {
    "slug": "netokracija-podcast",
@@ -1113,13 +1204,6 @@
    "count": 5,
    "seconds": 28918,
    "last": "2026-10-22"
-  },
-  {
-   "slug": "vedran-soric-podcast",
-   "source": "kandidat",
-   "count": 5,
-   "seconds": 19008,
-   "last": "2026-10-26"
   },
   {
    "slug": "veliki-judi",
@@ -1218,13 +1302,6 @@
    "count": 4,
    "seconds": 11547,
    "last": "2026-10-16"
-  },
-  {
-   "slug": "nadji-nacin",
-   "source": "kandidat",
-   "count": 4,
-   "seconds": 9043,
-   "last": "2026-10-21"
   },
   {
    "slug": "netokracija-office-talks",
@@ -1337,6 +1414,13 @@
    "count": 4,
    "seconds": 23183,
    "last": "2026-10-22"
+  },
+  {
+   "slug": "vox-medicus",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 6686,
+   "last": "2026-10-27"
   },
   {
    "slug": "zona-dinamo-podcast",
@@ -1521,13 +1605,6 @@
    "last": "2026-10-24"
   },
   {
-   "slug": "vox-medicus",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 5134,
-   "last": "2026-10-21"
-  },
-  {
    "slug": "zeljka-markic-i-narod-hr",
    "source": "praćeni",
    "count": 3,
@@ -1547,6 +1624,13 @@
    "count": 2,
    "seconds": 5221,
    "last": "2026-10-22"
+  },
+  {
+   "slug": "bez-pardona",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 10119,
+   "last": "2026-10-27"
   },
   {
    "slug": "bijela-kronika",
@@ -1854,13 +1938,6 @@
    "source": "kandidat",
    "count": 1,
    "seconds": 4382,
-   "last": "2026-09-30"
-  },
-  {
-   "slug": "bez-pardona",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 4989,
    "last": "2026-09-30"
   },
   {
