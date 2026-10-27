@@ -103,7 +103,10 @@ function loadRules() {
     try { return JSON.parse(fs.readFileSync(RULES_FILE, "utf8")); } catch { return {}; }
 }
 
-function loadCandidates() {
+// scoped=false ignorira --slug/--limit: REPORT.md uvijek opisuje sve kandidate,
+// inače ga ručni prolaz za jedan kanal pregazi izvještajem od 1 kanala.
+function loadCandidates({ scoped = true } = {}) {
+    const onlySlug = scoped ? ONLY_SLUG : null;
     const reg = JSON.parse(fs.readFileSync(REGISTRY, "utf8"));
     const rules = loadRules();
     const trackedUrls = new Set(
@@ -112,8 +115,8 @@ function loadCandidates() {
     );
     const list = [];
     for (const p of reg.podcasts) {
-        if (ONLY_SLUG && p.slug !== ONLY_SLUG) continue;
-        if (!ONLY_SLUG) {
+        if (onlySlug && p.slug !== onlySlug) continue;
+        if (!onlySlug) {
             if (p.tracking?.enabled === true) continue;
             if (!p.youtube?.url) continue;
             if (p.youtube?.type === "umbrella") continue;        // prate se djeca-playliste
@@ -122,12 +125,12 @@ function loadCandidates() {
         const rule = { ...(rules[p.slug] || {}), ...(p.watch || {}) };
         const source = rule.source_url || channelVideosUrl(p.youtube?.url);
         if (!source) continue;
-        if (!ONLY_SLUG && trackedUrls.has(source)) continue;    // već ga vuče pravi pipeline
+        if (!onlySlug && trackedUrls.has(source)) continue;    // već ga vuče pravi pipeline
         // Neki podcasti izlaze kao livestream/premijera → /streams uz /videos.
         const sources = [source, ...(rule.extra_source_urls || [])];
         list.push({ slug: p.slug, name: p.display_name, source, sources, rule, tags: p.tags || [] });
     }
-    return LIMIT > 0 ? list.slice(0, LIMIT) : list;
+    return scoped && LIMIT > 0 ? list.slice(0, LIMIT) : list;
 }
 
 // ─── yt-dlp ─────────────────────────────────────────────────────────
@@ -374,9 +377,10 @@ async function main() {
     fs.mkdirSync(LISTS_DIR, { recursive: true });
     const candidates = loadCandidates();
     const state = loadState();
+    const reportCandidates = ONLY_SLUG || LIMIT > 0 ? loadCandidates({ scoped: false }) : candidates;
 
     if (REPORT_ONLY) {
-        writeReport(state, candidates);
+        writeReport(state, reportCandidates);
         console.log(`📝 ${REPORT_FILE}`);
         return;
     }
@@ -413,7 +417,7 @@ async function main() {
     }
     await Promise.all(Array.from({ length: Math.min(CONCURRENCY, candidates.length) }, worker));
     if (!DRY_RUN) saveState(state);
-    const rows = writeReport(state, candidates);
+    const rows = writeReport(state, reportCandidates);
 
     const secs = Math.round((Date.now() - t0) / 1000);
     console.log(`✅ Gotovo za ${secs}s: ${done} kanala, ${baselines} baseline, ${newOrig} novih originala, ${newDeriv} novih derivata/shortsa, ${errors} grešaka`);
