@@ -1,222 +1,447 @@
 {
- "generated_at": "2026-10-24T02:32:43.672Z",
+ "generated_at": "2026-10-27T02:43:34.191Z",
  "window": {
-  "from": "2026-09-25",
-  "to": "2026-10-24",
-  "nights": 30,
-  "nights_with_run": 29
+  "from": "2026-09-27",
+  "to": "2026-10-27",
+  "nights": 31,
+  "nights_with_run": 30
  },
  "totals": {
-  "episodes": 678,
-  "candidates": 617,
-  "tracked": 61,
-  "channels": 196,
-  "candidate_hours": 670.5,
-  "per_run_avg": 23.4,
-  "per_day_avg": 23.4,
-  "duplicates_merged": 11
+  "episodes": 747,
+  "candidates": 683,
+  "tracked": 64,
+  "channels": 198,
+  "candidate_hours": 737.1,
+  "per_run_avg": 24.9,
+  "per_day_avg": 24.9,
+  "duplicates_merged": 13
  },
  "last_night": {
-  "night": "2026-10-24",
+  "night": "2026-10-27",
   "watch_ran": true,
-  "candidates": 22,
-  "tracked": 2,
-  "total": 24,
-  "channels": 22,
-  "candidate_hours": 22.9,
+  "candidates": 59,
+  "tracked": 0,
+  "total": 59,
+  "channels": 31,
+  "candidate_hours": 58.9,
   "avg7": 30.1,
   "episodes": [
    {
-    "id": "w7YR_yMrsIU",
-    "slug": "cryptoverse-kripto-caffe",
-    "source": "praćeni",
-    "duration": null,
-    "title": "BLOCK TALK #1 🎙 Razgovor o Bitcoinu, AI-ju i budućnosti kripta"
-   },
-   {
-    "id": "dYqKlE_pEXI",
-    "slug": "budi-frajer",
-    "source": "praćeni",
-    "duration": null,
-    "title": "[DDV PROPOVIJED] Zašto te najbliži ne razumiju kada živiš vjeru? - fra Stjepan Brčina"
-   },
-   {
-    "id": "ytHhMeGP_jQ",
-    "slug": "agape-rtv",
-    "source": "kandidat",
-    "duration": 4342,
-    "title": "Tolić/Rotim: KLEVETA Hrvata, Crkve i MLADIH mora prestati! Dosta je IDEOLOGA mržnje! TAOCI SMO ZLA!"
-   },
-   {
-    "id": "8RiFb8QP5m4",
+    "id": "XUHFdw7FDO0",
     "slug": "atma-podcast",
     "source": "kandidat",
-    "duration": 8182,
-    "title": "Jesu li nas RELIGIJE UDALJILE od BOGA? | Bhakti Ananda Tirtha Swami | ATMA podcast"
+    "duration": 5120,
+    "title": "Imaš SVE, a nisi sretna? Evo zašto! | Tatjana Libre | ATMA PodcastConvert to PDF"
    },
    {
-    "id": "CYPQrLj-X_Y",
-    "slug": "rtcg-argumenti",
+    "id": "M5asqZ_OkP0",
+    "slug": "bijelo-plavi-podcast",
     "source": "kandidat",
-    "duration": 5355,
-    "title": "Šta donosi novi ekonomski model i ko koči reforme? - ARGUMENTI"
+    "duration": 4566,
+    "title": "Bijelo-plavi podcast 262: Pročitana knjiga"
    },
    {
-    "id": "YusKDhFc3JE",
-    "slug": "karlo-cast",
+    "id": "90RN8LYyqp0",
+    "slug": "denis-podcast",
     "source": "kandidat",
-    "duration": 3104,
-    "title": "Što nam nitko ne govori o pravoj cijeni uspjeha? PETRA RADULOVIĆ"
+    "duration": 7340,
+    "title": "HNL LIVE / POVRATAK OTPISANIH"
    },
    {
-    "id": "kDcymRZJm5E",
-    "slug": "netokracija-office-talks",
+    "id": "lY8_tfOXP2s",
+    "slug": "ideje-hr",
     "source": "kandidat",
-    "duration": 2162,
-    "title": "Kako je Miloš Đurđević u Nemačkoj izgradio B2B SaaS za evropsko tržište"
+    "duration": 3179,
+    "title": "Teo Matković: Zvona na uzbunu zvone već neko vrijeme. Vraćamo se u jedno oralno društvo"
    },
    {
-    "id": "gj2JVKFXmR4",
+    "id": "E-P-UerVqUc",
+    "slug": "kriminalno-dobre-price",
+    "source": "kandidat",
+    "duration": 2310,
+    "title": "454. epizoda: Leota Camp"
+   },
+   {
+    "id": "l8BXXeD4GmM",
+    "slug": "lider-podcast",
+    "source": "kandidat",
+    "duration": 2568,
+    "title": "Kako graditi DVIJE karijere, a ne ZAPOSTAVITI nijednu? | Ivan Jozić x Lider Podcast 185"
+   },
+   {
+    "id": "MNk-eEpDb3E",
+    "slug": "netokracija-podcast",
+    "source": "kandidat",
+    "duration": 1678,
+    "title": "Može li AI popraviti birokraciju? | S7.EP4"
+   },
+   {
+    "id": "bU9wj7sEkRg",
     "slug": "ofenziva-sportski-podcast",
     "source": "kandidat",
-    "duration": 3708,
-    "title": "Ofenziva rasprave: Pregled hrvatskih klubova u Europi s Ivanom Ivkovićem"
+    "duration": 5440,
+    "title": "Adria Slipstream: Velika Nagrada SAD-a - F1 podcast"
    },
    {
-    "id": "5TySKUgXD-o",
-    "slug": "podcast-inkubator-a1-nogometni",
-    "source": "kandidat",
-    "duration": 6279,
-    "title": "A1 Nogometni Podcast #357 - Anton Samovojska"
-   },
-   {
-    "id": "e_KXnfsAmjE",
+    "id": "FaQsB5xqNRo",
     "slug": "podcast-inkubator-mysterium",
     "source": "kandidat",
-    "duration": 6299,
-    "title": "Podcast Mysterium #184 -  NAJBIZARNIJE RELIGIJE || ZABRANJENI BOGOVI"
+    "duration": 8838,
+    "title": "Podcast Mysterium #185 -  UROCI I KLETVE || UKLETE KUĆE"
    },
    {
-    "id": "xmcUQ05Qx-U",
+    "id": "Gb8RzNXxIuo",
+    "slug": "podkist-fer",
+    "source": "kandidat",
+    "duration": 5176,
+    "title": "Kako je AI napao računalni sustav - Martin Tutek | podkist #68"
+   },
+   {
+    "id": "hoZzQ4SPUcQ",
+    "slug": "poslovni-dnevnik-podcast",
+    "source": "kandidat",
+    "duration": 3775,
+    "title": "Marko Dabrović: Stanove s priuštivim najmom treba graditi na prostoru Gredelja"
+   },
+   {
+    "id": "KBFWdMJCHTA",
     "slug": "prvi-glas-telegram",
     "source": "kandidat",
-    "duration": 1536,
-    "title": "Vučić sprema kaos u nedjelju? Ovo je plan studenata"
+    "duration": 1448,
+    "title": "Studenti rasturili Vučića: Hrvatska čeka ključan potez"
    },
    {
-    "id": "DdudF4tt67Y",
+    "id": "8_U6D-Hptv8",
     "slug": "prvi-glas-telegram",
     "source": "kandidat",
-    "duration": 1356,
-    "title": "Penava ruši Plenkovića? Prava pozadina predstave"
+    "duration": 1388,
+    "title": "Hoće li Europski sud srušiti novog šefa HRT-a?"
    },
    {
-    "id": "LX-g-3TJpf8",
-    "slug": "poslovnifm",
+    "id": "Tejtm_m7wjU",
+    "slug": "psihologija-hrt",
     "source": "kandidat",
-    "duration": 2584,
-    "title": "Novosel: S računovođom treba razgovarati, malim poduzetnicima tre..."
+    "duration": 2954,
+    "title": "S3E08 PSIHOLOGiJA #89 OKP- Opsesivno kompulzivni poremećaj (Ivana Garašić)"
    },
    {
-    "id": "xR0toGgNXzo",
-    "slug": "poslovnifm",
+    "id": "Xl0A1J-8JYg",
+    "slug": "sbs-croatian",
     "source": "kandidat",
-    "duration": 2589,
-    "title": "Novosel: S računovođom treba razgovarati, malim poduzetnicima treba partner za poslovne odluke"
+    "duration": 3031,
+    "title": "Program SBS-a na hrvatskom za utorak, 27.10.2026."
    },
    {
-    "id": "o1-bUa-zatE",
+    "id": "j0saU-bsk5g",
+    "slug": "vida-podcast",
+    "source": "kandidat",
+    "duration": 3667,
+    "title": "Zavidavanje by Lado Tomičić #173 - Goran Polak"
+   },
+   {
+    "id": "l5JDNFdSA_Y",
     "slug": "podcast-s-brezom",
     "source": "kandidat",
-    "duration": 2837,
-    "title": "POPOV O \"SUDNJEM DANU\" ZA SRBIJU: Ovo su najgori i najbolji scenariji nakon 25.10! PODCAST S BREZOM"
+    "duration": 3091,
+    "title": "ČANAK: Srbija je SPALJENA, ovo je samo šansa, a STUDENTI su nepoznata CRNA KUTIJA! PODCAST S BREZOM"
    },
    {
-    "id": "foeBPrdiRXU",
-    "slug": "zona-dinamo-podcast",
+    "id": "jUAcZhcIPLE",
+    "slug": "hzv-siempre",
     "source": "kandidat",
-    "duration": 6121,
-    "title": "Zona Dinamo Podcast - NECe ovo biti dobro"
+    "duration": 9221,
+    "title": "NAVIJAČKA ANALIZA UTAKMICE: ISTRA 1961 - HAJDUK - 11.kolo SHNL-a"
    },
    {
-    "id": "XpqmOsokE40",
-    "slug": "iza-pjace",
+    "id": "ow2Uss1wVxY",
+    "slug": "hajducka-storija",
     "source": "kandidat",
-    "duration": 6881,
-    "title": "Iza Pjace #154: Oba su pala"
+    "duration": 952,
+    "title": "ŠTETA! ISTRA 1961 - HAJDUK 2:2 | REAKCIJA"
    },
    {
-    "id": "SbgCwsZLdzE",
-    "slug": "fraktura-booktalk",
+    "id": "B_hwxrgYfzc",
+    "slug": "klub-psece-srece-podcast",
     "source": "kandidat",
-    "duration": 3092,
-    "title": "Fraktura BookTalk #30 - Ivana Bodrožić"
+    "duration": 5203,
+    "title": "Dijana Divjak: Svaki pas je individua, pa tako i njegova prehrana | KPS Podcast EP. 32"
    },
    {
-    "id": "cjVSGijA2Os",
-    "slug": "reci",
+    "id": "mu7CLRvVIsI",
+    "slug": "ovisnici-o-knjigama",
     "source": "kandidat",
-    "duration": 1817,
-    "title": "Hana: ‘Počelo je već u osnovnoj školi. Ono što mi se događalo na tjelesnom bio je horor...‘"
+    "duration": 3650,
+    "title": "EPIZODA 19: Knjige zbog kojih spavamo s upaljenim svjetlom"
    },
    {
-    "id": "huRsEP0CBXk",
-    "slug": "samo-hajduk",
+    "id": "Zf7hDEyQfhE",
+    "slug": "bez-uputnice",
     "source": "kandidat",
-    "duration": 3765,
-    "title": "Samo Hajduk Podcast #52: Lov na Thune | EUCL vs Thun"
+    "duration": 2741,
+    "title": "Psihologinje otvoreno o seksualnoj terapiji, edukaciji i mitovima: 'Stid se razgovorom smanjuje'"
    },
    {
-    "id": "FRKK9FlKH6Y",
+    "id": "eruUWeibDuw",
+    "slug": "prgavi-podcast",
+    "source": "kandidat",
+    "duration": 5853,
+    "title": "Istra Hajdukova crna mačka ❤️💙 fizički padamo nakon 60. minute 🤍 Prgavi podcast"
+   },
+   {
+    "id": "rbgBRcBN7aM",
+    "slug": "planet-formula",
+    "source": "kandidat",
+    "duration": 3306,
+    "title": "Planet Formula ep. 13 - Velika nagrada SAD-a"
+   },
+   {
+    "id": "kFU7l01AcO0",
     "slug": "briefing-jutarnji-list",
     "source": "kandidat",
-    "duration": 2084,
-    "title": "Marinko Ogorec: Vrijeme radi za Putina, on može Trumpu pomoći oko Irana, a zauzvrat traži samo jedno"
+    "duration": 2683,
+    "title": "Žarko Puhovski: Studentski pokret će se raspasti, Vučić se sprema na zatvor, ali neće biti ubijanja"
    },
    {
-    "id": "VTUK17wFBC0",
-    "slug": "veliki-judi",
+    "id": "fJeZkzaWOvI",
+    "slug": "50-minuta",
     "source": "kandidat",
-    "duration": 1951,
-    "title": "Veliki judi 24.10.2026. Zdenka Čorkalo"
+    "duration": 3166,
+    "title": "50MINUTA Gjenero: SNS bez vlasti ne postoji; Sedak: Politiku prema Srbiji mjerimo reakcijom Beograda"
    },
    {
-    "id": "xgtv50W9OH0",
-    "slug": "ton-slika-politika",
+    "id": "Ct_FjwtuLpU",
+    "slug": "laudato-zivot-i-zdravlje",
     "source": "kandidat",
-    "duration": 3817,
-    "title": "TON-SLIKA-POLITIKA * ELIZABETA MAĐAREVIĆ: \"Masovne imigracije uništavaju demokraciju u Europi!\""
+    "duration": 3670,
+    "title": "Život i zdravlje - Nove spoznaje o debljini"
    },
    {
-    "id": "xIIyal962jM",
-    "slug": "hrt-globalna-hrvatska",
+    "id": "wJRwtQ8gDp0",
+    "slug": "laudato-zivot-i-zdravlje",
     "source": "kandidat",
-    "duration": 2602,
-    "title": "Globalna Hrvatska, 22.10.2026."
+    "duration": 3617,
+    "title": "Život i zdravlje - Filip Sedlić, vrstan znanstvenik iz područja patofiziologije"
+   },
+   {
+    "id": "aqJrrzwR178",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3436,
+    "title": "Život i zdravlje - Zašto koljeno boli?"
+   },
+   {
+    "id": "HCI3Ofnj_x0",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3648,
+    "title": "Život i zdravlje - Bolesti srca i krvnih žila"
+   },
+   {
+    "id": "Hxbp8M4_sFE",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3559,
+    "title": "Život i zdravlje - Povezanost psihe i kože"
+   },
+   {
+    "id": "ojkr4TKoh70",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3627,
+    "title": "Život i zdravlje - Sistemske bolesti i oko"
+   },
+   {
+    "id": "f67fJW4GdNc",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3344,
+    "title": "Život i zdravlje - Nove tehnologije u stomatologiji"
+   },
+   {
+    "id": "o5d3r4AOkXM",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3454,
+    "title": "Život i zdravlje - Mali život – velika milost"
+   },
+   {
+    "id": "yOjG4V6XK0U",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3257,
+    "title": "Život i zdravlje - Alergija na ambroziju"
+   },
+   {
+    "id": "M22-B5Gbz9M",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3576,
+    "title": "Život i zdravlje - Personalizirana medicina - iskorak u 22. stoljeće (dr. Dragan Primorac)"
+   },
+   {
+    "id": "-akvRtUeQ-c",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3360,
+    "title": "Život i zdravlje - Suvremeni izazovi života s aspekta zdravlja"
+   },
+   {
+    "id": "E6GzmjLK6Jc",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3401,
+    "title": "Život i zdravlje - Tumori glave i vrata"
+   },
+   {
+    "id": "4ULJohpsrOY",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3689,
+    "title": "Život i zdravlje - Preživljavanje novorođenčeta - najnovija dostignuća"
+   },
+   {
+    "id": "woBJJBOfrgY",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3472,
+    "title": "Život i zdravlje - Evolucija čovjeka i genske tehnologije"
+   },
+   {
+    "id": "SRdCbYqzbTo",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3433,
+    "title": "Život i zdravlje - Problemi kod djece i mladih"
+   },
+   {
+    "id": "H6Udh2TkHzU",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3396,
+    "title": "Život i zdravlje - Kako prevenirati demenciju?"
+   },
+   {
+    "id": "JOa7gZP7o-E",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3590,
+    "title": "Nove spoznaje u liječenju paradontitisa"
+   },
+   {
+    "id": "eRO7bvEKl_I",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3816,
+    "title": "Život i zdravlje - Alergije na hranu"
+   },
+   {
+    "id": "U4qhtPFWEwE",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 2950,
+    "title": "Život i zdravlje - Rekonstrukcijska kirurgija"
+   },
+   {
+    "id": "t--Y_SOQMPc",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3575,
+    "title": "Život i zdravlje: Debljina - kirurško liječenje"
+   },
+   {
+    "id": "Xcm8SyrXYhY",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3471,
+    "title": "Život i zdravlje - Važnost bliskih odnosa za naše zdravlje"
+   },
+   {
+    "id": "V1CUzXlvhLg",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3578,
+    "title": "Život i zdravlje - Kolesterol"
+   },
+   {
+    "id": "yX8Dsi_Nx-M",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3673,
+    "title": "Život i zdravlje - Medicina nekad i danas"
+   },
+   {
+    "id": "b__CrQgaX84",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3736,
+    "title": "Život i zdravlje - Izazovi u poimanju života i smrti"
+   },
+   {
+    "id": "BQN7MnEWKSw",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3676,
+    "title": "Život i zdravlje - Značaj prehrane za ljudsko zdravlje"
+   },
+   {
+    "id": "LH44EryyfX8",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3087,
+    "title": "Život i zdravlje - Dijagnostika i liječenje bolesti imunosnog sustava"
+   },
+   {
+    "id": "Z-oxdmso4y4",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3369,
+    "title": "Život i zdravlje - Upala pluća"
+   },
+   {
+    "id": "hdh6ipSYz-0",
+    "slug": "laudato-zivot-i-zdravlje",
+    "source": "kandidat",
+    "duration": 3594,
+    "title": "Život i zdravlje - Anksiozni poremećaj"
+   },
+   {
+    "id": "f_80s4DQgPk",
+    "slug": "hrt-otvoreno",
+    "source": "kandidat",
+    "duration": 1795,
+    "title": "Otvoreno o Vučićevu porazu i političkoj budućnosti Srbije"
+   },
+   {
+    "id": "oLOVfcxUjrs",
+    "slug": "hrt-peti-dan",
+    "source": "kandidat",
+    "duration": 3611,
+    "title": "Peti dan: Huliganizam; naši mladi"
+   },
+   {
+    "id": "2ujuUg5acCs",
+    "slug": "hrt-veterani-mira",
+    "source": "kandidat",
+    "duration": 1583,
+    "title": "Veterani mira: Veza u ratu - kibernetička sigurnost u miru"
+   },
+   {
+    "id": "LKMayqwCnY0",
+    "slug": "hrt-na-rubu-znanosti",
+    "source": "kandidat",
+    "duration": 2925,
+    "title": "Na rubu znanosti: Izvantjelesno iskustvo i Institut Monroe"
+   },
+   {
+    "id": "k9EGdyMXNXQ",
+    "slug": "hrt-pozitivno",
+    "source": "kandidat",
+    "duration": 1811,
+    "title": "Pozitivno: Ángel González de Rábago"
    }
   ]
  },
  "nights": [
-  {
-   "night": "2026-09-25",
-   "watch_ran": true,
-   "candidates": 7,
-   "tracked": 1,
-   "total": 8,
-   "channels": 8,
-   "candidate_hours": 7.2,
-   "avg7": null
-  },
-  {
-   "night": "2026-09-26",
-   "watch_ran": true,
-   "candidates": 17,
-   "tracked": 0,
-   "total": 17,
-   "channels": 16,
-   "candidate_hours": 17.5,
-   "avg7": null
-  },
   {
    "night": "2026-09-27",
    "watch_ran": true,
@@ -265,7 +490,7 @@
    "total": 22,
    "channels": 22,
    "candidate_hours": 27.7,
-   "avg7": 16.1
+   "avg7": null
   },
   {
    "night": "2026-10-02",
@@ -275,7 +500,7 @@
    "total": 23,
    "channels": 22,
    "candidate_hours": 26.2,
-   "avg7": 18.3
+   "avg7": null
   },
   {
    "night": "2026-10-03",
@@ -496,65 +721,95 @@
    "channels": 22,
    "candidate_hours": 22.9,
    "avg7": 30.1
+  },
+  {
+   "night": "2026-10-25",
+   "watch_ran": true,
+   "candidates": 14,
+   "tracked": 3,
+   "total": 17,
+   "channels": 17,
+   "candidate_hours": 14.2,
+   "avg7": 30
+  },
+  {
+   "night": "2026-10-26",
+   "watch_ran": true,
+   "candidates": 17,
+   "tracked": 1,
+   "total": 18,
+   "channels": 18,
+   "candidate_hours": 18.2,
+   "avg7": 29.7
+  },
+  {
+   "night": "2026-10-27",
+   "watch_ran": true,
+   "candidates": 59,
+   "tracked": 0,
+   "total": 59,
+   "channels": 31,
+   "candidate_hours": 58.9,
+   "avg7": 30.1
   }
  ],
  "weekday": [
   {
    "weekday": "ned",
-   "episodes": 62,
-   "days": 4
+   "episodes": 90,
+   "days": 5
   },
   {
    "weekday": "pon",
-   "episodes": 106,
+   "episodes": 148,
    "days": 4
   },
   {
    "weekday": "uto",
-   "episodes": 96,
+   "episodes": 95,
    "days": 4
   },
   {
    "weekday": "sri",
-   "episodes": 93,
+   "episodes": 95,
    "days": 4
   },
   {
    "weekday": "čet",
    "episodes": 91,
-   "days": 5
+   "days": 4
   },
   {
    "weekday": "pet",
-   "episodes": 126,
+   "episodes": 109,
    "days": 4
   },
   {
    "weekday": "sub",
-   "episodes": 43,
-   "days": 4
+   "episodes": 55,
+   "days": 5
   }
  ],
  "durations": [
   {
    "label": "<30 min",
-   "count": 67
+   "count": 75
   },
   {
    "label": "30–60 min",
-   "count": 267
+   "count": 302
   },
   {
    "label": "60–90 min",
-   "count": 164
+   "count": 178
   },
   {
    "label": "90–120 min",
-   "count": 69
+   "count": 74
   },
   {
    "label": "≥120 min",
-   "count": 50
+   "count": 54
   }
  ],
  "channels": [
@@ -566,95 +821,123 @@
    "last": "2026-10-20"
   },
   {
+   "slug": "laudato-zivot-i-zdravlje",
+   "source": "kandidat",
+   "count": 28,
+   "seconds": 98054,
+   "last": "2026-10-27"
+  },
+  {
    "slug": "prvi-glas-telegram",
    "source": "kandidat",
-   "count": 20,
-   "seconds": 33198,
-   "last": "2026-10-24"
+   "count": 21,
+   "seconds": 33518,
+   "last": "2026-10-27"
   },
   {
    "slug": "sbs-croatian",
    "source": "kandidat",
-   "count": 17,
-   "seconds": 52038,
-   "last": "2026-10-23"
+   "count": 18,
+   "seconds": 54940,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "hajducka-storija",
+   "source": "kandidat",
+   "count": 14,
+   "seconds": 19214,
+   "last": "2026-10-27"
   },
   {
    "slug": "ofenziva-sportski-podcast",
    "source": "kandidat",
    "count": 14,
-   "seconds": 67395,
-   "last": "2026-10-24"
+   "seconds": 68173,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "podcast-inkubator",
+   "source": "kandidat",
+   "count": 14,
+   "seconds": 75083,
+   "last": "2026-10-26"
   },
   {
    "slug": "atma-podcast",
    "source": "kandidat",
    "count": 12,
-   "seconds": 60435,
-   "last": "2026-10-24"
-  },
-  {
-   "slug": "hajducka-storija",
-   "source": "kandidat",
-   "count": 12,
-   "seconds": 17118,
-   "last": "2026-10-23"
-  },
-  {
-   "slug": "podcast-inkubator",
-   "source": "kandidat",
-   "count": 12,
-   "seconds": 65462,
-   "last": "2026-10-22"
+   "seconds": 60986,
+   "last": "2026-10-27"
   },
   {
    "slug": "ideje-hr",
    "source": "kandidat",
    "count": 11,
    "seconds": 32958,
-   "last": "2026-10-23"
+   "last": "2026-10-27"
   },
   {
    "slug": "podcast-s-brezom",
    "source": "kandidat",
    "count": 11,
-   "seconds": 30827,
-   "last": "2026-10-24"
+   "seconds": 31428,
+   "last": "2026-10-27"
   },
   {
    "slug": "prgavi-podcast",
    "source": "kandidat",
-   "count": 9,
-   "seconds": 55264,
-   "last": "2026-10-23"
+   "count": 10,
+   "seconds": 61117,
+   "last": "2026-10-27"
   },
   {
    "slug": "briefing-jutarnji-list",
    "source": "kandidat",
-   "count": 8,
-   "seconds": 18734,
-   "last": "2026-10-24"
+   "count": 9,
+   "seconds": 21417,
+   "last": "2026-10-27"
   },
   {
    "slug": "osvrtnik",
    "source": "kandidat",
-   "count": 8,
-   "seconds": 45521,
-   "last": "2026-10-19"
+   "count": 9,
+   "seconds": 51241,
+   "last": "2026-10-26"
   },
   {
    "slug": "podcast-cuspajz",
    "source": "praćeni",
-   "count": 8,
+   "count": 9,
    "seconds": 0,
-   "last": "2026-10-22"
+   "last": "2026-10-25"
   },
   {
    "slug": "poslovni-dnevnik-podcast",
    "source": "kandidat",
+   "count": 9,
+   "seconds": 22644,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "radio-mreznica",
+   "source": "praćeni",
+   "count": 9,
+   "seconds": 0,
+   "last": "2026-10-25"
+  },
+  {
+   "slug": "actualitica-podcast",
+   "source": "kandidat",
    "count": 8,
-   "seconds": 18869,
-   "last": "2026-10-20"
+   "seconds": 33695,
+   "last": "2026-10-26"
+  },
+  {
+   "slug": "hzv-siempre",
+   "source": "kandidat",
+   "count": 8,
+   "seconds": 92401,
+   "last": "2026-10-27"
   },
   {
    "slug": "poslovnifm",
@@ -671,18 +954,11 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "radio-mreznica",
-   "source": "praćeni",
-   "count": 8,
-   "seconds": 0,
-   "last": "2026-10-23"
-  },
-  {
-   "slug": "actualitica-podcast",
+   "slug": "spica-s-macanom",
    "source": "kandidat",
-   "count": 7,
-   "seconds": 31231,
-   "last": "2026-10-22"
+   "count": 8,
+   "seconds": 32078,
+   "last": "2026-10-25"
   },
   {
    "slug": "budi-frajer",
@@ -692,32 +968,32 @@
    "last": "2026-10-24"
   },
   {
-   "slug": "hzv-siempre",
-   "source": "kandidat",
-   "count": 7,
-   "seconds": 83180,
-   "last": "2026-10-23"
-  },
-  {
-   "slug": "podcast-8-24",
-   "source": "kandidat",
-   "count": 7,
-   "seconds": 38037,
-   "last": "2026-10-23"
-  },
-  {
-   "slug": "spica-s-macanom",
-   "source": "kandidat",
-   "count": 7,
-   "seconds": 27818,
-   "last": "2026-10-11"
-  },
-  {
    "slug": "hrt-otvoreno",
    "source": "kandidat",
+   "count": 7,
+   "seconds": 12970,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "lider-podcast",
+   "source": "kandidat",
+   "count": 7,
+   "seconds": 14433,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "vida-podcast",
+   "source": "kandidat",
+   "count": 7,
+   "seconds": 23410,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "denis-podcast",
+   "source": "kandidat",
    "count": 6,
-   "seconds": 11175,
-   "last": "2026-10-23"
+   "seconds": 26838,
+   "last": "2026-10-27"
   },
   {
    "slug": "iza-pjace",
@@ -727,18 +1003,25 @@
    "last": "2026-10-24"
   },
   {
-   "slug": "lider-podcast",
-   "source": "kandidat",
-   "count": 6,
-   "seconds": 11865,
-   "last": "2026-10-23"
-  },
-  {
-   "slug": "lood-podcast",
+   "slug": "mladi-za-domovinu",
    "source": "praćeni",
    "count": 6,
    "seconds": 0,
+   "last": "2026-10-26"
+  },
+  {
+   "slug": "podcast-8-24",
+   "source": "kandidat",
+   "count": 6,
+   "seconds": 31988,
    "last": "2026-10-23"
+  },
+  {
+   "slug": "projekt-velebit",
+   "source": "kandidat",
+   "count": 6,
+   "seconds": 42340,
+   "last": "2026-10-25"
   },
   {
    "slug": "samo-hajduk",
@@ -746,13 +1029,6 @@
    "count": 6,
    "seconds": 34264,
    "last": "2026-10-24"
-  },
-  {
-   "slug": "vida-podcast",
-   "source": "kandidat",
-   "count": 6,
-   "seconds": 19743,
-   "last": "2026-10-23"
   },
   {
    "slug": "viza",
@@ -769,20 +1045,6 @@
    "last": "2026-10-18"
   },
   {
-   "slug": "agape-rtv",
-   "source": "kandidat",
-   "count": 5,
-   "seconds": 20672,
-   "last": "2026-10-24"
-  },
-  {
-   "slug": "denis-podcast",
-   "source": "kandidat",
-   "count": 5,
-   "seconds": 16975,
-   "last": "2026-10-15"
-  },
-  {
    "slug": "eduza-show",
    "source": "kandidat",
    "count": 5,
@@ -790,32 +1052,53 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "mladi-za-domovinu",
+   "slug": "kriminalno-dobre-price",
+   "source": "kandidat",
+   "count": 5,
+   "seconds": 13874,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "lood-podcast",
    "source": "praćeni",
    "count": 5,
    "seconds": 0,
    "last": "2026-10-23"
   },
   {
-   "slug": "netokracija-office-talks",
+   "slug": "mjesto-zlocina",
    "source": "kandidat",
    "count": 5,
-   "seconds": 10413,
-   "last": "2026-10-24"
+   "seconds": 15091,
+   "last": "2026-10-25"
   },
   {
-   "slug": "podcast-inkubator-a1-nogometni",
-   "source": "kandidat",
+   "slug": "muzevni-budite",
+   "source": "praćeni",
    "count": 5,
-   "seconds": 24408,
-   "last": "2026-10-24"
+   "seconds": 0,
+   "last": "2026-10-25"
   },
   {
-   "slug": "projekt-velebit",
+   "slug": "netokracija-podcast",
    "source": "kandidat",
    "count": 5,
-   "seconds": 34730,
-   "last": "2026-10-19"
+   "seconds": 17033,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "podcast-inkubator-mysterium",
+   "source": "kandidat",
+   "count": 5,
+   "seconds": 40344,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "psihologija-hrt",
+   "source": "kandidat",
+   "count": 5,
+   "seconds": 17113,
+   "last": "2026-10-27"
   },
   {
    "slug": "razvojni-kod",
@@ -825,18 +1108,18 @@
    "last": "2026-10-23"
   },
   {
-   "slug": "reci",
-   "source": "kandidat",
-   "count": 5,
-   "seconds": 9907,
-   "last": "2026-10-24"
-  },
-  {
    "slug": "tribina-nba-kosarka",
    "source": "kandidat",
    "count": 5,
    "seconds": 28918,
    "last": "2026-10-22"
+  },
+  {
+   "slug": "vedran-soric-podcast",
+   "source": "kandidat",
+   "count": 5,
+   "seconds": 19008,
+   "last": "2026-10-26"
   },
   {
    "slug": "veliki-judi",
@@ -860,6 +1143,13 @@
    "last": "2026-10-23"
   },
   {
+   "slug": "agape-rtv",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 16866,
+   "last": "2026-10-24"
+  },
+  {
    "slug": "bez-dlake-na-glavi",
    "source": "kandidat",
    "count": 4,
@@ -870,8 +1160,8 @@
    "slug": "biciklizam-net-podcast",
    "source": "kandidat",
    "count": 4,
-   "seconds": 16495,
-   "last": "2026-10-19"
+   "seconds": 16885,
+   "last": "2026-10-25"
   },
   {
    "slug": "cronnect",
@@ -895,18 +1185,32 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "karlo-cast",
+   "slug": "generacija-plus",
    "source": "kandidat",
    "count": 4,
-   "seconds": 14497,
-   "last": "2026-10-24"
+   "seconds": 11104,
+   "last": "2026-10-26"
   },
   {
-   "slug": "kriminalno-dobre-price",
+   "slug": "hopecast",
    "source": "kandidat",
    "count": 4,
-   "seconds": 11564,
-   "last": "2026-10-20"
+   "seconds": 28925,
+   "last": "2026-10-26"
+  },
+  {
+   "slug": "hrt-na-rubu-znanosti",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 12132,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "libertas-talks",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 14600,
+   "last": "2026-10-25"
   },
   {
    "slug": "metabolic-friendly",
@@ -916,20 +1220,6 @@
    "last": "2026-10-16"
   },
   {
-   "slug": "mjesto-zlocina",
-   "source": "kandidat",
-   "count": 4,
-   "seconds": 12453,
-   "last": "2026-10-18"
-  },
-  {
-   "slug": "muzevni-budite",
-   "source": "praćeni",
-   "count": 4,
-   "seconds": 0,
-   "last": "2026-10-18"
-  },
-  {
    "slug": "nadji-nacin",
    "source": "kandidat",
    "count": 4,
@@ -937,11 +1227,18 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "netokracija-podcast",
+   "slug": "netokracija-office-talks",
    "source": "kandidat",
    "count": 4,
-   "seconds": 15355,
-   "last": "2026-10-20"
+   "seconds": 8660,
+   "last": "2026-10-24"
+  },
+  {
+   "slug": "nlo-arhivist",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 10486,
+   "last": "2026-10-26"
   },
   {
    "slug": "occamova-britva",
@@ -958,6 +1255,20 @@
    "last": "2026-10-22"
   },
   {
+   "slug": "planet-formula",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 12559,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "podcast-inkubator-a1-nogometni",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 19329,
+   "last": "2026-10-24"
+  },
+  {
    "slug": "podcast-inkubator-extra-runda",
    "source": "kandidat",
    "count": 4,
@@ -965,11 +1276,11 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "podcast-inkubator-mysterium",
+   "slug": "pomalo-too-much",
    "source": "kandidat",
    "count": 4,
-   "seconds": 31506,
-   "last": "2026-10-24"
+   "seconds": 20240,
+   "last": "2026-10-26"
   },
   {
    "slug": "povijest-cetvrtkom",
@@ -979,25 +1290,25 @@
    "last": "2026-10-23"
   },
   {
-   "slug": "psihologija-hrt",
-   "source": "kandidat",
-   "count": 4,
-   "seconds": 14159,
-   "last": "2026-10-20"
-  },
-  {
-   "slug": "puba77",
-   "source": "kandidat",
-   "count": 4,
-   "seconds": 49156,
-   "last": "2026-10-22"
-  },
-  {
    "slug": "razgovor-s-razlogom",
    "source": "kandidat",
    "count": 4,
    "seconds": 7361,
    "last": "2026-10-22"
+  },
+  {
+   "slug": "reci",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 7609,
+   "last": "2026-10-24"
+  },
+  {
+   "slug": "ril-tok-podcast",
+   "source": "kandidat",
+   "count": 4,
+   "seconds": 34030,
+   "last": "2026-10-26"
   },
   {
    "slug": "sindikalni-megafon",
@@ -1028,13 +1339,6 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "vedran-soric-podcast",
-   "source": "kandidat",
-   "count": 4,
-   "seconds": 16033,
-   "last": "2026-10-19"
-  },
-  {
    "slug": "zona-dinamo-podcast",
    "source": "kandidat",
    "count": 4,
@@ -1056,6 +1360,27 @@
    "last": "2026-10-16"
   },
   {
+   "slug": "ana-radisic-podcast",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 6432,
+   "last": "2026-10-26"
+  },
+  {
+   "slug": "best-food-croatia",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 7311,
+   "last": "2026-10-26"
+  },
+  {
+   "slug": "bijelo-plavi-podcast",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 13545,
+   "last": "2026-10-27"
+  },
+  {
    "slug": "druga-strana-medalje",
    "source": "kandidat",
    "count": 3,
@@ -1070,46 +1395,11 @@
    "last": "2026-10-14"
   },
   {
-   "slug": "fraktura-booktalk",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 8463,
-   "last": "2026-10-24"
-  },
-  {
-   "slug": "framiko-frama-kocerin",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 6401,
-   "last": "2026-10-10"
-  },
-  {
-   "slug": "generacija-plus",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 8199,
-   "last": "2026-10-22"
-  },
-  {
    "slug": "hercegovina-info",
    "source": "praćeni",
    "count": 3,
    "seconds": 0,
    "last": "2026-10-01"
-  },
-  {
-   "slug": "hkm-argumenti",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 16080,
-   "last": "2026-10-10"
-  },
-  {
-   "slug": "hopecast",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 22229,
-   "last": "2026-10-19"
   },
   {
    "slug": "hrt-globalna-hrvatska",
@@ -1119,18 +1409,18 @@
    "last": "2026-10-24"
   },
   {
-   "slug": "hrt-na-rubu-znanosti",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 9207,
-   "last": "2026-10-20"
-  },
-  {
    "slug": "hrvatska-knjiznica-za-slijepe",
    "source": "kandidat",
    "count": 3,
    "seconds": 8404,
    "last": "2026-10-20"
+  },
+  {
+   "slug": "karlo-cast",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 10566,
+   "last": "2026-10-24"
   },
   {
    "slug": "kisobran-uniri-podcast",
@@ -1140,11 +1430,18 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "libertas-talks",
+   "slug": "klub-psece-srece-podcast",
    "source": "kandidat",
    "count": 3,
-   "seconds": 11533,
-   "last": "2026-10-18"
+   "seconds": 14274,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "kontrapovijest-by-hrvoje-klasic",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 5604,
+   "last": "2026-10-26"
   },
   {
    "slug": "nanovoroeni",
@@ -1154,18 +1451,11 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "nlo-arhivist",
+   "slug": "ovisnici-o-knjigama",
    "source": "kandidat",
    "count": 3,
-   "seconds": 7385,
-   "last": "2026-10-20"
-  },
-  {
-   "slug": "planet-formula",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 9253,
-   "last": "2026-10-12"
+   "seconds": 9224,
+   "last": "2026-10-27"
   },
   {
    "slug": "podcast-s-barbarom",
@@ -1175,18 +1465,11 @@
    "last": "2026-10-23"
   },
   {
-   "slug": "pomalo-too-much",
+   "slug": "podkist-fer",
    "source": "kandidat",
    "count": 3,
-   "seconds": 16704,
-   "last": "2026-10-19"
-  },
-  {
-   "slug": "poslovni-svijet-s-ilijom-jandricem",
-   "source": "kandidat",
-   "count": 3,
-   "seconds": 6355,
-   "last": "2026-10-20"
+   "seconds": 15656,
+   "last": "2026-10-27"
   },
   {
    "slug": "pravi-smjer",
@@ -1196,6 +1479,13 @@
    "last": "2026-10-21"
   },
   {
+   "slug": "projekt-snovi",
+   "source": "kandidat",
+   "count": 3,
+   "seconds": 5753,
+   "last": "2026-10-25"
+  },
+  {
    "slug": "prva-linija",
    "source": "kandidat",
    "count": 3,
@@ -1203,11 +1493,11 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "ril-tok-podcast",
+   "slug": "puba77",
    "source": "kandidat",
    "count": 3,
-   "seconds": 26064,
-   "last": "2026-10-19"
+   "seconds": 39379,
+   "last": "2026-10-22"
   },
   {
    "slug": "srednja-hr-podcast",
@@ -1245,11 +1535,11 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "ana-radisic-podcast",
+   "slug": "50-minuta",
    "source": "kandidat",
    "count": 2,
-   "seconds": 4487,
-   "last": "2026-10-12"
+   "seconds": 6335,
+   "last": "2026-10-27"
   },
   {
    "slug": "argumenti-sezona-8",
@@ -1259,25 +1549,11 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "best-food-croatia",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 4755,
-   "last": "2026-10-14"
-  },
-  {
    "slug": "bijela-kronika",
    "source": "kandidat",
    "count": 2,
    "seconds": 3757,
    "last": "2026-10-11"
-  },
-  {
-   "slug": "bijelo-plavi-podcast",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 8979,
-   "last": "2026-10-20"
   },
   {
    "slug": "cancast",
@@ -1308,6 +1584,13 @@
    "last": "2026-10-14"
   },
   {
+   "slug": "felix-contras",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 5345,
+   "last": "2026-10-25"
+  },
+  {
    "slug": "filmopedija",
    "source": "kandidat",
    "count": 2,
@@ -1322,11 +1605,25 @@
    "last": "2026-10-14"
   },
   {
-   "slug": "fortunal-podcast",
+   "slug": "fraktura-booktalk",
    "source": "kandidat",
    "count": 2,
-   "seconds": 6745,
-   "last": "2026-10-09"
+   "seconds": 5873,
+   "last": "2026-10-24"
+  },
+  {
+   "slug": "framiko-frama-kocerin",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 3931,
+   "last": "2026-10-10"
+  },
+  {
+   "slug": "hkm-argumenti",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 10732,
+   "last": "2026-10-10"
   },
   {
    "slug": "hkm-u-zdravlju-i-bolesti",
@@ -1334,6 +1631,41 @@
    "count": 2,
    "seconds": 3885,
    "last": "2026-10-22"
+  },
+  {
+   "slug": "hkm-zivjeti-evandelje",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 6167,
+   "last": "2026-10-25"
+  },
+  {
+   "slug": "hrt-peti-dan",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 7223,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "hrt-pozitivno",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 3638,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "hrt-veterani-mira",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 3110,
+   "last": "2026-10-27"
+  },
+  {
+   "slug": "human-lab-podcast",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 11942,
+   "last": "2026-10-26"
   },
   {
    "slug": "imam-ideju",
@@ -1355,20 +1687,6 @@
    "count": 2,
    "seconds": 0,
    "last": "2026-10-17"
-  },
-  {
-   "slug": "klub-psece-srece-podcast",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 9071,
-   "last": "2026-10-13"
-  },
-  {
-   "slug": "kontrapovijest-by-hrvoje-klasic",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 3833,
-   "last": "2026-10-12"
   },
   {
    "slug": "mame-kod-lane",
@@ -1413,11 +1731,11 @@
    "last": "2026-10-23"
   },
   {
-   "slug": "ovisnici-o-knjigama",
+   "slug": "podcast-besida",
    "source": "kandidat",
    "count": 2,
-   "seconds": 5574,
-   "last": "2026-10-13"
+   "seconds": 10372,
+   "last": "2026-10-25"
   },
   {
    "slug": "podcast-posrednik",
@@ -1427,20 +1745,6 @@
    "last": "2026-10-19"
   },
   {
-   "slug": "podcast-svjedok",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 6436,
-   "last": "2026-10-03"
-  },
-  {
-   "slug": "podkist-fer",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 10480,
-   "last": "2026-10-06"
-  },
-  {
    "slug": "poriloox",
    "source": "kandidat",
    "count": 2,
@@ -1448,18 +1752,18 @@
    "last": "2026-10-19"
   },
   {
+   "slug": "poslovni-svijet-s-ilijom-jandricem",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 4125,
+   "last": "2026-10-20"
+  },
+  {
    "slug": "povijesni-dijalozi",
    "source": "kandidat",
    "count": 2,
    "seconds": 9489,
    "last": "2026-10-16"
-  },
-  {
-   "slug": "projekt-snovi",
-   "source": "kandidat",
-   "count": 2,
-   "seconds": 4359,
-   "last": "2026-10-11"
   },
   {
    "slug": "psz-podcast",
@@ -1497,6 +1801,13 @@
    "last": "2026-10-20"
   },
   {
+   "slug": "tribina-podcast-s-gostom",
+   "source": "kandidat",
+   "count": 2,
+   "seconds": 8892,
+   "last": "2026-10-25"
+  },
+  {
    "slug": "tribina-reprezentacija",
    "source": "kandidat",
    "count": 2,
@@ -1504,11 +1815,11 @@
    "last": "2026-10-08"
   },
   {
-   "slug": "um-and-boom",
+   "slug": "tribina-weitzermania",
    "source": "kandidat",
    "count": 2,
-   "seconds": 8240,
-   "last": "2026-10-21"
+   "seconds": 11056,
+   "last": "2026-10-26"
   },
   {
    "slug": "urlaona",
@@ -1518,11 +1829,11 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "50-minuta",
+   "slug": "vrijeme-za-zdravlje-s-doktorom-za-srce",
    "source": "kandidat",
-   "count": 1,
-   "seconds": 3169,
-   "last": "2026-10-20"
+   "count": 2,
+   "seconds": 3861,
+   "last": "2026-10-26"
   },
   {
    "slug": "agroklub-podcast",
@@ -1530,6 +1841,13 @@
    "count": 1,
    "seconds": 4739,
    "last": "2026-10-15"
+  },
+  {
+   "slug": "all-things-croatia",
+   "source": "kandidat",
+   "count": 1,
+   "seconds": 2031,
+   "last": "2026-10-26"
   },
   {
    "slug": "baustelahr-podcast",
@@ -1544,6 +1862,13 @@
    "count": 1,
    "seconds": 4989,
    "last": "2026-09-30"
+  },
+  {
+   "slug": "bez-uputnice",
+   "source": "kandidat",
+   "count": 1,
+   "seconds": 2741,
+   "last": "2026-10-27"
   },
   {
    "slug": "bozja-pobjeda",
@@ -1588,13 +1913,6 @@
    "last": "2026-10-03"
   },
   {
-   "slug": "felix-contras",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 3147,
-   "last": "2026-10-14"
-  },
-  {
    "slug": "fima-podcast",
    "source": "kandidat",
    "count": 1,
@@ -1607,6 +1925,13 @@
    "count": 1,
    "seconds": 4012,
    "last": "2026-10-16"
+  },
+  {
+   "slug": "fortunal-podcast",
+   "source": "kandidat",
+   "count": 1,
+   "seconds": 2611,
+   "last": "2026-10-09"
   },
   {
    "slug": "freelance-roditelji",
@@ -1623,13 +1948,6 @@
    "last": "2026-10-06"
   },
   {
-   "slug": "hkm-zivjeti-evandelje",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 3052,
-   "last": "2026-10-18"
-  },
-  {
    "slug": "hnb",
    "source": "praćeni",
    "count": 1,
@@ -1637,39 +1955,11 @@
    "last": "2026-10-22"
   },
   {
-   "slug": "hrt-peti-dan",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 3612,
-   "last": "2026-10-17"
-  },
-  {
-   "slug": "hrt-pozitivno",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 1827,
-   "last": "2026-10-19"
-  },
-  {
    "slug": "hrt-sto-je-klasik",
    "source": "kandidat",
    "count": 1,
    "seconds": 2075,
    "last": "2026-10-21"
-  },
-  {
-   "slug": "hrt-veterani-mira",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 1527,
-   "last": "2026-10-18"
-  },
-  {
-   "slug": "human-lab-podcast",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 5984,
-   "last": "2026-10-14"
   },
   {
    "slug": "infinity-podcast-milojevic",
@@ -1756,13 +2046,6 @@
    "last": "2026-10-17"
   },
   {
-   "slug": "podcast-besida",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 5361,
-   "last": "2026-09-30"
-  },
-  {
    "slug": "podcast-bog-i-hrvati",
    "source": "kandidat",
    "count": 1,
@@ -1782,6 +2065,13 @@
    "count": 1,
    "seconds": 5522,
    "last": "2026-10-13"
+  },
+  {
+   "slug": "podcast-svjedok",
+   "source": "kandidat",
+   "count": 1,
+   "seconds": 2284,
+   "last": "2026-10-03"
   },
   {
    "slug": "pogled-s-markovog-trga",
@@ -1854,13 +2144,6 @@
    "last": "2026-10-21"
   },
   {
-   "slug": "rpasd-hrvatska",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 1989,
-   "last": "2026-09-26"
-  },
-  {
    "slug": "show-na-kvadrat",
    "source": "kandidat",
    "count": 1,
@@ -1889,18 +2172,11 @@
    "last": "2026-09-28"
   },
   {
-   "slug": "tribina-podcast-s-gostom",
+   "slug": "um-and-boom",
    "source": "kandidat",
    "count": 1,
-   "seconds": 4427,
-   "last": "2026-10-02"
-  },
-  {
-   "slug": "tribina-weitzermania",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 4723,
-   "last": "2026-10-19"
+   "seconds": 3814,
+   "last": "2026-10-21"
   },
   {
    "slug": "vetify-podcast",
@@ -1908,13 +2184,6 @@
    "count": 1,
    "seconds": 4139,
    "last": "2026-10-21"
-  },
-  {
-   "slug": "vrijeme-za-zdravlje-s-doktorom-za-srce",
-   "source": "kandidat",
-   "count": 1,
-   "seconds": 1908,
-   "last": "2026-10-16"
   },
   {
    "slug": "zeleno-zuti-korner",
