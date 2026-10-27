@@ -3,11 +3,12 @@
 **27. listopada 2026.** · izmjereno na stvarnoj epizodi, ne procjena
 
 > **Ukratko.** Epizoda *„120. Milosrđe Božje – Kako raste kraljevstvo Božje?"*
-> (1 h 47 min) prošla je cijelu obradu za **44 minute**, bez ijedne ručne intervencije.
+> (1 h 47 min) prošla je cijelu obradu za **47 minuta** do objave na domovina.ai, bez ijedne ručne
+> intervencije; Magisterium AI i engleski prijevod stigli su nakon toga, isti dan.
 > Iz snimke je nastao točan prijepis s vremenom svake riječi, sažetak, novinarski članak
 > u 38 poglavlja s fotografijama, e-knjiga, isječci za društvene mreže, teološka provjera
-> **Magisterium AI** i engleski prijevod. Novac koji obrada stvarno troši je oko **$1 po
-> epizodi**. Od 27.10.2026. svaka nova epizoda kanala ovako se obrađuje automatski, svake
+> **Magisterium AI** i engleski prijevod. Novac koji obrada stvarno troši je oko **$1,5 po
+> epizodi** ovakve duljine. Od 27.10.2026. svaka nova epizoda kanala ovako se obrađuje automatski, svake
 > noći. Za cijeli katalog (1101 starija epizoda, ~1400 sati snimke) procjena je na kraju.
 
 **Pogledajte rezultat:** <https://domovina.ai/v/nBPDxzrAW0Q>
@@ -81,7 +82,7 @@ sequenceDiagram
     N->>N: sažetak, članak, slike, e-knjiga
     N->>D: objava (HR)
     D->>M: zahtjev za teološku provjeru
-    M->>D: Magisterium HR (~15 min po satu snimke)
+    M->>D: Magisterium HR (~21 min po satu snimke)
     D->>D: engleski prijevod svega
     Note over D: ujutro je epizoda kompletna, HR + EN
 ```
@@ -92,7 +93,7 @@ sequenceDiagram
 
 ```mermaid
 gantt
-    title Epizoda 120 — 1 h 47 min snimke, obrada 12:23–13:06
+    title Epizoda 120 — 1 h 47 min snimke, 27.10.2026.
     dateFormat HH:mm
     axisFormat %H:%M
     section Zvuk
@@ -106,7 +107,11 @@ gantt
     section Slike i objava
     Fotografije poglavlja          :c1, 12:54, 10m
     E-knjiga, isječci, titl        :c2, 13:04, 2m
-    Objava na domovina.ai          :c3, 13:06, 1m
+    Video, objava na domovina.ai   :c3, 13:06, 4m
+    section Magisterium i EN
+    Čekanje u redu                 :crit, d0, 13:10, 20m
+    Magisterium AI (HR)            :d1, 13:30, 38m
+    Engleski prijevod              :d2, 14:43, 46m
 ```
 
 | Korak | Trajanje | Novac | Napomena |
@@ -119,10 +124,11 @@ gantt
 | Članak | 7 min 44 s | (pretplata) | Claude Opus, 4 poziva, 3 cjeline / 38 poglavlja |
 | Fotografije poglavlja | ~10 min | **$0,11** | Gemini bira najljepši kadar (oči otvorene, ista osoba) |
 | E-knjiga, titl, isječci, sponzori | ~2 min | (pretplata za isječke) | e-knjiga 4,3 MB |
-| Objava | ~1 min | — | 46 MB na CDN |
-| **Ukupno do objave** | **44 min** | **~$0,90** | |
-| Magisterium AI (HR) | _upisuje se po završetku_ | **$0** | Pro pretplata Magisterium AI |
-| Engleski prijevod | _upisuje se po završetku_ | _~$0,2_ | Gemini, strogi režim bez prepričavanja |
+| Video (H.264) i objava | ~4 min | — | 46 MB na CDN |
+| **Ukupno do objave** | **47 min** | **~$0,90** | |
+| Magisterium AI (HR) | 38 min | **$0** | Pro pretplata; 39 upita jedan po jedan, ~57 s po upitu; ocjena epizode 71/100 |
+| Engleski prijevod | 46 min | ~$0,5–0,8 (procjena) | Gemini, strogi režim bez prepričavanja; Google je tog popodneva bio zagušen — inače 6–12 min |
+| **Sve gotovo, HR + EN** | **13:06 → 15:29** | **~$1,5** | od toga ~30 min čekanja u redovima |
 
 „Pretplata" znači da se taj dio ne plaća po epizodi nego troši mjesečnu kvotu Claude
 pretplate. Njegova vrijednost po tržišnoj cijeni bila bi oko $3,30 po ovakvoj epizodi
@@ -144,12 +150,13 @@ Kanal ima sezone, svaka sa svojom playlistom:
 | OEL razgovori, Svjedočanstva, Božja Riječ, ostalo | | ~80 | ~30 |
 | **Ukupno** | | **~1100** | **~1440** |
 
-**Procjena (linearno s izmjerene epizode, ~$0,50 po satu snimke):**
+**Procjena (linearno s izmjerene epizode, ~$0,85 po satu snimke):**
 
 | | Procjena |
 |---|---|
-| Novac (prijepis, govornici, Gemini sluh, fotografije, EN prijevod) | **~$800–1000** za cijeli katalog |
-| Magisterium AI | $0 (pretplata), ali ~15 min po satu snimke i strogo jedan po jedan → **~15 dana** neprekidnog rada |
+| Novac (prijepis, govornici, Gemini sluh, fotografije, EN prijevod) | **~$1100–1300** za cijeli katalog |
+| Magisterium AI | $0 (pretplata), ali ~21 min po satu snimke i strogo jedan po jedan → **~3 tjedna** neprekidnog rada |
+| Engleski prijevod | ide usporedno s Magisteriumom (zasebna traka), ne produljuje ukupno vrijeme |
 | Članci (Claude Opus) | troše kvotu pretplate (~280 tisuća tokena po epizodi) — to je glavno ograničenje brzine; točan dnevni broj izmjerit ćemo na prvih 20 epizoda |
 | Ukupno vrijeme | **~2 mjeseca** uz postupno puštanje, sezonu po sezonu |
 
