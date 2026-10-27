@@ -63,6 +63,9 @@ KANALI=(
     "slijedi-svoj-poziv-2|https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY"
 
     "abbacast|https://www.youtube.com/@AbbaCastPodcast/videos"
+    # Ora et Labora (27.10.2026.): samo NOVE epizode — svih 1102 postojećih videa je unaprijed
+    # upisano u ora-et-labora-arhiva.txt, pa --break-on-existing staje na prvom poznatom
+    "ora-et-labora|https://www.youtube.com/@oraetlabora.cro-medjugorje/videos"
 
     # veliki kanali s puno video zapisa, njih obraditi jedan po jedan odvojeno
     # potrebno dodati custom MIN_DURATION= jer imaju mnogi izjave i izrezane QA itd., a to su sve varijacije velikih podcast epizoda
@@ -70,7 +73,6 @@ KANALI=(
     # "podcast-inkubator|https://www.youtube.com/@PodcastInkubator/videos" # veliki
     # "laudato-tv|https://www.youtube.com/@LaudatoTV/videos" #veliki
     # "z1-televizija|https://www.youtube.com/@z1televizija/videos" #veliki
-    # "ora-et-labora|https://www.youtube.com/@oraetlabora.cro-medjugorje/videos" #veliki
     # "most-hrvatska|https://www.youtube.com/@MostHrvatska/videos" #veliki
 )
 

@@ -143,13 +143,16 @@ async function fetchChannelIndex(channel) {
         const baseline = new Set(state.channels[channel].baseline);
 
         // Kandidati: NOVE epizode (nisu u baselineu) s HR člankom bez Magisteriuma
-        // (+ EN varijanta ako je kanal označen +EN).
+        // (+ EN varijanta ako je kanal označen +EN). EN job sam prevodi sažetak, članak i
+        // Magisterium (translate_to_english.js u pollerovu runEnglish), pa ne čeka has_article_en —
+        // nightly EN ne radi, i uz taj uvjet +EN nikad ne bi ništa enqueueao. Čeka samo HR
+        // Magisterium, jer se article.magisterium.en.json prevodi iz njega.
         const wanted = [];
         for (const v of videos) {
             if (baseline.has(v.id)) continue;
             const p = v.pipeline || {};
             if (p.has_article && !p.has_magisterium) wanted.push({ id: v.id, lang: 'hr' });
-            if (withEn && p.has_article_en && !p.has_magisterium_en) wanted.push({ id: v.id, lang: 'en' });
+            if (withEn && p.has_magisterium && !p.has_magisterium_en) wanted.push({ id: v.id, lang: 'en' });
         }
         if (!wanted.length) {
             console.log(`✅ ${channel}: nema novih epizoda za Magisterium (${videos.length} videa, baseline ${baseline.size}).`);

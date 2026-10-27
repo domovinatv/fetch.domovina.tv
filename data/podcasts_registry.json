@@ -227,12 +227,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:10 5-15:10 15-30:11 30-45:18 45-60:5 60-90:4 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"FRANKOPANI – 6 stoljeća povijesti | EPIZODA 8–Bartol VIII.Kr\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261017",
         "originals_60d": 8,
-        "originals_90d": 14,
-        "originals_365d": 40,
+        "originals_90d": 13,
+        "originals_365d": 48,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.41,
         "min_duration_sec": 1500,
@@ -269,27 +269,27 @@
       ],
       "notes": "",
       "quality_score": {
-        "total": 81,
+        "total": 85,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 18,
+          "cadence": 22,
           "format": 15,
           "substance": 4,
           "catalog": 6,
           "audience": 8
         },
-        "days_since_last_episode": 11,
-        "last_episode_date": "2026-10-15",
+        "days_since_last_episode": 4,
+        "last_episode_date": "2026-10-22",
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20261015",
-        "originals_60d": 5,
-        "originals_90d": 5,
-        "originals_365d": 21,
+        "last_original_upload": "20261022",
+        "originals_60d": 9,
+        "originals_90d": 9,
+        "originals_365d": 34,
         "episodes_on_disk": 81
       }
     },
@@ -329,14 +329,14 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 90,
+        "total": 92,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 25,
           "format": 15,
           "substance": 8,
-          "catalog": 4,
+          "catalog": 6,
           "audience": 8
         },
         "days_since_last_episode": 1,
@@ -355,12 +355,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:2 1-5:6 5-15:11 15-30:3 30-45:2 45-60:9 60-90:21 90+:6; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-24: \"Actualitica Podcast #66 – Hrvoje Klasić: Ustaše i NDH – od n\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 12,
-        "originals_90d": 18,
-        "originals_365d": 47,
+        "originals_90d": 17,
+        "originals_365d": 69,
         "new_originals_since_baseline": 8,
         "derivative_ratio": 0.31,
         "min_duration_sec": 1200,
@@ -565,11 +565,11 @@
         "evidence": "izvor=xpl; uzorak 39 (od 39 dohvaćenih); hist=<1:1 1-5:11 5-15:10 15-30:4 30-45:1 45-60:6 60-90:4 90+:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-25: \"Agroklub Podcast #10: Zdenko Bogović\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261014",
         "originals_60d": 1,
-        "originals_90d": 2,
+        "originals_90d": 1,
         "originals_365d": 9,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0.8,
@@ -638,7 +638,7 @@
         "evidence": "izvor=videos; uzorak 57 (od 57 dohvaćenih); hist=<1:1 1-5:8 15-30:14 30-45:32 45-60:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-08: \"The NASA Scientist Who Shocked Croatia With Her Voice! - Mar\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 1,
@@ -713,7 +713,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:9 5-15:9 15-30:1 30-45:2 45-60:20 60-90:17 90+:2; /shorts ≥13 (zaseban tab, sve derivati/vertikalni); zadnji original 2024-06-27: \"E moj doktore! *Twitch DRAMA* | Alt+Tab podcast S03E17\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240627",
         "originals_60d": 0,
@@ -789,12 +789,12 @@
         "evidence": "izvor=videos; uzorak 59 (od 60 dohvaćenih); hist=<1:1 1-5:6 5-15:2 15-30:6 30-45:18 45-60:23 60-90:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-13: \"Friedreichova Ataksija: Kako Nastaviti Nakon Dijagnoze Rijet\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 25,
+        "originals_365d": 24,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.16,
         "min_duration_sec": 1200,
@@ -1253,7 +1253,7 @@
         "evidence": "izvor=videos; uzorak 15 (od 15 dohvaćenih); hist=30-45:1 45-60:3 60-90:5 90+:6; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-06: \"Uspjeh BEZ PARDONA: Nataša Janjić, Mirela Kardašević\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260929",
         "originals_60d": 1,
@@ -1407,7 +1407,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:23 5-15:23 60-90:10 90+:4; zadnji original 2021-03-30: \"BircTalk #21: Hrvoje Marjanović Sett ( 1/2 Krankšvester)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210330",
         "originals_60d": 0,
@@ -1485,7 +1485,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 252 dohvaćenih); hist=1-5:1 5-15:30 15-30:22 30-45:12 45-60:42 60-90:115 90+:30; zadnji original 2025-11-08: \"Ep. #248 – Oda jeziku (Vol. II)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251108",
         "originals_60d": 0,
@@ -1569,7 +1569,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=5-15:4 15-30:2 30-45:5 45-60:14 60-90:28 90+:7; zadnji original 2025-01-13: \"BookZvook hrvatske audio knjige\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250113",
         "originals_60d": 0,
@@ -1645,7 +1645,7 @@
         "evidence": "izvor=videos; uzorak 12 (od 12 dohvaćenih); hist=1-5:1 60-90:7 90+:4; /shorts ≥25 (zaseban tab, sve derivati/vertikalni); zadnji original 2024-11-24: \"Psihoterapija bi trebala biti dostupna svima. | Podcast Iza \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241124",
         "originals_60d": 0,
@@ -1828,7 +1828,7 @@
         "evidence": "izvor=videos; uzorak 45 (od 45 dohvaćenih); hist=<1:1 1-5:3 5-15:2 30-45:6 45-60:25 60-90:8; /shorts ≥7 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-11-14: \"Čarolija Brodskog Stupnika, pitoreskog slavonskog sela i opć\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231114",
         "originals_60d": 0,
@@ -1920,11 +1920,11 @@
       ],
       "notes": "",
       "quality_score": {
-        "total": 90,
+        "total": 93,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 22,
+          "cadence": 25,
           "format": 15,
           "substance": 4,
           "catalog": 10,
@@ -1935,12 +1935,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
-        "originals_60d": 9,
-        "originals_90d": 9,
-        "originals_365d": 45,
+        "originals_60d": 14,
+        "originals_90d": 14,
+        "originals_365d": 75,
         "episodes_on_disk": 268
       }
     },
@@ -2409,7 +2409,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:17 5-15:17 15-30:2 30-45:3 45-60:10 60-90:9 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-21: \"PODCAST: Mike Rožić breaks down Croatian combat sports, talk\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261012",
         "originals_60d": 5,
@@ -2693,7 +2693,7 @@
         "evidence": "izvor=videos; uzorak 46 (od 46 dohvaćenih); hist=1-5:1 15-30:1 30-45:20 45-60:19 60-90:5; zadnji original 2022-12-22: \"#ZKDruškanje #07 Jasenka Pleško: novoizabrana predsjednica H\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221222",
         "originals_60d": 0,
@@ -2826,12 +2826,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:7 5-15:36 15-30:9 90+:8; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-15: \"GDJE SI BIO ’91? - Martin Matković Sova - ZAPOVJEDNIK U AKCI\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
         "originals_60d": 4,
         "originals_90d": 6,
-        "originals_365d": 10,
+        "originals_365d": 25,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0.87,
         "min_duration_sec": 3600,
@@ -2975,7 +2975,7 @@
         "evidence": "izvor=videos; uzorak 23 (od 23 dohvaćenih); hist=1-5:1 5-15:1 15-30:8 30-45:3 45-60:3 60-90:7; /shorts ≥1 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-03-26: \"dr. Podcast \"Spavanje Special\" Alen Juginović i Natko Beck\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250326",
         "originals_60d": 0,
@@ -3179,7 +3179,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221017",
         "originals_60d": 0,
@@ -3254,12 +3254,12 @@
         "evidence": "izvor=streams; uzorak 29 (od 30 dohvaćenih); hist=45-60:4 60-90:20 90+:5; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-22: \"Kako prenamijeniti video podcast: demo uživo + AI alati | Vi\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 12,
+        "originals_60d": 10,
         "originals_90d": 18,
-        "originals_365d": 63,
+        "originals_365d": 73,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.02,
         "min_duration_sec": 2400,
@@ -3296,27 +3296,27 @@
       ],
       "notes": "",
       "quality_score": {
-        "total": 68,
+        "total": 77,
         "tier": "✅ strong",
         "breakdown": {
-          "freshness": 27,
-          "cadence": 6,
+          "freshness": 30,
+          "cadence": 12,
           "format": 15,
           "substance": 4,
           "catalog": 8,
           "audience": 8
         },
-        "days_since_last_episode": 17,
-        "last_episode_date": "2026-10-09",
+        "days_since_last_episode": 0,
+        "last_episode_date": "2026-10-26",
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20261009",
-        "originals_60d": 1,
-        "originals_90d": 1,
-        "originals_365d": 12,
+        "last_original_upload": "20261026",
+        "originals_60d": 3,
+        "originals_90d": 3,
+        "originals_365d": 26,
         "episodes_on_disk": 102
       }
     },
@@ -3382,7 +3382,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:19 5-15:9 15-30:1 30-45:6 45-60:4 60-90:15 90+:6; /shorts ≥29 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-17: \"ETVOS podcast EP8 - Theology and Religion in the Contemporar\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261002",
         "originals_60d": 1,
@@ -3463,7 +3463,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=45-60:60; zadnji original 2026-09-22: \"Explora 22.09.2026. Propitivanje granica|Explora \"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 7,
@@ -3544,10 +3544,10 @@
         "evidence": "izvor=pl; uzorak 60 (od 66 dohvaćenih); hist=60-90:5 90+:61; zadnji original 2026-09-16: \"Monumentalno razočaranje | F1Puls podcast #66\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
-        "originals_60d": 6,
+        "originals_60d": 5,
         "originals_90d": 7,
         "originals_365d": 23,
         "new_originals_since_baseline": 3,
@@ -3686,7 +3686,7 @@
         "evidence": "izvor=videos; uzorak 48 (od 48 dohvaćenih); hist=5-15:21 15-30:17 30-45:7 45-60:2 60-90:1; zadnji original 2026-04-07: \"Kalinić: Hormuški tjesnac, NATO i globalni kaos — tko zaprav\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 2,
@@ -3761,7 +3761,7 @@
         "evidence": "izvor=videos; uzorak 23 (od 23 dohvaćenih); hist=<1:13 1-5:2 30-45:1 60-90:4 90+:3; zadnji original 2022-12-11: \"Na koji način ples povezuješ sa slobodom? / LUCIJA ROMANOVA \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221211",
         "originals_60d": 0,
@@ -3835,7 +3835,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:30 5-15:8 15-30:17 30-45:4 60-90:1; /shorts ≥12 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-14: \"Gdje je stvarna snaga hrvatskog gospodarstva?\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260930",
         "originals_60d": 1,
@@ -3883,11 +3883,11 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 85,
+        "total": 82,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 25,
+          "cadence": 22,
           "format": 15,
           "substance": 5,
           "catalog": 4,
@@ -3909,11 +3909,11 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=15-30:31 30-45:26 60-90:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-23: \"Je li auto najgora investicija? | FIRE Podcast za siromašne \"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
-        "originals_60d": 8,
-        "originals_90d": 12,
+        "originals_60d": 7,
+        "originals_90d": 11,
         "originals_365d": 30,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0.21,
@@ -3985,7 +3985,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:5 5-15:18 15-30:1 45-60:5 60-90:19 90+:12; /shorts ≥9 (zaseban tab, sve derivati/vertikalni); zadnji original 2024-02-16: \"MARKO KUZMIĆ: Najbitniji Faktori Prilikom Izrade Powerliftin\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240405",
         "originals_60d": 0,
@@ -4057,7 +4057,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:3 1-5:31 5-15:8 15-30:7 30-45:8 45-60:1 90+:2; /shorts ≥4 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-11-05: \"FOI Business Talks: CPSRK edition #16\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251105",
         "originals_60d": 0,
@@ -4131,7 +4131,7 @@
         "evidence": "izvor=videos; uzorak 10 (od 10 dohvaćenih); hist=1-5:1 45-60:8 60-90:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-02: \"Kako nastaje inovativan proizvod? Od ideje do tržišta | Haha\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260702",
         "originals_60d": 0,
@@ -4317,7 +4317,7 @@
         "evidence": "izvor=videos; uzorak 31 (od 31 dohvaćenih); hist=1-5:2 5-15:1 15-30:3 30-45:12 45-60:12 60-90:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-11: \"Važnost narativa u videoigrama - S1 Ep08 - Games Croatia Pod\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260611",
         "originals_60d": 0,
@@ -4392,7 +4392,7 @@
         "evidence": "izvor=videos; uzorak 30 (od 30 dohvaćenih); hist=1-5:3 5-15:5 45-60:2 60-90:14 90+:6; /shorts ≥3 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-05-18: \"Ivan Burazin: Bliski Istok - povijest, politika, posljedice\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250518",
         "originals_60d": 0,
@@ -4449,7 +4449,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260410",
         "originals_60d": 0,
@@ -4509,7 +4509,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220425",
         "originals_60d": 0,
@@ -4579,12 +4579,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:10 5-15:2 30-45:3 45-60:5 60-90:24 90+:15; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-01: \"Glazbena Kuća Podcast - Mojmir Novaković - KRIES\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260901",
         "originals_60d": 1,
         "originals_90d": 1,
-        "originals_365d": 15,
+        "originals_365d": 14,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.34,
         "min_duration_sec": 2400,
@@ -4729,7 +4729,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:2 1-5:16 5-15:15 15-30:12 30-45:8 45-60:5 60-90:2; zadnji original 2021-04-13: \"Arhitektura i video-igre, avanture i cheatovi - PIKSELASTI M\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210413",
         "originals_60d": 0,
@@ -4918,7 +4918,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:22 15-30:9 30-45:29; /shorts ≥6 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-11-21: \"Podcast Gram kulture - Katarina Moškatelo (#40)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251121",
         "originals_60d": 0,
@@ -4991,7 +4991,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:5 15-30:4 30-45:19 45-60:11 60-90:18 90+:3; /shorts ≥19 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-12-04: \"Grizli Office Podcast #78 Renato Petek - Možemovske udruge d\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251204",
         "originals_60d": 0,
@@ -5231,7 +5231,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260930",
         "originals_60d": 4,
@@ -5356,7 +5356,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260405",
         "originals_60d": 0,
@@ -5433,7 +5433,7 @@
       },
       "previous_display_name": "Argumenti (Hrvatska katolička mreža)",
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 7,
@@ -5491,12 +5491,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 2,
         "originals_90d": 2,
-        "originals_365d": 25,
+        "originals_365d": 26,
         "episodes_on_disk": 83
       }
     },
@@ -5561,7 +5561,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=60-90:27 90+:33; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"Kad internet postane droga: Kako nam mobitel krade život / M\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 8,
@@ -5699,7 +5699,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=15-30:2 30-45:17 45-60:33 60-90:7 90+:1; zadnji original 2026-09-14: \"EHO - podcast u kojem društvene teme i ljudske priče dobivaj\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261019",
         "originals_60d": 5,
@@ -5774,7 +5774,7 @@
         "evidence": "izvor=videos; uzorak 21 (od 21 dohvaćenih); hist=15-30:6 30-45:13 45-60:2; zadnji original 2022-08-30: \"Hrvatski branitelj - Gost  Slaven Dobrović\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220830",
         "originals_60d": 0,
@@ -5939,12 +5939,12 @@
         }
       ],
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
-        "originals_60d": 20,
+        "originals_60d": 19,
         "originals_90d": 22,
-        "originals_365d": 73,
+        "originals_365d": 102,
         "new_originals_since_baseline": 13,
         "derivative_ratio": 0,
         "min_duration_sec": 1200,
@@ -6066,7 +6066,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=5-15:2 15-30:50 30-45:7 60-90:1; /shorts ≥5 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-04-21: \"In medias res - Kako se vratiti u rutinu nakon praznika?\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230421",
         "originals_60d": 0,
@@ -6140,7 +6140,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:20 5-15:4 15-30:5 30-45:20 45-60:11; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-08-21: \"INFINITY PODCAST S3 #5 – Dr. Milojević i Anja Dujaković – o \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261008",
         "originals_60d": 1,
@@ -6347,7 +6347,7 @@
         "evidence": "izvor=alt; uzorak 60 (od 60 dohvaćenih); hist=30-45:2 45-60:12 60-90:41 90+:5; zadnji original 2026-05-07: \"IZA OKVIRA #137 - FINAL EPISODE, THANK YOU AND GOODBYE!\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260507",
         "originals_60d": 0,
@@ -6421,7 +6421,7 @@
         "evidence": "izvor=videos; uzorak 27 (od 27 dohvaćenih); hist=<1:1 1-5:1 15-30:3 30-45:2 45-60:6 60-90:11 90+:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-18: \"MARKO JACK : \"PREUZEO sam SCENU i KRALJ sam HAJPA!\" \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 8,
@@ -6477,7 +6477,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260429",
         "originals_60d": 0,
@@ -6547,7 +6547,7 @@
         "evidence": "izvor=videos; uzorak 57 (od 57 dohvaćenih); hist=1-5:8 5-15:22 15-30:9 30-45:6 45-60:2 60-90:7 90+:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"Kliker Podcast #17 - Miroslav Margetić - Od pape do srpske l\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260920",
         "originals_60d": 1,
@@ -6695,7 +6695,7 @@
         "evidence": "izvor=videos; uzorak 13 (od 13 dohvaćenih); hist=1-5:1 5-15:1 45-60:9 60-90:2; zadnji original 2026-07-08: \"KUL U GRADU - Anda Bukvić Pažin i An. Fazekaš o prijevodnoj \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260708",
         "originals_60d": 0,
@@ -6776,11 +6776,11 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=30-45:26 45-60:26 60-90:8; zadnji original 2026-09-21: \"444. epizoda: Pamela Lawrence\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 9,
-        "originals_90d": 14,
+        "originals_90d": 13,
         "originals_365d": 53,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.02,
@@ -6926,12 +6926,12 @@
         "evidence": "izvor=pl; uzorak 60 (od 174 dohvaćenih); hist=<1:1 5-15:1 15-30:3 30-45:19 45-60:91 60-90:58 90+:1; zadnji original 2026-06-27: \"Između redaka #170 – Petra Jukić (Ljepota čitanja)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260627",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 27,
+        "originals_365d": 26,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.02,
         "min_duration_sec": 1800,
@@ -7120,7 +7120,7 @@
         "evidence": "izvor=videos; uzorak 17 (od 17 dohvaćenih); hist=30-45:2 45-60:8 60-90:6 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-08-02: \"90% serotonina nastaje u crijevima, ne u mozgu | Anđela Jeli\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261012",
         "originals_60d": 1,
@@ -7259,27 +7259,28 @@
       "data_quality": "full",
       "notes": "RevenueCat podcast (indie app devs). Engleski (Canary EN->HR). Ingestira se preko direktnog MP3 (beamly soundLink), ne YouTube. ~98 epizoda.",
       "quality_score": {
-        "total": 55,
-        "tier": "👀 moderate",
+        "total": 78,
+        "tier": "✅ strong",
         "breakdown": {
-          "freshness": 14,
-          "cadence": 12,
+          "freshness": 27,
+          "cadence": 22,
           "format": 15,
           "substance": 4,
           "catalog": 8,
           "audience": 2
         },
-        "days_since_last_episode": 61,
-        "last_episode_date": "2026-08-26",
+        "days_since_last_episode": 19,
+        "last_episode_date": "2026-10-07",
+        "rising": true,
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20260826",
-        "originals_60d": 0,
-        "originals_90d": 3,
-        "originals_365d": 34,
+        "last_original_upload": "20261007",
+        "originals_60d": 3,
+        "originals_90d": 8,
+        "originals_365d": 42,
         "episodes_on_disk": 116
       }
     },
@@ -7422,12 +7423,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 5-15:2 15-30:4 30-45:25 45-60:26 60-90:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-13: \"S4E49: Milada Privora otkriva ulogu protokola u politici i n\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 52,
+        "originals_365d": 51,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.13,
         "min_duration_sec": 1500,
@@ -7540,12 +7541,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:10 5-15:3 15-30:15 30-45:30 45-60:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-22: \"Nemam viška novca. Mogu li ulagati? | Danijela Princi Grgat \"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 12,
-        "originals_90d": 13,
-        "originals_365d": 52,
+        "originals_90d": 12,
+        "originals_365d": 64,
         "new_originals_since_baseline": 7,
         "derivative_ratio": 0.25,
         "min_duration_sec": 1500,
@@ -7785,7 +7786,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 45-60:12 60-90:40 90+:7; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-23: \"Ep 80. Mame kod Lane: TINA WALME PETRIĆ\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 4,
@@ -7862,7 +7863,7 @@
       },
       "previous_display_name": "Maria Vision Medjugorje",
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261009",
         "originals_60d": 5,
@@ -7936,7 +7937,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:5 5-15:1 15-30:6 30-45:12 45-60:8 60-90:23 90+:4; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-04: \"ŽENSKA PRIČA: Davor Bilman, Nina Čudić, Vlatko Štampar, Fili\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260604",
         "originals_60d": 0,
@@ -7993,7 +7994,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241104",
         "originals_60d": 0,
@@ -8063,7 +8064,7 @@
         "evidence": "izvor=videos; uzorak 16 (od 16 dohvaćenih); hist=5-15:2 15-30:5 30-45:4 45-60:3 60-90:1 90+:1; /shorts ≥1 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-01-21: \"Tjelesna i duhovna promjena, pronalazak ljubavi na Antunovsk\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260121",
         "originals_60d": 0,
@@ -8107,27 +8108,27 @@
       ],
       "notes": "",
       "quality_score": {
-        "total": 33,
+        "total": 38,
         "tier": "📦 weak",
         "breakdown": {
-          "freshness": 3,
+          "freshness": 8,
           "cadence": 0,
           "format": 15,
           "substance": 4,
           "catalog": 2,
           "audience": 9
         },
-        "days_since_last_episode": 229,
-        "last_episode_date": "2026-03-11",
+        "days_since_last_episode": 155,
+        "last_episode_date": "2026-05-24",
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20260311",
+        "last_original_upload": "20260524",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 5,
+        "originals_365d": 15,
         "episodes_on_disk": 12
       }
     },
@@ -8232,28 +8233,27 @@
       ],
       "notes": "Handle 'zavjecnuslavu6073' — verbalno 'Za vječnu slavu'.",
       "quality_score": {
-        "total": 29,
+        "total": 37,
         "tier": "📦 weak",
         "breakdown": {
-          "freshness": 0,
+          "freshness": 8,
           "cadence": 0,
           "format": 15,
           "substance": 4,
           "catalog": 2,
           "audience": 8
         },
-        "days_since_last_episode": 506,
-        "last_episode_date": "2025-06-07",
-        "dormant": true,
+        "days_since_last_episode": 159,
+        "last_episode_date": "2026-05-20",
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20250607",
+        "last_original_upload": "20260520",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_365d": 3,
         "episodes_on_disk": 7
       }
     },
@@ -8466,7 +8466,7 @@
         "evidence": "izvor=videos; uzorak 18 (od 18 dohvaćenih); hist=1-5:3 5-15:5 30-45:9 45-60:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-02-18: \"🎤 Kako se riješiti bolova u leđima, mišićima i zglobovima | \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250218",
         "originals_60d": 0,
@@ -8530,7 +8530,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260411",
         "originals_60d": 0,
@@ -8604,12 +8604,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:1 30-45:4 45-60:39 60-90:15; /shorts ≥2 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-19: \"Epizoda 226: Slučaj Karen Read: Dio Prvi: Mrtav Pijan\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 7,
         "originals_90d": 7,
-        "originals_365d": 41,
+        "originals_365d": 40,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.03,
         "min_duration_sec": 1800,
@@ -8722,12 +8722,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260829",
         "originals_60d": 1,
         "originals_90d": 5,
-        "originals_365d": 12,
+        "originals_365d": 16,
         "episodes_on_disk": 69
       }
     },
@@ -8792,7 +8792,7 @@
         "evidence": "izvor=videos; uzorak 19 (od 19 dohvaćenih); hist=1-5:1 5-15:7 45-60:1 60-90:5 90+:5; zadnji original 2020-07-05: \"MLGP Podcast #10 - Marko Tominić\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200705",
         "originals_60d": 0,
@@ -8884,12 +8884,12 @@
         }
       ],
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260621",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 3,
+        "originals_365d": 19,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.96,
         "min_duration_sec": 1800,
@@ -9216,12 +9216,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
-        "originals_60d": 9,
-        "originals_90d": 13,
-        "originals_365d": 45,
+        "originals_60d": 11,
+        "originals_90d": 16,
+        "originals_365d": 57,
         "episodes_on_disk": 85
       }
     },
@@ -9287,7 +9287,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:11 1-5:22 5-15:3 15-30:3 30-45:10 45-60:11; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-06-12: \"Acro Yoga: Vratite Sebi Snagu i Balans | Goran Obradović | E\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230612",
         "originals_60d": 0,
@@ -9420,7 +9420,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=30-45:13 45-60:30 60-90:17; /shorts ≥7 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-07-27: \"Fantastična bića Hrvatske (Luka Šešo i Tomislav Pletenac) - \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250727",
         "originals_60d": 0,
@@ -9486,7 +9486,7 @@
         }
       ],
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 2,
@@ -9556,7 +9556,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:2 1-5:5 5-15:2 15-30:1 30-45:1 45-60:2 60-90:13 90+:34; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-11-10: \"#053 Barbara Grdanjski Grabarević | Majčinstvo bez filtera\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251110",
         "originals_60d": 0,
@@ -9639,7 +9639,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=5-15:4 15-30:26 30-45:4 45-60:12 60-90:14; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-17: \"NE ŽELIM BITI MAMA SVOJEM MUŠKARCU | NATALI RADE | OFFLINE S\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260517",
         "originals_60d": 0,
@@ -9788,7 +9788,7 @@
         "evidence": "izvor=pl; uzorak 3 (od 3 dohvaćenih); hist=30-45:2 45-60:1; zadnji original 2026-07-13: \"Najveća greška hrvatskih startupa (košta ih milijune) | S6.E\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260713",
         "originals_60d": 0,
@@ -9863,7 +9863,7 @@
         "evidence": "izvor=pl; uzorak 10 (od 10 dohvaćenih); hist=30-45:1 45-60:2 60-90:7; zadnji original 2022-01-17: \"Kako će izgledati online kupnja poslije kriznih 2020-ih? | D\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220117",
         "originals_60d": 0,
@@ -9940,7 +9940,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 154 dohvaćenih); hist=<1:2 1-5:9 5-15:8 15-30:27 30-45:68 45-60:35 60-90:2; zadnji original 2024-10-07: \"Youtube algoritam ima predrasude? | S5.EP3\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20191009",
         "originals_60d": 0,
@@ -10017,7 +10017,7 @@
         "evidence": "izvor=pl; uzorak 34 (od 34 dohvaćenih); hist=1-5:6 5-15:2 15-30:9 30-45:8 45-60:4 60-90:3 90+:2; zadnji original 2022-12-14: \"Biti inženjer(ka) ili menadžer(ica)? | #LADIESZG|Ladies of N\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221214",
         "originals_60d": 0,
@@ -10093,7 +10093,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 299 dohvaćenih); hist=<1:31 1-5:1 15-30:23 30-45:119 45-60:92 60-90:32 90+:1; zadnji original 2026-09-18: \"Programerske konferencije cvetaju zbog AI-ja?\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 8,
@@ -10169,11 +10169,11 @@
         "evidence": "izvor=pl; uzorak 60 (od 263 dohvaćenih); hist=<1:1 15-30:45 30-45:108 45-60:85 60-90:20; zadnji original 2026-07-27: \"IT više nije siguran posao? Hrvatska i Srbija nakon vala otk\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 5,
-        "originals_90d": 6,
+        "originals_90d": 5,
         "originals_365d": 37,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.05,
@@ -10247,7 +10247,7 @@
         "evidence": "izvor=pl; uzorak 9 (od 9 dohvaćenih); hist=45-60:4 60-90:5; zadnji original 2026-05-04: \"Većina firmi lažira AI transformaciju? | S6.EP25\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260504",
         "originals_60d": 0,
@@ -10758,7 +10758,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:3 1-5:13 5-15:19 15-30:6 30-45:9 45-60:7 60-90:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-04-04: \"MODEL, TRENER, NUTRICIONISTA I BIZNISMEN - MARKO BUZZ O SVOM\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250404",
         "originals_60d": 0,
@@ -10786,17 +10786,17 @@
       ],
       "voditelji": [],
       "metadata": {
-        "status": "active-slowing",
-        "last_episode": "2026-06",
+        "status": "active",
+        "last_episode": "2026-10",
         "average_duration_minutes": 70,
-        "last_episode_date": "2026-06-04",
-        "last_episode_video": "iyzHX18WFgk"
+        "last_episode_date": "2026-10-27",
+        "last_episode_video": "nBPDxzrAW0Q"
       },
       "tracking": {
-        "enabled": false,
-        "reason_disabled": "Veliki kanal, miješan sadržaj.",
-        "min_duration_override": 1800,
-        "candidate_phase": 2
+        "enabled": true,
+        "enabled_at": "2026-10-27",
+        "scope": "samo nove epizode od 27.10.2026. (1102 postojeća videa u automatic/podcasts/ora-et-labora-arhiva.txt); Magisterium HR+EN automatski",
+        "min_duration_override": 1800
       },
       "tier": 3,
       "data_quality": "partial",
@@ -10806,18 +10806,18 @@
       ],
       "notes": "",
       "quality_score": {
-        "total": 36,
-        "tier": "📦 weak",
+        "total": 82,
+        "tier": "🌟 elite",
         "breakdown": {
-          "freshness": 8,
-          "cadence": 0,
+          "freshness": 30,
+          "cadence": 25,
           "format": 15,
           "substance": 8,
-          "catalog": 2,
+          "catalog": 1,
           "audience": 3
         },
-        "days_since_last_episode": 144,
-        "last_episode_date": "2026-06-04",
+        "days_since_last_episode": -1,
+        "last_episode_date": "2026-10-27",
         "rubric": "v2"
       },
       "revision": {
@@ -10832,17 +10832,13 @@
         "evidence": "izvor=xpl; uzorak 8 (od 8 dohvaćenih); hist=5-15:1 15-30:1 45-60:1 60-90:4 90+:1; zadnji original 2026-06-04: \"7. OEL razgovor - s. Mirjam Radošević : O Međugorju, Bleibur\""
       },
       "activity": {
-        "source": "watch",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20260604",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 7,
-        "new_originals_since_baseline": 0,
-        "derivative_ratio": 0.13,
-        "min_duration_sec": 1500,
-        "no_originals": false,
-        "error": null
+        "last_original_upload": "20261027",
+        "originals_60d": 61,
+        "originals_90d": 91,
+        "originals_365d": 385,
+        "episodes_on_disk": 0
       }
     },
     {
@@ -10907,7 +10903,7 @@
         "evidence": "izvor=videos; uzorak 14 (od 14 dohvaćenih); hist=45-60:8 60-90:6; /shorts ≥14 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-07-13: \"Osječki Glas Podcast - Patrik Bogatirov/vizažist : “Dobaciva\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250713",
         "originals_60d": 0,
@@ -10981,7 +10977,7 @@
         "evidence": "izvor=videos; uzorak 22 (od 22 dohvaćenih); hist=15-30:3 30-45:15 45-60:4; zadnji original 2026-09-11: \"OSOBA S POGLEDOM #22 GORAN PAVELIĆ PIPO\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 2,
@@ -11056,7 +11052,7 @@
         "evidence": "izvor=videos; uzorak 39 (od 39 dohvaćenih); hist=1-5:2 5-15:1 15-30:5 30-45:23 45-60:5 60-90:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-11: \"EP36: Psihologinja rješava vaše probleme s Reddita: kad komu\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260711",
         "originals_60d": 0,
@@ -11179,7 +11175,7 @@
         "evidence": "izvor=videos; uzorak 15 (od 15 dohvaćenih); hist=45-60:6 60-90:7 90+:2; /shorts ≥8 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-18: \"Pik As #15 - Domagoj Pintarić: Konzervativizam je novi punk.\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261016",
         "originals_60d": 2,
@@ -11254,7 +11250,7 @@
         "evidence": "izvor=videos; uzorak 28 (od 28 dohvaćenih); hist=1-5:2 5-15:2 15-30:5 30-45:3 45-60:4 60-90:11 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-02-18: \"Aron Vrnoga: POD HAUBOM podcast# 19 : Trener i voditelj boks\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260218",
         "originals_60d": 0,
@@ -11329,7 +11325,7 @@
         "evidence": "izvor=videos; uzorak 20 (od 20 dohvaćenih); hist=15-30:4 30-45:9 45-60:6 60-90:1; zadnji original 2025-06-03: \"Pod mikroskopom - Izazovi u pedijatriji\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250603",
         "originals_60d": 0,
@@ -11472,11 +11468,11 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:4 5-15:6 15-30:2 30-45:5 45-60:10 60-90:24 90+:9; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-07: \"Duško Martinac - Od Vrgorca do reprezentativnog futsala | Po\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 3,
-        "originals_90d": 7,
+        "originals_90d": 6,
         "originals_365d": 35,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0.24,
@@ -11546,7 +11542,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:2 5-15:15 15-30:6 90+:37; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-03-31: \"#97 - Znanošću sačuvati tijelo i živjeti bez bolova - Goran \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260331",
         "originals_60d": 0,
@@ -11977,12 +11973,12 @@
         "evidence": "izvor=pl; uzorak 60 (od 400 dohvaćenih); hist=1-5:4 5-15:10 15-30:57 30-45:65 45-60:49 60-90:122 90+:92; zadnji original 2026-09-18: \"A1 Nogometni Podcast #352 - Valentina Miletić\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 9,
         "originals_90d": 9,
-        "originals_365d": 34,
+        "originals_365d": 54,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.51,
         "min_duration_sec": 2881,
@@ -12053,7 +12049,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 151 dohvaćenih); hist=45-60:25 60-90:102 90+:24; zadnji original 2026-09-23: \"5Rak vs Hambi - Extra Runda #151 II FNC Zagreb - AFTERMATH!\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 7,
@@ -12129,12 +12125,12 @@
         "evidence": "izvor=pl; uzorak 60 (od 180 dohvaćenih); hist=45-60:3 60-90:92 90+:85; zadnji original 2026-09-21: \"Podcast Mysterium #180 - ŠUPLJA ZEMLJA || AGATHA, VRIL || AD\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 9,
         "originals_90d": 13,
-        "originals_365d": 48,
+        "originals_365d": 47,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0,
         "min_duration_sec": 2400,
@@ -12203,7 +12199,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 5-15:14 15-30:11 30-45:17 45-60:11 60-90:5 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-03: \"Dr. Miljenka Jelena Jurašić - Migrena: Što se Događa u Mozgu\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260503",
         "originals_60d": 0,
@@ -12278,11 +12274,11 @@
         "evidence": "izvor=videos; uzorak 37 (od 37 dohvaćenih); hist=45-60:5 60-90:21 90+:11; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"Zašto sam napisao knjigu o nekretninama? - Marjan Skorić i F\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261018",
         "originals_60d": 3,
-        "originals_90d": 7,
+        "originals_90d": 6,
         "originals_365d": 39,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
@@ -12353,7 +12349,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:2 5-15:41 15-30:6 60-90:2 90+:9; zadnji original 2026-08-04: \"PODCAST SEKSTANT #88 PAVLE MOČILAC\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261012",
         "originals_60d": 1,
@@ -12429,7 +12425,7 @@
         "evidence": "izvor=videos; uzorak 13 (od 13 dohvaćenih); hist=1-5:1 5-15:1 45-60:6 60-90:3 90+:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-18: \"SVJEDOK S01E11 | Gen. Ilija Ile Vrljić (1. dio): O stvaranju\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261002",
         "originals_60d": 4,
@@ -12503,7 +12499,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:23 5-15:2 15-30:4 30-45:5 45-60:12 60-90:11 90+:2; /shorts ≥1 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-09-18: \"Podcast The Game - Klan B na okupu i nakon Survivora? |Anton\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230918",
         "originals_60d": 0,
@@ -12578,7 +12574,7 @@
         "evidence": "izvor=videos; uzorak 39 (od 39 dohvaćenih); hist=1-5:21 5-15:8 45-60:2 60-90:5 90+:3; zadnji original 2023-02-21: \"Podcast u Pubu #10 - Gordan Šebalj\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230221",
         "originals_60d": 0,
@@ -12653,7 +12649,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 5-15:5 15-30:28 30-45:23 45-60:3; zadnji original 2024-08-14: \"PODCAST UČKA #84 Mauro Staraj: \"Koncert na Crekvini je presj\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240814",
         "originals_60d": 0,
@@ -12781,7 +12777,7 @@
         "evidence": "izvor=streams; uzorak 30 (od 30 dohvaćenih); hist=1-5:1 5-15:1 15-30:3 45-60:2 60-90:7 90+:16; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-11-17: \"PodKaST - U balunu # 29 Siniša Alebić - Brajo, Mladen Perica\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231117",
         "originals_60d": 0,
@@ -12853,7 +12849,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 120 dohvaćenih); hist=<1:12 1-5:33 5-15:9 15-30:1 30-45:4 45-60:7 60-90:34 90+:20; zadnji original 2026-05-25: \"Teorija brojeva: kriptografija i Enigma - akad. Andrej Dujel\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 3,
@@ -13132,7 +13128,7 @@
         "evidence": "izvor=videos; uzorak 13 (od 13 dohvaćenih); hist=<1:5 1-5:1 5-15:2 30-45:2 45-60:1 60-90:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-06-04: \"4. epizoda - Daniel Lacko - voditelj i pustolov sa željom da\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250604",
         "originals_60d": 0,
@@ -13268,12 +13264,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:2 1-5:7 15-30:3 30-45:16 45-60:22 60-90:6 90+:4; /shorts ≥26 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-24: \"Nikola Žinić: Ponovno osjećam istu energiju kao na početku k\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 13,
         "originals_90d": 14,
-        "originals_365d": 58,
+        "originals_365d": 60,
         "new_originals_since_baseline": 9,
         "derivative_ratio": 0.34,
         "min_duration_sec": 1500,
@@ -13350,10 +13346,10 @@
         }
       ],
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 9,
+        "originals_60d": 8,
         "originals_90d": 13,
         "originals_365d": 52,
         "new_originals_since_baseline": 4,
@@ -13424,7 +13420,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:29 30-45:2 45-60:8 60-90:14 90+:6; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-19: \"PP podcast #33 - Jure Brkljača\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260519",
         "originals_60d": 0,
@@ -13498,7 +13494,7 @@
         "evidence": "izvor=videos; uzorak 8 (od 8 dohvaćenih); hist=45-60:2 60-90:4 90+:2; /shorts ≥6 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"Kina koristi SLABOST KREMLJA - Zamka za Putina! | Priča sa Z\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260920",
         "originals_60d": 2,
@@ -13573,7 +13569,7 @@
         "evidence": "izvor=videos; uzorak 52 (od 52 dohvaćenih); hist=30-45:44 45-60:8; zadnji original 2023-10-15: \"Priče iz Skrovišta #50: Finale\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231015",
         "originals_60d": 0,
@@ -13707,14 +13703,14 @@
       ],
       "notes": "Prvi hrvatski dnevni news podcast (15 min). Pokrenut 2025. od strane Telegram.hr redakcije.",
       "quality_score": {
-        "total": 69,
+        "total": 73,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 30,
           "cadence": 25,
           "format": 3,
           "substance": 2,
-          "catalog": 6,
+          "catalog": 10,
           "audience": 3
         },
         "days_since_last_episode": 0,
@@ -13733,12 +13729,12 @@
         "evidence": "izvor=pl; uzorak 60 (od 381 dohvaćenih); hist=<1:1 5-15:9 15-30:299 30-45:60 45-60:11 60-90:1; zadnji original 2026-09-24: \"Potres u HNS-u: Upali istražitelji, prate trag milijuna\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 39,
-        "originals_90d": 44,
-        "originals_365d": 82,
+        "originals_90d": 43,
+        "originals_365d": 231,
         "new_originals_since_baseline": 22,
         "derivative_ratio": 0.01,
         "min_duration_sec": 900,
@@ -13884,7 +13880,7 @@
         "evidence": "izvor=videos; uzorak 52 (od 52 dohvaćenih); hist=<1:8 1-5:9 5-15:16 15-30:3 30-45:5 45-60:2 60-90:4 90+:5; zadnji original 2026-01-04: \"Hormoni, kaos & istina | dr. Marija Vidačić o svemu što nam \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260104",
         "originals_60d": 0,
@@ -14236,7 +14232,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:9 1-5:12 5-15:23 15-30:5 30-45:2 45-60:7 60-90:2; /shorts ≥3 (zaseban tab, sve derivati/vertikalni); zadnji original 2023-04-18: \"ENTER THE ZRNO | Ep. 156 | Rebootcast\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230418",
         "originals_60d": 0,
@@ -14311,7 +14307,7 @@
         "evidence": "izvor=videos; uzorak 39 (od 39 dohvaćenih); hist=1-5:2 5-15:5 15-30:7 30-45:7 45-60:11 60-90:5 90+:2; zadnji original 2021-05-26: \"Retronauti podcast - S2E8 School of Rock (2003)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210526",
         "originals_60d": 0,
@@ -14359,14 +14355,14 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 77,
+        "total": 79,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 30,
           "cadence": 12,
           "format": 15,
           "substance": 10,
-          "catalog": 2,
+          "catalog": 4,
           "audience": 8
         },
         "days_since_last_episode": 1,
@@ -14385,12 +14381,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:4 5-15:46 15-30:1 90+:9; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-28: \"Ril Tok Podcast #200 - KASKO\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 13,
+        "originals_365d": 35,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.84,
         "min_duration_sec": 3600,
@@ -14459,7 +14455,7 @@
         "evidence": "izvor=videos; uzorak 28 (od 28 dohvaćenih); hist=<1:1 1-5:2 5-15:5 15-30:7 30-45:3 45-60:4 60-90:6; /shorts ≥4 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-22: \"ROCK PODCAST #17 - DENIS KOŠĆAK (ROCKLIVE)\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260722",
         "originals_60d": 0,
@@ -14533,10 +14529,10 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 15-30:30 30-45:23 45-60:6; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-18: \"Sumnjaš u Boga? Evo što kaže Biblija | Put Kristu #12\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260925",
-        "originals_60d": 5,
+        "originals_60d": 4,
         "originals_90d": 9,
         "originals_365d": 13,
         "new_originals_since_baseline": 1,
@@ -14607,7 +14603,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:6 1-5:13 5-15:11 15-30:16 30-45:2 45-60:2 60-90:7 90+:3; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-25: \"SOV #19 - GDJE JE NESTAO OTAC? | fra Serđo Ćavar, Toni Magli\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260525",
         "originals_60d": 0,
@@ -14686,7 +14682,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=5-15:1 15-30:1 30-45:2 45-60:17 60-90:37 90+:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-17: \"Kaotičan stil, stabilne navike - SAMO BEZ PANIKE podcast\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260617",
         "originals_60d": 0,
@@ -14784,14 +14780,14 @@
       ],
       "notes": "Vijesti za hrvatsku dijasporu u Australiji. Službeni SBS Croatian program.",
       "quality_score": {
-        "total": 84,
+        "total": 90,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 25,
           "format": 15,
           "substance": 7,
-          "catalog": 4,
+          "catalog": 10,
           "audience": 3
         },
         "days_since_last_episode": -1,
@@ -14810,12 +14806,12 @@
         "evidence": "izvor=pl; uzorak 60 (od 400 dohvaćenih); hist=1-5:60 5-15:256 15-30:14 30-45:1 45-60:69; zadnji original 2026-09-24: \"Program SBS-a na hrvatskom za četvrtak, 24.9.2026. | SBS Cro\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261027",
-        "originals_60d": 30,
-        "originals_90d": 30,
-        "originals_365d": 30,
+        "originals_60d": 34,
+        "originals_90d": 52,
+        "originals_365d": 204,
         "new_originals_since_baseline": 19,
         "derivative_ratio": 0.81,
         "min_duration_sec": 2400,
@@ -14961,7 +14957,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:7 5-15:3 15-30:1 30-45:3 45-60:10 60-90:23 90+:12; /shorts ≥17 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-10-11: \"Šime Show #80 Ivan Baran\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251011",
         "originals_60d": 0,
@@ -15037,7 +15033,7 @@
         "evidence": "izvor=videos; uzorak 42 (od 42 dohvaćenih); hist=<1:11 1-5:8 15-30:2 30-45:3 45-60:15 60-90:2 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-20: \"Sindikalni megafon ep. 12 - Domagoj Novokmet - Zašto je hrva\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 4,
@@ -15111,7 +15107,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:8 5-15:1 15-30:1 30-45:24 45-60:20 60-90:4 90+:1; /shorts ≥17 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-19: \"Fr. Ramon Bautista: Our God is God of vocations, and He take\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260519",
         "originals_60d": 0,
@@ -15359,7 +15355,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:2 5-15:1 15-30:8 30-45:19 45-60:16 60-90:10 90+:4; zadnji original 2026-06-30: \"Znanstvenici povratnici #5: Sandra Arbula: Trst, Bolonja, Ri\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260630",
         "originals_60d": 0,
@@ -15437,12 +15433,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 15-30:2 30-45:4 45-60:2 60-90:47 90+:4; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-07-04: \"Davorin Primorac: Civilno zrakoplovstvo bit će važan gospoda\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 8,
         "originals_90d": 8,
-        "originals_365d": 47,
+        "originals_365d": 46,
         "new_originals_since_baseline": 8,
         "derivative_ratio": 0.06,
         "min_duration_sec": 1800,
@@ -15591,7 +15587,7 @@
         "evidence": "izvor=xpl; uzorak 60 (od 100 dohvaćenih); hist=<1:11 1-5:1 5-15:1 30-45:25 45-60:59 60-90:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-21: \"VAR soba #08. \"Nevjerojatno je da Hajduk tako lako padne. Di\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260921",
         "originals_60d": 4,
@@ -15684,11 +15680,11 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 75,
+        "total": 69,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 27,
-          "cadence": 18,
+          "cadence": 12,
           "format": 15,
           "substance": 7,
           "catalog": 2,
@@ -15720,11 +15716,11 @@
         }
       ],
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261006",
         "originals_60d": 4,
-        "originals_90d": 6,
+        "originals_90d": 4,
         "originals_365d": 12,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.62,
@@ -15943,7 +15939,7 @@
         "evidence": "izvor=videos; uzorak 7 (od 7 dohvaćenih); hist=60-90:3 90+:4; /shorts ≥1 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-06: \"#007 Zdravlje i izgled često nemaju dodirnih točaka\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260606",
         "originals_60d": 0,
@@ -15989,27 +15985,28 @@
       "data_quality": "full",
       "notes": "RevenueCat podcast o subscription/app monetizaciji. Engleski (Canary EN->HR). Ingestira se preko direktnog MP3 (beamly soundLink), ne YouTube. ~167 epizoda.",
       "quality_score": {
-        "total": 63,
+        "total": 77,
         "tier": "✅ strong",
         "breakdown": {
-          "freshness": 22,
-          "cadence": 12,
+          "freshness": 30,
+          "cadence": 18,
           "format": 15,
           "substance": 4,
           "catalog": 8,
           "audience": 2
         },
-        "days_since_last_episode": 54,
-        "last_episode_date": "2026-09-02",
+        "days_since_last_episode": 12,
+        "last_episode_date": "2026-10-14",
+        "rising": true,
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
-        "last_original_upload": "20260902",
-        "originals_60d": 1,
-        "originals_90d": 3,
-        "originals_365d": 34,
+        "last_original_upload": "20261014",
+        "originals_60d": 5,
+        "originals_90d": 7,
+        "originals_365d": 42,
         "episodes_on_disk": 181
       }
     },
@@ -16073,7 +16070,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:8 5-15:18 15-30:4 30-45:5 45-60:7 60-90:11 90+:7; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-25: \"Dr. Damir Ćaćić: Puknuće meniska koje može uništiti koljeno \"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260625",
         "originals_60d": 0,
@@ -16152,7 +16149,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:1 15-30:1 45-60:1 60-90:42 90+:15; /shorts ≥2 (zaseban tab, sve derivati/vertikalni); zadnji original 2024-05-14: \"E080 – Marko Mišulić – Fokusirani biznismen // Rentlio\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240514",
         "originals_60d": 0,
@@ -16302,10 +16299,10 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:2 5-15:16 15-30:3 30-45:2 45-60:3 60-90:22 90+:12; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-24: \"Obitelj, tradicija, zanat i rakija | Priča o Destileriji Mag\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 8,
+        "originals_60d": 7,
         "originals_90d": 9,
         "originals_365d": 40,
         "new_originals_since_baseline": 4,
@@ -16376,12 +16373,12 @@
         "evidence": "izvor=videos; uzorak 46 (od 46 dohvaćenih); hist=<1:3 1-5:10 5-15:2 15-30:5 30-45:13 60-90:12 90+:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-08-23: \"Tonecast Podcast by Music Shop No1 | Epizoda 13 – Bruno Kova\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260927",
         "originals_60d": 1,
         "originals_90d": 2,
-        "originals_365d": 11,
+        "originals_365d": 10,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0.72,
         "min_duration_sec": 2400,
@@ -16450,7 +16447,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:22 5-15:12 15-30:15 30-45:4 45-60:3 60-90:4; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-08-19: \"TFZ PODCAST #27 PRŽENJE\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260819",
         "originals_60d": 0,
@@ -16525,7 +16522,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=15-30:16 30-45:44; zadnji original 2023-06-13: \"Treći element S10E32 - Oceanografska pismenost\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230613",
         "originals_60d": 0,
@@ -16599,7 +16596,7 @@
         "evidence": "izvor=videos; uzorak 51 (od 51 dohvaćenih); hist=5-15:1 15-30:8 30-45:8 45-60:18 60-90:15 90+:1; zadnji original 2025-06-01: \"Kraj nastavne godine, užurbanost i postavljanje granica\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250601",
         "originals_60d": 0,
@@ -16755,7 +16752,7 @@
         "evidence": "izvor=pl; uzorak 7 (od 7 dohvaćenih); hist=60-90:3 90+:4; zadnji original 2026-08-30: \"S Vladom na ti #7 | Dražen Krušelj\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260830",
         "originals_60d": 1,
@@ -16890,7 +16887,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 61 dohvaćenih); hist=60-90:24 90+:37; zadnji original 2026-09-16: \"Dinamo razočarao na otvaranju Europa lige\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 5,
@@ -16965,7 +16962,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 118 dohvaćenih); hist=30-45:1 45-60:3 60-90:41 90+:73; zadnji original 2026-08-20: \"Početak i kraj | Tribina fantasy #118\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260820",
         "originals_60d": 0,
@@ -17040,7 +17037,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 236 dohvaćenih); hist=45-60:2 60-90:32 90+:201; zadnji original 2026-09-21: \"Tanka crvena linija\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261019",
         "originals_60d": 6,
@@ -17115,7 +17112,7 @@
         "evidence": "izvor=pl; uzorak 37 (od 37 dohvaćenih); hist=60-90:10 90+:27; zadnji original 2026-05-11: \"Josip Korda | Iza Tribine #37\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260511",
         "originals_60d": 0,
@@ -17193,7 +17190,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 172 dohvaćenih); hist=45-60:5 60-90:75 90+:92; zadnji original 2026-09-22: \"Najava klupske sezone | Tribina HR košarka\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 9,
@@ -17267,7 +17264,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 99 dohvaćenih); hist=30-45:1 45-60:5 60-90:21 90+:72; zadnji original 2026-09-23: \"Apokalipse, usponi i QB ozljede | Tribina NFL\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 8,
@@ -17342,7 +17339,7 @@
         "evidence": "izvor=pl; uzorak 14 (od 14 dohvaćenih); hist=60-90:5 90+:9; zadnji original 2025-07-23: \"Marin Tomšić I Niže lige specijal #14\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250723",
         "originals_60d": 0,
@@ -17417,7 +17414,7 @@
         "evidence": "izvor=pl; uzorak 60 (od 162 dohvaćenih); hist=30-45:3 45-60:40 60-90:64 90+:55; zadnji original 2026-09-07: \"Marijo Možnik | Prijatelji HR sporta #6\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 3,
@@ -17491,7 +17488,7 @@
         "evidence": "izvor=pl; uzorak 27 (od 27 dohvaćenih); hist=15-30:1 30-45:1 60-90:1 90+:24; zadnji original 2026-05-24: \"Što vas je zanimalo za kraj HNL-a & uoči SP-a? | Q&A #26\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260524",
         "originals_60d": 0,
@@ -17566,7 +17563,7 @@
         "evidence": "izvor=pl; uzorak 32 (od 32 dohvaćenih); hist=30-45:6 45-60:5 60-90:5 90+:16; zadnji original 2026-07-03: \"Penali i hrvatski prekidi | Tribina SP\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261007",
         "originals_60d": 2,
@@ -17838,7 +17835,7 @@
         "evidence": "izvor=pl; uzorak 15 (od 15 dohvaćenih); hist=15-30:2 30-45:6 45-60:1 60-90:1 90+:5; zadnji original 2025-02-12: \"Vragolasti tenis u gostima | Tribina tenis\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250212",
         "originals_60d": 0,
@@ -17973,7 +17970,7 @@
         "evidence": "izvor=pl; uzorak 10 (od 10 dohvaćenih); hist=60-90:1 90+:9; zadnji original 2026-09-20: \"Domagoj Antolić & Dinko Trebotić | Weitzermania #10\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 3,
@@ -18117,7 +18114,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:1 1-5:14 5-15:10 15-30:11 30-45:1 45-60:18 60-90:5; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2025-12-30: \"Razgovor u Zoni #13 Rita Aničić\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251230",
         "originals_60d": 0,
@@ -18192,7 +18189,7 @@
         "evidence": "izvor=videos; uzorak 18 (od 18 dohvaćenih); hist=30-45:7 45-60:6 60-90:5; zadnji original 2023-04-24: \"Uki podcast#17 vlč. dr. sc. Ivan Benaković\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230424",
         "originals_60d": 0,
@@ -18266,7 +18263,7 @@
         "evidence": "izvor=videos; uzorak 52 (od 52 dohvaćenih); hist=1-5:3 5-15:5 15-30:4 30-45:10 45-60:20 60-90:10; /shorts ≥17 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-14: \"URLAONA #40: Stalker šefica, frendova bivša, pohvale za nas\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 3,
@@ -18345,7 +18342,7 @@
         "evidence": "izvor=pl; uzorak 4 (od 365 dohvaćenih); hist=<1:1 90+:3; zadnji original 2024-09-03: \"Prvenstvo ipak nije odlučeno | Epizoda 5 | S24/25\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240903",
         "originals_60d": 0,
@@ -18550,7 +18547,7 @@
         "evidence": "izvor=videos; uzorak 8 (od 8 dohvaćenih); hist=30-45:2 45-60:1 60-90:5; zadnji original 2025-12-22: \"Svjedočanstvo | Od nogometnih terena do bolesti i obraćenja\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251222",
         "originals_60d": 0,
@@ -18625,7 +18622,7 @@
         "evidence": "izvor=videos; uzorak 49 (od 49 dohvaćenih); hist=1-5:2 5-15:3 15-30:10 30-45:12 45-60:17 60-90:5; zadnji original 2024-11-15: \"VEZA DOM - DRUSTVENO POLITICKI PODCAST ZA ISELJENU HRVATSKU\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241115",
         "originals_60d": 0,
@@ -18673,14 +18670,14 @@
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
-        "total": 85,
+        "total": 89,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 22,
           "format": 15,
           "substance": 7,
-          "catalog": 2,
+          "catalog": 6,
           "audience": 9
         },
         "days_since_last_episode": 0,
@@ -18702,12 +18699,12 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:27 5-15:14 15-30:7 30-45:8 45-60:2 60-90:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-24: \"U pravom licu# 41 - Maša Kolanović\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 11,
         "originals_90d": 11,
-        "originals_365d": 11,
+        "originals_365d": 60,
         "new_originals_since_baseline": 7,
         "derivative_ratio": 0.92,
         "min_duration_sec": 1800,
@@ -18827,7 +18824,7 @@
         "evidence": "izvor=videos; uzorak 6 (od 6 dohvaćenih); hist=30-45:2 45-60:2 60-90:2; zadnji original 2023-07-16: \"Uspjeh ili fail?\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230716",
         "originals_60d": 0,
@@ -18978,7 +18975,7 @@
         "evidence": "izvor=xpl; uzorak 12 (od 12 dohvaćenih); hist=30-45:3 45-60:7 60-90:1 90+:1; /shorts ≥16 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-07: \"NA TI PODCAST | Vlatko Štampar o životu komičara\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260607",
         "originals_60d": 0,
@@ -19052,7 +19049,7 @@
         "evidence": "izvor=videos; uzorak 55 (od 55 dohvaćenih); hist=1-5:4 5-15:12 15-30:6 30-45:9 45-60:9 60-90:6 90+:9; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-05-29: \"Igor Blažinčić 🎙️ -  Kako vratiti energiju, snagu i fokus\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260529",
         "originals_60d": 0,
@@ -19270,7 +19267,7 @@
         "evidence": "izvor=videos; uzorak 56 (od 56 dohvaćenih); hist=1-5:27 5-15:11 15-30:3 45-60:4 60-90:9 90+:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-16: \"Zašto ne napasti Europu? Advan Kadušić | Zeleno-Žuti Korner \""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 2,
@@ -19328,7 +19325,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "pipeline",
+        "source": "pipeline+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 7,
@@ -19945,7 +19942,7 @@
         "evidence": "izvor=videos; uzorak 56 (od 56 dohvaćenih); hist=<1:3 1-5:17 5-15:8 15-30:6 30-45:10 45-60:8 60-90:4; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-11: \"Direktorica Operete: što kupac danas stvarno treba od agenta\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260611",
         "originals_60d": 0,
@@ -20249,7 +20246,7 @@
         "evidence": "izvor=videos; uzorak 36 (od 36 dohvaćenih); hist=1-5:2 45-60:10 60-90:23 90+:1; zadnji original 2023-02-07: \"\"AI Mario Loves Our Podcast\" | Speck Speaks 2 [#34]\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230207",
         "originals_60d": 0,
@@ -20300,11 +20297,11 @@
       ],
       "notes": "Autentični šibenski podcast posvećen pričama ljudi iz društvenog, sportskog i kulturnog života Šibenika (170+ epizoda).",
       "quality_score": {
-        "total": 89,
+        "total": 86,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 25,
+          "cadence": 22,
           "format": 15,
           "substance": 8,
           "catalog": 8,
@@ -20326,11 +20323,11 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=5-15:1 15-30:3 30-45:2 45-60:5 60-90:28 90+:21; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-20: \"Ljubomora, tuđi muževi u inboxu i borba sa sustavom | Matea \"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261015",
         "originals_60d": 6,
-        "originals_90d": 13,
+        "originals_90d": 9,
         "originals_365d": 19,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.7,
@@ -20401,7 +20398,7 @@
         "evidence": "izvor=videos; uzorak 10 (od 10 dohvaćenih); hist=5-15:1 15-30:5 30-45:3 45-60:1; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-10: \"S druge strane ekrana I E4S3\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260610",
         "originals_60d": 0,
@@ -20476,7 +20473,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=1-5:16 5-15:3 15-30:28 30-45:12 45-60:1; /shorts ≥7 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-23: \"JUTRO JE UTROJE - DEJAN MARCIKIĆ\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 7,
@@ -20553,7 +20550,7 @@
         "evidence": "izvor=streams; uzorak 30 (od 30 dohvaćenih); hist=45-60:11 60-90:19; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-06-18: \"🔵 KIŠOVIZIJA #95 | Kišobran UNIRI\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 3,
@@ -20628,7 +20625,7 @@
         "evidence": "izvor=videos; uzorak 17 (od 17 dohvaćenih); hist=<1:4 1-5:6 15-30:2 30-45:1 45-60:4; zadnji original 2026-06-17: \"Intervju sa stručnjacima\""
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260617",
         "originals_60d": 0,
@@ -20705,7 +20702,7 @@
         "evidence": "izvor=videos; uzorak 60 (od 60 dohvaćenih); hist=<1:8 1-5:5 30-45:2 45-60:8 60-90:35 90+:2; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-08-17: \"Hanan Bešović: Lovrenka Vukelić je popularnija od Severine |\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 3,
@@ -20786,7 +20783,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 14,
@@ -20863,7 +20860,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221223",
         "originals_60d": 0,
@@ -21023,11 +21020,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
-        "originals_60d": 9,
-        "originals_90d": 13,
+        "originals_60d": 8,
+        "originals_90d": 12,
         "originals_365d": 45,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0,
@@ -21102,7 +21099,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 9,
@@ -21486,7 +21483,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221214",
         "originals_60d": 0,
@@ -21564,7 +21561,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250824",
         "originals_60d": 0,
@@ -21645,7 +21642,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261002",
         "originals_60d": 2,
@@ -21721,7 +21718,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260520",
         "originals_60d": 0,
@@ -21803,7 +21800,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250624",
         "originals_60d": 0,
@@ -21968,7 +21965,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210607",
         "originals_60d": 0,
@@ -22049,11 +22046,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 5,
-        "originals_90d": 7,
+        "originals_90d": 6,
         "originals_365d": 13,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.02,
@@ -22128,7 +22125,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 2,
@@ -22205,7 +22202,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 1,
@@ -22359,7 +22356,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260520",
         "originals_60d": 0,
@@ -22436,7 +22433,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250615",
         "originals_60d": 0,
@@ -22513,7 +22510,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230428",
         "originals_60d": 0,
@@ -22669,7 +22666,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260922",
         "originals_60d": 1,
@@ -22749,10 +22746,10 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 5,
+        "originals_60d": 4,
         "originals_90d": 7,
         "originals_365d": 12,
         "new_originals_since_baseline": 2,
@@ -22832,7 +22829,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210630",
         "originals_60d": 0,
@@ -22908,7 +22905,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250416",
         "originals_60d": 0,
@@ -22986,7 +22983,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261016",
         "originals_60d": 4,
@@ -23143,7 +23140,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 4,
@@ -23222,7 +23219,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260216",
         "originals_60d": 0,
@@ -23308,7 +23305,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261014",
         "originals_60d": 1,
@@ -23386,7 +23383,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260124",
         "originals_60d": 0,
@@ -23546,7 +23543,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260909",
         "originals_60d": 1,
@@ -23622,7 +23619,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20150917",
         "originals_60d": 0,
@@ -23698,12 +23695,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260627",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 28,
+        "originals_365d": 27,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.53,
         "min_duration_sec": 1251,
@@ -23767,11 +23764,11 @@
         }
       ],
       "quality_score": {
-        "total": 88,
+        "total": 85,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
-          "cadence": 25,
+          "cadence": 22,
           "format": 15,
           "substance": 8,
           "catalog": 4,
@@ -23783,12 +23780,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
-        "originals_60d": 7,
-        "originals_90d": 12,
-        "originals_365d": 20,
+        "originals_60d": 6,
+        "originals_90d": 11,
+        "originals_365d": 36,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0.7,
         "min_duration_sec": 1730,
@@ -23864,7 +23861,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220902",
         "originals_60d": 0,
@@ -23944,7 +23941,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210809",
         "originals_60d": 0,
@@ -24021,7 +24018,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251218",
         "originals_60d": 0,
@@ -24175,7 +24172,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230531",
         "originals_60d": 0,
@@ -24344,7 +24341,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240517",
         "originals_60d": 0,
@@ -24423,11 +24420,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 5,
-        "originals_90d": 7,
+        "originals_90d": 6,
         "originals_365d": 19,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.3,
@@ -24503,7 +24500,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200704",
         "originals_60d": 0,
@@ -24580,7 +24577,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250726",
         "originals_60d": 0,
@@ -24648,14 +24645,14 @@
       },
       "notes": "Vrlo aktivan hrvatski politički intervju-podcast s brojnim gostima iz regije.",
       "quality_score": {
-        "total": 89,
+        "total": 91,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 25,
           "format": 15,
           "substance": 5,
-          "catalog": 6,
+          "catalog": 8,
           "audience": 8
         },
         "days_since_last_episode": 0,
@@ -24663,12 +24660,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 24,
-        "originals_90d": 38,
-        "originals_365d": 70,
+        "originals_90d": 37,
+        "originals_365d": 161,
         "new_originals_since_baseline": 12,
         "derivative_ratio": 0.04,
         "min_duration_sec": 1049,
@@ -24741,7 +24738,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231113",
         "originals_60d": 0,
@@ -25278,7 +25275,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241109",
         "originals_60d": 0,
@@ -25353,11 +25350,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260909",
         "originals_60d": 1,
-        "originals_90d": 2,
+        "originals_90d": 1,
         "originals_365d": 10,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.75,
@@ -25432,7 +25429,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210924",
         "originals_60d": 0,
@@ -25513,7 +25510,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230523",
         "originals_60d": 0,
@@ -25593,7 +25590,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260909",
         "originals_60d": 1,
@@ -25744,7 +25741,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260929",
         "originals_60d": 4,
@@ -26055,7 +26052,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260401",
         "originals_60d": 0,
@@ -26133,7 +26130,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200628",
         "originals_60d": 0,
@@ -26516,7 +26513,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230227",
         "originals_60d": 0,
@@ -26596,7 +26593,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20201110",
         "originals_60d": 0,
@@ -26674,7 +26671,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261005",
         "originals_60d": 1,
@@ -26751,7 +26748,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260916",
         "originals_60d": 1,
@@ -26829,11 +26826,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
-        "originals_60d": 14,
-        "originals_90d": 20,
+        "originals_60d": 13,
+        "originals_90d": 19,
         "originals_365d": 51,
         "new_originals_since_baseline": 8,
         "derivative_ratio": 0,
@@ -26985,7 +26982,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250310",
         "originals_60d": 0,
@@ -27063,7 +27060,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200930",
         "originals_60d": 0,
@@ -27139,7 +27136,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241006",
         "originals_60d": 0,
@@ -27217,7 +27214,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 5,
@@ -27443,7 +27440,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 4,
@@ -27522,12 +27519,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260531",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 9,
+        "originals_365d": 8,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.11,
         "min_duration_sec": 1874,
@@ -27750,7 +27747,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230915",
         "originals_60d": 0,
@@ -27905,12 +27902,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 5,
         "originals_90d": 7,
-        "originals_365d": 26,
+        "originals_365d": 25,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.53,
         "min_duration_sec": 901,
@@ -27984,7 +27981,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261010",
         "originals_60d": 3,
@@ -28061,7 +28058,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260708",
         "originals_60d": 0,
@@ -28140,7 +28137,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251203",
         "originals_60d": 0,
@@ -28218,7 +28215,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240618",
         "originals_60d": 0,
@@ -28296,7 +28293,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260904",
         "originals_60d": 1,
@@ -28374,7 +28371,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 2,
@@ -28452,7 +28449,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210710",
         "originals_60d": 0,
@@ -28614,7 +28611,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250106",
         "originals_60d": 0,
@@ -28690,7 +28687,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260529",
         "originals_60d": 0,
@@ -28767,7 +28764,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260717",
         "originals_60d": 0,
@@ -28844,7 +28841,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230131",
         "originals_60d": 0,
@@ -28921,7 +28918,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210430",
         "originals_60d": 0,
@@ -29075,7 +29072,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200706",
         "originals_60d": 0,
@@ -29151,7 +29148,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220528",
         "originals_60d": 0,
@@ -29307,7 +29304,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220604",
         "originals_60d": 0,
@@ -29371,11 +29368,11 @@
       },
       "notes": "Hrvatski poduzetnički/razvojni podcast autorice Sare Peranić, potvrđen na Apple HR ljestvicama.",
       "quality_score": {
-        "total": 82,
-        "tier": "🌟 elite",
+        "total": 78,
+        "tier": "✅ strong",
         "breakdown": {
           "freshness": 30,
-          "cadence": 22,
+          "cadence": 18,
           "format": 15,
           "substance": 5,
           "catalog": 4,
@@ -29386,12 +29383,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 7,
-        "originals_90d": 8,
-        "originals_365d": 31,
+        "originals_90d": 7,
+        "originals_365d": 30,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.08,
         "min_duration_sec": 901,
@@ -29462,7 +29459,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260217",
         "originals_60d": 0,
@@ -29542,7 +29539,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261009",
         "originals_60d": 3,
@@ -29618,7 +29615,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260304",
         "originals_60d": 0,
@@ -29694,7 +29691,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240514",
         "originals_60d": 0,
@@ -29772,7 +29769,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20211221",
         "originals_60d": 0,
@@ -29925,7 +29922,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 4,
@@ -30077,7 +30074,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241111",
         "originals_60d": 0,
@@ -30234,7 +30231,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220518",
         "originals_60d": 0,
@@ -30388,7 +30385,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 1,
@@ -30465,7 +30462,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260419",
         "originals_60d": 0,
@@ -30543,7 +30540,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241126",
         "originals_60d": 0,
@@ -30620,7 +30617,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210512",
         "originals_60d": 0,
@@ -30697,7 +30694,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251203",
         "originals_60d": 0,
@@ -30774,11 +30771,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 6,
-        "originals_90d": 7,
+        "originals_90d": 6,
         "originals_365d": 21,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.32,
@@ -30853,7 +30850,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261005",
         "originals_60d": 3,
@@ -30930,7 +30927,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261015",
         "originals_60d": 4,
@@ -31007,7 +31004,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261019",
         "originals_60d": 8,
@@ -31086,7 +31083,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261002",
         "originals_60d": 1,
@@ -31164,7 +31161,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231202",
         "originals_60d": 0,
@@ -31241,10 +31238,10 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
-        "originals_60d": 3,
+        "originals_60d": 2,
         "originals_90d": 3,
         "originals_365d": 14,
         "new_originals_since_baseline": 2,
@@ -31317,7 +31314,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260720",
         "originals_60d": 0,
@@ -31394,7 +31391,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261016",
         "originals_60d": 2,
@@ -31469,7 +31466,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260525",
         "originals_60d": 0,
@@ -31546,7 +31543,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260511",
         "originals_60d": 0,
@@ -31626,7 +31623,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240412",
         "originals_60d": 0,
@@ -31703,7 +31700,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260922",
         "originals_60d": 1,
@@ -31781,7 +31778,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251029",
         "originals_60d": 0,
@@ -31910,7 +31907,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250612",
         "originals_60d": 0,
@@ -31989,7 +31986,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250611",
         "originals_60d": 0,
@@ -32068,7 +32065,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250602",
         "originals_60d": 0,
@@ -32147,7 +32144,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221123",
         "originals_60d": 0,
@@ -32226,7 +32223,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240530",
         "originals_60d": 0,
@@ -32306,7 +32303,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260617",
         "originals_60d": 0,
@@ -32386,7 +32383,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241031",
         "originals_60d": 0,
@@ -32464,11 +32461,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
-        "originals_60d": 9,
-        "originals_90d": 11,
+        "originals_60d": 8,
+        "originals_90d": 10,
         "originals_365d": 46,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.06,
@@ -32542,7 +32539,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240301",
         "originals_60d": 0,
@@ -32621,7 +32618,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 1,
@@ -32700,7 +32697,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20211223",
         "originals_60d": 0,
@@ -32778,7 +32775,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250724",
         "originals_60d": 0,
@@ -32855,7 +32852,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240703",
         "originals_60d": 0,
@@ -32932,7 +32929,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 7,
@@ -32997,14 +32994,14 @@
       },
       "notes": "Dugogodišnja radijska emisija HRT-a, monolog-podcast o znanosti i misterijima, aktivna 2026.",
       "quality_score": {
-        "total": 74,
+        "total": 76,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 22,
           "cadence": 18,
           "format": 15,
           "substance": 10,
-          "catalog": 6,
+          "catalog": 8,
           "audience": 3
         },
         "days_since_last_episode": 45,
@@ -33012,12 +33009,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260911",
         "originals_60d": 5,
         "originals_90d": 5,
-        "originals_365d": 59,
+        "originals_365d": 101,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.02,
         "min_duration_sec": 2532,
@@ -33092,7 +33089,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 6,
@@ -33169,7 +33166,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261015",
         "originals_60d": 6,
@@ -33251,7 +33248,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260613",
         "originals_60d": 0,
@@ -33332,7 +33329,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250615",
         "originals_60d": 0,
@@ -33411,7 +33408,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250107",
         "originals_60d": 0,
@@ -33490,7 +33487,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240611",
         "originals_60d": 0,
@@ -33569,7 +33566,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250526",
         "originals_60d": 0,
@@ -33647,7 +33644,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230825",
         "originals_60d": 0,
@@ -33722,7 +33719,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20251216",
         "originals_60d": 0,
@@ -33800,7 +33797,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230224",
         "originals_60d": 0,
@@ -33875,7 +33872,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 3,
@@ -33952,7 +33949,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 4,
@@ -34029,11 +34026,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261017",
         "originals_60d": 3,
-        "originals_90d": 6,
+        "originals_90d": 5,
         "originals_365d": 25,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
@@ -34178,7 +34175,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260910",
         "originals_60d": 1,
@@ -34254,7 +34251,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250601",
         "originals_60d": 0,
@@ -34329,7 +34326,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 3,
@@ -34481,7 +34478,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 8,
@@ -34557,7 +34554,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261011",
         "originals_60d": 1,
@@ -34632,11 +34629,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 6,
-        "originals_90d": 9,
+        "originals_90d": 8,
         "originals_365d": 14,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.07,
@@ -34693,14 +34690,14 @@
       },
       "notes": "Gotovo dnevni intervju s jednim analitičarom o aktualnoj geopolitici/politici, ~36 min, jasan razgovorni podcast.",
       "quality_score": {
-        "total": 84,
+        "total": 86,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 30,
           "cadence": 25,
           "format": 15,
           "substance": 5,
-          "catalog": 6,
+          "catalog": 8,
           "audience": 3
         },
         "days_since_last_episode": 0,
@@ -34708,12 +34705,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
-        "originals_60d": 20,
-        "originals_90d": 23,
-        "originals_365d": 69,
+        "originals_60d": 19,
+        "originals_90d": 22,
+        "originals_365d": 100,
         "new_originals_since_baseline": 9,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -34784,7 +34781,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20201022",
         "originals_60d": 0,
@@ -34861,7 +34858,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200717",
         "originals_60d": 0,
@@ -34938,7 +34935,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20201002",
         "originals_60d": 0,
@@ -35016,7 +35013,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 6,
@@ -35105,7 +35102,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241024",
         "originals_60d": 0,
@@ -35181,7 +35178,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 1,
@@ -35257,12 +35254,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 9,
-        "originals_90d": 14,
-        "originals_365d": 52,
+        "originals_90d": 13,
+        "originals_365d": 51,
         "new_originals_since_baseline": 5,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -35333,7 +35330,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 5,
@@ -35409,10 +35406,10 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
-        "originals_60d": 8,
+        "originals_60d": 7,
         "originals_90d": 12,
         "originals_365d": 47,
         "new_originals_since_baseline": 4,
@@ -35485,7 +35482,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 2,
@@ -35563,12 +35560,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260626",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 50,
+        "originals_365d": 52,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.17,
         "min_duration_sec": 901,
@@ -35638,12 +35635,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260919",
-        "originals_60d": 2,
-        "originals_90d": 3,
-        "originals_365d": 8,
+        "originals_60d": 3,
+        "originals_90d": 4,
+        "originals_365d": 9,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.21,
         "min_duration_sec": 1503,
@@ -35713,7 +35710,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261008",
         "originals_60d": 3,
@@ -35788,7 +35785,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230117",
         "originals_60d": 0,
@@ -35850,11 +35847,11 @@
       },
       "notes": "Sindikalni razgovorni podcast s voditeljicom i stručnjacima/aktivistima, numerirane epizode, ~36 min.",
       "quality_score": {
-        "total": 45,
-        "tier": "👀 moderate",
+        "total": 39,
+        "tier": "📦 weak",
         "breakdown": {
           "freshness": 14,
-          "cadence": 6,
+          "cadence": 0,
           "format": 15,
           "substance": 5,
           "catalog": 2,
@@ -35865,11 +35862,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260727",
         "originals_60d": 0,
-        "originals_90d": 1,
+        "originals_90d": 0,
         "originals_365d": 6,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
@@ -35940,10 +35937,10 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261007",
-        "originals_60d": 7,
+        "originals_60d": 6,
         "originals_90d": 11,
         "originals_365d": 32,
         "new_originals_since_baseline": 2,
@@ -36019,7 +36016,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240417",
         "originals_60d": 0,
@@ -36096,7 +36093,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250110",
         "originals_60d": 0,
@@ -36174,7 +36171,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210501",
         "originals_60d": 0,
@@ -36249,7 +36246,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231102",
         "originals_60d": 0,
@@ -36326,7 +36323,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250520",
         "originals_60d": 0,
@@ -36402,7 +36399,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 2,
@@ -36480,7 +36477,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260609",
         "originals_60d": 0,
@@ -36557,7 +36554,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200229",
         "originals_60d": 0,
@@ -36635,7 +36632,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200422",
         "originals_60d": 0,
@@ -36713,7 +36710,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 8,
@@ -36791,7 +36788,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250604",
         "originals_60d": 0,
@@ -36869,7 +36866,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20211004",
         "originals_60d": 0,
@@ -36931,11 +36928,11 @@
       },
       "notes": "Povijesni razgovorni podcast na hrvatskom, aktivan, s jasnim voditeljem-povjesničarem.",
       "quality_score": {
-        "total": 60,
-        "tier": "✅ strong",
+        "total": 54,
+        "tier": "👀 moderate",
         "breakdown": {
           "freshness": 30,
-          "cadence": 18,
+          "cadence": 12,
           "format": 3,
           "substance": 2,
           "catalog": 4,
@@ -36946,11 +36943,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 4,
-        "originals_90d": 5,
+        "originals_90d": 4,
         "originals_365d": 24,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0,
@@ -37006,11 +37003,11 @@
       },
       "notes": "Podcast redakcije o temama obrazovanja i mladih na hrvatskom, aktivan.",
       "quality_score": {
-        "total": 46,
+        "total": 40,
         "tier": "👀 moderate",
         "breakdown": {
           "freshness": 14,
-          "cadence": 6,
+          "cadence": 0,
           "format": 15,
           "substance": 7,
           "catalog": 1,
@@ -37021,11 +37018,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260726",
         "originals_60d": 0,
-        "originals_90d": 1,
+        "originals_90d": 0,
         "originals_365d": 1,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.12,
@@ -37098,7 +37095,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 7,
@@ -37176,12 +37173,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
         "originals_60d": 3,
         "originals_90d": 3,
-        "originals_365d": 21,
+        "originals_365d": 24,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0.67,
         "min_duration_sec": 1928,
@@ -37236,14 +37233,14 @@
       },
       "notes": "Razgovori s glazbenicima i javnim osobama na hrvatskom, katolički medij.",
       "quality_score": {
-        "total": 26,
+        "total": 27,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
           "cadence": 0,
           "format": 15,
           "substance": 7,
-          "catalog": 1,
+          "catalog": 2,
           "audience": 3
         },
         "days_since_last_episode": 758,
@@ -37252,12 +37249,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240928",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_365d": 9,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.34,
         "min_duration_sec": 1186,
@@ -37328,7 +37325,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260414",
         "originals_60d": 0,
@@ -37404,7 +37401,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20200930",
         "originals_60d": 0,
@@ -37481,7 +37478,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260529",
         "originals_60d": 0,
@@ -37557,7 +37554,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20250423",
         "originals_60d": 0,
@@ -37636,7 +37633,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20210930",
         "originals_60d": 0,
@@ -37713,7 +37710,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20220927",
         "originals_60d": 0,
@@ -37791,7 +37788,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20160513",
         "originals_60d": 0,
@@ -37868,7 +37865,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260614",
         "originals_60d": 0,
@@ -37943,7 +37940,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261004",
         "originals_60d": 1,
@@ -38005,14 +38002,14 @@
       },
       "notes": "Razgovorna emisija za mlade na katoličke i životne teme, na hrvatskom.",
       "quality_score": {
-        "total": 71,
+        "total": 69,
         "tier": "✅ strong",
         "breakdown": {
           "freshness": 30,
           "cadence": 12,
           "format": 15,
           "substance": 7,
-          "catalog": 4,
+          "catalog": 2,
           "audience": 3
         },
         "days_since_last_episode": 1,
@@ -38020,12 +38017,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261025",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 20,
+        "originals_365d": 19,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0.03,
         "min_duration_sec": 986,
@@ -38099,7 +38096,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
         "originals_60d": 4,
@@ -38175,7 +38172,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230929",
         "originals_60d": 0,
@@ -38254,7 +38251,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20240115",
         "originals_60d": 0,
@@ -38315,14 +38312,14 @@
       },
       "notes": "Hrvatski intervjui o tehnologiji i AI-ju (CyberFleet, numerirane epizode ~48 min). Zadnja epizoda je od lipnja 2026., nema novih u 90 dana.",
       "quality_score": {
-        "total": 37,
+        "total": 35,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 8,
           "cadence": 0,
           "format": 15,
           "substance": 7,
-          "catalog": 4,
+          "catalog": 2,
           "audience": 3
         },
         "days_since_last_episode": 147,
@@ -38330,12 +38327,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260601",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 21,
+        "originals_365d": 19,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.47,
         "min_duration_sec": 1144,
@@ -38407,12 +38404,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260128",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 3,
+        "originals_365d": 2,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.36,
         "min_duration_sec": 901,
@@ -38489,7 +38486,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241129",
         "originals_60d": 0,
@@ -38567,7 +38564,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20230922",
         "originals_60d": 0,
@@ -38646,7 +38643,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20231020",
         "originals_60d": 0,
@@ -38803,7 +38800,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20190301",
         "originals_60d": 0,
@@ -38948,7 +38945,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 5,
@@ -39014,7 +39011,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261024",
         "originals_60d": 5,
@@ -39079,7 +39076,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 5,
@@ -39188,11 +39185,11 @@
       "parent_slug": "laudato-tv",
       "notes": "Playlista „Odaziv\" kanala Laudato TV. 152 epizoda ≥30 min (2020-09-09–2026-10-12), 41 u zadnjih 365 dana, medijan 55 min.",
       "quality_score": {
-        "total": 33,
+        "total": 39,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
-          "cadence": 0,
+          "cadence": 18,
           "format": 15,
           "substance": 7,
           "catalog": 8,
@@ -39204,12 +39201,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20221024",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_60d": 7,
+        "originals_90d": 7,
+        "originals_365d": 42,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.12,
         "min_duration_sec": 1211,
@@ -39269,12 +39266,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 8,
+        "originals_60d": 7,
         "originals_90d": 9,
-        "originals_365d": 29,
+        "originals_365d": 27,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0,
         "min_duration_sec": 1450,
@@ -39335,7 +39332,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261019",
         "originals_60d": 3,
@@ -39401,12 +39398,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
         "originals_60d": 3,
         "originals_90d": 3,
-        "originals_365d": 14,
+        "originals_365d": 13,
         "new_originals_since_baseline": 28,
         "derivative_ratio": 0.16,
         "min_duration_sec": 3150,
@@ -39452,11 +39449,11 @@
       "parent_slug": "laudato-tv",
       "notes": "Playlista „Otvori spomenar\" kanala Laudato TV. 133 epizoda ≥30 min (2018-01-11–2026-09-24), 14 u zadnjih 365 dana, medijan 55 min.",
       "quality_score": {
-        "total": 33,
+        "total": 39,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
-          "cadence": 0,
+          "cadence": 12,
           "format": 15,
           "substance": 7,
           "catalog": 8,
@@ -39468,12 +39465,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20211014",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_60d": 3,
+        "originals_90d": 3,
+        "originals_365d": 15,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.02,
         "min_duration_sec": 1114,
@@ -39534,7 +39531,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
         "originals_60d": 2,
@@ -39585,11 +39582,11 @@
       "parent_slug": "laudato-tv",
       "notes": "Playlista „Radost ljubavi u braku\" kanala Laudato TV. 69 epizoda ≥30 min (2019-01-21–2026-10-03), 10 u zadnjih 365 dana, medijan 60 min.",
       "quality_score": {
-        "total": 32,
+        "total": 39,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
-          "cadence": 0,
+          "cadence": 12,
           "format": 15,
           "substance": 8,
           "catalog": 6,
@@ -39601,12 +39598,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241108",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_60d": 3,
+        "originals_90d": 3,
+        "originals_365d": 10,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.05,
         "min_duration_sec": 1281,
@@ -39667,12 +39664,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260921",
         "originals_60d": 1,
         "originals_90d": 1,
-        "originals_365d": 18,
+        "originals_365d": 8,
         "new_originals_since_baseline": 28,
         "derivative_ratio": 0.03,
         "min_duration_sec": 1300,
@@ -39718,11 +39715,11 @@
       "parent_slug": "laudato-tv",
       "notes": "Playlista „Totus Tuus\" kanala Laudato TV. 94 epizoda ≥30 min (2020-03-03–2026-10-06), 7 u zadnjih 365 dana, medijan 61 min.",
       "quality_score": {
-        "total": 32,
+        "total": 38,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
-          "cadence": 0,
+          "cadence": 6,
           "format": 15,
           "substance": 8,
           "catalog": 6,
@@ -39734,12 +39731,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20211103",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_60d": 2,
+        "originals_90d": 2,
+        "originals_365d": 7,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.19,
         "min_duration_sec": 1895,
@@ -39800,7 +39797,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261019",
         "originals_60d": 2,
@@ -39866,7 +39863,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261006",
         "originals_60d": 2,
@@ -39931,7 +39928,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260514",
         "originals_60d": 0,
@@ -39996,7 +39993,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260519",
         "originals_60d": 0,
@@ -40062,12 +40059,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260522",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 7,
+        "originals_365d": 6,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1466,
@@ -40128,12 +40125,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260415",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 6,
+        "originals_365d": 5,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1330,
@@ -40193,7 +40190,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260414",
         "originals_60d": 0,
@@ -40259,7 +40256,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261014",
         "originals_60d": 1,
@@ -40325,7 +40322,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260929",
         "originals_60d": 1,
@@ -40390,10 +40387,10 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260917",
-        "originals_60d": 2,
+        "originals_60d": 1,
         "originals_90d": 2,
         "originals_365d": 5,
         "new_originals_since_baseline": 1,
@@ -40456,12 +40453,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261014",
         "originals_60d": 1,
         "originals_90d": 1,
-        "originals_365d": 5,
+        "originals_365d": 4,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0,
         "min_duration_sec": 1222,
@@ -40522,7 +40519,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260509",
         "originals_60d": 0,
@@ -40588,7 +40585,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260627",
         "originals_60d": 0,
@@ -40712,11 +40709,11 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261013",
-        "originals_60d": 3,
-        "originals_90d": 4,
+        "originals_60d": 2,
+        "originals_90d": 3,
         "originals_365d": 11,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
@@ -40763,11 +40760,11 @@
       "parent_slug": "radio-marija-bih",
       "notes": "Playlista „Arka\" kanala Radio Marija u BiH. 80 epizoda ≥30 min (2021-04-14–2026-06-04), 11 u zadnjih 365 dana, medijan 60 min.",
       "quality_score": {
-        "total": 32,
+        "total": 38,
         "tier": "📦 weak",
         "breakdown": {
           "freshness": 0,
-          "cadence": 0,
+          "cadence": 6,
           "format": 15,
           "substance": 8,
           "catalog": 6,
@@ -40779,12 +40776,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241107",
-        "originals_60d": 0,
-        "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_60d": 1,
+        "originals_90d": 1,
+        "originals_365d": 12,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1369,
@@ -40845,12 +40842,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260926",
         "originals_60d": 1,
         "originals_90d": 1,
-        "originals_365d": 9,
+        "originals_365d": 8,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1107,
@@ -40911,7 +40908,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261003",
         "originals_60d": 2,
@@ -40978,12 +40975,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20241018",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 0,
+        "originals_365d": 8,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 987,
@@ -41043,7 +41040,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261007",
         "originals_60d": 1,
@@ -41109,7 +41106,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260619",
         "originals_60d": 0,
@@ -41175,7 +41172,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260929",
         "originals_60d": 1,
@@ -41240,7 +41237,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260612",
         "originals_60d": 0,
@@ -41306,12 +41303,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260620",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 6,
+        "originals_365d": 5,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1260,
@@ -41371,7 +41368,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260925",
         "originals_60d": 1,
@@ -41436,12 +41433,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260612",
         "originals_60d": 0,
         "originals_90d": 0,
-        "originals_365d": 24,
+        "originals_365d": 22,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 1456,
@@ -41502,12 +41499,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261014",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 13,
+        "originals_365d": 12,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0,
         "min_duration_sec": 1299,
@@ -41567,12 +41564,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261009",
         "originals_60d": 2,
         "originals_90d": 2,
-        "originals_365d": 20,
+        "originals_365d": 19,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -41632,7 +41629,7 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261021",
         "originals_60d": 6,
@@ -41758,12 +41755,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 29,
         "originals_90d": 29,
-        "originals_365d": 66,
+        "originals_365d": 163,
         "new_originals_since_baseline": 7,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -41824,12 +41821,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 35,
+        "originals_365d": 33,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0.16,
         "min_duration_sec": 1271,
@@ -41877,11 +41874,11 @@
       "parent_slug": "hrt",
       "notes": "Kultni tjedni intervju Aleksandra Stankovića, zaseban kanal @nedjeljomu2HRT (63k). Kanal miješa isječke i cijele epizode: pratiti samo ≥30 min (421 cijela epizoda od 2019., ~52/god). Playlista na glavnom HRT kanalu stala je 2022. Mjereno 14.10.2026.: 421 epizoda ≥30 min (2019-04-16–2026-10-12), 52 u zadnjih 365 dana.",
       "quality_score": {
-        "total": 85,
+        "total": 88,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 22,
-          "cadence": 22,
+          "cadence": 25,
           "format": 15,
           "substance": 7,
           "catalog": 10,
@@ -41896,12 +41893,12 @@
         "notes": "Kanal miješa isječke (1–5 min) i cijele epizode (~55–60 min); prag 30 min ostavlja samo cijele."
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260908",
-        "originals_60d": 7,
-        "originals_90d": 9,
-        "originals_365d": 10,
+        "originals_60d": 12,
+        "originals_90d": 16,
+        "originals_365d": 53,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0.84,
         "min_duration_sec": 1800,
@@ -41961,12 +41958,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261022",
-        "originals_60d": 10,
-        "originals_90d": 15,
-        "originals_365d": 54,
+        "originals_60d": 8,
+        "originals_90d": 13,
+        "originals_365d": 52,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
         "min_duration_sec": 1058,
@@ -42027,12 +42024,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261023",
-        "originals_60d": 12,
-        "originals_90d": 16,
-        "originals_365d": 48,
+        "originals_60d": 10,
+        "originals_90d": 14,
+        "originals_365d": 46,
         "new_originals_since_baseline": 3,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -42093,12 +42090,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261020",
         "originals_60d": 2,
         "originals_90d": 2,
-        "originals_365d": 18,
+        "originals_365d": 17,
         "new_originals_since_baseline": 1,
         "derivative_ratio": 0.02,
         "min_duration_sec": 901,
@@ -42159,12 +42156,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 6,
         "originals_90d": 6,
-        "originals_365d": 41,
+        "originals_365d": 40,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -42210,11 +42207,11 @@
       "parent_slug": "hrt",
       "notes": "Razgovorna emisija s gostima, ~38 min. Mjereno 14.10.2026.: 138 epizoda ≥30 min (2024-04-16–2026-09-29), 47 u zadnjih 365 dana.",
       "quality_score": {
-        "total": 83,
+        "total": 80,
         "tier": "🌟 elite",
         "breakdown": {
           "freshness": 27,
-          "cadence": 25,
+          "cadence": 22,
           "format": 15,
           "substance": 5,
           "catalog": 8,
@@ -42225,12 +42222,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20260929",
         "originals_60d": 10,
-        "originals_90d": 13,
-        "originals_365d": 49,
+        "originals_90d": 11,
+        "originals_365d": 45,
         "new_originals_since_baseline": 0,
         "derivative_ratio": 0,
         "min_duration_sec": 901,
@@ -42291,12 +42288,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 4,
         "originals_90d": 4,
-        "originals_365d": 63,
+        "originals_365d": 67,
         "new_originals_since_baseline": 4,
         "derivative_ratio": 0,
         "min_duration_sec": 1145,
@@ -42357,12 +42354,12 @@
         "rubric": "v2"
       },
       "activity": {
-        "source": "watch",
+        "source": "watch+backfill",
         "checked_at": "2026-10-27",
         "last_original_upload": "20261026",
         "originals_60d": 6,
         "originals_90d": 6,
-        "originals_365d": 40,
+        "originals_365d": 39,
         "new_originals_since_baseline": 2,
         "derivative_ratio": 0,
         "min_duration_sec": 901,

@@ -9,11 +9,12 @@
 # launchd tv.domovina.fetch.magisterium) je enqueuea → poller je headless obradi.
 #
 # Format: jedan channel id po retku (= ime direktorija u storage/output/).
-# Opcionalno "+EN" iza imena → uz HR enqueuea i englesku Magisterium obradu
-# (samo za nove epizode koje već imaju has_article_en). '#' = komentar.
+# Opcionalno "+EN" iza imena → uz HR enqueuea i englesku obradu (prijevod sažetka, članka
+# i Magisteriuma) čim nova epizoda ima HR Magisterium. '#' = komentar.
 #
 # Čita: automatic/enqueue_magisterium_backfill.js (tick u automatic/magisterium_pipeline.sh)
 
 mladi_za_domovinu
 iva_kraljevic
 eho_projekt
+ora_et_labora +EN
