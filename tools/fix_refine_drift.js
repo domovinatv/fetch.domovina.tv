@@ -100,6 +100,8 @@ const RAG_STEPS = [
     ["prepare_rag.js", ".rag_chunks.jsonl", "rag-chunks-done.json"],
 ];
 
+const REINGEST_QUEUE = process.env.RAG_REINGEST_QUEUE || path.join(ROOT, "..", "domovina-rag", ".reingest-queue");
+
 function unmarkDone(statePath, base) {
     let data;
     try { data = JSON.parse(fs.readFileSync(statePath, "utf8")); } catch (_) { return; }
@@ -179,6 +181,12 @@ function main() {
                 unmarkDone(path.join(INPUT_DIR, state), ep.base);
                 run("node", [script, "--input-dir", INPUT_DIR, "--channel", ep.ch, "--video-id", ep.vid,
                     ...(script === "prepare_rag_combined.js" ? ["--rebuild-segments"] : [])]);
+            }
+            // domovina-rag ETL preskače već indeksirane epizode; red čekanja ih noćni
+            // sync (04:00) obriše lokalno + cloud i unese ponovno (sync-incremental.sh §0.5).
+            if (fs.existsSync(path.dirname(REINGEST_QUEUE))) {
+                fs.appendFileSync(REINGEST_QUEUE, ep.vid + "\n");
+                console.log(`      📥 ${ep.vid} → ${REINGEST_QUEUE}`);
             }
         }
         if (C && UPLOAD) {

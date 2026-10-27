@@ -97,10 +97,30 @@ Epizode bez Gemini sluha (~3300 Canary prijepisa) ovaj bug ne pogađa.
 Članak i sažetak se ne diraju: pisani su iz istog teksta, samo razmještenog.
 Iznimka su ~3 min koje je Gemini u `ja70p_gJWZA` izgubio; članak ih možda ne spominje.
 
-### RAG re-ingest: OTVORENO
+### RAG re-ingest
 
-`domovina-rag` ETL preskače epizode koje su već indeksirane
-(`pg.is_episode_indexed`). Novi `rag_combined.jsonl` zato ne stiže u ClickHouse/Meili
-sam. Ponovni unos ide s `--reingest` po kanalu (ReplacingMergeTree pobjeđuje).
-Nije pokrenut, jer traži embedder i zbog memorijskog budžeta Maca
-(vidi memory `mac_panic_rag_sync_memory_budget`).
+`domovina-rag` ETL preskače epizode koje su već indeksirane, a delta prema cloudu
+gleda samo broj chunkova. Zato je u `domovina-rag/scripts/sync-incremental.sh`
+dodan red čekanja `.reingest-queue` (§0.5): noćni sync te epizode obriše lokalno i
+na cloudu, PG status postavi na `stale`, pa ih ETL i delta tretiraju kao nove.
+`tools/fix_refine_drift.js --downstream` upisuje u red sam. 27.10. su u red ušle 4
+epizode koje su već bile na cloudu (`cU88JYVdEkQ`, `bq6GYHQWrzo`, `CZT8mdWTIOA`,
+`jBWuw00i48g`). Ostalih 7 nije bilo u RAG-u (vidi ispod), pa ulaze kao nove.
+
+### Usput nađeno: RAG sync mrtav od 10.10.
+
+Pri provjeri re-ingesta ispalo je da noćni RAG sync dva tjedna ništa ne radi:
+
+1. **ETL se nije pokretao od 10.10.** Lokalni ETL image je nestao, build u 05:00
+   je padao na pullu `python:3.11-slim` (`DeadlineExceeded`), a `sync-incremental.sh`
+   je to javljao samo kao build WARN. Zadnji stvaran unos bio je 09.10.
+   Image je ponovno izgrađen 27.10. Izostanak `Done:` retka sada je FAIL u
+   `.etl-status` i cron ga javlja kao WARN.
+2. **Od 15.10. cloud delta je išla u krivi ClickHouse.** Na isti VPS je deployan
+   Coolify projekt `domovina-analytics` sa svojim ClickHouseom, a skripte su
+   tražile `docker ps --filter name=clickhouse | head -1` → `AUTHENTICATION_FAILED`.
+   Svi cloud `docker ps` pozivi (CH i Meili, 7 skripti) sada filtriraju i po
+   `label=coolify.projectName=domovina-rag`.
+
+Cloud RAG je 27.10. imao 3376 epizoda, zadnja od 08.10. Prvi noćni sync nakon
+popravka nosi cijeli zaostatak od 10.10.
