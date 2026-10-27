@@ -124,3 +124,30 @@ Pri provjeri re-ingesta ispalo je da noćni RAG sync dva tjedna ništa ne radi:
 
 Cloud RAG je 27.10. imao 3376 epizoda, zadnja od 08.10. Prvi noćni sync nakon
 popravka nosi cijeli zaostatak od 10.10.
+
+### Usput nađeno: KORAK 1b (Beamly) mrtav od 15.09.
+
+Repo `revenuecat/subclub` je 14.09. premješten na `/Volumes/DOMOVINA2TB/git/revenuecat/subclub`.
+Agenti `com.revenuecat.podcast.{subclub,launched,enrich-youtube}` i `ingest_beamly.mjs`
+su i dalje gledali `~/git/revenuecat/subclub`, pa nightly svaki dan javlja ENOENT
+`subclub-episodes.json`. Popravak 27.10.:
+
+- `~/git/revenuecat/subclub` → symlink na volumen (ingest_beamly čita default putanju)
+- u plistovima `WorkingDirectory` i logovi na SSD-u (`~/git/revenuecat`, `~/git/revenuecat/logs/`);
+  na volumenu je samo skripta. **launchd ne smije cwd ni log na vanjskom volumenu**:
+  prvi pokušaj sa symlinkom kao cwd vratio je `exit 78 EX_CONFIG` bez ijednog retka u logu.
+- ručni kickstart: subclub 173 → 176, launched 104 → 106; suhi `ingest_beamly` noćas uzima 6 epizoda.
+
+## Otvoreno nakon 27.10.
+
+- **Provjeriti noćne logove 28.10.**: `domovina-rag/.ingest-logs/sync-cron-20261028.log`
+  (`Cloud CH: clickhouse-ddvxwy…`, `Done: processed=`, „Ponovni unos 4 epizoda”,
+  `Sync uspješan`), te `automatic/logs/nightly_2026-10-28.log` (KORAK 1b bez ENOENT,
+  2.8 retci `pomaknutih na kosturu`).
+- Prvi RAG sync nosi 18 dana zaostatka. Mac je imao 7,7 GB swapa i 5 GB slobodno na SSD-u
+  (Docker.raw 39 GB, `~/.cache` 15 GB); ručni sync namjerno nije pokrenut zbog pada 23.09.
+- KORAK 6 (lokalni pyannote) se svaku drugu noć gasi ogradom diska (< 12 GB na /).
+  Trenutno nikome ne smeta (na njega čeka 1 stara epizoda), ali SSD je tijesan.
+- EPUB ograda za `6e1MW97dv10` (hitna_pomoc_za_nemirne + _unlisted) javlja ❌ svaku noć:
+  nova knjiga 0,3 MB naspram 1,2 MB. Postojeća ostaje, pa uzrok (screenshotovi?) nije istražen.
+- Moguća dodatna ograda: upozorenje u 9.87 kad u `words.json` postoji dulji niz cue-ova s `a < 0.3`.
