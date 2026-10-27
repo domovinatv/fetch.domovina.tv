@@ -53,6 +53,7 @@ const LEDGER = path.join(DIR, "ledger.json");
 const QSTATS = path.join(DIR, "query_stats.json");
 const WATCH_STATE = path.join(ROOT, "automatic", "watchlist", "watch-state.json");
 const WATCH_RULES = path.join(ROOT, "automatic", "watchlist", "rules.json");
+const BACKFILL = path.join(ROOT, "automatic", "watchlist", "backfill.json");
 
 const args = process.argv.slice(2);
 const CMD = args[0];
@@ -666,12 +667,19 @@ function countWithin(dates, days) {
     return dates.filter((d) => { const x = daysSince(d); return x != null && x <= days; }).length;
 }
 
-function watchStatus(ch) {
+// Watch-state pamti samo zadnjih ~60 videa (baseline), pa bi dnevnom kanalu originals_90d
+// stalo na ~60. backfill.json ima točne datume cijelog kanala — kad je s istog izvora,
+// datumi idu iz njega, a watch-state dodaje samo ono što backfill još nije pokrio.
+function watchStatus(ch, bf) {
     const vids = Object.values(ch.seen || {});
     const orig = vids.filter((v) => v.cls === "original");
-    const dates = orig.map((v) => v.upload_date).filter(Boolean);
+    const useBf = !!(bf?.originals && bf.source === ch.source);
+    const byId = {};
+    if (useBf) for (const [id, o] of Object.entries(bf.originals)) if (o.date) byId[id] = o.date.replace(/-/g, "");
+    for (const [id, v] of Object.entries(ch.seen || {})) if (v.cls === "original" && v.upload_date && !byId[id]) byId[id] = v.upload_date;
+    const dates = Object.values(byId);
     return {
-        source: "watch",
+        source: useBf ? "watch+backfill" : "watch",
         checked_at: (ch.last_check || "").slice(0, 10),
         last_original_upload: dates.slice().sort().pop() || null,
         originals_60d: countWithin(dates, 60),
@@ -685,8 +693,10 @@ function watchStatus(ch) {
     };
 }
 
-/** Praćeni kanal: datumi iz imena datoteka u storage/output/<kanal>/ ({YYYYMMDD}_…_yt_ID). */
-function pipelineStatus(slug) {
+/** Praćeni kanal: datumi iz imena datoteka u storage/output/<kanal>/ ({YYYYMMDD}_…_yt_ID),
+ *  plus originali iz backfill.json — kanal praćen samo od nekog dana (Ora et Labora: 1102
+ *  stara videa nisu na disku) inače bi imao „1 epizoda u 90 dana". */
+function pipelineStatus(slug, bf) {
     const dir = path.join(ROOT, "storage", "output", slug.replace(/-/g, "_"));
     let files;
     try { files = fs.readdirSync(dir); } catch { return null; }
@@ -695,25 +705,28 @@ function pipelineStatus(slug) {
         const m = /^(\d{8})_.*_yt_([\w-]{11})\./.exec(f);
         if (m) byId[m[2]] = m[1];
     }
+    const onDisk = Object.keys(byId).length;
+    for (const [id, o] of Object.entries(bf?.originals || {})) if (o.date && !byId[id]) byId[id] = o.date.replace(/-/g, "");
     const dates = Object.values(byId);
     if (!dates.length) return null;
     return {
-        source: "pipeline", checked_at: today(),
+        source: dates.length > onDisk ? "pipeline+backfill" : "pipeline", checked_at: today(),
         last_original_upload: dates.slice().sort().pop(),
         originals_60d: countWithin(dates, 60), originals_90d: countWithin(dates, 90), originals_365d: countWithin(dates, 365),
-        episodes_on_disk: dates.length,
+        episodes_on_disk: onDisk,
     };
 }
 
 function cmdActivity() {
     const reg = readJson(REGISTRY);
     const st = readJson(WATCH_STATE, { channels: {} });
+    const bfChannels = readJson(BACKFILL, { channels: {} }).channels || {};
     const UPDATE = hasFlag("--update-status");
     let n = 0; const changes = [];
     for (const p of reg.podcasts) {
         const tracked = p.tracking?.enabled === true;
         const ch = st.channels[p.slug];
-        const a = tracked ? pipelineStatus(p.slug) : ch ? watchStatus(ch) : null;
+        const a = tracked ? pipelineStatus(p.slug, bfChannels[p.slug]) : ch ? watchStatus(ch, bfChannels[p.slug]) : null;
         if (!a) continue;
         // Točan datum (exact-dates) ima prednost pred približnim iz flat liste.
         const exact = !p.metadata?.last_episode_date_approx && p.metadata?.last_episode_date ? p.metadata.last_episode_date.replace(/-/g, "") : null;
