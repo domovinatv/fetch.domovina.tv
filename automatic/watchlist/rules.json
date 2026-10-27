@@ -1281,11 +1281,11 @@
   }
  },
  "ora-et-labora": {
-  "source_url": "https://www.youtube.com/playlist?list=PLJW0vK09V-ulNH5OHf8wWl3sbFyF4CuUy",
+  "source_url": "https://www.youtube.com/@oraetlabora.cro-medjugorje/videos",
   "min_duration_sec": 1500,
-  "include_title_regex": "(?i)OEL razgovor",
-  "notes": "/videos su dnevni molitveni susreti \"NN. Milosrđe Božje\" (60-120 min monolog) — prošli bi svaki prag trajanja! Razgovorni podcast je samo playlista \"Ora Et Labora intervjui.\" (\"N. OEL razgovor\", ~mjesečno, 30-100 min).",
-  "from": "revision 2026-09-24",
+  "exclude_title_regex": "(?i)softver i akademija",
+  "notes": "Cijeli kanal (odluka 27.10.2026.): dnevna emisija u polugodišnjim/godišnjim sezonama, svaka svoja playlista — Evanđelje dana iz Međugorja (2024), … II / Ora Et Labora (2025), Ora Et Labora II (1–6/2026), Milosrđe Božje (od 29.06.2026.). /videos jer nova sezona = nova playlista. Uz to OEL razgovori, Svjedočanstva, Božja Riječ (Grebenar). Isključen samo MMP softver (reklama).",
+  "from": "revision 2026-09-24; /videos 2026-10-27",
   "check": {
    "sample": 8,
    "originals": 7,
