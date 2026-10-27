@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    launchd plist za MAGISTERIUM EN traku (svakih 120s): samo EN prijevod (Gemini, bez
+    Magisterium API-ja i bez Claudea), MAG_LANE=en. Od 27.10.2026. odvojeno od HR trake
+    (tv.domovina.fetch.magisterium) da EN ne čeka iza dugog HR MCP runa. Lock
+    logs/.magisterium-en.lock.d, log automatic/logs/magisterium-en_YYYY-MM-DD.log.
+    Ispod: izvorni opis HR posla, vrijedi i ovdje osim intervala.
+
+    launchd plist za MAGISTERIUM (re)obrada poller (svakih 600s / 10 min).
+
+    Claima magisterium_jobs zahtjeve iz pipeline.domovina.ai (admin gumb ili cron auto-enqueue)
+    i za svaki pokrene hibridni Magisterium MCP workflow headless (claude -p). Idempotentno —
+    već obrađeni videi (CDN artefakt 200) → odmah done, bez trošenja tokena.
+
+    Lokacija: ~/Library/LaunchAgents/tv.domovina.fetch.magisterium.plist
+    Install:  automatic/launchd/install.sh magisterium
+    Logs:     automatic/logs/magisterium_YYYY-MM-DD.log
+
+    StartInterval (ne StartCalendarInterval): launchd re-launcha svakih 600s, ALI ne pokreće
+    drugu instancu dok prethodni tick traje (run može biti ~14 min). magisterium_pipeline.sh
+    ustupa noćnom bulku/prioritetu preko dijeljenog mutexa (pipeline_lock.sh).
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>tv.domovina.fetch.magisterium-en</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/magisterium_pipeline.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv</string>
+
+    <key>StartInterval</key>
+    <integer>120</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.magisterium-en.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.magisterium-en.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/ms</string>
+        <key>PATH</key>
+        <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <key>MAG_LANE</key>
+        <string>en</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <key>ProcessType</key>
+    <string>Standard</string>
+
+    <!-- StartInterval već re-launcha; ne treba respawn-on-exit. -->
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

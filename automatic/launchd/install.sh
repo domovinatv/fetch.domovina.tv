@@ -25,9 +25,9 @@ mkdir -p "$HOME/Library/LaunchAgents"
 case "${1:-all}" in
     nightly)     LABELS=("tv.domovina.fetch.nightly") ;;
     priority)    LABELS=("tv.domovina.fetch.priority") ;;
-    magisterium) LABELS=("tv.domovina.fetch.magisterium") ;;
+    magisterium) LABELS=("tv.domovina.fetch.magisterium" "tv.domovina.fetch.magisterium-en") ;;
     reels)       LABELS=("tv.domovina.fetch.reels") ;;
-    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium" "tv.domovina.fetch.reels") ;;
+    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium" "tv.domovina.fetch.magisterium-en" "tv.domovina.fetch.reels") ;;
     *) echo "❌ Nepoznat argument: $1 (all|nightly|priority|magisterium|reels)" >&2; exit 1 ;;
 esac
 

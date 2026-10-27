@@ -33,10 +33,16 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 LOG_DIR="$REPO_DIR/automatic/logs"
 mkdir -p "$LOG_DIR"
-LOG_FILE="$LOG_DIR/magisterium_$(date +%Y-%m-%d).log"
+# Traka (27.10.2026.): MAG_LANE=hr (default, tv.domovina.fetch.magisterium) ili en
+# (tv.domovina.fetch.magisterium-en). Svaka ima svoj lock i log, pa EN prijevod ne čeka iza
+# HR MCP runa. Backfill enqueue radi samo HR traka.
+MAG_LANE="${MAG_LANE:-hr}"
+export MAG_LANE
+LANE_SUFFIX=""; [ "$MAG_LANE" = "en" ] && LANE_SUFFIX="-en"
+LOG_FILE="$LOG_DIR/magisterium${LANE_SUFFIX}_$(date +%Y-%m-%d).log"
 exec >> "$LOG_FILE" 2>&1
 # Očisti Magisterium logove starije od 14 dana.
-find "$LOG_DIR" -name 'magisterium_*.log' -type f -mtime +14 -delete 2>/dev/null || true
+find "$LOG_DIR" -name 'magisterium*_*.log' -type f -mtime +14 -delete 2>/dev/null || true
 
 # .env → PIPELINE_QUEUE_INGEST_KEY (isti kao nightly KORAK 0) + R2/GCP auth koje runbook koristi.
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
@@ -50,7 +56,7 @@ if [ -n "$SHARED_LOCK_PID" ] && ps -o command= -p "$SHARED_LOCK_PID" 2>/dev/null
 fi
 
 # Vlastiti mutex: jedan Magisterium run u isto vrijeme (run ~14 min > tick 10 min).
-PIPELINE_LOCK="$LOG_DIR/.magisterium.lock.d"
+PIPELINE_LOCK="$LOG_DIR/.magisterium${LANE_SUFFIX}.lock.d"
 # shellcheck source=/dev/null
 . "$SCRIPT_DIR/pipeline_lock.sh"
 if ! acquire_pipeline_lock nowait; then
@@ -63,13 +69,13 @@ trap 'release_pipeline_lock' EXIT INT TERM
 export MAG_MAX="${MAG_MAX:-1}"
 
 echo ""
-echo "$(date '+%F %T') 🕊 ─── MAGISTERIUM TICK START ───"
+echo "$(date '+%F %T') 🕊 ─── MAGISTERIUM [$MAG_LANE] TICK START ───"
 
 # Praćeni kanali (automatic/full_backfill_channels.txt): NOVE epizode (post-baseline)
 # s objavljenim HR člankom a bez Magisteriuma → auto-enqueue u magisterium_jobs (dedupe
 # radi worker). Stare rupe NIKAD automatski — puni backfill je ručni na zahtjev.
 # Non-fatalno: greška enqueuea ne smije srušiti tick (poller svejedno obrađuje postojeće).
-if [ -f "$SCRIPT_DIR/enqueue_magisterium_backfill.js" ]; then
+if [ "$MAG_LANE" != "en" ] && [ -f "$SCRIPT_DIR/enqueue_magisterium_backfill.js" ]; then
     node "$SCRIPT_DIR/enqueue_magisterium_backfill.js" || echo "   ⚠️ enqueue_magisterium_backfill greška (non-fatal)."
 fi
 
@@ -80,4 +86,4 @@ if [ -f "$BRIDGE/magisterium_poller.js" ]; then
 else
     echo "   ⚠️ nema magisterium_poller.js — preskačem."
 fi
-echo "$(date '+%F %T') 🕊 ─── MAGISTERIUM TICK DONE ───"
+echo "$(date '+%F %T') 🕊 ─── MAGISTERIUM [$MAG_LANE] TICK DONE ───"
