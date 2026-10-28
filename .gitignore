@@ -76,3 +76,6 @@ experiments/*/data
 
 # Apple Vision binarka se gradi iz main.swift (screenshot_youtube.js)
 tools/vision_best_frame/vision_best_frame
+
+# Ručni YouTube titlovi (fetch_youtube_subs.js) — lokalne kopije; javni indeks je subs.json
+automatic/watchlist/subs/
