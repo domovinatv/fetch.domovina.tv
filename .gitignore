@@ -73,3 +73,6 @@ docs/private/
 
 # eksperimenti: mediji i sirovi API odgovori žive na vanjskom disku (symlink)
 experiments/*/data
+
+# Apple Vision binarka se gradi iz main.swift (screenshot_youtube.js)
+tools/vision_best_frame/vision_best_frame

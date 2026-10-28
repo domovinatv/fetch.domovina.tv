@@ -34,8 +34,10 @@
  *
  * IZBOR NAJLJEPŠEG KADRA (default ON od 26.10.2026.): umjesto kadra točno na
  * timestampu izvuče se 21 kandidat u prozoru ±5 s (2 fps), složi u numerirani
- * list i Gemini (Vertex, gemini.conf) izabere kadar s otvorenim očima, glavom
- * gore i bez grimase, iste osobe kao na timestampu. Svaka greška → stari točni
+ * list i model izabere kadar s otvorenim očima, glavom gore i bez grimase, iste
+ * osobe kao na timestampu. Od 28.10.2026. bira Apple Vision lokalno
+ * (tools/vision_best_frame, ~1,5 s, $0); agy/Vertex samo kad Vision nije
+ * dostupan. SCREENSHOT_BEST_FRAME_BACKEND=agy vraća stari put. Svaka greška → stari točni
  * kadar. Gasi se s `--no-best-frame` ili SCREENSHOT_BEST_FRAME=0. Odluka ide u
  * `_manifest.json` (`best_frame`). Vidi docs/2026-10-26-screenshot-izbor-kadra.md.
  *
@@ -450,7 +452,7 @@ const GEMINI_PRICE_OUT = parseFloat(GEMINI_CONF.GEMINI_PRICE_OUT || "3.75");
 let regionIndex = 0;
 let cachedAccessToken = null;
 let tokenExpiry = 0;
-const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0, agyCalls: 0 };
+const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0, agyCalls: 0, visionCalls: 0 };
 
 function getOrRefreshAccessToken() {
     const now = Date.now();
@@ -672,7 +674,61 @@ function askAgyBestFrame(sheetPath, n, originalLabel) {
     return run;
 }
 
+// ─── APPLE VISION (primarni backend od 28.10.2026.) ───────────
+//
+// tools/vision_best_frame (Swift, Vision framework, Neural Engine): kvaliteta lica,
+// otvorenost očiju, estetika i „ista osoba" preko feature printa. ~1,5 s za 21
+// kandidat, lokalno, $0 — agy kroz tmux treba ~1 min po kadru (jedna sesija za sve
+// workere), pa je s 40 sekcija KORAK 10 trajao satima. Binarka se gradi iz
+// main.swift kad nedostaje ili je starija od izvora (swiftc, ~3 s).
+// Pravila odluke i kalibracija: docs/2026-10-26-screenshot-izbor-kadra.md §Apple Vision.
+const VISION_DIR = path.join(__dirname, "tools", "vision_best_frame");
+const VISION_BIN = path.join(VISION_DIR, "vision_best_frame");
+const VISION_SRC = path.join(VISION_DIR, "main.swift");
+let visionDisabled = process.platform !== "darwin" ||
+    ["agy", "vertex"].includes(process.env.SCREENSHOT_BEST_FRAME_BACKEND || "");
+
+function visionAvailable() {
+    if (visionDisabled) return false;
+    try {
+        const stale = !fs.existsSync(VISION_BIN) ||
+            fs.statSync(VISION_BIN).mtimeMs < fs.statSync(VISION_SRC).mtimeMs;
+        if (stale) {
+            const r = spawnSync("swiftc", ["-O", VISION_SRC, "-o", VISION_BIN], { encoding: "utf-8" });
+            if (r.status !== 0) throw new Error((r.stderr || "swiftc nije uspio").slice(0, 300));
+            console.log(`   🍎 vision_best_frame izgrađen`);
+        }
+        return true;
+    } catch (err) {
+        console.log(`   ⚠️  Apple Vision nedostupan (${err.message}) — izbor kadra ide kroz agy/Vertex`);
+        visionDisabled = true;
+        return false;
+    }
+}
+
+function askVisionBestFrame(framePaths, originalIdx) {
+    return new Promise((resolve) => {
+        const proc = spawn(VISION_BIN, ["--original", String(originalIdx), ...framePaths],
+            { stdio: ["ignore", "pipe", "pipe"] });
+        let out = "";
+        proc.stdout.on("data", (c) => { out += c.toString(); });
+        proc.on("close", (code) => {
+            if (code !== 0) return resolve(null);
+            try {
+                const v = JSON.parse(out);
+                bestFrameUsage.visionCalls++;
+                resolve({ best: v.best, best_score: v.best_score, original_score: v.original_score,
+                          reason: v.reason, model: "apple-vision" });
+            } catch { resolve(null); }
+        });
+        proc.on("error", () => resolve(null));
+    });
+}
+
 function logBestFrameUsage() {
+    if (bestFrameUsage.visionCalls) {
+        console.log(`   🎯 Izbor kadra (Apple Vision, lokalno): ${bestFrameUsage.visionCalls} odluka · $0`);
+    }
     if (bestFrameUsage.calls) {
         const usd = bestFrameUsage.promptTokens / 1e6 * GEMINI_PRICE_IN + bestFrameUsage.outputTokens / 1e6 * GEMINI_PRICE_OUT;
         console.log(`   🎯 Izbor kadra (${GEMINI_MODEL}): ${bestFrameUsage.calls} poziva · ${bestFrameUsage.promptTokens} in / ${bestFrameUsage.outputTokens} out · ~$${usd.toFixed(3)}`);
@@ -705,15 +761,11 @@ async function captureBestFrame(source, timestamp, outputPath) {
         const originalIdx = Math.min(frames.length, Math.round((sec - start) * BEST_FRAME_FPS) + 1);
         const originalLabel = `c${String(originalIdx).padStart(2, "0")}`;
 
-        const sheetPath = path.join(tmpDir, "sheet.jpg");
-        const montageArgs = ["montage", ...frames.map(f => path.join(tmpDir, f))];
-        if (fs.existsSync(FONT_PATH)) montageArgs.push("-font", FONT_PATH);
-        montageArgs.push("-resize", "640x", "-set", "label", "%t", "-pointsize", "30",
-            "-tile", "5x", "-geometry", "+4+4", "-quality", "85", sheetPath);
-        const m = await runProcess("magick", montageArgs);
-        if (m.code !== 0 || !fs.existsSync(sheetPath)) return null;
-
-        const verdict = await askGeminiBestFrame(sheetPath, frames.length, originalLabel);
+        let verdict = visionAvailable()
+            ? await askVisionBestFrame(frames.map(f => path.join(tmpDir, f)), originalIdx)
+            : null;
+        if (!verdict) verdict = await askModelWithSheet(tmpDir, frames, originalLabel);
+        if (!verdict) return null;
         const chosen = /^c\d\d$/.test(verdict.best || "") && frames.includes(`${verdict.best}.png`)
             ? verdict.best : originalLabel;
         fs.copyFileSync(path.join(tmpDir, `${chosen}.png`), outputPath);
@@ -731,6 +783,18 @@ async function captureBestFrame(source, timestamp, outputPath) {
     } finally {
         fs.rmSync(tmpDir, { recursive: true, force: true });
     }
+}
+
+// Numerirani list kandidata → agy/Vertex (kad Apple Vision nije dostupan).
+async function askModelWithSheet(tmpDir, frames, originalLabel) {
+    const sheetPath = path.join(tmpDir, "sheet.jpg");
+    const montageArgs = ["montage", ...frames.map(f => path.join(tmpDir, f))];
+    if (fs.existsSync(FONT_PATH)) montageArgs.push("-font", FONT_PATH);
+    montageArgs.push("-resize", "640x", "-set", "label", "%t", "-pointsize", "30",
+        "-tile", "5x", "-geometry", "+4+4", "-quality", "85", sheetPath);
+    const m = await runProcess("magick", montageArgs);
+    if (m.code !== 0 || !fs.existsSync(sheetPath)) return null;
+    return await askGeminiBestFrame(sheetPath, frames.length, originalLabel);
 }
 
 // ─── ARTICLE PROCESSING ──────────────────────────────────────────

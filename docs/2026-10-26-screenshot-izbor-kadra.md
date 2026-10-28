@@ -115,3 +115,73 @@ Preglednik koji je epizodu već otvorio može još prikazivati stari kadar iz sv
 - Kad u cijelom prozoru ±5 s nema dobrog kadra (00:10:02 — voditelj cijelo
   vrijeme gleda u bilješke), mogao bi se proširiti prozor na ±10 s.
 - Lokalni fallback (anti-bot) je često 360p; izbor tada radi na lošijoj slici.
+
+## Apple Vision kao primarni backend (28.10.2026.)
+
+Od 28.10. je Vertex isključen (`docs/2026-10-28-vertex-iskljucen-agy-jedini-gemini.md`),
+pa je izbor kadra išao samo kroz agy. Jedna tmux sesija serijalizira sva tri
+workera, pa je to **~1 kadar u minuti**. Nightly s 235 sekcija stao bi na KORAKU 10
+oko 4 sata. Zato kadar sada bira **Apple Vision lokalno**, a agy/Vertex ostaje
+rezerva kad Vision nije dostupan.
+
+```mermaid
+flowchart LR
+    A["ffmpeg: 21 PNG<br/>±5 s, 2 fps"] --> B["tools/vision_best_frame<br/>Swift + Vision, ~1,5 s"]
+    B --> C[izabrani PNG + best_frame u manifestu]
+    B -. nema swiftc / greška .-> D["numerirani list → agy / Vertex"]
+    D --> C
+```
+
+`tools/vision_best_frame/main.swift`; binarka se gradi sama (`swiftc -O`, ~3 s) kad
+nedostaje ili je starija od izvora i nije u gitu. Ručno:
+`vision_best_frame --original 11 c01.png … c21.png` → JSON s odlukom i metrikama po kadru.
+
+Po kadru se računa:
+
+| Signal | Vision zahtjev | Uloga |
+|---|---|---|
+| kvaliteta lica 0–1 | `VNDetectFaceCaptureQualityRequest` | glavna ocjena (oštrina, svjetlo, poza) |
+| oči otvorene | `VNDetectFaceLandmarksRequest`, omjer visina/širina oka | zatvorene oči = najčešći loš kadar |
+| estetika −1..1 | `VNCalculateImageAestheticsScoresRequest` | kadar bez lica (ekran, slajd) |
+| ista osoba / isti kadar | `VNGenerateImageFeaturePrintRequest` nad izrezom lica i cijelim kadrom | pravilo 1 iz prompta |
+
+Pravila odluke:
+
+1. **Lice na timestampu** → kandidati su kadrovi s istim licem (udaljenost feature
+   printa ≤ 0,75, središte pomaknuto < 20 % kadra). Ocjena je
+   `0,55·kvaliteta + 0,30·oči + 0,15·estetika`, uz malu kaznu za udaljenost od
+   timestampa. Kadar se mijenja samo uz dobitak ≥ 0,08, a za **sitno lice**
+   (< 6 % visine kadra, npr. PiP govornika preko snimke ekrana) ≥ 0,15.
+2. **Nema lica na timestampu** (ekran, slajd) → ostaje točni kadar, osim ako je
+   isti kadar ekrana estetski jasno bolji. Za razliku od agy-ja **ne bježi na
+   govornika**: tu članak opisuje sadržaj ekrana („Na ekranu je…”).
+3. **Sitna lica**: Vision na cijelom 1080p kadru ne nađe lice od ~40 px, pa
+   postoji drugi prolaz po 3×2 preklapajuće pločice.
+
+Gašenje: `SCREENSHOT_BEST_FRAME_BACKEND=agy` (ili `vertex`) vraća stari put.
+U manifestu je `model: "apple-vision"`.
+
+### Mjerenje: QkcpHsj43rE (StartupVG predavanje, 42 sekcije)
+
+Snimka ekrana s malim PiP-om govornika, plus široki kadrovi dvorane.
+
+| | agy (Gemini 3.8 Flash High) | Apple Vision |
+|---|---|---|
+| vrijeme odluke | ~60 s (serijski) | **~1,6 s** (67 s za 42) |
+| pomaknutih kadrova | 17/42 | 7/42 |
+| isti izbor kao agy | — | 10/42 (prva, nekalibrirana verzija) |
+
+Vision je konzervativniji. Pouzdano hvata **zatvorene ili poluzatvorene oči** i
+lice okrenuto od publike u širokom kadru (02:01:46: c11 gleda u ekran → c02 gleda
+publiku). Ne vidi što agy vidi: „glava spuštena prema laptopu” na licu od 40 px
+(pitch iz Visiona je za tako mala lica uvijek 0) ni kompoziciju. Za brz automatski
+pipeline je to dobra zamjena: nikad ne pogorša kadar i ne košta vremena.
+
+Zamke:
+
+- Jedan `perform([sve zahtjeve])` s `try?`: ako jedan zahtjev pukne, nestanu
+  rezultati svih. Zato svaki zahtjev ide zasebno.
+- `VNFaceObservation.pitch` dolazi samo iz `VNDetectFaceRectanglesRequest`
+  revision 3, i to ne za sitna lica.
+- Estetika vraća `overallScore = 0` i `isUtility = true` za snimke ekrana, pa za
+  takve kadrove ne razlikuje ništa.
