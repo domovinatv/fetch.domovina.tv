@@ -144,3 +144,13 @@ for f in video_h264_fmp4.mp4 video_h264.mp4; do e=0
 - `docs/2026-10-24-fmp4-interleave-ios-zastajkivanje.md` — popravak od 24.10.
 - `../domovina.ai/docs/2026-10-11-brzi-start-videa-fmp4.md` — zašto fmp4 postoji
 - `docs/video_crossplatform_strategy_2026-06.md` — recept za `video_h264.mp4`
+
+## Nastavak 28. 10. 2026.: `+cmaf` nije dovoljan
+
+Interleavani fmp4 i s `+cmaf` ruši Chromium na **nizu** skokova (`QkcpHsj43rE`:
+7/7 pada, isti remux bez interleavea 0/3, klasični mp4 0/6); ffmpeg i
+`verifyFmp4Seek` na pojedinačnim skokovima ne vide ništa. Od danas
+`backfill_video_h264.js` radi dvije varijante (`FMP4_VARIANTS`):
+`video_h264_fmp4.mp4` (interleave, native/libmpv) i `video_h264_fmp4_web.mp4`
+(bez interleavea, Chromium). Mjerenja i provjera da se ništa staro ne vraća:
+`../domovina.ai/docs/2026-10-28-fmp4-interleave-chromium-seek.md`.

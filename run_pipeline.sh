@@ -1916,6 +1916,8 @@ fi
 # Vidi docs/video_crossplatform_strategy_2026-06.md.
 # Od 2026-10-11 isti korak uploada i data/{id}/video_h264_fmp4.mp4 (iste struje, fragmentirani
 # MP4 + sidx → brz prvi frame); samo za NOVE epizode, katalog se ne backfilla. --no-fmp4 gasi.
+# Od 2026-10-28 i data/{id}/video_h264_fmp4_web.mp4 (bez frag_interleave) za Chromium:
+# interleavani fmp4 ga nakon niza skokova ruši (domovina.ai docs/2026-10-28-fmp4-interleave-chromium-seek.md).
 if [ "$WITH_R2_UPLOAD" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

@@ -13,8 +13,9 @@
  *
  * FAZE (po epizodi, pipelinano):
  *   1. Transcode → {base}.web.mp4   (idempotent; preskače ako je svjež; atomski tmp→rename)
- *   1b. Remux    → {base}.web.fmp4.mp4 → R2 data/{videoId}/video_h264_fmp4.mp4
- *                 (iste struje, fragmentirani MP4 + sidx; vidi „Brzi start" niže)
+ *   1b. Remux    → {base}.web.fmp4.mp4 → R2 data/{videoId}/video_h264_fmp4.mp4      (native, interleave)
+ *                 → {base}.web.fmp4web.mp4 → R2 data/{videoId}/video_h264_fmp4_web.mp4 (Chromium, bez interleavea)
+ *                 (iste struje, fragmentirani MP4 + sidx; vidi „Brzi start" i FMP4_VARIANTS niže)
  *   2. Upload    → R2 data/{videoId}/video_h264.mp4   (HEAD-skip ako isti size)
  *   3. Delete    → R2 data/{videoId}/video.mp4   [--delete-old, gateano]
  *
@@ -28,7 +29,8 @@
  * klijent bira samo kad ga `episode.json` navodi. Fmp4 se uploada PRIJE
  * video_h264.mp4: skip-on-r2 gleda video_h264 ključ, pa bi obrnut redoslijed uz
  * pad između dva uploada ostavio epizodu trajno bez fmp4.
- * Stari katalog se NE backfilla; pojedinačno: --fmp4-only --video-id ID[,ID2].
+ * Stari katalog se NE backfilla; pojedinačno: --fmp4-only --video-id ID[,ID2]
+ * (pa build_episode_bundle.js --video-id … da episode.json navede nove datoteke).
  * Vidi domovina.ai docs/2026-10-11-brzi-start-videa-fmp4.md.
  *
  * ⚠️  PREDUVJET ZA --delete-old:
@@ -175,7 +177,7 @@ async function prefetchR2Index() {
             Bucket: R2_BUCKET, Prefix: "data/", ContinuationToken: token, MaxKeys: 1000,
         }));
         for (const o of resp.Contents || []) {
-            if (o.Key.endsWith("/video_h264.mp4") || o.Key.endsWith("/video.mp4") || o.Key.endsWith("/" + FMP4_NAME))
+            if (o.Key.endsWith("/video_h264.mp4") || o.Key.endsWith("/video.mp4") || FMP4_VARIANTS.some(v => o.Key.endsWith("/" + v.name)))
                 map.set(o.Key, Number(o.Size));
         }
         token = resp.IsTruncated ? resp.NextContinuationToken : undefined;
@@ -227,8 +229,9 @@ function discover() {
                 ? path.join(WEB_OUT_DIR, ch, `${base}.web.mp4`)
                 : path.join(chDir, `${base}.web.mp4`);
             eps.push({ channel: ch, base, videoId: vid, src, chDir, webMp4,
-                       fmp4: webMp4.replace(/\.web\.mp4$/, ".web.fmp4.mp4"),
-                       keyFmp4: `data/${vid}/${FMP4_NAME}`,
+                       fmp4s: FMP4_VARIANTS.map(v => ({ ...v,
+                           file: webMp4.replace(/\.web\.mp4$/, `.web.${v.suffix}.mp4`),
+                           key: `data/${vid}/${v.name}` })),
                        keyNew: `data/${vid}/video_h264.mp4`,
                        keyOld: `data/${vid}/video.mp4` });
         }
@@ -261,7 +264,17 @@ function ffmpegTranscode(src, out) {
 }
 
 // ─── Fragmentirani MP4 (brzi start) ───────────────────────────────
-const FMP4_NAME = "video_h264_fmp4.mp4";
+// Dvije varijante istog remuxa, jer jedna ne može zadovoljiti oba playera:
+// - native (libmpv, iOS) treba `frag_interleave`, inače zapinje (FMP4_INTERLEAVE);
+// - Chromium s interleaveom (i uz `cmaf`) nakon niza skokova javi
+//   PIPELINE_ERROR_DECODE: zvuk i slika se raziđu, player zapne u „buffering".
+//   QkcpHsj43rE: 7/7 pada s interleaveom, 0/3 bez njega, 0/6 klasični mp4
+//   (28.10.2026., domovina.ai docs/2026-10-28-fmp4-interleave-chromium-seek.md).
+// Klijent bira: native → video_h264_fmp4.mp4, Chromium → video_h264_fmp4_web.mp4.
+const FMP4_VARIANTS = [
+    { name: "video_h264_fmp4.mp4",     suffix: "fmp4",    interleave: true  },
+    { name: "video_h264_fmp4_web.mp4", suffix: "fmp4web", interleave: false },
+];
 // `global_sidx` je ono što radi: bez njega Chrome ne zna gdje je koji fragment i
 // skenira datoteku (izmjereno: 140 range zahtjeva, nije krenuo u 120 s).
 // `cmaf` je obavezan uz `frag_interleave`: bez njega video `sidx` nosi
@@ -280,20 +293,21 @@ const FMP4_INTERLEAVE = "25";
 // od više sati, a i dalje hvata slučaj da je ffmpeg pao natrag na klasični moov.
 const FMP4_MAX_HEADER = 512 * 1024;
 
-function ffmpegRemuxFmp4(src, out) {
+function ffmpegRemuxFmp4(src, out, variant) {
     return new Promise((resolve, reject) => {
         fs.mkdirSync(path.dirname(out), { recursive: true });
         const tmp = out.replace(/\.mp4$/, ".tmp.mp4");
         const p = spawn("ffmpeg", [
             "-nostdin", "-v", "error", "-y", "-i", src,
             "-map", "0", "-c", "copy",
-            "-movflags", FMP4_MOVFLAGS, "-frag_interleave", FMP4_INTERLEAVE, tmp,
+            "-movflags", FMP4_MOVFLAGS,
+            ...(variant.interleave ? ["-frag_interleave", FMP4_INTERLEAVE] : []), tmp,
         ]);
         let err = "";
         p.stderr.on("data", d => { err += d.toString(); });
         p.on("close", code => {
             if (code !== 0) { try { fs.unlinkSync(tmp); } catch {} return reject(new Error(err.slice(-400))); }
-            try { verifyFmp4(tmp); verifyFmp4Seek(tmp); } catch (e) { try { fs.unlinkSync(tmp); } catch {} return reject(e); }
+            try { verifyFmp4(tmp, variant); verifyFmp4Seek(tmp); } catch (e) { try { fs.unlinkSync(tmp); } catch {} return reject(e); }
             fs.renameSync(tmp, out); resolve();
         });
         p.on("error", reject);
@@ -317,7 +331,7 @@ function topLevelBoxes(buf) {
     }
     return boxes;
 }
-function verifyFmp4(file) {
+function verifyFmp4(file, variant) {
     const fd = fs.openSync(file, "r");
     const buf = Buffer.alloc(FMP4_MAX_HEADER + 16);
     const n = fs.readSync(fd, buf, 0, buf.length, 0);
@@ -334,13 +348,16 @@ function verifyFmp4(file) {
         throw new Error(`fmp4: nema moof u prvih ${FMP4_MAX_HEADER} B ili mdat dolazi prije njega`);
     // Interleaving: s frag_interleave svaki traf ima više trunova. Jedan trun po
     // trafu = cijeli video pa cijeli audio → ping-pong u libmpv-u (vidi FMP4_INTERLEAVE).
+    // Web varijanta mora biti upravo takva — izmiješana ruši Chromium (FMP4_VARIANTS).
     const moof = boxes[firstMoof];
     const moofBuf = buf.subarray(moof.offset + 8, Math.min(moof.offset + moof.size, n));
     const trafs = topLevelBoxes(moofBuf).filter(b => b.type === "traf");
     const truns = trafs.reduce((sum, t) =>
         sum + topLevelBoxes(moofBuf.subarray(t.offset + 8, t.offset + t.size)).filter(b => b.type === "trun").length, 0);
-    if (trafs.length > 1 && truns <= trafs.length)
+    if (variant.interleave && trafs.length > 1 && truns <= trafs.length)
         throw new Error(`fmp4: audio i video nisu izmiješani u fragmentu (${trafs.length} traf, ${truns} trun)`);
+    if (!variant.interleave && truns > trafs.length)
+        throw new Error(`fmp4 (web): audio i video su izmiješani u fragmentu (${trafs.length} traf, ${truns} trun) — ruši Chromium`);
     return { header: boxes[firstMoof].offset };
 }
 
@@ -409,18 +426,19 @@ async function processEpisode(ep, idx, total) {
 
     // 1b. Fmp4 (brzi start) — PRIJE video_h264.mp4, vidi zaglavlje. Pad nije
     // fatalan: klijent bez fmp4 u bundleu pušta video_h264.mp4 kao i dosad.
+    // Varijante su neovisne: pad jedne ne gasi drugu (klijent bira po platformi).
     let fmp4Status = NO_FMP4 ? "off" : "ok";
-    if (!NO_FMP4) {
+    if (!NO_FMP4) for (const v of ep.fmp4s) {
         try {
-            await ffmpegRemuxFmp4(ep.webMp4, ep.fmp4);
-            await r2Put(ep.keyFmp4, ep.fmp4);
-            console.log(`${tag} ✓ fmp4 → ${R2_PUBLIC}/${ep.keyFmp4}`);
-            if (R2_INDEX) { R2_INDEX.set(ep.keyFmp4, fs.statSync(ep.fmp4).size); cacheDirty = true; }
+            await ffmpegRemuxFmp4(ep.webMp4, v.file, v);
+            await r2Put(v.key, v.file);
+            console.log(`${tag} ✓ ${v.name} → ${R2_PUBLIC}/${v.key}`);
+            if (R2_INDEX) { R2_INDEX.set(v.key, fs.statSync(v.file).size); cacheDirty = true; }
         } catch (e) {
             fmp4Status = "fail";
-            console.error(`${tag} ⚠️  fmp4 nije napravljen (${e.message}) — ostaje samo video_h264.mp4`);
+            console.error(`${tag} ⚠️  ${v.name} nije napravljen (${e.message}) — ta platforma pušta video_h264.mp4`);
         } finally {
-            try { fs.unlinkSync(ep.fmp4); } catch {}
+            try { fs.unlinkSync(v.file); } catch {}
         }
     }
 
@@ -483,21 +501,30 @@ async function runPool(items, worker, n) {
 // obrisan s --rm-local-after-upload). Ne treba lokalni source.
 async function fmp4FromR2(vid, idx, total) {
     const tag = `[${idx + 1}/${total}] ${vid}`;
-    const keySrc = `data/${vid}/video_h264.mp4`, keyOut = `data/${vid}/${FMP4_NAME}`;
-    if (!FORCE && await r2Head(keyOut)) { console.log(`${tag} · ${FMP4_NAME} već na R2, skip`); return { videoId: vid, status: "skip-on-r2" }; }
+    const keySrc = `data/${vid}/video_h264.mp4`;
+    const todo = [];
+    for (const v of FMP4_VARIANTS) {
+        const key = `data/${vid}/${v.name}`;
+        if (!FORCE && await r2Head(key)) { console.log(`${tag} · ${v.name} već na R2, skip`); continue; }
+        todo.push({ ...v, key });
+    }
+    if (!todo.length) return { videoId: vid, status: "skip-on-r2" };
     if (!await r2Head(keySrc)) { console.log(`${tag} · nema video_h264.mp4 na R2`); return { videoId: vid, status: "no-source" }; }
-    if (DRY_RUN) { console.log(`${tag} bi napravio ${keyOut}`); return { videoId: vid, status: "dry" }; }
+    if (DRY_RUN) { console.log(`${tag} bi napravio ${todo.map(v => v.key).join(", ")}`); return { videoId: vid, status: "dry" }; }
     fs.mkdirSync(FMP4_TMP_DIR, { recursive: true });
-    const src = path.join(FMP4_TMP_DIR, `${vid}.src.mp4`), out = path.join(FMP4_TMP_DIR, `${vid}.fmp4.mp4`);
+    const src = path.join(FMP4_TMP_DIR, `${vid}.src.mp4`);
+    const outs = todo.map(v => path.join(FMP4_TMP_DIR, `${vid}.${v.suffix}.mp4`));
     try {
         await r2Download(keySrc, src);
-        await ffmpegRemuxFmp4(src, out);
-        const { header } = verifyFmp4(out);
-        await r2Put(keyOut, out);
-        console.log(`${tag} ✓ fmp4 (zaglavlje ${(header / 1024).toFixed(1)} KB) → ${R2_PUBLIC}/${keyOut}`);
+        for (const [i, v] of todo.entries()) {
+            await ffmpegRemuxFmp4(src, outs[i], v);
+            const { header } = verifyFmp4(outs[i], v);
+            await r2Put(v.key, outs[i]);
+            console.log(`${tag} ✓ ${v.name} (zaglavlje ${(header / 1024).toFixed(1)} KB) → ${R2_PUBLIC}/${v.key}`);
+        }
         return { videoId: vid, status: "done" };
     } finally {
-        for (const f of [src, out]) { try { fs.unlinkSync(f); } catch {} }
+        for (const f of [src, ...outs]) { try { fs.unlinkSync(f); } catch {} }
     }
 }
 
