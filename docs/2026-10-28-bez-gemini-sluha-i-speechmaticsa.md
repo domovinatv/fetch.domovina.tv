@@ -36,9 +36,9 @@ meta: `gemini_ear: false`, `model: null`, `source: "soniox+pyannote"`, a
 
 ## Što i dalje koristi Vertex/Gemini
 
-Nije dio ove odluke, pa ostaje ovisno o Vertexu: izbor najljepšeg kadra (KORAK 10, ima agy
-fallback samo na 429), EN prijevod (`translate_to_english.js`, Magisterium EN lane),
-`select_reels.js` uz Vertex backend. Koraci 7+8 u nightlyju već idu na `claude` (Opus).
+~~Izbor kadra, EN prijevod, reels~~ — **zamijenjeno istog dana:** Vertex je isključen po
+defaultu u cijelom repou, a ti koraci idu kroz agy/Claude. Vidi
+`docs/2026-10-28-vertex-iskljucen-agy-jedini-gemini.md`.
 
 ## Povratak
 
