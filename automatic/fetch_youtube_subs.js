@@ -28,7 +28,8 @@
  * a jedan video ih ima više) → izmjereno ~16 s po videu (28.10.2026.), 100/noć ≈ 27 min.
  *
  * Upotreba:
- *   node automatic/fetch_youtube_subs.js                     # nightly: provjeri + skini + uploadaj
+ *   node automatic/fetch_youtube_subs.js                     # nightly: provjeri sve, skini samo nove (od --since 2026-10-28)
+ *   node automatic/fetch_youtube_subs.js --backfill          # + stari katalog (ručno, 100 po pozivu)
  *   node automatic/fetch_youtube_subs.js --dry-run           # samo detekcija i popis, bez yt-dlp i R2
  *   node automatic/fetch_youtube_subs.js --video-id QkcpHsj43rE
  *   Opcije: --slug S, --max-units 2000, --max-downloads 100, --sleep-min 8 --sleep-max 20,
@@ -61,6 +62,10 @@ const ONLY_SLUG = getArg("--slug");
 const ONLY_ID = getArg("--video-id");
 const MAX_UNITS = parseInt(getArg("--max-units") || "2000", 10);
 const MAX_DOWNLOADS = parseInt(getArg("--max-downloads") || "100", 10);
+// Default skida SAMO nove epizode (odluka 28.10.2026.): stari katalog (~1400 videa s ručnim
+// titlom) ide jedino uz --backfill, ručno. Detekcija ide svejedno nad svima.
+const FORWARD_FROM = getArg("--since") || "2026-10-28";
+const BACKFILL = hasFlag("--backfill");
 const PROXY = getArg("--proxy");
 const RECHECK_DAYS = 30;          // autori titl znaju dodati nakon objave
 const MAX_TRIES = 3;              // yt-dlp greška (anti-bot, nedostupan video) → pokušaj idućih noći
@@ -289,9 +294,10 @@ async function main() {
     // 2. Download
     const queue = [...originals.keys()].filter((id) => {
         const s = state.videos[id];
+        if (!BACKFILL && !ONLY_ID && originals.get(id).date < FORWARD_FROM) return false;
         return s?.caption && !s.done && !s.gone && (s.tries || 0) < MAX_TRIES;
     });
-    console.log(`   za download: ${queue.length}${queue.length > MAX_DOWNLOADS ? ` (ovaj run ${MAX_DOWNLOADS})` : ""}`);
+    console.log(`   za download${BACKFILL ? " (backfill)" : ` (objavljeno od ${FORWARD_FROM}; stari samo uz --backfill)`}: ${queue.length}${queue.length > MAX_DOWNLOADS ? ` (ovaj run ${MAX_DOWNLOADS})` : ""}`);
     if (DRY_RUN) {
         for (const id of queue.slice(0, 20)) console.log(`     ${id}  ${originals.get(id).slug}  ${originals.get(id).date}  ${originals.get(id).title}`);
         return;

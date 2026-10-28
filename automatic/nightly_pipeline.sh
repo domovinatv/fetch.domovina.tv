@@ -443,8 +443,9 @@ run_step "točni datumi objave (YouTube Data API)" \
 # Ručni YouTube titlovi (HR/EN) za download na podcast.domovina.ai: Data API
 # `contentDetails.caption` (true samo za ručne) nad originalima iz backfill.json, pa
 # yt-dlp --write-subs BEZ auto-subs → cdn.domovina.ai/registry/subs/<id>.<lang>.srt +
-# automatic/watchlist/subs.json. ~20 jedinica kvote; max 100 downloada po noći s
-# nasumičnom pauzom 8–20 s (~16 s/video, ~27 min dok traje zaostatak od ~1400, pa par minuta). Isti egress kao 5b. Ide NAKON backfill_days, PRIJE 5c.
+# automatic/watchlist/subs.json. ~20 jedinica kvote. Skida SAMO epizode objavljene od
+# 28.10.2026. (par po noći, ~16 s/video s nasumičnom pauzom 8–20 s); stari katalog samo
+# ručno s --backfill. Isti egress kao 5b. Ide NAKON backfill_days, PRIJE 5c.
 run_step "ručni YouTube titlovi (detekcija + CDN)" \
     node "$REPO_DIR/automatic/fetch_youtube_subs.js" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} || true
 

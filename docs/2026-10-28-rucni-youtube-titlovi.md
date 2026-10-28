@@ -42,7 +42,9 @@ skida yt-dlp.
 - `automatic/fetch_youtube_subs.js` (nightly, iza `backfill_days.js`, prije 5c):
   1. detekcija nad svim originalima iz `backfill.json`. Svaki original se provjeri
      jednom, a zadnjih 30 dana svaki dan iznova (autori titl dodaju naknadno).
-  2. yt-dlp `--write-subs --sub-langs "hr.*,en.*"`, 5 videa po pozivu, nasumična pauza
+  2. yt-dlp `--write-subs --sub-langs "hr.*,en.*"`, **po defaultu samo za epizode objavljene
+     od 28.10.2026.** (odluka korisnika: bez backfilla; stari katalog ručno s `--backfill`),
+     5 videa po pozivu, nasumična pauza
      8–20 s plus `--sleep-requests 1.5 --sleep-subtitles 3`. Izmjereno ~16 s po videu.
      `requested_subtitles` = NA znači da ručni titl postoji, ali nije HR ni EN; to je
      konačan ishod, ne greška.
