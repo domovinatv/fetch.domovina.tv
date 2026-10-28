@@ -60,6 +60,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -267,11 +268,64 @@ def truncate_to_width(text, font, max_width):
     return text + '…'
 
 
+# --- TEKST NA KADRU (Apple Vision) ---
+#
+# Naslov sekcije se lijepi preko kadra s gradijentom. To je dobro na kadru kamere
+# (ljudi u studiju), a katastrofa na snimci ekrana ili slajdu: dva teksta jedan preko
+# drugog (QkcpHsj43rE, Ora et Labora). Kadar s tekstom zato ide u og sliku ČIST, bez
+# gradijenta i natpisa. Detekcija: tools/vision_best_frame --text (Vision OCR + klasifikacija
+# scene, ~30 ms po kadru, lokalno). Pravila i kalibracija: docs/2026-10-26-screenshot-izbor-kadra.md.
+VISION_DIR = Path(__file__).resolve().parent / 'tools' / 'vision_best_frame'
+VISION_BIN = VISION_DIR / 'vision_best_frame'
+VISION_SRC = VISION_DIR / 'main.swift'
+_vision_ok = None
+
+
+def _vision_available():
+    global _vision_ok
+    if _vision_ok is not None:
+        return _vision_ok
+    _vision_ok = False
+    if sys.platform != 'darwin' or os.environ.get('OG_TEXT_DETECT') == '0':
+        return False
+    try:
+        if not VISION_BIN.exists() or VISION_BIN.stat().st_mtime < VISION_SRC.stat().st_mtime:
+            r = subprocess.run(['swiftc', '-O', str(VISION_SRC), '-o', str(VISION_BIN)],
+                               capture_output=True, text=True)
+            if r.returncode != 0:
+                raise RuntimeError((r.stderr or 'swiftc nije uspio')[:300])
+        _vision_ok = True
+    except Exception as e:
+        log('⚠️', f'Apple Vision nedostupan ({e}) — naslov ide preko svih kadrova kao prije')
+    return _vision_ok
+
+
+def detect_text_frames(png_paths):
+    """{put: (ima_teksta, razlog)} za sve kadrove jednim pozivom. Bez Visiona → {}."""
+    if not png_paths or not _vision_available():
+        return {}
+    try:
+        r = subprocess.run([str(VISION_BIN), '--text', *[str(p) for p in png_paths]],
+                           capture_output=True, text=True, timeout=600)
+        if r.returncode != 0:
+            raise RuntimeError(r.stderr[-300:])
+        return {row['path']: (bool(row.get('has_text')), row.get('why', ''))
+                for row in json.loads(r.stdout) if 'has_text' in row}
+    except Exception as e:
+        log('⚠️', f'detekcija teksta pala ({e}) — naslov ide preko svih kadrova')
+        return {}
+
+
 def generate_composite(src_png_path, out_jpg_path, *, subtitle, timestamp_str,
-                       episode_title, channel_name):
-    """Generira jedan composite. Vraća (saved_bytes, oversized)."""
+                       episode_title, channel_name, plain=False):
+    """Generira jedan composite. Vraća (saved_bytes, oversized).
+
+    plain=True: kadar ima svoj tekst (snimka ekrana, slajd) → samo kadar, bez
+    gradijenta i natpisa."""
     src = Image.open(src_png_path).convert('RGB')
     frame = cover_crop(src, OG_WIDTH, OG_HEIGHT)
+    if plain:
+        return _save_jpeg(frame, out_jpg_path)
 
     # Convert frame to RGBA da bismo mogli stack-ati overlay
     canvas = frame.convert('RGBA')
@@ -348,8 +402,11 @@ def generate_composite(src_png_path, out_jpg_path, *, subtitle, timestamp_str,
     # Brand
     draw.text((margin_x, y), brand_text, font=brand_font, fill=LIGHT_GRAY)
 
-    # --- Save kao progressive JPEG ---
-    final = canvas.convert('RGB')
+    return _save_jpeg(canvas.convert('RGB'), out_jpg_path)
+
+
+def _save_jpeg(final, out_jpg_path):
+    """Progressive JPEG. Vraća (saved_bytes, oversized)."""
     out_jpg_path.parent.mkdir(parents=True, exist_ok=True)
     final.save(
         out_jpg_path,
@@ -485,6 +542,7 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
         'sections_skipped': 0,
         'sections_skipped_no_png': 0,
         'sections_skipped_empty_subtitle': 0,
+        'sections_plain': 0,
         'sections_generated_en': 0,
         'errors': 0,
         'oversized': 0,
@@ -542,6 +600,8 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
     og_dir = Path(channel_dir) / f"{video_base}.og-sections"
     screenshots_dir = Path(channel_dir) / f"{video_base}_screenshots"
 
+    plain_secs = set()
+
     def run_sections(sections, *, subtitle_key, filename_suffix, source_path):
         """Generira composite po sekciji. Vraća {sec: filename}.
 
@@ -550,6 +610,16 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
         padne na HR sliku, što je bolje od prazne.
         """
         out_map = {}
+        # Detekcija teksta jednim pozivom za sve kadrove koje treba (re)generirati.
+        todo = []
+        for section in sections:
+            ts_str = (section.get('screenshot_timestamp') or '').strip()
+            if not ts_str or not (section.get(subtitle_key) or '').strip():
+                continue
+            png = screenshots_dir / f"{video_base}_{sanitize_ts_for_filename(ts_str)}.png"
+            if png.exists():
+                todo.append(png)
+        text_map = {} if dry_run else detect_text_frames(todo)
         for section in sections:
             subtitle = (section.get(subtitle_key) or '').strip()
             ts_str = (section.get('screenshot_timestamp') or '').strip()
@@ -585,6 +655,10 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
                 out_map[str(sec)] = out_filename
                 continue
 
+            has_text, why = text_map.get(str(src_png), (False, ''))
+            if has_text:
+                result['sections_plain'] += 1
+                plain_secs.add(str(sec))
             try:
                 size, oversized = generate_composite(
                     src_png, out_path,
@@ -592,6 +666,7 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
                     timestamp_str=ts_str,
                     episode_title=episode_title,
                     channel_name=channel_name,
+                    plain=has_text,
                 )
                 result['sections_generated'] += 1
                 if oversized:
@@ -715,7 +790,7 @@ def main():
         'videos_total': 0, 'videos_with_output': 0,
         'sections_generated': 0, 'sections_skipped': 0,
         'sections_skipped_no_png': 0, 'sections_skipped_empty_subtitle': 0,
-        'errors': 0, 'oversized': 0,
+        'sections_plain': 0, 'errors': 0, 'oversized': 0,
         'video_skip_no_sections': 0, 'video_skip_duration': 0,
         'video_skip_too_many': 0, 'video_skip_article_err': 0,
     }
@@ -738,7 +813,7 @@ def main():
             # Aggregate
             if res['sections_generated'] > 0 or (res['status'] == 'ok' and res['sections_skipped'] > 0):
                 totals['videos_with_output'] += 1
-                log('✅', f"{v['video_base'][:60]} → {res['sections_generated']} gen, {res['sections_skipped']} skip, {res['sections_skipped_no_png']} no-png")
+                log('✅', f"{v['video_base'][:60]} → {res['sections_generated']} gen (bez natpisa: {res.get('sections_plain', 0)}), {res['sections_skipped']} skip, {res['sections_skipped_no_png']} no-png")
             elif res['status'].startswith('skip:'):
                 key_map = {
                     'skip:no_sections': 'video_skip_no_sections',
@@ -758,7 +833,7 @@ def main():
                 totals['video_skip_article_err'] += 1
                 log('⚠️ ', f"{v['video_base'][:60]} — {res['status']}")
             for k in ('sections_generated', 'sections_skipped', 'sections_skipped_no_png',
-                     'sections_skipped_empty_subtitle', 'errors', 'oversized'):
+                     'sections_skipped_empty_subtitle', 'sections_plain', 'errors', 'oversized'):
                 totals[k] += res[k]
         if args.limit is not None and videos_processed >= args.limit:
             break
@@ -766,7 +841,7 @@ def main():
     elapsed = time.time() - t_start
     print('')
     log('📊', f"Videa: {totals['videos_total']} (s outputom: {totals['videos_with_output']})")
-    log('📊', f"Sekcija gen: {totals['sections_generated']} | skip-postojeci: {totals['sections_skipped']} | skip-no-png: {totals['sections_skipped_no_png']} | skip-empty: {totals['sections_skipped_empty_subtitle']}")
+    log('📊', f"Sekcija gen: {totals['sections_generated']} (bez natpisa, kadar ima tekst: {totals.get('sections_plain', 0)}) | skip-postojeci: {totals['sections_skipped']} | skip-no-png: {totals['sections_skipped_no_png']} | skip-empty: {totals['sections_skipped_empty_subtitle']}")
     log('📊', f"Video skip — no_sections: {totals['video_skip_no_sections']} | short: {totals['video_skip_duration']} | too_many: {totals['video_skip_too_many']} | article_err: {totals['video_skip_article_err']}")
     log('📊', f"Greske: {totals['errors']} | Iznad 600KB: {totals['oversized']} | Trajalo: {elapsed:.1f}s")
     print('')

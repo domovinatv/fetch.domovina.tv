@@ -185,3 +185,38 @@ Zamke:
   revision 3, i to ne za sitna lica.
 - Estetika vraća `overallScore = 0` i `isUtility = true` za snimke ekrana, pa za
   takve kadrove ne razlikuje ništa.
+
+## og-sections: bez natpisa preko kadra s tekstom (28.10.2026.)
+
+KORAK 9.6 lijepi naslov sekcije s gradijentom preko kadra. Na snimci ekrana ili
+slajdu to su dva teksta jedan preko drugog (korisnik: „izgleda katastrofa”,
+QkcpHsj43rE, Ora et Labora nBPDxzrAW0Q i n38M_g__TxQ). Sada
+`generate_og_sections.py` za sve kadrove epizode jednim pozivom pita
+`vision_best_frame --text` (~30 ms po kadru), a kadar s tekstom ide u
+`og-t-{sec}.jpg` **čist**, bez gradijenta i natpisa.
+
+Kadar ima tekst ako vrijedi bilo što od ovoga:
+
+| Signal | Prag | Hvata |
+|---|---|---|
+| `VNClassifyImageRequest` „screenshot” | ≥ 0,5 | snimka ekrana (terminal, preglednik) |
+| najviši redak teksta (OCR `.fast`) | ≥ 5 % visine | slajd s naslovom, „Krunica!” |
+| tekst u donjih 65 % kadra | ≥ 3 % površine | gusti slajd, natpis, titl |
+
+Kalibracija na 147 kadrova triju epizoda: kadrovi dvorane imaju najviši redak
+1,5–4,4 % (logo „start upvg” na zidu, daleka projekcija) i ≤ 1,5 % teksta dolje.
+Slajdovi imaju najviši redak ≥ 4,4 % i najmanje 0,9 % teksta dolje, a gotovo uvijek oboje.
+Pogreška prema „ima teksta” je bezopasna. Rezultat: QkcpHsj43rE 33/42 bez natpisa,
+Ora et Labora 103/103.
+
+Što **ne** radi samo za sebe:
+
+- `isUtility` iz estetike: slajd sa slikom Isusa nije „utility”, a kadar dvorane
+  ponekad jest.
+- detekcija ljudi: Isus na slajdu je „osoba” (`people_area` 0,21).
+- klasifikacija scene: Ora et Labora slajdove vodi kao `people`, ne `document`.
+
+Gašenje: `OG_TEXT_DETECT=0`. Pragovi: `VISION_TEXT_MAX_H`, `VISION_TEXT_LOW_AREA`.
+Već objavljene epizode: `generate_og_sections.py --video-id <ID> --force` pa
+`upload_to_r2.js --video-id <ID> --force-og` (prepiše i očisti CF cache). Katalog
+NIJE backfillan.

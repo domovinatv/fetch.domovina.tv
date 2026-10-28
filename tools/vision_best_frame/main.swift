@@ -1,6 +1,7 @@
 // vision_best_frame — izbor najljepšeg kadra kroz Apple Vision (lokalno, $0, bez mreže).
 //
 //   vision_best_frame --original <idx> c01.png c02.png ... c21.png
+//   vision_best_frame --text a.png b.png ...     (ima li teksta na kadru, vidi niže)
 //
 // <idx> je 1-based indeks kadra točno na timestampu. Ispisuje JSON na stdout:
 //   { best, best_score, original_score, reason, frames: [ metrike po kadru ] }
@@ -138,6 +139,77 @@ func detectFacesTiled(_ img: CGImage) -> [FaceInfo] {
         }
     }
     return out
+}
+
+// ── način --text: ima li na kadru teksta (snimka ekrana, slajd) ──
+//
+//   vision_best_frame --text a.png b.png ...
+//
+// Za og-sections (generate_og_sections.py): preko snimke ekrana s tekstom se ne smije
+// lijepiti naslov sekcije. Po slici: broj redaka teksta i udio površine koju pokrivaju,
+// ukupno i u donjih 65 % kadra (tamo ide gradijent s naslovom).
+if CommandLine.arguments.dropFirst().first == "--text" {
+    var out: [[String: Any]] = []
+    for p in CommandLine.arguments.dropFirst(2) {
+        guard let img = loadImage(p) else { out.append(["path": p, "error": "ne mogu učitati"]); continue }
+        let req = VNRecognizeTextRequest()
+        req.recognitionLevel = .fast
+        req.usesLanguageCorrection = false
+        do { try VNImageRequestHandler(cgImage: img, options: [:]).perform([req]) } catch {
+            out.append(["path": p, "error": "\(error)"]); continue
+        }
+        let obs = (req.results ?? []).filter { $0.confidence >= 0.3 }
+        var area = 0.0, lowArea = 0.0, lowLines = 0, lowBigArea = 0.0, maxH = 0.0
+        for o in obs {
+            let b = o.boundingBox
+            maxH = max(maxH, Double(b.height))
+            area += Double(b.width * b.height)
+            // donjih 65 % kadra (Vision: ishodište dolje lijevo)
+            let low = max(0, min(b.maxY, 0.65) - b.minY)
+            if low > 0 { lowArea += Double(b.width * low); lowLines += 1 }
+            // Krupan tekst (redak ≥ 2,5 % visine kadra) = slajd, natpis, titl — čitljiv i
+            // namijenjen gledatelju. Projekcija u dvorani snimljena izdaleka je sitna.
+            if low > 0 && b.height >= 0.025 { lowBigArea += Double(b.width * low) }
+        }
+        let cls = VNClassifyImageRequest()
+        try? VNImageRequestHandler(cgImage: img, options: [:]).perform([cls])
+        let screenshot = Double((cls.results ?? []).first { $0.identifier == "screenshot" }?.confidence ?? 0)
+        // isUtility = Appleova oznaka za snimku ekrana, dokument, slajd (macOS 15+).
+        var utility = false, aes = 0.0
+        if #available(macOS 15.0, *) {
+            let a = VNCalculateImageAestheticsScoresRequest()
+            try? VNImageRequestHandler(cgImage: img, options: [:]).perform([a])
+            if let o = a.results?.first { utility = o.isUtility; aes = Double(o.overallScore) }
+        }
+        let humans = VNDetectHumanRectanglesRequest()
+        humans.upperBodyOnly = false
+        try? VNImageRequestHandler(cgImage: img, options: [:]).perform([humans])
+        let people = (humans.results ?? []).filter { $0.confidence >= 0.5 }
+        let peopleArea = people.reduce(0.0) { $0 + Double($1.boundingBox.width * $1.boundingBox.height) }
+        // Odluka (kalibrirano 28.10. na QkcpHsj43rE, nBPDxzrAW0Q, n38M_g__TxQ): kadar dvorane
+        // ima najviši redak ≤ 4,4 % (logo na zidu, daleka projekcija) i ≤ 1,5 % teksta dolje;
+        // slajd ima naslov ≥ 4,4 % i/ili ≥ 3,6 % teksta dolje. Pogreška prema „ima teksta"
+        // je bezopasna (og slika bez natpisa), obrnuta lijepi naslov preko slajda.
+        let env = ProcessInfo.processInfo.environment
+        let maxHLimit = Double(env["VISION_TEXT_MAX_H"] ?? "") ?? 0.05
+        let lowLimit = Double(env["VISION_TEXT_LOW_AREA"] ?? "") ?? 0.03
+        var why: [String] = []
+        if screenshot >= 0.5 { why.append("snimka ekrana") }
+        if maxH >= maxHLimit { why.append(String(format: "krupan tekst %.1f %%", maxH * 100)) }
+        if lowArea >= lowLimit { why.append(String(format: "tekst dolje %.1f %%", lowArea * 100)) }
+        out.append(["path": p, "has_text": !why.isEmpty, "why": why.joined(separator: ", "),
+                    "lines": obs.count, "low_lines": lowLines,
+                    "area": (area * 10000).rounded() / 10000, "low_area": (lowArea * 10000).rounded() / 10000,
+                    "low_big_area": (lowBigArea * 10000).rounded() / 10000,
+                    "max_h": (maxH * 1000).rounded() / 1000,
+                    "screenshot": (screenshot * 100).rounded() / 100,
+                    "utility": utility, "aes": (aes * 1000).rounded() / 1000,
+                    "people": people.count, "people_area": (peopleArea * 1000).rounded() / 1000])
+    }
+    let data = try! JSONSerialization.data(withJSONObject: out, options: [.sortedKeys])
+    FileHandle.standardOutput.write(data)
+    FileHandle.standardOutput.write("\n".data(using: .utf8)!)
+    exit(0)
 }
 
 // ── argumenti ─────────────────────────────────────────────
