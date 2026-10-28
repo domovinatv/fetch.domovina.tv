@@ -220,3 +220,20 @@ Gašenje: `OG_TEXT_DETECT=0`. Pragovi: `VISION_TEXT_MAX_H`, `VISION_TEXT_LOW_ARE
 Već objavljene epizode: `generate_og_sections.py --video-id <ID> --force` pa
 `upload_to_r2.js --video-id <ID> --force-og` (prepiše i očisti CF cache). Katalog
 NIJE backfillan.
+
+## Popravak objavljene epizode: `tools/refresh_screenshots.sh` (28.10.2026.)
+
+Nove epizode dobivaju izbor kadra i og bez natpisa same, kroz KORAK 10 i 9.6.
+Za već objavljenu epizodu (kadrovi točno na timestampu ili kroz agy) se pokreće:
+
+```bash
+tools/refresh_screenshots.sh catholic_futurist nuNw4qWs0r4 /tmp/vremena.txt
+```
+
+Mjereno na nuNw4qWs0r4 (16 kadrova, 31 min): **83 s ukupno**. Izbor kadrova
+traje 61 s, og slike 4 s, EPUB 2 s, R2 s purgeom 6 s, WebP s purgeom 8 s, a EPUB
+na CDN-u i bundle 2 s. Vision je promijenio 10/16 kadrova, a md5 na CDN-u se
+podudara s diskom.
+
+Ograničenje: Vision ocjenjuje **najveće** lice u kadru. U kadru s dvoje ljudi
+zatvorene oči drugog govornika ne vidi.
