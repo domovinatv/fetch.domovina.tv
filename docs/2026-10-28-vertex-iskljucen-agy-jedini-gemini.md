@@ -40,7 +40,7 @@ Gledanje: `tmux attach -t agyen -r`.
 - agy nema `promptFeedback.blockReason`, pa grana „PROHIBITED_CONTENT → reframe" u
   prijevodu tamo nikad ne okine; odbijen upit izgleda kao timeout (`AGY_TIMEOUT_SEC`, 600).
 - agy je sporiji od Vertexa i serijaliziran — EN prijevod epizode traje 3 h 41 min umjesto ~7 min (izmjereno, vidi dolje)
-  s Vertexa. Nije izmjereno na cijeloj epizodi.
+  s Vertexa.
 - `--gemini-backend cli` (gemini CLI) i `agy` za korake 7+8 i dalje postoje kao eksplicitni izbor.
 
 ## Povratak
