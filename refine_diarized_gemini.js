@@ -46,6 +46,7 @@
  *   node refine_diarized_gemini.js --input-dir storage/output --limit 3
  *   node refine_diarized_gemini.js --skeleton soniox_pyannote --channel muzevni_budite --video-id f2HIRJPHHK4
  *   node refine_diarized_gemini.js --video-id aue1GuuMsbA --promote
+ *   node refine_diarized_gemini.js --skeleton auto --promote --no-gemini   # samo kostur, 0 Vertex poziva
  *   node refine_diarized_gemini.js --file <put/do/audio.mp3> --dry-run
  *
  * ZAMKE
@@ -126,6 +127,10 @@ const DRY_RUN = hasFlag("--dry-run");
 const FORCE = hasFlag("--force");
 const PROMOTE = hasFlag("--promote");
 const FORCE_PROMOTE = hasFlag("--force-promote");
+// --no-gemini (28.10.2026.): bez Gemini sluha. Kostur (Soniox+pyannoteAI) se piše i promovira
+// bez ijednog Vertex poziva, pod istim imenima (.{kostur}.gemini.*) jer po njima isPromotedRefine
+// (5 kopija) zna da Sortformer ne smije zasjeniti kanonski SRT. meta.gemini_ear=false kaže istinu.
+const NO_GEMINI = hasFlag("--no-gemini") || /^(0|false|off|no)$/i.test(process.env.GEMINI_EAR || "");
 
 const GEMINI_MODEL = getArg("--model") || process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";
@@ -611,6 +616,10 @@ async function processFile(audioPath, work) {
         return [...suspect].map((k) => idx[k]);
     };
     let repairsLeft = MAX_REPAIRS;
+    if (NO_GEMINI) {
+        for (const s of segments) s.refined = null;
+        console.log(`   🔇 Gemini sluh isključen (--no-gemini) — ${SK.label} tekst ide bez promjene, 0 poziva.`);
+    }
 
     // Jedan prozor; vraća mapu id → tekst. Na blokadi/krnjem izlazu raspolovi.
     async function runWindow(win, depth = 0) {
@@ -663,7 +672,7 @@ async function processFile(audioPath, work) {
     }
 
     const winLimit = MAX_WINDOWS > 0 ? Math.min(MAX_WINDOWS, windows.length) : windows.length;
-    for (let w = 0; w < winLimit; w++) {
+    for (let w = 0; !NO_GEMINI && w < winLimit; w++) {
         const win = windows[w];
         process.stdout.write(`   🔊 prozor ${w + 1}/${windows.length}  ${secondsToSrtTimestamp(win.od).slice(0, 8)}–${secondsToSrtTimestamp(win.do).slice(0, 8)}  ${win.idx.length} seg …`);
 
@@ -778,9 +787,10 @@ async function processFile(audioPath, work) {
     const elapsed = (Date.now() - t0) / 1000;
     const meta = {
         base: baseName,
-        source: SKELETON === "speechmatics" ? "speechmatics+gemini" : `${SKELETON.replace("_", "+")}+gemini`,
+        source: (SKELETON === "speechmatics" ? "speechmatics" : SKELETON.replace("_", "+")) + (NO_GEMINI ? "" : "+gemini"),
         skeleton: path.basename(jsonPath),
-        model: GEMINI_MODEL,
+        model: NO_GEMINI ? null : GEMINI_MODEL,
+        gemini_ear: !NO_GEMINI,
         project: VERTEX_PROJECT,
         language: lang,
         segments: segments.length,
@@ -947,7 +957,9 @@ async function main() {
     console.log("║  KOSTUR + GEMINI SLUH (KORAK 2.8)                ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   Kostur:  ${SKELETON_ARG === "auto" ? `auto (${AUTO_ORDER.join(" → ")})` : `${SK.label} (${SK.input})`}`);
-    console.log(`   Model:   ${GEMINI_MODEL} @ ${VERTEX_PROJECT} (global)`);
+    console.log(NO_GEMINI
+        ? "   Model:   — Gemini sluh ISKLJUČEN (--no-gemini / GEMINI_EAR=0): kostur se samo promovira"
+        : `   Model:   ${GEMINI_MODEL} @ ${VERTEX_PROJECT} (global)`);
     console.log(`   Prozor:  ${WINDOW_MIN} min / max ${MAX_SEGS_PER_WINDOW} seg · pod pokrivenosti ${(COVERAGE_MIN * 100).toFixed(0)}%`);
 
     try {

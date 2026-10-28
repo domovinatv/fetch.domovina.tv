@@ -245,6 +245,11 @@ echo ""
 #                            Plan: docs/2026-10-24-soniox-pyannote-roadmap.md
 #   --with-pyannote-ai    → KORAK 2.7c: govornici iz pyannoteAI precision-3 (cloud, ~$0.13/h)
 #                            + hibrid riječ→govornik nad 2.7b/2.7 riječima. Ograde kao 2.7b.
+#   --no-gemini-ear       → 2.8 bez Gemini sluha: Soniox+pyannoteAI kostur se samo promovira u
+#                            .wav.canary.diarized.srt, 0 Vertex poziva (env GEMINI_EAR=0 isto).
+#                            Ide UZ --gemini-refine-promote — bez 2.8 nitko ne promovira kostur.
+#   --no-speechmatics     → bez Speechmaticsa: gasi KORAK 2.7 i Soniox→Speechmatics fallback u 2.7b
+#                            (env SPEECHMATICS=0 isto). Padne li Soniox, mreža ostaje Canary (2.6).
 #   GEMINI_REFINE_SKELETON → kostur za 2.8: speechmatics (default) | soniox_pyannote |
 #                            speechmatics_pyannote | auto (prvi koji postoji, tim redom)
 #   --reprocess           → PONOVNA OBRADA već objavljene epizode (samo uz --modal-only):
@@ -331,6 +336,10 @@ GEMINI_REFINE_SKELETON="${GEMINI_REFINE_SKELETON:-speechmatics}"
 #   GEMINI_REFINE_PROMOTE=true  → smije popuniti .wav.canary.diarized.srt (nikad prepisati)
 #   Prozor/cap kao 2.7: prati priljev, NE konvergira nad katalogom (v. komentar uz korak).
 WITH_GEMINI_REFINE=false
+# --no-gemini-ear / --no-speechmatics (28.10.2026.): Soniox je dovoljno dobar sam, a Gemini je
+# bio usko grlo (i 28.10. Vertex 403 na cijelom projektu). Odluka: docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md
+case "${GEMINI_EAR:-}" in 0|false|off|no) GEMINI_EAR=false ;; *) GEMINI_EAR=true ;; esac
+case "${SPEECHMATICS:-}" in 0|false|off|no) SPEECHMATICS_OFF=true ;; *) SPEECHMATICS_OFF=false ;; esac
 GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
 # Cap 3 -> 1 (2026-09-19): korak je BLOKIRAJUCI — koraci 7-12 cekaju da zavrsi.
 # 19.09. je s capom 3 drzao dvije gotove epizode sat vremena iza trece kojoj
@@ -451,6 +460,12 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
     elif [ "$arg" = "--gemini-refine-promote" ]; then
         WITH_GEMINI_REFINE=true
         GEMINI_REFINE_PROMOTE=true
+        i=$((i + 1))
+    elif [ "$arg" = "--no-gemini-ear" ]; then
+        GEMINI_EAR=false
+        i=$((i + 1))
+    elif [ "$arg" = "--no-speechmatics" ]; then
+        SPEECHMATICS_OFF=true
         i=$((i + 1))
     elif [ "$arg" = "--modal-scope" ]; then
         # unlisted (default, staro ponašanje) | channels (praćeni kanali) | all
@@ -986,6 +1001,7 @@ fi
 # Sken kandidata je u NODEU, ne u shell `find`-u — pod launchd-om `opendir()` na
 # vanjskim volumenima pada na macOS TCC-u i tiho vraća nula pogodaka.
 # Vidi CLAUDE.md "Ne piši nove shell find/ls petlje nad storage/output/".
+[ "$SPEECHMATICS_OFF" = true ] && WITH_SPEECHMATICS=false
 if [ "$WITH_SPEECHMATICS" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -1050,6 +1066,10 @@ else
              --limit "$SONIOX_MAX_FILES"
              --timeout-minutes "$SONIOX_TIMEOUT_MIN"
              "${PRIORITY_SCOPE_ARGS[@]}")
+    if [ "$SPEECHMATICS_OFF" = true ]; then
+        SX_ARGS+=(--no-fallback)
+        echo "   🚫 Speechmatics fallback ISKLJUČEN (--no-speechmatics)."
+    fi
     if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         SX_ARGS+=(--dry-run)
     fi
@@ -1121,7 +1141,11 @@ fi
 if [ "$WITH_GEMINI_REFINE" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+if [ "$GEMINI_EAR" = true ]; then
 korak "KORAK 2.8: Gemini sluh nad kosturom ($GEMINI_REFINE_SKELETON) [--with-gemini-refine]"
+else
+korak "KORAK 2.8: promocija kostura ($GEMINI_REFINE_SKELETON) BEZ Gemini sluha [--no-gemini-ear]"
+fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -1137,6 +1161,7 @@ else
                  --fresh-days "$REFINE_FRESH_DAYS"
                  --limit "$GEMINI_REFINE_MAX_FILES"
                  "${PRIORITY_SCOPE_ARGS[@]}")
+    [ "$GEMINI_EAR" = false ] && REFINE_ARGS+=(--no-gemini)
     if [ "$GEMINI_REFINE_PROMOTE" = true ]; then
         REFINE_ARGS+=(--promote)
         echo "   ⬆️  Promocija UKLJUČENA — popunjava .wav.canary.diarized.srt gdje ga nema."

@@ -45,7 +45,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    **Canary** (Modal 2.6 / Colab) tercijarni. Govornici = **pyannoteAI** precision-3
    (cloud), lokalni pyannote je samo fallback. Sva tri ASR-a i lokalni pyannote ostaju u
    kodu kao fallback — ne brisati. **Dugoročni cilj je samo Soniox + pyannoteAI, pa
-   Gemini (sluh, prijevod) i Opus (sažetak, članak).** Novi kod koji bira izvor mora
+   Gemini (sluh, prijevod) i Opus (sažetak, članak).** **Od 28.10.2026. Gemini sluh i
+   Speechmatics su ISKLJUČENI** (`--no-gemini-ear --no-speechmatics` u nightlyju i bridgeu): 2.8 samo
+   promovira Soniox+pyannoteAI kostur, 0 Vertex poziva (`docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md`). Novi kod koji bira izvor mora
    poštovati ovaj redoslijed, ne „najbolji udio”. Odluka i mjerenja:
    `docs/2026-10-25-asr-prioritet-soniox.md`; stanje toka: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 

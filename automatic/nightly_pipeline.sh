@@ -359,10 +359,13 @@ wait_priority_slots
 #   precision-3 (cloud), pa 2.8 Gemini sluh nad tim kosturom i promocija kao dosad.
 #   Matijina presuda 24.10.: Soniox/Speechmatics + pyannoteAI + Gemini prepis = vrhunski.
 #   Sve troje je cloud; lokalni pyannote (KORAK 6) ostaje fallback kad 2.8 ne promovira.
+# 🔇 BEZ GEMINI SLUHA I SPEECHMATICSA (2026-10-28): --no-gemini-ear --no-speechmatics — 2.8 samo
+#   promovira Soniox+pyannoteAI kostur (0 Vertex poziva), 2.7b nema Speechmatics fallback.
+#   Povratak: makni te dvije zastavice. docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md
 #   🔙 POVRATAK: vrati `--with-speechmatics` umjesto `--with-soniox --with-pyannote-ai` i
 #   makni GEMINI_REFINE_SKELETON=auto. Stanje i razlozi: docs/2026-10-24-pipeline-trenutno-stanje.md
 run_step "run_pipeline.sh (faza A + faza B)" \
-    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 GEMINI_REFINE_SKELETON=auto "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-soniox --with-pyannote-ai --gemini-refine-promote || true
+    env CLAUDE_MODEL=opus CLAUDE_WINDOW_GUARD=1 GEMINI_REFINE_SKELETON=auto "$REPO_DIR/run_pipeline.sh" ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} --with-local-canary-diarize --with-screenshots --with-r2-upload --gemini-backend claude --with-modal-transcribe --modal-scope channels --with-soniox --with-pyannote-ai --gemini-refine-promote --no-gemini-ear --no-speechmatics || true
 
 # ─── 1.5 AUTO-REUSE SWEEP (ad-hoc _unlisted → praćeni kanali) ─────
 # Edge case prioritetnog fast-patha: ad-hoc obrada se često dogodi PRIJE nego
