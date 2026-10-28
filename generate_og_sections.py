@@ -681,7 +681,13 @@ def main():
     parser.add_argument('--limit', type=int, default=None, help='Procesiraj max N videa')
     parser.add_argument('--force', action='store_true', help='Regeneriraj sve')
     parser.add_argument('--dry-run', action='store_true', help='Ispis bez pisanja')
-    args = parser.parse_args()
+    # YouTube ID smije počinjati s "-" (npr. -12Sb4mNx_Q); argparse bi ga pročitao kao
+    # zastavicu ("expected one argument"), pa se "--video-id X" spaja u "--video-id=X".
+    argv = sys.argv[1:]
+    for i in range(len(argv) - 1):
+        if argv[i] == "--video-id" and argv[i + 1].startswith("-"):
+            argv[i:i + 2] = [f"--video-id={argv[i + 1]}", ""]
+    args = parser.parse_args([a for a in argv if a != ""])
 
     input_dir = os.path.abspath(args.input_dir)
     if not os.path.isdir(input_dir):
