@@ -44,3 +44,27 @@ fallback samo na 429), EN prijevod (`translate_to_english.js`, Magisterium EN la
 
 Makni `--no-gemini-ear --no-speechmatics` iz `automatic/nightly_pipeline.sh` i iz
 `CLOUD_FLOW_ARGS` u `../pipeline.domovina.ai/bridge/plan.js`.
+
+## Mjerenja 28.10.2026.
+
+**Novi tok, jedna epizoda** (mreze_rijeci ep. 64 `cWOFhFN03dM`, 32:47 zvuka, koraci ručno
+s `--channel --video-id`): Soniox 66 s · pyannoteAI 32 s · 2.8 promocija 0 s · sažetak Opus
+25 s · članak Opus 162 s (2 poziva) · screenshotovi 93 s · reels Opus 90 s · R2 + bundle +
+channel index ~50 s · **ukupno 518 s**. Soniox→članak 4 min 45 s.
+
+**Stari tok, isti dan:** 2.8 je u nightlyju (start 10:58) trajao **65 min za 5 epizoda**
+(11:23–12:28) i nijedan prozor nije uspio (Vertex 403); domovina_tv `QkcpHsj43rE`
+(2:05:18) sama 19 min 18 s, s istim izlazom koji `--no-gemini` daje za 0 s.
+
+## Zamke uočene usput
+
+- **Soniox prozor bira po mtime-u datoteke, cap 5** (`transcribe_soniox.js` collectCandidates).
+  27.10. je popravljen Beamly refresh (subclub/launched, mrtav 15.09.–27.10.), pa je 28.10.
+  u 03:03 stiglo 7 starih EN epizoda; HR epizode od 27.10. skinute minutu ranije (03:01–03:02)
+  ispale su iz petice. budi_frajer je zato dobila kanonski SRT iz Canary + lokalnog pyannotea.
+  Nije popravljeno — prijedlog: prednost HR/Magisterium kanalima ili sort po datumu epizode.
+- **`reels.json` na CDN nosi samo `render_reels.js`** (launchd tick svakih 30 min), a tick
+  se preskače dok radi nightly. Ručna obrada epizode mora završiti s
+  `node render_reels.js --publish-only --channel <ch> --video-id <id>`.
+- **`run_pipeline.sh` / `nightly_pipeline.sh` dok se vrte mijenjaj kopijom + `mv`** (novi
+  inode); bash čita skriptu inkrementalno iz otvorenog fd-a.
