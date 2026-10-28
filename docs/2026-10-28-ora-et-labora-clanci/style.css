@@ -1,0 +1,34 @@
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+:root { --navy:#14306b; --gold:#e0b72f; --ink:#1d1d1f; --muted:#6b6f78; }
+body { background:#fff; color:var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 11pt; line-height: 1.55; max-width: none; margin:0; padding:0; }
+header#title-block-header { border-bottom: 4px solid var(--gold); margin-bottom: 14px; padding-bottom: 8px; }
+h1.title { font-family: Helvetica, Arial, sans-serif; color: var(--navy); font-size: 26pt; margin: 0; }
+p.subtitle { font-family: Helvetica, Arial, sans-serif; color: var(--navy); font-size: 13pt; margin: 4px 0; }
+p.date { color: var(--muted); font-family: Helvetica, Arial, sans-serif; font-size: 9pt; }
+h1 { font-family: Helvetica, Arial, sans-serif; color: var(--ink); font-size: 21pt; line-height: 1.2; margin: 4px 0 6px; }
+h2 { font-family: Helvetica, Arial, sans-serif; color: var(--navy); font-size: 13.5pt; margin: 18px 0 6px; border-left: 4px solid var(--gold); padding-left: 8px; break-after: avoid; }
+.kicker { font-family: Helvetica, Arial, sans-serif; font-weight: 700; font-size: 8.5pt; letter-spacing: .12em; color: #fff; background: var(--navy); display: inline-block; padding: 3px 8px; margin: 0; }
+.byline { font-family: Helvetica, Arial, sans-serif; color: var(--muted); font-size: 9pt; margin: 0 0 8px; }
+.lead { font-size: 12.5pt; font-weight: 600; line-height: 1.5; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+figure { margin: 6px 0 10px; } figure img { width: 100%; border-radius: 4px; }
+figcaption { font-family: Helvetica, Arial, sans-serif; font-size: 8pt; color: var(--muted); }
+img { max-width: 100%; }
+p > img, figure img[src$=".svg"], img[src^="data:image/svg"] { display:block; margin: 10px auto; max-height: 120mm; }
+blockquote { margin: 12px 0; padding: 8px 14px; border-left: 5px solid var(--gold); background: #fbf7ea; font-size: 13pt; font-style: italic; color: var(--navy); break-inside: avoid; }
+.ts a, .ts { font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 8.5pt; color: var(--navy); text-decoration: none; background:#eef2fa; padding: 1px 5px; border-radius: 3px; white-space: nowrap; }
+.magisterium { border: 1px solid var(--navy); border-top: 5px solid var(--navy); background: #f4f6fb; padding: 6px 14px 8px; margin: 14px 0; font-size: 10pt; break-inside: avoid; }
+.magisterium p:first-child strong { font-family: Helvetica, Arial, sans-serif; color: var(--navy); font-size: 11pt; }
+.magisterium ul { padding-left: 18px; margin: 4px 0; }
+.src { font-family: Helvetica, Arial, sans-serif; font-size: 8pt; color: var(--muted); }
+.tags { font-family: Helvetica, Arial, sans-serif; font-size: 8.5pt; color: var(--navy); border-top: 1px solid #ddd; padding-top: 6px; margin-top: 16px; }
+.episode { font-family: Helvetica, Arial, sans-serif; font-size: 10pt; font-weight: 700; }
+.intro { background:#fbf7ea; border:1px solid var(--gold); padding: 6px 14px; font-size: 10.5pt; }
+.footer { margin-top: 20px; border-top: 3px solid var(--gold); padding-top: 6px; font-size: 9pt; color: var(--muted); }
+.pagebreak { break-after: page; }
+a { color: var(--navy); }
+pre { background:#f4f6fb; border:1px solid #d6dcea; border-radius:4px; padding:8px 10px; font-size:8.5pt; white-space:pre-wrap; break-inside: avoid; }
+code { font-family: Menlo, Consolas, monospace; font-size: 9pt; }
+table { border-collapse: collapse; width:100%; font-size:9.5pt; margin:8px 0; break-inside: avoid; }
+th, td { border:1px solid #d6dcea; padding:4px 6px; text-align:left; vertical-align:top; }
+th { background: var(--navy); color:#fff; font-family: Helvetica, Arial, sans-serif; }
+h3 { font-family: Helvetica, Arial, sans-serif; color: var(--navy); font-size: 11.5pt; margin: 14px 0 4px; }
