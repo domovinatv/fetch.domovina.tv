@@ -9,6 +9,7 @@
  * Usage:
  *   node count_progress.js
  *   node count_progress.js --input-dir <putanja>
+ *   node count_progress.js --with-subs      # + ručni YouTube titlovi po kanalu
  */
 
 const fs = require('fs');
@@ -25,6 +26,14 @@ const OUTPUT_DIR = inputDirIdx !== -1 && inputDirIdx + 1 < args.length
 // video_h264.mp4 nakon uploada brise lokalno (--rm-local-after-upload u
 // backfill_video_h264.js) → lokalni scan ga ne vidi; istina je na R2.
 const WITH_R2_VIDEO = args.includes('--with-r2-video');
+
+// Opt-in: koji kanali uz video uploadaju RUČNE titlove (`subtitles` u .info.json;
+// `automatic_captions` se namjerno ignorira). Hrvatski ručni titl na HR kanalu znači
+// da autor ima vlastiti ASR/montažni alat; engleski je češće prijevod za stranu publiku.
+// Čita SVAKI .info.json (~3500, ~300 MB), pa nije u defaultu. Signal je snimka stanja
+// u trenutku downloada: titl dodan kasnije na YouTubeu se ovdje ne vidi.
+const WITH_SUBS = args.includes('--with-subs');
+const subsByChannel = {};
 
 if (!fs.existsSync(OUTPUT_DIR)) {
     console.error(`❌ Output direktorij ne postoji: ${OUTPUT_DIR}`);
@@ -254,6 +263,37 @@ for (const channel of channels) {
             } catch { /* neispravan/nedostupan info.json — tretiraj kao obican video */ }
         }
 
+        if (WITH_SUBS) {
+            const sc = { videos: 0, manual: 0, hr: 0, en: 0, other: 0, hrOnly: 0, hrFirst: '', hrLast: '', langs: {} };
+            for (const base of infoBases) {
+                let info;
+                try { info = JSON.parse(fs.readFileSync(path.join(channelPath, base + '.info.json'), 'utf-8')); }
+                catch { continue; }
+                if (info._type === 'playlist') continue;
+                sc.videos++;
+                // live_chat je replay chata streama, ne titl
+                const langs = Object.keys(info.subtitles || {}).filter(l => l !== 'live_chat');
+                if (!langs.length) continue;
+                sc.manual++;
+                const hr = langs.some(l => /^hr\b/.test(l));
+                const en = langs.some(l => /^en\b/.test(l));
+                if (hr) {
+                    sc.hr++;
+                    if (langs.length === 1) sc.hrOnly++;
+                    const d = info.upload_date || '';
+                    if (d && (!sc.hrFirst || d < sc.hrFirst)) sc.hrFirst = d;
+                    if (d && d > sc.hrLast) sc.hrLast = d;
+                }
+                if (en) sc.en++;
+                if (!hr && !en) sc.other++;
+                for (const l of langs) {
+                    const k = l.split('-')[0];
+                    sc.langs[k] = (sc.langs[k] || 0) + 1;
+                }
+            }
+            subsByChannel[channel] = sc;
+        }
+
         totalOutlineVideos += videosWithOutline.size;
         totalArticleVideos += videosWithArticle.size;
         totalMagisteriumVideos += videosWithMagisterium.size;
@@ -414,6 +454,25 @@ if (g('mp4Final')) {
 }
 
 console.log();
+
+if (WITH_SUBS) {
+    const fmtDate = (d) => d ? `${d.slice(6, 8)}.${d.slice(4, 6)}.${d.slice(0, 4)}.` : '?';
+    const rows = Object.entries(subsByChannel)
+        .filter(([, s]) => s.manual)
+        .sort((a, b) => b[1].hr - a[1].hr || b[1].manual - a[1].manual);
+    const tot = Object.values(subsByChannel).reduce((t, s) => {
+        t.videos += s.videos; t.manual += s.manual; t.hr += s.hr; t.en += s.en; return t;
+    }, { videos: 0, manual: 0, hr: 0, en: 0 });
+    console.log('    -- Ručni YouTube titlovi (subtitles iz .info.json, bez automatskih) --\n');
+    console.log(`    ${pad('kanal', 28)} ${rpad('ep.', 5)} ${rpad('ručni', 6)} ${rpad('HR', 4)} ${rpad('samoHR', 7)} ${rpad('EN', 4)} ${rpad('ost.', 5)}  HR raspon / jezici`);
+    for (const [ch, s] of rows) {
+        const range = s.hr ? `${fmtDate(s.hrFirst)}–${fmtDate(s.hrLast)}` : '';
+        const langs = Object.entries(s.langs).sort((a, b) => b[1] - a[1]).map(([l, n]) => `${l}:${n}`).join(' ');
+        console.log(`    ${pad(ch, 28)} ${rpad(s.videos, 5)} ${rpad(s.manual, 6)} ${rpad(s.hr || '', 4)} ${rpad(s.hrOnly || '', 7)} ${rpad(s.en || '', 4)} ${rpad(s.other || '', 5)}  ${range}${range ? '  ' : ''}${langs}`);
+    }
+    console.log(`\n    ${rows.length} od ${Object.keys(subsByChannel).length} kanala; ${tot.manual}/${tot.videos} epizoda s ručnim titlom (HR ${tot.hr}, EN ${tot.en})`);
+    console.log('    samoHR = jedini ručni titl je hrvatski (najjači znak vlastitog ASR-a; više jezika = prijevodi)\n');
+}
 
 // --- Disk usage ---
 
