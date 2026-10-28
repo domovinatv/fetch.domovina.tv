@@ -37,7 +37,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const atomicJson = require("./lib/atomic_json");
-const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
+const { vertexEndpointUrl, vertexAccessToken, vertexEnabled, VERTEX_DISABLED_MSG } = require("./lib/vertex_auth");
 const { execSync, spawn } = require("child_process");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
 
@@ -68,7 +68,13 @@ const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "ge
 
 // Backend: "vertex" (default), "cli" (gemini CLI non-interactive) ili "claude" (Claude Code CLI).
 // Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).
-const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
+// Od 28.10.2026. Vertex je isključen po defaultu (lib/vertex_auth.js): bez GEMINI_BACKEND ide
+// `claude` (Opus, pretplata); `vertex` traži eksplicitni VERTEX_ENABLED=1.
+const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || (vertexEnabled() ? "vertex" : "claude")).toLowerCase();
+if (GEMINI_BACKEND === "vertex" && !vertexEnabled()) {
+    console.error(`❌ ${VERTEX_DISABLED_MSG} (GEMINI_BACKEND=vertex). Koristi claude ili agy.`);
+    process.exit(1);
+}
 
 // ─── CLAUDE CODE CLI BACKEND (GEMINI_BACKEND=claude) ──────────────
 // Vidi opsežni komentar u summarize_gemini.js. Ukratko: `claude -p` pod Claude Code

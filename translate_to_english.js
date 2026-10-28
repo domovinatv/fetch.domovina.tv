@@ -37,7 +37,8 @@
 
 const fs = require("fs");
 const path = require("path");
-const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
+const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
+const { agyJson, DEFAULT_MODEL: AGY_MODEL } = require("./lib/agy_tmux");
 const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ────────────────────────────────────────────────
@@ -68,6 +69,9 @@ const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT 
 // generaciju (gemini.conf), pa je model konzistentan. SKUPLJI: $1.50 in / $9.00 out (global) vs
 // preview $0.50/$3.00 — free-trial krediti pokrivaju. Treba re-test sustained RPM-a na 3.5-flash.
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+// Od 28.10.2026. Gemini ide kroz agy u tmuxu (pretplata); Vertex samo uz VERTEX_ENABLED=1.
+const USE_VERTEX = vertexEnabled();
+const MODEL_LABEL = USE_VERTEX ? GEMINI_MODEL : `agy:${AGY_MODEL}`;
 // 3.8-flash postoji na global + eu/us multi-regijama (pojedinačne regije 404-aju, test
 // 28.09.2026.); svaka je zaseban DSQ bazen pa rotacija smanjuje 429. Regije: env pa
 // gemini.conf (isti izvor kao summarize/article), default global.
@@ -277,6 +281,13 @@ async function vertexJson(systemPrompt, userText, maxOutputTokens) {
     throw new Error("MAX_RETRIES exceeded");
 }
 
+// Jedan JSON poziv: Vertex (eksplicitno upaljen) ili agy u tmux sesiji `agyen`.
+// agy nema promptFeedback.blockReason, pa __blocked grana tamo nikad ne okine.
+async function llmJson(systemPrompt, userText, maxOutputTokens) {
+    if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);
+    return agyJson({ system: systemPrompt, user: userText, session: "agyen" });
+}
+
 async function translateOne(croatianText, dryRun) {
     if (!croatianText || typeof croatianText !== "string" || croatianText.trim() === "") {
         return croatianText || "";
@@ -286,10 +297,10 @@ async function translateOne(croatianText, dryRun) {
     }
     // Retry-ladder za blok: 1) normalni prompt; 2) bypass (data-wrap) reframe;
     // 3) ako i bypass blokira → graceful fallback na izvorni HR tekst (polje ostane neprevedeno).
-    let parsed = await vertexJson(TRANSLATOR_PROMPT, croatianText, 8192);
+    let parsed = await llmJson(TRANSLATOR_PROMPT, croatianText, 8192);
     if (parsed.__blocked) {
         process.stderr.write(`\n      ⚠️  ${parsed.__blocked} — reframe (data-wrap) i ponovni pokušaj`);
-        parsed = await vertexJson(BYPASS_TRANSLATOR_PROMPT, JSON.stringify({ src: croatianText }), 8192);
+        parsed = await llmJson(BYPASS_TRANSLATOR_PROMPT, JSON.stringify({ src: croatianText }), 8192);
         if (parsed.__blocked) {
             process.stderr.write(`\n      ⚠️  ${parsed.__blocked} i nakon reframe-a — fallback na izvorni HR tekst (neprevedeno)`);
             return croatianText;
@@ -347,7 +358,7 @@ async function translateBatch(fields, dryRun) {
     }
     let reason;
     for (let attempt = 1; attempt <= 2; attempt++) {
-        const parsed = await vertexJson(BATCH_TRANSLATOR_PROMPT, JSON.stringify(fields), BATCH_MAX_OUTPUT_TOKENS);
+        const parsed = await llmJson(BATCH_TRANSLATOR_PROMPT, JSON.stringify(fields), BATCH_MAX_OUTPUT_TOKENS);
         if (parsed.__blocked) { reason = parsed.__blocked; break; }
         reason = batchShapeError(fields, parsed);
         if (!reason) return parsed;
@@ -425,7 +436,7 @@ async function translateSummary(croatian, dryRun) {
     eS.language = "hr"; // izvorni
     eS.translation = {
         target_language: "en",
-        model: GEMINI_MODEL,
+        model: MODEL_LABEL,
         method: "literal-no-hallucinations-batched",
         temperature: 0
     };
@@ -442,7 +453,7 @@ async function translateArticle(croatian, dryRun) {
     }
     out.translation = {
         target_language: "en",
-        model: GEMINI_MODEL,
+        model: MODEL_LABEL,
         method: "literal-no-hallucinations-batched",
         temperature: 0,
         generated_at: new Date().toISOString()
@@ -477,7 +488,7 @@ async function translateMagisterium(croatian, dryRun) {
     }
     out.translation = {
         target_language: "en",
-        model: GEMINI_MODEL,
+        model: MODEL_LABEL,
         method: "literal-no-hallucinations-batched",
         temperature: 0,
         generated_at: new Date().toISOString()
@@ -594,7 +605,7 @@ async function main() {
     console.log("║  🇬🇧  CROATIAN → ENGLISH (no hallucinations)     ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Input:   ${opts.inputDir}`);
-    console.log(`   🌐 Project: ${VERTEX_PROJECT} | Model: ${GEMINI_MODEL}`);
+    console.log(USE_VERTEX ? `   🌐 Project: ${VERTEX_PROJECT} | Model: ${GEMINI_MODEL}` : `   🌐 agy (tmux agyen, pretplata) | Model: ${AGY_MODEL} — Vertex isključen`);
     console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     if (opts.videoId) console.log(`   🎬 Video ID: ${opts.videoId}`);
     if (opts.channel) console.log(`   📁 Channel: ${opts.channel}`);

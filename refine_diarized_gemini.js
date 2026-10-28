@@ -61,7 +61,7 @@
 const fs = require("fs");
 const path = require("path");
 const asrWords = require("./lib/asr/words");
-const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
+const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
 const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
@@ -130,7 +130,8 @@ const FORCE_PROMOTE = hasFlag("--force-promote");
 // --no-gemini (28.10.2026.): bez Gemini sluha. Kostur (Soniox+pyannoteAI) se piše i promovira
 // bez ijednog Vertex poziva, pod istim imenima (.{kostur}.gemini.*) jer po njima isPromotedRefine
 // (5 kopija) zna da Sortformer ne smije zasjeniti kanonski SRT. meta.gemini_ear=false kaže istinu.
-const NO_GEMINI = hasFlag("--no-gemini") || /^(0|false|off|no)$/i.test(process.env.GEMINI_EAR || "");
+// Bez VERTEX_ENABLED=1 (default od 28.10.) sluh nema čime ići, pa je isto što i --no-gemini.
+const NO_GEMINI = hasFlag("--no-gemini") || /^(0|false|off|no)$/i.test(process.env.GEMINI_EAR || "") || !vertexEnabled();
 
 const GEMINI_MODEL = getArg("--model") || process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || GEMINI_CONF.VERTEX_PROJECT || "bimbo-sync-prod";

@@ -10,6 +10,8 @@
  *   node generate_article_vertexai_express.js --file /path/to/transcript.srt --gemini-key TVOJ_KLJUC
  */
 
+// Vertex AI je od 28.10.2026. isključen po defaultu — samo uz VERTEX_ENABLED=1 (lib/vertex_auth.js).
+{ const va = require("./lib/vertex_auth"); if (!va.vertexEnabled()) { console.error(`❌ ${va.VERTEX_DISABLED_MSG}`); process.exit(1); } }
 const fs = require("fs");
 const path = require("path");
 

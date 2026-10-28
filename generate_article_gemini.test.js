@@ -15,6 +15,10 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
+// Testovi mockaju Vertex REST — od 28.10.2026. Vertex je isključen po defaultu, pa ga ovdje
+// palimo eksplicitno (prije requirea: backend se bira pri učitavanju modula).
+process.env.VERTEX_ENABLED = "1";
+process.env.GEMINI_BACKEND = "vertex";
 const {
     extractJsonFromText,
     tryRepairMalformedJson,

@@ -156,7 +156,14 @@ echo "   ⏱️  Početak: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "   📂 Argumenti: $*"
 # Mjerodavan je VERTEX_PROJECT (export gore / gemini.conf), NE `gcloud config`.
 # Globalni gcloud config namjerno pokazuje drugdje — ispiši oboje da log ne laže.
-echo "   ☁️  Vertex projekt: ${VERTEX_PROJECT} (mjerodavno)"
+# Vertex AI je od 28.10.2026. ISKLJUČEN po defaultu (lib/vertex_auth.js); Gemini ide kroz agy u
+# tmuxu (pretplata). Pali se samo eksplicitno: VERTEX_ENABLED=1.
+case "${VERTEX_ENABLED:-}" in 1|true|on|yes) VERTEX_ON=true ;; *) VERTEX_ON=false ;; esac
+if [ "$VERTEX_ON" = true ]; then
+    echo "   ☁️  Vertex projekt: ${VERTEX_PROJECT} (mjerodavno, VERTEX_ENABLED=1)"
+else
+    echo "   🚫 Vertex AI: ISKLJUČEN (VERTEX_ENABLED=1 za paljenje) — Gemini ide kroz agy/tmux, članci kroz Claude"
+fi
 echo "   ℹ️  gcloud config:  $(gcloud config get-value project 2>/dev/null || echo 'N/A') (nebitno za pipeline)"
 echo ""
 
@@ -375,7 +382,8 @@ MODAL_FRESH_DAYS="${MODAL_FRESH_DAYS:-2}"
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
-GEMINI_BACKEND="vertex"
+# Bez Vertexa je default `claude` (Opus, pretplata); `--gemini-backend vertex` traži VERTEX_ENABLED=1.
+if [ "$VERTEX_ON" = true ]; then GEMINI_BACKEND="vertex"; else GEMINI_BACKEND="claude"; fi
 ALL_ARGS=("$@")
 i=0
 while [ $i -lt ${#ALL_ARGS[@]} ]; do

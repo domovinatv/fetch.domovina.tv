@@ -44,7 +44,7 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const { spawn } = require("child_process");
-const { vertexEndpointUrl, vertexAccessToken } = require("./lib/vertex_auth");
+const { vertexEndpointUrl, vertexAccessToken, vertexEnabled, VERTEX_DISABLED_MSG } = require("./lib/vertex_auth");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
 
 const args = process.argv.slice(2);
@@ -81,7 +81,13 @@ function loadConf() {
     return conf;
 }
 const CONF = loadConf();
-const BACKEND = (process.env.GEMINI_BACKEND || "vertex").toLowerCase();
+// Od 28.10.2026. Vertex je isključen po defaultu (lib/vertex_auth.js): bez GEMINI_BACKEND ide
+// `claude` (Opus, pretplata); `vertex` traži eksplicitni VERTEX_ENABLED=1.
+const BACKEND = (process.env.GEMINI_BACKEND || (vertexEnabled() ? "vertex" : "claude")).toLowerCase();
+if (BACKEND === "vertex" && !vertexEnabled()) {
+    console.error(`❌ ${VERTEX_DISABLED_MSG} (GEMINI_BACKEND=vertex). Koristi claude ili agy.`);
+    process.exit(1);
+}
 const VERTEX_PROJECT = process.env.VERTEX_PROJECT || CONF.VERTEX_PROJECT || "bimbo-sync-prod";
 const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || CONF.VERTEX_ACCOUNT;
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || CONF.VERTEX_REGIONS || "global").split(",").map(s => s.trim()).filter(Boolean);

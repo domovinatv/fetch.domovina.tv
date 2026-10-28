@@ -500,6 +500,7 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
         const verdict = await askAgyBestFrame(sheetPath, n, originalLabel);
         if (verdict) return verdict;
     }
+    if (!VERTEX_ON) throw new Error("agy nije dao odluku, a Vertex je isključen (VERTEX_ENABLED=1 za paljenje)");
     const { vertexEndpointUrl } = require("./lib/vertex_auth");
     const payload = {
         contents: [{
@@ -579,7 +580,9 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
 // Gasi se i s SCREENSHOT_AGY_FALLBACK=0. Gledanje: tmux attach -t agyss -r
 
 const AGY_AFTER_429 = 2;
-const AGY_FIRST = process.env.SCREENSHOT_BEST_FRAME_BACKEND === "agy";
+// Bez VERTEX_ENABLED=1 (default od 28.10.2026.) agy je JEDINI put — Vertex se ne zove.
+const VERTEX_ON = require("./lib/vertex_auth").vertexEnabled();
+const AGY_FIRST = process.env.SCREENSHOT_BEST_FRAME_BACKEND === "agy" || !VERTEX_ON;
 const AGY_SESSION = process.env.SCREENSHOT_AGY_SESSION || "agyss";
 const AGY_MODEL = process.env.SCREENSHOT_AGY_MODEL || "gemini-3.8-flash-high";
 const AGY_DIR = path.join(require("os").homedir(), "git", ".agy-screenshots");
@@ -675,7 +678,7 @@ function logBestFrameUsage() {
         console.log(`   🎯 Izbor kadra (${GEMINI_MODEL}): ${bestFrameUsage.calls} poziva · ${bestFrameUsage.promptTokens} in / ${bestFrameUsage.outputTokens} out · ~$${usd.toFixed(3)}`);
     }
     if (bestFrameUsage.agyCalls) {
-        console.log(`   🎯 Izbor kadra (agy:${AGY_MODEL}, fallback na Vertex 429): ${bestFrameUsage.agyCalls} poziva · $0`);
+        console.log(`   🎯 Izbor kadra (agy:${AGY_MODEL}${VERTEX_ON ? ", fallback na Vertex 429" : ""}): ${bestFrameUsage.agyCalls} poziva · $0`);
     }
 }
 

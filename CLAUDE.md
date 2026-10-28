@@ -17,6 +17,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    Povijest pauze i popis što troši Vertex: `docs/2026-09-09-launchd-pauza-gcp-billing.md`,
    migracija: `docs/2026-09-14-migracija-na-bimbo-sync-prod.md`.
 
+0b. **🚫 Vertex AI je ISKLJUČEN po defaultu** (od 28.10.2026.). Pali se samo eksplicitno s
+   `VERTEX_ENABLED=1`; ograda je u `lib/vertex_auth.js` (`vertexAccessToken()` baca grešku).
+   Gemini pozivi idu SAMO kroz **agy u tmuxu** (`lib/agy_tmux.js`, pretplata), sažetak i članak
+   kroz **Claude (Opus)**. Novi kod koji treba Gemini koristi `agyJson()`, ne Vertex REST.
+   Detalji: `docs/2026-10-28-vertex-iskljucen-agy-jedini-gemini.md`.
+
 1. **Pipeline rad SAMO iz OVOG repoa.** Sav fetch / transkripcija / diarizacija /
    summary / article / Magisterium / RAG / R2 / channel backfill posao mora se
    voditi iz Claude Code sesije pokrenute u `/Users/ms/git/domovinatv/fetch.domovina.tv`.
