@@ -358,7 +358,22 @@ function languageForPath(audioPath) {
         }
     }
     const channel = path.basename(path.dirname(audioPath));
-    return _langConf.get(channel) || LANGUAGE;
+    return _langConf.get(channel) || infoJsonLanguage(audioPath) || LANGUAGE;
+}
+
+// Kanal bez unosa u channel_languages.conf (ad-hoc, `_unlisted`) uzima jezik iz
+// `{base}.info.json` (yt-dlp `language`, npr. "en-US" → "en"). Bez toga su engleske
+// ad-hoc epizode išle kao "hr": Speechmatics je davao smeće, Canary prevodio, a
+// words.json je pao ispod praga usidrenosti (xI7ICdhsXWM 39 %, 29.10.2026.).
+// (Ista funkcija postoji u transcribe_speechmatics.js, transcribe_soniox.js,
+// refine_diarized_gemini.js i kao _source_lang_for_path u run_pipeline.sh.)
+function infoJsonLanguage(audioPath) {
+    const base = audioPath.replace(/\.[A-Za-z0-9]+$/, "");
+    try {
+        const lang = JSON.parse(fs.readFileSync(base + ".info.json", "utf-8")).language;
+        const m = typeof lang === "string" && lang.toLowerCase().match(/^([a-z]{2})(?:[-_]|$)/);
+        return m ? m[1] : null;
+    } catch { return null; }
 }
 
 // ─── Odabir datoteka ───

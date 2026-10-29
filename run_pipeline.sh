@@ -933,6 +933,13 @@ _source_lang_for_path() {
         hit="$(grep -E "^${chan}=" "$CHANNEL_LANG_CONF" 2>/dev/null | head -1 | cut -d= -f2 | tr -d '[:space:]')"
         [ -n "$hit" ] && lang="$hit"
     fi
+    # Kanal bez unosa (ad-hoc, `_unlisted`): jezik iz {base}.info.json ("en-US" → "en"),
+    # kao infoJsonLanguage u transcribe_*.js. Inače engleska ad-hoc epizoda ide kao hr.
+    if [ -z "$hit" ]; then
+        local info="${1%.*}.info.json" fromInfo
+        fromInfo="$(jq -r '.language // empty' "$info" 2>/dev/null | tr '[:upper:]' '[:lower:]' | grep -oE '^[a-z]{2}([-_]|$)' | cut -c1-2)"
+        [ -n "$fromInfo" ] && lang="$fromInfo"
+    fi
     printf '%s' "$lang"
 }
 
