@@ -237,3 +237,21 @@ podudara s diskom.
 
 Ograničenje: Vision ocjenjuje **najveće** lice u kadru. U kadru s dvoje ljudi
 zatvorene oči drugog govornika ne vidi.
+
+## Zamka: OCR nad cijelim katalogom u nightlyju (29.10.2026.)
+
+Prva verzija detekcije teksta (`7e18cd05`) skupljala je za Vision **sve**
+postojeće kadrove epizode, prije provjere idempotencije. Nightly 9.6 prolazi
+cijeli katalog (3493 epizode, ~70k kadrova), pa je OCR išao nad svakim kadrom
+iako se 69 878 sekcija preskočilo, a generirane su samo 63.
+
+| Nightly | KORAK 9.6 |
+|---|---|
+| 25.–28.10. | 15–35 s |
+| 29.10. (s bugom) | **3902 s (65 min)** |
+| nakon popravka, kanal `40_dana_za_zivot` (81 ep) | 0,4 s (prije ~80 s) |
+
+Popravak: kadar ide u `detect_text_frames()` samo ako `should_regenerate()` za
+njegov `og-t-{sec}{suffix}.jpg` kaže da treba. Pravilo za buduće korake koji
+prolaze katalog: skupi posao (Vision, ffmpeg, LLM) tek **iza** provjere
+idempotencije, nikad prije nje.

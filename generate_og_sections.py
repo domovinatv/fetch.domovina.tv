@@ -611,13 +611,22 @@ def process_video(video_info, channel_dir, *, force=False, dry_run=False):
         """
         out_map = {}
         # Detekcija teksta jednim pozivom za sve kadrove koje treba (re)generirati.
+        # Samo za one koje idempotencija NE preskače: OCR nad svim kadrovima
+        # kataloga (~70k) produljio je nightly 9.6 s ~20 s na 65 min (29.10.2026.).
         todo = []
         for section in sections:
             ts_str = (section.get('screenshot_timestamp') or '').strip()
             if not ts_str or not (section.get(subtitle_key) or '').strip():
                 continue
             png = screenshots_dir / f"{video_base}_{sanitize_ts_for_filename(ts_str)}.png"
-            if png.exists():
+            if not png.exists():
+                continue
+            try:
+                sec = timestamp_to_seconds(ts_str)
+            except ValueError:
+                continue
+            out_path = og_dir / f"og-t-{sec}{filename_suffix}.jpg"
+            if should_regenerate(out_path, source_path, str(png), force=force):
                 todo.append(png)
         text_map = {} if dry_run else detect_text_frames(todo)
         for section in sections:
