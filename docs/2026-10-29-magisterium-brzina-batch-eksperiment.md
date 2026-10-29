@@ -109,6 +109,30 @@ Zaključci:
 ≈ 1 min + **0,3 min × sekcija** (prije 0,5 min). Primjer: 42 sekcije ≈ 13 min
 umjesto 25 min, 31 sekcija ≈ 10 min umjesto 17 min.
 
+### Prvi produkcijski run s batch 2: kateheza (29.10.2026.)
+
+`ZQvL-UkAM1Y` (budi_frajer, „DDV kateheze: kako se nositi s mislima koje ne možeš
+zaustaviti”, fra Mario Berišić), 22 sekcije, drukčiji žanr od tehničkog `QkcpHsj43rE`.
+
+| korak | vrijeme |
+|---|---|
+| 2 chat: 12 poziva (11 batch + holistički), 39,5 s/poziv | 475,6 s |
+| 2b jezik + potpunost: 2 kruga, 5 ponovljenih poziva | 250,6 s |
+| 4 publish + 5 md5 | 28,8 s |
+| **ukupno** | **12,6 min** (procjena bez 2b: 7,6 min) |
+
+Sam chat je pogodio procjenu. Trećinu vremena pojeo je **2b**: u prvom krugu 3 od 12
+odgovora (25 %) imala su strano pismo, u drugom još 2 od 3. Viđeno je finski („eivät
+täsmällisenä”, „mikä auttaa”), arapski („ne ينبغي razumjeti”) i ćirilicu usred riječi
+(„psihijatrijској”). Svi su popravljeni ponovnim pitanjem; CDN ima 0 stranih znakova.
+Ocjene: holistički 91, sekcije prosjek 77, 42 zabrinutosti. Za procjenu trajanja
+računaj ≈ **+1 min po pokvarenom odgovoru**. Je li batch 2 skloniji klizanju u strani jezik
+nego batch 1, još nije izmjereno.
+
+Run je otkrio grešku u 2b: nakon zadnjeg kruga nije bilo ponovne provjere, pa je
+„fragmenti ostali i nakon ponavljanja” ispisano i kad je drugi krug sve popravio.
+Ispravljeno; poruka sada i navodi koje datoteke su ostale loše.
+
 ## Plan (nije započeto)
 
 1. **Batch 2 na drugom žanru** (propovijed, apologetika) prije nego zaključimo da

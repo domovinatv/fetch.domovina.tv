@@ -146,12 +146,13 @@ async function main() {
         const job = JSON.parse(fs.readFileSync(jobPath, 'utf-8'));
         const wantByName = new Map(job.batches.map(b =>
             [`batch_${String(b.batchIndex).padStart(2, '0')}.mcp.json`, b.sectionRefs.map(r => r.localIndex)]));
+        const findBad = () => fs.readdirSync(resultsDir).filter(f => f.endsWith('.mcp.json')).filter(f => {
+            const answer = JSON.parse(fs.readFileSync(path.join(resultsDir, f), 'utf-8')).answer;
+            const want = wantByName.get(f);
+            return foreignFragments(answer) > 0 || (want && missingResults(answer, want) > 0);
+        });
         for (let round = 1; round <= langRetries; round++) {
-            const bad = fs.readdirSync(resultsDir).filter(f => f.endsWith('.mcp.json')).filter(f => {
-                const answer = JSON.parse(fs.readFileSync(path.join(resultsDir, f), 'utf-8')).answer;
-                const want = wantByName.get(f);
-                return foreignFragments(answer) > 0 || (want && missingResults(answer, want) > 0);
-            });
+            const bad = findBad();
             if (!bad.length) { console.log('   ✅ svi odgovori na hrvatskom i potpuni'); return; }
             console.log(`   ⚠️  strani fragmenti ili nepotpun JSON u: ${bad.join(', ')} — ponovno pitam (krug ${round}/${langRetries})`);
             for (const f of bad) {
@@ -161,7 +162,10 @@ async function main() {
             const r = run('node', clientArgs);
             if (r.status !== 0) { console.error('❌ ponovljeni chat pozivi nisu prošli'); process.exit(2); }
         }
-        console.log('   ⚠️  fragmenti ostali i nakon ponavljanja — objavljujem, ali provjeri ručno');
+        // Zadnji krug se mora provjeriti zasebno, inače upozorenje ide i kad je popravak uspio.
+        const left = findBad();
+        if (!left.length) { console.log('   ✅ svi odgovori na hrvatskom i potpuni'); return; }
+        console.log(`   ⚠️  fragmenti ostali i nakon ponavljanja u: ${left.join(', ')} — objavljujem, ali provjeri ručno`);
     });
 
     await step('3 assemble', () => {
