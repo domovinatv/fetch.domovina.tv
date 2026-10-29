@@ -255,3 +255,5 @@ Popravak: kadar ide u `detect_text_frames()` samo ako `should_regenerate()` za
 njegov `og-t-{sec}{suffix}.jpg` kaže da treba. Pravilo za buduće korake koji
 prolaze katalog: skupi posao (Vision, ffmpeg, LLM) tek **iza** provjere
 idempotencije, nikad prije nje.
+
+Vezano: `docs/2026-10-29-nightly-trajanje-po-koracima.md` (trajanje svih koraka nightlyja 29.10.).
