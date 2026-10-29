@@ -79,6 +79,13 @@ if [ "$MAG_LANE" != "en" ] && [ -f "$SCRIPT_DIR/enqueue_magisterium_backfill.js"
     node "$SCRIPT_DIR/enqueue_magisterium_backfill.js" || echo "   ⚠️ enqueue_magisterium_backfill greška (non-fatal)."
 fi
 
+# EN za SVE nove epizode (od 29.10.2026., ~5 min/ep kroz agy): članak datiran od EN_AUTO_SINCE,
+# objavljen, bez .article.en.json → EN job. Kanali s Magisteriumom čekaju HR Magisterium.
+# Pokriva i _unlisted (prioritetni ad-hoc), koji nema channel index. Non-fatalno.
+if [ "$MAG_LANE" != "hr" ] && [ -f "$SCRIPT_DIR/enqueue_en_new.js" ]; then
+    node "$SCRIPT_DIR/enqueue_en_new.js" || echo "   ⚠️ enqueue_en_new greška (non-fatal)."
+fi
+
 # CLAUDE_WINDOW_GUARD: poller pita `claude-window` prije claima — tick svakih 10 min
 # 24/7 inače može otvoriti nov 5h prozor kvote pred 08:30. Vidi launchd-menubar/SCHEDULING.md.
 if [ -f "$BRIDGE/magisterium_poller.js" ]; then

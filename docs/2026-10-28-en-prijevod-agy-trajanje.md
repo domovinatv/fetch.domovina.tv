@@ -83,3 +83,15 @@ prijevod se razlikovao u svih 42. Sada se preuzimaju iz `article.en.json` (klju�
 Postavke: `TRANSLATE_AGY_MODEL` (default `gemini-3.8-flash-low`, sesija `agyen-low`),
 `TRANSLATE_AGY_TIMEOUT_SEC` (default 1800). Ako cijeli dokument dvaput ne prođe
 provjeru oblika, skripta se vraća na poziv po sekciji. Vertex put je nepromijenjen.
+
+## EN za sve nove epizode (29.10.2026.)
+
+Uz ~5 min/ep EN više nije ograničen na `+EN` kanale. `automatic/enqueue_en_new.js` se
+vrti u EN traci Magisterium ticka i enqueuea EN za svaku epizodu čiji je najnoviji HR
+članak datiran od 29.10. nadalje, objavljen i bez `.article.en.json`. Kanali s HR
+Magisteriumom čekaju ga, da EN prevede i Magisterium u istom prolazu.
+
+Poller (`pipeline.domovina.ai` 5f9e2a7): EN bez HR Magisteriuma je gotov kad je
+`article.en.json` na CDN-u (prije je takav job uvijek bio `failed`); rok EN joba
+30 min + 1 min/sekciji, max 2 h. `translate_to_english.js` (b3b8162a): ako cijeli
+dokument ne prođe, ide po iteraciji, tek onda po sekciji.
