@@ -99,7 +99,7 @@ test("magisterium: sekcije i teme preuzima iz article.en.json, prevodi samo pros
     assert.match(b.content_en, /dry-run/, "sekcija koja se ne poklapa prevodi se normalno");
 });
 
-test("article: cijeli dokument u jednom pozivu; kad ne prođe, po iteraciji", async () => {
+test("article: cijeli dokument u jednom pozivu; kad ne prođe, greška bez fallbacka", async () => {
     const sec = (t) => ({ subtitle: `N ${t}`, content: `T ${t}`, keywords: [`k ${t}`] });
     const art = () => ({ iterations: [{ theme: "A", sections: [sec(1), sec(2)] }, { theme: "B", sections: [sec(3)] }] });
     const echo = (user) => Object.fromEntries(Object.entries(JSON.parse(user)).map(([k, v]) => [k, Array.isArray(v) ? v.map((x) => `EN ${x}`) : `EN ${v}`]));
@@ -111,18 +111,31 @@ test("article: cijeli dokument u jednom pozivu; kad ne prođe, po iteraciji", as
         assert.equal(out.iterations[1].sections[0].content_en, "EN T 3");
         assert.deepEqual(out.iterations[0].sections[1].keywords_en, ["EN k 2"]);
 
-        // Model izgubi ključ kad dobije cijeli dokument → po iteraciji, ne po sekciji.
+        // Model izgubi ključ → isti poziv još jednom, pa greška (nema spuštanja na sekcije).
         calls.length = 0;
-        __setLlmJson(async (_sys, user) => {
-            const f = JSON.parse(user); calls.push(Object.keys(f).length);
-            const o = echo(user);
-            if (Object.keys(f).some((k) => k.startsWith("i1_")) && Object.keys(f).some((k) => k.startsWith("i0_"))) delete o.i1_theme;
-            return o;
-        });
-        out = await translateArticle(art(), false);
-        assert.equal(calls.length, 3, "1 neuspjeli cijeli + 2 iteracije");
-        assert.equal(out.iterations[0].theme_en, "EN A");
-        assert.equal(out.iterations[1].sections[0].subtitle_en, "EN N 3");
+        __setLlmJson(async (_sys, user) => { calls.push(1); const o = echo(user); delete o.i1_theme; return o; });
+        await assert.rejects(translateArticle(art(), false), /članak: prijevod u jednom pozivu nije uspio \(i1_theme: očekivan string\)/);
+        assert.equal(calls.length, 2, "2 pokušaja cijelog dokumenta, bez poziva po sekciji");
+    } finally {
+        __setLlmJson(null);
+    }
+});
+
+test("magisterium i sažetak: po jedan poziv", async () => {
+    const calls = [];
+    const echo = (user) => Object.fromEntries(Object.entries(JSON.parse(user)).map(([k, v]) => [k, Array.isArray(v) ? v.map((x) => `EN ${x}`) : `EN ${v}`]));
+    try {
+        __setLlmJson(async (_sys, user) => { calls.push(1); return echo(user); });
+        const m = await translateMagisterium({ score_interpretation: "Dobro", overall: { assessment: "O" }, iterations: [
+            { theme: "T", sections: [{ subtitle: "S", content: "C", magisterium: { assessment: "A1" } }, { subtitle: "S2", content: "C2", magisterium: { assessment: "A2" } }] },
+        ] }, false);
+        assert.equal(calls.length, 1);
+        assert.equal(m.iterations[0].sections[1].magisterium.assessment_en, "EN A2");
+        assert.equal(m.overall.assessment_en, "EN O");
+        const s = await translateSummary({ summary: { title_hr: "Naslov", key_points: ["a", "b"], speakers: [{ role: "gost" }] } }, false);
+        assert.equal(calls.length, 2);
+        assert.equal(s.summary.title_en, "EN Naslov");
+        assert.equal(s.summary.speakers[0].role_en, "EN gost");
     } finally {
         __setLlmJson(null);
     }

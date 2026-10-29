@@ -81,8 +81,7 @@ prijevod se razlikovao u svih 42. Sada se preuzimaju iz `article.en.json` (klju�
 `subtitle` + `content`), pa su oba taba ista.
 
 Postavke: `TRANSLATE_AGY_MODEL` (default `gemini-3.8-flash-low`, sesija `agyen-low`),
-`TRANSLATE_AGY_TIMEOUT_SEC` (default 1800). Ako cijeli dokument dvaput ne prođe
-provjeru oblika, skripta se vraća na poziv po sekciji. Vertex put je nepromijenjen.
+`TRANSLATE_AGY_TIMEOUT_SEC` (gornja granica roka; rok poziva je 300 s + 5 s/KB ulaza).
 
 ## EN za sve nove epizode (29.10.2026.)
 
@@ -93,5 +92,11 @@ Magisteriumom čekaju ga, da EN prevede i Magisterium u istom prolazu.
 
 Poller (`pipeline.domovina.ai` 5f9e2a7): EN bez HR Magisteriuma je gotov kad je
 `article.en.json` na CDN-u (prije je takav job uvijek bio `failed`); rok EN joba
-30 min + 1 min/sekciji, max 2 h. `translate_to_english.js` (b3b8162a): ako cijeli
-dokument ne prođe, ide po iteraciji, tek onda po sekciji.
+30 min + 1 min/sekciji, max 2 h.
+
+**Bez fallbacka (29.10.2026., odluka):** svaki dokument (sažetak, članak, Magisterium)
+ide u jednom pozivu i na agy i na Vertex putu. Ako oblik JSON-a ni u drugom pokušaju
+istog poziva ne prođe, epizoda je ❌ (exit 1), EN job `failed`, a `enqueue_en_new.js`
+ga ponovi nakon grace roka (24 h, najviše 3 puta). Stari putovi po iteraciji, sekciji i
+polju su u `translate_to_english.js` zakomentirani i označeni DEPRECATED — namjerno
+ostaju u sourceu kao zapis stare implementacije, ne brisati.
