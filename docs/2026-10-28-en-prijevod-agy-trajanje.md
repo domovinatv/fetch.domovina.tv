@@ -143,8 +143,10 @@ Podešavanje: `TRANSLATE_SEGMENT_MIN` (90), `TRANSLATE_SEGMENT_MAX_KB` (50). Sa�
 reelsi ostaju jedan poziv.
 
 **Otvoreno:**
-- Odsječci još nisu izmjereni na pravom agy-ju; prvi su `MNk-eEpDb3E` (1 odsječak) i
-  ponovljeni `n38M_g__TxQ` (job prekinut u 07:03, ide kroz `failed` → grace).
+- `MNk-eEpDb3E` (novi kod, 07:05): Magisterium EN u 1 pozivu, 33,8 s, 12 sekcija preuzeto
+  iz article.en.json, bez popravka i bez restarta sesije → na CDN-u. Odsječci (>1) i 🩹
+  popravak na pravom agy-ju još NISU viđeni; prvi pravi test je ponovljeni `n38M_g__TxQ`
+  (job prekinut u 07:03, ide kroz `failed` → grace).
 - Ad-hoc rupa: `enqueue_en_new.js` preskače epizodu koja već ima `.article.en.json`, a
   `_unlisted` nije kanal s Magisteriumom, pa kad EN članak stigne prije HR Magisteriuma,
   Magisterium EN se sam nikad ne dodaje. Za `MNk-eEpDb3E` ga je stvorio admin gumb
