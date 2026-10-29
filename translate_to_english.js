@@ -431,13 +431,61 @@ async function translateFields(specs, dryRun) {
 }
 
 /**
- * CIJELI dokument (sažetak, članak ili Magisterium) u JEDNOM pozivu — jedini put od 29.10.2026.
+ * Dokument (sažetak, članak ili Magisterium) u što manje poziva — jedini put od 29.10.2026.
  * Kroz agy pozivi idu jedan za drugim i svaki ima fiksni trošak ~2 min, pa je poziv po sekciji
  * (92/ep) trajao 3 h 41 min; jedan poziv po dokumentu s -low ~5 min. Vrijedi i za Vertex.
- * Ako oblik ne prođe ni u drugom pokušaju, BACA grešku: epizoda ide u ❌, EN job u `failed`,
- * a enqueue ga ponovi nakon grace roka. Nema spuštanja na manje blokove (vidi DEPRECATED).
+ * Dugi dokumenti idu u odsječke od ≤90 min / ≤50 KB (planSegments), ne u poziv po sekciji.
+ * Ako oblik odsječka ne prođe ni u drugom pokušaju, BACA grešku: epizoda ide u ❌, EN job u
+ * `failed`, a enqueue ga ponovi nakon grace roka.
  */
 async function translateWholeDoc(specs, dryRun, { attempts = 2, label = "dokument" } = {}) {
+    const segs = planSegments(specs);
+    if (segs.length > 1) process.stdout.write(`(${segs.length} ${segs.length < 5 ? "odsječka" : "odsječaka"}) `);
+    for (let i = 0; i < segs.length; i++) {
+        await translateSegment(segs[i], dryRun, { attempts, label: segs.length > 1 ? `${label} ${i + 1}/${segs.length}` : label });
+    }
+}
+
+// Odsječci (29.10.2026.): jedan poziv po ≤90 min epizode i ≤50 KB teksta, ne po dokumentu.
+// Flash na ~100 KB JSON izlaza povremeno ispusti navodnik (n38M_g__TxQ: Magisterium 93 KB za
+// samo 67 min, jer svaka sekcija nosi i prosudbu), a greška tada baci cijeli dokument. Sekcija
+// se nikad ne cijepa; zaglavlje ide u prvi odsječak. Ključevi su jedinstveni u dokumentu, pa
+// spajanje nije potrebno — svaki odsječak upisuje svoja *_en polja.
+const SEGMENT_SEC = parseInt(process.env.TRANSLATE_SEGMENT_MIN || "90", 10) * 60;
+const SEGMENT_MAX_BYTES = parseInt(process.env.TRANSLATE_SEGMENT_MAX_KB || "50", 10) * 1024;
+
+function hmsToSec(v) {
+    const m = /^(\d+):(\d{1,2})(?::(\d{1,2}))?/.exec(String(v || "").trim());
+    if (!m) return null;
+    return m[3] === undefined ? +m[1] * 60 + +m[2] : +m[1] * 3600 + +m[2] * 60 + +m[3];
+}
+
+/**
+ * specs → odsječci. Uzastopni specovi s istim `unit` (sekcija, zaglavlje iteracije) ostaju
+ * zajedno; `t` je početak jedinice u sekundama epizode (null = bez vremena, npr. zaglavlje).
+ */
+function planSegments(specs, maxSec = SEGMENT_SEC, maxBytes = SEGMENT_MAX_BYTES) {
+    const units = [];
+    for (const s of specs) {
+        const last = units[units.length - 1];
+        if (last && s.unit !== undefined && last.unit === s.unit) last.specs.push(s);
+        else units.push({ unit: s.unit, t: s.t ?? null, specs: [s] });
+    }
+    const segs = [];
+    let cur = null;
+    for (const u of units) {
+        const bytes = Buffer.byteLength(JSON.stringify(u.specs.map((s) => (s.obj ? s.obj[s.key] : null))));
+        const tooLong = cur && u.t != null && cur.t0 != null && u.t - cur.t0 >= maxSec;
+        const tooBig = cur && cur.bytes > 0 && cur.bytes + bytes > maxBytes;
+        if (!cur || tooLong || tooBig) { cur = { t0: u.t, bytes: 0, specs: [] }; segs.push(cur); }
+        if (cur.t0 == null) cur.t0 = u.t;
+        cur.specs.push(...u.specs);
+        cur.bytes += bytes;
+    }
+    return segs.map((s) => s.specs);
+}
+
+async function translateSegment(specs, dryRun, { attempts, label }) {
     const fields = {};
     const live = [];
     for (const spec of specs) {
@@ -470,6 +518,16 @@ async function translateWholeDoc(specs, dryRun, { attempts = 2, label = "dokumen
         if (!res) throw new Error(`${label}: prijevod u jednom pozivu nije uspio (${reason})`);
     }
     for (const { obj, key, name } of live) obj[`${key}_en`] = res[name];
+}
+
+/** Specovi jedne jedinice (sekcija, zaglavlje iteracije) s vremenom za planSegments. */
+function withTime(specs, unit, t) {
+    return specs.map((spec) => ({ ...spec, unit, t }));
+}
+
+/** Početak sekcije u sekundama: kadar sekcije, pa početak iteracije. */
+function sectionSec(sec, it) {
+    return hmsToSec(sec.screenshot_timestamp) ?? hmsToSec(it.start_time);
 }
 
 /** sectionSpecs s jedinstvenim imenima za poziv koji nosi više sekcija. */
@@ -561,11 +619,13 @@ async function translateSummary(croatian, dryRun) {
 async function translateArticle(croatian, dryRun) {
     const out = JSON.parse(JSON.stringify(croatian));
     const iterSpecs = (it, n) => [
-        { obj: it, key: "theme", name: `i${n}_theme` },
-        { obj: it, key: "reason_for_cut", name: `i${n}_reason_for_cut` },
-        ...(it.sections || []).flatMap((sec, m) => namedSectionSpecs(sec, `i${n}_s${m}_`)),
+        ...withTime([
+            { obj: it, key: "theme", name: `i${n}_theme` },
+            { obj: it, key: "reason_for_cut", name: `i${n}_reason_for_cut` },
+        ], it, hmsToSec(it.start_time)),
+        ...(it.sections || []).flatMap((sec, m) => withTime(namedSectionSpecs(sec, `i${n}_s${m}_`), sec, sectionSec(sec, it))),
     ];
-    // Cijeli članak u jednom pozivu.
+    // Članak u odsječcima od ≤90 min (kratka epizoda = jedan poziv).
     await translateWholeDoc(out.iterations.flatMap(iterSpecs), dryRun, { label: "članak" });
 
     // ⚠️ DEPRECATED (29.10.2026.) — stari put, NE KORISTI SE, namjerno ostaje u sourceu (ne brisati).
@@ -644,11 +704,11 @@ async function translateMagisterium(croatian, dryRun, articleEn = null) {
         ...(sec.magisterium ? ["assessment", "enrichment", "concerns"].map((key) => ({ obj: sec.magisterium, key, name: `${prefix}magisterium_${key}` })) : []),
     ];
     const iterSpecs = (it, n) => [
-        ...(reusedThemes.has(it) ? [] : [{ obj: it, key: "theme", name: `i${n}_theme` }]),
-        ...(it.sections || []).flatMap((sec, m) => secSpecs(sec, `i${n}_s${m}_`)),
+        ...(reusedThemes.has(it) ? [] : withTime([{ obj: it, key: "theme", name: `i${n}_theme` }], it, hmsToSec(it.start_time))),
+        ...(it.sections || []).flatMap((sec, m) => withTime(secSpecs(sec, `i${n}_s${m}_`), sec, sectionSec(sec, it))),
     ];
-    // Cijeli Magisterium (zaglavlje + sve prosudbe) u jednom pozivu.
-    await translateWholeDoc([...header, ...out.iterations.flatMap(iterSpecs)], dryRun, { label: "Magisterium" });
+    // Magisterium (zaglavlje + prosudbe) u odsječcima od ≤90 min / ≤50 KB; zaglavlje u prvom.
+    await translateWholeDoc([...withTime(header, out, null), ...out.iterations.flatMap(iterSpecs)], dryRun, { label: "Magisterium" });
 
     // ⚠️ DEPRECATED (29.10.2026.) — stari put, NE KORISTI SE, namjerno ostaje u sourceu (ne brisati).
     // Prije: zaglavlje u jednom pozivu, pa po iteraciji tema, pa jedan poziv po sekciji (sekcija
@@ -967,6 +1027,6 @@ if (require.main === module) {
 
 module.exports = {
     batchShapeError, translateSummary, translateArticle, translateMagisterium, translateReels, BATCH_TRANSLATOR_PROMPT,
-    reelsSourceSha, reelsEnStale, speakerNameMap, speakerRoleEn,
+    planSegments, hmsToSec, reelsSourceSha, reelsEnStale, speakerNameMap, speakerRoleEn,
     __setLlmJson: (fn) => { llmOverride = fn; },
 };

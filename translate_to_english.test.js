@@ -5,7 +5,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
     batchShapeError, translateSummary, translateArticle, translateMagisterium, translateReels, BATCH_TRANSLATOR_PROMPT, __setLlmJson,
-    reelsSourceSha, speakerNameMap, speakerRoleEn,
+    reelsSourceSha, speakerNameMap, speakerRoleEn, planSegments, hmsToSec,
 } = require("./translate_to_english.js");
 
 test("batchShapeError: ispravan odgovor prolazi", () => {
@@ -214,4 +214,47 @@ test("reels: otisak ovisi samo o tekstu, ne o render bloku", () => {
     assert.deepEqual([...speakerNameMap({ summary: { speakers: [
         { suggested_name: "Ana", suggested_name_en: "Ana" }, { suggested_name: "Sudionik iz publike 1", suggested_name_en: "Audience member 1" },
     ] } })], [["Sudionik iz publike 1", "Audience member 1"]]);
+});
+
+test("hmsToSec: HH:MM:SS i MM:SS, smeće = null", () => {
+    assert.equal(hmsToSec("01:30:05"), 5405);
+    assert.equal(hmsToSec("12:07"), 727);
+    assert.equal(hmsToSec(""), null);
+    assert.equal(hmsToSec(undefined), null);
+});
+
+test("planSegments: reže po 90 min i po veličini, sekciju nikad", () => {
+    const sp = (unit, t, text) => ({ obj: { x: text }, key: "x", unit, t });
+    // 4 sekcije po 40 min; svaka ima 2 polja koja moraju ostati zajedno.
+    const specs = [];
+    for (let i = 0; i < 4; i++) specs.push(sp(`s${i}`, i * 2400, "a"), sp(`s${i}`, i * 2400, "b"));
+    const segs = planSegments([sp("hdr", null, "h"), ...specs], 90 * 60, 1e9);
+    assert.deepEqual(segs.map((s) => s.length), [1 + 6, 2], "zaglavlje + 0/40/80 min, pa 120 min");
+    // Veličina: 3 jedinice po ~1 KB uz granicu 2,5 KB → 2 + 1.
+    const big = [0, 1, 2].map((i) => sp(`b${i}`, i * 60, "x".repeat(1000)));
+    assert.deepEqual(planSegments(big, 90 * 60, 2500).map((s) => s.length), [2, 1]);
+    // Jedinica veća od granice ide sama, ne puca.
+    assert.deepEqual(planSegments([sp("u", 0, "x".repeat(5000))], 90 * 60, 1000).map((s) => s.length), [1]);
+});
+
+test("article: 3-satna epizoda = 2 poziva po ≤90 min, sva _en polja na mjestu", async () => {
+    const sec = (ts, t) => ({ subtitle: `N ${t}`, screenshot_timestamp: ts, content: `T ${t}`, keywords: [`k ${t}`] });
+    const art = { iterations: [
+        { start_time: "00:00:00", theme: "A", sections: [sec("00:05:00", 1), sec("00:50:00", 2)] },
+        { start_time: "01:20:00", theme: "B", sections: [sec("01:25:00", 3), sec("02:10:00", 4)] },
+    ] };
+    const echo = (user) => Object.fromEntries(Object.entries(JSON.parse(user)).map(([k, v]) => [k, Array.isArray(v) ? v.map((x) => `EN ${x}`) : `EN ${v}`]));
+    const calls = [];
+    try {
+        __setLlmJson(async (_sys, user) => { calls.push(Object.keys(JSON.parse(user))); return echo(user); });
+        const out = await translateArticle(art, false);
+        assert.equal(calls.length, 2);
+        // 0, 5, 50, 80 (zaglavlje 2. iteracije) i 85 min u prvom; 130 min otvara drugi.
+        assert.deepEqual(calls[1], ["i1_s1_subtitle", "i1_s1_content", "i1_s1_keywords"]);
+        assert.ok(calls[0].includes("i0_theme") && calls[0].includes("i1_theme") && calls[0].includes("i1_s0_content"));
+        assert.equal(out.iterations[1].sections[1].content_en, "EN T 4");
+        assert.equal(out.iterations[0].sections[0].content_en, "EN T 1");
+    } finally {
+        __setLlmJson(null);
+    }
 });
