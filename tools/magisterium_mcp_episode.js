@@ -5,7 +5,8 @@
  * Deterministička zamjena za `claude -p "@docs/MAGISTERIUM_MCP_RUN.md <VID>"`:
  *   1. prep      magisterium_mcp_prep.js (promptovi po sekciji + holistički)
  *   2. chat      tools/magisterium_mcp_client.js run (Magisterium MCP izravno, OAuth Pro)
- *   2b. jezik    odgovor s fragmentima na drugom jeziku (ćirilica, lit./fin. dijakritici)
+ *   2b. jezik    odgovor s fragmentima na drugom jeziku (nelatinično pismo, lit./fin. dijakritici)
+ *                ili nepotpun/pokvaren JSON (sekcija bez rezultata)
  *                se ponovno pita — isti prompt, do --lang-retries puta; score se ne dira
  *   3. assemble  magisterium_mcp_assemble.js → storage (*.mcp.json nose source_url)
  *   4. publish   with_pipeline_lock.sh + publish_hr_episode.sh (+ force_upload kod --force)
@@ -13,7 +14,7 @@
  *
  * Uporaba:
  *   node tools/magisterium_mcp_episode.js --video-id <VID> [--channel <kanal>]
- *        [--force] [--no-publish] [--batch-size 1] [--max-words 600]
+ *        [--force] [--no-publish] [--batch-size 2] [--max-words 600]   (env MAGISTERIUM_BATCH_SIZE)
  * Exit: 0 = objavljeno i md5 se slaže (ili već postoji), 1 = greška, 2 = chat pozivi nisu prošli.
  * Statistika koraka: <results>/episode_stats.json
  */
@@ -33,12 +34,25 @@ function getArg(name) {
     return idx !== -1 && idx + 1 < args.length ? args[idx + 1] : null;
 }
 
-// Croatian koristi č ć đ š ž; ćirilica i ą ę ė į ų ū õ ä ö å znače da je model
-// skliznuo u drugi jezik (viđeno 24.10.2026.: finski, litavski, ćirilica).
-const FOREIGN_RE = /[Ѐ-ӿ]|[ąęėįųūõäöå]/i;
+// Croatian koristi č ć đ š ž; svako nelatinično slovo (ćirilica, gruzijsko, grčko…) i
+// ą ę ė į ų ū õ ä ö å znače da je model skliznuo u drugi jezik (viđeno 24.10.2026.:
+// finski, litavski, ćirilica; 29.10.: gruzijsko „Katolიცizam” usred JSON-a).
+const FOREIGN_RE = /[^\P{L}\p{Script=Latin}]|[ąęėįųūõäöåěřůňťďýĺľŕ]/iu;
 function foreignFragments(answer) {
-    const m = (answer || '').match(new RegExp(FOREIGN_RE.source, 'gi'));
+    const m = (answer || '').match(new RegExp(FOREIGN_RE.source, 'giu'));
     return m ? m.length : 0;
+}
+
+// Sekcijski odgovor mora biti parsabilan JSON s rezultatom za svaki traženi index.
+// Pokvaren JSON (29.10.2026., batch od 3) assemble tiho preskoči → sekcija bez ocjene.
+function missingResults(answer, wantIndexes) {
+    const a = answer || '';
+    const s = a.indexOf('{'), e = a.lastIndexOf('}');
+    if (s === -1 || e <= s) return wantIndexes.length;
+    let j;
+    try { j = JSON.parse(a.slice(s, e + 1)); } catch { return wantIndexes.length; }
+    const got = new Set((Array.isArray(j.results) ? j.results : []).map(r => r && r.index));
+    return wantIndexes.filter(i => !got.has(i)).length;
 }
 
 // Kandidati: *_yt_<VID>*.article.json (NE .en./.magisterium.), leksikografski najnoviji.
@@ -87,7 +101,10 @@ async function main() {
     if (!videoId) { console.error('Uporaba: --video-id <VID> [--channel <kanal>] [--force] [--no-publish]'); process.exit(1); }
     const force = args.includes('--force');
     const publish = !args.includes('--no-publish');
-    const batchSize = getArg('--batch-size') || '1';
+    // 2 sekcije po chat pozivu (29.10.2026.): 1,9× brže, ocjene unutar šuma, ~17 % manje citata
+    // (chat vraća max 10 referenci po pozivu). 1 = stara kvaliteta citata. Vidi
+    // docs/2026-10-29-magisterium-brzina-batch-eksperiment.md
+    const batchSize = getArg('--batch-size') || process.env.MAGISTERIUM_BATCH_SIZE || '2';
     const maxWords = getArg('--max-words') || '600';
     const langRetries = parseInt(getArg('--lang-retries') || '2', 10);
     const steps = [];
@@ -125,12 +142,18 @@ async function main() {
         if (r.status !== 0) { console.error('❌ dio chat poziva nije prošao — ponovi isti run (gotovi se preskaču)'); process.exit(2); }
     });
 
-    await step('2b jezična provjera', () => {
+    await step('2b jezik + potpunost', () => {
+        const job = JSON.parse(fs.readFileSync(jobPath, 'utf-8'));
+        const wantByName = new Map(job.batches.map(b =>
+            [`batch_${String(b.batchIndex).padStart(2, '0')}.mcp.json`, b.sectionRefs.map(r => r.localIndex)]));
         for (let round = 1; round <= langRetries; round++) {
-            const bad = fs.readdirSync(resultsDir).filter(f => f.endsWith('.mcp.json'))
-                .filter(f => foreignFragments(JSON.parse(fs.readFileSync(path.join(resultsDir, f), 'utf-8')).answer) > 0);
-            if (!bad.length) { console.log('   ✅ svi odgovori na hrvatskom'); return; }
-            console.log(`   ⚠️  strani fragmenti u: ${bad.join(', ')} — ponovno pitam (krug ${round}/${langRetries})`);
+            const bad = fs.readdirSync(resultsDir).filter(f => f.endsWith('.mcp.json')).filter(f => {
+                const answer = JSON.parse(fs.readFileSync(path.join(resultsDir, f), 'utf-8')).answer;
+                const want = wantByName.get(f);
+                return foreignFragments(answer) > 0 || (want && missingResults(answer, want) > 0);
+            });
+            if (!bad.length) { console.log('   ✅ svi odgovori na hrvatskom i potpuni'); return; }
+            console.log(`   ⚠️  strani fragmenti ili nepotpun JSON u: ${bad.join(', ')} — ponovno pitam (krug ${round}/${langRetries})`);
             for (const f of bad) {
                 const p = path.join(resultsDir, f);
                 fs.renameSync(p, `${p}.lang${round}.bak`);
@@ -179,4 +202,4 @@ if (require.main === module) {
     main().catch(e => { console.error(`❌ ${e.message}`); process.exit(1); });
 }
 
-module.exports = { foreignFragments, findArticle };
+module.exports = { foreignFragments, missingResults, findArticle };

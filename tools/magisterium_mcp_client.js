@@ -351,7 +351,10 @@ async function cmdRun() {
     const wall = (Date.now() - t0) / 1000;
     const avg = ok.length ? ok.reduce((a, s) => a + s.sec, 0) / ok.length : 0;
     console.log(`\n📊 Gotovo: ${ok.length} OK, ${failed.length} neuspjelih | zid ${wall.toFixed(1)} s | prosjek ${avg.toFixed(1)} s/poziv`);
-    fs.writeFileSync(path.join(resultsDir, 'client_stats.json'),
+    // ponovljeni run (npr. 2b retry) ne smije pregaziti mjerenja prvog runa
+    const statsPath = path.join(resultsDir, 'client_stats.json');
+    if (fs.existsSync(statsPath)) fs.renameSync(statsPath, path.join(resultsDir, `client_stats.${Date.now()}.json`));
+    fs.writeFileSync(statsPath,
         JSON.stringify({ wall_sec: wall, concurrency, rpm, calls: stats }, null, 1));
     if (failed.length) {
         console.log(`❌ Neuspjeli: ${failed.map(f => f.name).join(', ')} — ponovi isti run (preskače gotove)`);
@@ -366,4 +369,4 @@ if (require.main === module) {
     fn().catch(e => { console.error(`❌ ${e.message}`); process.exit(1); });
 }
 
-module.exports = { parseRpcBody, toolResultToResponse, responseToRawText, jobToTasks, createRateLimiter, isRateLimit };
+module.exports = { parseRpcBody, toolResultToResponse, responseToRawText, jobToTasks, createRateLimiter, isRateLimit, openSession, rpc };

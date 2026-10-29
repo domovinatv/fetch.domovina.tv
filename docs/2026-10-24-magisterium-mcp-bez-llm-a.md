@@ -89,7 +89,7 @@ Holistički poziv je u oba slučaja bio gotov od ranije, pa ga je skripta presko
 | `overall_score` | 78 | 83 |
 
 Vrijeme raste s brojem sekcija, a ne izravno s trajanjem snimke. Za planiranje:
-**trajanje ≈ 1 min + 0,5 min × sekcija**. Bez outlinea računaj **~15 min po satu snimke
+**trajanje ≈ 1 min + 0,5 min × sekcija** (batch 1; od 29.10. batch 2 ≈ 0,3 min × sekcija, vidi `2026-10-29-magisterium-brzina-batch-eksperiment.md`). Bez outlinea računaj **~15 min po satu snimke
 + 1 min po epizodi**: 10 h backloga ≈ 2,5 h, sekvencijalno. Osnova su samo dvije epizode.
 
 ### Usporedba po pozivu
