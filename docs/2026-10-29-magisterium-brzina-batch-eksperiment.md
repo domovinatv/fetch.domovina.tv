@@ -90,7 +90,13 @@ Zaključci:
   „Akvīnietis”). U eksperimentu se pojavilo i gruzijsko „Katolიცizam”. Novi regex
   hvata svako nelatinično slovo i ąęėįųūõäöåěřůňťďýĺľŕ. Audit cijelog kataloga:
   `node experiments/2026-10-29-magisterium-brze/audit_strani_jezik.js` → **2/433**
-  datoteke (dvije gore). Te dvije još nisu ponovno obrađene.
+  datoteke (dvije gore). Obje su popravljene istog dana alatom
+  `tools/magisterium_fix_foreign.js --video-id <VID>`: ponovno pita samo pogođene
+  sekcije (isti batch-size kao produkcija), ubaci ih u postojeći JSON, preračuna prosjeke
+  (oba `overall_score` ostala ista: 77 i 83) i staru datoteku preimenuje u `.bak.<ts>`.
+  Objava: `force_upload.js --targets magisterium` + EPUB + bundle. EN overlay
+  `QkcpHsj43rE` je bio preveden iz pokvarenog HR-a (11 armenskih znakova), pa je
+  ponovno preveden (`translate_to_english.js`, 96 s) i objavljen. Audit nakon toga: 0/433.
 - **Pokvaren JSON.** Odgovor s pokvarenim JSON-om (batch 3, batch_13) assemble je
   tiho preskočio, a sekcije su ostale bez ocjene. Sada 2b provjerava i ima li
   odgovor parsabilan `results` sa svim traženim indeksima (`missingResults`), pa se
@@ -102,6 +108,21 @@ Zaključci:
 
 ≈ 1 min + **0,3 min × sekcija** (prije 0,5 min). Primjer: 42 sekcije ≈ 13 min
 umjesto 25 min, 31 sekcija ≈ 10 min umjesto 17 min.
+
+## Plan (nije započeto)
+
+1. **Batch 2 na drugom žanru** (propovijed, apologetika) prije nego zaključimo da
+   ocjene ostaju u šumu i izvan tehničkih tema. Ista skripta: `run_batches.sh` uz
+   drugi `ART`.
+2. **`cited_text` iz `fetch`.** Citati u `article.magisterium.json` imaju prazan
+   `cited_text`. `chat` reference nose `source_url` (`…/docs/<doc>/ref/<n>`), ali ne
+   i `id` odlomka za `fetch`. Put: `search` s naslovom i referencom citata → pogodak
+   s istim `url` → `fetch(id)` → prvih ~300 znakova odlomka. Pazi na rate limit
+   `search`-a (sekvencijalno, ~11 s pod opterećenjem): ~3 citata × 42 sekcije ≈
+   125 poziva ≈ 20+ min po epizodi. Zato ide kao zaseban, odgođen korak (ne u
+   kritičnom putu objave) ili samo za nove epizode. Prototip dopune je
+   `experiments/2026-10-29-magisterium-brze/fill_citations.js` (puni `cited_text`
+   za citate koje sam doda).
 
 ## Što nije isprobano
 
