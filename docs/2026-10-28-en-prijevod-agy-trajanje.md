@@ -100,3 +100,55 @@ istog poziva ne prođe, epizoda je ❌ (exit 1), EN job `failed`, a `enqueue_en_
 ga ponovi nakon grace roka (24 h, najviše 3 puta). Stari putovi po iteraciji, sekciji i
 polju su u `translate_to_english.js` zakomentirani i označeni DEPRECATED — namjerno
 ostaju u sourceu kao zapis stare implementacije, ne brisati.
+
+## Neispravan JSON, odsječci od 90 min i `/clear` (29.10.2026.)
+
+**Simptom:** EN za `n38M_g__TxQ` (ora_et_labora, 67 min) je pao kao „agy: nema odgovora
+nakon 510 s", dvaput za članak i jednom za Magisterium (745 s). Ukupno ~37 min čekanja.
+
+**Uzrok nije timeout.** agy je u sva tri poziva završio za ~3 min i zapisao datoteku
+(„Edited 1 file" u tmux ekranu), ali s jednom sintaksnom greškom: Magisterium izlaz
+98 KB, na poziciji 38 282 nedostaje navodnik ispred ključa (`...\"Terrible.\"", i1_s1_keywords":`).
+`askOnce` je neparsabilan fajl tretirao kao „još piše" i čekao do roka. 510 s je naš rok
+(`300 s + 5 s/KB`, `TRANSLATE_AGY_TIMEOUT_SEC`), ne agy-jev: `agy --print-timeout` je
+po defaultu 0 (bez limita), a u tmuxu ga ionako ne koristimo. U 28.–29.10. to je bilo
+3 od 14 agy EN poziva.
+
+**Popravak 1 — `lib/agy_tmux.js` (595a6d45):** kad je izlaz 20 s nepromijenjen i ne
+parsira se, agy u istoj sesiji dobije potez „popravi samo JSON sintaksu, ne mijenjaj
+tekst" (najviše 2, rok 360 s po popravku), pa greška odmah. Vrijedi za sve `agyJson`
+pozive. Test s lažnim agy-jem u tmuxu: popravak uspije → 19 s; ne uspije → greška za 33 s.
+
+**Popravak 2 — `/clear` je prolazio kao tekst.** U `agyen-low` ekranu je iza prekinutih
+poziva stajalo `> clear` i odgovor modela („To start fresh, you can use /compact…"),
+dakle kontekst je rastao od prijevoda do prijevoda. Na svježoj sesiji `/clear` radi.
+Sada: ako ekran nakon `/clear` još sadrži `Read the file req-`, sesija se ubija i
+pokreće ispočetka.
+
+**Popravak 3 — odsječci (dc082b09), kompromis koji je Matija odobrio:** „jedan poziv po
+dokumentu" ima granicu. `planSegments` grupira sekcije po vremenu kadra
+(`screenshot_timestamp`, inače `start_time` iteracije) u odsječke od **≤90 min epizode i
+≤50 KB** teksta; sekcija se nikad ne cijepa, zaglavlje ide u prvi odsječak, ključevi su
+jedinstveni pa nema spajanja. Samo 90 min ne bi pomoglo: Magisterium nosi prosudbu uz
+svaku sekciju, pa je `n38M_g__TxQ` 93 KB za 67 min. Poziv po sekciji ostaje zabranjen.
+
+| dokument | prije | sada |
+|---|---|---|
+| članak `n38M_g__TxQ` (67 min) | 1 × 42 KB | 1 × 42 KB |
+| Magisterium `n38M_g__TxQ` | 1 × 93 KB | 2 × (51 + 37 KB) |
+| Magisterium `MNk-eEpDb3E` (28 min) | 1 × 16 KB | 1 × 16 KB |
+| članak od 6 h (`20260925_full_speech_netanyahu…`) | 1 × ~270 KB | 6 × ~52 KB |
+
+Podešavanje: `TRANSLATE_SEGMENT_MIN` (90), `TRANSLATE_SEGMENT_MAX_KB` (50). Sažetak i
+reelsi ostaju jedan poziv.
+
+**Otvoreno:**
+- Odsječci još nisu izmjereni na pravom agy-ju; prvi su `MNk-eEpDb3E` (1 odsječak) i
+  ponovljeni `n38M_g__TxQ` (job prekinut u 07:03, ide kroz `failed` → grace).
+- Ad-hoc rupa: `enqueue_en_new.js` preskače epizodu koja već ima `.article.en.json`, a
+  `_unlisted` nije kanal s Magisteriumom, pa kad EN članak stigne prije HR Magisteriuma,
+  Magisterium EN se sam nikad ne dodaje. Za `MNk-eEpDb3E` ga je stvorio admin gumb
+  „🕊 Mag HR/EN". Nije zakrpano.
+- Magisterium MCP rate-limit: pravi serverski `rate_limit_exceeded` (ne naš 15/min
+  throttle) pojavljuje se samo kad dva klijenta rade istodobno (29.10. eksperiment
+  `experiments/2026-10-29-magisterium-brze/` + HR tick → 12 čekanja × 20 s; 20.–28.10. nula).
