@@ -4,7 +4,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
-    batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT,
+    batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT, __setLlmJson,
 } = require("./translate_to_english.js");
 
 test("batchShapeError: ispravan odgovor prolazi", () => {
@@ -97,4 +97,33 @@ test("magisterium: sekcije i teme preuzima iz article.en.json, prevodi samo pros
     assert.deepEqual(a.keywords_en, ["A"]);
     assert.match(a.magisterium.assessment_en, /dry-run/, "prosudba se i dalje prevodi");
     assert.match(b.content_en, /dry-run/, "sekcija koja se ne poklapa prevodi se normalno");
+});
+
+test("article: cijeli dokument u jednom pozivu; kad ne prođe, po iteraciji", async () => {
+    const sec = (t) => ({ subtitle: `N ${t}`, content: `T ${t}`, keywords: [`k ${t}`] });
+    const art = () => ({ iterations: [{ theme: "A", sections: [sec(1), sec(2)] }, { theme: "B", sections: [sec(3)] }] });
+    const echo = (user) => Object.fromEntries(Object.entries(JSON.parse(user)).map(([k, v]) => [k, Array.isArray(v) ? v.map((x) => `EN ${x}`) : `EN ${v}`]));
+    const calls = [];
+    try {
+        __setLlmJson(async (_sys, user) => { calls.push(Object.keys(JSON.parse(user)).length); return echo(user); });
+        let out = await translateArticle(art(), false);
+        assert.equal(calls.length, 1, "cijeli članak = 1 poziv");
+        assert.equal(out.iterations[1].sections[0].content_en, "EN T 3");
+        assert.deepEqual(out.iterations[0].sections[1].keywords_en, ["EN k 2"]);
+
+        // Model izgubi ključ kad dobije cijeli dokument → po iteraciji, ne po sekciji.
+        calls.length = 0;
+        __setLlmJson(async (_sys, user) => {
+            const f = JSON.parse(user); calls.push(Object.keys(f).length);
+            const o = echo(user);
+            if (Object.keys(f).some((k) => k.startsWith("i1_")) && Object.keys(f).some((k) => k.startsWith("i0_"))) delete o.i1_theme;
+            return o;
+        });
+        out = await translateArticle(art(), false);
+        assert.equal(calls.length, 3, "1 neuspjeli cijeli + 2 iteracije");
+        assert.equal(out.iterations[0].theme_en, "EN A");
+        assert.equal(out.iterations[1].sections[0].subtitle_en, "EN N 3");
+    } finally {
+        __setLlmJson(null);
+    }
 });

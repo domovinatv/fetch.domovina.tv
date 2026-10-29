@@ -79,8 +79,10 @@ const USE_VERTEX = vertexEnabled();
 // tmux sesija zadržava model s kojim je pokrenuta.
 const AGY_MODEL = process.env.TRANSLATE_AGY_MODEL || "gemini-3.8-flash-low";
 const AGY_SESSION = `agyen-${AGY_MODEL.split("-").pop()}`;
-// Cijeli članak (~90 KB) traje ~3 min; rok je za dvostruko dulje epizode s rezervom.
-const AGY_DOC_TIMEOUT_MS = parseInt(process.env.TRANSLATE_AGY_TIMEOUT_SEC || "1800", 10) * 1000;
+// Rok jednog poziva raste s ulazom: 300 s + 5 s/KB (izmjereno ~2 s/KB: članak 92 KB = 180 s),
+// uz gornju granicu. Zaglavljeni poziv tako ne drži EN red pola sata prije fallbacka.
+const AGY_DOC_TIMEOUT_MAX_MS = parseInt(process.env.TRANSLATE_AGY_TIMEOUT_SEC || "1800", 10) * 1000;
+const agyDocTimeoutMs = (bytes) => Math.min(300000 + Math.ceil(bytes / 1024) * 5000, AGY_DOC_TIMEOUT_MAX_MS);
 const MODEL_LABEL = USE_VERTEX ? GEMINI_MODEL : `agy:${AGY_MODEL}`;
 // 3.8-flash postoji na global + eu/us multi-regijama (pojedinačne regije 404-aju, test
 // 28.09.2026.); svaka je zaseban DSQ bazen pa rotacija smanjuje 429. Regije: env pa
@@ -293,7 +295,9 @@ async function vertexJson(systemPrompt, userText, maxOutputTokens) {
 
 // Jedan JSON poziv: Vertex (eksplicitno upaljen) ili agy u tmux sesiji AGY_SESSION.
 // agy nema promptFeedback.blockReason, pa __blocked grana tamo nikad ne okine.
+let llmOverride = null;   // samo testovi: __setLlmJson(fn)
 async function llmJson(systemPrompt, userText, maxOutputTokens, timeoutMs) {
+    if (llmOverride) return llmOverride(systemPrompt, userText);
     if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);
     return agyJson({ system: systemPrompt, user: userText, session: AGY_SESSION, model: AGY_MODEL, ...(timeoutMs ? { timeoutMs } : {}) });
 }
@@ -401,11 +405,11 @@ async function translateFields(specs, dryRun) {
 /**
  * agy: CIJELI dokument u jednom pozivu. Pozivi kroz sesiju idu jedan za drugim, a svaki ima
  * fiksni trošak ~2 min, pa je poziv po sekciji (92/ep) trajao 3 h 41 min; jedan poziv po
- * dokumentu s -low ~5 min (29.10.2026.). Vraća false ako oblik ne prođe ni u drugom pokušaju
- * — pozivatelj se tada vraća na poziv po sekciji. Vertex ostaje na pozivu po sekciji
+ * dokumentu s -low ~5 min (29.10.2026.). Isto se koristi i za jednu iteraciju. Vraća false
+ * ako oblik ne prođe — pozivatelj tada ide na manji blok (iteracija, pa sekcija). Vertex ostaje na pozivu po sekciji
  * (maxOutputTokens i paralelni pozivi tamo rade).
  */
-async function translateWholeDoc(specs, dryRun) {
+async function translateWholeDoc(specs, dryRun, { attempts = 2, label = "cijeli dokument" } = {}) {
     if (USE_VERTEX) return false;
     const fields = {};
     const live = [];
@@ -421,17 +425,19 @@ async function translateWholeDoc(specs, dryRun) {
     if (dryRun) {
         res = await translateBatch(fields, true);
     } else {
-        for (let attempt = 1; attempt <= 2 && !res; attempt++) {
+        const user = JSON.stringify(fields);
+        const timeoutMs = agyDocTimeoutMs(Buffer.byteLength(user));
+        for (let attempt = 1; attempt <= attempts && !res; attempt++) {
             try {
-                const parsed = await llmJson(BATCH_TRANSLATOR_PROMPT, JSON.stringify(fields), BATCH_MAX_OUTPUT_TOKENS, AGY_DOC_TIMEOUT_MS);
+                const parsed = await llmJson(BATCH_TRANSLATOR_PROMPT, user, BATCH_MAX_OUTPUT_TOKENS, timeoutMs);
                 const reason = batchShapeError(fields, parsed);
                 if (!reason) res = parsed;
-                else process.stderr.write(`\n      ↩️  cijeli dokument (${reason}), pokušaj ${attempt}/2`);
+                else process.stderr.write(`\n      ↩️  ${label} (${reason}), pokušaj ${attempt}/${attempts}`);
             } catch (err) {
-                process.stderr.write(`\n      ↩️  cijeli dokument (${err.message}), pokušaj ${attempt}/2`);
+                process.stderr.write(`\n      ↩️  ${label} (${err.message}), pokušaj ${attempt}/${attempts}`);
             }
         }
-        if (!res) { process.stderr.write(`\n      ↩️  prelazim na poziv po sekciji`); return false; }
+        if (!res) return false;
     }
     for (const { obj, key, name } of live) obj[`${key}_en`] = res[name];
     return true;
@@ -500,12 +506,15 @@ async function translateSummary(croatian, dryRun) {
 
 async function translateArticle(croatian, dryRun) {
     const out = JSON.parse(JSON.stringify(croatian));
-    const whole = out.iterations.flatMap((it, n) => [
+    const iterSpecs = (it, n) => [
         { obj: it, key: "theme", name: `i${n}_theme` },
         { obj: it, key: "reason_for_cut", name: `i${n}_reason_for_cut` },
         ...(it.sections || []).flatMap((sec, m) => namedSectionSpecs(sec, `i${n}_s${m}_`)),
-    ]);
-    if (!(await translateWholeDoc(whole, dryRun))) for (const it of out.iterations) {
+    ];
+    // Cijeli članak → po iteraciji → po sekciji.
+    if (!(await translateWholeDoc(out.iterations.flatMap(iterSpecs), dryRun, { attempts: 1 }))) for (const [n, it] of out.iterations.entries()) {
+        if (await translateWholeDoc(iterSpecs(it, n), dryRun, { label: `iteracija ${n + 1}` })) continue;
+        process.stderr.write(`\n      ↩️  iteracija ${n + 1}: poziv po sekciji`);
         await translateFields([{ obj: it, key: "theme" }, { obj: it, key: "reason_for_cut" }], dryRun);
         // Jedan poziv po sekciji, sekcije paralelno.
         await mapLimit(it.sections || [], CONCURRENCY, (sec) => translateFields(sectionSpecs(sec), dryRun));
@@ -576,16 +585,16 @@ async function translateMagisterium(croatian, dryRun, articleEn = null) {
         ...(reusedSecs.has(sec) ? [] : namedSectionSpecs(sec, prefix)),
         ...(sec.magisterium ? ["assessment", "enrichment", "concerns"].map((key) => ({ obj: sec.magisterium, key, name: `${prefix}magisterium_${key}` })) : []),
     ];
-    const whole = [
-        ...header,
-        ...out.iterations.flatMap((it, n) => [
-            ...(reusedThemes.has(it) ? [] : [{ obj: it, key: "theme", name: `i${n}_theme` }]),
-            ...(it.sections || []).flatMap((sec, m) => secSpecs(sec, `i${n}_s${m}_`)),
-        ]),
+    const iterSpecs = (it, n) => [
+        ...(reusedThemes.has(it) ? [] : [{ obj: it, key: "theme", name: `i${n}_theme` }]),
+        ...(it.sections || []).flatMap((sec, m) => secSpecs(sec, `i${n}_s${m}_`)),
     ];
-    if (!(await translateWholeDoc(whole, dryRun))) {
-        await translateFields(header, dryRun);
-        for (const it of out.iterations) {
+    // Cijeli Magisterium → zaglavlje + po iteraciji → po sekciji.
+    if (!(await translateWholeDoc([...header, ...out.iterations.flatMap(iterSpecs)], dryRun, { attempts: 1 }))) {
+        if (!(await translateWholeDoc(header, dryRun, { label: "zaglavlje" }))) await translateFields(header, dryRun);
+        for (const [n, it] of out.iterations.entries()) {
+            if (await translateWholeDoc(iterSpecs(it, n), dryRun, { label: `iteracija ${n + 1}` })) continue;
+            process.stderr.write(`\n      ↩️  iteracija ${n + 1}: poziv po sekciji`);
             if (!reusedThemes.has(it)) await translateFields([{ obj: it, key: "theme" }], dryRun);
             await mapLimit(it.sections || [], CONCURRENCY, (sec) => translateFields(secSpecs(sec, ""), dryRun));
         }
@@ -792,4 +801,7 @@ if (require.main === module) {
     });
 }
 
-module.exports = { batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT };
+module.exports = {
+    batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT,
+    __setLlmJson: (fn) => { llmOverride = fn; },
+};
