@@ -66,10 +66,10 @@ const GEMINI_CONF = loadGeminiConf();
 // gemini.conf (u repou zna raditi druga sesija paralelno).
 const GEMINI_MODEL = process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
 
-// Backend: "vertex" (default), "cli" (gemini CLI non-interactive) ili "claude" (Claude Code CLI).
+// Backend: "claude" (default, Claude Code CLI), "agy", "cli" (gemini CLI) ili "vertex" (DEPRECATED).
 // Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).
-// Od 28.10.2026. Vertex je isključen po defaultu (lib/vertex_auth.js): bez GEMINI_BACKEND ide
-// `claude` (Opus, pretplata); `vertex` traži eksplicitni VERTEX_ENABLED=1.
+// Bez GEMINI_BACKEND ide `claude` (Opus, pretplata). `vertex` je DEPRECATED od 29.10.2026.
+// (lib/vertex_auth.js) i ruši se odmah ispod; grana ostaje u sourceu, ne brisati.
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || (vertexEnabled() ? "vertex" : "claude")).toLowerCase();
 if (GEMINI_BACKEND === "vertex" && !vertexEnabled()) {
     console.error(`❌ ${VERTEX_DISABLED_MSG} (GEMINI_BACKEND=vertex). Koristi claude ili agy.`);
@@ -570,6 +570,10 @@ function startElapsedTimer(prefix) {
     };
 }
 
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false, token se ne izdaje). Ostaje u sourceu kao zapis stare implementacije, ne
+// brisati. Obično LLM zaključivanje je ograničeno izlaznim tokenima; agy/Claude Code su
+// asistenti koji sami spoje 1..M poziva u upotrebljiv JSON.
 // Dohvaća OAuth2 access token koristeći gcloud CLI
 function getAccessToken() {
     try {

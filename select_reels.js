@@ -15,7 +15,7 @@
  * Vidi docs/2026-10-25-reels-kandidati.md.
  *
  * Backend prati korake 7+8 (GEMINI_BACKEND): `claude` = `claude -p` pod pretplatom
- * (nightly, Opus), `vertex` = Gemini na Vertexu (bimbo-sync-prod).
+ * (nightly, Opus), `vertex` = Gemini na Vertexu (bimbo-sync-prod) — DEPRECATED od 29.10.2026., ne radi.
  *
  * Idempotentno: preskače epizodu čiji reels.json je noviji od segments.jsonl.
  * Doseg: bez --video-id/--channel samo epizode objavljene u zadnjih --since-days dana
@@ -26,7 +26,7 @@
  *   node select_reels.js --video-id f2HIRJPHHK4
  *   node select_reels.js --video-id f2HIRJPHHK4 --force --count 8
  *   node select_reels.js --channel muzevni_budite --since-days 0 --dry-run
- *   GEMINI_BACKEND=vertex node select_reels.js --video-id DOfcONrRyDY
+ *   GEMINI_BACKEND=vertex node select_reels.js --video-id DOfcONrRyDY   # DEPRECATED, ruši se
  *
  * Zastavice:
  *   --input-dir <dir>    korijen kanala (default storage/output)
@@ -81,8 +81,8 @@ function loadConf() {
     return conf;
 }
 const CONF = loadConf();
-// Od 28.10.2026. Vertex je isključen po defaultu (lib/vertex_auth.js): bez GEMINI_BACKEND ide
-// `claude` (Opus, pretplata); `vertex` traži eksplicitni VERTEX_ENABLED=1.
+// Bez GEMINI_BACKEND ide `claude` (Opus, pretplata). `vertex` je DEPRECATED od 29.10.2026.
+// (lib/vertex_auth.js) i ruši se odmah ispod; grana ostaje u sourceu, ne brisati.
 const BACKEND = (process.env.GEMINI_BACKEND || (vertexEnabled() ? "vertex" : "claude")).toLowerCase();
 if (BACKEND === "vertex" && !vertexEnabled()) {
     console.error(`❌ ${VERTEX_DISABLED_MSG} (GEMINI_BACKEND=vertex). Koristi claude ili agy.`);
@@ -257,6 +257,10 @@ function callClaude(system, user) {
     });
 }
 
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false, token se ne izdaje). Ostaje u sourceu kao zapis stare implementacije, ne
+// brisati. Obično LLM zaključivanje je ograničeno izlaznim tokenima; agy/Claude Code su
+// asistenti koji sami spoje 1..M poziva u upotrebljiv JSON.
 let vertexToken = null, vertexTokenAt = 0, regionIdx = 0;
 async function callVertex(system, user) {
     const price = { in: parseFloat(CONF.GEMINI_PRICE_IN || "0.75"), out: parseFloat(CONF.GEMINI_PRICE_OUT || "3.75") };

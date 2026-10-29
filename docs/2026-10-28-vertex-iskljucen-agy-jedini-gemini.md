@@ -1,5 +1,21 @@
 # Vertex AI isključen po defaultu, agy jedini put za Gemini (28.10.2026.)
 
+> **Ažurirano 29.10.2026.: Vertex je DEPRECATED.** `VERTEX_ENABLED=1` više ne radi ništa:
+> `vertexEnabled()` je uvijek `false` i token se ne izdaje. Vertex grane u svim skriptama
+> (`translate_to_english.js`, `summarize_gemini.js`, `generate_article_gemini.js`,
+> `select_reels.js`, `screenshot_youtube.js`, `refine_diarized_gemini.js`, `run_pipeline.sh`,
+> legacy alati) i Vertex opcija u admin UI-u pipeline.domovina.ai označeni su DEPRECATED i
+> **ostaju u sourceu** kao zapis stare implementacije — ne brisati.
+>
+> Zašto (Matija): Vertex je obično LLM zaključivanje. Glavno ograničenje je količina izlaznih
+> tokena, pa smo dug izlaz (prijevod epizode, članak, Magisterium) morali sami rezati u
+> desetke poziva po sekciji i spajati — sporo i lomljivo. agy i Claude Code su AI asistenti:
+> sami interno naprave 1..M LLM poziva i vrate jedan upotrebljiv JSON. Skripta koja bi zvala
+> Vertex i sama spajala izlaze upravo je ono što želimo izbjeći. Mjerenje koje je to
+> potvrdilo: `docs/2026-10-28-en-prijevod-agy-trajanje.md` (3 h 41 min → 5 min).
+>
+> Tablica ispod opisuje stanje 28.10. i i dalje vrijedi, samo bez mogućnosti paljenja.
+
 **Odluka (Matija, 28.10.2026.):** Vertex AI se u ovom repou **ne koristi osim kad se
 eksplicitno upali** (`VERTEX_ENABLED=1`). Implementacija ostaje u kodu. Gemini pozivi idu
 samo kroz **agy (Antigravity CLI) u tmux sesiji**, na Google AI Pro pretplati ($0).

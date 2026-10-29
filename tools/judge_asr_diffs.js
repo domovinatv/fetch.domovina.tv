@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI / obično Gemini LLM zaključivanje se više ne koristi
+// (lib/vertex_auth.js). Datoteka ostaje u sourceu kao zapis stare implementacije, ne brisati.
+// Gemini ide samo kroz agy (lib/agy_tmux.js), sažetak i članak kroz Claude Code.
 /**
  * tools/judge_asr_diffs.js — SLIJEPO preslušavanje mjesta gdje se Soniox i drugi izvor
  * razlikuju. Gemini 3.8 Flash (Vertex, bimbo-sync-prod) čuje isječak i za svaku stavku

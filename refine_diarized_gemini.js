@@ -130,7 +130,8 @@ const FORCE_PROMOTE = hasFlag("--force-promote");
 // --no-gemini (28.10.2026.): bez Gemini sluha. Kostur (Soniox+pyannoteAI) se piše i promovira
 // bez ijednog Vertex poziva, pod istim imenima (.{kostur}.gemini.*) jer po njima isPromotedRefine
 // (5 kopija) zna da Sortformer ne smije zasjeniti kanonski SRT. meta.gemini_ear=false kaže istinu.
-// Bez VERTEX_ENABLED=1 (default od 28.10.) sluh nema čime ići, pa je isto što i --no-gemini.
+// Vertex je DEPRECATED od 29.10.2026. (vertexEnabled() je uvijek false), pa je ovo uvijek
+// --no-gemini: sluh kroz Vertex ostaje u sourceu kao stara implementacija, ne brisati.
 const NO_GEMINI = hasFlag("--no-gemini") || /^(0|false|off|no)$/i.test(process.env.GEMINI_EAR || "") || !vertexEnabled();
 
 const GEMINI_MODEL = getArg("--model") || process.env.GEMINI_MODEL || GEMINI_CONF.GEMINI_MODEL || "gemini-3.8-flash";
@@ -342,6 +343,10 @@ function buildWindows(segments, stepSeconds) {
     return wins;
 }
 
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false, token se ne izdaje). Ostaje u sourceu kao zapis stare implementacije, ne
+// brisati. Obično LLM zaključivanje je ograničeno izlaznim tokenima; agy/Claude Code su
+// asistenti koji sami spoje 1..M poziva u upotrebljiv JSON.
 // ─── OAuth (isti pin kao summarize_gemini.js) ───
 let cachedToken = null;
 let tokenExpiry = 0;

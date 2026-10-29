@@ -5,7 +5,8 @@
  *
  * Generira engleske paralelne artefakte (summary.en.json, article.en.json,
  * article.magisterium.en.json) iz hrvatskih originala uz strogi "no hallucinations"
- * režim — Vertex AI Gemini 2.5 Flash sa temperature=0 i eksplicitnim pravilima.
+ * režim — Gemini kroz agy (Antigravity CLI u tmuxu) i eksplicitna pravila. (Do 28.10.2026.
+ * Vertex AI Gemini s temperature=0 — DEPRECATED, kod ostaje u sourceu.)
  *
  * Princip:
  *   1. JEDAN poziv po DOKUMENTU (sažetak, članak, Magisterium), agy model gemini-3.8-flash-low —
@@ -27,7 +28,7 @@
  *   {basename}.wav.canary.diarized_{date}_{model}.article.magisterium.json
  *     → {basename}.wav.canary.diarized_{date}_{model}.article.magisterium.en.json
  *
- * Auth: gcloud OAuth (memory: gemini-auth-oauth-only). Multi-region rotacija.
+ * Auth: agy prijava (Google AI Pro pretplata). DEPRECATED Vertex put: gcloud OAuth + rotacija regija.
  *
  * Usage:
  *   node translate_to_english.js --input-dir storage/output --video-id 6ueR_Leq6uE
@@ -71,7 +72,10 @@ const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT 
 // generaciju (gemini.conf), pa je model konzistentan. SKUPLJI: $1.50 in / $9.00 out (global) vs
 // preview $0.50/$3.00 — free-trial krediti pokrivaju. Treba re-test sustained RPM-a na 3.5-flash.
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
-// Od 28.10.2026. Gemini ide kroz agy u tmuxu (pretplata); Vertex samo uz VERTEX_ENABLED=1.
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false). Ostaje u sourceu kao zapis stare implementacije, ne brisati. Obično LLM
+// zaključivanje je ograničeno izlaznim tokenima; agy kao asistent sam spoji 1..M poziva.
+// Od 29.10.2026. prijevod ide SAMO kroz agy u tmuxu (pretplata); USE_VERTEX je uvijek false.
 const USE_VERTEX = vertexEnabled();
 // Prijevod ne treba razmišljanje: -low je izmjeren 29.10.2026. na QkcpHsj43rE i daje isti
 // broj rečenica kao -high (docs/2026-10-28-en-prijevod-agy-trajanje.md). Zaseban env od
@@ -90,10 +94,11 @@ const MODEL_LABEL = USE_VERTEX ? GEMINI_MODEL : `agy:${AGY_MODEL}`;
 const VERTEX_REGIONS = (process.env.VERTEX_REGIONS || GEMINI_CONF.VERTEX_REGIONS || "global")
     .split(",").map(r => r.trim()).filter(Boolean);
 
-if (!VERTEX_PROJECT) {
-    console.error("❌ VERTEX_PROJECT nije postavljen (gemini.conf ili env).");
-    process.exit(1);
-}
+// DEPRECATED (29.10.2026.): projekt treba samo Vertex putu, koji se više ne koristi.
+// if (!VERTEX_PROJECT) {
+//     console.error("❌ VERTEX_PROJECT nije postavljen (gemini.conf ili env).");
+//     process.exit(1);
+// }
 
 // 429 na `global` endpointu zna doći u naletima (kvota je dijeljena i ne ovisi o
 // nama). Linearni backoff 3-6-9-12s u 5 pokušaja daje ukupno ~45 s čekanja — kraće
@@ -241,6 +246,9 @@ function parseFirstJsonObject(str) {
     throw new Error("Nezatvoren JSON objekt u odgovoru");
 }
 
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false). Ostaje u sourceu kao zapis stare implementacije, ne brisati. Obično LLM
+// zaključivanje je ograničeno izlaznim tokenima; agy kao asistent sam spoji 1..M poziva.
 /**
  * Jedan Vertex poziv s retry/backoff/rotacijom regija. Vraća parsirani JSON odgovora ili
  * `{ __blocked: reason }` kad je prompt blokiran (PROHIBITED_CONTENT i sl. — deterministički
@@ -298,12 +306,12 @@ async function vertexJson(systemPrompt, userText, maxOutputTokens) {
     throw new Error("MAX_RETRIES exceeded");
 }
 
-// Jedan JSON poziv: Vertex (eksplicitno upaljen) ili agy u tmux sesiji AGY_SESSION.
-// agy nema promptFeedback.blockReason, pa __blocked grana tamo nikad ne okine.
+// Jedan JSON poziv kroz agy u tmux sesiji AGY_SESSION. Vertex grana je DEPRECATED (nikad ne
+// okine, USE_VERTEX=false). agy nema promptFeedback.blockReason, pa __blocked nikad ne dođe.
 let llmOverride = null;   // samo testovi: __setLlmJson(fn)
 async function llmJson(systemPrompt, userText, maxOutputTokens, timeoutMs) {
     if (llmOverride) return llmOverride(systemPrompt, userText);
-    if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);
+    if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);   // DEPRECATED
     return agyJson({ system: systemPrompt, user: userText, session: AGY_SESSION, model: AGY_MODEL, ...(timeoutMs ? { timeoutMs } : {}) });
 }
 
@@ -749,7 +757,7 @@ async function main() {
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Input:   ${opts.inputDir}`);
     console.log(USE_VERTEX ? `   🌐 Project: ${VERTEX_PROJECT} | Model: ${GEMINI_MODEL}` : `   🌐 agy (tmux ${AGY_SESSION}, pretplata, 1 poziv po dokumentu) | Model: ${AGY_MODEL} — Vertex isključen`);
-    console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
+    if (USE_VERTEX) console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);   // DEPRECATED
     if (opts.videoId) console.log(`   🎬 Video ID: ${opts.videoId}`);
     if (opts.channel) console.log(`   📁 Channel: ${opts.channel}`);
     if (opts.dryRun) console.log("   ⚠️  DRY-RUN — no API calls");

@@ -1,3 +1,6 @@
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI / obično Gemini LLM zaključivanje se više ne koristi
+// (lib/vertex_auth.js). Datoteka ostaje u sourceu kao zapis stare implementacije, ne brisati.
+// Gemini ide samo kroz agy (lib/agy_tmux.js), sažetak i članak kroz Claude Code.
 const args = process.argv.slice(2);
 const key = args[0];
 

@@ -454,6 +454,10 @@ let cachedAccessToken = null;
 let tokenExpiry = 0;
 const bestFrameUsage = { calls: 0, promptTokens: 0, outputTokens: 0, agyCalls: 0, visionCalls: 0 };
 
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false, token se ne izdaje). Ostaje u sourceu kao zapis stare implementacije, ne
+// brisati. Obično LLM zaključivanje je ograničeno izlaznim tokenima; agy/Claude Code su
+// asistenti koji sami spoje 1..M poziva u upotrebljiv JSON.
 function getOrRefreshAccessToken() {
     const now = Date.now();
     if (cachedAccessToken && now < tokenExpiry) return cachedAccessToken;
@@ -582,7 +586,8 @@ async function askGeminiBestFrame(sheetPath, n, originalLabel) {
 // Gasi se i s SCREENSHOT_AGY_FALLBACK=0. Gledanje: tmux attach -t agyss -r
 
 const AGY_AFTER_429 = 2;
-// Bez VERTEX_ENABLED=1 (default od 28.10.2026.) agy je JEDINI put — Vertex se ne zove.
+// Vertex je DEPRECATED od 29.10.2026. (VERTEX_ON je uvijek false): rezerva iza Apple Visiona je
+// SAMO agy. Vertex grana izbora kadra ostaje u sourceu, ne brisati.
 const VERTEX_ON = require("./lib/vertex_auth").vertexEnabled();
 const AGY_FIRST = process.env.SCREENSHOT_BEST_FRAME_BACKEND === "agy" || !VERTEX_ON;
 const AGY_SESSION = process.env.SCREENSHOT_AGY_SESSION || "agyss";

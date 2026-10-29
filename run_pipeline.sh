@@ -156,13 +156,16 @@ echo "   ⏱️  Početak: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "   📂 Argumenti: $*"
 # Mjerodavan je VERTEX_PROJECT (export gore / gemini.conf), NE `gcloud config`.
 # Globalni gcloud config namjerno pokazuje drugdje — ispiši oboje da log ne laže.
-# Vertex AI je od 28.10.2026. ISKLJUČEN po defaultu (lib/vertex_auth.js); Gemini ide kroz agy u
-# tmuxu (pretplata). Pali se samo eksplicitno: VERTEX_ENABLED=1.
-case "${VERTEX_ENABLED:-}" in 1|true|on|yes) VERTEX_ON=true ;; *) VERTEX_ON=false ;; esac
+# ⚠️ Vertex AI je DEPRECATED od 29.10.2026. (lib/vertex_auth.js) i ne koristi se, ni uz
+# VERTEX_ENABLED=1: obično LLM zaključivanje je ograničeno izlaznim tokenima, a agy/Claude Code
+# kao asistenti sami spoje 1..M poziva u upotrebljiv JSON. Gemini ide SAMO kroz agy u tmuxu,
+# sažetak i članak kroz Claude. Stara provjera ostaje zakomentirana, ne brisati:
+# case "${VERTEX_ENABLED:-}" in 1|true|on|yes) VERTEX_ON=true ;; *) VERTEX_ON=false ;; esac
+VERTEX_ON=false
 if [ "$VERTEX_ON" = true ]; then
     echo "   ☁️  Vertex projekt: ${VERTEX_PROJECT} (mjerodavno, VERTEX_ENABLED=1)"
 else
-    echo "   🚫 Vertex AI: ISKLJUČEN (VERTEX_ENABLED=1 za paljenje) — Gemini ide kroz agy/tmux, članci kroz Claude"
+    echo "   🚫 Vertex AI: DEPRECATED (ne koristi se) — Gemini ide kroz agy/tmux, članci kroz Claude"
 fi
 echo "   ℹ️  gcloud config:  $(gcloud config get-value project 2>/dev/null || echo 'N/A') (nebitno za pipeline)"
 echo ""
@@ -382,7 +385,7 @@ MODAL_FRESH_DAYS="${MODAL_FRESH_DAYS:-2}"
 SCREENSHOT_PROXY=""
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
-# Bez Vertexa je default `claude` (Opus, pretplata); `--gemini-backend vertex` traži VERTEX_ENABLED=1.
+# Default `claude` (Opus, pretplata). `--gemini-backend vertex` je DEPRECATED: skripte ga odbiju.
 if [ "$VERTEX_ON" = true ]; then GEMINI_BACKEND="vertex"; else GEMINI_BACKEND="claude"; fi
 ALL_ARGS=("$@")
 i=0
@@ -536,7 +539,7 @@ if [ "$VIA_IPHONE" = true ]; then
     fi
 fi
 
-# Validacija --gemini-backend ("vertex", "cli" ili "claude")
+# Validacija --gemini-backend ("claude", "agy", "cli"; "vertex" je DEPRECATED i skripte ga odbiju)
 if [ "$GEMINI_BACKEND" != "vertex" ] && [ "$GEMINI_BACKEND" != "cli" ] && [ "$GEMINI_BACKEND" != "claude" ] && [ "$GEMINI_BACKEND" != "agy" ]; then
     echo "❌ Nepoznat --gemini-backend: '$GEMINI_BACKEND' (dozvoljeno: vertex, cli, claude, agy)"
     exit 1

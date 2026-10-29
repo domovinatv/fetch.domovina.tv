@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## ⛔ HARD RULES — READ FIRST
 
-0. **☁️ GCP PROJEKT = `bimbo-sync-prod`. SAMO TAJ.** (od 14.09.2026.)
+0. **☁️ GCP PROJEKT = `bimbo-sync-prod`. SAMO TAJ.** (od 14.09.2026.; Vertex LLM pozivi su od 29.10.2026. DEPRECATED, vidi 0b)
    Billing `01FAEA-72A278-819B25`, novi free-trial krediti: **$216.93 od $300 preostalo (14.10.2026., 72 %), istječu 14.12.2026.** Svi Vertex pozivi —
    summary, članak, EN prijevod, RAG vector/person map — idu na njega.
    **Stari `project-a275a620-ef0c-45ae-99e` se VIŠE NE KORISTI** (krediti potrošeni
@@ -17,10 +17,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    Povijest pauze i popis što troši Vertex: `docs/2026-09-09-launchd-pauza-gcp-billing.md`,
    migracija: `docs/2026-09-14-migracija-na-bimbo-sync-prod.md`.
 
-0b. **🚫 Vertex AI je ISKLJUČEN po defaultu** (od 28.10.2026.). Pali se samo eksplicitno s
-   `VERTEX_ENABLED=1`; ograda je u `lib/vertex_auth.js` (`vertexAccessToken()` baca grešku).
+0b. **🚫 Vertex AI je DEPRECATED** (od 29.10.2026.; isključen po defaultu od 28.10.). Ne pali se
+   više ničim, ni `VERTEX_ENABLED=1`: `lib/vertex_auth.js` `vertexEnabled()` je uvijek `false`,
+   `vertexAccessToken()` baca grešku. Kod ostaje u sourceu s oznakom DEPRECATED — **ne brisati**.
+   Zašto: Vertex je obično LLM zaključivanje, ograničeno izlaznim tokenima, pa smo dugi izlaz
+   morali sami rezati u desetke poziva i spajati. agy i Claude Code su **asistenti** koji sami
+   interno naprave 1..M poziva i vrate jedan upotrebljiv JSON (EN prijevod 3 h 41 min → 5 min).
    Gemini pozivi idu SAMO kroz **agy u tmuxu** (`lib/agy_tmux.js`, pretplata), sažetak i članak
-   kroz **Claude (Opus)**. Novi kod koji treba Gemini koristi `agyJson()`, ne Vertex REST.
+   kroz **Claude (Opus)**. Novi kod koji treba Gemini koristi `agyJson()` s cijelim dokumentom
+   u jednom pozivu, ne Vertex REST i ne vlastito rezanje/spajanje.
    Detalji: `docs/2026-10-28-vertex-iskljucen-agy-jedini-gemini.md`.
 
 1. **Pipeline rad SAMO iz OVOG repoa.** Sav fetch / transkripcija / diarizacija /
@@ -321,15 +326,15 @@ For this project's pipeline (96+ file batches arriving weekly), batch-no-chunkin
 
 **Workhorse script structure mirrors `transcribe_canary.py`**: idempotent (skips files with existing `.sortformer.diarized.srt`), heartbeat every 60s, ETA from running average, partial-failure tolerant. The diarization+merge logic is the same best-overlap algorithm as `diarize_canary.py:assign_speakers`.
 
-### LLM backend za korake 7+8: `--gemini-backend vertex|cli|claude|agy`
+### LLM backend za korake 7+8: `--gemini-backend claude|agy|cli` (`vertex` DEPRECATED)
 
 Koraci 7 (sažetak) i 8 (članak) imaju zamjenjiv backend, čitan iz env vara `GEMINI_BACKEND`:
 
 | Backend | Što koristi | Kada |
 |---|---|---|
-| `vertex` (default) | Vertex AI REST, `gemini-3.5-flash`, global endpoint | Nightly batch, backlog |
-| `cli` | `gemini` CLI (user-level google login) | Fallback kad Vertex zapinje |
-| `claude` | **`claude -p --model opus` pod Claude Code PRETPLATOM** | Prioritetni / ad-hoc videi — kvaliteta |
+| `claude` (default od 28.10.2026.) | **`claude -p --model opus` pod Claude Code PRETPLATOM** | Nightly i prioritetni videi |
+| `vertex` | ⚠️ DEPRECATED od 29.10.2026. — skripte ga odbijaju (kod ostaje u sourceu) | — |
+| `cli` | `gemini` CLI (user-level google login) | Bivši fallback kad je Vertex zapinjao |
 | `agy` | `agy -p` (Antigravity CLI), model iz `AGY_MODEL` | Eksperimentalno / usporedba kvalitete |
 
 ⚠️ **Slug u imenu datoteke odlučuje tko pobjeđuje.** Downstream dedupa po leksikografski

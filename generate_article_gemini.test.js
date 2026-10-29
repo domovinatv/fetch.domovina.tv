@@ -15,9 +15,13 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
-// Testovi mockaju Vertex REST — od 28.10.2026. Vertex je isključen po defaultu, pa ga ovdje
-// palimo eksplicitno (prije requirea: backend se bira pri učitavanju modula).
-process.env.VERTEX_ENABLED = "1";
+// Testovi mockaju Vertex REST da provjere zajedničku logiku članka (outline → iteracije →
+// resume, popravak JSON-a). Vertex je DEPRECATED od 29.10.2026. i u produkciji se ne može
+// upaliti (lib/vertex_auth.js), pa test podmetne ogradu SAMO u svom procesu, prije requirea
+// (backend i funkcije se vežu pri učitavanju modula). Produkcijski kod nema stražnja vrata.
+const vertexAuth = require("./lib/vertex_auth");
+vertexAuth.vertexEnabled = () => true;
+vertexAuth.vertexAccessToken = () => "test-token";
 process.env.GEMINI_BACKEND = "vertex";
 const {
     extractJsonFromText,

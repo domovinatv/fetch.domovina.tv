@@ -102,11 +102,11 @@ function diffUsage(before) {
     return d;
 }
 
-// Backend: "vertex" (default, Vertex AI REST API + region rotacija), "cli" (gemini CLI, non-interactive)
-// ili "claude" (Claude Code CLI pod pretplatom — vidi niže).
+// Backend: "claude" (default, Claude Code CLI pod pretplatom — vidi niže), "agy", "cli" (gemini CLI)
+// ili "vertex" (DEPRECATED, Vertex AI REST API + region rotacija).
 // Postavi preko env vara GEMINI_BACKEND=... (run_pipeline.sh --gemini-backend ...).
-// Od 28.10.2026. Vertex je isključen po defaultu (lib/vertex_auth.js): bez GEMINI_BACKEND ide
-// `claude` (Opus, pretplata); `vertex` traži eksplicitni VERTEX_ENABLED=1.
+// Bez GEMINI_BACKEND ide `claude` (Opus, pretplata). `vertex` je DEPRECATED od 29.10.2026.
+// (lib/vertex_auth.js) i ruši se odmah ispod; grana ostaje u sourceu, ne brisati.
 const GEMINI_BACKEND = (process.env.GEMINI_BACKEND || (vertexEnabled() ? "vertex" : "claude")).toLowerCase();
 if (GEMINI_BACKEND === "vertex" && !vertexEnabled()) {
     console.error(`❌ ${VERTEX_DISABLED_MSG} (GEMINI_BACKEND=vertex). Koristi claude ili agy.`);
@@ -446,6 +446,10 @@ function srtToText(srtContent) {
 }
 
 // ─── OAUTH TOKEN (iz generate_article_gemini.js) ───────────────
+// ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
+// uvijek false, token se ne izdaje). Ostaje u sourceu kao zapis stare implementacije, ne
+// brisati. Obično LLM zaključivanje je ograničeno izlaznim tokenima; agy/Claude Code su
+// asistenti koji sami spoje 1..M poziva u upotrebljiv JSON.
 
 function getAccessToken() {
     try {
