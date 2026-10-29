@@ -27,6 +27,8 @@
  *     → {basename}.wav.canary.diarized_{date}_{model}.article.en.json
  *   {basename}.wav.canary.diarized_{date}_{model}.article.magisterium.json
  *     → {basename}.wav.canary.diarized_{date}_{model}.article.magisterium.en.json
+ *   {basename}.reels.json   (KORAK 9.9, select_reels.js)
+ *     → {basename}.reels.en.json   (od 29.10.2026.; ugovor: docs/2026-10-29-reels-en.md)
  *
  * Auth: agy prijava (Google AI Pro pretplata). DEPRECATED Vertex put: gcloud OAuth + rotacija regija.
  *
@@ -40,6 +42,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const { agyJson } = require("./lib/agy_tmux");
 const { execSync } = require("child_process");
@@ -503,6 +506,18 @@ function isProperNoun(s) {
     return /^[A-ZČĆĐŠŽ]/.test(s) || /[čćđšž]/.test(s);
 }
 
+// Uloge govornika su mali zatvoren skup, pa ih ne prepuštamo modelu: „sugovornik" je
+// doslovno izlazio kao „interlocutor" (QkcpHsj43rE), a za publiku je točnije „audience member".
+const SPEAKER_ROLE_EN = {
+    voditelj: "host", voditeljica: "host", suvoditelj: "co-host", suvoditeljica: "co-host",
+    gost: "guest", gošća: "guest", sugovornik: "participant", sugovornica: "participant",
+};
+/** Deterministički role_en; null = nepoznata uloga, ostaje prijevod modela. */
+function speakerRoleEn(role, name) {
+    if (/publik/i.test(name || "")) return "audience member";
+    return SPEAKER_ROLE_EN[String(role || "").trim().toLowerCase()] || null;
+}
+
 async function translateSummary(croatian, dryRun) {
     const out = JSON.parse(JSON.stringify(croatian)); // deep clone
     const eS = out.summary || {};
@@ -515,6 +530,9 @@ async function translateSummary(croatian, dryRun) {
         { obj: eS, key: "abstract_hr", name: "abstract" },
         ...["key_topics", "key_points", "mentioned_people", "mentioned_places", "mentioned_organizations"].map((key) => ({ obj: eS, key, name: key })),
         ...(Array.isArray(eS.speakers) ? eS.speakers.map((sp, i) => ({ obj: sp, key: "role", name: `speaker_${i}_role` })) : []),
+        // Ime ide modelu cijelo: vlastito ime vraća neprevedeno (pravilo 4 prompta), a
+        // generičko („Sudionica iz publike") prevede. Player na EN-u tada ne miješa jezike.
+        ...(Array.isArray(eS.speakers) ? eS.speakers.map((sp, i) => ({ obj: sp, key: "suggested_name", name: `speaker_${i}_name` })) : []),
     ];
     await translateWholeDoc(specs, dryRun, { label: "sažetak" });
     // DEPRECATED (29.10.2026.) — ne koristi se, ne brisati: isti poziv kroz translateBatch,
@@ -523,6 +541,10 @@ async function translateSummary(croatian, dryRun) {
     // title_hr/abstract_hr → title_en/abstract_en (ne title_hr_en)
     for (const k of ["title", "abstract"]) {
         if (eS[`${k}_hr_en`] !== undefined) { eS[`${k}_en`] = eS[`${k}_hr_en`]; delete eS[`${k}_hr_en`]; }
+    }
+    for (const sp of Array.isArray(eS.speakers) ? eS.speakers : []) {
+        const role = speakerRoleEn(sp.role, sp.suggested_name);
+        if (role) sp.role_en = role;
     }
 
     eS.language = "hr"; // izvorni
@@ -647,6 +669,85 @@ async function translateMagisterium(croatian, dryRun, articleEn = null) {
     return out;
 }
 
+// ─── REELS (reels.json → reels.en.json) ───────────────────────────
+// Zaseban fajl, ne *_en polja u reels.json: render_reels.js reels.json prepisuje (render.url,
+// poster_url) i on ne smije ovisiti o EN traci, a EN ne smije zastarjeti kad se doda video.
+// EN fajl ima ISTU shemu s prevedenim VRIJEDNOSTIMA (ne *_en); frontend ga čita uz pad na
+// reels.json po polju. Ugovor: docs/2026-10-29-reels-en.md.
+const REEL_TEXT_KEYS = ["title", "hook", "why", "quote", "speaker"];
+const REEL_CARD_KEYS = ["text", "value"];
+
+/** Tekst koji se prevodi — i ništa drugo. Otisak ovoga odlučuje treba li novi prijevod. */
+function reelsTextPayload(doc) {
+    return {
+        title: doc.title || "",
+        reels: (doc.reels || []).map((r) => ({
+            ...Object.fromEntries(REEL_TEXT_KEYS.map((k) => [k, r[k] || ""])),
+            speakers: r.speakers || [],
+            cards: (r.cards || []).map((c) => Object.fromEntries(REEL_CARD_KEYS.map((k) => [k, c[k] || ""]))),
+        })),
+    };
+}
+function reelsSourceSha(doc) {
+    return crypto.createHash("sha256").update(JSON.stringify(reelsTextPayload(doc))).digest("hex");
+}
+
+/**
+ * nameMap: HR ime govornika → EN (iz summary.en.json suggested_name_en), da reel i player
+ * zovu istu osobu istim imenom. Imena koja su u mapi ne idu modelu.
+ * `cards[].anchor` je HR fraza za sidrenje na words.json — NE prevodi se, at_sec ostaje.
+ */
+async function translateReels(croatian, dryRun, { nameMap = new Map() } = {}) {
+    const out = JSON.parse(JSON.stringify(croatian));
+    delete out.rejected;   // odbačeni kandidati: HR razlozi za dijagnostiku, frontend ih ne čita
+    const specs = [{ obj: out, key: "title", name: "episode_title" }];
+    (out.reels || []).forEach((r, i) => {
+        // Video reela je iz reels.json (render_reels.js ga dopisuje kasnije) — ovdje bi zastario.
+        delete r.render;
+        for (const k of REEL_TEXT_KEYS) {
+            if (k === "speaker" && nameMap.has(r.speaker)) { r.speaker = nameMap.get(r.speaker); continue; }
+            specs.push({ obj: r, key: k, name: `r${i}_${k}` });
+        }
+        if (Array.isArray(r.speakers) && r.speakers.some((n) => !nameMap.has(n))) {
+            specs.push({ obj: r, key: "speakers", name: `r${i}_speakers` });
+        }
+        (r.cards || []).forEach((c, j) => {
+            for (const k of REEL_CARD_KEYS) specs.push({ obj: c, key: k, name: `r${i}_c${j}_${k}` });
+        });
+    });
+    await translateWholeDoc(specs, dryRun, { label: "reels" });
+    // translateWholeDoc piše obj[key + "_en"]; EN fajl nosi prijevod pod IZVORNIM ključem.
+    for (const { obj, key } of specs) {
+        if (obj[`${key}_en`] === undefined) continue;
+        obj[key] = obj[`${key}_en`];
+        delete obj[`${key}_en`];
+    }
+    (out.reels || []).forEach((r, i) => {
+        const hr = croatian.reels[i].speakers;
+        if (Array.isArray(hr)) r.speakers = hr.map((n, k) => nameMap.get(n) || r.speakers[k]);
+    });
+    out.language = "en";
+    out.translation = {
+        target_language: "en",
+        model: MODEL_LABEL,
+        method: "literal-no-hallucinations-whole-doc",
+        temperature: 0,
+        generated_at: new Date().toISOString(),
+        source: "reels.json",
+        source_sha256: reelsSourceSha(croatian),
+    };
+    return out;
+}
+
+/** HR ime → EN ime iz summary.en.json (samo gdje se razlikuju). */
+function speakerNameMap(summaryEn) {
+    const map = new Map();
+    for (const sp of summaryEn?.summary?.speakers || []) {
+        if (sp.suggested_name && sp.suggested_name_en && sp.suggested_name_en !== sp.suggested_name) map.set(sp.suggested_name, sp.suggested_name_en);
+    }
+    return map;
+}
+
 // ─── DISCOVERY ────────────────────────────────────────────────────
 
 function discoverArtifacts(inputDir, channelFilter, videoIdFilter) {
@@ -685,11 +786,27 @@ function discoverArtifacts(inputDir, channelFilter, videoIdFilter) {
                 .sort().reverse();
             const magFile = magFiles[0];
 
-            if (!summaryFile && !articleFile && !magFile) continue;
-            results.push({ ...entry, summaryFile, articleFile, magFile });
+            // reels (KORAK 9.9); `.reels.en.json` ne završava na `.reels.json`
+            const reelsFile = entry.files.find(f => f.endsWith(".reels.json"));
+
+            if (!summaryFile && !articleFile && !magFile && !reelsFile) continue;
+            results.push({ ...entry, summaryFile, articleFile, magFile, reelsFile });
         }
     }
     return results;
+}
+
+/**
+ * reels.json se mijenja i bez promjene teksta (render_reels.js dopisuje render.url), pa
+ * mtime nije signal. Novi prijevod samo kad se promijenio TEKST kandidata.
+ */
+function reelsEnStale(srcPath, enPath) {
+    try {
+        const en = JSON.parse(fs.readFileSync(enPath, "utf-8"));
+        return en?.translation?.source_sha256 !== reelsSourceSha(JSON.parse(fs.readFileSync(srcPath, "utf-8")));
+    } catch {
+        return true;
+    }
 }
 
 // ─── MAIN ─────────────────────────────────────────────────────────
@@ -776,7 +893,9 @@ async function main() {
         const triples = [
             { src: it.summaryFile, kind: "summary", translate: translateSummary, replaceSuffix: ".canary.summary.json", enSuffix: ".canary.summary.en.json" },
             { src: it.articleFile, kind: "article", translate: translateArticle, replaceSuffix: ".article.json", enSuffix: ".article.en.json" },
-            { src: it.magFile, kind: "magisterium", translate: translateMagisterium, replaceSuffix: ".article.magisterium.json", enSuffix: ".article.magisterium.en.json" }
+            { src: it.magFile, kind: "magisterium", translate: translateMagisterium, replaceSuffix: ".article.magisterium.json", enSuffix: ".article.magisterium.en.json" },
+            // Zadnji: imena govornika uzima iz upravo napisanog summary.en.json.
+            { src: it.reelsFile, kind: "reels", translate: translateReels, replaceSuffix: ".reels.json", enSuffix: ".reels.en.json" }
         ];
 
         for (const t of triples) {
@@ -785,7 +904,7 @@ async function main() {
             const outPath = path.join(it.channelDir, outFile);
             const srcPath = path.join(it.channelDir, t.src);
 
-            if (!opts.force && fs.existsSync(outPath)) {
+            if (!opts.force && fs.existsSync(outPath) && !(t.kind === "reels" && reelsEnStale(srcPath, outPath))) {
                 console.log(`      ⏭️  ${t.kind}: već postoji — ${outFile}`);
                 totalSkip++;
                 continue;
@@ -802,7 +921,12 @@ async function main() {
                     const aEn = path.join(it.channelDir, t.src.replace(/\.article\.magisterium\.json$/, ".article.en.json"));
                     if (fs.existsSync(aEn)) articleEn = JSON.parse(fs.readFileSync(aEn, "utf-8"));
                 }
-                const translated = await t.translate(croatian, opts.dryRun, articleEn);
+                let ctx = articleEn;
+                if (t.kind === "reels") {
+                    const sEn = it.summaryFile && path.join(it.channelDir, it.summaryFile.replace(/\.canary\.summary\.json$/, ".canary.summary.en.json"));
+                    ctx = { nameMap: sEn && fs.existsSync(sEn) ? speakerNameMap(JSON.parse(fs.readFileSync(sEn, "utf-8"))) : new Map() };
+                }
+                const translated = await t.translate(croatian, opts.dryRun, ctx);
                 const sec = ((Date.now() - start) / 1000).toFixed(1);
                 // DRY-RUN NIŠTA NE ZAPISUJE. Prije je zapisivao stub `[dry-run en] …`
                 // datoteke koje `upload_to_r2.js --video-id` pokupi regexom i objavi kao
@@ -842,6 +966,7 @@ if (require.main === module) {
 }
 
 module.exports = {
-    batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT,
+    batchShapeError, translateSummary, translateArticle, translateMagisterium, translateReels, BATCH_TRANSLATOR_PROMPT,
+    reelsSourceSha, reelsEnStale, speakerNameMap, speakerRoleEn,
     __setLlmJson: (fn) => { llmOverride = fn; },
 };

@@ -27,8 +27,16 @@
  *   MAGBF_RETRY_HOURS / MAGBF_MAX_FAILED  (isto kao enqueue_magisterium_backfill.js)
  *
  *   node automatic/enqueue_en_new.js --dry-run   # samo ispiše kandidate
+ *
+ * Zakašnjeli reelsi (od 29.10.2026.): EN job prevodi i reels.json (→ reels.en.json), ali
+ * reels.json zna nastati ili se promijeniti NAKON EN prijevoda (KORAK 9.9 u kasnijem runu).
+ * Poller takav EN job preskače jer je article.en.json već na CDN-u, pa ga ovdje rješavamo
+ * izravno: epizoda s EN člankom, a bez svježeg reels.en.json (otisak HR teksta, ne mtime) →
+ * translate_to_english.js (prevede samo reelse, ~1 agy poziv) + upload + episode.json.
+ * EN_REELS_MAX (default 3) po ticku; isti otisak najviše 3 neuspjeha, pa čeka promjenu teksta.
  */
 const fs = require('fs');
+const { spawnSync } = require('child_process');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
@@ -42,6 +50,9 @@ const RETRY_HOURS = parseFloat(process.env.MAGBF_RETRY_HOURS || '24');
 const MAX_FAILED = parseInt(process.env.MAGBF_MAX_FAILED || '3', 10);
 const CHANNELS_FILE = path.join(__dirname, 'full_backfill_channels.txt');
 const DRY_RUN = process.argv.includes('--dry-run');
+const REELS_MAX = parseInt(process.env.EN_REELS_MAX || '3', 10);
+const REELS_STATE_FILE = path.join(__dirname, 'logs', '.reels_en_state.json');
+const REELS_MAX_TRIES = 3;
 
 // {basename}.wav.canary.diarized_{date}_{model}.article.json — model sadrži točke (gemini-3.5-flash).
 const ARTICLE_RE = /^(.*_yt_([A-Za-z0-9_-]{11}).*)_(\d{4}-\d{2}-\d{2})_(.+?)\.article\.json$/;
@@ -91,6 +102,62 @@ function collectCandidates() {
     return [...byId.values()];
 }
 
+/** Epizode s EN člankom čiji reels.en.json nedostaje ili je zastario (isti SINCE prozor). */
+function staleReelsEn() {
+    const { reelsEnStale, reelsSourceSha } = require(path.join(ROOT, 'translate_to_english.js'));
+    const out = [];
+    for (const entry of fs.readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
+        if (!(entry.isDirectory() || entry.isSymbolicLink()) || entry.name.startsWith('.')) continue;
+        const dir = path.join(OUTPUT_DIR, entry.name);
+        let files;
+        try { files = fs.readdirSync(dir); } catch { continue; }
+        const set = new Set(files);
+        for (const f of files) {
+            if (f.startsWith('._') || !f.endsWith('.reels.json')) continue;
+            const ids = [...f.matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
+            if (!ids.length) continue;
+            const id = ids[ids.length - 1][1];
+            const base = f.slice(0, -'.reels.json'.length);
+            // Najnoviji datirani članak te epizode mora imati EN — inače reelse prevede EN job.
+            const stems = files.map((x) => x.match(ARTICLE_RE)).filter((m) => m && m[1] === `${base}.wav.canary.diarized`).sort((a, b) => (a[0] < b[0] ? 1 : -1));
+            const latest = stems[0];
+            if (!latest || latest[3] < SINCE || !set.has(latest[0].replace(/\.article\.json$/, '.article.en.json'))) continue;
+            const src = path.join(dir, f);
+            if (!reelsEnStale(src, path.join(dir, `${base}.reels.en.json`))) continue;
+            let sha = '';
+            try { sha = reelsSourceSha(JSON.parse(fs.readFileSync(src, 'utf8'))); } catch { continue; }
+            out.push({ id, channel: entry.name, sha });
+        }
+    }
+    return out;
+}
+
+function refreshReelsEn() {
+    const stale = staleReelsEn();
+    if (!stale.length) return;
+    let state = {};
+    try { state = JSON.parse(fs.readFileSync(REELS_STATE_FILE, 'utf8')); } catch { /* prazno */ }
+    let done = 0;
+    for (const r of stale) {
+        const tag = `${r.id} [${r.channel}]`;
+        const st = state[r.id];
+        if (st && st.sha === r.sha && st.tries >= REELS_MAX_TRIES) { console.log(`  ⛔ reels EN ${tag} — ${st.tries}× neuspjeh za isti tekst`); continue; }
+        if (done >= REELS_MAX) { console.log(`🛑 EN_REELS_MAX=${REELS_MAX} — ostatak idući tick.`); break; }
+        done++;
+        if (DRY_RUN) { console.log(`  🧪 reels EN ${tag} → bi se preveo`); continue; }
+        console.log(`  🎬 reels EN ${tag} — reels.en.json nedostaje ili je zastario`);
+        const run = (cmd, args) => spawnSync(cmd, args, { cwd: ROOT, stdio: 'inherit' }).status === 0;
+        const ok = run('node', ['translate_to_english.js', '--input-dir', 'storage/output', '--channel', r.channel, '--video-id', r.id])
+            && run(path.join(__dirname, 'with_pipeline_lock.sh'), ['node', 'upload_to_r2.js', '--input-dir', 'storage/output', '--video-id', r.id])
+            && run('node', ['build_episode_bundle.js', '--video-id', r.id]);
+        state[r.id] = ok ? { sha: r.sha, tries: 0 } : { sha: r.sha, tries: (st && st.sha === r.sha ? st.tries : 0) + 1 };
+        console.log(ok ? `  ✅ reels EN ${tag} objavljen` : `  ❌ reels EN ${tag} nije uspio`);
+    }
+    if (!DRY_RUN) {
+        try { fs.writeFileSync(REELS_STATE_FILE, JSON.stringify(state, null, 1)); } catch { /* nije kritično */ }
+    }
+}
+
 async function api(method, pathname, body) {
     const res = await fetch(PIPELINE_QUEUE_BASE + pathname, {
         method,
@@ -112,6 +179,7 @@ async function cdnHas(id, name) {
 }
 
 (async () => {
+    try { refreshReelsEn(); } catch (e) { console.log(`⚠️ reels EN greška: ${e.message}`); }
     const candidates = collectCandidates();
     console.log(`🌐 EN auto (članci od ${SINCE}): ${candidates.length} epizoda bez EN-a.`);
     if (!candidates.length) return;

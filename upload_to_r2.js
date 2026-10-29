@@ -216,7 +216,7 @@ function cacheControlFor(r2Key) {
     // Isti popis kao `isContentMutable` — vidi ondje zašto je og-sections.json tu.
     if (basename === "_manifest.json" || basename === "manifest.json"
         || basename === "og-sections.json" || basename === "episode.json"
-        || basename === "reels.json") return CACHE_CONTROL_MUTABLE;
+        || basename === "reels.json" || basename === "reels.en.json") return CACHE_CONTROL_MUTABLE;
     return CACHE_CONTROL_IMMUTABLE;
 }
 
@@ -544,6 +544,10 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename.endsWith(".canary.summary.en.json"))
         return `data/${videoId}/summary.en.json`;
 
+    // EN reels kandidati (translate_to_english.js). HR reels.json nosi render_reels.js, ne ovaj uploader.
+    if (filename.endsWith(".reels.en.json"))
+        return `data/${videoId}/reels.en.json`;
+
     if (filename.endsWith(".canary.summary.json"))
         return `data/${videoId}/summary.json`;
 
@@ -703,6 +707,7 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
         if (!shouldUpload && OUTLINE_PATTERN.test(filename)) shouldUpload = true;
         // Summary engleski paralelan output (.canary.summary.en.json) — UPLOAD_SUFFIXES match .canary.summary.json prvo, pa explicit fallback
         if (!shouldUpload && filename.endsWith(".canary.summary.en.json")) shouldUpload = true;
+        if (!shouldUpload && filename.endsWith(".reels.en.json")) shouldUpload = true;
 
         if (shouldUpload) {
             files.push({
@@ -942,7 +947,9 @@ function isContentMutable(r2Key) {
         || basename === "og-sections.json"
         || basename === "episode.json"
         // `reels.json` (render_reels.js) dobiva render.url/poster_url nakon prvog uploada
-        || basename === "reels.json";
+        || basename === "reels.json"
+        // `reels.en.json` (translate_to_english.js) se prevodi ponovno kad se promijeni tekst kandidata
+        || basename === "reels.en.json";
 }
 
 /**

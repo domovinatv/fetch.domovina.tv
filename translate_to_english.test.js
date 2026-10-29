@@ -4,7 +4,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
-    batchShapeError, translateSummary, translateArticle, translateMagisterium, BATCH_TRANSLATOR_PROMPT, __setLlmJson,
+    batchShapeError, translateSummary, translateArticle, translateMagisterium, translateReels, BATCH_TRANSLATOR_PROMPT, __setLlmJson,
+    reelsSourceSha, speakerNameMap, speakerRoleEn,
 } = require("./translate_to_english.js");
 
 test("batchShapeError: ispravan odgovor prolazi", () => {
@@ -135,8 +136,82 @@ test("magisterium i sažetak: po jedan poziv", async () => {
         const s = await translateSummary({ summary: { title_hr: "Naslov", key_points: ["a", "b"], speakers: [{ role: "gost" }] } }, false);
         assert.equal(calls.length, 2);
         assert.equal(s.summary.title_en, "EN Naslov");
-        assert.equal(s.summary.speakers[0].role_en, "EN gost");
+        assert.equal(s.summary.speakers[0].role_en, "guest", "poznata uloga ne ovisi o modelu");
     } finally {
         __setLlmJson(null);
     }
+});
+
+const echoEn = (user) => Object.fromEntries(Object.entries(JSON.parse(user)).map(([k, v]) => [k, Array.isArray(v) ? v.map((x) => `EN ${x}`) : `EN ${v}`]));
+
+test("summary: suggested_name_en i role_en za publiku (ne „interlocutor“)", async () => {
+    try {
+        __setLlmJson(async (_sys, user) => echoEn(user));
+        const s = await translateSummary({ summary: { title_hr: "N", speakers: [
+            { suggested_name: "Matija Stepanić", role: "gost" },
+            { suggested_name: "Sudionica iz publike", role: "sugovornik" },
+            { suggested_name: "Ana", role: "sugovornica" },
+        ] } }, false);
+        const [a, b, c] = s.summary.speakers;
+        assert.equal(a.suggested_name_en, "EN Matija Stepanić", "ime ide modelu (vlastito vraća neprevedeno)");
+        assert.equal(a.role_en, "guest");
+        assert.equal(b.role_en, "audience member");
+        assert.equal(c.role_en, "participant");
+    } finally {
+        __setLlmJson(null);
+    }
+    assert.equal(speakerRoleEn("prof", "X"), null, "nepoznata uloga ostaje prijevodu modela");
+});
+
+const reelsDoc = () => ({
+    version: 1, video_id: "QkcpHsj43rE", title: "AI u praksi",
+    rejected: [{ reason: "prekratko" }],
+    reels: [{
+        rank: 1, start_sec: 3342.33, end_sec: 3429.15, start_seq: 279, end_seq: 285, kind: "story", score: 9,
+        title: "Kauč stigao", hook: "Tri mjeseca", why: "Zato", quote: "Napiši mail",
+        speaker: "Sudionica iz publike", speakers: ["Sudionica iz publike", "Matija Stepanić"],
+        render: { url: "https://cdn/x.mp4" },
+        cards: [
+            { type: "lower_third", at_sec: 0, text: "Sudionica iz publike · StartupVG", anchor: null, anchored: false },
+            { type: "number", at_sec: 9.96, text: "Kauč kasni", anchor: "Tri mjeseca ga već", anchored: true, value: "3 mjeseca" },
+        ],
+    }],
+});
+
+test("reels: ista shema, prevedene vrijednosti, anchor/at_sec netaknuti, 1 poziv", async () => {
+    const calls = [];
+    try {
+        __setLlmJson(async (_sys, user) => { calls.push(JSON.parse(user)); return echoEn(user); });
+        const nameMap = new Map([["Sudionica iz publike", "Audience member"]]);
+        const out = await translateReels(reelsDoc(), false, { nameMap });
+        assert.equal(calls.length, 1, "cijeli reels.json = 1 poziv");
+        assert.ok(!Object.keys(calls[0]).some((k) => k.endsWith("_speaker")), "ime iz mape ne ide modelu");
+        const r = out.reels[0];
+        assert.equal(out.title, "EN AI u praksi");
+        assert.equal(r.title, "EN Kauč stigao");
+        assert.equal(r.title_en, undefined, "EN fajl nosi prijevod pod izvornim ključem");
+        assert.equal(r.speaker, "Audience member");
+        assert.deepEqual(r.speakers, ["Audience member", "EN Matija Stepanić"]);
+        assert.equal(r.cards[1].value, "EN 3 mjeseca");
+        assert.equal(r.cards[1].anchor, "Tri mjeseca ga već", "anchor ostaje HR (sidro na words.json)");
+        assert.equal(r.cards[1].at_sec, 9.96);
+        assert.deepEqual([r.rank, r.start_sec, r.end_seq, r.kind, r.score], [1, 3342.33, 285, "story", 9]);
+        assert.equal(r.render, undefined, "video reela se čita iz reels.json");
+        assert.equal(out.rejected, undefined);
+        assert.equal(out.language, "en");
+        assert.equal(out.translation.source_sha256, reelsSourceSha(reelsDoc()));
+    } finally {
+        __setLlmJson(null);
+    }
+});
+
+test("reels: otisak ovisi samo o tekstu, ne o render bloku", () => {
+    const a = reelsDoc();
+    const b = reelsDoc(); b.reels[0].render = { url: "https://cdn/y.mp4", poster_url: "p" };
+    const c = reelsDoc(); c.reels[0].hook = "Drukčiji hook";
+    assert.equal(reelsSourceSha(a), reelsSourceSha(b));
+    assert.notEqual(reelsSourceSha(a), reelsSourceSha(c));
+    assert.deepEqual([...speakerNameMap({ summary: { speakers: [
+        { suggested_name: "Ana", suggested_name_en: "Ana" }, { suggested_name: "Sudionik iz publike 1", suggested_name_en: "Audience member 1" },
+    ] } })], [["Sudionik iz publike 1", "Audience member 1"]]);
 });
