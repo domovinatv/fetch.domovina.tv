@@ -8,8 +8,10 @@
  * režim — Vertex AI Gemini 2.5 Flash sa temperature=0 i eksplicitnim pravilima.
  *
  * Princip:
- *   1. Jedan poziv po BLOKU (sekcija, zaglavlje, sažetak) kao JSON, ne cijeli dokument odjednom
- *      i ne polje po polje (24.10.2026.: ~1000 poziva/ep → ~30-50); fallback polje po polje
+ *   1. agy (default od 28.10.2026.): JEDAN poziv po DOKUMENTU (sažetak, članak, Magisterium),
+ *      model gemini-3.8-flash-low — 29.10.2026. cijela epizoda 300 s umjesto 3 h 41 min.
+ *      Fallback i Vertex: jedan poziv po BLOKU (sekcija, zaglavlje), pa polje po polje.
+ *      Magisterium sekcije članka preuzima iz article.en.json (ne prevodi ih ponovno).
  *   2. temperature=0, responseMimeType=application/json
  *   3. System prompt zabranjuje paraphrazu, embelishment, izostavljanje
  *   4. Croatian proper names (Brčina, Antunovski hod) ostaju isti
@@ -38,7 +40,7 @@
 const fs = require("fs");
 const path = require("path");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
-const { agyJson, DEFAULT_MODEL: AGY_MODEL } = require("./lib/agy_tmux");
+const { agyJson } = require("./lib/agy_tmux");
 const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ────────────────────────────────────────────────
@@ -71,6 +73,14 @@ const VERTEX_ACCOUNT = process.env.VERTEX_ACCOUNT || GEMINI_CONF.VERTEX_ACCOUNT 
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
 // Od 28.10.2026. Gemini ide kroz agy u tmuxu (pretplata); Vertex samo uz VERTEX_ENABLED=1.
 const USE_VERTEX = vertexEnabled();
+// Prijevod ne treba razmišljanje: -low je izmjeren 29.10.2026. na QkcpHsj43rE i daje isti
+// broj rečenica kao -high (docs/2026-10-28-en-prijevod-agy-trajanje.md). Zaseban env od
+// AGY_MODEL, koji ostaje za ostale agy pozive. Sesija nosi razinu u imenu, jer postojeća
+// tmux sesija zadržava model s kojim je pokrenuta.
+const AGY_MODEL = process.env.TRANSLATE_AGY_MODEL || "gemini-3.8-flash-low";
+const AGY_SESSION = `agyen-${AGY_MODEL.split("-").pop()}`;
+// Cijeli članak (~90 KB) traje ~3 min; rok je za dvostruko dulje epizode s rezervom.
+const AGY_DOC_TIMEOUT_MS = parseInt(process.env.TRANSLATE_AGY_TIMEOUT_SEC || "1800", 10) * 1000;
 const MODEL_LABEL = USE_VERTEX ? GEMINI_MODEL : `agy:${AGY_MODEL}`;
 // 3.8-flash postoji na global + eu/us multi-regijama (pojedinačne regije 404-aju, test
 // 28.09.2026.); svaka je zaseban DSQ bazen pa rotacija smanjuje 429. Regije: env pa
@@ -281,11 +291,11 @@ async function vertexJson(systemPrompt, userText, maxOutputTokens) {
     throw new Error("MAX_RETRIES exceeded");
 }
 
-// Jedan JSON poziv: Vertex (eksplicitno upaljen) ili agy u tmux sesiji `agyen`.
+// Jedan JSON poziv: Vertex (eksplicitno upaljen) ili agy u tmux sesiji AGY_SESSION.
 // agy nema promptFeedback.blockReason, pa __blocked grana tamo nikad ne okine.
-async function llmJson(systemPrompt, userText, maxOutputTokens) {
+async function llmJson(systemPrompt, userText, maxOutputTokens, timeoutMs) {
     if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);
-    return agyJson({ system: systemPrompt, user: userText, session: "agyen" });
+    return agyJson({ system: systemPrompt, user: userText, session: AGY_SESSION, model: AGY_MODEL, ...(timeoutMs ? { timeoutMs } : {}) });
 }
 
 async function translateOne(croatianText, dryRun) {
@@ -388,6 +398,50 @@ async function translateFields(specs, dryRun) {
     for (const { obj, key, name } of live) obj[`${key}_en`] = res[name];
 }
 
+/**
+ * agy: CIJELI dokument u jednom pozivu. Pozivi kroz sesiju idu jedan za drugim, a svaki ima
+ * fiksni trošak ~2 min, pa je poziv po sekciji (92/ep) trajao 3 h 41 min; jedan poziv po
+ * dokumentu s -low ~5 min (29.10.2026.). Vraća false ako oblik ne prođe ni u drugom pokušaju
+ * — pozivatelj se tada vraća na poziv po sekciji. Vertex ostaje na pozivu po sekciji
+ * (maxOutputTokens i paralelni pozivi tamo rade).
+ */
+async function translateWholeDoc(specs, dryRun) {
+    if (USE_VERTEX) return false;
+    const fields = {};
+    const live = [];
+    for (const spec of specs) {
+        if (!spec.obj) continue;
+        if (Array.isArray(spec.obj[spec.key]) && !spec.obj[spec.key].length) { spec.obj[`${spec.key}_en`] = []; continue; }
+        if (!hasText(spec.obj[spec.key])) continue;
+        fields[spec.name] = spec.obj[spec.key];
+        live.push(spec);
+    }
+    if (!live.length) return true;
+    let res = null;
+    if (dryRun) {
+        res = await translateBatch(fields, true);
+    } else {
+        for (let attempt = 1; attempt <= 2 && !res; attempt++) {
+            try {
+                const parsed = await llmJson(BATCH_TRANSLATOR_PROMPT, JSON.stringify(fields), BATCH_MAX_OUTPUT_TOKENS, AGY_DOC_TIMEOUT_MS);
+                const reason = batchShapeError(fields, parsed);
+                if (!reason) res = parsed;
+                else process.stderr.write(`\n      ↩️  cijeli dokument (${reason}), pokušaj ${attempt}/2`);
+            } catch (err) {
+                process.stderr.write(`\n      ↩️  cijeli dokument (${err.message}), pokušaj ${attempt}/2`);
+            }
+        }
+        if (!res) { process.stderr.write(`\n      ↩️  prelazim na poziv po sekciji`); return false; }
+    }
+    for (const { obj, key, name } of live) obj[`${key}_en`] = res[name];
+    return true;
+}
+
+/** sectionSpecs s jedinstvenim imenima za poziv koji nosi više sekcija. */
+function namedSectionSpecs(sec, prefix) {
+    return sectionSpecs(sec).map((spec) => ({ ...spec, name: `${prefix}${spec.key}` }));
+}
+
 /** Paralelno s gornjom granicom (sekcije članka). */
 async function mapLimit(items, limit, fn) {
     let next = 0;
@@ -446,7 +500,12 @@ async function translateSummary(croatian, dryRun) {
 
 async function translateArticle(croatian, dryRun) {
     const out = JSON.parse(JSON.stringify(croatian));
-    for (const it of out.iterations) {
+    const whole = out.iterations.flatMap((it, n) => [
+        { obj: it, key: "theme", name: `i${n}_theme` },
+        { obj: it, key: "reason_for_cut", name: `i${n}_reason_for_cut` },
+        ...(it.sections || []).flatMap((sec, m) => namedSectionSpecs(sec, `i${n}_s${m}_`)),
+    ]);
+    if (!(await translateWholeDoc(whole, dryRun))) for (const it of out.iterations) {
         await translateFields([{ obj: it, key: "theme" }, { obj: it, key: "reason_for_cut" }], dryRun);
         // Jedan poziv po sekciji, sekcije paralelno.
         await mapLimit(it.sections || [], CONCURRENCY, (sec) => translateFields(sectionSpecs(sec), dryRun));
@@ -461,30 +520,75 @@ async function translateArticle(croatian, dryRun) {
     return out;
 }
 
-async function translateMagisterium(croatian, dryRun) {
-    const out = JSON.parse(JSON.stringify(croatian));
+/**
+ * Sekcije Magisteriuma su doslovna kopija sekcija članka (QkcpHsj43rE: 42/42 iste). Ako je
+ * article.en.json već preveden, njegova polje preuzimamo umjesto da ih prevodimo ponovno:
+ * kroz agy je to pola trajanja magisterium faze, a oba taba onda imaju ISTI engleski tekst
+ * (dvostruki prijevod se razlikovao u svih 42 sekcije). Ključ = HR subtitle + content.
+ */
+function articleEnIndex(articleEn) {
+    const idx = new Map();
+    for (const it of articleEn?.iterations || []) {
+        if (hasText(it.theme) && hasText(it.theme_en)) idx.set(`theme\u0000${it.theme}`, { theme_en: it.theme_en });
+        for (const sec of it.sections || []) {
+            if (!hasText(sec.content_en)) continue;
+            idx.set(`sec\u0000${sec.subtitle}\u0000${sec.content}`, sec);
+        }
+    }
+    return idx;
+}
 
-    // Zaglavlje u jednom pozivu: score_interpretation, teme iz score_breakdown i holistički
-    // blok (SLOJ 1). Bez `overall` Magisterium tab se u EN-u prikaže dvojezično — sekcije
-    // engleske, zaglavlje hrvatsko. citations su već engleski → ostaju.
+/** Prepiše *_en polja sekcije iz article.en.json; true ako je sekcija pokrivena. */
+function reuseSectionEn(sec, idx) {
+    const src = idx.get(`sec\u0000${sec.subtitle}\u0000${sec.content}`);
+    if (!src) return false;
+    for (const { key } of sectionSpecs(sec)) {
+        if (src[`${key}_en`] !== undefined) sec[`${key}_en`] = src[`${key}_en`];
+    }
+    return true;
+}
+
+async function translateMagisterium(croatian, dryRun, articleEn = null) {
+    const out = JSON.parse(JSON.stringify(croatian));
+    const idx = articleEnIndex(articleEn);
+
+    // Prvo preuzmi što je već prevedeno u article.en.json; ostatak ide modelu.
+    const reusedSecs = new Set();
+    const reusedThemes = new Set();
+    for (const it of out.iterations) {
+        const themeEn = idx.get(`theme\u0000${it.theme}`);
+        if (themeEn) { it.theme_en = themeEn.theme_en; reusedThemes.add(it); }
+        for (const sec of it.sections || []) if (reuseSectionEn(sec, idx)) reusedSecs.add(sec);
+    }
+    if (idx.size) process.stdout.write(`(${reusedSecs.size} sekcija iz article.en.json) `);
+
+    // Zaglavlje: score_interpretation, teme iz score_breakdown i holistički blok (SLOJ 1).
+    // Bez `overall` Magisterium tab se u EN-u prikaže dvojezično — sekcije engleske,
+    // zaglavlje hrvatsko. citations (i document_title/author) su već engleski → ostaju.
     const ov = out.overall;
-    await translateFields([
-        { obj: out, key: "score_interpretation" },
+    const header = [
+        { obj: out, key: "score_interpretation", name: "score_interpretation" },
         ...(out.score_breakdown || []).map((sb, i) => ({ obj: sb, key: "theme", name: `score_breakdown_${i}_theme` })),
         ...(ov ? ["assessment", "theological_context", "seeds_of_logos", "concerns"].map((key) => ({ obj: ov, key, name: `overall_${key}` })) : []),
-    ], dryRun);
-
-    for (const it of out.iterations) {
-        await translateFields([{ obj: it, key: "theme" }], dryRun);
-        // Sekcija članka + njena Magisterium prosudba u jednom pozivu.
-        // citations.document_title i document_author su već engleski → ostaju.
-        await mapLimit(it.sections || [], CONCURRENCY, (sec) => {
-            const m = sec.magisterium;
-            return translateFields([
-                ...sectionSpecs(sec),
-                ...(m ? ["assessment", "enrichment", "concerns"].map((key) => ({ obj: m, key, name: `magisterium_${key}` })) : []),
-            ], dryRun);
-        });
+    ];
+    // Sekcija članka (ako nije preuzeta) + njena Magisterium prosudba.
+    const secSpecs = (sec, prefix) => [
+        ...(reusedSecs.has(sec) ? [] : namedSectionSpecs(sec, prefix)),
+        ...(sec.magisterium ? ["assessment", "enrichment", "concerns"].map((key) => ({ obj: sec.magisterium, key, name: `${prefix}magisterium_${key}` })) : []),
+    ];
+    const whole = [
+        ...header,
+        ...out.iterations.flatMap((it, n) => [
+            ...(reusedThemes.has(it) ? [] : [{ obj: it, key: "theme", name: `i${n}_theme` }]),
+            ...(it.sections || []).flatMap((sec, m) => secSpecs(sec, `i${n}_s${m}_`)),
+        ]),
+    ];
+    if (!(await translateWholeDoc(whole, dryRun))) {
+        await translateFields(header, dryRun);
+        for (const it of out.iterations) {
+            if (!reusedThemes.has(it)) await translateFields([{ obj: it, key: "theme" }], dryRun);
+            await mapLimit(it.sections || [], CONCURRENCY, (sec) => translateFields(secSpecs(sec, ""), dryRun));
+        }
     }
     out.translation = {
         target_language: "en",
@@ -605,7 +709,7 @@ async function main() {
     console.log("║  🇬🇧  CROATIAN → ENGLISH (no hallucinations)     ║");
     console.log("╚══════════════════════════════════════════════════╝");
     console.log(`   📂 Input:   ${opts.inputDir}`);
-    console.log(USE_VERTEX ? `   🌐 Project: ${VERTEX_PROJECT} | Model: ${GEMINI_MODEL}` : `   🌐 agy (tmux agyen, pretplata) | Model: ${AGY_MODEL} — Vertex isključen`);
+    console.log(USE_VERTEX ? `   🌐 Project: ${VERTEX_PROJECT} | Model: ${GEMINI_MODEL}` : `   🌐 agy (tmux ${AGY_SESSION}, pretplata, 1 poziv po dokumentu) | Model: ${AGY_MODEL} — Vertex isključen`);
     console.log(`   🔄 Regije (${VERTEX_REGIONS.length}): ${VERTEX_REGIONS.join(", ")}`);
     if (opts.videoId) console.log(`   🎬 Video ID: ${opts.videoId}`);
     if (opts.channel) console.log(`   📁 Channel: ${opts.channel}`);
@@ -645,7 +749,13 @@ async function main() {
 
             try {
                 const croatian = JSON.parse(fs.readFileSync(srcPath, "utf-8"));
-                const translated = await t.translate(croatian, opts.dryRun);
+                // Magisterium preuzima sekcije iz article.en.json istog članka (ako postoji).
+                let articleEn = null;
+                if (t.kind === "magisterium") {
+                    const aEn = path.join(it.channelDir, t.src.replace(/\.article\.magisterium\.json$/, ".article.en.json"));
+                    if (fs.existsSync(aEn)) articleEn = JSON.parse(fs.readFileSync(aEn, "utf-8"));
+                }
+                const translated = await t.translate(croatian, opts.dryRun, articleEn);
                 const sec = ((Date.now() - start) / 1000).toFixed(1);
                 // DRY-RUN NIŠTA NE ZAPISUJE. Prije je zapisivao stub `[dry-run en] …`
                 // datoteke koje `upload_to_r2.js --video-id` pokupi regexom i objavi kao

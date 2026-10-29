@@ -51,3 +51,35 @@ Ostali koraci iste epizode za usporedbu:
    prijevod; mjeriti kvalitetu na jednoj epizodi.
 4. Magisterium EN ponovno šalje i sekciju članka (`sectionSpecs(sec)`) — taj dio je već
    preveden u article fazi; preuzeti ga iz `article.en.json` skraćuje ulaz magisterium faze.
+
+## Izmjereno 29.10.2026.: jedan poziv po dokumentu, `-low` → 5 min
+
+Kandidati 2, 3 i 4 su provjereni na istoj epizodi i ugrađeni u `translate_to_english.js`.
+Kandidat 1 (više sesija) više nije potreban.
+
+| Dokument | Prije (`-high`, poziv po bloku) | Sada (`-low`, 1 poziv) |
+|---|---|---|
+| sažetak | 391 s | 21 s |
+| članak (42 sekcije, 92 KB ulaza) | 6 686 s | 180 s |
+| Magisterium (zaglavlje + 42 prosudbe, 54 KB) | 6 202 s | 99 s |
+| **ukupno** (`translate_to_english.js`, cijeli prolaz) | **13 280 s** | **300 s** |
+
+Iteracija 1 (13 sekcija) u jednom pozivu po razini razmišljanja: `-high` 325 s,
+`-medium` 199 s. Cijeli članak s `-low` je brži od jedne iteracije s `-medium`.
+
+Kvaliteta naspram objavljenog prijevoda (`-high`, poziv po sekciji):
+
+- oblik JSON-a ispravan u svim prolazima (`batchShapeError`), struktura ključeva
+  izlaznih datoteka identična objavljenima
+- rečenica: HR izvor 856, stari EN 850, `-low` 853 — ništa nije izostavljeno
+- riječi 3–5 % manje (`-low` sažetije: „hasn't“, „Calls can thus be processed“);
+  `-medium`/`-high` su na iteraciji 1 unutar 1 % starog
+- bez hrvatskih ostataka, Markdown i vlastita imena sačuvani
+
+Magisterium sekcije su doslovna kopija sekcija članka (42/42 iste), a dvostruki EN
+prijevod se razlikovao u svih 42. Sada se preuzimaju iz `article.en.json` (ključ: HR
+`subtitle` + `content`), pa su oba taba ista.
+
+Postavke: `TRANSLATE_AGY_MODEL` (default `gemini-3.8-flash-low`, sesija `agyen-low`),
+`TRANSLATE_AGY_TIMEOUT_SEC` (default 1800). Ako cijeli dokument dvaput ne prođe
+provjeru oblika, skripta se vraća na poziv po sekciji. Vertex put je nepromijenjen.

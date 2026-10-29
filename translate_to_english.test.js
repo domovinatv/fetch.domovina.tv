@@ -81,3 +81,20 @@ test("summary: title_en/abstract_en (ne title_hr_en), nizovi i uloge govornika",
     assert.ok(s.speakers.every((sp) => sp.role_en));
     assert.equal(s.language, "hr");
 });
+
+test("magisterium: sekcije i teme preuzima iz article.en.json, prevodi samo prosudbu", async () => {
+    const sec = { subtitle: "Naslov", screenshot_description: "Opis", content: "Tekst", keywords: ["a"], entities: ["B"] };
+    const articleEn = { iterations: [{ theme: "Tema", theme_en: "Theme", sections: [{
+        ...sec, subtitle_en: "Title", screenshot_description_en: "Desc", content_en: "Text", keywords_en: ["A"], entities_en: ["B"],
+    }] }] };
+    const out = await translateMagisterium({ iterations: [{ theme: "Tema", sections: [
+        { ...sec, magisterium: { assessment: "Ocjena" } },
+        { ...sec, content: "Drukčiji tekst", magisterium: { assessment: "Ocjena 2" } },
+    ] }] }, true, articleEn);
+    const [a, b] = out.iterations[0].sections;
+    assert.equal(out.iterations[0].theme_en, "Theme");
+    assert.equal(a.content_en, "Text");
+    assert.deepEqual(a.keywords_en, ["A"]);
+    assert.match(a.magisterium.assessment_en, /dry-run/, "prosudba se i dalje prevodi");
+    assert.match(b.content_en, /dry-run/, "sekcija koja se ne poklapa prevodi se normalno");
+});
