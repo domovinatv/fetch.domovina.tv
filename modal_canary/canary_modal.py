@@ -155,9 +155,16 @@ def _generate_words(out0):
                       ensure_ascii=False, separators=(",", ":"))
 
 
-def _write_words(wav_path: str, res: dict) -> None:
+def _canary_suffix(out_tag: str = "") -> str:
+    """`.canary` ili `.canary.<tag>`. `--out-tag en` uz `--target-lang en` daje
+    izvorni engleski titl UZ postojeći en→hr (`.canary.srt` ostaje netaknut).
+    Vidi domovina.ai docs/plans/2026-10-29-titlovi-na-dva-jezika.md."""
+    return ".canary." + out_tag if out_tag else ".canary"
+
+
+def _write_words(wav_path: str, res: dict, out_tag: str = "") -> None:
     if res.get("words"):
-        with open(wav_path + ".canary.word_ts.json", "w", encoding="utf-8") as f:
+        with open(wav_path + _canary_suffix(out_tag) + ".word_ts.json", "w", encoding="utf-8") as f:
             f.write(res["words"])
 
 
@@ -376,13 +383,14 @@ def _transcribe_local_wav(wav: str, source_lang: str, target_lang: str) -> dict:
 
 # ─── Lokalni CLI: modal run ... --wav /put/do/file.wav ────────────────────────
 @app.local_entrypoint()
-def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool = False):
+def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool = False,
+         out_tag: str = ""):
     """Transkribira lokalni WAV preko Modala, zapiše .canary.srt/.canary.csv pokraj njega."""
     if not os.path.isfile(wav):
         raise SystemExit(f"❌ WAV ne postoji: {wav}")
 
-    srt_out = wav + ".canary.srt"
-    csv_out = wav + ".canary.csv"
+    srt_out = wav + _canary_suffix(out_tag) + ".srt"
+    csv_out = wav + _canary_suffix(out_tag) + ".csv"
     if os.path.exists(srt_out) and not force:
         print(f"⏭️  Već postoji {srt_out} (koristi --force za override). Izlazim.")
         return
@@ -396,7 +404,7 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
         f.write(res["srt"])
     with open(csv_out, "w", encoding="utf-8") as f:
         f.write(res["csv"])
-    _write_words(wav, res)
+    _write_words(wav, res, out_tag)
     vram = (f" | peak VRAM {res['peak_vram_gb']} / {res['total_vram_gb']} GB na {res['gpu']}"
             if res.get("peak_vram_gb") else "")
     print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
@@ -450,7 +458,7 @@ def from_volume(remote: str, out: str = "", source_lang: str = "hr",
 def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
           concurrency: int = 2, source_lang: str = "hr", target_lang: str = "hr",
           max_mb: float = 320.0, stats_out: str = "", dry_run: bool = False,
-          gpu_usd_per_hour: float = 2.10):
+          gpu_usd_per_hour: float = 2.10, out_tag: str = ""):
     """Bulk transkripcija svih WAV-ova bez .canary.srt (idempotentno, warm container)."""
     import json
     from collections import deque
@@ -471,7 +479,7 @@ def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
             if not name.endswith(".wav") or name.startswith("._") or ".loudnorm." in name:
                 continue
             wav_path = os.path.join(cdir, name)
-            if os.path.exists(wav_path + ".canary.srt"):
+            if os.path.exists(wav_path + _canary_suffix(out_tag) + ".srt"):
                 continue
             size_mb = os.path.getsize(wav_path) / (1024 * 1024)
             pending.append((size_mb, chan, wav_path))
@@ -509,11 +517,11 @@ def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
                           "status": "error", "reason": res.get("reason"),
                           "wall_s": round(wall, 1)})
             return
-        with open(wav_path + ".canary.srt", "w", encoding="utf-8") as f:
+        with open(wav_path + _canary_suffix(out_tag) + ".srt", "w", encoding="utf-8") as f:
             f.write(res["srt"])
-        with open(wav_path + ".canary.csv", "w", encoding="utf-8") as f:
+        with open(wav_path + _canary_suffix(out_tag) + ".csv", "w", encoding="utf-8") as f:
             f.write(res["csv"])
-        _write_words(wav_path, res)
+        _write_words(wav_path, res, out_tag)
         done = len([s for s in stats if s["status"] == "transcribed"]) + 1
         infer = res["elapsed"]
         print(f"   ✅ [{done}/{len(pending)}] {mb:6.0f} MB  {infer:5.0f}s infer / {wall:5.0f}s wall  "

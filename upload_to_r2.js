@@ -161,6 +161,11 @@ const UPLOAD_SUFFIXES = [
     // ne popravlja driftom — zato oba ostaju par i na CDN-u. Ručna izmjena: --force + purge.
     // `.words.skipped.json` (ispod praga usidrenosti) namjerno NE završava na `.words.json`.
     ".words.json",
+    // Izvorni engleski titl engleskog kanala uz HR prijevod u diarized.srt
+    // (build_original_subs.js). Par kao diarized.srt + words.json; ugovor:
+    // domovina.ai docs/plans/2026-10-29-titlovi-na-dva-jezika.md.
+    ".diarized.en.srt",
+    ".words.en.json",
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -568,6 +573,12 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.words.json`)
         return `data/${videoId}/words.json`;
 
+    if (filename === `${videoBase}.diarized.en.srt`)
+        return `data/${videoId}/diarized.en.srt`;
+
+    if (filename === `${videoBase}.words.en.json`)
+        return `data/${videoId}/words.en.json`;
+
     // Responsive WebP varijante → images/{id}/thumb-{w}.webp
     const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
     if (webpMatch && webpMatch[1] === videoBase)
@@ -674,6 +685,7 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
                 if (suffix === ".mkv" && filename !== `${videoBase}.mkv`) continue;
                 if (suffix === ".mp4" && filename !== `${videoBase}.mp4`) continue;
                 if (suffix === ".words.json" && filename !== `${videoBase}.words.json`) continue;
+                if ((suffix === ".diarized.en.srt" || suffix === ".words.en.json") && filename !== `${videoBase}${suffix}`) continue;
                 shouldUpload = true;
                 break;
             }
