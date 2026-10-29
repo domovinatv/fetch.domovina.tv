@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-10-28T18:26:39.559Z",
+  "generated_at": "2026-10-29T04:11:25.915Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 58,
+  "count": 62,
   "videos": {
+    "g6RoPxoCqLA": {"slug":"subclub","date":"2026-10-28","langs":["en"]},
+    "i8llnRNMQYs": {"slug":"druga-strana-medalje","date":"2026-10-28","langs":["hr"]},
+    "lX2VAF8Bc7g": {"slug":"bijela-kronika","date":"2026-10-28","langs":["hr"]},
+    "QkcpHsj43rE": {"slug":"domovina-tv","date":"2026-10-28","langs":["hr"]},
     "35Oq01CmGWE": {"slug":"40-dana-za-zivot","date":"2026-10-02","langs":["hr"]},
     "px_Q28ny2AM": {"slug":"atma-podcast","date":"2026-09-29","langs":["hr"]},
     "VvFpkaT1HvA": {"slug":"atma-podcast","date":"2026-09-27","langs":["hr"]},
