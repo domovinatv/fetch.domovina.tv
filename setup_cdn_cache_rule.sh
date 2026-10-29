@@ -55,7 +55,8 @@
 #   DOMOVINA_AI_CLOUDFLARE_API_TOKEN_CACHE_RULES=...
 #
 # Alternativa bez tokena — Dashboard (domovina.ai → Caching → Cache Rules),
-# DVA pravila:
+# TRI pravila (treće, „CDN /data promjenjivo", vidi RULE_MUT_* niže; mora
+# biti ispod prvoga):
 #
 #   1) "CDN /data tekst"
 #      Ako:  (http.host eq "cdn.domovina.ai") and
@@ -99,6 +100,18 @@ RULE_DATA_EDGE_TTL=86400      # 1 dan — vidi obrazlozenje u headeru
 # upload_to_r2.js (i re-uploadati da se metapodaci osvjeze).
 # Flutter app to ne pogadja — `package:http` nema HTTP cache. Pogadja web build.
 RULE_DATA_BROWSER_TTL=3600
+
+# Promjenjive datoteke pod /data/ — pipeline ih prepisuje na istom ključu
+# (uploader im daje `max-age=60, must-revalidate`). Pravilo ide IZA /data/
+# pravila pa mu nadjačava TTL-ove. Izmjereno 2026-10-29 na MNk-eEpDb3E:
+# browser_ttl override iz /data/ pravila SADA radi (gornji POZOR je zastario),
+# pa je preglednik sat vremena čitao `episode.json` bez Magisteriuma koji je
+# pipeline u međuvremenu dodao — ni Ctrl+Shift+R ni gumb ?osvjezi=1 u appu
+# to nisu mogli obrisati (HTTP cache JS ne briše). Edge je usto držao 1 dan;
+# pipeline purgea obje Vary varijante, ali bez purgea je to bio dan.
+# Popis mora pratiti `cacheControlFor` u upload_to_r2.js (data/ dio).
+RULE_MUT_DESC="CDN /data promjenjivo — respect origin (60s)"
+RULE_MUT_EXPR='(http.host eq "cdn.domovina.ai") and starts_with(http.request.uri.path, "/data/") and (ends_with(http.request.uri.path, "/episode.json") or ends_with(http.request.uri.path, "/reels.json") or ends_with(http.request.uri.path, "/reels.en.json"))'
 
 RULE_CHAN_DESC="CDN /channels tekst — cacheable, respect origin (60s)"
 RULE_CHAN_EXPR='(http.host eq "cdn.domovina.ai") and starts_with(http.request.uri.path, "/channels/") and ends_with(http.request.uri.path, ".json")'
@@ -232,6 +245,8 @@ DATA_RULE=$(build_rule "$RULE_DATA_DESC" "$RULE_DATA_EXPR" \
                        "override:$RULE_DATA_EDGE_TTL" "override:$RULE_DATA_BROWSER_TTL")
 CHAN_RULE=$(build_rule "$RULE_CHAN_DESC" "$RULE_CHAN_EXPR" \
                        "respect_origin" "respect_origin")
+MUT_RULE=$(build_rule "$RULE_MUT_DESC" "$RULE_MUT_EXPR" \
+                      "respect_origin" "respect_origin")
 
 if [ "$DRY_RUN" = true ]; then
     echo ""
@@ -240,6 +255,8 @@ if [ "$DRY_RUN" = true ]; then
     echo "$DATA_RULE" | python3 -m json.tool
     echo ""
     echo "$CHAN_RULE" | python3 -m json.tool
+    echo ""
+    echo "$MUT_RULE" | python3 -m json.tool
     echo ""
     echo "   ruleset_id: ${RULESET_ID:-<novi entrypoint ruleset>}"
     exit 0
@@ -270,13 +287,13 @@ for rule in r.get('rules', []):
 
 if [ -z "$RULESET_ID" ]; then
     echo "   Nema postojeceg cache ruleseta — kreiram entrypoint s oba pravila…"
-    BODY=$(python3 - "$DATA_RULE" "$CHAN_RULE" <<'PY'
+    BODY=$(python3 - "$DATA_RULE" "$CHAN_RULE" "$MUT_RULE" <<'PY'
 import json, sys
 print(json.dumps({
     "name": "default",
     "kind": "zone",
     "phase": "http_request_cache_settings",
-    "rules": [json.loads(sys.argv[1]), json.loads(sys.argv[2])],
+    "rules": [json.loads(a) for a in sys.argv[1:4]],
 }))
 PY
 )
@@ -286,6 +303,8 @@ else
     echo "   ruleset_id: $RULESET_ID"
     upsert_rule "$DATA_RULE" "$RULE_DATA_DESC"
     upsert_rule "$CHAN_RULE" "$RULE_CHAN_DESC"
+    # POST dodaje na KRAJ — mora biti iza /data/ pravila da ga nadjača.
+    upsert_rule "$MUT_RULE" "$RULE_MUT_DESC"
     echo "✅ Pravila na mjestu."
 fi
 
