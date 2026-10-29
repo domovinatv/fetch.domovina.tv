@@ -32,6 +32,7 @@
  *   node automatic/fetch_youtube_subs.js --backfill          # + stari katalog (ručno, 100 po pozivu)
  *   node automatic/fetch_youtube_subs.js --dry-run           # samo detekcija i popis, bez yt-dlp i R2
  *   node automatic/fetch_youtube_subs.js --video-id QkcpHsj43rE
+ *        (i ad-hoc video iz _unlisted koji nije u backfill.json — prioritetni put, KORAK 12.8)
  *   Opcije: --slug S, --max-units 2000, --max-downloads 100, --sleep-min 8 --sleep-max 20,
  *           --no-upload, --proxy URL, --via-iphone
  */
@@ -240,6 +241,17 @@ function saveIndex(videos) {
     writeAtomic(INDEX_FILE, `{\n${Object.entries(head).map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join("\n")}\n  "videos": {\n${lines.join("\n")}\n  }\n}\n`);
 }
 
+/** Ad-hoc video iz _unlisted: { slug, date, title } iz info.json, ili null. */
+function unlistedOriginal(id) {
+    const dir = path.join(REPO, "storage", "output", "_unlisted");
+    let f;
+    try { f = fs.readdirSync(dir).find((n) => n.endsWith(`_yt_${id}.info.json`)); } catch { return null; }
+    const info = f && readJson(path.join(dir, f), null);
+    if (!info) return null;
+    const d = String(info.upload_date || "");
+    return { slug: "_unlisted", date: /^\d{8}$/.test(d) ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}` : today(), title: info.title || id };
+}
+
 // ─── main ──────────────────────────────────────────────────────────
 
 async function main() {
@@ -257,6 +269,14 @@ async function main() {
             if (ONLY_ID && id !== ONLY_ID) continue;
             if (!originals.has(id)) originals.set(id, { slug, date: o.date, title: o.title });
         }
+    }
+    // Ad-hoc (prioritetni put, pipeline.domovina.ai): video nije original praćenog kanala pa
+    // ga nema u backfill.json — naslov i datum iz _unlisted/*.info.json (yt-dlp ga je upravo
+    // napisao). Slug '_unlisted': katalog titlove traži po ID-u, pa mu takav unos ne smeta.
+    if (ONLY_ID && !originals.has(ONLY_ID)) {
+        const adhoc = unlistedOriginal(ONLY_ID);
+        if (!adhoc) { console.log(`⏭️  ${ONLY_ID}: nije u backfill.json ni u _unlisted — nemam naslov ni datum`); return; }
+        originals.set(ONLY_ID, adhoc);
     }
     const day = today();
     const recentFrom = addDays(day, -RECHECK_DAYS);

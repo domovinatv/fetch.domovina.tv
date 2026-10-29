@@ -26,7 +26,8 @@
  *   node render_reels.js --dry-run
  *
  * Zastavice: --input-dir, --channel, --video-id, --top N (2), --since-days N (21, 0 = sve),
- *   --max-renders N (8), --render-only, --publish-only, --force (ponovni render),
+ *   --max-renders N (8), --render-only, --publish-only, --candidates-only (samo reels.json,
+ *   bez videa ni uz --video-id), --force (ponovni render),
  *   --keep-work, --debug (iscrta sigurnu zonu), --dry-run
  */
 "use strict";
@@ -62,6 +63,9 @@ const MAX_RENDERS = parseInt(getArg("--max-renders") || "8", 10);
 const RENDER = !args.includes("--publish-only");
 const PUBLISH = !args.includes("--render-only");
 const FORCE = args.includes("--force");
+// Samo kandidati (reels.json), bez videa reela. Prioritetni put (run_pipeline.sh KORAK 12.68)
+// objavljuje uz --video-id, a --video-id inače znači i pristanak za video — ovim se on ne daje.
+const CANDIDATES_ONLY = args.includes("--candidates-only");
 const KEEP_WORK = args.includes("--keep-work");
 const DEBUG = args.includes("--debug");
 const DRY_RUN = args.includes("--dry-run");
@@ -439,7 +443,7 @@ async function publishPhase(eps) {
         }
         // Video (logo kanala) ide van pod istom ogradom kao render: reel.auto ili izričit --video-id.
         // Bez nje bi launchd tick (--publish-only) objavio i reel izrenderiran samo za pregled.
-        ep.videoConsent = !!ONLY_VIDEO || consented(ep.channel);
+        ep.videoConsent = !CANDIDATES_ONLY && (!!ONLY_VIDEO || consented(ep.channel));
         const needs = ep.videoConsent && doc.reels.some((r) => r.render && r.render.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.render.file))
             && (!r.render.url || !r.render.url.includes(r.render.sha256.slice(0, 8)) || !r.render.poster_url));
         // Kandidati (istaknuti trenuci na timelineu) idu na CDN za SVAKU epizodu, i bez

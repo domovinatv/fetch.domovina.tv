@@ -2047,6 +2047,25 @@ node "$SCRIPT_DIR/tools/force_upload_epubs.js" "${EPUB_UP_ARGS[@]}" || {
 }
 fi
 
+# --- KORAK 12.68: reels.json kandidati za prioritetni video (od 29.10.2026.) ---
+# KORAK 9.9 piše reels.json lokalno, a na CDN ga nosi render_reels.js iz launchd ticka
+# (svakih 30 min, i preskače se dok bilo koji run_pipeline.sh radi). Ad-hoc epizoda je zato
+# do pola sata stajala bez istaknutih trenutaka pod playerom (MNk-eEpDb3E, 29.10.).
+# --candidates-only: samo reels.json, nikad video reela (to traži pristanak kanala).
+if [ "$PRIORITY_FAST_PATH" = true ] && [ -n "$MODAL_ONLY_ID" ] && [ "$WITH_R2_UPLOAD" = true ] && \
+   [ "$WITH_REELS" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.68: reels.json kandidati na CDN ($MODAL_ONLY_ID)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+REELS_PUB_ARGS=(--publish-only --candidates-only --video-id "$MODAL_ONLY_ID" --since-days 0)
+[[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]] && REELS_PUB_ARGS+=(--dry-run)
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/render_reels.js" "${REELS_PUB_ARGS[@]}" || \
+    echo "   ⚠️  Objava reels.json nije uspjela — launchd reels tick je pokupi kasnije."
+fi
+
 # --- KORAK 12.7: data/{id}/episode.json (uz --with-r2-upload) ---
 # Jedna datoteka po epizodi: izmjereni popis datoteka pod data/{id}/ + inline sadržaj
 # za prvi prikaz (domovina.ai 3 zahtjeva umjesto ~29). MORA biti zadnji upload u data/:
@@ -2075,6 +2094,25 @@ env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/build_episode_bundle.js" "${BUNDLE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri episode.json bundleu, nastavljam (idući run ga dovršava)..."
 }
+fi
+
+# --- KORAK 12.8: ručni YouTube titlovi za prioritetni video (od 29.10.2026.) ---
+# Nightly ih skida samo za originale praćenih kanala (backfill.json); ad-hoc video iz
+# pipeline.domovina.ai ih tako nikad ne bi dobio. Jedan Data API poziv (1 jedinica) i, samo
+# ako autor ima ručni HR/EN titl, jedan yt-dlp poziv → cdn.domovina.ai/registry/subs/<id>.<lang>.srt.
+# Non-fatal: titl je dodatak, ne smije srušiti objavu.
+if [ "$PRIORITY_FAST_PATH" = true ] && [ -n "$MODAL_ONLY_ID" ] && [ "$WITH_R2_UPLOAD" = true ] && \
+   [ -z "$REPROCESS_ARTICLE_ID" ] && [ -f "$SCRIPT_DIR/automatic/fetch_youtube_subs.js" ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.8: ručni YouTube titlovi (HR/EN) za $MODAL_ONLY_ID"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+SUBS_ARGS=(--video-id "$MODAL_ONLY_ID")
+[[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]] && SUBS_ARGS+=(--dry-run)
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/automatic/fetch_youtube_subs.js" "${SUBS_ARGS[@]}" || \
+    echo "   ⚠️  Ručni titlovi nisu uspjeli — nastavljam (nije preduvjet za objavu)."
 fi
 
 # --- KORAK 13: CHANNEL INDEX REGEN + META UPLOAD (uz --with-r2-upload) ---
