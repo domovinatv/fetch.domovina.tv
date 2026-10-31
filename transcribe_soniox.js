@@ -246,6 +246,11 @@ function collectCandidates() {
             const key = path.join(ch, f.slice(0, -ext.length));
             // „Gotovo” je svojstvo EPIZODE: obrađena preko .mp3 ne smije se ponuditi kao .wav.
             if (fs.existsSync(path.join(dir, f + SX.meta))) { done.add(key); continue; }
+            // Epizoda koja već ima kanonski diarizirani prijepis (stari Canary+pyannote put)
+            // ne treba Soniox; bez ovoga prozor svježine nosi sav katalog (31.10.2026.).
+            if (!VIDEO_ID && fs.existsSync(path.join(dir, f.slice(0, -ext.length) + ".wav.canary.diarized.srt"))) {
+                done.add(key); continue;
+            }
             const prev = byEpisode.get(key);
             if (prev && prev.rank <= rank) continue;
             const p = path.join(dir, f);
@@ -263,7 +268,9 @@ function collectCandidates() {
         pool = pool.filter((x) => x.mtime >= cutoff);
         console.log(`   🗓️  Prozor svježine ${FRESH_DAYS}d: ${before} → ${pool.length} kandidata`);
     }
-    return pool.sort((a, b) => b.mtime - a.mtime).slice(0, LIMIT).map((x) => x.p);
+    // Najstarije prvo: epizoda pred izlaskom iz prozora ne smije ispasti zbog limita.
+    // Lokalna diarizacija je od 31.10.2026. ugašena, pa ispala epizoda nema drugi put.
+    return pool.sort((a, b) => a.mtime - b.mtime).slice(0, LIMIT).map((x) => x.p);
 }
 
 (async () => {

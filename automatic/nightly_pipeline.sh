@@ -273,6 +273,8 @@ if [ -f "$PIPELINE_QUEUE_BRIDGE/claim_and_dispatch.js" ]; then
 fi
 
 # ─── 1. GLAVNI PIPELINE (faze A + B) ──────────────────────────────
+# 🚫 31.10.2026.: --with-local-canary-diarize run_pipeline.sh IGNORIRA (lokalna diarizacija
+#    trajno ugašena, govornici samo iz pyannoteAI). Flag ostaje u pozivu radi povijesti.
 # --with-local-canary-diarize: pyannote diarizacija lokalno na Macu (gdje nightly
 # ionako trči); token se resolve-a iz ~/.cache/huggingface/token (ne treba --hf-token).
 # Diarize ide PRIJE summary/article u istom prolazu → nove epizode s pristiglim

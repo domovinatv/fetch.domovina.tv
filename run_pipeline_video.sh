@@ -78,7 +78,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
             i=$((i + 1))
             ;;
         --with-local-canary-diarize)
-            WITH_LOCAL_CANARY_DIARIZE=true
+            # 🚫 TRAJNO ISKLJUČENO 31.10.2026. (vidi run_pipeline.sh): flag se ignorira, kod ostaje.
+            # WITH_LOCAL_CANARY_DIARIZE=true
+            echo "   🚫 --with-local-canary-diarize ignoriran: lokalna diarizacija je ugašena (31.10.2026.)."
             i=$((i + 1))
             ;;
         --with-screenshots)

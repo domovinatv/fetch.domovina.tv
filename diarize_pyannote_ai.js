@@ -217,6 +217,10 @@ function collectCandidates() {
             const key = path.join(ch, f.slice(0, -ext.length));
             // Uz --hybrid-only „gotovo” ne vrijedi — upravo tražimo epizode s pyannote izlazom.
             if (!HYBRID_ONLY && fs.existsSync(path.join(dir, f + SUFFIX_JSON))) { done.add(key); continue; }
+            // Kao transcribe_soniox.js: epizoda s kanonskim prijepisom ne treba govornike (31.10.2026.).
+            if (!VIDEO_ID && !HYBRID_ONLY && fs.existsSync(path.join(dir, f.slice(0, -ext.length) + ".wav.canary.diarized.srt"))) {
+                done.add(key); continue;
+            }
             const prev = byEpisode.get(key);
             if (prev && prev.rank <= rank) continue;
             const p = path.join(dir, f);
@@ -231,7 +235,8 @@ function collectCandidates() {
         const cutoff = Date.now() - FRESH_DAYS * 86400 * 1000;
         pool = pool.filter((x) => x.mtime >= cutoff);
     }
-    return pool.sort((a, b) => b.mtime - a.mtime).slice(0, LIMIT).map((x) => x.p);
+    // Najstarije prvo, kao transcribe_soniox.js: ispala epizoda nema lokalnu diarizaciju kao rezervu.
+    return pool.sort((a, b) => a.mtime - b.mtime).slice(0, LIMIT).map((x) => x.p);
 }
 
 (async () => {

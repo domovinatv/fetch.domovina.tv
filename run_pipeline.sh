@@ -332,13 +332,13 @@ WITH_SPEECHMATICS=false
 # --with-soniox (2026-10-24): KORAK 2.7b — Soniox primarno, Speechmatics fallback.
 # Iste ograde kao 2.7 (prozor svježine + cap), cijena ~5 × 45 min × $0.12/h ≈ $0.45/noć.
 WITH_SONIOX=false
-SONIOX_FRESH_DAYS="${SONIOX_FRESH_DAYS:-3}"
-SONIOX_MAX_FILES="${SONIOX_MAX_FILES:-5}"
+SONIOX_FRESH_DAYS="${SONIOX_FRESH_DAYS:-14}"   # 31.10.2026.: 3 → 14 (lokalna diarizacija ugašena)
+SONIOX_MAX_FILES="${SONIOX_MAX_FILES:-8}"   # 31.10.2026.: 5 → 8
 SONIOX_TIMEOUT_MIN="${SONIOX_TIMEOUT_MIN:-30}"
 # --with-pyannote-ai (2026-10-24): KORAK 2.7c — pyannoteAI govornici + hibrid.
 WITH_PYANNOTE_AI=false
-PYANNOTE_AI_FRESH_DAYS="${PYANNOTE_AI_FRESH_DAYS:-3}"
-PYANNOTE_AI_MAX_FILES="${PYANNOTE_AI_MAX_FILES:-5}"
+PYANNOTE_AI_FRESH_DAYS="${PYANNOTE_AI_FRESH_DAYS:-14}"   # 31.10.2026.: 3 → 14 (lokalna diarizacija ugašena)
+PYANNOTE_AI_MAX_FILES="${PYANNOTE_AI_MAX_FILES:-8}"   # 31.10.2026.: 5 → 8
 PYANNOTE_AI_TIMEOUT_MIN="${PYANNOTE_AI_TIMEOUT_MIN:-30}"
 # Kostur za KORAK 2.8 (refine_diarized_gemini.js --skeleton). Default = stari put.
 GEMINI_REFINE_SKELETON="${GEMINI_REFINE_SKELETON:-speechmatics}"
@@ -350,7 +350,7 @@ WITH_GEMINI_REFINE=false
 # bio usko grlo (i 28.10. Vertex 403 na cijelom projektu). Odluka: docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md
 case "${GEMINI_EAR:-}" in 0|false|off|no) GEMINI_EAR=false ;; *) GEMINI_EAR=true ;; esac
 case "${SPEECHMATICS:-}" in 0|false|off|no) SPEECHMATICS_OFF=true ;; *) SPEECHMATICS_OFF=false ;; esac
-GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
+GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-14}"   # 31.10.2026.: 3 → 14 (lokalna diarizacija ugašena)
 # Cap 3 -> 1 (2026-09-19): korak je BLOKIRAJUCI — koraci 7-12 cekaju da zavrsi.
 # 19.09. je s capom 3 drzao dvije gotove epizode sat vremena iza trece kojoj
 # promocija ionako nije trebala.
@@ -365,7 +365,7 @@ GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-3}"
 # 5 epizoda ≈ 30-55 min prije nego koraci 7-12 uopce krenu. Ako to pocne gurati
 # Opus pozive u novi prozor kvote (lib/claude_window.js), spusti cap, ne razdvajaj
 # ga od 2.7.
-GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-5}"
+GEMINI_REFINE_MAX_FILES="${GEMINI_REFINE_MAX_FILES:-8}"   # 31.10.2026.: 5 → 8
 GEMINI_REFINE_PROMOTE="${GEMINI_REFINE_PROMOTE:-false}"
 SPEECHMATICS_FRESH_DAYS="${SPEECHMATICS_FRESH_DAYS:-3}"
 SPEECHMATICS_MAX_FILES="${SPEECHMATICS_MAX_FILES:-5}"
@@ -419,7 +419,14 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         WITH_LOCAL_WHISPER_DIARIZE=true
         i=$((i + 1))
     elif [ "$arg" = "--with-local-canary-diarize" ]; then
-        WITH_LOCAL_CANARY_DIARIZE=true
+        # 🚫 TRAJNO ISKLJUČENO 31.10.2026.: lokalna pyannote diarizacija (KORAK 6) se više
+        # ne pali ni ovim flagom. Govornici dolaze SAMO iz pyannoteAI (KORAK 2.7c), a
+        # prijepis iz Sonioxa (2.7b). Flag se prihvaća (nightly, bridge i stare skripte ga
+        # šalju) i ignorira. Kod KORAKA 6 ostaje u sourceu — NE brisati.
+        # Zašto: disk / ispod 12 GB je dvije noći zaredom zaustavio korak, a epizoda koju
+        # Soniox cap nije uzeo ostala je bez članka.
+        # WITH_LOCAL_CANARY_DIARIZE=true
+        echo "   🚫 --with-local-canary-diarize ignoriran: lokalna diarizacija je ugašena (31.10.2026.)."
         i=$((i + 1))
     elif [ "$arg" = "--with-speaker-embeddings" ]; then
         WITH_SPEAKER_EMBEDDINGS=true
@@ -1329,7 +1336,7 @@ elif [ "$DIARIZE_EXIT" != "0" ]; then
 fi
 else
     echo ""
-    echo "   ⏭️  Preskačem korak 6 (Canary diarizacija) — nije zadan --with-local-canary-diarize"
+    echo "   ⏭️  Preskačem korak 6 (lokalna Canary diarizacija) — trajno ugašena 31.10.2026., govornici iz pyannoteAI (2.7c)"
 fi
 
 # --- KORAK 6.5: SPEAKER EMBEDDING EXTRACTION (opcionalno, --with-speaker-embeddings) ---
