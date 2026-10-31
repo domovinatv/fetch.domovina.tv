@@ -226,6 +226,7 @@ audit ga hvata samo kad se veličine razlikuju.
 
 ## Vezano
 
+- `docs/2026-10-31-lokalna-diarizacija-ugasena.md` — lokalni pyannote ugašen, Soniox/pyannoteAI najstarije prvo, 14 d / cap 8
 - Plan i izvori brojki: `docs/2026-10-24-soniox-pyannote-roadmap.md`
 - Speechmatics + Gemini sluh: `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md`
 - Claude kao backend 7+8: `docs/claude_code_backend_2026-07.md`
