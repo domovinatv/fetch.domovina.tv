@@ -68,14 +68,84 @@ Praćenje: `tools/pilot_watch/watch.py` (background, javlja samo pad / zastoj >6
 
 ### Otvoreno
 
-- Dovršiti pilot i dopisati: trajanje po fazi i epizodi (iz `transitions.tsv` i
-  `automatic/logs/priority_2026-11-01.log`), padove, stvarni pomak tjedne kvote
-  (`api/oauth/usage`: prije pilota 8 % tjedni / 9 % 5h, 01.11. 06:52).
-- Magisterium ide i nogometnim epizodama (default ručnog unosa) — vidjeti trošak/vrijeme.
+- ~~Dovršiti pilot~~ → vidi „Rezultat pilota” niže.
+- KORAK 10 tiho uspije s 0 kadrova kad dohvat streama ne vrati URL (`3K4LbmUnX-A`):
+  treba glasan pad ili retry, i audit „ima article, nema screenshots_webp.json”.
+- Magisterium ide i nogometnim epizodama (default ručnog unosa): ~8 min/ep, prazni
+  nalazi.
 - Odluka o trajnom modelu: razina B (kandidati: agy članak, Opus sažetak) vs sve na
   Opusu, gornja granica po noći (npr. 40), max trajanje (npr. 4 h), brisanje WAV-a i
   fragmenata nakon obrade, obrada kroz dan umjesto samo noću.
 - Uredničko: članci za kanale bez dogovora; reelsi i dalje traže `reel.auto`.
+
+## Rezultat pilota (01.11.2026., 07:59 → 15:35)
+
+**19/19 epizoda objavljeno u cijelosti**: HR članak + sažetak, words.json, EPUB,
+reels.json, EN prijevod (članak, sažetak, reels, EPUB) i Magisterium HR. Provjereno
+iz točke potrošača: `data/{id}/episode.json` na CDN-u za svaku epizodu i
+`domovina.ai/v/{id}` → 200.
+
+### Trajanje
+
+| faza | ukupno | po epizodi |
+|---|---|---|
+| obrada (fetch → CDN), 1 slot | 07:59 → 13:58, **6 h** za 21,3 h audia | prosjek 19 min; prve 4 (57–198 min audia) 30–44 min, zadnjih 13 ~12 min (medijan audia 47 min) |
+| EN prijevod (agy) | 56 min, ide odmah iza objave HR članka | medijan 2,7 min, max 6,3 |
+| Magisterium HR (MCP, sekvencijalno) | 204 min rada, zadnji gotov 15:34 | medijan 8,1 min, max 34,2 (198-min epizoda); čekanje u redu medijan 47 min, max 83 |
+
+Trajanje po epizodi mjereno je iz `transitions.tsv` (stanje uzorkovano svakih 5 min,
+pa ±5 min). Magisterium je rep: obrada je gotova u 14 h, a Magisterium tek u 15:35,
+jer ide jedan po jedan (`chat` propušta ~2,5 poziva/min).
+
+### Kvota Claude pretplate (`api/oauth/usage`)
+
+| | prije (06:52) | 10:41 (6 ep) | kraj (15:35) |
+|---|---|---|---|
+| tjedni | 8 % | 13 % | **15 %** |
+| 5h | 9 % | 34 % | 8 % (novi prozor od 13:10) |
+
+**+7 bodova tjednog za 19 epizoda ≈ 0,37 boda/ep** (uključuje i ovu sesiju, koja je
+mala; API vraća cijele postotke, pa je raspon 0,32–0,42). To je donji rub procjene
+od 0,3–0,5. Prvih 6 epizoda izgledalo je kao 0,8/ep, ali to su bile najduže epizode i
+uzorak je bio premalen. 5-satni prozor najviše je došao do ~34 %, nijedna ograda se
+nije aktivirala.
+
+Projekcija: 27 ep/dan × 0,37 ≈ **10 bodova tjednog dnevno ≈ 70 % tjedne kvote**
+(raspon 60–80 %) samo za obradu, uz sve ostalo što se radi na istoj pretplati.
+
+### Padovi i uzroci
+
+1. **Magisterium HR `-VAs93ZWwEE` (nogometna epizoda) → failed.** Za odlomak bez
+   ikakvog katoličkog sadržaja `chat` vrati `structuredContent` s odgovorom, ali bez
+   polja `references`; `resp.references.length` je bacao, odgovor se ponovio 4× i
+   epizoda je pala. Popravak u `tools/magisterium_mcp_client.js` (`66106ca6`): bez
+   `references` → `[]`. Requeue je preskočio 14 gotovih poziva i prošao za 33 s.
+2. **Screenshotovi `3K4LbmUnX-A` → 0/40, a pipeline je javio uspjeh.** U KORAKU 10
+   dohvat stream URL-a tiho nije vratio ništa (bez poruke u logu), svi kadrovi ❌, a
+   `_manifest.json` je ipak zapisan. Epizoda je objavljena bez `screenshots_webp.json`.
+   Ponovno `tools/refresh_screenshots.sh _unlisted 3K4LbmUnX-A` → 40 kadrova na CDN-u.
+   Uzrok tišine nije nađen; vidi Otvoreno.
+3. Odgođeni članci: 4 `ODGOĐENO` u logu ujutro, sve riješeno s `llm_force=1`
+   (watcher), nijedan job nije čekao idući nightly.
+
+### Preporuka za trajni model
+
+- **Sve na Opusu je izvedivo, ali uz cap.** ~70 % tjedne kvote za sve epizode je
+  previše uz ostali rad. Predlažem **cap ~20 epizoda po noći na Opusu** (~50 %
+  tjednog), a ostatak (najduže/najnovije po redu) kroz **razinu B: agy članak + Opus
+  sažetak**. Slug `agy` < `opus`, pa se kasnije Opus prolaz može dodati bez
+  degradacije.
+- **Vrijeme nije problem.** 27 ep ≈ 7–8 h na jednom slotu (03:00 → ~10:30), uz drugi
+  slot ~4 h. Drugi slot traži ≥25 GB slobodnog na `/`; cijeli dan je bilo 12–13 GB.
+  Najjeftinija poluga je **brisanje WAV-a i `.fNNN` fragmenata** nakon objave
+  (~160 MB/ep).
+- **Ograda 08:30 mora propustiti nightly/pilot jobove** (ili ih sama requeueati iza
+  08:30). Bez `llm_force` bi ujutro odgođeni članci čekali 22 h.
+- **Magisterium za sve epizode**: ~11 min/ep × 27 ≈ 5 h sekvencijalno, kroz dan.
+  Stane, ali nogometne/glazbene epizode daju prazne nalaze. Razmisliti o preskakanju
+  po temi (odluka o „jednako za sve” je korisnikova).
+- **Watcher mora pratiti i Magisterium stanje**: pad Magisteriuma pilot watcher nije
+  javio (gleda samo `state`), a pad je uhvaćen ručno.
 
 ## Vezani dokumenti
 
