@@ -147,6 +147,27 @@ Projekcija: 27 ep/dan × 0,37 ≈ **10 bodova tjednog dnevno ≈ 70 % tjedne kvo
 - **Watcher mora pratiti i Magisterium stanje**: pad Magisteriuma pilot watcher nije
   javio (gleda samo `state`), a pad je uhvaćen ručno.
 
+## Uključeno u nightly (01.11.2026. navečer)
+
+Korisnik je nakon pilota odlučio: **od 02.11. nightly obrađuje sve nove epizode**, a
+izvještaj potrošnje se prati ~10 dana.
+
+- `automatic/enqueue_all_new.js` (nightly, odmah iza `daily_snapshot.js`): originali iz
+  `events.jsonl` zadnja 3 dana (od 01.11.) → `POST /api/jobs` kao u pilotu (⚡, Soniox,
+  Opus, Magisterium, `skip_published`, `llm_force`). Stanje `automatic/watchlist/all_episodes.json`,
+  najviše 3 pokušaja, pun red (429) se ne broji kao pokušaj. Ograda: tjedni ≥ 85 %
+  (`ALL_EPISODES_MAX_WEEKLY`) → ne šalje ništa. `ALL_EPISODES_OFF=1` gasi.
+- **Praćeni kanali se ne dupliraju**: `events.jsonl` sadrži samo nepraćene kanale; na
+  cijeloj povijesti (842 originala naspram 3402 ID-a iz 52 liste praćenih) preklapanje
+  je 0. Uz to backend preskače objavljene i deduplicira aktivne jobove. Nightly KORAK 1
+  zato ostaje uključen.
+- `automatic/all_episodes_report.js`: `sample` iz `priority_pipeline.sh` (svaki tick,
+  sam se prorijedi na 1 u 10 min) → `quota_samples.jsonl`; `report` u nightlyju prije
+  slanja zaključi jučerašnju seriju → `automatic/watchlist/ALL_EPISODES_REPORT.md` +
+  `all_episodes_daily.json`. Pilot je prvi redak (uzorci kvote upisani ručno).
+- Limiti backenda: `PRIORITY_DAILY_MAX` 30, `MAX_QUEUED_TOTAL` 50. Noći s >30 originala
+  (29.10. ih je bilo 29) prelijevaju se u idući dan kroz lookback.
+
 ## Vezani dokumenti
 
 - `docs/2026-08-26-claude-window-ograda.md` — ograda prozora kvote

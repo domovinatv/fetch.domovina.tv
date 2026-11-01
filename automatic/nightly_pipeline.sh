@@ -436,6 +436,17 @@ run_step "watch-only kandidati (registry, bez obrade)" \
 run_step "dnevni snapshot novih epizoda" \
     node "$REPO_DIR/automatic/daily_snapshot.js" || true
 
+# ─── 5b+. OBRADA SVIH NOVIH EPIZODA (od 01.11.2026.) ────────────────
+# Odluka nakon pilota 01.11. (docs/2026-11-01-obrada-svih-epizoda-pilot.md): svaka nova
+# epizoda kandidata iz 5b (`cls=original`, nepraćeni kanali — praćene obrađuje KORAK 1)
+# ide u pipeline.domovina.ai kao ⚡ prioritet (Soniox, Opus, Magisterium, llm_force).
+# Prvo se zaključi izvještaj jučerašnje serije (kvota + vrijeme →
+# automatic/watchlist/ALL_EPISODES_REPORT.md), pa se pošalje nova. ALL_EPISODES_OFF=1 gasi.
+run_step "izvještaj obrade svih epizoda (kvota + vrijeme)" \
+    node "$REPO_DIR/automatic/all_episodes_report.js" report || true
+run_step "obrada svih novih epizoda (enqueue u pipeline.domovina.ai)" \
+    node "$REPO_DIR/automatic/enqueue_all_new.js" || true
+
 # Točni datumi objave (YouTube Data API, YOUTUBE_API_KEY u .env) za arhivu po danima na
 # podcast.domovina.ai/dani/ — flat lista iz 5b daje samo „prije N dana". Inkrementalno:
 # zadnjih 7 dana po kanalu, ~1 000 jedinica kvote od 10 000/dan. Ide PRIJE 5c.

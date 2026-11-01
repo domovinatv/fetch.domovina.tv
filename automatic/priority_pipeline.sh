@@ -42,6 +42,10 @@ find "$LOG_DIR" -name 'priority_*.log' -type f -mtime +14 -delete 2>/dev/null ||
 # .env → PIPELINE_QUEUE_INGEST_KEY (isti kao nightly KORAK 0).
 set -a; [ -f "$REPO_DIR/.env" ] && . "$REPO_DIR/.env"; set +a
 
+# Uzorak kvote Claude pretplate za dnevni izvještaj obrade svih epizoda (najviše 1 u 10 min,
+# sam se prorijedi; tih i ne-fatalan).
+node "$REPO_DIR/automatic/all_episodes_report.js" sample >/dev/null 2>&1 || true
+
 BRIDGE="${PIPELINE_QUEUE_BRIDGE_DIR:-$REPO_DIR/../pipeline.domovina.ai/bridge}"
 
 SLOTS="${PRIORITY_SLOTS:-2}"
