@@ -52,7 +52,7 @@ Praćenje: `tools/pilot_watch/watch.py` (background, javlja samo pad / zastoj >6
 
 1. **Interni SSD drži jedan slot.** `priority_pipeline.sh` otvara slot 2+ samo uz
    ≥25 GB slobodnog na `/`; bilo je 11 GB (98 %). Svih 19 ide jedan po jedan
-   (~20–25 min/ep + Magisterium iza). Isto stanje (98 %%, 11–12 GB) zabilježeno je već
+   (~20–25 min/ep + Magisterium iza). Isto stanje (98 %, 11–12 GB) zabilježeno je već
    27.10. pri uvođenju slotova, dakle drugi slot praktički nikad nije radio.
    Oslobađanjem ~15 GB vrijeme se ~prepolovi.
 2. **Ograda Claude prozora odgađa članak** svakom prioritetnom jobu koji do koraka
