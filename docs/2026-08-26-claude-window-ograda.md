@@ -145,3 +145,5 @@ Uzrok nije istražen.
 - `docs/adhoc_video_processing.md` — prioritetni fast-path
 - `docs/2026-08-26-backfill-i-baseline.md` — što se dogodi kad se ova ograda zaobiđe:
   headless run i interaktivna sesija dijele isti prozor, 10 od 11 članaka palo
+
+- [2026-11-01 obrada svih epizoda — projekcija i pilot](2026-11-01-obrada-svih-epizoda-pilot.md): sve epizode traže ~55–95 % tjedne kvote; zapinjanje pilota (disk slot, ograda prozora)
