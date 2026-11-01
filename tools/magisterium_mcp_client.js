@@ -66,7 +66,9 @@ function parseRpcBody(body, contentType, wantId) {
 function toolResultToResponse(result) {
     if (!result) throw new Error('prazan tools/call result');
     if (result.structuredContent && typeof result.structuredContent.answer === 'string') {
-        return result.structuredContent;
+        // Odgovor bez citata (npr. sportska epizoda) dolazi BEZ polja references;
+        // bez ovoga resp.references.length baca i dobar odgovor se računa kao pad (01.11.2026.).
+        return { ...result.structuredContent, references: result.structuredContent.references || [] };
     }
     const text = (result.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
     if (result.isError) throw new Error(`MCP alat vratio grešku: ${text.slice(0, 300)}`);
