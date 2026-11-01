@@ -52,7 +52,9 @@ Praćenje: `tools/pilot_watch/watch.py` (background, javlja samo pad / zastoj >6
 
 1. **Interni SSD drži jedan slot.** `priority_pipeline.sh` otvara slot 2+ samo uz
    ≥25 GB slobodnog na `/`; bilo je 11 GB (98 %). Svih 19 ide jedan po jedan
-   (~20–25 min/ep + Magisterium iza). Oslobađanjem ~15 GB vrijeme se ~prepolovi.
+   (~20–25 min/ep + Magisterium iza). Isto stanje (98 %%, 11–12 GB) zabilježeno je već
+   27.10. pri uvođenju slotova, dakle drugi slot praktički nikad nije radio.
+   Oslobađanjem ~15 GB vrijeme se ~prepolovi.
 2. **Ograda Claude prozora odgađa članak** svakom prioritetnom jobu koji do koraka
    7+8 dođe prije 08:30 (`ODGODI — nov prozor bi trajao do 13:03`). Bez intervencije
    job čeka idući nightly (~22 h). Za „obradi sve" to pogađa velik dio noćnog posla.
@@ -80,4 +82,4 @@ Praćenje: `tools/pilot_watch/watch.py` (background, javlja samo pad / zastoj >6
 - `docs/2026-08-26-claude-window-ograda.md` — ograda prozora kvote
 - `docs/claude_code_backend_2026-07.md` — Claude backend koraka 7+8
 - `docs/2026-10-09-arhiva-po-danima-i-tocni-datumi.md` — watch/backfill dotoka
-- `../pipeline.domovina.ai/docs/UNLISTED_PIPELINE.md` — protokol queuea
+- `../pipeline.domovina.ai/docs/2026-10-27-paralelna-obrada.md` — prioritetni slotovi (disk prag 25 GB)
