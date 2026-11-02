@@ -63,3 +63,35 @@ SPEECHMATICS_API_KEY_3=...
 - Testovi: `node --test lib/asr/speechmatics.test.js`.
 - `transcribe_speechmatics.js` (KORAK 2.7, evaluacijski, ugašen) koristi prvi ključ s popisa;
   `SPEECHMATICS_API_KEY` bez broja nije obavezan (od 02.11. u `.env` su samo `_2`, `_3`, `_4`).
+
+## Incident 02.11.2026. — tijek i drugi bug (pyannoteAI „gotovo” bez hibrida)
+
+```mermaid
+flowchart TD
+  A[Soniox: organization_balance_exhausted] --> B[--no-speechmatics je gasio i fallback]
+  B --> C[nema .soniox.* ni .speechmatics.json]
+  A2[2.7c pyannoteAI prošao] --> D[.pyannote_ai.json postoji]
+  C --> E[hibrid preskočen: nema riječi]
+  D --> F[sljedeći run: collectCandidates = gotovo]
+  F --> G[2.8 nema kostura → nema diarized.srt → nema članka]
+```
+
+- Pogođeno: 12 ⚡ epizoda noći 02.11. + Goran Ćurković (KLPD-Meu4e8, ponovna obrada).
+- Popravak 1 (`5cebe3cf`): fallback odvojen od `--no-speechmatics`. Prve 4 epizode su prošle
+  preko Speechmaticsa (~6,40 $).
+- Popravak 2 (`bb18d669`): `diarize_pyannote_ai.js` epizodu s `.pyannote_ai.json` smatra gotovom
+  tek kad postoji hibrid (`.soniox_pyannote.diarized.srt` / `.speechmatics_pyannote.…`) ili kad još
+  nema riječi. Bez toga je ostalih 8 nakon nadoplate Sonioxa (9,93 $) dobilo Soniox prijepis, ali ne i
+  članak. Hibrid nad postojećim pyannote izlazom = nula API poziva.
+- Sve 13 epizoda gotove 02.11. do 18:18 (članak + Magisterium HR + EN).
+
+## Otvoreno
+
+- **Poller je ponovnu obradu nakon pada pokrenuo kao `--reprocess-article`.** Ćurković job
+  (`reprocess=1, redo_article=1`) pao je ujutro na `--replace`; drugi claim (15:40) pokrenuo je samo
+  `--reprocess-article KLPD-Meu4e8`, tj. novi članak iz STAROG Canary prijepisa. Ručno je ponovljeno s
+  `--reprocess` (Soniox) + `auto_reuse_adhoc.js --replace`. Treba naći u `bridge/plan.js` zašto
+  retry bira article-only put (vjerojatno `attempts>0` ili postojeći članak u kanalu).
+- Ručne serije (scratchpad `rerun*.sh`) ne prolaze kroz bridge pa ne dobivaju tier: Tier 2 epizode
+  idu na Soniox dok im se ne doda `ASR_PRIMARY=speechmatics`.
+- Saldo Speechmatics računa vidi se samo na portalu (API ga nema); `/v2/usage` daje potrošnju po računu.
