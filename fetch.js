@@ -36,6 +36,9 @@ const YT_DLP_BASE_ARGS = [
   "--embed-thumbnail",
   "--add-metadata",
   "--write-info-json",
+  // DASH/HLS dijelovi paralelno: kroz proxy (iPhone preko Tailscale releja, ~70 ms) jedan po
+  // jedan je 6911 dijelova išlo 100 KB/s (02.11.2026.); izravno je bezopasno.
+  "--concurrent-fragments", "8",
   "--write-description",
   "--write-subs",
   "--sub-lang", "hr,en",
