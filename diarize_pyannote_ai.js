@@ -145,6 +145,14 @@ function wordSource(audioPath) {
     return null;
 }
 
+/** pyannote je gotov, riječi postoje, a hibrid za taj izvor još nije složen. */
+function needsHybrid(audioPath) {
+    const has = (x) => fs.existsSync(audioPath + x);
+    if (has(".soniox.words.json") || has(".soniox.json")) return !has(".soniox_pyannote.diarized.srt");
+    if (WORDS_FROM === "auto" && has(".speechmatics.json")) return !has(".speechmatics_pyannote.diarized.srt");
+    return false;
+}
+
 function writeHybrid(audioPath) {
     const src = wordSource(audioPath);
     if (!src) { console.log("   ⏭️  Nema izvora riječi (.soniox.* / .speechmatics.json) — hibrid preskočen."); return null; }
@@ -216,7 +224,12 @@ function collectCandidates() {
             if (rank === undefined) continue;
             const key = path.join(ch, f.slice(0, -ext.length));
             // Uz --hybrid-only „gotovo” ne vrijedi — upravo tražimo epizode s pyannote izlazom.
-            if (!HYBRID_ONLY && fs.existsSync(path.join(dir, f + SUFFIX_JSON))) { done.add(key); continue; }
+            // Gotovo = pyannote izlaz I (hibrid složen ILI još nema riječi). Bez drugog uvjeta
+            // epizoda kojoj je pyannote prošao dok ASR nije (Soniox bez kredita, 02.11.2026.)
+            // nikad ne dobije hibrid → 2.8 nema kostur → nema članka.
+            if (!HYBRID_ONLY && fs.existsSync(path.join(dir, f + SUFFIX_JSON)) && !needsHybrid(path.join(dir, f))) {
+                done.add(key); continue;
+            }
             // Kao transcribe_soniox.js: epizoda s kanonskim prijepisom ne treba govornike (31.10.2026.).
             if (!VIDEO_ID && !HYBRID_ONLY && fs.existsSync(path.join(dir, f.slice(0, -ext.length) + ".wav.canary.diarized.srt"))) {
                 done.add(key); continue;
