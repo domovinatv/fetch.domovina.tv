@@ -66,6 +66,10 @@ const LANGUAGE = getArg("--language", "hr");
 const FORCE = hasFlag("--force");
 const DRY_RUN = hasFlag("--dry-run");
 const NO_FALLBACK = hasFlag("--no-fallback");
+// Tier 2 (02.11.2026.): Soniox krediti su za praćene kanale (nightly, Tier 1); sve ostalo
+// (obrada svih novih epizoda, ad-hoc ⚡) ide PRVO na Speechmatics, Soniox je tada fallback.
+// Bridge postavlja ASR_PRIMARY=speechmatics za epizode izvan automatic/podcasts/*-lista.txt.
+const PRIMARY = String(getArg("--primary") || process.env.ASR_PRIMARY || "soniox").toLowerCase();
 const POLL_S = parseInt(getArg("--poll-seconds", "10"), 10);
 // Prozor svježine u danima; 0 = bez ograničenja. Financijska ograda kao u 2.7.
 const FRESH_DAYS = parseInt(getArg("--fresh-days", "0"), 10);
@@ -132,6 +136,8 @@ function writeOutputs(audioPath, names, words) {
     return { segments, speakerCount };
 }
 
+const TIER2 = "Tier 2: Speechmatics primarni";
+
 async function runSpeechmatics(audioPath, language, reason) {
     const sm = speechmatics.client(process.env.SPEECHMATICS_API_KEY);
     const t0 = Date.now();
@@ -142,7 +148,7 @@ async function runSpeechmatics(audioPath, language, reason) {
     const audioSec = job.duration != null ? job.duration : (segments.length ? segments[segments.length - 1].end : 0);
     const wallSec = (Date.now() - t0) / 1000;
     const meta = {
-        provider: "speechmatics", fallback_from: "soniox", fallback_reason: reason,
+        provider: "speechmatics", ...(reason === TIER2 ? { tier: 2 } : { fallback_from: "soniox", fallback_reason: reason }),
         job_id: jobId, submitted_config: config, audio_file: path.basename(audioPath),
         audio_seconds: audioSec, wall_seconds: +wallSec.toFixed(1),
         realtime_factor: audioSec ? +(audioSec / wallSec).toFixed(2) : null,
@@ -171,6 +177,24 @@ async function processFile(audioPath) {
 
     const t0 = Date.now();
     let reason = null;
+    let smTried = false;
+    if (PRIMARY === "speechmatics" && process.env.SPEECHMATICS_API_KEY) {
+        smTried = true;
+        try {
+            console.log(`   🎯 ${TIER2} (Soniox je fallback)`);
+            const sm = await runSpeechmatics(audioPath, language, TIER2);
+            fs.writeFileSync(audioPath + SX.meta, JSON.stringify({
+                provider: "speechmatics", tier: 2, speechmatics_job_id: sm.job_id,
+                audio_file: path.basename(audioPath), audio_seconds: sm.audio_seconds,
+                est_usd: sm.estimated_usd, generated_at: sm.generated_at,
+            }, null, 2), "utf-8");
+            console.log(`   ✅ Speechmatics: ${sm.segments} segmenata, ${sm.speakers} govornika | ~$${sm.estimated_usd}`);
+            return { ok: true, meta: sm };
+        } catch (err) {
+            if (NO_FALLBACK) throw err;
+            console.log(`   ⚠️ Speechmatics (Tier 2) nije uspio: ${err.message} — fallback na Soniox`);
+        }
+    }
     if (probed && probed > soniox.MAX_AUDIO_SECONDS) {
         reason = `zvuk ${fmtDur(probed)} > Soniox limit 300 min`;
     } else {
@@ -204,6 +228,7 @@ async function processFile(audioPath) {
         }
     }
 
+    if (smTried) throw new Error(`Speechmatics (Tier 2) i Soniox fallback nisu uspjeli: ${reason}`);
     if (NO_FALLBACK || !process.env.SPEECHMATICS_API_KEY) {
         throw new Error(`Soniox: ${reason} (fallback ${NO_FALLBACK ? "isključen" : "nema SPEECHMATICS_API_KEY"})`);
     }

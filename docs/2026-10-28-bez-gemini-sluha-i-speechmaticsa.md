@@ -19,7 +19,7 @@ Razlozi:
 | Zastavica (`run_pipeline.sh`) | Env | Učinak |
 |---|---|---|
 | `--no-gemini-ear` | `GEMINI_EAR=0` | 2.8 i dalje radi, ali **bez ijednog Vertex poziva**: `refine_diarized_gemini.js --no-gemini` piše kostur kakav jest i promovira ga u `.wav.canary.diarized.srt` |
-| `--no-speechmatics` | `SPEECHMATICS=0` | gasi KORAK 2.7 i Soniox→Speechmatics fallback (`transcribe_soniox.js --no-fallback`). Padne li Soniox, mreža je Canary (2.6) + lokalni pyannote (6) |
+| `--no-speechmatics` | `SPEECHMATICS=0` | gasi KORAK 2.7. **Od 02.11.2026. NE gasi fallback** u 2.7b (to je `--no-speechmatics-fallback`); vidi `2026-11-02-asr-tier1-soniox-tier2-speechmatics.md` |
 
 ## Zašto 2.8 nije jednostavno ugašen
 

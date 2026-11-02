@@ -258,8 +258,11 @@ echo ""
 #   --no-gemini-ear       → 2.8 bez Gemini sluha: Soniox+pyannoteAI kostur se samo promovira u
 #                            .wav.canary.diarized.srt, 0 Vertex poziva (env GEMINI_EAR=0 isto).
 #                            Ide UZ --gemini-refine-promote — bez 2.8 nitko ne promovira kostur.
-#   --no-speechmatics     → bez Speechmaticsa: gasi KORAK 2.7 i Soniox→Speechmatics fallback u 2.7b
-#                            (env SPEECHMATICS=0 isto). Padne li Soniox, mreža ostaje Canary (2.6).
+#   --no-speechmatics     → gasi samostalni KORAK 2.7 (Speechmatics uz Soniox). Soniox→Speechmatics
+#                            FALLBACK u 2.7b OSTAJE (02.11.2026.: Soniox ostao bez kredita, a bez
+#                            lokalne diarizacije Canary nema govornike → nijedan članak).
+#                            (env SPEECHMATICS=0 isto)
+#   --no-speechmatics-fallback → gasi i fallback u 2.7b (env SPEECHMATICS_FALLBACK=0)
 #   GEMINI_REFINE_SKELETON → kostur za 2.8: speechmatics (default) | soniox_pyannote |
 #                            speechmatics_pyannote | auto (prvi koji postoji, tim redom)
 #   --reprocess           → PONOVNA OBRADA već objavljene epizode (samo uz --modal-only):
@@ -350,6 +353,7 @@ WITH_GEMINI_REFINE=false
 # bio usko grlo (i 28.10. Vertex 403 na cijelom projektu). Odluka: docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md
 case "${GEMINI_EAR:-}" in 0|false|off|no) GEMINI_EAR=false ;; *) GEMINI_EAR=true ;; esac
 case "${SPEECHMATICS:-}" in 0|false|off|no) SPEECHMATICS_OFF=true ;; *) SPEECHMATICS_OFF=false ;; esac
+case "${SPEECHMATICS_FALLBACK:-}" in 0|false|off|no) SPEECHMATICS_FALLBACK_OFF=true ;; *) SPEECHMATICS_FALLBACK_OFF=false ;; esac
 GEMINI_REFINE_FRESH_DAYS="${GEMINI_REFINE_FRESH_DAYS:-14}"   # 31.10.2026.: 3 → 14 (lokalna diarizacija ugašena)
 # Cap 3 -> 1 (2026-09-19): korak je BLOKIRAJUCI — koraci 7-12 cekaju da zavrsi.
 # 19.09. je s capom 3 drzao dvije gotove epizode sat vremena iza trece kojoj
@@ -484,6 +488,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--no-speechmatics" ]; then
         SPEECHMATICS_OFF=true
+        i=$((i + 1))
+    elif [ "$arg" = "--no-speechmatics-fallback" ]; then
+        SPEECHMATICS_FALLBACK_OFF=true
         i=$((i + 1))
     elif [ "$arg" = "--modal-scope" ]; then
         # unlisted (default, staro ponašanje) | channels (praćeni kanali) | all
@@ -1091,9 +1098,11 @@ else
              --limit "$SONIOX_MAX_FILES"
              --timeout-minutes "$SONIOX_TIMEOUT_MIN"
              "${PRIORITY_SCOPE_ARGS[@]}")
-    if [ "$SPEECHMATICS_OFF" = true ]; then
+    # 02.11.2026.: fallback više NE ovisi o --no-speechmatics — to gasi samo KORAK 2.7.
+    # Bez fallbacka prazan Soniox račun = Canary bez govornika = nijedan članak.
+    if [ "$SPEECHMATICS_FALLBACK_OFF" = true ]; then
         SX_ARGS+=(--no-fallback)
-        echo "   🚫 Speechmatics fallback ISKLJUČEN (--no-speechmatics)."
+        echo "   🚫 Speechmatics fallback ISKLJUČEN (--no-speechmatics-fallback)."
     fi
     if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
         SX_ARGS+=(--dry-run)

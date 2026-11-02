@@ -55,7 +55,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 3. **ASR prioritet: Soniox → Speechmatics → Canary.** (odluka 25.10.2026.)
    **Soniox** (stt-async-v5) je primarni izvor teksta i vremena riječi za SVE (KORAK 2.7b,
    kostur 2.8, words.json 9.87), **Speechmatics** sekundarni (fallback unutar 2.7b),
-   **Canary** (Modal 2.6 / Colab) tercijarni. Govornici = **pyannoteAI** precision-3
+   **Canary** (Modal 2.6 / Colab) tercijarni. **Od 02.11.2026. po tieru:** praćeni kanali (Tier 1, nightly) Soniox → Speechmatics;
+   sve ostalo (Tier 2, pipeline.domovina.ai) Speechmatics → Soniox (`ASR_PRIMARY=speechmatics`,
+   `docs/2026-11-02-asr-tier1-soniox-tier2-speechmatics.md`). `--no-speechmatics` više NE gasi fallback. Govornici = **pyannoteAI** precision-3
    (cloud), lokalni pyannote je samo fallback. Sva tri ASR-a i lokalni pyannote ostaju u
    kodu kao fallback — ne brisati. **Dugoročni cilj je samo Soniox + pyannoteAI, pa
    Gemini (sluh, prijevod) i Opus (sažetak, članak).** **Od 28.10.2026. Gemini sluh i
