@@ -52,7 +52,7 @@ function getArg(name, def = null) {
 const hasFlag = (name) => args.includes(name);
 
 const API_BASE = process.env.SPEECHMATICS_API_BASE || "https://asr.api.speechmatics.com/v2";
-const API_KEY = process.env.SPEECHMATICS_API_KEY;
+const API_KEY = require("./lib/asr/speechmatics").apiKeys()[0];   // prvi iz SPEECHMATICS_API_KEY(S|_N)
 
 const FILE = getArg("--file");
 const INPUT_DIR = getArg("--input-dir", "storage/output");

@@ -61,5 +61,5 @@ SPEECHMATICS_API_KEY_3=...
 - `.speechmatics.meta.json` bilježi `key_index` i `key_fingerprint` (koji račun je platio).
 - Kad svi ključevi padnu, Tier 2 ide na Soniox fallback, a Tier 1 ostaje bez ASR-a (job pada).
 - Testovi: `node --test lib/asr/speechmatics.test.js`.
-- `transcribe_speechmatics.js` (KORAK 2.7, evaluacijski, ugašen) i dalje čita samo
-  `SPEECHMATICS_API_KEY`.
+- `transcribe_speechmatics.js` (KORAK 2.7, evaluacijski, ugašen) koristi prvi ključ s popisa;
+  `SPEECHMATICS_API_KEY` bez broja nije obavezan (od 02.11. u `.env` su samo `_2`, `_3`, `_4`).

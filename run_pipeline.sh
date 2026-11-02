@@ -1044,7 +1044,7 @@ echo ""
 SM_SCRIPT="$SCRIPT_DIR/transcribe_speechmatics.js"
 # Ključ dolazi iz .env (skripta ga sama učita); ovdje samo provjeravamo postoji li,
 # da korak ne bi svaku noć besmisleno prijavljivao grešku na stroju bez ključa.
-if ! grep -qE '^\s*SPEECHMATICS_API_KEY\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null; then
+if ! grep -qE '^\s*SPEECHMATICS_API_KEYS?(_[0-9]+)?\s*=\s*\S' "$SCRIPT_DIR/.env" 2>/dev/null; then
     echo "   ⏭️  Nema SPEECHMATICS_API_KEY u .env — preskačem (eksperiment nije konfiguriran)."
 elif [ ! -f "$SM_SCRIPT" ]; then
     echo "   ⚠️ Nema $SM_SCRIPT — preskačem."
