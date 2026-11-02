@@ -16,7 +16,9 @@
  * Backend deduplicira aktivne jobove i preskače objavljene, pa je ponovno slanje sigurno.
  *
  * Konvergencija: gleda zadnja ALL_EPISODES_LOOKBACK_DAYS dana (default 3), pa epizoda koja
- * nije ušla (429 pun red, mreža) uđe idući nightly. Najviše 3 pokušaja po epizodi.
+ * nije ušla (429 pun red, mreža) uđe idući nightly. Isto vrijedi za job koji je backend
+ * stvorio pa je pao na DOWNLOADU (YouTube anti-bot, nema info.json; 02.11.2026.). Najviše
+ * 3 pokušaja po epizodi.
  *
  * Ograda kvote: kad je tjedni prozor ≥ ALL_EPISODES_MAX_WEEKLY (default 85 %), ne šalje
  * ništa (epizode ostaju za idući nightly unutar lookbacka).
@@ -62,6 +64,23 @@ function saveState(s) {
     fs.writeFileSync(STATE, JSON.stringify(s, null, 1) + '\n');
 }
 
+// Najnoviji pali job po videu, samo kad je pao na DOWNLOADU (anti-bot ili bez info.json).
+// Padovi kasnijih koraka (članak, --replace) nisu stvar ponovnog slanja.
+const DOWNLOAD_FAIL_RE = /YouTube anti-bot|prioritetni download nije uspio/;
+async function failedDownloadJobs(key) {
+    const res = await fetch(`${BASE}/api/jobs?state=failed&limit=300`, {
+        headers: { authorization: `Bearer ${key}` },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const { jobs } = await res.json();
+    const out = new Map();
+    for (const j of jobs || []) {
+        if (j.state !== 'failed' || !DOWNLOAD_FAIL_RE.test(j.error || '')) continue;
+        if (!out.has(j.youtube_id)) out.set(j.youtube_id, j); // lista je created_at DESC
+    }
+    return out;
+}
+
 async function main() {
     if (process.env.ALL_EPISODES_OFF === '1') { console.log('⏭️  ALL_EPISODES_OFF=1 — preskačem'); return; }
     const key = loadEnvKey(REPO);
@@ -82,12 +101,25 @@ async function main() {
     }
 
     const state = loadState();
+    // Job koji je backend stvorio pa je PAO na downloadu (YouTube anti-bot, 02.11.: 9/21)
+    // nije gotov posao: bez ovoga ga nijedan idući nightly ne bi ponovno poslao.
+    const dlFailed = await failedDownloadJobs(key).catch(err => {
+        console.log(`   ⚠️  popis palih jobova nečitljiv (${err.message}) — bez ponovnog slanja`);
+        return new Map();
+    });
+    const retryIds = new Set();
     const todo = cands.filter(e => {
         const s = state.episodes[e.id];
         if (!s) return true;
-        if (['created', 'deduped', 'published'].includes(s.result)) return false;
-        return (s.attempts || 0) < MAX_ATTEMPTS;
+        if ((s.attempts || 0) >= MAX_ATTEMPTS) return false;
+        if (['created', 'deduped'].includes(s.result)) {
+            const j = dlFailed.get(e.id);
+            if (j && (!s.job_id || s.job_id === j.id)) { retryIds.add(e.id); return true; }
+            return false;
+        }
+        return s.result !== 'published';
     });
+    if (retryIds.size) console.log(`   🔁 ponovno: ${retryIds.size} jobova palih na downloadu`);
     console.log(`🌐 Obrada svih novih epizoda: ${cands.length} originala ${from}…${to}, za slanje ${todo.length}`);
     if (!todo.length) return;
 

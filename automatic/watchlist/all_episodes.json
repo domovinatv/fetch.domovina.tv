@@ -190,6 +190,224 @@
    "sent_at": "2026-11-01T06:55:00Z",
    "result": "created",
    "pilot": true
+  },
+  "ggF36_GFcF4": {
+   "date": "2026-11-02",
+   "slug": "ana-radisic-podcast",
+   "title": "Jednom Sportaš, Uvijek Sportaš: Tko Sam Kada Prestanem Pobjeđivati? | S7E5",
+   "duration": 2315,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:31.124Z",
+   "result": "created",
+   "job_id": "23990450-9fe1-462d-bd33-b5d3d8d2bc8d"
+  },
+  "gm-ehEs-0Hs": {
+   "date": "2026-11-02",
+   "slug": "human-lab-podcast",
+   "title": "Zašto vas boli trbuh kad su svi nalazi uredni | dr. Dominik Kralj",
+   "duration": 5350,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:31.483Z",
+   "result": "created",
+   "job_id": "1eb92af4-caf2-45c2-a228-8395193bee30"
+  },
+  "2e4tnaiZ87o": {
+   "date": "2026-11-02",
+   "slug": "kliker-podcast",
+   "title": "Kliker Podcast #18 - Goran Milić",
+   "duration": 6378,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:31.861Z",
+   "result": "created",
+   "job_id": "ce19598a-6625-4f13-aaea-ae93964cfa38"
+  },
+  "WGMGefv36VA": {
+   "date": "2026-11-02",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1507 - Marko i Strahinja Đorić",
+   "duration": 8077,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:32.147Z",
+   "result": "created",
+   "job_id": "9be79085-7527-4874-9d68-ba853ab5a5c8"
+  },
+  "em8ZOBv7TQ4": {
+   "date": "2026-11-02",
+   "slug": "podcast-o-zdravlju",
+   "title": "Dr. Ana Tikvica Luetić - Menopauza: Simptomi, Hormonska Terapija i Zdravlje Žene",
+   "duration": 2706,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:32.381Z",
+   "result": "created",
+   "job_id": "8b0b4f7f-d869-493e-a592-dd1ed02789ce"
+  },
+  "cnIrR7ShBqY": {
+   "date": "2026-11-02",
+   "slug": "podcast-posrednik",
+   "title": "Je li disciplina preduvjet uspjeha - Filip Bistrović i Filip Brkan Podcast Posrednik EP 38",
+   "duration": 3410,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:32.649Z",
+   "result": "created",
+   "job_id": "b5b182b5-b1f0-45e8-827f-e0b9e1713876"
+  },
+  "ooEq0TwbB10": {
+   "date": "2026-11-02",
+   "slug": "ril-tok-podcast",
+   "title": "Ril Tok Podcast #205 - PAVILLION",
+   "duration": 9306,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:04.343Z",
+   "result": "created",
+   "job_id": "63e4623c-d045-410d-9651-2cd0e4641ff4"
+  },
+  "uLfnOpij6yA": {
+   "date": "2026-11-02",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za ponedjeljak, 2.11.2026.",
+   "duration": 2929,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:04.613Z",
+   "result": "created",
+   "job_id": "e22d6dc2-e2ba-46e4-943d-ab68a0030d60"
+  },
+  "g334ZxY4DyY": {
+   "date": "2026-11-02",
+   "slug": "tribina-weitzermania",
+   "title": "Lucho Ibáñez | Weitzermania #13",
+   "duration": 5747,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:33.481Z",
+   "result": "created",
+   "job_id": "a679b5af-879e-4613-8f68-eb002028a94f"
+  },
+  "33HSCpsOgwQ": {
+   "date": "2026-11-02",
+   "slug": "vedran-soric-podcast",
+   "title": "ZAŠTO JE KONTROLA VAŽNIJA OD POVJERENJA? // Branko Roglić",
+   "duration": 4525,
+   "attempts": 1,
+   "sent_at": "2026-11-02T02:32:33.691Z",
+   "result": "created",
+   "job_id": "f5c28bf7-16d4-4b16-9cc4-566fdfde2eff"
+  },
+  "Ablsowpwsgw": {
+   "date": "2026-11-02",
+   "slug": "pomalo-too-much",
+   "title": "pomalo too much: Jesi li uopće u vezi ako se ne svađate?",
+   "duration": 4618,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:04.872Z",
+   "result": "created",
+   "job_id": "4438085a-fba2-450a-9454-609f9485b8b9"
+  },
+  "U56whkW5lvc": {
+   "date": "2026-11-02",
+   "slug": "osvrtnik",
+   "title": "RIP Patrick Stewart - SND",
+   "duration": 6913,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:05.099Z",
+   "result": "created",
+   "job_id": "387ae7b8-26c3-4954-ad8b-d55a05c1936b"
+  },
+  "N9rndsDaCAU": {
+   "date": "2026-11-02",
+   "slug": "hzv-siempre",
+   "title": "#4 & #5 NA MRZLU SA ZOKIJEM; ODE DOBRI ČOVJEK KOVA",
+   "duration": 8059,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:05.274Z",
+   "result": "created",
+   "job_id": "f00c3322-9edd-4ef4-9736-e9c77eaf0fbf"
+  },
+  "jJ7PevO47RU": {
+   "date": "2026-11-02",
+   "slug": "framiko-frama-kocerin",
+   "title": "Sveti Franjo i Ljubav - fra Marko Galić | FraMiKo S3E7",
+   "duration": 3342,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:05.512Z",
+   "result": "created",
+   "job_id": "97b47f5e-47da-4383-931f-e8afd2f3c0cf"
+  },
+  "DpyCAu9wuu8": {
+   "date": "2026-11-02",
+   "slug": "zona-dinamo-podcast",
+   "title": "Zona Dinamo Podcast - Novi studio, Rudeš i otkaz Kovačeviću",
+   "duration": 7654,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:05.749Z",
+   "result": "created",
+   "job_id": "764cb518-f013-4e51-9ca1-0269d6975d46"
+  },
+  "sQUM8-bjZLw": {
+   "date": "2026-11-02",
+   "slug": "modul-za-rast",
+   "title": "#31: Kako nam umjetnost može postati alat za usporavanje i osobni rast? / Anita Ruso Brečić",
+   "duration": 3601,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:05.929Z",
+   "result": "created",
+   "job_id": "ea0e6194-7626-42d8-a9f5-aa389809bbaf"
+  },
+  "uPVKoINs4QQ": {
+   "date": "2026-11-02",
+   "slug": "nova-o-svemiru-i-svemu-ostalom",
+   "title": "NOVA S8E03 Potopljeni svijet Sjevernojadranske ravnice",
+   "duration": 2675,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:06.090Z",
+   "result": "created",
+   "job_id": "f31286f0-1d32-461c-b9e7-494cee210462"
+  },
+  "KB9sPiyFTCs": {
+   "date": "2026-11-02",
+   "slug": "iza-pjace",
+   "title": "Iza Pjace #156: Martinje",
+   "duration": 6975,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:06.312Z",
+   "result": "created",
+   "job_id": "3dbde5c3-ffad-48ec-a5a4-d8c39b31fd70"
+  },
+  "HsUdHhV6IjE": {
+   "date": "2026-11-02",
+   "slug": "prva-linija",
+   "title": "Prva linija, specijal XLI: Prljavi i elitni - priča o njemačkim podmornicama, Bitka za Atlantik (2)",
+   "duration": 3509,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:06.470Z",
+   "result": "created",
+   "job_id": "69b5f357-6219-4217-8b7f-163365e4b778"
+  },
+  "3poabVrOl0s": {
+   "date": "2026-11-02",
+   "slug": "planet-formula",
+   "title": "Planet Formula ep. 14 VN Meksika",
+   "duration": 1781,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:06.634Z",
+   "result": "created",
+   "job_id": "73d071e6-c6c7-4e4d-9106-5d7ce152c5e7"
+  },
+  "EVaVDoq_Iwk": {
+   "date": "2026-11-02",
+   "slug": "hrt-pozitivno",
+   "title": "Pozitivno: vlč. Duje Kurtović",
+   "duration": 1821,
+   "attempts": 2,
+   "sent_at": "2026-11-02T05:38:06.799Z",
+   "result": "created",
+   "job_id": "eae8cf05-bafd-4ff2-87d1-d09bac1a1288"
   }
+ },
+ "updated_at": "2026-11-02T05:38:06.975Z",
+ "last_enqueue_usage": {
+  "at": "2026-11-02T05:38:06.975Z",
+  "five_hour": 8,
+  "five_hour_resets_at": "2026-11-02T09:50:00.275319+00:00",
+  "seven_day": 20,
+  "seven_day_resets_at": "2026-11-07T00:00:00.275336+00:00"
  }
 }

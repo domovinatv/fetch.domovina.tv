@@ -240,6 +240,11 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
         if (stderrOutput.includes("Premieres in")) {
           err.isPremiere = true;
         }
+        if (/Sign in to confirm you[’']re not a bot/i.test(stderrOutput) ||
+            /confirm you are not a bot/i.test(stderrOutput)) {
+          err.isAntiBot = true;
+          markYoutubeAntiBot("fetch.js", videoId);
+        }
         // Age-restricted: cookies.txt nedostaje session-age token; fallback na live brave.
         if (/Sign in to confirm your age/i.test(stderrOutput) ||
             /age-restricted/i.test(stderrOutput) ||
@@ -251,6 +256,18 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
     });
     proc.on("error", reject);
   });
+}
+
+// YouTube anti-bot marker (02.11.2026.): prioritetni poller (pipeline.domovina.ai
+// bridge/priority_poller.js) ga čita i ne claima nove jobove dok blok traje, umjesto
+// da svaki idući job padne za 90 s. Ista funkcija je u fetch.js i screenshot_youtube.js.
+function markYoutubeAntiBot(source, videoId) {
+  try {
+    const dir = path.join(require("os").homedir(), ".cache", "domovina-pipeline");
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "youtube_antibot.json"),
+      JSON.stringify({ at: new Date().toISOString(), source, video_id: videoId || null }) + "\n");
+  } catch (_) { /* marker je best-effort */ }
 }
 
 class ChannelQueue {

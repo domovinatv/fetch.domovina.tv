@@ -205,6 +205,19 @@ function refreshCookiesFromBrowser() {
     }
 }
 
+
+// YouTube anti-bot marker (02.11.2026.): prioritetni poller (pipeline.domovina.ai
+// bridge/priority_poller.js) ga čita i ne claima nove jobove dok blok traje, umjesto
+// da svaki idući job padne za 90 s. Ista funkcija je u fetch.js i screenshot_youtube.js.
+function markYoutubeAntiBot(source, videoId) {
+  try {
+    const dir = path.join(require("os").homedir(), ".cache", "domovina-pipeline");
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "youtube_antibot.json"),
+      JSON.stringify({ at: new Date().toISOString(), source, video_id: videoId || null }) + "\n");
+  } catch (_) { /* marker je best-effort */ }
+}
+
 /**
  * Detektira je li yt-dlp greška IP-level anti-bot block.
  * Tipičan stderr: "Sign in to confirm you're not a bot."
@@ -307,6 +320,7 @@ function getStreamUrl(videoId, allowRefreshRetry = true, useLiveBrowserCookies =
         if (isAntiBotBlock(lastStderr)) {
             if (consecutiveStreamFailures === 1) {
                 console.log(`   🚫 YouTube anti-bot block detektiran (Sign in to confirm...)`);
+                markYoutubeAntiBot("screenshot_youtube.js", videoId);
                 console.log(`   ℹ️  Ovo je IP-level rate limit, ne cookies problem.`);
             }
             if (consecutiveStreamFailures >= MAX_FAILURES_BEFORE_ABORT) {
