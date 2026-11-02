@@ -19,7 +19,8 @@
  *   kao transcribe_speechmatics.js), a .soniox.meta.json bilježi `provider: "speechmatics"`
  *   i razlog — da idući run ne plati isto dvaput.
  *
- * Ključevi: SONIOX_API_KEY, (fallback) SPEECHMATICS_API_KEY u .env.
+ * Ključevi: SONIOX_API_KEY, Speechmatics SPEECHMATICS_API_KEY (+ _2, _3… ili SPEECHMATICS_API_KEYS
+ * zarezom) u .env — potrošen račun se preskače (lib/asr/speechmatics.js multiClient).
  *
  * Primjeri:
  *   node transcribe_soniox.js --file storage/output/kanal/ep.mp3
@@ -139,9 +140,9 @@ function writeOutputs(audioPath, names, words) {
 const TIER2 = "Tier 2: Speechmatics primarni";
 
 async function runSpeechmatics(audioPath, language, reason) {
-    const sm = speechmatics.client(process.env.SPEECHMATICS_API_KEY);
+    const sm = speechmatics.multiClient(speechmatics.apiKeys());
     const t0 = Date.now();
-    const { raw, json, job, config, jobId } = await sm.transcribeFile(audioPath, { language, timeoutMinutes: TIMEOUT_MIN });
+    const { raw, json, job, config, jobId, keyIndex, keyFingerprint } = await sm.transcribeFile(audioPath, { language, timeoutMinutes: TIMEOUT_MIN });
     fs.writeFileSync(audioPath + SM.json, raw, "utf-8");
     const words = speechmaticsToWords(json);
     const { segments, speakerCount } = writeOutputs(audioPath, SM, words);
@@ -149,7 +150,7 @@ async function runSpeechmatics(audioPath, language, reason) {
     const wallSec = (Date.now() - t0) / 1000;
     const meta = {
         provider: "speechmatics", ...(reason === TIER2 ? { tier: 2 } : { fallback_from: "soniox", fallback_reason: reason }),
-        job_id: jobId, submitted_config: config, audio_file: path.basename(audioPath),
+        job_id: jobId, key_index: keyIndex, key_fingerprint: keyFingerprint, submitted_config: config, audio_file: path.basename(audioPath),
         audio_seconds: audioSec, wall_seconds: +wallSec.toFixed(1),
         realtime_factor: audioSec ? +(audioSec / wallSec).toFixed(2) : null,
         segments: segments.length, speakers: speakerCount,
@@ -178,7 +179,7 @@ async function processFile(audioPath) {
     const t0 = Date.now();
     let reason = null;
     let smTried = false;
-    if (PRIMARY === "speechmatics" && process.env.SPEECHMATICS_API_KEY) {
+    if (PRIMARY === "speechmatics" && speechmatics.apiKeys().length) {
         smTried = true;
         try {
             console.log(`   🎯 ${TIER2} (Soniox je fallback)`);
@@ -229,7 +230,7 @@ async function processFile(audioPath) {
     }
 
     if (smTried) throw new Error(`Speechmatics (Tier 2) i Soniox fallback nisu uspjeli: ${reason}`);
-    if (NO_FALLBACK || !process.env.SPEECHMATICS_API_KEY) {
+    if (NO_FALLBACK || !speechmatics.apiKeys().length) {
         throw new Error(`Soniox: ${reason} (fallback ${NO_FALLBACK ? "isključen" : "nema SPEECHMATICS_API_KEY"})`);
     }
     console.log(`   ↪️  Fallback na Speechmatics (${reason})`);

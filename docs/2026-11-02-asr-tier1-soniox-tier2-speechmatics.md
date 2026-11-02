@@ -38,3 +38,28 @@ Procjene iz koda (`SONIOX_USD_PER_HOUR` 0,12, `SPEECHMATICS_USD_PER_HOUR` 0,80 z
 nisu ponovno provjerene s cjenikom). Tier 2 je ~20 epizoda / ~24 h zvuka dnevno → ~19 $/dan kroz
 Speechmatics (~580 $/mj.), naspram ~3 $/dan kroz Soniox. Prijava na Speechmatics Startup Program
 (do 50 000 $ kredita) je otvorena; Sonioxu je 02.11. poslan upit za kredite (info@soniox.com).
+
+## Više Speechmatics ključeva (02.11.2026.)
+
+Tier 2 troši Speechmatics ~7× brže od Soniox nightlyja, pa jedan račun brzo ostane bez
+kredita. `lib/asr/speechmatics.js` `multiClient()` zato radi preko svih ključeva iz `.env`:
+
+```
+SPEECHMATICS_API_KEY=...        # prvi
+SPEECHMATICS_API_KEY_2=...      # idući kad se prvi potroši
+SPEECHMATICS_API_KEY_3=...
+# ili: SPEECHMATICS_API_KEYS=k1,k2,k3 (ide prije gornjih, duplikati se izbacuju)
+```
+
+- Ključ se mijenja samo kad račun odbije **slanje** posla: HTTP 401/402/403 ili poruka o
+  kreditu/kvoti/naplati. Greška nakon prihvaćenog posla (timeout, `rejected`) se ne ponavlja
+  na drugom računu jer nije stvar kredita.
+- Odbijen ključ se pamti 12 h (`SPEECHMATICS_EXHAUSTED_TTL_H`) u
+  `~/.cache/domovina-pipeline/speechmatics_exhausted.json`, po sha256 otisku (ne sam ključ).
+  Idući job ga stavlja na kraj, da ne šalje cijeli MP3 na prazan račun. Kad ključ opet
+  prođe (nadoplata), oznaka se briše. Kad su svi označeni, probaju se svi redom.
+- `.speechmatics.meta.json` bilježi `key_index` i `key_fingerprint` (koji račun je platio).
+- Kad svi ključevi padnu, Tier 2 ide na Soniox fallback, a Tier 1 ostaje bez ASR-a (job pada).
+- Testovi: `node --test lib/asr/speechmatics.test.js`.
+- `transcribe_speechmatics.js` (KORAK 2.7, evaluacijski, ugašen) i dalje čita samo
+  `SPEECHMATICS_API_KEY`.
