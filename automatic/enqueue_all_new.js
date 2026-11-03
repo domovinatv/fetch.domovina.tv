@@ -52,6 +52,7 @@ function getArg(name) {
     return idx !== -1 && idx + 1 < args.length ? args[idx + 1] : null;
 }
 const DRY = args.includes('--dry-run');
+const RETRY_ONLY = args.includes('--retry-only');
 const DATE = getArg('--date');
 
 function localDate(d = new Date()) {
@@ -117,8 +118,10 @@ async function main() {
             if (j && (!s.job_id || s.job_id === j.id)) { retryIds.add(e.id); return true; }
             return false;
         }
-        return s.result !== 'published';
-    });
+        // --retry-only (poller nakon anti-bot pauze): samo ponovno slanje palih na downloadu,
+        // nove/neposlane epizode ostaju nightlyju.
+        return !RETRY_ONLY && s.result !== 'published';
+    }).filter(e => !RETRY_ONLY || retryIds.has(e.id));
     if (retryIds.size) console.log(`   🔁 ponovno: ${retryIds.size} jobova palih na downloadu`);
     console.log(`🌐 Obrada svih novih epizoda: ${cands.length} originala ${from}…${to}, za slanje ${todo.length}`);
     if (!todo.length) return;
