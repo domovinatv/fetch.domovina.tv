@@ -4,7 +4,7 @@
   "channel_id": "UCX7jtR9MufouIC20G7AAVOg",
   "title": "Mreže Riječi",
   "availability": "public",
-  "channel_follower_count": 5420,
+  "channel_follower_count": 5430,
   "description": "„Mreže Riječi“ katolički je portal koji su pokrenuli vjeroučitelji Splitsko-makarske nadbiskupije sa svojim suradnicima u cilju širenja Božje riječi dalje od školskih učionica i vjeronaučnih dvorana. Na portalu se obrađuju teme iz području odgoja i obrazovanja, socijalne skrbi, teologije, medicine, komunikacijskih i drugih znanosti.",
   "tags": [
     "Mreže Riječi"
@@ -40,12 +40,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1793584835,
+  "epoch": 1793671240,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.19",
+    "version": "2026.10.26",
     "current_git_head": null,
-    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
+    "release_git_head": "c91f8de0bfb3577894abad716eaaa01659e6bd14",
     "repository": "yt-dlp/yt-dlp"
   }
 }

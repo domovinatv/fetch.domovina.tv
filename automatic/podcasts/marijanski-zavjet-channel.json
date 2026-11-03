@@ -91,12 +91,12 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1793584840,
+  "epoch": 1793671245,
   "__files_to_move": {},
   "_version": {
-    "version": "2026.08.19",
+    "version": "2026.10.26",
     "current_git_head": null,
-    "release_git_head": "594bd50c2c78ac432f81600d309fdc4e0a92d82c",
+    "release_git_head": "c91f8de0bfb3577894abad716eaaa01659e6bd14",
     "repository": "yt-dlp/yt-dlp"
   }
 }
