@@ -35,6 +35,7 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const soniox = require("./lib/asr/soniox");
 const speechmatics = require("./lib/asr/speechmatics");
+const { checkSilent } = require("./lib/audio_silence");
 const { sonioxToWords, speechmaticsToWords, buildSegments, renderSrt } = require("./lib/asr/words");
 const { writeManifest, baseFromAudio } = require("./lib/processing_manifest");
 
@@ -165,6 +166,12 @@ async function processFile(audioPath) {
     if (fs.existsSync(audioPath + SX.meta) && !FORCE) {
         console.log(`⏭️  Već postoji ${path.basename(audioPath + SX.meta)} (--force za ponavljanje).`);
         return { skipped: true };
+    }
+    // Tihi zvuk (video uploadan bez zvuka) — ne plaćaj ASR za 0 segmenata (03.11.2026.).
+    const silent = DRY_RUN ? null : checkSilent(audioPath);
+    if (silent) {
+        console.log(`🔇 ${path.basename(audioPath)}: nema zvuka (max ${silent.max_volume_db ?? "-inf"} dB ≤ ${silent.threshold_db} dB) — preskačem ASR, marker .silent.json`);
+        return { skipped: true, silent: true };
     }
     const language = languageForPath(audioPath);
     const probed = probeSeconds(audioPath);
