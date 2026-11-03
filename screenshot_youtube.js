@@ -1045,13 +1045,33 @@ async function processArticle(articlePath) {
         } else {
             console.log(`${label}❌`);
             failed++;
+            failedShots.push(ss);
         }
     };
-    const queue = [...pending];
-    const workers = Array.from({ length: BEST_FRAME ? BEST_FRAME_CONCURRENCY : 1 }, async () => {
-        while (queue.length) await captureOne(queue.shift());
-    });
-    await Promise.all(workers);
+    const failedShots = [];
+    const runPool = async (items) => {
+        const queue = [...items];
+        const workers = Array.from({ length: BEST_FRAME ? BEST_FRAME_CONCURRENCY : 1 }, async () => {
+            while (queue.length) await captureOne(queue.shift());
+        });
+        await Promise.all(workers);
+    };
+    await runPool(pending);
+
+    // Stream URL je prošao, a kadrovi nisu (03.11.2026.): YouTube daje URL pa media
+    // zahtjeve odbije s 403 (anti-bot samo na mediju). Fallback iznad gleda samo grešku
+    // pri dohvatu URL-a, pa je 14/28 epizoda tog dana ostalo bez ijednog kadra iako je
+    // lokalni .mkv bio na disku. Ponovi pale kadrove iz lokalne kopije.
+    if (failedShots.length && source && /^https?:/.test(source)) {
+        const local = findBestLocalVideo(dir, videoBase);
+        if (local) {
+            console.log(`   📁 ${failedShots.length} kadrova palo iz streama — ponavljam iz ${path.basename(local.path)} [${local.height}p]`);
+            source = local.path;
+            const retry = failedShots.splice(0);
+            failed -= retry.length;
+            await runPool(retry);
+        }
+    }
 
     // Odluke iz ranijih runova (kadrovi koji su sada preskočeni) ostaju u manifestu.
     const manifestPath = path.join(screenshotDir, "_manifest.json");
