@@ -160,8 +160,9 @@ const SKELETONS = {
 };
 // `auto` (KORAK 2.8 u nightlyju od 24.10.): po epizodi prvi kostur koji postoji, ovim redom.
 // Soniox+pyannote je primarni put; speechmatics_pyannote je Speechmatics fallback iz 2.7b;
-// goli speechmatics ostaje za epizode obrađene starim putem (2.7 bez pyannotea).
-const AUTO_ORDER = ["soniox_pyannote", "speechmatics_pyannote", "speechmatics"];
+// goli soniox (04.11.2026.) = Soniox bez pyannotea, samo za epizode bez kanonskog SRT-a;
+// goli speechmatics = Tier 2 (pyannoteAI samo uz Soniox) i epizode starog puta.
+const AUTO_ORDER = ["soniox_pyannote", "speechmatics_pyannote", "soniox", "speechmatics"];
 const SKELETON_ARG = getArg("--skeleton", "speechmatics");
 if (SKELETON_ARG !== "auto" && !SKELETONS[SKELETON_ARG]) {
     console.error(`❌ Nepoznat --skeleton ${SKELETON_ARG}; moguće: auto, ${Object.keys(SKELETONS).join(", ")}`);
@@ -930,7 +931,14 @@ function collectCandidates(root) {
     const picked = [];
     for (const name of names) {
         useSkeleton(name);
-        const found = findCandidates(root).filter((a) => !claimed.has(a));
+        let found = findCandidates(root).filter((a) => !claimed.has(a));
+        // Goli Soniox (njegovi vlastiti govornici) je u `auto` samo mreža za epizodu BEZ
+        // kanonskog SRT-a: pyannoteAI je pao (npr. 402 bez kredita, 04.11.2026.) ili ga nema
+        // (Tier 2 kad Speechmatics padne pa radi Soniox). Bez ovoga ta epizoda nema kostur →
+        // nema .canary.diarized.srt → nema članka. Epizode koje SRT već imaju ne diramo.
+        if (SKELETON_ARG === "auto" && name === "soniox") {
+            found = found.filter((a) => !fs.existsSync(a.replace(/\.[^.]+$/, "") + CANONICAL_SRT));
+        }
         for (const a of found) picked.push({ audioPath: a, skeleton: name, mtime: fs.statSync(a + SPEECHMATICS_JSON).mtimeMs });
         // I epizode koje ovaj kostur već ima (gotove) blokiraju slabije kosture.
         if (SKELETON_ARG === "auto") {
