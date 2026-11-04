@@ -1123,7 +1123,13 @@ fi
 # kostur za KORAK 2.8 (GEMINI_REFINE_SKELETON=auto). Mora ići NAKON 2.7b/2.7: bez riječi
 # se samo diarizira, a hibrid složi idući run (nula API poziva).
 # Non-fatal, ništa ne promovira; ograde kao 2.7b.
-if [ "$WITH_PYANNOTE_AI" = true ]; then
+# Od 04.11.2026. pyannoteAI ide SAMO uz Soniox, dakle samo Tier 1. Tier 2 (bridge postavi
+# ASR_PRIMARY=speechmatics) koristi Speechmaticsovu dijarizaciju; KORAK 2.8 kostur „auto”
+# tada sam padne na Speechmatics. diarize_pyannote_ai.js uz to preskače epizode bez Soniox riječi.
+if [ "$WITH_PYANNOTE_AI" = true ] && [ "${ASR_PRIMARY:-soniox}" = "speechmatics" ]; then
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.7c (pyannoteAI) — Tier 2 (ASR_PRIMARY=speechmatics): govornici iz Speechmaticsa."
+elif [ "$WITH_PYANNOTE_AI" = true ]; then
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 korak "KORAK 2.7c: pyannoteAI govornici + hibrid [--with-pyannote-ai]"

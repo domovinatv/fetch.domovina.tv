@@ -58,7 +58,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    **Canary** (Modal 2.6 / Colab) tercijarni. **Od 02.11.2026. po tieru:** praćeni kanali (Tier 1, nightly) Soniox → Speechmatics;
    sve ostalo (Tier 2, pipeline.domovina.ai) Speechmatics → Soniox (`ASR_PRIMARY=speechmatics`,
    `docs/2026-11-02-asr-tier1-soniox-tier2-speechmatics.md`). `--no-speechmatics` više NE gasi fallback. Više Speechmatics ključeva: `SPEECHMATICS_API_KEY_2`, `_3`… (potrošen račun → idući). Govornici = **pyannoteAI** precision-3
-   (cloud), lokalni pyannote je samo fallback. Sva tri ASR-a i lokalni pyannote ostaju u
+   (cloud) **samo uz Soniox, tj. Tier 1** (od 04.11.2026.; Tier 2 i Soniox→Speechmatics fallback koriste
+   Speechmaticsovu dijarizaciju), lokalni pyannote je samo fallback. Sva tri ASR-a i lokalni pyannote ostaju u
    kodu kao fallback — ne brisati. **Dugoročni cilj je samo Soniox + pyannoteAI, pa
    Gemini (sluh, prijevod) i Opus (sažetak, članak).** **Od 28.10.2026. Gemini sluh i
    Speechmatics su ISKLJUČENI** (`--no-gemini-ear --no-speechmatics` u nightlyju i bridgeu): 2.8 samo

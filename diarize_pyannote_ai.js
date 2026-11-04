@@ -71,6 +71,13 @@ const DRY_RUN = hasFlag("--dry-run");
 const HYBRID_ONLY = hasFlag("--hybrid-only");
 // Izvor riječi za hibrid: auto (Soniox pa Speechmatics) | soniox | speechmatics.
 const WORDS_FROM = getArg("--words-from", "auto");
+// pyannoteAI SAMO uz Soniox (odluka 04.11.2026.): plaćeni poziv ide samo epizodi koja već ima
+// Soniox riječi. Tier 2 (Speechmatics primarni) i Tier 1 kad je Soniox pao na Speechmatics
+// fallback koriste Speechmaticsovu vlastitu dijarizaciju. --hybrid-only i --words-from
+// speechmatics (ručni rad nad postojećim pyannote izlazom) ostaju dopušteni.
+// PYANNOTE_AI_REQUIRE_SONIOX=0 vraća staro ponašanje.
+const REQUIRE_SONIOX = !HYBRID_ONLY && WORDS_FROM !== "speechmatics" && process.env.PYANNOTE_AI_REQUIRE_SONIOX !== "0";
+const hasSonioxWords = (audioPath) => fs.existsSync(audioPath + ".soniox.words.json") || fs.existsSync(audioPath + ".soniox.json");
 // pyannoteAI precision batch ≈ €0,11/h; samo za procjenu u logu.
 const USD_PER_HOUR = parseFloat(process.env.PYANNOTE_USD_PER_HOUR || "0.13");
 
@@ -244,6 +251,11 @@ function collectCandidates() {
     }
     if (!FORCE) for (const k of done) byEpisode.delete(k);
     let pool = [...byEpisode.values()];
+    if (REQUIRE_SONIOX) {
+        const before = pool.length;
+        pool = pool.filter((x) => hasSonioxWords(x.p));
+        if (before > pool.length) console.log(`   ⏭️  ${before - pool.length} bez Soniox riječi — pyannoteAI samo uz Soniox (govornici iz Speechmaticsa).`);
+    }
     if (FRESH_DAYS > 0) {
         const cutoff = Date.now() - FRESH_DAYS * 86400 * 1000;
         pool = pool.filter((x) => x.mtime >= cutoff);

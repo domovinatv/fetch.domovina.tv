@@ -8,13 +8,19 @@ Stanje u 22:06 (CET). Izvori: `automatic/logs/nightly_2026-11-04.log`, `priority
 - **Sve je gotovo.** Svih 18 Tier 2 epizoda na CDN-u ima članak, EN članak, Magisterium HR i Magisterium EN. Nightly: sve 4 imaju HR i EN članak; Magisterium samo Ora et Labora (ostali kanali ga nemaju u planu). Zadnji posao završio je u 11:11:24.
 - **Prioritetni slot:** prvi posao preuzet u 04:03:24, zadnji gotov u 09:31:38. Obrađeno je 19.0 h zvuka. Obrada po epizodi traje medijan 17 min (8–27 min). Čekanje u redu: medijan 160 min, najdulje 319 min.
 - **Kamo ide vrijeme** (zbroj 18 Tier 2 epizoda, 292 min): Članak Opus (8) 108 min (37 %), H.264 video (12.5) 41 min (14 %), ASR (2.7b) 33 min (11 %), Reels Opus (9.9) 33 min (11 %), Modal Canary (2.6) 29 min (10 %).
-- **Magisterium HR:** 19 epizoda, medijan 12 min po epizodi, jedna po tick (10 min). Zadnja HR obrada završila je u 11:08:52. **EN prijevod:** 22 epizoda, medijan 2.9 min.
+- **Magisterium HR:** 19 epizoda, medijan 12 min po epizodi, jedna po tick (10 min). Zadnja HR obrada završila je u 11:08:52. **EN prijevod:** 22 epizoda, medijan 2.9 min. To je u redu: Magisterium je pozadinski posao koji smije trajati nekoliko sati (odluka 04.11.).
 - **Magisterium EN je kasnio za 16 epizoda.** EN tick je preveo članak prije nego što je HR Magisterium stigao. Zakašnjeli Magisterium EN dodao je `c2af6ac7` (`EN_MAG_LATE_SINCE`, 3 po ticku) između 10:14 i 11:11.
 - **⚠️ pyannoteAI je bez kredita od 05:51** (HTTP 402 „Insufficient credits and no active subscription”). 13 od 18 Tier 2 epizoda ima govornike iz Speechmaticsove dijarizacije. Korak je non-fatal, pa se to ne javlja kao greška. Nightly 05.11. udarit će u isto.
 - **Cijeli dan radio je samo jedan slot:** 184 zapisa „slot 2+: disk 12–14 GB < 25 GB”.
 - **Modal Canary (2.6)** vrti se kao osigurač na svakoj Tier 2 epizodi iako je ASR Speechmatics: 29 min ukupno.
 - Rupa od 12 min iza `-kSZAvMDzC8` (08:15 → 08:27): `reconcile` je zapeo na mreži (`fetch failed`, `PATCH … EPIPE`).
 - Nightly: `audit_pipeline.js` exit 1 (rupe disk ↔ CDN), kao i 03.11.
+
+## Odluke nakon reporta (04.11.2026. navečer)
+
+1. **pyannoteAI samo uz Soniox, dakle samo Tier 1.** `run_pipeline.sh` preskače KORAK 2.7c kad je `ASR_PRIMARY=speechmatics` (Tier 2), a `diarize_pyannote_ai.js` šalje pyannoteAI-ju samo epizode koje već imaju Soniox riječi (`.soniox.words.json` / `.soniox.json`). Tier 2, i Tier 1 kad Soniox padne na Speechmatics, koriste Speechmaticsovu dijarizaciju; kostur 2.8 `auto` tada sam uzme Speechmatics. `PYANNOTE_AI_REQUIRE_SONIOX=0` vraća staro ponašanje. Krediti pyannoteAI su i dalje na nuli. Dok se ne nadoplate, ni Tier 1 neće imati pyannoteAI govornike (korak je non-fatal).
+2. **Ograda drugog slota mjerila je krivi disk.** `automatic/priority_pipeline.sh` je radio `df $REPO_DIR`, a to je interni SSD (9 GB slobodno). Prioritetni videi pišu u `storage/output/_unlisted` → DOMOVINA2TB (655 GB slobodno). Sada se 25 GB (`PRIORITY_MIN_FREE_GB`) mjeri na radnom disku, a na SSD-u samo 5 GB (`PRIORITY_MIN_FREE_SSD_GB`). Toliko treba privremenom `web.mp4` iz KORAKA 12.5 koji se piše na SSD (izbjegava I/O thrashing na USB-u) i briše nakon uploada. Interni SSD na 98 % je zaseban problem (ClickHouse/Docker, vidi RAG handoff).
+3. **Magisterium smije biti spor.** HR/EN Magisterium je pozadinski posao koji se odradi kroz nekoliko sati. Kašnjenje za člankom nije nalaz.
 
 ## Tier 2: trajanje faza po epizodi (min:s)
 

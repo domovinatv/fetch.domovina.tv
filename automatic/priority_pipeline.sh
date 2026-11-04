@@ -5,7 +5,8 @@
 # docs/2026-10-27-paralelna-obrada.md). Svaki tick:
 #   1. nightly / ručni bulk drži globalni lock (.pipeline.lock.d) → ne otvara slot
 #   2. traži slobodan slot logs/.priority.d/slot-1..PRIORITY_SLOTS (default 2); slot 2+
-#      samo uz ≥ PRIORITY_MIN_FREE_GB slobodnog diska (default 25)
+#      samo uz ≥ PRIORITY_MIN_FREE_GB slobodnog RADNOG diska (default 25; _unlisted → DOMOVINA2TB)
+#      i ≥ PRIORITY_MIN_FREE_SSD_GB na internom SSD-u (default 5, privremeni web.mp4)
 #   3. u slotu pokrene priority_worker.sh u VLASTITOJ sesiji (setsid), koji claima 1 job i
 #      vrti PUNI single-video pipeline (~30–60 min) — tick odmah izlazi
 #   4. reconcile (article.json live na CDN → done)
@@ -68,12 +69,25 @@ if [ -d "$GLOBAL_LOCK" ]; then
 fi
 
 # 2. Slobodan slot.
-free_gb="$(df -g "$REPO_DIR" | awk 'NR==2 {print $4}')"
+# Disk se mjeri ondje gdje obrada stvarno piše (04.11.2026.): prioritetni videi idu u
+# storage/output/_unlisted, a to je symlink na radni disk (DOMOVINA2TB). Do 04.11. se mjerio
+# $REPO_DIR = interni SSD, pa je slot 2 cijeli dan stajao zbog „12 GB < 25 GB” dok je radni
+# disk imao 650 GB. Na SSD ide samo privremeni web.mp4 iz KORAKA 12.5 (briše se nakon
+# uploada), zato za SSD vrijedi manja ograda PRIORITY_MIN_FREE_SSD_GB (default 5).
+WORK_DIR="$REPO_DIR/storage/output/_unlisted"
+[ -e "$WORK_DIR" ] || WORK_DIR="$REPO_DIR/storage/output"
+MIN_FREE_SSD_GB="${PRIORITY_MIN_FREE_SSD_GB:-5}"
+free_gb="$(df -g "$WORK_DIR/" | awk 'NR==2 {print $4}')"
+ssd_free_gb="$(df -g "$HOME" | awk 'NR==2 {print $4}')"
 slot=""
 busy=""
 for k in $(seq 1 "$SLOTS"); do
     if [ "$k" -gt 1 ] && [ "${free_gb:-0}" -lt "$MIN_FREE_GB" ]; then
-        [ -z "$slot" ] && busy="$busy (slot $k+: disk ${free_gb} GB < ${MIN_FREE_GB} GB)"
+        [ -z "$slot" ] && busy="$busy (slot $k+: radni disk ${free_gb} GB < ${MIN_FREE_GB} GB)"
+        break
+    fi
+    if [ "$k" -gt 1 ] && [ "${ssd_free_gb:-0}" -lt "$MIN_FREE_SSD_GB" ]; then
+        [ -z "$slot" ] && busy="$busy (slot $k+: SSD ${ssd_free_gb} GB < ${MIN_FREE_SSD_GB} GB)"
         break
     fi
     PIPELINE_LOCK="$SLOT_DIR/slot-$k"
@@ -91,7 +105,7 @@ fi
 PRIORITY_SLOT="$slot" PRIORITY_SLOT_LOCK="$SLOT_DIR/slot-$slot" PRIORITY_LOG_FILE="$LOG_FILE" BRIDGE="$BRIDGE" \
     perl -MPOSIX -e 'POSIX::setsid(); exec @ARGV' bash "$SCRIPT_DIR/priority_worker.sh" </dev/null >/dev/null 2>&1 &
 echo "$!" > "$SLOT_DIR/slot-$slot/pid"
-echo "$(date '+%F %T') ⚡ slot $slot → worker PID $! (disk ${free_gb} GB slobodno)"
+echo "$(date '+%F %T') ⚡ slot $slot → worker PID $! (radni disk ${free_gb} GB, SSD ${ssd_free_gb} GB slobodno)"
 
 # 4. Javi gotove.
 reconcile
