@@ -66,6 +66,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    poštovati ovaj redoslijed, ne „najbolji udio”. Odluka i mjerenja:
    `docs/2026-10-25-asr-prioritet-soniox.md`; stanje toka: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 
+4. **🎯 Cilj su NOVE epizode, bez backfilla.** (odluka 04.11.2026.)
+   Cilj je pipeline koji SVAKU novu epizodu obradi bez greške, svaki dan. Svaki popravak
+   ide **samo naprijed**: kod koji popunjava rupe mora imati granicu „od danas” (npr.
+   `EN_MAG_LATE_SINCE` u `automatic/enqueue_en_new.js`), a stare rupe se NE popunjavaju
+   automatski ni „usput”. Backfill kataloga dolazi tek kad nightly i Tier 2 nekoliko
+   noći zaredom dokazano obrade 100 % novih epizoda, i to kao zasebna, dogovorena
+   odluka. Ne predlaži backfill kao dio popravka. Detalji:
+   `docs/2026-11-04-samo-nove-epizode-bez-backfilla.md`.
+
 ## Build & Test Commands
 
 ```bash

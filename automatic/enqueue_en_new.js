@@ -34,6 +34,16 @@
  * izravno: epizoda s EN člankom, a bez svježeg reels.en.json (otisak HR teksta, ne mtime) →
  * translate_to_english.js (prevede samo reelse, ~1 agy poziv) + upload + episode.json.
  * EN_REELS_MAX (default 3) po ticku; isti otisak najviše 3 neuspjeha, pa čeka promjenu teksta.
+ *
+ * Zakašnjeli Magisterium EN (od 04.11.2026.): ista zamka kao reelsi. Ad-hoc epizoda u
+ * `_unlisted` ne čeka HR Magisterium (nije u full_backfill_channels.txt), pa EN job prevede
+ * članak, a HR Magisterium stigne tek poslije (traka je serijska, ~15 min/ep) i nitko ga ne
+ * prevede — 74/80 Tier 2 epizoda od 29.10. ostalo je bez article.magisterium.en.json.
+ * Epizoda s EN člankom i HR Magisteriumom, a bez EN Magisteriuma → translate_to_english.js
+ * (prevede samo što fali) + upload + episode.json. SAMO NAPRIJED: HR Magisterium nastao na
+ * ili nakon EN_MAG_LATE_SINCE (default 2026-11-04). Stare rupe se NE popunjavaju automatski
+ * (odluka 04.11.2026.: backfill tek kad nightly dokazano 100 % obradi sve nove epizode).
+ * EN_MAG_MAX (default 3) po ticku; najviše 3 neuspjeha po epizodi.
  */
 const fs = require('fs');
 const { spawnSync } = require('child_process');
@@ -53,6 +63,10 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const REELS_MAX = parseInt(process.env.EN_REELS_MAX || '3', 10);
 const REELS_STATE_FILE = path.join(__dirname, 'logs', '.reels_en_state.json');
 const REELS_MAX_TRIES = 3;
+const MAG_LATE_SINCE = process.env.EN_MAG_LATE_SINCE || '2026-11-04';
+const MAG_MAX = parseInt(process.env.EN_MAG_MAX || '3', 10);
+const MAG_STATE_FILE = path.join(__dirname, 'logs', '.magisterium_en_late_state.json');
+const MAG_MAX_TRIES = 3;
 
 // {basename}.wav.canary.diarized_{date}_{model}.article.json — model sadrži točke (gemini-3.5-flash).
 const ARTICLE_RE = /^(.*_yt_([A-Za-z0-9_-]{11}).*)_(\d{4}-\d{2}-\d{2})_(.+?)\.article\.json$/;
@@ -158,6 +172,63 @@ function refreshReelsEn() {
     }
 }
 
+/** Epizode s EN člankom i HR Magisteriumom (nastalim >= MAG_LATE_SINCE), a bez EN Magisteriuma. */
+function lateMagisteriumEn() {
+    const sinceMs = Date.parse(`${MAG_LATE_SINCE}T00:00:00`);
+    const out = [];
+    for (const entry of fs.readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
+        if (!(entry.isDirectory() || entry.isSymbolicLink()) || entry.name.startsWith('.')) continue;
+        const dir = path.join(OUTPUT_DIR, entry.name);
+        let files;
+        try { files = fs.readdirSync(dir); } catch { continue; }
+        const set = new Set(files);
+        for (const f of files) {
+            if (f.startsWith('._') || !f.endsWith('.article.magisterium.json')) continue;
+            const stem = f.slice(0, -'.article.magisterium.json'.length);
+            if (!set.has(`${stem}.article.en.json`) || set.has(`${stem}.article.magisterium.en.json`)) continue;
+            // Samo Magisterium NAJNOVIJEG članka (downstream servira leksikografski najveći).
+            const m = `${stem}.article.json`.match(ARTICLE_RE);
+            if (!m || m[3] < SINCE) continue;
+            const prefix = m[1];
+            const newer = files.some((x) => { const k = x.match(ARTICLE_RE); return k && k[1] === prefix && x.slice(0, -'.article.json'.length) > stem; });
+            if (newer) continue;
+            let mtime = 0;
+            try { mtime = fs.statSync(path.join(dir, f)).mtimeMs; } catch { continue; }
+            if (mtime < sinceMs) continue;   // stara rupa — namjerno bez backfilla
+            const ids = [...stem.matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
+            if (!ids.length) continue;
+            out.push({ id: ids[ids.length - 1][1], channel: entry.name });
+        }
+    }
+    return out;
+}
+
+function refreshMagisteriumEn() {
+    const late = lateMagisteriumEn();
+    if (!late.length) return;
+    let state = {};
+    try { state = JSON.parse(fs.readFileSync(MAG_STATE_FILE, 'utf8')); } catch { /* prazno */ }
+    let done = 0;
+    for (const r of late) {
+        const tag = `${r.id} [${r.channel}]`;
+        const tries = (state[r.id] && state[r.id].tries) || 0;
+        if (tries >= MAG_MAX_TRIES) { console.log(`  ⛔ Magisterium EN ${tag} — ${tries}× neuspjeh`); continue; }
+        if (done >= MAG_MAX) { console.log(`🛑 EN_MAG_MAX=${MAG_MAX} — ostatak idući tick.`); break; }
+        done++;
+        if (DRY_RUN) { console.log(`  🧪 Magisterium EN ${tag} → bi se preveo`); continue; }
+        console.log(`  🕊 Magisterium EN ${tag} — HR Magisterium stigao nakon EN prijevoda`);
+        const run = (cmd, args) => spawnSync(cmd, args, { cwd: ROOT, stdio: 'inherit' }).status === 0;
+        const ok = run('node', ['translate_to_english.js', '--input-dir', 'storage/output', '--channel', r.channel, '--video-id', r.id])
+            && run(path.join(__dirname, 'with_pipeline_lock.sh'), ['node', 'upload_to_r2.js', '--input-dir', 'storage/output', '--video-id', r.id])
+            && run('node', ['build_episode_bundle.js', '--video-id', r.id]);
+        state[r.id] = { tries: ok ? 0 : tries + 1 };
+        console.log(ok ? `  ✅ Magisterium EN ${tag} objavljen` : `  ❌ Magisterium EN ${tag} nije uspio`);
+    }
+    if (!DRY_RUN) {
+        try { fs.writeFileSync(MAG_STATE_FILE, JSON.stringify(state, null, 1)); } catch { /* nije kritično */ }
+    }
+}
+
 async function api(method, pathname, body) {
     const res = await fetch(PIPELINE_QUEUE_BASE + pathname, {
         method,
@@ -180,6 +251,7 @@ async function cdnHas(id, name) {
 
 (async () => {
     try { refreshReelsEn(); } catch (e) { console.log(`⚠️ reels EN greška: ${e.message}`); }
+    try { refreshMagisteriumEn(); } catch (e) { console.log(`⚠️ Magisterium EN greška: ${e.message}`); }
     const candidates = collectCandidates();
     console.log(`🌐 EN auto (članci od ${SINCE}): ${candidates.length} epizoda bez EN-a.`);
     if (!candidates.length) return;
