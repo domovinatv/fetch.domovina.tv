@@ -66,6 +66,8 @@ const DRY_RUN = args.includes("--dry-run");
 const CONCURRENCY = parseInt(getArg("--concurrency") || "4", 10);
 const NO_PURGE = args.includes("--no-purge");
 const CHANGED_ONLY = args.includes("--changed-only");
+// Ispod ovog omjera (disk / CDN) knjiga se smatra krnjom i ne šalje se.
+const SHRINK_RATIO = 0.9;
 const ONLY_VIDEO_ID = getArg("--video-id");
 const KEYS_CACHE = path.join(ROOT, ".r2_keys_cache.json");
 
@@ -190,13 +192,20 @@ async function main() {
 
     if (CHANGED_ONLY) {
         let shrunk = 0;
+        const shrunkList = [];
         const changed = jobs.filter((j) => {
             const pub = published.get(j.key);
             if (typeof pub !== "number" || pub === j.size) return false;
-            if (j.size < pub) { shrunk++; return false; }
+            // Ograda hvata knjigu BEZ SLIKA (1.2 MB → 0.3 MB), ne svaku manju.
+            // Veličina ZIP-a nije mjera sadržaja: nova vremenska oznaka u
+            // content.opf mijenja je za ±1–2 B, a knjiga s DODANIM Magisterium
+            // poglavljem i drugom naslovnicom zna izaći 1.3 KB manja (KLPD-Meu4e8,
+            // 04.11.2026.). Stroga usporedba je takve knjige trajno zadržavala na disku.
+            if (j.size < pub * SHRINK_RATIO) { shrunk++; shrunkList.push(`${j.videoId} ${(j.size / 1e6).toFixed(1)} MB < CDN ${(pub / 1e6).toFixed(1)} MB`); return false; }
             return true;
         });
-        if (shrunk) console.log(`   ⚠️  ${shrunk} knjiga je na disku MANJA nego na CDN-u — ne šaljem (provjeri screenshotove)`);
+        if (shrunk) console.log(`   ⚠️  ${shrunk} knjiga je na disku >10 % MANJA nego na CDN-u — ne šaljem (provjeri screenshotove)`);
+        for (const l of shrunkList) console.log(`      • ${l}`);
         jobs.length = 0;
         jobs.push(...changed);
     }

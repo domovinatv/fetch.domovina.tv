@@ -902,6 +902,9 @@ function findCandidates(root) {
             const audioPath = p.slice(0, -SPEECHMATICS_JSON.length);
             if (!fs.existsSync(audioPath)) continue;
             if (VIDEO_ID && !audioPath.includes(`_yt_${VIDEO_ID}`)) continue;
+            // Tihi zvuk (lib/audio_silence.js) nema što promovirati — kostur je prazan
+            // i svaki bi run ponovno javio „kostur nema segmenata" (VOcypz9_Ofo).
+            if (fs.existsSync(audioPath.replace(/\.[^.]+$/, "") + ".silent.json")) continue;
             // Već obrađena epizoda se preskače — OSIM ako je tražena promocija a
             // kanonsko ime još ne postoji: tada je kandidat za promote-only prolaz
             // (bez ijednog API poziva). Bez ovoga `--promote` nad ranijim runom
