@@ -400,14 +400,464 @@
    "sent_at": "2026-11-02T05:38:06.799Z",
    "result": "created",
    "job_id": "eae8cf05-bafd-4ff2-87d1-d09bac1a1288"
+  },
+  "v6lxl5Qtc5k": {
+   "date": "2026-11-03",
+   "slug": "atma-podcast",
+   "title": "BOG JE U NAMA! Najveća istina koju su mnogi zaboravili | Jadranko Miklec | ATMA podcast ",
+   "duration": 6197,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:08.236Z",
+   "result": "created",
+   "job_id": "04123d13-e702-417c-b29e-9886499dabb1"
+  },
+  "9Qgyp4YLzFs": {
+   "date": "2026-11-03",
+   "slug": "bijelo-plavi-podcast",
+   "title": "Bijelo-plavi podcast 263: Čudotvorac",
+   "duration": 4758,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:08.827Z",
+   "result": "created",
+   "job_id": "89b0edb6-7912-42d2-bd30-b6680e33f824"
+  },
+  "64C4iXiJizs": {
+   "date": "2026-11-03",
+   "slug": "denis-podcast",
+   "title": "HNL LIVE / Mario Kovačević više nije trener Dinama",
+   "duration": 4062,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:09.136Z",
+   "result": "created",
+   "job_id": "dc1b75f5-34a6-4616-99c5-628737de8207"
+  },
+  "ldKMsUBmWJU": {
+   "date": "2026-11-03",
+   "slug": "fire-podcast-tetka-skrti",
+   "title": "Pregled listopada 2026. | FIRE Podcast za siromašne #91",
+   "duration": 1935,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:09.423Z",
+   "result": "created",
+   "job_id": "3ae4301a-a348-4271-96c7-93f4893bc286"
+  },
+  "W7IE2hP0ups": {
+   "date": "2026-11-03",
+   "slug": "kriminalno-dobre-price",
+   "title": "456. epizoda: Obitelj Puskas",
+   "duration": 2494,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:09.677Z",
+   "result": "created",
+   "job_id": "80b3c2b0-2096-4981-8579-f2f20cc4de32"
+  },
+  "78WYAXS007Q": {
+   "date": "2026-11-03",
+   "slug": "lider-podcast",
+   "title": "Način na koji proizvodimo HRANU mora se promijeniti. On pokazuje KAKO | David Pejić x Lider 186",
+   "duration": 2526,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:09.916Z",
+   "result": "created",
+   "job_id": "828740a2-a20f-4458-addc-5c09d2b118a4"
+  },
+  "ZCkXKQeFZZk": {
+   "date": "2026-11-03",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Adria Slipstream F1 podcast: VN Meksika - Kimi Antonelli prvak!",
+   "duration": 6393,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:10.123Z",
+   "result": "created",
+   "job_id": "763df0ac-9d97-48b7-a947-e16b30f86a4f"
+  },
+  "B59glGW0usU": {
+   "date": "2026-11-03",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Krepat ma ne molat: Rijeka - Varaždin 1:1",
+   "duration": 3053,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:10.407Z",
+   "result": "created",
+   "job_id": "70ba1da3-bf20-43dc-8b71-4b846a6c4c4b"
+  },
+  "wJc7ORQIIU8": {
+   "date": "2026-11-03",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1508 - Marko, Hambi i Leonard Pijetraj",
+   "duration": 8693,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:10.660Z",
+   "result": "created",
+   "job_id": "ab880ea2-42e3-4cef-bf2d-7c0c349a4a0c"
+  },
+  "bmHAbHIoIh8": {
+   "date": "2026-11-03",
+   "slug": "prvi-glas-telegram",
+   "title": "Počinje Trumpov kraj: Putin mu je zadnja nada",
+   "duration": 1470,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:10.945Z",
+   "result": "created",
+   "job_id": "ccd0cc2d-b789-498b-9497-41ff4cc49dbd"
+  },
+  "KyMHBGFS5Gc": {
+   "date": "2026-11-03",
+   "slug": "psihologija-hrt",
+   "title": "S3E09 PSIHOLOGiJA #90 Burnout ( Krunoslav Nujić i dr.med Goran Ivkić)",
+   "duration": 3190,
+   "attempts": 3,
+   "sent_at": "2026-11-04T03:02:01.718Z",
+   "result": "created",
+   "job_id": "0191acdd-4aac-4b9b-b686-7edfc726b5e0"
+  },
+  "kqpmSSGlhyo": {
+   "date": "2026-11-03",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za utorak, 3.11.2026.",
+   "duration": 2851,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:11.458Z",
+   "result": "created",
+   "job_id": "188f9c1c-5cee-4229-8c1e-5fe08ef0cd75"
+  },
+  "MdT-RZY6LKE": {
+   "date": "2026-11-03",
+   "slug": "sportske-novosti-mundocast",
+   "title": "Var soba #12: Kovačević osuđen na propast. Oscar Garcia nije jedini kandidat na Maksimiru",
+   "duration": 3176,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:11.658Z",
+   "result": "created",
+   "job_id": "c9d89520-add4-4691-ad3d-b03c6060e08a"
+  },
+  "cs5GMSWgbxs": {
+   "date": "2026-11-03",
+   "slug": "tribina-hnl-ponedjeljak",
+   "title": "Noć vještica",
+   "duration": 10116,
+   "attempts": 2,
+   "sent_at": "2026-11-03T14:20:58.649Z",
+   "result": "created",
+   "job_id": "21957c79-e8c6-461f-b39f-5a01f4477995"
+  },
+  "b_wBAxXlKN4": {
+   "date": "2026-11-03",
+   "slug": "vida-podcast",
+   "title": "Zavidavanje by Lado Tomičić #174 - Dinko Gruhonjić",
+   "duration": 3421,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:12.088Z",
+   "result": "created",
+   "job_id": "f944bf3e-ca2d-498b-827d-235305d0d7a8"
+  },
+  "UzP7C3tuVM0": {
+   "date": "2026-11-03",
+   "slug": "zadarski-podcast",
+   "title": "ZADARSKI PODCAST #17  - JURE BRKLJAČA",
+   "duration": 1888,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:12.388Z",
+   "result": "created",
+   "job_id": "f39649c5-fbc3-427f-adb7-90afea600bcc"
+  },
+  "U6aJFkZIins": {
+   "date": "2026-11-03",
+   "slug": "podcast-s-brezom",
+   "title": "JANJIĆ: \"Srpski svet\" je srušen padom Vučića, Srbija izbjegla neonacizam, a Hrvatska je jako važna!",
+   "duration": 3436,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:12.585Z",
+   "result": "created",
+   "job_id": "98416c6a-eadd-4efc-8b56-22f346cf469a"
+  },
+  "zm_LgSdLlRI": {
+   "date": "2026-11-03",
+   "slug": "hajducka-storija",
+   "title": "KORAK PO KORAK | Hajduk ima 26 bodova iz 12 utakmica",
+   "duration": 928,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:12.799Z",
+   "result": "created",
+   "job_id": "c32ac322-a1a5-4503-8d0b-9fcc83724742"
+  },
+  "VOcypz9_Ofo": {
+   "date": "2026-11-03",
+   "slug": "radio-benkovac",
+   "title": "Superznalac Benkovac -  gost gđa. Cecilija Jureško",
+   "duration": 3013,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:12.977Z",
+   "result": "created",
+   "job_id": "def22fa5-cb2e-470d-8ca6-964a8317e2e9"
+  },
+  "u9VdoOKmZ4g": {
+   "date": "2026-11-03",
+   "slug": "nadji-nacin",
+   "title": "Cijena uspjeha koju odbijam platiti: Poduzetništvo, trudnoća i novi prioriteti",
+   "duration": 1612,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:13.257Z",
+   "result": "created",
+   "job_id": "8fcd0900-a654-415f-a08c-a776fded9ae5"
+  },
+  "QPlihbO2m90": {
+   "date": "2026-11-03",
+   "slug": "vl-stativa",
+   "title": "Čovjek koji je presudio Kovačeviću: 'Danas je on, sutra netko drugi, prekosutra možda ja'",
+   "duration": 3823,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:13.494Z",
+   "result": "created",
+   "job_id": "9866db18-23e4-4414-b0aa-830206ac3463"
+  },
+  "l5d8dtQHi0w": {
+   "date": "2026-11-03",
+   "slug": "briefing-jutarnji-list",
+   "title": "Ivan Zidarević: Vučić ne želi opet nositi gajbe iza ratnih zločinaca. Mislim da znam kamo će pobjeći",
+   "duration": 2021,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:13.783Z",
+   "result": "created",
+   "job_id": "2ba1a353-e94a-4813-8621-0dc875bce3d9"
+  },
+  "1CAJX0za5FU": {
+   "date": "2026-11-03",
+   "slug": "laudato-in-familia-dei",
+   "title": "Obitelj Grgić│In Familia Dei",
+   "duration": 2638,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:13.981Z",
+   "result": "created",
+   "job_id": "bf7256eb-a9df-49c1-b0c3-131dd00275a3"
+  },
+  "fOepT80TVz0": {
+   "date": "2026-11-03",
+   "slug": "laudato-novi-zivot",
+   "title": "Zoran Vakula i fr. Dominik Iličić│Novi Život",
+   "duration": 4580,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:14.184Z",
+   "result": "created",
+   "job_id": "6ed0248a-046f-48ae-b264-ec3c1c46cf3f"
+  },
+  "mKWl-fmeWmk": {
+   "date": "2026-11-03",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Može li se ponoviti fenomen Miše Kovača?",
+   "duration": 1960,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:14.468Z",
+   "result": "created",
+   "job_id": "c464e3da-3dad-4540-a51e-67c74cc71caf"
+  },
+  "UmbclKm2who": {
+   "date": "2026-11-03",
+   "slug": "hrt-sto-je-klasik",
+   "title": "Što je klasik? Nietzsche s Trešnjevke",
+   "duration": 2160,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:14.691Z",
+   "result": "created",
+   "job_id": "90086cc8-1f6d-4f00-a5fb-849da9e4e575"
+  },
+  "K6eYb4JMuIM": {
+   "date": "2026-11-03",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Junak s tisuću lica",
+   "duration": 2760,
+   "attempts": 1,
+   "sent_at": "2026-11-03T02:59:14.875Z",
+   "result": "created",
+   "job_id": "96b0c64d-daeb-4b07-8aa0-d69d331fe673"
+  },
+  "GpPzKW6eUQM": {
+   "date": "2026-11-04",
+   "slug": "eduza-show",
+   "title": "Postali ste coach, i što sada? Coaching kao biznis | Višnja Željeznjak",
+   "duration": 5191,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:02.277Z",
+   "result": "created",
+   "job_id": "8ed39722-ddb0-4bd7-838f-c288024aea0d"
+  },
+  "valMgmN1tXA": {
+   "date": "2026-11-04",
+   "slug": "explora-hrt",
+   "title": "Explora 03.11.2026. Otkriven planet",
+   "duration": 3208,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:02.636Z",
+   "result": "created",
+   "job_id": "728501f4-e701-4625-9f19-9b1a82ebb3ac"
+  },
+  "fUFlhmqBVMs": {
+   "date": "2026-11-04",
+   "slug": "f1-puls-podcast",
+   "title": "Kimi Antonelli | F1Puls podcast #71",
+   "duration": 8682,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:02.906Z",
+   "result": "created",
+   "job_id": "059c3763-5cb0-4bba-8e10-bb6ca1d4a142"
+  },
+  "F7xiNXvwm1s": {
+   "date": "2026-11-04",
+   "slug": "ideje-hr",
+   "title": "Lulin veliki preokret i Bolsonarov špijunski bijeg Trumpu",
+   "duration": 3275,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:03.183Z",
+   "result": "created",
+   "job_id": "dcb06bdf-8d63-4b4b-a164-fb5d738e720a"
+  },
+  "OMmfDf5gEX0": {
+   "date": "2026-11-04",
+   "slug": "ideje-hr",
+   "title": "Šikić i Čačić: Može li AI zamijeniti matematičare?",
+   "duration": 4221,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:03.431Z",
+   "result": "created",
+   "job_id": "d1e02131-4818-430a-bb2f-cbab99782f93"
+  },
+  "sNbOUa-hQSc": {
+   "date": "2026-11-04",
+   "slug": "netokracija-podcast",
+   "title": "Puca li AI balon u 2027.? | S7.EP5",
+   "duration": 3802,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:03.728Z",
+   "result": "created",
+   "job_id": "8fff72b8-68a6-47f9-a2ec-f927e2101451"
+  },
+  "85LE9OLR7_s": {
+   "date": "2026-11-04",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Ofenziva rasprave: Jeste li se mogli obogatiti uz Losa?",
+   "duration": 4779,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:03.998Z",
+   "result": "created",
+   "job_id": "d44c3a86-e9a9-4731-b3ac-775609535150"
+  },
+  "AsbxJB5vshI": {
+   "date": "2026-11-04",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1509 - Ratko i Domagoj Delač (Best Food Croatia)",
+   "duration": 5340,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:04.288Z",
+   "result": "created",
+   "job_id": "f6739004-e05c-40a3-88a3-8c2c87e1aa82"
+  },
+  "QtqZiG3FMtM": {
+   "date": "2026-11-04",
+   "slug": "prvi-glas-telegram",
+   "title": "Kreće obračun: Vučićeva skandalozna izjava otkriva strah",
+   "duration": 1491,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:04.563Z",
+   "result": "created",
+   "job_id": "bdf5c65b-9fa2-40ff-9b47-c97dcec1c385"
+  },
+  "VbFzr-R79r4": {
+   "date": "2026-11-04",
+   "slug": "psihologija-hrt",
+   "title": "S3E09 PSIHOLOGiJA #90 Burnout (Krunoslav Nujić i dr. med. Goran Ivkić)",
+   "duration": 4049,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:04.849Z",
+   "result": "created",
+   "job_id": "e2c37fac-5193-4aab-b364-041a58acb883"
+  },
+  "-kSZAvMDzC8": {
+   "date": "2026-11-04",
+   "slug": "digitalna-kultura",
+   "title": "MacBook Pro dobiva touchscreen: što će nam sada iPad?",
+   "duration": 6623,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:05.054Z",
+   "result": "created",
+   "job_id": "5151b679-b40c-4a5d-8434-54a4e112b2ef"
+  },
+  "sTvZUW2v6K8": {
+   "date": "2026-11-04",
+   "slug": "vox-medicus",
+   "title": "PEDIJATRIJSKA RADIOLOGIJA, dr.med. Natko Beck, spec. radiologije",
+   "duration": 1993,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:05.262Z",
+   "result": "created",
+   "job_id": "c52cc318-fc88-43a5-9ce7-7154dd86c2af"
+  },
+  "pqPh1taQ2Gg": {
+   "date": "2026-11-04",
+   "slug": "radio-benkovac",
+   "title": "Što znači biti učitelj - prof. Marijan Pranjić",
+   "duration": 3303,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:05.447Z",
+   "result": "created",
+   "job_id": "5b3bb3a3-757a-4e16-bdff-7a9962ef87b0"
+  },
+  "5euYYTuybzY": {
+   "date": "2026-11-04",
+   "slug": "podcast-bog-i-hrvati",
+   "title": "Gostuje dr.  sc.  Krešimir Bušić",
+   "duration": 3754,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:05.738Z",
+   "result": "created",
+   "job_id": "97472b81-58a9-4d36-bdbf-16505bba1fe4"
+  },
+  "0sxT3NF8yFg": {
+   "date": "2026-11-04",
+   "slug": "pravi-smjer",
+   "title": "Pravi smjer 3. studenoga 2026.",
+   "duration": 1845,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:05.946Z",
+   "result": "created",
+   "job_id": "44dd3665-f735-47a8-be77-4e3030248b6a"
+  },
+  "NbLmTuhikJ4": {
+   "date": "2026-11-04",
+   "slug": "romano-bolkovic-1-na-1",
+   "title": "Romano Bolković - 1 na 1: Christian Leuprecht",
+   "duration": 3121,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:06.214Z",
+   "result": "created",
+   "job_id": "a7ce43e7-4727-4c88-b4f8-5e6b83e6689a"
+  },
+  "4T8iHbidRqc": {
+   "date": "2026-11-04",
+   "slug": "radio-mir-medjugorje-miris-zavicaja",
+   "title": "Miris zavičaja 1. 11. 2026. - dr. sc. Marija Bošnjak  - monografija Povjestice",
+   "duration": 1849,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:06.531Z",
+   "result": "created",
+   "job_id": "f05977b4-cd44-444c-b07e-eecad312a95a"
+  },
+  "jYCIKsaA6Ys": {
+   "date": "2026-11-04",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Međuizbori kao prekretnica američke politike",
+   "duration": 1806,
+   "attempts": 1,
+   "sent_at": "2026-11-04T03:02:06.758Z",
+   "result": "created",
+   "job_id": "842f1d59-5a38-4137-93ce-5b315daa2c68"
   }
  },
- "updated_at": "2026-11-02T05:38:06.975Z",
+ "updated_at": "2026-11-04T03:02:06.960Z",
  "last_enqueue_usage": {
-  "at": "2026-11-02T05:38:06.975Z",
-  "five_hour": 8,
-  "five_hour_resets_at": "2026-11-02T09:50:00.275319+00:00",
-  "seven_day": 20,
-  "seven_day_resets_at": "2026-11-07T00:00:00.275336+00:00"
+  "at": "2026-11-04T03:02:06.960Z",
+  "five_hour": 12,
+  "five_hour_resets_at": "2026-11-04T04:09:59.695344+00:00",
+  "seven_day": 45,
+  "seven_day_resets_at": "2026-11-06T23:59:59.695364+00:00"
  }
 }

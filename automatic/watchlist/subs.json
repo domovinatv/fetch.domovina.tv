@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-11-01T02:53:04.863Z",
+  "generated_at": "2026-11-04T08:30:44.694Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 69,
+  "count": 74,
   "videos": {
+    "QtqZiG3FMtM": {"slug":"prvi-glas-telegram","date":"2026-11-03","langs":["hr"]},
+    "bmHAbHIoIh8": {"slug":"prvi-glas-telegram","date":"2026-11-02","langs":["hr"]},
+    "F7xiNXvwm1s": {"slug":"ideje-hr","date":"2026-11-02","langs":["hr"]},
+    "gm-ehEs-0Hs": {"slug":"human-lab-podcast","date":"2026-11-01","langs":["hr"]},
     "EiaXqxnKln0": {"slug":"spica-s-macanom","date":"2026-10-31","langs":["en","hr"]},
     "__9wYAW8YGM": {"slug":"projekt-velebit","date":"2026-10-30","langs":["en","hr"]},
     "e1tuwQJIVek": {"slug":"budi-frajer","date":"2026-10-30","langs":["en"]},
@@ -70,6 +74,7 @@
     "rxqB_SjKdFk": {"slug":"4kids-podcast","date":"2021-08-23","langs":["en"]},
     "IIzoz5qbVtw": {"slug":"4kids-podcast","date":"2021-07-22","langs":["en"]},
     "aPTVDP3wenk": {"slug":"4kids-podcast","date":"2021-06-25","langs":["en"]},
+    "KLPD-Meu4e8": {"slug":"nanovoroeni","date":"2020-02-08","langs":["en"]},
     "Wa_o9tk7jh8": {"slug":"agape-rtv","date":"2019-10-05","langs":["hr"]},
     "AAzm0ftoqsg": {"slug":"40-dana-za-zivot","date":"2019-04-11","langs":["en","hr"]}
   }

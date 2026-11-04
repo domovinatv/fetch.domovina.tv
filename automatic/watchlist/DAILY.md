@@ -1,15 +1,18 @@
 # Dnevni snapshot novih epizoda
 
-Generirano 2026-11-01 02:50 UTC skriptom `automatic/daily_snapshot.js` — nula mrežnih poziva, deterministički iz `events.jsonl` (kandidati, samo originali) i git povijesti `automatic/podcasts/*-lista.txt` (praćeni).
+Generirano 2026-11-04 03:02 UTC skriptom `automatic/daily_snapshot.js` — nula mrežnih poziva, deterministički iz `events.jsonl` (kandidati, samo originali) i git povijesti `automatic/podcasts/*-lista.txt` (praćeni).
 
-**Zadnja noć (2026-11-01): 21 novih epizoda u 20 kanala** — 19 kandidata + 2 praćenih, 21.5 h audia kod kandidata, 1 kanal(a) s više od jedne.
+**Zadnja noć (2026-11-04): 22 novih epizoda u 20 kanala** — 18 kandidata + 4 praćenih, 19 h audia kod kandidata, 2 kanal(a) s više od jedne.
 
-**Prozor 2026-10-02 → 2026-11-01** (30/31 noći s runom): 808 epizoda iz 204 kanala · **26.9/dan** · 770.5 h audia kod kandidata · 16 duplikata spojeno (isti video u dva unosa).
+**Prozor 2026-10-05 → 2026-11-04** (31/31 noći s runom): 830 epizoda iz 205 kanala · **27.7/dan** · 790.4 h audia kod kandidata · 18 duplikata spojeno (isti video u dva unosa).
 
 ## Po noći
 
 | noć | dan | ukupno | kandidati | praćeni | kanala | h (kand.) | 7d prosjek | |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-04 | sri | **22** | 18 | 4 | 20 | 19 | 26.4 | ██████ |
+| 2026-11-03 | uto | **31** | 27 | 4 | 30 | 26.4 | 27.3 | █████████ |
+| 2026-11-02 | pon | **22** | 21 | 1 | 22 | 28.2 | 32.9 | ██████ |
 | 2026-11-01 | ned | **21** | 19 | 2 | 20 | 21.5 | 32.3 | ██████ |
 | 2026-10-31 | sub | **27** | 20 | 7 | 26 | 24.7 | 31.7 | ████████ |
 | 2026-10-30 | pet | **31** | 25 | 6 | 28 | 20.8 | 31.3 | █████████ |
@@ -32,15 +35,12 @@ Generirano 2026-11-01 02:50 UTC skriptom `automatic/daily_snapshot.js` — nula 
 | 2026-10-13 | uto | **28** | 28 | 0 | 27 | 31 | 20.9 | ████████ |
 | 2026-10-12 | pon | **14** | 12 | 2 | 13 | 16.5 | 18.9 | ████ |
 | 2026-10-11 | ned | **16** | 14 | 2 | 16 | 15.9 | 20.4 | █████ |
-| 2026-10-10 | sub | **23** | 19 | 4 | 22 | 17.9 | 18.4 | ███████ |
-| 2026-10-09 | pet | **22** | 20 | 2 | 22 | 18.5 | 19.1 | ██████ |
-| 2026-10-08 | čet | **25** | 23 | 2 | 25 | 27 | 19.3 | ███████ |
+| 2026-10-10 | sub | **23** | 19 | 4 | 22 | 17.9 | — | ███████ |
+| 2026-10-09 | pet | **22** | 20 | 2 | 22 | 18.5 | — | ██████ |
+| 2026-10-08 | čet | **25** | 23 | 2 | 25 | 27 | — | ███████ |
 | 2026-10-07 | sri | **18** | 15 | 3 | 18 | 13.6 | — | █████ |
 | 2026-10-06 | uto | **14** | 14 | 0 | 14 | 15.5 | — | ████ |
 | 2026-10-05 | pon | **25** | 23 | 2 | 25 | 25.6 | — | ███████ |
-| 2026-10-04 | ned | — | — | 2 | — | — | — | _watch nije radio; sljedeća noć nosi dva dana_ |
-| 2026-10-03 | sub | **28** | 24 | 4 | 26 | 27.5 | — | ████████ |
-| 2026-10-02 | pet | **23** | 21 | 2 | 22 | 26.2 | — | ███████ |
 
 ## Po danu objave u tjednu (kandidati)
 
@@ -48,145 +48,144 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 
 | dan | epizoda | prosjek/dan | |
 |---|---|---|---|
-| pon | 127 | 31.8 | ████████████████████ |
-| uto | 99 | 24.8 | ████████████████ |
+| pon | 153 | 30.6 | ████████████████████ |
+| uto | 119 | 29.8 | ███████████████████ |
 | sri | 105 | 26.3 | █████████████████ |
-| čet | 111 | 22.2 | ██████████████ |
-| pet | 132 | 26.4 | █████████████████ |
-| sub | 66 | 16.5 | ██████████ |
-| ned | 82 | 20.5 | █████████████ |
+| čet | 91 | 22.8 | ███████████████ |
+| pet | 108 | 27 | ██████████████████ |
+| sub | 65 | 16.3 | ███████████ |
+| ned | 102 | 20.4 | █████████████ |
 
 ## Trajanje (kandidati)
 
 | trajanje | epizoda |
 |---|---|
-| <30 min | 79 |
-| 30–60 min | 328 |
-| 60–90 min | 180 |
-| 90–120 min | 84 |
-| ≥120 min | 51 |
+| <30 min | 77 |
+| 30–60 min | 342 |
+| 60–90 min | 186 |
+| 90–120 min | 86 |
+| ≥120 min | 52 |
 
 ## Kanali u prozoru
 
-204 kanala objavilo je barem jednu epizodu; 53 točno jednu.
+205 kanala objavilo je barem jednu epizodu; 54 točno jednu.
 
 | kanal | izvor | epizoda | h | zadnja noć |
 |---|---|---|---|---|
 | `laudato-more-milosrda` | kandidat | 29 | 44.2 | 2026-10-27 |
 | `laudato-zivot-i-zdravlje` | kandidat | 28 | 27.2 | 2026-10-27 |
-| `prvi-glas-telegram` | kandidat | 20 | 8.7 | 2026-10-30 |
-| `sbs-croatian` | kandidat | 18 | 15.1 | 2026-10-30 |
-| `hajducka-storija` | kandidat | 17 | 7.3 | 2026-11-01 |
-| `ofenziva-sportski-podcast` | kandidat | 14 | 18.2 | 2026-10-29 |
-| `podcast-inkubator` | kandidat | 14 | 22.6 | 2026-10-29 |
-| `atma-podcast` | kandidat | 12 | 16.6 | 2026-10-31 |
-| `ideje-hr` | kandidat | 12 | 10 | 2026-10-31 |
-| `poslovni-dnevnik-podcast` | kandidat | 12 | 8.2 | 2026-10-30 |
-| `podcast-s-brezom` | kandidat | 11 | 8.6 | 2026-10-30 |
-| `briefing-jutarnji-list` | kandidat | 10 | 6.4 | 2026-11-01 |
-| `hrt-otvoreno` | kandidat | 10 | 5.2 | 2026-10-30 |
-| `prgavi-podcast` | kandidat | 10 | 17.3 | 2026-11-01 |
-| `budi-frajer` | praćeni | 9 | — | 2026-10-31 |
-| `podcast-cuspajz` | praćeni | 9 | — | 2026-11-01 |
-| `radio-mreznica` | praćeni | 9 | — | 2026-10-31 |
-| `hzv-siempre` | kandidat | 8 | 23.9 | 2026-10-31 |
+| `prvi-glas-telegram` | kandidat | 20 | 8.6 | 2026-11-04 |
+| `sbs-croatian` | kandidat | 18 | 15 | 2026-11-03 |
+| `hajducka-storija` | kandidat | 17 | 6.5 | 2026-11-03 |
+| `ofenziva-sportski-podcast` | kandidat | 17 | 22.1 | 2026-11-04 |
+| `podcast-inkubator` | kandidat | 16 | 27.1 | 2026-11-04 |
+| `ideje-hr` | kandidat | 14 | 12.1 | 2026-11-04 |
+| `atma-podcast` | kandidat | 12 | 17.5 | 2026-11-03 |
+| `hrt-otvoreno` | kandidat | 12 | 6.2 | 2026-11-04 |
+| `briefing-jutarnji-list` | kandidat | 11 | 7 | 2026-11-03 |
+| `podcast-s-brezom` | kandidat | 11 | 8.8 | 2026-11-03 |
+| `radio-benkovac` | kandidat | 10 | 7.6 | 2026-11-04 |
+| `radio-mreznica` | praćeni | 10 | — | 2026-11-04 |
+| `hzv-siempre` | kandidat | 9 | 26.1 | 2026-11-02 |
+| `ora-et-labora` | praćeni | 9 | — | 2026-11-04 |
+| `podcast-cuspajz` | praćeni | 9 | — | 2026-11-03 |
+| `poslovni-dnevnik-podcast` | kandidat | 9 | 6.8 | 2026-10-30 |
+| `prgavi-podcast` | kandidat | 9 | 15.3 | 2026-11-01 |
+| `budi-frajer` | praćeni | 8 | — | 2026-10-31 |
+| `osvrtnik` | kandidat | 8 | 12.4 | 2026-11-02 |
 | `poslovnifm` | kandidat | 8 | 5.4 | 2026-10-31 |
-| `radio-benkovac` | kandidat | 8 | 5.8 | 2026-10-29 |
-| `samo-hajduk` | kandidat | 8 | 11.8 | 2026-11-01 |
+| `vedran-soric-podcast` | kandidat | 8 | 8 | 2026-11-02 |
+| `vida-podcast` | kandidat | 8 | 7.4 | 2026-11-03 |
 | `viza` | kandidat | 8 | 6.4 | 2026-10-30 |
 | `actualitica-podcast` | kandidat | 7 | 7 | 2026-10-26 |
+| `eduza-show` | kandidat | 7 | 9 | 2026-11-04 |
+| `iza-pjace` | kandidat | 7 | 13.1 | 2026-11-02 |
 | `mladi-za-domovinu` | praćeni | 7 | — | 2026-10-30 |
-| `osvrtnik` | kandidat | 7 | 10.5 | 2026-10-26 |
 | `podcast-8-24` | kandidat | 7 | 13.6 | 2026-11-01 |
-| `projekt-velebit` | kandidat | 7 | 12.4 | 2026-10-31 |
-| `spica-s-macanom` | kandidat | 7 | 8.1 | 2026-11-01 |
-| `vedran-soric-podcast` | kandidat | 7 | 6.7 | 2026-10-27 |
-| `vida-podcast` | kandidat | 7 | 6.4 | 2026-10-30 |
-| `denis-podcast` | kandidat | 6 | 7 | 2026-10-28 |
-| `druga-strana-medalje` | kandidat | 6 | 8.2 | 2026-11-01 |
-| `eduza-show` | kandidat | 6 | 7.5 | 2026-10-29 |
-| `iza-pjace` | kandidat | 6 | 11.2 | 2026-10-28 |
-| `lood-podcast` | praćeni | 6 | — | 2026-10-30 |
-| `ora-et-labora` | praćeni | 6 | — | 2026-11-01 |
+| `samo-hajduk` | kandidat | 7 | 8.9 | 2026-11-01 |
+| `denis-podcast` | kandidat | 6 | 7.2 | 2026-11-03 |
+| `lider-podcast` | kandidat | 6 | 3.8 | 2026-11-03 |
+| `mreze-rijeci` | praćeni | 6 | — | 2026-11-04 |
+| `projekt-velebit` | kandidat | 6 | 10.6 | 2026-10-31 |
+| `psihologija-hrt` | kandidat | 6 | 5.9 | 2026-11-04 |
 | `tribina-nba-kosarka` | kandidat | 6 | 9.9 | 2026-10-29 |
-| `zadarski-podcast` | kandidat | 6 | 3.1 | 2026-10-30 |
-| `agape-rtv` | kandidat | 5 | 5.9 | 2026-10-31 |
-| `cronnect` | kandidat | 5 | 4.1 | 2026-10-31 |
+| `zadarski-podcast` | kandidat | 6 | 3.1 | 2026-11-03 |
+| `zona-dinamo-podcast` | kandidat | 6 | 9.8 | 2026-11-02 |
+| `digitalna-kultura` | kandidat | 5 | 9.1 | 2026-11-04 |
+| `druga-strana-medalje` | kandidat | 5 | 5.8 | 2026-11-01 |
+| `explora-hrt` | kandidat | 5 | 4.5 | 2026-11-04 |
+| `hrt-na-rubu-znanosti` | kandidat | 5 | 4.1 | 2026-11-03 |
+| `kriminalno-dobre-price` | kandidat | 5 | 3.7 | 2026-11-03 |
 | `libertas-talks` | kandidat | 5 | 4.8 | 2026-11-01 |
-| `lider-podcast` | kandidat | 5 | 3.1 | 2026-10-27 |
+| `lood-podcast` | praćeni | 5 | — | 2026-10-30 |
 | `mjesto-zlocina` | kandidat | 5 | 4.3 | 2026-11-01 |
-| `muzevni-budite` | praćeni | 5 | — | 2026-10-30 |
-| `netokracija-office-talks` | kandidat | 5 | 3.1 | 2026-10-30 |
-| `netokracija-podcast` | kandidat | 5 | 4.7 | 2026-10-27 |
+| `nadji-nacin` | kandidat | 5 | 2.9 | 2026-11-03 |
+| `netokracija-podcast` | kandidat | 5 | 2.9 | 2026-11-04 |
 | `nlo-arhivist` | kandidat | 5 | 3.6 | 2026-10-28 |
-| `occamova-britva` | kandidat | 5 | 2.6 | 2026-10-30 |
-| `povijest-cetvrtkom` | kandidat | 5 | 4.2 | 2026-10-30 |
-| `razvojni-kod` | kandidat | 5 | 2.8 | 2026-10-23 |
-| `reci` | kandidat | 5 | 2.5 | 2026-10-31 |
-| `tipsy-podcast` | kandidat | 5 | 7.5 | 2026-10-30 |
+| `pomalo-too-much` | kandidat | 5 | 6.9 | 2026-11-02 |
+| `pravi-smjer` | kandidat | 5 | 2.7 | 2026-11-04 |
+| `ril-tok-podcast` | kandidat | 5 | 12 | 2026-11-02 |
+| `spica-s-macanom` | kandidat | 5 | 6.1 | 2026-11-01 |
 | `veliki-judi` | kandidat | 5 | 2.7 | 2026-11-01 |
-| `zona-dinamo-podcast` | kandidat | 5 | 7.7 | 2026-10-29 |
-| `2pogled-povijest` | kandidat | 4 | 3.8 | 2026-10-18 |
-| `bez-dlake-na-glavi` | kandidat | 4 | 9.9 | 2026-10-31 |
+| `vl-stativa` | kandidat | 5 | 3.3 | 2026-11-03 |
+| `vox-medicus` | kandidat | 5 | 2.4 | 2026-11-04 |
+| `agape-rtv` | kandidat | 4 | 4.7 | 2026-10-31 |
 | `biciklizam-net-podcast` | kandidat | 4 | 4.7 | 2026-10-25 |
-| `digitalna-kultura` | kandidat | 4 | 7.2 | 2026-10-28 |
-| `explora-hrt` | kandidat | 4 | 3.6 | 2026-10-28 |
+| `bijelo-plavi-podcast` | kandidat | 4 | 5.1 | 2026-11-03 |
+| `cronnect` | kandidat | 4 | 3.4 | 2026-10-31 |
+| `f1-puls-podcast` | kandidat | 4 | 8.3 | 2026-11-04 |
+| `fire-podcast-tetka-skrti` | kandidat | 4 | 2.3 | 2026-11-03 |
 | `generacija-plus` | kandidat | 4 | 3.1 | 2026-10-26 |
 | `hrt-globalna-hrvatska` | kandidat | 4 | 2.8 | 2026-10-30 |
 | `hrt-krik` | kandidat | 4 | 3 | 2026-10-29 |
-| `hrt-na-rubu-znanosti` | kandidat | 4 | 3.4 | 2026-10-27 |
 | `karlo-cast` | kandidat | 4 | 3.9 | 2026-10-31 |
 | `kisobran-uniri-podcast` | kandidat | 4 | 4.3 | 2026-10-29 |
-| `kriminalno-dobre-price` | kandidat | 4 | 3 | 2026-10-27 |
 | `launched` | praćeni | 4 | — | 2026-10-28 |
-| `metabolic-friendly` | kandidat | 4 | 3.2 | 2026-10-16 |
-| `mreze-rijeci` | praćeni | 4 | — | 2026-10-30 |
-| `nadji-nacin` | kandidat | 4 | 2.5 | 2026-10-27 |
+| `muzevni-budite` | praćeni | 4 | — | 2026-10-30 |
+| `nanovoroeni` | praćeni | 4 | — | 2026-11-03 |
+| `netokracija-office-talks` | kandidat | 4 | 2.5 | 2026-10-30 |
+| `occamova-britva` | kandidat | 4 | 2.1 | 2026-10-30 |
+| `planet-formula` | kandidat | 4 | 3.2 | 2026-11-02 |
 | `podcast-inkubator-a1-nogometni` | kandidat | 4 | 5.4 | 2026-10-31 |
 | `podcast-inkubator-extra-runda` | kandidat | 4 | 5.9 | 2026-10-29 |
 | `podcast-inkubator-mysterium` | kandidat | 4 | 8.9 | 2026-10-27 |
 | `podcast-s-barbarom` | kandidat | 4 | 5.1 | 2026-10-30 |
-| `pomalo-too-much` | kandidat | 4 | 5.6 | 2026-10-26 |
-| `pravi-smjer` | kandidat | 4 | 2.2 | 2026-10-28 |
-| `psihologija-hrt` | kandidat | 4 | 3.9 | 2026-10-27 |
-| `puba77` | kandidat | 4 | 12.9 | 2026-11-01 |
+| `povijest-cetvrtkom` | kandidat | 4 | 3.3 | 2026-10-30 |
+| `prva-linija` | kandidat | 4 | 3 | 2026-11-02 |
 | `razgovor-s-razlogom` | kandidat | 4 | 2.1 | 2026-10-29 |
-| `ril-tok-podcast` | kandidat | 4 | 9.5 | 2026-10-26 |
+| `razvojni-kod` | kandidat | 4 | 2.4 | 2026-10-23 |
+| `reci` | kandidat | 4 | 1.8 | 2026-10-31 |
 | `rtcg-argumenti` | kandidat | 4 | 6.6 | 2026-10-31 |
 | `subclub` | praćeni | 4 | — | 2026-10-31 |
+| `tipsy-podcast` | kandidat | 4 | 6 | 2026-10-30 |
 | `ton-slika-politika` | kandidat | 4 | 4 | 2026-10-31 |
 | `trend-medij-gost-dana` | kandidat | 4 | 1.9 | 2026-10-10 |
+| `tribina-hnl-ponedjeljak` | kandidat | 4 | 9.6 | 2026-11-03 |
 | `tribina-nfl` | kandidat | 4 | 6.7 | 2026-10-29 |
-| `vl-stativa` | kandidat | 4 | 2.2 | 2026-10-20 |
-| `vox-medicus` | kandidat | 4 | 1.9 | 2026-10-27 |
 | `zona-filma-strujanja` | kandidat | 4 | 1.9 | 2026-10-21 |
-| `40-dana-za-zivot` | praćeni | 3 | — | 2026-10-16 |
+| `2pogled-povijest` | kandidat | 3 | 2.8 | 2026-10-18 |
+| `ana-radisic-podcast` | kandidat | 3 | 1.8 | 2026-11-02 |
 | `argumenti-sezona-8` | kandidat | 3 | 2.1 | 2026-10-29 |
-| `bijelo-plavi-podcast` | kandidat | 3 | 3.8 | 2026-10-27 |
-| `f1-puls-podcast` | kandidat | 3 | 5.9 | 2026-10-28 |
-| `filmopedija` | kandidat | 3 | 2.7 | 2026-10-31 |
-| `fire-podcast-tetka-skrti` | kandidat | 3 | 1.8 | 2026-10-29 |
+| `bez-dlake-na-glavi` | kandidat | 3 | 7.8 | 2026-10-31 |
 | `hkm-u-zdravlju-i-bolesti` | kandidat | 3 | 1.8 | 2026-10-29 |
 | `hkm-zivjeti-evandelje` | kandidat | 3 | 2.6 | 2026-11-01 |
 | `hopecast` | kandidat | 3 | 6.3 | 2026-10-26 |
 | `hrt-peti-dan` | kandidat | 3 | 3 | 2026-10-31 |
+| `hrt-pozitivno` | kandidat | 3 | 1.5 | 2026-11-02 |
 | `hrt-veterani-mira` | kandidat | 3 | 1.3 | 2026-11-01 |
 | `hrvatska-knjiznica-za-slijepe` | kandidat | 3 | 2.3 | 2026-10-20 |
-| `iva-kraljevic` | praćeni | 3 | — | 2026-10-31 |
+| `human-lab-podcast` | kandidat | 3 | 4.8 | 2026-11-02 |
 | `na-prvoj-crti` | kandidat | 3 | 1.9 | 2026-11-01 |
-| `nanovoroeni` | praćeni | 3 | — | 2026-10-22 |
+| `nova-o-svemiru-i-svemu-ostalom` | kandidat | 3 | 2.3 | 2026-11-02 |
 | `osvrt-tv-jadran` | kandidat | 3 | 1.5 | 2026-10-22 |
-| `planet-formula` | kandidat | 3 | 2.7 | 2026-10-27 |
-| `prva-linija` | kandidat | 3 | 2 | 2026-10-30 |
+| `puba77` | kandidat | 3 | 7.4 | 2026-11-01 |
 | `radio-mir-medjugorje-na-putu-zivota` | kandidat | 3 | 2.5 | 2026-10-30 |
+| `romano-bolkovic-1-na-1` | kandidat | 3 | 2.6 | 2026-11-04 |
 | `sindikalni-megafon` | kandidat | 3 | 2.5 | 2026-10-23 |
-| `srednja-hr-podcast` | kandidat | 3 | 2.5 | 2026-10-07 |
 | `svijet-plus` | kandidat | 3 | 2 | 2026-10-22 |
-| `tribina-hnl-ponedjeljak` | kandidat | 3 | 6.8 | 2026-10-28 |
-| `tribina-podcast-s-gostom` | kandidat | 3 | 3.7 | 2026-10-31 |
+| `tribina-weitzermania` | kandidat | 3 | 4.7 | 2026-11-02 |
 | `zeljka-markic-i-narod-hr` | praćeni | 3 | — | 2026-10-21 |
 | `50-minuta` | kandidat | 2 | 1.8 | 2026-10-27 |
-| `ana-radisic-podcast` | kandidat | 2 | 1.1 | 2026-10-26 |
 | `best-food-croatia` | kandidat | 2 | 1.5 | 2026-10-26 |
 | `bijela-kronika` | kandidat | 2 | 1 | 2026-10-29 |
 | `croatiansports-podcast` | kandidat | 2 | 1.7 | 2026-10-30 |
@@ -194,35 +193,37 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `domovinski-rat-borna-marinic` | kandidat | 2 | 6 | 2026-10-28 |
 | `eho-projekt` | praćeni | 2 | — | 2026-10-31 |
 | `felix-contras` | kandidat | 2 | 1.5 | 2026-10-25 |
+| `filmopedija` | kandidat | 2 | 2.2 | 2026-10-31 |
 | `fraktura-booktalk` | kandidat | 2 | 1.6 | 2026-10-24 |
-| `framiko-frama-kocerin` | kandidat | 2 | 1.1 | 2026-10-10 |
-| `freelance-roditelji` | kandidat | 2 | 2.5 | 2026-10-30 |
-| `hkm-argumenti` | kandidat | 2 | 3 | 2026-10-10 |
-| `hrt-pozitivno` | kandidat | 2 | 1 | 2026-10-27 |
-| `human-lab-podcast` | kandidat | 2 | 3.3 | 2026-10-26 |
-| `imam-ideju` | kandidat | 2 | 1.5 | 2026-10-22 |
+| `framiko-frama-kocerin` | kandidat | 2 | 1.5 | 2026-11-02 |
+| `hrt-sto-je-klasik` | kandidat | 2 | 1.2 | 2026-11-03 |
 | `istinom-do-gola` | kandidat | 2 | 1.4 | 2026-10-22 |
+| `iva-kraljevic` | praćeni | 2 | — | 2026-10-31 |
 | `izbacene-scene` | kandidat | 2 | 3.5 | 2026-11-01 |
 | `klub-psece-srece-podcast` | kandidat | 2 | 2.4 | 2026-10-27 |
 | `kontrapovijest-by-hrvoje-klasic` | kandidat | 2 | 1 | 2026-10-26 |
+| `laudato-in-familia-dei` | kandidat | 2 | 1.5 | 2026-11-03 |
+| `laudato-novi-zivot` | kandidat | 2 | 2.6 | 2026-11-03 |
 | `laudato-papa-s-nama` | kandidat | 2 | 2.2 | 2026-10-30 |
 | `mame-kod-lane` | kandidat | 2 | 2.9 | 2026-10-22 |
 | `maria-vision-medjugorje` | kandidat | 2 | 1.7 | 2026-10-16 |
-| `nova-o-svemiru-i-svemu-ostalom` | kandidat | 2 | 1.6 | 2026-10-23 |
+| `metabolic-friendly` | kandidat | 2 | 1.6 | 2026-10-16 |
 | `off-topic-podcast-hrt` | kandidat | 2 | 2.1 | 2026-10-23 |
 | `ovisnici-o-knjigama` | kandidat | 2 | 2 | 2026-10-27 |
-| `podcast-svjedok` | kandidat | 2 | 1.3 | 2026-10-31 |
+| `podcast-bog-i-hrvati` | kandidat | 2 | 2 | 2026-11-04 |
+| `podcast-posrednik` | kandidat | 2 | 2.1 | 2026-11-02 |
 | `podkist-fer` | kandidat | 2 | 3 | 2026-10-27 |
 | `poriloox` | kandidat | 2 | 0.7 | 2026-10-19 |
-| `povijesni-dijalozi` | kandidat | 2 | 2.6 | 2026-10-16 |
 | `projekt-snovi` | kandidat | 2 | 0.9 | 2026-10-25 |
-| `psz-podcast` | kandidat | 2 | 1.9 | 2026-10-23 |
+| `radio-mir-medjugorje-miris-zavicaja` | kandidat | 2 | 1 | 2026-11-04 |
 | `rastuci-s-djecom` | praćeni | 2 | — | 2026-10-30 |
-| `romano-bolkovic-1-na-1` | kandidat | 2 | 1.7 | 2026-10-30 |
 | `sistematski-yammat-fm` | kandidat | 2 | 1.2 | 2026-10-29 |
+| `sportske-novosti-mundocast` | kandidat | 2 | 1.8 | 2026-11-03 |
+| `srednja-hr-podcast` | kandidat | 2 | 1.6 | 2026-10-07 |
 | `tribina-europski-nogomet` | kandidat | 2 | 3.2 | 2026-10-23 |
-| `tribina-weitzermania` | kandidat | 2 | 3.1 | 2026-10-26 |
+| `tribina-podcast-s-gostom` | kandidat | 2 | 2.5 | 2026-10-31 |
 | `vrijeme-za-zdravlje-s-doktorom-za-srce` | kandidat | 2 | 1.1 | 2026-10-26 |
+| `40-dana-za-zivot` | praćeni | 1 | — | 2026-10-16 |
 | `agroklub-podcast` | kandidat | 1 | 1.3 | 2026-10-15 |
 | `all-things-croatia` | kandidat | 1 | 0.6 | 2026-10-26 |
 | `bez-pardona` | kandidat | 1 | 1.4 | 2026-10-27 |
@@ -233,41 +234,42 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `citanje-i-predrasude` | kandidat | 1 | 0.7 | 2026-10-08 |
 | `dokunet-podcast` | kandidat | 1 | 0.5 | 2026-10-15 |
 | `domovina-tv` | praćeni | 1 | — | 2026-10-28 |
-| `etvos-osijek` | kandidat | 1 | 1.5 | 2026-10-03 |
 | `finax-croatia` | kandidat | 1 | 1.1 | 2026-10-16 |
 | `fortunal-podcast` | kandidat | 1 | 0.7 | 2026-10-09 |
+| `freelance-roditelji` | kandidat | 1 | 1.2 | 2026-10-30 |
 | `game-changers-podcast` | kandidat | 1 | 0.7 | 2026-10-06 |
+| `hkm-argumenti` | kandidat | 1 | 1.4 | 2026-10-10 |
 | `hnb` | praćeni | 1 | — | 2026-10-22 |
-| `hrt-sto-je-klasik` | kandidat | 1 | 0.6 | 2026-10-21 |
+| `imam-ideju` | kandidat | 1 | 0.8 | 2026-10-22 |
 | `infinity-podcast-milojevic` | kandidat | 1 | 0.8 | 2026-10-09 |
+| `kliker-podcast` | kandidat | 1 | 1.8 | 2026-11-02 |
 | `la-vie-podcast` | kandidat | 1 | 1 | 2026-10-13 |
-| `laudato-in-familia-dei` | kandidat | 1 | 0.8 | 2026-10-20 |
-| `laudato-novi-zivot` | kandidat | 1 | 1.3 | 2026-10-20 |
 | `mioc-podcast` | kandidat | 1 | 1 | 2026-11-01 |
+| `modul-za-rast` | kandidat | 1 | 1 | 2026-11-02 |
 | `novo-srce` | kandidat | 1 | 0.7 | 2026-10-05 |
 | `oasis-in-tempore` | kandidat | 1 | 1.2 | 2026-10-15 |
 | `osoba-s-pogledom` | kandidat | 1 | 0.8 | 2026-10-22 |
 | `overthinkeri` | kandidat | 1 | 0.9 | 2026-11-01 |
 | `pik-as-podcast` | kandidat | 1 | 1.2 | 2026-10-17 |
 | `podcast-besida` | kandidat | 1 | 1.4 | 2026-10-25 |
-| `podcast-bog-i-hrvati` | kandidat | 1 | 0.9 | 2026-10-23 |
-| `podcast-posrednik` | kandidat | 1 | 1.2 | 2026-10-19 |
+| `podcast-o-zdravlju` | kandidat | 1 | 0.8 | 2026-11-02 |
 | `podcast-sekstant` | kandidat | 1 | 1.4 | 2026-10-13 |
 | `podcast-sfera` | kandidat | 1 | 1.5 | 2026-10-13 |
+| `podcast-svjedok` | kandidat | 1 | 0.7 | 2026-10-31 |
 | `pogled-s-markovog-trga` | kandidat | 1 | 1.1 | 2026-10-12 |
 | `popcast-pavicic` | praćeni | 1 | — | 2026-10-10 |
 | `poslovni-svijet-s-ilijom-jandricem` | kandidat | 1 | 0.4 | 2026-10-20 |
+| `povijesni-dijalozi` | kandidat | 1 | 1.2 | 2026-10-16 |
 | `prica-sa-zapadne-strane` | kandidat | 1 | 2.1 | 2026-10-31 |
 | `prime-time` | kandidat | 1 | 0.8 | 2026-10-18 |
+| `psz-podcast` | kandidat | 1 | 1.1 | 2026-10-23 |
 | `radio-marija-bih-razgovor-bez-maski` | kandidat | 1 | 0.7 | 2026-10-31 |
 | `radio-marija-fides-per-musicam` | kandidat | 1 | 0.8 | 2026-10-15 |
 | `radio-marija-kap-dobrote` | kandidat | 1 | 0.8 | 2026-10-21 |
 | `radio-marija-nadom-noseni` | kandidat | 1 | 0.8 | 2026-10-21 |
 | `radio-marija-zivimo-zajedno` | kandidat | 1 | 0.9 | 2026-10-21 |
-| `radio-mir-medjugorje-miris-zavicaja` | kandidat | 1 | 0.5 | 2026-10-29 |
 | `radio-mir-medjugorje-sitan-kamen-do-kamena` | kandidat | 1 | 1.1 | 2026-10-15 |
 | `show-na-kvadrat` | kandidat | 1 | 0.9 | 2026-10-06 |
-| `sportske-novosti-mundocast` | kandidat | 1 | 0.9 | 2026-10-29 |
 | `tapirlo` | kandidat | 1 | 1 | 2026-10-10 |
 | `tonecast-music-shop-no1` | kandidat | 1 | 1.5 | 2026-11-01 |
 | `tribina-reprezentacija` | kandidat | 1 | 1.7 | 2026-10-08 |
@@ -275,31 +277,31 @@ Datum objave iz flat liste je približan (±1 dan nakon propuštenog runa).
 | `urlaona` | kandidat | 1 | 1.2 | 2026-10-22 |
 | `vetify-podcast` | kandidat | 1 | 1.1 | 2026-10-21 |
 | `zeleno-zuti-korner` | kandidat | 1 | 1 | 2026-10-22 |
-| `zivotne-price-by-dea-redzic` | kandidat | 1 | 1.9 | 2026-10-03 |
 
 ## Epizode zadnje noći
 
 | kanal | izvor | min | naslov |
 |---|---|---|---|
-| `podcast-cuspajz` | praćeni | — | [STEPHAN LUPINO -Najljepše žene na svijetu su susjede - PODCAST ČUŠPAJZ#168 #lupinizam #lup](https://youtu.be/pXR-lJAtWpM) |
-| `ora-et-labora` | praćeni | — | [125. Milosrđe Božje - Svetkovina Svih Svetih!](https://youtu.be/ERwQZ-Ia1Po) |
-| `libertas-talks` | kandidat | 47 | [S5E5 Sanda Livia Maduna - Od svjetskog zlata do Hrvatskog sabora Gdje je borba teža?](https://youtu.be/17XrINeUB_0) |
-| `mjesto-zlocina` | kandidat | 58 | [Epizoda 232: Halloween special: Puno prozora i novaca](https://youtu.be/LjYZsmXoCgo) |
-| `overthinkeri` | kandidat | 51 | [EP37: Bullying je (s)Carrie! Pričamo o elektroničkom vršnjačkom nasilju](https://youtu.be/nm8UBB0HlPY) |
-| `spica-s-macanom` | kandidat | 82 | [Srbija nakon Vučića: Oprezan optimizam za bolju budućnost!](https://youtu.be/EiaXqxnKln0) |
-| `tonecast-music-shop-no1` | kandidat | 90 | [Tonecast Podcast by Music Shop No1 / Epizoda 15 – Žarko Fabek Febo](https://youtu.be/oL7nd-pglOA) |
-| `druga-strana-medalje` | kandidat | 41 | [Plenković ih ne prima: radnice Revije i dalje traže plaće / Anica Gojanović / DSM #69 - 2.](https://youtu.be/JnmTc5t8rbk) |
-| `druga-strana-medalje` | kandidat | 42 | [Šivale za vojsku, a država im duguje devet plaća / Jadranka Bačelić Košarić / DSM #69 - 1.](https://youtu.be/VjuecvgEguU) |
-| `podcast-8-24` | kandidat | 199 | [Rudeš - Dinamo 1:0 / Dvajsčetvorka #292](https://youtu.be/8YoEYlvBC_c) |
-| `puba77` | kandidat | 116 | [Analiza utakmice sa zidića: Hajduk - Gorica](https://youtu.be/uwyKES5lQ30) |
-| `hajducka-storija` | kandidat | 18 | [PET KOMADA! HAJDUK - GORICA 5:0 / REAKCIJA](https://youtu.be/tZq23jVDG0c) |
-| `mioc-podcast` | kandidat | 57 | [MIOC Podcast S5 EP1 / Drago Plečko](https://youtu.be/EUwVWOG9lpI) |
-| `izbacene-scene` | kandidat | 117 | [#57 Halloween Special / Najbolji i najgori horori 2026.](https://youtu.be/gn4NSKeuDoQ) |
-| `na-prvoj-crti` | kandidat | 41 | [Na prvoj crti 31.10.2026. Živko Budimir, Mijo Kožić](https://youtu.be/t9yKHIZTqS8) |
-| `prgavi-podcast` | kandidat | 102 | [Razbili Goricu! ❤️💙 Livaja je 10, a Cartu čista špica 🤍 Prgavi podcast](https://youtu.be/3K4LbmUnX-A) |
-| `samo-hajduk` | kandidat | 73 | [Samo Hajduk Podcast #54: Raging bull / 12. kolo vs Gorica](https://youtu.be/-VAs93ZWwEE) |
-| `briefing-jutarnji-list` | kandidat | 41 | [Kolinda Grabar-Kitarović: Vučić je politička zvijer. Poznavajući ga osobno, ne odustaje on](https://youtu.be/oWKWIR-VvE8) |
-| `veliki-judi` | kandidat | 34 | [Veliki judi 31.10.2026. Vlaho Kovačević](https://youtu.be/p6X1dNL73Ns) |
-| `hkm-zivjeti-evandelje` | kandidat | 52 | [Živjeti Evanđelje - Zašto Isus blaženima naziva baš one kojima je najteže?](https://youtu.be/QKH1vDclcXs) |
-| `hrt-veterani-mira` | kandidat | 27 | [Veterani mira: Bitka za Voćaricu](https://youtu.be/0LiJ6fwqEc0) |
+| `radio-mreznica` | praćeni | — | [PODCAST MREŽNICA - C.Macgregor: Trump u Iranu: Eskalacija vodi u još gore,  povlačenje u p](https://youtu.be/uMVmX4GDYag) |
+| `radio-mreznica` | praćeni | — | [PODCAST MREŽNICA: Andrijanić: Berlin želi kontrolu Poljske, Tusk ima zadaću.Ovo je pouka i](https://youtu.be/3GGuSVt4Q4Y) |
+| `ora-et-labora` | praćeni | — | [128. Milosrđe Božje - Odreći se i samoga sebe radi spasenja!](https://youtu.be/uw5vYIdAHeM) |
+| `mreze-rijeci` | praćeni | — | [Jedno ti nedostaje: EP 65 - Večera je spremna - fra Ante Vučković i Stanko Stojić](https://youtu.be/pIx_7N-6HJ4) |
+| `eduza-show` | kandidat | 87 | [Postali ste coach, i što sada? Coaching kao biznis / Višnja Željeznjak](https://youtu.be/GpPzKW6eUQM) |
+| `explora-hrt` | kandidat | 53 | [Explora 03.11.2026. Otkriven planet](https://youtu.be/valMgmN1tXA) |
+| `f1-puls-podcast` | kandidat | 145 | [Kimi Antonelli / F1Puls podcast #71](https://youtu.be/fUFlhmqBVMs) |
+| `ideje-hr` | kandidat | 55 | [Lulin veliki preokret i Bolsonarov špijunski bijeg Trumpu](https://youtu.be/F7xiNXvwm1s) |
+| `ideje-hr` | kandidat | 70 | [Šikić i Čačić: Može li AI zamijeniti matematičare?](https://youtu.be/OMmfDf5gEX0) |
+| `netokracija-podcast` | kandidat | 63 | [Puca li AI balon u 2027.? / S7.EP5](https://youtu.be/sNbOUa-hQSc) |
+| `ofenziva-sportski-podcast` | kandidat | 80 | [Ofenziva rasprave: Jeste li se mogli obogatiti uz Losa?](https://youtu.be/85LE9OLR7_s) |
+| `podcast-inkubator` | kandidat | 89 | [Podcast Inkubator #1509 - Ratko i Domagoj Delač (Best Food Croatia)](https://youtu.be/AsbxJB5vshI) |
+| `prvi-glas-telegram` | kandidat | 25 | [Kreće obračun: Vučićeva skandalozna izjava otkriva strah](https://youtu.be/QtqZiG3FMtM) |
+| `psihologija-hrt` | kandidat | 67 | [S3E09 PSIHOLOGiJA #90 Burnout (Krunoslav Nujić i dr. med. Goran Ivkić)](https://youtu.be/VbFzr-R79r4) |
+| `digitalna-kultura` | kandidat | 110 | [MacBook Pro dobiva touchscreen: što će nam sada iPad?](https://youtu.be/-kSZAvMDzC8) |
+| `vox-medicus` | kandidat | 33 | [PEDIJATRIJSKA RADIOLOGIJA, dr.med. Natko Beck, spec. radiologije](https://youtu.be/sTvZUW2v6K8) |
+| `radio-benkovac` | kandidat | 55 | [Što znači biti učitelj - prof. Marijan Pranjić](https://youtu.be/pqPh1taQ2Gg) |
+| `podcast-bog-i-hrvati` | kandidat | 63 | [Gostuje dr.  sc.  Krešimir Bušić](https://youtu.be/5euYYTuybzY) |
+| `pravi-smjer` | kandidat | 31 | [Pravi smjer 3. studenoga 2026.](https://youtu.be/0sxT3NF8yFg) |
+| `romano-bolkovic-1-na-1` | kandidat | 52 | [Romano Bolković - 1 na 1: Christian Leuprecht](https://youtu.be/NbLmTuhikJ4) |
+| `radio-mir-medjugorje-miris-zavicaja` | kandidat | 31 | [Miris zavičaja 1. 11. 2026. - dr. sc. Marija Bošnjak  - monografija Povjestice](https://youtu.be/4T8iHbidRqc) |
+| `hrt-otvoreno` | kandidat | 30 | [Otvoreno: Međuizbori kao prekretnica američke politike](https://youtu.be/jYCIKsaA6Ys) |
 
