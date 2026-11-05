@@ -464,8 +464,8 @@ run_step "ručni YouTube titlovi (detekcija + CDN)" \
 
 # Točan datum zadnjeg originala (samo za unose kojima se promijenio najnoviji original
 # ili su ostali na približnom datumu) → status; pa `activity` (watch-state + praćeni
-# kanali s diska) → score v2 + md/csv. Mijenja data/podcasts_registry.* lokalno;
-# commit i deploy javnog landinga ostaju ručni (docs/REGISTRY_DISCOVERY.md).
+# kanali s diska) → score v2 + md/csv. Mijenja data/podcasts_registry.*; commit + push
+# radi KORAK 8 (commit_watchlist.sh), deploy javnog landinga ostaje ručan.
 run_step "registry točni datumi zadnje epizode" \
     node "$REPO_DIR/data/discovery/discover.js" exact-dates ${PROXY_ARGS[@]+"${PROXY_ARGS[@]}"} || true
 run_step "registry aktivnost + score v2" \
@@ -510,6 +510,14 @@ if [ -f "$LINKEDIN_POSTER_DIR/scripts/draft-episodes.ts" ]; then
     run_step "linkedin draftovi (nove epizode → Telegram)" \
         env CLAUDE_WINDOW_GUARD=1 FETCH_REPO="$REPO_DIR" \
         node --experimental-strip-types "$LINKEDIN_POSTER_DIR/scripts/draft-episodes.ts" || true
+fi
+
+# ─── 8. COMMIT + PUSH WATCHLISTE I REGISTRYJA ──────────────────────
+# 5b/5b+/5c i registry koraci mijenjaju automatic/watchlist/ i data/podcasts_registry.*;
+# commita samo te putanje i pusha (ne-fatalno). WATCHLIST_COMMIT_OFF=1 gasi.
+if [ "${WATCHLIST_COMMIT_OFF:-0}" != "1" ]; then
+    run_step "commit + push watchliste i registryja" \
+        "$REPO_DIR/automatic/commit_watchlist.sh" || true
 fi
 
 # ─── SAŽETAK ──────────────────────────────────────────────────────
