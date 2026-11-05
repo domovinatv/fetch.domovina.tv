@@ -124,6 +124,12 @@ flowchart LR
 - [ ] Reels: može li `render_reels.js` koristiti src1080 umjesto vlastitog yt-dlp isječka
       (traži odgodu brisanja do reelsa, samo kanali s brandom). Za početak ostaje kako jest.
 
+## Već napravljeno 05.11.2026.
+
+- `run_pipeline.sh --download-proxy` + poller: proxy samo za KORAK 1, ne za screenshotove
+  (`docs/2026-11-05-en-zastario-nakon-reobrade.md` §Proxy samo za skidanje). Korak 6 ovog
+  plana (prefetch) treba koristiti isti `--download-proxy` put.
+
 ## Mjerenja
 
 | što | prije (03.11.) | poslije |

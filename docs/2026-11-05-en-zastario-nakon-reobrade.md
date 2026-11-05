@@ -140,3 +140,36 @@ done
 Interni SSD: **273 MB slobodno (98 %)** u 16:45. Radni disk DOMOVINA2TB ima 639 GB slobodno.
 KORAK 12.5 privremeno piše `web.mp4` na SSD, a slot 2 traži ≥ 5 GB. Korisnik restarta Mac
 da se oslobodi prostor. Uzrok nije istražen.
+
+## Ishod (05.11.2026. 21:46)
+
+- **EN == HR na CDN-u za svih 6:** WRE248YCIeI, fO7iltytw0I, AoXN-3Mkmew, b-nls1ck8EE,
+  oxq1U0xypu8 i MGLq9v3AtvE (article, summary, article.magisterium; isti `generated_at`).
+  AoXN-3Mkmew i fO7iltytw0I EN traka je osvježila sama nakon restarta (AoXN iz 2. pokušaja).
+  MGLq9v3AtvE: HR article 18:16 UTC → Magisterium 20:33 UTC → EN istog dana, bez ručnog rada.
+- Svih 8 prioritetnih jobova `done` (Hs48G5NRqcA, YVp-9YPNnFw, s_b8Q6kzH-g, O-dTxrfvg1k,
+  vdNhB_fK81g, zcmIwbRGIsk, VY8gg2snMuk, MGLq9v3AtvE), svi s `article.json` na CDN-u.
+- Disk nakon restarta: SSD 36 GB slobodno. Uzrok 273 MB nije istražen (restart ga je riješio,
+  vjerojatno swap/privremeni `web.mp4`).
+- Budžet: `PRIORITY_DAILY_MAX=40` u priority plistu (bio default 30), da se red ne čeka do
+  ponoći. Dnevni potrošak 05.11. = 38.
+- zcmIwbRGIsk i VY8gg2snMuk skinuti kroz iPhone proxy (Tailscale `100.71.146.11:8888`,
+  cellular IP); vdNhB_fK81g je već bio skinut u 16:43.
+
+## Proxy samo za skidanje (`--download-proxy`, 05.11.2026.)
+
+Do sada je poller proxy dao cijelom `run_pipeline.sh` (`--proxy` → fetch.js + screenshotovi),
+pa je iPhone morao biti upaljen cijelu obradu (20–60 min po epizodi). Sada:
+
+- `run_pipeline.sh --download-proxy <url>` → proxy dobiva samo KORAK 1 (`fetch.js`). Log:
+  `🌐 KORAK 1 kroz proxy …`, pa `🔌 KORAK 1 gotov — proxy ovom runu više ne treba`.
+- `bridge/priority_poller.js`: epizodi čiji je medij već na disku (`downloaded()`) proxy se ne
+  daje uopće; inače `--download-proxy` (fallback na `--proxy` ako fetch strana nema zastavicu).
+- Screenshotovi idu preko Etherneta (yt-dlp stream). Ako je Ethernet na anti-botu, padaju na
+  lokalnu kopiju, koja je **360p** (`fetch.js` `bestvideo[height<=360]`). Rješenje za to je
+  plan `docs/2026-11-03-1080p-jedan-download-todo.md` (1080p jednom kroz proxy, sve lokalno).
+- Upotreba: `mv ~/.cache/domovina-pipeline/youtube_proxy.off ~/.cache/domovina-pipeline/youtube_proxy`,
+  upali app, ugasi app nakon `🔌`. Proxy koji ne odgovara poller sam preskoči.
+- **Još neprovjereno na pravom jobu** (svih 8 epizoda 05.11. već je bilo skinuto).
+- Zamka: `run_pipeline.sh` je mijenjan dok ga je MGLq9 izvršavao, zato kroz kopiju + `mv`
+  (novi inode; bash koji radi čita stari). Izravni Edit bi pokvario run u tijeku.
