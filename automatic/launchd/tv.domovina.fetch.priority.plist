@@ -51,6 +51,9 @@
         <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
         <key>LANG</key>
         <string>en_US.UTF-8</string>
+        <!-- Dnevni budžet prioritetnih claimova (priority_poller.js, default 30). 40 od 05.11.2026. -->
+        <key>PRIORITY_DAILY_MAX</key>
+        <string>40</string>
     </dict>
 
     <key>ProcessType</key>

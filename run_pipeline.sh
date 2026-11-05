@@ -190,6 +190,11 @@ echo ""
 #                            entity rezoluciju. Zahtijeva: pip install 'nemo_toolkit[asr]'.
 #                            Trošak: ~30-60s po epizodi na M4 Pro MPS.
 #   --with-screenshots    → uključuje korak 10 (YouTube screenshotovi, zahtijeva puno diska)
+#   --download-proxy <url> → proxy SAMO za KORAK 1 (fetch.js, skidanje medija). Sve iza
+#                            toga (screenshotovi, titlovi, reels, R2) ide preko Etherneta, pa
+#                            proxy (iPhone) smije biti ugašen čim je medij skinut. Ovo koristi
+#                            prioritetni poller (od 05.11.2026.). Screenshotovi bez proxyja:
+#                            yt-dlp stream preko Etherneta, a na anti-botu lokalna kopija.
 #   --proxy <url>         → proxy za yt-dlp pozive (korak 1 fetch + korak 10 screenshot).
 #                            Zaobilazi YouTube IP-level anti-bot block.
 #                            Format: socks5://host:port, http://user:pass@host:port.
@@ -387,6 +392,7 @@ MODAL_SCOPE="${MODAL_SCOPE:-unlisted}"
 # Varijabla ostaje samo da stari pozivi ne puknu; scan je više ne čita.
 MODAL_FRESH_DAYS="${MODAL_FRESH_DAYS:-2}"
 SCREENSHOT_PROXY=""
+FETCH_PROXY_ARGS=()
 SCREENSHOT_SOURCE_ADDR=""
 VIA_IPHONE=false
 # Default `claude` (Opus, pretplata). `--gemini-backend vertex` je DEPRECATED: skripte ga odbiju.
@@ -500,6 +506,10 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         # Prioritetni fast-path: Modal transkribira SAMO ovaj youtube_id (single-video),
         # a Drive-exclude izuzima točno taj WAV (ostali _unlisted i dalje idu na Colab).
         MODAL_ONLY_ID="${ALL_ARGS[$((i+1))]}"
+        i=$((i + 2))
+    elif [ "$arg" = "--download-proxy" ]; then
+        # Samo fetch.js (KORAK 1). Ne ide u COMMON_ARGS ni u SCREENSHOT_ARGS.
+        FETCH_PROXY_ARGS=("--proxy" "${ALL_ARGS[$((i+1))]}")
         i=$((i + 2))
     elif [ "$arg" = "--proxy" ]; then
         # --proxy ide ISTODOBNO u screenshot_youtube.js (preko SCREENSHOT_ARGS)
@@ -756,7 +766,13 @@ else
 fi
 
 # fetch.js radi u OBA moda: fast-path preuzima taj jedan --unlisted-url video.
-node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
+if [ ${#FETCH_PROXY_ARGS[@]} -gt 0 ]; then
+    echo "   🌐 KORAK 1 kroz proxy ${FETCH_PROXY_ARGS[1]} (samo skidanje; ostatak runa ide preko Etherneta)"
+    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}" "${FETCH_PROXY_ARGS[@]}"
+    echo "   🔌 KORAK 1 gotov — proxy ovom runu više ne treba"
+else
+    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
+fi
 
 # --- KORAK 1b: beamly direct-MP3 izvori (Sub Club, Launched) ---
 # Ovi RevenueCat podcasti nisu na YouTubeu (slaba pokrivenost), pa idu mimo
