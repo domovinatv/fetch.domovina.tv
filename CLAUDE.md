@@ -75,6 +75,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    noći zaredom dokazano obrade 100 % novih epizoda, i to kao zasebna, dogovorena
    odluka. Ne predlaži backfill kao dio popravka. Detalji:
    `docs/2026-11-04-samo-nove-epizode-bez-backfilla.md`.
+   **Queue reset 05.11.2026. ~10:50:** sve što je palo prije toga je otpisano. NE nudi
+   retry/requeue starih failed jobova ni Magisterium jobova; prati se samo obrađuju li
+   nightly i Tier 2 svaki dan SVE nove epizode. Automatski retry downloada u
+   `enqueue_all_new.js` (3 pokušaja, zadnja 3 dana) nije „stari retry” i ostaje.
+   Stanje u trenutku reseta: `docs/2026-11-05-queue-reset.md`.
 
 ## Build & Test Commands
 
