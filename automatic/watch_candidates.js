@@ -135,11 +135,18 @@ function loadCandidates({ scoped = true } = {}) {
 
 // ─── yt-dlp ─────────────────────────────────────────────────────────
 
+// Playliste nemaju stalan redoslijed: neke su najnovije-prve, a neke (Radio Marija BiH,
+// Laudato, HRT emisije) najstarije-prve, pa nova epizoda dođe na KRAJ. S `1:N` takva
+// playlista nikad ne javi novu epizodu (04.11.2026. Vjw0bTQyaJM, 7 promašaja od 20.10.).
+// Zato kod playlista čitamo oba kraja; yt-dlp za negativni indeks prolista cijelu
+// playlistu, što je kod playlista (desetci–stotine videa) par stranica.
+const isPlaylistUrl = (url) => /[?&]list=/.test(url);
+
 function listVideos(url, items) {
     return new Promise((resolve) => {
         const a = [
             "--flat-playlist", "-j", "--no-warnings", "--ignore-errors",
-            "--playlist-items", `1:${items}`,
+            "--playlist-items", isPlaylistUrl(url) ? `1:${items},-${items}:` : `1:${items}`,
             "--extractor-args", "youtubetab:approximate_date",
         ];
         if (PROXY) a.push("--proxy", PROXY);
@@ -233,6 +240,9 @@ async function processChannel(c, state) {
     // inače bi cijela nova playlista izgledala kao „nove epizode".
     if (!ch || (ch.source && ch.source !== sourceKey)) ch = state.channels[c.slug] = { seen: {}, baseline_at: null };
     const isBaseline = !ch.baseline_at;
+    // Prvi prolaz s čitanjem KRAJA playliste (uvedeno 05.11.2026.): ono što je dosad
+    // stajalo na kraju je staro, a ne novo → upiši kao baseline, bez događaja (bez backfilla).
+    const tailBaseline = !isBaseline && !ch.tail_baseline_at && c.sources.some(isPlaylistUrl);
     const n = isBaseline ? BASELINE_ITEMS : ITEMS;
     let entries = [], error = null;
     for (const src of c.sources) {
@@ -266,11 +276,12 @@ async function processChannel(c, state) {
         ch.seen[e.id] = {
             first_seen: today(), upload_date: e.upload_date, duration: e.duration,
             title: e.title.slice(0, 140), cls, ...(reason ? { reason } : {}),
-            ...(isBaseline ? { baseline: true } : {}),
+            ...(isBaseline || tailBaseline ? { baseline: true } : {}),
         };
-        if (!isBaseline) fresh.push({ ...e, cls, reason });
+        if (!isBaseline && !tailBaseline) fresh.push({ ...e, cls, reason });
     }
     if (isBaseline) ch.baseline_at = new Date().toISOString();
+    if ((isBaseline || tailBaseline) && c.sources.some(isPlaylistUrl)) ch.tail_baseline_at = new Date().toISOString();
     // Pravilo se mijenja (revizija, LLM klasifikacija) → primijeni ga i na već viđene,
     // da izvještaj uvijek odražava TRENUTNO pravilo, a ne ono iz dana otkrića.
     for (const v of Object.values(ch.seen)) {
