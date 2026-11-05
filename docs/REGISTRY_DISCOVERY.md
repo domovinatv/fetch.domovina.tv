@@ -213,6 +213,17 @@ Watch 25.09.–05.10.: **173 originala sa 107 od 400 kanala**, 193 derivata odvo
 `events.jsonl` iako je nightly radio (commit 04:55) — 05.10. je uhvatio 58, pa ništa nije
 izgubljeno (watch je state-based), ali log watch koraka te noći nije pregledan.
 
+**Nightly sam commita i pusha watchlistu i registry (od 05.11.2026.).** KORAK 8 u
+`automatic/nightly_pipeline.sh` zove `automatic/commit_watchlist.sh`: `git add` + `git commit --
+<putanje>` samo za `automatic/watchlist/` i `data/podcasts_registry.{json,csv,md}` (tuđi staged
+fajlovi iz paralelne sesije ne ulaze), pa `git push` na `main`. Preskače kad je git usred
+rebasea/mergea, postoji `index.lock` ili grana nije `main`; pad pusha je ne-fatalan (commit ostaje,
+idući run gura). Push nosi i ostale nepushane lokalne commitove. SSH push radi i bez agenta
+(ključ bez lozinke), pa prolazi pod launchd-om. `quota_samples.jsonl` piše priority tick svakih
+10 min, pa je preko dana uvijek „modified" — to je očekivano, ide u idući nightly commit.
+Ručno: `./automatic/commit_watchlist.sh [--no-push]`; gasi: `WATCHLIST_COMMIT_OFF=1`.
+Deploy javnog registry landinga (dashboard/public) i dalje je ručan.
+
 **Registry ne raste između ručnih prolaza.** Nightly radi samo watch + `exact-dates` +
 `activity`; nove kanale otkriva jedino mjesečni `discover.js`. Prazni direktoriji
 `data/discovery/runs/<datum>/` su nuspojava `exact-dates`/`activity` (`RUN_DIR`), ne propušten
