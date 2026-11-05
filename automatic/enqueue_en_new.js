@@ -71,10 +71,80 @@ const MAG_MAX_TRIES = 3;
 // {basename}.wav.canary.diarized_{date}_{model}.article.json — model sadrži točke (gemini-3.5-flash).
 const ARTICLE_RE = /^(.*_yt_([A-Za-z0-9_-]{11}).*)_(\d{4}-\d{2}-\d{2})_(.+?)\.article\.json$/;
 
-if (!INGEST_KEY && !DRY_RUN) {
+const STALE_MAX = parseInt(process.env.EN_STALE_MAX || '2', 10);
+const STALE_STATE_FILE = path.join(__dirname, 'logs', '.en_stale_state.json');
+const STALE_MAX_TRIES = 3;
+
+if (require.main === module && !INGEST_KEY && !DRY_RUN) {
     console.log('⏭️  PIPELINE_QUEUE_INGEST_KEY nije postavljen — preskačem EN enqueue.');
     process.exit(0);
 }
+
+function readJson(p) {
+    try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; }
+}
+
+/** generated_at HR dokumenta; EN je deep clone pa nosi generated_at izvora iz kojeg je preveden. */
+function genAt(doc) {
+    return (doc && ((doc.metadata && doc.metadata.generated_at) || doc.generated_at)) || null;
+}
+
+/** Najnoviji članak po videu u jednom direktoriju: id → { stem, date } (leksikografski, kao downstream). */
+function latestArticles(files) {
+    const latest = new Map();
+    for (const f of files) {
+        if (f.startsWith('._')) continue;
+        const m = f.match(ARTICLE_RE);
+        if (!m) continue;
+        // extractVideoId mora uzeti ZADNJI _yt_ (naslovi znaju sadržavati "_yt_").
+        const ids = [...m[1].matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
+        const id = ids[ids.length - 1][1];
+        const stem = f.slice(0, -'.article.json'.length);
+        const prev = latest.get(id);
+        if (!prev || stem > prev.stem) latest.set(id, { stem, date: m[3] });
+    }
+    return latest;
+}
+
+/**
+ * Jedan zapis po videu: { id, channel, stem, date, files, waitChannel }.
+ * Kanal ima prednost pred `_unlisted`. Ponovna obrada piše novi članak PRVO u `_unlisted`,
+ * a u kanal tek minutama kasnije (auto_reuse_adhoc.js --replace). U tom prozoru je EN job
+ * (poller prevodi kanalski dir) preveo STARI članak kanala — 05.11.2026. pet domovina_tv
+ * epizoda. Zato: dok `_unlisted` ima noviji članak od kanala, epizoda čeka (`waitChannel`).
+ * `dirs` = [{ name, files }] (čisto, za testove).
+ */
+function resolveEpisodes(dirs, readGenAt = () => null) {
+    const per = new Map();   // id → [{ channel, stem, date, files }]
+    for (const d of dirs) {
+        for (const [id, a] of latestArticles(d.files)) {
+            if (!per.has(id)) per.set(id, []);
+            per.get(id).push({ id, channel: d.name, stem: a.stem, date: a.date, files: d.files });
+        }
+    }
+    const out = [];
+    for (const [, list] of per) {
+        const chans = list.filter((x) => !x.channel.startsWith('_'));
+        const adhoc = list.filter((x) => x.channel.startsWith('_'));
+        if (!chans.length) { out.push({ ...adhoc[0], waitChannel: false }); continue; }
+        const ch = chans.sort((a, b) => (a.stem < b.stem ? 1 : -1))[0];
+        const newerAdhoc = adhoc.some((u) => u.stem > ch.stem
+            || (u.stem === ch.stem && readGenAt(u.channel, u.stem) !== readGenAt(ch.channel, ch.stem)));
+        out.push({ ...ch, waitChannel: newerAdhoc });
+    }
+    return out;
+}
+
+function scanDirs() {
+    const dirs = [];
+    for (const entry of fs.readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
+        if (!(entry.isDirectory() || entry.isSymbolicLink()) || entry.name.startsWith('.')) continue;
+        try { dirs.push({ name: entry.name, files: fs.readdirSync(path.join(OUTPUT_DIR, entry.name)) }); } catch { /* nedostupan */ }
+    }
+    return dirs;
+}
+
+const articleGenAt = (channel, stem) => genAt(readJson(path.join(OUTPUT_DIR, channel, `${stem}.article.json`)));
 
 function magisteriumChannels() {
     if (!fs.existsSync(CHANNELS_FILE)) return new Set();
@@ -82,38 +152,18 @@ function magisteriumChannels() {
         .map((l) => l.replace(/#.*$/, '').trim().split(/\s+/)[0]).filter(Boolean));
 }
 
-/** Najnoviji HR članak po videu, samo članci datirani >= SINCE. */
+/** Najnoviji HR članak po videu, samo članci datirani >= SINCE, bez lokalnog EN-a. */
 function collectCandidates() {
     const magCh = magisteriumChannels();
-    const byId = new Map();
-    for (const entry of fs.readdirSync(OUTPUT_DIR, { withFileTypes: true })) {
-        if (!(entry.isDirectory() || entry.isSymbolicLink()) || entry.name.startsWith('.')) continue;
-        let files;
-        try { files = fs.readdirSync(path.join(OUTPUT_DIR, entry.name)); } catch { continue; }
-        const set = new Set(files);
-        const latest = new Map();   // id → { stem, date } (leksikografski najveći, kao downstream)
-        for (const f of files) {
-            if (f.startsWith('._')) continue;
-            const m = f.match(ARTICLE_RE);
-            if (!m) continue;
-            // extractVideoId mora uzeti ZADNJI _yt_ (naslovi znaju sadržavati "_yt_").
-            const ids = [...m[1].matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
-            const id = ids[ids.length - 1][1];
-            const stem = f.slice(0, -'.article.json'.length);
-            const prev = latest.get(id);
-            if (!prev || stem > prev.stem) latest.set(id, { stem, date: m[3] });
-        }
-        for (const [id, { stem, date }] of latest) {
-            if (date < SINCE) continue;
-            if (set.has(`${stem}.article.en.json`)) continue;
-            const waitMag = magCh.has(entry.name) && !set.has(`${stem}.article.magisterium.json`);
-            const prev = byId.get(id);
-            // Ista epizoda u _unlisted i u kanalu: prednost kanalu (poller ionako bira po inventaru).
-            if (prev && !prev.channel.startsWith('_')) continue;
-            byId.set(id, { id, channel: entry.name, date, waitMag });
-        }
+    const out = [];
+    for (const e of resolveEpisodes(scanDirs(), articleGenAt)) {
+        if (e.date < SINCE) continue;
+        const set = new Set(e.files);
+        if (set.has(`${e.stem}.article.en.json`)) continue;
+        const waitMag = magCh.has(e.channel) && !set.has(`${e.stem}.article.magisterium.json`);
+        out.push({ id: e.id, channel: e.channel, stem: e.stem, date: e.date, waitMag, waitChannel: e.waitChannel });
     }
-    return [...byId.values()];
+    return out;
 }
 
 /** Epizode s EN člankom čiji reels.en.json nedostaje ili je zastario (isti SINCE prozor). */
@@ -249,9 +299,123 @@ async function cdnHas(id, name) {
     }
 }
 
-(async () => {
+/** CDN JSON s cache-busterom: { status, doc } (doc = null kad nije 200 ili nije JSON). */
+async function cdnJson(id, name) {
+    try {
+        const r = await fetch(`${CDN_BASE}/data/${id}/${name}?x=${Date.now()}`);
+        if (!r.ok) return { status: r.status, doc: null };
+        try { return { status: r.status, doc: await r.json() }; } catch { return { status: r.status, doc: null }; }
+    } catch {
+        return { status: 0, doc: null };
+    }
+}
+
+/**
+ * Koji EN dijelovi na CDN-u NISU prevedeni iz trenutnog HR izvora. Čisto (za testove).
+ * hr  = { article, summary, mag }   generated_at lokalnih HR dokumenata (mag/summary smiju biti null)
+ * cdn = { article, articleEn, summaryEn, magEn, magHr }  { status, ga }
+ * Vraća null dok CDN ne servira OVAJ HR članak (ponovna obrada još objavljuje), inače popis.
+ * EN koji još ne postoji (404) nije „zastario" — to je posao običnog EN joba (collectCandidates).
+ */
+function staleEnParts(hr, cdn) {
+    if (cdn.article.status !== 200 || cdn.article.ga !== hr.article) return null;
+    if (cdn.articleEn.status !== 200) return [];
+    const parts = [];
+    if (cdn.articleEn.ga !== hr.article) parts.push('article');
+    // Zastario = POSTOJI na CDN-u, ali iz drugog HR izvora. Nedostajući summary/Magisterium EN
+    // nije razlog za run: to su stare rupe (74/80 Tier 2 bez Magisterium EN), a backfill je
+    // isključen (odluka 04.11.2026.). Kad se prijevod ionako pokrene, translate nadopuni i njih.
+    if (hr.summary && cdn.summaryEn.status === 200 && cdn.summaryEn.ga !== hr.summary) parts.push('summary');
+    // Magisterium EN samo kad CDN već servira ovaj HR Magisterium (inače ga čeka HR traka).
+    if (hr.mag && cdn.magEn.status === 200 && cdn.magHr.status === 200 && cdn.magHr.ga === hr.mag && cdn.magEn.ga !== hr.mag) parts.push('magisterium');
+    return parts;
+}
+
+function stashDir(channel, id) {
+    const real = fs.realpathSync(path.join(OUTPUT_DIR, channel));
+    const stamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '');
+    return path.join(path.dirname(real), '.reprocess_bak', channel, `${id}_${stamp}_en_stale`);
+}
+
+/**
+ * EN na CDN-u preveden iz STARIJEG HR izvora (ponovna obrada, ili EN job u prozoru dok je
+ * kanal još imao stari članak) → skloni zastarjele lokalne .en.json (rename u .reprocess_bak,
+ * nikad delete), prevedi iz trenutnog HR-a, prepiši CDN (force_upload: PUT + purge s i bez
+ * Origina + episode.json). Bez enqueuea: poller bi takav job preskočio jer article.en.json
+ * postoji na CDN-u, a idući tick bi ga opet ubacio (KLPD-Meu4e8, 199×, 05.11.2026.).
+ * Stanje po potpisu HR izvora: isti potpis najviše STALE_MAX_TRIES pokušaja, a potvrđeno
+ * svjež potpis se više ne provjerava (nema CDN zahtjeva po ticku za cijeli prozor).
+ */
+async function refreshStaleEn() {
+    let state = {};
+    try { state = JSON.parse(fs.readFileSync(STALE_STATE_FILE, 'utf8')); } catch { /* prazno */ }
+    let done = 0;
+    for (const e of resolveEpisodes(scanDirs(), articleGenAt)) {
+        if (e.date < SINCE || e.waitChannel) continue;
+        const dir = path.join(OUTPUT_DIR, e.channel);
+        const set = new Set(e.files);
+        const hr = {
+            article: articleGenAt(e.channel, e.stem),
+            summary: genAt(readJson(path.join(dir, e.files.find((f) => f.includes(`_yt_${e.id}`) && f.endsWith('.canary.summary.json')) || '-'))),
+            mag: set.has(`${e.stem}.article.magisterium.json`) ? genAt(readJson(path.join(dir, `${e.stem}.article.magisterium.json`))) : null,
+        };
+        if (!hr.article) continue;
+        const sig = `${hr.article}|${hr.summary || ''}|${hr.mag || ''}`;
+        const st = state[e.id];
+        if (st && st.sig === sig && (st.fresh || st.tries >= STALE_MAX_TRIES)) continue;
+
+        const get = async (n) => { const r = await cdnJson(e.id, n); return { status: r.status, ga: genAt(r.doc) }; };
+        const cdn = { article: await get('article.json') };
+        if (cdn.article.status !== 200 || cdn.article.ga !== hr.article) continue;
+        cdn.articleEn = await get('article.en.json');
+        if (cdn.articleEn.status !== 200) continue;
+        cdn.summaryEn = await get('summary.en.json');
+        cdn.magHr = hr.mag ? await get('article.magisterium.json') : { status: 0 };
+        cdn.magEn = hr.mag ? await get('article.magisterium.en.json') : { status: 0 };
+        const parts = staleEnParts(hr, cdn);
+        if (!parts) continue;
+        if (!parts.length) { state[e.id] = { sig, fresh: true }; continue; }
+
+        const tag = `${e.id} [${e.channel}]`;
+        if (done >= STALE_MAX) { console.log(`🛑 EN_STALE_MAX=${STALE_MAX} — ostatak idući tick.`); break; }
+        done++;
+        if (DRY_RUN) { console.log(`  🧪 zastario EN ${tag}: ${parts.join(', ')} → bi se preveo ponovno`); continue; }
+        console.log(`  ♻️  zastario EN ${tag}: ${parts.join(', ')} preveden iz starijeg HR-a — prevodim ponovno`);
+
+        // Skloni lokalne EN-ove starijih stemova i one iz drugog HR izvora.
+        const toStash = e.files.filter((f) => f.includes(`_yt_${e.id}`) && !f.startsWith('._') && (
+            (/\.article(\.magisterium)?\.en\.json$/.test(f) && !f.startsWith(`${e.stem}.`))
+            || (parts.includes('summary') && f.endsWith('.canary.summary.en.json'))
+            || (parts.includes('article') && f === `${e.stem}.article.en.json`)
+            || (parts.includes('magisterium') && f === `${e.stem}.article.magisterium.en.json`)));
+        if (toStash.length) {
+            const bak = stashDir(e.channel, e.id);
+            fs.mkdirSync(bak, { recursive: true });
+            for (const f of toStash) { fs.renameSync(path.join(dir, f), path.join(bak, f)); console.log(`    🗄 ${f.slice(-60)} → ${bak}`); }
+        }
+        const run = (cmd, args) => spawnSync(cmd, args, { cwd: ROOT, stdio: 'inherit' }).status === 0;
+        const lock = path.join(__dirname, 'with_pipeline_lock.sh');
+        const ok = run('node', ['translate_to_english.js', '--input-dir', 'storage/output', '--channel', e.channel, '--video-id', e.id])
+            && run(lock, ['bash', '-c', [
+                `{ node generate_ebook.js --video-id ${e.id} --force || true; }`,
+                // Novi ključevi (reels.en.json, book.en.epub prvi put) + prepis immutable data/*.
+                `node upload_to_r2.js --input-dir storage/output --video-id ${e.id}`,
+                `node force_upload.js --video-id ${e.id} --channel ${e.channel} --targets summary-en,article-en,magisterium-en`,
+                `{ node tools/force_upload_epubs.js --changed-only --video-id ${e.id}; node build_episode_bundle.js --video-id ${e.id}; true; }`,
+            ].join(' && ')]);
+        const verified = ok && (await get('article.en.json')).ga === hr.article;
+        state[e.id] = verified ? { sig, fresh: true } : { sig, tries: (st && st.sig === sig ? st.tries || 0 : 0) + 1 };
+        console.log(verified ? `  ✅ EN ${tag} objavljen iz trenutnog HR-a` : `  ❌ EN ${tag} nije uspio (CDN article.en.json još nije iz trenutnog HR-a)`);
+    }
+    if (!DRY_RUN) {
+        try { fs.writeFileSync(STALE_STATE_FILE, JSON.stringify(state, null, 1)); } catch { /* nije kritično */ }
+    }
+}
+
+async function main() {
     try { refreshReelsEn(); } catch (e) { console.log(`⚠️ reels EN greška: ${e.message}`); }
     try { refreshMagisteriumEn(); } catch (e) { console.log(`⚠️ Magisterium EN greška: ${e.message}`); }
+    try { await refreshStaleEn(); } catch (e) { console.log(`⚠️ zastarjeli EN greška: ${e.message}`); }
     const candidates = collectCandidates();
     console.log(`🌐 EN auto (članci od ${SINCE}): ${candidates.length} epizoda bez EN-a.`);
     if (!candidates.length) return;
@@ -274,11 +438,15 @@ async function cdnHas(id, name) {
     let enqueued = 0, deduped = 0, waiting = 0;
     for (const c of candidates) {
         const tag = `${c.id} [${c.channel}, ${c.date}]`;
+        if (c.waitChannel) { console.log(`  ⏳ ${tag} — _unlisted ima noviji članak, čeka prijenos u kanal`); waiting++; continue; }
         if (c.waitMag) { console.log(`  ⏳ ${tag} — čeka HR Magisterium`); waiting++; continue; }
-        if (!(await cdnHas(c.id, 'article.json'))) { console.log(`  ⏳ ${tag} — HR članak još nije na CDN-u`); waiting++; continue; }
+        // Ne samo 200: CDN mora servirati OVAJ članak (ponovna obrada zna imati stari na CDN-u).
+        const cdnArticle = await cdnJson(c.id, 'article.json');
+        if (cdnArticle.status !== 200 || genAt(cdnArticle.doc) !== articleGenAt(c.channel, c.stem)) { console.log(`  ⏳ ${tag} — ovaj HR članak još nije na CDN-u`); waiting++; continue; }
         // EN već na CDN-u, a lokalno ga nema (npr. nastao na drugom disku): poller bi job
         // preskočio kao gotov, a idući tick bi ga opet enqueueao. 05.11.2026. se tako
         // KLPD-Meu4e8 vrtio 199× i od 08:10 izgladnio prave EN jobove u redu.
+        // Zastarjeli EN (iz starijeg HR-a) ovdje se NE enqueuea — rješava ga refreshStaleEn().
         if (await cdnHas(c.id, 'article.en.json')) { console.log(`  ✔︎ ${tag} — EN već na CDN-u (lokalno nema), preskačem`); continue; }
         const fail = failedMap.get(c.id);
         if (fail && (fail.count >= MAX_FAILED || nowSec - fail.lastSec < RETRY_HOURS * 3600)) {
@@ -296,7 +464,13 @@ async function cdnHas(id, name) {
         }
     }
     console.log(`🌐 EN auto gotov: +${enqueued}${DRY_RUN ? ' (dry-run)' : ''}, ${deduped} već u queueu, ${waiting} čeka.`);
-})().catch((e) => {
-    console.error('⚠️ enqueue_en_new greška:', e.message);
-    process.exit(0); // soft fail — launchd tick ne ruši ništa
-});
+}
+
+if (require.main === module) {
+    main().catch((e) => {
+        console.error('⚠️ enqueue_en_new greška:', e.message);
+        process.exit(0); // soft fail — launchd tick ne ruši ništa
+    });
+}
+
+module.exports = { resolveEpisodes, latestArticles, staleEnParts, genAt };

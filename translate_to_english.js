@@ -869,6 +869,27 @@ function reelsEnStale(srcPath, enPath) {
     }
 }
 
+/** generated_at HR izvora (članak/Magisterium: metadata.generated_at, sažetak: generated_at). */
+function sourceGeneratedAt(doc) {
+    return (doc && ((doc.metadata && doc.metadata.generated_at) || doc.generated_at)) || null;
+}
+
+/**
+ * EN je deep clone HR izvora, pa nosi njegov generated_at. Razlika = EN je preveden iz
+ * DRUGOG (starijeg) HR dokumenta. Sažetak nema datum u imenu datoteke, a ponovna obrada
+ * istog dana daje isti stem članka, pa samo postojanje .en.json nije dokaz svježine
+ * (05.11.2026.: 5 reobrađenih domovina_tv epizoda dobilo je EN starog članka).
+ */
+function enStaleBySource(srcPath, enPath) {
+    try {
+        const src = sourceGeneratedAt(JSON.parse(fs.readFileSync(srcPath, "utf-8")));
+        const en = sourceGeneratedAt(JSON.parse(fs.readFileSync(enPath, "utf-8")));
+        return src !== en;
+    } catch {
+        return true;
+    }
+}
+
 // ─── MAIN ─────────────────────────────────────────────────────────
 
 const USAGE = `
@@ -964,12 +985,14 @@ async function main() {
             const outPath = path.join(it.channelDir, outFile);
             const srcPath = path.join(it.channelDir, t.src);
 
-            if (!opts.force && fs.existsSync(outPath) && !(t.kind === "reels" && reelsEnStale(srcPath, outPath))) {
+            const stale = t.kind === "reels" ? reelsEnStale(srcPath, outPath) : enStaleBySource(srcPath, outPath);
+            if (!opts.force && fs.existsSync(outPath) && !stale) {
                 console.log(`      ⏭️  ${t.kind}: već postoji — ${outFile}`);
                 totalSkip++;
                 continue;
             }
 
+            if (!opts.force && fs.existsSync(outPath) && t.kind !== "reels") console.log(`      ♻️  ${t.kind}: postojeći EN je iz drugog HR izvora (generated_at) — prevodim ponovno`);
             const start = Date.now();
             process.stdout.write(`      🔄 ${t.kind}: prevod… `);
 
@@ -1028,5 +1051,6 @@ if (require.main === module) {
 module.exports = {
     batchShapeError, translateSummary, translateArticle, translateMagisterium, translateReels, BATCH_TRANSLATOR_PROMPT,
     planSegments, hmsToSec, reelsSourceSha, reelsEnStale, speakerNameMap, speakerRoleEn,
+    sourceGeneratedAt, enStaleBySource,
     __setLlmJson: (fn) => { llmOverride = fn; },
 };
