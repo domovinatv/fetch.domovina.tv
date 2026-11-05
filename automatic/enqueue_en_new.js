@@ -276,6 +276,10 @@ async function cdnHas(id, name) {
         const tag = `${c.id} [${c.channel}, ${c.date}]`;
         if (c.waitMag) { console.log(`  ⏳ ${tag} — čeka HR Magisterium`); waiting++; continue; }
         if (!(await cdnHas(c.id, 'article.json'))) { console.log(`  ⏳ ${tag} — HR članak još nije na CDN-u`); waiting++; continue; }
+        // EN već na CDN-u, a lokalno ga nema (npr. nastao na drugom disku): poller bi job
+        // preskočio kao gotov, a idući tick bi ga opet enqueueao. 05.11.2026. se tako
+        // KLPD-Meu4e8 vrtio 199× i od 08:10 izgladnio prave EN jobove u redu.
+        if (await cdnHas(c.id, 'article.en.json')) { console.log(`  ✔︎ ${tag} — EN već na CDN-u (lokalno nema), preskačem`); continue; }
         const fail = failedMap.get(c.id);
         if (fail && (fail.count >= MAX_FAILED || nowSec - fail.lastSec < RETRY_HOURS * 3600)) {
             console.log(`  ⛔ ${tag} — ${fail.count}× failed (grace ${RETRY_HOURS} h, max ${MAX_FAILED})`);

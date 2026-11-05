@@ -1,0 +1,75 @@
+{
+ "date": "2026-11-05",
+ "night_end": "03:49:36",
+ "nightly_done": "04:04:35",
+ "ignore_vids": [
+  "KLPD-Meu4e8"
+ ],
+ "marker": {
+  "t": "03:53:00",
+  "label": "enqueue_all_new 03:53 (24 posla)"
+ },
+ "x1": [
+  "02:55:00",
+  "12:00:00"
+ ],
+ "x2": [
+  "03:45:00",
+  "10:00:00"
+ ],
+ "night": [
+  {
+   "vid": "x176kmhHcmI",
+   "channel": "budiFRAjer",
+   "title": "[DDV KATEHEZE] Zašto ići na ispovijed ako ćeš opet sagriješiti? – pater Sebastian Šujević",
+   "audio": 1714,
+   "soniox": 45,
+   "summ": 16.9,
+   "art": 265.1,
+   "reels": 73
+  },
+  {
+   "vid": "SiKEiejafpE",
+   "channel": "Mreže riječi",
+   "title": "Pobačaj je „sakrament” Sotone – Marija Šošić [Podcast Mreže riječi #29]",
+   "audio": 2433,
+   "soniox": 55,
+   "summ": 26.6,
+   "art": 172.3,
+   "reels": 95
+  },
+  {
+   "vid": "63Z90Dc8Jkg",
+   "channel": "Ora et Labora",
+   "title": "129. Milosrđe Božje – Kada Isusa stavimo na prvo mjesto sve dođe na svoje mjesto!",
+   "audio": 3309,
+   "soniox": 66,
+   "summ": 26.2,
+   "art": 239.2,
+   "reels": 93
+  },
+  {
+   "vid": "qFOD-W0-GvU",
+   "channel": "Podcast Čušpajz",
+   "title": "Damir Omerbegović – o BiH nakon izbora, o političkom islamizmu (Podcast Čušpajz #169)",
+   "audio": 2891,
+   "soniox": 56,
+   "summ": 26.7,
+   "art": 193.2,
+   "reels": 97
+  }
+ ],
+ "night_note": "Soniox = vrijeme obrade na Sonioxu; sažetak i članak = trajanje Opus poziva (članak = outline + iteracije); reels = select_reels. ⚠️ pyannoteAI je u nightlyju vratio HTTP 402 za sve 4 epizode, pa su govornici iz golog Sonioxa (fallback iz 5013e60b). KORAK 10 (screenshotovi) prolazi kroz cijeli katalog.",
+ "summary": [
+  "**28 novih epizoda, svih 28 s člankom na CDN-u, 0 palih poslova.** 4 iz nightlyja (praćeni kanali, run_pipeline 03:00–{night_end}, cijeli nightly gotov {nightly_done}, „Svi koraci OK”) i 24 iz prioritetnog reda (Tier 2, nepraćeni kanali, svi poslani u 03:53).",
+  "**Prvi put dva slota.** Slot 1 je obradio {n_s1}, slot 2 {n_s2} epizoda. Prvi posao preuzet u {first_claim}, zadnji gotov u {last_done} ({span_h} h, {audio_h} h zvuka). Oba slota su radila istodobno {both_h} h. Jučer je jedan slot 18 epizoda (19,0 h zvuka) obrađivao 5,5 h (04:03–09:31).",
+  "**Zašto slot 2 nije stalno radio:** novi posao smije se preuzeti tek 300 s nakon prethodnog (`zadnji claim prije … < 300 s`), a između 05:13 i 05:31 slot 2 je 14 puta odbijen jer je SSD imao 3–4 GB (< 5 GB). Ukupno je slot 2 bio prazan {s2_idle} min dok je u redu još bilo posla.",
+  "**Obrada po epizodi** (zbroj koraka) medijan **{proc_med} min**, raspon {proc_min}–{proc_max} min. Čekanje u redu od slanja do preuzimanja: medijan {wait_med} min, najdulje {wait_max} min (jučer 160 / 319 min).",
+  "**Kamo ide vrijeme** (zbroj Tier 2): {top_phases}.",
+  "**⚠️ Magisterium HR nije gotov.** Gotovo {n_mhr} epizoda (medijan {mhr_med} min obrade; tick uzima jednu po jednu, pa nova kreće u prosjeku svakih {mhr_cad} min), zadnja u {mhr_last}. **U redu čeka još {n_mhr_q} epizoda** ({mhr_q_list}). Tim ritmom to je još oko {mhr_eta} h, do oko {mhr_eta_t}. Magisterium smije biti spor; bitno je da stigne.",
+  "**⚠️ EN traka je od 08:10 bila zaglavljena.** `enqueue_en_new.js` je svaki tick (2 min) ponovno stavljao `KLPD-Meu4e8` u red jer lokalno nema `.article.en.json`, a poller ga je preskakao jer je EN već na CDN-u. Danas 199 puta. Za to vrijeme `xGAmPf_ihm4` i `y0J491L5J9s` čekaju EN članak (oba su u redu od ~06:45 i ~07:45). Popravljeno u 10:05 (`automatic/enqueue_en_new.js`): kandidat čiji je `article.en.json` već na CDN-u se preskače. Ostalih 26 epizoda ima EN članak na CDN-u, a svih 16 s gotovim Magisterium HR ima i Magisterium EN.",
+  "**⚠️ pyannoteAI i dalje bez kredita** (HTTP 402 od 04.11. 05:51). U nightlyju su sve 4 epizode praćenih kanala dobile govornike iz golog Sonioxa (novi fallback iz `5013e60b`, prije bi bez kanonskog SRT-a ostale bez kostura). Tier 2 ionako koristi Speechmaticsovu dijarizaciju (`asr_provider=speechmatics` na svih 24), pa ga 402 ne dira.",
+  "YouTube proxy (iPhone preko Tailscalea, `100.71.146.11:8888`) nije odgovarao cijelo jutro; download je išao bez njega i nijedan nije pao.",
+  "Modal Canary (2.6) se i dalje vrti kao osigurač na svakoj Tier 2 epizodi: {canary_min} min ukupno, oko {canary_per} min po epizodi."
+ ]
+}

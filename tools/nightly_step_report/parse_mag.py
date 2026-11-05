@@ -21,7 +21,7 @@ for lang,f in [('hr','magisterium.log'),('en','magisterium-en.log')]:
         m=re.search(r'zid ([\d.]+) s',l)
         if m: cur.setdefault('wall',[]).append(float(m[1]))
         if '❌' in l and 'Grešaka:         0' not in l and 'neuspjelih' not in l: cur.setdefault('err',[]).append(l.strip()[:150])
-    ticks=[t for t in ticks if t['date']=='2026-11-04' and (t['items'] or [v for v in t['vids'] if v!='KLPD-Meu4e8'])]
+    ticks=[t for t in ticks if t['date']==(sys.argv[2] if len(sys.argv)>2 else '2026-11-04') and (t['items'] or [v for v in t['vids'] if v!='KLPD-Meu4e8'])]
     out[lang]=ticks
     for t in ticks: print(lang,t['start'],t['end'],[v for v in t['vids'] if v!='KLPD-Meu4e8'],t.get('calls'),[(a,b,c) for a,b,c in t['items']],t.get('err','')[:2] if t.get('err') else '')
 json.dump(out,open(S+'/mag.json','w'),ensure_ascii=False,indent=1)

@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
 S = sys.argv[1]
+DAY = json.load(open(sys.argv[2])) if len(sys.argv) > 2 else None
+if not DAY: sys.exit('upotreba: build.py <W> days/<YYYY-MM-DD>.json')
+DATE = DAY['date']; DHR = '.'.join(DATE.split('-')[::-1]) + '.'
+IGN = set(DAY.get('ignore_vids', []))
 runs = json.load(open(S + '/runs.json'))
 mag = json.load(open(S + '/mag.json'))
 jobs = {j['id']: j for j in json.load(open(S + '/jobs.json'))['jobs']}
@@ -59,7 +63,7 @@ for r in runs:
     e = dict(vid=r['vid'], channel=j.get('channel') or '', title=j.get('title') or '', audio=j.get('duration_seconds'),
              state=j.get('state'), err=j.get('error'), created=ep(j.get('created_at')), claimed=ep(j.get('claimed_at')),
              done=ep(j.get('done_at')), start=ts(r['start']), end=ts(r['end']), steps=steps, phase=phase,
-             asr=j.get('asr_provider'), notes=r['notes'], tier='T2')
+             asr=j.get('asr_provider'), notes=r['notes'], tier='T2', slot=r.get('slot', 1))
     e['pre'] = e['start'] - e['claimed'] if e['claimed'] else 0
     e['post'] = (e['done'] - e['end']) if e['done'] else None
     e['pyannote402'] = any('HTTP 402' in n for n in r['notes'])
@@ -69,7 +73,7 @@ for r in runs:
 MHR, MEN = {}, {}
 for t in mag['hr']:
     for v in t['vids']:
-        if v == 'KLPD-Meu4e8': continue
+        if v in IGN: continue
         MHR[v] = dict(start=ts(t['start']), end=ts(t['end']), calls=t.get('calls'))
 for t in mag['en']:
     for (kind, sec, v) in t['items']:
@@ -88,21 +92,12 @@ NIGHT_STEPS = []
 for l in open(S + '/nightly.log', encoding='utf-8', errors='replace'):
     m = re.search(r'📢 \[(\d\d:\d\d:\d\d) \+[\d:]+\] KORAK ([\d.]+[a-z]?)(?:/\d+)?: (.*)', l)
     if m: NIGHT_STEPS.append((m[2], ts(m[1]), m[3][:60]))
-NIGHT_END = ts('03:58:13')
+NIGHT_END = ts(DAY['night_end'])
 NS = []
 for i, (k, a, name) in enumerate(NIGHT_STEPS):
     b = NIGHT_STEPS[i + 1][1] if i + 1 < len(NIGHT_STEPS) else NIGHT_END
     NS.append(dict(k=k, name=name, start=a, end=b, d=b - a))
-NIGHT = [
-    dict(vid='pIx_7N-6HJ4', channel='Mreže riječi', title='Jedno ti nedostaje: EP 65 – Večera je spremna (fra Ante Vučković i Stanko Stojić)', audio=32*60+7,
-         soniox=45, summ=19.3, art=20.2+145.1, reels=94),
-    dict(vid='uw5vYIdAHeM', channel='Ora et Labora', title='128. Milosrđe Božje – Odreći se i samoga sebe radi spasenja!', audio=57*60+44,
-         soniox=76, summ=31.7, art=33.4+76.4+110.3, reels=76),
-    dict(vid='3GGuSVt4Q4Y', channel='Radio Mrežnica', title='Andrijanić: Berlin želi kontrolu Poljske, Tusk ima zadaću', audio=81*60+14,
-         soniox=119, summ=36.9, art=40.2+148.6+181.5, reels=149),
-    dict(vid='uMVmX4GDYag', channel='Radio Mrežnica', title='C. Macgregor: Trump u Iranu (snimka iz ožujka, EN izvornik)', audio=28*60,
-         soniox=46, summ=27.5, art=20.6+158.0, reels=None),
-]
+NIGHT = DAY['night']
 
 def fig_b64(fig):
     b = io.BytesIO(); fig.savefig(b, format='png', dpi=170, bbox_inches='tight'); plt.close(fig)
@@ -116,22 +111,27 @@ def xfmt(ax, lo, hi, step=1800):
     ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
 
 # ---------- Graf 1: dan po trakama ----------
-fig, ax = plt.subplots(figsize=(11, 3.6))
-lanes = ['Nightly (praćeni)', 'Prioritetni slot (Tier 2)', 'Magisterium HR', 'EN prijevod + Mag. EN']
+SLOTS = sorted({e['slot'] for e in T2})
+lanes = ['Nightly (praćeni)'] + [f'Slot {k} (Tier 2)' for k in SLOTS] + ['Magisterium HR', 'EN prijevod + Mag. EN']
+fig, ax = plt.subplots(figsize=(11, 0.9 * len(lanes)))
 y = {n: i for i, n in enumerate(lanes[::-1])}
 for s in NS:
     ax.barh(y[lanes[0]], s['d'], left=s['start'], color=PH[STEP2PH.get(s['k'], 14)][2], edgecolor='white', lw=0.3, height=0.6)
 for e in T2:
-    ax.barh(y[lanes[1]], e['end'] - e['start'], left=e['start'], color='#E45756' if e['state'] == 'failed' else '#4C78A8', edgecolor='white', lw=0.6, height=0.6)
+    yy = y[f"Slot {e['slot']} (Tier 2)"]
+    ax.barh(yy, e['end'] - e['start'], left=e['start'], color='#E45756' if e['state'] == 'failed' else '#4C78A8', edgecolor='white', lw=0.6, height=0.6)
+    ax.text(e['start'] + (e['end'] - e['start']) / 2, yy, e['vid'][:4], ha='center', va='center', fontsize=5, color='white')
 for v, d in MHR.items():
-    ax.barh(y[lanes[2]], d['end'] - d['start'], left=d['start'], color='#B279A2', edgecolor='white', lw=0.6, height=0.6)
+    ax.barh(y['Magisterium HR'], d['end'] - d['start'], left=d['start'], color='#B279A2', edgecolor='white', lw=0.6, height=0.6)
 for t in mag['en']:
     if t['items']:
-        ax.barh(y[lanes[3]], ts(t['end']) - ts(t['start']), left=ts(t['start']), color='#F58518', edgecolor='white', lw=0.6, height=0.6)
-ax.axvline(ts('04:02:02'), color='k', ls=':', lw=0.8); ax.text(ts('04:02:02') + 60, 3.42, 'enqueue_all_new 04:02 (19 poslova)', fontsize=7)
+        ax.barh(y['EN prijevod + Mag. EN'], ts(t['end']) - ts(t['start']), left=ts(t['start']), color='#F58518', edgecolor='white', lw=0.6, height=0.6)
+mk = DAY.get('marker')
+if mk:
+    ax.axvline(ts(mk['t']), color='k', ls=':', lw=0.8); ax.text(ts(mk['t']) + 60, len(lanes) - 0.58, mk['label'], fontsize=7)
 ax.set_yticks(range(len(lanes))); ax.set_yticklabels(lanes[::-1])
-xfmt(ax, ts('02:55:00'), ts('11:20:00'))
-ax.set_title('04.11.2026. – rad po trakama (CET)', loc='left', fontsize=10)
+xfmt(ax, ts(DAY['x1'][0]), ts(DAY['x1'][1]))
+ax.set_title(f'{DHR} – rad po trakama (CET)', loc='left', fontsize=10)
 G1 = fig_b64(fig)
 
 # ---------- Graf 2: Tier 2 po epizodi, stvarna vremena po fazi ----------
@@ -149,10 +149,10 @@ for i, e in enumerate(rows[::-1]):
         ax.barh(yy, e['post'], left=e['end'], color=POST_C, height=0.7)
     if e['vid'] in MHR:
         d = MHR[e['vid']]; ax.barh(yy, d['end'] - d['start'], left=d['start'], color='#B279A2', height=0.35, alpha=0.9)
-    lab = f"{e['channel'][:22]} · {e['vid']}"
+    lab = f"s{e['slot']} · {e['channel'][:22]} · {e['vid']}"
     ax.text(e['claimed'] - 90, yy, lab, ha='right', va='center', fontsize=6.5)
 ax.set_yticks([])
-xfmt(ax, ts('03:15:00'), ts('11:15:00'))
+xfmt(ax, ts(DAY['x2'][0]), ts(DAY['x2'][1]))
 handles = [Patch(color=c, label=n) for n, _, c in PH] + [Patch(color=PRE_C, label='start slota'), Patch(color=POST_C, label='zatvaranje (reconcile)'), Patch(color='#B279A2', label='Magisterium HR (tanka traka)')]
 ax.legend(handles=handles, ncol=6, fontsize=6, loc='upper center', bbox_to_anchor=(0.5, -0.06), frameon=False)
 ax.set_title('Tier 2: svaka epizoda od preuzimanja posla do kraja, obojeno po koraku', loc='left', fontsize=10)
@@ -189,21 +189,79 @@ ax.set_title(f'Tier 2: zbroj po koraku, {len(ok)} epizoda ({sum(tot):.0f} min uk
 G4 = fig_b64(fig)
 
 # ---------- brojke za sažetak ----------
+import statistics as st
 first_claim = min(e['claimed'] for e in T2); last_done = max(e['done'] for e in T2 if e['done'])
 audio_ok = sum(e['audio'] or 0 for e in ok)
 proc = [sum(e['phase']) for e in ok]
-import statistics as st
 waits = [e['claimed'] - e['created'] for e in T2]
 mhr_d = [MHR[v]['end'] - MHR[v]['start'] for v in MHR]
 en_d = [MEN[v]['main'][1] - MEN[v]['main'][0] for v in MEN if MEN[v]['main']]
 n402 = sum(1 for e in ok if e['pyannote402'])
 n_late = sum(1 for v in MEN.values() if v['mag'])
 last_all = max([d['end'] for d in MHR.values()] + [x[3] for v in MEN.values() for x in v['items']])
+# Magisterium/EN poslovi koji još čekaju u redu (stanje iz API-ja u trenutku dumpa)
+MQ = {}
+for m in json.load(open(S + '/jobs.json')).get('mags', []):
+    if m['state'] in ('queued', 'claimed', 'running') and m['youtube_id'] not in IGN:
+        MQ.setdefault(m['youtube_id'], set()).add(m['lang'])
+# preklapanje slotova i prazan hod slota 2 dok red nije prazan
+busy = {k: sorted((e['claimed'], e['done'] or e['end']) for e in T2 if e['slot'] == k) for k in SLOTS}
+def overlap(a, b):
+    tot = 0
+    for x0, x1 in a:
+        for y0, y1 in b: tot += max(0, min(x1, y1) - max(x0, y0))
+    return tot
+both = overlap(busy[SLOTS[0]], busy[SLOTS[1]]) if len(SLOTS) > 1 else 0
+last_claim = max(e['claimed'] for e in T2)
+s2_idle = 0
+if len(SLOTS) > 1:
+    iv = busy[SLOTS[1]]
+    for (a0, a1), (b0, b1) in zip(iv, iv[1:]):
+        s2_idle += max(0, min(b0, last_claim) - a1)
+mhr_q = [v for v, l in MQ.items() if 'hr' in l]
+mhr_per = st.median(mhr_d) if mhr_d else 0
+mst = sorted(d['start'] for d in MHR.values())
+mhr_cad = (mst[-1] - mst[0]) / (len(mst) - 1) if len(mst) > 1 else 16 * 60
+eta = len(mhr_q) * mhr_cad
+now_s = D.datetime.now().hour * 3600 + D.datetime.now().minute * 60
+tot_ = [sum(e['phase'][p] for e in ok) / 60 for p in range(len(PH))]
+order_ = sorted(range(len(PH)), key=lambda p: tot_[p])
+V = dict(night_end=DAY['night_end'][:5], nightly_done=DAY.get('nightly_done', '')[:5],
+         n_s1=sum(1 for e in T2 if e['slot'] == 1), n_s2=sum(1 for e in T2 if e['slot'] == 2),
+         first_claim=hm(first_claim)[:5], last_done=hm(last_done)[:5], span_h=f"{(last_done-first_claim)/3600:.1f}".replace('.', ','),
+         both_h=f"{both/3600:.1f}".replace('.', ','), s2_idle=round(s2_idle / 60),
+         proc_med=round(st.median(proc) / 60), proc_min=round(min(proc) / 60), proc_max=round(max(proc) / 60),
+         audio_h=f"{audio_ok/3600:.1f}".replace('.', ','), wait_med=round(st.median(waits) / 60), wait_max=round(max(waits) / 60),
+         top_phases=', '.join(f'{PH[p][0]} {tot_[p]:.0f} min ({100*tot_[p]/sum(tot_):.0f} %)' for p in order_[::-1][:5]),
+         n_mhr=len(MHR), mhr_cad=round(mhr_cad / 60), mhr_med=round(mhr_per / 60), mhr_last=hm(max(d['end'] for d in MHR.values()))[:5] if MHR else '–',
+         n_mhr_q=len(mhr_q), mhr_q_list=', '.join(f'`{v}`' for v in mhr_q),
+         mhr_eta=f"{eta/3600:.1f}".replace('.', ','), mhr_eta_t=hm(now_s + eta)[:5],
+         canary_min=round(tot_[2]), canary_per=f"{tot_[2]/max(1,len(ok)):.1f}".replace('.', ','))
+SUMMARY = [b.format(**V) for b in DAY['summary']]
+def md2html(t):
+    t = esc(t)
+    t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', t)
+    return re.sub(r'`(.+?)`', r'<code>\1</code>', t)
+
+# ---------- Mermaid gantogram ----------
+def gname(t): return re.sub(r'[:#;,]', ' ', t).strip()
+G = ['gantt', f'    title {DHR} – rad po trakama (CET)', '    dateFormat HH:mm:ss', '    axisFormat %H:%M', '    tickInterval 30minute', '    todayMarker off']
+G.append('    section Nightly')
+for sx in NS:
+    if sx['d'] >= 60: G.append(f"    {gname('K' + sx['k'] + ' ' + sx['name'][:28])} :{hm(sx['start'])}, {hm(sx['end'])}")
+for k in SLOTS:
+    G.append(f'    section Slot {k}')
+    for e in T2:
+        if e['slot'] == k: G.append(f"    {gname(e['vid'] + ' ' + e['channel'][:16])} :{'crit, ' if e['state']=='failed' else ''}{hm(e['start'])}, {hm(e['end'])}")
+G.append('    section Magisterium HR')
+for v, d in sorted(MHR.items(), key=lambda x: x[1]['start']): G.append(f"    {gname(v)} :{hm(d['start'])}, {hm(d['end'])}")
+# EN traka nije u gantogramu (40+ redaka bi ga stisnulo); vidi graf 1 i tablicu Magisterium/EN.
+GANTT = '\n'.join(G)
 
 # ---------- HTML ----------
 H = []
 A = H.append
-A(f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><title>Nightly 04.11.2026. – vremena po koraku</title>
+A(f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><title>Nightly {DHR} – vremena po koraku</title>
 <style>
 @page {{ size: A4 landscape; margin: 11mm 10mm; }}
 body {{ font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 8.6pt; color:#1a1a1a; background:#fff; }}
@@ -221,24 +279,16 @@ tr.fail td {{ background: #fde8e8; }} tr.warn td.w {{ background: #fff4dc; }}
 .box {{ border:1px solid #ddd; padding: 1.5mm 2mm; break-inside: avoid; margin-bottom: 2.5mm; }}
 .box table {{ font-size: 6.8pt; }}
 .k {{ display:inline-block; min-width: 9mm; }}
-</style></head><body>
-<h1>Nightly 04.11.2026. – vrijeme po koraku za svaku epizodu</h1>
-<div class="meta">Stanje u {D.datetime.now().strftime('%H:%M')} (CET). Izvori: <code>automatic/logs/nightly_2026-11-04.log</code>, <code>priority_2026-11-04.log</code>, <code>magisterium_2026-11-04.log</code>, <code>magisterium-en_2026-11-04.log</code>, API <code>pipeline.domovina.ai/api/jobs</code> i <code>cdn.domovina.ai/data/&lt;id&gt;/episode.json</code>. Trajanje koraka = razmak između dva uzastopna „📢 KORAK” zapisa u logu.</div>
+pre.mermaid {{ margin:0; text-align:center; }} pre.mermaid svg {{ max-width:100% !important; max-height:172mm; width:auto; height:auto; }}
+</style><script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script><script>mermaid.initialize({{startOnLoad:true, theme:'neutral', gantt:{{useWidth:2600, barHeight:18, barGap:4, fontSize:14, sectionFontSize:16, leftPadding:170}}}});</script></head><body>
+<h1>Nightly {DHR} – vrijeme po koraku za svaku epizodu</h1>
+<div class="meta">Stanje u {D.datetime.now().strftime('%H:%M')} (CET). Izvori: <code>automatic/logs/nightly_{DATE}.log</code>, <code>priority_{DATE}.log</code>, <code>magisterium_{DATE}.log</code>, <code>magisterium-en_{DATE}.log</code>, API <code>pipeline.domovina.ai/api/jobs</code> i <code>cdn.domovina.ai/data/&lt;id&gt;/episode.json</code>. Trajanje koraka = razmak između dva uzastopna „📢 KORAK” zapisa u logu.</div>
 <h2>Sažetak</h2>
 <ul>
-<li><b>23 nove epizode, 22 s člankom.</b> 4 iz nightlyja (praćeni kanali, 03:00–03:58) i 18 iz prioritetnog reda (Tier 2, nepraćeni kanali). 1 posao pao: <code>KyMHBGFS5Gc</code> (PSIHOLOGiJA HRT) – download ne prolazi, isti video pao je i 03.11.</li>
-<li><b>Sve je gotovo.</b> Svih 18 Tier 2 epizoda na CDN-u ima članak, EN članak, Magisterium HR i Magisterium EN (provjereno u <code>episode.json</code>). Nightly: sve 4 imaju HR i EN članak; Magisterium HR/EN samo Ora et Labora (ostala tri kanala ga nemaju u planu). Zadnji posao (Magisterium EN za <code>NbLmTuhikJ4</code>) završio je u {hm(last_all)}.</li>
-<li><b>Prioritetni slot:</b> prvi posao preuzet u {hm(first_claim)}, zadnji gotov u {hm(last_done)} ({(last_done-first_claim)/3600:.1f} h). Obrađeno {audio_ok/3600:.1f} h zvuka. Obrada po epizodi (zbroj koraka) medijan <b>{st.median(proc)/60:.0f} min</b>, raspon {min(proc)/60:.0f}–{max(proc)/60:.0f} min. Čekanje u redu od slanja do preuzimanja: medijan {st.median(waits)/60:.0f} min, najdulje {max(waits)/60:.0f} min.</li>
-<li><b>Najveći potrošači vremena</b> (zbroj svih Tier 2 epizoda): {', '.join(f'{PH[p][0]} {tot[p]:.0f} min' for p in order[::-1][:4])}. Članak (Opus) sam je {100*tot[7]/sum(tot):.0f} % vremena.</li>
-<li><b>Magisterium HR:</b> {len(MHR)} epizoda, medijan {st.median(mhr_d)/60:.0f} min po epizodi, ide jedna po jedna (tick svakih 10 min). Red je kasnio za slotom: zadnja HR obrada završila je u {hm(max(d['end'] for d in MHR.values()))}, {dur(max(d['end'] for d in MHR.values())-last_done)} (min:s) nakon zadnjeg članka. <b>EN prijevod:</b> {len(en_d)} epizoda, medijan {st.median(en_d)/60:.1f} min.</li>
-<li><b>Magisterium EN zakasnio za {n_late} epizoda.</b> EN tick je prevodio članak čim je bio gotov, a HR Magisterium je tada još čekao u redu. Zakašnjeli Magisterium EN pokupio je novi kod iz <code>c2af6ac7</code> (<code>EN_MAG_LATE_SINCE</code>, 3 po ticku) između 10:14 i 11:11. Bez toga bi tih {n_late} ostalo bez Magisterium EN.</li>
-<li><b>⚠️ pyannoteAI je ostao bez kredita u 05:51.</b> Od epizode <code>fUFlhmqBVMs</code> nadalje svaki poziv vraća HTTP 402 („Insufficient credits and no active subscription”). {n402} od {len(ok)} Tier 2 epizoda zato ima govornike iz Speechmaticsove vlastite dijarizacije, ne iz pyannoteAI. Pipeline nije stao (korak je non-fatal), ali kvaliteta govornika je niža i to se nigdje ne javlja kao greška. Nightly sutra u 03:00 udarit će u isto.</li>
-<li><b>Samo jedan slot cijeli dan:</b> 184 puta u logu „slot 2+: disk 12–14 GB &lt; 25 GB”. Drugi slot se ne otvara jer je SSD pun, pa je red išao strogo serijski.</li>
-<li><b>Modal Canary (2.6) se vrti kao osigurač na svakoj Tier 2 epizodi</b> iako je ASR Speechmatics: {tot[2]:.0f} min ukupno, oko {tot[2]/len(ok)*60/60:.1f} min po epizodi.</li>
-<li>Rupa od 12 min iza <code>-kSZAvMDzC8</code> (08:15 → 08:27): <code>reconcile</code> je zapeo na mreži (<code>fetch failed</code>, uz to <code>PATCH … EPIPE</code>), pa je idući posao preuzet tek u idućem ticku.</li>
-<li>Nightly: <code>audit_pipeline.js</code> exit 1 (rupe disk ↔ CDN), kao i jučer. Nightly ne staje zbog toga.</li>
+{''.join('<li>' + md2html(x) + '</li>' for x in SUMMARY)}
 </ul>
 <img src="{G1}">
+<div class="pb"></div><h2>Gantogram (Mermaid)</h2><pre class="mermaid">{esc(GANTT)}</pre>
 <div class="pb"></div>
 <img src="{G2}">
 <div class="small">Siva traka lijevo = od preuzimanja posla do početka pipelinea; tamna traka desno = zatvaranje (reconcile, inventar, PATCH na API). Tanka ljubičasta traka = Magisterium HR iste epizode.</div>
@@ -257,23 +307,23 @@ tr.fail td {{ background: #fde8e8; }} tr.warn td.w {{ background: #fff4dc; }}
 
 # ---------- Tablica 1: Tier 2 matrica faza ----------
 A('<div class="pb"></div><h2>Tier 2 – trajanje svakog koraka po epizodi (min:s)</h2>')
-A('<table><tr><th class="l">#</th><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>poslano</th><th>preuzeto</th><th>čekanje</th>')
+A('<table><tr><th class="l">#</th><th>slot</th><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>poslano</th><th>preuzeto</th><th>čekanje</th>')
 for n, _, _ in PH: A(f'<th>{esc(n.split(" (")[0])}</th>')
 A('<th>start</th><th>zatv.</th><th>gotovo</th><th>obrada</th><th>ASR</th></tr>')
 for i, e in enumerate(T2, 1):
     cls = 'fail' if e['state'] == 'failed' else ('warn' if e['pyannote402'] else '')
-    A(f'<tr class="{cls}"><td class="l">{i}</td><td class="l"><code>{e["vid"]}</code></td><td class="l">{esc(e["channel"][:24])}</td><td>{dur(e["audio"]) if e["audio"] else "–"}</td>')
+    A(f'<tr class="{cls}"><td class="l">{i}</td><td>s{e["slot"]}</td><td class="l"><code>{e["vid"]}</code></td><td class="l">{esc(e["channel"][:24])}</td><td>{dur(e["audio"]) if e["audio"] else "–"}</td>')
     A(f'<td>{hm(e["created"])}</td><td>{hm(e["claimed"])}</td><td>{dur(e["claimed"]-e["created"])}</td>')
     for p in range(len(PH)):
         v = e['phase'][p]; w = ' class="w"' if (p == 4 and e['pyannote402']) else ''
         A(f'<td{w}>{dur(v) if v else "·"}</td>')
     A(f'<td>{dur(e["pre"])}</td><td>{dur(e["post"])}</td><td>{hm(e["done"]) if e["done"] else "❌"}</td><td><b>{dur(sum(e["phase"])) if e["state"]=="done" else "–"}</b></td><td class="l">{esc(e["asr"] or "–")}{" +SM govornici" if e["pyannote402"] else ""}</td></tr>')
-A('</table><div class="small">Žuto = pyannoteAI vratio HTTP 402 (nema kredita); govornici su iz Speechmaticsa. Crveno = posao pao (KyMHBGFS5Gc: „prioritetni download nije uspio (private/anti-bot?)”, nema info.json).</div>')
+A('</table><div class="small">Žuto = pyannoteAI vratio HTTP 402 (nema kredita); govornici su iz Speechmaticsa. Crveno = posao pao.</div>')
 
 # ---------- Tablica 2: Magisterium + EN ----------
 A('<h2>Magisterium HR, EN prijevod i Magisterium EN po epizodi</h2>')
 A('<table><tr><th class="l">#</th><th class="l">video</th><th class="l">kanal</th><th>članak gotov</th><th>EN tick</th><th>EN trajanje</th><th>Mag HR tick</th><th>Mag HR traj.</th><th>poziva</th><th>čekanje HR od članka</th><th>Mag EN</th><th>Mag EN traj.</th><th>sve gotovo</th></tr>')
-allrows = [(n['vid'], n['channel'], ts('03:58:13')) for n in NIGHT] + [(e['vid'], e['channel'], e['done']) for e in T2 if e['state'] == 'done']
+allrows = [(n['vid'], n['channel'], NIGHT_END) for n in NIGHT] + [(e['vid'], e['channel'], e['done']) for e in T2 if e['state'] == 'done']
 for i, (v, ch, done) in enumerate(allrows, 1):
     en = MEN.get(v, {}); hr = MHR.get(v)
     m = en.get('main'); mg = en.get('mag')
@@ -282,24 +332,24 @@ for i, (v, ch, done) in enumerate(allrows, 1):
     elif hr and any(x[0] == 'magisterium' for x in en.get('items', [])):
         x = [x for x in en['items'] if x[0] == 'magisterium'][0]; mg_txt, mg_d = f'{hm(x[2])}–{hm(x[3])[3:]} (s EN)', dur(x[1])
     ends = [done] + ([hr['end']] if hr else []) + [x[3] for x in en.get('items', [])]
-    A(f'<tr><td class="l">{i}</td><td class="l"><code>{v}</code></td><td class="l">{esc(ch[:24])}</td><td>{hm(done)}{" (nightly)" if i<=4 else ""}</td>'
+    A(f'<tr><td class="l">{i}</td><td class="l"><code>{v}</code></td><td class="l">{esc(ch[:24])}</td><td>{hm(done)}{" (nightly)" if i<=len(NIGHT) else ""}</td>'
       f'<td>{(hm(m[0])+"–"+hm(m[1])[3:]) if m else "–"}</td><td>{dur(m[1]-m[0]) if m else "–"}</td>'
-      f'<td>{(hm(hr["start"])+"–"+hm(hr["end"])[3:]) if hr else "nije u planu"}</td><td>{dur(hr["end"]-hr["start"]) if hr else "–"}</td><td>{hr["calls"] if hr else "–"}</td>'
+      f'<td>{(hm(hr["start"])+"–"+hm(hr["end"])[3:]) if hr else ("⏳ u redu" if "hr" in MQ.get(v, ()) else "nije u planu")}</td><td>{dur(hr["end"]-hr["start"]) if hr else "–"}</td><td>{hr["calls"] if hr else "–"}</td>'
       f'<td>{dur(hr["start"]-done) if hr else "–"}</td><td>{mg_txt if hr else "–"}</td><td>{mg_d if hr else "–"}</td><td><b>{hm(max(ends))}</b></td></tr>')
 A('</table><div class="small">EN tick prevodi sažetak, članak i reels jednim agy pozivom po dokumentu. „Mag EN (kasni)” = Magisterium EN preveden naknadno, kad je HR Magisterium stigao poslije EN članka. Mag HR = <code>tools/magisterium_mcp_episode.js</code>, 2 sekcije po MCP pozivu.</div>')
 
 # ---------- Nightly ----------
-A('<div class="pb"></div><h2>Nightly (praćeni kanali) – koraci su skupni za sve 4 epizode</h2>')
+A('<div class="pb"></div><h2>Nightly (praćeni kanali) – koraci su skupni za sve epizode</h2>')
 A('<div class="grid"><div><table><tr><th class="l">KORAK</th><th class="l">opis</th><th>početak</th><th>trajanje</th></tr>')
 for s in NS:
     A(f'<tr><td class="l">{s["k"]}</td><td class="l">{esc(s["name"][:58])}</td><td>{hm(s["start"])}</td><td>{dur(s["d"])}</td></tr>')
 A(f'<tr><td class="l"></td><td class="l"><b>ukupno run_pipeline.sh</b></td><td>{hm(NS[0]["start"])}</td><td><b>{dur(NIGHT_END-NS[0]["start"])}</b></td></tr></table>'
-  '<div class="small">Iza toga do 04:15 nightly vrti audit, watchlist, enqueue Tier 2 i katalog.</div></div><div>')
+  '<div class="small">Iza toga nightly vrti audit, watchlist, enqueue Tier 2 i katalog.</div></div><div>')
 A('<h3>Po epizodi (gdje log daje vrijeme po epizodi)</h3><table><tr><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>Soniox</th><th>sažetak</th><th>članak</th><th>reels</th><th>EN</th><th>Mag HR</th></tr>')
 for n in NIGHT:
     en = MEN.get(n['vid'], {}).get('main'); hr = MHR.get(n['vid'])
     A(f'<tr><td class="l"><code>{n["vid"]}</code></td><td class="l">{esc(n["channel"])}</td><td>{dur(n["audio"])}</td><td>{dur(n["soniox"])}</td><td>{dur(n["summ"])}</td><td>{dur(n["art"])}</td><td>{dur(n["reels"]) if n["reels"] else "–"}</td><td>{dur(en[1]-en[0]) if en else "–"}</td><td>{dur(hr["end"]-hr["start"]) if hr else "–"}</td></tr>')
-A('</table><div class="small">Soniox = vrijeme obrade na Sonioxu; sažetak i članak = trajanje Opus poziva (članak = outline + iteracije); reels = select_reels. <code>uMVmX4GDYag</code> nema reelsa jer je snimka iz ožujka (reels samo za zadnjih 21 dan). pyannoteAI je u nightlyju još radio (sve 4 epizode OK). KORAK 10 (screenshotovi) prolazi kroz cijeli katalog od 3584 epizode, zato traje 6 min.</div>')
+A('</table><div class="small">' + md2html(DAY.get('night_note', '')) + '</div>')
 for n in NIGHT: A(f'<div class="small"><code>{n["vid"]}</code> – {esc(n["title"])}</div>')
 A('</div></div>')
 
@@ -322,28 +372,19 @@ print('ok', len(T2), len(ok), st.median(proc) / 60, [round(t) for t in tot], n40
 # ---------- Markdown za docs/ ----------
 M = []
 W = M.append
-W("# Nightly report 04.11.2026.: vrijeme po koraku za svaku epizodu\n")
-W(f"Stanje u {D.datetime.now().strftime('%H:%M')} (CET). Izvori: `automatic/logs/nightly_2026-11-04.log`, `priority_2026-11-04.log`, `magisterium_2026-11-04.log`, `magisterium-en_2026-11-04.log`, API `pipeline.domovina.ai/api/jobs` i `cdn.domovina.ai/data/<id>/episode.json`. Trajanje koraka je razmak između dva uzastopna zapisa „📢 KORAK” u logu. Grafovi su u PDF-u: `docs/2026-11-04-nightly-report-vremena-po-koraku.pdf`.\n")
+W(f"# Nightly report {DHR}: vrijeme po koraku za svaku epizodu\n")
+W(f"Stanje u {D.datetime.now().strftime('%H:%M')} (CET). Izvori: `automatic/logs/nightly_{DATE}.log`, `priority_{DATE}.log`, `magisterium_{DATE}.log`, `magisterium-en_{DATE}.log`, API `pipeline.domovina.ai/api/jobs` i `cdn.domovina.ai/data/<id>/episode.json`. Trajanje koraka je razmak između dva uzastopna zapisa „📢 KORAK” u logu. Grafovi su u PDF-u: `docs/{DATE}-nightly-report-vremena-po-koraku.pdf`.\n")
 W("## Sažetak\n")
-W(f"""- **23 nove epizode, 22 s člankom.** 4 iz nightlyja (praćeni kanali, 03:00–03:58) i 18 iz prioritetnog reda (Tier 2). Pao je 1 posao: `KyMHBGFS5Gc` (PSIHOLOGiJA HRT). Download ne prolazi, a isti video pao je i 03.11.
-- **Sve je gotovo.** Svih 18 Tier 2 epizoda na CDN-u ima članak, EN članak, Magisterium HR i Magisterium EN. Nightly: sve 4 imaju HR i EN članak; Magisterium samo Ora et Labora (ostali kanali ga nemaju u planu). Zadnji posao završio je u {hm(last_all)}.
-- **Prioritetni slot:** prvi posao preuzet u {hm(first_claim)}, zadnji gotov u {hm(last_done)}. Obrađeno je {audio_ok/3600:.1f} h zvuka. Obrada po epizodi traje medijan {st.median(proc)/60:.0f} min ({min(proc)/60:.0f}–{max(proc)/60:.0f} min). Čekanje u redu: medijan {st.median(waits)/60:.0f} min, najdulje {max(waits)/60:.0f} min.
-- **Kamo ide vrijeme** (zbroj {len(ok)} Tier 2 epizoda, {sum(tot):.0f} min): {', '.join(f'{PH[p][0]} {tot[p]:.0f} min ({100*tot[p]/sum(tot):.0f} %)' for p in order[::-1][:5])}.
-- **Magisterium HR:** {len(MHR)} epizoda, medijan {st.median(mhr_d)/60:.0f} min po epizodi, jedna po tick (10 min). Zadnja HR obrada završila je u {hm(max(d['end'] for d in MHR.values()))}. **EN prijevod:** {len(en_d)} epizoda, medijan {st.median(en_d)/60:.1f} min.
-- **Magisterium EN je kasnio za {n_late} epizoda.** EN tick je preveo članak prije nego što je HR Magisterium stigao. Zakašnjeli Magisterium EN dodao je `c2af6ac7` (`EN_MAG_LATE_SINCE`, 3 po ticku) između 10:14 i 11:11.
-- **⚠️ pyannoteAI je bez kredita od 05:51** (HTTP 402 „Insufficient credits and no active subscription”). {n402} od {len(ok)} Tier 2 epizoda ima govornike iz Speechmaticsove dijarizacije. Korak je non-fatal, pa se to ne javlja kao greška. Nightly 05.11. udarit će u isto.
-- **Cijeli dan radio je samo jedan slot:** 184 zapisa „slot 2+: disk 12–14 GB < 25 GB”.
-- **Modal Canary (2.6)** vrti se kao osigurač na svakoj Tier 2 epizodi iako je ASR Speechmatics: {tot[2]:.0f} min ukupno.
-- Rupa od 12 min iza `-kSZAvMDzC8` (08:15 → 08:27): `reconcile` je zapeo na mreži (`fetch failed`, `PATCH … EPIPE`).
-- Nightly: `audit_pipeline.js` exit 1 (rupe disk ↔ CDN), kao i 03.11.
-""")
+for x in SUMMARY: W('- ' + x)
+W("\n## Gantogram\n")
+W("```mermaid\n" + GANTT + "\n```\n")
 W("## Tier 2: trajanje faza po epizodi (min:s)\n")
-hdr = ['#', 'video', 'kanal', 'audio', 'poslano', 'preuzeto', 'čekanje'] + [n.split(' (')[0] for n, _, _ in PH] + ['start', 'zatv.', 'gotovo', 'obrada', 'govornici']
+hdr = ['#', 'slot', 'video', 'kanal', 'audio', 'poslano', 'preuzeto', 'čekanje'] + [n.split(' (')[0] for n, _, _ in PH] + ['start', 'zatv.', 'gotovo', 'obrada', 'govornici']
 W('| ' + ' | '.join(hdr) + ' |'); W('|' + '---|' * len(hdr))
 for i, e in enumerate(T2, 1):
-    c = [str(i), f"`{e['vid']}`", e['channel'][:24].replace('|', '/'), dur(e['audio']) if e['audio'] else '–', hm(e['created']), hm(e['claimed']), dur(e['claimed'] - e['created'])]
+    c = [str(i), f"s{e['slot']}", f"`{e['vid']}`", e['channel'][:24].replace('|', '/'), dur(e['audio']) if e['audio'] else '–', hm(e['created']), hm(e['claimed']), dur(e['claimed'] - e['created'])]
     c += [dur(v) if v else '·' for v in e['phase']]
-    c += [dur(e['pre']), dur(e['post']), hm(e['done']) if e['done'] else '❌', dur(sum(e['phase'])) if e['state'] == 'done' else '–', ('Speechmatics (pyannoteAI 402)' if e['pyannote402'] else 'pyannoteAI') if e['state'] == 'done' else '–']
+    c += [dur(e['pre']), dur(e['post']), hm(e['done']) if e['done'] else '❌', dur(sum(e['phase'])) if e['state'] == 'done' else '–', (e['asr'] or '–') + (' (pyannoteAI 402)' if e['pyannote402'] else '') if e['state'] == 'done' else '–']
     W('| ' + ' | '.join(c) + ' |')
 W("\n## Magisterium HR, EN prijevod i Magisterium EN\n")
 W('| # | video | kanal | članak gotov | EN tick | EN | Mag HR tick | Mag HR | poziva | čekanje HR | Mag EN | sve gotovo |'); W('|' + '---|' * 12)
@@ -351,8 +392,8 @@ for i, (v, ch, done) in enumerate(allrows, 1):
     en = MEN.get(v, {}); hr = MHR.get(v); m = en.get('main'); mg = en.get('mag')
     mgt = f"{hm(mg[0])} (kasni, {dur(mg[2])})" if mg else ('s EN tickom' if hr else '–')
     ends = [done] + ([hr['end']] if hr else []) + [x[3] for x in en.get('items', [])]
-    W(f"| {i} | `{v}` | {ch[:24].replace('|','/')} | {hm(done)}{' (nightly)' if i<=4 else ''} | {(hm(m[0])+'–'+hm(m[1])) if m else '–'} | {dur(m[1]-m[0]) if m else '–'} | {(hm(hr['start'])+'–'+hm(hr['end'])) if hr else 'nije u planu'} | {dur(hr['end']-hr['start']) if hr else '–'} | {hr['calls'] if hr else '–'} | {dur(hr['start']-done) if hr else '–'} | {mgt} | {hm(max(ends))} |")
-W("\n## Nightly: skupni koraci (sve 4 epizode zajedno)\n")
+    W(f"| {i} | `{v}` | {ch[:24].replace('|','/')} | {hm(done)}{' (nightly)' if i<=len(NIGHT) else ''} | {(hm(m[0])+'–'+hm(m[1])) if m else '–'} | {dur(m[1]-m[0]) if m else '–'} | {(hm(hr['start'])+'–'+hm(hr['end'])) if hr else ('⏳ u redu' if 'hr' in MQ.get(v, ()) else 'nije u planu')} | {dur(hr['end']-hr['start']) if hr else '–'} | {hr['calls'] if hr else '–'} | {dur(hr['start']-done) if hr else '–'} | {mgt} | {hm(max(ends))} |")
+W("\n## Nightly: skupni koraci (sve epizode zajedno)\n")
 W('| KORAK | opis | početak | trajanje |'); W('|---|---|---|---|')
 for s in NS: W(f"| {s['k']} | {s['name'][:58].replace('|','/')} | {hm(s['start'])} | {dur(s['d'])} |")
 W(f"| | **ukupno run_pipeline.sh** | {hm(NS[0]['start'])} | **{dur(NIGHT_END-NS[0]['start'])}** |\n")
