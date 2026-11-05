@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    launchd plist za DNEVNI REPORT „vrijeme po koraku” (svakih 900 s / 15 min).
+
+    tools/nightly_step_report/auto.py: čim je dan STVARNO gotov (nightly SAŽETAK + svi Tier 2
+    poslovi iz nightlyja done/failed + svaka epizoda dana na CDN-u ima članak, EN, i uz
+    Magisterium HR i Magisterium EN), složi PDF i pošalje ga u Telegram grupu ms-social-poster
+    kroz li.domovina.ai/telegram/document. Jednom dnevno (marker sent.json); u 21:00 šalje i ako
+    nije sve gotovo, s popisom što fali. Nula LLM poziva; tick koji samo provjeri traje ~5 s.
+
+    Lokacija: ~/Library/LaunchAgents/tv.domovina.fetch.nightly-report.plist
+    Install:  automatic/launchd/install.sh nightly-report
+    Logs:     automatic/logs/launchd.nightly-report.{out,err}.log
+              automatic/logs/nightly_report/<datum>/ (PDF, md, html, day.json)
+
+    Python = framework 3.13 (jedini s matplotlibom); homebrew python3 ga nema.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>tv.domovina.fetch.nightly-report</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.13/bin/python3</string>
+        <string>/Users/ms/git/domovinatv/fetch.domovina.tv/tools/nightly_step_report/auto.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv</string>
+
+    <key>StartInterval</key>
+    <integer>900</integer>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.nightly-report.out.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ms/git/domovinatv/fetch.domovina.tv/automatic/logs/launchd.nightly-report.err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/ms</string>
+        <key>PATH</key>
+        <string>/Users/ms/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/sbin</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+    </dict>
+
+    <key>ProcessType</key>
+    <string>Standard</string>
+
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>

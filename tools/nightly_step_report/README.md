@@ -1,5 +1,33 @@
 # Dnevni report: vrijeme po koraku za svaku epizodu
 
+## Automatski (od 05.11.2026.)
+
+launchd `tv.domovina.fetch.nightly-report` (svakih 15 min) pokreće `auto.py`. Kad je dan **stvarno
+gotov**, složi PDF i pošalje ga u Telegram grupu `ms-social-poster` (bot `@ms_social_poster_bot`),
+jednom dnevno:
+
+- nightly je ispisao SAŽETAK;
+- svi Tier 2 poslovi koje je nightly poslao (`created_at` od 03:00 do kraja nightlyja + 30 min) su `done`/`failed`;
+- svaka epizoda dana na CDN-u (`episode.json`) ima članak i EN članak, uz Magisterium HR i Magisterium EN,
+  a nijedan Magisterium/EN posao tih epizoda ne čeka u redu.
+
+U **21:00** (`REPORT_DEADLINE`) šalje i ako nije sve gotovo, s popisom što fali. Token bota je samo u
+Workeru `li.domovina.ai` (repo `~/git/stepanic/linkedin-poster`), pa PDF ide kroz njegov
+`POST /telegram/document` (bearer = `API_TOKEN` iz `linkedin-poster/.dev.vars`). Sažetak u
+automatskom reportu su samo činjenice (`auto_summary()` u `build.py`); tumačenje uzroka ostaje ručno.
+
+```bash
+tools/nightly_step_report/auto.py --date 2026-11-05 --force --dry-run   # složi, ne šalji
+tools/nightly_step_report/auto.py --date 2026-11-05 --force             # pošalji odmah
+tools/nightly_step_report/auto.py --date 2026-11-05 --force --manual    # s ručnim days/<datum>.json
+automatic/launchd/install.sh nightly-report                              # (re)instalacija
+```
+
+Radni dir i PDF: `automatic/logs/nightly_report/<datum>/` (`sent.json` = poslano; obriši ga za
+ponovno slanje). Log: `automatic/logs/launchd.nightly-report.out.log`.
+
+## Ručno
+
 Skripte kojima je složen `docs/2026-11-04-nightly-report-vremena-po-koraku.{md,pdf}`.
 Nula LLM poziva, samo logovi + API. Radni dir `W` je bilo koji prazan direktorij.
 

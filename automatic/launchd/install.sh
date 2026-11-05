@@ -5,6 +5,7 @@
 #   • tv.domovina.fetch.priority    — prioritetni fast-path poller (svakih 90s)
 #   • tv.domovina.fetch.magisterium — Magisterium (re)obrada poller (svakih 600s)
 #   • tv.domovina.fetch.reels       — render + objava brendiranih reelova (svakih 1800s, iza nightlyja)
+#   • tv.domovina.fetch.nightly-report — dnevni report PDF u Telegram kad je dan gotov (svakih 900s)
 #
 # Kopira plistove u ~/Library/LaunchAgents/ i bootstrap-a ih u GUI launchd domenu.
 # Idempotentno — ako je već instaliran, prvo unload-a pa ponovo load-a.
@@ -27,8 +28,9 @@ case "${1:-all}" in
     priority)    LABELS=("tv.domovina.fetch.priority") ;;
     magisterium) LABELS=("tv.domovina.fetch.magisterium" "tv.domovina.fetch.magisterium-en") ;;
     reels)       LABELS=("tv.domovina.fetch.reels") ;;
-    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium" "tv.domovina.fetch.magisterium-en" "tv.domovina.fetch.reels") ;;
-    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority|magisterium|reels)" >&2; exit 1 ;;
+    nightly-report) LABELS=("tv.domovina.fetch.nightly-report") ;;
+    all|"")      LABELS=("tv.domovina.fetch.nightly" "tv.domovina.fetch.priority" "tv.domovina.fetch.magisterium" "tv.domovina.fetch.magisterium-en" "tv.domovina.fetch.reels" "tv.domovina.fetch.nightly-report") ;;
+    *) echo "❌ Nepoznat argument: $1 (all|nightly|priority|magisterium|reels|nightly-report)" >&2; exit 1 ;;
 esac
 
 for LABEL in "${LABELS[@]}"; do

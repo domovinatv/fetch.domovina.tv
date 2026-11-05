@@ -9,7 +9,7 @@ DAY = json.load(open(sys.argv[2])) if len(sys.argv) > 2 else None
 if not DAY: sys.exit('upotreba: build.py <W> days/<YYYY-MM-DD>.json')
 DATE = DAY['date']; DHR = '.'.join(DATE.split('-')[::-1]) + '.'
 IGN = set(DAY.get('ignore_vids', []))
-runs = json.load(open(S + '/runs.json'))
+runs = [r for r in json.load(open(S + '/runs.json')) if r.get('start') and r.get('end')]  # posao koji još traje nema Kraj
 mag = json.load(open(S + '/mag.json'))
 jobs = {j['id']: j for j in json.load(open(S + '/jobs.json'))['jobs']}
 
@@ -98,6 +98,10 @@ for i, (k, a, name) in enumerate(NIGHT_STEPS):
     b = NIGHT_STEPS[i + 1][1] if i + 1 < len(NIGHT_STEPS) else NIGHT_END
     NS.append(dict(k=k, name=name, start=a, end=b, d=b - a))
 NIGHT = DAY['night']
+# Magisterium/EN samo za epizode ovog dana (tickovi znaju dirati i starije epizode)
+DAYV = {e['vid'] for e in T2} | {n['vid'] for n in NIGHT}
+MHR = {k: v for k, v in MHR.items() if k in DAYV}
+MEN = {k: v for k, v in MEN.items() if k in DAYV}
 
 def fig_b64(fig):
     b = io.BytesIO(); fig.savefig(b, format='png', dpi=170, bbox_inches='tight'); plt.close(fig)
@@ -110,6 +114,15 @@ def xfmt(ax, lo, hi, step=1800):
     ax.set_xticks(ticks); ax.set_xticklabels([hm(t)[:5] for t in ticks]); ax.set_xlim(lo, hi)
     ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
 
+# osi: iz day.json ako ih ima, inače od nightlyja do zadnjeg kraja bilo koje trake
+if 'x1' not in DAY:
+    lo = min([s['start'] for s in NS] + [e['claimed'] for e in T2]) - 300
+    hi = max([NIGHT_END] + [e['done'] or e['end'] for e in T2] + [d['end'] for d in MHR.values()]
+             + [x[3] for v in MEN.values() for x in v['items']]) + 600
+    DAY['x1'] = [hm(lo - lo % 1800), hm(hi - hi % 1800 + 1800)]
+if 'x2' not in DAY and T2:
+    lo = min(e['claimed'] for e in T2) - 600; hi = max([e['done'] or e['end'] for e in T2] + [d['end'] for d in MHR.values()]) + 600
+    DAY['x2'] = [hm(lo - lo % 900), hm(hi - hi % 900 + 900)]
 # ---------- Graf 1: dan po trakama ----------
 SLOTS = sorted({e['slot'] for e in T2})
 lanes = ['Nightly (praćeni)'] + [f'Slot {k} (Tier 2)' for k in SLOTS] + ['Magisterium HR', 'EN prijevod + Mag. EN']
@@ -237,7 +250,41 @@ V = dict(night_end=DAY['night_end'][:5], nightly_done=DAY.get('nightly_done', ''
          n_mhr_q=len(mhr_q), mhr_q_list=', '.join(f'`{v}`' for v in mhr_q),
          mhr_eta=f"{eta/3600:.1f}".replace('.', ','), mhr_eta_t=hm(now_s + eta)[:5],
          canary_min=round(tot_[2]), canary_per=f"{tot_[2]/max(1,len(ok)):.1f}".replace('.', ','))
-SUMMARY = [b.format(**V) for b in DAY['summary']]
+def auto_summary():
+    """Nalazi kad dan nema ručno pisan sažetak (auto.py): samo činjenice iz logova, API-ja i CDN-a."""
+    A_ = DAY.get('auto', {}); cdn = A_.get('cdn', {}); out = []
+    n_n, n_t = len(NIGHT), len(T2)
+    n_art = sum(1 for c in cdn.values() if c.get('art'))
+    failed = A_.get('failed', [])
+    out.append(f"**{n_n + n_t} novih epizoda, {n_art} s člankom na CDN-u, {len(failed)} palih poslova.** {n_n} iz nightlyja (praćeni kanali, run_pipeline 03:00–{V['night_end']}, cijeli nightly gotov {V['nightly_done']}: {A_.get('night_status', '?')}) i {n_t} iz prioritetnog reda (Tier 2)."
+               + (' Pali: ' + '; '.join(f'`{x}`' for x in failed) + '.' if failed else ''))
+    if len(SLOTS) > 1:
+        out.append(f"**Slotovi:** " + ', '.join(f"slot {k} {sum(1 for e in T2 if e['slot'] == k)} ep." for k in SLOTS)
+                   + f" Prvi posao preuzet u {V['first_claim']}, zadnji gotov u {V['last_done']} ({V['span_h']} h, {V['audio_h']} h zvuka). Oba slota istodobno {V['both_h']} h; slot 2 prazan {V['s2_idle']} min dok je red imao posla.")
+    elif T2:
+        out.append(f"**Samo jedan slot.** Prvi posao preuzet u {V['first_claim']}, zadnji gotov u {V['last_done']} ({V['span_h']} h, {V['audio_h']} h zvuka).")
+    if A_.get('ssd_blocks'):
+        out.append(f"**Ograda diska:** {A_['ssd_blocks']}× „nema slobodnog slota” zbog SSD-a (prvi {A_['ssd_first']}, zadnji {A_['ssd_last']}).")
+    if T2:
+        out.append(f"**Obrada po epizodi** (zbroj koraka) medijan **{V['proc_med']} min**, raspon {V['proc_min']}–{V['proc_max']} min. Čekanje u redu: medijan {V['wait_med']} min, najdulje {V['wait_max']} min.")
+        out.append(f"**Kamo ide vrijeme** (zbroj Tier 2): {V['top_phases']}.")
+    if V['n_mhr_q']:
+        out.append(f"**⚠️ Magisterium HR još nije gotov:** {V['n_mhr']} gotovo (medijan {V['mhr_med']} min), u redu još {V['n_mhr_q']} ({V['mhr_q_list']}), procjena oko {V['mhr_eta_t']}.")
+    elif MHR:
+        out.append(f"**Magisterium HR:** {V['n_mhr']} epizoda, medijan {V['mhr_med']} min, zadnja gotova u {V['mhr_last']}.")
+    n_en = sum(1 for c in cdn.values() if c.get('en')); n_mhr = sum(1 for c in cdn.values() if c.get('mhr')); n_men = sum(1 for c in cdn.values() if c.get('men'))
+    if cdn:
+        out.append(f"**CDN:** EN članak {n_en}/{len(cdn)}, Magisterium HR {n_mhr}, Magisterium EN {n_men}/{n_mhr}.")
+    if A_.get('missing') or A_.get('pending_mags') or A_.get('pending_jobs'):
+        out.append("**⚠️ Nije sve gotovo u trenutku slanja:** " + '; '.join(f'`{x}`' for x in (A_.get('pending_jobs', []) + A_.get('pending_mags', []) + A_.get('missing', []))[:20]) + '.')
+    if A_.get('ny402') or n402:
+        out.append(f"**⚠️ pyannoteAI HTTP 402:** nightly {A_.get('ny402', 0)}×, Tier 2 {n402} epizoda. Govornici su tada iz Sonioxa/Speechmaticsa.")
+    if A_.get('proxy_down'):
+        out.append(f"YouTube proxy (iPhone) nije odgovarao {A_['proxy_down']}× u prioritetnom logu; download je išao bez njega.")
+    if T2:
+        out.append(f"Modal Canary (2.6) kao osigurač: {V['canary_min']} min ukupno, oko {V['canary_per']} min po epizodi.")
+    return out
+SUMMARY = [b.format(**V) for b in DAY['summary']] if DAY.get('summary') else auto_summary()
 def md2html(t):
     t = esc(t)
     t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', t)
@@ -412,3 +459,15 @@ for i, e in enumerate(T2, 1):
     W('')
 W("Prikazani su koraci od 3 s naviše; kraći su zbrojeni u fazama u tablici gore.\n")
 open(S + '/report.md', 'w').write('\n'.join(M))
+
+# ---------- potpis uz PDF u Telegramu (HTML, max 1024 znaka) ----------
+def tg(t):
+    t = esc(t)
+    t = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', t)
+    return re.sub(r'`(.+?)`', r'<code>\1</code>', t)
+cap = f'🌙 <b>Nightly {DHR}</b> – vrijeme po koraku\n'
+for x in SUMMARY:
+    line = '• ' + tg(x) + '\n'
+    if len(cap) + len(line) > 990: break
+    cap += line
+open(S + '/caption.html', 'w').write(cap.strip())
