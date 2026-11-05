@@ -76,8 +76,24 @@ KANALI=(
     # "most-hrvatska|https://www.youtube.com/@MostHrvatska/videos" #veliki
 )
 
-# Inicijalizacija polja aktivnih kanala
-AKTIVNI_KANALI=("${KANALI[@]}")
+# Izvori za skeniranje (05.11.2026.): uz /videos svaki kanal dobiva i /streams.
+# Livestreamovi (Straža sv. Josipa, klanjanja, krunica…) stoje SAMO na kartici /streams,
+# pa ih refresh nikad nije vidio, a podcast.domovina.ai/dani ih prikazuje (Data API
+# uploads playlista). Arhiva je zajednička po kanalu ({ime}-arhiva.txt), pa isti video
+# ne može ući dvaput. Postojeći streamovi su jednokratno upisani u arhivu
+# (tools/seed_streams_archive.sh) — ulaze samo NOVI, bez backfilla.
+SKEN_IZVORI=()
+for stavka in "${KANALI[@]}"; do
+    IME="${stavka%%|*}"
+    URL="${stavka#*|}"
+    SKEN_IZVORI+=("$stavka")
+    case "$URL" in
+        */videos) SKEN_IZVORI+=("${IME}|${URL%/videos}/streams") ;;
+    esac
+done
+
+# Inicijalizacija polja aktivnih izvora
+AKTIVNI_KANALI=("${SKEN_IZVORI[@]}")
 
 COOKIE_ARG=""
 [ -f "$COOKIE_FILE" ] && COOKIE_ARG="--cookies $COOKIE_FILE"
@@ -145,16 +161,31 @@ for (( krug=0; krug<$MAX_CHUNKS; krug++ )); do
         ARHIVA="$OUTPUT_DIR/${IME}-arhiva.txt"
         LISTA="$OUTPUT_DIR/${IME}-lista.txt"
 
-        echo -n "[$IME] Skeniram... "
+        # Playlista nema stalan redoslijed: kod najstarije-prve playliste nova epizoda je
+        # na KRAJU, a --break-on-existing bi stao već na prvoj (staroj) stavci. Playliste
+        # su male, pa ih čitamo CIJELE u prvom krugu, bez prekida; arhiva preskače poznato.
+        JE_PLAYLISTA=false
+        case "$URL" in *"list="*) JE_PLAYLISTA=true ;; esac
+        if [ "$JE_PLAYLISTA" = true ]; then
+            STAVKE="1:$(( MAX_CHUNKS * CHUNK_SIZE ))"
+            PREKID=""
+        else
+            STAVKE="$START:$END"
+            PREKID="--break-on-existing"
+        fi
+        IZVOR_OZNAKA=""
+        case "$URL" in */streams) IZVOR_OZNAKA=" /streams" ;; esac
+
+        echo -n "[$IME$IZVOR_OZNAKA] Skeniram... "
 
         # Privremena datoteka za hvatanje rezultata ovog chunka
         TMP_OUT=$(yt-dlp --no-warnings --ignore-errors --flat-playlist \
                $COOKIE_ARG \
-               --playlist-items "$START:$END" \
+               --playlist-items "$STAVKE" \
                --match-filter "duration > $MIN_DURATION" \
                --download-archive "$ARHIVA" \
                --force-write-archive \
-               --break-on-existing \
+               $PREKID \
                --print "FILE:%(upload_date)s | %(title)s | https://youtu.be/%(id)s" \
                "$URL" 2>/dev/null)
 
@@ -162,7 +193,8 @@ for (( krug=0; krug<$MAX_CHUNKS; krug++ )); do
             # Izdvoji samo linije koje počinju s FILE: i spremi u listu
             echo "$TMP_OUT" | grep "^FILE:" | sed 's/^FILE://' >> "$LISTA"
             echo "OK (Pronađeno novih)."
-            NOVO_AKTIVNI+=("$stavka") # Kanal ostaje aktivan za idući krug
+            # Playlista je već pročitana cijela → nema idućeg kruga
+            [ "$JE_PLAYLISTA" = true ] || NOVO_AKTIVNI+=("$stavka") # Kanal ostaje aktivan za idući krug
             pronadjeno_u_krugu=true
         else
             # Ako nema outputa, provjeravamo je li to zbog kraja ili smo već imali sve
