@@ -1090,9 +1090,97 @@
    "sent_at": "2026-11-05T02:53:03.861Z",
    "result": "created",
    "job_id": "e701b81a-bdd7-4c00-bb88-fffe12323eaa"
+  },
+  "YVp-9YPNnFw": {
+   "date": "2026-11-05",
+   "slug": "agelast",
+   "title": "Nobelova nagrada | Opservatorija u dubinama antarktičkog leda | dr Nikola Veselinović | Agelast 371",
+   "duration": 6970,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:24.159Z",
+   "result": "created",
+   "job_id": "2939acfa-f663-43fd-99f7-c4021e0b508c",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "Hs48G5NRqcA": {
+   "date": "2026-11-05",
+   "slug": "pojacalo",
+   "title": "Gojko Bailović, moreplovac & De Ferro Brasil - Pojačalo podcast EP 393",
+   "duration": 8375,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:24.690Z",
+   "result": "created",
+   "job_id": "9aef6d6b-4f9a-42ba-b6ba-cd1b6cd00faa",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "ook_wmlQ3ig": {
+   "date": "2026-11-05",
+   "slug": "tampon-zona",
+   "title": "Žene i izbori: Važnost ženskog glasa i šta posle 25. oktobra",
+   "duration": 6456,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:25.068Z",
+   "result": "created",
+   "job_id": "7e207414-e7fe-40f3-9db1-5eba4be46f32",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "s_b8Q6kzH-g": {
+   "date": "2026-11-05",
+   "slug": "zdrava-prica-sa-dolores",
+   "title": "Kako pomoći deci na internetu? - Zdrava priča 082",
+   "duration": 7138,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:25.427Z",
+   "result": "created",
+   "job_id": "ff76f9c2-ff6c-4522-bc00-65157fdc81b7",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "O-dTxrfvg1k": {
+   "date": "2026-11-05",
+   "slug": "apparatus-ce-ves-kaj-mislim",
+   "title": "Mene je strah, kaj vi slišite v tišini",
+   "duration": 2864,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:25.798Z",
+   "result": "created",
+   "job_id": "ad72ec1c-34dc-4cf9-803f-6d3f4c377332",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "vdNhB_fK81g": {
+   "date": "2026-11-05",
+   "slug": "apparatus-opazovalnica",
+   "title": "Bratje Vilič",
+   "duration": 2531,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:26.157Z",
+   "result": "created",
+   "job_id": "64f3dd9d-17b8-4c67-a4a7-e9e874c5c27f",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "zcmIwbRGIsk": {
+   "date": "2026-11-05",
+   "slug": "apparatus-glave",
+   "title": "Glave na gradu: Srečko Kosovel",
+   "duration": 4034,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:26.594Z",
+   "result": "created",
+   "job_id": "df61ba65-c9f2-4209-858b-b532ec374508",
+   "manual": "napod-2026-zadnja-epizoda"
+  },
+  "VY8gg2snMuk": {
+   "date": "2026-11-05",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "Repurposing Podcast Episodes Beyond Clips and Quotes (A Different Perspective)",
+   "duration": 820,
+   "attempts": 1,
+   "sent_at": "2026-11-05T14:19:27.039Z",
+   "result": "created",
+   "job_id": "63702dac-3520-47f8-a30f-6651904a4125",
+   "manual": "napod-2026-zadnja-epizoda"
   }
  },
- "updated_at": "2026-11-05T02:53:04.113Z",
+ "updated_at": "2026-11-05T14:19:27.039Z",
  "last_enqueue_usage": {
   "at": "2026-11-05T02:53:04.113Z",
   "five_hour": 8,
