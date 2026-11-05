@@ -174,3 +174,24 @@ izvještaj potrošnje se prati ~10 dana.
 - `docs/claude_code_backend_2026-07.md` — Claude backend koraka 7+8
 - `docs/2026-10-09-arhiva-po-danima-i-tocni-datumi.md` — watch/backfill dotoka
 - `../pipeline.domovina.ai/docs/2026-10-27-paralelna-obrada.md` — prioritetni slotovi (disk prag 25 GB)
+
+## Vidljivost Tier 2 epizoda (05.11.2026.)
+
+Tier 2 epizode objavljuju se kroz `_unlisted`, pa su na CDN-u i na `domovina.ai/v/<id>`,
+ali nisu ni u jednom listingu domovina.ai (`generate_channel_index.js` preskače `_`-dirove:
+0 pogodaka u `index_bundle.json`, `home.json`, `search.json`). Nalaze se samo kroz
+`/search` (Meili) i semantičku pretragu (ClickHouse).
+
+Javni katalog podcast.domovina.ai ih je vodio na YouTube bez oznake D, jer je `dom` ovisio
+o `tracking.enabled` kanala. Popravak:
+
+- `podcast.domovina.ai` `58fb664`: epizoda s `data/<id>/article.json` u
+  `.r2_keys_cache.json` ovog repoa dobiva `dom: true` → D + `/v/<id>` (feed, kanal, /dani/).
+  Mjereno: 107/109 poslanih epizoda ima članak u cacheu; 04.11. D na 28/31 umjesto 6/33.
+- `18612cf5`: `tools/nightly_step_report/auto.py` nakon slanja reporta pokreće
+  `refresh.sh` (drugi deploy u danu, nakon zadnjeg Magisteriuma). Nightly 5c ostaje prvi.
+
+Stranica je potpuno statična: na `/dani/<datum>/` preglednik ne dohvaća ništa s
+`cdn.domovina.ai` (izmjereno u Braveu: same-origin + 33 sličice s `i.ytimg.com`). Runtime
+HEAD provjera po epizodi je odbačena: do 30 zahtjeva po stranici i rizik keširanog 404
+(vidi memoriju o `Vary: Origin` / HEAD≠GET).
