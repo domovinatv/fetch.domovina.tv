@@ -1538,7 +1538,8 @@
       "tier": 3,
       "data_quality": "partial",
       "sources": [
-        "yt-dlp-search-sweep-2026-07"
+        "yt-dlp-search-sweep-2026-07",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
@@ -1580,7 +1581,15 @@
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Ljubica Letinić",
+          "talk": "„Preko swake granice” – nova lica grada"
+        }
+      ]
     },
     {
       "slug": "bossy-podcast",
@@ -3433,7 +3442,8 @@
       "tier": 2,
       "data_quality": "complete",
       "sources": [
-        "github-issue-10"
+        "github-issue-10",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Zatražio korisnik i1E (GitHub issue #10, 2026-07-02). Tjedni format, 161 epizoda, sve uzorkovane ≥30 min (avg 52 min). Korado Korlević — astronom iz Višnjana, 18. najproduktivniji tragač za asteroidima svih vremena.",
       "quality_score": {
@@ -3475,7 +3485,15 @@
         "no_originals": false,
         "error": null
       },
-      "parent_slug": "hrt"
+      "parent_slug": "hrt",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Elvis Mileta",
+          "talk": "Explora - od radio emisije do podcasta"
+        }
+      ]
     },
     {
       "slug": "f1-puls-podcast",
@@ -4287,7 +4305,8 @@
       "tier": 3,
       "data_quality": "partial",
       "sources": [
-        "yt-dlp-search-sweep-2026-07"
+        "yt-dlp-search-sweep-2026-07",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
@@ -4328,7 +4347,15 @@
         "min_duration_sec": 1500,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Benjamin Noah Maričak",
+          "talk": "Podcast kao platforma i glas industrije"
+        }
+      ]
     },
     {
       "slug": "geopolitika-i-sigurnost",
@@ -7089,7 +7116,8 @@
       "tier": 3,
       "data_quality": "partial",
       "sources": [
-        "yt-dlp-search-sweep-2026-07"
+        "yt-dlp-search-sweep-2026-07",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
@@ -7130,7 +7158,15 @@
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Marko Turkalj",
+          "talk": "Radionica: Zvuk koji zadržava publiku"
+        }
+      ]
     },
     {
       "slug": "laudato-tv",
@@ -7510,7 +7546,8 @@
       "tier": 3,
       "data_quality": "partial",
       "sources": [
-        "yt-dlp-search-sweep-2026-07"
+        "yt-dlp-search-sweep-2026-07",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Otkriven determinističkim yt-dlp ytsearch sweepom po kategorijama; metrike iz probe zadnjih do 60 videa.",
       "quality_score": {
@@ -7551,7 +7588,15 @@
         "min_duration_sec": 1500,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Sandra Babić",
+          "talk": "Panel: Što je podcast / Napravili smo podcast, što sad?"
+        }
+      ]
     },
     {
       "slug": "logit",
@@ -7653,7 +7698,8 @@
         "report",
         "gemini",
         "perplexity",
-        "claude-opus"
+        "claude-opus",
+        "napodfest-2026-predavaci"
       ],
       "notes": "TIER 1 podcast — fokus na mentalno zdravlje i osobni razvoj. Ivana Paradžiković se u nekim epizodama pojavljuje kao gostujuća suvoditeljica. Disputes: Gemini=70K subs (03/2026), Perplexity=90-100K (2025/2026 rast), Claude Opus=70K+ (04/2026 procjena).",
       "quality_score": {
@@ -7679,7 +7725,15 @@
         "originals_90d": 15,
         "originals_365d": 57,
         "episodes_on_disk": 238
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Vinko Mihaljević",
+          "talk": "Panel: Podcast kao zanimanje"
+        }
+      ]
     },
     {
       "slug": "luda-ekipa",
@@ -8573,7 +8627,8 @@
       "data_quality": "verified",
       "sources": [
         "gemini",
-        "claude-opus"
+        "claude-opus",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Patreon model financiranja. Disputes: Gemini = 3.14K subs / 229 ep / 55min (03/2026). Claude Opus = 9K+ subs / 90+ ep / 45min (04/2026). Najveći jaz je u broju epizoda — moguće da je Gemini brojao i klipove ili je došlo do reorganizacije kanala.",
       "quality_score": {
@@ -8614,7 +8669,15 @@
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Filip Georgiev-Štimec",
+          "talk": "Panel: Podcast kao zanimanje"
+        }
+      ]
     },
     {
       "slug": "mladi-za-domovinu",
@@ -10138,7 +10201,8 @@
       "tier": 1,
       "data_quality": "verified",
       "sources": [
-        "yt-dlp-2026-05"
+        "yt-dlp-2026-05",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Eksplicitno spomenut od korisnika. 253 epizode, prosjek 42 min.",
       "quality_score": {
@@ -10179,7 +10243,15 @@
         "min_duration_sec": 900,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Marin Pavelić",
+          "talk": "Panel: Napravili smo podcast, što sad?"
+        }
+      ]
     },
     {
       "slug": "netokracija-slazem-se-ne",
@@ -11867,7 +11939,8 @@
         "report",
         "gemini",
         "perplexity",
-        "claude-opus"
+        "claude-opus",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Najveći HR podcast. Spinoff formati: A1 Nogometni Podcast, Extra Runda, Mysterium, GameOn. Produkcija MiS Studio. Disputes: Gemini=418K subs/1405 ep (03/2026), Claude Opus=400K/600 ep glavnog formata (04/2026), Perplexity=360K (01/2025). 'Luda ekipa' je kolokvijalni naziv za PI tim po Claude analizi.",
       "quality_score": {
@@ -11908,7 +11981,15 @@
         "min_duration_sec": 2881,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Ratko Martinović",
+          "talk": "Panel: Podcast kao zanimanje"
+        }
+      ]
     },
     {
       "slug": "podcast-inkubator-a1-nogometni",
@@ -14135,7 +14216,8 @@
       "data_quality": "partial",
       "sources": [
         "current",
-        "report"
+        "report",
+        "napodfest-2026-predavaci"
       ],
       "notes": "",
       "quality_score": {
@@ -14161,7 +14243,15 @@
         "originals_90d": 4,
         "originals_365d": 23,
         "episodes_on_disk": 33
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Ana Pavlović",
+          "talk": "LIVE: Zašto kao roditelji reagiramo upravo onako kako ne želimo?"
+        }
+      ]
     },
     {
       "slug": "rebootcast",
@@ -15403,7 +15493,8 @@
       "tier": 1,
       "data_quality": "verified",
       "sources": [
-        "claude-opus"
+        "claude-opus",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Profesionalizirani politički podcast s gostima suprotstavljenih stajališta. Centralni politički podcast po Claude Opus analizi.",
       "quality_score": {
@@ -15444,7 +15535,15 @@
         "min_duration_sec": 1800,
         "no_originals": false,
         "error": null
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Krešimir Macan",
+          "talk": "Panel: Podcast kao zanimanje"
+        }
+      ]
     },
     {
       "slug": "sportklub-podcast",
@@ -16640,7 +16739,8 @@
       "tier": 2,
       "data_quality": "verified",
       "sources": [
-        "gemini"
+        "gemini",
+        "napodfest-2026-predavaci"
       ],
       "notes": "Umbrella entry za Tribina YouTube kanal. Sadrzaj se prati po per-playlist child entries (slugovi 'tribina-*' + 'f1-puls-podcast'). Ne prati se direktno — uvijek per-playlist.",
       "quality_score": {
@@ -16689,7 +16789,15 @@
         "originals_365d": 90,
         "avg_original_min": 101,
         "evidence": "izvor=vs; uzorak 60 (od 90 dohvaćenih); hist=45-60:6 60-90:32 90+:52; /shorts ≥30 (zaseban tab, sve derivati/vertikalni); zadnji original 2026-09-23: \"Apokalipse, usponi i QB ozljede | Tribina NFL\"; brojevi 365d su DONJA granica (dohvaćeno samo 60 najnovijih)"
-      }
+      },
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Mihovil Topić",
+          "talk": "Kako podcast postaje klub"
+        }
+      ]
     },
     {
       "slug": "tribina-1-na-1-s-vladom",
@@ -42442,6 +42550,491 @@
         "last_episode_date": null,
         "rubric": "v2"
       }
+    },
+    {
+      "slug": "agelast",
+      "display_name": "Agelast podkast",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCxunmKtYfMYjnf6Mp4eWBxg/videos",
+        "channel_id": "UCxunmKtYfMYjnf6Mp4eWBxg",
+        "type": "channel"
+      },
+      "tags": [
+        "society",
+        "political",
+        "culture"
+      ],
+      "voditelji": [
+        "Galeb Nikačević Hasci-Jare"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-11-01",
+        "average_duration_minutes": 114,
+        "episodes_sampled": 60,
+        "episodes_over_30min_sampled": 24,
+        "subscribers": 270000,
+        "language": "sr",
+        "country": "RS"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (RS): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: hr (srpski, blizak).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "rss-transistor",
+        "apple-podcasts-id1491801273"
+      ],
+      "watch": {
+        "min_duration_sec": 2400
+      },
+      "notes": "Srpski (ekavica) razgovorni podkast Galeba Nikačevića; gosti: novinari, znanstvenici, povjesničari (regionalni fokus, Srbija/Balkan; nagrada RCC Champion of Regional Cooperation 2024). Epizode 90-160 min. Kanal uz originale objavljuje puno tematskih isječaka (3-25 min, bez 'Agelast NNN' u kanonskom naslovu originala) i shortsove.",
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Galeb Nikačević Hasci-Jare",
+          "talk": "Poziv na razgovor"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "pojacalo",
+      "display_name": "Pojačalo",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UC_NvcpQIWA7TXh1qhjlPCuQ/videos",
+        "channel_id": "UC_NvcpQIWA7TXh1qhjlPCuQ",
+        "type": "channel"
+      },
+      "tags": [
+        "entrepreneurship",
+        "business",
+        "personal-development"
+      ],
+      "voditelji": [
+        "Ivan Minić"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-11-01",
+        "last_episode_video": "Hs48G5NRqcA",
+        "average_duration_minutes": 135,
+        "episodes_sampled": 60,
+        "episodes_over_30min_sampled": 23,
+        "subscribers": 31500,
+        "language": "sr",
+        "country": "RS",
+        "total_episodes": 393,
+        "youtube_videos_total": 974,
+        "rss": "https://feeds.soundcloud.com/users/soundcloud:users:556851723/sounds.rss",
+        "apple": "https://podcasts.apple.com/us/podcast/poja%C4%8Dalo/id1448870519"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (RS): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: hr (srpski, blizak).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "yt-dlp-probe-2026-11-05",
+        "itunes-search-api"
+      ],
+      "notes": "Srpski poduzetnički/razgovorni podcast Ivana Minića; tjedna epizoda (nedjeljom ~19h CET), duge intervjue 1:45–2:50 h. Svaka epizoda dobiva 2–3 YouTube isječka od 5–12 min (naslov \"Gost: citat/tema\" bez \"Pojačalo podcast EP\") i Shorts. Povremeni dodatni formati: Vivaldi specijal (43–75 min), klinika dr Vorobjev (60–75 min, gostujući sadržaj). Katalog ogroman: EP 393 (RSS 468 stavki od 2019., Apple 468), YouTube 974 videa — NE obrađivati. NaPOD predavanje: \"Šta smo naučili iz 2000 produciranih epizoda podkasta\" (2000 ≈ ukupno videa/isječaka/epizoda svih formata, ne EP broj).",
+      "watch": {
+        "min_duration_sec": 3000,
+        "exclude_title_regex": "^(?!.*(Pojačalo podcast|Vivaldi specijal)).*$"
+      },
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Ivan Minić",
+          "talk": "Šta smo naučili iz 2000 produciranih epizoda podkasta"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "tampon-zona",
+      "display_name": "Tampon zona",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCQQF3fhOJ-19hKrBFJIzw_A/videos",
+        "channel_id": "UCQQF3fhOJ-19hKrBFJIzw_A",
+        "type": "channel"
+      },
+      "tags": [
+        "women",
+        "society",
+        "advocacy"
+      ],
+      "voditelji": [
+        "Iva Parađanin"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-10-20",
+        "last_episode_video": "ook_wmlQ3ig",
+        "average_duration_minutes": 73,
+        "episodes_sampled": 56,
+        "episodes_over_30min_sampled": 56,
+        "subscribers": 32000,
+        "language": "sr",
+        "country": "RS"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (RS): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: hr (srpski, blizak).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "youtube-channel-@tamponzona",
+        "podnews",
+        "deezer-5285227"
+      ],
+      "notes": "Tjedni (utorkom) feministički/društveni intervju-podkast, pokrenut 2019. (Iva Parađanin; „megafon za ženske glasove”). Srpski (ijekavica/ekavica mješavina ne provjerena; naslovi ekavski), vrlo blizak hrvatskom — ASR hr moguć uz provjeru. Serije unutar kanala: JOJ MAJKO (majčinstvo), Pričaj mi o ljubavi, Tampon zona x Kritički, TZ LOKAL, KUKLA. Teme: feminizam, nasilje, studentski protesti u Srbiji, zdravlje, majčinstvo, kultura. Predavanje na NaPOD-u: „Kako podkast intervjui pokreću društvenu promenu”.",
+      "watch": {
+        "min_duration_sec": 1500,
+        "exclude_title_regex": "SVETLA U MRAKU|live @|novogodišnji specijal"
+      },
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Iva Parađanin",
+          "talk": "Kako podkast intervjui pokreću društvenu promenu"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "zdrava-prica-sa-dolores",
+      "display_name": "Zdrava priča sa Dolores",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UC2fyrUoIFo39F569Gz_NYaA/videos",
+        "channel_id": "UC2fyrUoIFo39F569Gz_NYaA",
+        "type": "channel"
+      },
+      "tags": [
+        "parenting",
+        "society",
+        "health"
+      ],
+      "voditelji": [
+        "Dolores Milošev Erdeg"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-10-20",
+        "average_duration_minutes": 99,
+        "episodes_sampled": 60,
+        "episodes_over_30min_sampled": 59,
+        "subscribers": 38200,
+        "language": "sr",
+        "country": "RS"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (RS): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: hr (srpski, blizak).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "rss-acast",
+        "apple-podcasts-id1896857960"
+      ],
+      "watch": {
+        "min_duration_sec": 2400
+      },
+      "notes": "Srpski podkast o odrastanju, roditeljstvu i psihologiji (stručnjaci, obitelj, mladi). Dvije serije na istom kanalu: 'Zdrava priča NNN' i 'Zdrava priča sa mladima NNN' (50-130 min). Nije 'Kriminalno dobre priče'.",
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Dolores Milošev Erdeg",
+          "talk": "Live: Rođeni da učimo"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "apparatus-ce-ves-kaj-mislim",
+      "display_name": "Če veš, kaj mislim!",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJfMkZMTjbXwGgywScnQOmuFskFdmHLkW",
+        "channel_id": "UC1NOBq7PMX2JTkvVb35aB-A",
+        "type": "playlist"
+      },
+      "tags": [
+        "comedy",
+        "talk-show",
+        "pop-culture"
+      ],
+      "voditelji": [
+        "Anže Tomić"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-10-30",
+        "last_episode_video": "O-dTxrfvg1k",
+        "average_duration_minutes": 48,
+        "episodes_sampled": 53,
+        "episodes_over_30min_sampled": 53,
+        "subscribers": 1760,
+        "language": "sl",
+        "country": "SI",
+        "asr_language": "sl"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (SI): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: sl (metadata.asr_language).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "apparatus.si",
+        "youtube-playlist-@AnzeTomic"
+      ],
+      "notes": "Satirično-humoristični razgovorni podkast Anžeta Tomića („Vsi podkasti kao pomagajo. Mi pa pomagamo zares!”), epizode ~45 min, naslovi apsurdni. Playlista 54 videa (od ~jesen 2024.). Apparatus je slovenska podcast mreža (Anže Tomić, od 2012., vlasnik/producent; apparatus.si, članstvo preko Memberful, newsletter beehiiv). Sve emisije s YouTubeom žive na jednom kanalu @AnzeTomic (UC1NOBq7PMX2JTkvVb35aB-A, ~1760 pretpl.) kao playliste, pa je jedinica praćenja playlista, ne kanal. Jezik: SLOVENSKI — ASR/članci rade na hrvatskom, treba posebnu oznaku.",
+      "watch": {
+        "min_duration_sec": 1500,
+        "exclude_title_regex": "v živo \\d|najava"
+      },
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Anže Vidrih Tomić",
+          "talk": "Panel: Što je podcast?"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "apparatus-opazovalnica",
+      "display_name": "Opazovalnica",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJfMkZMTjbXzBruJ82lohGbWQ2DSoMXAV",
+        "channel_id": "UC1NOBq7PMX2JTkvVb35aB-A",
+        "type": "playlist"
+      },
+      "tags": [
+        "comedy",
+        "talk-show",
+        "society"
+      ],
+      "voditelji": [
+        "Jure Godler",
+        "Anže Tomić"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-10-23",
+        "last_episode_video": "vdNhB_fK81g",
+        "average_duration_minutes": 55,
+        "episodes_sampled": 51,
+        "episodes_over_30min_sampled": 51,
+        "subscribers": 1760,
+        "language": "sl",
+        "country": "SI",
+        "asr_language": "sl"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (SI): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: sl (metadata.asr_language).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "apparatus.si",
+        "youtube-playlist-@AnzeTomic"
+      ],
+      "notes": "Jure Godler i Anže Tomić „opazujeta. Življenje.” — satirični razgovorni podkast, ~50 min, naslovi apsurdni; Apple id1082859306. Objavljuje se petkom (zadnja 2026-10-23). Apparatus je slovenska podcast mreža (Anže Tomić, od 2012., vlasnik/producent; apparatus.si, članstvo preko Memberful, newsletter beehiiv). Sve emisije s YouTubeom žive na jednom kanalu @AnzeTomic (UC1NOBq7PMX2JTkvVb35aB-A, ~1760 pretpl.) kao playliste, pa je jedinica praćenja playlista, ne kanal. Jezik: SLOVENSKI — ASR/članci rade na hrvatskom, treba posebnu oznaku.",
+      "watch": {
+        "min_duration_sec": 1500,
+        "exclude_title_regex": "^Satelitska:"
+      },
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Anže Vidrih Tomić",
+          "talk": "Panel: Što je podcast?"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "apparatus-glave",
+      "display_name": "Glave",
+      "youtube": {
+        "url": "https://www.youtube.com/playlist?list=PLJfMkZMTjbXx5Z3EwAclqFxGQd-qGj2Be",
+        "channel_id": "UC1NOBq7PMX2JTkvVb35aB-A",
+        "type": "playlist"
+      },
+      "tags": [
+        "culture",
+        "talk-show",
+        "history"
+      ],
+      "voditelji": [
+        "Boštjan Gorenc Pižama",
+        "Anže Tomić"
+      ],
+      "metadata": {
+        "status": "active-slowing",
+        "last_episode_date": "2026-05-01",
+        "last_episode_video": "zcmIwbRGIsk",
+        "average_duration_minutes": 55,
+        "episodes_sampled": 60,
+        "episodes_over_30min_sampled": 60,
+        "subscribers": 1760,
+        "language": "sl",
+        "country": "SI",
+        "asr_language": "sl"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Regionalni (SI): nove epizode idu u Tier 2, članak na hrvatskom (odluka 05.11.). ASR jezik: sl (metadata.asr_language).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "apparatus.si",
+        "youtube-playlist-@AnzeTomic"
+      ],
+      "notes": "Slovenski podkast o kulturi/slobodnom vremenu („Podcast za legitimno preživljanje prostega časa”), Pižama i Tomić; od 2012. (Apple id646565002). Serija „Glave na gradu” = posebne epizode. UPOZORENJE: YouTube playlista „Glave” (203 videa) miješa epizode Glava i ČVKM-a/drugih emisija, pa se preklapa s drugim unosima. Zadnja epizoda na sajtu 2026-05-01 — vjerojatno na pauzi/rjeđe. Apparatus je slovenska podcast mreža (Anže Tomić, od 2012., vlasnik/producent; apparatus.si, članstvo preko Memberful, newsletter beehiiv). Sve emisije s YouTubeom žive na jednom kanalu @AnzeTomic (UC1NOBq7PMX2JTkvVb35aB-A, ~1760 pretpl.) kao playliste, pa je jedinica praćenja playlista, ne kanal. Jezik: SLOVENSKI — ASR/članci rade na hrvatskom, treba posebnu oznaku.",
+      "watch": {
+        "min_duration_sec": 1800
+      },
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Anže Vidrih Tomić",
+          "talk": "Panel: Što je podcast?"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
+    },
+    {
+      "slug": "podcasting-for-solopreneurs",
+      "display_name": "Podcasting for Solopreneurs (Anja Lordanić)",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCoCKZ9-VK2qVHSwce7FDBFA/videos",
+        "channel_id": "UCoCKZ9-VK2qVHSwce7FDBFA",
+        "type": "channel"
+      },
+      "tags": [
+        "entrepreneurship",
+        "business",
+        "media"
+      ],
+      "voditelji": [
+        "Anja Lordanić Mustać"
+      ],
+      "metadata": {
+        "status": "active",
+        "last_episode_date": "2026-11-03",
+        "average_duration_minutes": 16,
+        "episodes_sampled": 42,
+        "episodes_over_30min_sampled": 0,
+        "subscribers": 7,
+        "language": "en",
+        "country": "HR"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. Hrvatska autorica, podcast na engleskom: nove epizode idu u Tier 2 (odluka 05.11.).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "rss-captivate",
+        "apple-podcasts-id1877155389"
+      ],
+      "notes": "Engleski solo how-to podcast za solopreneure o pokretanju poslovnog podcasta (prije naslov 'Say Yes to Podcasting'). Epizode ~13-20 min, tjedno utorkom. NIJE razgovorni dugi format; za pipeline vjerojatno ne ulazi (kratko, en, 7 pretplatnika). Ne brkati s istoimenom Buzzsprout emisijom 'Podcasting for Solopreneurs' (Julia, Podcast Teacher) – drugi autor.",
+      "region": "hr",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Anja Lordanić",
+          "talk": "Pet ključnih elemenata podcasta za solopoduzetnike"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3,
+      "watch": {
+        "min_duration_sec": 300
+      }
+    },
+    {
+      "slug": "podcast-rs",
+      "display_name": "Podcast.rs",
+      "youtube": {
+        "url": "https://www.youtube.com/@podcastrs",
+        "channel_id": "UCVpW683HlBo36ykT68yEIDA",
+        "type": "channel"
+      },
+      "tags": [
+        "media",
+        "education"
+      ],
+      "voditelji": [
+        "Vladimir Radinović",
+        "Goran Vojteški"
+      ],
+      "metadata": {
+        "status": "not-podcast",
+        "last_episode_date": null,
+        "average_duration_minutes": null,
+        "episodes_sampled": 0,
+        "episodes_over_30min_sampled": 0,
+        "subscribers": null,
+        "language": "sr",
+        "country": "RS"
+      },
+      "tracking": {
+        "enabled": false,
+        "process": false,
+        "reason_disabled": "NaPOD festival 2026 (predavači), dodano 05.11.2026. SAMO PRAĆENJE, bez obrade (odluka 05.11.): srpski (regionalni) — članak bi bio na hrvatskom iz srpske snimke.",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "napodfest-2026-predavaci",
+        "podcast.rs",
+        "yt-dlp-probe-2026-11-05"
+      ],
+      "notes": "Podcast.rs je imenik/platforma regionalnih podcasta (operater Udruženje Podkast Podrška), ne emisija. YouTube kanal @podcastrs postoji ali nema videos tab (prazan). Preporuka: NE dodavati kao podcast. Radinović je urednik narativnih podcasta (Naša posla, Tragovi, Glasna žica) i trener (DW). Vlastiti YouTube nema; NaPOD radionica je \"Podcast klinika\".",
+      "region": "regional",
+      "events": [
+        {
+          "name": "NaPOD festival 2026",
+          "url": "https://napodfest.com/predavaci/",
+          "speaker": "Vladimir Radinović",
+          "talk": "Od teme do priče: Umetnost narativnog podkasta; Radionica: Podcast klinika"
+        }
+      ],
+      "data_quality": "partial",
+      "tier": 3
     }
   ],
   "philosophy": {

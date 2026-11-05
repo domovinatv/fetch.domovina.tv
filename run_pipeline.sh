@@ -956,6 +956,14 @@ _source_lang_for_path() {
         local info="${1%.*}.info.json" fromInfo
         fromInfo="$(jq -r '.language // empty' "$info" 2>/dev/null | tr '[:upper:]' '[:lower:]' | grep -oE '^[a-z]{2}([-_]|$)' | cut -c1-2)"
         [ -n "$fromInfo" ] && lang="$fromInfo"
+        # YouTube rijetko prijavljuje jezik → metadata.asr_language iz registryja po channel_id
+        # (isto kao registryAsrLanguage u transcribe_*.js; npr. slovenski Apparatus = sl).
+        if [ -z "$fromInfo" ]; then
+            local cid fromReg
+            cid="$(jq -r '.channel_id // empty' "$info" 2>/dev/null)"
+            [ -n "$cid" ] && fromReg="$(jq -r --arg c "$cid" '[.podcasts[] | select(.youtube.channel_id == $c) | .metadata.asr_language // empty][0] // empty' "$SCRIPT_DIR/data/podcasts_registry.json" 2>/dev/null)"
+            [[ "$fromReg" =~ ^[a-z]{2}$ ]] && lang="$fromReg"
+        fi
     fi
     printf '%s' "$lang"
 }

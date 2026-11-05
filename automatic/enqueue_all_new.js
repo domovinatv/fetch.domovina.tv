@@ -101,6 +101,20 @@ async function main() {
         cands.push(e);
     }
 
+    // Kandidat s `tracking.process === false` se samo PRATI (watch), ne obrađuje: npr.
+    // regionalni podcasti (sr/sl) s NaPOD-a 2026, za koje bi hrvatski pipeline dao krivi
+    // članak. Odluka po unosu u registryju, ne filtar po jeziku.
+    const noProcess = new Set();
+    try {
+        const reg = JSON.parse(fs.readFileSync(path.join(REPO, 'data/podcasts_registry.json'), 'utf8'));
+        for (const p of reg.podcasts || []) if (p.tracking?.process === false) noProcess.add(p.slug);
+    } catch (err) { console.log(`   ⚠️  registry nečitljiv (${err.message}) — bez ograde process:false`); }
+    const skipped = cands.filter(e => noProcess.has(e.slug));
+    if (skipped.length) {
+        console.log(`   👁️  samo praćenje (process:false): ${skipped.length} — ${[...new Set(skipped.map(e => e.slug))].join(', ')}`);
+        for (const e of skipped) cands.splice(cands.indexOf(e), 1);
+    }
+
     const state = loadState();
     // Job koji je backend stvorio pa je PAO na downloadu (YouTube anti-bot, 02.11.: 9/21)
     // nije gotov posao: bez ovoga ga nijedan idući nightly ne bi ponovno poslao.

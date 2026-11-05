@@ -369,11 +369,30 @@ function languageForPath(audioPath) {
 // refine_diarized_gemini.js i kao _source_lang_for_path u run_pipeline.sh.)
 function infoJsonLanguage(audioPath) {
     const base = audioPath.replace(/\.[A-Za-z0-9]+$/, "");
-    try {
-        const lang = JSON.parse(fs.readFileSync(base + ".info.json", "utf-8")).language;
-        const m = typeof lang === "string" && lang.toLowerCase().match(/^([a-z]{2})(?:[-_]|$)/);
-        return m ? m[1] : null;
-    } catch { return null; }
+    let info;
+    try { info = JSON.parse(fs.readFileSync(base + ".info.json", "utf-8")); } catch { return null; }
+    const lang = info.language;
+    const m = typeof lang === "string" && lang.toLowerCase().match(/^([a-z]{2})(?:[-_]|$)/);
+    return m ? m[1] : registryAsrLanguage(info.channel_id);
+}
+
+// YouTube za većinu kanala NE prijavljuje `language` (05.11.2026.: Pojačalo, Agelast,
+// Apparatus… sve NA). Zato fallback: `metadata.asr_language` iz registryja po channel_id.
+// Postavlja se samo eksplicitno (npr. slovenski Apparatus = "sl"); srpski ostaju "hr".
+let _regAsrLang = null;
+function registryAsrLanguage(channelId) {
+    if (!channelId) return null;
+    if (_regAsrLang === null) {
+        _regAsrLang = new Map();
+        try {
+            const reg = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "podcasts_registry.json"), "utf-8"));
+            for (const p of reg.podcasts || []) {
+                const l = p.metadata?.asr_language, id = p.youtube?.channel_id;
+                if (id && typeof l === "string" && /^[a-z]{2}$/.test(l)) _regAsrLang.set(id, l);
+            }
+        } catch { /* bez registryja nema fallbacka */ }
+    }
+    return _regAsrLang.get(channelId) || null;
 }
 
 // ─── Odabir datoteka ───
