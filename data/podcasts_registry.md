@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-04
+**Generirano:** 2026-11-05
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 482 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 244 · 🔴 neaktivan: 159 · ⚪ nepoznato: 90 · ⚪ nepoznato: 29 · ⚪ nepoznato: 41 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 245 · 🔴 neaktivan: 159 · ⚪ nepoznato: 89 · ⚪ nepoznato: 29 · ⚪ nepoznato: 41 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -60,7 +60,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Eho Projekt** | [@ehoprojekt](https://www.youtube.com/@ehoprojekt/videos) | 3 | 13K | — | ⚪ nepoznato | — | `religious-catholic` `education` | ⚠️ |
 | **Founder Talks (Promocija znanosti)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS) | 3 | 6K | 5 | 🟢 aktivan | — | `entrepreneurship` `business` `technology` `interview` | ✅ |
 | **Franjina ekonomija** | [@franjinaekonomijahrvatska8604](https://www.youtube.com/@franjinaekonomijahrvatska8604/videos) | 3 | 83 | — | ⚪ nepoznato | — | `economics` `religious-catholic` | ⚠️ |
-| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 600 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
+| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 603 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
 | **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 378 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
 | **Gorica TV** | [@GoricaTV](https://www.youtube.com/@GoricaTV/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
 | **HCPI Podcast - Potresne priče** | [@hrvatskicentarzapotresnoin1185](https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn) | 4 | 240 | 2 | 🟢 aktivan | — | `education` `science` `engineering` | ✅ |
@@ -529,7 +529,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Verbum Podcast** | [@VerbumHR](https://www.youtube.com/@VerbumHR) | 3 | — | — | ⚪ nepoznato | Nakladnička kuća Verbum | `religious-catholic` `culture` `education` | ✅ |
 | **Veterani mira (HRT)** | [UCweBO4bfRZgu33OMPYlehlg](https://www.youtube.com/playlist?list=PLuEWODEWd3kNcdC8KoUOZWvnEV_K_OaHa) | 2 | — | 50 | 🟢 aktivan | — | `domovinski-rat` `testimonies` | ⚠️ |
 | **Vetify Podcast** | [UC3kRfdFs-8PJyF5DqYK1lzQ](https://www.youtube.com/channel/UC3kRfdFs-8PJyF5DqYK1lzQ/videos) | 3 | 2K | — | 🟢 aktivan | — | `health` `education` `science` | ⚠️ |
-| **VEZ sv. Antuna** | [UCdd4vcXePSZGFGXz2Z7AZeQ](https://www.youtube.com/channel/UCdd4vcXePSZGFGXz2Z7AZeQ/videos) | 3 | 745 | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
+| **VEZ sv. Antuna** | [UCdd4vcXePSZGFGXz2Z7AZeQ](https://www.youtube.com/channel/UCdd4vcXePSZGFGXz2Z7AZeQ/videos) | 3 | 745 | — | 🟢 aktivan | — | `religious-catholic` `testimonies` | ⚠️ |
 | **VEZA DOM** | [UCbByab3O_52RHFT0p5dAdfg](https://www.youtube.com/channel/UCbByab3O_52RHFT0p5dAdfg/videos) | 3 | 72 | — | 🔴 neaktivan | — | `diaspora` `political` | ⚠️ |
 | **VIDA** | [UCZGnOswyrNGy2esYmQeYNOQ](https://www.youtube.com/channel/UCZGnOswyrNGy2esYmQeYNOQ/videos) | 3 | 73K | — | 🟢 aktivan | — | `culture` `debate` | ⚠️ |
 | **Vinska karantena** | [UCMH5bKytb0jmkpO-hz6s6Ag](https://www.youtube.com/channel/UCMH5bKytb0jmkpO-hz6s6Ag/videos) | 3 | 92 | — | 🔴 neaktivan | — | `business` `lifestyle` `tourism` | ⚠️ |

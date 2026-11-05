@@ -850,14 +850,254 @@
    "sent_at": "2026-11-04T03:02:06.758Z",
    "result": "created",
    "job_id": "842f1d59-5a38-4137-93ce-5b315daa2c68"
+  },
+  "bFYJepR2ZPM": {
+   "date": "2026-11-05",
+   "slug": "denis-podcast",
+   "title": "SUNDERLAND-DINAMO NAJAVA/LIVE",
+   "duration": 4689,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:58.303Z",
+   "result": "created",
+   "job_id": "ad0c2cfe-e9f1-46b4-9401-51449f6e5d19"
+  },
+  "FiK_F09oGkI": {
+   "date": "2026-11-05",
+   "slug": "eduza-show",
+   "title": "Kako postati regionalno prepoznat stručnjak | Nela Kačmarčik – Maduna",
+   "duration": 4777,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:58.583Z",
+   "result": "created",
+   "job_id": "14229aff-0230-4814-97b7-74eba84b4c13"
+  },
+  "U1cAxmbVdYk": {
+   "date": "2026-11-05",
+   "slug": "felix-contras",
+   "title": "Mirko Bilandžić: Svijet ulazi u novu eru – Iran, Rusija i Kina mijenjaju globalni odnos snaga",
+   "duration": 3844,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:58.915Z",
+   "result": "created",
+   "job_id": "d8ffe932-86fd-47e2-9d8f-2aea4a15f1b9"
+  },
+  "JppxeAaWuwk": {
+   "date": "2026-11-05",
+   "slug": "hopecast",
+   "title": "S 14 godina jurio sam cestama i bježao od Boga! Alen Hadžiefendić",
+   "duration": 4980,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:59.199Z",
+   "result": "created",
+   "job_id": "3d8ec05b-b33c-4a0a-b1fa-d833b52a3e29"
+  },
+  "h9YyLdnRjb0": {
+   "date": "2026-11-05",
+   "slug": "ideje-hr",
+   "title": "Kurelić: Američka demokracija je za sada spašena, ali bojim se napada na Iran",
+   "duration": 3665,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:59.465Z",
+   "result": "created",
+   "job_id": "33ca80c7-01db-4264-8442-d4cfda87e506"
+  },
+  "Ax0_di2vbaQ": {
+   "date": "2026-11-05",
+   "slug": "mame-kod-lane",
+   "title": "Ep 83. Mame kod Lane: JADRANKA KOSOR",
+   "duration": 5241,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:59.653Z",
+   "result": "created",
+   "job_id": "4081da41-19b4-41e6-b2df-086b858a16c9"
+  },
+  "efHFfGilwWU": {
+   "date": "2026-11-05",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Ofenziva na HNL - Je li Kovačević zaslužio otkaz u Dinamu?",
+   "duration": 3238,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:52:59.933Z",
+   "result": "created",
+   "job_id": "8ea2dc41-c49e-4e52-aa98-436ac1e5f13f"
+  },
+  "Nf_syoGgO9A": {
+   "date": "2026-11-05",
+   "slug": "podcast-besida",
+   "title": "Zvonko Gilić | Emocija i klapa | Podcast Besida #71",
+   "duration": 3043,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:00.186Z",
+   "result": "created",
+   "job_id": "17ca9c9c-1b62-434c-b2cd-dc8d55028983"
+  },
+  "JgcF9JM6dHQ": {
+   "date": "2026-11-05",
+   "slug": "podcast-inkubator-extra-runda",
+   "title": "5Rak vs Hambi - Extra Runda #157 II ZDRAVKOVIĆ BRANI TITULU II OPAČIĆ DEBITIRA ZA FNC",
+   "duration": 5084,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:00.460Z",
+   "result": "created",
+   "job_id": "f87684d0-e57f-4063-ba03-61990b98c2e0"
+  },
+  "4NDoUgqhFCY": {
+   "date": "2026-11-05",
+   "slug": "podcast-inkubator-mysterium",
+   "title": "Podcast Mysterium #186 -  AKTUAL S PINTOM I DUSPAROM ||",
+   "duration": 8112,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:00.693Z",
+   "result": "created",
+   "job_id": "f0d7bd7f-cae0-4aae-b2f3-f27a37b0f898"
+  },
+  "qyYRS7qP-2w": {
+   "date": "2026-11-05",
+   "slug": "prvi-glas-telegram",
+   "title": "Iran je bio samo okidač: Pravi razlog Trumpovog poraza",
+   "duration": 1361,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:00.913Z",
+   "result": "created",
+   "job_id": "c8ec424f-0adc-429b-99b1-4513e858c448"
+  },
+  "ri0QaNglg94": {
+   "date": "2026-11-05",
+   "slug": "prvi-glas-telegram",
+   "title": "Udar poduzetnika na Vladu: Političari obožavaju inflaciju",
+   "duration": 2124,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:01.184Z",
+   "result": "created",
+   "job_id": "b4a6276f-60d5-4fa0-8baa-14603990b83d"
+  },
+  "goBvDM_UDhI": {
+   "date": "2026-11-05",
+   "slug": "projekt-velebit",
+   "title": "PODCAST VELEBIT - Jonjić: Tko misli da je Jugoslavija prošlost taj je naivac",
+   "duration": 6671,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:01.445Z",
+   "result": "created",
+   "job_id": "a90536d0-5aaa-4251-aa78-dd94c68a70bf"
+  },
+  "ARgec9vlU2Y": {
+   "date": "2026-11-05",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za četvrtak, 5.11.2026.",
+   "duration": 2845,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:01.632Z",
+   "result": "created",
+   "job_id": "8af5979b-9dda-40ca-91fb-5e18e126ed7b"
+  },
+  "_YOkTkbrh_k": {
+   "date": "2026-11-05",
+   "slug": "tribina-nba-kosarka",
+   "title": "Novi početci | Tribina NBA",
+   "duration": 5705,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:01.834Z",
+   "result": "created",
+   "job_id": "7c5d3435-8143-4808-83de-b27da1d68095"
+  },
+  "BqJ67OO-FVA": {
+   "date": "2026-11-05",
+   "slug": "tribina-nfl",
+   "title": "Clutch gen, ozljede i tradeovi | Tribina NFL",
+   "duration": 6357,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:02.090Z",
+   "result": "created",
+   "job_id": "377edeb4-fdc5-41f1-9016-4b87cdcb710e"
+  },
+  "3DCHLVmPIk0": {
+   "date": "2026-11-05",
+   "slug": "vez-sv-antuna",
+   "title": "Fra Josip Blažević | Joga i kršćanstvo",
+   "duration": 2841,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:02.299Z",
+   "result": "created",
+   "job_id": "456d05c3-2375-42c5-aa67-481904389fad"
+  },
+  "xGAmPf_ihm4": {
+   "date": "2026-11-05",
+   "slug": "kisobran-uniri-podcast",
+   "title": "🔵 KIŠOVIZIJA #100 | Kišobran UNIRI | Doživjeti stotu",
+   "duration": 4312,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:02.503Z",
+   "result": "created",
+   "job_id": "0557886a-7b77-41b0-ba83-9030eaf2eca5"
+  },
+  "qu66kgKgIqY": {
+   "date": "2026-11-05",
+   "slug": "razgovor-s-razlogom",
+   "title": "Razgovor s razlogom: Drago Bojić",
+   "duration": 2004,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:02.722Z",
+   "result": "created",
+   "job_id": "4efbe10f-87c6-4ce4-9f99-601629a97abf"
+  },
+  "j7rEm8gLd-I": {
+   "date": "2026-11-05",
+   "slug": "briefing-jutarnji-list",
+   "title": "Mirjana Rakić: Neće se suditi Trumpu, ali hoće Elonu Musku. U svijetu su samo tri lidera sa stavom",
+   "duration": 2011,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:02.931Z",
+   "result": "created",
+   "job_id": "93b88de6-0c33-4b33-9447-92da0415f0d6"
+  },
+  "tEXwoOtvwbY": {
+   "date": "2026-11-05",
+   "slug": "osvrt-tv-jadran",
+   "title": "Osvrt 04.11.2026. Anita Runjić Stoilova",
+   "duration": 1593,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:03.186Z",
+   "result": "created",
+   "job_id": "15209335-d641-444b-a2d8-54fdf35ed0b2"
+  },
+  "7d3MpFWfk1M": {
+   "date": "2026-11-05",
+   "slug": "argumenti-sezona-8",
+   "title": "Argumenti - Državna matura: Novi model eseja iz Hrvatskog jezika",
+   "duration": 2779,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:03.427Z",
+   "result": "created",
+   "job_id": "a8039c86-fdae-43e9-af5a-e6355228c55c"
+  },
+  "jCh-JcdhZJ4": {
+   "date": "2026-11-05",
+   "slug": "hkm-u-zdravlju-i-bolesti",
+   "title": "U zdravlju i bolesti - Muško zdravlje - prevencija koja spašava život",
+   "duration": 2255,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:03.624Z",
+   "result": "created",
+   "job_id": "3d8f7b72-f95c-443b-913a-873c1ccd29db"
+  },
+  "y0J491L5J9s": {
+   "date": "2026-11-05",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Gospić i dalje čeka odgovore: Kada počinje uklanjanje opasnog otpada?",
+   "duration": 1956,
+   "attempts": 1,
+   "sent_at": "2026-11-05T02:53:03.861Z",
+   "result": "created",
+   "job_id": "e701b81a-bdd7-4c00-bb88-fffe12323eaa"
   }
  },
- "updated_at": "2026-11-04T03:02:06.960Z",
+ "updated_at": "2026-11-05T02:53:04.113Z",
  "last_enqueue_usage": {
-  "at": "2026-11-04T03:02:06.960Z",
-  "five_hour": 12,
-  "five_hour_resets_at": "2026-11-04T04:09:59.695344+00:00",
-  "seven_day": 45,
-  "seven_day_resets_at": "2026-11-06T23:59:59.695364+00:00"
+  "at": "2026-11-05T02:53:04.113Z",
+  "five_hour": 8,
+  "five_hour_resets_at": "2026-11-05T07:10:00.249002+00:00",
+  "seven_day": 61,
+  "seven_day_resets_at": "2026-11-07T00:00:00.249019+00:00"
  }
 }
