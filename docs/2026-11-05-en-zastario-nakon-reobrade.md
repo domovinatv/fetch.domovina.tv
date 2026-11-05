@@ -85,3 +85,58 @@ EN je deep clone HR-a, pa `metadata.generated_at` (članak, Magisterium) odnosno
   CDN), ne u polleru.
 - `MGLq9v3AtvE` (CroAI Code Club 01): reobrada pala na YouTube anti-botu („Sign in to confirm”
   i 05.11. popodne), pa u red ide kad anti-bot popusti.
+
+## Stanje u 16:50 (05.11.), prije restarta Maca
+
+Popravak radi end-to-end kroz EN traku (launchd), bez ručnog prevođenja:
+
+| Video | CDN EN == HR (article, summary, Magisterium) |
+|---|---|
+| WRE248YCIeI | ✅ 2026-11-05T09:30:14.826Z (summary.en više nije 404) |
+| b-nls1ck8EE | ✅ 2026-11-05T10:42:54.802Z |
+| oxq1U0xypu8 | ✅ 2026-11-05T11:14:01.450Z (+ reels.en.json) |
+| fO7iltytw0I | ⏳ još stari (07-31 / 05-27), čeka idući EN tick |
+| AoXN-3Mkmew | ⏳ još stari (03-27), čeka idući EN tick |
+
+Prvi pokušaj za oxq1U0xypu8 javio je lažni ❌: CDN je odmah nakon PUT-a i purgea još
+vraćao stari `article.en.json`, a minutu kasnije bio je ispravan. Provjera zato sada čeka
+0 / 10 / 30 s (`6b8e5013`). Zbog tog ❌ potpis ima `tries: 1`, pa idući tick ponovi samo
+objavu (prijevod preskoči jer su lokalni EN-ovi svježi).
+
+Provjera svih 5 epizoda (čita samo CDN):
+
+```bash
+for id in WRE248YCIeI fO7iltytw0I AoXN-3Mkmew b-nls1ck8EE oxq1U0xypu8; do
+  for n in article summary article.magisterium; do
+    a=$(curl -s "https://cdn.domovina.ai/data/$id/$n.json?x=$RANDOM" | jq -r '.metadata.generated_at // .generated_at')
+    e=$(curl -s "https://cdn.domovina.ai/data/$id/$n.en.json?x=$RANDOM" | jq -r '.metadata.generated_at // .generated_at')
+    [ "$a" = "$e" ] && echo "✅ $id $n" || echo "❌ $id $n HR=$a EN=$e"
+  done
+done
+```
+
+## MGLq9v3AtvE: download kroz iPhone, obrada nakon ponoći
+
+- Novi reprocess job `c0754b32-406c-4c65-9aa6-7914be2aa0b6` (D1 `INSERT … SELECT` iz palog
+  `3907b5ea…`: soniox, claude/opus, magisterium opus, `reprocess=1`, `redo_article=1`,
+  `priority=1`).
+- **Ne čeka anti-bot nego dnevni limit:** `~/.cache/domovina-pipeline/priority_budget.json`
+  = 30/30 (`PRIORITY_DAILY_MAX`), pa poller ne claima ništa do ponoći. U logu se to vidi samo
+  jednom (`priority_budget_exhausted`), a nakon toga slotovi tiho rade START/DONE.
+- Mediji su skinuti ručno kroz USB tether (`fetch.js --unlisted-url … --unlisted-title …
+  --source-address 172.20.10.13`, isti poziv kao `run_pipeline.sh`), ~3,5 MB/s. Nakon ponoći
+  `fetch.js` ih preskoči, a screenshotovi idu iz lokalnog `.mkv`. Reprocess stash ne dira
+  medije ni `.info.json` (`SOURCE_SUFFIX` u `tools/reprocess_episode.js`).
+- Skinuto (`_unlisted`): MGLq9v3AtvE, YVp-9YPNnFw, Hs48G5NRqcA, s_b8Q6kzH-g, O-dTxrfvg1k.
+  **Nisu skinuti** (Tier 2, u redu od 14:19): vdNhB_fK81g, zcmIwbRGIsk, VY8gg2snMuk. Nakon
+  ponoći ih skida poller s kućnog IP-a i mogu pasti na anti-botu.
+- Prioritetni poller zna samo `--proxy` iz `~/.cache/domovina-pipeline/youtube_proxy`, ne
+  tether. Privremeno je tamo bio lokalni CONNECT proxy (node, `net.connect({ localAddress:
+  '172.20.10.13' })` na 127.0.0.1:8899). Datoteka je vraćena na `http://100.71.146.11:8888`
+  (Tailscale, trenutno ne odgovara, pa ga poller preskače).
+
+## Disk
+
+Interni SSD: **273 MB slobodno (98 %)** u 16:45. Radni disk DOMOVINA2TB ima 639 GB slobodno.
+KORAK 12.5 privremeno piše `web.mp4` na SSD, a slot 2 traži ≥ 5 GB. Korisnik restarta Mac
+da se oslobodi prostor. Uzrok nije istražen.
