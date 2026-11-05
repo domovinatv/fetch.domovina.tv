@@ -200,3 +200,20 @@ if album.get('sent') or doc.get('sent'):
     json.dump(dict(at=D.datetime.now().isoformat(timespec='seconds'), ready=ready, pdf=pdf, album=album, pdf_result=doc), open(SENT, 'w'))
 else:
     sys.exit(1)
+
+# ---------------- drugi deploy javnog kataloga ----------------
+# Nightly 5c deploya podcast.domovina.ai na početku dana, dok Tier 2 epizode još nisu
+# obrađene, pa bi ih katalog do iduće noći vodio na YouTube bez oznake D. Report ide
+# tek kad je dan gotov (zadnji Magisterium), pa je ovo jedini drugi rebuild u danu.
+# Non-fatal: report je već poslan. launchd nema node u PATH-u → nvm kao nightly.
+# CATALOG_REFRESH=0 gasi.
+CATALOG = os.path.join(os.path.dirname(REPO), 'podcast.domovina.ai', 'scripts', 'refresh.sh')
+if os.environ.get('CATALOG_REFRESH', '1') != '0' and os.access(CATALOG, os.X_OK):
+    log('katalog podcast.domovina.ai: build + deploy …')
+    try:
+        r = subprocess.run(['/bin/bash', '-c', '. "$HOME/.nvm/nvm.sh" && nvm use default >/dev/null 2>&1; exec "$0"', CATALOG],
+                           capture_output=True, text=True, timeout=900)
+        tail = (r.stdout + r.stderr).strip().splitlines()[-3:]
+        log(f'katalog rc={r.returncode}', *tail, sep='\n  ')
+    except Exception as e:
+        log('katalog: greška', e)

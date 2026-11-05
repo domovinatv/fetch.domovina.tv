@@ -13,6 +13,8 @@ jednom dnevno:
 
 Šalje se **album 4 uspravne slike** (gantogram okomito, Tier 2 po epizodi, kamo ide vrijeme, stanje po epizodi; za mobitel i Telegram Desktop, koji PDF ne prikazuje) s potpisom = sažetak, pa **puni A4 PDF** za desktop (`POST /telegram/photos` + `/telegram/document`).
 
+Odmah nakon slanja pokreće **drugi deploy javnog kataloga** (`../podcast.domovina.ai/scripts/refresh.sh`, build + `wrangler deploy`, non-fatal; `CATALOG_REFRESH=0` gasi). Nightly 5c deploya na početku noći, prije nego što su Tier 2 epizode obrađene; ovaj rebuild im daje oznaku D i poveznicu na `domovina.ai/v/<id>` isti dan (izvor: `data/<id>/article.json` u `.r2_keys_cache.json`).
+
 U **21:00** (`REPORT_DEADLINE`) šalje i ako nije sve gotovo, s popisom što fali. Token bota je samo u
 Workeru `li.domovina.ai` (repo `~/git/stepanic/linkedin-poster`), pa PDF ide kroz njegov
 `POST /telegram/document` (bearer = `API_TOKEN` iz `linkedin-poster/.dev.vars`). Sažetak u
