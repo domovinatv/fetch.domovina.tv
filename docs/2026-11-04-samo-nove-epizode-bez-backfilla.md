@@ -68,3 +68,7 @@ Otvoreno:
 - Jedan kadar Sub Cluba (`0qt-wHxiFMY`, 26:50) pada svake noći — nema lokalnog videa.
 - Modal Canary (KORAK 2.6) i dalje transkribira epizode koje Soniox već pokriva (namjerna
   mreža, ~$0,01/ep).
+
+## Vezani dokumenti
+
+- `docs/2026-11-05-dan-objave-vs-nightly-queue.md`: tri rupe zbog kojih nove epizode nisu ulazile u obradu (playliste složene od najstarijih, livestreamovi, kasni Beamly katalog), popravljene samo naprijed.
