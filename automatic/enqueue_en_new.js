@@ -403,7 +403,13 @@ async function refreshStaleEn() {
                 `node force_upload.js --video-id ${e.id} --channel ${e.channel} --targets summary-en,article-en,magisterium-en`,
                 `{ node tools/force_upload_epubs.js --changed-only --video-id ${e.id}; node build_episode_bundle.js --video-id ${e.id}; true; }`,
             ].join(' && ')]);
-        const verified = ok && (await get('article.en.json')).ga === hr.article;
+        // Rub CDN-a zna kasniti par sekundi iza PUT+purge (05.11. oxq1U0xypu8: lažni ❌, a CDN
+        // je za minutu bio ispravan) → 0 / 10 / 30 s, kao provjera u polleru.
+        let verified = false;
+        for (const waitMs of ok ? [0, 10000, 30000] : []) {
+            if (waitMs) await new Promise((res) => setTimeout(res, waitMs));
+            if ((verified = (await get('article.en.json')).ga === hr.article)) break;
+        }
         state[e.id] = verified ? { sig, fresh: true } : { sig, tries: (st && st.sig === sig ? st.tries || 0 : 0) + 1 };
         console.log(verified ? `  ✅ EN ${tag} objavljen iz trenutnog HR-a` : `  ❌ EN ${tag} nije uspio (CDN article.en.json još nije iz trenutnog HR-a)`);
     }
