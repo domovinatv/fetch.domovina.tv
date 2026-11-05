@@ -77,3 +77,24 @@ flowchart LR
 - Prototip: `tools/reel_studio/prototype-v2.html` (ASR „Soniox → fallback Speechmatics (plan)”).
 - Speechmatics + Gemini sluh: `docs/2026-09-19-speechmatics-kostur-gemini-sluh.md`.
 - agy kroz pretplatu: `docs/2026-10-15-agy-gemini-sluh-kroz-pretplatu.md`.
+
+## 05.11.2026.: HTTP 402 na pyannoteAI = ključ iz krivog tima
+
+Od 04.11. u 00:05 (priority) i u nightlyju 05.11. KORAK 2.7c je za svaku epizodu dobio
+`HTTP 402 — Insufficient credits and no active subscription`. Trial **nije** bio potrošen:
+stari `PYANNOTE_API_KEY` (`sk_f...b2`, dodan 24.10.) pripadao je drugom timu bez kredita, a tim
+**italk** na dashboard.pyannote.ai imao je 28,47 h / 150 h Diarization Precision. Dashboard
+pokazuje kredite samo za tim u kojem gledaš, a ključ ne kaže kojem timu pripada.
+
+- **Popravak:** `.env` `PYANNOTE_API_KEY` = italk ključ `domovina_ai_fetch_nightly` (`sk_7...21`);
+  stari ostaje zakomentiran. `.env.experiments` `PYANNOTEAI_API_KEY` (`sk_9...58`) je također italk.
+- **Besplatna proba kredita** (ništa se ne naplati):
+  `POST /v1/diarize` s `{"url":"media://domovina/__nonexistent_probe__.wav"}` →
+  **400** „Media not found" = ključ ima kredita, **402** = nema. `GET /v1/test` vraća 200 i za
+  ključ bez kredita, pa ne pomaže.
+- **Učinak dok je trajalo:** 2.7c je non-fatal i ne ponavlja 402, pa nije bilo bačenih poziva;
+  KORAK 2.8 je epizode objavio na golom Soniox kosturu (Sonioxovi govornici).
+- **Otvoreno:** trial italk tima istječe **12.11.2026.**; 28 h je ~3–5 noći Tier 1 (4–8 epizoda
+  po ~1–1,5 h). Nakon toga ponovno 402 bez nadogradnje (~€0,11/h). 01.–03.11. je priority slot
+  (Tier 2) poslao 40 + 44 + 55 uspješnih pyannoteAI poziva, prije nego što je `43d24032` ograničio
+  pyannoteAI na Tier 1.
