@@ -471,3 +471,83 @@ for x in SUMMARY:
     if len(cap) + len(line) > 990: break
     cap += line
 open(S + '/caption.html', 'w').write(cap.strip())
+
+# ---------- Mobitel: 4 uspravne slike (album u Telegramu) ----------
+# A4 landscape PDF je na mobitelu nečitljiv, a Telegram Desktop PDF ni ne prikazuje. Slike
+# 1080 px širine (6 in × 180 dpi) s velikim fontom čitaju se svugdje.
+plt.rcParams.update({'font.size': 11, 'font.family': ['Helvetica', 'DejaVu Sans']})
+MW, DPI = 6, 180
+def save(fig, name):
+    fig.savefig(S + '/' + name, dpi=DPI, bbox_inches='tight', facecolor='white'); plt.close(fig)
+# 1) okomiti gantogram: trake su stupci, vrijeme teče prema dolje
+lanes_m = ['Nightly'] + [f'Slot {k}' for k in SLOTS] + ['Mag HR', 'EN']
+fig, ax = plt.subplots(figsize=(MW, 10.5))
+X = {n: i for i, n in enumerate(lanes_m)}
+def vbar(lane, a, b, c, txt=None):
+    ax.bar(X[lane], b - a, bottom=a, width=0.78, color=c, edgecolor='white', lw=0.6)
+    if txt and b - a > 420: ax.text(X[lane], (a + b) / 2, txt, ha='center', va='center', fontsize=7.5, color='white', rotation=0)
+for sx in NS: vbar('Nightly', sx['start'], sx['end'], PH[STEP2PH.get(sx['k'], 14)][2])
+for e in T2: vbar(f"Slot {e['slot']}", e['start'], e['end'], '#E45756' if e['state'] == 'failed' else '#4C78A8', e['vid'][:5])
+for v, d in MHR.items(): vbar('Mag HR', d['start'], d['end'], '#B279A2', v[:5])
+for t in mag['en']:
+    if t['items'] and any(x[2] in DAYV for x in t['items']): vbar('EN', ts(t['start']), ts(t['end']), '#F58518')
+lo, hi = ts(DAY['x1'][0]), ts(DAY['x1'][1])
+ax.set_ylim(hi, lo); tk = list(range(lo - lo % 1800, hi + 1, 1800))
+ax.set_yticks(tk); ax.set_yticklabels([hm(t)[:5] for t in tk]); ax.grid(axis='y', color='#ddd', lw=0.6); ax.set_axisbelow(True)
+ax.set_xticks(range(len(lanes_m))); ax.set_xticklabels(lanes_m); ax.xaxis.tick_top()
+for sp in ('right', 'bottom'): ax.spines[sp].set_visible(False)
+ax.set_title(f'{DHR} – tko je radio kada', loc='left', fontsize=13, pad=26)
+save(fig, 'mobile_1_gantt.png')
+# 2) Tier 2 po epizodi: natpis iznad trake, traka preko cijele širine
+okm = [e for e in T2 if e['state'] == 'done']
+fig, ax = plt.subplots(figsize=(MW, 0.62 * max(1, len(okm)) + 1.6))
+mx = max([sum(e['phase']) / 60 for e in okm] or [1])
+for i, e in enumerate(okm):
+    yy = -i; left = 0
+    for p_, (n_, _, c_) in enumerate(PH):
+        w = e['phase'][p_] / 60
+        if w > 0: ax.barh(yy, w, left=left, color=c_, height=0.42)
+        left += w
+    ax.text(0, yy + 0.33, f"s{e['slot']} · {e['channel'][:24]}  ·  {sum(e['phase'])/60:.0f} min (audio {(e['audio'] or 0)//60} min)", fontsize=8.5, va='bottom')
+ax.set_ylim(-len(okm) + 0.4, 0.95); ax.set_xlim(0, mx * 1.02); ax.set_yticks([])
+ax.set_xlabel('minute obrade'); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+for sp in ('left', 'right', 'top'): ax.spines[sp].set_visible(False)
+ax.legend(handles=[Patch(color=c, label=n) for n, _, c in PH], ncol=2, fontsize=7.5, loc='upper center', bbox_to_anchor=(0.5, -0.06 if len(okm) > 8 else -0.2), frameon=False)
+ax.set_title(f'Tier 2 – {len(okm)} epizoda, vrijeme po koraku', loc='left', fontsize=13)
+save(fig, 'mobile_2_epizode.png')
+# 3) kamo ide vrijeme
+fig, ax = plt.subplots(figsize=(MW, 5.5))
+ax.barh(range(len(order)), [tot[p] for p in order], color=[PH[p][2] for p in order])
+for i, p_ in enumerate(order):
+    ax.text(tot[p_] + 1, i, f"{tot[p_]:.0f} min · {100*tot[p_]/max(1,sum(tot)):.0f} %", va='center', fontsize=9)
+ax.set_yticks(range(len(order))); ax.set_yticklabels([PH[p][0] for p in order], fontsize=9)
+ax.set_xlim(0, max(tot or [1]) * 1.45); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+for sp in ('right', 'top'): ax.spines[sp].set_visible(False)
+ax.set_title(f'Kamo ide vrijeme (Tier 2, {sum(tot):.0f} min)', loc='left', fontsize=13)
+save(fig, 'mobile_3_koraci.png')
+# 4) stanje po epizodi: članak / EN / Magisterium HR / Magisterium EN
+cdn_ = DAY.get('auto', {}).get('cdn', {})
+rows_m = [(n['vid'], n['channel'], 'N') for n in NIGHT] + [(e['vid'], e['channel'], f"s{e['slot']}") for e in T2]
+fig, ax = plt.subplots(figsize=(MW, 0.36 * len(rows_m) + 1.3)); ax.axis('off')
+cols = ['', 'kanal', 'video', 'članak', 'EN', 'Mag HR', 'Mag EN']
+def mark(c, k, v):
+    if c.get(k): return '✓'
+    if k == 'mhr' and 'hr' in MQ.get(v, ()): return 'red'
+    if k in ('en', 'men') and 'en' in MQ.get(v, ()): return 'red'
+    return '–'
+cells = []
+for v, ch, src in rows_m:
+    c = cdn_.get(v, {})
+    cells.append([src, ch[:16], v, mark(c, 'art', v), mark(c, 'en', v), mark(c, 'mhr', v), mark(c, 'men', v)])
+tb = ax.table(cellText=cells, colLabels=cols, loc='upper center', cellLoc='center', colLoc='center',
+              colWidths=[0.06, 0.3, 0.22, 0.1, 0.08, 0.12, 0.12])
+tb.auto_set_font_size(False); tb.set_fontsize(8.5); tb.scale(1, 1.35)
+for (r, c), cell in tb.get_celld().items():
+    cell.set_edgecolor('#ddd')
+    if r == 0: cell.set_facecolor('#f0f0f0'); cell.set_text_props(weight='bold')
+    t = cell.get_text().get_text()
+    if t == '✓': cell.set_text_props(color='#2E7D32', weight='bold')
+    if t == 'red': cell.set_facecolor('#fff4dc'); cell.get_text().set_text('u redu')
+ax.set_title('Stanje na CDN-u po epizodi (N = nightly, s1/s2 = slot)', loc='left', fontsize=12)
+save(fig, 'mobile_4_stanje.png')
+

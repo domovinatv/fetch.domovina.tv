@@ -11,6 +11,8 @@ jednom dnevno:
 - svaka epizoda dana na CDN-u (`episode.json`) ima članak i EN članak, uz Magisterium HR i Magisterium EN,
   a nijedan Magisterium/EN posao tih epizoda ne čeka u redu.
 
+Šalje se **album 4 uspravne slike** (gantogram okomito, Tier 2 po epizodi, kamo ide vrijeme, stanje po epizodi; za mobitel i Telegram Desktop, koji PDF ne prikazuje) s potpisom = sažetak, pa **puni A4 PDF** za desktop (`POST /telegram/photos` + `/telegram/document`).
+
 U **21:00** (`REPORT_DEADLINE`) šalje i ako nije sve gotovo, s popisom što fali. Token bota je samo u
 Workeru `li.domovina.ai` (repo `~/git/stepanic/linkedin-poster`), pa PDF ide kroz njegov
 `POST /telegram/document` (bearer = `API_TOKEN` iz `linkedin-poster/.dev.vars`). Sažetak u

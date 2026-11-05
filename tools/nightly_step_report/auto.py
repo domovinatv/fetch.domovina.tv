@@ -182,16 +182,21 @@ if DRY:
     log(f'dry-run: {pdf} ({os.path.getsize(pdf)//1024} KB)\n{caption}'); sys.exit(0)
 
 # ---------------- slanje ----------------
+# 1) album uspravnih slika s potpisom (mobitel i Telegram Desktop), 2) puni A4 PDF za desktop.
 tok = os.environ.get('LINKEDIN_POSTER_TOKEN') or re.search(r'^API_TOKEN=(.+)$', open(POSTER_VARS).read(), re.M)[1].strip()
-r = subprocess.run(['curl', '-sS', '--max-time', '120', '-X', 'POST', '-H', f'Authorization: Bearer {tok}',
-                    '-F', f'document=@{pdf};type=application/pdf', '--form-string', f'caption={caption}', f'{POSTER}/telegram/document'],
-                   capture_output=True, text=True)
-try:
-    res = json.loads(r.stdout)
-except Exception:
-    res = dict(sent=False, raw=(r.stdout + r.stderr)[:300])
-log('Telegram:', res)
-if res.get('sent'):
-    json.dump(dict(at=D.datetime.now().isoformat(timespec='seconds'), ready=ready, pdf=pdf, result=res), open(SENT, 'w'))
+def post(path, form):
+    cmd = ['curl', '-sS', '--max-time', '180', '-X', 'POST', '-H', f'Authorization: Bearer {tok}']
+    for k, v, raw in form: cmd += (['--form-string', f'{k}={v}'] if raw else ['-F', f'{k}={v}'])
+    r = subprocess.run(cmd + [POSTER + path], capture_output=True, text=True)
+    try: return json.loads(r.stdout)
+    except Exception: return dict(sent=False, raw=(r.stdout + r.stderr)[:300])
+pngs = sorted(glob.glob(os.path.join(W, 'mobile_*.png')))
+album = post('/telegram/photos', [('photo', f'@{p};type=image/png', False) for p in pngs] + [('caption', caption, True)]) if len(pngs) >= 2 else dict(sent=False, raw='nema slika')
+log('Telegram album:', album)
+doc = post('/telegram/document', [('document', f'@{pdf};type=application/pdf', False),
+                                  ('caption', f'📄 Puni report {DATE} (A4, za desktop)' if album.get('sent') else caption, True)])
+log('Telegram PDF:', doc)
+if album.get('sent') or doc.get('sent'):
+    json.dump(dict(at=D.datetime.now().isoformat(timespec='seconds'), ready=ready, pdf=pdf, album=album, pdf_result=doc), open(SENT, 'w'))
 else:
     sys.exit(1)
