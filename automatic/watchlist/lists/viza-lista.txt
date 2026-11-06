@@ -1,3 +1,4 @@
+20261105|VIZA 05.11.2026.|https://youtu.be/bv7jbxnc48E
 20261029|VIZA 29.10.2026.|https://youtu.be/3lCwkQ5QUXM
 20261028|VIZA 22.10.2026.|https://youtu.be/HE735FUPZxQ
 20261015|VIZA 15.10.2026.|https://youtu.be/gmpM4vVLeGY
@@ -41,6 +42,17 @@
 20251125|VIZA 13.11.2025.|https://youtu.be/9T2qzSqNnyk
 20251125|VIZA 06.11.2025.|https://youtu.be/D3sGuOw5EaU
 20251125|VIZA 30.10.2025.|https://youtu.be/_h0I9RwLa-0
+20251106|VIZA 02.01.2025.|https://youtu.be/oBeTP2NVb3E
+20251106|VIZA 26.12.2024.|https://youtu.be/DQElDdSUrKQ
+20251106|VIZA 19.12.2024.|https://youtu.be/Gp_fViftXmY
+20251106|VIZA 12.12.2024.|https://youtu.be/-pTdciUfJJM
+20251106|VIZA 5.12.2024.|https://youtu.be/mAbdz_-E0e8
+20251106|VIZA 28.11.2024.|https://youtu.be/XJce4lsW1oo
+20251106|VIZA 21.11.2024.|https://youtu.be/5BkUSm9PG9A
+20251106|Viza|https://youtu.be/V8kSglrpFQg
+20251106|VIZA 7.11.2024.|https://youtu.be/ACbnrnZ6yJc
+20251106|VIZA 31.10.2024.|https://youtu.be/Y65ydKflQNs
+20251106|VIZA 24.10.2024|https://youtu.be/5cIhn0p2Udw
 20251025|VIZA 23.10.2025.|https://youtu.be/QMj8arInpNE
 20251025|VIZA 16.10.2025.|https://youtu.be/FWuX1OfMRqA
 20251025|VIZA 9.10.2025.|https://youtu.be/Z6y_8P7G1BU
@@ -66,3 +78,21 @@
 20250925|VIZA 06.03.2025.|https://youtu.be/tvYHlYRKygU
 20250925|VIZA 27.02.2025.|https://youtu.be/dLl_1mWtc1c
 20250925|VIZA 20.02.2025.|https://youtu.be/ZIIAIqpraf0
+20241106|VIZA 03.10.2024.|https://youtu.be/_tJ7_I3aYT0
+20241106|VIZA 26.09.2024.|https://youtu.be/O_ehEvTv-xU
+20241106|VIZA 19.09.2024.|https://youtu.be/v2ZRY2SfMuI
+20241106|VIZA 12.09.2024|https://youtu.be/SSixbjwlKEg
+20241106|VIZA 20.06.2024.|https://youtu.be/0naerrpeF1E
+20241106|VIZA 13.06.2024|https://youtu.be/KgxQXP4mQCI
+20241106|VIZA 06.06.2024|https://youtu.be/LcEULTrP8w8
+20241106|VIZA 30.05.2024.|https://youtu.be/ZU7VUINCG_o
+20241106|VIZA 23.05.2024|https://youtu.be/jDJwisJbOQo
+20241106|VIZA 16.05.2024.|https://youtu.be/zqt4k7tKZdw
+20241106|VIZA 09.05.2024.|https://youtu.be/esRCz1tVyjE
+20241106|VIZA 02.05.2024.|https://youtu.be/EE38GkKPjjs
+20241106|VIZA 25.04.2024.|https://youtu.be/TSuJ87NUCN4
+20241106|VIZA 18.04.2024.|https://youtu.be/W5cU-8kWJG0
+20241106|VIZA 21.03.2024|https://youtu.be/2atFs5qcvao
+20241106|VIZA 14.03.2024.|https://youtu.be/AXmSP04V6Xg
+20241106|VIZA 07.03.2024|https://youtu.be/FYmtl-0Q0_M
+20241106|VIZA 29.02.2024.|https://youtu.be/D-YI1laLTgE
