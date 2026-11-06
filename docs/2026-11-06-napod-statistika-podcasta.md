@@ -248,3 +248,12 @@ Skripte i sirovi podaci: `experiments/2026-11-06-napod-publika/` (`fetch_audienc
 - **Rastući s djecom** ima na YouTubeu upisanu državu BiH, a podcast je na hrvatskom jeziku.
 - **Podcasting for Solopreneurs** je hrvatska autorica (Anja Lordanić) koja snima na engleskom. Epizode su kratke, pa joj je prag 5 min.
 - Brojke epizoda su donja granica za kanale koji dio epizoda imaju samo na Spotifyju/RSS-u (npr. audio-only ranih godina).
+
+## Za ponovni izračun (interno)
+
+1. `node experiments/2026-11-06-napod-publika/fetch_channel_stats.js <out>/channels.json` — kanali (1 jedinica, `snippet.country` = država)
+2. `node experiments/2026-11-06-napod-publika/report_stats.js <channels.json> <md>` — tablice kanala i epizoda iz `backfill.json` + registryja
+3. `node experiments/2026-11-06-napod-publika/fetch_audience.js` (~540 jedinica, keš u `data/output/cache/`, gitignored) pa `analyze.js` → `data/output/audience.md`, ubaci prije „Predavači i teme”
+4. PDF: `pandoc … -s --embed-resources -c pdf.css` → Chrome `--headless=new --print-to-pdf` (A4 landscape preko `@page`). Typst kroz pandoc nije korišten jer široke tablice ne stanu u portret.
+
+Zamke: kajkavski „kaj/lepo/sem” lažno okida slovenski i ekavicu; `report_stats.js` ima napomene s ručnim tvrdnjama (Glave, book&zvook) koje treba ponovno provjeriti pri osvježavanju. Rasponi procjene publike: opaženo preklapanje komentatora = donja granica, Lincoln–Petersen korekcija (parne/neparne epizode) = gornja.

@@ -57,11 +57,14 @@ cloud tok. Tier 2 = Speechmatics → Soniox (`pipeline.domovina.ai/bridge/plan.j
 ## Otvoreno
 
 - **Prvi Apparatus prijepis + članak provjeriti** (sl ASR → HR članak), prvi put u produkciji.
-- Glave playlista (203 videa) miješa epizode drugih Apparatus emisija → mogući duplikati s ČVKM.
+- ~~Glave playlista (203 videa) miješa epizode drugih Apparatus emisija → mogući duplikati s ČVKM.~~
+  Provjereno 06.11.: 0 od 197 originala Glava nije u ČVKM ni Opazovalnici, duplikata nema.
+- Država kanala (YouTube `snippet.country`, 06.11.): Rastući s djecom je **BA**, ostali hrvatski `HR`.
 - Zdrava priča: epizode 079–082 uploadane dvaput pod različitim naslovima → dvostruki Tier 2 jobovi.
 - Kadenca Tampon Zone / Pojačala iz agenata je dijelom procjena (bot-check bez kolačića).
 - Regionalni unosi ulaze i u glasački bazen pri idućem `sync_voting_candidates.mjs --commit`
   (filtar je samo po statusu) — nije odlučeno je li to željeno.
 
-Vezani dokumenti: `docs/2026-11-01-obrada-svih-epizoda-pilot.md`,
+Vezani dokumenti: `docs/2026-11-06-napod-statistika-podcasta.md` (statistika + procjena publike, PDF uz njega),
+`docs/2026-11-01-obrada-svih-epizoda-pilot.md`,
 `docs/2026-11-02-asr-tier1-soniox-tier2-speechmatics.md`, `docs/REGISTRY_DISCOVERY.md`.
