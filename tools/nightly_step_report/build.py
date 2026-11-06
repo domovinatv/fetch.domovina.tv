@@ -147,63 +147,66 @@ xfmt(ax, ts(DAY['x1'][0]), ts(DAY['x1'][1]))
 ax.set_title(f'{DHR} – rad po trakama (CET)', loc='left', fontsize=10)
 G1 = fig_b64(fig)
 
-# ---------- Graf 2: Tier 2 po epizodi, stvarna vremena po fazi ----------
-rows = T2
-fig, ax = plt.subplots(figsize=(11, 0.32 * len(rows) + 1.2))
-for i, e in enumerate(rows[::-1]):
-    yy = i
-    if e['claimed'] and e['created']:
-        pass
-    ax.barh(yy, e['pre'], left=e['claimed'], color=PRE_C, height=0.7)
-    for s in e['steps']:
-        if s['d'] > 0:
-            ax.barh(yy, s['d'], left=s['start'], color=PH[STEP2PH.get(s['k'], 14)][2], height=0.7)
-    if e['post']:
-        ax.barh(yy, e['post'], left=e['end'], color=POST_C, height=0.7)
-    if e['vid'] in MHR:
-        d = MHR[e['vid']]; ax.barh(yy, d['end'] - d['start'], left=d['start'], color='#B279A2', height=0.35, alpha=0.9)
-    lab = f"s{e['slot']} · {e['channel'][:22]} · {e['vid']}"
-    ax.text(e['claimed'] - 90, yy, lab, ha='right', va='center', fontsize=6.5)
-ax.set_yticks([])
-xfmt(ax, ts(DAY['x2'][0]), ts(DAY['x2'][1]))
-handles = [Patch(color=c, label=n) for n, _, c in PH] + [Patch(color=PRE_C, label='start slota'), Patch(color=POST_C, label='zatvaranje (reconcile)'), Patch(color='#B279A2', label='Magisterium HR (tanka traka)')]
-ax.legend(handles=handles, ncol=6, fontsize=6, loc='upper center', bbox_to_anchor=(0.5, -0.06), frameon=False)
-ax.set_title('Tier 2: svaka epizoda od preuzimanja posla do kraja, obojeno po koraku', loc='left', fontsize=10)
-G2 = fig_b64(fig)
-
-# ---------- Graf 3: trajanje po fazi (min), stacked, po epizodi ----------
 ok = [e for e in T2 if e['state'] == 'done']
-fig, ax = plt.subplots(figsize=(11, 0.3 * len(ok) + 1.3))
-for i, e in enumerate(ok[::-1]):
-    left = 0
-    for p, (n, _, c) in enumerate(PH):
-        w = e['phase'][p] / 60
-        if w > 0: ax.barh(i, w, left=left, color=c, height=0.7)
-        left += w
-    tot = sum(e['phase']) / 60
-    ax.text(left + 0.3, i, f"{tot:.0f} min  (audio {e['audio']//60} min)", va='center', fontsize=6.5)
-ax.set_yticks(range(len(ok))); ax.set_yticklabels([f"{e['channel'][:22]} · {e['vid']}" for e in ok[::-1]], fontsize=6.5)
-ax.set_xlabel('minute (zbroj koraka pipelinea, bez čekanja u redu)')
-ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
-ax.legend(handles=[Patch(color=c, label=n) for n, _, c in PH], ncol=5, fontsize=6, loc='upper center', bbox_to_anchor=(0.5, -0.12), frameon=False)
-ax.set_title('Tier 2: kamo ide vrijeme po epizodi', loc='left', fontsize=10)
-G3 = fig_b64(fig)
+# Dan bez ijednog gotovog Tier 2 posla (npr. 06.11.2026., ograda tjedne kvote): grafovi 2–4 nemaju što crtati.
+G2 = G3 = G4 = None
+if ok:
+    # ---------- Graf 2: Tier 2 po epizodi, stvarna vremena po fazi ----------
+    rows = T2
+    fig, ax = plt.subplots(figsize=(11, 0.32 * len(rows) + 1.2))
+    for i, e in enumerate(rows[::-1]):
+        yy = i
+        if e['claimed'] and e['created']:
+            pass
+        ax.barh(yy, e['pre'], left=e['claimed'], color=PRE_C, height=0.7)
+        for s in e['steps']:
+            if s['d'] > 0:
+                ax.barh(yy, s['d'], left=s['start'], color=PH[STEP2PH.get(s['k'], 14)][2], height=0.7)
+        if e['post']:
+            ax.barh(yy, e['post'], left=e['end'], color=POST_C, height=0.7)
+        if e['vid'] in MHR:
+            d = MHR[e['vid']]; ax.barh(yy, d['end'] - d['start'], left=d['start'], color='#B279A2', height=0.35, alpha=0.9)
+        lab = f"s{e['slot']} · {e['channel'][:22]} · {e['vid']}"
+        ax.text(e['claimed'] - 90, yy, lab, ha='right', va='center', fontsize=6.5)
+    ax.set_yticks([])
+    xfmt(ax, ts(DAY['x2'][0]), ts(DAY['x2'][1]))
+    handles = [Patch(color=c, label=n) for n, _, c in PH] + [Patch(color=PRE_C, label='start slota'), Patch(color=POST_C, label='zatvaranje (reconcile)'), Patch(color='#B279A2', label='Magisterium HR (tanka traka)')]
+    ax.legend(handles=handles, ncol=6, fontsize=6, loc='upper center', bbox_to_anchor=(0.5, -0.06), frameon=False)
+    ax.set_title('Tier 2: svaka epizoda od preuzimanja posla do kraja, obojeno po koraku', loc='left', fontsize=10)
+    G2 = fig_b64(fig)
 
-# ---------- Graf 4: ukupno po fazi ----------
-tot = [sum(e['phase'][p] for e in ok) / 60 for p in range(len(PH))]
-order = sorted(range(len(PH)), key=lambda p: tot[p])
-fig, ax = plt.subplots(figsize=(7, 3.6))
-ax.barh(range(len(order)), [tot[p] for p in order], color=[PH[p][2] for p in order])
-for i, p in enumerate(order):
-    ax.text(tot[p] + 1, i, f"{tot[p]:.0f} min · {100*tot[p]/sum(tot):.0f} %", va='center', fontsize=7)
-ax.set_yticks(range(len(order))); ax.set_yticklabels([PH[p][0] for p in order])
-ax.set_xlim(0, max(tot) * 1.25); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
-ax.set_title(f'Tier 2: zbroj po koraku, {len(ok)} epizoda ({sum(tot):.0f} min ukupno)', loc='left', fontsize=10)
-G4 = fig_b64(fig)
+    # ---------- Graf 3: trajanje po fazi (min), stacked, po epizodi ----------
+    fig, ax = plt.subplots(figsize=(11, 0.3 * len(ok) + 1.3))
+    for i, e in enumerate(ok[::-1]):
+        left = 0
+        for p, (n, _, c) in enumerate(PH):
+            w = e['phase'][p] / 60
+            if w > 0: ax.barh(i, w, left=left, color=c, height=0.7)
+            left += w
+        tot = sum(e['phase']) / 60
+        ax.text(left + 0.3, i, f"{tot:.0f} min  (audio {e['audio']//60} min)", va='center', fontsize=6.5)
+    ax.set_yticks(range(len(ok))); ax.set_yticklabels([f"{e['channel'][:22]} · {e['vid']}" for e in ok[::-1]], fontsize=6.5)
+    ax.set_xlabel('minute (zbroj koraka pipelinea, bez čekanja u redu)')
+    ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+    ax.legend(handles=[Patch(color=c, label=n) for n, _, c in PH], ncol=5, fontsize=6, loc='upper center', bbox_to_anchor=(0.5, -0.12), frameon=False)
+    ax.set_title('Tier 2: kamo ide vrijeme po epizodi', loc='left', fontsize=10)
+    G3 = fig_b64(fig)
+
+    # ---------- Graf 4: ukupno po fazi ----------
+    tot = [sum(e['phase'][p] for e in ok) / 60 for p in range(len(PH))]
+    order = sorted(range(len(PH)), key=lambda p: tot[p])
+    fig, ax = plt.subplots(figsize=(7, 3.6))
+    ax.barh(range(len(order)), [tot[p] for p in order], color=[PH[p][2] for p in order])
+    for i, p in enumerate(order):
+        ax.text(tot[p] + 1, i, f"{tot[p]:.0f} min · {100*tot[p]/sum(tot):.0f} %", va='center', fontsize=7)
+    ax.set_yticks(range(len(order))); ax.set_yticklabels([PH[p][0] for p in order])
+    ax.set_xlim(0, max(tot) * 1.25); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+    ax.set_title(f'Tier 2: zbroj po koraku, {len(ok)} epizoda ({sum(tot):.0f} min ukupno)', loc='left', fontsize=10)
+    G4 = fig_b64(fig)
 
 # ---------- brojke za sažetak ----------
 import statistics as st
-first_claim = min(e['claimed'] for e in T2); last_done = max(e['done'] for e in T2 if e['done'])
+first_claim = min((e['claimed'] for e in T2), default=0); last_done = max((e['done'] for e in T2 if e['done']), default=first_claim)
 audio_ok = sum(e['audio'] or 0 for e in ok)
 proc = [sum(e['phase']) for e in ok]
 waits = [e['claimed'] - e['created'] for e in T2]
@@ -211,7 +214,7 @@ mhr_d = [MHR[v]['end'] - MHR[v]['start'] for v in MHR]
 en_d = [MEN[v]['main'][1] - MEN[v]['main'][0] for v in MEN if MEN[v]['main']]
 n402 = sum(1 for e in ok if e['pyannote402'])
 n_late = sum(1 for v in MEN.values() if v['mag'])
-last_all = max([d['end'] for d in MHR.values()] + [x[3] for v in MEN.values() for x in v['items']])
+last_all = max([d['end'] for d in MHR.values()] + [x[3] for v in MEN.values() for x in v['items']], default=0)
 # Magisterium/EN poslovi koji još čekaju u redu (stanje iz API-ja u trenutku dumpa)
 MQ = {}
 for m in json.load(open(S + '/jobs.json')).get('mags', []):
@@ -225,7 +228,7 @@ def overlap(a, b):
         for y0, y1 in b: tot += max(0, min(x1, y1) - max(x0, y0))
     return tot
 both = overlap(busy[SLOTS[0]], busy[SLOTS[1]]) if len(SLOTS) > 1 else 0
-last_claim = max(e['claimed'] for e in T2)
+last_claim = max((e['claimed'] for e in T2), default=0)
 s2_idle = 0
 if len(SLOTS) > 1:
     iv = busy[SLOTS[1]]
@@ -243,9 +246,9 @@ V = dict(night_end=DAY['night_end'][:5], nightly_done=DAY.get('nightly_done', ''
          n_s1=sum(1 for e in T2 if e['slot'] == 1), n_s2=sum(1 for e in T2 if e['slot'] == 2),
          first_claim=hm(first_claim)[:5], last_done=hm(last_done)[:5], span_h=f"{(last_done-first_claim)/3600:.1f}".replace('.', ','),
          both_h=f"{both/3600:.1f}".replace('.', ','), s2_idle=round(s2_idle / 60),
-         proc_med=round(st.median(proc) / 60), proc_min=round(min(proc) / 60), proc_max=round(max(proc) / 60),
-         audio_h=f"{audio_ok/3600:.1f}".replace('.', ','), wait_med=round(st.median(waits) / 60), wait_max=round(max(waits) / 60),
-         top_phases=', '.join(f'{PH[p][0]} {tot_[p]:.0f} min ({100*tot_[p]/sum(tot_):.0f} %)' for p in order_[::-1][:5]),
+         proc_med=round(st.median(proc) / 60) if proc else 0, proc_min=round(min(proc, default=0) / 60), proc_max=round(max(proc, default=0) / 60),
+         audio_h=f"{audio_ok/3600:.1f}".replace('.', ','), wait_med=round(st.median(waits) / 60) if waits else 0, wait_max=round(max(waits, default=0) / 60),
+         top_phases=', '.join(f'{PH[p][0]} {tot_[p]:.0f} min ({100*tot_[p]/max(sum(tot_), 1e-9):.0f} %)' for p in order_[::-1][:5]),
          n_mhr=len(MHR), mhr_cad=round(mhr_cad / 60), mhr_med=round(mhr_per / 60), mhr_last=hm(max(d['end'] for d in MHR.values()))[:5] if MHR else '–',
          n_mhr_q=len(mhr_q), mhr_q_list=', '.join(f'`{v}`' for v in mhr_q),
          mhr_eta=f"{eta/3600:.1f}".replace('.', ','), mhr_eta_t=hm(now_s + eta)[:5],
@@ -307,6 +310,19 @@ GANTT = '\n'.join(G)
 
 # ---------- HTML ----------
 H = []
+T2_HTML = (f'''<img src="{G2}">
+<div class="small">Siva traka lijevo = od preuzimanja posla do početka pipelinea; tamna traka desno = zatvaranje (reconcile, inventar, PATCH na API). Tanka ljubičasta traka = Magisterium HR iste epizode.</div>
+<div class="pb"></div>
+<img src="{G3}">
+<div class="grid"><div><img src="{G4}"></div><div>
+<h3>Kako čitati</h3>
+<ul>
+<li>Trajanje je zbroj koraka pipelinea za tu epizodu, bez čekanja u redu i bez Magisteriuma/EN-a (oni idu u zasebnim trakama, paralelno sa slotom).</li>
+<li><b>Članak (8)</b> = outline + jedan Opus poziv po iteraciji od ~35–45 min snimke; zato raste s duljinom.</li>
+<li><b>H.264 (12.5)</b> = transkodiranje i upload videa; raste s duljinom videa.</li>
+<li><b>Screenshotovi (10)</b> = yt-dlp stream + Apple Vision izbor kadra (21 kandidat po kadru).</li>
+<li><b>Reels (9.9)</b> = 1 Opus poziv po epizodi.</li>
+</ul></div></div>''' if ok else '<p class="small">Tier 2 danas nije obradio nijednu epizodu, pa grafova po epizodi nema.</p>')
 A = H.append
 A(f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><title>Nightly {DHR} – vremena po koraku</title>
 <style>
@@ -337,19 +353,7 @@ pre.mermaid {{ margin:0; text-align:center; }} pre.mermaid svg {{ max-width:100%
 <img src="{G1}">
 <div class="pb"></div><h2>Gantogram (Mermaid)</h2><pre class="mermaid">{esc(GANTT)}</pre>
 <div class="pb"></div>
-<img src="{G2}">
-<div class="small">Siva traka lijevo = od preuzimanja posla do početka pipelinea; tamna traka desno = zatvaranje (reconcile, inventar, PATCH na API). Tanka ljubičasta traka = Magisterium HR iste epizode.</div>
-<div class="pb"></div>
-<img src="{G3}">
-<div class="grid"><div><img src="{G4}"></div><div>
-<h3>Kako čitati</h3>
-<ul>
-<li>Trajanje je zbroj koraka pipelinea za tu epizodu, bez čekanja u redu i bez Magisteriuma/EN-a (oni idu u zasebnim trakama, paralelno sa slotom).</li>
-<li><b>Članak (8)</b> = outline + jedan Opus poziv po iteraciji od ~35–45 min snimke; zato raste s duljinom.</li>
-<li><b>H.264 (12.5)</b> = transkodiranje i upload videa; raste s duljinom videa.</li>
-<li><b>Screenshotovi (10)</b> = yt-dlp stream + Apple Vision izbor kadra (21 kandidat po kadru).</li>
-<li><b>Reels (9.9)</b> = 1 Opus poziv po epizodi.</li>
-</ul></div></div>
+{T2_HTML}
 """)
 
 # ---------- Tablica 1: Tier 2 matrica faza ----------
@@ -414,7 +418,7 @@ for i, e in enumerate(T2, 1):
 A('</div><div class="small">Prikazani su koraci od 3 s naviše; kraći (0, 2.5, 9.4, 9.5, 9.7, 9.85, 12.6, 12.68, 12.8, 13) su zbrojeni u fazama u tablici gore. Prvi redak = korak, drugi = početak, treći = trajanje.</div>')
 A('</body></html>')
 open(S + '/report.html', 'w').write(''.join(H))
-print('ok', len(T2), len(ok), st.median(proc) / 60, [round(t) for t in tot], n402)
+print('ok', len(T2), len(ok), st.median(proc) / 60 if proc else 0, [round(t) for t in tot_], n402)
 
 # ---------- Markdown za docs/ ----------
 M = []
@@ -500,31 +504,32 @@ ax.set_title(f'{DHR} – tko je radio kada', loc='left', fontsize=13, pad=26)
 save(fig, 'mobile_1_gantt.png')
 # 2) Tier 2 po epizodi: natpis iznad trake, traka preko cijele širine
 okm = [e for e in T2 if e['state'] == 'done']
-fig, ax = plt.subplots(figsize=(MW, 0.62 * max(1, len(okm)) + 1.6))
-mx = max([sum(e['phase']) / 60 for e in okm] or [1])
-for i, e in enumerate(okm):
-    yy = -i; left = 0
-    for p_, (n_, _, c_) in enumerate(PH):
-        w = e['phase'][p_] / 60
-        if w > 0: ax.barh(yy, w, left=left, color=c_, height=0.42)
-        left += w
-    ax.text(0, yy + 0.33, f"s{e['slot']} · {e['channel'][:24]}  ·  {sum(e['phase'])/60:.0f} min (audio {(e['audio'] or 0)//60} min)", fontsize=8.5, va='bottom')
-ax.set_ylim(-len(okm) + 0.4, 0.95); ax.set_xlim(0, mx * 1.02); ax.set_yticks([])
-ax.set_xlabel('minute obrade'); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
-for sp in ('left', 'right', 'top'): ax.spines[sp].set_visible(False)
-ax.legend(handles=[Patch(color=c, label=n) for n, _, c in PH], ncol=2, fontsize=7.5, loc='upper center', bbox_to_anchor=(0.5, -0.06 if len(okm) > 8 else -0.2), frameon=False)
-ax.set_title(f'Tier 2 – {len(okm)} epizoda, vrijeme po koraku', loc='left', fontsize=13)
-save(fig, 'mobile_2_epizode.png')
-# 3) kamo ide vrijeme
-fig, ax = plt.subplots(figsize=(MW, 5.5))
-ax.barh(range(len(order)), [tot[p] for p in order], color=[PH[p][2] for p in order])
-for i, p_ in enumerate(order):
-    ax.text(tot[p_] + 1, i, f"{tot[p_]:.0f} min · {100*tot[p_]/max(1,sum(tot)):.0f} %", va='center', fontsize=9)
-ax.set_yticks(range(len(order))); ax.set_yticklabels([PH[p][0] for p in order], fontsize=9)
-ax.set_xlim(0, max(tot or [1]) * 1.45); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
-for sp in ('right', 'top'): ax.spines[sp].set_visible(False)
-ax.set_title(f'Kamo ide vrijeme (Tier 2, {sum(tot):.0f} min)', loc='left', fontsize=13)
-save(fig, 'mobile_3_koraci.png')
+if okm:  # dan bez gotovog Tier 2 posla: nema slika 2 i 3
+    fig, ax = plt.subplots(figsize=(MW, 0.62 * max(1, len(okm)) + 1.6))
+    mx = max([sum(e['phase']) / 60 for e in okm] or [1])
+    for i, e in enumerate(okm):
+        yy = -i; left = 0
+        for p_, (n_, _, c_) in enumerate(PH):
+            w = e['phase'][p_] / 60
+            if w > 0: ax.barh(yy, w, left=left, color=c_, height=0.42)
+            left += w
+        ax.text(0, yy + 0.33, f"s{e['slot']} · {e['channel'][:24]}  ·  {sum(e['phase'])/60:.0f} min (audio {(e['audio'] or 0)//60} min)", fontsize=8.5, va='bottom')
+    ax.set_ylim(-len(okm) + 0.4, 0.95); ax.set_xlim(0, mx * 1.02); ax.set_yticks([])
+    ax.set_xlabel('minute obrade'); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+    for sp in ('left', 'right', 'top'): ax.spines[sp].set_visible(False)
+    ax.legend(handles=[Patch(color=c, label=n) for n, _, c in PH], ncol=2, fontsize=7.5, loc='upper center', bbox_to_anchor=(0.5, -0.06 if len(okm) > 8 else -0.2), frameon=False)
+    ax.set_title(f'Tier 2 – {len(okm)} epizoda, vrijeme po koraku', loc='left', fontsize=13)
+    save(fig, 'mobile_2_epizode.png')
+    # 3) kamo ide vrijeme
+    fig, ax = plt.subplots(figsize=(MW, 5.5))
+    ax.barh(range(len(order)), [tot[p] for p in order], color=[PH[p][2] for p in order])
+    for i, p_ in enumerate(order):
+        ax.text(tot[p_] + 1, i, f"{tot[p_]:.0f} min · {100*tot[p_]/max(1,sum(tot)):.0f} %", va='center', fontsize=9)
+    ax.set_yticks(range(len(order))); ax.set_yticklabels([PH[p][0] for p in order], fontsize=9)
+    ax.set_xlim(0, max(tot or [1]) * 1.45); ax.grid(axis='x', color='#ddd', lw=0.5); ax.set_axisbelow(True)
+    for sp in ('right', 'top'): ax.spines[sp].set_visible(False)
+    ax.set_title(f'Kamo ide vrijeme (Tier 2, {sum(tot):.0f} min)', loc='left', fontsize=13)
+    save(fig, 'mobile_3_koraci.png')
 # 4) stanje po epizodi: članak / EN / Magisterium HR / Magisterium EN
 cdn_ = DAY.get('auto', {}).get('cdn', {})
 rows_m = [(n['vid'], n['channel'], 'N') for n in NIGHT] + [(e['vid'], e['channel'], f"s{e['slot']}") for e in T2]
