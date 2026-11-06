@@ -19,6 +19,8 @@
 #  12.5 backfill_video_h264.js — H.264 cross-platform video → video_h264.mp4 (uz --with-r2-upload)
 #  12.65 generate_webp_screenshots.js — WebP 960 uz PNG screenshotove (od 10.10.2026., uz --with-r2-upload)
 #  12.7 build_episode_bundle.js — data/{id}/episode.json (popis datoteka + inline JSON), uz --with-r2-upload
+#       (od 06.11.2026. izvodi se IZA koraka 13 i 13.5)
+#  13.5 katalog ingest (domovina.ai/katalog/scripts/ingest-episode.ts) — D1 katalog + mapa kanala
 #
 # PREDUVJETI:
 #   - Disk DOMOVINA1TB mountan
@@ -2112,36 +2114,6 @@ node "$SCRIPT_DIR/render_reels.js" "${REELS_PUB_ARGS[@]}" || \
     echo "   ⚠️  Objava reels.json nije uspjela — launchd reels tick je pokupi kasnije."
 fi
 
-# --- KORAK 12.7: data/{id}/episode.json (uz --with-r2-upload) ---
-# Jedna datoteka po epizodi: izmjereni popis datoteka pod data/{id}/ + inline sadržaj
-# za prvi prikaz (domovina.ai 3 zahtjeva umjesto ~29). MORA biti zadnji upload u data/:
-# klijent ne traži datoteku koje nema u bundleu. Nightly radi cijeli katalog (~28 LIST
-# stranica; nepromijenjena epizoda ne košta nijedan GET), pa sve što su uploadali
-# alati izvan pipelinea (Magisterium, bulk backfilli) konvergira do jutra.
-# Nula LLM poziva. Vidi docs/2026-10-09-episode-json-bundle.md.
-if [ "$WITH_R2_UPLOAD" = true ]; then
-echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-korak "KORAK 12.7: episode.json bundle (data/{id}/episode.json)"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo ""
-
-BUNDLE_ARGS=(--all)
-if [ -n "$REPROCESS_VIDEO_ID" ]; then
-    BUNDLE_ARGS=(--video-id "$REPROCESS_VIDEO_ID")
-elif [ -n "$MODAL_ONLY_ID" ]; then
-    BUNDLE_ARGS=(--video-id "$MODAL_ONLY_ID")
-fi
-if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
-    BUNDLE_ARGS+=("--dry-run")
-fi
-
-env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
-node "$SCRIPT_DIR/build_episode_bundle.js" "${BUNDLE_ARGS[@]}" || {
-    echo "   ⚠️  Greška pri episode.json bundleu, nastavljam (idući run ga dovršava)..."
-}
-fi
-
 # --- KORAK 12.8: ručni YouTube titlovi za prioritetni video (od 29.10.2026.) ---
 # Nightly ih skida samo za originale praćenih kanala (backfill.json); ad-hoc video iz
 # pipeline.domovina.ai ih tako nikad ne bi dobio. Jedan Data API poziv (1 jedinica) i, samo
@@ -2188,6 +2160,80 @@ node "$SCRIPT_DIR/generate_channel_index.js" --input-dir "$OUTPUT_DIR" || {
 env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
 node "$SCRIPT_DIR/upload_to_r2.js" --meta-dir "$SCRIPT_DIR/storage/meta" || {
     echo "   ⚠️  Greška pri meta uploadu, nastavljam..."
+}
+fi
+
+# --- KORAK 13.5: KATALOG INGEST (uz --with-r2-upload; od 06.11.2026.) ---
+# Upiše epizode u katalog (D1 iza domovina.ai/api/katalog/v1) odmah nakon uploada, da nova
+# epizoda ne čeka jutarnji drift-check. Retke gradi katalogov kod u domovina.ai/katalog
+# (`scripts/ingest-episode.ts`, isti plan kao uvoznik), ne ovaj repo. Prioritetni/reprocess
+# run šalje svoj ID, ostali cijeli plan (nepromijenjeni retci = 0 promjena, ~3 s, ~560 GET-ova
+# na CDN). Usput zapiše `.katalog_channels.json` (epizoda → kanal) za `channel` u episode.json.
+# Neuspjeh NE ruši pipeline: `drift-check --sync` (launchd 08:45) ga popravi.
+# Token: INGEST_TOKEN u .env. Vidi docs/2026-11-06-katalog-ingest-nakon-uploada.md.
+KATALOG_DIR="${KATALOG_DIR:-$SCRIPT_DIR/../domovina.ai/katalog}"
+if [ "$WITH_R2_UPLOAD" = true ] && ! [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 13.5: Katalog ingest (domovina.ai/api/katalog)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+if [ ! -f "$KATALOG_DIR/scripts/ingest-episode.ts" ]; then
+    echo "   ⚠️  Nema $KATALOG_DIR/scripts/ingest-episode.ts — preskačem (drift-check ujutro)."
+else
+    KATALOG_ARGS=(--all)
+    if [ -n "$REPROCESS_VIDEO_ID" ]; then
+        KATALOG_ARGS=("$REPROCESS_VIDEO_ID")
+    elif [ -n "$MODAL_ONLY_ID" ]; then
+        KATALOG_ARGS=("$MODAL_ONLY_ID")
+    fi
+    KATALOG_TOKEN="$(sed -n 's/^[[:space:]]*INGEST_TOKEN[[:space:]]*=[[:space:]]*//p' "$SCRIPT_DIR/.env" 2>/dev/null | head -1 | tr -d "\"'")"
+    ( cd "$KATALOG_DIR" && env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+        INGEST_TOKEN="$KATALOG_TOKEN" \
+        KATALOG_KEY_CACHE_PATH="$SCRIPT_DIR/.r2_keys_cache.json" \
+        KATALOG_REGISTRY_PATH="$SCRIPT_DIR/data/podcasts_registry.json" \
+        node scripts/ingest-episode.ts "${KATALOG_ARGS[@]}" \
+            --channels-out "$SCRIPT_DIR/.katalog_channels.json" )
+    KATALOG_RC=$?
+    unset KATALOG_TOKEN
+    case $KATALOG_RC in
+        0) ;;
+        1) echo "   ⚠️  Katalog: dio epizoda nije u planu (key cache/listing) — drift-check ujutro." ;;
+        *) echo "   ⚠️  Katalog ingest nije uspio (exit $KATALOG_RC) — nastavljam; drift-check --sync ujutro." ;;
+    esac
+fi
+fi
+
+# --- KORAK 12.7: data/{id}/episode.json (uz --with-r2-upload) ---
+# Jedna datoteka po epizodi: izmjereni popis datoteka pod data/{id}/ + inline sadržaj
+# za prvi prikaz (domovina.ai 3 zahtjeva umjesto ~29). MORA biti zadnji upload u data/:
+# klijent ne traži datoteku koje nema u bundleu. Nightly radi cijeli katalog (~28 LIST
+# stranica; nepromijenjena epizoda ne košta nijedan GET), pa sve što su uploadali
+# alati izvan pipelinea (Magisterium, bulk backfilli) konvergira do jutra.
+# Nula LLM poziva. Vidi docs/2026-10-09-episode-json-bundle.md.
+# Od 06.11.2026. ide IZA KORAKA 13 + 13.5 (ne više iza 12.68): `channel` u bundleu dolazi
+# iz mape koju piše 13.5, a 13.5 za Tier 1 treba listing kanala iz 13. Ni 13 ni 13.5 ne
+# pišu u data/, pa je bundle i dalje zadnji upload u data/.
+if [ "$WITH_R2_UPLOAD" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 12.7: episode.json bundle (data/{id}/episode.json)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+BUNDLE_ARGS=(--all)
+if [ -n "$REPROCESS_VIDEO_ID" ]; then
+    BUNDLE_ARGS=(--video-id "$REPROCESS_VIDEO_ID")
+elif [ -n "$MODAL_ONLY_ID" ]; then
+    BUNDLE_ARGS=(--video-id "$MODAL_ONLY_ID")
+fi
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    BUNDLE_ARGS+=("--dry-run")
+fi
+
+env -u HTTPS_PROXY -u HTTP_PROXY -u https_proxy -u http_proxy \
+node "$SCRIPT_DIR/build_episode_bundle.js" "${BUNDLE_ARGS[@]}" || {
+    echo "   ⚠️  Greška pri episode.json bundleu, nastavljam (idući run ga dovršava)..."
 }
 fi
 

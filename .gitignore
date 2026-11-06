@@ -79,3 +79,6 @@ tools/vision_best_frame/vision_best_frame
 
 # Ručni YouTube titlovi (fetch_youtube_subs.js) — lokalne kopije; javni indeks je subs.json
 automatic/watchlist/subs/
+
+# Mapa epizoda → kanal za episode.json (katalog ingest-episode, KORAK 13.5)
+.katalog_channels.json

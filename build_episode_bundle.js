@@ -22,6 +22,13 @@
  *      biti bogatiji od diska (Opus članak), a bundle mora reći isto što i
  *      pojedinačne datoteke. Titlovi, words.json i EN prijevodi ostaju vani.
  *   3. Upload samo kad se sadržaj promijenio (bez `generated_at`) → stabilan ETag.
+ *   4. `channel: {slug, name, tier}` (aditivno, od 06.11.2026., katalog S7) dolazi iz
+ *      mape koju piše katalogov `ingest-episode` (KORAK 13.5, `.katalog_channels.json`),
+ *      istim resolverom kao uvoznik kataloga — kanal se OVDJE ne računa. Polje dobivaju
+ *      samo epizode koje je mapa prvi put vidjela nakon sijanja (`first_seen`), bez
+ *      backfilla starog kataloga. `null` = epizoda u katalogu bez kanala; bez ključa =
+ *      kanal nepoznat (stara epizoda ili mapa još nije stigla). Verzija ostaje 1: svi
+ *      čitači (podcast_core, vijesti, katalog, domovina-push) nepoznat ključ ignoriraju.
  *      Otisak = popis imena + ETag-ovi inline datoteka iz LIST-a, pa nepromijenjena
  *      epizoda ne košta nijedan GET. Prepis medija ili e-knjige ne mijenja otisak.
  *
@@ -68,6 +75,7 @@ const BUNDLE_VERSION = 1;
 const INLINE_FILES = ["info.json", "summary.json", "outline.json", "article.json", "article.magisterium.json"];
 const CACHE_CONTROL_MUTABLE = "public, max-age=60, must-revalidate";
 const STATE_PATH = path.join(__dirname, ".episode_bundle_state.json");
+const CHANNEL_MAP_PATH = process.env.KATALOG_CHANNEL_MAP || path.join(__dirname, ".katalog_channels.json");
 const CONCURRENCY = 8;
 
 // ─── ČISTE FUNKCIJE (testirane u build_episode_bundle.test.js) ─────────────
@@ -97,29 +105,59 @@ function listedFiles(entries) {
  * pa se ni ne čita s R2. ETag-ovi ostalih datoteka namjerno nisu u otisku —
  * prepis e-knjige ili videa ne mijenja ništa što bundle nosi.
  */
-function fingerprint(entries) {
+function fingerprint(entries, channel) {
     const parts = listedFiles(entries).map(n =>
         INLINE_FILES.includes(n) ? `${n}:${entries.get(n).etag}` : n);
+    // Bez kanala otisak ostaje bajt-isti kao prije polja `channel` (stari bundleovi se ne diraju).
+    if (channel !== undefined) parts.push(`channel:${JSON.stringify(channel)}`);
     return crypto.createHash("sha1").update(`v${BUNDLE_VERSION}\n` + parts.join("\n")).digest("hex");
 }
 
 /** Bundle bez `generated_at` — oblik nad kojim se uspoređuje „je li se promijenio". */
-function buildBody(files, inlineContents) {
+function buildBody(files, inlineContents, channel) {
     const inline = {};
     for (const n of INLINE_FILES) {
         if (inlineContents[n] !== undefined) inline[n] = inlineContents[n];
     }
-    return { version: BUNDLE_VERSION, files, inline };
+    const body = { version: BUNDLE_VERSION, files, inline };
+    if (channel !== undefined) body.channel = channel;
+    return body;
 }
 
 function withTimestamp(body, generatedAt) {
-    return { version: body.version, generated_at: generatedAt, files: body.files, inline: body.inline };
+    const out = { version: body.version, generated_at: generatedAt, files: body.files, inline: body.inline };
+    if (body.channel !== undefined) out.channel = body.channel;
+    return out;
 }
 
 function sameContent(a, b) {
     if (!a || !b) return false;
-    const strip = o => JSON.stringify({ version: o.version, files: o.files, inline: o.inline });
+    const strip = o => JSON.stringify({ version: o.version, files: o.files, inline: o.inline, channel: o.channel });
     return strip(a) === strip(b);
+}
+
+/**
+ * Mapa `.katalog_channels.json` → `id → {slug, name, tier} | null`, SAMO za epizode s
+ * `first_seen` (nove od sijanja). Nema datoteke / nečitljiva → prazna mapa (bundle bez
+ * `channel`, kao prije). Oblik: katalog `scripts/lib/ingest-episodes.ts` `ChannelMap`.
+ */
+function channelsFromMap(raw) {
+    const out = new Map();
+    if (!raw || raw.v !== 1 || !raw.episodes || typeof raw.episodes !== "object") return out;
+    for (const [id, e] of Object.entries(raw.episodes)) {
+        if (!e || e.first_seen === null || e.first_seen === undefined) continue;
+        const c = e.channel;
+        if (c === null) { out.set(id, null); continue; }
+        if (c && typeof c.slug === "string" && typeof c.name === "string" && (c.tier === 1 || c.tier === 2)) {
+            out.set(id, { slug: c.slug, name: c.name, tier: c.tier });
+        }
+    }
+    return out;
+}
+
+function loadChannelMap() {
+    try { return channelsFromMap(JSON.parse(fs.readFileSync(CHANNEL_MAP_PATH, "utf8"))); }
+    catch { return new Map(); }
 }
 
 // ─── R2 / CDN ─────────────────────────────────────────────────────────────
@@ -263,21 +301,23 @@ async function main() {
     }
 
     const state = loadState();
+    const channels = loadChannelMap();
     const stats = { episodes: byId.size, unchanged: 0, written: 0, created: 0, sameBody: 0, empty: 0, failed: 0 };
     const todo = [];
     for (const [id, entries] of byId) {
         const files = listedFiles(entries);
         if (!files.length) { stats.empty++; continue; }
-        const fp = fingerprint(entries);
+        const channel = channels.get(id);
+        const fp = fingerprint(entries, channel);
         if (!force && entries.has(BUNDLE_NAME) && state[id] === fp) { stats.unchanged++; continue; }
-        todo.push({ id, entries, files, fp });
+        todo.push({ id, entries, files, fp, channel });
     }
     const work = limit ? todo.slice(0, limit) : todo;
     console.log(`📋 ${byId.size} epizoda pod data/ · nepromijenjeno ${stats.unchanged} · za provjeru ${work.length}${limit && todo.length > limit ? ` (od ${todo.length}, --limit)` : ""} (${((Date.now() - t0) / 1000).toFixed(1)} s)`);
 
     const purgeUrls = [];
     let bytes = 0;
-    await runConcurrent(work, CONCURRENCY, async ({ id, entries, files, fp }) => {
+    await runConcurrent(work, CONCURRENCY, async ({ id, entries, files, fp, channel }) => {
         try {
             const inlineContents = {};
             for (const n of INLINE_FILES) {
@@ -287,7 +327,7 @@ async function main() {
                 try { inlineContents[n] = JSON.parse(text); }
                 catch { console.log(`⚠️  ${id}/${n}: nečitljiv JSON — ne ulaže se (klijent ga traži zasebno)`); }
             }
-            const body = buildBody(files, inlineContents);
+            const body = buildBody(files, inlineContents, channel);
 
             const existed = entries.has(BUNDLE_NAME);
             if (existed && !force) {
@@ -299,7 +339,7 @@ async function main() {
             const bundle = withTimestamp(body, new Date().toISOString().replace(/\.\d{3}Z$/, "Z"));
             const size = Buffer.byteLength(JSON.stringify(bundle));
             if (dryRun) {
-                console.log(`🏜️  [DRY] ${id}: ${existed ? "UPDATE" : "NOVO"} ${files.length} datoteka, inline ${Object.keys(body.inline).length}, ${(size / 1024).toFixed(1)} KB`);
+                console.log(`🏜️  [DRY] ${id}: ${existed ? "UPDATE" : "NOVO"} ${files.length} datoteka, inline ${Object.keys(body.inline).length}${channel !== undefined ? `, kanal ${channel ? channel.slug : "—"}` : ""}, ${(size / 1024).toFixed(1)} KB`);
             } else {
                 await putBundle(client, id, bundle);
                 state[id] = fp;
@@ -327,4 +367,4 @@ if (require.main === module) {
     main().catch(e => { console.error("Fatal:", e); process.exit(1); });
 }
 
-module.exports = { groupListing, listedFiles, fingerprint, buildBody, withTimestamp, sameContent, INLINE_FILES, BUNDLE_NAME };
+module.exports = { groupListing, listedFiles, fingerprint, buildBody, withTimestamp, sameContent, channelsFromMap, INLINE_FILES, BUNDLE_NAME };

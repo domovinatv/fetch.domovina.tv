@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { groupListing, listedFiles, fingerprint, buildBody, withTimestamp, sameContent } = require("./build_episode_bundle.js");
+const { groupListing, listedFiles, fingerprint, buildBody, withTimestamp, sameContent, channelsFromMap } = require("./build_episode_bundle.js");
 
 const listing = [
     { key: "data/abc/article.json", etag: '"a1"', size: 10 },
@@ -57,4 +57,52 @@ test("sameContent ignorira generated_at", () => {
     assert.ok(!sameContent(a, buildBody(["info.json", "words.json"], { "info.json": { id: "abc" } })));
     assert.ok(!sameContent(null, body));
     assert.deepEqual(Object.keys(a), ["version", "generated_at", "files", "inline"]);
+});
+
+// ─── channel (katalog S7, od 06.11.2026.) ────────────────────────────────────
+
+const KANAL = { slug: "launched", name: "Launched by RevenueCat", tier: 1 };
+
+test("channel: bez kanala otisak i tijelo su bajt-isti kao prije polja", () => {
+    const base = groupListing(listing).get("abc");
+    assert.equal(fingerprint(base, undefined), fingerprint(base));
+    const body = buildBody(["info.json"], { "info.json": { id: "abc" } }, undefined);
+    assert.equal("channel" in body, false);
+    assert.equal("channel" in withTimestamp(body, "2026-11-06T00:00:00Z"), false);
+});
+
+test("channel: kanal mijenja otisak (nova epizoda konvergira), null je različit od bez kanala", () => {
+    const base = groupListing(listing).get("abc");
+    const none = fingerprint(base);
+    const withCh = fingerprint(base, KANAL);
+    assert.notEqual(withCh, none);
+    assert.notEqual(fingerprint(base, null), none);
+    assert.notEqual(fingerprint(base, { ...KANAL, name: "Novo ime" }), withCh);
+});
+
+test("channel: ide u tijelo i bundle; sameContent ga uspoređuje", () => {
+    const body = buildBody(["info.json"], {}, KANAL);
+    const bundle = withTimestamp(body, "2026-11-06T00:00:00Z");
+    assert.deepEqual(bundle.channel, KANAL);
+    assert.deepEqual(Object.keys(bundle), ["version", "generated_at", "files", "inline", "channel"]);
+    assert.equal(sameContent(bundle, body), true);
+    assert.equal(sameContent(withTimestamp(buildBody(["info.json"], {}), "x"), body), false);
+    assert.equal(sameContent(withTimestamp(buildBody(["info.json"], {}, null), "x"), body), false);
+});
+
+test("channelsFromMap: samo epizode s first_seen; null kanal ostaje null; loš oblik = prazno", () => {
+    const m = channelsFromMap({
+        v: 1, seeded_at: "2026-11-06T10:00:00Z", generated_at: "x",
+        episodes: {
+            staraEpizoda: { channel: KANAL, first_seen: null },
+            novaEpizoda1: { channel: KANAL, first_seen: "2026-11-07T03:00:00Z" },
+            novaBezKanal: { channel: null, first_seen: "2026-11-07T03:00:00Z" },
+            losKanal0000: { channel: { slug: "x", name: "y", tier: 3 }, first_seen: "2026-11-07T03:00:00Z" },
+        },
+    });
+    assert.deepEqual([...m.keys()].sort(), ["novaBezKanal", "novaEpizoda1"]);
+    assert.deepEqual(m.get("novaEpizoda1"), KANAL);
+    assert.equal(m.get("novaBezKanal"), null);
+    assert.equal(channelsFromMap(null).size, 0);
+    assert.equal(channelsFromMap({ v: 2, episodes: {} }).size, 0);
 });

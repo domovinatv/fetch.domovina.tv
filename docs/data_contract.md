@@ -509,6 +509,15 @@ postoje + sadržaj za prvi prikaz. Klijentski ugovor i parser:
 - `Cache-Control: public, max-age=60, must-revalidate` (kao listinzi), ne immutable.
   Novi bundle se purgea u obje `Vary: Origin` varijante.
 - Nepoznata verzija → klijent ide starim putem (datoteku po datoteku), koji ostaje.
+- **`channel`** (aditivno, od 06.11.2026., verzija ostaje 1): `{"slug","name","tier"}`
+  kanala epizode kako ga vidi katalog (`domovina.ai/api/katalog`), `null` kad katalog
+  epizodu ima bez kanala, **bez ključa** kad kanal nije poznat. Izvor je mapa
+  `.katalog_channels.json` koju piše KORAK 13.5 (katalogov resolver, isti kao uvoznik;
+  ovaj repo kanal ne računa). Dobivaju ga samo epizode koje je mapa prvi put vidjela nakon
+  sijanja (06.11.2026. 11:42), bez backfilla starog kataloga. Provjereni čitači koji
+  nepoznat ključ ignoriraju: `podcast_core` `EpisodeBundle.tryParse`, `vijesti` (zod
+  `z.object`), katalog `parseEpisodeManifest`, `domovina-push` `isReady`.
+  Vidi `docs/2026-11-06-katalog-ingest-nakon-uploada.md`.
 
 ---
 

@@ -159,6 +159,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 11 | `import_to_vertex.js` | Upload RAG JSONL to Vertex AI Agent Builder |
 | 12 | `upload_to_r2.js` | Upload final files to Cloudflare R2 (cdn.domovina.ai), optional `--with-r2-upload` |
 | 12.7 | `build_episode_bundle.js` | `data/{id}/episode.json` = izmjereni LIST `data/{id}/` + inline info/summary/outline/article/magisterium s R2 (ekran epizode: 3 zahtjeva umjesto ~29). **Zadnji upload u `data/`** — zastario bundle sakriva novu datoteku; zovu ga i `upload_to_r2.js`/`force_upload.js`. Piše samo kad se sadržaj promijeni, nula LLM poziva (`docs/2026-10-09-episode-json-bundle.md`, `docs/data_contract.md` §15) |
+| 13.5 | `../domovina.ai/katalog/scripts/ingest-episode.ts` | **Katalog ingest** (od 06.11.2026.): nakon uploada upiše epizode u D1 katalog (`POST domovina.ai/api/katalog/v1/ingest`, `INGEST_TOKEN` u `.env`). Retke gradi KATALOGOV kod (isti plan kao uvoznik), ne ovaj repo. Prioritetni/reprocess run šalje svoj ID, ostali `--all` (~6 s, nepromijenjeno = 0 promjena). Zapiše `.katalog_channels.json` → `channel` u `episode.json` (samo nove epizode). Zato **12.7 ide IZA 13 i 13.5**. Neuspjeh ne ruši pipeline; `drift-check --sync` (launchd 08:45, domovina.ai) popravi (`docs/2026-11-06-katalog-ingest-nakon-uploada.md`) |
 
 ### Utility & Diagnostic Scripts (not in pipeline)
 
