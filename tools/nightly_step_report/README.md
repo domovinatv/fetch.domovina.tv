@@ -63,3 +63,13 @@ Zamke:
   više jobova (KyMHBGFS5Gc je pao 03.11. i 04.11.).
 - `/api/magisterium?limit=…` vraća max 200 redaka, pa Magisterium vremena dolaze iz logova.
 - Regex za korak mora hvatati sufiks slova (`KORAK 2.7b`, `2.7c`).
+
+## Zamka: dan bez Tier 2 posla (06.11.2026.)
+
+Kad ograda tjedne kvote zaustavi Tier 2, `T2` je prazan. `build.py` je tada padao na
+`KeyError: 'x2'` (pa na `median`/`max` nad praznim listama) svakih 15 min, a report taj dan
+nije otišao sve dok nije popravljen u 12:45 (`09628b10`). Grafovi 2–4 i mobilne slike 2–3
+sad se crtaju samo uz bar jednu gotovu Tier 2 epizodu, pa album ima 2 slike umjesto 4.
+Novi kod u `build.py` mora podnijeti i prazan `T2`/`ok`, `MHR` i `MEN`
+(`default=` u `min`/`max`, `if proc` prije `median`).
+Ručna provjera: `python3 build.py <dir> <dir>/day.json` nad kopijom dana bez Tier 2 i dana s njim.
