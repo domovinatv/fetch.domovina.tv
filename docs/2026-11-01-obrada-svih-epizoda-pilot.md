@@ -195,3 +195,34 @@ Stranica je potpuno statična: na `/dani/<datum>/` preglednik ne dohvaća ništa
 `cdn.domovina.ai` (izmjereno u Braveu: same-origin + 33 sličice s `i.ytimg.com`). Runtime
 HEAD provjera po epizodi je odbačena: do 30 zahtjeva po stranici i rizik keširanog 404
 (vidi memoriju o `Vary: Origin` / HEAD≠GET).
+
+## 06.11.2026. — prva noć kad je ograda tjedne kvote zaustavila Tier 2
+
+Nightly 06.11. je Tier 1 obradio normalno (5 epizoda, na naslovnici u „Najnovije
+epizode”), a `enqueue_all_new.js` nije poslao ništa:
+
+```
+🌐 Obrada svih novih epizoda: 83 originala 2026-11-03…2026-11-06, za slanje 14
+   📊 kvota: tjedni 88 %, 5h 19 %
+   ⛔ tjedni 88 % ≥ 85 % — ne šaljem ništa, epizode čekaju idući nightly
+```
+
+Zato je `/admin` za 06.11. bio prazan. Brojke:
+
+- Tjedni prozor je u jednom danu narastao s 61 % (nightly 05.11.) na 88 %. Najveći dio
+  odnijela je serija od 32 Tier 2 epizode s Magisteriumom, poslana 05.11. (izvještaj:
+  `32/32 gotovo, Mag 32, tjedni +25 (0.78/ep)`). Oko 11:30 kvota je bila na 94 %.
+- `seven_day.resets_at` = petak 23:59:59 UTC, dakle u subotu u 01:00 po CET-u (02:00 po
+  CEST-u). Reset je prije nightlyja u 03:00.
+- Svih 14 zadržanih epizoda objavljeno je 05. ili 06.11., pa ostaju u prozoru
+  `LOOKBACK=3` i idu same iduće noći. Nijedna ne ispada. To se provjerava s
+  `ALL_EPISODES_MAX_WEEKLY=101 node automatic/enqueue_all_new.js --dry-run`, koji ne šalje
+  ništa nego samo ispiše popis.
+
+Ručno slanje s `ALL_EPISODES_MAX_WEEKLY=101` je namjerno odbijeno: pri 94 % bi 14 epizoda
+s Opusom i Magisteriumom vjerojatno potrošilo ostatak tjedne kvote prije reseta.
+
+Zamka kod čitanja: `/dani/<datum>/` grupira po **datumu objave**, a `/admin` po **noći
+slanja**. Tribina NFL/NBA (`BqJ67OO-FVA`, `_YOkTkbrh_k`) su na `/dani/2026-11-05/` s punom
+obradom, ali su Tier 2 iz nightlyja 05.11. (objavljene na granici 4. i 5.11.), a ne
+iz noći 06.11.
