@@ -87,6 +87,37 @@ Agy verzije su nastale u scratch kopiji i nisu objavljene.
 60 % kraći od Opusovog. flash-high se po opsegu približava Opusu uz 5–7× dulje pozive i sklonost
 uljepšavanju izjava. Odluka o modelu za Tier 2 članak je otvorena.
 
+## Odluka: članak na flash-high sa strožim promptom (07.11. ~11:30)
+
+Od 07.11.2026. Tier 2 članak (KORAK 8) piše `gemini-3.8-flash-high` (`AGY_ARTICLE_MODEL`, default u
+`generate_article_gemini.js`), a sažetak i reels ostaju na `AGY_MODEL` (`gemini-3.8-flash-low`).
+Timeout agy poziva za članak je 1200 s (`AGY_ARTICLE_TIMEOUT_SEC`), jer flash-high treba 90–400 s po pozivu.
+Za agy se na sistemski prompt FAZE 2 dodaje `FIDELITY_CLAUSE`: plan i nada ostaju plan i nada, bez
+dodanih kvalifikatora i konteksta, ocjene se pripisuju govorniku, upečatljive rečenice idu kao doslovni
+citat, a članak ne spominje transkript ni ASR. Opus put je nepromijenjen. Bridge šalje
+`llm_provider = agy:<AGY_ARTICLE_MODEL>`.
+
+Ponovno mjerenje na istim epizodama („riječi koje pojačavaju izjavu” broje obavezno, cijela
+Hrvatska, najveći, ključni, strateški, iznimno, dogovoreno je…):
+
+| Epizoda | Mjera | Opus | flash-high | flash-high strogi | argon-low strogi |
+|---|---|---|---|---|---|
+| Škabrnja | znakova / citata / pojačanja | 17 337 / 13 / 8 | 12 813 / 8 / 12 | 12 014 / 14 / **0** | 16 613 / 9 / 6 (sva pripisana) |
+| Privatna klinika | znakova / citata / pojačanja | 23 424 / 13 / 6 | 25 770 / 0 / 20 | 26 455 / 40 / **5** | – |
+| Prgavi | znakova / citata / pojačanja | 53 097 / 0 / 7 | 66 053 / 0 / 22 | 41 986 / 40 / **9** | – |
+| | trajanje članka | ~6 min | ~5–20 min | ~10–15 min (3 paralelno) | **~2 min** |
+
+- **Strogi flash-high:** pretjerivanje iz prve usporedbe je nestalo. Izjava o Vukovaru je sada doslovni
+  citat („smo u dogovoru da djeca iz osnovnih škola dolaze…”). Pojačanja su pala s 12–22 na 0–9, a
+  citata je mnogo više. Tekst ostaje novinarski, ali kod dugih epizoda je kraći od Opusovog
+  (42 000 prema 53 000 znakova) i bez podebljanih imena.
+- **argon-low** (`gemini-4-argon-low`, samo Škabrnja): opsegom i točnošću najbliži Opusu, oko 2 min.
+  Ocjene ispravno pripisuje (Brkiću „od iznimne važnosti za cijelu Hrvatsku”), a plan ostaje plan.
+  Mana je bila 4 napomene o prijepisu u tekstu („u transkriptu ASR-om zabilježena kao…”), zbog čega je
+  zabrana spominjanja transkripta dodana u `FIDELITY_CLAUSE`. Na duljim epizodama nije mjeren.
+- Pazi na imena agy tmux sesija: ime je `agyllm-s<slot>-<zadnji dio modela>`, pa `gemini-4-argon-low`
+  i `gemini-3.8-flash-low` u istom slotu dijele sesiju `…-low`.
+
 ## Ostali nalazi 07.11. (ništa nije popravljeno)
 
 Nalazi s jutarnjeg pregleda nightlyja i usporedbe kataloga za 06.11. Za svaki je predložen popravak,

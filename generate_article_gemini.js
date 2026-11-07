@@ -93,7 +93,12 @@ const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
 const USING_CLAUDE = GEMINI_BACKEND === "claude";
 
 const USING_AGY = GEMINI_BACKEND === "agy";
-const AGY_MODEL = process.env.AGY_MODEL || "gemini-3.8-flash-low";
+// Članak ima vlastiti agy model (07.11.2026.): flash-low je pisao upola kraće od Opusa, flash-high
+// je po opsegu blizu Opusu (docs/2026-11-07-tier2-agy-i-5h-ograda.md). AGY_MODEL ostaje za
+// sažetak i reels, pa ga ovdje namjerno ne čitamo.
+const AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-3.8-flash-high";
+// flash-high treba 90–360 s po pozivu; default agy_tmux timeout (600 s) je pretijesan za duge iteracije.
+const AGY_ARTICLE_TIMEOUT_MS = parseInt(process.env.AGY_ARTICLE_TIMEOUT_SEC || "1200", 10) * 1000;
 
 // Slug koji ide u IMENA datoteka: {basename}_{date}_{MODEL_SLUG}.article.json
 // ⚠️ Downstream (channel_index, CDN manifest) dedupa po LEKSIKOGRAFSKI NAJVEĆEM imenu.
@@ -255,6 +260,21 @@ STRUKTURA JSON-a: Odgovor mora biti JSON objekt koji sadrži niz "sections". Sva
 - "content": Bogat, detaljan novinarski tekst koji obrađuje tu temu (više paragrafa, dozvoljen Markdown).
 - "keywords": Niz (array) od 3 do 5 ključnih pojmova ili koncepata koji se spominju u ovom odlomku (npr. ["radna terapija", "nasilje u obitelji", "molitva"]).
 - "entities": Niz (array) vlastitih imenica, lokacija ili ustanova koje se spominju (npr. ["Međugorje", "Sveti Ante", "Mostar"]).`;
+
+// Vjernost izvoru (07.11.2026.): agy flash-high je u usporedbi s Opusom „smo u dogovoru da djeca
+// dolaze” pretvorio u „dogovoreno je da centar postane obavezno odredište … iz cijele Hrvatske”.
+// Dodaje se samo za agy, Opus put ostaje nepromijenjen.
+const FIDELITY_CLAUSE = `
+
+VJERNOST IZVORU (strogo, ima prednost pred „atraktivnim” stilom):
+- Ne pojačavaj izjave. Namjera, plan, nada, pregovori i procjene („u dogovoru smo”, „planiramo”, „nadam se”, „mislim da”) ostaju to što jesu: ne pretvaraj ih u gotovu činjenicu („dogovoreno je”, „bit će”, „postat će”).
+- Ne dodaji kvalifikatore kojih u transkriptu nema: „obavezno”, „cijela Hrvatska”, „prvi”, „najveći”, „jedinstven”, „povijesni”, „ključni”, „strateški”, „iznimno”.
+- Brojke, datume, imena, nazive i količine prenesi točno kako su izrečeni. Ako je nešto nejasno ili nedorečeno, tako i napiši.
+- Ne dodaji kontekst, objašnjenja, ocjene ni zaključke koje nitko u razgovoru nije izrekao (geografske, povijesne, političke, stručne).
+- Svaku ocjenu, stav ili tvrdnju pripiši govorniku („kaže”, „smatra”, „prema njegovim riječima”). Autorski glas članka ne iznosi vlastite ocjene.
+- Kad govornik izgovori jasnu, upečatljivu rečenicu, prenesi je kao izravan citat u „…”, doslovno iz transkripta (smiješ ispraviti samo očite greške prepoznavanja govora i interpunkciju).
+- Isto vrijedi za podnaslove: informativni, bez hiperbola i bez tvrdnji kojih u tekstu nema.
+- Članak ne spominje kako je nastao: bez riječi „transkript”, „prijepis”, „ASR”, „SPEAKER_xx” i bez napomena o greškama prepoznavanja govora. Očitu grešku prepoznavanja tiho ispravi (npr. „trodnevna dvorana” → „trodijelna dvorana”).`;
 
 // Obavezni ključevi svake sekcije (vidi STRUKTURA JSON-a u SYSTEM_PROMPT_2).
 // `keywords` i `entities` konzumira downstream (RAG chunking, channel index), pa se
@@ -1244,7 +1264,7 @@ function callAgyCli(systemPrompt, userMessage) {
     // ne smiju pisati u isti razgovor. Stara argv verzija je u git povijesti.
     const { agyJson } = require("./lib/agy_tmux");
     const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`;
-    return agyJson({ system: systemPrompt, user: userMessage, session, model: AGY_MODEL })
+    return agyJson({ system: systemPrompt, user: userMessage, session, model: AGY_MODEL, timeoutMs: AGY_ARTICLE_TIMEOUT_MS })
         .then((obj) => ({ text: JSON.stringify(obj), usage: null, costUsd: null }));
 }
 
@@ -1492,7 +1512,7 @@ async function processFile(file, { exitOnError = true } = {}) {
     const lastCueSec = lastCueSeconds(srtContent);
     const durationBlock = lastCueSec > 0 ? buildDurationBlock(lastCueSec) : "";
     const systemPrompt1 = SYSTEM_PROMPT_1 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
-    const systemPrompt2 = SYSTEM_PROMPT_2 + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
+    const systemPrompt2 = SYSTEM_PROMPT_2 + (USING_AGY ? FIDELITY_CLAUSE : "") + (strictAttribution ? STRICT_NAMING_CLAUSE : "");
     if (strictAttribution) {
         console.log(`   🧭 Strict-atribucija AKTIVNA (govornika: ${speakerCount}, chapter-unosa: ${pubChapters.length}${hasChapterMap ? ", mapa injektirana" : ""}${officialBlock ? ", službeni kontekst injektiran" : ""}) — imena samo iz transkripta/mape/konteksta.`);
     }
