@@ -176,7 +176,14 @@ Novi tmux server (`tmux -L x`) čita bez problema. Vjerojatni okidač je ponovno
 
 Popravak: `tmux kill-server` kad nijedna agy sesija ne radi. Iduća sesija pokreće novi server.
 `lib/agy_tmux.js` sada taj kvar prepoznaje i javlja ga jasnom porukom umjesto „prijava?”.
-Trajno rješenje bilo bi vratiti `~/.gemini` na interni disk; to nije učinjeno.
+`~/.gemini` mora ostati na vanjskom disku jer na internom nema mjesta. Zato od 07.11. ~12:20 svaka
+sesija iz `lib/agy_tmux.js` ima **vlastiti tmux server** (socket `agy-<sesija>`). Kad agy u novoj sesiji
+javi „operation not permitted” za `~/.gemini`, `ensureSession()` ugasi samo taj server i jednom pokuša
+s novim. Ostale sesije (EN, slotovi) se ne diraju. Gledanje sesije:
+`tmux -L agy-<sesija> attach -t <sesija> -r`. Sam oporavak nije provjeren na stvarnom TCC kvaru jer se
+on ne može izazvati; provjereno je samo da sesija na vlastitom socketu radi.
+Vlastiti tmux kod imaju i `screenshot_youtube.js` (`agyss`, rezerva za Apple Vision) i RAG `agymap`.
+Oni su i dalje na zajedničkom serveru.
 
 ## Ostali nalazi 07.11. (ništa nije popravljeno)
 
