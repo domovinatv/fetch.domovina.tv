@@ -214,6 +214,6 @@ if os.environ.get('CATALOG_REFRESH', '1') != '0' and os.access(CATALOG, os.X_OK)
         r = subprocess.run(['/bin/bash', '-c', '. "$HOME/.nvm/nvm.sh" && nvm use default >/dev/null 2>&1; exec "$0"', CATALOG],
                            capture_output=True, text=True, timeout=900)
         tail = (r.stdout + r.stderr).strip().splitlines()[-3:]
-        log(f'katalog rc={r.returncode}', *tail, sep='\n  ')
+        log(f'katalog rc={r.returncode}', '\n  '.join(tail))
     except Exception as e:
         log('katalog: greška', e)
