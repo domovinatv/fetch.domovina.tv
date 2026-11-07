@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-06
+**Generirano:** 2026-11-07
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 491 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 257 · 🔴 neaktivan: 153 · ⚪ nepoznato: 91 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 258 · 🔴 neaktivan: 153 · ⚪ nepoznato: 90 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -465,7 +465,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Salesiana HR** | [UCg83xUjFXRSZO95vIa9zhMg](https://www.youtube.com/channel/UCg83xUjFXRSZO95vIa9zhMg/videos) | 3 | 8K | — | ⚪ nepoznato | — | `religious-catholic` `evangelization` | ⚠️ |
 | **Samo Hajduk** | [UCIBpWx6R_pKgzAhk00aYjUw](https://www.youtube.com/channel/UCIBpWx6R_pKgzAhk00aYjUw/videos) | 3 | 1K | — | 🟢 aktivan | — | `sport` `football` | ⚠️ |
 | **Sat za zdravlje** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqQ6OjoXDmgj4i269PAWyGhY) | 3 | — | — | ⚪ nepoznato | — | `health` | ⚠️ |
-| **Savršeno veselje (Radio Marija BiH)** | [UCEeV5Hg4lLI3XjIouI0ykug](https://www.youtube.com/playlist?list=PL4BCELLg-DGVB287FRCEQhZihaQBmfr7L) | 3 | — | 52 | ⚪ nepoznato | — | `religious-catholic` `franciscan` | ⚠️ |
+| **Savršeno veselje (Radio Marija BiH)** | [UCEeV5Hg4lLI3XjIouI0ykug](https://www.youtube.com/playlist?list=PL4BCELLg-DGVB287FRCEQhZihaQBmfr7L) | 3 | — | 52 | 🟢 aktivan | — | `religious-catholic` `franciscan` | ⚠️ |
 | **Seksoteka** | [UCdMkKtMvFlOEF6tKowy4C6g](https://www.youtube.com/channel/UCdMkKtMvFlOEF6tKowy4C6g/videos) | 3 | 29K | — | ⚪ nepoznato | — | `health` `lifestyle` `education` | ⚠️ |
 | **Seksurbacije Podcast** | [UCdMkKtMvFlOEF6tKowy4C6g](https://www.youtube.com/playlist?list=PL_R-XKp--27q_Uwb-Toeql_WBgwi8CC3a) | 3 | — | — | 🔴 neaktivan | Marina Krleža | `lifestyle` `health` | ⚠️ |
 | **Shegrt** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9mSkU81QEznq3kDDFMtk7W5) | 3 | — | — | 🔴 neaktivan | — | `business` `finance` `education` | ⚠️ |

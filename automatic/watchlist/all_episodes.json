@@ -1178,14 +1178,494 @@
    "result": "created",
    "job_id": "63702dac-3520-47f8-a30f-6651904a4125",
    "manual": "napod-2026-zadnja-epizoda"
+  },
+  "4ejxyaTO__8": {
+   "date": "2026-11-06",
+   "slug": "atma-podcast",
+   "title": "NOVA MATRICA STVARNOSTI: Zašto se nekima život upravo raspada? | Margarita Milenković | ATMA podcast",
+   "duration": 5473,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:23.913Z",
+   "result": "created",
+   "job_id": "06753442-3af2-4cc3-8cdc-85aa07d6cca9"
+  },
+  "-C7Yaup95Yo": {
+   "date": "2026-11-06",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1510  -  Marko i Amil Tutić",
+   "duration": 6317,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:24.351Z",
+   "result": "created",
+   "job_id": "1faf12c7-9e95-4f4c-9c93-adab59a331e1"
+  },
+  "LlO3pR_JaTI": {
+   "date": "2026-11-06",
+   "slug": "poslovni-dnevnik-podcast",
+   "title": "Stevica Kuharski: Ulažemo u IT tvrtke koje su brzorastuće i ciljaju na globalno tržište",
+   "duration": 2792,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:24.781Z",
+   "result": "created",
+   "job_id": "29c4eb2a-075d-47f8-95c5-50eec7f16e9e"
+  },
+  "sCZ7dEuZMIo": {
+   "date": "2026-11-06",
+   "slug": "tipsy-podcast",
+   "title": "Chef Marblea: Kako ispeći savršen steak na vatri i što morate znati o podrijetlu mesa?",
+   "duration": 4157,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:25.032Z",
+   "result": "created",
+   "job_id": "b7e1ee65-ac24-47cd-9f23-4bcc38ef53b0"
+  },
+  "sv3pjr9CEEI": {
+   "date": "2026-11-06",
+   "slug": "zadarski-podcast",
+   "title": "JUTRO JE UTROJE - SANJA GRGINA",
+   "duration": 1666,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:25.296Z",
+   "result": "created",
+   "job_id": "c43f73ae-9558-43ef-9a7b-2bb4516346a6"
+  },
+  "SnEsikJ7J5M": {
+   "date": "2026-11-06",
+   "slug": "podcast-s-barbarom",
+   "title": "Ana Popović Kišur: Od pršuta se ne može živjeti! Što je novo u kultnoj Školi? | S Barbarom #122",
+   "duration": 4164,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:25.557Z",
+   "result": "created",
+   "job_id": "ff34285e-ebfa-4cdb-8249-8f2863467850"
+  },
+  "onRqdjdtoKU": {
+   "date": "2026-11-06",
+   "slug": "podcast-8-24",
+   "title": "Sunderland - Dinamo 0:2 / Dvajsčetvorka #294",
+   "duration": 4448,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:25.844Z",
+   "result": "created",
+   "job_id": "e726b267-57af-4cde-a6b0-c1d5f93d8dbb"
+  },
+  "vaTFDEoHOHI": {
+   "date": "2026-11-06",
+   "slug": "best-food-croatia",
+   "title": "Goran Vinčić Vinča: „U Svadbi sam imao ulogu manju od magarca!” | Restoran Maredo",
+   "duration": 2519,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:26.042Z",
+   "result": "created",
+   "job_id": "f044ba38-c7c7-4622-aaba-d18e95d06e82"
+  },
+  "Kr_-AZ_mmiQ": {
+   "date": "2026-11-06",
+   "slug": "podcast-s-brezom",
+   "title": "HRGA: Molim Boga da Plenković ne ode, kad vidim Hajdaš Dončića bude mi loše! PODCAST S BREZOM",
+   "duration": 3206,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:26.241Z",
+   "result": "created",
+   "job_id": "e9834063-027c-449b-bb48-2a4949e3cd64"
+  },
+  "Igbl5Y-m9ms": {
+   "date": "2026-11-06",
+   "slug": "hzv-siempre",
+   "title": "NAVIJAČKA ANALIZA UTAKMICE: LINCOLN RED IMPS - HAJDUK #uefaconferenceleague",
+   "duration": 4962,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:26.456Z",
+   "result": "created",
+   "job_id": "2afc80fe-c85b-4404-97d3-e3d89ba11afc"
+  },
+  "Cl1UAWU1U5I": {
+   "date": "2026-11-06",
+   "slug": "hajducka-storija",
+   "title": "PORAZ! LINCOLN RED IMPS - HAJDUK 1:0 | REAKCIJA",
+   "duration": 1062,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:26.687Z",
+   "result": "created",
+   "job_id": "bea20796-41b6-4cad-b077-d4c4bf847470"
+  },
+  "HYNJ0Ddwjyw": {
+   "date": "2026-11-06",
+   "slug": "radio-benkovac",
+   "title": "35. godišnjice stradavanja Škabrnje u Domovinskom ratu - gost načelnik Ivan Škara",
+   "duration": 1704,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:26.873Z",
+   "result": "created",
+   "job_id": "8448ae4c-ba41-4619-ad26-350350a7d2a2"
+  },
+  "L9JEBGkSokM": {
+   "date": "2026-11-06",
+   "slug": "psz-podcast",
+   "title": "Otvaranje privatne klinike ulazak je u svijet poduzetništva - PSZ #44, dr. Ana Maria Lazar",
+   "duration": 3168,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:27.161Z",
+   "result": "created",
+   "job_id": "afc5fe9c-faeb-4a1a-bbb0-677df74a51c4"
+  },
+  "nToZnW8RHP4": {
+   "date": "2026-11-06",
+   "slug": "prgavi-podcast",
+   "title": "Poraz na Gibraltaru ❤️💙 loše, al nije tragedija 🤍 Prgavi podcast",
+   "duration": 6312,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:27.406Z",
+   "result": "created",
+   "job_id": "0a9b046a-941f-40da-a6d3-ab775974e21b"
+  },
+  "LGJRjT7p960": {
+   "date": "2026-11-07",
+   "slug": "2pogled-povijest",
+   "title": "Frankopani – šest stoljeća hrvatske povijesti | 11. epizoda – Nikola IV. Frankopan",
+   "duration": 1946,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:27.695Z",
+   "result": "created",
+   "job_id": "2a9fe2ef-5c2d-43d7-a10d-4829c5edecf8"
+  },
+  "o2soixMeApE": {
+   "date": "2026-11-07",
+   "slug": "bez-pardona",
+   "title": "Senidah BEZ PARDONA",
+   "duration": 4243,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:27.975Z",
+   "result": "created",
+   "job_id": "ba7b86f9-9adc-4d9b-b6b5-de8339723aa5"
+  },
+  "fp06RkGcQUw": {
+   "date": "2026-11-07",
+   "slug": "atma-podcast",
+   "title": "BOLEST NE NASTAJE PREKO NOĆI: Što nas zaista truje? | Zdenka Medjahed | ATMA podcast ",
+   "duration": 3766,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:28.229Z",
+   "result": "created",
+   "job_id": "189c95bd-619f-4e1a-9176-cc00590024b5"
+  },
+  "FH-jcJk4IUc": {
+   "date": "2026-11-07",
+   "slug": "denis-podcast",
+   "title": "#281 - Jonathan Wilson / Najznačajniji nogometni autor svih vremena?",
+   "duration": 3676,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:28.467Z",
+   "result": "created",
+   "job_id": "65e845f8-18ad-4692-b508-abb38e5a7bf2"
+  },
+  "rhUgk1rYfB0": {
+   "date": "2026-11-07",
+   "slug": "eduza-show",
+   "title": "Besplatni Proximity LIVE: Donesi problem, uzmi rješenje",
+   "duration": 4746,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:28.664Z",
+   "result": "created",
+   "job_id": "3643c8c4-e4a9-411e-887f-5d189dd7222e"
+  },
+  "JURd4HAyIgo": {
+   "date": "2026-11-07",
+   "slug": "fire-podcast-tetka-skrti",
+   "title": "Smanjenje troškova prijevoza | FIRE Podcast za siromašne #92",
+   "duration": 2685,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:28.857Z",
+   "result": "created",
+   "job_id": "d1ef4ebd-10dc-44a7-b5bb-87744aa7501f"
+  },
+  "rRFeaVkmkwU": {
+   "date": "2026-11-07",
+   "slug": "rtcg-argumenti",
+   "title": "Može li Crna Gora u EU do 2028? - ARGUMENTI",
+   "duration": 5225,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:29.108Z",
+   "result": "created",
+   "job_id": "4a0c44dc-d704-4b49-bb80-7e8b59b0c86c"
+  },
+  "d9lnnr3UDFE": {
+   "date": "2026-11-07",
+   "slug": "maria-vision-medjugorje",
+   "title": "Od tame do svjetla - svjedočanstvo Pierra u podcastu Po Mariji do Duha Svetoga",
+   "duration": 3991,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:29.345Z",
+   "result": "created",
+   "job_id": "08491eb7-be6d-4508-a32d-3272bb289684"
+  },
+  "O4fo7HSYM24": {
+   "date": "2026-11-07",
+   "slug": "maria-vision-medjugorje",
+   "title": "\"Pod križem je Gospa postala majka sviju\" - Mijo Barada u podcastu Po Mariji do Duha Svetoga",
+   "duration": 5801,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:29.600Z",
+   "result": "created",
+   "job_id": "4411b914-8b52-439b-829d-440ae1cb351b"
+  },
+  "KeqM9CsQxws": {
+   "date": "2026-11-07",
+   "slug": "netokracija-office-talks",
+   "title": "Zašto bi kompanije plaćale domaći AI alat ako već imaju ChatGPT",
+   "duration": 2006,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:29.849Z",
+   "result": "created",
+   "job_id": "dc0f4400-a557-4833-b388-fe03cb6316d7"
+  },
+  "tdPfV1xOJqI": {
+   "date": "2026-11-07",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Ofenziva na HNL: Lincoln - Hajduk i Sunderland - Dinamo",
+   "duration": 3608,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:30.052Z",
+   "result": "created",
+   "job_id": "7cc75ad5-b6ca-49b8-9436-ebef2af2b12b"
+  },
+  "A0jBVzz5oo8": {
+   "date": "2026-11-07",
+   "slug": "podcast-inkubator-a1-nogometni",
+   "title": "A1 Nogometni Podcast #359 - Ante Čačić",
+   "duration": 5319,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:30.241Z",
+   "result": "created",
+   "job_id": "cbc7912b-d65a-447c-8a2d-ec54a75d676d"
+  },
+  "U52zCQY2du8": {
+   "date": "2026-11-07",
+   "slug": "prvi-glas-telegram",
+   "title": "Trump i Vučić pali: Može li ista formula srušiti Plenkovića?",
+   "duration": 1082,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:30.478Z",
+   "result": "created",
+   "job_id": "2937c360-1229-4751-bbab-62118f9344a6"
+  },
+  "W2cyGVz0ywk": {
+   "date": "2026-11-07",
+   "slug": "poslovnifm",
+   "title": "Matić: Mediqcode uz pomoć umjetne inteligencije pomaže bolnicama...",
+   "duration": 2312,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:30.694Z",
+   "result": "created",
+   "job_id": "f8c1dcb0-e1ab-4542-ae99-c89092dbacc1"
+  },
+  "reYwngVKuto": {
+   "date": "2026-11-07",
+   "slug": "poslovnifm",
+   "title": "Matić: Mediqcode uz pomoć umjetne inteligencije pomaže bolnicama naplatiti ono što su doista odra...",
+   "duration": 2316,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:30.921Z",
+   "result": "created",
+   "job_id": "9288b37a-7913-4485-be52-c874a797b278"
+  },
+  "2iPnTazmF20": {
+   "date": "2026-11-07",
+   "slug": "off-topic-podcast-hrt",
+   "title": "Off Topic #13 - Barbara Kolar \"Uvijek slušam intuiciju i ne osjećam tremu\"",
+   "duration": 4390,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:31.123Z",
+   "result": "created",
+   "job_id": "77980f62-fa83-4069-afce-0b4a32531afb"
+  },
+  "0_A-HjOy6pk": {
+   "date": "2026-11-07",
+   "slug": "hajducka-storija",
+   "title": "Neugodan poraz na Gibraltaru | DOJMOVI NA DRUGU",
+   "duration": 1127,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:31.322Z",
+   "result": "created",
+   "job_id": "a0021c7f-f5d3-4978-b7b9-cac99e0dd63f"
+  },
+  "6XdKz-0lhq8": {
+   "date": "2026-11-07",
+   "slug": "zona-dinamo-podcast",
+   "title": "Zona Dinamo Podcast - Sunderland, Leko, Novi trener",
+   "duration": 4929,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:31.520Z",
+   "result": "created",
+   "job_id": "a4670ca0-6c35-4b3b-9e50-d6179093cdef"
+  },
+  "hvoylMTWfKQ": {
+   "date": "2026-11-07",
+   "slug": "iza-pjace",
+   "title": "Iza Pjace #157: Nasukani",
+   "duration": 5371,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:31.728Z",
+   "result": "created",
+   "job_id": "b6dd090a-a5c4-49f5-8cf3-0413014e1a91"
+  },
+  "dakwgmZSjHY": {
+   "date": "2026-11-07",
+   "slug": "fraktura-booktalk",
+   "title": "Fraktura BookTalk #31 - Mirjana Hrga",
+   "duration": 3637,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:31.944Z",
+   "result": "created",
+   "job_id": "c73a7a63-ae8a-434a-83a0-c71158a33918"
+  },
+  "lasZKPE6ctc": {
+   "date": "2026-11-07",
+   "slug": "bez-dlake-na-glavi",
+   "title": "\"SHOW\" IDE DALJE | BDNG UŽIVO #210",
+   "duration": 8326,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:32.145Z",
+   "result": "created",
+   "job_id": "7419d0c8-8267-40f3-9dac-da53bd3307cf"
+  },
+  "H-4rHZnVw_0": {
+   "date": "2026-11-07",
+   "slug": "cancast",
+   "title": "KRULE PONOVO U CANCASTU: Od plaće se ne može živjeti",
+   "duration": 7132,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:32.347Z",
+   "result": "created",
+   "job_id": "e9971d22-fe4e-453d-b00f-01f05b10e306"
+  },
+  "IQknmkNUD0A": {
+   "date": "2026-11-07",
+   "slug": "prva-linija",
+   "title": "Prva linija, ep. 148, Radić: Sad traje obračun Vučićevih ljudi, evo što mi je rekao jedan inspektor",
+   "duration": 2527,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:32.539Z",
+   "result": "created",
+   "job_id": "356a5074-1ca2-471f-8a3d-4ee0c0ae2f28"
+  },
+  "ggAAgOPWmRM": {
+   "date": "2026-11-07",
+   "slug": "reci",
+   "title": "Hrvatska olimpijka proživjela je nezamislivu patnju: ‘Nisam smjela ni plakati...'",
+   "duration": 1837,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:32.730Z",
+   "result": "created",
+   "job_id": "9b6b0b6c-7372-40b1-8523-21a3fc003c43"
+  },
+  "tlsNw1xBpX8": {
+   "date": "2026-11-07",
+   "slug": "samo-hajduk",
+   "title": "Samo Hajduk Podcast #55: Opet stari Hajduk | EUCL vs Lincoln Red Imps",
+   "duration": 4136,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:32.947Z",
+   "result": "created",
+   "job_id": "ffb7777c-bdff-4ba6-a08b-b20951e0fdfd"
+  },
+  "RprZVAJ7eZI": {
+   "date": "2026-11-07",
+   "slug": "briefing-jutarnji-list",
+   "title": "Miro Kovač: Trumpu za mir u Ukrajini treba podrška triju europskih zemalja, ali one nisu oduševljene",
+   "duration": 2338,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:33.157Z",
+   "result": "created",
+   "job_id": "3e72dfaa-6fa9-4cee-9f5b-3ae94b4a17d9"
+  },
+  "NJgE5FtyODw": {
+   "date": "2026-11-07",
+   "slug": "um-and-boom",
+   "title": "Luna Valas: Gubitak sestre, manekenstvo i iskustvo koje ju je promijenilo!  | Um&Boom",
+   "duration": 4576,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:33.358Z",
+   "result": "created",
+   "job_id": "349d9c5a-3141-4922-9220-5bb2d2e793d5"
+  },
+  "hkvq0MOIdNo": {
+   "date": "2026-11-07",
+   "slug": "ton-slika-politika",
+   "title": "TON-SLIKA-POLITIKA * JANKO BEKIĆ: \"Migracije su postale učinkovito sredstvo hibridnog ratovanja!\"",
+   "duration": 4409,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:33.546Z",
+   "result": "created",
+   "job_id": "7d7eec5e-ca75-4c15-8925-ecc4dda60757"
+  },
+  "hujZNNQ2qFk": {
+   "date": "2026-11-07",
+   "slug": "radio-marija-ljubav-nikad-ne-prestaje",
+   "title": "1 Kor 2,9 | LJUBAV NIKAD NE PRESTAJE",
+   "duration": 3199,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:33.783Z",
+   "result": "created",
+   "job_id": "5939649d-c8de-4e87-aeab-5e294322d3b2"
+  },
+  "ssrecmWSTWE": {
+   "date": "2026-11-07",
+   "slug": "radio-marija-bih-savrseno-veselje",
+   "title": "Život kroz stihove - Savršeno veselje",
+   "duration": 1986,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:33.973Z",
+   "result": "created",
+   "job_id": "dada1c5f-9081-40b4-86e6-b6c772a77d11"
+  },
+  "g7B7V_m9rsQ": {
+   "date": "2026-11-07",
+   "slug": "hrt-peti-dan",
+   "title": "Peti dan: SAD - ljepota demokracije; AI opijum za mase",
+   "duration": 3654,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:34.173Z",
+   "result": "created",
+   "job_id": "2353340c-9bf1-4460-8fb7-ed6ec0ea1c0e"
+  },
+  "lclln8YNZA4": {
+   "date": "2026-11-07",
+   "slug": "hrt-peti-dan",
+   "title": "Potrošački kod, 6. studenoga 2026.",
+   "duration": 1551,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:34.355Z",
+   "result": "created",
+   "job_id": "53f10730-dbe2-45d9-ab2b-0da606a84d12"
+  },
+  "uwlnuLIbG5U": {
+   "date": "2026-11-07",
+   "slug": "hrt-globalna-hrvatska",
+   "title": "Globalna Hrvatska, 05.11.2026.",
+   "duration": 2562,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:34.563Z",
+   "result": "created",
+   "job_id": "c68a99b3-aa29-4a56-a114-f3d99f7151b6"
+  },
+  "VjCeQvjSMro": {
+   "date": "2026-11-07",
+   "slug": "apparatus-opazovalnica",
+   "title": "Skrčflacija",
+   "duration": 2428,
+   "attempts": 1,
+   "sent_at": "2026-11-07T03:10:34.768Z",
+   "result": "created",
+   "job_id": "4feab94a-a0d1-429a-93cb-7916400eca77"
   }
  },
- "updated_at": "2026-11-05T14:19:27.039Z",
+ "updated_at": "2026-11-07T03:10:34.966Z",
  "last_enqueue_usage": {
-  "at": "2026-11-05T02:53:04.113Z",
-  "five_hour": 8,
-  "five_hour_resets_at": "2026-11-05T07:10:00.249002+00:00",
-  "seven_day": 61,
-  "seven_day_resets_at": "2026-11-07T00:00:00.249019+00:00"
+  "at": "2026-11-07T03:10:34.966Z",
+  "five_hour": 13,
+  "five_hour_resets_at": "2026-11-07T07:09:59.836279+00:00",
+  "seven_day": 2,
+  "seven_day_resets_at": "2026-11-13T23:59:59.836301+00:00"
  }
 }

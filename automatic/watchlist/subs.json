@@ -1,9 +1,12 @@
 {
-  "generated_at": "2026-11-06T04:04:19.757Z",
+  "generated_at": "2026-11-07T03:12:46.233Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 78,
+  "count": 81,
   "videos": {
+    "U52zCQY2du8": {"slug":"prvi-glas-telegram","date":"2026-11-06","langs":["hr"]},
+    "UCBZh9oNOek": {"slug":"budi-frajer","date":"2026-11-06","langs":["en"]},
     "-AIVS3BoHAA": {"slug":"prvi-glas-telegram","date":"2026-11-05","langs":["hr"]},
+    "h9YyLdnRjb0": {"slug":"ideje-hr","date":"2026-11-04","langs":["hr"]},
     "qyYRS7qP-2w": {"slug":"prvi-glas-telegram","date":"2026-11-04","langs":["hr"]},
     "ri0QaNglg94": {"slug":"prvi-glas-telegram","date":"2026-11-04","langs":["hr"]},
     "TmrpIoKXN2c": {"slug":"launched","date":"2026-11-04","langs":["en"]},
