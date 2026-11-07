@@ -58,6 +58,35 @@ Je li Flash-low prestrog u odbacivanju, još nije uspoređeno s Opusom.
 - `llm_provider` se šalje tek s `state:'transcribing'` (nakon ASR-a), pa job koji se još obrađuje
   pokazuje traženi model.
 
+## Usporedba kvalitete: Opus vs agy flash-low vs flash-high (07.11.)
+
+Isti ulaz (dijarizirani SRT i Opusov sažetak), tri Tier 2 epizode koje je Opus napisao 07.11. ujutro.
+Agy verzije su nastale u scratch kopiji i nisu objavljene.
+
+| Epizoda | Mjera | Opus | flash-low | flash-high |
+|---|---|---|---|---|
+| HYNJ0Ddwjyw, Škabrnja, 28 min | znakova / sekcija / citata | 17 337 / 18 / 13 | 8 465 / 11 / 0 | 12 813 / 7 / 8 |
+| L9JEBGkSokM, privatna klinika, 52 min | znakova / sekcija / citata | 23 424 / 18 / 13 | 16 354 / 20 / 0 | 25 770 / 21 / 0 |
+| nToZnW8RHP4, Prgavi, 105 min | znakova / sekcija / entiteta | 53 097 / 65 / 102 | 21 606 / 29 / 58 | 66 053 / 73 / 101 |
+| | najveća rupa između kadrova | 3,7 min | 8,8 min | 3,6 min |
+| | trajanje poziva | Opus ~6 min/ep | 22–54 s | 90–360 s (105 min ep ≈ 20 min) |
+
+Čitanje istog odsječka (Škabrnja, 10:00–15:00), provjereno u prijepisu:
+
+- **Opus:** najviše detalja (dvorana i hostel, godine gradnje Memorijalnog centra, plan terenske nastave
+  po uzoru na Vukovar), imena podebljana, ton izvještaja. Nisam našao netočnost.
+- **flash-low:** točan, ali upola kraći. Izostavlja dvoranu, hostel i plan za osnovnoškolce, a nema
+  izravnih citata ni podebljanih imena. Dodaje kontekst koji nije izrečen („Ravni kotari”), ali je
+  činjenično točan. Kod duge epizode pokriva samo 40 % Opusovog teksta i ostavlja rupu od 8,8 min.
+- **flash-high:** opseg kao Opus ili veći, strukturiran u natuknice, s citatima kod kratke epizode.
+  Jedno **pretjerivanje**: „Dogovoreno je da Memorijalni centar postane obavezno odredište terenske
+  nastave … iz cijele Hrvatske”, a u snimci je „smo u dogovoru da djeca iz osnovnih škola dolaze”.
+  Jedan odgovor je trebao JSON popravak (🩹), koji je prošao.
+
+**Zaključak:** flash-low je dovoljno točan, ali članak je za kratku epizodu upola kraći, a za dugu oko
+60 % kraći od Opusovog. flash-high se po opsegu približava Opusu uz 5–7× dulje pozive i sklonost
+uljepšavanju izjava. Odluka o modelu za Tier 2 članak je otvorena.
+
 ## Ostali nalazi 07.11. (ništa nije popravljeno)
 
 Nalazi s jutarnjeg pregleda nightlyja i usporedbe kataloga za 06.11. Za svaki je predložen popravak,
