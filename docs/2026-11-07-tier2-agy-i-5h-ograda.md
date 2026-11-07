@@ -115,6 +115,19 @@ Hrvatska, najveći, ključni, strateški, iznimno, dogovoreno je…):
   Ocjene ispravno pripisuje (Brkiću „od iznimne važnosti za cijelu Hrvatsku”), a plan ostaje plan.
   Mana je bila 4 napomene o prijepisu u tekstu („u transkriptu ASR-om zabilježena kao…”), zbog čega je
   zabrana spominjanja transkripta dodana u `FIDELITY_CLAUSE`. Na duljim epizodama nije mjeren.
+- **argon-low na duljim epizodama** (strogi prompt sa zabranom spominjanja prijepisa):
+
+  | Epizoda | znakova / citata / pojačanja / najveća rupa | trajanje |
+  |---|---|---|
+  | Privatna klinika, 52 min | 24 068 / 20 / 4 / 5,8 min (Opus 23 424 / 13 / 6 / 4,6) | ~3,7 min |
+  | Prgavi, 105 min | 40 215 / 46 / 4 / 8,0 min (Opus 53 097 / 0 / 7 / 3,7) | ~5,7 min |
+
+  Nula spominjanja prijepisa. Na istom odsječku (Prgavi 40.–47. min) argon ima više detalja od strogog
+  flash-higha (popis što je pobjeda mogla donijeti, imena podebljana, doslovni citati), a točniji je:
+  „Nama je to ogroman plus … Ne da mi se sada objašnjavati zašto” argon prenosi doslovno, dok je strogi
+  flash-high sam dopisao objašnjenje („plus za klupski i nacionalni koeficijent”). Slabost: manje sekcija
+  od Opusa, pa najveća rupa između kadrova kod duge epizode raste na 8 min. Jedna ASR greška u citatu
+  („ili je crno ili je bilo”) nije ispravljena.
 - Pazi na imena agy tmux sesija: ime je `agyllm-s<slot>-<zadnji dio modela>`, pa `gemini-4-argon-low`
   i `gemini-3.8-flash-low` u istom slotu dijele sesiju `…-low`.
 
