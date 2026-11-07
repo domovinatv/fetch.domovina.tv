@@ -17,6 +17,8 @@ for l in lines(S+'/prio_f.log'):
     if m: c['start']=m[1]
     m=re.search(r'📢 \[(\d\d:\d\d:\d\d) \+[\d:]+\] KORAK ([\d.]+[a-z]?)(?:/\d+)?: (.*)',l)
     if m: c['steps'].append((m[2],m[1],m[3][:70]))
+    m=re.search(r'🤖 koraci 7\+8: (\w+)',l)
+    if m: c['llm']=m[1]
     m=re.search(r'Kraj: \d{4}-\d\d-\d\d (\S+)',l)
     if m: c['end']=m[1]
     if re.search(r'❌|anti-bot|Sign in|ODGOĐ|pauz',l,re.I): c['notes'].append(l.strip()[:160])

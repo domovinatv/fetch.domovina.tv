@@ -37,15 +37,24 @@ PH = [
     ('Kostur (2.8)', ['2.8'], '#d6d6d6'),
     ('Sažetak Opus (7)', ['7'], '#54A24B'),
     ('Članak Opus (8)', ['8'], '#2E7D32'),
+    ('Sažetak agy (7)', [], '#F2CF5B'),
+    ('Članak agy (8)', [], '#C9A227'),
     ('RAG + sličice (9–9.7)', ['9', '9.4', '9.5', '9.7'], '#b7d7a8'),
     ('Screenshotovi (10)', ['10'], '#E45756'),
     ('OG/EPUB/sponz./words (9.6–9.87)', ['9.6', '9.8', '9.85', '9.87'], '#ff9d98'),
     ('Reels Opus (9.9)', ['9.9'], '#B279A2'),
+    ('Reels agy (9.9)', [], '#E3B7D5'),
     ('R2 upload (12)', ['12'], '#72B7B2'),
     ('H.264 video (12.5)', ['12.5'], '#3a8f8a'),
     ('CDN ostalo (12.6–13)', ['12.6', '12.65', '12.66', '12.68', '12.7', '12.8', '13'], '#c7e9e6'),
 ]
 STEP2PH = {s: i for i, (_, ss, _) in enumerate(PH) for s in ss}
+# Od 07.11.2026. Tier 2 koraci 7, 8 i 9.9 idu kroz agy tmux (gemini-3.8-flash-low), ne Opus.
+_PHN = [n for n, _, _ in PH]
+AGY2PH = {'7': _PHN.index('Sažetak agy (7)'), '8': _PHN.index('Članak agy (8)'), '9.9': _PHN.index('Reels agy (9.9)')}
+LAST_PH = len(PH) - 1
+def ph_idx(k, agy=False):
+    return AGY2PH[k] if agy and k in AGY2PH else STEP2PH.get(k, LAST_PH)
 WAIT_C, PRE_C, POST_C = '#eeeeee', '#888888', '#555555'
 
 # ---------- Tier 2 (prioritetni red) ----------
@@ -57,13 +66,15 @@ for r in runs:
     for i, (k, t, name) in enumerate(st):
         a = ts(t); b = ts(st[i + 1][1]) if i + 1 < len(st) else ts(r['end'])
         steps.append(dict(k=k, name=name, start=a, end=b, d=b - a))
+    agy = (j.get('llm_provider') or '').startswith('agy') or r.get('llm') == 'agy'
     phase = [0] * len(PH)
     for s in steps:
-        phase[STEP2PH.get(s['k'], len(PH) - 1)] += s['d']
+        s['agy'] = agy
+        phase[ph_idx(s['k'], agy)] += s['d']
     e = dict(vid=r['vid'], channel=j.get('channel') or '', title=j.get('title') or '', audio=j.get('duration_seconds'),
              state=j.get('state'), err=j.get('error'), created=ep(j.get('created_at')), claimed=ep(j.get('claimed_at')),
              done=ep(j.get('done_at')), start=ts(r['start']), end=ts(r['end']), steps=steps, phase=phase,
-             asr=j.get('asr_provider'), notes=r['notes'], tier='T2', slot=r.get('slot', 1))
+             asr=j.get('asr_provider'), llm=j.get('llm_provider') or ('agy' if agy else None), notes=r['notes'], tier='T2', slot=r.get('slot', 1))
     e['pre'] = e['start'] - e['claimed'] if e['claimed'] else 0
     e['post'] = (e['done'] - e['end']) if e['done'] else None
     e['pyannote402'] = any('HTTP 402' in n for n in r['notes'])
@@ -129,7 +140,7 @@ lanes = ['Nightly (praćeni)'] + [f'Slot {k} (Tier 2)' for k in SLOTS] + ['Magis
 fig, ax = plt.subplots(figsize=(11, 0.9 * len(lanes)))
 y = {n: i for i, n in enumerate(lanes[::-1])}
 for s in NS:
-    ax.barh(y[lanes[0]], s['d'], left=s['start'], color=PH[STEP2PH.get(s['k'], 14)][2], edgecolor='white', lw=0.3, height=0.6)
+    ax.barh(y[lanes[0]], s['d'], left=s['start'], color=PH[ph_idx(s['k'], s.get('agy'))][2], edgecolor='white', lw=0.3, height=0.6)
 for e in T2:
     yy = y[f"Slot {e['slot']} (Tier 2)"]
     ax.barh(yy, e['end'] - e['start'], left=e['start'], color='#E45756' if e['state'] == 'failed' else '#4C78A8', edgecolor='white', lw=0.6, height=0.6)
@@ -161,7 +172,7 @@ if ok:
         ax.barh(yy, e['pre'], left=e['claimed'], color=PRE_C, height=0.7)
         for s in e['steps']:
             if s['d'] > 0:
-                ax.barh(yy, s['d'], left=s['start'], color=PH[STEP2PH.get(s['k'], 14)][2], height=0.7)
+                ax.barh(yy, s['d'], left=s['start'], color=PH[ph_idx(s['k'], s.get('agy'))][2], height=0.7)
         if e['post']:
             ax.barh(yy, e['post'], left=e['end'], color=POST_C, height=0.7)
         if e['vid'] in MHR:
@@ -318,10 +329,10 @@ T2_HTML = (f'''<img src="{G2}">
 <h3>Kako čitati</h3>
 <ul>
 <li>Trajanje je zbroj koraka pipelinea za tu epizodu, bez čekanja u redu i bez Magisteriuma/EN-a (oni idu u zasebnim trakama, paralelno sa slotom).</li>
-<li><b>Članak (8)</b> = outline + jedan Opus poziv po iteraciji od ~35–45 min snimke; zato raste s duljinom.</li>
+<li><b>Članak (8)</b> = outline + jedan LLM poziv po iteraciji od ~35–45 min snimke; zato raste s duljinom. Praćeni kanali: Opus; Tier 2 od 07.11.2026.: agy tmux (gemini-3.8-flash-low).</li>
 <li><b>H.264 (12.5)</b> = transkodiranje i upload videa; raste s duljinom videa.</li>
 <li><b>Screenshotovi (10)</b> = yt-dlp stream + Apple Vision izbor kadra (21 kandidat po kadru).</li>
-<li><b>Reels (9.9)</b> = 1 Opus poziv po epizodi.</li>
+<li><b>Reels (9.9)</b> = 1 LLM poziv po epizodi (Opus ili agy, kao članak).</li>
 </ul></div></div>''' if ok else '<p class="small">Tier 2 danas nije obradio nijednu epizodu, pa grafova po epizodi nema.</p>')
 A = H.append
 A(f"""<!doctype html><html lang="hr"><head><meta charset="utf-8"><title>Nightly {DHR} – vremena po koraku</title>
@@ -490,7 +501,7 @@ X = {n: i for i, n in enumerate(lanes_m)}
 def vbar(lane, a, b, c, txt=None):
     ax.bar(X[lane], b - a, bottom=a, width=0.78, color=c, edgecolor='white', lw=0.6)
     if txt and b - a > 420: ax.text(X[lane], (a + b) / 2, txt, ha='center', va='center', fontsize=7.5, color='white', rotation=0)
-for sx in NS: vbar('Nightly', sx['start'], sx['end'], PH[STEP2PH.get(sx['k'], 14)][2])
+for sx in NS: vbar('Nightly', sx['start'], sx['end'], PH[ph_idx(sx['k'])][2])
 for e in T2: vbar(f"Slot {e['slot']}", e['start'], e['end'], '#E45756' if e['state'] == 'failed' else '#4C78A8', e['vid'][:5])
 for v, d in MHR.items(): vbar('Mag HR', d['start'], d['end'], '#B279A2', v[:5])
 for t in mag['en']:

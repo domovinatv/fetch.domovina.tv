@@ -161,7 +161,7 @@ else:
                night=[dict(vid=n['vid'], channel=cdn.get(n['vid'], {}).get('channel') or n['dir'],
                            title=cdn.get(n['vid'], {}).get('title') or n['vid'], audio=n['audio'] or cdn.get(n['vid'], {}).get('duration'),
                            soniox=n['soniox'], summ=n['summ'], art=round(n['art'], 1) or None, reels=n['reels']) for n in night_eps],
-               night_note='Soniox = vrijeme obrade na Sonioxu; sažetak i članak = trajanje Opus poziva (članak = outline + iteracije); reels = select_reels.'
+               night_note='Soniox = vrijeme obrade na Sonioxu; sažetak i članak = trajanje LLM poziva (praćeni: Opus; Tier 2 od 07.11.: agy tmux), članak = outline + iteracije; reels = select_reels.'
                           + (f' ⚠️ pyannoteAI je u nightlyju {ny402}× vratio HTTP 402.' if ny402 else ''))
     if batch:
         c0 = min(sec(j['created_at']) for j in batch)
