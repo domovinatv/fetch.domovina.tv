@@ -1097,10 +1097,9 @@
    "title": "Nobelova nagrada | Opservatorija u dubinama antarktičkog leda | dr Nikola Veselinović | Agelast 371",
    "duration": 6970,
    "attempts": 1,
-   "sent_at": "2026-11-05T14:19:24.159Z",
-   "result": "created",
-   "job_id": "2939acfa-f663-43fd-99f7-c4021e0b508c",
-   "manual": "napod-2026-zadnja-epizoda"
+   "sent_at": "2026-11-07T19:48:28.556Z",
+   "result": "published",
+   "note": "ručno 07.11.: baseline novog kanala 05.11."
   },
   "Hs48G5NRqcA": {
    "date": "2026-11-05",
@@ -1108,10 +1107,9 @@
    "title": "Gojko Bailović, moreplovac & De Ferro Brasil - Pojačalo podcast EP 393",
    "duration": 8375,
    "attempts": 1,
-   "sent_at": "2026-11-05T14:19:24.690Z",
-   "result": "created",
-   "job_id": "9aef6d6b-4f9a-42ba-b6ba-cd1b6cd00faa",
-   "manual": "napod-2026-zadnja-epizoda"
+   "sent_at": "2026-11-07T19:48:28.938Z",
+   "result": "published",
+   "note": "ručno 07.11.: baseline novog kanala 05.11."
   },
   "ook_wmlQ3ig": {
    "date": "2026-11-05",
@@ -1174,10 +1172,9 @@
    "title": "Repurposing Podcast Episodes Beyond Clips and Quotes (A Different Perspective)",
    "duration": 820,
    "attempts": 1,
-   "sent_at": "2026-11-05T14:19:27.039Z",
-   "result": "created",
-   "job_id": "63702dac-3520-47f8-a30f-6651904a4125",
-   "manual": "napod-2026-zadnja-epizoda"
+   "sent_at": "2026-11-07T19:48:29.137Z",
+   "result": "published",
+   "note": "ručno 07.11.: baseline novog kanala 05.11."
   },
   "4ejxyaTO__8": {
    "date": "2026-11-06",
@@ -1834,9 +1831,20 @@
    "result": "created",
    "job_id": "fa371d10-cc65-4bdf-a3c5-3a85ae69b71c",
    "note": "ručno 07.11.: progutao tail baseline 06.11."
+  },
+  "Vjw0bTQyaJM": {
+   "date": "2026-11-05",
+   "slug": "radio-marija-bih-pozvani-na-slobodu",
+   "title": "Evo, činim sve novo - Pozvani na slobodu",
+   "duration": 3255,
+   "attempts": 1,
+   "sent_at": "2026-11-07T19:48:28.264Z",
+   "result": "created",
+   "job_id": "bc8e2ebc-afc4-4f9a-9398-e9fd6a0c8e51",
+   "note": "ručno 07.11.: baseline novog kanala 05.11."
   }
  },
- "updated_at": "2026-11-07T19:44:49.715Z",
+ "updated_at": "2026-11-07T19:48:29.137Z",
  "last_enqueue_usage": {
   "at": "2026-11-07T03:10:34.966Z",
   "five_hour": 13,
