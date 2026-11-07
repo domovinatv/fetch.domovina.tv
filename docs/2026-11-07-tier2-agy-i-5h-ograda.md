@@ -57,3 +57,33 @@ Je li Flash-low prestrog u odbacivanju, još nije uspoređeno s Opusom.
 - Kvaliteta agy članka i reelsa u odnosu na Opus još nije sustavno uspoređena.
 - `llm_provider` se šalje tek s `state:'transcribing'` (nakon ASR-a), pa job koji se još obrađuje
   pokazuje traženi model.
+
+## Ostali nalazi 07.11. (ništa nije popravljeno)
+
+Nalazi s jutarnjeg pregleda nightlyja i usporedbe kataloga za 06.11. Za svaki je predložen popravak,
+ali nijedan nije izveden.
+
+1. **Datum u katalogu nije isti kao na /dani.** podcast.domovina.ai `/dani/2026-11-06` pokazuje 38
+   epizoda, a katalog (`domovina.ai/api/katalog/v1/days/2026-11-06`) 12. Od razlike: 20 ih je u
+   trenutku provjere (~08:00) još bilo u Tier 2 redu, a 3 imaju drugi dan
+   (`otd_t_hHu4c`, `nToZnW8RHP4`, `onRqdjdtoKU`). Katalog uzima yt-dlp `upload_date`, koji je UTC,
+   a /dani `published_at` po Europe/Zagreb. Epizoda objavljena između 00:00 i 01:00 po našem vremenu
+   zato u katalogu padne na prethodni dan. Popravak ide u katalog ingest, repo `domovina.ai`.
+2. **Tri epizode nikad nisu ušle u `events.jsonl`**, pa ih Tier 2 nije ni poslao:
+   `SGDEtqqLrHc` (hrt-otvoreno), `5grG3YMQsrk` (sbs-croatian), `Lm5_0TYzCLQ`
+   (tribina-europski-nogomet). Svi su kanali `tracking.enabled:false`. Rupa je u
+   `watch_candidates.js` i još nije istražena.
+3. **Members-only video se ponavlja uzalud.** `LGJRjT7p960` (Frankopani) pada s „members-only
+   content”. Proxy tu ne pomaže, a automatski retry u `enqueue_all_new.js` pokuša do 3 puta.
+   Prijedlog: bridge takvu grešku označi kao trajnu.
+4. **Audit nightlyja 07.11. završio je s exit 1** zbog drifta `book.epub` za `WRE248YCIeI`
+   (domovina_tv). Popravak: `node force_upload.js --video-id WRE248YCIeI --channel domovina_tv`,
+   ali prvo provjeri smjer drifta.
+
+## Procjena za 07.11. (u 09:47)
+
+| Što | Kad gotovo |
+|---|---|
+| Tier 2 članci (8 preostalih) | oko 11:00–11:30 |
+| HR Magisterium (~33, ~3 na sat, jedan po jedan) | oko 20:30–21:30 |
+| EN prijevodi (~2,5 min po epizodi, odmah iza HR-a) | oko 21–22 h |
