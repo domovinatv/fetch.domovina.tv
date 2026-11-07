@@ -606,7 +606,7 @@ function callAgyCli(systemPrompt, userMessage) {
     // isti put kao EN prijevod. Jedna sesija po prioritetnom slotu: dva paralelna runa
     // ne smiju pisati u isti razgovor. Stara argv verzija je u git povijesti.
     const { agyJson } = require("./lib/agy_tmux");
-    const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`;
+    const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.replace(/[^A-Za-z0-9]+/g, "-")}`;
     return agyJson({ system: systemPrompt, user: userMessage, session, model: AGY_MODEL })
         .then((obj) => ({ text: JSON.stringify(obj), usage: null, costUsd: null }));
 }

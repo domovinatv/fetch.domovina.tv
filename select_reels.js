@@ -261,7 +261,7 @@ function callClaude(system, user) {
 const AGY_MODEL = process.env.AGY_MODEL || "gemini-3.8-flash-low";
 async function callAgy(system, user) {
     const { agyJson } = require("./lib/agy_tmux");
-    const obj = await agyJson({ system, user, session: `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`, model: AGY_MODEL });
+    const obj = await agyJson({ system, user, session: `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.replace(/[^A-Za-z0-9]+/g, "-")}`, model: AGY_MODEL });
     return { text: JSON.stringify(obj), model: `agy:${AGY_MODEL}`, usage: null, cost_usd: null };
 }
 

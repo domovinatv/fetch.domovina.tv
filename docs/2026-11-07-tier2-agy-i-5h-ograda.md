@@ -131,6 +131,12 @@ Hrvatska, najveći, ključni, strateški, iznimno, dogovoreno je…):
 - Pazi na imena agy tmux sesija: ime je `agyllm-s<slot>-<zadnji dio modela>`, pa `gemini-4-argon-low`
   i `gemini-3.8-flash-low` u istom slotu dijele sesiju `…-low`.
 
+## Odluka: članak na argon-low (07.11. ~12 h)
+
+Default `AGY_ARTICLE_MODEL` je od 07.11.2026. oko 12 h **`gemini-4-argon-low`** (prije toga ~1 h flash-high).
+Strogi `FIDELITY_CLAUSE` ostaje. Tmux sesija se od tada zove po cijelom modelu
+(`agyllm-s<slot>-gemini-4-argon-low`), pa modeli istog „napora” više ne dijele sesiju.
+
 ## Ostali nalazi 07.11. (ništa nije popravljeno)
 
 Nalazi s jutarnjeg pregleda nightlyja i usporedbe kataloga za 06.11. Za svaki je predložen popravak,

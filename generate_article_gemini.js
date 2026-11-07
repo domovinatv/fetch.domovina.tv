@@ -94,9 +94,10 @@ const USING_CLAUDE = GEMINI_BACKEND === "claude";
 
 const USING_AGY = GEMINI_BACKEND === "agy";
 // Članak ima vlastiti agy model (07.11.2026.): flash-low je pisao upola kraće od Opusa, flash-high
-// je po opsegu blizu Opusu (docs/2026-11-07-tier2-agy-i-5h-ograda.md). AGY_MODEL ostaje za
+// je po opsegu blizu Opusu, ali uljepšava (docs/2026-11-07-tier2-agy-i-5h-ograda.md). AGY_MODEL ostaje za
 // sažetak i reels, pa ga ovdje namjerno ne čitamo.
-const AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-3.8-flash-high";
+// 07.11. ~12 h: argon-low je u usporedbi bio točniji od flash-higha i 3–4× brži (isti dokument).
+const AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-4-argon-low";
 // flash-high treba 90–360 s po pozivu; default agy_tmux timeout (600 s) je pretijesan za duge iteracije.
 const AGY_ARTICLE_TIMEOUT_MS = parseInt(process.env.AGY_ARTICLE_TIMEOUT_SEC || "1200", 10) * 1000;
 
@@ -1263,7 +1264,7 @@ function callAgyCli(systemPrompt, userMessage) {
     // isti put kao EN prijevod. Jedna sesija po prioritetnom slotu: dva paralelna runa
     // ne smiju pisati u isti razgovor. Stara argv verzija je u git povijesti.
     const { agyJson } = require("./lib/agy_tmux");
-    const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`;
+    const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.replace(/[^A-Za-z0-9]+/g, "-")}`;
     return agyJson({ system: systemPrompt, user: userMessage, session, model: AGY_MODEL, timeoutMs: AGY_ARTICLE_TIMEOUT_MS })
         .then((obj) => ({ text: JSON.stringify(obj), usage: null, costUsd: null }));
 }
