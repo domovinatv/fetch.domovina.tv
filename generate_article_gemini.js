@@ -97,7 +97,11 @@ const USING_AGY = GEMINI_BACKEND === "agy";
 // je po opsegu blizu Opusu, ali uljepšava (docs/2026-11-07-tier2-agy-i-5h-ograda.md). AGY_MODEL ostaje za
 // sažetak i reels, pa ga ovdje namjerno ne čitamo.
 // 07.11. ~12 h: argon-low je u usporedbi bio točniji od flash-higha i 3–4× brži (isti dokument).
-const AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-4-argon-low";
+let AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-4-argon-low";
+// Argon ima ZASEBAN tjedni limit, malen na Pro planu: 3 članka (185 min snimke) = 9,6 % tjedno,
+// tj. ~30 epizoda tjedno uz ~45 Tier 2 epizoda dnevno. Iznad praga članak piše fallback model.
+const AGY_ARGON_MAX_WEEKLY = parseFloat(process.env.AGY_ARGON_MAX_WEEKLY || "85");
+const AGY_ARTICLE_FALLBACK_MODEL = process.env.AGY_ARTICLE_FALLBACK_MODEL || "gemini-3.8-flash-high";
 // flash-high treba 90–360 s po pozivu; default agy_tmux timeout (600 s) je pretijesan za duge iteracije.
 const AGY_ARTICLE_TIMEOUT_MS = parseInt(process.env.AGY_ARTICLE_TIMEOUT_SEC || "1200", 10) * 1000;
 
@@ -108,7 +112,7 @@ const AGY_ARTICLE_TIMEOUT_MS = parseInt(process.env.AGY_ARTICLE_TIMEOUT_SEC || "
 // ("claude-code:opus") ide u JSON metadata, ne u ime datoteke (dvotočka u imenu = problem).
 const MODEL_SLUG = USING_CLAUDE ? CLAUDE_MODEL : (USING_AGY ? "agy" : GEMINI_MODEL);
 // Puno ime modela za provenance polja unutar JSON-a.
-const PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : (USING_AGY ? `agy:${AGY_MODEL}` : GEMINI_MODEL);
+let PROVENANCE_MODEL = USING_CLAUDE ? `claude-code:${CLAUDE_MODEL}` : (USING_AGY ? `agy:${AGY_MODEL}` : GEMINI_MODEL);
 // Aliasi Claude modela — koristi ih hasCompleteArticle da gemini pass NE regenerira
 // (i time efektivno ne degradira) članak koji je već podignut na Claude kvalitetu.
 const CLAUDE_SLUGS = ["opus", "sonnet", "haiku", "fable"];
@@ -1894,6 +1898,20 @@ async function main() {
         return;
     }
 
+    // agy kvota prije i poslije (07.11.2026.): Argon ima malen ZASEBAN tjedni limit, pa se
+    // potrošnja po članku mjeri iz razlike. ~3 s, 0 tokena; neuspjeh samo ispiše „nije pročitana”.
+    const { readAgyUsage, formatAgyUsage } = require("./lib/agy_usage");
+    const agyBefore = USING_AGY && !dryRun ? await readAgyUsage({ maxAgeSec: 0 }) : null;
+    if (USING_AGY && !dryRun) {
+        console.log(`   🔋 ${formatAgyUsage(agyBefore)} (model ${AGY_MODEL})`);
+        if (/argon/i.test(AGY_MODEL) && agyBefore && agyBefore.argon_weekly !== undefined
+            && agyBefore.argon_weekly >= AGY_ARGON_MAX_WEEKLY) {
+            console.log(`   🔋 Argon tjedno ${agyBefore.argon_weekly} % ≥ ${AGY_ARGON_MAX_WEEKLY} % → članak piše ${AGY_ARTICLE_FALLBACK_MODEL}`);
+            AGY_MODEL = AGY_ARTICLE_FALLBACK_MODEL;
+            PROVENANCE_MODEL = `agy:${AGY_MODEL}`;
+        }
+    }
+
     // Gradi round-robin red
     const queue = buildRoundRobinQueue(byChannel);
     const finalQueue = limit ? queue.slice(0, limit) : queue;
@@ -1957,6 +1975,13 @@ async function main() {
     if (failed > 0) console.log(`   ❌ Neuspješno: ${failed}`);
     if (deferred > 0) console.log(`   ⏸️  Odgođeno (Claude prozor): ${deferred}`);
     console.log(`   💾 Done cache: ${doneSet.size} epizoda`);
+    if (USING_AGY && !dryRun) {
+        const agyAfter = await readAgyUsage({ maxAgeSec: 0 });
+        const d = (k) => (agyBefore && agyAfter && agyBefore[k] !== undefined && agyAfter[k] !== undefined
+            ? `${(agyAfter[k] - agyBefore[k]).toFixed(1)} pp` : "?");
+        console.log(`   🔋 ${formatAgyUsage(agyAfter)}`);
+        console.log(`   🔋 ovaj run (${AGY_MODEL}): Gemini 5h +${d("gemini_5h")}, tj. +${d("gemini_weekly")} | Argon tj. +${d("argon_weekly")}`);
+    }
     if (sessionUsage.calls > 0) {
         console.log(`   💳 ${USING_CLAUDE ? "Claude" : "Gemini"} ovaj run: ${sessionUsage.prompt}+${sessionUsage.output} tok u ${sessionUsage.calls} poziva ≈ $${sessionUsage.usd.toFixed(4)} (${USING_CLAUDE ? `pretplata, ekvivalentni trošak, model=${CLAUDE_MODEL}` : VERTEX_PROJECT})`);
     }

@@ -54,7 +54,10 @@ async function sample() {
     const s = loadSamples();
     if (s.length && Date.now() - s[s.length - 1].ts * 1000 < SAMPLE_EVERY_MS && !args.includes('--force')) return;
     const u = await readUsage();
-    fs.appendFileSync(SAMPLES, JSON.stringify({ ts: Math.floor(Date.now() / 1000), five_hour: u.five_hour, seven_day: u.seven_day }) + '\n');
+    // agy kvota uz Claude (07.11.2026.): Tier 2 piše kroz agy, Argon ima zaseban tjedni limit.
+    const a = await require('../lib/agy_usage').readAgyUsage({ maxAgeSec: 0 }).catch(() => null);
+    const agy = a ? { agy_gemini_5h: a.gemini_5h, agy_gemini_weekly: a.gemini_weekly, agy_argon_weekly: a.argon_weekly } : {};
+    fs.appendFileSync(SAMPLES, JSON.stringify({ ts: Math.floor(Date.now() / 1000), five_hour: u.five_hour, seven_day: u.seven_day, ...agy }) + '\n');
 }
 
 // Porast tjednog između t0 i t1: zbroj pozitivnih koraka; pad > 3 = reset prozora.

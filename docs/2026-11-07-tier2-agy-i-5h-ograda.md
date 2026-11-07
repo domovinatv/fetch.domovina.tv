@@ -137,6 +137,47 @@ Default `AGY_ARTICLE_MODEL` je od 07.11.2026. oko 12 h **`gemini-4-argon-low`** 
 Strogi `FIDELITY_CLAUSE` ostaje. Tmux sesija se od tada zove po cijelom modelu
 (`agyllm-s<slot>-gemini-4-argon-low`), pa modeli istog „napora” više ne dijele sesiju.
 
+## agy kvota u logovima i Argon ograda (07.11. ~12:15)
+
+`agy -p "/usage" --output-format json` vraća stanje kvote bez pokretanja modela (~3 s, 0 tokena).
+`agy -p` je pokvaren samo za prave upite. `lib/agy_usage.js` to čita i vraća potrošene postotke:
+
+| Bucket | Polje | Stanje 07.11. ~12 h |
+|---|---|---|
+| Gemini Flash/Pro, 5 h | `gemini_5h` | 33 % |
+| Gemini Flash/Pro, tjedno | `gemini_weekly` | 20 % |
+| **Gemini 4 Argon, tjedno (zaseban)** | `argon_weekly` | **9,6 %** |
+| Claude/GPT kroz agy, 5 h i tjedno | `claude_5h`, `claude_weekly` | 0 % |
+
+Kvota se upisuje na tri mjesta:
+
+- **`generate_article_gemini.js`** (agy): `🔋` red s kvotom prije i poslije runa, uz razliku za taj članak
+  (`ovaj run (…): Gemini 5h +x pp … | Argon tj. +y pp`).
+- **`priority_poller.js`:** `🔋` red kad Tier 2 job ide na agy (keš 5 min).
+- **`quota_samples.jsonl`** (sampler svakih 10 min): polja `agy_gemini_5h`, `agy_gemini_weekly`, `agy_argon_weekly`.
+
+**Argon ima malen zaseban tjedni limit.** Tri probna članka (Škabrnja, privatna klinika i Prgavi, ukupno
+185 min snimke) potrošila su 9,6 % tjednog Argona, dakle oko 3 % po epizodi. To je otprilike 30 epizoda
+tjedno, a Tier 2 ih dobije ~45 dnevno. Zato članak iznad `AGY_ARGON_MAX_WEEKLY` (default 85 % potrošeno)
+piše `AGY_ARTICLE_FALLBACK_MODEL` (default `gemini-3.8-flash-high`, uz isti strogi prompt).
+U praksi Argon piše prvih ~25 epizoda nakon tjednog reseta (reset 14.11. 09:51 UTC), a ostatak tjedna
+piše flash-high. `metadata.model` u članku i `llm_provider` u adminu pokazuju stvarni model; bridge ga
+čita s diska.
+
+## Zamka: tmux server izgubio pristup vanjskom disku (07.11. ~12 h)
+
+`~/.gemini` je symlink na `/Volumes/DOMOVINA2TB/mac-mini-offload/Users/ms/.gemini` (12 GB). tmux
+server je 6.11. u 16:19 pokrenuo launchd EN job, a 7.11. oko 12 h izgubio je pravo otvaranja datoteka
+na tom volumenu. `stat` je prolazio, `open` nije (`operation not permitted`), isti TCC uzorak kao
+nightly `find` 2026-08. Sve sesije koje su već radile su preživjele, ali svaka NOVA agy sesija pada:
+EN tick u 12:08 (`translate_to_english.js izašao s 1`), a pala bi i prva Argon sesija Tier 2 članka.
+Novi tmux server (`tmux -L x`) čita bez problema. Vjerojatni okidač je ponovno montiranje diska
+(`storagekitd` ponovno pokrenut ~11:56).
+
+Popravak: `tmux kill-server` kad nijedna agy sesija ne radi. Iduća sesija pokreće novi server.
+`lib/agy_tmux.js` sada taj kvar prepoznaje i javlja ga jasnom porukom umjesto „prijava?”.
+Trajno rješenje bilo bi vratiti `~/.gemini` na interni disk; to nije učinjeno.
+
 ## Ostali nalazi 07.11. (ništa nije popravljeno)
 
 Nalazi s jutarnjeg pregleda nightlyja i usporedbe kataloga za 06.11. Za svaki je predložen popravak,
