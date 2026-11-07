@@ -96,8 +96,8 @@ const CLAUDE_MODEL = process.env.CLAUDE_MODEL || CONF.CLAUDE_MODEL || "opus";
 const CLAUDE_EFFORT = process.env.CLAUDE_EFFORT || CONF.CLAUDE_EFFORT || "high";
 const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
 
-if (!["claude", "vertex"].includes(BACKEND)) {
-    console.error(`❌ select_reels.js podržava GEMINI_BACKEND=claude|vertex (zadano: ${BACKEND})`);
+if (!["claude", "vertex", "agy"].includes(BACKEND)) {
+    console.error(`❌ select_reels.js podržava GEMINI_BACKEND=claude|agy|vertex (zadano: ${BACKEND})`);
     process.exit(2);
 }
 
@@ -255,6 +255,14 @@ function callClaude(system, user) {
         proc.stdin.write(user);
         proc.stdin.end();
     });
+}
+
+// agy (07.11.2026.): Tier 2 piše kroz Gemini, isti tmux put i ista sesija po slotu kao 7+8.
+const AGY_MODEL = process.env.AGY_MODEL || "gemini-3.8-flash-low";
+async function callAgy(system, user) {
+    const { agyJson } = require("./lib/agy_tmux");
+    const obj = await agyJson({ system, user, session: `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`, model: AGY_MODEL });
+    return { text: JSON.stringify(obj), model: `agy:${AGY_MODEL}`, usage: null, cost_usd: null };
 }
 
 // ⚠️ DEPRECATED (29.10.2026.) — Vertex AI se ne koristi (lib/vertex_auth.js: vertexEnabled() je
@@ -422,7 +430,7 @@ function withinWindow(segs) {
 }
 
 async function main() {
-    console.log(`🎬 select_reels.js — backend=${BACKEND} (${BACKEND === "claude" ? CLAUDE_MODEL : GEMINI_MODEL}), count=${COUNT}` +
+    console.log(`🎬 select_reels.js — backend=${BACKEND} (${BACKEND === "claude" ? CLAUDE_MODEL : BACKEND === "agy" ? AGY_MODEL : GEMINI_MODEL}), count=${COUNT}` +
         (ONLY_VIDEO ? `, video=${ONLY_VIDEO}` : `, since-days=${SINCE_DAYS}, max=${MAX_EPISODES}`));
 
     const todo = [];
@@ -456,7 +464,8 @@ async function main() {
 
         try {
             const t0 = Date.now();
-            const res = BACKEND === "claude" ? await callClaude(SYSTEM_PROMPT, user) : await callVertex(SYSTEM_PROMPT, user);
+            const res = BACKEND === "claude" ? await callClaude(SYSTEM_PROMPT, user)
+                : BACKEND === "agy" ? await callAgy(SYSTEM_PROMPT, user) : await callVertex(SYSTEM_PROMPT, user);
             const words = readJson(path.join(ep.dir, ep.base + ".words.json"));
             const norm = normalizeReels(parseJsonLoose(res.text), ep.segs, words);
             const { reels, rejected } = keepRendered(readJson(ep.outPath), norm.reels, norm.rejected, COUNT);

@@ -93,7 +93,7 @@ const CLAUDE_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
 const USING_CLAUDE = GEMINI_BACKEND === "claude";
 
 const USING_AGY = GEMINI_BACKEND === "agy";
-const AGY_MODEL = process.env.AGY_MODEL || "Gemini 3.1 Pro (High)";
+const AGY_MODEL = process.env.AGY_MODEL || "gemini-3.8-flash-low";
 
 // Slug koji ide u IMENA datoteka: {basename}_{date}_{MODEL_SLUG}.article.json
 // ⚠️ Downstream (channel_index, CDN manifest) dedupa po LEKSIKOGRAFSKI NAJVEĆEM imenu.
@@ -1238,57 +1238,14 @@ function callClaudeCli(systemPrompt, userMessage) {
  * unaprijed i puca s jasnom porukom umjesto s „Argument list too long".
  */
 function callAgyCli(systemPrompt, userMessage) {
-    return new Promise((resolve, reject) => {
-        const combinedMessage = `[SYSTEM INSTRUCTIONS]\n${systemPrompt}\n\n[USER INPUT]\n${userMessage}`;
-        // ARG_MAX je zajednički za argv I okoliš — ostavljamo 15 % rezerve.
-        const ARG_MAX_SAFE = 890000;
-        const promptBytes = Buffer.byteLength(combinedMessage, "utf8");
-        if (promptBytes > ARG_MAX_SAFE) {
-            reject(new Error(
-                `agy CLI: prompt je ${promptBytes} B, iznad sigurnog ARG_MAX-a (${ARG_MAX_SAFE} B). ` +
-                `agy prima prompt samo kroz argv. Koristi --gemini-backend vertex ili claude.`));
-            return;
-        }
-        const args = [
-            "-p", combinedMessage,
-            "--model", AGY_MODEL,
-            "--output-format", "json",
-            "--dangerously-skip-permissions"
-        ];
-        
-        const proc = spawn("agy", args, { stdio: ["pipe", "pipe", "pipe"] });
-        let stdout = "";
-        let stderr = "";
-        proc.stdout.on("data", (d) => { stdout += d; });
-        proc.stderr.on("data", (d) => { stderr += d; });
-        proc.on("error", (err) => reject(new Error(`agy CLI spawn failed: ${err.message}`)));
-        proc.stdin.on("error", (err) => reject(new Error(`agy CLI stdin: ${err.message}`)));
-
-        proc.on("close", (code) => {
-            if (code !== 0) {
-                reject(new Error(`agy CLI exit ${code}: ${(stderr || stdout).substring(0, 400) || "(bez outputa)"}`));
-                return;
-            }
-            let env;
-            try {
-                env = JSON.parse(stdout);
-            } catch (_) {
-                reject(new Error(`agy CLI nije vratio JSON envelope. Prvih 300: ${stdout.substring(0, 300)}`));
-                return;
-            }
-            if (env.status !== "SUCCESS") {
-                reject(new Error(`agy CLI greška (status=${env.status}): ${String(env.error || env.response || "").substring(0, 300)}`));
-                return;
-            }
-            resolve({
-                text: env.response || "",
-                usage: env.usage || null,
-                costUsd: null,
-            });
-        });
-
-        proc.stdin.end();
-    });
+    // 07.11.2026.: `agy -p` ne vraća odgovor (bug od agy 1.3.5) i nosi prompt kroz argv
+    // (ARG_MAX). Poziv zato ide kroz interaktivnu agy sesiju u tmuxu (lib/agy_tmux.js),
+    // isti put kao EN prijevod. Jedna sesija po prioritetnom slotu: dva paralelna runa
+    // ne smiju pisati u isti razgovor. Stara argv verzija je u git povijesti.
+    const { agyJson } = require("./lib/agy_tmux");
+    const session = `agyllm-s${process.env.PRIORITY_SLOT || "0"}-${AGY_MODEL.split("-").pop()}`;
+    return agyJson({ system: systemPrompt, user: userMessage, session, model: AGY_MODEL })
+        .then((obj) => ({ text: JSON.stringify(obj), usage: null, costUsd: null }));
 }
 
 async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv", rawSavePath = null) {
@@ -1346,7 +1303,8 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
                     }
                 }
                 
-                return extractJsonFromText(res.text, label);
+                // Isti oblik kao Claude grana: pozivatelji čitaju .parsed i .raw.
+                return { parsed: extractJsonFromText(res.text, label), raw: res.text };
             } catch (err) {
                 lastErr = err;
                 console.log(`    ⚠️ [Agy ${i}/${CLAUDE_MAX_RETRIES}] Greška: ${err.message.split("\n")[0]}`);
