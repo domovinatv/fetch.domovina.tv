@@ -1321,10 +1321,10 @@
    "slug": "2pogled-povijest",
    "title": "Frankopani – šest stoljeća hrvatske povijesti | 11. epizoda – Nikola IV. Frankopan",
    "duration": 1946,
-   "attempts": 1,
-   "sent_at": "2026-11-07T03:10:27.695Z",
+   "attempts": 2,
+   "sent_at": "2026-11-08T03:13:36.142Z",
    "result": "created",
-   "job_id": "2a9fe2ef-5c2d-43d7-a10d-4829c5edecf8"
+   "job_id": "2a34c3dc-3eb7-4abb-9180-fd0c24482d30"
   },
   "o2soixMeApE": {
    "date": "2026-11-07",
@@ -1842,14 +1842,134 @@
    "result": "created",
    "job_id": "bc8e2ebc-afc4-4f9a-9398-e9fd6a0c8e51",
    "note": "ručno 07.11.: baseline novog kanala 05.11."
+  },
+  "1NptX3Jbyns": {
+   "date": "2026-11-08",
+   "slug": "agape-rtv",
+   "title": "Ćosić NEVIN 787 dana u ZATVORU. Zagrlio PROGONITELJA i spoznao KRISTA! Slučaj ubojstva Leutara!",
+   "duration": 4226,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:36.602Z",
+   "result": "created",
+   "job_id": "2a37b25c-b9ed-4a6d-be92-974397d46e4c"
+  },
+  "mSLuRnEWVbw": {
+   "date": "2026-11-08",
+   "slug": "fima-podcast",
+   "title": "Broj električnih automobila će se udvostručiti u godinu dana",
+   "duration": 1329,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:36.982Z",
+   "result": "created",
+   "job_id": "4c639fb7-b783-4c55-a80d-96e7a97d3bf1"
+  },
+  "EY4JUiIwlpo": {
+   "date": "2026-11-08",
+   "slug": "karlo-cast",
+   "title": "ČUDO U GRADU BEZ NOVCA: Kako brodski klubovi preživljavaju?",
+   "duration": 3115,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:37.261Z",
+   "result": "created",
+   "job_id": "a6f1c117-9f6c-4b8e-a1e5-463fd55d68ab"
+  },
+  "W0ImemHws3o": {
+   "date": "2026-11-08",
+   "slug": "libertas-talks",
+   "title": "S5E6: Marko Zadravec - Mladi prepoznaju kvalitete i vrijednosti HDZ-a | Zagreb i mladi u politici",
+   "duration": 2090,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:37.548Z",
+   "result": "created",
+   "job_id": "50066f48-57ab-4848-b5d4-bf8316698470"
+  },
+  "1um0l3_X94s": {
+   "date": "2026-11-08",
+   "slug": "spica-s-macanom",
+   "title": "Danijela Martinović: Prava autentičnost je usuditi se hodati neprokrčenom stazom! Špica specijal 14",
+   "duration": 4861,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:37.817Z",
+   "result": "created",
+   "job_id": "8634df93-021d-44cc-b09d-9bb41e0bc714"
+  },
+  "jqNRR1qd-0Y": {
+   "date": "2026-11-08",
+   "slug": "nlo-arhivist",
+   "title": "Astronomi i AATIP 72:Božić,Bubnjević,Gajić,Tomičić,Radonić i Korlević komentiraju objavu NLO dosjea",
+   "duration": 8119,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:38.060Z",
+   "result": "created",
+   "job_id": "73628a81-b4ce-494d-a1f2-e427e17c7c9b"
+  },
+  "YAxWCube5BU": {
+   "date": "2026-11-08",
+   "slug": "projekt-snovi",
+   "title": "Smrt Stjepana Radića i izgradnja njegova kulta osobnosti | Stipica Grgić | Podcast projekta SNOVI 46",
+   "duration": 1670,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:38.356Z",
+   "result": "created",
+   "job_id": "2a8a542c-3d50-48da-9f40-2a1ce2c65258"
+  },
+  "FLqhPRjf23A": {
+   "date": "2026-11-08",
+   "slug": "prgavi-podcast",
+   "title": "Po pobjedu pa na pauzu ❤️💙 gostovanje u Osijeku 🤍 Prgavi podcast",
+   "duration": 7689,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:38.577Z",
+   "result": "created",
+   "job_id": "dbd25874-0d82-4b86-a0c4-234898ca960b"
+  },
+  "9KJGgUqOYAI": {
+   "date": "2026-11-08",
+   "slug": "fortunal-podcast",
+   "title": "Fortunal Podcast #17 Pave Čala",
+   "duration": 3263,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:38.837Z",
+   "result": "created",
+   "job_id": "2ebccdf1-8eb5-4464-a959-7840aaa8e421"
+  },
+  "Bgofr7GgMvI": {
+   "date": "2026-11-08",
+   "slug": "veliki-judi",
+   "title": "Veliki judi 07.11.2026. Joško Marušić",
+   "duration": 1944,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:39.096Z",
+   "result": "created",
+   "job_id": "82f5f575-020a-4cc3-8f49-2f9894f422b0"
+  },
+  "BZcYa_9ygnw": {
+   "date": "2026-11-08",
+   "slug": "hkm-zivjeti-evandelje",
+   "title": "Živjeti Evanđelje - Mislimo da imamo vremena. A što ako ga nemamo?",
+   "duration": 3159,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:39.370Z",
+   "result": "created",
+   "job_id": "2c8b1ed9-2888-4994-b34c-835b4c2e6290"
+  },
+  "8iZkYpEiaIg": {
+   "date": "2026-11-08",
+   "slug": "hrt-veterani-mira",
+   "title": "Veterani mira: Bitka za Gospić",
+   "duration": 1508,
+   "attempts": 1,
+   "sent_at": "2026-11-08T03:13:39.625Z",
+   "result": "created",
+   "job_id": "c5bcde5c-4e7e-4174-a29f-8fac168e290b"
   }
  },
- "updated_at": "2026-11-07T19:48:29.137Z",
+ "updated_at": "2026-11-08T03:13:39.838Z",
  "last_enqueue_usage": {
-  "at": "2026-11-07T03:10:34.966Z",
+  "at": "2026-11-08T03:13:39.838Z",
   "five_hour": 13,
-  "five_hour_resets_at": "2026-11-07T07:09:59.836279+00:00",
-  "seven_day": 2,
-  "seven_day_resets_at": "2026-11-13T23:59:59.836301+00:00"
+  "five_hour_resets_at": "2026-11-08T04:20:00.036413+00:00",
+  "seven_day": 13,
+  "seven_day_resets_at": "2026-11-14T00:00:00.036432+00:00"
  }
 }
