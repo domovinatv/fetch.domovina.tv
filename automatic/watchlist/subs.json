@@ -1,8 +1,10 @@
 {
-  "generated_at": "2026-11-08T03:15:07.192Z",
+  "generated_at": "2026-11-09T02:37:14.984Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 81,
+  "count": 83,
   "videos": {
+    "AodvrAaiFXg": {"slug":"bijela-kronika","date":"2026-11-08","langs":["hr"]},
+    "ATd9URVH23w": {"slug":"projekt-velebit","date":"2026-11-08","langs":["en"]},
     "U52zCQY2du8": {"slug":"prvi-glas-telegram","date":"2026-11-06","langs":["hr"]},
     "UCBZh9oNOek": {"slug":"budi-frajer","date":"2026-11-06","langs":["en"]},
     "-AIVS3BoHAA": {"slug":"prvi-glas-telegram","date":"2026-11-05","langs":["hr"]},

@@ -1321,10 +1321,10 @@
    "slug": "2pogled-povijest",
    "title": "Frankopani – šest stoljeća hrvatske povijesti | 11. epizoda – Nikola IV. Frankopan",
    "duration": 1946,
-   "attempts": 2,
-   "sent_at": "2026-11-08T03:13:36.142Z",
+   "attempts": 3,
+   "sent_at": "2026-11-08T08:34:31.550Z",
    "result": "created",
-   "job_id": "2a34c3dc-3eb7-4abb-9180-fd0c24482d30"
+   "job_id": "a1aec102-93f8-4688-96a3-583414153ee4"
   },
   "o2soixMeApE": {
    "date": "2026-11-07",
@@ -1848,10 +1848,10 @@
    "slug": "agape-rtv",
    "title": "Ćosić NEVIN 787 dana u ZATVORU. Zagrlio PROGONITELJA i spoznao KRISTA! Slučaj ubojstva Leutara!",
    "duration": 4226,
-   "attempts": 1,
-   "sent_at": "2026-11-08T03:13:36.602Z",
+   "attempts": 2,
+   "sent_at": "2026-11-08T05:15:36.825Z",
    "result": "created",
-   "job_id": "2a37b25c-b9ed-4a6d-be92-974397d46e4c"
+   "job_id": "a207ab7f-3e44-4af1-bc55-5252c0e6dcf1"
   },
   "mSLuRnEWVbw": {
    "date": "2026-11-08",
@@ -1962,14 +1962,264 @@
    "sent_at": "2026-11-08T03:13:39.625Z",
    "result": "created",
    "job_id": "c5bcde5c-4e7e-4174-a29f-8fac168e290b"
+  },
+  "dtMnY7777bk": {
+   "date": "2026-11-09",
+   "slug": "actualitica-podcast",
+   "title": "Actualitica Podcast #75 – Davor Nađi: Ekonomija, inflacija i budućnost EU",
+   "duration": 3363,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:16.933Z",
+   "result": "created",
+   "job_id": "ce089b3c-ae3c-438f-b1a2-0b7e9ad0966d"
+  },
+  "Cawzj5ob1EQ": {
+   "date": "2026-11-09",
+   "slug": "ana-radisic-podcast",
+   "title": "Koliko Života Stane u Jedan Život: Kada Žena Sanja Veliko! - Ana Gruica Uglešić | S7E6",
+   "duration": 1638,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:17.224Z",
+   "result": "created",
+   "job_id": "27759b7a-7788-44cd-8711-5dd85a314ad4"
+  },
+  "ZZJeLz-ZwSk": {
+   "date": "2026-11-09",
+   "slug": "atma-podcast",
+   "title": "2027. - GODINA VELIKOG PREOKRETA: Astrolog otkriva što dolazi! | Dalibor Purhmajer | ATMA podcast ",
+   "duration": 4786,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:17.507Z",
+   "result": "created",
+   "job_id": "de92aeb5-3328-413f-938b-4aa3108833db"
+  },
+  "lr9iMc4lvJ8": {
+   "date": "2026-11-09",
+   "slug": "human-lab-podcast",
+   "title": "Možemo li prevariti starenje? | prof. Vlatka Zoldoš",
+   "duration": 4613,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:17.755Z",
+   "result": "created",
+   "job_id": "b0fb80e8-2711-4112-ac5e-2759f6e53305"
+  },
+  "MtYDaevKRUA": {
+   "date": "2026-11-09",
+   "slug": "moc-komunikacije",
+   "title": "Misliš da znaš s novcem? Provjerimo. // Neven Vidaković E085",
+   "duration": 6669,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:18.006Z",
+   "result": "created",
+   "job_id": "9f242374-7a31-4241-b6f9-38537aac7591"
+  },
+  "ATd9URVH23w": {
+   "date": "2026-11-09",
+   "slug": "projekt-velebit",
+   "title": "PODCAST VELEBIT - Malić: Vučić je po nalogu iz Moskve raketama ciljao NATO baze",
+   "duration": 5804,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:18.247Z",
+   "result": "created",
+   "job_id": "f4d7ed68-961b-42f1-a064-c557226a7cb0"
+  },
+  "9cglJLZLoOk": {
+   "date": "2026-11-09",
+   "slug": "ril-tok-podcast",
+   "title": "Ril Tok Podcast #206 - HANA",
+   "duration": 7486,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:18.449Z",
+   "result": "created",
+   "job_id": "6edc29e4-dde0-4623-a192-9e9541ef88a2"
+  },
+  "apdhJIDah-0": {
+   "date": "2026-11-09",
+   "slug": "tribina-podcast-s-gostom",
+   "title": "Sinjska alka | Prijatelji HR sporta #9",
+   "duration": 3049,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:18.659Z",
+   "result": "created",
+   "job_id": "be76968a-04bc-40ff-9583-993904e2d6b8"
+  },
+  "zSllCcC8dNk": {
+   "date": "2026-11-09",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za ponedjeljak, 9.11.2026.",
+   "duration": 3139,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:18.920Z",
+   "result": "created",
+   "job_id": "5a69ba06-ce4e-46df-9c8d-6a27ab565b31"
+  },
+  "H3l1TyhpAVE": {
+   "date": "2026-11-09",
+   "slug": "vedran-soric-podcast",
+   "title": "Kako pridobiti gosta bez forsiranja?",
+   "duration": 3418,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:19.139Z",
+   "result": "created",
+   "job_id": "238a8b7d-6b0f-47a8-9fdb-ce2437823904"
+  },
+  "PFQTSMDEvZ8": {
+   "date": "2026-11-09",
+   "slug": "osvrtnik",
+   "title": "U bolje sutra!  -  SND",
+   "duration": 5415,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:19.396Z",
+   "result": "created",
+   "job_id": "2f317f8a-b741-4f17-b5a1-99cf31625379"
+  },
+  "IGRkTyFMi48": {
+   "date": "2026-11-09",
+   "slug": "podcast-8-24",
+   "title": "Varaždin - Dinamo 1:3  / Dvajsčetvorka #296",
+   "duration": 4709,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:19.578Z",
+   "result": "created",
+   "job_id": "55935cec-33ce-464d-8251-efde364e526d"
+  },
+  "p7wZVXO8yO4": {
+   "date": "2026-11-09",
+   "slug": "hzv-siempre",
+   "title": "NAVIJAČKI ANALIZIRAMO UTAKMICU #13. kolo SHNL-a: OSIJEK 0 - 1 HAJDUK",
+   "duration": 12586,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:19.767Z",
+   "result": "created",
+   "job_id": "fc555fb2-03b2-4a4c-aea5-4f141a1dec08"
+  },
+  "tpCkRpmNPTQ": {
+   "date": "2026-11-09",
+   "slug": "hajducka-storija",
+   "title": "JUNAČKI! OSIJEK - HAJDUK 0:1 | REAKCIJA",
+   "duration": 1123,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:19.973Z",
+   "result": "created",
+   "job_id": "e9d629af-5345-44de-84c5-c40d53782359"
+  },
+  "AodvrAaiFXg": {
+   "date": "2026-11-09",
+   "slug": "bijela-kronika",
+   "title": "Bijela kronika dr Darko Antičević kako je Hrvatska postala primjer Japanu u liječenju dječjih kukova",
+   "duration": 2025,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:20.173Z",
+   "result": "created",
+   "job_id": "e37b4520-350e-4537-a4fd-540fd4f2a54e"
+  },
+  "DnEC_XqzhQE": {
+   "date": "2026-11-09",
+   "slug": "nova-o-svemiru-i-svemu-ostalom",
+   "title": "NOVA S8E04 Roveri na Marsu I. dio: Sojourner",
+   "duration": 3076,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:20.376Z",
+   "result": "created",
+   "job_id": "adaaf785-a642-468d-8053-4df7d37cace6"
+  },
+  "NeM9gUlJeM0": {
+   "date": "2026-11-09",
+   "slug": "razvojni-kod",
+   "title": "Razvojni kod: Gošće Tatjane Kaštelan Arijela Draguzet, Federika Ukušić Rovina i Darija Božac Marj...",
+   "duration": 1191,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:20.666Z",
+   "result": "created",
+   "job_id": "f77a5426-2504-4ada-9663-a276e5be08cd"
+  },
+  "qOh_Yc3w-Gs": {
+   "date": "2026-11-09",
+   "slug": "prgavi-podcast",
+   "title": "Ratnička pobjeda! ❤️💙 nema straha rotirat 🤍 Prgavi podcast",
+   "duration": 8608,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:20.856Z",
+   "result": "created",
+   "job_id": "8af52aba-bb60-4bfe-afd1-a01fdffc9811"
+  },
+  "KP4tE90LrwI": {
+   "date": "2026-11-09",
+   "slug": "samo-hajduk",
+   "title": "Samo Hajduk Podcast #56: Na muci se poznaju junaci | 13. kolo vs Osijek",
+   "duration": 4101,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:21.050Z",
+   "result": "created",
+   "job_id": "1d06dd84-80e7-493a-bb52-7496fcde3294"
+  },
+  "K4vnqSrwqSo": {
+   "date": "2026-11-09",
+   "slug": "planet-formula",
+   "title": "Planet formula ep.15 - VN Brazila",
+   "duration": 4021,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:21.255Z",
+   "result": "created",
+   "job_id": "4195270b-f4a4-4356-aafd-c937cf617c3d"
+  },
+  "8cMhqPVrQ6M": {
+   "date": "2026-11-09",
+   "slug": "kontrapovijest-by-hrvoje-klasic",
+   "title": "Kontrapovijest by Hrvoje Klasić #76 – Katarina Peović – Ideja komunizma",
+   "duration": 1660,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:21.449Z",
+   "result": "created",
+   "job_id": "7c2fa213-b9de-4c63-937b-79cf1fc558a7"
+  },
+  "DcCTnUKffpI": {
+   "date": "2026-11-09",
+   "slug": "kristov-vojnik",
+   "title": "KRISTOV VOJNIK - Zina Ana Šogorić - Istina koja me oslobodila i dovela od islama do katoličke vjere",
+   "duration": 3047,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:21.639Z",
+   "result": "created",
+   "job_id": "3adfe9bb-b77d-43ed-8a19-9f0900d81e42"
+  },
+  "2JbIAqhwhZo": {
+   "date": "2026-11-09",
+   "slug": "laudato-zivot-i-zdravlje",
+   "title": "Zaokret u dijagnostici i liječenju bolesnika kojima prijeti srčani udar | Život i zdravlje",
+   "duration": 3845,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:21.836Z",
+   "result": "created",
+   "job_id": "13105dde-4379-4886-bd29-0994ecedf9c0"
+  },
+  "wgBUlKULM7E": {
+   "date": "2026-11-09",
+   "slug": "agelast",
+   "title": "„Svakog dana videli smo 16 izlazaka i zalazaka Sunca.” | Daniel Tani, NASA astronaut | Agelast 372",
+   "duration": 7294,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:22.035Z",
+   "result": "created",
+   "job_id": "84322e02-9441-40be-af71-13e572c6380e"
+  },
+  "qaoRT4u0gFY": {
+   "date": "2026-11-09",
+   "slug": "hrt-pozitivno",
+   "title": "Pozitivno: Zvonko Jambrešić",
+   "duration": 1812,
+   "attempts": 1,
+   "sent_at": "2026-11-09T02:35:22.225Z",
+   "result": "created",
+   "job_id": "5e3f3d00-a38a-44e2-baa8-136eb1050884"
   }
  },
- "updated_at": "2026-11-08T03:13:39.838Z",
+ "updated_at": "2026-11-09T02:35:22.430Z",
  "last_enqueue_usage": {
-  "at": "2026-11-08T03:13:39.838Z",
-  "five_hour": 13,
-  "five_hour_resets_at": "2026-11-08T04:20:00.036413+00:00",
-  "seven_day": 13,
-  "seven_day_resets_at": "2026-11-14T00:00:00.036432+00:00"
+  "at": "2026-11-09T02:35:22.430Z",
+  "five_hour": 5,
+  "five_hour_resets_at": "2026-11-09T06:59:59.874051+00:00",
+  "seven_day": 14,
+  "seven_day_resets_at": "2026-11-13T23:59:59.874070+00:00"
  }
 }
