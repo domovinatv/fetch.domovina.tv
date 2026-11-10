@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-09
+**Generirano:** 2026-11-10
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 491 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 256 · 🔴 neaktivan: 154 · ⚪ nepoznato: 91 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 255 · 🔴 neaktivan: 154 · ⚪ nepoznato: 92 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -93,7 +93,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Popcast by Darko Pavičić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU) | 1 | 118K | 40 | 🟢 aktivan | Darko Pavičić | `society` `religious-catholic` `culture` | ✅ |
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | 100K | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | 9K | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
-| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 434 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 435 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
 | **Slijedi svoj poziv — 1. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm) | 4 | 507 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Slijedi svoj poziv — 2. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY) | 4 | 507 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Sub Club by RevenueCat** | [UCeq8LcFQ3ee_p8b-eYTARsg](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | 0 | — | 🟢 aktivan | — | `technology` `business` `english` | — |
@@ -359,7 +359,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **OSOBA S POGLEDOM Podcast** | [UCoiB1ysVBCVSLIgdBUr5Aog](https://www.youtube.com/channel/UCoiB1ysVBCVSLIgdBUr5Aog/videos) | 3 | 194 | — | 🟢 aktivan | — | `culture` `talk-show` | ⚠️ |
 | **Osvrt** | [UCervWZO1EYpsbO9EWgmvang](https://www.youtube.com/playlist?list=PLReBdy6RFj29C6Y50OxHFt5R4ksKuRuH0) | 3 | — | — | 🟢 aktivan | — | `political` `talk-show` `regional-media` | ⚠️ |
 | **Osvrtnik** | [UC-GWO0eo78mY0o3iEkle7HA](https://www.youtube.com/channel/UC-GWO0eo78mY0o3iEkle7HA/videos) | 3 | 26K | — | 🟢 aktivan | — | `pop-culture` `culture` | ⚠️ |
-| **Otvoreni studio** | [UCVfz6I7XISePfuN02Hx4bCA](https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK) | 3 | — | — | 🟢 aktivan | — | `talk-show` `regional-media` | ⚠️ |
+| **Otvoreni studio** | [UCVfz6I7XISePfuN02Hx4bCA](https://www.youtube.com/playlist?list=PLFSB3SakI85eSysSqSzwcV10-DRXNNokK) | 3 | — | — | ⚪ nepoznato | — | `talk-show` `regional-media` | ⚠️ |
 | **Otvoreno (HRT)** | [UCSI1vb6CELskEFQpRceUj0g](https://www.youtube.com/playlist?list=PL21jgsDZHq2MB9FMT3Vm58nhg0pACkgHp) | 2 | — | 1K | 🟢 aktivan | — | `political` `talk-show` | ⚠️ |
 | **Otvori spomenar (Laudato)** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_eZluFgn8sbOu0XvLdJ3za1) | 3 | — | 133 | 🟢 aktivan | — | `religious-catholic` `testimonies` | ⚠️ |
 | **Overthinkeri** | [UC3TnYB6WW9qZtvSlKVkQ0rg](https://www.youtube.com/channel/UC3TnYB6WW9qZtvSlKVkQ0rg/videos) | 3 | 630 | — | 🟢 aktivan | — | `science` `health` `education` | ⚠️ |

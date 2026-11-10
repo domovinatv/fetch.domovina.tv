@@ -2068,10 +2068,10 @@
    "slug": "osvrtnik",
    "title": "U bolje sutra!  -  SND",
    "duration": 5415,
-   "attempts": 1,
-   "sent_at": "2026-11-09T02:35:19.396Z",
+   "attempts": 2,
+   "sent_at": "2026-11-09T06:44:25.928Z",
    "result": "created",
-   "job_id": "2f317f8a-b741-4f17-b5a1-99cf31625379"
+   "job_id": "c96af08c-0204-4504-a995-4141358b0dce"
   },
   "IGRkTyFMi48": {
    "date": "2026-11-09",
@@ -2212,14 +2212,334 @@
    "sent_at": "2026-11-09T02:35:22.225Z",
    "result": "created",
    "job_id": "5e3f3d00-a38a-44e2-baa8-136eb1050884"
+  },
+  "1X5pbVgJ_oQ": {
+   "date": "2026-11-10",
+   "slug": "bijelo-plavi-podcast",
+   "title": "Bijelo-plavi podcast 264. Labuđe jezero",
+   "duration": 4745,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:47.327Z",
+   "result": "created",
+   "job_id": "c0737952-c791-4949-b8e8-d1213b9a045c"
+  },
+  "aVNkdYOoBro": {
+   "date": "2026-11-10",
+   "slug": "croatiansports-podcast",
+   "title": "PODCAST: Croatia close out Nations League campaign vs. England & Czechia. WHAT TO EXPECT.",
+   "duration": 3133,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:47.648Z",
+   "result": "created",
+   "job_id": "d7890115-763e-40c4-b3d3-12a694ec84e3"
+  },
+  "7IcUqOsWRks": {
+   "date": "2026-11-10",
+   "slug": "kriminalno-dobre-price",
+   "title": "458. epizoda: Chad Choice",
+   "duration": 2380,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:47.956Z",
+   "result": "created",
+   "job_id": "7db6d055-d911-4d55-8e2c-2a2557a756e6"
+  },
+  "AbGkQlZNzaY": {
+   "date": "2026-11-10",
+   "slug": "lider-podcast",
+   "title": "Bio je na VRHU kreativne industrije. Onda je odabrao CVIJEĆE | Vanja Blumenšajn x Lider Podcast 187",
+   "duration": 2189,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:48.226Z",
+   "result": "created",
+   "job_id": "f2432651-a5d0-4f7f-8945-d1b197c67d78"
+  },
+  "46pVbDz4d7s": {
+   "date": "2026-11-10",
+   "slug": "maria-vision-medjugorje",
+   "title": "Don Roko Kaštelan u podcastu Po Mariji do Duha Svetoga",
+   "duration": 6066,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:48.470Z",
+   "result": "created",
+   "job_id": "44e57c14-888f-4023-9e9f-e2f9ef20ef46"
+  },
+  "3pCBSJS72P0": {
+   "date": "2026-11-10",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Adria Slipstream F1 podcast: VN Brazila – Mercedesu 9. konstruktorski naslov!",
+   "duration": 6499,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:48.739Z",
+   "result": "created",
+   "job_id": "9082ebd9-b5f2-432d-98c2-8308cdd85fcc"
+  },
+  "sjj2rlaExnA": {
+   "date": "2026-11-10",
+   "slug": "podcast-inkubator-mysterium",
+   "title": "Podcast Mysterium #187 -  OKULTNI SIMBOLI || SUBLIMINALI",
+   "duration": 7575,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:48.928Z",
+   "result": "created",
+   "job_id": "5f3007aa-777a-44f3-bb27-9ec79ea30453"
+  },
+  "cn_mEBGQnKg": {
+   "date": "2026-11-10",
+   "slug": "podkist-fer",
+   "title": "Je li sve u svijetu unaprijed određeno? - Hrvoje Nikolić | podkist #69",
+   "duration": 5065,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:49.194Z",
+   "result": "created",
+   "job_id": "41ac64af-7375-47ce-998a-4f384f54e939"
+  },
+  "DPk6lMx-qOs": {
+   "date": "2026-11-10",
+   "slug": "poslovni-dnevnik-podcast",
+   "title": "Ako dođe do normalizacije stanja na Bliskom istoku, možemo očekivati zatvaranje inflacijske epizode",
+   "duration": 1645,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:49.449Z",
+   "result": "created",
+   "job_id": "5104cf1a-f6d1-42de-b105-47e44bb09e9a"
+  },
+  "jFKhJS7NeUI": {
+   "date": "2026-11-10",
+   "slug": "poslovni-dnevnik-podcast",
+   "title": "Poslovnice neće nestati, uloga im se mijenja, a budućnost bankarstva je hiperpersonalizacija",
+   "duration": 1623,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:49.661Z",
+   "result": "created",
+   "job_id": "76ea9c68-16d6-4307-a2b3-ac26056d8482"
+  },
+  "3Z-60qjuqGU": {
+   "date": "2026-11-10",
+   "slug": "poslovni-dnevnik-podcast",
+   "title": "Tko i kako financira rast? \"Val novih poduzetnika koji dolazi je puno spremniji razgovarati\"",
+   "duration": 1557,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:49.922Z",
+   "result": "created",
+   "job_id": "6a35057c-9e21-422d-af60-3844322fe9e6"
+  },
+  "rDgXUp8OsuQ": {
+   "date": "2026-11-10",
+   "slug": "poslovni-dnevnik-podcast",
+   "title": "Svijet novca: Kada AI pogriješi, minus na računu je stvaran - tko tada odgovara?",
+   "duration": 2592,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:50.194Z",
+   "result": "created",
+   "job_id": "3426acdf-ed96-4017-952d-58fcaf4c09f1"
+  },
+  "hPc9eoApFJ0": {
+   "date": "2026-11-10",
+   "slug": "psihologija-hrt",
+   "title": "S3E10 PSIHOLOGiJA #91 Alopecija i slika o sebi ( Lucija Čeč)",
+   "duration": 3482,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:50.423Z",
+   "result": "created",
+   "job_id": "c87e2a7c-dadb-4f13-bfa6-1b259082f03a"
+  },
+  "4YbpUhtq17U": {
+   "date": "2026-11-10",
+   "slug": "prvi-glas-telegram",
+   "title": "Plenković je potratio 10 bogatih godina: Račun stiže građanima",
+   "duration": 2587,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:50.690Z",
+   "result": "created",
+   "job_id": "5f7af43f-c945-4b43-9cf0-493b8ab090da"
+  },
+  "ih32PNrjdXU": {
+   "date": "2026-11-10",
+   "slug": "tribina-hnl-ponedjeljak",
+   "title": "Rudeš, Rudeš, ostal budeš",
+   "duration": 11066,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:50.937Z",
+   "result": "created",
+   "job_id": "a140840a-29d2-442f-b152-7bf56fc91101"
+  },
+  "1MpEDLj_kX0": {
+   "date": "2026-11-10",
+   "slug": "vida-podcast",
+   "title": "Zavidavanje by Lado Tomičić #175 - Tomislav Jakić",
+   "duration": 3824,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:51.167Z",
+   "result": "created",
+   "job_id": "40e884a9-baa0-4d22-8173-20a97d079d3a"
+  },
+  "QNMYS8zEocU": {
+   "date": "2026-11-10",
+   "slug": "podcast-s-brezom",
+   "title": "JELINIĆ RAZMONTIRAO otpadnu mafiju, Plenkovića, Turudića i HRT: IZMANIPULIRANI SMO!",
+   "duration": 3170,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:51.357Z",
+   "result": "created",
+   "job_id": "fe36c6e6-8d81-40bf-b96a-6949c4b7db4f"
+  },
+  "W7JVTuG6nbE": {
+   "date": "2026-11-10",
+   "slug": "hajducka-storija",
+   "title": "Treća u nizu u Osijeku | DOJMOVI NA DRUGU",
+   "duration": 993,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:51.626Z",
+   "result": "created",
+   "job_id": "90ef70f3-df7a-4eeb-9ad1-b58ce03364df"
+  },
+  "WzJ9KscYfSg": {
+   "date": "2026-11-10",
+   "slug": "klub-psece-srece-podcast",
+   "title": "Ana Odak: Šteneći period je težak, ali zabavan | KPS Podcast EP. 33",
+   "duration": 7106,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:51.824Z",
+   "result": "created",
+   "job_id": "9c7fe12c-ee03-4c2c-bcfb-0e801990e455"
+  },
+  "b97mloI5Kj0": {
+   "date": "2026-11-10",
+   "slug": "zona-dinamo-podcast",
+   "title": "Zona Dinamo Podcast - Varaždin, Jerko Leko",
+   "duration": 5856,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:52.042Z",
+   "result": "created",
+   "job_id": "b018b61a-2f24-44ec-a2f3-46626137e8b2"
+  },
+  "_RBBLm4xZrk": {
+   "date": "2026-11-10",
+   "slug": "ovisnici-o-knjigama",
+   "title": "EPIZODA 20: Theo od Goldena - može li dobrota promijeniti baš sve?",
+   "duration": 2932,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:52.233Z",
+   "result": "created",
+   "job_id": "4a342c25-23ff-4b4f-a9fd-625f2815fe8d"
+  },
+  "cHEvfarfd_k": {
+   "date": "2026-11-10",
+   "slug": "iza-pjace",
+   "title": "Iza Pjace #158: Cartu jači od kartona",
+   "duration": 6736,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:52.454Z",
+   "result": "created",
+   "job_id": "291e8f13-7de3-4de3-b524-356930c459a2"
+  },
+  "ECnwvAFhoqc": {
+   "date": "2026-11-10",
+   "slug": "vl-stativa",
+   "title": "Rajko Magić komentira utrku Dinama i Hajduka i burna zbivanja u reprezentaciji",
+   "duration": 2354,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:52.680Z",
+   "result": "created",
+   "job_id": "50161210-53e7-4cb4-a769-25563fa3d7d0"
+  },
+  "4jvwxe4JPQQ": {
+   "date": "2026-11-10",
+   "slug": "briefing-jutarnji-list",
+   "title": "Vladimir Drobnjak: Trump neće ići u nove operacije u Zaljevu, Putinu u pomoć stiže najveći saveznik",
+   "duration": 2673,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:52.887Z",
+   "result": "created",
+   "job_id": "fddb7f38-94ff-45fe-b13e-42a5ca5c1ae5"
+  },
+  "mkzgcBJt6dg": {
+   "date": "2026-11-10",
+   "slug": "laudato-odaziv",
+   "title": "Ponoćni poziv – što kada se vrata zatvore? │Odaziv",
+   "duration": 3637,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:53.133Z",
+   "result": "created",
+   "job_id": "54a461e5-e69c-4860-bbff-b431135f206d"
+  },
+  "Wpf9HyauQik": {
+   "date": "2026-11-10",
+   "slug": "hrt-krik",
+   "title": "Jurica Pavičić: CRVENA VODA, 5. epizoda",
+   "duration": 2328,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:53.398Z",
+   "result": "created",
+   "job_id": "9a07b66b-a044-4176-bc89-787949e3c35b"
+  },
+  "L08T9khyTAs": {
+   "date": "2026-11-10",
+   "slug": "hrt-krik",
+   "title": "Jurica Pavičić: CRVENA VODA, 4. epizoda",
+   "duration": 2224,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:53.590Z",
+   "result": "created",
+   "job_id": "899559f0-0568-4282-ac97-afb920214c9c"
+  },
+  "FKtiB9b46zM": {
+   "date": "2026-11-10",
+   "slug": "hrt-krik",
+   "title": "Jurica Pavičić: CRVENA VODA, 3. epizoda",
+   "duration": 2295,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:53.815Z",
+   "result": "created",
+   "job_id": "a02598ce-1aeb-42d5-bf19-65710e61d1a1"
+  },
+  "g2AgBREC2mk": {
+   "date": "2026-11-10",
+   "slug": "hrt-krik",
+   "title": "Jurica Pavičić: CRVENA VODA, 2. epizoda",
+   "duration": 2195,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:53.990Z",
+   "result": "created",
+   "job_id": "bdc5e027-86c5-4342-a68a-b0c49a667902"
+  },
+  "2aTzm5QruUg": {
+   "date": "2026-11-10",
+   "slug": "hrt-krik",
+   "title": "Jurica Pavičić: CRVENA VODA, 1. epizoda",
+   "duration": 2348,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:54.192Z",
+   "result": "created",
+   "job_id": "3a22e188-7a07-4725-9773-ad97e4e40615"
+  },
+  "dWDbs0V9VJg": {
+   "date": "2026-11-10",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Čudesni svijet gljiva",
+   "duration": 3485,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:54.458Z",
+   "result": "created",
+   "job_id": "6484f307-2a57-44a0-9b28-479cf70643d2"
+  },
+  "kO2ILIGJiIU": {
+   "date": "2026-11-10",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Nova raspodjela moći u Washingtonu: što čeka Trumpa do 2028.?",
+   "duration": 1982,
+   "attempts": 1,
+   "sent_at": "2026-11-10T02:43:54.661Z",
+   "result": "created",
+   "job_id": "8dd3aeea-fda4-41dd-8f9c-14db71e3e8f7"
   }
  },
- "updated_at": "2026-11-09T02:35:22.430Z",
+ "updated_at": "2026-11-10T02:43:54.848Z",
  "last_enqueue_usage": {
-  "at": "2026-11-09T02:35:22.430Z",
-  "five_hour": 5,
-  "five_hour_resets_at": "2026-11-09T06:59:59.874051+00:00",
-  "seven_day": 14,
-  "seven_day_resets_at": "2026-11-13T23:59:59.874070+00:00"
+  "at": "2026-11-10T02:43:54.848Z",
+  "five_hour": 6,
+  "five_hour_resets_at": "2026-11-10T04:50:00.208318+00:00",
+  "seven_day": 19,
+  "seven_day_resets_at": "2026-11-14T00:00:00.208339+00:00"
  }
 }
