@@ -131,6 +131,8 @@ for v, c in cdn.items():
     if not c['en']: missing.append(f'{v}: EN članak')
     if c['mhr'] and not c['men']: missing.append(f'{v}: Magisterium EN')
 mag_wanted = {j['youtube_id'] for j in batch if j.get('with_magisterium')}
+# Od nightlyja 11.11.2026. Magisterium HR dobivaju i SVI Tier 1 kanali (enqueue_magisterium_backfill.js).
+if DATE >= '2026-11-11': mag_wanted |= {n['vid'] for n in night_eps}
 for v in mag_wanted:
     if v in cdn and cdn[v].get('ok') and not cdn[v]['mhr']: missing.append(f'{v}: Magisterium HR')
 ready = not pending_jobs and not pending_mags and not missing
