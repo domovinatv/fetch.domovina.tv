@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 /**
  * enqueue_magisterium_backfill.js — auto-enqueue Magisterium obrade za NOVE epizode
- * praćenih kanala (automatic/full_backfill_channels.txt).
+ * praćenih kanala.
+ *
+ * KANALI (od 10.11.2026.): SVI Tier 1 kanali, tj. svaka lista automatic/podcasts/*-lista.txt
+ * (ime liste '-' → '_' = kanal, isto kao storage/output/ i channels/data/), plus
+ * automatic/full_backfill_channels.txt (oznaka +EN). Do 10.11. su Magisterium dobivali samo
+ * kanali iz te datoteke (5), dok je Tier 2 dobivao Magisterium za SVAKU novu epizodu — Tier 1
+ * je bio jedini dio bez njega. `MAGBF_ALL_TIER1=0` vraća staro ponašanje.
+ * Kanal adoptiran tim proširenjem dobije baseline BEZ epizoda datiranih >= MAGBF_ALL_SINCE
+ * (default 2026-11-09 = epizode iz nightlyja 10.11.), pa se pokriva samo naprijed, bez backfilla.
  *
  * SEMANTIKA (2026-07-16): automatika pokriva SAMO NOVE epizode — one koje se u channel
  * indexu pojave NAKON što je kanal uvršten u config. Pri prvom viđenju kanala skripta
@@ -44,6 +52,9 @@ const STATE_FILE = process.env.MAGBF_STATE_FILE || path.join(__dirname, 'full_ba
 const MAX_ENQUEUE = parseInt(process.env.MAGBF_MAX_ENQUEUE || '25', 10);
 const RETRY_HOURS = parseFloat(process.env.MAGBF_RETRY_HOURS || '24');
 const MAX_FAILED = parseInt(process.env.MAGBF_MAX_FAILED || '3', 10);
+const ALL_TIER1 = process.env.MAGBF_ALL_TIER1 !== '0';
+const ALL_SINCE = process.env.MAGBF_ALL_SINCE || '2026-11-09';
+const LISTS_DIR = path.join(__dirname, 'podcasts');
 
 if (!INGEST_KEY) {
     console.log('⏭️  PIPELINE_QUEUE_INGEST_KEY nije postavljen — preskačem Magisterium backfill enqueue.');
@@ -52,8 +63,7 @@ if (!INGEST_KEY) {
 
 // Kanali iz config datoteke: "channel_id" ili "channel_id +EN"; '#' komentar, prazno preskoči.
 function loadChannels() {
-    if (!fs.existsSync(CHANNELS_FILE)) return [];
-    return fs.readFileSync(CHANNELS_FILE, 'utf8')
+    const out = !fs.existsSync(CHANNELS_FILE) ? [] : fs.readFileSync(CHANNELS_FILE, 'utf8')
         .split('\n')
         .map((l) => l.replace(/#.*$/, '').trim())
         .filter(Boolean)
@@ -61,6 +71,13 @@ function loadChannels() {
             const parts = l.split(/\s+/);
             return { channel: parts[0], withEn: parts.slice(1).some((p) => p.toUpperCase() === '+EN') };
         });
+    if (!ALL_TIER1 || !fs.existsSync(LISTS_DIR)) return out;
+    const seen = new Set(out.map((c) => c.channel));
+    for (const f of fs.readdirSync(LISTS_DIR).filter((x) => x.endsWith('-lista.txt')).sort()) {
+        const channel = f.replace(/-lista\.txt$/, '').replace(/-/g, '_');
+        if (!seen.has(channel)) { seen.add(channel); out.push({ channel, withEn: false, tier1: true }); }
+    }
+    return out;
 }
 
 // Baseline state: { channels: { <channel>: { adopted_at, baseline: [ids...] } } }
@@ -118,7 +135,7 @@ async function fetchChannelIndex(channel) {
     const nowSec = Math.floor(Date.now() / 1000);
     let enqueued = 0, deduped = 0, skippedFailed = 0, stateDirty = false;
 
-    for (const { channel, withEn } of channels) {
+    for (const { channel, withEn, tier1 } of channels) {
         let index;
         try {
             index = await fetchChannelIndex(channel);
@@ -130,13 +147,16 @@ async function fetchChannelIndex(channel) {
 
         // Prvo viđenje kanala → snimi baseline i NIŠTA ne enqueuea (stare rupe = ručni posao).
         if (!state.channels[channel]) {
+            // Tier 1 proširenje: epizode od ALL_SINCE nisu u baselineu → dobiju Magisterium.
+            const base = tier1 ? videos.filter((v) => !(v.date && v.date >= ALL_SINCE)) : videos;
             state.channels[channel] = {
                 adopted_at: new Date().toISOString(),
-                baseline: videos.map((v) => v.id),
+                baseline: base.map((v) => v.id),
+                ...(tier1 ? { since: ALL_SINCE } : {}),
             };
             stateDirty = true;
             const oldGaps = videos.filter((v) => v.pipeline?.has_article && !v.pipeline?.has_magisterium).length;
-            console.log(`📌 ${channel}: adoptiran — baseline ${videos.length} videa (${oldGaps} starih rupa OSTAJE za ručni backfill). Ubuduće samo NOVE epizode.`);
+            console.log(`📌 ${channel}: adoptiran — baseline ${base.length} videa (${oldGaps} starih rupa OSTAJE za ručni backfill). Ubuduće samo NOVE epizode.`);
             continue;
         }
 
