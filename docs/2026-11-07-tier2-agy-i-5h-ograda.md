@@ -214,3 +214,21 @@ ali nijedan nije izveden.
 | Tier 2 članci (8 preostalih) | oko 11:00–11:30 |
 | HR Magisterium (~33, ~3 na sat, jedan po jedan) | oko 20:30–21:30 |
 | EN prijevodi (~2,5 min po epizodi, odmah iza HR-a) | oko 21–22 h |
+
+## 10.11.2026.: Tier 2 članak piše `gemini-3.8-flash-low`
+
+Stanje kvote 10.11. oko 18 h (`agy -p "/usage"`): Argon tjedno 96 % potrošeno, Gemini Flash/Pro tjedno
+83 %, s resetom 14.11. u 04:07. Gemini tjedno je raslo oko 26 postotnih bodova dnevno (9.11.: 30 → 56 %,
+10.11.: 56 → 83 %), dijelom i zato što je zamjenski flash-high skuplji. Tim tempom bi Gemini bio prazan
+11.11. A kad je prazan, nema fallbacka: `agyJson()` baci grešku, a Tier 2 job padne. Isto vrijedi za EN
+prijevod, koji troši isti bucket.
+
+Odluka: **Tier 2 članak piše `gemini-3.8-flash-low`**, isti model kao sažetak i reels. Kvaliteta je
+niža od Tier 1 (Opus), ali to je i smisao Tier 2, kao i kod ASR-a (Tier 2 Speechmatics, Tier 1 Soniox).
+Promijenjeni su defaulti `AGY_ARTICLE_MODEL` i `AGY_ARTICLE_FALLBACK_MODEL` u `generate_article_gemini.js`,
+log u `run_pipeline.sh` i `llm_provider` u `bridge/priority_poller.js`. Argon ograda je ostala u kodu.
+Argon se vraća s `AGY_ARTICLE_MODEL=gemini-4-argon-low`.
+
+Za provjeru 11.11.: koliko `gemini_weekly` naraste po članku (`🔋 ovaj run` u logu), i hoće li ostatak
+od 17 % potrajati do reseta. Ako neće, sljedeći korak je ograda na `gemini_weekly` s prelaskom na
+Claude model unutar agyja (zaseban bucket, neiskorišten).

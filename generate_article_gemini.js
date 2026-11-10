@@ -97,11 +97,11 @@ const USING_AGY = GEMINI_BACKEND === "agy";
 // je po opsegu blizu Opusu, ali uljepšava (docs/2026-11-07-tier2-agy-i-5h-ograda.md). AGY_MODEL ostaje za
 // sažetak i reels, pa ga ovdje namjerno ne čitamo.
 // 07.11. ~12 h: argon-low je u usporedbi bio točniji od flash-higha i 3–4× brži (isti dokument).
-let AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-4-argon-low";
+let AGY_MODEL = process.env.AGY_ARTICLE_MODEL || "gemini-3.8-flash-low";
 // Argon ima ZASEBAN tjedni limit, malen na Pro planu: 3 članka (185 min snimke) = 9,6 % tjedno,
 // tj. ~30 epizoda tjedno uz ~45 Tier 2 epizoda dnevno. Iznad praga članak piše fallback model.
 const AGY_ARGON_MAX_WEEKLY = parseFloat(process.env.AGY_ARGON_MAX_WEEKLY || "85");
-const AGY_ARTICLE_FALLBACK_MODEL = process.env.AGY_ARTICLE_FALLBACK_MODEL || "gemini-3.8-flash-high";
+const AGY_ARTICLE_FALLBACK_MODEL = process.env.AGY_ARTICLE_FALLBACK_MODEL || "gemini-3.8-flash-low";
 // flash-high treba 90–360 s po pozivu; default agy_tmux timeout (600 s) je pretijesan za duge iteracije.
 const AGY_ARTICLE_TIMEOUT_MS = parseInt(process.env.AGY_ARTICLE_TIMEOUT_SEC || "1200", 10) * 1000;
 

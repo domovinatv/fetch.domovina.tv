@@ -598,7 +598,7 @@ elif [ "$GEMINI_BACKEND" = "agy" ]; then
         echo "❌ --gemini-backend agy traži 'agy' CLI u PATH-u, ali ga nema."
         exit 1
     fi
-    echo "   🧠 LLM backend: Antigravity CLI, članak ${AGY_ARTICLE_MODEL:-gemini-4-argon-low}, sažetak/reels ${AGY_MODEL:-gemini-3.8-flash-low} (tmux, lib/agy_tmux.js)"
+    echo "   🧠 LLM backend: Antigravity CLI, članak ${AGY_ARTICLE_MODEL:-gemini-3.8-flash-low}, sažetak/reels ${AGY_MODEL:-gemini-3.8-flash-low} (tmux, lib/agy_tmux.js)"
 else
     echo "   🤖 Gemini backend: Vertex AI REST (multi-region rotacija)"
 fi
