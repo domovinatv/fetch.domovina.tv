@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-11-10T02:46:10.794Z",
+  "generated_at": "2026-11-11T03:54:47.355Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 87,
+  "count": 88,
   "videos": {
+    "1rzvldhbhVs": {"slug":"prvi-glas-telegram","date":"2026-11-10","langs":["hr"]},
     "4YbpUhtq17U": {"slug":"prvi-glas-telegram","date":"2026-11-09","langs":["hr"]},
     "cn_mEBGQnKg": {"slug":"podkist-fer","date":"2026-11-09","langs":["hr"]},
     "AodvrAaiFXg": {"slug":"bijela-kronika","date":"2026-11-08","langs":["hr"]},
