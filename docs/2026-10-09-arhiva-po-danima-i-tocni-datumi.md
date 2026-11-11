@@ -128,3 +128,29 @@ sada samo ideja: sviđa/ne sviđa + preporuke + obavijesti, vidi
 - `automatic/watch_candidates.js` (zaglavlje) — watch i klasifikacija original/derivat
 - `../podcast.domovina.ai/README.md` §„Nove epizode po danima"
 - `docs/REGISTRY_DISCOVERY.md` — registry i nightly `discover.js`
+
+## 11.11.2026. — `extras`: točan trenutak i za Tier 1 epizode izvan originala
+
+Katalog domovina.ai (odluka 1205) crta sat objave iz `published_at` u ovoj datoteci. Izmjereno 11.11.:
+**601 Tier 1 epizoda bez zapisa**. Kanali NISU nedostajali. Ključevi su ovdje registry slugovi s
+crticom (`budi-frajer`), a izlazni direktoriji pipelinea s podvlakom (`budi_frajer`), pa je naivna
+usporedba javila „kanala nema”. Pravi razlozi (videos.list za 371 pravi YT ID):
+
+| Razlog | Epizoda |
+|---|---|
+| kraće od praga „pune epizode” kanala (`min_duration_sec`, npr. budi-frajer 1433 s), a Tier 1 lista uzima sve > 15:01 | 333 |
+| video na tuđem kanalu (thompson playlist, subclub/launched Beamly matched, popcast) — nije na uploads playlisti | 38 |
+| sintetički Beamly/RSS ID (11 hex znakova), nema YouTube videa | 230 |
+
+Popravak: `fillExtras()` (svaki run, i `--only-extras`) — ID iz `automatic/podcasts/*-lista.txt` koji
+nije ni u jednom `originals`/`extras`/`extras_unresolved` → `videos.list` → `channels.<slug>.extras.<id>`
+s istim zapisom `{date, published_at, duration, title}`. ID koji API ne vrati → `extras_unresolved`
+(ne pita se ponovno). Extra koji kasnije postane original briše se iz `extras`.
+
+**Zašto ne u `originals`:** `podcast.domovina.ai/scripts/build-catalog.mjs` (/dani, broj epizoda kanala)
+i `fetch_youtube_subs.js` čitaju `originals` kao „samo originali”. Katalog (`katalog/src/input/publish-dates.ts`)
+čita oba ključa, original pobjeđuje isti ID.
+
+Prvi prolaz: 370 upisano, 3 bez videa, 8 jedinica kvote. Katalog nakon ingesta: Tier 1 bez
+`published_at` 601 → 231 (230 sintetičkih + `izJMh4OO7Ys` podcast_cuspajz, maknut s YouTubea).
+Backfill je pri tome promijenio dan 3 epizodama (objava iza 23:00 UTC → idući dan u Zagrebu), ispravno.
