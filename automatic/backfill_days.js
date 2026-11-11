@@ -25,7 +25,19 @@
  *   node automatic/backfill_days.js                    # inkrementalno (zadnjih 7 dana + novi kanali od --since)
  *   node automatic/backfill_days.js --full             # sve od --since ispočetka
  *   node automatic/backfill_days.js --slug lood-podcast --verbose
- *   Opcije: --since YYYY-MM-DD (default: granica iz backfill.json), --limit N, --dry-run, --max-units 9000
+ *   node automatic/backfill_days.js --only-extras      # samo nadopuna po ID-u (vidi dolje)
+ *   Opcije: --since YYYY-MM-DD (default: granica iz backfill.json), --limit N, --dry-run, --max-units 9000,
+ *           --no-extras
+ *
+ * Nadopuna po ID-u (`extras`, od 11.11.2026.): Tier 1 pipeline obrađuje sve iz `automatic/podcasts/
+ * <slug>-lista.txt` (refresh_podcasts.sh: > 15:01), a classify() ovdje broji samo „pune epizode"
+ * (prag kanala, npr. 24 min) s uploads playliste kanala. Kraće epizode i one s tuđeg kanala
+ * (playlist kanali, Beamly „matched") zato nisu imale `published_at`, pa katalog domovina.ai nije
+ * crtao sat objave (601 epizoda 11.11.). Svaki ID iz liste koji nije ni u jednom `originals`/`extras`
+ * ide kroz videos.list (50 ID-eva = 1 jedinica) → `channels.<slug>.extras.<id>`, isti oblik zapisa.
+ * NAMJERNO odvojeno od `originals`: podcast.domovina.ai/dani i fetch_youtube_subs.js `originals`
+ * čitaju kao „originale". ID koji API ne vrati ide u `extras_unresolved` i ne pita se ponovno.
+ * Sintetički Beamly/RSS ID-evi (11 hex znakova) nemaju YouTube video i preskaču se.
  */
 
 const fs = require("fs");
@@ -53,6 +65,9 @@ const VERBOSE = hasFlag("--verbose");
 const ONLY_SLUG = getArg("--slug");
 const LIMIT = parseInt(getArg("--limit") || "0", 10);
 const MAX_UNITS = parseInt(getArg("--max-units") || "9000", 10);
+const ONLY_EXTRAS = hasFlag("--only-extras");
+const NO_EXTRAS = hasFlag("--no-extras");
+const PODCASTS_DIR = path.join(__dirname, "podcasts");
 const INCREMENTAL_OVERLAP_DAYS = 7;   // premijere i naknadno javni videi znaju doći s ranijim datumom
 const MAX_PAGES_CUSTOM = 200;         // ne-uploads playlista nije sortirana po datumu → čitamo cijelu (do 10 000)
 const CONCURRENCY = 4;
@@ -292,12 +307,73 @@ function save(data) {
     fs.renameSync(OUT_FILE + ".tmp", OUT_FILE);
 }
 
+// ─── nadopuna po ID-u (extras) ─────────────────────────────────────
+
+const NOTE = "Točni datumi objave (YouTube Data API, Europe/Zagreb) — automatic/backfill_days.js. originals = samo originali (covered_until = do kad je kanal pokriven); extras = ostale epizode iz Tier 1 lista (*-lista.txt), nadopunjene po ID-u.";
+const SYNTHETIC_ID = /^[0-9a-f]{11}$/;           // Beamly / RSS sintetički ID, nema YouTube videa
+
+/** `automatic/podcasts/<slug>-lista.txt` → [{slug, ids}] (pravi YouTube ID-evi, redoslijed liste). */
+function pipelineLists() {
+    const out = [];
+    for (const f of fs.readdirSync(PODCASTS_DIR).sort()) {
+        if (!f.endsWith("-lista.txt")) continue;
+        const slug = f.slice(0, -"-lista.txt".length);
+        if (ONLY_SLUG && slug !== ONLY_SLUG) continue;
+        const ids = [];
+        for (const line of fs.readFileSync(path.join(PODCASTS_DIR, f), "utf8").split("\n")) {
+            if (!line.trim() || line.startsWith("#")) continue;
+            const m = line.split("|").pop().match(/(?:[?&]v=|youtu\.be\/|\/shorts\/|\/live\/)([\w-]{11})/);
+            if (m && !SYNTHETIC_ID.test(m[1])) ids.push(m[1]);
+        }
+        out.push({ slug, ids });
+    }
+    return out;
+}
+
+async function fillExtras(data) {
+    const known = new Set();
+    for (const c of Object.values(data.channels)) {
+        for (const id of Object.keys(c.originals || {})) known.add(id);
+        for (const id of c.extras_unresolved || []) known.add(id);
+    }
+    // extra koji je u međuvremenu postao original (npr. novi prag) — ostaje samo original.
+    for (const c of Object.values(data.channels)) {
+        for (const id of Object.keys(c.extras || {})) if (known.has(id)) delete c.extras[id];
+        for (const id of Object.keys(c.extras || {})) known.add(id);
+    }
+    const want = new Map();                                // id → slug liste (prva lista pobjeđuje)
+    for (const { slug, ids } of pipelineLists()) for (const id of ids) if (!known.has(id) && !want.has(id)) want.set(id, slug);
+    if (!want.size) { console.log("🧩 extras: nema epizoda bez točnog datuma"); return { added: 0, unresolved: 0 }; }
+
+    const u0 = units;
+    const got = new Map((await videoDetails([...want.keys()])).map((v) => [v.id, v]));
+    let added = 0, unresolved = 0;
+    for (const [id, slug] of want) {
+        const ch = (data.channels[slug] ||= { slug });
+        const v = got.get(id);
+        if (v?.published_at) {
+            (ch.extras ||= {})[id] = { date: zagrebDate(v.published_at), published_at: v.published_at, duration: v.duration, title: v.title.slice(0, 160) };
+            added++;
+        } else {
+            (ch.extras_unresolved ||= []).push(id);              // obrisan / privatan video
+            unresolved++;
+        }
+    }
+    console.log(`🧩 extras: ${added} epizoda dobilo točan datum, ${unresolved} bez videa na YouTubeu · ${units - u0} jedinica kvote${DRY_RUN ? " (DRY RUN)" : ""}`);
+    return { added, unresolved };
+}
+
 // ─── main ──────────────────────────────────────────────────────────
 
 async function main() {
     if (!API_KEY) { console.error("❌ Nema YOUTUBE_API_KEY u .env"); process.exit(1); }
-    const { list, bySlug } = loadEntries();
     const data = load();
+    if (ONLY_EXTRAS) {
+        const r = await fillExtras(data);
+        if (!DRY_RUN && r.added + r.unresolved > 0) { data.generated_at = new Date().toISOString(); save(data); }
+        return;
+    }
+    const { list, bySlug } = loadEntries();
     let watch = {};
     try { watch = JSON.parse(fs.readFileSync(STATE_FILE, "utf8")).channels || {}; } catch { /* bez watch-statea */ }
 
@@ -318,6 +394,9 @@ async function main() {
             const prev = data.channels[e.slug];
             try {
                 const r = await processEntry(e, p, prev, watch[e.slug]);
+                // extras pune fillExtras(), ne processEntry — novi zapis kanala ih ne smije izgubiti.
+                if (prev?.extras) r.extras = prev.extras;
+                if (prev?.extras_unresolved) r.extras_unresolved = prev.extras_unresolved;
                 data.channels[e.slug] = r;
                 const n = Object.keys(r.originals).length;
                 origTotal += n;
@@ -339,7 +418,11 @@ async function main() {
 
     data.generated_at = new Date().toISOString();
     data.since = SINCE;
-    data.note = "Točni datumi objave (YouTube Data API, Europe/Zagreb) — automatic/backfill_days.js. Samo originali; covered_until = do kad je kanal pokriven.";
+    data.note = NOTE;
+    if (!NO_EXTRAS && !stopped) {
+        try { await fillExtras(data); }
+        catch (err) { console.log(`  ⚠️  extras: ${err.message.slice(0, 140)}`); }
+    }
     if (!DRY_RUN) save(data);
 
     const secs = Math.round((Date.now() - t0) / 1000);
