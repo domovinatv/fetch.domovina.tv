@@ -46,6 +46,7 @@ const path = require("path");
 const { spawn } = require("child_process");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled, VERTEX_DISABLED_MSG } = require("./lib/vertex_auth");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
+const { filterStep } = require("./lib/channel_settings_steps");
 
 const args = process.argv.slice(2);
 function getArg(name) {
@@ -433,7 +434,7 @@ async function main() {
     console.log(`🎬 select_reels.js — backend=${BACKEND} (${BACKEND === "claude" ? CLAUDE_MODEL : BACKEND === "agy" ? AGY_MODEL : GEMINI_MODEL}), count=${COUNT}` +
         (ONLY_VIDEO ? `, video=${ONLY_VIDEO}` : `, since-days=${SINCE_DAYS}, max=${MAX_EPISODES}`));
 
-    const todo = [];
+    let todo = [];
     let fresh = 0, tooShort = 0, outside = 0;
     for (const ep of findEpisodes()) {
         if (!isStale(ep)) { fresh++; continue; }
@@ -443,6 +444,8 @@ async function main() {
         if (total < MIN_EPISODE_SEC) { tooShort++; continue; }
         todo.push({ ...ep, segs, uploadDate: (segs[0] && segs[0].upload_date) || "" });
     }
+    // Postavke kanala: reelsi isključeni → ne biraj (nema reels.json ni markera; idući run pita ponovno).
+    todo = filterStep("reels", todo, { whoOf: (ep) => ep.segPath, labelOf: (ep) => `${ep.channel}/${ep.vid}` });
     todo.sort((x, y) => y.uploadDate.localeCompare(x.uploadDate));
     const batch = todo.slice(0, MAX_EPISODES);
 

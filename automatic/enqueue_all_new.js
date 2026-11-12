@@ -36,6 +36,7 @@
 const fs = require('fs');
 const path = require('path');
 const { readUsage, loadEnvKey } = require('./all_episodes_lib');
+const channelSettings = require('../lib/channel_settings');
 
 const REPO = path.resolve(__dirname, '..');
 const EVENTS = path.join(REPO, 'automatic/watchlist/events.jsonl');
@@ -82,6 +83,24 @@ async function failedDownloadJobs(key) {
     return out;
 }
 
+/**
+ * Vlasnikove postavke kanala (S7 točka 3): tombstone, povučen kanal ili isključena obrada
+ * → epizoda ne dobiva job. Izvor nedostupan → NIJEDAN job (fail-closed, `gate()`).
+ * UC epizode: `channel_id` iz događaja ako ga ima, inače registry po slugu.
+ * → `{ keep, skipped: [{ e, reason }], unavailable: string|null }`
+ */
+function applySettingsGate(cands, g) {
+    if (!g.available) {
+        return { keep: [], skipped: [], unavailable: `izvor postavki nedostupan (${g.snap.error || '?'})` };
+    }
+    const keep = [], skipped = [];
+    for (const e of cands) {
+        const r = g.checkProcessing({ uc: e.channel_id, slug: e.slug });
+        if (r.skip) skipped.push({ e, reason: r.reason }); else keep.push(e);
+    }
+    return { keep, skipped, unavailable: null };
+}
+
 async function main() {
     if (process.env.ALL_EPISODES_OFF === '1') { console.log('⏭️  ALL_EPISODES_OFF=1 — preskačem'); return; }
     const key = loadEnvKey(REPO);
@@ -116,6 +135,23 @@ async function main() {
     }
 
     const state = loadState();
+    // Postavke kanala (vlasnik): tombstone / povučen / processing off → bez joba.
+    const sg = applySettingsGate(cands, channelSettings.gate());
+    if (sg.unavailable) {
+        console.log(`   ⛔⛔ POSTAVKE KANALA NEDOSTUPNE — ${sg.unavailable}`);
+        console.log(`   ⛔⛔ ne šaljem NIJEDAN job (${cands.length} originala čeka idući run unutar lookbacka)`);
+        if (!DRY) {
+            state.last_settings = { at: new Date().toISOString(), unavailable: sg.unavailable, held: cands.length };
+            saveState(state);
+        }
+        return;
+    }
+    for (const { e, reason } of sg.skipped) console.log(`   🔐 preskačem ${e.id} [${e.slug}] — ${reason}`);
+    if (sg.skipped.length) {
+        cands.length = 0; cands.push(...sg.keep);
+        if (!DRY) state.last_settings = { at: new Date().toISOString(),
+            skipped: sg.skipped.map(({ e, reason }) => ({ id: e.id, slug: e.slug, reason })) };
+    } else delete state.last_settings;
     // Job koji je backend stvorio pa je PAO na downloadu (YouTube anti-bot, 02.11.: 9/21)
     // nije gotov posao: bez ovoga ga nijedan idući nightly ne bi ponovno poslao.
     const dlFailed = await failedDownloadJobs(key).catch(err => {
@@ -138,7 +174,10 @@ async function main() {
     }).filter(e => !RETRY_ONLY || retryIds.has(e.id));
     if (retryIds.size) console.log(`   🔁 ponovno: ${retryIds.size} jobova palih na downloadu`);
     console.log(`🌐 Obrada svih novih epizoda: ${cands.length} originala ${from}…${to}, za slanje ${todo.length}`);
-    if (!todo.length) return;
+    if (!todo.length) {
+        if (!DRY && sg.skipped.length) saveState(state);       // razlog preskakanja ostaje u stanju
+        return;
+    }
 
     const usage = await readUsage().catch(e => ({ error: e.message }));
     if (usage.error) console.log(`   ⚠️  kvota nečitljiva (${usage.error}) — šaljem bez ograde`);
@@ -202,4 +241,7 @@ async function main() {
     console.log(`   📊 novih ${tally.created} · već u redu ${tally.deduped} · objavljeno ${tally.published} · neuspjelih ${tally.failed}`);
 }
 
-main().catch(e => { console.error(`❌ ${e.message}`); process.exit(1); });
+if (require.main === module) {
+    main().catch(e => { console.error(`❌ ${e.message}`); process.exit(1); });
+}
+module.exports = { applySettingsGate };

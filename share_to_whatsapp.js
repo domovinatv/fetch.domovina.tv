@@ -31,6 +31,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 const { execFileSync } = require("child_process");
+const channelSettings = require("./lib/channel_settings");
 
 const DEFAULT_BRIDGE = process.env.WA_BRIDGE_URL || "http://127.0.0.1:8080";
 const DEFAULT_SITE_BASE = process.env.SHARE_SITE_BASE || "https://domovina.ai";
@@ -193,6 +194,43 @@ function filterUnsent(messages, alreadySent) {
 // ─────────────────────────────────────────────────────────────────────────────
 // I/O
 // ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Vlasnikove postavke kanala (S7 točka 6, odluka 110), čitački gate:
+ *   povučen/obrisan kanal ili `channel_enabled` off → epizoda se ne šalje (`refuse`);
+ *   `share_clips` off → bez poglavlja (`/t/<sek>`), gola epizoda smije (`noChapters`);
+ *   `stale` (izvor nedostupan) uz --commit → odbij: ručni alat, bolje ne poslati nego
+ *   poslati povučeno. Suho pokretanje samo upozori.
+ * `who` = { uc, slug, infoPath } (vidi locateEpisode). → `{ refuse, noChapters, warn }`
+ */
+function shareDecision(g, who, { commit = false } = {}) {
+    const out = { refuse: null, noChapters: null, warn: g.stale || null };
+    if (g.stale && commit) {
+        out.refuse = `postavke kanala nisu svježe (${g.stale}) — s --commit ne šaljem`;
+        return out;
+    }
+    const master = g.check({ ...who, key: "channel_enabled" });
+    if (master.skip) { out.refuse = master.reason; return out; }
+    const clips = g.check({ ...who, key: "share_clips" });
+    if (clips.skip) out.noChapters = clips.reason;
+    return out;
+}
+
+/** Nađi epizodu na disku → `{ slug, infoPath }` (slug registryja: direktorij `_` → `-`), ili null. */
+function locateEpisode(videoId, inputDir) {
+    const root = path.resolve(inputDir);
+    let dirs;
+    try {
+        dirs = fs.readdirSync(root, { withFileTypes: true }).filter((e) => e.isDirectory() || e.isSymbolicLink());
+    } catch { return null; }
+    for (const d of dirs) {
+        let entries;
+        try { entries = fs.readdirSync(path.join(root, d.name)); } catch { continue; }
+        const info = entries.find((f) => f.endsWith(`_yt_${videoId}.info.json`));
+        if (info) return { slug: d.name.replace(/_/g, "-"), infoPath: path.join(root, d.name, info) };
+    }
+    return null;
+}
 
 function getArg(args, name) {
     const idx = args.indexOf(name);
@@ -381,6 +419,17 @@ async function main() {
         process.exit(1);
     }
 
+    // Postavke kanala PRIJE čitanja članka i razrješavanja grupe.
+    const who = locateEpisode(videoId, inputDir) || {};
+    const decision = shareDecision(channelSettings.readerGate(), who, { commit });
+    if (decision.warn) console.log(`\n⚠️  postavke kanala: ${decision.warn}`);
+    if (decision.refuse) throw new Error(`🔐 Ne šaljem ${videoId}: ${decision.refuse}`);
+    if (!who.infoPath) {
+        // Bez info.json ne znamo kanal → ne možemo provjeriti je li povučen.
+        if (commit) throw new Error(`🔐 Ne šaljem ${videoId}: nema .info.json pod ${inputDir}, postavke kanala se ne mogu provjeriti`);
+        console.log(`\n⚠️  epizoda ${videoId} nije nađena na disku — postavke kanala nisu provjerene (--commit bi odbio)`);
+    }
+
     console.log(`\n📖 Epizoda ${videoId} (izvor: ${source})`);
     const article =
         source === "cdn"
@@ -406,7 +455,11 @@ async function main() {
         );
     }
 
-    let messages = buildMessages({ videoId, chapters, siteBase, includeIntro });
+    if (decision.noChapters) {
+        if (!includeIntro) throw new Error(`🔐 ${decision.noChapters} — uz --no-intro nema što poslati`);
+        console.log(`\n🔐 Bez poglavlja: ${decision.noChapters} — šaljem samo epizodu`);
+    }
+    let messages = buildMessages({ videoId, chapters: decision.noChapters ? [] : chapters, siteBase, includeIntro });
     const total = messages.length;
 
     if (!force) {
@@ -474,6 +527,8 @@ module.exports = {
     resolveGroup,
     resolveDirectChat,
     filterUnsent,
+    shareDecision,
+    locateEpisode,
 };
 
 if (require.main === module) {

@@ -103,6 +103,7 @@
 const fs = require("fs");
 const path = require("path");
 const atomicJson = require("./lib/atomic_json");
+const { skipStep } = require("./lib/channel_settings_steps");
 
 // ─── SUFIKSI DATOTEKA ───────────────────────────────────────────
 
@@ -721,7 +722,7 @@ function runSegments({ inputDir, channel, videoId, dryRun, rebuildSegments }) {
         process.exit(1);
     }
     const all = discoverCanonicalSrts(inputDir, channel, videoId);
-    const stats = { total: all.length, fresh: 0, written: 0, unchanged: 0, empty: 0, noId: 0, rows: 0, bytes: 0 };
+    const stats = { total: all.length, fresh: 0, written: 0, unchanged: 0, empty: 0, noId: 0, settings: 0, rows: 0, bytes: 0 };
 
     for (const { srtPath, channel: ch } of all) {
         const dir = path.dirname(srtPath);
@@ -740,6 +741,11 @@ function runSegments({ inputDir, channel, videoId, dryRun, rebuildSegments }) {
         const outMtime = mtimeMs(outPath);
         if (!rebuildSegments && outMtime > 0 && outMtime >= inputsMtime) {
             stats.fresh++;
+            continue;
+        }
+        // Postavke kanala: transkript isključen → ne piši .segments.jsonl (RAG chunkovi nisu ovdje).
+        if (skipStep("segments", srtPath)) {
+            stats.settings++;
             continue;
         }
 
@@ -792,6 +798,7 @@ function runSegments({ inputDir, channel, videoId, dryRun, rebuildSegments }) {
     if (stats.unchanged) console.log(`   🟰 Isti sadržaj (samo mtime):  ${stats.unchanged}`);
     if (stats.empty) console.log(`   ⚠️  Prazan SRT:                 ${stats.empty}`);
     if (stats.noId) console.log(`   ⚠️  Bez YouTube ID-a:           ${stats.noId}`);
+    if (stats.settings) console.log(`   ⏭️  Postavke kanala (preskočeno): ${stats.settings}`);
     console.log(`   🧩 Segmenata (obrađene ep.):   ${stats.rows}`);
     console.log(`   📦 Veličina (obrađene ep.):    ${(stats.bytes / 1048576).toFixed(1)} MB`);
     console.log("");

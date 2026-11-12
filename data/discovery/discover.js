@@ -151,6 +151,45 @@ function knownKeys(reg) {
     return k;
 }
 
+// ─── postavke kanala: tombstone = trajno „ne” ─────────────────────
+// Vlasnik je trajno obrisao kanal (tvrdi uvjet 5) → taj UC nikad ne ide u probe, triage
+// ni apply, i ne vraća se u registry ni kao blizanac postojećeg unosa. To je trajna presuda
+// „ne”, ali se NE piše u ledger: izvor istine je katalog. Playlista nosi UC matičnog
+// kanala u `channel_id`, pa tombstone vlasnika blokira i njegove playliste.
+// Gate je čitački (zadnja uspješna snimka kad izvor padne — tombstone je trajan).
+function tombstonedUc(row, g) {
+    if (!g || !row) return null;
+    const ucs = new Set();
+    if (row.channel_id) ucs.add(row.channel_id);
+    if (typeof row.key === "string" && /^UC[\w-]{22}$/.test(row.key)) ucs.add(row.key);
+    for (const uc of ucs) if (g.isTombstoned(uc)) return uc;
+    return null;
+}
+/** → `{ kept, dropped: [{ row, uc }] }` */
+function filterTombstoned(rows, g) {
+    const kept = [], dropped = [];
+    for (const row of rows) {
+        const uc = tombstonedUc(row, g);
+        if (uc) dropped.push({ row, uc }); else kept.push(row);
+    }
+    return { kept, dropped };
+}
+let _settingsGate = null;
+function settingsGate() {
+    if (!_settingsGate) {
+        _settingsGate = require(path.join(ROOT, "lib", "channel_settings")).readerGate();
+        if (_settingsGate.stale) log(`⚠️  postavke kanala: ${_settingsGate.stale}`);
+    }
+    return _settingsGate;
+}
+/** Bez ijedne snimke readerGate ne filtrira ništa → apply (piše registry) to ne smije prihvatiti. */
+function gateHasNoSnapshot(g) { return !!(g && g.stale && !g.snap.fetched_at); }
+function logTombstoned(step, dropped) {
+    if (!dropped.length) return;
+    log(`🪦 ${step}: ${dropped.length} trajno obrisanih kanala (tombstone) izostavljeno`);
+    for (const { row, uc } of dropped) log(`   🪦 ${row.name || row.key} (${uc})`);
+}
+
 function ledgerBlocks(entry) {
     if (!entry) return false;
     const days = VERDICTS[entry.verdict]?.recheck;
@@ -290,7 +329,9 @@ function cmdAggregate() {
         if (p.youtube?.channel_id && !playlistId(p.youtube.url)) wholeChannel.set(p.youtube.channel_id, p);
     }
     const fresh = [], skipped = { registry: 0, ledger: 0, subset: 0 };
-    for (const t of targets.values()) {
+    const tomb = filterTombstoned([...targets.values()], settingsGate());   // i uz --force
+    logTombstoned("aggregate", tomb.dropped);
+    for (const t of tomb.kept) {
         if (known.has(t.key) || (t.url && known.has(normHandleUrl(t.url)))) { skipped.registry++; continue; }
         const parent = t.type === "playlist" && t.channel_id && wholeChannel.get(t.channel_id);
         if (!t.force && parent && !["not-podcast", "dead-url"].includes(parent.metadata?.status)) { skipped.subset++; continue; }
@@ -416,6 +457,9 @@ function cmdTriage() {
             auto: autoVerdict(m), ...(inRegistry ? { in_registry: true } : {}), ...m,
         });
     }
+    const tomb = filterTombstoned(rows, settingsGate());
+    logTombstoned("triage", tomb.dropped);
+    rows.splice(0, rows.length, ...tomb.kept);
     writeJson(path.join(RUN_DIR, "triage.json"), rows);
     const c = (v) => rows.filter((r) => r.auto === v).length;
     log(`⚖️  triage: ${rows.length} → candidate ${c("candidate")}, maybe ${c("maybe")}, not_podcast ${c("not_podcast")}, not_hr (ćirilica) ${c("not_hr")}, error ${c("error")}`);
@@ -476,7 +520,9 @@ function parseJsonArray(text) {
 function cmdClassify() {
     const reg = readJson(REGISTRY);
     const tags = Object.keys(reg.tag_legend || {});
-    const rows = readJson(path.join(RUN_DIR, "triage.json"), []).filter((r) => r.auto === "candidate" || r.auto === "maybe");
+    const tomb = filterTombstoned(readJson(path.join(RUN_DIR, "triage.json"), []), settingsGate());
+    logTombstoned("classify", tomb.dropped);
+    const rows = tomb.kept.filter((r) => r.auto === "candidate" || r.auto === "maybe");
     const outDir = path.join(RUN_DIR, "classify");
     fs.mkdirSync(outDir, { recursive: true });
     const mode = getArg("--classifier") || "claude";
@@ -525,7 +571,14 @@ function cmdApply() {
     const reg = readJson(REGISTRY);
     const ledger = readJson(LEDGER, {});
     const qstats = readJson(QSTATS, {});
-    const triage = readJson(path.join(RUN_DIR, "triage.json"), []);
+    // triage.json može biti stariji od tombstonea → ograda i ovdje (zadnja linija prije registryja).
+    const g = settingsGate();
+    if (gateHasNoSnapshot(g) && !DRY_RUN) {
+        throw new Error(`apply odbijen: ${g.stale} — tombstone kanali bi se mogli vratiti u registry. Pokušaj kad je katalog dostupan (ili --dry-run).`);
+    }
+    const tomb = filterTombstoned(readJson(path.join(RUN_DIR, "triage.json"), []), g);
+    logTombstoned("apply", tomb.dropped);
+    const triage = tomb.kept;
     const cls = readJson(path.join(RUN_DIR, "classification.json"), {});
     const perQuery = readJson(path.join(RUN_DIR, "per_query.json"), {});
     const known = knownKeys(reg);
@@ -964,4 +1017,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error("❌", e.message); process.exit(1); });
-module.exports = { findTwin, verdictFromReason, autoVerdict, metricsFor, slugify, statusFrom, ledgerBlocks, knownKeys, parseJsonArray };
+module.exports = { findTwin, verdictFromReason, autoVerdict, metricsFor, slugify, statusFrom, ledgerBlocks, knownKeys, parseJsonArray, tombstonedUc, filterTombstoned, gateHasNoSnapshot };

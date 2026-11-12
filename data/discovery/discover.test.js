@@ -42,3 +42,37 @@ test("verdictFromReason", () => {
     assert.equal(verdictFromReason("ne prolazi triage: 2/60 ≥30 min"), "not_podcast");
     assert.equal(verdictFromReason("nešto treće"), "uncertain");
 });
+
+// ─── postavke kanala: tombstone (S7 točka 3) ──────────────────────
+const cs = require("../../lib/channel_settings");
+const { filterTombstoned, tombstonedUc, gateHasNoSnapshot } = require("./discover.js");
+
+test("(c) tombstone UC ne ide u apply (ni kanal ni njegova playlista)", () => {
+    const UC_DEL = "UCdddddddddddddddddddddd", UC_OK = "UCffffffffffffffffffffff";
+    const g = cs.gateFromSnapshot({ ok: true, fetched_at: "x", settings: { [UC_DEL]: { status: "deleted", off: [] } } },
+        { registryPath: "/nepostojeci/registry.json" });
+    const triage = [
+        { key: UC_DEL, type: "channel", channel_id: UC_DEL, name: "Obrisan", auto: "candidate" },
+        { key: "PLxxxxxxxx", type: "playlist", channel_id: UC_DEL, name: "Obrisan — playlista", auto: "candidate" },
+        { key: UC_OK, type: "channel", channel_id: UC_OK, name: "Normalan", auto: "candidate" },
+    ];
+    const { kept, dropped } = filterTombstoned(triage, g);
+    assert.deepEqual(kept.map((r) => r.key), [UC_OK]);
+    assert.deepEqual(dropped.map((d) => d.uc), [UC_DEL, UC_DEL]);
+    assert.equal(tombstonedUc(triage[2], g), null);
+    // povučen (withdrawn), ali ne obrisan, NIJE trajna presuda discoveryja
+    const g2 = cs.gateFromSnapshot({ ok: true, settings: { [UC_OK]: { status: "withdrawn", off: [] } } });
+    assert.equal(filterTombstoned(triage, g2).kept.length, 3);
+});
+
+test("apply bez ijedne snimke postavki se odbija (readerGate bez filtra)", () => {
+    const fs = require("fs"), os = require("os"), path = require("path");
+    const d = fs.mkdtempSync(path.join(os.tmpdir(), "disc-"));
+    process.env.CHANNEL_SETTINGS_FILE = path.join(d, "nema.json");
+    try {
+        cs._resetForTests();
+        const g = cs.readerGate({ lastOkFile: path.join(d, "nema_last.json") });
+        assert.ok(gateHasNoSnapshot(g));
+        assert.equal(gateHasNoSnapshot(cs.gateFromSnapshot({ ok: true, fetched_at: "x", settings: {} })), false);
+    } finally { delete process.env.CHANNEL_SETTINGS_FILE; cs._resetForTests(); }
+});

@@ -94,3 +94,46 @@ test('writeJsonStable: isti sadržaj ne dira datoteku ni generated_at', () => {
     assert.equal(JSON.parse(fs.readFileSync(p, 'utf-8')).generated_at, 'T3');
     fs.rmSync(dir, { recursive: true });
 });
+
+// ─── postavke kanala (S7 točka 5, odluka 105) ─────────────────────
+const cs = require('./lib/channel_settings');
+const { applyChannelSettings } = require('./generate_channel_index.js');
+
+test('(f) KORAK 13: povučen izvan svega, home_featured/in_app_search samo svoj izlaz, bez retka nepromijenjen', () => {
+    const UC_W = 'UCaaaaaaaaaaaaaaaaaaaaaa', UC_H = 'UChhhhhhhhhhhhhhhhhhhhhh', UC_S = 'UCssssssssssssssssssssss', UC_N = 'UCnnnnnnnnnnnnnnnnnnnnnn';
+    const d = fs.mkdtempSync(path.join(os.tmpdir(), 'gci-'));
+    const reg = path.join(d, 'reg.json');
+    // povuceni se nalazi preko registryja (slug s `-`), ostali preko youtube_channel_url
+    fs.writeFileSync(reg, JSON.stringify({ podcasts: [{ slug: 'povuceni-kanal', youtube: { channel_id: UC_W } }] }));
+    const g = cs.gateFromSnapshot({ ok: true, settings: {
+        [UC_W]: { status: 'withdrawn', off: [] },
+        [UC_H]: { status: 'active', off: ['home_featured'] },
+        [UC_S]: { status: 'active', off: ['in_app_search'] },
+    } }, { registryPath: reg });
+    const today = '2026-11-12';
+    const ch = (id, uc, vid) => ({ id, youtube_channel_url: uc ? `https://www.youtube.com/channel/${uc}` : null,
+        videos: [video(vid, '2026-11-10', { abstract: `sažetak ${vid}`, pipeline: { has_article: true } })] });
+    const details = [ch('bez_retka', UC_N, 'N0000000000'), ch('home_off', UC_H, 'H0000000000'),
+        ch('povuceni_kanal', null, 'W0000000000'), ch('search_off', UC_S, 'S0000000000')];
+    const index = details.map(({ id, youtube_channel_url }) => ({ id, youtube_channel_url }));
+
+    const r = applyChannelSettings({ channels: index, details, gate: g });
+    assert.deepEqual(r.channels.map(c => c.id), ['bez_retka', 'home_off', 'search_off']);
+    assert.deepEqual(r.details.map(c => c.id), ['bez_retka', 'home_off', 'search_off']);
+    assert.deepEqual(r.dropped, { withdrawn: ['povuceni_kanal'], home: ['home_off'], search: ['search_off'] });
+
+    const home = buildHomeEpisodes(r.homeDetails, today).map(e => e.id).sort();
+    const search = Object.keys(buildSearchEpisodes(r.searchDetails)).sort();
+    assert.deepEqual(home, ['N0000000000', 'S0000000000']);
+    assert.deepEqual(search, ['H0000000000', 'N0000000000']);
+
+    // kanal bez retka: isti objekti, a bez ijednog isključenog ključa isti nizovi (bajt-isti izlaz)
+    assert.equal(r.details[0], details[0]);
+    const g0 = cs.gateFromSnapshot({ ok: true, settings: {} }, { registryPath: reg });
+    const r0 = applyChannelSettings({ channels: index, details, gate: g0 });
+    assert.equal(r0.channels, index);
+    assert.equal(r0.details, details);
+    assert.equal(r0.homeDetails, details);
+    assert.equal(r0.searchDetails, details);
+    assert.equal(JSON.stringify(buildHomeEpisodes(r0.homeDetails, today)), JSON.stringify(buildHomeEpisodes(details, today)));
+});

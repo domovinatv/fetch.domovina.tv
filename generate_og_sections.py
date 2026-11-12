@@ -529,6 +529,29 @@ def should_regenerate(out_path, *deps, force=False):
 
 # --- MAIN VIDEO PROCESSOR ---
 
+SETTINGS_HELPER = Path(__file__).resolve().parent / 'lib' / 'channel_settings_steps.js'
+
+
+def channel_settings_skips(paths):
+    """Postavke kanala (share_clips): {putanja: razlog} za epizode koje se NE smiju obraditi.
+
+    Jedan `node lib/channel_settings_steps.js filter` po kanalu (ista logika kao JS koraci,
+    fail-closed kad je izvor nedostupan). Ne piše nikakav marker: kad vlasnik uključi ključ,
+    idući run obradi epizodu. Ako sama provjera pukne → preskoči sve (fail-closed).
+    """
+    if not paths:
+        return {}
+    try:
+        r = subprocess.run(['node', str(SETTINGS_HELPER), 'filter', '--step', 'og_sections'],
+                           input='\n'.join(paths), capture_output=True, text=True, timeout=300)
+        if r.returncode != 0:
+            raise RuntimeError((r.stderr or '').strip()[:300] or f'exit {r.returncode}')
+        return json.loads(r.stdout).get('skipped', {})
+    except Exception as e:
+        reason = f'provjera postavki nije uspjela ({e})'
+        return {p: reason for p in paths}
+
+
 def process_video(video_info, channel_dir, *, force=False, dry_run=False):
     """Procesira jedan video. Vraća dict s rezultatima."""
     video_base = video_info['video_base']
@@ -812,6 +835,17 @@ def main():
             videos = [v for v in videos if args.video_id in v['video_base']]
         if not videos:
             continue
+        # Postavke kanala: 9:16/og isječci isključeni → ne generiraj (postojeće ostaje).
+        skips = channel_settings_skips([v['article_path'] for v in videos])
+        if skips:
+            by_reason = {}
+            for why in skips.values():
+                by_reason[why] = by_reason.get(why, 0) + 1
+            for why, n in by_reason.items():
+                log('⏭️ ', f'postavke kanala: {why} — {ch_name}: {n} videa')
+            videos = [v for v in videos if v['article_path'] not in skips]
+            if not videos:
+                continue
         log('📺', f'{ch_name} — {len(videos)} videa')
         for v in videos:
             if args.limit is not None and videos_processed >= args.limit:

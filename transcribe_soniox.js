@@ -32,6 +32,8 @@
 
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("./lib/channel_settings");
+const { filterAsrCandidates } = require("./lib/channel_settings_filter");
 const { execFileSync } = require("child_process");
 const soniox = require("./lib/asr/soniox");
 const speechmatics = require("./lib/asr/speechmatics");
@@ -274,8 +276,14 @@ async function processFile(audioPath) {
 const FORMAT_RANK = { ".mp3": 0, ".m4a": 1, ".opus": 2, ".ogg": 3, ".flac": 4, ".wav": 5 };
 const ORPHAN_FRAGMENT = /\.f\d{2,4}\.[a-z0-9]+$/i;   // yt-dlp .f396.mp4 ostaci
 
+// Postavke kanala (S7): ASR samo uz `transcript_subtitles` (+ processing, master), PRIJE
+// --limit, da isključene epizode ne troše mjesto. Nedostupan izvor = nijedan kandidat.
+function gateCandidates(items, getPath = (x) => x) {
+    return filterAsrCandidates(items, channelSettings.gate(), { getPath });
+}
+
 function collectCandidates() {
-    if (FILE) return [FILE];
+    if (FILE) return gateCandidates([FILE]);
     const root = path.resolve(INPUT_DIR);
     const channels = CHANNEL
         ? [CHANNEL]
@@ -320,6 +328,7 @@ function collectCandidates() {
         pool = pool.filter((x) => x.mtime >= cutoff);
         console.log(`   🗓️  Prozor svježine ${FRESH_DAYS}d: ${before} → ${pool.length} kandidata`);
     }
+    pool = gateCandidates(pool, (x) => x.p);
     // Najstarije prvo: epizoda pred izlaskom iz prozora ne smije ispasti zbog limita.
     // Lokalna diarizacija je od 31.10.2026. ugašena, pa ispala epizoda nema drugi put.
     return pool.sort((a, b) => a.mtime - b.mtime).slice(0, LIMIT).map((x) => x.p);

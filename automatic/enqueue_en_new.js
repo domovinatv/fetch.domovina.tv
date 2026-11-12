@@ -48,6 +48,7 @@
 const fs = require('fs');
 const { spawnSync } = require('child_process');
 const path = require('path');
+const { filterStep, skipStep } = require('../lib/channel_settings_steps');
 
 const ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(ROOT, 'storage', 'output');
@@ -163,7 +164,11 @@ function collectCandidates() {
         const waitMag = magCh.has(e.channel) && !set.has(`${e.stem}.article.magisterium.json`);
         out.push({ id: e.id, channel: e.channel, stem: e.stem, date: e.date, waitMag, waitChannel: e.waitChannel });
     }
-    return out;
+    // Postavke kanala: EN prijevod isključen → nema EN joba (bez stanja; uključi li ga, idući tick).
+    return filterStep('english', out, {
+        whoOf: (c) => path.join(OUTPUT_DIR, c.channel, `${c.stem}.article.json`),
+        labelOf: (c) => `EN ${c.id} [${c.channel}]`,
+    });
 }
 
 /** Epizode s EN člankom čiji reels.en.json nedostaje ili je zastario (isti SINCE prozor). */
@@ -190,10 +195,11 @@ function staleReelsEn() {
             if (!reelsEnStale(src, path.join(dir, `${base}.reels.en.json`))) continue;
             let sha = '';
             try { sha = reelsSourceSha(JSON.parse(fs.readFileSync(src, 'utf8'))); } catch { continue; }
-            out.push({ id, channel: entry.name, sha });
+            out.push({ id, channel: entry.name, sha, src });
         }
     }
-    return out;
+    // Postavke kanala: EN ili reelsi isključeni → nema reels.en.json (prije state/tries).
+    return filterStep('reels_en', out, { whoOf: (r) => r.src, labelOf: (r) => `reels EN ${r.id} [${r.channel}]` });
 }
 
 function refreshReelsEn() {
@@ -247,10 +253,11 @@ function lateMagisteriumEn() {
             if (mtime < sinceMs) continue;   // stara rupa — namjerno bez backfilla
             const ids = [...stem.matchAll(/_yt_([A-Za-z0-9_-]{11})/g)];
             if (!ids.length) continue;
-            out.push({ id: ids[ids.length - 1][1], channel: entry.name });
+            out.push({ id: ids[ids.length - 1][1], channel: entry.name, src: path.join(dir, f) });
         }
     }
-    return out;
+    // Postavke kanala: Magisterium ili EN isključen → nema Magisterium EN-a.
+    return filterStep('magisterium_en', out, { whoOf: (r) => r.src, labelOf: (r) => `Magisterium EN ${r.id} [${r.channel}]` });
 }
 
 function refreshMagisteriumEn() {
@@ -377,6 +384,8 @@ async function refreshStaleEn() {
         if (!parts.length) { state[e.id] = { sig, fresh: true }; continue; }
 
         const tag = `${e.id} [${e.channel}]`;
+        // Postavke kanala: EN isključen → ne prevodi ponovno i ne sklanjaj postojeći EN (odluka 8).
+        if (skipStep('english', path.join(dir, `${e.stem}.article.json`), { label: `zastario EN ${tag}` })) continue;
         if (done >= STALE_MAX) { console.log(`🛑 EN_STALE_MAX=${STALE_MAX} — ostatak idući tick.`); break; }
         done++;
         if (DRY_RUN) { console.log(`  🧪 zastario EN ${tag}: ${parts.join(', ')} → bi se preveo ponovno`); continue; }

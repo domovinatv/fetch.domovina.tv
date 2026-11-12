@@ -36,6 +36,7 @@
 const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
+const channelSettings = require("../lib/channel_settings");
 
 const REPO = path.join(__dirname, "..");
 const REGISTRY = path.join(REPO, "data", "podcasts_registry.json");
@@ -103,11 +104,31 @@ function loadRules() {
     try { return JSON.parse(fs.readFileSync(RULES_FILE, "utf8")); } catch { return {}; }
 }
 
+// Tombstone (vlasnik je trajno obrisao kanal, tvrdi uvjet 5): takav UC se nikad ne prati,
+// pa ni ne javlja nove epizode (events.jsonl) ni ne pojavljuje u REPORT.md. Vrijedi i za
+// --slug. Gate je čitački (readerGate): tombstone je trajan, pa zadnja uspješna snimka
+// vrijedi i kad je izvor trenutno nedostupan. → UC ili null.
+function tombstonedUc(p, g) {
+    if (!g) return null;
+    return g.ucsFor({ uc: p.youtube?.channel_id, slug: p.slug }).find((uc) => g.isTombstoned(uc)) || null;
+}
+
+let _settingsGate = null;
+function settingsGate() {
+    if (!_settingsGate) {
+        _settingsGate = channelSettings.readerGate();
+        if (_settingsGate.stale) console.log(`  ⚠️  postavke kanala: ${_settingsGate.stale}`);
+    }
+    return _settingsGate;
+}
+
 // scoped=false ignorira --slug/--limit: REPORT.md uvijek opisuje sve kandidate,
 // inače ga ručni prolaz za jedan kanal pregazi izvještajem od 1 kanala.
-function loadCandidates({ scoped = true } = {}) {
+// `registry`/`gate` su za testove (inače data/podcasts_registry.json i readerGate()).
+function loadCandidates({ scoped = true, registry = null, gate = undefined } = {}) {
     const onlySlug = scoped ? ONLY_SLUG : null;
-    const reg = JSON.parse(fs.readFileSync(REGISTRY, "utf8"));
+    const reg = registry || JSON.parse(fs.readFileSync(REGISTRY, "utf8"));
+    const g = gate === undefined ? settingsGate() : gate;
     const rules = loadRules();
     const trackedUrls = new Set(
         reg.podcasts.filter((p) => p.tracking?.enabled === true && p.youtube?.url)
@@ -122,6 +143,7 @@ function loadCandidates({ scoped = true } = {}) {
             if (p.youtube?.type === "umbrella") continue;        // prate se djeca-playliste
             if (SKIP_STATUSES.has(p.metadata?.status)) continue;
         }
+        if (tombstonedUc(p, g)) continue;                     // trajno obrisan kanal
         const rule = { ...(rules[p.slug] || {}), ...(p.watch || {}) };
         const source = rule.source_url || channelVideosUrl(p.youtube?.url);
         if (!source) continue;
@@ -440,4 +462,4 @@ async function main() {
 if (require.main === module) {
     main().catch((e) => { console.error(e); process.exit(1); });
 }
-module.exports = { classify, adaptiveMinDuration, channelVideosUrl, safeRegex, loadCandidates, loadRules };
+module.exports = { classify, adaptiveMinDuration, channelVideosUrl, safeRegex, loadCandidates, loadRules, tombstonedUc };

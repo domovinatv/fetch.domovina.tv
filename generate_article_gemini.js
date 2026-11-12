@@ -40,6 +40,7 @@ const atomicJson = require("./lib/atomic_json");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled, VERTEX_DISABLED_MSG } = require("./lib/vertex_auth");
 const { execSync, spawn } = require("child_process");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
+const { filterStep } = require("./lib/channel_settings_steps");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -1333,6 +1334,8 @@ async function callGemini(systemPrompt, userMessage, label = "Gemini API poziv",
             } catch (err) {
                 lastErr = err;
                 console.log(`    ⚠️ [Agy ${i}/${CLAUDE_MAX_RETRIES}] Greška: ${err.message.split("\n")[0]}`);
+                // Istrošena kvota se ne oporavi za 4–8 s: ponovni pokušaj samo troši vrijeme.
+                if (err.code === "AGY_QUOTA") throw err;
                 if (i < CLAUDE_MAX_RETRIES) {
                     const backoff = i * 4000;
                     console.log(`      ...čekam ${backoff}ms za retry...`);
@@ -1857,6 +1860,7 @@ async function main() {
     if (opts.mode === "single") {
         console.log(`   📂 Datoteka: ${opts.file}`);
         console.log("");
+        if (filterStep("article", [opts.file]).length === 0) return;
         await processFile(opts.file, { exitOnError: true });
         console.log("");
         return;
@@ -1913,7 +1917,8 @@ async function main() {
     }
 
     // Gradi round-robin red
-    const queue = buildRoundRobinQueue(byChannel);
+    // Postavke kanala: vlasnik je isključio članak → ne generiraj (bez markera ni done cachea).
+    const queue = filterStep("article", buildRoundRobinQueue(byChannel), { whoOf: (q) => q.srtPath });
     const finalQueue = limit ? queue.slice(0, limit) : queue;
 
     if (dryRun) {

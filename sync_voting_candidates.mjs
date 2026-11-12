@@ -88,11 +88,15 @@
  *   DOMOVINA_AI_CLOUDFLARE_API_TOKEN_PURGE_CACHE   (samo za --force-avatars)
  */
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, realpathSync } from "node:fs";
 import { execFile } from "node:child_process";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const channelSettings = require("./lib/channel_settings.js");
 
 const execFileAsync = promisify(execFile);
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -157,6 +161,20 @@ function isCandidate(p) {
     p.youtube.type !== "umbrella" &&
     ALLOWED_STATUS.has(p?.metadata?.status)
   );
+}
+
+/**
+ * Vlasnikove postavke kanala (S7 točka 6, odluka 110): kanal čiji je UC povučen ili
+ * obrisan (tombstone) nije kandidat. Ispada iz skupa PRIJE `--limit`-a, pa ga postojeća
+ * logika povlačenja označi `withdrawn` (nikad DELETE). → `{ kept, dropped: [{ p, uc }] }`
+ */
+export function filterOwnerWithdrawn(candidates, g) {
+  const kept = [], dropped = [];
+  for (const p of candidates) {
+    const uc = g.ucsFor({ uc: p?.youtube?.channel_id, slug: p?.slug }).find((u) => g.isWithdrawn(u));
+    if (uc) dropped.push({ p, uc }); else kept.push(p);
+  }
+  return { kept, dropped };
 }
 
 /** Registry zapis → red u domovina_ai.vote_candidates (bez `status`, v. zaglavlje). */
@@ -449,7 +467,22 @@ async function main() {
   }
   const registry = JSON.parse(readFileSync(REGISTRY_PATH, "utf-8"));
   const all = registry.podcasts || [];
-  const candidates = all.filter(isCandidate);
+  // Postavke kanala: readerGate (zadnja uspješna snimka) za izračun, ali pisanje u bazu
+  // traži svjež izvor — bez njega povučen kanal ne bi ispao iz bazena.
+  const settingsGate = channelSettings.readerGate();
+  if (settingsGate.stale) {
+    warn(`postavke kanala: ${settingsGate.stale}`);
+    if (COMMIT) {
+      console.error("❌  Izvor postavki kanala nedostupan — --commit odbijen (povučeni kanali bi ostali u bazenu).");
+      process.exit(1);
+    }
+  }
+  const owner = filterOwnerWithdrawn(all.filter(isCandidate), settingsGate);
+  const candidates = owner.kept;
+  if (owner.dropped.length) {
+    log("🔐", `Vlasnik je povukao ${owner.dropped.length} kanala → izvan bazena: ` +
+              owner.dropped.map(({ p, uc }) => `${p.slug} (${uc})`).join(", "));
+  }
   // SVI zapisi po slugu — treba za razlikovanje „onboardan" od „nestao" kod
   // redova koji su ispali iz §3 filtra (v. `ispali` niže).
   const byRegistry = new Map(all.map((p) => [p.slug, p]));
@@ -696,7 +729,14 @@ async function main() {
   console.log("");
 }
 
-main().catch((e) => {
-  console.error(`❌  ${e.stack || e.message}`);
-  process.exit(1);
-});
+// Pokrenuto kao skripta (ne import iz testa). realpath: poziv preko symlinka mora raditi.
+const isMain = (() => {
+  try { return realpathSync(resolve(process.argv[1] || "")) === realpathSync(fileURLToPath(import.meta.url)); }
+  catch { return false; }
+})();
+if (isMain) {
+  main().catch((e) => {
+    console.error(`❌  ${e.stack || e.message}`);
+    process.exit(1);
+  });
+}

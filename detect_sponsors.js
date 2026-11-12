@@ -48,6 +48,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { checkStepFor, skipLine } = require("./lib/channel_settings_steps");
 
 const GENERATOR = "detect_sponsors.js@1";
 const SCHEMA_VERSION = 1;
@@ -847,7 +848,17 @@ function main() {
             .map((f) => f.slice(0, -".info.json".length))
             .sort()
             .reverse();
-        const bases = allBases.filter((b) => !videoIdFilter || extractVideoId(b) === videoIdFilter);
+        let bases = allBases.filter((b) => !videoIdFilter || extractVideoId(b) === videoIdFilter);
+        if (!bases.length) continue;
+        // Postavke kanala: sponzori u snimci isključeni → ne piši (postojeći ostaje, bez markera).
+        // Detektor svaki run prolazi cijeli katalog, pa jedna linija po kanalu i razlogu.
+        const off = {};
+        bases = bases.filter((b) => {
+            const r = checkStepFor("sponsors", path.join(channelDir, `${b}.info.json`));
+            if (r.skip) off[r.reason] = (off[r.reason] || 0) + 1;
+            return !r.skip;
+        });
+        for (const [why, n] of Object.entries(off)) console.log(skipLine(why, `${ch}: ${n} epizoda`));
         if (!bases.length) continue;
         const channelSponsors = collectChannelSponsors(channelDir, allBases);
 

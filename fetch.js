@@ -3,6 +3,8 @@
 const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("./lib/channel_settings");
+const { downloadDecision, filterListEntriesBySettings, SKIP_TAG } = require("./lib/channel_settings_filter");
 
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
@@ -273,9 +275,47 @@ function markYoutubeAntiBot(source, videoId) {
   } catch (_) { /* marker je best-effort */ }
 }
 
+// --- POSTAVKE KANALA (S7) ---
+// UC vlasnika sadržaja prije skidanja medija (samo ad-hoc: --unlisted-url / --video-id).
+// Jedan lagani yt-dlp poziv bez medija; isti kolačići/proxy/bind kao skidanje. Vraća UC ili
+// null (greška, timeout, ne-YouTube) — tada provjera vlasnika ide nizvodno preko info.json.
+const PROBE_PASS_FLAGS = new Set(["--user-agent", "--cookies", "--cookies-from-browser", "--proxy",
+  "--source-address", "--remote-components"]);
+function probeChannelId(url) {
+  const args = ["--skip-download", "--no-playlist", "--no-warnings", "--print", "channel_id"];
+  for (let i = 0; i < YT_DLP_BASE_ARGS.length; i++) {
+    const a = YT_DLP_BASE_ARGS[i];
+    if (PROBE_PASS_FLAGS.has(a)) { args.push(a, YT_DLP_BASE_ARGS[i + 1]); i++; continue; }
+    if (a === "--no-check-certificate") args.push(a);
+  }
+  args.push(url);
+  return new Promise((resolve) => {
+    let out = "";
+    let proc;
+    try { proc = spawn("yt-dlp", args, { stdio: ["ignore", "pipe", "ignore"] }); } catch { return resolve(null); }
+    const t = setTimeout(() => { try { proc.kill("SIGKILL"); } catch { /* već gotov */ } }, 90000);
+    proc.stdout.on("data", (c) => { out += c.toString(); });
+    proc.on("error", () => { clearTimeout(t); resolve(null); });
+    proc.on("close", () => {
+      clearTimeout(t);
+      const uc = out.trim().split("\n").pop().trim();
+      resolve(channelSettings.isUc(uc) ? uc : null);
+    });
+  });
+}
+
+// Treba li probati UC prije skidanja? Samo kad katalog uopće ima kanal s isključenim ključem
+// (inače nijedan UC ne može blokirati, pa je probni poziv čist trošak) i samo za YouTube.
+function settingsNeedUcProbe(gate) {
+  return !!(gate && gate.available && gate.snap && gate.snap.settings && Object.keys(gate.snap.settings).length > 0);
+}
+
 class ChannelQueue {
   constructor(filePath, baseOutputDir, videoIdFilter = null, opts = {}) {
     this.baseOutputDir = baseOutputDir;
+    // Postavke kanala: `opts.gate`/`opts.probe` samo za testove; inače singleton (CHANNEL_SETTINGS_FILE).
+    this._gate = opts.gate || null;
+    this.probe = opts.probe || probeChannelId;
     // Opcijski filter: obradi samo redak s odgovarajućim YouTube video ID-om
     this.videoIdFilter = videoIdFilter;
     this.pendingVideos = [];
@@ -291,7 +331,7 @@ class ChannelQueue {
       this.filePath = null;
       this.channelName = "_unlisted";
       this.outputDir = path.join(baseOutputDir, "_unlisted");
-      this.stateFile = path.join(LISTS_DIR, "_unlisted-state.json");
+      this.stateFile = opts.stateFile || path.join(LISTS_DIR, "_unlisted-state.json");
       this.state = loadState(this.stateFile);
       this.initUnlisted(opts.unlistedUrl, opts.unlistedTitle, opts.unlistedDate, opts.unlistedId, opts.unlistedSource);
       return;
@@ -342,7 +382,17 @@ class ChannelQueue {
       ? `${date}_${safeTitle}_yt_${videoId}`
       : `%(upload_date)s_${safeTitle}_yt_${videoId}`;
 
+    // Postavke kanala: `_unlisted` nema retka, pa ovo hvata nedostupan izvor (fail-closed);
+    // vlasnika (UC) provjerava processBatch probnim pozivom prije skidanja.
+    const pre = downloadDecision(this.gate(), { slug: this.channelName });
+    if (pre.skip) {
+      console.log(`   ${SKIP_TAG} ${videoId} — ${pre.reason} (ne upisujem u stanje)`);
+      this.isExhausted = true;
+      return;
+    }
+
     this.pendingVideos = [{
+      needsUcProbe: isYouTube,
       line: `unlisted|${title || ""}|${trimmed}`,
       // YouTube: rekonstruiraj kanonski watch URL (kompatibilnost sa starim ponašanjem).
       // Ne-YouTube: zadrži ORIGINALNI URL — yt-dlp ga zna skinuti (npr. X/Twitter ekstraktor).
@@ -352,6 +402,11 @@ class ChannelQueue {
       filenameTemplate,
       source: src,
     }];
+  }
+
+  gate() {
+    if (!this._gate) this._gate = channelSettings.gate();
+    return this._gate;
   }
 
   init() {
@@ -387,6 +442,17 @@ class ChannelQueue {
       !this.state.archived.includes(e.videoId)
     );
 
+    // Postavke kanala (S7): kanal liste s isključenom obradom/povučen/bez izvora → preskoči
+    // PRIJE skidanja. Preskočeni NE idu u state (ni completed, ni failed, ni private), pa ih
+    // idući run obradi čim vlasnik uključi. Vlasnika sadržaja (tuđi video na listi) za
+    // --video-id provjeri probni poziv u processBatch; za bulk ga hvataju koraci nizvodno
+    // (convert_to_wav/ASR čitaju UC iz info.json).
+    if (this.pendingVideos.length > 0) {
+      const { keep } = filterListEntriesBySettings(this.pendingVideos, this.channelName, this.gate());
+      this.pendingVideos = keep;
+      if (this.videoIdFilter) this.pendingVideos.forEach((e) => { e.needsUcProbe = true; });
+    }
+
     if (this.pendingVideos.length === 0) this.isExhausted = true;
   }
 
@@ -412,6 +478,20 @@ class ChannelQueue {
       // Ne-YouTube izvor (npr. X): yt-dlp skida ORIGINALNI URL; YouTube: rekonstrukcija iz ID-a.
       const isNonYouTube = video.source && video.source !== "youtube";
       const dlTarget = isNonYouTube ? video.url : null;
+
+      // Postavke kanala: ad-hoc video — vlasnik (UC) prije skidanja medija, kad je izvedivo.
+      if (video.needsUcProbe && !isNonYouTube && settingsNeedUcProbe(this.gate())) {
+        const uc = await this.probe(`https://www.youtube.com/watch?v=${video.videoId}`);
+        if (uc) {
+          const d = downloadDecision(this.gate(), { slug: this.channelName, uc });
+          if (d.skip) {
+            console.log(`   ${SKIP_TAG} ${video.videoId} — ${d.reason} (ne skidam, ne upisujem u stanje)`);
+            continue;
+          }
+        } else {
+          console.log(`   ⚠️  postavke kanala: UC za ${video.videoId} nepoznat prije skidanja — vlasnika provjeravaju koraci nizvodno (info.json).`);
+        }
+      }
 
       try {
         try {
@@ -581,4 +661,8 @@ async function main() {
   console.log("\n✅ GOTOVO.");
 }
 
-main().catch((err) => console.error("Fatal error:", err));
+if (require.main === module) {
+  main().catch((err) => console.error("Fatal error:", err));
+}
+
+module.exports = { ChannelQueue, extractDataFromLine, extractVideoId, probeChannelId, settingsNeedUcProbe };

@@ -60,6 +60,8 @@
 
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("./lib/channel_settings");
+const { filterAsrCandidates } = require("./lib/channel_settings_filter");
 const asrWords = require("./lib/asr/words");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const os = require("os");
@@ -924,6 +926,12 @@ function findCandidates(root) {
     return out;
 }
 
+// Postavke kanala (S7): ASR samo uz `transcript_subtitles` (+ processing, master), PRIJE
+// --limit, da isključene epizode ne troše mjesto. Nedostupan izvor = nijedan kandidat.
+function gateCandidates(items, getPath = (x) => x) {
+    return filterAsrCandidates(items, channelSettings.gate(), { getPath });
+}
+
 /** Kandidati za trenutni ili (auto) svaki kostur: [{audioPath, skeleton}], već sortirani. */
 function collectCandidates(root) {
     const names = SKELETON_ARG === "auto" ? AUTO_ORDER : [SKELETON_ARG];
@@ -1012,10 +1020,10 @@ async function main() {
             console.error(`❌ Nema ${path.basename(audioPath)}${SPEECHMATICS_JSON} — pokreni prvo ${SKELETON === "speechmatics" ? "KORAK 2.7" : "transcribe_soniox.js / diarize_pyannote_ai.js"}.`);
             process.exit(1);
         }
-        candidates = [{ audioPath, skeleton: SKELETON }];
+        candidates = gateCandidates([{ audioPath, skeleton: SKELETON }], (c) => c.audioPath);
     } else {
         const root = CHANNEL ? path.join(INPUT_DIR, CHANNEL) : INPUT_DIR;
-        candidates = collectCandidates(root).slice(0, LIMIT);
+        candidates = gateCandidates(collectCandidates(root), (c) => c.audioPath).slice(0, LIMIT);
     }
 
     if (candidates.length === 0) {

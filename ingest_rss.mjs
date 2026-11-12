@@ -44,8 +44,19 @@ import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+
+// Postavke kanala (S7): obrada (`processing` + master) i odluka 108 (bez `cdn_playback` I
+// `transcript_subtitles` medij se ne skida), po epizodi, PRIJE skidanja. Slug → UC iz
+// registryja; nedostupan izvor = ništa se ne skida (fail-closed). Preskočena epizoda ne ide
+// u state, pa se skine čim vlasnik uključi.
+const requireCjs = createRequire(import.meta.url);
+const channelSettings = requireCjs("./lib/channel_settings.js");
+const { downloadDecision, SKIP_TAG } = requireCjs("./lib/channel_settings_filter.js");
+let _settingsGate = null;
+const settingsGate = () => (_settingsGate ||= channelSettings.gate());
 
 // ---- izvori ----------------------------------------------------------------
 // Novi audio-only podcast = jedan redak ovdje + storage.conf + registry unos.
@@ -311,7 +322,7 @@ async function ingestSource(source) {
 
   const state = await loadState(stateFile);
   const done = new Set([...state.completed, ...state.private, ...state.archived]);
-  const stats = { fetched: 0, skipped: 0, short: 0, failed: 0 };
+  const stats = { fetched: 0, skipped: 0, short: 0, failed: 0, blocked: 0 };
 
   const eps = [...items].sort((a, b) => (OLDEST_FIRST ? a.pubDate - b.pubDate : b.pubDate - a.pubDate));
   let processed = 0;
@@ -325,6 +336,14 @@ async function ingestSource(source) {
     if (source.min_duration_sec && ep.duration && ep.duration < source.min_duration_sec) {
       stats.short++;
       continue;
+    }
+    {
+      const d = downloadDecision(settingsGate(), { slug: source.slug });
+      if (d.skip) {
+        log(`  ${SKIP_TAG} ${source.slug}/${id} — ${d.reason}`);
+        stats.blocked++;
+        continue;
+      }
     }
 
     const base = `${ymd(ep.pubDate)}_${sanitizeTitle(ep.title)}_yt_${id}`;
@@ -371,7 +390,7 @@ async function ingestSource(source) {
       log(`  FAIL ${ep.title}: ${err.message}`);
     }
   }
-  log(`  done: fetched=${stats.fetched} skipped=${stats.skipped} short=${stats.short} failed=${stats.failed} (feed ${items.length})`);
+  log(`  done: fetched=${stats.fetched} skipped=${stats.skipped} short=${stats.short} failed=${stats.failed} blocked=${stats.blocked} (feed ${items.length})`);
   return stats;
 }
 

@@ -38,6 +38,7 @@ const path = require("path");
 const crypto = require("crypto");
 const { spawnSync } = require("child_process");
 const { preparePublic, loadBrand } = require("./tools/hyperframes_reel/compose_reel");
+const { skipStep } = require("./lib/channel_settings_steps");
 
 const ROOT = __dirname;
 const args = process.argv.slice(2);
@@ -352,14 +353,18 @@ function renderPhase(eps) {
         }
         const doc = readJson(ep.reelsPath);
         if (!doc || !Array.isArray(doc.reels)) continue;
+        const epTodo = [];
         for (const reel of doc.reels.filter((r) => r.rank <= TOP)) {
             const fp = renderFingerprint(reel, brand);
             const r = reel.render || {};
             const done = r.fingerprint === fp && r.file && fs.existsSync(path.join(ep.dir, ep.base + ".reels", r.file));
             if (done && !FORCE) continue;
             if (!FORCE && r.fingerprint === fp && (r.attempts || 0) >= MAX_ATTEMPTS) continue;
-            todo.push({ ep, brand, rank: reel.rank, fp, date: uploadDate(ep) });
+            epTodo.push({ ep, brand, rank: reel.rank, fp, date: uploadDate(ep) });
         }
+        // Postavke kanala: reelsi ili 9:16 isječci isključeni → ne renderiraj (bez attempts/markera).
+        if (epTodo.length && skipStep("reels_render", ep.reelsPath, { label: `${ep.channel}/${ep.vid}` })) continue;
+        todo.push(...epTodo);
     }
     todo.sort((a, b) => b.date.localeCompare(a.date) || a.rank - b.rank);
     const batch = todo.slice(0, MAX_RENDERS);

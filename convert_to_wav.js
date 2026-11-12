@@ -24,6 +24,8 @@
 const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("./lib/channel_settings");
+const { asrDecision, SKIP_TAG } = require("./lib/channel_settings_filter");
 
 // --- KONFIGURACIJA ---
 const LISTS_DIR = path.join(__dirname, "automatic", "podcasts");
@@ -340,6 +342,10 @@ async function main() {
     let totalSkipped = 0;
     let totalMissing = 0;
     let totalErrors = 0;
+    let totalBlocked = 0;
+    // Postavke kanala (S7): WAV postoji samo za ASR → ključ `transcript_subtitles` (+ processing,
+    // master). Gate se dohvaća lijeno — samo kad stvarno treba konvertirati (WAV ne postoji).
+    let gate = null;
 
     for (const job of channelJobs) {
         const { channelName, listFile, stateFile } = job;
@@ -388,6 +394,19 @@ async function main() {
 
             const wavFile = mp3File.replace(/\.mp3$/, ".wav");
 
+            // Postavke kanala: nova konverzija samo ako vlasnik dopušta transkript. Postojeći
+            // WAV se ne provjerava (convertToWav ga ionako preskoči), da sken ostane brz.
+            if (!fs.existsSync(wavFile)) {
+                if (!gate) gate = channelSettings.gate();
+                const d = asrDecision(gate, mp3File, "transcript_subtitles");
+                if (d.skip) {
+                    if (channelSkipped > 0) process.stdout.write("\r\x1b[K");
+                    console.log(`   ${SKIP_TAG} ${path.basename(mp3File)} — ${d.reason}`);
+                    totalBlocked++;
+                    continue;
+                }
+            }
+
             if (dryRun) {
                 if (fs.existsSync(wavFile)) {
                     channelSkipped++;
@@ -433,6 +452,7 @@ async function main() {
     console.log(`   ✅ Konvertirano:  ${totalConverted}`);
     console.log(`   ⏭️  Preskočeno:   ${totalSkipped} (WAV već postoji)`);
     console.log(`   ⚠️  Nedostaje MP3: ${totalMissing}`);
+    if (totalBlocked > 0) console.log(`   ⏭️  Postavke kanala: ${totalBlocked} (vlasnik ne dopušta transkript / izvor nedostupan)`);
     console.log(`   ❌ Grešaka:       ${totalErrors}`);
     console.log("");
 

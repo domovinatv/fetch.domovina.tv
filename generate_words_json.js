@@ -44,6 +44,7 @@
 const fs = require("fs");
 const path = require("path");
 const { writeManifest } = require("./lib/processing_manifest");
+const { skipStep } = require("./lib/channel_settings_steps");
 
 const args = process.argv.slice(2);
 function getArg(name) {
@@ -276,7 +277,7 @@ function mtime(p) {
 
 function main() {
     const channels = ONLY_CHANNEL ? [ONLY_CHANNEL] : listChannelDirs(INPUT_DIR);
-    const stats = { written: 0, skippedLow: 0, fresh: 0, noSource: 0, errors: 0 };
+    const stats = { written: 0, skippedLow: 0, fresh: 0, noSource: 0, settings: 0, errors: 0 };
     console.log(`🔤 words.json (vrijeme po riječi) — prag usidrenosti ${MIN_ANCHORED}${DRY_RUN ? " · DRY RUN" : ""}`);
 
     for (const channel of channels) {
@@ -308,6 +309,8 @@ function main() {
             const skipPath = path.join(dir, base + SKIP_SUFFIX);
             const srcTime = Math.max(mtime(srtPath), ...sources.map((x) => mtime(x.path)));
             if (!FORCE && Math.max(mtime(outPath), mtime(skipPath)) > srcTime) { stats.fresh++; continue; }
+            // Postavke kanala: titlovi isključeni → ništa ne piši (ni .words.skipped.json).
+            if (skipStep("words", srtPath, { label: `${channel}/${extractVideoId(base) || base}` })) { stats.settings++; continue; }
 
             try {
                 const cues = parseCues(fs.readFileSync(srtPath, "utf8"));
@@ -343,7 +346,7 @@ function main() {
         }
     }
     console.log(`\n🔤 Zapisano: ${stats.written} · ispod praga: ${stats.skippedLow} · svježe (preskočeno): ${stats.fresh}` +
-        ` · bez izvora vremena: ${stats.noSource} · greške: ${stats.errors}`);
+        ` · bez izvora vremena: ${stats.noSource}${stats.settings ? ` · postavke kanala: ${stats.settings}` : ""} · greške: ${stats.errors}`);
     if (stats.errors) process.exitCode = 1;
 }
 

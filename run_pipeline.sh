@@ -623,6 +623,42 @@ for ((j=0; j<${#COMMON_ARGS[@]}; j++)); do
     fi
 done
 
+# ─── POSTAVKE KANALA (S7, 12.11.2026.) ─────────────────────────────────────────
+# JEDAN dohvat kataloga po runu (GET domovina.ai/api/katalog/v1/settings) u per-run snimku;
+# svi koraci (Node: lib/channel_settings.js gate()) čitaju CHANNEL_SETTINGS_FILE i ne
+# dohvaćaju ponovno. Exit 2 = katalog nedostupan: snimka s ok:false je svejedno zapisana,
+# run se NASTAVLJA, a koraci rade fail-closed (nova obrada staje za SVE kanale — zadano
+# uključeno bi obradilo povučen kanal). Snimka zadana izvana (bridge, test) se ne dohvaća ponovno.
+# Per-run datoteka se briše na izlazu (trap EXIT). ⚠️ Kasniji `trap … EXIT` u ovoj skripti
+# mora pozvati i _cs_cleanup, inače ostaje snimka u storage/.
+CHANNEL_SETTINGS_OWNED=""
+_cs_cleanup() {
+    if [ -n "$CHANNEL_SETTINGS_OWNED" ]; then rm -f "$CHANNEL_SETTINGS_OWNED"; fi
+    return 0
+}
+if [ -n "$CHANNEL_SETTINGS_FILE" ]; then
+    echo "   🔐 Postavke kanala: snimka zadana izvana ($CHANNEL_SETTINGS_FILE) — ne dohvaćam ponovno."
+    node "$SCRIPT_DIR/tools/channel_settings.js" show 2>&1 | head -1 || true
+else
+    mkdir -p "$SCRIPT_DIR/storage"
+    CHANNEL_SETTINGS_FILE="$SCRIPT_DIR/storage/.channel_settings.run.$$.json"
+    CHANNEL_SETTINGS_OWNED="$CHANNEL_SETTINGS_FILE"
+    if [ -z "$(trap -p EXIT)" ]; then
+        trap _cs_cleanup EXIT
+    else
+        echo "   ⚠️ Postavke kanala: EXIT trap već postoji — per-run snimka $CHANNEL_SETTINGS_FILE neće biti obrisana."
+    fi
+    CS_RC=0
+    # Sažetak (🔐 … / ⛔ …) ispisuje sam alat na stderr.
+    node "$SCRIPT_DIR/tools/channel_settings.js" fetch --out "$CHANNEL_SETTINGS_FILE" 2>&1 || CS_RC=$?
+    if [ "$CS_RC" != "0" ]; then
+        echo ""
+        echo "   ⛔ POSTAVKE KANALA NEDOSTUPNE — nova obrada staje za sve kanale (exit $CS_RC; koraci rade fail-closed, run se nastavlja)"
+        echo ""
+    fi
+fi
+export CHANNEL_SETTINGS_FILE
+
 # ─── PRIORITETNI FAST-PATH (single-video ad-hoc) ───────────────────────────────
 # MODAL_ONLY_ID postavlja ISKLJUČIVO priority_poller.js (pipeline.domovina.ai bridge)
 # za JEDAN enqueani video — nightly bulk ga NIKAD ne postavlja. Kad je aktivan,

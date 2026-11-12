@@ -44,6 +44,7 @@
 const fs    = require('fs');
 const path  = require('path');
 const { writeFileAtomic } = require('./lib/atomic_json');
+const channelSettings = require('./lib/channel_settings');
 const https = require('https');
 const http  = require('http');
 
@@ -227,6 +228,52 @@ function buildSearchEpisodes(channels) {
         if (Object.keys(entry).length) out[v.id] = entry;
     }
     return out;
+}
+
+// --- Vlasnikove postavke kanala (S7 točka 5, odluka 105: čitač je druga linija) ---
+
+const UC_IN_URL_RE = /\/channel\/(UC[A-Za-z0-9_-]{22})/;
+
+/**
+ * UC-ovi kanala: `channel_id` (yt-dlp meta kanala) i `youtube_channel_url` iz listinga
+ * (info.json `channel_url` → `/channel/UC…`), plus registry po slugu. Direktorij kanala
+ * je slug s `_` umjesto `-` (isto kao loadChannelMeta).
+ */
+function channelUcs(g, ch) {
+    const ucs = new Set(g.ucsFor({
+        uc: ch.channel_id || ch.youtube_channel_id,
+        slug: String(ch.id || '').replace(/_/g, '-'),
+    }));
+    const m = (ch.youtube_channel_url || '').match(UC_IN_URL_RE);
+    if (m) ucs.add(m[1]);
+    return [...ucs];
+}
+
+/** Je li kanal povučen/obrisan, ili (uz `key`) ima taj ključ isključen (master uključen)? */
+function channelOff(g, ch, key = null) {
+    return channelUcs(g, ch).some(uc => g.isWithdrawn(uc) || (key && g.offFor(uc).has(key)));
+}
+
+/**
+ * Primijeni postavke na gotov katalog:
+ *   povučen/obrisan kanal → izvan index.json, bundlea, home.json i search.json;
+ *   `home_featured` off → samo izvan home.json; `in_app_search` off → samo izvan search.json.
+ * Bez isključenih ključeva vraća ISTE nizove (izlaz bajt-isti, ETag stabilan).
+ */
+function applyChannelSettings({ channels, details, gate: g }) {
+    const withdrawn = new Set([...channels, ...details].filter(ch => channelOff(g, ch)).map(ch => ch.id));
+    const keep = list => (withdrawn.size ? list.filter(ch => !withdrawn.has(ch.id)) : list);
+    const outChannels = keep(channels);
+    const outDetails = keep(details);
+    const offHome = outDetails.filter(ch => channelOff(g, ch, 'home_featured')).map(ch => ch.id);
+    const offSearch = outDetails.filter(ch => channelOff(g, ch, 'in_app_search')).map(ch => ch.id);
+    return {
+        channels: outChannels,
+        details: outDetails,
+        homeDetails: offHome.length ? outDetails.filter(ch => !offHome.includes(ch.id)) : outDetails,
+        searchDetails: offSearch.length ? outDetails.filter(ch => !offSearch.includes(ch.id)) : outDetails,
+        dropped: { withdrawn: [...withdrawn].sort(), home: offHome, search: offSearch },
+    };
 }
 
 // Preuzima datoteku s URL-a na disk. Podržava redirecte.
@@ -439,6 +486,9 @@ async function main() {
 
     console.log(`  Kanali pronađeni: ${channelIds.length}\n`);
 
+    const settingsGate = channelSettings.readerGate();
+    if (settingsGate.stale) console.log(`  ⚠️  postavke kanala: ${settingsGate.stale}\n`);
+
     const playlistNames = loadPlaylistNameOverrides();
     const channelIndex = [];   // za channels/data/index.json (sažetak)
     const channelDetails = []; // za channels/data/index_bundle.json (kompletni podaci)
@@ -465,6 +515,12 @@ async function main() {
 
         // ── yt-dlp kanal metapodaci (avatar, opis, follower count) ─
         const channelMeta     = loadChannelMeta(channelId);
+
+        // Povučen/obrisan kanal: bez novog listinga i avatara (postojeći na R2 se ne briše).
+        if (channelOff(settingsGate, { id: channelId, channel_id: channelMeta?.channel_id, youtube_channel_url: channelUrl })) {
+            console.log(`${videos.length} videa — 🔐 vlasnik je povukao kanal, izostavljen`);
+            continue;
+        }
         const followerCount   = channelMeta?.channel_follower_count ?? null;
         const channelDesc     = channelMeta?.description?.trim() || null;
         const channelTags     = Array.isArray(channelMeta?.tags) ? channelMeta.tags : [];
@@ -585,6 +641,10 @@ async function main() {
         }
     }
 
+    // Postavke i nad spojenim (--channel) katalogom: stari unos povučenog kanala ispada.
+    const settingsApplied = applyChannelSettings({ channels: finalChannels, details: [], gate: settingsGate });
+    finalChannels = settingsApplied.channels;
+
     const indexData = {
         version:       '1.0',
         generated_at:  new Date().toISOString(),
@@ -617,6 +677,13 @@ async function main() {
         }
     }
 
+    const catalog = applyChannelSettings({ channels: [], details: finalDetails, gate: settingsGate });
+    finalDetails = catalog.details;
+    const { withdrawn: offAll, home: offHome, search: offSearch } = catalog.dropped;
+    if (offAll.length) console.log(`  🔐 povučeni kanali izvan indeksa: ${offAll.join(', ')}`);
+    if (offHome.length) console.log(`  🔐 izvan home.json (home_featured off): ${offHome.join(', ')}`);
+    if (offSearch.length) console.log(`  🔐 izvan search.json (in_app_search off): ${offSearch.join(', ')}`);
+
     const bundleData = {
         version:       '1.0',
         generated_at:  new Date().toISOString(),
@@ -642,12 +709,12 @@ async function main() {
         const homeData = {
             version:      1,
             generated_at: new Date().toISOString(),
-            episodes:     buildHomeEpisodes(finalDetails, today),
+            episodes:     buildHomeEpisodes(catalog.homeDetails, today),
         };
         const searchData = {
             version:      1,
             generated_at: new Date().toISOString(),
-            episodes:     buildSearchEpisodes(finalDetails),
+            episodes:     buildSearchEpisodes(catalog.searchDetails),
         };
         for (const [name, data, count] of [
             ['home.json', homeData, homeData.episodes.length],
@@ -675,4 +742,5 @@ if (require.main === module) {
     });
 }
 
-module.exports = { buildHomeEpisodes, buildSearchEpisodes, pipelineBits, writeJsonStable, addDays };
+module.exports = { buildHomeEpisodes, buildSearchEpisodes, pipelineBits, writeJsonStable, addDays,
+    applyChannelSettings, channelUcs, channelOff };

@@ -44,3 +44,22 @@ test("channelVideosUrl", () => {
     assert.equal(channelVideosUrl("https://www.youtube.com/@x/streams"), "https://www.youtube.com/@x/streams");
     assert.equal(channelVideosUrl("https://www.youtube.com/playlist?list=PL1"), "https://www.youtube.com/playlist?list=PL1");
 });
+
+// ─── postavke kanala (S7 točka 3) ─────────────────────────────────
+const cs = require("../lib/channel_settings");
+const { loadCandidates, tombstonedUc } = require("./watch_candidates.js");
+
+test("(b) tombstone UC nije kandidat za praćenje (ni po UC-u ni po slugu)", () => {
+    const UC_DEL = "UCdddddddddddddddddddddd", UC_OK = "UCffffffffffffffffffffff";
+    const reg = { podcasts: [
+        { slug: "obrisan", youtube: { url: "https://www.youtube.com/@obrisan", channel_id: UC_DEL }, tracking: { enabled: false }, metadata: { status: "active" } },
+        { slug: "normalan", youtube: { url: "https://www.youtube.com/@normalan", channel_id: UC_OK }, tracking: { enabled: false }, metadata: { status: "active" } },
+    ] };
+    const g = cs.gateFromSnapshot({ ok: true, settings: { [UC_DEL]: { status: "deleted", off: [] } } },
+        { registryPath: "/nepostojeci/registry.json" });
+    const slugs = loadCandidates({ scoped: false, registry: reg, gate: g }).map((c) => c.slug);
+    assert.deepEqual(slugs, ["normalan"]);
+    assert.equal(tombstonedUc(reg.podcasts[0], g), UC_DEL);
+    // bez retka u postavkama (i bez gatea) — nepromijenjeno
+    assert.deepEqual(loadCandidates({ scoped: false, registry: reg, gate: null }).map((c) => c.slug), ["obrisan", "normalan"]);
+});

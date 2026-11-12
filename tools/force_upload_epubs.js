@@ -34,6 +34,7 @@
 const fs = require("fs");
 const path = require("path");
 const { writeFileAtomic } = require("../lib/atomic_json");
+const { filterStep } = require("../lib/channel_settings_steps");
 
 const ROOT = path.join(__dirname, "..");
 
@@ -209,6 +210,11 @@ async function main() {
         jobs.length = 0;
         jobs.push(...changed);
     }
+
+    // Postavke kanala: e-knjiga isključena → ne šalji novu verziju (objavljena ostaje, odluka 8).
+    const allowed = filterStep("ebook", jobs, { whoOf: (j) => j.localPath, labelOf: (j) => j.key });
+    jobs.length = 0;
+    jobs.push(...allowed);
 
     console.log(`   🎯 za slanje: ${jobs.length}`);
     if (!jobs.length || DRY_RUN) {

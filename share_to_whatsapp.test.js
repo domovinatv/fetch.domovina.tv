@@ -201,3 +201,45 @@ describe("filterUnsent", () => {
         assert.equal(filterUnsent(messages, ["https://domovina.ai/v/X/t/270"]).length, 1);
     });
 });
+
+// ─── postavke kanala (S7 točka 6, odluka 110) ─────────────────────
+describe("shareDecision + locateEpisode", () => {
+    const fs = require("fs"), os = require("os"), path = require("path");
+    const cs = require("./lib/channel_settings");
+    const { shareDecision, locateEpisode } = require("./share_to_whatsapp");
+    const UC_W = "UCaaaaaaaaaaaaaaaaaaaaaa", UC_C = "UCcccccccccccccccccccccc", UC_A = "UCssssssssssssssssssssss";
+    const opts = { registryPath: "/nepostojeci/registry.json" };
+    const g = cs.gateFromSnapshot({ ok: true, settings: {
+        [UC_W]: { status: "withdrawn", off: [] },
+        [UC_C]: { status: "active", off: ["share_clips"] },
+        [UC_A]: { status: "active", off: ["article_summary"] },     // članak off → share_clips pada (odluka 108)
+    } }, opts);
+
+    it("povučen kanal → odbij; share_clips off → samo epizoda; bez retka → sve", () => {
+        assert.match(shareDecision(g, { uc: UC_W }, { commit: true }).refuse, /povukao/);
+        const c = shareDecision(g, { uc: UC_C }, { commit: true });
+        assert.equal(c.refuse, null);
+        assert.match(c.noChapters, /share_clips/);
+        assert.match(shareDecision(g, { uc: UC_A }).noChapters, /share_clips/);
+        assert.deepEqual(shareDecision(g, { uc: "UCnnnnnnnnnnnnnnnnnnnnnn" }, { commit: true }), { refuse: null, noChapters: null, warn: null });
+    });
+
+    it("stale izvor: --commit odbija, suho pokretanje samo upozori", () => {
+        const s = cs.gateFromSnapshot({ ok: true, settings: {} }, opts);
+        s.stale = "izvor nedostupan (HTTP 503) i nema zadnje uspješne snimke — bez filtra";
+        assert.match(shareDecision(s, {}, { commit: true }).refuse, /nisu svježe/);
+        const dry = shareDecision(s, {}, { commit: false });
+        assert.equal(dry.refuse, null);
+        assert.match(dry.warn, /HTTP 503/);
+    });
+
+    it("locateEpisode: info.json iz direktorija kanala, slug s `-`", () => {
+        const root = fs.mkdtempSync(path.join(os.tmpdir(), "wa-"));
+        fs.mkdirSync(path.join(root, "neki_kanal"));
+        const info = path.join(root, "neki_kanal", "20261110_naslov_yt_abcdefghijk.info.json");
+        fs.writeFileSync(info, JSON.stringify({ channel_id: UC_C }));
+        assert.deepEqual(locateEpisode("abcdefghijk", root), { slug: "neki-kanal", infoPath: info });
+        assert.equal(locateEpisode("zzzzzzzzzzz", root), null);
+        assert.match(shareDecision(g, locateEpisode("abcdefghijk", root)).noChapters, /share_clips/);
+    });
+});

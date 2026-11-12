@@ -43,6 +43,7 @@ const atomicJson = require("./lib/atomic_json");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled, VERTEX_DISABLED_MSG } = require("./lib/vertex_auth");
 const { execSync, spawn } = require("child_process");
 const { claudeWindowClosed, claudeWindowReason } = require("./lib/claude_window");
+const { filterStep } = require("./lib/channel_settings_steps");
 
 // ─── KONFIGURACIJA ───────────────────────────────────────────────
 
@@ -716,6 +717,8 @@ async function callGemini(transcript, metadata) {
             } catch (err) {
                 lastErr = err;
                 console.log(`    ⚠️ [Agy ${i}/${CLAUDE_MAX_RETRIES}] Greška: ${err.message.split("\n")[0]}`);
+                // Istrošena kvota se ne oporavi za 4–8 s: ponovni pokušaj samo troši vrijeme.
+                if (err.code === "AGY_QUOTA") throw err;
                 if (i < CLAUDE_MAX_RETRIES) {
                     const backoff = i * 4000;
                     console.log(`      ...čekam ${backoff}ms za retry...`);
@@ -1228,8 +1231,11 @@ async function main() {
     if (fsSkipped > 0) console.log(`   ✅ Preskočeno (FS check):         ${fsSkipped} (dodano u cache)`);
     if (blocked.length > 0) console.log(`   🚫 Blokiranih (preskačem):       ${blocked.length}`);
 
+    // Postavke kanala: vlasnik je isključio sažetak → ne generiraj (bez markera, idući run ponovno pita).
+    const allowed = filterStep("summary", toProcess, { whoOf: (f) => f.srtPath });
+
     // Primijeni limit
-    const finalList = limit ? toProcess.slice(0, limit) : toProcess;
+    const finalList = limit ? allowed.slice(0, limit) : allowed;
     console.log(`   🔄 Za obradu:                     ${finalList.length}`);
     console.log("");
 

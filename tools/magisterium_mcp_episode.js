@@ -23,6 +23,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { spawnSync } = require('child_process');
+const { skipStep } = require('../lib/channel_settings_steps');
 
 const REPO = path.resolve(__dirname, '..');
 const OUTPUT_ROOT = path.join(REPO, 'storage', 'output');
@@ -126,6 +127,8 @@ async function main() {
         console.log(`✅ Magisterium već postoji (${path.basename(outPath)}) — ništa ne radim (--force za ponovnu obradu)`);
         return;
     }
+    // Postavke kanala: vlasnik je isključio Magisterium → ništa ne radi i ništa ne piši (exit 0).
+    if (skipStep('magisterium', art.path, { label: `${videoId} [${art.channel}]` })) return;
 
     const jobDir = '/tmp/mag_hybrid';
     const jobPath = path.join(jobDir, `${base}.job.json`);

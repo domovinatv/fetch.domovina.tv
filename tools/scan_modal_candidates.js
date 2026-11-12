@@ -44,6 +44,8 @@
 
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("../lib/channel_settings");
+const { filterAsrCandidates } = require("../lib/channel_settings_filter");
 
 const args = process.argv.slice(2);
 function getArg(name, dflt = null) {
@@ -162,6 +164,20 @@ for (const d of dirs) {
     }
 }
 
+// Postavke kanala (S7): Modal transkripcija samo uz `transcript_subtitles` (+ processing,
+// master), PRIJE capa. Log ide na stderr — stdout je popis putanja za run_pipeline.sh.
+// Ista lista gradi i rclone exclude (2.5), pa isključen WAV NIJE izuzet iz Drive uploada
+// (Colab put); novi WAV za isključen kanal ionako ne nastaje (convert_to_wav ga preskoči).
+{
+    const before = candidates.length;
+    const allowed = filterAsrCandidates(candidates, channelSettings.gate(), {
+        getPath: (c) => c.p, log: (m) => process.stderr.write(m + "\n"),
+    });
+    candidates.length = 0;
+    candidates.push(...allowed);
+    stats.settingsBlocked = before - allowed.length;
+}
+
 // Najnovije prvo: svjež priljev ima prednost pred backlogom kad cap reže.
 // Sekundarno po broju pokušaja (netaknuti prije već pokušanih), da jedan
 // tvrdoglav fajl ne blokira mjesto epizodi koja bi prošla iz prve.
@@ -175,6 +191,7 @@ process.stderr.write(
     `   🔍 Modal scan: dirova=${stats.dirs}/${dirs.length} | wav=${stats.wavs} ` +
     `| vec .canary.srt=${stats.haveSrt} | van --only-id=${stats.otherId} ` +
     `| iscrpljeno (>=${MAX_ATTEMPTS} pokusaja)=${stats.exhausted} ` +
+    (stats.settingsBlocked ? `| postavke kanala=${stats.settingsBlocked} ` : "") +
     `| kandidata=${candidates.length} → uzimam ${selected.length} (cap ${MAX})` +
     (overflow > 0 ? `, ${overflow} ostaje za sljedeci run/Colab` : "") + "\n"
 );

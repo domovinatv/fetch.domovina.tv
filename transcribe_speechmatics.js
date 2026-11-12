@@ -28,6 +28,8 @@
 
 const fs = require("fs");
 const path = require("path");
+const channelSettings = require("./lib/channel_settings");
+const { filterAsrCandidates } = require("./lib/channel_settings_filter");
 
 // ─── .env loader (isti minimalni obrazac kao ostatak repoa — bez dotenv ovisnosti) ───
 function loadEnv() {
@@ -407,8 +409,14 @@ function registryAsrLanguage(channelId) {
 const FORMAT_RANK = { ".mp3": 0, ".m4a": 1, ".opus": 2, ".ogg": 3, ".flac": 4, ".wav": 5 };
 const ORPHAN_FRAGMENT = /\.f\d{2,4}\.[a-z0-9]+$/i;
 
+// Postavke kanala (S7): ASR samo uz `transcript_subtitles` (+ processing, master), PRIJE
+// --limit, da isključene epizode ne troše mjesto. Nedostupan izvor = nijedan kandidat.
+function gateCandidates(items, getPath = (x) => x) {
+    return filterAsrCandidates(items, channelSettings.gate(), { getPath });
+}
+
 function collectCandidates() {
-    if (FILE) return [FILE];
+    if (FILE) return gateCandidates([FILE]);
     const root = path.resolve(INPUT_DIR);
     const channels = CHANNEL
         ? [CHANNEL]
@@ -450,6 +458,7 @@ function collectCandidates() {
         pool = pool.filter((x) => x.mtime >= cutoff);
         console.log(`   🗓️  Prozor svježine ${FRESH_DAYS}d: ${before} → ${pool.length} kandidata`);
     }
+    pool = gateCandidates(pool, (x) => x.p);
 
     return pool
         .sort((a, b) => b.mtime - a.mtime)   // najnovije prvo

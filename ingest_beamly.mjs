@@ -39,8 +39,19 @@ import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+
+// Postavke kanala (S7): obrada (`processing` + master) i odluka 108 (bez `cdn_playback` I
+// `transcript_subtitles` medij se ne skida), po epizodi, PRIJE skidanja. Slug → UC iz
+// registryja; nedostupan izvor = ništa se ne skida (fail-closed). Preskočena epizoda ne ide
+// u state, pa se skine čim vlasnik uključi.
+const requireCjs = createRequire(import.meta.url);
+const channelSettings = requireCjs("./lib/channel_settings.js");
+const { downloadDecision, SKIP_TAG } = requireCjs("./lib/channel_settings_filter.js");
+let _settingsGate = null;
+const settingsGate = () => (_settingsGate ||= channelSettings.gate());
 
 // ---- CLI -------------------------------------------------------------------
 const argv = process.argv.slice(2);
@@ -258,7 +269,7 @@ async function ingestSource(source) {
   const state = await loadState(stateFile);
   const done = new Set([...state.completed, ...state.private, ...state.archived]);
 
-  const stats = { fetched: 0, skipped: 0, failed: 0, ytMatched: 0 };
+  const stats = { fetched: 0, skipped: 0, failed: 0, ytMatched: 0, blocked: 0 };
   let processed = 0;
 
   for (const ep of episodes) {
@@ -281,6 +292,14 @@ async function ingestSource(source) {
       stats.skipped++;
       if (REPAIR_INFO) await repairInfoJson({ ep, videoId, synth, source, outDir, stats });
       continue;
+    }
+    {
+      const d = downloadDecision(settingsGate(), { slug: source.slug });
+      if (d.skip) {
+        log(`  ${SKIP_TAG} ${source.slug}/${ep.slug} — ${d.reason}`);
+        stats.blocked++;
+        continue;
+      }
     }
     if (!ep.soundLink) {
       log(`  SKIP ${ep.slug}: no soundLink`);
@@ -332,7 +351,7 @@ async function ingestSource(source) {
   }
 
   log(
-    `  done: fetched=${stats.fetched} skipped=${stats.skipped} failed=${stats.failed} ` +
+    `  done: fetched=${stats.fetched} skipped=${stats.skipped} failed=${stats.failed} blocked=${stats.blocked} ` +
       `(yt-matched ids=${stats.ytMatched})`,
   );
   return stats;

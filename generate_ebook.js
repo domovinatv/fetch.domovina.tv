@@ -46,6 +46,7 @@ const os = require("os");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 const { ZipWriter, listZipEntries } = require("./lib/zip_writer");
+const { skipStep } = require("./lib/channel_settings_steps");
 
 const args = process.argv.slice(2);
 function getArg(name) {
@@ -753,6 +754,10 @@ function processEpisode(channel, channelDir, ep, lang = "hr") {
     }
     if (OLDER_THAN && oldStat && oldStat.mtimeMs >= OLDER_THAN && !missingMagisterium) {
         return { status: "skip", reason: "već regenerirana" };
+    }
+    // Postavke kanala: e-knjiga isključena → ne gradi (postojeći .epub ostaje, bez markera).
+    if (skipStep("ebook", path.join(channelDir, articleFile), { label: `${channel}/${base}${EN ? " [EN]" : ""}` })) {
+        return { status: "skip", reason: "postavke kanala" };
     }
     // EN izdanje se gradi iz `.article.en.json` (aditivan prijevod: HR i EN polja
     // jedno uz drugo), pa poglavlja sigurno prate isti outline i iste timestampove

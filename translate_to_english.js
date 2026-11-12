@@ -45,6 +45,7 @@ const path = require("path");
 const crypto = require("crypto");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const { agyJson } = require("./lib/agy_tmux");
+const { skipStep } = require("./lib/channel_settings_steps");
 const { execSync } = require("child_process");
 
 // ─── KONFIGURACIJA ────────────────────────────────────────────────
@@ -970,6 +971,9 @@ async function main() {
         if (opts.limit && i >= opts.limit) break;
         const it = items[i];
         console.log(`   ━━━ [${i+1}/${items.length}] [${it.channel}] ${it.videoId} ━━━`);
+        // Postavke kanala: EN prijevod isključen → ne prevodi ništa od ove epizode (bez markera).
+        const epFile = path.join(it.channelDir, it.summaryFile || it.articleFile || it.magFile || it.reelsFile);
+        if (skipStep("english", epFile, { label: `${it.channel}/${it.videoId}` })) continue;
 
         const triples = [
             { src: it.summaryFile, kind: "summary", translate: translateSummary, replaceSuffix: ".canary.summary.json", enSuffix: ".canary.summary.en.json" },
@@ -991,6 +995,10 @@ async function main() {
                 totalSkip++;
                 continue;
             }
+
+            // Magisterium EN traži i „magisterium”, reels EN i „highlights_reels”.
+            const enStep = t.kind === "magisterium" ? "magisterium_en" : (t.kind === "reels" ? "reels_en" : null);
+            if (enStep && skipStep(enStep, srcPath, { label: `${t.kind}: ${it.channel}/${it.videoId}` })) continue;
 
             if (!opts.force && fs.existsSync(outPath) && t.kind !== "reels") console.log(`      ♻️  ${t.kind}: postojeći EN je iz drugog HR izvora (generated_at) — prevodim ponovno`);
             const start = Date.now();

@@ -43,6 +43,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { skipStep } = require('../lib/channel_settings_steps');
 
 const PIPELINE_QUEUE_BASE = (process.env.PIPELINE_QUEUE_BASE || 'https://pipeline.domovina.ai').replace(/\/$/, '');
 const INGEST_KEY = process.env.PIPELINE_QUEUE_INGEST_KEY;
@@ -171,9 +172,14 @@ async function fetchChannelIndex(channel) {
         for (const v of videos) {
             if (baseline.has(v.id)) continue;
             const p = v.pipeline || {};
-            if (p.has_article && !p.has_magisterium) wanted.push({ id: v.id, lang: 'hr' });
-            if (withEn && p.has_magisterium && !p.has_magisterium_en) wanted.push({ id: v.id, lang: 'en' });
+            if (p.has_article && !p.has_magisterium) wanted.push({ id: v.id, lang: 'hr', uc: v.channel_id });
+            if (withEn && p.has_magisterium && !p.has_magisterium_en) wanted.push({ id: v.id, lang: 'en', uc: v.channel_id });
         }
+        // Postavke kanala (slug → UC iz registryja; v.channel_id ako ga index nosi):
+        // Magisterium isključen → nema joba; EN traži i english_translation. Bez stanja.
+        const allowed = wanted.filter((w) => !skipStep(w.lang === 'en' ? 'magisterium_en' : 'magisterium',
+            { slug: channel, uc: w.uc }, { label: `Magisterium ${w.id} [${w.lang}] [${channel}]` }));
+        wanted.splice(0, wanted.length, ...allowed);
         if (!wanted.length) {
             console.log(`✅ ${channel}: nema novih epizoda za Magisterium (${videos.length} videa, baseline ${baseline.size}).`);
             continue;

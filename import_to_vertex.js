@@ -33,6 +33,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const channelSettings = require("./lib/channel_settings");
 
 // ─── .env UČITAVANJE (ručno, bez dotenv dependency) ──────────────
 
@@ -134,6 +135,22 @@ function discoverJsonlFiles(baseDir, channel) {
 }
 
 /**
+ * Vlasnikove postavke kanala (S7 točka 6, odluka 110): epizode kanala s isključenim
+ * `ai_assistants` (ili povučenog/obrisanog kanala — master) ne idu u Vertex RAG.
+ * Gate obrade (fail-closed): izvor nedostupan → ništa ne ide.
+ * UC: `<base>.info.json` epizode + registry po slugu (direktorij `_` → slug `-`).
+ * → `{ kept, skipped: [{ f, reason }] }`
+ */
+function filterByAiAssistants(files, g) {
+    const kept = [], skipped = [];
+    for (const f of files) {
+        const r = g.check({ key: "ai_assistants", filePath: f.localPath, slug: String(f.channel || "").replace(/_/g, "-") });
+        if (r.skip) skipped.push({ f, reason: r.reason }); else kept.push(f);
+    }
+    return { kept, skipped };
+}
+
+/**
  * Validira da JSONL datoteka ima barem 1 liniju s validnim JSON-om koji sadrži "id" polje.
  */
 function validateJsonlFile(filePath) {
@@ -218,6 +235,16 @@ async function main() {
         console.log("  node import_to_vertex.js ./path/to/episode.rag_combined.jsonl");
         console.log("  node import_to_vertex.js --input-dir /path/to/output [--channel X] [--limit N] [--dry-run]");
         process.exit(1);
+    }
+
+    if (filesToProcess.length > 0) {
+        const { kept, skipped } = filterByAiAssistants(filesToProcess, channelSettings.gate());
+        if (skipped.length) {
+            log("🔐", `Postavke kanala: preskačem ${skipped.length} datoteka (ai_assistants)`);
+            for (const { f, reason } of skipped.slice(0, 20)) log("   ", `${f.channel}/${f.filename} — ${reason}`);
+            if (skipped.length > 20) log("   ", `… i još ${skipped.length - 20}`);
+        }
+        filesToProcess = kept;
     }
 
     if (filesToProcess.length === 0) {
@@ -389,8 +416,11 @@ async function main() {
     }
 }
 
-main().catch(err => {
-    log("❌", `Neočekivana greška: ${err.message}`);
-    console.error(err.stack);
-    process.exit(1);
-});
+if (require.main === module) {
+    main().catch(err => {
+        log("❌", `Neočekivana greška: ${err.message}`);
+        console.error(err.stack);
+        process.exit(1);
+    });
+}
+module.exports = { filterByAiAssistants };
