@@ -347,3 +347,9 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
   `--count`. Svjesna zamjena izrenderiranog reela = ručno makni `render` iz `reels.json`.
 - Model ne vidi kadar. Trenutak može biti dobar u priči, a loš u slici (gost okrenut,
   totalni plan) — `docs/2026-10-21-hyperframes-reel-proba.md`.
+
+## Reelovi za neobjavljenu epizodu (12.11.2026.)
+
+Ručni izbor + `render_reels.js --render-only` nad privatnim `--input-dir`, bez objave
+(re:DEFINICIJA ep. 11, unlisted do premijere). Tijek, zamka `quote` kartice (uvijek
+potpisuje govornika reela) i zašto ne kroz red: `docs/2026-11-12-reelovi-za-neobjavljenu-epizodu.md`.
