@@ -2648,10 +2648,10 @@
    "slug": "vox-medicus",
    "title": "SMANJENJE ŽELUCA, prim. Domagoj Vergles, dr. med., spec. opće i subspec. abdominalne kirurgije",
    "duration": 2262,
-   "attempts": 1,
-   "sent_at": "2026-11-11T03:46:50.222Z",
+   "attempts": 2,
+   "sent_at": "2026-11-11T07:08:16.067Z",
    "result": "created",
-   "job_id": "dde8ba9a-7caa-448b-a6ce-82e31a71349e"
+   "job_id": "93aec1c3-b32d-49bc-a8b1-0431f7bcbe2f"
   },
   "HjpGW9GSLck": {
    "date": "2026-11-11",
@@ -2732,14 +2732,204 @@
    "sent_at": "2026-11-11T03:46:52.096Z",
    "result": "created",
    "job_id": "5a2ecc25-b755-4a78-8aa9-06eb33d575a3"
+  },
+  "sq1O-Nv8Uqo": {
+   "date": "2026-11-12",
+   "slug": "fima-podcast",
+   "title": "Na burzama se zauzimaju nove pozicije za post trumpovsko vrijeme",
+   "duration": 1353,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:44.844Z",
+   "result": "created",
+   "job_id": "a0409b93-be91-49d6-848a-3bdb74f27da9"
+  },
+  "SyXCzbvHf0c": {
+   "date": "2026-11-12",
+   "slug": "ideje-hr",
+   "title": "Platforme i agregatori: Ima li mjesta za radnike?",
+   "duration": 4454,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:45.204Z",
+   "result": "created",
+   "job_id": "dd13dbae-ae83-4001-9b6a-0f88538d6854"
+  },
+  "yySo38M1a64": {
+   "date": "2026-11-12",
+   "slug": "oasis-in-tempore",
+   "title": "Svi žele u raj, ali koliko nas živi za Nebo? | don Luka Klarica",
+   "duration": 4765,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:45.542Z",
+   "result": "created",
+   "job_id": "abfeeb5e-b0a9-41af-8c0b-0e7ab4bd011d"
+  },
+  "eskeTZcpfHI": {
+   "date": "2026-11-12",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1512 - Ratko i Luka Šulić",
+   "duration": 5205,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:45.815Z",
+   "result": "created",
+   "job_id": "d958eda6-0b5b-47a0-83f3-6bf012002c3c"
+  },
+  "4lkyk01Rljo": {
+   "date": "2026-11-12",
+   "slug": "prvi-glas-telegram",
+   "title": "Damir Vanđelić: HDZ ima više uhićenih od mafije",
+   "duration": 2465,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:46.028Z",
+   "result": "created",
+   "job_id": "d2e6463b-2f1d-4f7a-a33a-841f9e6369f1"
+  },
+  "OFKIqOnnDt4": {
+   "date": "2026-11-12",
+   "slug": "tribina-nfl",
+   "title": "Midseason nagrade, opasni Jaguarsi i opasnost za Vikingse | Tribina NFL",
+   "duration": 5785,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:46.320Z",
+   "result": "created",
+   "job_id": "a1600051-a235-4f6c-b3b6-347b8ea63f1f"
+  },
+  "bTqRiVg-GuA": {
+   "date": "2026-11-12",
+   "slug": "tribina-nba-kosarka",
+   "title": "Dallas, Golden State i kome prvi otkaz? | Tribina NBA",
+   "duration": 5938,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:46.597Z",
+   "result": "created",
+   "job_id": "0f15730c-ac53-480d-9980-47f14aadde2e"
+  },
+  "4wBIbjrEad8": {
+   "date": "2026-11-12",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za četvrtak, 12.11.2026.",
+   "duration": 3195,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:46.900Z",
+   "result": "created",
+   "job_id": "467342a2-7823-422e-8eb1-f851c2744dd0"
+  },
+  "C2350w77Fa8": {
+   "date": "2026-11-12",
+   "slug": "druga-strana-medalje",
+   "title": "KOPB, joga i vježbe disanja: život s pola pluća | Damir Juras | DSM #70",
+   "duration": 7288,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:47.181Z",
+   "result": "created",
+   "job_id": "96272e05-fb7c-44f1-ae7a-db2739e5f698"
+  },
+  "9CCr5L6FEQI": {
+   "date": "2026-11-12",
+   "slug": "kisobran-uniri-podcast",
+   "title": "🔵 KIŠOVIZIJA #101 | Kišobran UNIRI | Studentski zbor Pomorskog fakulteta u Rijeci",
+   "duration": 3669,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:47.399Z",
+   "result": "created",
+   "job_id": "6835d4f4-b49a-43b1-8cf4-42cf7a4655ea"
+  },
+  "QGk6ejtrYyY": {
+   "date": "2026-11-12",
+   "slug": "digitalna-kultura",
+   "title": "Kako je Microsoft stvorio Xbox i ušao u rat konzola",
+   "duration": 6096,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:47.631Z",
+   "result": "created",
+   "job_id": "a1bde1c6-0bb1-458e-9e47-22869d9d3f79"
+  },
+  "zzEY5jQeZDY": {
+   "date": "2026-11-12",
+   "slug": "podcast-s-brezom",
+   "title": "PILSEL: Porfirije se pogubio kao i Stepinac, ali je i dalje moj brat! PODCAST S BREZOM",
+   "duration": 3407,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:47.871Z",
+   "result": "created",
+   "job_id": "5b9962a6-676d-43a1-8dc9-85fcada374a5"
+  },
+  "Neqz-99GBgs": {
+   "date": "2026-11-12",
+   "slug": "bez-dlake-na-glavi",
+   "title": "SPECIJAL: \"SAMO SMO RADILI SVOJ POSAO\" - JESU LI? | BDNG UŽIVO #211",
+   "duration": 7755,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:48.073Z",
+   "result": "created",
+   "job_id": "a216b04c-3feb-47d6-bdd4-46c048017331"
+  },
+  "QTnWsTFLpRE": {
+   "date": "2026-11-12",
+   "slug": "razgovor-s-razlogom",
+   "title": "Razgovor s razlogom: Yann Martel",
+   "duration": 1881,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:48.288Z",
+   "result": "created",
+   "job_id": "052bfa2f-62e6-4088-9778-427e50529df5"
+  },
+  "sUgNPe2BGnY": {
+   "date": "2026-11-12",
+   "slug": "istinom-do-gola",
+   "title": "Istinom do Gola 11.11.2026. - Zoran Varvodić",
+   "duration": 2735,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:48.501Z",
+   "result": "created",
+   "job_id": "97a31cba-c391-41b9-9100-b8867bd2541a"
+  },
+  "J0X2mlUHBiw": {
+   "date": "2026-11-12",
+   "slug": "argumenti-sezona-8",
+   "title": "Argumenti - Lica siromaštva: odgovornost Crkve i društva",
+   "duration": 2224,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:48.781Z",
+   "result": "created",
+   "job_id": "ea31d0d3-1600-4e6f-b074-72ad30810702"
+  },
+  "AphCBiNOn9M": {
+   "date": "2026-11-12",
+   "slug": "hkm-u-zdravlju-i-bolesti",
+   "title": "U zdravlju i bolesti - Mjesec borbe protiv ovisnosti",
+   "duration": 2699,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:49.030Z",
+   "result": "created",
+   "job_id": "367580cf-2666-49c3-b03f-2be5f4fbf21d"
+  },
+  "YRBoy4pDSZM": {
+   "date": "2026-11-12",
+   "slug": "laudato-radost-ljubavi-u-braku",
+   "title": "Preljub u srcu │Radost ljubavi u braku",
+   "duration": 3542,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:49.337Z",
+   "result": "created",
+   "job_id": "9ac2ad19-ee8d-4872-b683-266440e19f5c"
+  },
+  "UqI7rqr-K6g": {
+   "date": "2026-11-12",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Što se događa u psihijatrijskim klinikama diljem zemlje?",
+   "duration": 2075,
+   "attempts": 1,
+   "sent_at": "2026-11-12T03:14:49.534Z",
+   "result": "created",
+   "job_id": "798c026b-33bd-4b9b-b43d-e48072427fa9"
   }
  },
- "updated_at": "2026-11-11T03:46:52.307Z",
+ "updated_at": "2026-11-12T03:14:49.743Z",
  "last_enqueue_usage": {
-  "at": "2026-11-11T03:46:52.307Z",
-  "five_hour": 20,
-  "five_hour_resets_at": "2026-11-11T04:30:00.289256+00:00",
-  "seven_day": 26,
-  "seven_day_resets_at": "2026-11-14T00:00:00.289273+00:00"
+  "at": "2026-11-12T03:14:49.744Z",
+  "five_hour": 11,
+  "five_hour_resets_at": "2026-11-12T04:49:59.761861+00:00",
+  "seven_day": 37,
+  "seven_day_resets_at": "2026-11-13T23:59:59.761881+00:00"
  }
 }

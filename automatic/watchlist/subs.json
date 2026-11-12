@@ -1,11 +1,15 @@
 {
-  "generated_at": "2026-11-11T03:54:47.355Z",
+  "generated_at": "2026-11-12T03:16:59.538Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 88,
+  "count": 92,
   "videos": {
+    "4lkyk01Rljo": {"slug":"prvi-glas-telegram","date":"2026-11-11","langs":["hr"]},
+    "C2350w77Fa8": {"slug":"druga-strana-medalje","date":"2026-11-11","langs":["hr"]},
+    "fpo8OfzjTKU": {"slug":"subclub","date":"2026-11-11","langs":["en"]},
     "1rzvldhbhVs": {"slug":"prvi-glas-telegram","date":"2026-11-10","langs":["hr"]},
     "4YbpUhtq17U": {"slug":"prvi-glas-telegram","date":"2026-11-09","langs":["hr"]},
     "cn_mEBGQnKg": {"slug":"podkist-fer","date":"2026-11-09","langs":["hr"]},
+    "SyXCzbvHf0c": {"slug":"ideje-hr","date":"2026-11-09","langs":["hr"]},
     "AodvrAaiFXg": {"slug":"bijela-kronika","date":"2026-11-08","langs":["hr"]},
     "ATd9URVH23w": {"slug":"projekt-velebit","date":"2026-11-08","langs":["en"]},
     "fp06RkGcQUw": {"slug":"atma-podcast","date":"2026-11-06","langs":["hr"]},
