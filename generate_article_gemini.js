@@ -998,6 +998,10 @@ function hasCompleteArticle(channelDir, srtFilename) {
     try {
         const article = JSON.parse(fs.readFileSync(articlePath, "utf-8"));
         if (!article.iterations || article.iterations.length === 0) return false;
+        // Izričita oznaka krnjeg članka (12.11.2026.): na Claude backendu outline drugog modela
+        // (npr. _agy) findLatestFile ne nađe, pa bi usporedba broja iteracija tiho otpala i
+        // krnji agy članak (C2350w77Fa8, 1/2 iteracije) ušao u done cache kao gotov.
+        if (article.metadata && article.metadata.complete === false) return false;
 
         // Provjeri postoji li outline za usporedbu broja iteracija
         const outlinePath = findLatestFile(channelDir, basename, "outline");
