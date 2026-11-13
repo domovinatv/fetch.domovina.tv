@@ -232,3 +232,7 @@ Argon se vraća s `AGY_ARTICLE_MODEL=gemini-4-argon-low`.
 Za provjeru 11.11.: koliko `gemini_weekly` naraste po članku (`🔋 ovaj run` u logu), i hoće li ostatak
 od 17 % potrajati do reseta. Ako neće, sljedeći korak je ograda na `gemini_weekly` s prelaskom na
 Claude model unutar agyja (zaseban bucket, neiskorišten).
+
+## Nastavak 13.11.2026.
+
+Kad je agy tjedna kvota istrošena, Tier 2 i EN automatski prelaze na Claude: [`2026-11-13-agy-kvota-istrosena-claude-fallback.md`](./2026-11-13-agy-kvota-istrosena-claude-fallback.md).
