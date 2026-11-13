@@ -46,7 +46,8 @@ const crypto = require("crypto");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const { agyJson } = require("./lib/agy_tmux");
 const { skipStep } = require("./lib/channel_settings_steps");
-const { execSync } = require("child_process");
+const { execSync, spawn } = require("child_process");
+const os = require("os");
 
 // ─── KONFIGURACIJA ────────────────────────────────────────────────
 
@@ -92,6 +93,94 @@ const AGY_SESSION = `agyen-${AGY_MODEL.split("-").pop()}`;
 const AGY_DOC_TIMEOUT_MAX_MS = parseInt(process.env.TRANSLATE_AGY_TIMEOUT_SEC || "1800", 10) * 1000;
 const agyDocTimeoutMs = (bytes) => Math.min(300000 + Math.ceil(bytes / 1024) * 5000, AGY_DOC_TIMEOUT_MAX_MS);
 const MODEL_LABEL = USE_VERTEX ? GEMINI_MODEL : `agy:${AGY_MODEL}`;
+
+// ─── CLAUDE FALLBACK (13.11.2026.) ───────────────────────────────
+// agy tjedna Gemini kvota je 12.11. pala na 100 % (reset tek 14.11.), pa je EN traka dan i pol
+// samo padala. TRANSLATE_BACKEND: auto (default) = agy, a kad agy javi istrošenu kvotu
+// (AGY_QUOTA) ili je pri startu ≥ TRANSLATE_AGY_MAX_PCT, ostatak runa ide kroz Claude Code
+// pretplatu; agy = samo agy; claude = samo Claude. Prijevod ne treba razmišljanje, pa je
+// default Sonnet s effort low. Isti flagovi kao koraci 7+8 (summarize_gemini.js): --tools ""
+// (bez tool definicija), neutralan cwd (bez CLAUDE.md), NIKAD --bare (prebacuje na API ključ).
+const TRANSLATE_BACKEND = (process.env.TRANSLATE_BACKEND || "auto").toLowerCase();
+const CLAUDE_TR_MODEL = process.env.TRANSLATE_CLAUDE_MODEL || "sonnet";
+const CLAUDE_TR_EFFORT = process.env.TRANSLATE_CLAUDE_EFFORT || "low";
+const CLAUDE_TR_CWD = path.join(os.tmpdir(), "domovina_claude_cli");
+const CLAUDE_TR_TIMEOUT_MS = parseInt(process.env.TRANSLATE_CLAUDE_TIMEOUT_SEC || "1200", 10) * 1000;
+let useClaude = TRANSLATE_BACKEND === "claude";
+const claudeUsage = { calls: 0, input: 0, cacheWrite: 0, cacheRead: 0, output: 0, costUsd: 0, ms: 0 };
+const modelLabel = () => (useClaude ? `claude-code:${CLAUDE_TR_MODEL}` : MODEL_LABEL);
+// Ograda Claude 5h prozora za fallback: EN ne smije napuniti prozor koji trebaju Tier 2 članci
+// (bridge ne claima iznad PRIORITY_MAX_5H=80). Iznad praga auto ostaje na agy grešci i EN
+// traka pokuša ponovno idući tick. Nečitljiva kvota = bez fallbacka.
+const CLAUDE_TR_MAX_5H = parseFloat(process.env.TRANSLATE_CLAUDE_MAX_5H || "70");
+let fallbackVerdict = null;   // { ok, at } — jedno očitanje po 5 min, ne po pozivu
+async function claudeFallbackAllowed() {
+    if (fallbackVerdict && Date.now() - fallbackVerdict.at < 300000) return fallbackVerdict.ok;
+    fallbackVerdict = { ok: await readFallbackVerdict(), at: Date.now() };
+    return fallbackVerdict.ok;
+}
+// Kvota iz keša koji piše bridge (usage_cache.json, ≤ 15 min), pa tek onda živo. Endpoint
+// /api/oauth/usage brzo vraća 429, a nečitljiva kvota ne smije otvoriti fallback naslijepo.
+async function readClaude5h() {
+    try {
+        const c = JSON.parse(fs.readFileSync(path.join(os.homedir(), ".cache", "domovina-pipeline", "usage_cache.json"), "utf-8"));
+        if (Date.now() - c.at < 15 * 60000 && typeof c.five_hour === "number") return { five_hour: c.five_hour };
+    } catch { /* nema keša */ }
+    return require("./automatic/all_episodes_lib.js").readUsage();
+}
+async function readFallbackVerdict() {
+    try {
+        const u = await readClaude5h();
+        if (u && typeof u.five_hour === "number" && u.five_hour >= CLAUDE_TR_MAX_5H) {
+            console.log(`   ⏸️  Claude 5h prozor ${u.five_hour} % ≥ ${CLAUDE_TR_MAX_5H} % — bez Claude fallbacka (TRANSLATE_CLAUDE_MAX_5H)`);
+            return false;
+        }
+    } catch (e) {
+        console.log(`   ⏸️  Claude kvota nečitljiva (${e.message}) — bez Claude fallbacka`);
+        return false;
+    }
+    return true;
+}
+
+function claudeJson(systemPrompt, userText) {
+    return new Promise((resolve, reject) => {
+        try { fs.mkdirSync(CLAUDE_TR_CWD, { recursive: true }); } catch (_) {}
+        const args = ["-p", "--model", CLAUDE_TR_MODEL, "--effort", CLAUDE_TR_EFFORT, "--output-format", "json",
+            "--setting-sources", "", "--strict-mcp-config", "--max-turns", "1",
+            "--tools", "",            // variadic: MORA biti praćen sljedećim flagom
+            "--system-prompt", systemPrompt + "\n\nVrati ISKLJUČIVO valjan JSON objekt, bez markdown code blokova i bez ikakvog teksta oko njega."];
+        const started = Date.now();
+        const proc = spawn("claude", args, { stdio: ["pipe", "pipe", "pipe"], cwd: CLAUDE_TR_CWD,
+            env: { ...process.env, CLAUDE_CODE_MAX_OUTPUT_TOKENS: process.env.CLAUDE_CODE_MAX_OUTPUT_TOKENS || "64000" } });
+        let out = "", err = "";
+        const timer = setTimeout(() => proc.kill("SIGTERM"), CLAUDE_TR_TIMEOUT_MS);
+        proc.stdout.on("data", (d) => { out += d; });
+        proc.stderr.on("data", (d) => { err += d; });
+        proc.on("error", (e) => { clearTimeout(timer); reject(new Error(`claude CLI spawn: ${e.message}`)); });
+        proc.on("close", (code) => {
+            clearTimeout(timer);
+            if (code !== 0) return reject(new Error(`claude CLI exit ${code}: ${(err || out).substring(0, 300) || "(bez outputa)"}`));
+            let env;
+            try { env = JSON.parse(out); } catch (_) { return reject(new Error(`claude CLI nije vratio JSON envelope: ${out.substring(0, 200)}`)); }
+            if (env.is_error || env.subtype !== "success") return reject(new Error(`claude CLI greška (${env.subtype}): ${String(env.result || "").substring(0, 300)}`));
+            const u = env.usage || {};
+            const ms = Date.now() - started;
+            claudeUsage.calls++;
+            claudeUsage.input += u.input_tokens || 0;
+            claudeUsage.cacheWrite += u.cache_creation_input_tokens || 0;
+            claudeUsage.cacheRead += u.cache_read_input_tokens || 0;
+            claudeUsage.output += u.output_tokens || 0;
+            claudeUsage.costUsd += typeof env.total_cost_usd === "number" ? env.total_cost_usd : 0;
+            claudeUsage.ms += ms;
+            const inTok = (u.input_tokens || 0) + (u.cache_creation_input_tokens || 0) + (u.cache_read_input_tokens || 0);
+            process.stdout.write(`[claude ${CLAUDE_TR_MODEL}/${CLAUDE_TR_EFFORT}: ${inTok}→${u.output_tokens || 0} tok, ${(ms / 1000).toFixed(0)}s] `);
+            try { resolve(parseFirstJsonObject(env.result || "")); }
+            catch (e) { reject(new Error(`claude: izlaz nije JSON (${e.message})`)); }
+        });
+        proc.stdin.write(userText);
+        proc.stdin.end();
+    });
+}
 // 3.8-flash postoji na global + eu/us multi-regijama (pojedinačne regije 404-aju, test
 // 28.09.2026.); svaka je zaseban DSQ bazen pa rotacija smanjuje 429. Regije: env pa
 // gemini.conf (isti izvor kao summarize/article), default global.
@@ -316,7 +405,16 @@ let llmOverride = null;   // samo testovi: __setLlmJson(fn)
 async function llmJson(systemPrompt, userText, maxOutputTokens, timeoutMs) {
     if (llmOverride) return llmOverride(systemPrompt, userText);
     if (USE_VERTEX) return vertexJson(systemPrompt, userText, maxOutputTokens);   // DEPRECATED
-    return agyJson({ system: systemPrompt, user: userText, session: AGY_SESSION, model: AGY_MODEL, ...(timeoutMs ? { timeoutMs } : {}) });
+    if (useClaude) return claudeJson(systemPrompt, userText);
+    try {
+        return await agyJson({ system: systemPrompt, user: userText, session: AGY_SESSION, model: AGY_MODEL, ...(timeoutMs ? { timeoutMs } : {}) });
+    } catch (err) {
+        if (err.code !== "AGY_QUOTA" || TRANSLATE_BACKEND !== "auto") throw err;
+        if (!(await claudeFallbackAllowed())) throw err;
+        useClaude = true;
+        process.stdout.write(`\n      🔋 agy kvota istrošena → ostatak runa kroz Claude (${CLAUDE_TR_MODEL}, effort ${CLAUDE_TR_EFFORT}) `);
+        return claudeJson(systemPrompt, userText);
+    }
 }
 
 // ⚠️ DEPRECATED (29.10.2026.) — stari put, NE KORISTI SE. Namjerno ostaje u sourceu (ne brisati),
@@ -609,7 +707,7 @@ async function translateSummary(croatian, dryRun) {
     eS.language = "hr"; // izvorni
     eS.translation = {
         target_language: "en",
-        model: MODEL_LABEL,
+        model: modelLabel(),
         method: "literal-no-hallucinations-whole-doc",
         temperature: 0
     };
@@ -640,7 +738,7 @@ async function translateArticle(croatian, dryRun) {
     // }
     out.translation = {
         target_language: "en",
-        model: MODEL_LABEL,
+        model: modelLabel(),
         method: "literal-no-hallucinations-whole-doc",
         temperature: 0,
         generated_at: new Date().toISOString()
@@ -722,7 +820,7 @@ async function translateMagisterium(croatian, dryRun, articleEn = null) {
     // }
     out.translation = {
         target_language: "en",
-        model: MODEL_LABEL,
+        model: modelLabel(),
         method: "literal-no-hallucinations-whole-doc",
         temperature: 0,
         generated_at: new Date().toISOString()
@@ -790,7 +888,7 @@ async function translateReels(croatian, dryRun, { nameMap = new Map() } = {}) {
     out.language = "en";
     out.translation = {
         target_language: "en",
-        model: MODEL_LABEL,
+        model: modelLabel(),
         method: "literal-no-hallucinations-whole-doc",
         temperature: 0,
         generated_at: new Date().toISOString(),
@@ -961,6 +1059,19 @@ async function main() {
     if (opts.channel) console.log(`   📁 Channel: ${opts.channel}`);
     if (opts.dryRun) console.log("   ⚠️  DRY-RUN — no API calls");
 
+    if (!USE_VERTEX && TRANSLATE_BACKEND === "auto" && !opts.dryRun) {
+        try {
+            const u = await require("./lib/agy_usage").readAgyUsage();
+            const max = parseFloat(process.env.TRANSLATE_AGY_MAX_PCT || "98");
+            if (u && ((u.gemini_weekly ?? 0) >= max || (u.gemini_5h ?? 0) >= max) && await claudeFallbackAllowed()) {
+                useClaude = true;
+                console.log(`   🔋 agy Gemini kvota istrošena (5h ${u.gemini_5h} % · tj. ${u.gemini_weekly} %) → prijevod kroz Claude (${CLAUDE_TR_MODEL}, effort ${CLAUDE_TR_EFFORT})`);
+            }
+        } catch { /* nečitljiva kvota: agy, pa fallback na AGY_QUOTA */ }
+    } else if (useClaude) {
+        console.log(`   🌐 TRANSLATE_BACKEND=claude → Claude (${CLAUDE_TR_MODEL}, effort ${CLAUDE_TR_EFFORT})`);
+    }
+
     const items = discoverArtifacts(opts.inputDir, opts.channel, opts.videoId);
     console.log(`\n   📊 Videa za prijevod: ${items.length}\n`);
 
@@ -1045,6 +1156,12 @@ async function main() {
     console.log(`   ⏭️  Preskočenih:    ${totalSkip}`);
     console.log(`   ❌ Grešaka:         ${totalErr}`);
     console.log(`   ⏱  Ukupno:         ${total}s`);
+    if (claudeUsage.calls) {
+        const c = claudeUsage;
+        console.log(`   💳 Claude (${CLAUDE_TR_MODEL}/${CLAUDE_TR_EFFORT}): ${c.calls} poziva, ulaz ${c.input + c.cacheWrite + c.cacheRead} tok ` +
+            `(svjež ${c.input}, cache write ${c.cacheWrite}, cache read ${c.cacheRead}), izlaz ${c.output} tok, ` +
+            `${(c.ms / 1000).toFixed(0)}s u pozivima ≈ $${c.costUsd.toFixed(4)} (ekvivalent; pretplata)`);
+    }
     // Pozivatelj (EN poller) mora vidjeti neuspjeh: bez fallbacka je ❌ prava greška.
     if (totalErr) process.exitCode = 1;
 }
