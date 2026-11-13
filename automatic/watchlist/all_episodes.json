@@ -2922,14 +2922,234 @@
    "sent_at": "2026-11-12T03:14:49.534Z",
    "result": "created",
    "job_id": "798c026b-33bd-4b9b-b43d-e48072427fa9"
+  },
+  "FqtlKK3Sjc0": {
+   "date": "2026-11-13",
+   "slug": "atma-podcast",
+   "title": "Kako promijeniti DNK: Skrivena moć REGENERACIJE | Drago Kopić | ATMA podcast ",
+   "duration": 7077,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:02.538Z",
+   "result": "created",
+   "job_id": "d6071759-5c7d-4f57-9c46-4277db213c27"
+  },
+  "PoiEizP5oYw": {
+   "date": "2026-11-13",
+   "slug": "f1-puls-podcast",
+   "title": "Vaša pitanja | F1Puls podcast #72",
+   "duration": 7605,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:02.956Z",
+   "result": "created",
+   "job_id": "15478010-3995-4441-92d8-72694b449356"
+  },
+  "Ri6yHL4slUk": {
+   "date": "2026-11-13",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1513 - Ratko i Dubravko Gvozdanović",
+   "duration": 7285,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:03.241Z",
+   "result": "created",
+   "job_id": "cedca298-8f7f-42a6-8d0d-178c6de650f2"
+  },
+  "aDhIyQJxorw": {
+   "date": "2026-11-13",
+   "slug": "podcast-inkubator-extra-runda",
+   "title": "5Rak vs Hambi - Extra Runda #158 II FNC PODGORICA RECAP",
+   "duration": 5469,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:03.478Z",
+   "result": "created",
+   "job_id": "fe2bdfae-fb1d-4f7d-9ba6-d0eff66e6ea0"
+  },
+  "Cz-btLG3Xw4": {
+   "date": "2026-11-13",
+   "slug": "povijest-cetvrtkom",
+   "title": "Povijest četvrtkom: Brasilia, II. dio",
+   "duration": 3047,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:03.714Z",
+   "result": "created",
+   "job_id": "c009da7a-daf2-4632-9194-e95bba670996"
+  },
+  "GTaQ8r3k4cc": {
+   "date": "2026-11-13",
+   "slug": "prvi-glas-telegram",
+   "title": "Putinova crvena linija: Trump ne može ispuniti ruski zahtjev",
+   "duration": 997,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:03.911Z",
+   "result": "created",
+   "job_id": "01207d69-2a1c-4065-9ba0-468602928fa4"
+  },
+  "yjbeUMIW_uk": {
+   "date": "2026-11-13",
+   "slug": "tipsy-podcast",
+   "title": "Dragan Vrcelj: Što razlikuje vrhunskog konobara — znanje, komunikacija i standardi servisa",
+   "duration": 6052,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:04.161Z",
+   "result": "created",
+   "job_id": "e1e8ff0f-a9a3-4e73-9cf9-bc1bb2994d9b"
+  },
+  "g2F-WCdU-bA": {
+   "date": "2026-11-13",
+   "slug": "tribina-nba-kosarka",
+   "title": "Rad s mladima u HR košarci | Tribina HR košarka",
+   "duration": 6009,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:04.400Z",
+   "result": "created",
+   "job_id": "fafb0e41-ea09-483c-bc28-2e09d8c23f21"
+  },
+  "mHXcwyYNOog": {
+   "date": "2026-11-13",
+   "slug": "tribina-reprezentacija",
+   "title": "Hrvatska na Wembleyu",
+   "duration": 4351,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:04.602Z",
+   "result": "created",
+   "job_id": "86a1cc3a-ae8c-427a-b870-9fbad754869f"
+  },
+  "XyQf7ZO_bIE": {
+   "date": "2026-11-13",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za petak, 13.11.2026.",
+   "duration": 3010,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:04.800Z",
+   "result": "created",
+   "job_id": "fe5a54ad-cb2e-4363-b978-d777f9325c68"
+  },
+  "QgFIdaSL6M0": {
+   "date": "2026-11-13",
+   "slug": "zadarski-podcast",
+   "title": "JUTRO JE UTROJE - VLADIMIR MIHAILOVIĆ",
+   "duration": 1739,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:04.994Z",
+   "result": "created",
+   "job_id": "235b0b75-0a8e-4cb0-aa6f-afbad11446ff"
+  },
+  "V7dRleYa1N8": {
+   "date": "2026-11-13",
+   "slug": "podcast-s-barbarom",
+   "title": "Organizator kiše Mirso Đulančić: Imam pjesmu za Doru i znam tko će je pjevati! | S Barbarom #123",
+   "duration": 4723,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:05.197Z",
+   "result": "created",
+   "job_id": "90edea9e-f017-4cf4-9c77-b8dffa83ef8e"
+  },
+  "Z9fY0B5cefk": {
+   "date": "2026-11-13",
+   "slug": "hajducka-storija",
+   "title": "URA S TONĆEM #32 | Iste su pjesme naše o ljubavi...",
+   "duration": 4346,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:05.388Z",
+   "result": "created",
+   "job_id": "4c936316-8f91-4140-a15f-0586956c31b2"
+  },
+  "cCimfdpAzcU": {
+   "date": "2026-11-13",
+   "slug": "radio-benkovac",
+   "title": "Projekt Osmijeh u krugu obitelji - gost gđa. Nela Pamuković",
+   "duration": 1939,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:05.566Z",
+   "result": "created",
+   "job_id": "61f1c279-f688-44fe-a830-dc3f75635692"
+  },
+  "XkEaeOR9QdA": {
+   "date": "2026-11-13",
+   "slug": "bez-uputnice",
+   "title": "Borila se za zdravlje svoje kćeri, a sada za svu djecu: ‘Sustav mora slušati stvarna iskustva’",
+   "duration": 3350,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:05.797Z",
+   "result": "created",
+   "job_id": "4fd939aa-f69c-409c-8581-96079796e34f"
+  },
+  "kvX4y_aSIBc": {
+   "date": "2026-11-13",
+   "slug": "occamova-britva",
+   "title": "Occamova britva: Neoliberalizam",
+   "duration": 2021,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:05.983Z",
+   "result": "created",
+   "job_id": "9c4d99db-4550-4ead-b89f-f14c4d4081dc"
+  },
+  "fosxTS65ip8": {
+   "date": "2026-11-13",
+   "slug": "viza",
+   "title": "VIZA 12.11.2026.",
+   "duration": 2941,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:06.174Z",
+   "result": "created",
+   "job_id": "ea96689d-a277-428a-b4af-cac8f15aec58"
+  },
+  "a5DolilPO5w": {
+   "date": "2026-11-13",
+   "slug": "razvojni-kod",
+   "title": "Razvojni kod: Gošće Tatjane Kaštelan Sanja Subotić, Jasminka Brlas i Milena Joksimović, Putokazi ...",
+   "duration": 1296,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:06.353Z",
+   "result": "created",
+   "job_id": "3bf78e84-5025-4d25-91a2-d935b1d5bab6"
+  },
+  "l7_Qk63EwPk": {
+   "date": "2026-11-13",
+   "slug": "briefing-jutarnji-list",
+   "title": "Milorad Popović: U Crnoj Gori Vučić nije pao, vlada strah... Pa vidite tko je najmoćniji političar!",
+   "duration": 2457,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:06.534Z",
+   "result": "created",
+   "job_id": "f5ce4f60-c62d-4e1d-a815-a82368c6251c"
+  },
+  "pIaMTfIC6jY": {
+   "date": "2026-11-13",
+   "slug": "laudato-otvori-spomenar",
+   "title": "OTVORI SPOMENAR! - JURE BRKLJAČA",
+   "duration": 2945,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:06.737Z",
+   "result": "created",
+   "job_id": "e0c63ab0-cbe6-4000-923d-e90acc86522e"
+  },
+  "7_RMcn3bZCc": {
+   "date": "2026-11-13",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Izliječiti rak | Lothar Hirneise",
+   "duration": 2409,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:06.972Z",
+   "result": "created",
+   "job_id": "f47c3256-2700-4c1f-b328-3da82510344d"
+  },
+  "-sFU08dTHcI": {
+   "date": "2026-11-13",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Tragedija u bolnici u Jankomiru: treba li mijenjati pravila postupanja?",
+   "duration": 1810,
+   "attempts": 1,
+   "sent_at": "2026-11-13T04:12:07.171Z",
+   "result": "created",
+   "job_id": "8204fb79-a0b4-4531-851d-26dbbe41f18c"
   }
  },
- "updated_at": "2026-11-12T03:14:49.743Z",
+ "updated_at": "2026-11-13T04:12:07.348Z",
  "last_enqueue_usage": {
-  "at": "2026-11-12T03:14:49.744Z",
-  "five_hour": 11,
-  "five_hour_resets_at": "2026-11-12T04:49:59.761861+00:00",
-  "seven_day": 37,
-  "seven_day_resets_at": "2026-11-13T23:59:59.761881+00:00"
+  "at": "2026-11-13T04:12:07.348Z",
+  "five_hour": 27,
+  "five_hour_resets_at": "2026-11-13T04:30:00.503501+00:00",
+  "seven_day": 59,
+  "seven_day_resets_at": "2026-11-14T00:00:00.503526+00:00"
  }
 }

@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-11-12T03:16:59.538Z",
+  "generated_at": "2026-11-13T04:13:41.095Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 92,
+  "count": 93,
   "videos": {
+    "GTaQ8r3k4cc": {"slug":"prvi-glas-telegram","date":"2026-11-12","langs":["hr"]},
     "4lkyk01Rljo": {"slug":"prvi-glas-telegram","date":"2026-11-11","langs":["hr"]},
     "C2350w77Fa8": {"slug":"druga-strana-medalje","date":"2026-11-11","langs":["hr"]},
     "fpo8OfzjTKU": {"slug":"subclub","date":"2026-11-11","langs":["en"]},
