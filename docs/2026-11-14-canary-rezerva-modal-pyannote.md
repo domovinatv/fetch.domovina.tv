@@ -58,3 +58,48 @@ flowchart TD
 - Secret `domovina-hf` mora postojati: bez njega `modal run` ne može stvoriti app, pa pada i Canary.
 - 14.11. je 34 Tier 2 joba (13. i 14.11.) vraćeno iz `transcribing` u `queued` (D1, isti UPDATE
   kao admin requeue). To nisu stari jobovi iz pravila #4 (reset 05.11.).
+
+## Prvi dan u radu (14.11. navečer)
+
+- Od 18:02 svaki vraćeni Tier 2 job ide kroz isti put: 2.6 „`.canary.srt` postoji — radim samo
+  dijarizaciju” → pyannote na T4 → 2.8 `🛟 Canary rezerva (canary_pyannote, N govornika)` →
+  članak. Do 19:10 12 epizoda, 0 „ASR: nema prijepisa”, 0 Tracebacka.
+- Modal se pali **po epizodi** (ephemeral app, ~1–2 min, pa se gasi), ne jedan dugi container;
+  u `modal app list` jedan novi svakih ~6 min = ritam slota. Ostatak od ~6 min po jobu su
+  lokalni koraci 7–13.
+- pyannote: 39–233 s po epizodi (medijan 104 s), učitavanje modela 2–26 s. Procjena za 12
+  epizoda ≈ **$0,23**.
+
+### Zašto pyannote ostaje na T4, a ne na CPU-u
+
+Stara presuda „G4 ≈ M4 Pro” (CLAUDE.md) uspoređivala je skupi Colab G4 s već plaćenim Macom.
+Na Modalu se plaća po sekundi: segmentacija i embeddinzi su neuronske mreže i GPU ih ubrza, a
+klasteriranje je za podcast od 1–2 h mali dio. T4 je najjeftiniji GPU (~$0,59/h); CPU
+container s 8 jezgri i 16 GB bi po procjeni (nije mjereno) trajao nekoliko minuta i koštao
+isto ili više. Lokalna dijarizacija na Macu ugašena je zbog swapa i diska, ne cijene.
+
+### Gemini sluh nije razlika
+
+Gemini preslušavanje (2.8 refine) ugašeno je svugdje od 28.10. (`--no-gemini-ear` u nightlyju i
+`bridge/plan.js`). I Soniox + pyannoteAI kostur se samo promovirao. Razlika u kvaliteti Canary
+puta je samo ASR (interpunkcija, segmenti) i dijarizacija (community-1 vs precision-3).
+
+### Report (`tools/nightly_step_report/build.py`, d7cdb68a)
+
+Sažetak dobiva red **Modal** (Canary/pyannote broj epizoda, zbroj i medijan sekundi, procjena $
+= (učitavanje + inference) × cijena GPU-a; donja granica, bez uploada i pokretanja containera)
+i **Canary rezerva** (koje epizode nisu imale cloud kostur). Tablice Tier 2 i nightly imaju
+stupce *ASR* i *Modal Canary / pyannote*. Sve iz postojećih linija loga.
+
+Zamka 14.11.: report broji samo jobove s `created_at` između 03:00 i kraja nightlyja + 30 min.
+Ručno vraćeni jobovi (UPDATE u 05:12) ispadnu iz te serije, pa je report za taj dan javio
+„0 s člankom na CDN-u” iako članci postoje. Normalni dani to nemaju.
+
+## Otvoreno
+
+- Nightly 15.11. 03:00 treba promovirati 4 Tier 1 epizode s 14.11. (`Iyrgbzw_cMI`,
+  `kGDNEWqpFC0`, `xBlx6hd71Ew`, `wuXklBUYCBI`) kroz Canary rezervu, u istom prolazu.
+- Prvi stvarni Telegram alert `asr-no-credit` (`lib/notify_telegram.js`) još nije viđen.
+- Modal krediti $9,73 (14.11.) ≈ 5 dana; korisnik kaže da je Modal kao trošak ok.
+- agy nudi `gemini-4-hydrogen-*`; Tier 2 i EN su još na `gemini-3.8-flash-low`. A/B prije
+  zamjene (vrijeme, kvota, vjernost) — Argon je imao zaseban malen tjedni limit.
