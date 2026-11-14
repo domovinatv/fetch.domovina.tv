@@ -109,6 +109,54 @@ for i, (k, a, name) in enumerate(NIGHT_STEPS):
     b = NIGHT_STEPS[i + 1][1] if i + 1 < len(NIGHT_STEPS) else NIGHT_END
     NS.append(dict(k=k, name=name, start=a, end=b, d=b - a))
 NIGHT = DAY['night']
+
+# ---------- Modal (2.6) po epizodi + ASR izvor (14.11.2026.) ----------
+# canary_modal.py ispisuje: „⬆️ Modal transkripcija: X.wav”, „✅ Model učitan za Ns” (Canary),
+# „✅ N segmenata | inference Ns” (Canary), „✅ pyannote učitan za Ns”, „🗣️ X.wav: …, K govornika
+# za Ns (GPU)”. Linije bez imena pripadaju zadnjoj datoteci istog slota ([s1]/[s2]/nightly bez prefiksa).
+# 2.8 piše „🛟 Canary rezerva (canary_pyannote|canary_solo, …): X.wav” kad nema cloud kostura.
+# Cijena = (učitavanje + inference) × Modal cijena GPU-a: DONJA procjena (bez uploada, image pulla, CPU/RAM-a).
+MODAL_USD_S = {'A100-40GB': 0.000583, 'A100': 0.000583, 'A100-80GB': 0.000694, 'T4': 0.000164, 'L4': 0.000222, 'A10G': 0.000306}
+VID_RX = re.compile(r'_yt_([A-Za-z0-9_-]{11})\.wav')
+MODAL = {}; ASR_SRC = {}
+def _modal_parse(path):
+    cur = {}
+    try: fh = open(path, encoding='utf-8', errors='replace')
+    except OSError: return
+    for l in fh:
+        l = re.sub(r'\x1b\[[0-9;]*m', '', l)
+        sm = re.match(r'\[(s\d)\]', l); slot = sm[1] if sm else ''
+        if 'Modal transkripcija:' in l or 'govornika za' in l or 'Canary rezerva (' in l:
+            vm = VID_RX.search(l)
+            if not vm: continue
+            v = vm[1]
+            if 'Modal transkripcija:' in l: cur[slot] = v; MODAL.setdefault(v, {})
+            elif 'govornika za' in l:
+                m = re.search(r'(\d+) govornika za (\d+)s \(([^)]+)\)', l)
+                if m: d = MODAL.setdefault(v, {}); d['pya_s'] = int(m[2]); d['pya_gpu'] = m[3]; d['spk'] = int(m[1])
+            else:
+                m = re.search(r'Canary rezerva \((canary_\w+)', l)
+                if m: ASR_SRC[v] = m[1]
+            continue
+        v = cur.get(slot)
+        if not v: continue
+        m = re.search(r'Model učitan za (\d+)s', l)
+        if m: MODAL[v]['can_load'] = int(m[1]); continue
+        m = re.search(r'inference (\d+)s(?:.* na (\S+))?', l)
+        if m and 'segmenata' in l: MODAL[v]['can_s'] = int(m[1]); MODAL[v]['can_gpu'] = m[2] or 'A100-40GB'; continue
+        m = re.search(r'pyannote učitan za (\d+)s', l)
+        if m: MODAL[v]['pya_load'] = int(m[1])
+_modal_parse(S + '/nightly.log'); _modal_parse(S + '/priority.log')
+def modal_usd(d):
+    c = (d.get('can_load', 0) + d.get('can_s', 0)) * MODAL_USD_S.get(d.get('can_gpu', 'A100-40GB'), 0.000583) if 'can_s' in d else 0
+    p = (d.get('pya_load', 0) + d.get('pya_s', 0)) * MODAL_USD_S.get(d.get('pya_gpu', 'T4'), 0.000164) if 'pya_s' in d else 0
+    return c + p
+def modal_cell(v):
+    d = MODAL.get(v) or {}
+    a = f"{d['can_s']} s" if 'can_s' in d else '·'; b = f"{d['pya_s']} s" if 'pya_s' in d else '·'
+    return '–' if a == b == '·' else f"{a} / {b}"
+def asr_of(v, fallback=None):
+    return ASR_SRC.get(v) or fallback or '–'
 # Magisterium/EN samo za epizode ovog dana (tickovi znaju dirati i starije epizode)
 DAYV = {e['vid'] for e in T2} | {n['vid'] for n in NIGHT}
 MHR = {k: v for k, v in MHR.items() if k in DAYV}
@@ -297,6 +345,18 @@ def auto_summary():
         out.append(f"YouTube proxy (iPhone) nije odgovarao {A_['proxy_down']}× u prioritetnom logu; download je išao bez njega.")
     if T2:
         out.append(f"Modal Canary (2.6) kao osigurač: {V['canary_min']} min ukupno, oko {V['canary_per']} min po epizodi.")
+    dayM = {v: d for v, d in MODAL.items() if v in DAYV}
+    if dayM:
+        nc = [d for d in dayM.values() if 'can_s' in d]; npy = [d for d in dayM.values() if 'pya_s' in d]
+        usd = sum(modal_usd(d) for d in dayM.values())
+        out.append(f"**Modal:** Canary {len(nc)} ep. (inference {sum(d['can_s'] for d in nc)} s, medijan {st.median([d['can_s'] for d in nc]) if nc else 0:.0f} s), "
+                   f"pyannote {len(npy)} ep. (inference {sum(d['pya_s'] for d in npy)} s, medijan {st.median([d['pya_s'] for d in npy]) if npy else 0:.0f} s). "
+                   f"Procjena ≈ **${usd:.2f}** (učitavanje + inference × cijena GPU-a; bez uploada i pokretanja containera).")
+    fb = sorted(v for v in ASR_SRC if v in DAYV)
+    if fb:
+        n_n = sum(1 for n in NIGHT if n['vid'] in ASR_SRC)
+        out.append(f"**⚠️ Canary rezerva** (cloud ASR nije dao kostur): {len(fb)} ep. — nightly {n_n}, Tier 2 {len(fb) - n_n}. "
+                   + ', '.join(f"`{v}` ({ASR_SRC[v].replace('canary_', '')})" for v in fb[:20]) + '.')
     return out
 SUMMARY = [b.format(**V) for b in DAY['summary']] if DAY.get('summary') else auto_summary()
 def md2html(t):
@@ -371,7 +431,7 @@ pre.mermaid {{ margin:0; text-align:center; }} pre.mermaid svg {{ max-width:100%
 A('<div class="pb"></div><h2>Tier 2 – trajanje svakog koraka po epizodi (min:s)</h2>')
 A('<table><tr><th class="l">#</th><th>slot</th><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>poslano</th><th>preuzeto</th><th>čekanje</th>')
 for n, _, _ in PH: A(f'<th>{esc(n.split(" (")[0])}</th>')
-A('<th>start</th><th>zatv.</th><th>gotovo</th><th>obrada</th><th>ASR</th></tr>')
+A('<th>start</th><th>zatv.</th><th>gotovo</th><th>obrada</th><th>ASR</th><th>Modal Canary / pyannote</th></tr>')
 for i, e in enumerate(T2, 1):
     cls = 'fail' if e['state'] == 'failed' else ('warn' if e['pyannote402'] else '')
     A(f'<tr class="{cls}"><td class="l">{i}</td><td>s{e["slot"]}</td><td class="l"><code>{e["vid"]}</code></td><td class="l">{esc(e["channel"][:24])}</td><td>{dur(e["audio"]) if e["audio"] else "–"}</td>')
@@ -379,7 +439,7 @@ for i, e in enumerate(T2, 1):
     for p in range(len(PH)):
         v = e['phase'][p]; w = ' class="w"' if (p == 4 and e['pyannote402']) else ''
         A(f'<td{w}>{dur(v) if v else "·"}</td>')
-    A(f'<td>{dur(e["pre"])}</td><td>{dur(e["post"])}</td><td>{hm(e["done"]) if e["done"] else "❌"}</td><td><b>{dur(sum(e["phase"])) if e["state"]=="done" else "–"}</b></td><td class="l">{esc(e["asr"] or "–")}{" +SM govornici" if e["pyannote402"] else ""}</td></tr>')
+    A(f'<td>{dur(e["pre"])}</td><td>{dur(e["post"])}</td><td>{hm(e["done"]) if e["done"] else "❌"}</td><td><b>{dur(sum(e["phase"])) if e["state"]=="done" else "–"}</b></td><td class="l">{esc(asr_of(e["vid"], e["asr"]))}{" +SM govornici" if e["pyannote402"] else ""}</td><td>{modal_cell(e["vid"])}</td></tr>')
 A('</table><div class="small">Žuto = pyannoteAI vratio HTTP 402 (nema kredita); govornici su iz Speechmaticsa. Crveno = posao pao.</div>')
 
 # ---------- Tablica 2: Magisterium + EN ----------
@@ -407,10 +467,10 @@ for s in NS:
     A(f'<tr><td class="l">{s["k"]}</td><td class="l">{esc(s["name"][:58])}</td><td>{hm(s["start"])}</td><td>{dur(s["d"])}</td></tr>')
 A(f'<tr><td class="l"></td><td class="l"><b>ukupno run_pipeline.sh</b></td><td>{hm(NS[0]["start"])}</td><td><b>{dur(NIGHT_END-NS[0]["start"])}</b></td></tr></table>'
   '<div class="small">Iza toga nightly vrti audit, watchlist, enqueue Tier 2 i katalog.</div></div><div>')
-A('<h3>Po epizodi (gdje log daje vrijeme po epizodi)</h3><table><tr><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>Soniox</th><th>sažetak</th><th>članak</th><th>reels</th><th>EN</th><th>Mag HR</th></tr>')
+A('<h3>Po epizodi (gdje log daje vrijeme po epizodi)</h3><table><tr><th class="l">video</th><th class="l">kanal</th><th>audio</th><th>ASR</th><th>Soniox</th><th>Modal Canary / pyannote</th><th>sažetak</th><th>članak</th><th>reels</th><th>EN</th><th>Mag HR</th></tr>')
 for n in NIGHT:
     en = MEN.get(n['vid'], {}).get('main'); hr = MHR.get(n['vid'])
-    A(f'<tr><td class="l"><code>{n["vid"]}</code></td><td class="l">{esc(n["channel"])}</td><td>{dur(n["audio"])}</td><td>{dur(n["soniox"])}</td><td>{dur(n["summ"])}</td><td>{dur(n["art"])}</td><td>{dur(n["reels"]) if n["reels"] else "–"}</td><td>{dur(en[1]-en[0]) if en else "–"}</td><td>{dur(hr["end"]-hr["start"]) if hr else "–"}</td></tr>')
+    A(f'<tr><td class="l"><code>{n["vid"]}</code></td><td class="l">{esc(n["channel"])}</td><td>{dur(n["audio"])}</td><td>{esc(asr_of(n["vid"], "soniox" if n["soniox"] else None))}</td><td>{dur(n["soniox"])}</td><td>{modal_cell(n["vid"])}</td><td>{dur(n["summ"])}</td><td>{dur(n["art"])}</td><td>{dur(n["reels"]) if n["reels"] else "–"}</td><td>{dur(en[1]-en[0]) if en else "–"}</td><td>{dur(hr["end"]-hr["start"]) if hr else "–"}</td></tr>')
 A('</table><div class="small">' + md2html(DAY.get('night_note', '')) + '</div>')
 for n in NIGHT: A(f'<div class="small"><code>{n["vid"]}</code> – {esc(n["title"])}</div>')
 A('</div></div>')
@@ -441,12 +501,12 @@ for x in SUMMARY: W('- ' + x)
 W("\n## Gantogram\n")
 W("```mermaid\n" + GANTT + "\n```\n")
 W("## Tier 2: trajanje faza po epizodi (min:s)\n")
-hdr = ['#', 'slot', 'video', 'kanal', 'audio', 'poslano', 'preuzeto', 'čekanje'] + [n.split(' (')[0] for n, _, _ in PH] + ['start', 'zatv.', 'gotovo', 'obrada', 'govornici']
+hdr = ['#', 'slot', 'video', 'kanal', 'audio', 'poslano', 'preuzeto', 'čekanje'] + [n.split(' (')[0] for n, _, _ in PH] + ['start', 'zatv.', 'gotovo', 'obrada', 'ASR', 'Modal Canary / pyannote']
 W('| ' + ' | '.join(hdr) + ' |'); W('|' + '---|' * len(hdr))
 for i, e in enumerate(T2, 1):
     c = [str(i), f"s{e['slot']}", f"`{e['vid']}`", e['channel'][:24].replace('|', '/'), dur(e['audio']) if e['audio'] else '–', hm(e['created']), hm(e['claimed']), dur(e['claimed'] - e['created'])]
     c += [dur(v) if v else '·' for v in e['phase']]
-    c += [dur(e['pre']), dur(e['post']), hm(e['done']) if e['done'] else '❌', dur(sum(e['phase'])) if e['state'] == 'done' else '–', (e['asr'] or '–') + (' (pyannoteAI 402)' if e['pyannote402'] else '') if e['state'] == 'done' else '–']
+    c += [dur(e['pre']), dur(e['post']), hm(e['done']) if e['done'] else '❌', dur(sum(e['phase'])) if e['state'] == 'done' else '–', asr_of(e['vid'], e['asr']) + (' (pyannoteAI 402)' if e['pyannote402'] else '') if e['state'] == 'done' else '–', modal_cell(e['vid'])]
     W('| ' + ' | '.join(c) + ' |')
 W("\n## Magisterium HR, EN prijevod i Magisterium EN\n")
 W('| # | video | kanal | članak gotov | EN tick | EN | Mag HR tick | Mag HR | poziva | čekanje HR | Mag EN | sve gotovo |'); W('|' + '---|' * 12)
@@ -459,10 +519,10 @@ W("\n## Nightly: skupni koraci (sve epizode zajedno)\n")
 W('| KORAK | opis | početak | trajanje |'); W('|---|---|---|---|')
 for s in NS: W(f"| {s['k']} | {s['name'][:58].replace('|','/')} | {hm(s['start'])} | {dur(s['d'])} |")
 W(f"| | **ukupno run_pipeline.sh** | {hm(NS[0]['start'])} | **{dur(NIGHT_END-NS[0]['start'])}** |\n")
-W('| video | kanal | audio | Soniox | sažetak | članak | reels | EN | Mag HR |'); W('|---|---|---|---|---|---|---|---|---|')
+W('| video | kanal | audio | ASR | Soniox | Modal Canary / pyannote | sažetak | članak | reels | EN | Mag HR |'); W('|' + '---|' * 11)
 for n in NIGHT:
     en = MEN.get(n['vid'], {}).get('main'); hr = MHR.get(n['vid'])
-    W(f"| `{n['vid']}` | {n['channel']} | {dur(n['audio'])} | {dur(n['soniox'])} | {dur(n['summ'])} | {dur(n['art'])} | {dur(n['reels']) if n['reels'] else '–'} | {dur(en[1]-en[0]) if en else '–'} | {dur(hr['end']-hr['start']) if hr else '–'} |")
+    W(f"| `{n['vid']}` | {n['channel']} | {dur(n['audio'])} | {asr_of(n['vid'], 'soniox' if n['soniox'] else None)} | {dur(n['soniox'])} | {modal_cell(n['vid'])} | {dur(n['summ'])} | {dur(n['art'])} | {dur(n['reels']) if n['reels'] else '–'} | {dur(en[1]-en[0]) if en else '–'} | {dur(hr['end']-hr['start']) if hr else '–'} |")
 W("\n## Prilog: svaki korak svake Tier 2 epizode\n")
 for i, e in enumerate(T2, 1):
     W(f"**{i}. `{e['vid']}` · {e['channel']}** · audio {dur(e['audio']) if e['audio'] else '–'} · {e['state']} · {e['title'][:100]}\n")
