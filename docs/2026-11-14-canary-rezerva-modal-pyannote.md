@@ -103,3 +103,4 @@ Ručno vraćeni jobovi (UPDATE u 05:12) ispadnu iz te serije, pa je report za ta
 - Modal krediti $9,73 (14.11.) ≈ 5 dana; korisnik kaže da je Modal kao trošak ok.
 - agy nudi `gemini-4-hydrogen-*`; Tier 2 i EN su još na `gemini-3.8-flash-low`. A/B prije
   zamjene (vrijeme, kvota, vjernost) — Argon je imao zaseban malen tjedni limit.
+  U tijeku: `docs/2026-11-15-agy-hydrogen-ab.md` (Hydrogen troši isti Gemini prozor, nema zaseban limit).
