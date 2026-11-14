@@ -61,6 +61,8 @@ const ONLY_ID = getArg("--only-id");
 const MAX = parseInt(getArg("--max", "20"), 10);
 const MAX_ATTEMPTS = parseInt(getArg("--max-attempts", process.env.MODAL_MAX_ATTEMPTS || "3"), 10);
 const ATTEMPTS_PATH = path.join(REPO, "storage", ".modal_attempts.json");
+const DIARIZE_ON = !/^(0|false|off|no)$/i.test(process.env.MODAL_CANARY_DIARIZE || "1");
+const DIARIZE_FRESH_DAYS = parseFloat(process.env.CANARY_FALLBACK_FRESH_DAYS || "14");
 
 function loadAttempts() {
     try { return JSON.parse(fs.readFileSync(ATTEMPTS_PATH, "utf-8")); } catch { return {}; }
@@ -150,7 +152,17 @@ for (const d of dirs) {
 
         // Idempotencija: transkript pokraj WAV-a znači "gotovo". Isto pravilo
         // koje je koristio stari find (`-f "${w}.canary.srt"`).
-        if (present.has(`${f}.canary.srt`)) { stats.haveSrt++; continue; }
+        if (present.has(`${f}.canary.srt`)) {
+            // Govornici na Modalu (14.11.2026.): prijepis postoji, a pyannote izlaza nema →
+            // `::main` radi SAMO dijarizaciju. Samo svježe epizode bez kanonskog SRT-a, tj.
+            // one kojima Canary može zatrebati kao rezerva (lib/asr/canary_skeleton.js).
+            const base = f.slice(0, -4);
+            let fresh = false;
+            try { fresh = Date.now() - fs.statSync(path.join(dirPath, f)).mtimeMs < DIARIZE_FRESH_DAYS * 86400000; } catch { /* nedostupan */ }
+            if (!DIARIZE_ON || present.has(`${f}.canary.pyannote.json`) || present.has(`${base}.wav.canary.diarized.srt`)
+                || present.has(`${base}.silent.json`) || !fresh) { stats.haveSrt++; continue; }
+            stats.diarizeOnly = (stats.diarizeOnly || 0) + 1;
+        }
 
         const key = videoKey(f);
         if (ONLY_ID && key !== ONLY_ID && !f.includes(`_yt_${ONLY_ID}`)) { stats.otherId++; continue; }
@@ -189,7 +201,7 @@ for (const c of selected) process.stdout.write(c.p + "\n");
 const overflow = candidates.length - selected.length;
 process.stderr.write(
     `   🔍 Modal scan: dirova=${stats.dirs}/${dirs.length} | wav=${stats.wavs} ` +
-    `| vec .canary.srt=${stats.haveSrt} | van --only-id=${stats.otherId} ` +
+    `| vec .canary.srt=${stats.haveSrt} | samo govornici=${stats.diarizeOnly || 0} | van --only-id=${stats.otherId} ` +
     `| iscrpljeno (>=${MAX_ATTEMPTS} pokusaja)=${stats.exhausted} ` +
     (stats.settingsBlocked ? `| postavke kanala=${stats.settingsBlocked} ` : "") +
     `| kandidata=${candidates.length} → uzimam ${selected.length} (cap ${MAX})` +

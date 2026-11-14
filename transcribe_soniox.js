@@ -346,18 +346,46 @@ function collectCandidates() {
     }
     console.log(`📋 Kandidata: ${targets.length}`);
     let ok = 0, fail = 0;
+    const failures = [];
     for (const t of targets) {
+        // `{base}.asr_failed.json` (14.11.2026.): signal KORAKU 2.8 da smije odmah na Canary
+        // rezervu (lib/asr/canary_skeleton.js). Uspjeh ga briše.
+        const marker = t.replace(/\.[^.]+$/, "") + ".asr_failed.json";
         try {
             const r = await processFile(t);
             if (r.ok) {
                 ok++;
                 writeManifest(path.dirname(t), baseFromAudio(t));
+                try { fs.unlinkSync(marker); } catch { /* nije ga ni bilo */ }
             }
         } catch (err) {
             fail++;
             console.error(`   ❌ ${path.basename(t)}: ${err.message}`);
+            failures.push({ file: path.basename(t), reason: err.message.split("\n")[0].slice(0, 300) });
+            if (!DRY_RUN) {
+                let prev = null;
+                try { prev = JSON.parse(fs.readFileSync(marker, "utf-8")); } catch { /* prvi pad */ }
+                try {
+                    fs.writeFileSync(marker, JSON.stringify({
+                        reason: err.message.split("\n")[0].slice(0, 500),
+                        primary: PRIMARY, attempts: ((prev && prev.attempts) || 0) + 1,
+                        first_at: (prev && prev.first_at) || new Date().toISOString(),
+                        at: new Date().toISOString(),
+                    }, null, 2), "utf-8");
+                } catch (e) { console.error(`   ⚠️  ${path.basename(marker)} nije zapisan: ${e.message}`); }
+            }
         }
     }
     console.log(`\n📊 Uspješnih: ${ok} | Neuspjelih: ${fail}`);
+    // Računi bez kredita / blokirani (13.11.2026. tiho 2 dana): javi u Telegram, jednom u 12 h.
+    const ACCOUNT_ERR = /balance_exhausted|HTTP 40[23]|No credit|insufficient|quota|payment/i;
+    const acct = failures.filter((f) => ACCOUNT_ERR.test(f.reason));
+    if (acct.length && !DRY_RUN) {
+        require("./lib/notify_telegram").notify("asr-no-credit",
+            `⚠️ ASR bez kredita: ${acct.length} od ${targets.length} epizoda nije prošlo Soniox/Speechmatics ` +
+            `(${ok} uspjelo). Epizode idu na Canary rezervu (KORAK 2.8, Modal). ` +
+            `Nadoplati Soniox (console.soniox.com) / provjeri Speechmatics. Prva greška: ${acct[0].reason.slice(0, 200)}`,
+            { details: acct.map((f) => `${f.file}\n  ${f.reason}`).join("\n\n") });
+    }
     if (fail > 0) process.exit(1);
 })();

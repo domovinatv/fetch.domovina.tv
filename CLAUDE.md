@@ -64,7 +64,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    Gemini (sluh, prijevod) i Opus (sažetak, članak).** **Od 28.10.2026. Gemini sluh i
    Speechmatics su ISKLJUČENI** (`--no-gemini-ear --no-speechmatics` u nightlyju i bridgeu): 2.8 samo
    promovira Soniox+pyannoteAI kostur, 0 Vertex poziva (`docs/2026-10-28-bez-gemini-sluha-i-speechmaticsa.md`). Novi kod koji bira izvor mora
-   poštovati ovaj redoslijed, ne „najbolji udio”. Odluka i mjerenja:
+   poštovati ovaj redoslijed, ne „najbolji udio”. **Od 14.11.2026. Canary je stvarna zadnja rezerva:**
+   Modal uvijek radi Canary + pyannote (`.wav.canary.pyannote.json`, i za usporedbu), a 2.8 `auto`
+   uzme `canary_pyannote` → `canary_solo` kad oba cloud ASR-a padnu (`{base}.asr_failed.json`) ili
+   epizoda 24 h nema cloud kostur (`docs/2026-11-14-canary-rezerva-modal-pyannote.md`). Odluka i mjerenja:
    `docs/2026-10-25-asr-prioritet-soniox.md`; stanje toka: `docs/2026-10-24-pipeline-trenutno-stanje.md`.
 
 4. **🎯 Cilj su NOVE epizode, bez backfilla.** (odluka 04.11.2026.)

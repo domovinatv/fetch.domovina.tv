@@ -63,6 +63,7 @@ const path = require("path");
 const channelSettings = require("./lib/channel_settings");
 const { filterAsrCandidates } = require("./lib/channel_settings_filter");
 const asrWords = require("./lib/asr/words");
+const canarySkeleton = require("./lib/asr/canary_skeleton");
 const { vertexEndpointUrl, vertexAccessToken, vertexEnabled } = require("./lib/vertex_auth");
 const os = require("os");
 const { execSync, execFileSync } = require("child_process");
@@ -159,12 +160,18 @@ const SKELETONS = {
     soniox_pyannote: { input: ".soniox_pyannote.words.json", hint: "natuknica", label: "Soniox+pyannote" },
     speechmatics_pyannote: { input: ".speechmatics_pyannote.words.json", hint: "natuknica", label: "Speechmatics+pyannote" },
     soniox: { input: ".soniox.words.json", hint: "natuknica", label: "Soniox" },
+    // Canary = ZADNJI izvor (14.11.2026.), samo kad cloud ASR za epizodu nije dao kostur
+    // (lib/asr/canary_skeleton.js fallbackStatus). Ulaz se gradi u main() prije skena.
+    canary_pyannote: { input: canarySkeleton.SKELETON_INPUT.canary_pyannote, hint: "natuknica", label: "Canary+pyannote" },
+    canary_solo: { input: canarySkeleton.SKELETON_INPUT.canary_solo, hint: "natuknica", label: "Canary (jedan govornik)" },
 };
 // `auto` (KORAK 2.8 u nightlyju od 24.10.): po epizodi prvi kostur koji postoji, ovim redom.
 // Soniox+pyannote je primarni put; speechmatics_pyannote je Speechmatics fallback iz 2.7b;
 // goli soniox (04.11.2026.) = Soniox bez pyannotea, samo za epizode bez kanonskog SRT-a;
 // goli speechmatics = Tier 2 (pyannoteAI samo uz Soniox) i epizode starog puta.
-const AUTO_ORDER = ["soniox_pyannote", "speechmatics_pyannote", "soniox", "speechmatics"];
+// canary_pyannote → canary_solo (14.11.2026.): rezerva kad su Soniox i Speechmatics pali
+// (npr. bez kredita) ili epizoda 24 h nema cloud kostur. Vidi lib/asr/canary_skeleton.js.
+const AUTO_ORDER = ["soniox_pyannote", "speechmatics_pyannote", "soniox", "speechmatics", "canary_pyannote", "canary_solo"];
 const SKELETON_ARG = getArg("--skeleton", "speechmatics");
 if (SKELETON_ARG !== "auto" && !SKELETONS[SKELETON_ARG]) {
     console.error(`❌ Nepoznat --skeleton ${SKELETON_ARG}; moguće: auto, ${Object.keys(SKELETONS).join(", ")}`);
@@ -947,6 +954,11 @@ function collectCandidates(root) {
         if (SKELETON_ARG === "auto" && name === "soniox") {
             found = found.filter((a) => !fs.existsSync(a.replace(/\.[^.]+$/, "") + CANONICAL_SRT));
         }
+        // Canary kostur samo kao rezerva: epizoda bez kanonskog SRT-a kojoj cloud ASR nije
+        // dao kostur (pao ili 24 h ništa). Usporedni Canary prijepis ostaje u .wav.canary.*.
+        if (name.startsWith("canary_")) {
+            found = found.filter((a) => canarySkeleton.fallbackStatus(a).eligible);
+        }
         for (const a of found) picked.push({ audioPath: a, skeleton: name, mtime: fs.statSync(a + SPEECHMATICS_JSON).mtimeMs });
         // I epizode koje ovaj kostur već ima (gotove) blokiraju slabije kosture.
         if (SKELETON_ARG === "auto") {
@@ -967,6 +979,31 @@ function collectCandidates(root) {
         if (na !== nb) return na ? -1 : 1;
         return b.mtime - a.mtime;
     });
+}
+
+/**
+ * Canary rezerva (14.11.2026.): za epizode koje smiju na Canary (fallbackStatus) napiše
+ * kostur `.canary_pyannote.words.json` / `.canary_solo.words.json` iz Canary riječi i
+ * pyannote izlaza s Modala. Bez API poziva. Sken je Node (TCC, vidi findCandidates).
+ */
+function prepareCanarySkeletons(root) {
+    const wavs = findInputs(root, canarySkeleton.WORD_TS).filter((a) => a.endsWith(".wav"));
+    let built = 0, waiting = 0;
+    for (const wav of wavs) {
+        const st = canarySkeleton.fallbackStatus(wav);
+        if (!st.eligible) {
+            if (st.reason.startsWith("čeka cloud ASR")) waiting++;
+            continue;
+        }
+        try {
+            const r = canarySkeleton.buildSkeleton(wav);
+            built++;
+            console.log(`   🛟 Canary rezerva (${r.name}, ${r.speakers} govornika): ${path.basename(wav)} — ${st.reason}`);
+        } catch (e) {
+            console.log(`   ⚠️  Canary kostur nije složen za ${path.basename(wav)}: ${e.message}`);
+        }
+    }
+    if (built || waiting) console.log(`   🛟 Canary rezerva: ${built} kostura složeno, ${waiting} čeka cloud ASR (<${canarySkeleton.AFTER_H} h)`);
 }
 
 /** Sve audio putanje koje imaju ulaz `suffix` (bez filtara gotovosti). */
@@ -1023,6 +1060,7 @@ async function main() {
         candidates = gateCandidates([{ audioPath, skeleton: SKELETON }], (c) => c.audioPath);
     } else {
         const root = CHANNEL ? path.join(INPUT_DIR, CHANNEL) : INPUT_DIR;
+        if (SKELETON_ARG === "auto" || SKELETON_ARG.startsWith("canary_")) prepareCanarySkeletons(root);
         candidates = gateCandidates(collectCandidates(root), (c) => c.audioPath).slice(0, LIMIT);
     }
 

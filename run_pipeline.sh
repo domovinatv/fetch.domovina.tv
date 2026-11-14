@@ -1063,7 +1063,7 @@ else
             modal run "$MODAL_APP"::main --wav "$w" --source-lang "$src_lang" --target-lang hr \
               || echo "   ⚠️ Modal nije uspio za $bn — nastavljam (non-fatal, KORAK 6 će ga preskočiti bez .canary.srt)."
         done
-        echo "   ✅ Modal transkripcija gotova — .canary.srt su lokalno, KORAK 6 (diarize) ih hvata."
+        echo "   ✅ Modal gotov — .canary.srt (+ .canary.pyannote.json govornici) su lokalno; 2.8 ih koristi kao rezervu."
     fi
 fi
 else
@@ -1258,10 +1258,14 @@ else
     # FAST-PATH: isto kao KORAK 2.7 — samo taj video, bez prozora svježine.
     REFINE_FRESH_DAYS="$GEMINI_REFINE_FRESH_DAYS"
     [ "$PRIORITY_FAST_PATH" = true ] && REFINE_FRESH_DAYS=0
+    # Cap 8 je cijena Gemini sluha. Bez sluha (--no-gemini-ear) 2.8 samo promovira kostur,
+    # 0 API poziva, pa cap ne smije kočiti zaostatak (Canary rezerva 14.11.2026.: 30+ epizoda).
+    REFINE_LIMIT="$GEMINI_REFINE_MAX_FILES"
+    [ "$GEMINI_EAR" = false ] && REFINE_LIMIT="${GEMINI_REFINE_PROMOTE_MAX_FILES:-200}"
     REFINE_ARGS=(--input-dir "$OUTPUT_DIR"
                  --skeleton "$GEMINI_REFINE_SKELETON"
                  --fresh-days "$REFINE_FRESH_DAYS"
-                 --limit "$GEMINI_REFINE_MAX_FILES"
+                 --limit "$REFINE_LIMIT"
                  "${PRIORITY_SCOPE_ARGS[@]}")
     [ "$GEMINI_EAR" = false ] && REFINE_ARGS+=(--no-gemini)
     if [ "$GEMINI_REFINE_PROMOTE" = true ]; then

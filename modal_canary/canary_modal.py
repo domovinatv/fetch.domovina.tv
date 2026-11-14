@@ -112,6 +112,28 @@ audio_vol = modal.Volume.from_name(AUDIO_VOL_NAME, create_if_missing=True)
 
 app = modal.App(APP_NAME)
 
+# ─── Dijarizacija na Modalu (14.11.2026.) ────────────────────────────────────
+# Lokalna dijarizacija (KORAK 6) je ugašena 31.10. (swap/disk na Macu), pa Canary prijepis
+# nije imao govornike i nije mogao biti rezerva kad Soniox/Speechmatics padnu (13.11.:
+# svi bez kredita, 2 dana bez ijedne epizode). Isti model kao lokalno
+# (pyannote/speaker-diarization-community-1, exclusive mode), ali u vlastitom containeru:
+# NeMo i pyannote 4.x traže različite torch/numpy pinove, pa dijele samo app.
+# Izlaz: `{wav}.canary.pyannote.json` POKRAJ WAV-a; spaja ga lib/asr/canary_skeleton.js.
+# Treba Modal secret `domovina-hf` (HF_TOKEN s prihvaćenim uvjetima modela).
+# MODAL_CANARY_DIARIZE=0 gasi; MODAL_DIARIZE_GPU mijenja GPU (default T4, ~10 GB VRAM peak).
+DIARIZE_MODEL      = "pyannote/speaker-diarization-community-1"
+DIARIZE_GPU        = os.environ.get("MODAL_DIARIZE_GPU", "T4")
+DIARIZE_DEFAULT_ON = os.environ.get("MODAL_CANARY_DIARIZE", "1").lower() not in ("0", "false", "off", "no")
+HF_CACHE_PATH      = "/hf-cache"
+
+diar_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .apt_install("ffmpeg", "libsndfile1")
+    .pip_install("pyannote.audio==4.0.4", "soundfile")
+    .env({"HF_HOME": HF_CACHE_PATH})
+)
+hf_cache_vol = modal.Volume.from_name("domovina-pyannote-cache", create_if_missing=True)
+
 
 # ─── SRT / CSV formatiranje (inline iz transcribe_canary.py — SSOT ondje) ─────
 def _format_srt_time(seconds: float) -> str:
@@ -331,6 +353,78 @@ class Canary:
             return {"status": "error", "reason": str(e), "elapsed": time.time() - t0}
 
 
+# ─── Dijarizacija: pyannote community-1 (vlastiti container, GPU T4) ─────────
+@app.cls(
+    image=diar_image,
+    gpu=DIARIZE_GPU,
+    volumes={HF_CACHE_PATH: hf_cache_vol, AUDIO_VOL_PATH: audio_vol},
+    secrets=[modal.Secret.from_name("domovina-hf")],
+    timeout=7200,
+    memory=16384,
+    scaledown_window=120,
+)
+class Diarizer:
+    @modal.enter()
+    def load(self):
+        import torch
+        from pyannote.audio import Pipeline
+
+        t0 = time.time()
+        self.pipeline = Pipeline.from_pretrained(DIARIZE_MODEL, token=os.environ["HF_TOKEN"])
+        if torch.cuda.is_available():
+            self.pipeline.to(torch.device("cuda"))
+        hf_cache_vol.commit()   # model ostaje u cacheu za idući container
+        print(f"✅ pyannote učitan za {time.time() - t0:.0f}s")
+
+    @modal.method()
+    def diarize(self, wav_bytes: bytes, filename: str) -> dict:
+        import tempfile
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tf:
+            tf.write(wav_bytes)
+            wav_path = tf.name
+        try:
+            return self._run(wav_path, filename)
+        finally:
+            try:
+                os.remove(wav_path)
+            except OSError:
+                pass
+
+    @modal.method()
+    def diarize_volume(self, rel_path: str) -> dict:
+        wav_path = rel_path if rel_path.startswith(AUDIO_VOL_PATH) else f"{AUDIO_VOL_PATH}/{rel_path.lstrip('/')}"
+        audio_vol.reload()
+        if not os.path.isfile(wav_path):
+            return {"status": "error", "reason": f"Nema {wav_path} na volumeu"}
+        return self._run(wav_path, os.path.basename(wav_path))
+
+    def _run(self, wav_path: str, filename: str) -> dict:
+        """Isto kao colab_diarize/diarize_canary.py run_diarization (waveform u RAM-u,
+        exclusive mode) — SSOT je ondje."""
+        import soundfile as sf
+        import torch
+
+        t0 = time.time()
+        try:
+            data, sr = sf.read(wav_path, dtype="float32")
+            if data.ndim > 1:
+                data = data.mean(axis=1)
+            waveform = torch.from_numpy(data).unsqueeze(0)
+            result = self.pipeline({"waveform": waveform, "sample_rate": sr})
+            del waveform, data
+            diar = getattr(result, "exclusive_speaker_diarization", None) \
+                or getattr(result, "speaker_diarization", None) or result
+            segs = [{"start": round(t.start, 3), "end": round(t.end, 3), "speaker": spk}
+                    for t, _, spk in diar.itertracks(yield_label=True)]
+            n = len({s["speaker"] for s in segs})
+            el = time.time() - t0
+            print(f"🗣️  {filename}: {len(segs)} segmenata, {n} govornika za {el:.0f}s ({DIARIZE_GPU})")
+            return {"status": "diarized", "segments": segs, "speakers": n,
+                    "elapsed": el, "gpu": DIARIZE_GPU, "model": DIARIZE_MODEL}
+        except Exception as e:
+            return {"status": "error", "reason": str(e), "elapsed": time.time() - t0}
+
+
 # ─── Auto-ruta na Volume (P4) ────────────────────────────────────────────────
 # `modal volume put` streama datoteku umjesto da je serijalizira u argument, pa
 # klijentu ne treba ~15× veličine snimke u RAM-u. Zauzeće volumea se NAPLAĆUJE →
@@ -361,6 +455,40 @@ def _volume_rm(remote: str) -> None:
               f"{(r.stderr or r.stdout or '').strip()[:200]}")
 
 
+def _diarize_local_wav(wav: str) -> dict:
+    """Šalje WAV na Modal Diarizer — bytes ili preko volumea, kao _transcribe_local_wav."""
+    size_mb = os.path.getsize(wav) / (1024 * 1024)
+    if size_mb <= VOLUME_ROUTE_THRESHOLD_MB:
+        data = open(wav, "rb").read()
+        print(f"⬆️  Šaljem {len(data) / 1e6:.0f} MB na Modal dijarizaciju ({DIARIZE_GPU})...")
+        return Diarizer().diarize.remote(data, os.path.basename(wav))
+    remote = _volume_remote_name(wav)
+    try:
+        _volume_put(wav, remote)
+        return Diarizer().diarize_volume.remote(remote)
+    finally:
+        _volume_rm(remote)
+
+
+def _diarize_and_write(wav: str) -> bool:
+    """`{wav}.canary.pyannote.json`; NE-fatalno (bez govornika ide canary_solo rezerva)."""
+    out = wav + ".canary.pyannote.json"
+    try:
+        res = _diarize_local_wav(wav)
+    except Exception as e:  # secret/kvota/mreža — prijepis ne smije pasti zbog ovoga
+        res = {"status": "error", "reason": f"{type(e).__name__}: {e}"}
+    if res.get("status") != "diarized":
+        print(f"⚠️  Dijarizacija nije uspjela (non-fatal): {str(res.get('reason'))[:300]}")
+        return False
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"v": 1, "model": res.get("model"), "gpu": res.get("gpu"),
+                   "speakers": res.get("speakers"), "elapsed": round(res.get("elapsed") or 0, 1),
+                   "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                   "segments": res["segments"]}, f, ensure_ascii=False)
+    print(f"🗣️  {res.get('speakers')} govornika → {out}")
+    return True
+
+
 def _transcribe_local_wav(wav: str, source_lang: str, target_lang: str) -> dict:
     """Šalje WAV na Modal — bytes-argumentom ili preko volumea, ovisno o veličini."""
     size_mb = os.path.getsize(wav) / (1024 * 1024)
@@ -384,14 +512,26 @@ def _transcribe_local_wav(wav: str, source_lang: str, target_lang: str) -> dict:
 # ─── Lokalni CLI: modal run ... --wav /put/do/file.wav ────────────────────────
 @app.local_entrypoint()
 def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool = False,
-         out_tag: str = ""):
-    """Transkribira lokalni WAV preko Modala, zapiše .canary.srt/.canary.csv pokraj njega."""
+         out_tag: str = "", diarize: str = ""):
+    """Transkribira lokalni WAV preko Modala, zapiše .canary.srt/.canary.csv pokraj njega.
+
+    `--diarize 1|0` (default MODAL_CANARY_DIARIZE=1): uz prijepis i pyannote govornici u
+    `{wav}.canary.pyannote.json`. Kad SRT već postoji, a govornika nema, radi SAMO
+    dijarizaciju (nema drugog GPU prolaza Canaryja). Samo za izvorni prijepis (bez --out-tag).
+    """
     if not os.path.isfile(wav):
         raise SystemExit(f"❌ WAV ne postoji: {wav}")
 
+    do_diar = (DIARIZE_DEFAULT_ON if diarize == "" else diarize.lower() not in ("0", "false", "off", "no")) \
+        and not out_tag
+    diar_out = wav + ".canary.pyannote.json"
     srt_out = wav + _canary_suffix(out_tag) + ".srt"
     csv_out = wav + _canary_suffix(out_tag) + ".csv"
     if os.path.exists(srt_out) and not force:
+        if do_diar and not os.path.exists(diar_out):
+            print(f"⏭️  {os.path.basename(srt_out)} postoji — radim samo dijarizaciju.")
+            _diarize_and_write(wav)
+            return
         print(f"⏭️  Već postoji {srt_out} (koristi --force za override). Izlazim.")
         return
 
@@ -410,6 +550,8 @@ def main(wav: str, source_lang: str = "hr", target_lang: str = "hr", force: bool
     print(f"✅ {res['segments']} segmenata | inference {res['elapsed']:.0f}s{vram}")
     print(f"   → {srt_out}")
     print(f"   → {csv_out}")
+    if do_diar and (force or not os.path.exists(diar_out)):
+        _diarize_and_write(wav)
 
 
 # ─── Volume put: modal run ...::from_volume --remote full_session_16k.wav ────
