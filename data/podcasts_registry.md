@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-14
+**Generirano:** 2026-11-15
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 491 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 254 · 🔴 neaktivan: 155 · ⚪ nepoznato: 92 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 255 · 🔴 neaktivan: 155 · ⚪ nepoznato: 91 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -68,7 +68,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Hitna pomoć za nemirne** | [@hitnapomoczanemirne7345](https://www.youtube.com/@hitnapomoczanemirne7345/videos) | 3 | 13K | — | ⚪ nepoznato | — | — | ⚠️ |
 | **HNB - Hrvatska narodna banka** | [@hrvatskanarodnabankacroati9475](https://www.youtube.com/@hrvatskanarodnabankacroati9475/videos) | 3 | 1K | — | ⚪ nepoznato | — | `institutional` `finance` | ⚠️ |
 | **Horizonti Liderstva** | [@HorizontiLiderstva](https://www.youtube.com/@HorizontiLiderstva/videos) | 3 | 108 | 15 | 🔴 neaktivan | Filip Đurović | `business` `leadership` | ✅ |
-| **IKRA Institut** | [@ikra-institut](https://www.youtube.com/@ikra-institut/videos) | 3 | 56 | — | ⚪ nepoznato | — | `education` | ⚠️ |
+| **IKRA Institut** | [@ikra-institut](https://www.youtube.com/@ikra-institut/videos) | 3 | 57 | — | ⚪ nepoznato | — | `education` | ⚠️ |
 | **Iva Kraljević** | [@ivakraljevic.](https://www.youtube.com/@ivakraljevic./videos) | 3 | 38K | — | ⚪ nepoznato | Iva Kraljević | `religious-catholic` | ⚠️ |
 | **KKO.hr** | [@kkohr](https://www.youtube.com/@kkohr/videos) | 3 | 10K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
 | **Launched by RevenueCat** | [UCHBZvDkQfz4A_fi-QbsY_lw](https://www.youtube.com/playlist?list=PLeRhggrXOh5EXa01b_9GN2cZXZagWEEv7) | 3 | 0 | — | 🟢 aktivan | — | `technology` `indie-dev` `english` | — |
@@ -93,7 +93,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Popcast by Darko Pavičić** | [UCPFfi389DTy-cI9BzM7bLTQ](https://www.youtube.com/playlist?list=PLwkAZA40UDUK4aM2g8ee8qbIQnKY0XboU) | 1 | 119K | 40 | 🟢 aktivan | Darko Pavičić | `society` `religious-catholic` `culture` | ✅ |
 | **Radio Mrežnica (Podcast Mrežnica)** | [@radiomreznica2174](https://www.youtube.com/@radiomreznica2174/videos) | 3 | 100K | — | 🟢 aktivan | — | `regional-media` `geopolitics` | ✅ |
 | **Rastući s djecom** | [@Rastucisdjecom](https://www.youtube.com/@Rastucisdjecom/videos) | 3 | 9K | — | ⚪ nepoznato | — | `parenting` `religious-catholic` | ⚠️ |
-| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 453 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
+| **Sapere Aude Cro** | [@SapereAudeCro](https://www.youtube.com/@SapereAudeCro/videos) | 3 | 456 | — | ⚪ nepoznato | — | `philosophy` `culture` | ⚠️ |
 | **Slijedi svoj poziv — 1. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTLDpoGBjfrRG8v3rfWmLqdm) | 4 | 508 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Slijedi svoj poziv — 2. konferencija o liderstvu** | [@ignacijehr](https://www.youtube.com/playlist?list=PLxkKGjCBwZTInOr1JKcIZVD_a0H0SHytY) | 4 | 508 | — | ⚪ nepoznato | — | `leadership` `business` `religious-catholic` | ⚠️ |
 | **Sub Club by RevenueCat** | [UCeq8LcFQ3ee_p8b-eYTARsg](https://www.youtube.com/playlist?list=PLAY2pJLxYch32IeVqfQV1xOpFQZP9J_YF) | 3 | 0 | — | 🟢 aktivan | — | `technology` `business` `english` | — |
@@ -208,7 +208,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Digitalna Kultura** | [UC5G48syi8BJd0UqRkS08hVg](https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/videos) | 3 | 3K | — | 🟢 aktivan | Ivan J. Mandić, Mihael Sertić | `technology` `gaming` `pop-culture` | ⚠️ |
 | **Dogmatica** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqSZfzZfwkTWnHOvyCUJaQ8u) | 3 | — | — | 🔴 neaktivan | — | `political` `society` | ⚠️ |
 | **Dokunet Podcast** | [UCoyTnbkCuGTMqO41_LNAZ8Q](https://www.youtube.com/channel/UCoyTnbkCuGTMqO41_LNAZ8Q/videos) | 3 | 801 | — | 🟢 aktivan | — | `pop-culture` `culture` | ⚠️ |
-| **don Stipe Mustapić** | [UCuNiDwvYQn_8lsZZLyCdKUA](https://www.youtube.com/channel/UCuNiDwvYQn_8lsZZLyCdKUA/videos) | 3 | 5K | — | ⚪ nepoznato | — | `religious-catholic` `testimonies` | ⚠️ |
+| **don Stipe Mustapić** | [UCuNiDwvYQn_8lsZZLyCdKUA](https://www.youtube.com/channel/UCuNiDwvYQn_8lsZZLyCdKUA/videos) | 3 | 5K | — | 🟢 aktivan | — | `religious-catholic` `testimonies` | ⚠️ |
 | **dr. Podcast** | [UCNexWS-htuUB8WCmU129GUg](https://www.youtube.com/channel/UCNexWS-htuUB8WCmU129GUg/videos) | 3 | 2K | — | 🔴 neaktivan | — | `health` `science` | ⚠️ |
 | **DRETVA** | [UCvBpdH7d-Lm7KwLkC_adQ6w](https://www.youtube.com/channel/UCvBpdH7d-Lm7KwLkC_adQ6w/videos) | 3 | 210 | — | 🔴 neaktivan | — | `economics` `history` `sport` | ⚠️ |
 | **Društvo za promociju znanosti i kritičkog mišljenja** | [UCoAi8zK4SAxBP3hgzD7el9g](https://www.youtube.com/channel/UCoAi8zK4SAxBP3hgzD7el9g/videos) | 3 | 5K | — | ⚪ nepoznato | — | `science` `education` | ⚠️ |

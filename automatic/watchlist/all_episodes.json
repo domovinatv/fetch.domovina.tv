@@ -3148,10 +3148,10 @@
    "slug": "2pogled-povijest",
    "title": "PUTOVANJE KROZ POVIJEST – EP. 28: MALI HRVATSKI VOJNIČKI KALENDAR | Ivan Lovaković",
    "duration": 2742,
-   "attempts": 1,
-   "sent_at": "2026-11-14T02:35:43.418Z",
+   "attempts": 3,
+   "sent_at": "2026-11-15T04:26:15.623Z",
    "result": "created",
-   "job_id": "7fea1585-f49f-4160-bbf0-3ac0fb6656f9"
+   "job_id": "73b3f944-89ba-4e97-92e9-af0f73fc1061"
   },
   "_bL9ErRhixY": {
    "date": "2026-11-14",
@@ -3328,10 +3328,10 @@
    "slug": "hrt-globalna-hrvatska",
    "title": "Globalna Hrvatska, 12.11.2026.",
    "duration": 2441,
-   "attempts": 1,
-   "sent_at": "2026-11-14T02:35:47.946Z",
+   "attempts": 2,
+   "sent_at": "2026-11-14T06:35:44.417Z",
    "result": "created",
-   "job_id": "9fd80f96-19b2-4a96-8b72-53dc1cbc79a1"
+   "job_id": "8950ec85-0d6f-4c54-9667-0ecb8dd37dbb"
   },
   "cLvK6RhzjME": {
    "date": "2026-11-14",
@@ -3342,14 +3342,114 @@
    "sent_at": "2026-11-14T02:35:48.145Z",
    "result": "created",
    "job_id": "60d520c7-1504-4c74-959d-44c4f78bad3c"
+  },
+  "ZnU-iCRwcuo": {
+   "date": "2026-11-15",
+   "slug": "agape-rtv",
+   "title": "Fra Ivan Hrkać: Isus plače nad nama! LOPOVI trebaju učiti od ZAKEJA!  Talente zakopavamo!",
+   "duration": 4603,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:16.080Z",
+   "result": "created",
+   "job_id": "eb37b2ab-465e-4c83-944f-878937c4485b"
+  },
+  "H3OF-uQrwdM": {
+   "date": "2026-11-15",
+   "slug": "denis-podcast",
+   "title": "#283 - \"Messi dijeli tron sa Maradonom\" Milan \"Piljerme\" Pilja",
+   "duration": 3509,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:16.549Z",
+   "result": "created",
+   "job_id": "5f6c6e5d-62ab-4b32-a8bc-22b5b3b55309"
+  },
+  "c70Y9bsoikY": {
+   "date": "2026-11-15",
+   "slug": "don-stipe-mustapic",
+   "title": "Bog je svjetlost — otvaramo li mu prozore svoga života? - Fra Ante Vučković",
+   "duration": 2623,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:16.790Z",
+   "result": "created",
+   "job_id": "9118f683-30e0-425f-8a43-4315d0e88b04"
+  },
+  "EZhYiJGkLno": {
+   "date": "2026-11-15",
+   "slug": "mjesto-zlocina",
+   "title": "Epizoda 233: Slučaj Sherri Rasmussen: Ulašti mi skije bebo",
+   "duration": 3242,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:17.094Z",
+   "result": "created",
+   "job_id": "897884b1-fc41-46bd-a88c-e6cc3808a03d"
+  },
+  "FczgSyFIb8I": {
+   "date": "2026-11-15",
+   "slug": "podcast-sekstant",
+   "title": "PODCAST SEKSTANT #90 HRVOJE RAKIĆ",
+   "duration": 6714,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:17.342Z",
+   "result": "created",
+   "job_id": "ac8d9067-6df7-470f-a9cc-944324288d69"
+  },
+  "bXS5_rq0NTA": {
+   "date": "2026-11-15",
+   "slug": "spica-s-macanom",
+   "title": "Ranko Rajović: Roditelji više nisu tu za djecu, već su društvene mreže! Špica specijal 15",
+   "duration": 3786,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:17.549Z",
+   "result": "created",
+   "job_id": "2c49c3de-2215-4f5c-a9f5-f3da7ac93aa8"
+  },
+  "Yybu8D3Ox3w": {
+   "date": "2026-11-15",
+   "slug": "razvojni-kod",
+   "title": "Razvojni kod: Gost Tatjane Kaštelan Andrej Angelini, uz suvremenu opremu ključan je educirani kad...",
+   "duration": 1866,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:17.757Z",
+   "result": "created",
+   "job_id": "c879e034-9245-4c1d-b2e5-15311f478ab1"
+  },
+  "QiMbzGvtDoo": {
+   "date": "2026-11-15",
+   "slug": "na-prvoj-crti",
+   "title": "Na prvoj crti 13.11.2026. Branko Prkić",
+   "duration": 2158,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:18.021Z",
+   "result": "created",
+   "job_id": "b897822a-0a81-4096-aedc-83d82f787f73"
+  },
+  "CYTpEGd3Ets": {
+   "date": "2026-11-15",
+   "slug": "hkm-zivjeti-evandelje",
+   "title": "Živjeti Evanđelje - Bog ti je dao talente, nemoj ih zakopati!",
+   "duration": 3249,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:18.228Z",
+   "result": "created",
+   "job_id": "c152f383-10a2-48ad-a42c-86b8e6a0674d"
+  },
+  "EegaPguyhvU": {
+   "date": "2026-11-15",
+   "slug": "hrt-veterani-mira",
+   "title": "Veterani mira: Vojna policija Atila - Vukovar",
+   "duration": 1464,
+   "attempts": 1,
+   "sent_at": "2026-11-15T04:26:18.480Z",
+   "result": "created",
+   "job_id": "6e69aeeb-9664-49a7-b378-49caf283b922"
   }
  },
- "updated_at": "2026-11-14T02:35:48.346Z",
+ "updated_at": "2026-11-15T04:26:18.727Z",
  "last_enqueue_usage": {
-  "at": "2026-11-14T02:35:48.346Z",
-  "five_hour": 6,
-  "five_hour_resets_at": "2026-11-14T04:20:00.365853+00:00",
-  "seven_day": 0,
-  "seven_day_resets_at": "2026-11-21T00:00:00.365879+00:00"
+  "at": "2026-11-15T04:26:18.727Z",
+  "five_hour": 31,
+  "five_hour_resets_at": "2026-11-15T07:39:59.509048+00:00",
+  "seven_day": 7,
+  "seven_day_resets_at": "2026-11-20T23:59:59.509068+00:00"
  }
 }

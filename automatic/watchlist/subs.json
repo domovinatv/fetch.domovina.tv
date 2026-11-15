@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-11-14T02:46:54.458Z",
+  "generated_at": "2026-11-15T04:27:59.471Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 96,
+  "count": 97,
   "videos": {
+    "bXS5_rq0NTA": {"slug":"spica-s-macanom","date":"2026-11-14","langs":["en","hr"]},
     "uYYol6xtm7Q": {"slug":"prvi-glas-telegram","date":"2026-11-13","langs":["hr"]},
     "xBlx6hd71Ew": {"slug":"budi-frajer","date":"2026-11-13","langs":["en"]},
     "5m4Zo4fj7lY": {"slug":"ideje-hr","date":"2026-11-12","langs":["en"]},
