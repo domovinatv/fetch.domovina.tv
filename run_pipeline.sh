@@ -247,6 +247,8 @@ echo ""
 #                            sada, ostatak sljedeći run ili Colab (konvergira, ne odustaje).
 #   --with-gemini-refine  → KORAK 2.8: Gemini 3.8 Flash čuje zvuk i prepisuje tekst preko
 #                            Speechmatics kostura (segmenti/govornici ostaju). Traži 2.7.
+#   --no-transcript-fix   → gasi KORAK 2.9 (Opus ispravak prijepisa koji nije od Sonioxa; default ON).
+#                            Isto: env TRANSCRIPT_FIX=0; samo Tier 2 fast-path: TRANSCRIPT_FIX_TIER2=0.
 #   --gemini-refine-promote → isto + smije popuniti .wav.canary.diarized.srt gdje ga nema
 #                            (postojeći canary se NIKAD ne pregazi automatski).
 #   --with-speechmatics   → EKSPERIMENT (KORAK 2.7): cloud transkripcija + diarizacija u
@@ -323,6 +325,10 @@ WITH_EBOOK=true
 WITH_SPONSORS=true
 # Vrijeme po riječi za titl (KORAK 9.87): default ON (nula API troška, katalog ~1 s) — gasi se s --no-words.
 WITH_WORDS=true
+# Opus ispravak prijepisa koji nije od Sonioxa (KORAK 2.9, 16.11.2026.): default ON — gasi se s
+# --no-transcript-fix ili env TRANSCRIPT_FIX=0; samo Tier 2 (fast-path) s TRANSCRIPT_FIX_TIER2=0.
+WITH_TRANSCRIPT_FIX=true
+case "${TRANSCRIPT_FIX:-1}" in 0|false|off|no) WITH_TRANSCRIPT_FIX=false ;; esac
 # Kandidati za reels/shorts (KORAK 9.9): default ON — 1 LLM poziv po NOVOJ epizodi (zadnjih
 # 21 dan, najviše 20 po runu), backend kao koraci 7+8. Gasi se s --no-reels.
 WITH_REELS=true
@@ -463,6 +469,9 @@ while [ $i -lt ${#ALL_ARGS[@]} ]; do
         i=$((i + 1))
     elif [ "$arg" = "--no-words" ]; then
         WITH_WORDS=false
+        i=$((i + 1))
+    elif [ "$arg" = "--no-transcript-fix" ]; then
+        WITH_TRANSCRIPT_FIX=false
         i=$((i + 1))
     elif [ "$arg" = "--no-reels" ]; then
         WITH_REELS=false
@@ -1283,6 +1292,40 @@ fi
 else
     echo ""
     echo "   ⏭️  Preskačem KORAK 2.8 (Gemini refine) — nije zadan --with-gemini-refine (default OFF)"
+fi
+
+# --- KORAK 2.9: OPUS ISPRAVAK PRIJEPISA KOJI NIJE OD SONIOXA (fix_transcript_opus.js) ---
+# Canary rezerva (2.8 canary_pyannote/canary_solo) i Speechmatics (Tier 2 primarni, fallback kad
+# Soniox nema kredita) dobivaju tekstualni ispravak: Opus iz teksta + metapodataka (naslov, opis,
+# poglavlja) ispravlja imena, fonetske zapise, riječi iz konteksta. Mjereno na ep. 11 re:DEFINICIJE:
+# Canary 191 → 120 grešaka protiv 4 neovisne reference (docs/2026-11-16-ep11-soniox-vs-canary.md).
+# Izvorni prijepis ostaje kao {base}.diarized.asr.srt (+ words.asr.json), oba idu na CDN.
+# Rezerva: Opus → agy Gemini → izvorni ostaje kanonski. NIKAD ne blokira epizodu (non-fatal).
+# Mora ići PRIJE 7+8 (čitaju kanonski) i PRIJE 12 (diarized.srt je immutable ključ na CDN-u).
+# Kvota: ~60–80 k tokena po epizodi od ~75 min (komadi po 100 cue-ova). Plan:
+# docs/2026-11-16-korak-2-9-opus-ispravak-prijepisa-plan.md
+if [ "$WITH_TRANSCRIPT_FIX" = true ] && [ "$PRIORITY_FAST_PATH" = true ] && [ -n "$MODAL_ONLY_ID" ] \
+   && [[ "${TRANSCRIPT_FIX_TIER2:-1}" =~ ^(0|false|off|no)$ ]]; then
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.9 (ispravak prijepisa) za Tier 2 — TRANSCRIPT_FIX_TIER2=0"
+elif [ "$WITH_TRANSCRIPT_FIX" = true ]; then
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+korak "KORAK 2.9: Opus ispravak prijepisa (Canary/Speechmatics, ne Soniox) → .diarized.asr.srt + ispravljeni kanonski"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+TFIX_FRESH_DAYS="${TRANSCRIPT_FIX_FRESH_DAYS:-3}"
+[ "$PRIORITY_FAST_PATH" = true ] && TFIX_FRESH_DAYS=0
+TFIX_ARGS=(--input-dir "$OUTPUT_DIR" --fresh-days "$TFIX_FRESH_DAYS" --limit "${TRANSCRIPT_FIX_MAX_FILES:-30}"
+           "${PRIORITY_SCOPE_ARGS[@]}")
+if [[ " ${COMMON_ARGS[*]} " =~ " --dry-run " ]]; then
+    TFIX_ARGS+=(--dry-run)
+fi
+node "$SCRIPT_DIR/fix_transcript_opus.js" "${TFIX_ARGS[@]}" \
+  || echo "   ⚠️ KORAK 2.9 nije uspio — izvorni prijepis ostaje kanonski, nastavljam (non-fatal)."
+else
+    echo ""
+    echo "   ⏭️  Preskačem KORAK 2.9 (ispravak prijepisa) — --no-transcript-fix / TRANSCRIPT_FIX=0"
 fi
 
 # --- KORACI 3+4: WHISPER PROMPT + TRANSKRIPCIJA (legacy, opcionalno --with-whisper) ---

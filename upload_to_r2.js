@@ -166,6 +166,11 @@ const UPLOAD_SUFFIXES = [
     // domovina.ai docs/plans/2026-10-29-titlovi-na-dva-jezika.md.
     ".diarized.en.srt",
     ".words.en.json",
+    // KORAK 2.9 (fix_transcript_opus.js): izvorni ASR prijepis prije Opus ispravka + njegove
+    // riječi + provenance ispravka. Kanonski diarized.srt/words.json su ispravljeni; OBA idu na CDN.
+    ".diarized.asr.srt",
+    ".words.asr.json",
+    ".transcript_fix.json",
 ];
 
 // Article, outline i magisterium imaju varijabilni datum/model u imenu — matchaju se regex-om
@@ -583,6 +588,15 @@ function getFlutterKey(localPath, r2Key, videoId, videoBase) {
     if (filename === `${videoBase}.words.en.json`)
         return `data/${videoId}/words.en.json`;
 
+    if (filename === `${videoBase}.diarized.asr.srt`)
+        return `data/${videoId}/diarized.asr.srt`;
+
+    if (filename === `${videoBase}.words.asr.json`)
+        return `data/${videoId}/words.asr.json`;
+
+    if (filename === `${videoBase}.transcript_fix.json`)
+        return `data/${videoId}/transcript_fix.json`;
+
     // Responsive WebP varijante → images/{id}/thumb-{w}.webp
     const webpMatch = filename.match(/^(.+)\.thumb-(320|640|1280)\.webp$/);
     if (webpMatch && webpMatch[1] === videoBase)
@@ -689,7 +703,9 @@ function collectFilesForVideo(channelDir, channelName, videoBase) {
                 if (suffix === ".mkv" && filename !== `${videoBase}.mkv`) continue;
                 if (suffix === ".mp4" && filename !== `${videoBase}.mp4`) continue;
                 if (suffix === ".words.json" && filename !== `${videoBase}.words.json`) continue;
-                if ((suffix === ".diarized.en.srt" || suffix === ".words.en.json") && filename !== `${videoBase}${suffix}`) continue;
+                if ((suffix === ".diarized.en.srt" || suffix === ".words.en.json" ||
+                     suffix === ".diarized.asr.srt" || suffix === ".words.asr.json" ||
+                     suffix === ".transcript_fix.json") && filename !== `${videoBase}${suffix}`) continue;
                 shouldUpload = true;
                 break;
             }

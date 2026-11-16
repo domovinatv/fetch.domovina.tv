@@ -225,13 +225,17 @@ const REFINED_SKELETON_LABELS = { soniox_pyannote: "Soniox + pyannoteAI", soniox
 function isPromotedRefine(canarySrtPath) {
     const base = canarySrtPath.replace(/\.wav\.canary\.diarized\.srt$/, "");
     if (base === canarySrtPath || !fs.existsSync(canarySrtPath)) return false;
+    // KORAK 2.9 (fix_transcript_opus.js) prepiše kanonski ispravljenim tekstom; dokaz promocije
+    // je tada izvorni `.diarized.asr.srt`. Bez ovoga Sortformer zasjeni ispravljeni prijepis.
+    const cmpPath = fs.existsSync(base + ".transcript_fix.json") && fs.existsSync(base + ".diarized.asr.srt")
+        ? base + ".diarized.asr.srt" : canarySrtPath;
     let canonical = null;
     for (const ext of REFINED_AUDIO_EXTS) {
         for (const skeleton of REFINED_SKELETONS) {
             const refined = base + ext + "." + skeleton + ".gemini.diarized.srt";
             if (!fs.existsSync(refined)) continue;
             try {
-                if (!canonical) canonical = fs.readFileSync(canarySrtPath);
+                if (!canonical) canonical = fs.readFileSync(cmpPath);
                 if (canonical.equals(fs.readFileSync(refined))) return skeleton;
             } catch (_) { /* nečitljivo → nije dokaz promocije */ }
         }

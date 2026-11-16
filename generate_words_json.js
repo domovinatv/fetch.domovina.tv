@@ -71,6 +71,10 @@ const SX_SUFFIX = ".soniox.words.json";
 const CANARY_WORDS_SUFFIX = ".wav.canary.word_ts.json";
 const OUT_SUFFIX = ".words.json";
 const SKIP_SUFFIX = ".words.skipped.json";
+// KORAK 2.9 (fix_transcript_opus.js): izvorni ASR prijepis prije Opus ispravka i njegove riječi.
+const ASR_SRT_SUFFIX = ".diarized.asr.srt";
+const ASR_OUT_SUFFIX = ".words.asr.json";
+const ASR_SKIP_SUFFIX = ".words.asr.skipped.json";
 const MIN_MS = 120;   // najkraće trajanje interpolirane riječi (vidi §3 korak 4)
 const PAD_MS = 50;    // Speechmatics riječi unutar [s-50, e+50]
 
@@ -275,6 +279,49 @@ function mtime(p) {
     try { return fs.statSync(p).mtimeMs; } catch { return 0; }
 }
 
+/**
+ * Jedna varijanta SRT-a → words json. Kanonski: `.words.json`/`.words.skipped.json`;
+ * izvorni ASR (KORAK 2.9): `.words.asr.json`/`.words.asr.skipped.json`.
+ */
+function wordsForVariant({ dir, base, srtPath, sources, outSuffix, skipSuffix, label, stats }) {
+    const outPath = path.join(dir, base + outSuffix);
+    const skipPath = path.join(dir, base + skipSuffix);
+    const srcTime = Math.max(mtime(srtPath), ...sources.map((x) => mtime(x.path)));
+    if (!FORCE && Math.max(mtime(outPath), mtime(skipPath)) > srcTime) { stats.fresh++; return; }
+    // Postavke kanala: titlovi isključeni → ništa ne piši (ni .words.skipped.json).
+    if (skipStep("words", srtPath, { label })) { stats.settings++; return; }
+    try {
+        const cues = parseCues(fs.readFileSync(srtPath, "utf8"));
+        const results = sources.map((src) =>
+            buildWords(cues, src.read(JSON.parse(fs.readFileSync(src.path, "utf8"))), src.name));
+        const { doc, anch, tot } = pickSource(results, MIN_ANCHORED);
+        const pct = tot ? (anch / tot * 100).toFixed(1) : "0.0";
+        if (!tot || doc.anchored < MIN_ANCHORED) {
+            stats.skippedLow++;
+            console.log(`   ⏭️  ${label} — usidreno ${pct} % < ${MIN_ANCHORED * 100} %, ne objavljujem`);
+            if (!DRY_RUN) {
+                fs.writeFileSync(skipPath, JSON.stringify({
+                    reason: "low_anchored", source: doc.source, anchored: doc.anchored,
+                    min_anchored: MIN_ANCHORED, words: tot, at: new Date().toISOString(),
+                }, null, 2) + "\n");
+                if (fs.existsSync(outPath)) fs.renameSync(outPath, outPath + ".bak");
+                writeManifest(dir, base);
+            }
+            return;
+        }
+        stats.written++;
+        if (VERBOSE || DRY_RUN) console.log(`   ✅ ${label} [${doc.source}] — usidreno ${pct} % od ${tot}, cue-ova ${doc.cues.length}`);
+        if (!DRY_RUN) {
+            fs.writeFileSync(outPath, JSON.stringify(doc));
+            if (fs.existsSync(skipPath)) fs.unlinkSync(skipPath);
+            writeManifest(dir, base);
+        }
+    } catch (e) {
+        stats.errors++;
+        console.log(`   ❌ ${label} — ${e.message}`);
+    }
+}
+
 function main() {
     const channels = ONLY_CHANNEL ? [ONLY_CHANNEL] : listChannelDirs(INPUT_DIR);
     const stats = { written: 0, skippedLow: 0, fresh: 0, noSource: 0, settings: 0, errors: 0 };
@@ -305,43 +352,12 @@ function main() {
             if (fs.existsSync(cwPath)) sources.push({ name: "canary", path: cwPath, read: canaryWords });
             if (!sources.length) { stats.noSource++; continue; }
 
-            const outPath = path.join(dir, base + OUT_SUFFIX);
-            const skipPath = path.join(dir, base + SKIP_SUFFIX);
-            const srcTime = Math.max(mtime(srtPath), ...sources.map((x) => mtime(x.path)));
-            if (!FORCE && Math.max(mtime(outPath), mtime(skipPath)) > srcTime) { stats.fresh++; continue; }
-            // Postavke kanala: titlovi isključeni → ništa ne piši (ni .words.skipped.json).
-            if (skipStep("words", srtPath, { label: `${channel}/${extractVideoId(base) || base}` })) { stats.settings++; continue; }
-
-            try {
-                const cues = parseCues(fs.readFileSync(srtPath, "utf8"));
-                const results = sources.map((src) =>
-                    buildWords(cues, src.read(JSON.parse(fs.readFileSync(src.path, "utf8"))), src.name));
-                const { doc, anch, tot } = pickSource(results, MIN_ANCHORED);
-                const pct = tot ? (anch / tot * 100).toFixed(1) : "0.0";
-                const label = `${channel}/${extractVideoId(base) || base}`;
-                if (!tot || doc.anchored < MIN_ANCHORED) {
-                    stats.skippedLow++;
-                    console.log(`   ⏭️  ${label} — usidreno ${pct} % < ${MIN_ANCHORED * 100} %, ne objavljujem`);
-                    if (!DRY_RUN) {
-                        fs.writeFileSync(skipPath, JSON.stringify({
-                            reason: "low_anchored", source: doc.source, anchored: doc.anchored,
-                            min_anchored: MIN_ANCHORED, words: tot, at: new Date().toISOString(),
-                        }, null, 2) + "\n");
-                        if (fs.existsSync(outPath)) fs.renameSync(outPath, outPath + ".bak");
-                        writeManifest(dir, base);
-                    }
-                    continue;
-                }
-                stats.written++;
-                if (VERBOSE || DRY_RUN) console.log(`   ✅ ${label} [${doc.source}] — usidreno ${pct} % od ${tot}, cue-ova ${doc.cues.length}`);
-                if (!DRY_RUN) {
-                    fs.writeFileSync(outPath, JSON.stringify(doc));
-                    if (fs.existsSync(skipPath)) fs.unlinkSync(skipPath);
-                    writeManifest(dir, base);
-                }
-            } catch (e) {
-                stats.errors++;
-                console.log(`   ❌ ${channel}/${base} — ${e.message}`);
+            const label = `${channel}/${extractVideoId(base) || base}`;
+            wordsForVariant({ dir, base, srtPath, sources, outSuffix: OUT_SUFFIX, skipSuffix: SKIP_SUFFIX, label, stats });
+            // KORAK 2.9: izvorni ASR prijepis (prije Opus ispravka) dobiva svoj words.asr.json.
+            const asrSrt = path.join(dir, base + ASR_SRT_SUFFIX);
+            if (fs.existsSync(asrSrt)) {
+                wordsForVariant({ dir, base, srtPath: asrSrt, sources, outSuffix: ASR_OUT_SUFFIX, skipSuffix: ASR_SKIP_SUFFIX, label: `${label} (asr)`, stats });
             }
         }
     }

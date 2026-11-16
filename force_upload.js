@@ -14,7 +14,7 @@
  *
  * Uporaba:
  *   node force_upload.js --video-id VID --channel CH \
- *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,words,diarized-en,words-en,sponsors,epub,epub-en]
+ *        [--targets article,magisterium,article-en,magisterium-en,summary,summary-en,outline,diarized,words,diarized-en,words-en,sponsors,epub,epub-en,diarized-asr,words-asr,transcript-fix]
  *   (default targets: article,magisterium,article-en,magisterium-en)
  */
 
@@ -77,6 +77,10 @@ const TARGET_MAP = {
     "diarized-en":    { suffix: ".diarized.en.srt",             r2: "diarized.en.srt", contentType: "text/plain; charset=utf-8" },
     "words-en":       { suffix: ".words.en.json",               r2: "words.en.json" },
     "sponsors":       { suffix: ".sponsors_in_video.json",      r2: "sponsors_in_video.json" },
+    // KORAK 2.9: izvorni ASR prijepis + riječi + provenance ispravka (fix_transcript_opus.js).
+    "diarized-asr":   { suffix: ".diarized.asr.srt",            r2: "diarized.asr.srt", contentType: "text/plain; charset=utf-8" },
+    "words-asr":      { suffix: ".words.asr.json",              r2: "words.asr.json" },
+    "transcript-fix": { suffix: ".transcript_fix.json",         r2: "transcript_fix.json" },
 };
 
 const dir = path.join("storage/output", channel);
