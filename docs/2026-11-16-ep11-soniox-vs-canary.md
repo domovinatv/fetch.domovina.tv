@@ -161,3 +161,39 @@ Samo 8 % cue-ova je unutar 2 s; pomak raste linearno (~10 s po minuti), kao da m
 vrijeme iz duljine teksta, a ne iz zvuka. Canary i Speechmatics: medijan 0,1 s, 100 % unutar 2 s.
 Zaključak: Gemini app je dobar za TEKST, a vremena moraju doći od ASR-a (poravnanje na
 word_ts), nikad iz modela.
+
+## Opus 5.5 ispravlja Canary tekst (bez zvuka, 16.11.)
+
+Pitanje: može li Opus iz samog teksta (Canary + pyannote oznake) i metapodataka epizode (naslov,
+opis, oznake, poglavlja) popraviti prijepis do razine Geminija koji sluša? Subagent (Opus 5.5)
+dobio je SAMO `experiments/2026-11-16-ep11-opus-ispravak/ulaz/` (format `seq [SPEAKER_xx] tekst`,
+bez vremena) i zabranu čitanja ičega drugog; nijedan drugi prijepis. Vratio je isti seq 1–405
+(`izlaz/dio{1,2,3}.txt`); `sastavi.py` vraća originalna Canary vremena, a
+`generate_words_json.js --input-dir …/kanal` daje `words.json` (usidreno 97 % riječi na
+Canary word_ts, original 100 %). Vremena cue-ova: 99 % unutar 2 s od Sonioxa.
+
+Ocjena (`compare_opus.py`): kandidat je „u krivu” kad ga nadglasaju **četiri neovisna**
+prijepisa koja se međusobno slažu (Soniox, Speechmatics, Hydrogen 4, Argon 4), sadržajno.
+
+| | Canary | Canary + Opus |
+|---|---|---|
+| sam protiv 4 slažne reference | 191 | **120** (−37 %) |
+| ispravio / uveo novih / ostalo | | **92 / 21 / 99** |
+| razlika prema Sonioxu / Hydrogenu | 8,9 % / 9,9 % | 7,5 % / 8,1 % |
+| govornici prema Sonioxu (po s) | 99,77 % | 99,82 % |
+
+Za usporedbu, Hydrogen 4 (sluša) je u glasanju 3:1 imao 27, Soniox 12.
+
+- **Što je popravio:** imena i strani naslovi („Kotruljević”, „Paciolija”, „Della mercatura et
+  del mercante perfetto”, „Maalula”), fonetske zapise („mindset”, „mirnodopsko”, „lijeganje”,
+  „itd.”), riječi iz konteksta („klijenti” → „klinci”, „trgovač” → „trubač”, „veselje” →
+  „veslanje”), pozdrav „Hvaljen Isus i Marija” i oznake govornika na mrvicama od jedne riječi.
+- **Što nije mogao:** progutani sadržaj (ime gosta u uvodu, „eksponencijalni rast…”). Pravilno
+  ga nije izmislio.
+- **Novih 21:** dio su artefakti poravnanja (riječ premještena u susjedni cue), a dio stvarne
+  izmjene stila koje pravila zabranjuju: dodano „drago”, „nervni” → „živčani”,
+  „sa odgovornosti” → „s odgovornošću”, „žele” → „željeli”. Opus sklizne u lekturu.
+- **Tokeni:** subagent ukupno **174 695 tokena**, 6 alata, 6 min 53 s (ulaz ~25 k tokena teksta,
+  izlaz ~28 k u tri datoteke; ostatak je ponavljanje konteksta po pozivu alata). Kao jedan
+  `claude -p --tools ''` poziv procjena je ~30 k ulaza + ~28 k izlaza ≈ 60 k po 74 min
+  (nije mjereno). Članak je za usporedbu ~430 k ulaza po epizodi (CLAUDE.md).
