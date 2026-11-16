@@ -151,6 +151,7 @@ Each step is idempotent — checks for existing output before processing. The pi
 | 4 | `transcribe.js` | Whisper.cpp transcription (Metal GPU, hardcoded binary path) |
 | 5 | `transcribe_diarized.js` | pyannote speaker diarization (MPS/Metal) |
 | 6 | `diarize_canary.py` | pyannote diarization — **run LOCALLY on Mac Mini M4 Pro**, NOT Colab (see "Diarization Cost/Performance Note" below) |
+| 2.9 | `fix_transcript_opus.js` | **Opus ispravak prijepisa koji NIJE od Sonioxa** (Canary rezerva, Speechmatics; od 17.11.2026., default ON, `--no-transcript-fix` / `TRANSCRIPT_FIX=0` / `TRANSCRIPT_FIX_TIER2=0`). Izvorni ostaje `{base}.diarized.asr.srt` (+ `.words.asr.json`), kanonski postaje ispravljeni; oba + `transcript_fix.json` idu na CDN. Komadi po 100 cue-ova, `claude -p --tools ''` (nikad `--bare`), rezerva agy → izvorni (non-fatal). ~1,3 k tokena po minuti audija. `isPromotedRefine` (5 kopija) nakon ispravka uspoređuje `.diarized.asr.srt` (`docs/2026-11-16-korak-2-9-opus-ispravak-prijepisa-plan.md`) |
 | 7 | `summarize_gemini.js` | Gemini summarization (Vertex AI) |
 | 8 | `generate_article_gemini.js` | Two-phase article generation (Vertex AI) |
 | 9 | `prepare_rag_combined.js` | RAG chunking (semantic + speaker-aware) + `{base}.segments.jsonl` (1 red = 1 cue kanonskog SRT-a s imenom govornika, za `find_in_transcript` u domovina-rag). Segments prolaz je neovisan o done-cacheu (mtime ulaza), deterministički, NE ide na R2; `--only-segments` / `--rebuild-segments` / `--no-segments` (`docs/data_contract.md` §14) |

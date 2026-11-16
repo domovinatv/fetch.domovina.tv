@@ -116,3 +116,70 @@ susjedni cue samo kad je rečenica presječena. Puni tekst uputa subagenta: tran
 Zadnja rupa (svi ASR-ovi bez kredita) nema rezervu u kodu. Kandidat: agy Gemini (Hydrogen/Argon) koji
 SLUŠA mp3 (16.11.: Hydrogen 4 27 grešaka, Argon 0 ispusta) za tekst + vremena poravnana na… ništa —
 bez ijednog ASR-a nema vremena riječi (Argon SRT kasni do 12 min, `srt_timing.py`). Zasebna odluka.
+
+## Stanje implementacije (16.11. popodne)
+
+**Implementirano, default ON od nightlyja 17.11. 03:00** (i Tier 2 bridge, jer zove `run_pipeline.sh`).
+
+| Što | Gdje |
+|---|---|
+| KORAK 2.9 | `fix_transcript_opus.js` (+ `fix_transcript_opus.test.js`, 10 testova) |
+| blok iza 2.8 | `run_pipeline.sh`: `PRIORITY_SCOPE_ARGS`, `--fresh-days 0` na fast-pathu, non-fatal; `--no-transcript-fix`, `TRANSCRIPT_FIX=0`, `TRANSCRIPT_FIX_TIER2=0`, `TRANSCRIPT_FIX_MAX_FILES` (30), `TRANSCRIPT_FIX_FRESH_DAYS` (3) |
+| words za izvorni | `generate_words_json.js` → `.words.asr.json` uz `.diarized.asr.srt` |
+| CDN | `upload_to_r2.js` (3 nova sufiksa, točno ime), `force_upload.js` targeti `diarized-asr`, `words-asr`, `transcript-fix` |
+| manifest | `canonical_srt.origin` se nakon ispravka računa iz `.diarized.asr.srt`; novo `canonical_srt.transcript_fix` |
+| postavke kanala | `STEP_KEYS.transcript_fix = ["transcript_subtitles"]` |
+| **`isPromotedRefine` (5 kopija)** | nakon ispravka kanonski više nije jednak kosturu → uspoređuje se `.diarized.asr.srt`. Bez toga bi Sortformer (gdje postoji) zasjenio ispravljeni prijepis u 7/8/9 (isti bug kao 25.10.) |
+
+Odstupanja od plana:
+
+- **Kandidat isključuje i `origin = nepoznato`** (npr. HR prijevod u kanonskom kod EN kanala) — Opus ne smije „ispravljati” prijevod.
+- **Ograda „već iskorišteno”:** ako postoje sažetak ili članak, epizoda se preskače (osim `--allow-consumed`). Ispravak bi inače razdvojio članak od prijepisa, a `diarized.srt` je već na CDN-u pod immutable ključem. Posljedica: ako 2.9 u nightlyju potpuno padne (Opus i agy), epizoda ostaje s izvornim prijepisom i ne ispravlja se kasnije sama.
+- Claude prozor zatvoren → **ne odgađa**, nego odmah ide kroz agy (odgoda bi pustila neispravljen tekst u 7+8 i na CDN).
+- Komadi idu **3 paralelno** (`TRANSCRIPT_FIX_PARALLEL`, max 3); agy serijski (jedna sesija `agyfix-s<slot>`).
+- Validacija komada: isti skup seq-ova, duljina teksta 80–125 % izvorne; govornik se mijenja samo na cue-u ≤ 3 riječi i samo na već postojeću oznaku; prazan tekst = izvorni.
+
+### Prvo mjerenje (RdEN7Ny1bV8, ep. 11, 74 min, 405 cue-ova)
+
+`claude -p --model opus --effort medium`, 4 komada, **161 s**, **50 596 ulaznih + 45 210 izlaznih = ~96 k tokena**
+(~$1,30 API-ekvivalent, pretplata). Izlaz je ~1,6× čisti tekst (~28 k) zbog razmišljanja na `medium`.
+Procjena: **~1,3 k tokena po minuti audija**.
+
+Ocjena (`compare_opus.py`, Canary = `.diarized.asr.srt`):
+
+| | Canary | prototip (subagent) | KORAK 2.9 |
+|---|---|---|---|
+| sam protiv 4 slažne reference | 191 | 120 | **133** (−30 %) |
+| ispravio / uveo novih | | 92 / 21 | **64 / 6** |
+| govornici prema Sonioxu | 99,77 % | 99,82 % | 99,79 % |
+
+Pooštreni prompt gotovo ne lektorira (od 6 „novih” dva su artefakt ocjene: dopisano ime gosta iz
+metapodataka u uvodu i stvarni ispravak „eksponencijalencijalni” → „eksponencijalni”), ali ispravlja
+manje od prototipa. `words.json` ispravljenog: usidreno 98,4 % (izvorni 100 %).
+
+CDN provjeren GET-om s `Origin`: `data/RdEN7Ny1bV8/diarized.srt` (ispravljen), `diarized.asr.srt`,
+`words.asr.json`, `transcript_fix.json`; `episode.json` ih navodi.
+
+### `--effort low` na istoj epizodi (16.11.)
+
+| | medium | low |
+|---|---|---|
+| tokeni (ulaz → izlaz) | 50 596 → 45 210 (~96 k) | 50 596 → 33 002 (**~84 k**, −13 %) |
+| vrijeme | 161 s | **108 s** |
+| API-ekvivalent | $1,30 | $0,68 |
+| sam protiv 4 reference | 133 | **128** |
+| ispravio / uveo novih | 64 / 6 | 78 / **15** |
+| words.json usidreno | 98,4 % | 97,6 % |
+
+`low` ispravi više, ali uvodi više lekture („bilo” → „bila”, „svoje” → „sebe”, „neku našu” → „neki naš”).
+Po jedan run svakog, pa je razlika 128 prema 133 unutar šuma. Na disku i CDN-u ostaje `medium`;
+`low` izlaz je bio samo za mjerenje.
+
+### Reobrada 15./16.11. — čeka korisnikovo DA
+
+Po disku (kanonski od 15.11., origin nije Soniox, bez ispravka): **38 epizoda, 2 636 min** — Tier 1
+15.11.: 7 (582 min), Tier 2 15.11.: 11 (599 min), Tier 2 16.11.: 20 (1 455 min). Uz izmjerenih
+~1,3 k tokena/min ≈ **3,4 M tokena**, ~1,5 h rada. Po epizodi:
+`node fix_transcript_opus.js --video-id <ID> --channel <kanal> --fresh-days 0 --allow-consumed`,
+`node generate_words_json.js --channel <kanal> --video-id <ID>`,
+`node force_upload.js --video-id <ID> --channel <kanal> --targets diarized,words,diarized-asr,words-asr,transcript-fix`.
