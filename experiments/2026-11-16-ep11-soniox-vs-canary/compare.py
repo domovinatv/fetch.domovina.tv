@@ -3,11 +3,15 @@ SP=__import__('os').path.dirname(__file__)+'/'
 D='/Users/ms/git/domovinatv/fetch.domovina.tv/storage/output/muzevni_budite/20261114_re_definicija_ante_lucic_nisam_ponosan_vec_sam_zahvalan_sto_sam_hrvat_ep_11_yt_RdEN7Ny1bV8'
 def hms(s):
     h,m,x=s.replace(',','.').split(':'); return int(h)*3600+int(m)*60+float(x)
-S=[(hms(a),hms(b),sp,t) for k,(a,b,sp,t) in sorted(json.load(open(SP+'soniox_ep11_rekonstruirano.json')).items(),key=lambda x:int(x[0]))]
-C=[]
-for blk in open(D+'.wav.canary.diarized.srt').read().strip().split('\n\n'):
-    l=blk.split('\n'); a,b=l[1].split(' --> '); t=' '.join(l[2:]); m=re.match(r'\[(\w+)\]\s*',t)
-    C.append((hms(a),hms(b),m.group(1) if m else '?',t[m.end():] if m else t))
+def srt(path):
+    out=[]
+    for blk in open(path).read().strip().split('\n\n'):
+        l=blk.split('\n'); a,b=l[1].split(' --> '); t=' '.join(l[2:]); m=re.match(r'\[(\w+)\]\s*',t)
+        out.append((hms(a),hms(b),m.group(1) if m else '?',t[m.end():] if m else t))
+    return out
+S=srt(SP+'soniox_ep11.diarized.srt')  # originalni Soniox SRT poslan 12.11. (najava sljedeće ep. odrezana)
+END=S[-1][1]
+C=[c for c in srt(D+'.wav.canary.diarized.srt') if c[0]<END]
 norm=lambda t:re.findall(r"[a-zčćžšđ0-9]+",t.lower())
 def words(cues):
     out=[]
@@ -16,7 +20,7 @@ def words(cues):
         for i,x in enumerate(w): out.append((x,a+(b-a)*i/max(n,1)))
     return out
 SW=words(S)
-CW=[w for w in words(C) if w[1]>=15 and not (2607<=w[1]<2616)]
+CW=words(C)
 txt=lambda c:' '.join(x[3] for x in c)
 def st(cues,name):
     T=txt(cues); w=norm(T)

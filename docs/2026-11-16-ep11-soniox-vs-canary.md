@@ -14,25 +14,26 @@
 
 ## Izvor Soniox strane
 
-Privatni direktorij ad-hoc obrade bio je u scratchpadu sesije `240b2256` i obrisan je; Soniox
-briše transkripciju nakon preuzimanja (`lib/asr/soniox.js`), a WhatsApp ne da skinuti vlastiti
-poslani ZIP. Prijepis je **rekonstruiran iz zapisnika te sesije** (čitala ga je u obliku
-`seq  vrijeme [govornik] tekst`): 371 od 373 cue-a, nedostaju seq 1 (hladni uvod 0–15 s) i
-214 (43:27–43:36), vrijeme na sekundu. Usporedba ta dva raspona izuzima.
-`experiments/2026-11-16-ep11-soniox-vs-canary/` (`compare.py`, rekonstruirani JSON).
+Originalni izlaz iz ZIP-a poslanog Krunoslavu (`~/Downloads/redefinicija_ep11_obrada.zip`):
+`prijepis_s_govornicima.srt` je u `experiments/2026-11-16-ep11-soniox-vs-canary/soniox_ep11.diarized.srt`,
+sirovi Soniox JSON (tokeni s confidence) uz njega, gitignored. Isporučeni SRT završava na 72:55,
+bez najave sljedeće epizode, pa se uspoređuje do tamo. (Prva verzija ove analize koristila je
+rekonstrukciju iz zapisnika sesije 12.11.; brojke s originalom su gotovo iste.)
 
 ## Brojke
 
 | | Soniox | Canary + pyannote |
 |---|---|---|
-| riječi | 10 290 | 10 185 |
-| kraj rečenice (.?!) | 546 | 490 |
-| zarezi | 1 474 | 1 021 |
-| podudarnost riječi (difflib) | 0,93 | |
+| riječi | 10 237 | 10 085 |
+| kraj rečenice (.?!) | 542 | 485 |
+| zarezi | 1 467 | 1 009 |
+| podudarnost riječi (difflib) | 0,931 | |
 | govornici | 2 | 3 |
-| slaganje govornika po sekundi | 98,7 % (3 807 s) | |
+| slaganje govornika po sekundi | 99,8 % (3 870 s) | |
 
 Razlike u riječima (~7 %) su većinom sitne. Bez referentnog prijepisa sudac je jezik, ne zvuk.
+Soniox je nesiguran (confidence < 0,5) na samo 47 od 10 314 riječi (0,5 %); „Paciolija” ima
+0,62–0,93, „Lučić” 1,0.
 
 ## Gdje je Canary lošiji
 
@@ -47,9 +48,8 @@ Razlike u riječima (~7 %) su većinom sitne. Bez referentnog prijepisa sudac je
 
 ## Gdje je Canary + pyannote bolji
 
-- **Najava sljedeće epizode** (72:56–73:39, drugi glas): pyannote je dao zaseban SPEAKER_02,
-  Soniox ju je pripisao gostu. Ipak, i pyannote je dodao 5 kratkih lažnih SPEAKER_02 riječi oko 49:05.
-- Hladni uvod 0–15 s Canary ima (u Soniox rekonstrukciji fali, pa to nije sud o Sonioxu).
+- **Najava sljedeće epizode** (72:56–73:39, drugi glas; u isporučenom SRT-u odrezana, viđeno u
+  rekonstrukciji iz zapisnika): pyannote je dao zaseban SPEAKER_02, Soniox ju je pripisao gostu. Ipak, i pyannote je dodao 5 kratkih lažnih SPEAKER_02 riječi oko 49:05.
 
 ## Presuda
 
