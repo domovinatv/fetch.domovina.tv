@@ -183,3 +183,8 @@ Po disku (kanonski od 15.11., origin nije Soniox, bez ispravka): **38 epizoda, 2
 `node fix_transcript_opus.js --video-id <ID> --channel <kanal> --fresh-days 0 --allow-consumed`,
 `node generate_words_json.js --channel <kanal> --video-id <ID>`,
 `node force_upload.js --video-id <ID> --channel <kanal> --targets diarized,words,diarized-asr,words-asr,transcript-fix`.
+
+**Izvedeno 16.11. 13:15–14:52:** sva 38 ispravljena kroz Opus (0 komada na agy ili izvorniku, 0 djelomičnih),
+7 216 od 18 850 cue-ova promijenjeno, **3,68 M tokena** (1,86 M ulaz + 1,83 M izlaz), 90 min čistog rada.
+Sve na CDN-u (`force_upload.js`, 5 ključeva po epizodi + purge + bundle). 5h prozor 22 → ~85 %,
+tjedni 14 → ~20 %. Log: `automatic/logs/reobrada_2_9_2026-11-16.log`.
