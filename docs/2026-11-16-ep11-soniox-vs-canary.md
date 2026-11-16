@@ -1,4 +1,4 @@
-# re:DEFINICIJA ep. 11: Soniox vs Canary + pyannote, ista epizoda (16.11.2026.)
+# re:DEFINICIJA ep. 11: Soniox vs Canary + pyannote vs Speechmatics, ista epizoda (16.11.2026.)
 
 **Vezano:** [`2026-11-12-reelovi-za-neobjavljenu-epizodu.md`](./2026-11-12-reelovi-za-neobjavljenu-epizodu.md),
 [`2026-11-14-canary-rezerva-modal-pyannote.md`](./2026-11-14-canary-rezerva-modal-pyannote.md),
@@ -57,3 +57,39 @@ Za objavu je Canary + pyannote **upotrebljiv** (sadržaj i govornici su gotovo i
 ispravio je ime iz naslova), ali Soniox je jasno bolji u imenima, stranim riječima i
 interpunkciji, a za istu cijenu. Isplati se Soniox za tekst + pyannote na Modalu za govornike
 (`docs` 16.11. procjena: ~$0,16/h).
+
+## Treći: Speechmatics (enhanced, 16.11.)
+
+`node transcribe_speechmatics.js --file experiments/2026-11-16-ep11-soniox-vs-canary/ep11.mp3`
+(isti MP3 kao Canary, novi ključ): 173 s, **$0,99**, 4 govornika u cijeloj datoteci (2 do 72:55).
+Usporedba sva tri: `compare3.py`, do 72:55 (kraj isporučenog Soniox SRT-a).
+
+Nema referentnog prijepisa, pa je mjera **glasanje 2:1**: Soniox je os poravnanja, regije u kojima
+se bilo koja dva razlikuju; ako se dva slažu, treći je „sam protiv dva”, tj. vjerojatno u krivu.
+Riječi su normalizirane (mala slova, bez interpunkcije).
+
+| | Soniox | Canary + pyannote | Speechmatics |
+|---|---|---|---|
+| riječi | 10 214 | 10 075 | 10 226 |
+| kraj rečenice / zarez | 542 / 1 467 | 485 / 1 009 | 749 / 744 |
+| sam protiv dva: regija (riječi) | **99 (124)** | 275 (356) | 488 (621) |
+| od toga sadržajno (bez poštapalica, funkcijskih riječi, brojki) | **39** | 192 | 282 |
+| cijena ove epizode (1,24 h) | ~$0,15 | ~$0,20 | $0,99 |
+
+Sva tri različita: 234 regije. Međusobna razlika riječi: Soniox–Canary 8,9 %, Soniox–Speechmatics
+11,5 %, Canary–Speechmatics 14,6 %. **Govornici:** sva tri para 99,6–99,8 % po sekundi, tj. jednaki.
+
+Kakve su to greške:
+- **Soniox** (39): uglavnom zapis, ne sluh: „i tako dalje” vs „itd.”, „dobro došli”, „12godišnje”,
+  spojeno „ovoono”, „mindblowing”. Stvarnih je desetak („tore” vs „tor”, „šokiram”).
+  Na nekima su vjerojatno druga dva u krivu („skuha mi” kavu, „nitko ga”).
+- **Canary** (192): fonetski pravopis i krivi oblici: „aleričan”, „svetonazor”, „višestroko”,
+  „klijenti” (klinci), „zahvalna”, „izvan institucionalnog”, plus izgubljeno ime gosta u uvodu.
+- **Speechmatics** (282): krnja imena i riječi („uljević” za Kotruljević, „trgovčević”,
+  „empatiju birati”, „plodonosni”, „fala”) i puno umetnutih poštapalica („a”, „ovaj”, „to”).
+  Poštapalice su možda stvarno izgovorene (doslovniji prijepis), zato nisu u sadržajnom broju.
+  Rečenice su kraće (749 točaka, 744 zareza).
+
+**Presuda:** Soniox > Canary > Speechmatics po tekstu, govornici jednaki. Speechmatics je
+najskuplji (~6× Soniox) i na ovoj epizodi najlošiji po tekstu; nema razloga da bude primarni
+za Tier 2. Ograničenje: jedna epizoda, dva govornika, čist studijski zvuk.

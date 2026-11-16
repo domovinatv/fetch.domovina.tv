@@ -1,0 +1,24 @@
+{
+  "provider": "speechmatics",
+  "api_base": "https://asr.api.speechmatics.com/v2",
+  "job_id": "24k7urn3n6",
+  "submitted_config": {
+    "type": "transcription",
+    "transcription_config": {
+      "language": "hr",
+      "operating_point": "enhanced",
+      "diarization": "speaker",
+      "speaker_diarization_config": {
+        "speaker_sensitivity": 0.5
+      }
+    }
+  },
+  "audio_file": "ep11.mp3",
+  "audio_seconds": 4476,
+  "wall_seconds": 172.9,
+  "realtime_factor": 25.89,
+  "segments": 342,
+  "speakers": 4,
+  "estimated_usd": 0.9947,
+  "generated_at": "2026-11-16T10:27:38.295Z"
+}
