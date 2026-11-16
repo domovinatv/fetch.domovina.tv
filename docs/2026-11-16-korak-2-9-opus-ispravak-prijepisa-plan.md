@@ -27,8 +27,14 @@ eksplicitno dodati.
 
 - Argumenti (Pattern B): `--input-dir`, `--channel`, `--video-id`, `--limit` (30), `--fresh-days`
   (3; pravilo #4, samo naprijed; fast-path 0), `--dry-run`, `--force`.
-- Kandidat: postoji `{base}.wav.canary.diarized.srt` I skeleton `{base}.wav.canary_pyannote.words.json`
-  ili `.canary_solo.words.json` (tj. kanonski je iz Canary rezerve, `lib/asr/canary_skeleton.js`).
+- **Kandidat (proširenje 16.11., korisnik: „maksimalno otporan fallback u svim smjerovima”):**
+  svaki kanonski `{base}.wav.canary.diarized.srt` čiji `canonical.origin` (`lib/processing_manifest.js`
+  `buildManifest`) NE počinje sa `soniox` — dakle Canary rezerva (`canary+pyannote_modal`,
+  `canary_solo`) **i Speechmatics** (`speechmatics…`, Tier 2 primarni i fallback kad Soniox nema
+  kredita). Soniox se ne dira (najtočniji, 12 grešaka; Opus bi dodao lekturu). Provjeri stvarne
+  vrijednosti `origin` za Speechmatics put u manifestu prije pisanja uvjeta.
+  Mjerenje: Speechmatics 282 sadržajne greške (najlošiji), Canary 192 → najveća korist je baš tamo.
+  `transcript_fix.json` bilježi `source_origin`.
   Preskoči ako `{base}.transcript_fix.json` postoji (osim `--force`).
 - Ulaz UVIJEK izvorni: ako nema `.diarized.asr.srt`, prvo `copyFile` kanonski → `.asr.srt`;
   s `--force` čitaj `.asr.srt`, nikad već ispravljeni.
@@ -44,6 +50,11 @@ eksplicitno dodati.
   `seq [SPEAKER_xx] tekst` (bez vremena). Izlaz isti format.
 - Validacija komada: isti skup seq-ova; inače 1 ponovni pokušaj, pa izvorni tekst tog komada
   (`partial: true` u meta).
+- **Rezerva samog ispravka (nikad ne blokira epizodu):** Opus (`claude -p`) → ako je Claude prozor
+  zatvoren ili poziv padne 2× → agy Gemini tekstualno (`lib/agy_tmux.js` `agyJson()`, isti prompt,
+  `TRANSCRIPT_FIX_AGY_MODEL`, default `gemini-4-hydrogen-medium`) → ako ni to ne uspije, izvorni ostaje
+  kanonski i koraci 7+ idu dalje (non-fatal, bez `transcript_fix.json`, pa idući run pokuša opet
+  unutar `--fresh-days`). `transcript_fix.json` `backend` = `claude:opus` / `agy:<model>`.
 - Vremena: iz izvornog SRT-a po seq-u (kao `experiments/2026-11-16-ep11-opus-ispravak/sastavi.py`).
 - Meta `{base}.transcript_fix.json`: model, effort, at, chunks, cues, changed_cues,
   speaker_changes, usage zbroj (input/cache/output), cost_usd iz envelopea.
@@ -92,3 +103,16 @@ susjedni cue samo kad je rečenica presječena. Puni tekst uputa subagenta: tran
 - **Kvota:** ~40 epizoda × ~60–80 k tokena ≈ 2,5–3,2 M Claude tokena. Prije pokretanja reći
   korisniku i provjeriti 5h/tjedni prozor (`docs/claude_subscription_usage_endpoint` memorija).
   Tier 2 dnevno ≈ 20 × 70 k ≈ 1,4 M tokena dodatno; po potrebi `TRANSCRIPT_FIX_TIER2=0`.
+
+## Otpornost ASR lanca (stanje 16.11., korisnikovo pitanje)
+
+| Kvar | Što se događa |
+|---|---|
+| Soniox bez kredita (sad) | 2.7b pada na Speechmatics (novi ključ radi) → 2.9 Opus ispravak |
+| + Speechmatics bez kredita | `asr_failed.json` → 2.8 Canary rezerva (Modal) → 2.9 Opus ispravak |
+| + Modal bez kredita | nema prijepisa: Tier 2 job `failed` („ASR: nema prijepisa”), Tier 1 čeka; Telegram `asr-no-credit` |
+| Claude prozor zatvoren / Claude pada | 2.9 → agy Gemini; inače izvorni ostaje kanonski |
+
+Zadnja rupa (svi ASR-ovi bez kredita) nema rezervu u kodu. Kandidat: agy Gemini (Hydrogen/Argon) koji
+SLUŠA mp3 (16.11.: Hydrogen 4 27 grešaka, Argon 0 ispusta) za tekst + vremena poravnana na… ništa —
+bez ijednog ASR-a nema vremena riječi (Argon SRT kasni do 12 min, `srt_timing.py`). Zasebna odluka.
