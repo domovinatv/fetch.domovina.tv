@@ -93,3 +93,31 @@ Kakve su to greške:
 **Presuda:** Soniox > Canary > Speechmatics po tekstu, govornici jednaki. Speechmatics je
 najskuplji (~6× Soniox) i na ovoj epizodi najlošiji po tekstu; nema razloga da bude primarni
 za Tier 2. Ograničenje: jedna epizoda, dva govornika, čist studijski zvuk.
+
+## Četvrti: Gemini app, Hydrogen 4 (doslovni prijepis, 16.11.)
+
+Korisnik je epizodu dao Gemini appu (model Hydrogen 4) i tražio doslovni prijepis
+(`gemini_hydrogen4_app.md`, Markdown s imenima govornika, **bez vremena**). Skripte:
+`gemini_gaps.py` (ispusti), `compare4.py` (glasanje 3:1), `gemini_speakers.py`.
+
+- **Potpunost:** 10 213 riječi naprema 10 214 kod Sonioxa do odjave. Samo 4 bloka ≥ 6 riječi
+  ispuštena, ukupno **27 riječi** (samoispravci i započete rečenice: „jako čudno kad sam, bilo mi
+  je”, „dobro, to je ono što vidim, provociram”), 0 dodanih. Najava sljedeće epizode je tu,
+  kao zaseban „Dodatni isječak”.
+- **Razlika prema Sonioxu 4,5 %** (Canary 8,9 %, Speechmatics 11,5 %): najbliži Sonioxu.
+- **Glasanje 3:1** (sam protiv tri slažna; sadržajne razlike): Soniox **12**, Gemini **27**,
+  Canary 165, Speechmatics 247. Gemini razlike su uglavnom pravopis spajanja
+  („takoreći”, „napamet”, „bogomdanu”, „dvatri”) i sitni oblici („trpjeti”, „ko”), ne krivo čuto.
+  Kajkavsko „Bumo se nekak snašli, nikdar ni bilo…” zapisao je doslovno.
+- **Govornici:** imena umjesto SPEAKER_xx, slaganje sa Sonioxom po riječi **99,7 %**
+  (66 izmjena govornika naprema 75).
+- **Mana:** nema vremena (ni po rečenici ni po riječi), pa sam ne daje SRT, words.json,
+  screenshotove ni reelse. Moguće rješenje: Gemini tekst poravnati na vremena riječi iz Canaryja
+  (`.wav.canary.word_ts.json`; tekstovi se poklapaju ~91 %). Nije isprobano.
+
+**Dulje epizode (3 h) nisu mjerene.** Iskustvo s Gemini sluhom (2.8, `docs/2026-09-19-…`,
+`docs/2026-10-27-gemini-sluh-pomak-id.md`): pažnja pada pred kraj dugog prozora (prazni
+segmenti, pomak), zato su prozori bili ≤ 10 min. 3 h doslovnog teksta ≈ 30 000 riječi ≈ 40–50 k
+izlaznih tokena u jednom odgovoru, blizu granice izlaza. Rizik je tiho sažimanje ili preskok
+sredine, a bez vremena se to ne vidi. Test: ista provjera (`gemini_gaps.py`) na epizodi od
+2–3 h za koju imamo Canary/Soniox.
