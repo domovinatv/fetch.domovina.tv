@@ -39,7 +39,7 @@ Razlike u riječima (~7 %) su većinom sitne. Bez referentnog prijepisa sudac je
 - **Izgubio ime gosta** u uvodu: Soniox „…podcasta „Redefinicija”. Danas je s nama Ante Lučić,”,
   Canary „…našeg podcast-a Defin, suprug…”. Pozdrav „Hvaljen Isus i Marija” postao je „Hvala /
   vam, Marija” i pola je pripisano gostu.
-- Fonetski pravopis: „Pačolija” (Soniox „Paciolija”, Luca Pacioli; name_audit članka ga je
+- Fonetski pravopis: „Pačolija” (Soniox „Paciolija”, Luca Pacioli; ušlo je u objavljeni članak kao „Luka Pačoli”, name_audit ga je
   označio), „produkt dizajner”, „gikovi”, „itede” umjesto „itd.”, „osamdesettih”, „ljeganje”.
 - Iskrivljene fraze: „za mirisom je” (zamirisao mi), „kartice nalazi” (karte snalazi),
   „klini ti zaspa” (klinci zaspu), „eksponencijalencijalni” (progutao pola rečenice).
