@@ -6,7 +6,8 @@ sve što je u prozoru serije radilo na pretplati, pa je „po ep." gornja granic
 
 | datum | ep. | gotovo | pali | Mag HR | audio h | obrada (prvo slanje → zadnja ep.) | medijan min/ep | Mag kraj | tjedni % | +tjedni | /ep | max 5h % |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-11-14 ⏳ | 20 | 19 | 1 | 17 | 20.6 | 14. 11. 03:35 → 14. 11. 22:04 (18.5 h) | 7.7 | 15. 11. 02:42 | 0 → 7 | 7 | 0.37 | 31 |
+| 2026-11-15 | 10 | 10 | 0 | 10 | 9.2 | 15. 11. 05:26 → 15. 11. 06:48 (1.4 h) | 11.5 | 15. 11. 13:21 | 7 → 8 | 1 | 0.1 | 38 |
+| 2026-11-14 | 20 | 20 | 0 | 19 | 20.6 | 14. 11. 03:35 → 15. 11. 05:38 (26 h) | 7.8 | 15. 11. 10:23 | 0 → 8 | 8 | 0.4 | 38 |
 | 2026-11-13 | 22 | 22 | 0 | 22 | 23.1 | 13. 11. 05:12 → 14. 11. 19:14 (38 h) | 10 | 14. 11. 21:48 | 59 → 4 | 16 | 0.73 | 75 |
 | 2026-11-12 | 19 | 19 | 0 | 19 | 21.3 | 12. 11. 04:14 → 13. 11. 09:21 (29.1 h) | 10.9 | 13. 11. 13:40 | 37 → 68 | 31 | 1.63 | 100 |
 | 2026-11-11 | 20 | 20 | 0 | 20 | 16.7 | 11. 11. 04:46 → 11. 11. 08:59 (4.2 h) | 10 | 11. 11. 13:21 | 26 → 33 | 7 | 0.35 | 49 |
@@ -21,11 +22,7 @@ sve što je u prozoru serije radilo na pretplati, pa je „po ep." gornja granic
 | 2026-11-02 | 21 | 21 | 0 | 0 | 28.3 | 02. 11. 03:32 → 02. 11. 15:39 (12.1 h) | 280 | 02. 11. 15:39 | 17 → 27 | 10 | 0.48 | 77 |
 | 2026-11-01 | 19 | 19 | 0 | 19 | 21.5 | 01. 11. 07:56 → 01. 11. 13:57 (6 h) | 13.6 | 01. 11. 15:34 | 8 → 15 | 7 | 0.37 | 34 |
 
-**Prosjek zaključenih dana (13):** 0.45 boda tjednog/ep, 23.9 ep/dan → **~75 % tjedne kvote tjedno** samo za ovu obradu.
-
-### Padovi 2026-11-14
-
-- `kAIidJK-vVc` — prioritetni download nije uspio (private/anti-bot?) — nema info.json u _unlisted
+**Prosjek zaključenih dana (15):** 0.43 boda tjednog/ep, 22.7 ep/dan → **~69 % tjedne kvote tjedno** samo za ovu obradu.
 
 ### Padovi 2026-11-07
 
