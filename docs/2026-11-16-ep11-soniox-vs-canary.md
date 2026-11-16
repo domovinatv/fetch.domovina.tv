@@ -145,3 +145,19 @@ Isti upit u Gemini appu s modelom Argon 4 (`gemini_argon4_app.md`). Skripte prim
   nema ni u jednom drugom prijepisu. Ili je tiho dobacivanje ili izmišljeno; treba preslušati.
 - Argon je jedini od pet koji je najavu sljedeće epizode označio kao drugu osobu (pyannote ju je
   odvojio kao SPEAKER_02, ali bez imena).
+
+### Argon 4 kao SRT (16.11.)
+
+Korisnik je tražio i SRT od Argona (`gemini_argon4_app.srt.md`, 489 cue-ova). Tekst je cijeli
+(10 629 riječi, govornici imenom), ali **vremena su izmišljena**: zadnji cue počinje u 60:32, a
+epizoda traje 73:39. `srt_timing.py` poravna svaku riječ na Soniox riječ (sirovi tokeni, ms) i
+mjeri pomak početka cue-a:
+
+| stvarno | 0–10 min | 10–20 | 20–30 | 30–40 | 40–50 | 50–60 | 60–70 | 70–73 |
+|---|---|---|---|---|---|---|---|---|
+| pomak (medijan) | −0,8 s | −17 s | −91 s | −209 s | −329 s | −442 s | −640 s | −741 s |
+
+Samo 8 % cue-ova je unutar 2 s; pomak raste linearno (~10 s po minuti), kao da model „broji”
+vrijeme iz duljine teksta, a ne iz zvuka. Canary i Speechmatics: medijan 0,1 s, 100 % unutar 2 s.
+Zaključak: Gemini app je dobar za TEKST, a vremena moraju doći od ASR-a (poravnanje na
+word_ts), nikad iz modela.
