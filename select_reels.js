@@ -65,7 +65,7 @@ const DRY_RUN = args.includes("--dry-run");
 
 const SEG_SUFFIX = ".segments.jsonl";
 const OUT_SUFFIX = ".reels.json";
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 1;   // v1 + opcionalno po reelu: caption, hashtags, cold_open (16.11.2026.)
 const MIN_REEL_SEC = 25;
 const MAX_REEL_SEC = 100;
 const MIN_EPISODE_SEC = 8 * 60;   // kraće epizode su već same po sebi isječak
@@ -198,10 +198,25 @@ iz tog cue-a na kojima kartica treba izaći (npr. kad govornik izgovori ime mjes
 Hook i lower_third idu na početak i ne trebaju anchor. Kartice slijede tijek priče i ne izlaze
 sve odjednom. Ne izmišljaj činjenice koje nisu u prijepisu.
 
+Cold open (opcionalno, "cold_open"): kad najjača izgovorena rečenica reela nije na njegovom početku,
+ona se prikaže PRIJE početka priče (prve 2–8 s), pa video kreće od start_seq. Pravila:
+- rečenica je iz SREDINE ili KRAJA reela (ne iz prvih 10 s), unutar start_seq..end_seq;
+- razumljiva je sama, budi znatiželju i ne otkriva cijelu poantu;
+- "text" je DOSLOVNO prepisan neprekinut niz riječi iz prijepisa (bez ispravljanja), 2–8 s govora;
+  "start_seq"/"end_seq" su cue-ovi u kojima taj niz počinje i završava (najčešće isti cue);
+- ako početak reela već sam nosi udicu, stavi "cold_open": null.
+
+Opis za objavu ("caption") piše se za Instagram/TikTok/Shorts: 2–4 kratka odlomka, 300–600 znakova,
+konkretno o čemu je trenutak (tko, što), bez izmišljanja, završi pitanjem publici; umjereno emojija
+(0–3), bez linkova i bez hashtagova u tekstu. "hashtags": 5–10 oznaka s #, mala slova, bez dijakritika,
+bez razmaka (tema, kanal, gost ako je poznat).
+
 Piši na hrvatskom. Vrati ISKLJUČIVO JSON objekt, bez markdowna:
 {"reels":[{"start_seq":int,"end_seq":int,"title":"do 70 znakova","hook":"do 60 znakova",
 "why":"1–2 rečenice zašto radi","kind":"story|insight|emotion|humor|controversy|practical|faith",
 "score":1-10,"speaker":"ime glavnog govornika","quote":"doslovna rečenica",
+"cold_open":{"start_seq":int,"end_seq":int,"text":"doslovne riječi"}|null,
+"caption":"opis za objavu","hashtags":["#oznaka"],
 "cards":[{"type":"hook|lower_third|context|quote|number|pin|end","at_seq":int,"anchor":"doslovne riječi","text":"...","value":"opcionalno"}]}]}`;
 
 function buildUserMessage(ctx, segs) {
@@ -342,6 +357,59 @@ function anchorSec(words, segs, seq, anchor) {
     return j >= 0 ? cue.w[2 * j] / 1000 : null;
 }
 
+// Cold open: doslovan niz riječi iz sredine/kraja reela koji ide ispred priče (render_reels.js).
+// Vrijeme se čita iz words.json na razini riječi — cue zna trajati 15 s, pa granica cue-a ne valja.
+const COLD_MIN_SEC = 1.5, COLD_MAX_SEC = 10, COLD_MIN_OFFSET = 8;
+const COLD_PAD_START = 0.08, COLD_PAD_END = 0.25;
+
+function coldOpenSpan(co, segs, words, reelStartSeq, reelEndSeq) {
+    // model zna vratiti {start_seq, text:""} umjesto null — to je „nema cold opena”, ne greška
+    if (!co || typeof co !== "object" || !String(co.text || "").trim()) return { span: null };
+    const s0 = Number(co.start_seq), s1 = Number(co.end_seq ?? co.start_seq);
+    if (!words || !words.cues || words.cues.length !== segs.length) return { reason: "nema words.json" };
+    if (!(s0 >= reelStartSeq && s1 <= reelEndSeq && s1 >= s0)) return { reason: `seq ${s0}–${s1} izvan reela` };
+    // tokeni cue-ova s0..s1 s vremenima
+    const toks = [];
+    segs.forEach((seg, i) => {
+        if (seg.seq < s0 || seg.seq > s1) return;
+        const t = seg.text.split(/\s+/).filter(Boolean);
+        const w = words.cues[i] && words.cues[i].w;
+        if (!w || w.length !== t.length * 2) return;
+        t.forEach((x, k) => toks.push({ n: normTok(x), raw: x, start: w[2 * k] / 1000, end: w[2 * k + 1] / 1000 }));
+    });
+    const want = String(co.text || "").split(/\s+/).map(normTok).filter(Boolean);
+    if (!want.length || !toks.length) return { reason: "prazan tekst" };
+    const eq = (i, arr) => arr.every((w, k) => toks[i + k] && toks[i + k].n === w);
+    let a = -1, b = -1;
+    for (let i = 0; i + want.length <= toks.length; i++) if (eq(i, want)) { a = i; b = i + want.length - 1; break; }
+    if (a < 0) {
+        // model zna „ispraviti” riječ usred rečenice: dovoljno da se slože prve i zadnje 3
+        const head = want.slice(0, Math.min(3, want.length)), tail = want.slice(-Math.min(3, want.length));
+        for (let i = 0; i < toks.length && a < 0; i++) if (eq(i, head)) a = i;
+        if (a >= 0) for (let j = toks.length - tail.length; j >= a; j--) if (eq(j, tail)) { b = j + tail.length - 1; break; }
+        const len = b - a + 1;
+        if (a < 0 || b < 0 || len < want.length * 0.6 || len > want.length * 1.6) return { reason: "tekst nije doslovan" };
+    }
+    const span = {
+        start_sec: +(toks[a].start - COLD_PAD_START).toFixed(3),
+        end_sec: +(toks[b].end + COLD_PAD_END).toFixed(3),
+        start_seq: s0, end_seq: s1,
+        text: toks.slice(a, b + 1).map(t => t.raw).join(" "),
+    };
+    return { span };
+}
+
+function normHashtags(list) {
+    if (!Array.isArray(list)) return [];
+    const out = [];
+    for (const h of list) {
+        const t = "#" + String(h || "").replace(/^#+/, "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d").replace(/[^a-z0-9_]/g, "");
+        if (t.length > 2 && !out.includes(t)) out.push(t);
+    }
+    return out.slice(0, 12);
+}
+
 function normalizeReels(raw, segs, words = null) {
     const bySeq = new Map(segs.map(s => [s.seq, s]));
     const rejected = [];
@@ -364,6 +432,19 @@ function normalizeReels(raw, segs, words = null) {
                 return card;
             })
             .sort((x, y) => x.at_sec - y.at_sec);
+        // cold open: mora biti unutar reela, ne na samom početku, 1,5–10 s
+        let coldOpen = null;
+        if (r.cold_open) {
+            const { span, reason } = coldOpenSpan(r.cold_open, segs, words, r.start_seq, r.end_seq);
+            let why = reason;
+            if (span) {
+                const d = span.end_sec - span.start_sec;
+                if (d < COLD_MIN_SEC || d > COLD_MAX_SEC) why = `trajanje ${d.toFixed(1)} s`;
+                else if (span.start_sec - a.start_sec < COLD_MIN_OFFSET) why = "na početku reela";
+                else coldOpen = { ...span, start_sec: Math.max(a.start_sec, span.start_sec), end_sec: Math.min(b.end_sec, span.end_sec) };
+            }
+            if (!coldOpen && why) rejected.push({ title: r.title, reason: `cold open: ${why}` });
+        }
         ok.push({
             start_sec: a.start_sec,
             end_sec: b.end_sec,
@@ -379,6 +460,9 @@ function normalizeReels(raw, segs, words = null) {
             speakers: [...new Set(inRange.map(s => s.speaker || s.speaker_id))],
             quote: r.quote || "",
             cards,
+            ...(coldOpen ? { cold_open: coldOpen } : {}),
+            caption: String(r.caption || "").trim(),
+            hashtags: normHashtags(r.hashtags),
         });
     }
     // Preklapanja: zadrži bolje ocijenjen trenutak
@@ -505,4 +589,4 @@ if (require.main === module) {
     main().catch(err => { console.error(`❌ ${err.stack || err.message}`); process.exit(1); });
 }
 
-module.exports = { dropUnlistedDuplicates, normalizeReels, keepRendered, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };
+module.exports = { dropUnlistedDuplicates, normalizeReels, coldOpenSpan, normHashtags, keepRendered, parseJsonLoose, buildUserMessage, extractVideoId, anchorSec, normTok };

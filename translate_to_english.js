@@ -844,6 +844,9 @@ function reelsTextPayload(doc) {
             ...Object.fromEntries(REEL_TEXT_KEYS.map((k) => [k, r[k] || ""])),
             speakers: r.speakers || [],
             cards: (r.cards || []).map((c) => Object.fromEntries(REEL_CARD_KEYS.map((k) => [k, c[k] || ""]))),
+            // od 16.11.2026.; samo kad postoje, inače bi se promijenio otisak svih starih reels.json
+            ...(r.caption ? { caption: r.caption } : {}),
+            ...(r.hashtags && r.hashtags.length ? { hashtags: r.hashtags } : {}),
         })),
     };
 }
@@ -867,6 +870,9 @@ async function translateReels(croatian, dryRun, { nameMap = new Map() } = {}) {
             if (k === "speaker" && nameMap.has(r.speaker)) { r.speaker = nameMap.get(r.speaker); continue; }
             specs.push({ obj: r, key: k, name: `r${i}_${k}` });
         }
+        // opis za objavu i oznake (od 16.11.2026.); cold_open.text je izgovoreni HR, ne prevodi se
+        if (r.caption) specs.push({ obj: r, key: "caption", name: `r${i}_caption` });
+        if (Array.isArray(r.hashtags) && r.hashtags.length) specs.push({ obj: r, key: "hashtags", name: `r${i}_hashtags` });
         if (Array.isArray(r.speakers) && r.speakers.some((n) => !nameMap.has(n))) {
             specs.push({ obj: r, key: "speakers", name: `r${i}_speakers` });
         }

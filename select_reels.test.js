@@ -88,3 +88,52 @@ test("ponovni izbor čuva izrenderirane reelove i njihov rang", () => {
     // bez prethodnog rendera izbor prolazi netaknut
     assert.deepEqual(keepRendered(null, fresh, [], 8).reels, fresh);
 });
+
+// ─── cold open, caption, hashtags (16.11.2026.) ───────────────────
+const { normHashtags } = require("./select_reels");
+const { coldOpenRange, shiftForColdOpen } = require("./render_reels");
+
+test("cold open se sidri na riječi iz words.json, s malim odmakom", () => {
+    const { reels, rejected } = normalizeReels({ reels: [{ start_seq: 2, end_seq: 4, title: "A", score: 8,
+        cold_open: { start_seq: 3, end_seq: 3, text: "je Čakovec" }, caption: "  Opis.  ", hashtags: ["Čakovec", "#podcast", "#podcast"] }] }, segs, words);
+    assert.deepEqual(rejected, []);
+    assert.deepEqual(reels[0].cold_open, { start_sec: 49.92, end_sec: 59.25, start_seq: 3, end_seq: 3, text: "je Čakovec" });
+    assert.equal(reels[0].caption, "Opis.");
+    assert.deepEqual(reels[0].hashtags, ["#cakovec", "#podcast"]);
+});
+
+test("cold open na početku reela, izvan reela ili bez words.json otpada uz razlog", () => {
+    const run = (co, w = words) => normalizeReels({ reels: [{ start_seq: 2, end_seq: 4, title: "A", score: 8, cold_open: co }] }, segs, w);
+    let r = run({ start_seq: 2, end_seq: 2, text: "Riječ2 išla" });
+    assert.equal(r.reels[0].cold_open, undefined);
+    assert.match(r.rejected[0].reason, /na početku reela/);
+    r = run({ start_seq: 5, end_seq: 5, text: "je Čakovec" });
+    assert.match(r.rejected[0].reason, /izvan reela/);
+    r = run({ start_seq: 3, end_seq: 3, text: "nešto sasvim drugo ovdje" });
+    assert.match(r.rejected[0].reason, /nije doslovan/);
+    r = run({ start_seq: 3, end_seq: 3, text: "je Čakovec" }, null);
+    assert.match(r.rejected[0].reason, /words\.json/);
+    r = run({ start_seq: 3, text: "" });
+    assert.deepEqual(r.rejected, []);
+    r = run(null);
+    assert.deepEqual(r.rejected, []);
+});
+
+test("normHashtags: #, mala slova, bez dijakritika i razmaka, bez duplikata", () => {
+    assert.deepEqual(normHashtags(["Đakovo", "##Žena moja", "a", null]), ["#dakovo", "#zenamoja"]);
+    assert.deepEqual(normHashtags("nije niz"), []);
+});
+
+test("render: cold open ide na 0, priča i kartice se pomiču za njegovo trajanje", () => {
+    const reel = { start_sec: 20, end_sec: 80, cold_open: { start_sec: 49.92, end_sec: 59.25 },
+        cards: [{ type: "hook", at_sec: 0 }, { type: "pin", at_sec: 35 }, { type: "end", at_sec: 55 }] };
+    const co = coldOpenRange(reel, 19.88, 60.57);
+    assert.deepEqual(co, { a: 30.04, b: 39.37, len: 9.33 });
+    const w = [{ text: "x", start: 1, end: 2 }, { text: "je", start: 30.12, end: 34.12 }, { text: "Čakovec", start: 35.12, end: 39.12 }];
+    const out = shiftForColdOpen(reel, w, co);
+    assert.deepEqual(out.words.slice(0, 2).map(x => [x.text, x.start]), [["je", 0.08], ["Čakovec", 5.08]]);
+    assert.equal(out.words[2].start, 10.33);   // priča počinje iza cold opena
+    assert.deepEqual(out.reel.cards.map(c => c.at_sec), [0, 44.33, 55]);
+    assert.equal(coldOpenRange({ start_sec: 0 }, 0, 10), null);
+    assert.deepEqual(shiftForColdOpen(reel, w, null).words, w);
+});

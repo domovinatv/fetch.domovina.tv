@@ -151,7 +151,9 @@ function brandStamp(brand) {
 }
 
 function renderFingerprint(reel, brand) {
-    return sha(JSON.stringify([RENDER_VERSION, reel.start_sec, reel.end_sec, reel.cards, reel.hook, brandStamp(brand)])).slice(0, 16);
+    // cold_open samo kad postoji: reelovi bez njega zadržavaju stari otisak (nema masovnog re-rendera)
+    const extra = reel.cold_open && COLD_OPEN_ON ? [[reel.cold_open.start_sec, reel.cold_open.end_sec]] : [];
+    return sha(JSON.stringify([RENDER_VERSION, reel.start_sec, reel.end_sec, reel.cards, reel.hook, brandStamp(brand), ...extra])).slice(0, 16);
 }
 
 // Riječi reela iz segments.jsonl + words.json (cue-ovi 1:1, tokeni = text.split)
@@ -183,11 +185,38 @@ function localVideo(ep) {
 // ─── render jednog reela ───────────────────────────────────────────
 // Koraci su odvojene funkcije jer ih dijeli i premium put (render_reel_premium.js).
 
+// Cold open: rečenica iz sredine reela ide ispred priče, s kratkim zatamnjenjem između.
+const COLD_FADE = 0.25;
+const COLD_OPEN_ON = process.env.REELS_COLD_OPEN !== "0";   // REELS_COLD_OPEN=0 gasi (reel bez cold opena)
+
+/** Granice cold opena relativno na isječak (r_s) ili null. */
+function coldOpenRange(reel, r_s, dur) {
+    const co = reel.cold_open;
+    if (!co || !(co.end_sec > co.start_sec)) return null;
+    const a = Math.max(0, co.start_sec - r_s), b = Math.min(dur, co.end_sec - r_s);
+    return b - a >= 1 ? { a: +a.toFixed(3), b: +b.toFixed(3), len: +(b - a).toFixed(3) } : null;
+}
+
+/**
+ * Riječi i kartice reela s cold openom ispred: riječi cold opena idu na 0, ostalo se pomiče
+ * za njegovo trajanje. Hook i end ostaju (hook stoji preko cold opena, end na kraju).
+ */
+function shiftForColdOpen(reel, words, co) {
+    if (!co) return { reel, words };
+    const coWords = words.filter((w) => w.start >= co.a - 0.05 && w.end <= co.b + 0.05)
+        .map((w) => ({ ...w, start: +(w.start - co.a).toFixed(3), end: +(w.end - co.a).toFixed(3) }));
+    const main = words.map((w) => ({ ...w, start: +(w.start + co.len).toFixed(3), end: +(w.end + co.len).toFixed(3) }));
+    const cards = (reel.cards || []).map((c) => (c.type === "hook" || c.type === "end" ? c : { ...c, at_sec: +((c.at_sec || 0) + co.len).toFixed(2) }));
+    return { reel: { ...reel, cards }, words: [...coWords, ...main] };
+}
+
 /**
  * Isječak (1080p, -g 25) u {work}/public/input-video.mp4 + lica u {work}/faces.json.
  * `tail` (s) produlji isječak iza zadnje riječi uz stišan zvuk (premium: mjesto za kraj).
+ * `coldOpen` (iz coldOpenRange) zalijepi taj dio isječka ispred, uz zatamnjenje; vraćeni
+ * `dur` je tada ukupno trajanje, `coLen` trajanje cold opena.
  */
-function prepareClip(ep, reel, work, { tail = 0 } = {}) {
+function prepareClip(ep, reel, work, { tail = 0, coldOpen = false } = {}) {
     fs.rmSync(work, { recursive: true, force: true });
     const pub = path.join(work, "public");
     fs.mkdirSync(pub, { recursive: true });
@@ -210,10 +239,28 @@ function prepareClip(ep, reel, work, { tail = 0 } = {}) {
         off = r_s - a;
     }
     const input = path.join(pub, "input-video.mp4");
+    const co = coldOpen ? coldOpenRange(reel, r_s, dur) : null;
+    const mainOut = co ? path.join(work, "main.mp4") : input;
     run("ffmpeg", ["-y", "-loglevel", "error", "-ss", off.toFixed(3), "-i", src, "-t", dur.toFixed(3),
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-g", "25", "-pix_fmt", "yuv420p",
         ...(tail > 0 ? ["-af", `afade=t=out:st=${(dur - tail - 0.2).toFixed(3)}:d=1.2`] : []),
-        "-c:a", "aac", "-b:a", "160k", input]);
+        "-c:a", "aac", "-b:a", "160k", mainOut]);
+    let total = dur;
+    if (co) {
+        // [cold open → zatamnjenje] + [priča iz zatamnjenja]; oba iz istog isječka, pa isti format
+        const f = COLD_FADE, ce = co.len;
+        const fc = [
+            `[0:v]trim=start=${co.a}:end=${co.b},setpts=PTS-STARTPTS,fade=t=out:st=${(ce - f).toFixed(3)}:d=${f}[cv]`,
+            `[0:a]atrim=start=${co.a}:end=${co.b},asetpts=PTS-STARTPTS,afade=t=out:st=${(ce - 0.15).toFixed(3)}:d=0.15[ca]`,
+            `[0:v]setpts=PTS-STARTPTS,fade=t=in:st=0:d=${f}[mv]`,
+            `[0:a]asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.12[ma]`,
+            `[cv][ca][mv][ma]concat=n=2:v=1:a=1[v][a]`,
+        ].join(";");
+        run("ffmpeg", ["-y", "-loglevel", "error", "-i", mainOut, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-g", "25", "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "160k", input]);
+        total = +probe(input).dur.toFixed(3);
+    }
     const pr = probe(input);
     if (pr.h < 720) throw new Error(`isječak je ${pr.w}×${pr.h}, treba ≥720p`);
     if (Math.abs(pr.w / pr.h - 16 / 9) > 0.05) throw new Error(`omjer ${pr.w}×${pr.h} nije 16:9 (raspored pretpostavlja 16:9)`);
@@ -221,7 +268,7 @@ function prepareClip(ep, reel, work, { tail = 0 } = {}) {
     // 2. lica
     const facesPath = path.join(work, "faces.json");
     run(PY, [path.join(ROOT, "tools", "hyperframes_reel", "face_track.py"), input, facesPath], { cwd: ROOT });
-    return { pub, dur, r_s, source: local ? "local" : "youtube", faces: readJson(facesPath) };
+    return { pub, dur: total, r_s, source: local ? "local" : "youtube", faces: readJson(facesPath), co };
 }
 
 /** `hyperframes check` + snapshot u trenucima `at` (s) → jedna JPG ploča. Vraća put ploče ili null. */
@@ -250,12 +297,13 @@ function renderVideo(pub, work) {
 function renderOne(ep, info, reel, brand) {
     const work = path.join(WORK_ROOT, `${ep.vid}_${reel.rank}`);
     const t0 = Date.now();
-    const { pub, dur, r_s, source, faces } = prepareClip(ep, reel, work);
+    const { pub, dur, r_s, source, faces, co } = prepareClip(ep, reel, work, { coldOpen: COLD_OPEN_ON });
+    const shifted = shiftForColdOpen(reel, reelWords(ep, reel, r_s), co);
 
     // 3. kompozicija
     const comp = preparePublic(pub, {
-        reel, dur, debug: DEBUG, brand,
-        words: reelWords(ep, reel, r_s),
+        reel: shifted.reel, dur, debug: DEBUG, brand,
+        words: shifted.words,
         faces,
         videoId: ep.vid,
         title: info.title,
@@ -290,6 +338,7 @@ function renderOne(ep, info, reel, brand) {
         source,
         clip_start_sec: +r_s.toFixed(3),
         duration_sec: dur,
+        ...(co ? { cold_open_sec: co.len } : {}),
         cards: comp.cards.map((c) => ({ type: c.type, start: c.start, dur: c.dur })),
         file: path.basename(mp4),
         bytes: fs.statSync(mp4).size,
@@ -553,4 +602,4 @@ if (require.main === module) {
     main().catch((e) => { console.error(`❌ ${e.stack || e.message}`); process.exit(1); });
 }
 
-module.exports = { renderFingerprint, reelWords, loadBrand, prepareClip, storyboard, renderVideo, run, readJson, probe, WORK_ROOT, HF, NPX };
+module.exports = { renderFingerprint, reelWords, coldOpenRange, shiftForColdOpen, loadBrand, prepareClip, storyboard, renderVideo, run, readJson, probe, WORK_ROOT, HF, NPX };

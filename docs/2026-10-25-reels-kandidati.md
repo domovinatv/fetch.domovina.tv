@@ -353,3 +353,40 @@ i RAG chunkovi ep. 1–4 od 24.10. vjerojatno su pisani iz Sortformer SRT-a** (o
 Ručni izbor + `render_reels.js --render-only` nad privatnim `--input-dir`, bez objave
 (re:DEFINICIJA ep. 11, unlisted do premijere). Tijek, zamka `quote` kartice (uvijek
 potpisuje govornika reela) i zašto ne kroz red: `docs/2026-11-12-reelovi-za-neobjavljenu-epizodu.md`.
+
+## Opis za objavu, hashtagovi i cold open (16.11.2026.)
+
+Povod: vanjski „produkcijski plan” za ep. 11 re:DEFINICIJE (`RdEN7Ny1bV8`, Ante Lučić) s 8
+isječaka. Usporedba s našim `reels.json`: poklapanje 4/8 trenutaka (razlika je u rasponu
+varijacije između dva runa, ne kvaliteti), njegova vremena kasne ~18 % (do 12 min pri kraju)
+i dva isječka po sidrima traju ~2:25. Neupotrebljiv kao ulaz za rez, ali je imao dvije
+stvari koje generator nije: **opis za objavu s hashtagovima** i **composite hook** (najjača
+rečenica iz sredine ide na prve sekunde). Obje su sad u istom LLM pozivu 9.9, samo naprijed.
+
+Nova polja po reelu u `reels.json` (schema ostaje `version: 1`, polja su opcionalna):
+
+```json
+"caption": "2–4 kratka odlomka, 300–600 znakova, završava pitanjem publici",
+"hashtags": ["#odgoj", "#antelucic", "#redefinicija"],
+"cold_open": { "start_sec": 3492.2, "end_sec": 3496.4, "start_seq": 320, "end_seq": 320,
+               "text": "Pet nula ne znači da si ti u svemu dobar…" }
+```
+
+- **cold_open** model vraća kao `start_seq`/`end_seq` + DOSLOVAN tekst; vrijeme se čita iz
+  `words.json` na razini riječi (−0,08 s / +0,25 s), jer cue zna trajati 15 s. Ako tekst nije
+  doslovan, prve i zadnje 3 riječi moraju se složiti (model zna „ispraviti” ASR riječ).
+  Odbacuje se (`rejected`, razlog `cold open: …`) kad je izvan reela, u prvih 8 s reela,
+  kraći od 1,5 s ili dulji od 10 s, ili nema `words.json`. Prazan `text` = nema cold opena.
+- **hashtags** se normaliziraju: `#`, mala slova, bez dijakritika i razmaka, max 12.
+- **Render** (`render_reels.js`): cold open se reže iz istog isječka, pa ide `[cold open →
+  zatamnjenje 0,25 s] + [priča iz zatamnjenja]` (ffmpeg concat, jedan prolaz). Titl cold opena
+  počinje na 0, riječi i usidrene kartice priče pomiču se za trajanje cold opena; hook kartica
+  stoji preko cold opena. `render.cold_open_sec` u reels.json. Otisak uključuje cold open
+  SAMO kad postoji, pa stari reelovi ne idu u masovni re-render. `REELS_COLD_OPEN=0` gasi.
+- **EN** (`translate_to_english.js`): `caption` i `hashtags` se prevode; u otisak izvora
+  ulaze samo kad postoje (inače bi svi postojeći `reels.en.json` zastarjeli). `cold_open.text`
+  je izgovoreni HR i ne prevodi se.
+- Mjerenje (ep. 11, Opus): 37,5k in / 12,2k out (prije 37k / 10,9k), 107 s. 7/8 reelova dobilo
+  cold open (2,7–4,8 s, jedan 1,6 s). Render s cold openom: 146 s / 40 MB (82 s reel), 100 s /
+  29 MB (52 s reel). Proba je rađena na kopiji epizode u scratchpadu: objavljeni reels.json i
+  reelovi ep. 11 nisu dirani.
