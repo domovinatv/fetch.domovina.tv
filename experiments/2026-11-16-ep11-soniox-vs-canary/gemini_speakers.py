@@ -3,7 +3,10 @@
 import os,re,difflib,collections
 E=os.path.dirname(os.path.abspath(__file__))
 exec(open(f'{E}/compare3.py').read().split("print('== osnovno")[0])
-g=open(f'{E}/gemini_hydrogen4_app.md').read().split('### Dodatni isječak')[0]
+GF=os.environ.get('GEMINI_FILE','gemini_hydrogen4_app.md')
+g=open(f'{E}/{GF}').read()
+g=re.split(r'^.*(?:### Dodatni isječak|\*\*\[Najava iduće).*$',g,flags=re.M)[0]   # najava sljedeće ep. nije u Soniox SRT-u
+g=re.sub(r'\*\*\[[^\]]*\]\*\*','',g)                            # **[Uvodni isječak]** i sl.
 GW=[];GL=[];cur=None
 for part in re.split(r'(\*\*[^*]+:\*\*)',g):
     m=re.match(r'\*\*([^*]+):\*\*',part)

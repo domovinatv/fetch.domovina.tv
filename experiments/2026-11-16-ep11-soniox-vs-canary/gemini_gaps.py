@@ -4,8 +4,10 @@ Soniox (os) i potvrđeno Canaryjem + Speechmaticsom (ako i oni imaju te riječi,
 import re,difflib,os,json
 E=os.path.dirname(os.path.abspath(__file__))
 exec(open(f'{E}/compare3.py').read().split("print('== osnovno")[0])   # SYS, T, K, k
-g=open(f'{E}/gemini_hydrogen4_app.md').read()
-g=g.split('### Dodatni isječak')[0]                       # najava sljedeće ep. nije u Soniox SRT-u
+GF=os.environ.get('GEMINI_FILE','gemini_hydrogen4_app.md')
+g=open(f'{E}/{GF}').read()
+g=re.split(r'^.*(?:### Dodatni isječak|\*\*\[Najava iduće).*$',g,flags=re.M)[0]   # najava sljedeće ep. nije u Soniox SRT-u
+g=re.sub(r'\*\*\[[^\]]*\]\*\*','',g)                            # **[Uvodni isječak]** i sl.
 g=re.sub(r'\*\*[^*]+:\*\*',' ',g); g=re.sub(r'^#.*$','',g,flags=re.M)
 G=[k(w) for w in g.split() if k(w)]
 print('Gemini riječi (do odjave):',len(G),' Soniox:',len(K['Soniox']))

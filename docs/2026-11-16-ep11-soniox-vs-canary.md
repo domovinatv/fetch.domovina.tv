@@ -121,3 +121,27 @@ segmenti, pomak), zato su prozori bili ≤ 10 min. 3 h doslovnog teksta ≈ 30 0
 izlaznih tokena u jednom odgovoru, blizu granice izlaza. Rizik je tiho sažimanje ili preskok
 sredine, a bez vremena se to ne vidi. Test: ista provjera (`gemini_gaps.py`) na epizodi od
 2–3 h za koju imamo Canary/Soniox.
+
+## Peti: Gemini app, Argon 4 (16.11.)
+
+Isti upit u Gemini appu s modelom Argon 4 (`gemini_argon4_app.md`). Skripte primaju
+`GEMINI_FILE=<datoteka>` (default Hydrogen).
+
+| | Hydrogen 4 | Argon 4 |
+|---|---|---|
+| riječi do odjave (Soniox 10 214) | 10 213 | 10 537 |
+| ispušteni blokovi ≥ 6 riječi | 4 (27 riječi) | **0** |
+| razlika prema Sonioxu | 4,5 % | 7,1 % |
+| sam protiv tri (sadržajno) | 27 | 46 |
+| govornici prema Sonioxu, po riječi | 99,70 % | **99,93 %** |
+| najava sljedeće epizode | pripisana gostu | **zaseban govornik („Gost (Svećenik)”)** |
+
+- Argon je **doslovniji**: zadržava poštapalice („ovaj”, „je l'”), zato ima više riječi i veću
+  razliku prema Sonioxu (koji ih čisti). Uz Argon u glasanju Speechmatics pada s 247 na 219
+  sadržajnih „sam protiv svih”, tj. dio Speechmaticsovih „umetnutih” poštapalica stvarno je izgovoren.
+- Njegovih 46 „sadržajnih” razlika uglavnom su „je l'” (rastavljeno pa ga filtar poštapalica ne
+  hvata) i artefakti poravnanja („razmjenjuju informacije”, „etiketa” postoje i u Canaryju i
+  Speechmaticsu). Stvarno sporno: ubacivanje voditelja „Četiri, pet firmi...” oko 02:14, kojeg
+  nema ni u jednom drugom prijepisu. Ili je tiho dobacivanje ili izmišljeno; treba preslušati.
+- Argon je jedini od pet koji je najavu sljedeće epizode označio kao drugu osobu (pyannote ju je
+  odvojio kao SPEAKER_02, ali bez imena).
