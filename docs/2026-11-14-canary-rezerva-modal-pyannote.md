@@ -95,11 +95,23 @@ Zamka 14.11.: report broji samo jobove s `created_at` između 03:00 i kraja nigh
 Ručno vraćeni jobovi (UPDATE u 05:12) ispadnu iz te serije, pa je report za taj dan javio
 „0 s člankom na CDN-u” iako članci postoje. Normalni dani to nemaju.
 
+## Provjera 15. i 16.11.
+
+- **Nightly 15.11.** (kraj 05:28): 8 Tier 1 epizoda kroz `🛟 Canary rezerva (canary_pyannote)`, među
+  njima sve 4 zaostale s 14.11. (`Iyrgbzw_cMI`, `kGDNEWqpFC0`, `xBlx6hd71Ew`, `wuXklBUYCBI`); svih 8
+  ima `article.json` na CDN-u. Uzrok u logu: Speechmatics 403 na sva 3 ključa.
+- **Nightly 16.11.** (kraj 03:24): 0 novih Tier 1 WAV-ova. Jedina nova epizoda na listama (Ora et
+  Labora `WMRZoAFi0Sg`, i `kqD6vhlR7zU` od 15.11.) preskočena je jer je vlasnik povukao kanal u
+  postavkama kanala — namjerno, ne rupa.
+- **Tier 2** od 13.11.: 64 joba `done` kroz canary, svih 64 članaka na CDN-u (200). Failed: 4 anti-bot
+  downloada i `E0AILEwW550` (reprocess starog WAV-a, 14-dnevna ograda).
+- Telegram `asr-no-credit` radi (zadnji 16.11. 02:20 UTC, ograda 12 h). Report 15.11. poslan 13:23
+  s redom **Modal** (Canary 15 ep., pyannote 19 ep., ≈ $1.00) i **Canary rezerva** (19 ep.).
+- Oba nightlyja: `audit_pipeline.js` exit 1 (disk↔CDN drift), ne ruši run.
+
 ## Otvoreno
 
-- Nightly 15.11. 03:00 treba promovirati 4 Tier 1 epizode s 14.11. (`Iyrgbzw_cMI`,
-  `kGDNEWqpFC0`, `xBlx6hd71Ew`, `wuXklBUYCBI`) kroz Canary rezervu, u istom prolazu.
-- Prvi stvarni Telegram alert `asr-no-credit` (`lib/notify_telegram.js`) još nije viđen.
+- Modal krediti: ~$1/dan po reportu 15.11. — provjeriti saldo prije ~19.11.
 - Modal krediti $9,73 (14.11.) ≈ 5 dana; korisnik kaže da je Modal kao trošak ok.
 - agy nudi `gemini-4-hydrogen-*`; Tier 2 i EN su još na `gemini-3.8-flash-low`. A/B prije
   zamjene (vrijeme, kvota, vjernost) — Argon je imao zaseban malen tjedni limit.
