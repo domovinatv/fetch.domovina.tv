@@ -117,6 +117,37 @@ Zamke dodane ovim krugom:
 7. **WhatsApp:** Tomislav piše s LID-a `239388793540774@lid`; `list_messages`
    po broju telefona ne nalazi nove poruke — traži po `chat_jid` ili `query`.
 
+## Treći krug (16.11.2026.): Varaždin, dvije snimke
+
+Biskup Božo Radoš (11 min) i predavanje Vide Drenški (52 min), obje od 14.11.,
+stigle na isti Drive folder. **Od drugog kruga promijenio se tok:** Vertex je
+DEPRECATED (29.10.), Gemini sluh ugašen (28.10.), pa nema ni Gemini refinea ni
+Gemini verzije članka. Ukupno ~15 min zid-sata, oba ID-a paralelno.
+
+```bash
+node transcribe_soniox.js --file $R/kanal/{base}.wav            # Soniox → fallback Speechmatics sam
+node refine_diarized_gemini.js --input-dir $R --file <wav> \
+     --skeleton speechmatics --no-gemini --promote --limit 1     # 0 poziva, samo promocija
+GEMINI_BACKEND=claude node summarize_gemini.js        --input-dir $R --video-id <ID>
+GEMINI_BACKEND=claude node generate_article_gemini.js --input-dir $R --video-id <ID>
+node tools/srt_to_transcript_md.js <diarized.srt> out.md "Naslov" --name SPEAKER_00="Ime"
+```
+
+| Korak | 11 min | 52 min |
+|---|---|---|
+| Speechmatics (fallback) | ~$0,15 | ~$0,69 |
+| Opus sažetak + članak (pretplata, ekviv.) | ~$0,35 | ~$0,95 |
+
+Zamke ovog kruga:
+
+8. **Soniox je bio bez kredita** (`organization_balance_exhausted`); fallback na
+   Speechmatics radi automatski, ali `--skeleton` za promociju tada mora biti
+   `speechmatics` (nema `.soniox.words.json` ni pyannoteAI hibrida).
+9. Predavanje s jednim govornikom: Speechmatics dade 1 govornika, `--name
+   SPEAKER_00=…` u prijepisu je dovoljan; `name_audit` prazan.
+10. Isporuka: mapa `<Ime> - Varazdin 2026 - obrada` s tri `.docx` (Prijepis,
+    Sazetak, Clanak) → `rclone copy --exclude "*.md" --drive-import-formats docx`.
+
 ## Otvoreno
 
 - Nema `fetch.js --local-audio` ulaza; za aplikaciju za bilješke to bi bio
