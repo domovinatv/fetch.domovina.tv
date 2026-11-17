@@ -1,0 +1,6162 @@
+[
+{
+"id": "w0",
+"text": "Da.",
+"start": 0.17,
+"end": 0.35,
+"spk": "K"
+},
+{
+"id": "w1",
+"text": "Dakle,",
+"start": 1.13,
+"end": 1.31,
+"spk": "K"
+},
+{
+"id": "w2",
+"text": "spomenuli",
+"start": 1.37,
+"end": 1.67,
+"spk": "K"
+},
+{
+"id": "w3",
+"text": "smo",
+"start": 1.73,
+"end": 1.85,
+"spk": "K"
+},
+{
+"id": "w4",
+"text": "taj",
+"start": 1.91,
+"end": 1.97,
+"spk": "K"
+},
+{
+"id": "w5",
+"text": "pogled,",
+"start": 2.09,
+"end": 2.27,
+"spk": "K"
+},
+{
+"id": "w6",
+"text": "dakle,",
+"start": 2.75,
+"end": 3.05,
+"spk": "K"
+},
+{
+"id": "w7",
+"text": "na",
+"start": 3.29,
+"end": 3.35,
+"spk": "K"
+},
+{
+"id": "w8",
+"text": "uspjeh,",
+"start": 3.53,
+"end": 3.89,
+"spk": "K"
+},
+{
+"id": "w9",
+"text": "odnosno",
+"start": 3.89,
+"end": 4.19,
+"spk": "K"
+},
+{
+"id": "w10",
+"text": "neuspjeh",
+"start": 4.25,
+"end": 4.67,
+"spk": "K"
+},
+{
+"id": "w11",
+"text": "u",
+"start": 4.73,
+"end": 4.79,
+"spk": "K"
+},
+{
+"id": "w12",
+"text": "Hrvatskoj,",
+"start": 4.85,
+"end": 5.27,
+"spk": "K"
+},
+{
+"id": "w13",
+"text": "ali",
+"start": 6.23,
+"end": 6.29,
+"spk": "K"
+},
+{
+"id": "w14",
+"text": "imamo",
+"start": 6.41,
+"end": 6.65,
+"spk": "K"
+},
+{
+"id": "w15",
+"text": "tu",
+"start": 6.71,
+"end": 6.77,
+"spk": "K"
+},
+{
+"id": "w16",
+"text": "i",
+"start": 6.83,
+"end": 6.89,
+"spk": "K"
+},
+{
+"id": "w17",
+"text": "priču,",
+"start": 7.01,
+"end": 7.55,
+"spk": "K"
+},
+{
+"id": "w18",
+"text": "dakle,",
+"start": 7.67,
+"end": 8.03,
+"spk": "K"
+},
+{
+"id": "w19",
+"text": "da",
+"start": 8.51,
+"end": 8.57,
+"spk": "K"
+},
+{
+"id": "w20",
+"text": "ljudi",
+"start": 8.75,
+"end": 8.99,
+"spk": "K"
+},
+{
+"id": "w21",
+"text": "odbijaju",
+"start": 9.17,
+"end": 9.71,
+"spk": "K"
+},
+{
+"id": "w22",
+"text": "promijeniti",
+"start": 10.19,
+"end": 10.67,
+"spk": "K"
+},
+{
+"id": "w23",
+"text": "posao,",
+"start": 10.85,
+"end": 11.21,
+"spk": "K"
+},
+{
+"id": "w24",
+"text": "posao",
+"start": 11.57,
+"end": 11.87,
+"spk": "K"
+},
+{
+"id": "w25",
+"text": "koji",
+"start": 11.99,
+"end": 12.05,
+"spk": "K"
+},
+{
+"id": "w26",
+"text": "ne",
+"start": 12.77,
+"end": 12.83,
+"spk": "K"
+},
+{
+"id": "w27",
+"text": "vole,",
+"start": 12.95,
+"end": 13.19,
+"spk": "K"
+},
+{
+"id": "w28",
+"text": "a",
+"start": 13.61,
+"end": 13.67,
+"spk": "K"
+},
+{
+"id": "w29",
+"text": "imaju,",
+"start": 13.79,
+"end": 14.15,
+"spk": "K"
+},
+{
+"id": "w30",
+"text": "recimo,",
+"start": 14.21,
+"end": 14.57,
+"spk": "K"
+},
+{
+"id": "w31",
+"text": "neku",
+"start": 14.75,
+"end": 14.99,
+"spk": "K"
+},
+{
+"id": "w32",
+"text": "ideju",
+"start": 15.35,
+"end": 15.77,
+"spk": "K"
+},
+{
+"id": "w33",
+"text": "ili",
+"start": 15.89,
+"end": 15.95,
+"spk": "K"
+},
+{
+"id": "w34",
+"text": "viziju",
+"start": 16.19,
+"end": 16.49,
+"spk": "K"
+},
+{
+"id": "w35",
+"text": "za",
+"start": 16.61,
+"end": 16.67,
+"spk": "K"
+},
+{
+"id": "w36",
+"text": "neki",
+"start": 16.79,
+"end": 17.09,
+"spk": "K"
+},
+{
+"id": "w37",
+"text": "poduzetnički",
+"start": 17.81,
+"end": 18.41,
+"spk": "K"
+},
+{
+"id": "w38",
+"text": "osobni",
+"start": 18.47,
+"end": 18.89,
+"spk": "K"
+},
+{
+"id": "w39",
+"text": "pothvat.",
+"start": 19.37,
+"end": 19.67,
+"spk": "K"
+},
+{
+"id": "w40",
+"text": "Kako",
+"start": 20.81,
+"end": 20.99,
+"spk": "K"
+},
+{
+"id": "w41",
+"text": "ti",
+"start": 21.11,
+"end": 21.17,
+"spk": "K"
+},
+{
+"id": "w42",
+"text": "to",
+"start": 21.23,
+"end": 21.29,
+"spk": "K"
+},
+{
+"id": "w43",
+"text": "tumačiš?",
+"start": 21.41,
+"end": 21.83,
+"spk": "K"
+},
+{
+"id": "w44",
+"text": "Znači,",
+"start": 21.89,
+"end": 22.13,
+"spk": "K"
+},
+{
+"id": "w45",
+"text": "da",
+"start": 22.13,
+"end": 22.19,
+"spk": "K"
+},
+{
+"id": "w46",
+"text": "ostaneš",
+"start": 22.19,
+"end": 22.43,
+"spk": "K"
+},
+{
+"id": "w47",
+"text": "zarobljen",
+"start": 22.49,
+"end": 22.85,
+"spk": "K"
+},
+{
+"id": "w48",
+"text": "u",
+"start": 23.15,
+"end": 23.21,
+"spk": "K"
+},
+{
+"id": "w49",
+"text": "poslu",
+"start": 23.33,
+"end": 23.63,
+"spk": "K"
+},
+{
+"id": "w50",
+"text": "desetljećima,",
+"start": 24.35,
+"end": 25.07,
+"spk": "K"
+},
+{
+"id": "w51",
+"text": "a",
+"start": 25.49,
+"end": 25.55,
+"spk": "K"
+},
+{
+"id": "w52",
+"text": "jednostavno",
+"start": 25.73,
+"end": 26.09,
+"spk": "K"
+},
+{
+"id": "w53",
+"text": "znaš",
+"start": 26.21,
+"end": 26.39,
+"spk": "K"
+},
+{
+"id": "w54",
+"text": "da",
+"start": 26.51,
+"end": 26.57,
+"spk": "K"
+},
+{
+"id": "w55",
+"text": "te",
+"start": 27.29,
+"end": 27.35,
+"spk": "K"
+},
+{
+"id": "w56",
+"text": "taj",
+"start": 27.35,
+"end": 27.47,
+"spk": "K"
+},
+{
+"id": "w57",
+"text": "posao",
+"start": 27.47,
+"end": 27.65,
+"spk": "K"
+},
+{
+"id": "w58",
+"text": "ubija.",
+"start": 27.77,
+"end": 28.07,
+"spk": "K"
+},
+{
+"id": "w59",
+"text": "Ja",
+"start": 28.91,
+"end": 28.97,
+"spk": "A"
+},
+{
+"id": "w60",
+"text": "mislim",
+"start": 29.09,
+"end": 29.21,
+"spk": "A"
+},
+{
+"id": "w61",
+"text": "da",
+"start": 29.33,
+"end": 29.39,
+"spk": "A"
+},
+{
+"id": "w62",
+"text": "je",
+"start": 29.51,
+"end": 29.57,
+"spk": "A"
+},
+{
+"id": "w63",
+"text": "to",
+"start": 29.63,
+"end": 29.69,
+"spk": "A"
+},
+{
+"id": "w64",
+"text": "jedna",
+"start": 30.65,
+"end": 30.83,
+"spk": "A"
+},
+{
+"id": "w65",
+"text": "od",
+"start": 30.89,
+"end": 30.95,
+"spk": "A"
+},
+{
+"id": "w66",
+"text": "negativnih",
+"start": 31.49,
+"end": 31.97,
+"spk": "A"
+},
+{
+"id": "w67",
+"text": "strana",
+"start": 32.21,
+"end": 32.51,
+"spk": "A"
+},
+{
+"id": "w68",
+"text": "naše",
+"start": 32.63,
+"end": 32.87,
+"spk": "A"
+},
+{
+"id": "w69",
+"text": "kulture.",
+"start": 33.11,
+"end": 33.53,
+"spk": "A"
+},
+{
+"id": "w70",
+"text": "Dakle,",
+"start": 33.89,
+"end": 34.13,
+"spk": "A"
+},
+{
+"id": "w71",
+"text": "naša",
+"start": 34.43,
+"end": 34.61,
+"spk": "A"
+},
+{
+"id": "w72",
+"text": "kultura,",
+"start": 34.79,
+"end": 35.03,
+"spk": "A"
+},
+{
+"id": "w73",
+"text": "svaka",
+"start": 35.15,
+"end": 35.33,
+"spk": "A"
+},
+{
+"id": "w74",
+"text": "zemlja,",
+"start": 35.45,
+"end": 35.75,
+"spk": "A"
+},
+{
+"id": "w75",
+"text": "svako",
+"start": 35.75,
+"end": 35.93,
+"spk": "A"
+},
+{
+"id": "w76",
+"text": "društvo,",
+"start": 36.05,
+"end": 36.41,
+"spk": "A"
+},
+{
+"id": "w77",
+"text": "svaki",
+"start": 36.47,
+"end": 36.59,
+"spk": "A"
+},
+{
+"id": "w78",
+"text": "narod",
+"start": 36.77,
+"end": 36.83,
+"spk": "A"
+},
+{
+"id": "w79",
+"text": "ima",
+"start": 37.25,
+"end": 37.31,
+"spk": "A"
+},
+{
+"id": "w80",
+"text": "svoju",
+"start": 37.49,
+"end": 37.73,
+"spk": "A"
+},
+{
+"id": "w81",
+"text": "kulturu",
+"start": 37.85,
+"end": 38.21,
+"spk": "A"
+},
+{
+"id": "w82",
+"text": "i",
+"start": 38.27,
+"end": 38.33,
+"spk": "A"
+},
+{
+"id": "w83",
+"text": "ona",
+"start": 38.33,
+"end": 38.51,
+"spk": "A"
+},
+{
+"id": "w84",
+"text": "nije",
+"start": 38.57,
+"end": 38.63,
+"spk": "A"
+},
+{
+"id": "w85",
+"text": "nikad",
+"start": 38.69,
+"end": 38.87,
+"spk": "A"
+},
+{
+"id": "w86",
+"text": "sto",
+"start": 39.17,
+"end": 39.29,
+"spk": "A"
+},
+{
+"id": "w87",
+"text": "posto",
+"start": 39.29,
+"end": 39.41,
+"spk": "A"
+},
+{
+"id": "w88",
+"text": "pozitivna,",
+"start": 39.71,
+"end": 40.13,
+"spk": "A"
+},
+{
+"id": "w89",
+"text": "uvijek",
+"start": 40.19,
+"end": 40.37,
+"spk": "A"
+},
+{
+"id": "w90",
+"text": "je",
+"start": 40.43,
+"end": 40.49,
+"spk": "A"
+},
+{
+"id": "w91",
+"text": "to",
+"start": 40.49,
+"end": 40.55,
+"spk": "A"
+},
+{
+"id": "w92",
+"text": "nekakva",
+"start": 40.67,
+"end": 40.91,
+"spk": "A"
+},
+{
+"id": "w93",
+"text": "mješavina",
+"start": 40.97,
+"end": 41.45,
+"spk": "A"
+},
+{
+"id": "w94",
+"text": "svega",
+"start": 41.51,
+"end": 41.63,
+"spk": "A"
+},
+{
+"id": "w95",
+"text": "i",
+"start": 41.69,
+"end": 41.75,
+"spk": "A"
+},
+{
+"id": "w96",
+"text": "svačega.",
+"start": 41.81,
+"end": 42.23,
+"spk": "A"
+},
+{
+"id": "w97",
+"text": "Jedna",
+"start": 43.13,
+"end": 43.31,
+"spk": "A"
+},
+{
+"id": "w98",
+"text": "od",
+"start": 43.37,
+"end": 43.43,
+"spk": "A"
+},
+{
+"id": "w99",
+"text": "stvari",
+"start": 43.49,
+"end": 43.85,
+"spk": "A"
+},
+{
+"id": "w100",
+"text": "koja",
+"start": 44.21,
+"end": 44.27,
+"spk": "A"
+},
+{
+"id": "w101",
+"text": "jest,",
+"start": 44.87,
+"end": 44.93,
+"spk": "A"
+},
+{
+"id": "w102",
+"text": "možemo",
+"start": 45.89,
+"end": 46.19,
+"spk": "A"
+},
+{
+"id": "w103",
+"text": "priznati,",
+"start": 46.37,
+"end": 46.73,
+"spk": "A"
+},
+{
+"id": "w104",
+"text": "dio",
+"start": 46.91,
+"end": 46.97,
+"spk": "A"
+},
+{
+"id": "w105",
+"text": "našeg",
+"start": 47.75,
+"end": 48.05,
+"spk": "A"
+},
+{
+"id": "w106",
+"text": "mindseta,",
+"start": 48.23,
+"end": 48.59,
+"spk": "A"
+},
+{
+"id": "w107",
+"text": "odnosno",
+"start": 48.65,
+"end": 48.89,
+"spk": "A"
+},
+{
+"id": "w108",
+"text": "naše",
+"start": 49.01,
+"end": 49.19,
+"spk": "A"
+},
+{
+"id": "w109",
+"text": "kulture,",
+"start": 49.37,
+"end": 49.79,
+"spk": "A"
+},
+{
+"id": "w110",
+"text": "jest",
+"start": 51.17,
+"end": 51.23,
+"spk": "A"
+},
+{
+"id": "w111",
+"text": "prevelika",
+"start": 52.19,
+"end": 52.85,
+"spk": "A"
+},
+{
+"id": "w112",
+"text": "navezanost",
+"start": 53.93,
+"end": 54.41,
+"spk": "A"
+},
+{
+"id": "w113",
+"text": "ili",
+"start": 54.53,
+"end": 54.59,
+"spk": "A"
+},
+{
+"id": "w114",
+"text": "opsjednutost",
+"start": 54.77,
+"end": 55.31,
+"spk": "A"
+},
+{
+"id": "w115",
+"text": "tuđim",
+"start": 55.55,
+"end": 55.85,
+"spk": "A"
+},
+{
+"id": "w116",
+"text": "mišljenjem.",
+"start": 56.03,
+"end": 56.57,
+"spk": "A"
+},
+{
+"id": "w117",
+"text": "To",
+"start": 58.37,
+"end": 58.43,
+"spk": "A"
+},
+{
+"id": "w118",
+"text": "je",
+"start": 58.49,
+"end": 58.55,
+"spk": "A"
+},
+{
+"id": "w119",
+"text": "jedna",
+"start": 58.73,
+"end": 58.91,
+"spk": "A"
+},
+{
+"id": "w120",
+"text": "stvar.",
+"start": 58.91,
+"end": 59.09,
+"spk": "A"
+},
+{
+"id": "w121",
+"text": "Druga",
+"start": 59.45,
+"end": 59.69,
+"spk": "A"
+},
+{
+"id": "w122",
+"text": "stvar",
+"start": 59.81,
+"end": 59.99,
+"spk": "A"
+},
+{
+"id": "w123",
+"text": "je",
+"start": 60.41,
+"end": 60.47,
+"spk": "A"
+},
+{
+"id": "w124",
+"text": "strah",
+"start": 62.09,
+"end": 62.33,
+"spk": "A"
+},
+{
+"id": "w125",
+"text": "od",
+"start": 62.51,
+"end": 62.57,
+"spk": "A"
+},
+{
+"id": "w126",
+"text": "neuspjeha",
+"start": 62.81,
+"end": 63.41,
+"spk": "A"
+},
+{
+"id": "w127",
+"text": "i",
+"start": 63.77,
+"end": 63.83,
+"spk": "A"
+},
+{
+"id": "w128",
+"text": "to",
+"start": 63.89,
+"end": 63.95,
+"spk": "A"
+},
+{
+"id": "w129",
+"text": "ne",
+"start": 64.43,
+"end": 64.49,
+"spk": "A"
+},
+{
+"id": "w130",
+"text": "nužno",
+"start": 64.55,
+"end": 64.85,
+"spk": "A"
+},
+{
+"id": "w131",
+"text": "strah",
+"start": 64.97,
+"end": 65.15,
+"spk": "A"
+},
+{
+"id": "w132",
+"text": "od",
+"start": 65.21,
+"end": 65.27,
+"spk": "A"
+},
+{
+"id": "w133",
+"text": "neuspjeha",
+"start": 65.39,
+"end": 65.87,
+"spk": "A"
+},
+{
+"id": "w134",
+"text": "kao",
+"start": 65.93,
+"end": 65.99,
+"spk": "A"
+},
+{
+"id": "w135",
+"text": "takvog,",
+"start": 66.17,
+"end": 66.41,
+"spk": "A"
+},
+{
+"id": "w136",
+"text": "nego",
+"start": 66.53,
+"end": 66.65,
+"spk": "A"
+},
+{
+"id": "w137",
+"text": "strah",
+"start": 66.71,
+"end": 66.95,
+"spk": "A"
+},
+{
+"id": "w138",
+"text": "od",
+"start": 67.07,
+"end": 67.13,
+"spk": "A"
+},
+{
+"id": "w139",
+"text": "komuniciranja",
+"start": 67.43,
+"end": 68.27,
+"spk": "A"
+},
+{
+"id": "w140",
+"text": "neuspjeha",
+"start": 69.59,
+"end": 70.25,
+"spk": "A"
+},
+{
+"id": "w141",
+"text": "od",
+"start": 70.73,
+"end": 70.79,
+"spk": "A"
+},
+{
+"id": "w142",
+"text": "strane",
+"start": 70.97,
+"end": 71.21,
+"spk": "A"
+},
+{
+"id": "w143",
+"text": "drugih,",
+"start": 71.45,
+"end": 71.69,
+"spk": "A"
+},
+{
+"id": "w144",
+"text": "odnosno",
+"start": 71.81,
+"end": 72.11,
+"spk": "A"
+},
+{
+"id": "w145",
+"text": "primjećivanja",
+"start": 72.23,
+"end": 72.95,
+"spk": "A"
+},
+{
+"id": "w146",
+"text": "nečijeg",
+"start": 73.13,
+"end": 73.49,
+"spk": "A"
+},
+{
+"id": "w147",
+"text": "neuspjeha.",
+"start": 73.61,
+"end": 74.09,
+"spk": "A"
+},
+{
+"id": "w148",
+"text": "Tako",
+"start": 75.11,
+"end": 75.17,
+"spk": "A"
+},
+{
+"id": "w149",
+"text": "da,",
+"start": 75.47,
+"end": 75.53,
+"spk": "A"
+},
+{
+"id": "w150",
+"text": "rijetko",
+"start": 76.85,
+"end": 77.15,
+"spk": "A"
+},
+{
+"id": "w151",
+"text": "da",
+"start": 77.21,
+"end": 77.27,
+"spk": "A"
+},
+{
+"id": "w152",
+"text": "postoji",
+"start": 77.39,
+"end": 77.57,
+"spk": "A"
+},
+{
+"id": "w153",
+"text": "stvar",
+"start": 77.69,
+"end": 77.87,
+"spk": "A"
+},
+{
+"id": "w154",
+"text": "od",
+"start": 78.71,
+"end": 78.77,
+"spk": "A"
+},
+{
+"id": "w155",
+"text": "koje",
+"start": 78.89,
+"end": 78.95,
+"spk": "A"
+},
+{
+"id": "w156",
+"text": "sam",
+"start": 79.13,
+"end": 79.19,
+"spk": "A"
+},
+{
+"id": "w157",
+"text": "toliko",
+"start": 79.97,
+"end": 80.21,
+"spk": "A"
+},
+{
+"id": "w158",
+"text": "alergičan",
+"start": 80.45,
+"end": 80.87,
+"spk": "A"
+},
+{
+"id": "w159",
+"text": "koliko",
+"start": 81.29,
+"end": 81.59,
+"spk": "A"
+},
+{
+"id": "w160",
+"text": "kad",
+"start": 81.77,
+"end": 81.83,
+"spk": "A"
+},
+{
+"id": "w161",
+"text": "čujem,",
+"start": 82.07,
+"end": 82.31,
+"spk": "A"
+},
+{
+"id": "w162",
+"text": "joj,",
+"start": 82.49,
+"end": 82.67,
+"spk": "A"
+},
+{
+"id": "w163",
+"text": "šta",
+"start": 83.15,
+"end": 83.21,
+"spk": "A"
+},
+{
+"id": "w164",
+"text": "će",
+"start": 83.39,
+"end": 83.45,
+"spk": "A"
+},
+{
+"id": "w165",
+"text": "reći",
+"start": 83.57,
+"end": 83.75,
+"spk": "A"
+},
+{
+"id": "w166",
+"text": "rodbina",
+"start": 83.87,
+"end": 84.23,
+"spk": "A"
+},
+{
+"id": "w167",
+"text": "ili",
+"start": 84.35,
+"end": 84.41,
+"spk": "A"
+},
+{
+"id": "w168",
+"text": "selo",
+"start": 84.65,
+"end": 84.83,
+"spk": "A"
+},
+{
+"id": "w169",
+"text": "ili",
+"start": 84.89,
+"end": 84.95,
+"spk": "A"
+},
+{
+"id": "w170",
+"text": "šta",
+"start": 85.07,
+"end": 85.13,
+"spk": "A"
+},
+{
+"id": "w171",
+"text": "će",
+"start": 85.25,
+"end": 85.31,
+"spk": "A"
+},
+{
+"id": "w172",
+"text": "se",
+"start": 85.37,
+"end": 85.43,
+"spk": "A"
+},
+{
+"id": "w173",
+"text": "pričati",
+"start": 85.55,
+"end": 85.97,
+"spk": "A"
+},
+{
+"id": "w174",
+"text": "ako",
+"start": 86.63,
+"end": 86.69,
+"spk": "A"
+},
+{
+"id": "w175",
+"text": "napravimo",
+"start": 86.87,
+"end": 87.23,
+"spk": "A"
+},
+{
+"id": "w176",
+"text": "to",
+"start": 87.47,
+"end": 87.53,
+"spk": "A"
+},
+{
+"id": "w177",
+"text": "i",
+"start": 87.65,
+"end": 87.71,
+"spk": "A"
+},
+{
+"id": "w178",
+"text": "to,",
+"start": 87.77,
+"end": 87.83,
+"spk": "A"
+},
+{
+"id": "w179",
+"text": "a",
+"start": 88.97,
+"end": 89.03,
+"spk": "A"
+},
+{
+"id": "w180",
+"text": "nije",
+"start": 89.57,
+"end": 89.63,
+"spk": "A"
+},
+{
+"id": "w181",
+"text": "da",
+"start": 89.75,
+"end": 89.81,
+"spk": "A"
+},
+{
+"id": "w182",
+"text": "trebamo",
+"start": 89.87,
+"end": 90.11,
+"spk": "A"
+},
+{
+"id": "w183",
+"text": "napraviti",
+"start": 90.17,
+"end": 90.41,
+"spk": "A"
+},
+{
+"id": "w184",
+"text": "nešto",
+"start": 90.47,
+"end": 90.71,
+"spk": "A"
+},
+{
+"id": "w185",
+"text": "negativno,",
+"start": 91.07,
+"end": 91.49,
+"spk": "A"
+},
+{
+"id": "w186",
+"text": "ne",
+"start": 91.61,
+"end": 91.67,
+"spk": "A"
+},
+{
+"id": "w187",
+"text": "daj",
+"start": 91.73,
+"end": 91.85,
+"spk": "A"
+},
+{
+"id": "w188",
+"text": "Bože",
+"start": 91.91,
+"end": 92.03,
+"spk": "A"
+},
+{
+"id": "w189",
+"text": "ilegalno,",
+"start": 92.15,
+"end": 92.57,
+"spk": "A"
+},
+{
+"id": "w190",
+"text": "nego",
+"start": 92.63,
+"end": 92.75,
+"spk": "A"
+},
+{
+"id": "w191",
+"text": "nešto",
+"start": 92.81,
+"end": 92.99,
+"spk": "A"
+},
+{
+"id": "w192",
+"text": "drugačije.",
+"start": 93.17,
+"end": 93.65,
+"spk": "A"
+},
+{
+"id": "w193",
+"text": "Tako",
+"start": 94.67,
+"end": 94.73,
+"spk": "A"
+},
+{
+"id": "w194",
+"text": "da,",
+"start": 95.03,
+"end": 95.09,
+"spk": "A"
+},
+{
+"id": "w195",
+"text": "zbog",
+"start": 95.27,
+"end": 95.45,
+"spk": "A"
+},
+{
+"id": "w196",
+"text": "toga",
+"start": 95.51,
+"end": 95.69,
+"spk": "A"
+},
+{
+"id": "w197",
+"text": "se",
+"start": 95.81,
+"end": 95.87,
+"spk": "A"
+},
+{
+"id": "w198",
+"text": "mnogi,",
+"start": 95.99,
+"end": 96.29,
+"spk": "A"
+},
+{
+"id": "w199",
+"text": "recimo,",
+"start": 96.41,
+"end": 96.89,
+"spk": "A"
+},
+{
+"id": "w200",
+"text": "mladi",
+"start": 97.55,
+"end": 97.85,
+"spk": "A"
+},
+{
+"id": "w201",
+"text": "i",
+"start": 97.91,
+"end": 97.97,
+"spk": "A"
+},
+{
+"id": "w202",
+"text": "ne",
+"start": 98.15,
+"end": 98.21,
+"spk": "A"
+},
+{
+"id": "w203",
+"text": "samo",
+"start": 98.33,
+"end": 98.39,
+"spk": "A"
+},
+{
+"id": "w204",
+"text": "mladi,",
+"start": 98.69,
+"end": 99.05,
+"spk": "A"
+},
+{
+"id": "w205",
+"text": "ne",
+"start": 99.95,
+"end": 100.01,
+"spk": "A"
+},
+{
+"id": "w206",
+"text": "odlučuju",
+"start": 100.13,
+"end": 100.61,
+"spk": "A"
+},
+{
+"id": "w207",
+"text": "na",
+"start": 100.61,
+"end": 101.63,
+"spk": "A"
+},
+{
+"id": "w208",
+"text": "onako",
+"start": 101.63,
+"end": 101.87,
+"spk": "A"
+},
+{
+"id": "w209",
+"text": "proaktivno",
+"start": 102.17,
+"end": 102.65,
+"spk": "A"
+},
+{
+"id": "w210",
+"text": "zakoračiti",
+"start": 102.71,
+"end": 103.19,
+"spk": "A"
+},
+{
+"id": "w211",
+"text": "u",
+"start": 103.25,
+"end": 103.31,
+"spk": "A"
+},
+{
+"id": "w212",
+"text": "nekakvu",
+"start": 103.31,
+"end": 103.55,
+"spk": "A"
+},
+{
+"id": "w213",
+"text": "promjenu,",
+"start": 103.67,
+"end": 103.97,
+"spk": "A"
+},
+{
+"id": "w214",
+"text": "jer",
+"start": 104.15,
+"end": 104.27,
+"spk": "A"
+},
+{
+"id": "w215",
+"text": "što",
+"start": 104.39,
+"end": 104.45,
+"spk": "A"
+},
+{
+"id": "w216",
+"text": "ako",
+"start": 104.75,
+"end": 104.81,
+"spk": "A"
+},
+{
+"id": "w217",
+"text": "ne",
+"start": 104.99,
+"end": 105.05,
+"spk": "A"
+},
+{
+"id": "w218",
+"text": "uspijem?",
+"start": 105.11,
+"end": 105.47,
+"spk": "A"
+},
+{
+"id": "w219",
+"text": "Ako",
+"start": 105.95,
+"end": 106.13,
+"spk": "A"
+},
+{
+"id": "w220",
+"text": "ne",
+"start": 106.19,
+"end": 106.25,
+"spk": "A"
+},
+{
+"id": "w221",
+"text": "uspijem,",
+"start": 106.37,
+"end": 106.67,
+"spk": "A"
+},
+{
+"id": "w222",
+"text": "dobivam",
+"start": 106.79,
+"end": 107.21,
+"spk": "A"
+},
+{
+"id": "w223",
+"text": "žig",
+"start": 108.05,
+"end": 108.29,
+"spk": "A"
+},
+{
+"id": "w224",
+"text": "na",
+"start": 108.47,
+"end": 108.53,
+"spk": "A"
+},
+{
+"id": "w225",
+"text": "leđa,",
+"start": 108.59,
+"end": 108.95,
+"spk": "A"
+},
+{
+"id": "w226",
+"text": "propo…",
+"start": 110.15,
+"end": 110.45,
+"spk": "A"
+},
+{
+"id": "w227",
+"text": "Etiketu.",
+"start": 110.45,
+"end": 111.05,
+"spk": "K"
+},
+{
+"id": "w228",
+"text": "Etiketa,",
+"start": 111.05,
+"end": 111.47,
+"spk": "A"
+},
+{
+"id": "w229",
+"text": "točno,",
+"start": 111.59,
+"end": 112.01,
+"spk": "A"
+},
+{
+"id": "w230",
+"text": "i",
+"start": 112.61,
+"end": 112.67,
+"spk": "A"
+},
+{
+"id": "w231",
+"text": "misleći",
+"start": 113.09,
+"end": 113.57,
+"spk": "A"
+},
+{
+"id": "w232",
+"text": "da",
+"start": 113.81,
+"end": 113.87,
+"spk": "A"
+},
+{
+"id": "w233",
+"text": "će",
+"start": 113.93,
+"end": 113.99,
+"spk": "A"
+},
+{
+"id": "w234",
+"text": "mi",
+"start": 114.05,
+"end": 114.11,
+"spk": "A"
+},
+{
+"id": "w235",
+"text": "se",
+"start": 114.17,
+"end": 114.23,
+"spk": "A"
+},
+{
+"id": "w236",
+"text": "svi",
+"start": 114.23,
+"end": 114.41,
+"spk": "A"
+},
+{
+"id": "w237",
+"text": "smijati,",
+"start": 114.41,
+"end": 114.71,
+"spk": "A"
+},
+{
+"id": "w238",
+"text": "da",
+"start": 114.71,
+"end": 114.77,
+"spk": "A"
+},
+{
+"id": "w239",
+"text": "će",
+"start": 114.83,
+"end": 114.89,
+"spk": "A"
+},
+{
+"id": "w240",
+"text": "babe",
+"start": 115.55,
+"end": 115.79,
+"spk": "A"
+},
+{
+"id": "w241",
+"text": "po",
+"start": 115.91,
+"end": 115.97,
+"spk": "A"
+},
+{
+"id": "w242",
+"text": "selu",
+"start": 116.03,
+"end": 116.27,
+"spk": "A"
+},
+{
+"id": "w243",
+"text": "pričati",
+"start": 116.39,
+"end": 116.69,
+"spk": "A"
+},
+{
+"id": "w244",
+"text": "kako",
+"start": 117.17,
+"end": 117.35,
+"spk": "A"
+},
+{
+"id": "w245",
+"text": "sam",
+"start": 117.47,
+"end": 117.53,
+"spk": "A"
+},
+{
+"id": "w246",
+"text": "fulao,",
+"start": 117.83,
+"end": 118.13,
+"spk": "A"
+},
+{
+"id": "w247",
+"text": "kako",
+"start": 118.19,
+"end": 118.31,
+"spk": "A"
+},
+{
+"id": "w248",
+"text": "ono,",
+"start": 118.43,
+"end": 118.61,
+"spk": "A"
+},
+{
+"id": "w249",
+"text": "da,",
+"start": 118.85,
+"end": 118.91,
+"spk": "A"
+},
+{
+"id": "w250",
+"text": "da,",
+"start": 119.03,
+"end": 119.09,
+"spk": "A"
+},
+{
+"id": "w251",
+"text": "to",
+"start": 119.21,
+"end": 119.27,
+"spk": "A"
+},
+{
+"id": "w252",
+"text": "je",
+"start": 119.27,
+"end": 119.33,
+"spk": "A"
+},
+{
+"id": "w253",
+"text": "ta",
+"start": 119.45,
+"end": 119.51,
+"spk": "A"
+},
+{
+"id": "w254",
+"text": "familija,",
+"start": 119.63,
+"end": 120.05,
+"spk": "A"
+},
+{
+"id": "w255",
+"text": "niškoristi,",
+"start": 120.71,
+"end": 121.43,
+"spk": "A"
+},
+{
+"id": "w256",
+"text": "luzer,",
+"start": 121.55,
+"end": 121.85,
+"spk": "A"
+},
+{
+"id": "w257",
+"text": "ovo-ono.",
+"start": 121.97,
+"end": 122.39,
+"spk": "A"
+},
+{
+"id": "w258",
+"text": "Dakle,",
+"start": 123.11,
+"end": 123.35,
+"spk": "A"
+},
+{
+"id": "w259",
+"text": "to",
+"start": 123.35,
+"end": 123.41,
+"spk": "A"
+},
+{
+"id": "w260",
+"text": "je",
+"start": 123.47,
+"end": 123.53,
+"spk": "A"
+},
+{
+"id": "w261",
+"text": "fikcija,",
+"start": 123.65,
+"end": 124.07,
+"spk": "A"
+},
+{
+"id": "w262",
+"text": "to",
+"start": 124.19,
+"end": 124.25,
+"spk": "A"
+},
+{
+"id": "w263",
+"text": "ne",
+"start": 124.37,
+"end": 124.43,
+"spk": "A"
+},
+{
+"id": "w264",
+"text": "postoji,",
+"start": 124.55,
+"end": 124.91,
+"spk": "A"
+},
+{
+"id": "w265",
+"text": "ali",
+"start": 124.97,
+"end": 125.03,
+"spk": "A"
+},
+{
+"id": "w266",
+"text": "isto",
+"start": 125.21,
+"end": 125.39,
+"spk": "A"
+},
+{
+"id": "w267",
+"text": "tako",
+"start": 125.45,
+"end": 125.51,
+"spk": "A"
+},
+{
+"id": "w268",
+"text": "proizlazi",
+"start": 125.75,
+"end": 126.17,
+"spk": "A"
+},
+{
+"id": "w269",
+"text": "iz",
+"start": 126.29,
+"end": 126.35,
+"spk": "A"
+},
+{
+"id": "w270",
+"text": "ovog",
+"start": 126.41,
+"end": 126.59,
+"spk": "A"
+},
+{
+"id": "w271",
+"text": "negativističkog",
+"start": 126.65,
+"end": 127.49,
+"spk": "A"
+},
+{
+"id": "w272",
+"text": "mentaliteta",
+"start": 128.33,
+"end": 129.05,
+"spk": "A"
+},
+{
+"id": "w273",
+"text": "koji",
+"start": 129.17,
+"end": 129.23,
+"spk": "A"
+},
+{
+"id": "w274",
+"text": "je,",
+"start": 129.35,
+"end": 129.47,
+"spk": "A"
+},
+{
+"id": "w275",
+"text": "kao",
+"start": 129.47,
+"end": 129.53,
+"spk": "A"
+},
+{
+"id": "w276",
+"text": "što",
+"start": 129.59,
+"end": 129.65,
+"spk": "A"
+},
+{
+"id": "w277",
+"text": "smo",
+"start": 129.71,
+"end": 129.89,
+"spk": "A"
+},
+{
+"id": "w278",
+"text": "rekli",
+"start": 129.95,
+"end": 130.13,
+"spk": "A"
+},
+{
+"id": "w279",
+"text": "ranije,",
+"start": 130.25,
+"end": 130.49,
+"spk": "A"
+},
+{
+"id": "w280",
+"text": "djelomično",
+"start": 130.61,
+"end": 131.09,
+"spk": "A"
+},
+{
+"id": "w281",
+"text": "i",
+"start": 131.09,
+"end": 131.15,
+"spk": "A"
+},
+{
+"id": "w282",
+"text": "naslijeđen",
+"start": 131.21,
+"end": 131.63,
+"spk": "A"
+},
+{
+"id": "w283",
+"text": "iz",
+"start": 131.87,
+"end": 131.93,
+"spk": "A"
+},
+{
+"id": "w284",
+"text": "bivšeg",
+"start": 132.95,
+"end": 133.31,
+"spk": "A"
+},
+{
+"id": "w285",
+"text": "sustava",
+"start": 133.49,
+"end": 133.79,
+"spk": "A"
+},
+{
+"id": "w286",
+"text": "i",
+"start": 133.85,
+"end": 133.91,
+"spk": "A"
+},
+{
+"id": "w287",
+"text": "bivšeg",
+"start": 133.91,
+"end": 134.21,
+"spk": "A"
+},
+{
+"id": "w288",
+"text": "načina",
+"start": 134.27,
+"end": 134.57,
+"spk": "A"
+},
+{
+"id": "w289",
+"text": "života,",
+"start": 134.63,
+"end": 134.99,
+"spk": "A"
+},
+{
+"id": "w290",
+"text": "čije",
+"start": 135.41,
+"end": 135.59,
+"spk": "A"
+},
+{
+"id": "w291",
+"text": "naslijeđe",
+"start": 135.71,
+"end": 136.19,
+"spk": "A"
+},
+{
+"id": "w292",
+"text": "je,",
+"start": 136.19,
+"end": 136.25,
+"spk": "A"
+},
+{
+"id": "w293",
+"text": "nažalost,",
+"start": 136.31,
+"end": 136.61,
+"spk": "A"
+},
+{
+"id": "w294",
+"text": "eto,",
+"start": 136.79,
+"end": 136.97,
+"spk": "A"
+},
+{
+"id": "w295",
+"text": "kao",
+"start": 137.09,
+"end": 137.15,
+"spk": "A"
+},
+{
+"id": "w296",
+"text": "što",
+"start": 137.21,
+"end": 137.27,
+"spk": "A"
+},
+{
+"id": "w297",
+"text": "često",
+"start": 137.63,
+"end": 137.81,
+"spk": "A"
+},
+{
+"id": "w298",
+"text": "kažem,",
+"start": 137.87,
+"end": 138.11,
+"spk": "A"
+},
+{
+"id": "w299",
+"text": "živo",
+"start": 138.23,
+"end": 138.41,
+"spk": "A"
+},
+{
+"id": "w300",
+"text": "i",
+"start": 138.47,
+"end": 138.53,
+"spk": "A"
+},
+{
+"id": "w301",
+"text": "zdravo.",
+"start": 138.59,
+"end": 138.89,
+"spk": "A"
+},
+{
+"id": "w302",
+"text": "Tako",
+"start": 139.43,
+"end": 139.49,
+"spk": "A"
+},
+{
+"id": "w303",
+"text": "da,",
+"start": 139.73,
+"end": 139.79,
+"spk": "A"
+},
+{
+"id": "w304",
+"text": "s",
+"start": 142.43,
+"end": 142.49,
+"spk": "A"
+},
+{
+"id": "w305",
+"text": "druge",
+"start": 142.55,
+"end": 142.73,
+"spk": "A"
+},
+{
+"id": "w306",
+"text": "strane,",
+"start": 142.73,
+"end": 142.97,
+"spk": "A"
+},
+{
+"id": "w307",
+"text": "postoji",
+"start": 143.09,
+"end": 143.33,
+"spk": "A"
+},
+{
+"id": "w308",
+"text": "jedna",
+"start": 143.45,
+"end": 143.63,
+"spk": "A"
+},
+{
+"id": "w309",
+"text": "stvar",
+"start": 145.25,
+"end": 145.43,
+"spk": "A"
+},
+{
+"id": "w310",
+"text": "koja",
+"start": 145.55,
+"end": 145.61,
+"spk": "A"
+},
+{
+"id": "w311",
+"text": "je",
+"start": 145.73,
+"end": 145.79,
+"spk": "A"
+},
+{
+"id": "w312",
+"text": "sama",
+"start": 145.85,
+"end": 145.91,
+"spk": "A"
+},
+{
+"id": "w313",
+"text": "po",
+"start": 146.15,
+"end": 146.21,
+"spk": "A"
+},
+{
+"id": "w314",
+"text": "sebi",
+"start": 146.27,
+"end": 146.45,
+"spk": "A"
+},
+{
+"id": "w315",
+"text": "pozitivna,",
+"start": 146.57,
+"end": 147.05,
+"spk": "A"
+},
+{
+"id": "w316",
+"text": "ali",
+"start": 147.11,
+"end": 147.17,
+"spk": "A"
+},
+{
+"id": "w317",
+"text": "u",
+"start": 147.23,
+"end": 147.29,
+"spk": "A"
+},
+{
+"id": "w318",
+"text": "ovom",
+"start": 147.35,
+"end": 147.47,
+"spk": "A"
+},
+{
+"id": "w319",
+"text": "kontekstu",
+"start": 147.53,
+"end": 147.83,
+"spk": "A"
+},
+{
+"id": "w320",
+"text": "ne",
+"start": 147.89,
+"end": 147.95,
+"spk": "A"
+},
+{
+"id": "w321",
+"text": "pomaže,",
+"start": 148.01,
+"end": 148.31,
+"spk": "A"
+},
+{
+"id": "w322",
+"text": "a",
+"start": 148.31,
+"end": 148.37,
+"spk": "A"
+},
+{
+"id": "w323",
+"text": "to",
+"start": 148.43,
+"end": 148.49,
+"spk": "A"
+},
+{
+"id": "w324",
+"text": "je",
+"start": 148.49,
+"end": 148.55,
+"spk": "A"
+},
+{
+"id": "w325",
+"text": "taj",
+"start": 148.61,
+"end": 148.67,
+"spk": "A"
+},
+{
+"id": "w326",
+"text": "nekakav",
+"start": 148.79,
+"end": 149.09,
+"spk": "A"
+},
+{
+"id": "w327",
+"text": "osjećaj",
+"start": 149.15,
+"end": 149.45,
+"spk": "A"
+},
+{
+"id": "w328",
+"text": "časti.",
+"start": 149.57,
+"end": 149.75,
+"spk": "A"
+},
+{
+"id": "w329",
+"text": "Jako",
+"start": 149.87,
+"end": 149.99,
+"spk": "A"
+},
+{
+"id": "w330",
+"text": "je",
+"start": 150.05,
+"end": 150.11,
+"spk": "A"
+},
+{
+"id": "w331",
+"text": "dobro",
+"start": 150.11,
+"end": 150.29,
+"spk": "A"
+},
+{
+"id": "w332",
+"text": "da",
+"start": 150.35,
+"end": 150.41,
+"spk": "A"
+},
+{
+"id": "w333",
+"text": "mi",
+"start": 150.47,
+"end": 150.53,
+"spk": "A"
+},
+{
+"id": "w334",
+"text": "imamo",
+"start": 150.59,
+"end": 150.71,
+"spk": "A"
+},
+{
+"id": "w335",
+"text": "osjećaj",
+"start": 150.83,
+"end": 151.13,
+"spk": "A"
+},
+{
+"id": "w336",
+"text": "časti,",
+"start": 151.25,
+"end": 151.43,
+"spk": "A"
+},
+{
+"id": "w337",
+"text": "nekakve",
+"start": 151.61,
+"end": 152.03,
+"spk": "A"
+},
+{
+"id": "w338",
+"text": "reputacije,",
+"start": 153.35,
+"end": 154.01,
+"spk": "A"
+},
+{
+"id": "w339",
+"text": "vlastitog",
+"start": 154.07,
+"end": 154.49,
+"spk": "A"
+},
+{
+"id": "w340",
+"text": "ugleda,",
+"start": 154.61,
+"end": 154.97,
+"spk": "A"
+},
+{
+"id": "w341",
+"text": "ali",
+"start": 155.75,
+"end": 155.81,
+"spk": "A"
+},
+{
+"id": "w342",
+"text": "mislimo",
+"start": 155.93,
+"end": 156.23,
+"spk": "A"
+},
+{
+"id": "w343",
+"text": "da",
+"start": 156.29,
+"end": 156.35,
+"spk": "A"
+},
+{
+"id": "w344",
+"text": "će",
+"start": 156.47,
+"end": 156.53,
+"spk": "A"
+},
+{
+"id": "w345",
+"text": "se",
+"start": 156.59,
+"end": 156.65,
+"spk": "A"
+},
+{
+"id": "w346",
+"text": "on",
+"start": 156.83,
+"end": 156.89,
+"spk": "A"
+},
+{
+"id": "w347",
+"text": "srozati",
+"start": 158.03,
+"end": 158.45,
+"spk": "A"
+},
+{
+"id": "w348",
+"text": "ako",
+"start": 158.87,
+"end": 158.93,
+"spk": "A"
+},
+{
+"id": "w349",
+"text": "u",
+"start": 159.05,
+"end": 159.11,
+"spk": "A"
+},
+{
+"id": "w350",
+"text": "nečemu",
+"start": 159.11,
+"end": 159.41,
+"spk": "A"
+},
+{
+"id": "w351",
+"text": "ne",
+"start": 159.47,
+"end": 159.53,
+"spk": "A"
+},
+{
+"id": "w352",
+"text": "uspijemo",
+"start": 159.59,
+"end": 159.95,
+"spk": "A"
+},
+{
+"id": "w353",
+"text": "i",
+"start": 159.95,
+"end": 160.01,
+"spk": "A"
+},
+{
+"id": "w354",
+"text": "zato",
+"start": 160.07,
+"end": 160.25,
+"spk": "A"
+},
+{
+"id": "w355",
+"text": "mnogi",
+"start": 160.31,
+"end": 160.55,
+"spk": "A"
+},
+{
+"id": "w356",
+"text": "ljudi",
+"start": 160.67,
+"end": 160.91,
+"spk": "A"
+},
+{
+"id": "w357",
+"text": "svjesno",
+"start": 162.11,
+"end": 162.53,
+"spk": "A"
+},
+{
+"id": "w358",
+"text": "biraju",
+"start": 162.71,
+"end": 163.01,
+"spk": "A"
+},
+{
+"id": "w359",
+"text": "trpjeti",
+"start": 163.19,
+"end": 163.55,
+"spk": "A"
+},
+{
+"id": "w360",
+"text": "i",
+"start": 164.15,
+"end": 164.21,
+"spk": "A"
+},
+{
+"id": "w361",
+"text": "ne",
+"start": 165.23,
+"end": 165.29,
+"spk": "A"
+},
+{
+"id": "w362",
+"text": "talasati,",
+"start": 165.53,
+"end": 166.19,
+"spk": "A"
+},
+{
+"id": "w363",
+"text": "jer",
+"start": 167.09,
+"end": 167.27,
+"spk": "A"
+},
+{
+"id": "w364",
+"text": "misle,",
+"start": 167.75,
+"end": 168.11,
+"spk": "A"
+},
+{
+"id": "w365",
+"text": "i",
+"start": 168.35,
+"end": 168.41,
+"spk": "A"
+},
+{
+"id": "w366",
+"text": "to",
+"start": 168.47,
+"end": 168.53,
+"spk": "A"
+},
+{
+"id": "w367",
+"text": "u",
+"start": 169.25,
+"end": 169.31,
+"spk": "A"
+},
+{
+"id": "w368",
+"text": "velikoj",
+"start": 169.37,
+"end": 169.61,
+"spk": "A"
+},
+{
+"id": "w369",
+"text": "većini",
+"start": 169.67,
+"end": 169.91,
+"spk": "A"
+},
+{
+"id": "w370",
+"text": "slučajeva",
+"start": 169.97,
+"end": 170.33,
+"spk": "A"
+},
+{
+"id": "w371",
+"text": "pogrešno",
+"start": 170.45,
+"end": 170.81,
+"spk": "A"
+},
+{
+"id": "w372",
+"text": "misle,",
+"start": 170.87,
+"end": 171.05,
+"spk": "A"
+},
+{
+"id": "w373",
+"text": "da",
+"start": 171.17,
+"end": 171.23,
+"spk": "A"
+},
+{
+"id": "w374",
+"text": "će",
+"start": 171.35,
+"end": 171.41,
+"spk": "A"
+},
+{
+"id": "w375",
+"text": "se",
+"start": 171.47,
+"end": 171.53,
+"spk": "A"
+},
+{
+"id": "w376",
+"text": "time",
+"start": 171.89,
+"end": 171.95,
+"spk": "A"
+},
+{
+"id": "w377",
+"text": "nečime",
+"start": 172.97,
+"end": 173.33,
+"spk": "A"
+},
+{
+"id": "w378",
+"text": "ugroziti",
+"start": 173.51,
+"end": 174.05,
+"spk": "A"
+},
+{
+"id": "w379",
+"text": "njihov",
+"start": 175.19,
+"end": 175.55,
+"spk": "A"
+},
+{
+"id": "w380",
+"text": "ugled",
+"start": 175.67,
+"end": 175.91,
+"spk": "A"
+},
+{
+"id": "w381",
+"text": "od",
+"start": 177.11,
+"end": 177.17,
+"spk": "A"
+},
+{
+"id": "w382",
+"text": "strane",
+"start": 177.35,
+"end": 177.65,
+"spk": "A"
+},
+{
+"id": "w383",
+"text": "okoline,",
+"start": 178.13,
+"end": 178.55,
+"spk": "A"
+},
+{
+"id": "w384",
+"text": "znači",
+"start": 178.85,
+"end": 179.03,
+"spk": "A"
+},
+{
+"id": "w385",
+"text": "njihova",
+"start": 179.15,
+"end": 179.45,
+"spk": "A"
+},
+{
+"id": "w386",
+"text": "reputacija.",
+"start": 179.51,
+"end": 180.17,
+"spk": "A"
+},
+{
+"id": "w387",
+"text": "Tako",
+"start": 180.89,
+"end": 180.95,
+"spk": "A"
+},
+{
+"id": "w388",
+"text": "da,",
+"start": 181.13,
+"end": 181.19,
+"spk": "A"
+},
+{
+"id": "w389",
+"text": "to",
+"start": 181.31,
+"end": 181.37,
+"spk": "A"
+},
+{
+"id": "w390",
+"text": "je",
+"start": 181.49,
+"end": 181.55,
+"spk": "A"
+},
+{
+"id": "w391",
+"text": "nešto",
+"start": 181.61,
+"end": 181.91,
+"spk": "A"
+},
+{
+"id": "w392",
+"text": "što",
+"start": 182.09,
+"end": 182.15,
+"spk": "A"
+},
+{
+"id": "w393",
+"text": "treba,",
+"start": 182.57,
+"end": 183.11,
+"spk": "A"
+},
+{
+"id": "w394",
+"text": "to",
+"start": 183.35,
+"end": 183.41,
+"spk": "A"
+},
+{
+"id": "w395",
+"text": "je",
+"start": 183.47,
+"end": 183.53,
+"spk": "A"
+},
+{
+"id": "w396",
+"text": "proces.",
+"start": 183.65,
+"end": 184.01,
+"spk": "A"
+},
+{
+"id": "w397",
+"text": "Kao",
+"start": 184.43,
+"end": 184.97,
+"spk": "A"
+},
+{
+"id": "w398",
+"text": "sve",
+"start": 185.03,
+"end": 185.09,
+"spk": "A"
+},
+{
+"id": "w399",
+"text": "u",
+"start": 185.21,
+"end": 185.27,
+"spk": "A"
+},
+{
+"id": "w400",
+"text": "društvu,",
+"start": 185.33,
+"end": 185.63,
+"spk": "A"
+},
+{
+"id": "w401",
+"text": "sve",
+"start": 185.63,
+"end": 185.68,
+"spk": "A"
+},
+{
+"id": "w402",
+"text": "je",
+"start": 185.68,
+"end": 185.823,
+"spk": "A"
+},
+{
+"id": "w403",
+"text": "proces",
+"start": 185.823,
+"end": 185.967,
+"spk": "A"
+},
+{
+"id": "w404",
+"text": "i",
+"start": 185.967,
+"end": 186.11,
+"spk": "A"
+},
+{
+"id": "w405",
+"text": "sve",
+"start": 186.23,
+"end": 186.29,
+"spk": "A"
+},
+{
+"id": "w406",
+"text": "traje",
+"start": 186.47,
+"end": 186.65,
+"spk": "A"
+},
+{
+"id": "w407",
+"text": "i",
+"start": 186.71,
+"end": 186.77,
+"spk": "A"
+},
+{
+"id": "w408",
+"text": "treba,",
+"start": 186.83,
+"end": 187.13,
+"spk": "A"
+},
+{
+"id": "w409",
+"text": "po",
+"start": 187.31,
+"end": 187.37,
+"spk": "A"
+},
+{
+"id": "w410",
+"text": "meni,",
+"start": 187.43,
+"end": 187.55,
+"spk": "A"
+},
+{
+"id": "w411",
+"text": "proći",
+"start": 187.67,
+"end": 187.85,
+"spk": "A"
+},
+{
+"id": "w412",
+"text": "još",
+"start": 187.97,
+"end": 188.09,
+"spk": "A"
+},
+{
+"id": "w413",
+"text": "dosta",
+"start": 188.15,
+"end": 188.27,
+"spk": "A"
+},
+{
+"id": "w414",
+"text": "vremena",
+"start": 188.39,
+"end": 188.69,
+"spk": "A"
+},
+{
+"id": "w415",
+"text": "da",
+"start": 188.75,
+"end": 188.81,
+"spk": "A"
+},
+{
+"id": "w416",
+"text": "se",
+"start": 188.87,
+"end": 188.93,
+"spk": "A"
+},
+{
+"id": "w417",
+"text": "mi",
+"start": 189.05,
+"end": 189.11,
+"spk": "A"
+},
+{
+"id": "w418",
+"text": "u",
+"start": 189.23,
+"end": 189.29,
+"spk": "A"
+},
+{
+"id": "w419",
+"text": "potpunosti",
+"start": 189.35,
+"end": 189.71,
+"spk": "A"
+},
+{
+"id": "w420",
+"text": "oslobodimo,",
+"start": 190.01,
+"end": 191.63,
+"spk": "A"
+},
+{
+"id": "w421",
+"text": "da",
+"start": 191.63,
+"end": 192.05,
+"spk": "A"
+},
+{
+"id": "w422",
+"text": "u",
+"start": 192.05,
+"end": 192.47,
+"spk": "A"
+},
+{
+"id": "w423",
+"text": "onom…",
+"start": 192.47,
+"end": 192.89,
+"spk": "A"
+},
+{
+"id": "w424",
+"text": "Psihički,",
+"start": 192.89,
+"end": 193.25,
+"spk": "K"
+},
+{
+"id": "w425",
+"text": "prije",
+"start": 193.49,
+"end": 193.73,
+"spk": "K"
+},
+{
+"id": "w426",
+"text": "svega.",
+"start": 193.73,
+"end": 193.97,
+"spk": "K"
+},
+{
+"id": "w427",
+"text": "Da,",
+"start": 194.15,
+"end": 194.27,
+"spk": "A"
+},
+{
+"id": "w428",
+"text": "ali",
+"start": 194.33,
+"end": 194.39,
+"spk": "A"
+},
+{
+"id": "w429",
+"text": "i",
+"start": 194.39,
+"end": 194.45,
+"spk": "A"
+},
+{
+"id": "w430",
+"text": "kao",
+"start": 194.51,
+"end": 194.57,
+"spk": "A"
+},
+{
+"id": "w431",
+"text": "društvo",
+"start": 194.69,
+"end": 194.93,
+"spk": "A"
+},
+{
+"id": "w432",
+"text": "i",
+"start": 194.99,
+"end": 195.05,
+"spk": "A"
+},
+{
+"id": "w433",
+"text": "kao",
+"start": 195.11,
+"end": 195.17,
+"spk": "A"
+},
+{
+"id": "w434",
+"text": "narod,",
+"start": 195.35,
+"end": 195.41,
+"spk": "A"
+},
+{
+"id": "w435",
+"text": "da",
+"start": 196.43,
+"end": 196.49,
+"spk": "A"
+},
+{
+"id": "w436",
+"text": "shvatimo",
+"start": 196.55,
+"end": 196.85,
+"spk": "A"
+},
+{
+"id": "w437",
+"text": "da",
+"start": 196.91,
+"end": 196.97,
+"spk": "A"
+},
+{
+"id": "w438",
+"text": "imamo",
+"start": 197.03,
+"end": 197.21,
+"spk": "A"
+},
+{
+"id": "w439",
+"text": "svoju",
+"start": 197.51,
+"end": 197.75,
+"spk": "A"
+},
+{
+"id": "w440",
+"text": "državu,",
+"start": 197.99,
+"end": 198.41,
+"spk": "A"
+},
+{
+"id": "w441",
+"text": "da",
+"start": 198.59,
+"end": 198.65,
+"spk": "A"
+},
+{
+"id": "w442",
+"text": "smo",
+"start": 198.71,
+"end": 198.89,
+"spk": "A"
+},
+{
+"id": "w443",
+"text": "slobodni",
+"start": 199.19,
+"end": 199.67,
+"spk": "A"
+},
+{
+"id": "w444",
+"text": "ljudi.",
+"start": 199.79,
+"end": 200.09,
+"spk": "A"
+},
+{
+"id": "w445",
+"text": "Mi",
+"start": 200.45,
+"end": 200.51,
+"spk": "A"
+},
+{
+"id": "w446",
+"text": "ni",
+"start": 200.63,
+"end": 200.69,
+"spk": "A"
+},
+{
+"id": "w447",
+"text": "toga",
+"start": 200.75,
+"end": 200.87,
+"spk": "A"
+},
+{
+"id": "w448",
+"text": "nismo",
+"start": 200.93,
+"end": 201.11,
+"spk": "A"
+},
+{
+"id": "w449",
+"text": "svjesni",
+"start": 201.23,
+"end": 201.53,
+"spk": "A"
+},
+{
+"id": "w450",
+"text": "još,",
+"start": 201.59,
+"end": 201.71,
+"spk": "A"
+},
+{
+"id": "w451",
+"text": "da",
+"start": 201.77,
+"end": 201.83,
+"spk": "A"
+},
+{
+"id": "w452",
+"text": "smo",
+"start": 201.83,
+"end": 201.95,
+"spk": "A"
+},
+{
+"id": "w453",
+"text": "slobodni",
+"start": 202.01,
+"end": 202.31,
+"spk": "A"
+},
+{
+"id": "w454",
+"text": "ljudi,",
+"start": 202.43,
+"end": 202.61,
+"spk": "A"
+},
+{
+"id": "w455",
+"text": "da",
+"start": 202.67,
+"end": 202.73,
+"spk": "A"
+},
+{
+"id": "w456",
+"text": "je",
+"start": 202.79,
+"end": 202.85,
+"spk": "A"
+},
+{
+"id": "w457",
+"text": "svaki",
+"start": 202.91,
+"end": 203.03,
+"spk": "A"
+},
+{
+"id": "w458",
+"text": "pojedinac",
+"start": 203.15,
+"end": 203.51,
+"spk": "A"
+},
+{
+"id": "w459",
+"text": "zapravo",
+"start": 203.57,
+"end": 203.87,
+"spk": "A"
+},
+{
+"id": "w460",
+"text": "slobodan",
+"start": 203.93,
+"end": 204.35,
+"spk": "A"
+},
+{
+"id": "w461",
+"text": "čovjek.",
+"start": 205.73,
+"end": 205.97,
+"spk": "A"
+},
+{
+"id": "w462",
+"text": "Tako",
+"start": 207.17,
+"end": 207.23,
+"spk": "A"
+},
+{
+"id": "w463",
+"text": "da,",
+"start": 207.53,
+"end": 207.59,
+"spk": "A"
+},
+{
+"id": "w464",
+"text": "trebamo",
+"start": 207.95,
+"end": 208.31,
+"spk": "A"
+},
+{
+"id": "w465",
+"text": "zagovarati",
+"start": 208.79,
+"end": 209.51,
+"spk": "A"
+},
+{
+"id": "w466",
+"text": "i",
+"start": 210.11,
+"end": 210.17,
+"spk": "A"
+},
+{
+"id": "w467",
+"text": "maksimalno",
+"start": 210.35,
+"end": 210.83,
+"spk": "A"
+},
+{
+"id": "w468",
+"text": "promovirati",
+"start": 210.95,
+"end": 211.49,
+"spk": "A"
+},
+{
+"id": "w469",
+"text": "kulturu",
+"start": 211.67,
+"end": 212.09,
+"spk": "A"
+},
+{
+"id": "w470",
+"text": "slobode,",
+"start": 212.39,
+"end": 212.93,
+"spk": "A"
+},
+{
+"id": "w471",
+"text": "ali",
+"start": 213.59,
+"end": 213.65,
+"spk": "A"
+},
+{
+"id": "w472",
+"text": "tu",
+"start": 213.89,
+"end": 213.95,
+"spk": "A"
+},
+{
+"id": "w473",
+"text": "ću",
+"start": 214.13,
+"end": 214.19,
+"spk": "A"
+},
+{
+"id": "w474",
+"text": "odmah",
+"start": 214.55,
+"end": 214.79,
+"spk": "A"
+},
+{
+"id": "w475",
+"text": "reći",
+"start": 214.79,
+"end": 214.97,
+"spk": "A"
+},
+{
+"id": "w476",
+"text": "ali,",
+"start": 215.15,
+"end": 215.39,
+"spk": "A"
+},
+{
+"id": "w477",
+"text": "ne",
+"start": 216.05,
+"end": 216.11,
+"spk": "A"
+},
+{
+"id": "w478",
+"text": "da",
+"start": 216.29,
+"end": 216.34,
+"spk": "A"
+},
+{
+"id": "w479",
+"text": "ja",
+"start": 216.34,
+"end": 216.41,
+"spk": "A"
+},
+{
+"id": "w480",
+"text": "imam",
+"start": 216.41,
+"end": 216.59,
+"spk": "A"
+},
+{
+"id": "w481",
+"text": "nešto",
+"start": 216.59,
+"end": 216.77,
+"spk": "A"
+},
+{
+"id": "w482",
+"text": "protiv",
+"start": 216.83,
+"end": 216.95,
+"spk": "A"
+},
+{
+"id": "w483",
+"text": "slobode,",
+"start": 217.07,
+"end": 217.37,
+"spk": "A"
+},
+{
+"id": "w484",
+"text": "nego",
+"start": 217.43,
+"end": 217.61,
+"spk": "A"
+},
+{
+"id": "w485",
+"text": "činjenica",
+"start": 217.73,
+"end": 218.15,
+"spk": "A"
+},
+{
+"id": "w486",
+"text": "da",
+"start": 218.21,
+"end": 218.27,
+"spk": "A"
+},
+{
+"id": "w487",
+"text": "sloboda",
+"start": 218.33,
+"end": 218.63,
+"spk": "A"
+},
+{
+"id": "w488",
+"text": "nikad",
+"start": 218.81,
+"end": 218.99,
+"spk": "A"
+},
+{
+"id": "w489",
+"text": "ne",
+"start": 219.05,
+"end": 219.11,
+"spk": "A"
+},
+{
+"id": "w490",
+"text": "dolazi",
+"start": 219.17,
+"end": 219.35,
+"spk": "A"
+},
+{
+"id": "w491",
+"text": "sama,",
+"start": 219.53,
+"end": 219.77,
+"spk": "A"
+},
+{
+"id": "w492",
+"text": "ona",
+"start": 219.77,
+"end": 219.95,
+"spk": "A"
+},
+{
+"id": "w493",
+"text": "uvijek",
+"start": 219.95,
+"end": 220.13,
+"spk": "A"
+},
+{
+"id": "w494",
+"text": "dolazi",
+"start": 220.19,
+"end": 220.31,
+"spk": "A"
+},
+{
+"id": "w495",
+"text": "s",
+"start": 220.43,
+"end": 220.49,
+"spk": "A"
+},
+{
+"id": "w496",
+"text": "odgovornošću,",
+"start": 220.55,
+"end": 221.21,
+"spk": "A"
+},
+{
+"id": "w497",
+"text": "to",
+"start": 221.27,
+"end": 221.33,
+"spk": "A"
+},
+{
+"id": "w498",
+"text": "je",
+"start": 221.33,
+"end": 221.39,
+"spk": "A"
+},
+{
+"id": "w499",
+"text": "njezino",
+"start": 221.45,
+"end": 221.69,
+"spk": "A"
+},
+{
+"id": "w500",
+"text": "prirodno",
+"start": 221.81,
+"end": 222.17,
+"spk": "A"
+},
+{
+"id": "w501",
+"text": "stanje.",
+"start": 222.29,
+"end": 222.59,
+"spk": "A"
+},
+{
+"id": "w502",
+"text": "Dakle,",
+"start": 223.43,
+"end": 223.67,
+"spk": "A"
+},
+{
+"id": "w503",
+"text": "ako",
+"start": 223.73,
+"end": 223.79,
+"spk": "A"
+},
+{
+"id": "w504",
+"text": "promoviramo",
+"start": 223.97,
+"end": 224.51,
+"spk": "A"
+},
+{
+"id": "w505",
+"text": "slobodu,",
+"start": 225.23,
+"end": 225.77,
+"spk": "A"
+},
+{
+"id": "w506",
+"text": "s",
+"start": 226.55,
+"end": 226.61,
+"spk": "A"
+},
+{
+"id": "w507",
+"text": "njom",
+"start": 226.67,
+"end": 226.79,
+"spk": "A"
+},
+{
+"id": "w508",
+"text": "u",
+"start": 226.85,
+"end": 226.91,
+"spk": "A"
+},
+{
+"id": "w509",
+"text": "paketu",
+"start": 227.03,
+"end": 227.45,
+"spk": "A"
+},
+{
+"id": "w510",
+"text": "uvijek",
+"start": 227.51,
+"end": 227.69,
+"spk": "A"
+},
+{
+"id": "w511",
+"text": "dobivamo",
+"start": 227.75,
+"end": 228.11,
+"spk": "A"
+},
+{
+"id": "w512",
+"text": "odgovornost.",
+"start": 228.71,
+"end": 229.37,
+"spk": "A"
+},
+{
+"id": "w513",
+"text": "Tako",
+"start": 230.45,
+"end": 230.51,
+"spk": "A"
+},
+{
+"id": "w514",
+"text": "da,",
+"start": 230.75,
+"end": 230.81,
+"spk": "A"
+},
+{
+"id": "w515",
+"text": "svoj",
+"start": 231.53,
+"end": 231.59,
+"spk": "A"
+},
+{
+"id": "w516",
+"text": "na",
+"start": 231.83,
+"end": 231.89,
+"spk": "A"
+},
+{
+"id": "w517",
+"text": "svome,",
+"start": 232.01,
+"end": 232.31,
+"spk": "A"
+},
+{
+"id": "w518",
+"text": "slobodni",
+"start": 232.67,
+"end": 233.09,
+"spk": "A"
+},
+{
+"id": "w519",
+"text": "smo",
+"start": 233.15,
+"end": 233.33,
+"spk": "A"
+},
+{
+"id": "w520",
+"text": "i",
+"start": 235.31,
+"end": 235.37,
+"spk": "A"
+},
+{
+"id": "w521",
+"text": "kažem,",
+"start": 235.97,
+"end": 236.33,
+"spk": "A"
+},
+{
+"id": "w522",
+"text": "potrebno",
+"start": 237.17,
+"end": 237.47,
+"spk": "A"
+},
+{
+"id": "w523",
+"text": "je",
+"start": 237.47,
+"end": 237.53,
+"spk": "A"
+},
+{
+"id": "w524",
+"text": "puno",
+"start": 237.59,
+"end": 237.71,
+"spk": "A"
+},
+{
+"id": "w525",
+"text": "zalaganja",
+"start": 237.77,
+"end": 237.95,
+"spk": "A"
+},
+{
+"id": "w526",
+"text": "i",
+"start": 237.95,
+"end": 238.13,
+"spk": "A"
+},
+{
+"id": "w527",
+"text": "proći",
+"start": 238.25,
+"end": 238.43,
+"spk": "A"
+},
+{
+"id": "w528",
+"text": "će",
+"start": 238.49,
+"end": 238.55,
+"spk": "A"
+},
+{
+"id": "w529",
+"text": "još",
+"start": 238.61,
+"end": 238.79,
+"spk": "A"
+},
+{
+"id": "w530",
+"text": "neko",
+"start": 238.79,
+"end": 238.97,
+"spk": "A"
+},
+{
+"id": "w531",
+"text": "vrijeme",
+"start": 239.03,
+"end": 239.27,
+"spk": "A"
+},
+{
+"id": "w532",
+"text": "da",
+"start": 239.33,
+"end": 239.39,
+"spk": "A"
+},
+{
+"id": "w533",
+"text": "prestanemo",
+"start": 240.23,
+"end": 240.65,
+"spk": "A"
+},
+{
+"id": "w534",
+"text": "toliko",
+"start": 240.71,
+"end": 240.95,
+"spk": "A"
+},
+{
+"id": "w535",
+"text": "mariti",
+"start": 241.49,
+"end": 241.85,
+"spk": "A"
+},
+{
+"id": "w536",
+"text": "za",
+"start": 242.63,
+"end": 242.69,
+"spk": "A"
+},
+{
+"id": "w537",
+"text": "neuspjehe",
+"start": 242.99,
+"end": 243.47,
+"spk": "A"
+},
+{
+"id": "w538",
+"text": "i",
+"start": 243.53,
+"end": 243.59,
+"spk": "A"
+},
+{
+"id": "w539",
+"text": "da",
+"start": 243.65,
+"end": 243.71,
+"spk": "A"
+},
+{
+"id": "w540",
+"text": "shvatimo",
+"start": 243.71,
+"end": 244.07,
+"spk": "A"
+},
+{
+"id": "w541",
+"text": "da",
+"start": 244.13,
+"end": 244.19,
+"spk": "A"
+},
+{
+"id": "w542",
+"text": "je",
+"start": 244.49,
+"end": 244.55,
+"spk": "A"
+},
+{
+"id": "w543",
+"text": "zapravo",
+"start": 244.55,
+"end": 244.85,
+"spk": "A"
+},
+{
+"id": "w544",
+"text": "neuspjeh,",
+"start": 244.91,
+"end": 245.39,
+"spk": "A"
+},
+{
+"id": "w545",
+"text": "to",
+"start": 246.35,
+"end": 246.41,
+"spk": "A"
+},
+{
+"id": "w546",
+"text": "zvuči",
+"start": 246.53,
+"end": 246.83,
+"spk": "A"
+},
+{
+"id": "w547",
+"text": "izlizano",
+"start": 246.95,
+"end": 247.43,
+"spk": "A"
+},
+{
+"id": "w548",
+"text": "i",
+"start": 247.55,
+"end": 247.61,
+"spk": "A"
+},
+{
+"id": "w549",
+"text": "jest,",
+"start": 247.73,
+"end": 247.79,
+"spk": "A"
+},
+{
+"id": "w550",
+"text": "ali",
+"start": 247.97,
+"end": 248.03,
+"spk": "A"
+},
+{
+"id": "w551",
+"text": "je",
+"start": 248.15,
+"end": 248.21,
+"spk": "A"
+},
+{
+"id": "w552",
+"text": "istina,",
+"start": 248.27,
+"end": 248.57,
+"spk": "A"
+},
+{
+"id": "w553",
+"text": "neuspjeh",
+"start": 249.65,
+"end": 250.07,
+"spk": "A"
+},
+{
+"id": "w554",
+"text": "je",
+"start": 250.07,
+"end": 250.13,
+"spk": "A"
+},
+{
+"id": "w555",
+"text": "sastavni",
+"start": 250.19,
+"end": 250.55,
+"spk": "A"
+},
+{
+"id": "w556",
+"text": "dio",
+"start": 250.55,
+"end": 250.61,
+"spk": "A"
+},
+{
+"id": "w557",
+"text": "uspjeha.",
+"start": 250.79,
+"end": 251.15,
+"spk": "A"
+},
+{
+"id": "w558",
+"text": "Dakle,",
+"start": 251.21,
+"end": 251.45,
+"spk": "A"
+},
+{
+"id": "w559",
+"text": "većina,",
+"start": 251.57,
+"end": 251.93,
+"spk": "A"
+},
+{
+"id": "w560",
+"text": "još",
+"start": 252.59,
+"end": 252.71,
+"spk": "A"
+},
+{
+"id": "w561",
+"text": "bih",
+"start": 252.77,
+"end": 252.89,
+"spk": "A"
+},
+{
+"id": "w562",
+"text": "samo",
+"start": 252.95,
+"end": 253.01,
+"spk": "A"
+},
+{
+"id": "w563",
+"text": "ovo",
+"start": 253.13,
+"end": 253.25,
+"spk": "A"
+},
+{
+"id": "w564",
+"text": "htio",
+"start": 253.25,
+"end": 253.43,
+"spk": "A"
+},
+{
+"id": "w565",
+"text": "dodati,",
+"start": 253.55,
+"end": 253.85,
+"spk": "A"
+},
+{
+"id": "w566",
+"text": "većina",
+"start": 254.45,
+"end": 254.75,
+"spk": "A"
+},
+{
+"id": "w567",
+"text": "stvari",
+"start": 254.87,
+"end": 255.17,
+"spk": "A"
+},
+{
+"id": "w568",
+"text": "koje",
+"start": 255.23,
+"end": 255.29,
+"spk": "A"
+},
+{
+"id": "w569",
+"text": "svi",
+"start": 255.41,
+"end": 255.59,
+"spk": "A"
+},
+{
+"id": "w570",
+"text": "mi",
+"start": 255.65,
+"end": 255.71,
+"spk": "A"
+},
+{
+"id": "w571",
+"text": "radimo,",
+"start": 255.77,
+"end": 256.13,
+"spk": "A"
+},
+{
+"id": "w572",
+"text": "kad,",
+"start": 256.25,
+"end": 256.31,
+"spk": "A"
+},
+{
+"id": "w573",
+"text": "recimo,",
+"start": 256.49,
+"end": 256.79,
+"spk": "A"
+},
+{
+"id": "w574",
+"text": "sve",
+"start": 256.85,
+"end": 256.91,
+"spk": "A"
+},
+{
+"id": "w575",
+"text": "svoje",
+"start": 257.03,
+"end": 257.09,
+"spk": "A"
+},
+{
+"id": "w576",
+"text": "aktivnosti",
+"start": 257.21,
+"end": 257.51,
+"spk": "A"
+},
+{
+"id": "w577",
+"text": "od",
+"start": 257.69,
+"end": 257.75,
+"spk": "A"
+},
+{
+"id": "w578",
+"text": "rođenja",
+"start": 257.81,
+"end": 258.17,
+"spk": "A"
+},
+{
+"id": "w579",
+"text": "do",
+"start": 258.83,
+"end": 258.89,
+"spk": "A"
+},
+{
+"id": "w580",
+"text": "danas",
+"start": 259.01,
+"end": 259.25,
+"spk": "A"
+},
+{
+"id": "w581",
+"text": "stavimo",
+"start": 259.49,
+"end": 259.73,
+"spk": "A"
+},
+{
+"id": "w582",
+"text": "na",
+"start": 259.85,
+"end": 259.91,
+"spk": "A"
+},
+{
+"id": "w583",
+"text": "hrpu,",
+"start": 260.03,
+"end": 260.33,
+"spk": "A"
+},
+{
+"id": "w584",
+"text": "većina",
+"start": 260.99,
+"end": 261.23,
+"spk": "A"
+},
+{
+"id": "w585",
+"text": "toga",
+"start": 261.35,
+"end": 261.53,
+"spk": "A"
+},
+{
+"id": "w586",
+"text": "su",
+"start": 261.59,
+"end": 261.65,
+"spk": "A"
+},
+{
+"id": "w587",
+"text": "čisti",
+"start": 261.77,
+"end": 261.95,
+"spk": "A"
+},
+{
+"id": "w588",
+"text": "fejlovi,",
+"start": 262.13,
+"end": 262.55,
+"spk": "A"
+},
+{
+"id": "w589",
+"text": "neuspjesi.",
+"start": 262.73,
+"end": 263.33,
+"spk": "A"
+},
+{
+"id": "w590",
+"text": "A",
+"start": 264.65,
+"end": 264.71,
+"spk": "A"
+},
+{
+"id": "w591",
+"text": "brojčano",
+"start": 265.31,
+"end": 265.97,
+"spk": "A"
+},
+{
+"id": "w592",
+"text": "gledano",
+"start": 266.03,
+"end": 266.33,
+"spk": "A"
+},
+{
+"id": "w593",
+"text": "imamo",
+"start": 266.39,
+"end": 266.63,
+"spk": "A"
+},
+{
+"id": "w594",
+"text": "jako",
+"start": 266.69,
+"end": 266.75,
+"spk": "A"
+},
+{
+"id": "w595",
+"text": "malo",
+"start": 266.93,
+"end": 267.11,
+"spk": "A"
+},
+{
+"id": "w596",
+"text": "uspjeha.",
+"start": 267.23,
+"end": 267.59,
+"spk": "A"
+},
+{
+"id": "w597",
+"text": "Međutim,",
+"start": 267.65,
+"end": 268.01,
+"spk": "A"
+},
+{
+"id": "w598",
+"text": "to",
+"start": 268.31,
+"end": 268.37,
+"spk": "A"
+},
+{
+"id": "w599",
+"text": "malo",
+"start": 268.61,
+"end": 268.79,
+"spk": "A"
+},
+{
+"id": "w600",
+"text": "uspjeha,",
+"start": 268.91,
+"end": 269.33,
+"spk": "A"
+},
+{
+"id": "w601",
+"text": "recimo,",
+"start": 271.01,
+"end": 271.37,
+"spk": "A"
+},
+{
+"id": "w602",
+"text": "na",
+"start": 271.37,
+"end": 271.43,
+"spk": "A"
+},
+{
+"id": "w603",
+"text": "primjer,",
+"start": 271.49,
+"end": 271.79,
+"spk": "A"
+},
+{
+"id": "w604",
+"text": "nešto",
+"start": 271.91,
+"end": 272.09,
+"spk": "A"
+},
+{
+"id": "w605",
+"text": "sam",
+"start": 272.21,
+"end": 272.27,
+"spk": "A"
+},
+{
+"id": "w606",
+"text": "uspio",
+"start": 272.39,
+"end": 272.63,
+"spk": "A"
+},
+{
+"id": "w607",
+"text": "u",
+"start": 272.75,
+"end": 272.81,
+"spk": "A"
+},
+{
+"id": "w608",
+"text": "poslu",
+"start": 272.93,
+"end": 273.17,
+"spk": "A"
+},
+{
+"id": "w609",
+"text": "ili",
+"start": 274.25,
+"end": 274.31,
+"spk": "A"
+},
+{
+"id": "w610",
+"text": "ne",
+"start": 274.55,
+"end": 274.61,
+"spk": "A"
+},
+{
+"id": "w611",
+"text": "znam,",
+"start": 274.67,
+"end": 274.85,
+"spk": "A"
+},
+{
+"id": "w612",
+"text": "obitelj,",
+"start": 275.39,
+"end": 275.81,
+"spk": "A"
+},
+{
+"id": "w613",
+"text": "okej,",
+"start": 275.99,
+"end": 276.17,
+"spk": "A"
+},
+{
+"id": "w614",
+"text": "djeca,",
+"start": 276.35,
+"end": 276.59,
+"spk": "A"
+},
+{
+"id": "w615",
+"text": "simo-tamo,",
+"start": 276.65,
+"end": 277.07,
+"spk": "A"
+},
+{
+"id": "w616",
+"text": "nešto",
+"start": 277.13,
+"end": 277.31,
+"spk": "A"
+},
+{
+"id": "w617",
+"text": "sam",
+"start": 277.37,
+"end": 277.43,
+"spk": "A"
+},
+{
+"id": "w618",
+"text": "završio,",
+"start": 277.49,
+"end": 277.79,
+"spk": "A"
+},
+{
+"id": "w619",
+"text": "evo,",
+"start": 277.91,
+"end": 278.15,
+"spk": "A"
+},
+{
+"id": "w620",
+"text": "to",
+"start": 278.15,
+"end": 278.21,
+"spk": "A"
+},
+{
+"id": "w621",
+"text": "su",
+"start": 278.27,
+"end": 278.33,
+"spk": "A"
+},
+{
+"id": "w622",
+"text": "tri",
+"start": 278.45,
+"end": 278.51,
+"spk": "A"
+},
+{
+"id": "w623",
+"text": "stvari.",
+"start": 278.57,
+"end": 278.87,
+"spk": "A"
+},
+{
+"id": "w624",
+"text": "Međutim,",
+"start": 279.23,
+"end": 279.59,
+"spk": "A"
+},
+{
+"id": "w625",
+"text": "iza",
+"start": 280.07,
+"end": 280.31,
+"spk": "A"
+},
+{
+"id": "w626",
+"text": "te",
+"start": 280.37,
+"end": 280.43,
+"spk": "A"
+},
+{
+"id": "w627",
+"text": "tri",
+"start": 280.55,
+"end": 280.61,
+"spk": "A"
+},
+{
+"id": "w628",
+"text": "stvari",
+"start": 280.73,
+"end": 281.03,
+"spk": "A"
+},
+{
+"id": "w629",
+"text": "je",
+"start": 282.05,
+"end": 282.11,
+"spk": "A"
+},
+{
+"id": "w630",
+"text": "čitava",
+"start": 282.23,
+"end": 282.59,
+"spk": "A"
+},
+{
+"id": "w631",
+"text": "planina",
+"start": 282.83,
+"end": 283.19,
+"spk": "A"
+},
+{
+"id": "w632",
+"text": "neuspjeha.",
+"start": 283.43,
+"end": 283.97,
+"spk": "A"
+},
+{
+"id": "w633",
+"text": "I",
+"start": 284.27,
+"end": 284.33,
+"spk": "A"
+},
+{
+"id": "w634",
+"text": "ove",
+"start": 284.45,
+"end": 284.63,
+"spk": "A"
+},
+{
+"id": "w635",
+"text": "tri",
+"start": 284.87,
+"end": 284.93,
+"spk": "A"
+},
+{
+"id": "w636",
+"text": "stvari,",
+"start": 285.05,
+"end": 285.29,
+"spk": "A"
+},
+{
+"id": "w637",
+"text": "ili",
+"start": 285.41,
+"end": 285.47,
+"spk": "A"
+},
+{
+"id": "w638",
+"text": "koliko",
+"start": 285.59,
+"end": 285.77,
+"spk": "A"
+},
+{
+"id": "w639",
+"text": "već,",
+"start": 285.89,
+"end": 286.01,
+"spk": "A"
+},
+{
+"id": "w640",
+"text": "mali",
+"start": 286.19,
+"end": 286.37,
+"spk": "A"
+},
+{
+"id": "w641",
+"text": "broj",
+"start": 286.43,
+"end": 286.55,
+"spk": "A"
+},
+{
+"id": "w642",
+"text": "uspjeha",
+"start": 286.67,
+"end": 287.03,
+"spk": "A"
+},
+{
+"id": "w643",
+"text": "realno",
+"start": 287.15,
+"end": 287.39,
+"spk": "A"
+},
+{
+"id": "w644",
+"text": "koje",
+"start": 287.45,
+"end": 287.51,
+"spk": "A"
+},
+{
+"id": "w645",
+"text": "svaki",
+"start": 287.63,
+"end": 287.75,
+"spk": "A"
+},
+{
+"id": "w646",
+"text": "pojedinac",
+"start": 287.87,
+"end": 288.17,
+"spk": "A"
+},
+{
+"id": "w647",
+"text": "ima,",
+"start": 288.29,
+"end": 288.41,
+"spk": "A"
+},
+{
+"id": "w648",
+"text": "ne",
+"start": 288.47,
+"end": 288.53,
+"spk": "A"
+},
+{
+"id": "w649",
+"text": "bi",
+"start": 288.53,
+"end": 288.59,
+"spk": "A"
+},
+{
+"id": "w650",
+"text": "bili",
+"start": 288.71,
+"end": 288.77,
+"spk": "A"
+},
+{
+"id": "w651",
+"text": "mogući",
+"start": 288.89,
+"end": 289.19,
+"spk": "A"
+},
+{
+"id": "w652",
+"text": "bez",
+"start": 289.43,
+"end": 289.49,
+"spk": "A"
+},
+{
+"id": "w653",
+"text": "ogromnog,",
+"start": 290.03,
+"end": 290.51,
+"spk": "A"
+},
+{
+"id": "w654",
+"text": "višestruko",
+"start": 291.23,
+"end": 291.83,
+"spk": "A"
+},
+{
+"id": "w655",
+"text": "većeg",
+"start": 291.89,
+"end": 292.19,
+"spk": "A"
+},
+{
+"id": "w656",
+"text": "broja",
+"start": 292.31,
+"end": 292.55,
+"spk": "A"
+},
+{
+"id": "w657",
+"text": "neuspjeha.",
+"start": 292.85,
+"end": 293.45,
+"spk": "A"
+},
+{
+"id": "w658",
+"text": "To",
+"start": 294.05,
+"end": 294.11,
+"spk": "K"
+},
+{
+"id": "w659",
+"text": "je",
+"start": 294.17,
+"end": 294.23,
+"spk": "K"
+},
+{
+"id": "w660",
+"text": "ko",
+"start": 294.41,
+"end": 294.47,
+"spk": "K"
+},
+{
+"id": "w661",
+"text": "vrh",
+"start": 294.59,
+"end": 294.77,
+"spk": "K"
+},
+{
+"id": "w662",
+"text": "sante",
+"start": 294.83,
+"end": 294.89,
+"spk": "K"
+},
+{
+"id": "w663",
+"text": "leda.",
+"start": 295.13,
+"end": 295.31,
+"spk": "K"
+},
+{
+"id": "w664",
+"text": "Točno.",
+"start": 295.43,
+"end": 295.58,
+"spk": "A"
+},
+{
+"id": "w665",
+"text": "Vidi",
+"start": 295.58,
+"end": 295.73,
+"spk": "K"
+},
+{
+"id": "w666",
+"text": "se",
+"start": 295.79,
+"end": 295.85,
+"spk": "K"
+},
+{
+"id": "w667",
+"text": "vrh,",
+"start": 295.97,
+"end": 296.27,
+"spk": "K"
+},
+{
+"id": "w668",
+"text": "a",
+"start": 296.33,
+"end": 296.39,
+"spk": "K"
+},
+{
+"id": "w669",
+"text": "ovo",
+"start": 296.39,
+"end": 296.51,
+"spk": "K"
+},
+{
+"id": "w670",
+"text": "ispod",
+"start": 296.51,
+"end": 296.75,
+"spk": "K"
+},
+{
+"id": "w671",
+"text": "se",
+"start": 296.81,
+"end": 296.87,
+"spk": "K"
+},
+{
+"id": "w672",
+"text": "ne",
+"start": 296.93,
+"end": 296.99,
+"spk": "K"
+},
+{
+"id": "w673",
+"text": "vidi.",
+"start": 297.05,
+"end": 297.23,
+"spk": "K"
+},
+{
+"id": "w674",
+"text": "Točno.",
+"start": 297.23,
+"end": 297.41,
+"spk": "A"
+},
+{
+"id": "w675",
+"text": "I",
+"start": 297.41,
+"end": 297.47,
+"spk": "A"
+},
+{
+"id": "w676",
+"text": "zato",
+"start": 297.47,
+"end": 297.65,
+"spk": "A"
+},
+{
+"id": "w677",
+"text": "treba,",
+"start": 297.71,
+"end": 297.95,
+"spk": "A"
+},
+{
+"id": "w678",
+"text": "meni",
+"start": 298.37,
+"end": 298.55,
+"spk": "A"
+},
+{
+"id": "w679",
+"text": "je,",
+"start": 298.55,
+"end": 298.61,
+"spk": "A"
+},
+{
+"id": "w680",
+"text": "recimo,",
+"start": 298.61,
+"end": 298.85,
+"spk": "A"
+},
+{
+"id": "w681",
+"text": "genijalan,",
+"start": 298.91,
+"end": 299.33,
+"spk": "A"
+},
+{
+"id": "w682",
+"text": "sad",
+"start": 300.23,
+"end": 300.35,
+"spk": "A"
+},
+{
+"id": "w683",
+"text": "se",
+"start": 300.41,
+"end": 300.47,
+"spk": "A"
+},
+{
+"id": "w684",
+"text": "ne",
+"start": 300.47,
+"end": 300.53,
+"spk": "A"
+},
+{
+"id": "w685",
+"text": "sjećam",
+"start": 300.59,
+"end": 300.83,
+"spk": "A"
+},
+{
+"id": "w686",
+"text": "je",
+"start": 300.89,
+"end": 300.95,
+"spk": "A"
+},
+{
+"id": "w687",
+"text": "li",
+"start": 300.95,
+"end": 301.01,
+"spk": "A"
+},
+{
+"id": "w688",
+"text": "to",
+"start": 301.07,
+"end": 301.13,
+"spk": "A"
+},
+{
+"id": "w689",
+"text": "u",
+"start": 301.19,
+"end": 301.25,
+"spk": "A"
+},
+{
+"id": "w690",
+"text": "Finskoj",
+"start": 301.43,
+"end": 301.79,
+"spk": "A"
+},
+{
+"id": "w691",
+"text": "ili",
+"start": 302.03,
+"end": 302.09,
+"spk": "A"
+},
+{
+"id": "w692",
+"text": "negdje",
+"start": 302.69,
+"end": 302.93,
+"spk": "A"
+},
+{
+"id": "w693",
+"text": "drugdje,",
+"start": 303.11,
+"end": 303.47,
+"spk": "A"
+},
+{
+"id": "w694",
+"text": "oni",
+"start": 303.83,
+"end": 303.95,
+"spk": "A"
+},
+{
+"id": "w695",
+"text": "imaju",
+"start": 304.01,
+"end": 304.13,
+"spk": "A"
+},
+{
+"id": "w696",
+"text": "festival",
+"start": 304.31,
+"end": 304.37,
+"spk": "A"
+},
+{
+"id": "w697",
+"text": "neuspjeha",
+"start": 305.39,
+"end": 305.99,
+"spk": "A"
+},
+{
+"id": "w698",
+"text": "gdje",
+"start": 306.89,
+"end": 306.95,
+"spk": "A"
+},
+{
+"id": "w699",
+"text": "imaju",
+"start": 307.37,
+"end": 307.61,
+"spk": "A"
+},
+{
+"id": "w700",
+"text": "niz",
+"start": 307.91,
+"end": 308.09,
+"spk": "A"
+},
+{
+"id": "w701",
+"text": "konferencija,",
+"start": 308.27,
+"end": 308.87,
+"spk": "A"
+},
+{
+"id": "w702",
+"text": "evo,",
+"start": 308.87,
+"end": 309.05,
+"spk": "A"
+},
+{
+"id": "w703",
+"text": "to",
+"start": 309.05,
+"end": 309.11,
+"spk": "A"
+},
+{
+"id": "w704",
+"text": "je",
+"start": 309.17,
+"end": 309.23,
+"spk": "A"
+},
+{
+"id": "w705",
+"text": "možda",
+"start": 309.29,
+"end": 309.47,
+"spk": "A"
+},
+{
+"id": "w706",
+"text": "neka",
+"start": 309.53,
+"end": 309.71,
+"spk": "A"
+},
+{
+"id": "w707",
+"text": "ideja,",
+"start": 309.83,
+"end": 310.07,
+"spk": "A"
+},
+{
+"id": "w708",
+"text": "zašto",
+"start": 310.25,
+"end": 310.43,
+"spk": "A"
+},
+{
+"id": "w709",
+"text": "ne",
+"start": 310.49,
+"end": 310.55,
+"spk": "A"
+},
+{
+"id": "w710",
+"text": "još",
+"start": 310.67,
+"end": 310.79,
+"spk": "A"
+},
+{
+"id": "w711",
+"text": "jedan",
+"start": 310.85,
+"end": 310.97,
+"spk": "A"
+},
+{
+"id": "w712",
+"text": "projekt.",
+"start": 311.15,
+"end": 311.51,
+"spk": "A"
+},
+{
+"id": "w713",
+"text": "Samo",
+"start": 312.71,
+"end": 312.89,
+"spk": "K"
+},
+{
+"id": "w714",
+"text": "reci",
+"start": 313.01,
+"end": 313.07,
+"spk": "K"
+},
+{
+"id": "w715",
+"text": "ženi,",
+"start": 313.31,
+"end": 313.55,
+"spk": "K"
+},
+{
+"id": "w716",
+"text": "bit",
+"start": 313.61,
+"end": 313.67,
+"spk": "K"
+},
+{
+"id": "w717",
+"text": "će",
+"start": 313.73,
+"end": 313.79,
+"spk": "K"
+},
+{
+"id": "w718",
+"text": "oduševljena.",
+"start": 313.85,
+"end": 314.27,
+"spk": "K"
+},
+{
+"id": "w719",
+"text": "Da,",
+"start": 314.39,
+"end": 314.51,
+"spk": "A"
+},
+{
+"id": "w720",
+"text": "da,",
+"start": 314.51,
+"end": 314.57,
+"spk": "A"
+},
+{
+"id": "w721",
+"text": "da,",
+"start": 314.63,
+"end": 314.69,
+"spk": "A"
+},
+{
+"id": "w722",
+"text": "ti",
+"start": 315.11,
+"end": 315.17,
+"spk": "A"
+},
+{
+"id": "w723",
+"text": "isto.",
+"start": 315.35,
+"end": 315.53,
+"spk": "A"
+},
+{
+"id": "w724",
+"text": "Konferencija",
+"start": 318.65,
+"end": 319.13,
+"spk": "A"
+},
+{
+"id": "w725",
+"text": "gdje",
+"start": 319.37,
+"end": 319.43,
+"spk": "A"
+},
+{
+"id": "w726",
+"text": "se",
+"start": 320.39,
+"end": 320.45,
+"spk": "A"
+},
+{
+"id": "w727",
+"text": "okupljaju",
+"start": 320.63,
+"end": 321.11,
+"spk": "A"
+},
+{
+"id": "w728",
+"text": "uglavnom",
+"start": 321.29,
+"end": 321.65,
+"spk": "A"
+},
+{
+"id": "w729",
+"text": "poduzetnici",
+"start": 321.77,
+"end": 322.55,
+"spk": "A"
+},
+{
+"id": "w730",
+"text": "i",
+"start": 323.75,
+"end": 323.81,
+"spk": "A"
+},
+{
+"id": "w731",
+"text": "jedina",
+"start": 323.93,
+"end": 324.17,
+"spk": "A"
+},
+{
+"id": "w732",
+"text": "tema",
+"start": 324.29,
+"end": 324.35,
+"spk": "A"
+},
+{
+"id": "w733",
+"text": "je",
+"start": 324.59,
+"end": 324.65,
+"spk": "A"
+},
+{
+"id": "w734",
+"text": "njihov",
+"start": 325.49,
+"end": 325.73,
+"spk": "A"
+},
+{
+"id": "w735",
+"text": "neuspjeh.",
+"start": 325.85,
+"end": 326.27,
+"spk": "A"
+},
+{
+"id": "w736",
+"text": "Znači,",
+"start": 326.27,
+"end": 326.45,
+"spk": "A"
+},
+{
+"id": "w737",
+"text": "svako",
+"start": 326.51,
+"end": 326.75,
+"spk": "A"
+},
+{
+"id": "w738",
+"text": "priča",
+"start": 326.87,
+"end": 327.11,
+"spk": "A"
+},
+{
+"id": "w739",
+"text": "o",
+"start": 327.23,
+"end": 327.29,
+"spk": "A"
+},
+{
+"id": "w740",
+"text": "najgorim,",
+"start": 327.47,
+"end": 327.89,
+"spk": "A"
+},
+{
+"id": "w741",
+"text": "od",
+"start": 328.01,
+"end": 328.07,
+"spk": "A"
+},
+{
+"id": "w742",
+"text": "najmanjih",
+"start": 328.19,
+"end": 328.55,
+"spk": "A"
+},
+{
+"id": "w743",
+"text": "do",
+"start": 328.61,
+"end": 328.67,
+"spk": "A"
+},
+{
+"id": "w744",
+"text": "najgorih",
+"start": 328.73,
+"end": 329.03,
+"spk": "A"
+},
+{
+"id": "w745",
+"text": "neuspjeha.",
+"start": 329.15,
+"end": 329.57,
+"spk": "A"
+},
+{
+"id": "w746",
+"text": "Znači,",
+"start": 329.63,
+"end": 329.81,
+"spk": "A"
+},
+{
+"id": "w747",
+"text": "oni",
+"start": 329.87,
+"end": 329.99,
+"spk": "A"
+},
+{
+"id": "w748",
+"text": "svi",
+"start": 329.99,
+"end": 330.11,
+"spk": "A"
+},
+{
+"id": "w749",
+"text": "pričaju",
+"start": 330.11,
+"end": 330.35,
+"spk": "A"
+},
+{
+"id": "w750",
+"text": "i",
+"start": 330.41,
+"end": 330.47,
+"spk": "A"
+},
+{
+"id": "w751",
+"text": "tome",
+"start": 330.47,
+"end": 330.65,
+"spk": "A"
+},
+{
+"id": "w752",
+"text": "se",
+"start": 330.71,
+"end": 330.77,
+"spk": "A"
+},
+{
+"id": "w753",
+"text": "svi",
+"start": 330.83,
+"end": 330.95,
+"spk": "A"
+},
+{
+"id": "w754",
+"text": "smiju",
+"start": 331.01,
+"end": 331.31,
+"spk": "A"
+},
+{
+"id": "w755",
+"text": "i",
+"start": 331.31,
+"end": 331.37,
+"spk": "A"
+},
+{
+"id": "w756",
+"text": "onda",
+"start": 331.37,
+"end": 331.55,
+"spk": "A"
+},
+{
+"id": "w757",
+"text": "dijele,",
+"start": 331.61,
+"end": 331.85,
+"spk": "A"
+},
+{
+"id": "w758",
+"text": "nekako",
+"start": 331.97,
+"end": 332.21,
+"spk": "A"
+},
+{
+"id": "w759",
+"text": "krše",
+"start": 332.21,
+"end": 333.14,
+"spk": "A"
+},
+{
+"id": "w760",
+"text": "taj,",
+"start": 333.14,
+"end": 334.07,
+"spk": "A"
+},
+{
+"id": "w761",
+"text": "miču",
+"start": 334.07,
+"end": 334.31,
+"spk": "A"
+},
+{
+"id": "w762",
+"text": "taj",
+"start": 334.43,
+"end": 334.49,
+"spk": "A"
+},
+{
+"id": "w763",
+"text": "tabu",
+"start": 334.73,
+"end": 335.03,
+"spk": "A"
+},
+{
+"id": "w764",
+"text": "neuspjeha.",
+"start": 336.59,
+"end": 337.19,
+"spk": "A"
+},
+{
+"id": "w765",
+"text": "I",
+"start": 337.31,
+"end": 337.37,
+"spk": "A"
+},
+{
+"id": "w766",
+"text": "mi",
+"start": 337.49,
+"end": 337.55,
+"spk": "A"
+},
+{
+"id": "w767",
+"text": "zaista,",
+"start": 337.67,
+"end": 337.91,
+"spk": "A"
+},
+{
+"id": "w768",
+"text": "toga",
+"start": 338.27,
+"end": 338.45,
+"spk": "A"
+},
+{
+"id": "w769",
+"text": "nama",
+"start": 338.87,
+"end": 338.93,
+"spk": "A"
+},
+{
+"id": "w770",
+"text": "u",
+"start": 339.11,
+"end": 339.17,
+"spk": "A"
+},
+{
+"id": "w771",
+"text": "Hrvatskoj",
+"start": 339.23,
+"end": 339.59,
+"spk": "A"
+},
+{
+"id": "w772",
+"text": "jako,",
+"start": 339.71,
+"end": 339.89,
+"spk": "A"
+},
+{
+"id": "w773",
+"text": "jako,",
+"start": 339.95,
+"end": 340.13,
+"spk": "A"
+},
+{
+"id": "w774",
+"text": "jako",
+"start": 340.19,
+"end": 340.25,
+"spk": "A"
+},
+{
+"id": "w775",
+"text": "fali.",
+"start": 340.43,
+"end": 340.67,
+"spk": "A"
+},
+{
+"id": "w776",
+"text": "Tako",
+"start": 341.27,
+"end": 341.33,
+"spk": "A"
+},
+{
+"id": "w777",
+"text": "da,",
+"start": 341.51,
+"end": 341.57,
+"spk": "A"
+},
+{
+"id": "w778",
+"text": "meni",
+"start": 342.29,
+"end": 342.47,
+"spk": "A"
+},
+{
+"id": "w779",
+"text": "je",
+"start": 342.47,
+"end": 342.53,
+"spk": "A"
+},
+{
+"id": "w780",
+"text": "bilo",
+"start": 342.53,
+"end": 342.59,
+"spk": "A"
+},
+{
+"id": "w781",
+"text": "jako",
+"start": 342.77,
+"end": 342.83,
+"spk": "A"
+},
+{
+"id": "w782",
+"text": "čudno",
+"start": 343.01,
+"end": 343.37,
+"spk": "A"
+},
+{
+"id": "w783",
+"text": "kad",
+"start": 344.87,
+"end": 344.93,
+"spk": "A"
+},
+{
+"id": "w784",
+"text": "sam,",
+"start": 345.11,
+"end": 345.17,
+"spk": "A"
+},
+{
+"id": "w785",
+"text": "bilo",
+"start": 346.25,
+"end": 346.31,
+"spk": "A"
+},
+{
+"id": "w786",
+"text": "mi",
+"start": 346.55,
+"end": 346.61,
+"spk": "A"
+},
+{
+"id": "w787",
+"text": "je",
+"start": 346.61,
+"end": 346.67,
+"spk": "A"
+},
+{
+"id": "w788",
+"text": "jako",
+"start": 346.67,
+"end": 346.73,
+"spk": "A"
+},
+{
+"id": "w789",
+"text": "čudno",
+"start": 346.85,
+"end": 347.09,
+"spk": "A"
+},
+{
+"id": "w790",
+"text": "kad",
+"start": 347.15,
+"end": 347.21,
+"spk": "A"
+},
+{
+"id": "w791",
+"text": "sam",
+"start": 347.27,
+"end": 347.33,
+"spk": "A"
+},
+{
+"id": "w792",
+"text": "pričao",
+"start": 347.39,
+"end": 347.63,
+"spk": "A"
+},
+{
+"id": "w793",
+"text": "s",
+"start": 347.69,
+"end": 347.75,
+"spk": "A"
+},
+{
+"id": "w794",
+"text": "jednim",
+"start": 347.75,
+"end": 347.93,
+"spk": "A"
+},
+{
+"id": "w795",
+"text": "starijim",
+"start": 347.99,
+"end": 348.17,
+"spk": "A"
+},
+{
+"id": "w796",
+"text": "kolegom",
+"start": 348.29,
+"end": 348.59,
+"spk": "A"
+},
+{
+"id": "w797",
+"text": "prije",
+"start": 348.77,
+"end": 348.95,
+"spk": "A"
+},
+{
+"id": "w798",
+"text": "dosta",
+"start": 349.07,
+"end": 349.25,
+"spk": "A"
+},
+{
+"id": "w799",
+"text": "godina",
+"start": 349.37,
+"end": 349.67,
+"spk": "A"
+},
+{
+"id": "w800",
+"text": "i",
+"start": 350.39,
+"end": 350.45,
+"spk": "A"
+},
+{
+"id": "w801",
+"text": "rekao",
+"start": 350.87,
+"end": 351.17,
+"spk": "A"
+},
+{
+"id": "w802",
+"text": "sam",
+"start": 351.23,
+"end": 351.29,
+"spk": "A"
+},
+{
+"id": "w803",
+"text": "mu",
+"start": 351.47,
+"end": 351.53,
+"spk": "A"
+},
+{
+"id": "w804",
+"text": "kao,",
+"start": 351.71,
+"end": 351.89,
+"spk": "A"
+},
+{
+"id": "w805",
+"text": "joj,",
+"start": 351.95,
+"end": 352.13,
+"spk": "A"
+},
+{
+"id": "w806",
+"text": "da,",
+"start": 352.31,
+"end": 352.36,
+"spk": "A"
+},
+{
+"id": "w807",
+"text": "nažalost,",
+"start": 352.43,
+"end": 352.73,
+"spk": "A"
+},
+{
+"id": "w808",
+"text": "ja",
+"start": 352.85,
+"end": 352.91,
+"spk": "A"
+},
+{
+"id": "w809",
+"text": "ti",
+"start": 353.03,
+"end": 353.09,
+"spk": "A"
+},
+{
+"id": "w810",
+"text": "imam",
+"start": 353.15,
+"end": 353.27,
+"spk": "A"
+},
+{
+"id": "w811",
+"text": "iza",
+"start": 353.33,
+"end": 353.51,
+"spk": "A"
+},
+{
+"id": "w812",
+"text": "sebe",
+"start": 353.57,
+"end": 353.81,
+"spk": "A"
+},
+{
+"id": "w813",
+"text": "jedno,",
+"start": 353.93,
+"end": 354.05,
+"spk": "A"
+},
+{
+"id": "w814",
+"text": "dva-tri",
+"start": 354.23,
+"end": 354.74,
+"spk": "A"
+},
+{
+"id": "w815",
+"text": "fejlana",
+"start": 354.74,
+"end": 355.25,
+"spk": "A"
+},
+{
+"id": "w816",
+"text": "projekta.",
+"start": 355.37,
+"end": 355.79,
+"spk": "A"
+},
+{
+"id": "w817",
+"text": "On",
+"start": 356.33,
+"end": 356.39,
+"spk": "A"
+},
+{
+"id": "w818",
+"text": "kaže,",
+"start": 356.45,
+"end": 356.75,
+"spk": "A"
+},
+{
+"id": "w819",
+"text": "pa",
+"start": 356.75,
+"end": 357.71,
+"spk": "A"
+},
+{
+"id": "w820",
+"text": "daj",
+"start": 357.71,
+"end": 357.89,
+"spk": "A"
+},
+{
+"id": "w821",
+"text": "Bože,",
+"start": 357.89,
+"end": 358.13,
+"spk": "A"
+},
+{
+"id": "w822",
+"text": "bilo",
+"start": 358.19,
+"end": 358.25,
+"spk": "A"
+},
+{
+"id": "w823",
+"text": "bi",
+"start": 358.31,
+"end": 358.37,
+"spk": "A"
+},
+{
+"id": "w824",
+"text": "puno",
+"start": 358.43,
+"end": 358.55,
+"spk": "A"
+},
+{
+"id": "w825",
+"text": "bolje",
+"start": 358.55,
+"end": 358.73,
+"spk": "A"
+},
+{
+"id": "w826",
+"text": "da",
+"start": 358.73,
+"end": 358.79,
+"spk": "A"
+},
+{
+"id": "w827",
+"text": "ih",
+"start": 358.85,
+"end": 358.91,
+"spk": "A"
+},
+{
+"id": "w828",
+"text": "imaš",
+"start": 358.97,
+"end": 359.15,
+"spk": "A"
+},
+{
+"id": "w829",
+"text": "deset.",
+"start": 359.21,
+"end": 359.45,
+"spk": "A"
+},
+{
+"id": "w830",
+"text": "I",
+"start": 359.93,
+"end": 359.99,
+"spk": "A"
+},
+{
+"id": "w831",
+"text": "onda",
+"start": 360.05,
+"end": 360.17,
+"spk": "A"
+},
+{
+"id": "w832",
+"text": "sam",
+"start": 360.17,
+"end": 360.23,
+"spk": "A"
+},
+{
+"id": "w833",
+"text": "ja",
+"start": 360.29,
+"end": 360.35,
+"spk": "A"
+},
+{
+"id": "w834",
+"text": "shvatio",
+"start": 360.41,
+"end": 360.65,
+"spk": "A"
+},
+{
+"id": "w835",
+"text": "da",
+"start": 360.71,
+"end": 360.77,
+"spk": "A"
+},
+{
+"id": "w836",
+"text": "on",
+"start": 360.83,
+"end": 360.89,
+"spk": "A"
+},
+{
+"id": "w837",
+"text": "nije",
+"start": 360.95,
+"end": 361.01,
+"spk": "A"
+},
+{
+"id": "w838",
+"text": "ironičan,",
+"start": 361.13,
+"end": 361.61,
+"spk": "A"
+},
+{
+"id": "w839",
+"text": "da",
+"start": 361.67,
+"end": 361.73,
+"spk": "A"
+},
+{
+"id": "w840",
+"text": "on",
+"start": 361.79,
+"end": 361.85,
+"spk": "A"
+},
+{
+"id": "w841",
+"text": "to",
+"start": 361.91,
+"end": 361.97,
+"spk": "A"
+},
+{
+"id": "w842",
+"text": "doista",
+"start": 362.09,
+"end": 362.33,
+"spk": "A"
+},
+{
+"id": "w843",
+"text": "tako",
+"start": 362.45,
+"end": 362.51,
+"spk": "A"
+},
+{
+"id": "w844",
+"text": "misli.",
+"start": 362.63,
+"end": 362.87,
+"spk": "A"
+},
+{
+"id": "w845",
+"text": "I",
+"start": 362.87,
+"end": 363.05,
+"spk": "A"
+},
+{
+"id": "w846",
+"text": "tek",
+"start": 363.05,
+"end": 363.11,
+"spk": "A"
+},
+{
+"id": "w847",
+"text": "kasnije",
+"start": 363.17,
+"end": 363.47,
+"spk": "A"
+},
+{
+"id": "w848",
+"text": "sam",
+"start": 363.47,
+"end": 363.53,
+"spk": "A"
+},
+{
+"id": "w849",
+"text": "ja",
+"start": 363.65,
+"end": 363.71,
+"spk": "A"
+},
+{
+"id": "w850",
+"text": "shvatio,",
+"start": 363.77,
+"end": 364.01,
+"spk": "A"
+},
+{
+"id": "w851",
+"text": "pa",
+"start": 364.13,
+"end": 364.19,
+"spk": "A"
+},
+{
+"id": "w852",
+"text": "da,",
+"start": 364.31,
+"end": 364.37,
+"spk": "A"
+},
+{
+"id": "w853",
+"text": "želim",
+"start": 365.63,
+"end": 365.87,
+"spk": "A"
+},
+{
+"id": "w854",
+"text": "da",
+"start": 365.87,
+"end": 365.93,
+"spk": "A"
+},
+{
+"id": "w855",
+"text": "mi",
+"start": 366.05,
+"end": 366.11,
+"spk": "A"
+},
+{
+"id": "w856",
+"text": "doneseš",
+"start": 366.23,
+"end": 366.65,
+"spk": "A"
+},
+{
+"id": "w857",
+"text": "svoje",
+"start": 366.89,
+"end": 366.95,
+"spk": "A"
+},
+{
+"id": "w858",
+"text": "neuspjehe,",
+"start": 367.25,
+"end": 367.79,
+"spk": "A"
+},
+{
+"id": "w859",
+"text": "jer",
+"start": 368.21,
+"end": 368.33,
+"spk": "A"
+},
+{
+"id": "w860",
+"text": "time",
+"start": 368.93,
+"end": 368.99,
+"spk": "A"
+},
+{
+"id": "w861",
+"text": "je",
+"start": 369.17,
+"end": 369.23,
+"spk": "A"
+},
+{
+"id": "w862",
+"text": "veća",
+"start": 369.23,
+"end": 369.41,
+"spk": "A"
+},
+{
+"id": "w863",
+"text": "šansa",
+"start": 369.53,
+"end": 369.83,
+"spk": "A"
+},
+{
+"id": "w864",
+"text": "za",
+"start": 370.01,
+"end": 370.07,
+"spk": "A"
+},
+{
+"id": "w865",
+"text": "nekakav",
+"start": 370.25,
+"end": 370.55,
+"spk": "A"
+},
+{
+"id": "w866",
+"text": "uspjeh",
+"start": 370.79,
+"end": 371.09,
+"spk": "A"
+},
+{
+"id": "w867",
+"text": "koji",
+"start": 371.15,
+"end": 371.21,
+"spk": "A"
+},
+{
+"id": "w868",
+"text": "će",
+"start": 371.27,
+"end": 371.33,
+"spk": "A"
+},
+{
+"id": "w869",
+"text": "iz",
+"start": 371.39,
+"end": 371.45,
+"spk": "A"
+},
+{
+"id": "w870",
+"text": "toga",
+"start": 371.51,
+"end": 371.69,
+"spk": "A"
+},
+{
+"id": "w871",
+"text": "proizaći.",
+"start": 371.75,
+"end": 372.23,
+"spk": "A"
+},
+{
+"id": "w872",
+"text": "I",
+"start": 372.29,
+"end": 372.35,
+"spk": "A"
+},
+{
+"id": "w873",
+"text": "to",
+"start": 372.41,
+"end": 372.47,
+"spk": "A"
+},
+{
+"id": "w874",
+"text": "je",
+"start": 372.59,
+"end": 372.65,
+"spk": "A"
+},
+{
+"id": "w875",
+"text": "mindset",
+"start": 373.91,
+"end": 374.15,
+"spk": "A"
+},
+{
+"id": "w876",
+"text": "kojeg",
+"start": 374.27,
+"end": 374.45,
+"spk": "A"
+},
+{
+"id": "w877",
+"text": "trebamo",
+"start": 374.51,
+"end": 374.81,
+"spk": "A"
+},
+{
+"id": "w878",
+"text": "gurati.",
+"start": 374.93,
+"end": 375.29,
+"spk": "A"
+},
+{
+"id": "w879",
+"text": "Da.",
+"start": 375.77,
+"end": 376.01,
+"spk": "K"
+}
+]

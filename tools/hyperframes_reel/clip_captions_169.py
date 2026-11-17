@@ -1,38 +1,47 @@
 """16:9 isječak s titlom riječ po riječ + logo kanala (HyperFrames projekt).
 
-    cd <projekt> && python3 <repo>/tools/hyperframes_reel/clip_captions_169.py
+    cd <projekt> && python3 <repo>/tools/hyperframes_reel/clip_captions_169.py [transcript.json]
 
 Projekt treba: src/diarized.srt + src/words.json (s CDN-a, data/<ID>/), assets/clip.mp4
 (isječak s cdn.domovina.ai/clips/), assets/logo_wide.png, assets/fonts/SourceSans3-*.ttf,
 assets/gsap.min.js. Piše index.html + compositions/captions.html.
 Riječi: kanonski diarized.srt + words.json (isti par kao render_reel.load_words).
-CLIP_S/CLIP_E i SHIFT (prozor ugrađene grafike dolje lijevo) su za re:DEFINICIJA 11, RdEN7Ny1bV8.
+CLIP_S/CLIP_E i AVOID (prozori ugrađenih grafika pri dnu) su za re:DEFINICIJA 11, RdEN7Ny1bV8.
 Postupak: docs/2026-11-17-rucni-isjecak-epizode-na-cdn.md."""
 import re, json, html, sys
 CLIP_S, CLIP_E = 1816.0, 2192.0           # 30:16–36:32
 DUR = CLIP_E - CLIP_S
-SHIFT = (262.5, 292.5)                    # ugrađena kartica „Podupri naš rad" dolje lijevo
+# Ugrađene grafike pri dnu snimke (sken crvene boje, 2 fps, ±0,5 s): titl ih zaobilazi.
+#   shift = udesno (kartica dolje lijevo), lift = iznad trake preko cijele širine (y 810–1024)
+AVOID = [(3.0, 7.5, "lift"),        # traka „dr. sc. Krunoslav Puškar, Udruga Magnus”
+         (197.0, 203.0, "lift"),    # traka „Ante Lučić, suprug, otac, konzultant…”
+         (262.5, 292.5, "shift")]   # kartica „Podupri naš rad” dolje lijevo
 MAXW, MAXC, GAP = 5, 32, 0.30
+# oznaka govornika (ako transcript.json ima "spk"): kod → (ime, boja brenda Muževni budite)
+SPK = {"A": ("Ante Lučić", "#C6A15B"), "K": ("Krunoslav Puškar", "#F15F22")}
 
-cues = []
-for b in re.split(r"\r?\n\s*\r?\n", open("src/diarized.srt", encoding="utf-8").read().strip()):
-    l = b.strip().split("\n")
-    if len(l) < 3: continue
-    t = " ".join(x.strip() for x in l[2:]).strip()
-    if not re.match(r"^\[\w+\]", t): continue
-    cues.append(re.sub(r"^\[\w+\]", "", t).split())
-wj = json.load(open("src/words.json"))["cues"]
-assert len(cues) == len(wj)
-words = []
-for toks, c in zip(cues, wj):
-    for i, tok in enumerate(toks):
-        s, e = c["w"][2*i]/1000, c["w"][2*i+1]/1000
-        if CLIP_S <= s < CLIP_E - 0.1:
-            words.append([tok, round(s-CLIP_S, 3), round(min(e, CLIP_E)-CLIP_S, 3)])
+if len(sys.argv) > 1:   # gotov transcript.json [{text,start,end}], vremena relativna na isječak
+    words = [[w["text"], w["start"], min(w["end"], DUR), w.get("spk")] for w in json.load(open(sys.argv[1])) if w["start"] < DUR - 0.1]
+else:
+    cues = []
+    for b in re.split(r"\r?\n\s*\r?\n", open("src/diarized.srt", encoding="utf-8").read().strip()):
+        l = b.strip().split("\n")
+        if len(l) < 3: continue
+        t = " ".join(x.strip() for x in l[2:]).strip()
+        if not re.match(r"^\[\w+\]", t): continue
+        cues.append(re.sub(r"^\[\w+\]", "", t).split())
+    wj = json.load(open("src/words.json"))["cues"]
+    assert len(cues) == len(wj)
+    words = []
+    for toks, c in zip(cues, wj):
+        for i, tok in enumerate(toks):
+            s, e = c["w"][2*i]/1000, c["w"][2*i+1]/1000
+            if CLIP_S <= s < CLIP_E - 0.1:
+                words.append([tok, round(s-CLIP_S, 3), round(min(e, CLIP_E)-CLIP_S, 3)])
 
 groups, cur = [], []
 for w in words:
-    if cur and (len(cur) >= MAXW or len(" ".join(x[0] for x in cur+[w])) > MAXC
+    if cur and (len(cur) >= MAXW or w[3:4] != cur[-1][3:4] or len(" ".join(x[0] for x in cur+[w])) > MAXC
                 or re.search(r"[.?!:;,]$", cur[-1][0]) or w[1]-cur[-1][2] > GAP):
         groups.append(cur); cur = []
     cur.append(w)
@@ -44,17 +53,20 @@ for k, g in enumerate(groups):
     nxt = groups[k+1][0][1]-0.05 if k+1 < len(groups) else DUR
     en = min(nxt, g[-1][2]+0.6, DUR)
     if en - st < 0.25: en = min(st+0.25, DUR)
-    shift = " shift" if SHIFT[0] <= st < SHIFT[1] else ""
+    shift = next((" " + c for a, b, c in AVOID if st < b and en > a), "")
     spans = []
     for j, w in enumerate(g):
         wid = f"w{k}-{j}"
         spans.append(f'<span id="{wid}" class="wd">{html.escape(w[0])}</span>')
         nx = g[j+1][1] if j+1 < len(g) else en
         js.append(f'k("{wid}",{w[1]:.3f},{max(nx, w[1]+0.08):.3f});')
+    sp = g[0][3] if len(g[0]) > 3 else None
+    who = f'<div class="who who-{sp}">{SPK[sp][0]}</div>' if sp in SPK else ""
     out.append(f'    <div id="g{k}" class="grp clip{shift}" data-start="{st:.3f}" data-duration="{en-st:.3f}" data-track-index="0">'
-               f'<div class="pill" id="p{k}">{" ".join(spans)}</div></div>')
-    js.append(f'p("p{k}",{st:.3f});')
+               f'{who}<div class="pill" id="p{k}">{" ".join(spans)}</div></div>')
+    js.append(f'p("g{k}",{st:.3f});')
 
+WHO_CSS = "".join(f"    #root .who-{k} {{ color: {c}; }}\n" for k, (_, c) in SPK.items())
 cap = f'''<template>
   <style>
     #root {{ position: absolute; inset: 0; pointer-events: none; }}
@@ -64,6 +76,11 @@ cap = f'''<template>
       background: rgba(13,18,22,.82); box-shadow: 0 8px 28px rgba(0,0,0,.35);
       font: 900 60px/1.15 "Source Sans 3", sans-serif; color: #fff; white-space: nowrap; letter-spacing: .005em; }}
     #root .wd {{ display: inline-block; }}
+    #root .who {{ display: table; margin: 0 auto 8px; padding: 4px 14px 5px; border-radius: 8px;
+      background: rgba(13,18,22,.82); font: 700 26px/1.1 "Source Sans 3", sans-serif;
+      letter-spacing: .08em; text-transform: uppercase; }}
+    #root .grp.lift {{ bottom: 300px; }}
+{WHO_CSS}
   </style>
   <div id="root" data-composition-id="captions" data-width="1920" data-height="1080" data-start="0" data-duration="{DUR:.0f}">
 {chr(10).join(out)}
@@ -71,7 +88,7 @@ cap = f'''<template>
   <script>
     const tl = gsap.timeline({{ paused: true }});
     const GOLD = "#C6A15B";
-    function p(id, t) {{ tl.fromTo("#" + id, {{ opacity: 0, y: 8 }}, {{ opacity: 1, y: 0, duration: 0.12, ease: "power2.out" }}, t); }}
+    function p(id, t) {{ tl.fromTo("#" + id + " > div", {{ opacity: 0, y: 8 }}, {{ opacity: 1, y: 0, duration: 0.12, ease: "power2.out" }}, t); }}
     function k(id, a, b) {{ tl.set("#" + id, {{ color: GOLD }}, a); tl.set("#" + id, {{ color: "#fff" }}, b); }}
     {chr(10).join("    "+x for x in js)}
     window.__timelines["captions"] = tl;
@@ -117,6 +134,6 @@ idx = f'''<!doctype html>
 </html>
 '''
 open("index.html", "w").write(idx)
-json.dump([{"id": f"w{i}", "text": w[0], "start": w[1], "end": w[2]} for i, w in enumerate(words)], open("src/transcript.json", "w"), ensure_ascii=False)
+if len(sys.argv) == 1: json.dump([{"id": f"w{i}", "text": w[0], "start": w[1], "end": w[2]} for i, w in enumerate(words)], open("src/transcript.json", "w"), ensure_ascii=False)
 print("riječi", len(words), "grupa", len(groups), "max znakova", max(len(" ".join(x[0] for x in g)) for g in groups))
 print("prve:", [" ".join(x[0] for x in g) for g in groups[:4]], "zadnje:", [" ".join(x[0] for x in g) for g in groups[-3:]])

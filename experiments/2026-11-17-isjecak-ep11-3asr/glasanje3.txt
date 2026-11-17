@@ -1,0 +1,116 @@
+Soniox riječi u isječku: 869
+referenci: ['Hydrogen_isjecak', 'Canary_nightly']  regija razlike: 114
+0:01.37 S[1/2 c0.85]«spomenuli» Hydr«spominjali» | Cana«spomenuli»
+0:02.09 S[1/2 c0.75]«pogled, dakle,» Hydr«pogled dakle» | Cana«pogodak»
+0:03.53 S[1/2 c0.99]«uspjeh,» Hydr«uspjeh» | Cana«uspjehu»
+0:04.25 S[1/2 c1.0]«neuspjeh» Hydr«neuspjeh» | Cana«neuspjehu»
+0:06.23 S[1/2 c1.0]«ali» Hydr«a al» | Cana«ali»
+0:07.67 S[1/2 c1.0]«dakle,» Hydr«dakle» | Cana«»
+0:19.37 S[1/2 c1]«» Hydr«poh» | Cana«»
+0:20.81 S[1/2 c1]«» Hydr«mhm a» | Cana«»
+0:21.41 S[1/2 c1.0]«tumačiš?» Hydr«tumačiš» | Cana«tumačeš»
+0:22.19 S[1/2 c1.0]«ostaneš» Hydr«ostaneš» | Cana«ostaješ»
+0:26.51 S[0/2 c1.0]«da» Hydr«da to te» | Cana«što je to taj»
+0:39.17 S[0/2 c0.47]«100%» Hydr«ono sto posto» | Cana«ona sto posto»
+0:44.87 S[1/2 c0.96]«jest,» Hydr«jest» | Cana«jes»
+0:48.23 S[1/2 c1.0]«mindseta,» Hydr«mindseta» | Cana«manjceta»
+0:51.17 S[1/2 c1.0]«jest» Hydr«jest» | Cana«je»
+0:54.77 S[1/2 c1.0]«opsjednutost» Hydr«opsjednutost» | Cana«obsjednutost»
+0:58.37 S[1/2 c1]«» Hydr«a» | Cana«»
+1:15.11 S[1/2 c1]«» Hydr«je l» | Cana«»
+1:18.71 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+1:20.45 S[1/2 c0.99]«alergičan» Hydr«alergičan» | Cana«aleričan»
+1:22.49 S[0/2 c0.82]«joj, što» Hydr«joj šta» | Cana«šta»
+1:23.57 S[1/2 c1.0]«reći» Hydr«reć» | Cana«reći»
+1:24.89 S[0/2 c0.9]«ili što» Hydr«il šta» | Cana«ili šta»
+1:25.55 S[0/2 c1.0]«pričati» Hydr«pričat» | Cana«pričat»
+1:28.97 S[1/2 c1.0]«a» Hydr«a» | Cana«»
+1:30.17 S[1/2 c1.0]«napraviti» Hydr«napravit» | Cana«napraviti»
+1:31.07 S[1/2 c1]«» Hydr«ono» | Cana«»
+1:31.73 S[1/2 c0.94]«daj Bože» Hydr«daj bože» | Cana«da može»
+1:34.67 S[1/2 c1]«» Hydr«je l» | Cana«»
+1:39.95 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+1:41.63 S[0/2 c1]«» Hydr«na» | Cana«na»
+1:42.71 S[1/2 c1.0]«zakoračiti» Hydr«zakoračit» | Cana«zakoračiti»
+1:43.31 S[1/2 c0.96]«nekakvu» Hydr«nekakvu» | Cana«onakvu»
+1:50.15 S[1/2 c1]«» Hydr«pro» | Cana«»
+1:51.05 S[1/2 c1]«» Hydr«etiketu» | Cana«»
+1:53.81 S[0/2 c1]«» Hydr«ono» | Cana«ono»
+1:54.41 S[1/2 c1.0]«smijati,» Hydr«smijat» | Cana«smijati»
+1:55.55 S[1/2 c1]«» Hydr«ono» | Cana«»
+1:56.03 S[0/2 c1.0]«selu pričati» Hydr«selu pričat kako» | Cana«selo pričati»
+1:57.83 S[0/2 c0.86]«fulo,» Hydr«fulao» | Cana«pulo»
+2:00.71 S[0/2 c0.29]«Niško je isti» Hydr«niš koristi» | Cana«ništa je isti»
+2:01.97 S[0/2 c0.65]«ovo-ono.» Hydr«ovo ono» | Cana«ovo ono»
+2:08.33 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+2:11.21 S[1/2 c1.0]«naslijeđen» Hydr«naslijeđen» | Cana«nasljeđen»
+2:12.95 S[1/2 c1]«» Hydr«ono» | Cana«»
+2:15.41 S[0/2 c0.91]«čije naslijeđe» Hydr«čije nasljeđe» | Cana«čiji nasljeđe»
+2:16.79 S[1/2 c1.0]«eto,» Hydr«eto» | Cana«»
+2:22.43 S[1/2 c1]«» Hydr«i» | Cana«»
+2:25.25 S[1/2 c1]«» Hydr«poz» | Cana«»
+2:33.35 S[1/2 c1]«» Hydr«ono» | Cana«»
+2:38.03 S[1/2 c0.99]«srozati» Hydr«da da će se on srozat ovaj» | Cana«srozati»
+2:42.11 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+2:43.19 S[1/2 c0.79]«trpiti» Hydr«trpit» | Cana«trpiti»
+2:45.23 S[0/2 c1]«» Hydr«ono» | Cana«ono»
+2:45.53 S[0/2 c0.98]«talasati,» Hydr«talasat» | Cana«talasat»
+2:52.97 S[1/2 c1]«» Hydr«u time» | Cana«»
+2:53.51 S[1/2 c1.0]«ugroziti» Hydr«ugrozit» | Cana«ugroziti»
+2:58.13 S[1/2 c1]«» Hydr«je l» | Cana«»
+3:05.03 S[1/2 c1]«» Hydr«kao» | Cana«»
+3:05.81 S[0/2 c0.88]«procesi,» Hydr«je proces i» | Cana«proces i»
+3:07.67 S[1/2 c1.0]«proći» Hydr«proć» | Cana«proći»
+3:12.89 S[0/2 c0.21]«Psihički proces prije svega.» Hydr«da u onom i psihom se prije svega» | Cana«da u onom njihovom»
+3:16.43 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+3:20.63 S[1/2 c1]«» Hydr«mi» | Cana«»
+3:22.67 S[1/2 c1]«» Hydr«i» | Cana«»
+3:25.73 S[1/2 c1]«» Hydr«slobodan» | Cana«»
+3:27.17 S[1/2 c1]«» Hydr«ne» | Cana«»
+3:34.79 S[1/2 c0.98]«reći» Hydr«reć» | Cana«reći»
+3:36.41 S[0/2 c0.93]«imam» Hydr«ja imam» | Cana«je on»
+3:46.55 S[1/2 c1]«» Hydr«u» | Cana«»
+3:47.75 S[1/2 c0.98]«dobivamo» Hydr«dobivamo» | Cana«dobijamo»
+3:50.45 S[1/2 c1]«» Hydr«ne» | Cana«»
+3:55.31 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+3:57.17 S[1/2 c1]«» Hydr«» | Cana«kažem»
+3:57.77 S[1/2 c0.73]«zalaganje,» Hydr«zalaganje» | Cana«zalaganja»
+4:00.23 S[1/2 c1]«» Hydr«da ovaj» | Cana«»
+4:04.13 S[1/2 c1]«» Hydr«da s» | Cana«»
+4:09.65 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+4:13.13 S[1/2 c0.97]«ovo» Hydr«ovo» | Cana«»
+4:13.55 S[1/2 c1.0]«dodati,» Hydr«dodat ovaj» | Cana«dodati»
+4:19.01 S[1/2 c1]«» Hydr«do» | Cana«»
+4:20.03 S[1/2 c0.99]«hrpu,» Hydr«hrpu» | Cana«krpu»
+4:22.13 S[1/2 c0.98]«failovi,» Hydr«fejlovi» | Cana«failovi»
+4:31.37 S[1/2 c1.0]«na primjer,» Hydr«na primjer» | Cana«naprimjer»
+4:35.99 S[1/2 c0.95]«okej,» Hydr«okej» | Cana«ok»
+4:36.65 S[0/2 c0.51]«s njima tamo,» Hydr«simotamo» | Cana«sima tamo»
+4:47.45 S[1/2 c0.91]«koje» Hydr«koje» | Cana«koji»
+4:51.23 S[1/2 c1.0]«višestruko» Hydr«višestruko» | Cana«višestroko»
+4:54.41 S[0/2 c0.54]«kao vrh Santa» Hydr«ko vrh sante» | Cana«poput vrha santa»
+4:55.67 S[0/2 c0.5]«di se vrha, a ispod se ne vidi.» Hydr«točno vidi se vrh a ovo ispod se ne vidi točno» | Cana«to je više vrha ispoca sebe»
+4:58.37 S[1/2 c1]«» Hydr«i meni s» | Cana«»
+5:00.23 S[1/2 c1.0]«sad» Hydr«sad» | Cana«sada»
+5:00.95 S[1/2 c1.0]«li» Hydr«l» | Cana«li»
+5:02.03 S[1/2 c1]«» Hydr«ili» | Cana«»
+5:08.87 S[1/2 c0.99]«evo,» Hydr«evo» | Cana«evovo»
+5:13.31 S[1/2 c0.98]«ženi,» Hydr«ženi» | Cana«želim»
+5:13.85 S[1/2 c0.99]«oduševljena. Da,» Hydr«oduševljena da» | Cana«oduševljen»
+5:18.65 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+5:26.51 S[0/2 c0.99]«svatko» Hydr«svako» | Cana«svako»
+5:29.99 S[1/2 c0.99]«svi» Hydr«svi» | Cana«si»
+5:30.41 S[1/2 c1]«» Hydr«o tome» | Cana«»
+5:30.47 S[1/2 c0.99]«tome» Hydr«svi» | Cana«tome»
+5:30.83 S[1/2 c1.0]«svi» Hydr«» | Cana«svi»
+5:31.97 S[0/2 c1.0]«nekako» Hydr«nekakve krše taj» | Cana«nekako je»
+5:36.59 S[1/2 c1]«» Hydr«ovaj» | Cana«»
+5:43.01 S[0/2 c0.95]«čudno kad sam, bilo mi je jako čudno» Hydr«čudno ovaj kad sam bilo mi je jako čudno» | Cana«čudnono»
+5:47.99 S[1/2 c0.91]«starijim» Hydr«starim» | Cana«starijim»
+5:51.95 S[1/2 c1.0]«joj,» Hydr«joj» | Cana«i oj»
+5:54.23 S[0/2 c0.53]«dva, tri faila na» Hydr«dvatri fejlana» | Cana«dva tri failana»
+5:57.71 S[0/2 c1.0]«daj» Hydr«ha daj» | Cana«da je»
+6:03.05 S[0/2 c1]«» Hydr«i» | Cana«i»
+6:11.75 S[1/2 c0.96]«proizaći.» Hydr«proizići» | Cana«proizaći»
+6:13.91 S[1/2 c1.0]«mindset» Hydr«mindset» | Cana«majset»
+6:14.93 S[1/2 c1.0]«gurati.» Hydr«gurat» | Cana«gurati»
