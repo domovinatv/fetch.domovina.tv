@@ -50,3 +50,27 @@ Folders → iTerm), temp ide u scratchpad i briše se odmah nakon uploada.
 
 - `docs/2026-10-25-reels-kandidati.md` (automatski 9:16 reelovi, drugi tok)
 - `docs/whatsapp_share_epizode.md`
+
+## Varijanta s titlom riječ po riječ (YouTube, 16:9)
+
+Isti isječak, ostaje 16:9 1080p25, uz samo dvije stvari: titl koji prati izgovorene riječi
+i logo Muževni budite gore desno. Nema kartica ni reframea. Generator:
+`tools/hyperframes_reel/clip_captions_169.py` (HyperFrames: `index.html` + sub-kompozicija
+`compositions/captions.html` s `data-track-kind="captions"`).
+
+- **Ulaz:** isječak s CDN-a (`clips/<ID>/…_1080p.mp4`, ne ponovno s YouTubea),
+  `data/<ID>/diarized.srt` + `data/<ID>/words.json` s CDN-a. Riječi se uparuju po poziciji
+  u cue-u, kao `render_reel.load_words`. Ep. 11: 405/405 cue-ova, 0 neusklađenih, 867 riječi.
+- **Titl:** grupe ≤5 riječi / ≤32 znaka, lom na interpunkciji ili pauzi >0,3 s (307 grupa).
+  Source Sans 3 Black 60 px, bijelo na tamnoj pločici (#0D1216, 82 %), aktivna riječ u zlatnoj
+  boji brenda (#C6A15B). Pozadina studija je bijela cigla, pa bez pločice titl nije čitljiv.
+- **Ugrađena grafika:** snimka ima karticu „Podupri naš rad” dolje lijevo (263–291 s isječka).
+  Nađena skenom crvene boje po sekundi; u tom prozoru titl se pomiče udesno (`SHIFT`).
+- **Render:** 376 s za ~3 min (GPU capture), H.264 High, CRF 16, 263 MB.
+
+### Zamke
+
+- `~/.cache/hyperframes` je iz Claude sesije nečitljiv (EPERM i bez sandboxa, TCC/provenance).
+  Pokreni s `XDG_RUNTIME_DIR=<scratch>/xdg HYPERFRAMES_CACHE_DIR=<scratch>/hfcache`.
+- **`--video-frame-format png` je napunio interni disk** (ENOSPC na 6,4 GB, 9400 kadrova).
+  Koristi `jpg` (default `auto`). Kad pukne, ostaje `$TMPDIR/hyperframes-extract-cache-501/*.partial-*`, pa ga obriši.
