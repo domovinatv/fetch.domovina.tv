@@ -48,6 +48,9 @@ Folders → iTerm), temp ide u scratchpad i briše se odmah nakon uploada.
 
 ## Vezani dokumenti
 
+- `experiments/2026-11-17-isjecak-ep11-3asr/README.md`: v3 (titl iz Soniox + Gemini 4 Hydrogen + Canary)
+  i v4 (oznaka govornika, zaobilaženje ugrađenih traka s imenima). v4 je konačna verzija.
+
 - `docs/2026-10-25-reels-kandidati.md` (automatski 9:16 reelovi, drugi tok)
 - `docs/whatsapp_share_epizode.md`
 
