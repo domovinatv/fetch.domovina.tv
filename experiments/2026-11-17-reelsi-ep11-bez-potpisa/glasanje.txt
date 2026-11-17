@@ -1,0 +1,488 @@
+
+===== Reel 1 (cue 27–32), 218 riječi
+SONIOX: I tada su mi se mnogi smijali kada sam rekao da je Hrvatska najbolja zemlja za život u Europi, ako ne i na svijetu. Međutim, svake godine mi se sve manje smiju i ove godine mi se apsolutno nitko nije nasmijao. Evo, to moram reći. Znači, vrijedilo je možda čekanje ovih deset godina. I evo, radi svih događanja kojima svjedočimo u svijetu, a koja zadnje vrijeme nisu nimalo lijepa, ja isto sam sebe nekako iznenadim i šokiram da mogu reći nešto što nisam mislio da ću ikada reći, a da je ovaj naš dio svijeta zapravo trenutno jedan od najnormalnijih, ako ne i najnormalniji na svijetu. Kad pogledamo brojna previranja, sukobe, ratove, utjecaj štetnih ideologija, meni je zaista drago da sam tu i ne bih, kontra možda nekakvom uređenom narativu, ne bih to vezao s ponosom. Često čujemo da su ljudi ponosni što su Hrvati i to je meni okej. Međutim, ja nisam ponosan. Ja sam ponosan na nešto što sam možda ostvario, međutim ja nisam birao biti ovdje rođen i živjeti ovdje. Meni je to dano. To je poklon kojeg sam ja dobio, a nisam nikako zaslužio. Prema tome, ja nisam ponosan što sam Hrvat, ja sam zahvalan što sam Hrvat i zato je meni i što živim u Hrvatskoj i, na kraju krajeva, podižem ovdje obitelj.
+
+[05:29.67] tok 788  S: I tada   (slaže se 3/5)
+     Hydrogen4 jel. I tada
+     Argon4    je l'. I tada
+     Speechm   I tada
+     Canary    I tada
+     CanOpus   I tada
+
+[05:35.13] tok 804  S: život u Europi, ako ne   (slaže se 3/5)
+     Hydrogen4 život u Europi, ako ne
+     Argon4    život u Europi, ako ne
+     Speechm   život u Europi, ako ne
+     Canary    život u Evropi, ako ne
+     CanOpus   život u Evropi, ako ne
+
+[05:44.91] tok 830  S: to moram reći. Znači, vrijedilo je   (slaže se 2/5)
+     Hydrogen4 to moram reći. Znači vrijedilo je
+     Argon4    to moram reći, znači vrijedilo je
+     Speechm   to moram ići. Vrijedilo je
+     Canary    to moram reći, vrijedilo je
+     CanOpus   to moram reći, vrijedilo je
+
+[05:46.23] tok 835  S: je možda čekanje ovih deset   (slaže se 2/5)
+     Hydrogen4 je možda čekanje ovih 10
+     Argon4    je možda čekanja ovih 10
+     Speechm   je možda čekanje u ovih deset
+     Canary    je možda čekanje ovih deset
+     CanOpus   je možda čekanje ovih deset
+
+[05:46.83] tok 837  S: čekanje ovih deset godina. I   (slaže se 2/5)
+     Hydrogen4 čekanje ovih 10 godina. I
+     Argon4    čekanja ovih 10 godina. I
+     Speechm   čekanje u ovih deset godina. I
+     Canary    čekanje ovih deset godina. I
+     CanOpus   čekanje ovih deset godina. I
+
+[05:56.79] tok 860  S: sebe nekako iznenadim i šokiram   (slaže se 2/5)
+     Hydrogen4 sebe nekako iznenadim i šokiram
+     Argon4    sebe nekako iznenadim i šokiram
+     Speechm   sebe nekako iznenadio i šokiran
+     Canary    sebe nekako iznenadim i šokiran
+     CanOpus   sebe nekako iznenadim i šokiran
+
+[05:57.39] tok 862  S: iznenadim i šokiram da mogu   (slaže se 2/5)
+     Hydrogen4 iznenadim i šokiram da mogu
+     Argon4    iznenadim i šokiram da mogu
+     Speechm   iznenadio i šokiran da mogu
+     Canary    iznenadim i šokiran da mogu
+     CanOpus   iznenadim i šokiran da mogu
+
+[06:19.89] tok 913  S: kontra možda nekakvom uređenom   (slaže se 0/5)
+     Hydrogen4 kontra možda nekakvom uvriježenom
+     Argon4    kontra možda nekakvom uvriježenom
+     Speechm   kontra, možda u nekakvom uvriježenom narativa,
+     Canary    kontra možda nekakvom uvrijeđenom
+     CanOpus   kontra možda nekakvom uvriježenom
+
+[06:20.19] tok 914  S: možda nekakvom uređenom narativu, ne bih   (slaže se 0/5)
+     Hydrogen4 možda nekakvom uvriježenom narativu, ne bih
+     Argon4    možda nekakvom uvriježenom narativu, ne bih
+     Speechm   možda u nekakvom uvriježenom narativa, ne bih
+     Canary    možda nekakvom uvrijeđenom narativu, ne bih
+     CanOpus   možda nekakvom uvriježenom narativu, ne bih
+
+[06:22.29] tok 920  S: to vezao s ponosom. Često   (slaže se 1/5)
+     Hydrogen4 to vezao sa ponosom. Često
+     Argon4    to vezao sa ponosom. Često
+     Speechm   to vezao. S ponosom često
+     Canary    to vezao sa ponosom. Često
+     CanOpus   to vezao sa ponosom. Često
+
+[06:27.99] tok 935  S: je meni okej. Međutim, ja   (slaže se 1/5)
+     Hydrogen4 je meni okej, međutim ja
+     Argon4    je meni OK, međutim ja
+     Speechm   je meni. Međutim, ja
+     Canary    je meni ok. Međutim, ja
+     CanOpus   je meni ok. Međutim, ja
+
+[06:34.11] tok 956  S: ovdje rođen i živjeti ovdje.   (slaže se 2/5)
+     Hydrogen4 ovdje rođen i živjeti ovdje.
+     Argon4    ovdje rođen, ovaj, i živjeti ovdje,
+     Speechm   ovdje rođen i živjeti ovdje.
+     Canary    ovdje rođen, živjeti ovdje.,
+     CanOpus   ovdje rođen, živjeti ovdje,
+
+[06:37.47] tok 963  S: to dano. To je   (slaže se 2/5)
+     Hydrogen4 to dano, jel, to je
+     Argon4    to dano, je l'. To je
+     Speechm   to dano, jer to je
+     Canary    to dano. To je
+     CanOpus   to dano. To je
+
+[06:48.87] tok 997  S: u Hrvatskoj i, na kraju   (slaže se 3/5)
+     Hydrogen4 u Hrvatskoj i na kraju
+     Argon4    ovaj u Hrvatskoj i na kraju
+     Speechm   u Hrvatskoj. Na kraju
+     Canary    u Hrvatskoj i na kraju
+     CanOpus   u Hrvatskoj i na kraju
+
+[06:49.71] tok 1001  S: kraju krajeva, podižem ovdje obitelj.   (slaže se 3/5)
+     Hydrogen4 kraju krajeva podižem ovdje obitelj.
+     Argon4    kraju krajeva podižem ovdje obitelj.
+     Speechm   kraju krajeva, podižem ovdje obitelj,
+     Canary    kraju krajeva podižemo ovdje obitelj.
+     CanOpus   kraju krajeva podižemo ovdje obitelj.
+
+===== Reel 2 (cue 57–62), 209 riječi
+SONIOX: Dakle, tu smo apsolutno najbolji na svijetu. Ja se često šalim i kažem: "Ne daj Bože nuklearne apokalipse, preživljavaju Hrvati, Srbi i žohari." I to je to. Dok, recimo, Nijemci ne znaju improvizirati. Oni su jako strateški nastrojeni i disciplinirani. I zato oni prosperiraju kad je mir, dakle u mirnodopsko vrijeme, kada na snagu stupaju mnogi njihovi vješto artikulirani planovi.⁽0.59⁾ Dakle, ulaganja, razvoja, rada, discipline, ponavljanja svega, i tada oni prosperiraju. Međutim, čim se dogodi nešto što nije u njihovom algoritmu, a to je, na primjer, energetska kriza, rat u Ukrajini, sve ono s čim oni nisu računali, a ranije su se, recimo, navezali na, ne znam, djelomičnu ovisnost i⁽0.53⁾ o ruskom plinu i tako dalje, to njima nije, kao što sam rekao, u algoritmu i oni se tu jako teško postavljaju, teško se orijentiraju i teško se ponašaju. Dok je nama, baš kao što smo ishendali⁽0.59⁾ sve nedaće do sada, od Covida pa nadalje, još i prije Covida i poslije, kod nas je ono: "Snaći ćemo se, bumo se nekak snašli, nikdar ni bilo da nekak ni bilo." I to je jednostavno naša kultura. Ona kao takva, kao što možemo reći i na slučaju Njemačke, nije ni dobra ni loša, ovisi kako je postavimo, ovisi u kojem dobu.
+
+[12:50.61] tok 1850  S: kad je mir, dakle u mirnodopsko   (slaže se 2/5)
+     Hydrogen4 kad je mir, dakle u mirnodopsko
+     Argon4    kad je mir, dakle u mirnodopsko
+     Speechm   kad je mir u mirnodopsko
+     Canary    kad je mire, dakle u mirno dobsko
+     CanOpus   kad je mire, dakle u mirnodopsko
+
+[12:51.39] tok 1853  S: dakle u mirnodopsko vrijeme, kada   (slaže se 3/5)
+     Hydrogen4 dakle u mirnodopsko vrijeme, kada
+     Argon4    dakle u mirnodopsko vrijeme, kada
+     Speechm   u mirnodopsko vrijeme kada
+     Canary    dakle u mirno dobsko vrijeme, kada
+     CanOpus   dakle u mirnodopsko vrijeme, kada
+
+[13:08.67] tok 1888  S: to je, na primjer, energetska kriza,   (slaže se 3/5)
+     Hydrogen4 to je na primjer energetska kriza,
+     Argon4    to je na primjer energetska kriza,
+     Speechm   to je npr. energetska kriza,
+     Canary    to je naprimjer energetska kriza,
+     CanOpus   to je na primjer energetska kriza,
+
+[13:17.13] tok 1913  S: djelomičnu ovisnost i o ruskom   (slaže se 2/5)
+     Hydrogen4 djelomičnu ovisnost i o ruskom
+     Argon4    djelomičnu ovisnost i o ruskom
+     Speechm   djelomičnu ovisnost o ruskom
+     Canary    djelomičnu ovisnost o ruskom
+     CanOpus   djelomičnu ovisnost o ruskom
+
+[13:18.57] tok 1917  S: ruskom plinu i tako dalje, to njima   (slaže se 2/5)
+     Hydrogen4 ruskom plinu i tako dalje. To njima
+     Argon4    ruskom plinu i tako dalje, to njima
+     Speechm   ruskom plinu itd. To njima
+     Canary    ruskom plinu itede to njima
+     CanOpus   ruskom plinu itd., to njima
+
+[13:25.65] tok 1939  S: se orijentiraju i teško se   (slaže se 1/5)
+     Hydrogen4 se orijentiraju, teško se
+     Argon4    se orijentiraju, teško se
+     Speechm   se orijentiraju i teško se
+     Canary    se orijentiraju, teško se
+     CanOpus   se orijentiraju, teško se
+
+[13:28.17] tok 1950  S: što smo ishendali sve nedaće   (slaže se 0/5)
+     Hydrogen4 što smo ishendlali sve nedaće
+     Argon4    što smo ishendlali sve nedaće
+     Speechm   što smo ih Hendal sve nedaće
+     Canary    što smo ih hendlali sve nedaće
+     CanOpus   što smo ih hendlali sve nedaće
+
+[13:29.97] tok 1955  S: do sada, od Covida   (slaže se 3/5)
+     Hydrogen4 do sada od Covida
+     Argon4    do sada, ovaj od COVID-a
+     Speechm   do sada ovaj. Od Cowarda,
+     Canary    do sada od covida
+     CanOpus   do sada od covida
+
+[13:30.09] tok 1956  S: sada, od Covida pa nadalje,   (slaže se 3/5)
+     Hydrogen4 sada od Covida pa nadalje,
+     Argon4    sada, ovaj od COVID-a pa nadalje,
+     Speechm   sada ovaj. Od Cowarda, pa nadalje
+     Canary    sada od covida pa nadalje,
+     CanOpus   sada od covida pa nadalje,
+
+[13:36.51] tok 1968  S: nas je ono: "Snaći ćemo se,   (slaže se 3/5)
+     Hydrogen4 nas je ono: "Snaći ćemo se."
+     Argon4    nas je ono: "Snaći ćemo se,
+     Speechm   nas je. Snaći ćemo se.
+     Canary    nas je ono snačit ćemo se,
+     CanOpus   nas je ono snaći ćemo se,
+
+[13:37.41] tok 1972  S: ćemo se, bumo se nekak   (slaže se 2/5)
+     Hydrogen4 ćemo se." Bumo se nekak
+     Argon4    ćemo se, bumo se nekak
+     Speechm   ćemo se. Bumo se nekako
+     Canary    ćemo se, bum se nekako
+     CanOpus   ćemo se, bum se nekako
+
+[13:37.89] tok 1974  S: bumo se nekak snašli, nikdar   (slaže se 1/5)
+     Hydrogen4 Bumo se nekak snašli, nikdar
+     Argon4    bumo se nekak snašli, nigdar
+     Speechm   Bumo se nekako snašli. Nigdar
+     Canary    bum se nekako snašli, nikdar
+     CanOpus   bum se nekako snašli, nikdar
+
+[13:38.25] tok 1976  S: nekak snašli, nikdar ni bilo   (slaže se 1/5)
+     Hydrogen4 nekak snašli, nikdar ni bilo
+     Argon4    nekak snašli, nigdar ni bilo
+     Speechm   nekako snašli. Nigdar ni bilo
+     Canary    nekako snašli, nikdar ni bilo
+     CanOpus   nekako snašli, nikdar ni bilo
+
+[13:39.87] tok 1980  S: bilo da nekak ni bilo."   (slaže se 3/5)
+     Hydrogen4 bilo da nekak ni bilo.
+     Argon4    bilo da nekak ni bilo."
+     Speechm   bilo da nekak ni bilo.
+     Canary    bilo da nekako ni bilo
+     CanOpus   bilo da nekako ni bilo
+
+[13:42.39] tok 1987  S: je jednostavno naša kultura.   (slaže se 3/5)
+     Hydrogen4 je jednostavno naša kultura.
+     Argon4    je jednostavno naša ovaj, naša kultura.
+     Speechm   je jednostavno naša naša kultura.
+     Canary    je jednostavno naša kultura.
+     CanOpus   je jednostavno naša kultura.
+
+[13:50.55] tok 2008  S: kako je postavimo, ovisi u   (slaže se 2/5)
+     Hydrogen4 kako je postavimo, ovisi u
+     Argon4    kako je postavimo, ovisi u
+     Speechm   kako je postavimo ovisi o
+     Canary    kako je postavljena, ovisi u
+     CanOpus   kako je postavljena, ovisi u
+
+[13:50.85] tok 2010  S: postavimo, ovisi u kojem dobu.   (slaže se 2/5)
+     Hydrogen4 postavimo, ovisi u kojem dobu.
+     Argon4    postavimo, ovisi u kojem dobu.
+     Speechm   postavimo ovisi o kojem dobu
+     Canary    postavljena, ovisi u kojem dobu.
+     CanOpus   postavljena, ovisi u kojem dobu.
+
+===== Reel 4 (cue 172–180), 202 riječi
+SONIOX: I zato treba, meni je, recimo, genijalan, sad se ne sjećam je li to u Finskoj ili negdje drugdje, oni imaju festival neuspjeha gdje imaju niz konferencija, evo, to je možda neka ideja, zašto ne još jedan projekt. Samo reci ženi, bit će oduševljena. Da, da, da, ti isto. Konferencija gdje se okupljaju uglavnom poduzetnici i jedina tema je njihov neuspjeh. Znači, svatko priča o najgorim, od najmanjih do najgorih neuspjeha. Znači, oni svi pričaju i tome se svi smiju i onda dijele, nekako miču taj tabu neuspjeha. I mi zaista, toga nama u Hrvatskoj jako, jako, jako fali. Tako da, meni je bilo jako čudno kad sam, bilo mi je jako čudno kad sam pričao s jednim starijim kolegom prije dosta godina i rekao sam mu kao, joj, da, nažalost, ja ti imam iza sebe jedno, dva, tri faila⁽0.53⁾ na projekta. On kaže, daj Bože, bilo bi puno bolje da ih imaš deset. I onda sam ja shvatio da on nije ironičan, da on to doista tako misli. Tek kasnije sam ja shvatio, pa da, želim da mi doneseš svoje neuspjehe, jer time je veća šansa za nekakav uspjeh koji će iz toga proizaći. I to je mindset kojeg trebamo gurati.
+
+[35:13.41] tok 5021  S: I zato   (slaže se 3/5)
+     Hydrogen4 Točno. I zato
+     Argon4    Točno. I zato
+     Speechm   I zato
+     Canary    I zato
+     CanOpus   I zato
+
+[35:14.61] tok 5026  S: recimo, genijalan, sad se ne   (slaže se 3/5)
+     Hydrogen4 recimo genijalan sad se ne
+     Argon4    recimo genijalan, sad se ne
+     Speechm   recimo, genijalan. SAD se ne
+     Canary    recimo genijalan, sada se ne
+     CanOpus   recimo genijalan, sada se ne
+
+[35:23.91] tok 5046  S: niz konferencija, evo, to je možda neka   (slaže se 3/5)
+     Hydrogen4 niz konferencija. Evo to je možda neka
+     Argon4    niz konferencija, evo to je možda neka
+     Speechm   niz konferencija. O tome možda neka
+     Canary    niz konferencija, evovo to je možda neka
+     CanOpus   niz konferencija, evo, to je možda neka
+
+[35:27.15] tok 5058  S: projekt. Samo reci ženi, bit će   (slaže se 2/5)
+     Hydrogen4 projekt... Samo reci ženi, bit će
+     Argon4    projekt... Samo reci ženi, bit će
+     Speechm   projekt samo. Za žene bit će
+     Canary    projekt? Samo reci želim, bit će
+     CanOpus   projekt? Samo reci želim, bit će
+
+[35:29.61] tok 5062  S: bit će oduševljena. Da, da, da, ti isto. Konferencija gdje   (slaže se 0/5)
+     Hydrogen4 bit će oduševljena. Da, da, da, i ti isto. Konferencija gdje
+     Argon4    bit će oduševljena. Da, da, da, i ti isto. Ovaj, konferencija gdje
+     Speechm   bit će oduševljen da. Ovaj. Konferencija gdje
+     Canary    bit će oduševljen. Da, da, ti isto. Konferencija gdje
+     CanOpus   bit će oduševljen. Da, da, ti isto. Konferencija gdje
+
+[35:41.49] tok 5080  S: njihov neuspjeh. Znači, svatko priča o   (slaže se 2/5)
+     Hydrogen4 njihov neuspjeh. Znači svatko priča o
+     Argon4    njihov neuspjeh. Znači svatko priča o
+     Speechm   njihov neuspjeh. Svatko priča o
+     Canary    njihov neuspjeh. Znači, svako priča o
+     CanOpus   njihov neuspjeh. Znači, svako priča o
+
+[35:44.73] tok 5090  S: najgorih neuspjeha. Znači, oni svi   (slaže se 1/5)
+     Hydrogen4 najgorih neuspjeha. Znači oni si
+     Argon4    najgorih neuspjeha. Znači oni svi
+     Speechm   najgoreg neuspjeha. Oni svi
+     Canary    najgorih neuspjeha. Znači, oni si
+     CanOpus   najgorih neuspjeha. Znači, oni si
+
+[35:45.63] tok 5092  S: Znači, oni svi pričaju i   (slaže se 1/5)
+     Hydrogen4 Znači oni si pričaju i
+     Argon4    Znači oni svi pričaju i
+     Speechm   Oni svi pričaju, o
+     Canary    Znači, oni si pričaju i
+     CanOpus   Znači, oni si pričaju i
+
+[35:45.99] tok 5094  S: svi pričaju i tome se   (slaže se 1/5)
+     Hydrogen4 si pričaju i tome se
+     Argon4    svi pričaju i tome se
+     Speechm   svi pričaju, o tome se
+     Canary    si pričaju i tome se
+     CanOpus   si pričaju i tome se
+
+[35:47.37] tok 5102  S: onda dijele, nekako miču taj   (slaže se 0/5)
+     Hydrogen4 onda dijele nekako... krše taj, miču taj
+     Argon4    onda dijele, nekako krše taj, miču taj
+     Speechm   onda dijele neke koje krše i miču taj
+     Canary    onda dijele, nekako je, miču taj
+     CanOpus   onda dijele, nekako je, miču taj
+
+[35:50.43] tok 5106  S: taj tabu neuspjeha. I   (slaže se 3/5)
+     Hydrogen4 taj tabu neuspjeha. I
+     Argon4    taj tabu ovaj neuspjeha. I
+     Speechm   taj tabu. ovaj neuspjeha i
+     Canary    taj tabu neuspjeha. I
+     CanOpus   taj tabu neuspjeha. I
+
+[35:58.47] tok 5123  S: je bilo jako čudno kad sam, bilo mi je jako čudno kad sam pričao   (slaže se 0/5)
+     Hydrogen4 je bilo jako čudno kad sam pričao
+     Argon4    je bilo jako čudno ovaj kad sam, bilo mi je jako čudno kad sam pričao
+     Speechm   je bilo jako čudno ovaj kad sam. Bilo mi je jako čudno kada sam pričao
+     Canary    je bilo jako čudno.no kad sam pričao
+     CanOpus   je bilo jako čudno, no kad sam pričao
+
+[36:07.47] tok 5147  S: mu kao, joj, da, nažalost,   (slaže se 2/5)
+     Hydrogen4 mu kao: "Joj da, nažalost
+     Argon4    mu kao: "Joj da, nažalost
+     Speechm   mu kao da, nažalost,
+     Canary    mu kao i oj da nažalost
+     CanOpus   mu kao i oj, da nažalost
+
+[36:09.33] tok 5155  S: iza sebe jedno, dva, tri faila na projekta. On kaže,   (slaže se 0/5)
+     Hydrogen4 iza sebe jedno dva-tri *failana* projekta." On kaže: "Pa
+     Argon4    iza sebe jedno dva-tri feilana projekta." On kaže: "Pa
+     Speechm   iza sebe dva tri faula na projektu. On kaže
+     Canary    iza sebe jedno dva tri failana projekta, on kaže
+     CanOpus   iza sebe jedno dva, tri failana projekta, on kaže
+
+[36:12.33] tok 5163  S: On kaže, daj Bože, bilo bi   (slaže se 0/5)
+     Hydrogen4 On kaže: "Pa daj Bože, bilo bi
+     Argon4    On kaže: "Pa daj Bože, bilo bi
+     Speechm   On kaže da je bolji. Bilo bi
+     Canary    on kaže da je Bože bilo bi
+     CanOpus   on kaže da je Bože, bilo bi
+
+[36:18.45] tok 5188  S: tako misli. Tek kasnije   (slaže se 2/5)
+     Hydrogen4 tako misli. I tek kasnije
+     Argon4    tako misli. Tek kasnije
+     Speechm   tako misli. Tek kasnije
+     Canary    tako misli i tek kasnije
+     CanOpus   tako misli i tek kasnije
+
+[36:28.41] tok 5217  S: to je mindset kojeg trebamo   (slaže se 3/5)
+     Hydrogen4 to je *mindset* kojeg trebamo
+     Argon4    to je mindset kojeg trebamo
+     Speechm   To je minus kojeg trebamo
+     Canary    to je majset kojeg trebamo
+     CanOpus   to je mindset kojeg trebamo
+
+===== Reel 6 (cue 278–283), 178 riječi
+SONIOX: Ja sam njemu rekao, i to nije baš dobro odjeknulo kod recimo drugih roditelja, ali klinci pričaju međusobno, ja sam rekao da me apsolutno ne zanimaju njegove ocjene u školi. Da mene zanimaju dvije stvari. Mene zanima da se pristojno ponaša, s poštovanjem, da traži poštovanje i daje poštovanje. I druga stvar, da bude, da uživa u učenju. Znači, proces učenja. Da je on svjestan toga što uči, da želi znati više, da njeguje tu znatiželju, a i da ga neću sankcionirati ako je recimo zbog neznanja, nesmotrenosti dobio, ne znam, 2 ili neku lošu ocjenu. I da ne smatram da mora iz svega imati 4 ili 5. I to je možda, ja na neki način kompenziram ono što je meni nije bilo nametnuto, meni stvarno to roditelji nisu nametali, ali ja sam bio jedno od onih 5-0 djece. To nije dobro. Jer što⁽0.59⁾ znači zapravo 5-0? 5-0 ne znači da si ti u svemu dobar, nego znači da si u svemu najbolji. To se stvara u glavama djece. Imamo hiperinflaciju odlikaša, znači to više izgubilo svaku vrijednost.
+
+[57:10.23] tok 8088  S: baš dobro odjeknulo kod recimo   (slaže se 2/5)
+     Hydrogen4 baš dobro odjeknulo kod recimo
+     Argon4    baš dobro odjeknulo kod recimo
+     Speechm   baš dobro odjeknulo kod
+     Canary    baš dobro djeknulo kod recimo
+     CanOpus   baš dobro djeknulo kod recimo
+
+[57:11.91] tok 8090  S: odjeknulo kod recimo drugih roditelja,   (slaže se 2/5)
+     Hydrogen4 odjeknulo kod recimo drugih roditelja
+     Argon4    odjeknulo kod recimo drugih roditelja
+     Speechm   odjeknulo kod drugih roditelja,
+     Canary    djeknulo kod recimo drugih roditelja,
+     CanOpus   djeknulo kod recimo drugih roditelja,
+
+[57:12.87] tok 8093  S: drugih roditelja, ali klinci pričaju međusobno,   (slaže se 1/5)
+     Hydrogen4 drugih roditelja jer klinci pričaju međusobno:
+     Argon4    drugih roditelja jer klinci pričaju međusobno,
+     Speechm   drugih roditelja, ali klinci pričaju međusobno.
+     Canary    drugih roditelja, jel klijenti pričaju međusobno.
+     CanOpus   drugih roditelja, jel klinci pričaju međusobno.
+
+[57:27.81] tok 8132  S: stvar, da bude, da uživa u   (slaže se 2/5)
+     Hydrogen4 stvar da bude, da uživa u
+     Argon4    stvar, da uživa u
+     Speechm   stvar da bude da uživa u
+     Canary    stvar da uživa u
+     CanOpus   stvar da uživa u
+
+[57:29.73] tok 8137  S: u učenju. Znači, proces učenja.   (slaže se 0/5)
+     Hydrogen4 u učenju. Da, znači proces učenja, jel,
+     Argon4    u učenju. Da, znači proces učenja, je l'. Ovaj,
+     Speechm   u učenju, da znači proces učenja i
+     Canary    u učenju, da proces učenja,
+     CanOpus   u učenju, da proces učenja,
+
+[57:32.43] tok 8140  S: proces učenja. Da je   (slaže se 2/5)
+     Hydrogen4 proces učenja, jel, da je
+     Argon4    proces učenja, je l'. Ovaj, da je
+     Speechm   proces učenja i da je
+     Canary    proces učenja, da je
+     CanOpus   proces učenja, da je
+
+[57:47.43] tok 8170  S: ne znam, 2 ili neku   (slaže se 0/5)
+     Hydrogen4 ne znam dva ili neku
+     Argon4    ne znam dva ili neku
+     Speechm   ne znam dva ili neku
+     Canary    ne znam dva ili neku
+     CanOpus   ne znam dva ili neku
+
+[57:52.95] tok 8184  S: svega imati 4 ili 5.   (slaže se 0/5)
+     Hydrogen4 svega imati četiri ili pet, ne.
+     Argon4    svega imati četiri ili pet, ne.
+     Speechm   svega imati četiri ili pet, ne.
+     Canary    svega imati četiri ili pet.
+     CanOpus   svega imati četiri ili pet.
+
+[57:53.67] tok 8186  S: 4 ili 5. I to   (slaže se 0/5)
+     Hydrogen4 četiri ili pet, ne. I to
+     Argon4    četiri ili pet, ne. I to
+     Speechm   četiri ili pet, ne. I to
+     Canary    četiri ili pet. I to
+     CanOpus   četiri ili pet. I to
+
+[58:01.11] tok 8209  S: nisu nametali, ali ja sam   (slaže se 3/5)
+     Hydrogen4 nisu nametali, ali ja sam
+     Argon4    nisu nametali, ali ja sam
+     Speechm   nisu nametali, ali ja sam
+     Canary    nisu nametali jer ja sam
+     CanOpus   nisu nametali jer ja sam
+
+[58:01.95] tok 8213  S: sam bio jedno od onih   (slaže se 2/5)
+     Hydrogen4 sam bio jedan od onih
+     Argon4    sam bio jedno od one
+     Speechm   sam bio jedno od one od onih
+     Canary    sam bio jedno od onih
+     CanOpus   sam bio jedno od onih
+
+[58:02.61] tok 8215  S: jedno od onih 5-0 djece. To   (slaže se 0/5)
+     Hydrogen4 jedan od onih 5.0 djece. To
+     Argon4    jedno od one 5,0 djece. To
+     Speechm   jedno od one od onih pet nula djece. To
+     Canary    jedno od onih pet nula djece. To
+     CanOpus   jedno od onih pet nula djece. To
+
+[58:06.27] tok 8221  S: nije dobro. Jer što znači zapravo   (slaže se 1/5)
+     Hydrogen4 nije dobro. Jer što znači zapravo
+     Argon4    nije dobro. Ovaj, jer šta znači zapravo
+     Speechm   nije dobro. Ovaj je što znači zapravo
+     Canary    nije dobro. Jer šta znači zapravo
+     CanOpus   nije dobro. Jer šta znači zapravo
+
+[58:08.91] tok 8225  S: znači zapravo 5-0? 5-0 ne znači   (slaže se 2/5)
+     Hydrogen4 znači zapravo 5.0? 5.0 ne znači
+     Argon4    znači zapravo 5,0? 5,0 ne znači
+     Speechm   znači zapravo 5 0 5 0 ne znači
+     Canary    znači zapravo pet nula? Pet nula ne znači
+     CanOpus   znači zapravo pet nula? Pet nula ne znači
+
+[58:15.33] tok 8247  S: u glavama djece. Imamo   (slaže se 2/5)
+     Hydrogen4 u glavama djece, ne. Imamo
+     Argon4    u glavama ovaj djece, ne. I imamo
+     Speechm   u glavama djece. Ne imamo
+     Canary    u glavama djece. Imamo
+     CanOpus   u glavama djece. Imamo
+
+[58:15.45] tok 8248  S: glavama djece. Imamo hiperinflaciju   (slaže se 2/5)
+     Hydrogen4 glavama djece, ne. Imamo hiperinflaciju
+     Argon4    glavama ovaj djece, ne. I imamo hiperinflaciju
+     Speechm   glavama djece. Ne imamo hiper inflaciju,
+     Canary    glavama djece. Imamo hiperinflaciju
+     CanOpus   glavama djece. Imamo hiperinflaciju
+
+[58:16.29] tok 8249  S: djece. Imamo hiperinflaciju odlikaša, znači   (slaže se 2/5)
+     Hydrogen4 djece, ne. Imamo hiperinflaciju odlikaša, znači
+     Argon4    ovaj djece, ne. I imamo hiperinflaciju odlikaša, znači
+     Speechm   djece. Ne imamo hiper inflaciju, odlikaša
+     Canary    djece. Imamo hiperinflaciju odlikaša, znači
+     CanOpus   djece. Imamo hiperinflaciju odlikaša, znači
+
+[58:17.79] tok 8251  S: hiperinflaciju odlikaša, znači to više   (slaže se 3/5)
+     Hydrogen4 hiperinflaciju odlikaša, znači to više
+     Argon4    hiperinflaciju odlikaša, znači to je više
+     Speechm   hiper inflaciju, odlikaša to više
+     Canary    hiperinflaciju odlikaša, znači to više
+     CanOpus   hiperinflaciju odlikaša, znači to više
+
+[58:19.77] tok 8253  S: znači to više izgubilo   (slaže se 3/5)
+     Hydrogen4 znači to više izgubilo
+     Argon4    znači to je više izgubilo
+     Speechm   to više izgubilo
+     Canary    znači to više izgubilo
+     CanOpus   znači to više izgubilo

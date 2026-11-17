@@ -1,0 +1,58 @@
+{"reels":[
+{"start_seq":27,"end_seq":32,"score":10,"kind":"insight","title":"Nisam ponosan, zahvalan sam što sam Hrvat","hook":"Najbolja zemlja za život?","why":"Neočekivan obrat ponosa u zahvalnost.","quote":"ja nisam ponosan što sam Hrvat, ja sam zahvalan što sam Hrvat","cards":[
+ {"type":"hook","at_seq":27,"anchor":null,"text":"Najbolja zemlja za život?"},
+ {"type":"lower_third","at_seq":27,"anchor":null,"text":"Ante Lučić – poduzetnik, otac četvero djece"},
+ {"type":"context","at_seq":28,"anchor":"ove godine mi se apsolutno","text":"Deset godina nakon povratka iz Njemačke"},
+ {"type":"quote","at_seq":31,"anchor":"ja nisam ponosan","text":"Nisam ponosan što sam Hrvat."},
+ {"type":"quote","at_seq":32,"anchor":"ja sam zahvalan što sam Hrvat","text":"Zahvalan sam što sam Hrvat."},
+ {"type":"end","at_seq":32,"anchor":"podižem ovdje obitelj","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":57,"end_seq":62,"score":9,"kind":"humor","title":"Preživljavaju Hrvati, Srbi i žohari","hook":"Naša supermoć je improvizacija","why":"Humor i usporedba s Nijemcima.","quote":"preživljavaju Hrvati, Srbi i žohari","cards":[
+ {"type":"hook","at_seq":57,"anchor":null,"text":"Naša supermoć je improvizacija"},
+ {"type":"lower_third","at_seq":57,"anchor":null,"text":"Ante Lučić – poduzetnik, studirao u Njemačkoj"},
+ {"type":"quote","at_seq":57,"anchor":"preživljavaju Hrvati, Srbi i žohari","text":"Ne daj Bože apokalipse: preživljavaju Hrvati, Srbi i žohari."},
+ {"type":"context","at_seq":58,"anchor":"Nijemci ne znaju improvizirati","text":"Nijemci prosperiraju u miru, po planu"},
+ {"type":"context","at_seq":60,"anchor":"energetska kriza","text":"Kriza izvan algoritma: energija, rat u Ukrajini"},
+ {"type":"quote","at_seq":62,"anchor":"bumo se nekak snašli","text":"Snaći ćemo se, bumo se nekak snašli."},
+ {"type":"end","at_seq":62,"anchor":"ovisi u kojem dobu","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":97,"end_seq":102,"score":9,"kind":"controversy","title":"Koliko košta biti pro-life poduzetnik","hook":"Cijena pro-life stavova","why":"Konkretna osobna cijena vjere u poslu.","quote":"mogu doslovno izračunati financijsku štetu toga","cards":[
+ {"type":"hook","at_seq":97,"anchor":null,"text":"Cijena pro-life stavova"},
+ {"type":"lower_third","at_seq":97,"anchor":null,"text":"Ante Lučić – katolički poduzetnik"},
+ {"type":"context","at_seq":97,"anchor":"znao gubiti projekte","text":"Izgubljeni projekti zbog pro-life stavova"},
+ {"type":"context","at_seq":101,"anchor":"žešćeg otkazivanja ili canceliranja","text":"Blokiranja, otkazivanja, cancel"},
+ {"type":"quote","at_seq":102,"anchor":"mogu doslovno izračunati financijsku","text":"Mogu doslovno izračunati financijsku štetu."},
+ {"type":"quote","at_seq":102,"anchor":"nikakav trošak","text":"Ali to nije nikakav trošak ni žrtva."},
+ {"type":"end","at_seq":102,"anchor":"nikakva žrtva","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":172,"end_seq":180,"score":8,"kind":"story","title":"Bilo bi bolje da imaš deset neuspjeha","hook":"Zašto bi htio deset neuspjeha?","why":"Obrat: neuspjeh kao preporuka.","quote":"daj Bože, bilo bi puno bolje da ih imaš deset","cards":[
+ {"type":"hook","at_seq":172,"anchor":null,"text":"Zašto bi htio deset neuspjeha?"},
+ {"type":"lower_third","at_seq":172,"anchor":null,"text":"Ante Lučić – poduzetnik i mentor"},
+ {"type":"context","at_seq":172,"anchor":"festival neuspjeha","text":"Festival neuspjeha: poduzetnici pričaju samo o promašajima"},
+ {"type":"quote","at_seq":177,"anchor":"bilo bi puno bolje","text":"Daj Bože, bilo bi puno bolje da ih imaš deset."},
+ {"type":"context","at_seq":178,"anchor":"on nije ironičan","text":"Nije bio ironičan."},
+ {"type":"end","at_seq":180,"anchor":"trebamo gurati","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":229,"end_seq":235,"score":9,"kind":"insight","title":"„Vrijeme je novac” prvi je rekao Hrvat","hook":"Tko je prvi rekao „vrijeme je novac”?","why":"Iznenađujuća činjenica iz hrvatske povijesti.","quote":"Pazi na svoje vrijeme, jer vrijeme je novac.","cards":[
+ {"type":"hook","at_seq":229,"anchor":null,"text":"Tko je prvi rekao „vrijeme je novac”?"},
+ {"type":"lower_third","at_seq":229,"anchor":null,"text":"Ante Lučić – osnivač programa Beno"},
+ {"type":"context","at_seq":229,"anchor":"renesansni učenjak","text":"Benedikt Kotruljević, dubrovački trgovac i učenjak"},
+ {"type":"number","at_seq":230,"anchor":"u 15. stoljeću","value":"15. st.","text":"De la mercatura et del mercante perfetto"},
+ {"type":"number","at_seq":232,"anchor":"30 godina prije","value":"30 godina","text":"prije Luce Paciolija"},
+ {"type":"context","at_seq":233,"anchor":"dvostavno knjigovodstvo","text":"Prvi opisao dvostavno knjigovodstvo"},
+ {"type":"quote","at_seq":234,"anchor":"vrijeme je novac","text":"„Pazi na svoje vrijeme, jer vrijeme je novac.”"},
+ {"type":"context","at_seq":234,"anchor":"Benjamina Franklina","text":"Google kaže: Benjamin Franklin, 18. stoljeće"},
+ {"type":"end","at_seq":235,"anchor":"Kotruljević prvi rekao","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":278,"end_seq":283,"score":9,"kind":"controversy","title":"Ocjene mog sina me ne zanimaju","hook":"Ocjene me ne zanimaju","why":"Provokativan roditeljski stav.","quote":"Imamo hiperinflaciju odlikaša","cards":[
+ {"type":"hook","at_seq":278,"anchor":null,"text":"Ocjene me ne zanimaju"},
+ {"type":"lower_third","at_seq":278,"anchor":null,"text":"Ante Lučić – otac četvero djece"},
+ {"type":"quote","at_seq":278,"anchor":"apsolutno ne zanimaju njegove ocjene","text":"Rekao sam sinu da me ne zanimaju njegove ocjene."},
+ {"type":"context","at_seq":279,"anchor":"pristojno ponaša","text":"1. Da se pristojno ponaša"},
+ {"type":"context","at_seq":279,"anchor":"uživa u učenju","text":"2. Da uživa u učenju"},
+ {"type":"quote","at_seq":283,"anchor":"hiperinflaciju odlikaša","text":"Imamo hiperinflaciju odlikaša."},
+ {"type":"end","at_seq":283,"anchor":"svaku vrijednost","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]},
+{"start_seq":332,"end_seq":336,"score":8,"kind":"insight","title":"Nije teško rano ustati, teško je rano leći","hook":"Tajna ranog ustajanja","why":"Praktičan savjet, svima poznat problem.","quote":"nije se toliko teško rano probuditi ujutro koliko je teško na vrijeme zaspati","cards":[
+ {"type":"hook","at_seq":332,"anchor":null,"text":"Tajna ranog ustajanja"},
+ {"type":"lower_third","at_seq":332,"anchor":null,"text":"Ante Lučić – ustaje u 4:30"},
+ {"type":"context","at_seq":333,"anchor":"rano lijeganje","text":"Najpodcjenjenija vještina: rano lijeganje"},
+ {"type":"quote","at_seq":334,"anchor":"koliko je teško na vrijeme zaspati","text":"Nije teško rano ustati, teško je na vrijeme zaspati."},
+ {"type":"context","at_seq":334,"anchor":"onako ti skrolaš","text":"Skrolanje nakon što djeca zaspu"},
+ {"type":"quote","at_seq":335,"anchor":"rano lijeganje je ključ","text":"Rano lijeganje je ključ uspjeha."},
+ {"type":"end","at_seq":336,"anchor":"još važnije","text":"Ante Lučić | re:DEFINICIJA, ep. 11"}]}
+]}

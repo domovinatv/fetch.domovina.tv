@@ -252,7 +252,7 @@ function brandCss(brand, publicDir) {
 /**
  * @param {string} publicDir  odredište (input-video.mp4 je već ondje)
  * @param {object} o  { reel, words:[{text,start,end}] relativno na klip, dur, faces (objekt),
- *                      videoId, title, channelName, brand: loadBrand() | null, debug }
+ *                      videoId, title, channelName, brand: loadBrand() | null, debug, noCredit }
  * @returns {{compId:string, cards:object[], captions:number}}
  */
 function preparePublic(publicDir, o) {
@@ -282,6 +282,8 @@ function preparePublic(publicDir, o) {
         .replaceAll("{{DUR}}", String(q(o.dur)))
         .replace("{{BRAND_CSS}}", css)
         .replace("{{CHANNEL_BUG}}", hasLogo ? '<div class="bug"><img src="brand/logo.png" alt="" /></div>' : "")
+        // potpis „Napravljeno s domovina.ai” dolje desno; noCredit ga gasi (kanal traži reel bez njega)
+        .replace("{{CREDIT}}", o.noCredit ? "" : '<div class="credit"><img src="domovina_logo.png" alt="" />Napravljeno s domovina.ai</div>')
         .replace("{{CARDS}}", cardHtml)
         .replace("{{CARD_JS}}", cardJs)
         .replace("{{CAPTIONS}}", cap.html)

@@ -526,6 +526,7 @@ function preparePremium(publicDir, o) {
         .replaceAll("{{DUR}}", String(q(o.dur)))
         .replace("{{BRAND_CSS}}", css)
         .replace("{{CHANNEL_BUG}}", hasLogo ? '<div class="bug"><img src="brand/logo.png" alt="" /></div>' : "")
+        .replace("{{CREDIT}}", o.noCredit ? "" : '<div class="credit"><img src="domovina_logo.png" alt="" />Napravljeno s domovina.ai</div>')
         .replace("{{CARDS}}", cardHtml)
         .replace("{{CAMERA_JS}}", cameraJs(o.doc, o.words, o.dur, warnings))
         .replace("{{CARD_JS}}", cardJs)

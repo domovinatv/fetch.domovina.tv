@@ -1,0 +1,454 @@
+{
+  "version": 1,
+  "video_id": "RdEN7Ny1bV8",
+  "channel": "muzevni_budite",
+  "title": "[re:DEFINICIJA] Ante Lučić (ep. 11)",
+  "generated_at": "2026-11-17T20:02:17.994Z",
+  "model": "claude-code-session:opus (ručni izbor 12.11.)",
+  "source": "20261022_redefinicija_11_epizoda_yt_RdEN7Ny1bV8.segments.jsonl",
+  "word_timing": "soniox + glasanje 5 ASR-a",
+  "reels": [
+    {
+      "rank": 1,
+      "start_sec": 329.67,
+      "end_sec": 412.05,
+      "duration_sec": 82.38,
+      "start_seq": 27,
+      "end_seq": 32,
+      "title": "Nisam ponosan, zahvalan sam što sam Hrvat",
+      "hook": "Najbolja zemlja za život?",
+      "why": "Neočekivan obrat ponosa u zahvalnost.",
+      "kind": "insight",
+      "score": 10,
+      "speaker": "Ante Lučić",
+      "speakers": [
+        "Ante Lučić"
+      ],
+      "quote": "ja nisam ponosan što sam Hrvat, ja sam zahvalan što sam Hrvat",
+      "cards": [
+        {
+          "type": "hook",
+          "at_sec": 0,
+          "text": "Najbolja zemlja za život?",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "lower_third",
+          "at_sec": 0,
+          "text": "Ante Lučić – poduzetnik, otac četvero djece",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "context",
+          "at_sec": 12.6,
+          "text": "Deset godina nakon povratka iz Njemačke",
+          "anchor": "ove godine mi se apsolutno",
+          "anchored": true
+        },
+        {
+          "type": "quote",
+          "at_sec": 59.22,
+          "text": "Nisam ponosan što sam Hrvat.",
+          "anchor": "ja nisam ponosan",
+          "anchored": true
+        },
+        {
+          "type": "quote",
+          "at_sec": 74.64,
+          "text": "Zahvalan sam što sam Hrvat.",
+          "anchor": "ja sam zahvalan što sam Hrvat",
+          "anchored": true
+        },
+        {
+          "type": "end",
+          "at_sec": 80.64,
+          "text": "Ante Lučić | re:DEFINICIJA, ep. 11",
+          "anchor": "podižem ovdje obitelj",
+          "anchored": true
+        }
+      ],
+      "caption": "",
+      "hashtags": [],
+      "render": {
+        "version": 1,
+        "rendered_at": "2026-11-17T20:29:03.428Z",
+        "seconds": 131,
+        "source": "youtube",
+        "clip_start_sec": 329.55,
+        "duration_sec": 82.95,
+        "cards": [
+          {
+            "type": "hook",
+            "start": 0,
+            "dur": 4.52
+          },
+          {
+            "type": "lower_third",
+            "start": 5.52,
+            "dur": 5
+          },
+          {
+            "type": "context",
+            "start": 12.6,
+            "dur": 5.04
+          },
+          {
+            "type": "quote",
+            "start": 59.24,
+            "dur": 4.52
+          },
+          {
+            "type": "end",
+            "start": 77.44,
+            "dur": 5.52
+          }
+        ],
+        "file": "1.mp4",
+        "bytes": 38816043,
+        "sha256": "6dd753248765f6e8400fa5bf4addad2065a6c1292f89fcd575cbfe3a3779563d",
+        "storyboard": "1.storyboard.jpg",
+        "fingerprint": "f5c325dfb95f3f97"
+      }
+    },
+    {
+      "rank": 2,
+      "start_sec": 748.11,
+      "end_sec": 832.47,
+      "duration_sec": 84.36,
+      "start_seq": 57,
+      "end_seq": 62,
+      "title": "Preživljavaju Hrvati, Srbi i žohari",
+      "hook": "Naša supermoć je improvizacija",
+      "why": "Humor i usporedba s Nijemcima.",
+      "kind": "humor",
+      "score": 9,
+      "speaker": "Ante Lučić",
+      "speakers": [
+        "Ante Lučić"
+      ],
+      "quote": "preživljavaju Hrvati, Srbi i žohari",
+      "cards": [
+        {
+          "type": "hook",
+          "at_sec": 0,
+          "text": "Naša supermoć je improvizacija",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "lower_third",
+          "at_sec": 0,
+          "text": "Ante Lučić – poduzetnik, studirao u Njemačkoj",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "quote",
+          "at_sec": 6.3,
+          "text": "Ne daj Bože apokalipse: preživljavaju Hrvati, Srbi i žohari.",
+          "anchor": "preživljavaju Hrvati, Srbi i žohari",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 12.42,
+          "text": "Nijemci prosperiraju u miru, po planu",
+          "anchor": "Nijemci ne znaju improvizirati",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 42.48,
+          "text": "Kriza izvan algoritma: energija, rat u Ukrajini",
+          "anchor": "energetska kriza",
+          "anchored": true
+        },
+        {
+          "type": "quote",
+          "at_sec": 69.78,
+          "text": "Snaći ćemo se, bumo se nekak snašli.",
+          "anchor": "bumo se nekak snašli",
+          "anchored": true
+        },
+        {
+          "type": "end",
+          "at_sec": 83.16,
+          "text": "Ante Lučić | re:DEFINICIJA, ep. 11",
+          "anchor": "ovisi u kojem dobu",
+          "anchored": true
+        }
+      ],
+      "caption": "",
+      "hashtags": [],
+      "render": {
+        "version": 1,
+        "rendered_at": "2026-11-17T20:31:18.235Z",
+        "seconds": 135,
+        "source": "youtube",
+        "clip_start_sec": 747.99,
+        "duration_sec": 84.93,
+        "cards": [
+          {
+            "type": "hook",
+            "start": 0,
+            "dur": 4.52
+          },
+          {
+            "type": "lower_third",
+            "start": 5.52,
+            "dur": 5
+          },
+          {
+            "type": "quote",
+            "start": 11.52,
+            "dur": 6.96
+          },
+          {
+            "type": "context",
+            "start": 42.48,
+            "dur": 5.76
+          },
+          {
+            "type": "quote",
+            "start": 69.8,
+            "dur": 4.76
+          },
+          {
+            "type": "end",
+            "start": 79.44,
+            "dur": 5.52
+          }
+        ],
+        "file": "2.mp4",
+        "bytes": 42511830,
+        "sha256": "2032636cb5b93fc2b5072e8b66a401b220eb7bc5417ae1414cd45b16818c0d80",
+        "storyboard": "2.storyboard.jpg",
+        "fingerprint": "8d3b39becffa2aab"
+      }
+    },
+    {
+      "rank": 4,
+      "start_sec": 2113.41,
+      "end_sec": 2191.29,
+      "duration_sec": 77.88,
+      "start_seq": 172,
+      "end_seq": 180,
+      "title": "Bilo bi bolje da imaš deset neuspjeha",
+      "hook": "Zašto bi htio deset neuspjeha?",
+      "why": "Obrat: neuspjeh kao preporuka.",
+      "kind": "story",
+      "score": 8,
+      "speaker": "Ante Lučić",
+      "speakers": [
+        "Ante Lučić",
+        "Krunoslav Puškar"
+      ],
+      "quote": "daj Bože, bilo bi puno bolje da ih imaš deset",
+      "cards": [
+        {
+          "type": "hook",
+          "at_sec": 0,
+          "text": "Zašto bi htio deset neuspjeha?",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "lower_third",
+          "at_sec": 0,
+          "text": "Ante Lučić – poduzetnik i mentor",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "context",
+          "at_sec": 6.9,
+          "text": "Festival neuspjeha: poduzetnici pričaju samo o promašajima",
+          "anchor": "festival neuspjeha",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 60.78,
+          "text": "Stariji kolega: „Daj Bože, bilo bi puno bolje da ih imaš deset.”",
+          "anchor": "bilo bi puno bolje",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 63.42,
+          "text": "Nije bio ironičan.",
+          "anchor": "on nije ironičan",
+          "anchored": true
+        },
+        {
+          "type": "end",
+          "at_sec": 77.1,
+          "text": "Ante Lučić | re:DEFINICIJA, ep. 11",
+          "anchor": "trebamo gurati",
+          "anchored": true
+        }
+      ],
+      "caption": "",
+      "hashtags": [],
+      "render": {
+        "version": 1,
+        "rendered_at": "2026-11-17T20:24:05.439Z",
+        "seconds": 127,
+        "source": "youtube",
+        "clip_start_sec": 2113.29,
+        "duration_sec": 78.45,
+        "cards": [
+          {
+            "type": "hook",
+            "start": 0,
+            "dur": 4.52
+          },
+          {
+            "type": "lower_third",
+            "start": 5.52,
+            "dur": 5
+          },
+          {
+            "type": "context",
+            "start": 11.52,
+            "dur": 6.76
+          },
+          {
+            "type": "context",
+            "start": 60.8,
+            "dur": 7.32
+          },
+          {
+            "type": "end",
+            "start": 72.96,
+            "dur": 5.52
+          }
+        ],
+        "file": "4.mp4",
+        "bytes": 37150920,
+        "sha256": "0a0202c78c867c6c3b46666b20db90a0d5144261c6361b1e12b376972241760f",
+        "storyboard": "4.storyboard.jpg",
+        "fingerprint": "6d60b1e7ecb839d2"
+      }
+    },
+    {
+      "rank": 6,
+      "start_sec": 3428.19,
+      "end_sec": 3501.51,
+      "duration_sec": 73.32,
+      "start_seq": 278,
+      "end_seq": 283,
+      "title": "Ocjene mog sina me ne zanimaju",
+      "hook": "Ocjene me ne zanimaju",
+      "why": "Provokativan roditeljski stav.",
+      "kind": "controversy",
+      "score": 9,
+      "speaker": "Ante Lučić",
+      "speakers": [
+        "Ante Lučić"
+      ],
+      "quote": "Imamo hiperinflaciju odlikaša",
+      "cards": [
+        {
+          "type": "hook",
+          "at_sec": 0,
+          "text": "Ocjene me ne zanimaju",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "lower_third",
+          "at_sec": 0,
+          "text": "Ante Lučić – otac četvero djece",
+          "anchor": null,
+          "anchored": false
+        },
+        {
+          "type": "quote",
+          "at_sec": 8.22,
+          "text": "Rekao sam sinu da me ne zanimaju njegove ocjene.",
+          "anchor": "apsolutno ne zanimaju njegove ocjene",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 15.06,
+          "text": "1. Da se pristojno ponaša",
+          "anchor": "pristojno ponaša",
+          "anchored": true
+        },
+        {
+          "type": "context",
+          "at_sec": 21.18,
+          "text": "2. Da uživa u učenju",
+          "anchor": "uživa u učenju",
+          "anchored": true
+        },
+        {
+          "type": "quote",
+          "at_sec": 69.6,
+          "text": "Imamo hiperinflaciju odlikaša.",
+          "anchor": "hiperinflaciju odlikaša",
+          "anchored": true
+        },
+        {
+          "type": "end",
+          "at_sec": 72.6,
+          "text": "Ante Lučić | re:DEFINICIJA, ep. 11",
+          "anchor": "svaku vrijednost",
+          "anchored": true
+        }
+      ],
+      "caption": "",
+      "hashtags": [],
+      "render": {
+        "version": 1,
+        "rendered_at": "2026-11-17T20:33:17.277Z",
+        "seconds": 119,
+        "source": "youtube",
+        "clip_start_sec": 3428.07,
+        "duration_sec": 73.89,
+        "cards": [
+          {
+            "type": "hook",
+            "start": 0,
+            "dur": 4.52
+          },
+          {
+            "type": "lower_third",
+            "start": 5.52,
+            "dur": 5
+          },
+          {
+            "type": "quote",
+            "start": 11.52,
+            "dur": 5.88
+          },
+          {
+            "type": "context",
+            "start": 18.36,
+            "dur": 4.52
+          },
+          {
+            "type": "context",
+            "start": 23.88,
+            "dur": 4.52
+          },
+          {
+            "type": "end",
+            "start": 68.4,
+            "dur": 5.52
+          }
+        ],
+        "file": "6.mp4",
+        "bytes": 34751927,
+        "sha256": "81bc9eeb71aab6a3c3de805b456b0d584073ac4da8a9e107ba404055c0013274",
+        "storyboard": "6.storyboard.jpg",
+        "fingerprint": "7d9b8951d6e9e113"
+      }
+    }
+  ],
+  "rejected": []
+}

@@ -28,7 +28,8 @@
  * Zastavice: --input-dir, --channel, --video-id, --top N (2), --since-days N (21, 0 = sve),
  *   --max-renders N (8), --render-only, --publish-only, --candidates-only (samo reels.json,
  *   bez videa ni uz --video-id), --force (ponovni render),
- *   --keep-work, --debug (iscrta sigurnu zonu), --dry-run
+ *   --keep-work, --debug (iscrta sigurnu zonu), --no-credit (bez potpisa „Napravljeno s domovina.ai”),
+ *   --dry-run
  */
 "use strict";
 
@@ -69,6 +70,8 @@ const FORCE = args.includes("--force");
 const CANDIDATES_ONLY = args.includes("--candidates-only");
 const KEEP_WORK = args.includes("--keep-work");
 const DEBUG = args.includes("--debug");
+// Bez potpisa „Napravljeno s domovina.ai” dolje desno (ručni render na zahtjev kanala); ulazi u otisak.
+const NO_CREDIT = args.includes("--no-credit");
 const DRY_RUN = args.includes("--dry-run");
 
 const HF = "hyperframes@0.8.38";
@@ -153,6 +156,7 @@ function brandStamp(brand) {
 function renderFingerprint(reel, brand) {
     // cold_open samo kad postoji: reelovi bez njega zadržavaju stari otisak (nema masovnog re-rendera)
     const extra = reel.cold_open && COLD_OPEN_ON ? [[reel.cold_open.start_sec, reel.cold_open.end_sec]] : [];
+    if (NO_CREDIT) extra.push("no-credit");
     return sha(JSON.stringify([RENDER_VERSION, reel.start_sec, reel.end_sec, reel.cards, reel.hook, brandStamp(brand), ...extra])).slice(0, 16);
 }
 
@@ -302,7 +306,7 @@ function renderOne(ep, info, reel, brand) {
 
     // 3. kompozicija
     const comp = preparePublic(pub, {
-        reel: shifted.reel, dur, debug: DEBUG, brand,
+        reel: shifted.reel, dur, debug: DEBUG, brand, noCredit: NO_CREDIT,
         words: shifted.words,
         faces,
         videoId: ep.vid,
