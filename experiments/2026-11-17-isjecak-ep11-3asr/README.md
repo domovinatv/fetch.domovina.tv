@@ -36,3 +36,6 @@ dodijeljena po Hydrogenu → `transcript_3asr_spk.json`. Grupa titla se lomi na 
 Ugrađene grafike pri dnu (sken crvene, 2 fps): traka Krunoslav 3,5–7 s, traka Ante 197,5–202,5 s
 (cijela širina, y 810–1024 → titl se podiže na bottom 300 px), kartica „Podupri naš rad” 263–292 s
 (titl udesno). v1–v3 su prve dvije trake prekrivale.
+
+CDN: `clips/RdEN7Ny1bV8/RdEN7Ny1bV8_30m16s-36m32s_1080p_titl_v3.mp4` (3 ASR) i `…_titl_v4.mp4`
+(+ govornici + zaobilaženje traka), oba poslana u WhatsApp „Matija Only”.
