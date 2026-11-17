@@ -50,6 +50,9 @@ Folders → iTerm), temp ide u scratchpad i briše se odmah nakon uploada.
 
 - `experiments/2026-11-17-isjecak-ep11-3asr/README.md`: v3 (titl iz Soniox + Gemini 4 Hydrogen + Canary)
   i v4 (oznaka govornika, zaobilaženje ugrađenih traka s imenima). v4 je konačna verzija.
+- `experiments/2026-11-17-reelsi-ep11-bez-potpisa/README.md`: 9:16 reelovi iste epizode ponovno,
+  `render_reels.js --no-credit` (bez „Napravljeno s domovina.ai”), titl glasanjem pet ASR-a, isti `clips/<ID>/` ključ;
+  HyperFrames Chrome iz Claude sesije (puppeteer headless shell) i mjerenje Apple diktata (24,8 %).
 
 - `docs/2026-10-25-reels-kandidati.md` (automatski 9:16 reelovi, drugi tok)
 - `docs/whatsapp_share_epizode.md`

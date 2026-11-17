@@ -90,6 +90,9 @@ je usidreno. Render traje ~2,5 min po reelu, a izlaz je 35–43 MB, 1080×1920.
 
 ## Vezani dokumenti
 
+- `experiments/2026-11-17-reelsi-ep11-bez-potpisa/README.md` (17.11.: reelovi 1, 2, 4, 6 ponovno, bez potpisa,
+  s ispravljenim titlom; izbor od 12.11. izvučen iz transkripta sesije jer je privatni korijen obrisan)
+
 - `docs/2026-10-25-reels-kandidati.md` (KORAK 9.9, render iza nightlyja)
 - `docs/2026-11-06-katalog-ingest-nakon-uploada.md` (zašto `_unlisted` završi na kanalu)
 - `docs/2026-10-21-hyperframes-reel-proba.md` (ep. 9 „traktor”)
