@@ -3618,10 +3618,10 @@
    "slug": "generacija-plus",
    "title": "\"Ništa neće biti od mene\": Pazi na riječi koje govoriš da ti se ne bi ostvarile │ Generacija + S04E5",
    "duration": 2604,
-   "attempts": 1,
-   "sent_at": "2026-11-16T02:17:18.626Z",
+   "attempts": 2,
+   "sent_at": "2026-11-16T06:13:49.246Z",
    "result": "created",
-   "job_id": "a2acf9c9-b590-4344-bb54-4b0dc030e9a8"
+   "job_id": "001d72d0-b381-47df-9871-32f5114ba58a"
   },
   "QhHVVmWRTEo": {
    "date": "2026-11-16",
@@ -3642,14 +3642,274 @@
    "sent_at": "2026-11-16T02:17:19.131Z",
    "result": "created",
    "job_id": "a358ada5-43a3-4cf7-aa22-3e21df3f6419"
+  },
+  "KD8BrTg3Bk8": {
+   "date": "2026-11-17",
+   "slug": "croatiansports-podcast",
+   "title": "PODCAST: Croatia escape Nations League with 3rd spot, Euro 2028 top seed",
+   "duration": 3619,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:45.428Z",
+   "result": "created",
+   "job_id": "9a5952e3-4c2a-4fe9-bd72-b57e83816160"
+  },
+  "i0QMm1AGxZ4": {
+   "date": "2026-11-17",
+   "slug": "don-stipe-mustapic",
+   "title": "Fra Ante Vučković: Kako oprostiti, čuti Boga i sačuvati slobodu",
+   "duration": 3713,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:45.708Z",
+   "result": "created",
+   "job_id": "63d6a396-f82a-4a16-8220-443a19e17478"
+  },
+  "MiVjOYc0jrs": {
+   "date": "2026-11-17",
+   "slug": "kriminalno-dobre-price",
+   "title": "460. epizoda: Ubojstva u Arbogi",
+   "duration": 2334,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:45.990Z",
+   "result": "created",
+   "job_id": "f0224953-ede1-437e-8619-06577269decb"
+  },
+  "_d_nUI8049M": {
+   "date": "2026-11-17",
+   "slug": "lider-podcast",
+   "title": "Usred PANDEMIJE pokrenula logistički biznis i - USPJELA | Nataša Mihajlović x Lider Podcast 188",
+   "duration": 2388,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:46.196Z",
+   "result": "created",
+   "job_id": "a6c13143-cb91-4d1b-881b-c5d3d4c6f6ec"
+  },
+  "fFDj26RlYi0": {
+   "date": "2026-11-17",
+   "slug": "netokracija-podcast",
+   "title": "NASA je prepoznala CroCube. Zašto Hrvatska nije? | S7.EP8",
+   "duration": 1515,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:46.382Z",
+   "result": "created",
+   "job_id": "f94e868f-b2d2-4105-8924-a736456e01dc"
+  },
+  "_ZCKiem-Vtk": {
+   "date": "2026-11-17",
+   "slug": "podcast-inkubator-mysterium",
+   "title": "Podcast Mysterium #188 -  RUSSELL BRAND || SUĐENJE I PRESUDA",
+   "duration": 6848,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:46.641Z",
+   "result": "created",
+   "job_id": "64fe274b-f546-4f38-9d52-ee0b69f25ab9"
+  },
+  "7hEq8KsxQ1c": {
+   "date": "2026-11-17",
+   "slug": "projekt-velebit",
+   "title": "PODCAST VELEBIT - Pintarić: Spustila se gusta magla iznad Hrvatske",
+   "duration": 5542,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:46.899Z",
+   "result": "created",
+   "job_id": "89616945-809c-4274-8d75-c05345cf8dec"
+  },
+  "LfJPFC7594U": {
+   "date": "2026-11-17",
+   "slug": "psihologija-hrt",
+   "title": "S3E11 PSIHOLOGiJA #92 Živimo li u kulturi nasilja? (mag. soc. paed., psihoterapeutkinja Irena Kušić)",
+   "duration": 3333,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:47.129Z",
+   "result": "created",
+   "job_id": "598e221f-774a-41cf-b971-47ae94c29873"
+  },
+  "jNk_c81A55Q": {
+   "date": "2026-11-17",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za utorak, 17.11.2026.",
+   "duration": 3136,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:47.329Z",
+   "result": "created",
+   "job_id": "b80ca0b0-fad3-4d4f-a857-7d01c40d6c2e"
+  },
+  "U_pGA_WzQus": {
+   "date": "2026-11-17",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za ponedjeljak, 16.11.2026.",
+   "duration": 3159,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:47.538Z",
+   "result": "created",
+   "job_id": "9a6d3498-6d2e-43f6-b0a7-0f96604f2b48"
+  },
+  "AJgfQAu8LW8": {
+   "date": "2026-11-17",
+   "slug": "vida-podcast",
+   "title": "Zavidavanje by Lado Tomičić #176 - Fernando Ayala",
+   "duration": 3723,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:47.801Z",
+   "result": "created",
+   "job_id": "bb9c74b2-ea22-4d0f-9394-e8ba28817b55"
+  },
+  "omKCQ38q5yA": {
+   "date": "2026-11-17",
+   "slug": "vox-medicus",
+   "title": "POSTPOROĐAJNI PERIOD, Biserka Matok-Glavaš, univ.mag.obs.Glavna primalja KB Merkur",
+   "duration": 1876,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:47.999Z",
+   "result": "created",
+   "job_id": "77b0b1dc-7abb-4495-8194-3c1a0f524e16"
+  },
+  "oUWMd5zYMso": {
+   "date": "2026-11-17",
+   "slug": "hzv-siempre",
+   "title": "VIDI ĆAĆA, VEČERAS JE LIVE! VIDIMO SE OD 20:45h",
+   "duration": 11168,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:48.246Z",
+   "result": "created",
+   "job_id": "731ba36b-87c9-4aef-872d-ee50e266c0ad"
+  },
+  "oUe07bGjkjA": {
+   "date": "2026-11-17",
+   "slug": "pravo-na-istinu",
+   "title": "BITI ĆE KNJIGA O KOMUNISTIČKIM ZLOČINIMA PARTIZANSKIH ANTIFAŠISTIČKIH JUGO-BOLJŠEVIKA TITOISTA 2027.",
+   "duration": 3629,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:48.486Z",
+   "result": "created",
+   "job_id": "b49cbcac-7bed-47d6-bcad-983c9e652ff2"
+  },
+  "umK2aHNGpNI": {
+   "date": "2026-11-17",
+   "slug": "bijela-kronika",
+   "title": "Bijela kronika: Prof. dr. sc. Veljko Đorđević  pobjeda čovječnosti i  medicine u ratu",
+   "duration": 1838,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:48.682Z",
+   "result": "created",
+   "job_id": "3e8108e5-bc68-413f-9f65-37c28714b957"
+  },
+  "17LDqQlXFxk": {
+   "date": "2026-11-17",
+   "slug": "izbacene-scene",
+   "title": "Braća Pejić i underground film | Posljednji rimski bog",
+   "duration": 4896,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:48.910Z",
+   "result": "created",
+   "job_id": "222e1968-0702-4e85-a074-f8fc2fc37637"
+  },
+  "4-mOZeu-p84": {
+   "date": "2026-11-17",
+   "slug": "vl-stativa",
+   "title": "Nenad Bjelica: Slaven Bilić je sve radio logično, druga je stvar što su Hrvati nerealni",
+   "duration": 3568,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:49.112Z",
+   "result": "created",
+   "job_id": "64baf5e3-3f30-4960-b799-58814c745a67"
+  },
+  "rtOa5y1wphM": {
+   "date": "2026-11-17",
+   "slug": "planet-formula",
+   "title": "Specijalna epizoda Planet Formula - Srđan Erceg i Dejana Stanić iz Lap 76 i Cool Down",
+   "duration": 6361,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:49.299Z",
+   "result": "created",
+   "job_id": "eedf5edf-2e0b-4067-a2e7-5a98940b9f10"
+  },
+  "Ng5p2TotIAM": {
+   "date": "2026-11-17",
+   "slug": "briefing-jutarnji-list",
+   "title": "Ivan Rimac: Pogledajte kome sada Rusija prijeti! Srbija? Sjetite se Đinđića, ali i arapskog proljeća",
+   "duration": 2509,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:49.483Z",
+   "result": "created",
+   "job_id": "b8f2ad51-0488-4348-bec7-75fdd31ca336"
+  },
+  "fOwCwy5shmo": {
+   "date": "2026-11-17",
+   "slug": "veliki-judi",
+   "title": "Veliki judi 14.11.2026. Pere Eranović",
+   "duration": 1816,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:49.683Z",
+   "result": "created",
+   "job_id": "30663ace-f58e-4993-80e9-0a3e22516226"
+  },
+  "mk_esXlqmKc": {
+   "date": "2026-11-17",
+   "slug": "laudato-odaziv",
+   "title": "Kakve nam talente Bog daje i kako ih upotrijebiti? Odaziv",
+   "duration": 3641,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:49.873Z",
+   "result": "created",
+   "job_id": "cc1de580-ba3f-4462-a8ae-17dd2984c8f7"
+  },
+  "V2BhtVcO5xY": {
+   "date": "2026-11-17",
+   "slug": "laudato-in-familia-dei",
+   "title": "Obitelj Pavlović │In familia dei",
+   "duration": 2728,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:50.067Z",
+   "result": "created",
+   "job_id": "cac49dc6-c7af-46ca-87a3-c3d3d5c02ce8"
+  },
+  "v3lA5jfFzGE": {
+   "date": "2026-11-17",
+   "slug": "laudato-novi-zivot",
+   "title": "Vanessa Mioč i fra Mario Berišić│Novi život",
+   "duration": 4637,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:50.251Z",
+   "result": "created",
+   "job_id": "601d4f28-6e06-41b5-b56c-9088a5438bd9"
+  },
+  "5PPzRCTCcuY": {
+   "date": "2026-11-17",
+   "slug": "hrt-pozitivno",
+   "title": "Pozitivno: Katolički školski centar \"Sveti Franjo\"",
+   "duration": 1681,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:50.445Z",
+   "result": "created",
+   "job_id": "edf19a29-03c9-4451-980f-0486acf5975d"
+  },
+  "VtiNMG5ObM0": {
+   "date": "2026-11-17",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Priča o zmajevima",
+   "duration": 3119,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:50.634Z",
+   "result": "created",
+   "job_id": "9c1408a5-cee3-4ffa-9d3d-b4a61c2dfe23"
+  },
+  "t6Vsx8pG7Xo": {
+   "date": "2026-11-17",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno o krizi na Ustavnom sudu",
+   "duration": 1839,
+   "attempts": 1,
+   "sent_at": "2026-11-17T03:38:50.818Z",
+   "result": "created",
+   "job_id": "41df305d-f6ee-42cd-be4d-8dc5b6c2d722"
   }
  },
- "updated_at": "2026-11-16T02:17:19.385Z",
+ "updated_at": "2026-11-17T03:38:51.018Z",
  "last_enqueue_usage": {
-  "at": "2026-11-16T02:17:19.385Z",
-  "five_hour": 0,
-  "five_hour_resets_at": null,
-  "seven_day": 9,
-  "seven_day_resets_at": "2026-11-21T00:00:00.326686+00:00"
+  "at": "2026-11-17T03:38:51.018Z",
+  "five_hour": 1,
+  "five_hour_resets_at": "2026-11-17T08:20:00.361482+00:00",
+  "seven_day": 33,
+  "seven_day_resets_at": "2026-11-21T00:00:00.361501+00:00"
  }
 }
