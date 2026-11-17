@@ -67,6 +67,8 @@ i logo Muževni budite gore desno. Nema kartica ni reframea. Generator:
 - **Ugrađena grafika:** snimka ima karticu „Podupri naš rad” dolje lijevo (263–291 s isječka).
   Nađena skenom crvene boje po sekundi; u tom prozoru titl se pomiče udesno (`SHIFT`).
 - **Render:** 376 s za ~3 min (GPU capture), H.264 High, CRF 16, 263 MB.
+- **CDN:** `https://cdn.domovina.ai/clips/RdEN7Ny1bV8/RdEN7Ny1bV8_30m16s-36m32s_1080p_titl.mp4`
+  (isti upload kao gore, sufiks `_titl`), link poslan u WhatsApp „Matija Only”.
 
 ### Zamke
 
