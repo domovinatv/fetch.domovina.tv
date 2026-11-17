@@ -4,7 +4,7 @@
   "channel_id": "UCaqCX-pMk_RXhs4EQnP4VuQ",
   "title": "PODCAST  ČUŠPAJZ ",
   "availability": "public",
-  "channel_follower_count": 7320,
+  "channel_follower_count": 7350,
   "description": "",
   "tags": [
     "#politics",
@@ -35,7 +35,7 @@
   "uploader_url": "https://www.youtube.com/@podcastcuspajz",
   "modified_date": null,
   "view_count": null,
-  "playlist_count": 2,
+  "playlist_count": 3,
   "uploader": "PODCAST  ČUŠPAJZ ",
   "channel_url": "https://www.youtube.com/channel/UCaqCX-pMk_RXhs4EQnP4VuQ",
   "_type": "playlist",
@@ -48,7 +48,7 @@
   "extractor_key": "YoutubeTab",
   "release_year": null,
   "requested_entries": [],
-  "epoch": 1794794454,
+  "epoch": 1794880856,
   "__files_to_move": {},
   "_version": {
     "version": "2026.10.26",
