@@ -103,3 +103,13 @@ flowchart LR
   (`docs/2026-10-21-hyperframes-reel-proba.md` §Otvoreno).
 - Praćenje lica u HyperFramesu (YuNet putanja kao keyframeovi) još nije napravljeno.
 - Elektron skelet: ne piše se dok korisnik ne kaže.
+
+## 18.11.2026.: obećano Zvonimiru Žulju (Muževni budite)
+
+Zvonimir je tražio „cijelu aplikaciju da ju doma slobodno koristi”. Odgovor (dogovor s Matijom): reelove
+zasad radimo iz skripti u Claude Code sesiji. Kad nekoliko epizoda prođe bez ručnih popravaka, radimo mu
+Windows aplikaciju u kojoj klikne i dobije reelove. Ručni popravci koje Reel Studio mora raditi sam,
+naučeni na re:DEFINICIJI 11: bez ikakvog „domovina.ai” za kanal koji to traži (`--no-credit`), ime
+govornika na kartici citata (ne `SPEAKER_00`), glasanje titla iz više ASR-a
+(`experiments/2026-11-17-reelsi-ep11-bez-potpisa/`). Pregled skripti koji je dobio kao PDF:
+[`2026-11-18-kako-nastaje-reel.md`](2026-11-18-kako-nastaje-reel.md).
