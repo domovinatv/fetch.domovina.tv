@@ -320,7 +320,7 @@ const COMPONENTS = {
         desc: "Završna kartica (uvijek zadnja): naslov epizode ili poziv, kanal i link. Trajanje 3,5–6 s.",
         params: '{ "text": "naslov ili poziv, do 60 znakova" }',
         markup: (b, id, ctx) => `<div class="paper endc"><div class="t">${esc(b.p.text || ctx.title)}</div>
-      <div class="src">${esc(ctx.channelName)}<br /><span class="url">domovina.ai/v/${esc(ctx.videoId)}</span></div></div>`,
+      <div class="src">${esc(ctx.channelName)}${ctx.noCredit ? "" : `<br /><span class="url">domovina.ai/v/${esc(ctx.videoId)}</span>`}</div></div>`,
         timeline: (b, id) => [`tl.from("#${id} .paper", { ${IN} }, ${b.start});`,
             `tl.from("#${id} .src", { opacity: 0, duration: 0.6, ease: "power1.out" }, ${q(b.start + 0.6)});`],
         key: (b) => b.start + 1.4,
@@ -487,7 +487,7 @@ function preparePremium(publicDir, o) {
     fs.copyFileSync(path.join(HERE, "..", "reel_layout.js"), path.join(publicDir, "reel_layout.js"));
     fs.copyFileSync(path.join(brandingDir(), "domovina_ai", "logo_square.png"), path.join(publicDir, "domovina_logo.png"));
 
-    const ctx = { title: o.title, channelName: o.channelName, videoId: o.videoId };
+    const ctx = { title: o.title, channelName: o.channelName, videoId: o.videoId, noCredit: !!o.noCredit };
     const { beats: sched, warnings } = schedule(o.doc, o.words, o.dur);
     const beats = [];
     for (const b of sched) {

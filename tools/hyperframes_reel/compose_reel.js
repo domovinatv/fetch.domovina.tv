@@ -118,7 +118,7 @@ function cardMarkup(c, id, ctx) {
             return host(`<div class="paper pin">${PIN_SVG}<div><div class="v">${esc(c.value || c.text)}</div>${c.value && c.text ? `<div class="s">${esc(c.text)}</div>` : ""}</div></div>`);
         case "end":
             return host(`<div class="paper endc"><img class="brand-logo" src="brand/logo.png" alt="" /><div class="t">${esc(c.text || ctx.title)}</div>
-      <div class="src">${esc(ctx.channelName)}<br /><span class="url">domovina.ai/v/${esc(ctx.videoId)}</span></div></div>`);
+      <div class="src">${esc(ctx.channelName)}${ctx.noCredit ? "" : `<br /><span class="url">domovina.ai/v/${esc(ctx.videoId)}</span>`}</div></div>`);
         default:   // context i nepoznati tipovi
             return host(`<div class="paper ctx">${esc(c.text)}</div>`);
     }
@@ -266,7 +266,8 @@ function preparePublic(publicDir, o) {
     fs.copyFileSync(path.join(HERE, "reel_layout.js"), path.join(publicDir, "reel_layout.js"));
     fs.copyFileSync(path.join(brandingDir(), "domovina_ai", "logo_square.png"), path.join(publicDir, "domovina_logo.png"));
 
-    const ctx = { title: o.title, channelName: o.channelName, videoId: o.videoId, speaker: o.reel.speaker };
+    // noCredit gasi i link domovina.ai/v/… na završnoj kartici (kanal: „na kraju ne smije pisati domovina.ai”, 18.11.)
+    const ctx = { title: o.title, channelName: o.channelName, videoId: o.videoId, speaker: o.reel.speaker, noCredit: !!o.noCredit };
     const cards = scheduleCards(o.reel, o.dur, ctx);
     const cardHtml = cards.map((c, i) => cardMarkup(c, `k${i}`, ctx)).join("\n\n  ");
     const cardJs = cards.map((c, i) => cardTimeline(c, `k${i}`)).join("\n\n    ");

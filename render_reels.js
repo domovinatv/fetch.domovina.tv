@@ -28,7 +28,7 @@
  * Zastavice: --input-dir, --channel, --video-id, --top N (2), --since-days N (21, 0 = sve),
  *   --max-renders N (8), --render-only, --publish-only, --candidates-only (samo reels.json,
  *   bez videa ni uz --video-id), --force (ponovni render),
- *   --keep-work, --debug (iscrta sigurnu zonu), --no-credit (bez potpisa „Napravljeno s domovina.ai”),
+ *   --keep-work, --debug (iscrta sigurnu zonu), --no-credit (bez potpisa „Napravljeno s domovina.ai” i bez linka domovina.ai na završnoj kartici),
  *   --dry-run
  */
 "use strict";
