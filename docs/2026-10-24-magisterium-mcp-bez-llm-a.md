@@ -147,3 +147,9 @@ Vrijeme raste s brojem sekcija, a ne izravno s trajanjem snimke. Za planiranje:
 - EN ide kroz `translate_to_english.js` (poller), a ne kroz MCP.
 - Stari runbook (`claude -p "@docs/MAGISTERIUM_MCP_RUN.md <VID>"`) ostaje kao fallback
   (`MAG_RUNNER=claude`), npr. ako je token opozvan, a nema nikoga da ponovi `login`.
+
+## Poller timeout i auto-retry (18.11.2026.)
+
+`ETIMEDOUT` 13./14./17.11. su bili zastoji cijelog stroja, ne MCP; poller sada gasi cijelu
+grupu procesa i HR bez artefakta jednom vraća u red. Vidi
+`docs/2026-11-18-nightly-15-18-i-magisterium-zastoji.md`.

@@ -123,6 +123,10 @@ function createRateLimiter(rpm, now = Date.now, sleep = ms => new Promise(r => s
 
 // ─── OAuth ───────────────────────────────────────────────────────────────────
 
+// Refresh tokena ide usred runa (openSession/rpc) — bez roka bi zastoj mreže visio do
+// poller timeouta. 30 s je daleko iznad normalnog odgovora (<1 s). (18.11.2026.)
+const OAUTH_TIMEOUT_MS = 30000;
+
 function loadToken() {
     if (!fs.existsSync(TOKEN_PATH)) return null;
     return JSON.parse(fs.readFileSync(TOKEN_PATH, 'utf-8'));
@@ -132,7 +136,7 @@ function saveToken(t) {
     fs.writeFileSync(TOKEN_PATH, JSON.stringify(t, null, 2), { mode: 0o600 });
 }
 async function asMeta() {
-    const r = await fetch(AS_META_URL);
+    const r = await fetch(AS_META_URL, { signal: AbortSignal.timeout(OAUTH_TIMEOUT_MS) });
     if (!r.ok) throw new Error(`AS metadata HTTP ${r.status}`);
     return r.json();
 }
@@ -140,7 +144,7 @@ function b64url(buf) { return buf.toString('base64').replace(/\+/g, '-').replace
 
 async function tokenRequest(meta, params) {
     const r = await fetch(meta.token_endpoint, {
-        method: 'POST',
+        method: 'POST', signal: AbortSignal.timeout(OAUTH_TIMEOUT_MS),
         headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
         body: new URLSearchParams(params).toString(),
     });
