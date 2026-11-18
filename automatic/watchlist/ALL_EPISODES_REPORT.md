@@ -6,6 +6,7 @@ sve što je u prozoru serije radilo na pretplati, pa je „po ep." gornja granic
 
 | datum | ep. | gotovo | pali | Mag HR | audio h | obrada (prvo slanje → zadnja ep.) | medijan min/ep | Mag kraj | tjedni % | +tjedni | /ep | max 5h % |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-17 | 26 | 26 | 0 | 25 | 26.3 | 17. 11. 04:38 → 17. 11. 11:41 (7 h) | 15.4 | 17. 11. 15:36 | 33 → 38 | 5 | 0.19 | 29 |
 | 2026-11-16 | 20 | 20 | 0 | 20 | 24.3 | 16. 11. 03:17 → 16. 11. 08:05 (4.8 h) | 13.9 | 16. 11. 10:03 | 9 → 10 | 1 | 0.05 | 6 |
 | 2026-11-15 | 10 | 10 | 0 | 10 | 9.2 | 15. 11. 05:26 → 15. 11. 06:48 (1.4 h) | 11.5 | 15. 11. 13:21 | 7 → 8 | 1 | 0.1 | 38 |
 | 2026-11-14 | 20 | 20 | 0 | 19 | 20.6 | 14. 11. 03:35 → 15. 11. 05:38 (26 h) | 7.8 | 15. 11. 10:23 | 0 → 8 | 8 | 0.4 | 38 |
@@ -23,7 +24,7 @@ sve što je u prozoru serije radilo na pretplati, pa je „po ep." gornja granic
 | 2026-11-02 | 21 | 21 | 0 | 0 | 28.3 | 02. 11. 03:32 → 02. 11. 15:39 (12.1 h) | 280 | 02. 11. 15:39 | 17 → 27 | 10 | 0.48 | 77 |
 | 2026-11-01 | 19 | 19 | 0 | 19 | 21.5 | 01. 11. 07:56 → 01. 11. 13:57 (6 h) | 13.6 | 01. 11. 15:34 | 8 → 15 | 7 | 0.37 | 34 |
 
-**Prosjek zaključenih dana (16):** 0.41 boda tjednog/ep, 22.6 ep/dan → **~65 % tjedne kvote tjedno** samo za ovu obradu.
+**Prosjek zaključenih dana (17):** 0.4 boda tjednog/ep, 22.8 ep/dan → **~63 % tjedne kvote tjedno** samo za ovu obradu.
 
 ### Padovi 2026-11-07
 

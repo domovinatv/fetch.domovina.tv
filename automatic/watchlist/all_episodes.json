@@ -3738,10 +3738,10 @@
    "slug": "sbs-croatian",
    "title": "Program SBS-a na hrvatskom za ponedjeljak, 16.11.2026.",
    "duration": 3159,
-   "attempts": 1,
-   "sent_at": "2026-11-17T03:38:47.538Z",
+   "attempts": 2,
+   "sent_at": "2026-11-17T06:41:02.160Z",
    "result": "created",
-   "job_id": "9a6d3498-6d2e-43f6-b0a7-0f96604f2b48"
+   "job_id": "366082e5-80f5-4ee3-955b-3fdae2ee4290"
   },
   "AJgfQAu8LW8": {
    "date": "2026-11-17",
@@ -3902,14 +3902,194 @@
    "sent_at": "2026-11-17T03:38:50.818Z",
    "result": "created",
    "job_id": "41df305d-f6ee-42cd-be4d-8dc5b6c2d722"
+  },
+  "kwKiq08GFcY": {
+   "date": "2026-11-18",
+   "slug": "actualitica-podcast",
+   "title": "Actualitica Podcast #76 – Ivan Burazin: Donbas 2014.-2022. – rat i svakodnevni život",
+   "duration": 6160,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:17.930Z",
+   "result": "created",
+   "job_id": "f2768379-a6ea-47d2-8a68-88df0be957b5"
+  },
+  "2JAS5MclANQ": {
+   "date": "2026-11-18",
+   "slug": "agroklub-podcast",
+   "title": "Agroklub Podcast #15: Biljana Borzan",
+   "duration": 2729,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:18.223Z",
+   "result": "created",
+   "job_id": "3bd39d13-1e1c-43f2-bae2-30864e89bc05"
+  },
+  "ndJIdag4yLE": {
+   "date": "2026-11-18",
+   "slug": "denis-podcast",
+   "title": "HNL LIVE / Rile & Denis",
+   "duration": 3790,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:18.520Z",
+   "result": "created",
+   "job_id": "f9dbb8fd-5528-4215-87c9-6b0c7dae8c4a"
+  },
+  "rnOR_j8VWGs": {
+   "date": "2026-11-18",
+   "slug": "eduza-show",
+   "title": "Kako obuzdati nemir koji vam uništava poslovanje | Dragana Mladenović",
+   "duration": 3565,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:18.812Z",
+   "result": "created",
+   "job_id": "aa1277ba-eea5-40f1-9038-2bc742c48b78"
+  },
+  "mQl16N1Vulk": {
+   "date": "2026-11-18",
+   "slug": "explora-hrt",
+   "title": "Explora 17.11.2026. Zrake smrti",
+   "duration": 3200,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:19.062Z",
+   "result": "created",
+   "job_id": "c12c406f-1829-4403-9f38-d203762d2d8e"
+  },
+  "LMxIow4FcaQ": {
+   "date": "2026-11-18",
+   "slug": "prvi-glas-telegram",
+   "title": "Plenkovićev proračun: Glomazna država, visoki porezi",
+   "duration": 1406,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:19.320Z",
+   "result": "created",
+   "job_id": "3476ac3f-c3cb-4dda-b482-ea513690f6ae"
+  },
+  "tp6s4zCz4vo": {
+   "date": "2026-11-18",
+   "slug": "podcast-s-brezom",
+   "title": "NOBILO OTVARA KARTE: Tajne najpoznatijeg odvjetnika - Artuković, Jelavić, Arkan, Dodik…",
+   "duration": 3773,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:19.570Z",
+   "result": "created",
+   "job_id": "b7b86809-1ba0-4c79-8b3b-bac7034f858f"
+  },
+  "BQh-V0ohzt0": {
+   "date": "2026-11-18",
+   "slug": "radio-benkovac",
+   "title": "Sjećanje na Škabrnju - Marko Miljanić",
+   "duration": 3027,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:19.782Z",
+   "result": "created",
+   "job_id": "b3f960e6-cbee-4578-b172-b92af7d16b13"
+  },
+  "uItzWey5f1I": {
+   "date": "2026-11-18",
+   "slug": "show-na-kvadrat",
+   "title": "Andrija Jarak: Ni bolest ni ranjavanje nisu me zaustavili, nastavio sam raditi",
+   "duration": 3127,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:19.988Z",
+   "result": "created",
+   "job_id": "2f92f2ed-fb88-434c-80eb-f5ca2bffad31"
+  },
+  "6mFNkQ9D9w0": {
+   "date": "2026-11-18",
+   "slug": "pravi-smjer",
+   "title": "Pravi smjer 17. studenog 2026.",
+   "duration": 2038,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:20.251Z",
+   "result": "created",
+   "job_id": "d81725cc-54dd-4d92-8ae3-334c967474ce"
+  },
+  "HBAvmdPpvCg": {
+   "date": "2026-11-18",
+   "slug": "romano-bolkovic-1-na-1",
+   "title": "Romano Bolković - 1 na 1: Flemming Engelstoft",
+   "duration": 3011,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:20.509Z",
+   "result": "created",
+   "job_id": "cefe69bf-b0e9-4b51-97d9-0b643471f3ef"
+  },
+  "UBqWhezw4ds": {
+   "date": "2026-11-18",
+   "slug": "laudato-susret-u-rijeci",
+   "title": "Sanja Nikčević │Susret u Riječi",
+   "duration": 2749,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:20.780Z",
+   "result": "created",
+   "job_id": "1c8f8013-8b21-4cf7-a5c8-ff2e892765c7"
+  },
+  "Ju06AHJL1QM": {
+   "date": "2026-11-18",
+   "slug": "laudato-totus-tuus",
+   "title": "Euharistija │Sveta Misa",
+   "duration": 3765,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:21.038Z",
+   "result": "created",
+   "job_id": "f3ff1d8d-29df-4f16-a7ca-29fe000d70cb"
+  },
+  "ExnuoAjvrp0": {
+   "date": "2026-11-18",
+   "slug": "radio-marija-bih-idi-i-popravi-moju-crkvu",
+   "title": "Uz bolesničku postelju - susret čovjeka s Božjim milosrđem- Idi i popravi moju crkvu",
+   "duration": 1650,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:21.287Z",
+   "result": "created",
+   "job_id": "ef95c1a5-bb55-40c4-b849-45e6bc524fe4"
+  },
+  "2gXkBOMz-o0": {
+   "date": "2026-11-18",
+   "slug": "hrt-sto-je-klasik",
+   "title": "Što je klasik? Razumjeti drugog - Wole Soyinka",
+   "duration": 2301,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:21.478Z",
+   "result": "created",
+   "job_id": "651f4b02-3e29-4a45-9ec3-836425b857bb"
+  },
+  "2wVIwC6wHq8": {
+   "date": "2026-11-18",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Prijeti li dijelu Hrvatske napuljski scenarij zbog problema s otpadom?",
+   "duration": 1902,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:21.688Z",
+   "result": "created",
+   "job_id": "7e0d7697-8083-48af-975a-2fa925d7fa04"
+  },
+  "YkEw3omEow4": {
+   "date": "2026-11-18",
+   "slug": "tampon-zona",
+   "title": "JOJ MAJKO: Konstrakta o koncertu, majčinstvu i zdravom buntu kod dece",
+   "duration": 3621,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:21.932Z",
+   "result": "created",
+   "job_id": "86a1c9c3-37cf-4af6-8175-1013d3b80ec9"
+  },
+  "nP0mdQb5n-Q": {
+   "date": "2026-11-18",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "Business Storytelling in Podcasting, and How to Know What's Worth Sharing — With Kendall Cherry",
+   "duration": 2074,
+   "attempts": 1,
+   "sent_at": "2026-11-18T04:29:22.139Z",
+   "result": "created",
+   "job_id": "ae29db07-aafb-499f-9ced-d4590060a196"
   }
  },
- "updated_at": "2026-11-17T03:38:51.018Z",
+ "updated_at": "2026-11-18T04:29:22.341Z",
  "last_enqueue_usage": {
-  "at": "2026-11-17T03:38:51.018Z",
-  "five_hour": 1,
-  "five_hour_resets_at": "2026-11-17T08:20:00.361482+00:00",
-  "seven_day": 33,
-  "seven_day_resets_at": "2026-11-21T00:00:00.361501+00:00"
+  "at": "2026-11-18T04:29:22.341Z",
+  "five_hour": 33,
+  "five_hour_resets_at": "2026-11-18T04:29:59.866826+00:00",
+  "seven_day": 47,
+  "seven_day_resets_at": "2026-11-20T23:59:59.866849+00:00"
  }
 }
