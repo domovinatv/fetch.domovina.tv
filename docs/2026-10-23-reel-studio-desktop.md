@@ -116,7 +116,7 @@ govornika na kartici citata (ne `SPEAKER_00`), glasanje titla iz više ASR-a
 
 ## 18.11.2026.: prototip svih ekrana u Claude Designu
 
-Interaktivni prototip (privatan dok ga Matija ne podijeli iz Share izbornika):
+Interaktivni prototip (18.11. navečer dijeljen kao „Anyone with the link”, ne privatan; mijenja se iz Share izbornika):
 <https://claude.ai/artifact/7NmaccPh2txVZCyoxtGQZe>. Platno tipa „Design”, 12 ekrana kao
 artboardi (Windows 11 izgled, tamna tema, hrvatski UI). Lijeva navigacija vodi s ekrana na ekran
 u Play načinu. Podaci su stvarni: re:DEFINICIJA 11 (`RdEN7Ny1bV8`, 1:12:56, 369 rečenica,
@@ -145,4 +145,31 @@ Otvorena pitanja za Zvonimira (i na platnu kao bilješka):
 2. Glasanje titla: birati samo gdje se izvori ne slažu ili pregledati cijeli titl reela?
 3. Koliko reelova po epizodi stvarno objavi i tko piše opis (model pa on dorađuje)?
 4. Gdje objavljuje (Instagram, TikTok, Shorts, WhatsApp)? O tome ovise sigurne zone i opis.
-5. Ima li NVIDIA karticu? Ako ne, prijepis ide u oblak (~1,20 € po epizodi); tko plaća oblak i LLM?
+5. Ima li NVIDIA karticu? Ako ne, prijepis ide u oblak (~1,13 € po epizodi); tko plaća oblak i LLM?
+
+## 18.11.2026.: provjera rendera svih 12 ekrana i šest popravaka (verzije 18 i 19)
+
+Svih 12 ekrana prođeno u Braveu u Play načinu („Fit”). Rizici iz prve verzije nisu se ostvarili:
+interpolirani `style="left:{{ x }}%"` (traka Prijedloga, položaj titla na Isječku 16:9) i vezanja
+`value=`/`checked=` (ime govornika, kvačice prijedloga, prekidači domovina.ai) rade.
+
+Popravljeno:
+
+| # | Ekran | Bilo | Sad |
+|---|---|---|---|
+| 1 | Uređivač 9:16 | kartice na vrhu prekrivale lice i logo, a provjera je tvrdila „ne prekrivaju lice ✓” | lice manje i gore, logo lijevo od ruba sigurne zone, sve kartice ispod lica (y 282 od 640), titl ispod kartica (y 378), sve unutar sigurne zone 120–888 × 288–1248 |
+| 2 | Storyboard | u kadru 0:05 traka s imenom prekrivala titl; kartice preko loga | isti raspored kao Uređivač u mjerilu 0,35; nova kvačica „kartice i titl ispod lica” |
+| 3 | Postavke obrade | „Lokalno” nije mijenjalo tablicu troška | tablica ovisi o odabiru (lokalno: Canary + pyannote, 0 €), dodan red „Ukupno oblak” |
+| 4 | Postavke, Uvoz, Obrada | $ i € pomiješani, 1,20 € | sve u eurima: USD × ~0,90 → Soniox 0,13 + pyannoteAI 0,13 + Speechmatics 0,87 = **~1,13 € po epizodi od 1:13 h**; Obrada „do sad” 1,13 € (svi ASR-ovi gotovi) |
+| 5 | Izvoz | „4 reela + isječak gotovi”, a reelovi 4 i 6 bez veličine | isto stanje kao Storyboard: gotovo 2 od 5, reel 4 se renderira, 6 i isječak čekaju |
+| 6 | Prijedlozi | „Uredi odabrane ( 5 )” | tekst gumba slaže JS (`editLabel`); `({{ n }})` u markupu runtime okruži razmacima |
+
+Zamke pri uređivanju platna:
+
+- Publish na platno se odbije („You haven't viewed the latest version”) i kad su se promijenile
+  samo datoteke **tipa** (`artifact-type/*`, `index.html`), a naši `project/*` imaju isti hash.
+  Čitanje jedne datoteke s `path` nije dovoljno; treba `Artifact read` samog `url`-a, pa ponovni publish.
+- `<sc-for>` ne stavljati u `<table>`/`<tbody>`: HTML parser izbaci nepoznati element iz tablice.
+  Tablica troška je zato `display:grid` s divovima.
+- U Play načinu svaki prelazak na drugi ekran vrati „Fill”; za cijeli ekran treba ponovno kliknuti „Fit”.
+
