@@ -113,3 +113,36 @@ naučeni na re:DEFINICIJI 11: bez ikakvog „domovina.ai” za kanal koji to tra
 govornika na kartici citata (ne `SPEAKER_00`), glasanje titla iz više ASR-a
 (`experiments/2026-11-17-reelsi-ep11-bez-potpisa/`). Pregled skripti koji je dobio kao PDF:
 [`2026-11-18-kako-nastaje-reel.md`](2026-11-18-kako-nastaje-reel.md).
+
+## 18.11.2026.: prototip svih ekrana u Claude Designu
+
+Interaktivni prototip (privatan dok ga Matija ne podijeli iz Share izbornika):
+<https://claude.ai/artifact/7NmaccPh2txVZCyoxtGQZe>. Platno tipa „Design”, 12 ekrana kao
+artboardi (Windows 11 izgled, tamna tema, hrvatski UI). Lijeva navigacija vodi s ekrana na ekran
+u Play načinu. Podaci su stvarni: re:DEFINICIJA 11 (`RdEN7Ny1bV8`, 1:12:56, 369 rečenica,
+10 214 riječi, Ante Lučić 91 % / Krunoslav Puškar 9 % govora), svih 7 prijedloga od 12.11. s
+rasponima, isporučeni reelovi 1, 2, 4, 6. Video, logo i boje kanala su sivi okviri (brand je
+gitignored i nije potvrđen za objavu). Iteracija ide kroz komentare na artifactu.
+
+| Ekran | Što pokazuje (i koji ručni korak s ep. 11 zamjenjuje) |
+|---|---|
+| 0 Projekti | nova epizoda (YouTube link / datoteka + kanal), popis epizoda, 5 koraka iz PDF-a |
+| 1 Uvoz | izvor, gotov prijepis s domovina.ai (0 €), što napraviti, procjena vremena i troška |
+| 2 Obrada | koraci u oblaku s napretkom; „imenuj govornike dok čekaš” |
+| 3 Govornici | SPEAKER_00 → ime + uloga, uzorak glasa; kartica citata uživo pokazuje „— SPEAKER_00” dok ime fali (`build_root.py` NAMES) |
+| 4 Prijepis i titl | glasanje 6 izvora: zeleno = većina ≥ 4/6 (npr. „uređenom” → „uvriježenom”), žuto = klikni i odaberi („šokiram”/„šokiran” 3:3) (`vote_reels.py`) |
+| 5 Prijedlozi | 7 prijedloga na traci epizode, kvačice, hook/zašto/citat, opis + hashtagovi, cold open |
+| 6 Uređivač 9:16 | kartice reela 1, pregled s sigurnim zonama / licem / gumbima mreža, provjera rasporeda, vremenska crta s granicama rečenica |
+| 7 Isječak 16:9 | titl zaobilazi ugrađene trake (0:05, 3:19) i „Podupri naš rad” (4:30), oznaka govornika (v4) |
+| 8 Storyboard i render | storyboard prije rendera s provjerama, red za render |
+| 9 Izvoz | mapa s .mp4 + opis, kopiraj opis, WhatsApp, link za pregled |
+| Kanal i brand | logo/boje/font, prekidači potpisa i linka domovina.ai (isključeno za Muževni budite), završna kartica uživo |
+| Postavke obrade | ASR oblak / lokalno / oboje (otvoreno), glasanje titla, trošak po epizodi |
+
+Otvorena pitanja za Zvonimira (i na platnu kao bilješka):
+
+1. Tko imenuje govornike i piše uloge: on pri svakoj epizodi ili jednom za stalne goste?
+2. Glasanje titla: birati samo gdje se izvori ne slažu ili pregledati cijeli titl reela?
+3. Koliko reelova po epizodi stvarno objavi i tko piše opis (model pa on dorađuje)?
+4. Gdje objavljuje (Instagram, TikTok, Shorts, WhatsApp)? O tome ovise sigurne zone i opis.
+5. Ima li NVIDIA karticu? Ako ne, prijepis ide u oblak (~1,20 € po epizodi); tko plaća oblak i LLM?
