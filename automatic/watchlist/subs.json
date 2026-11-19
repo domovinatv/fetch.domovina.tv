@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-11-18T04:30:57.383Z",
+  "generated_at": "2026-11-19T03:45:53.216Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 100,
+  "count": 101,
   "videos": {
+    "LVo9PLbtm08": {"slug":"launched","date":"2026-11-18","langs":["en"]},
     "LMxIow4FcaQ": {"slug":"prvi-glas-telegram","date":"2026-11-17","langs":["hr"]},
     "umK2aHNGpNI": {"slug":"bijela-kronika","date":"2026-11-16","langs":["hr"]},
     "mu7ZVZ8FESM": {"slug":"karlo-cast","date":"2026-11-15","langs":["hr"]},

@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-18
+**Generirano:** 2026-11-19
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -61,7 +61,7 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Founder Talks (Promocija znanosti)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS) | 3 | 6K | 5 | 🟢 aktivan | — | `entrepreneurship` `business` `technology` `interview` | ✅ |
 | **Franjina ekonomija** | [@franjinaekonomijahrvatska8604](https://www.youtube.com/@franjinaekonomijahrvatska8604/videos) | 3 | 83 | — | ⚪ nepoznato | — | `economics` `religious-catholic` | ⚠️ |
 | **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 604 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
-| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 378 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
+| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 377 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
 | **Gorica TV** | [@GoricaTV](https://www.youtube.com/@GoricaTV/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
 | **HCPI Podcast - Potresne priče** | [@hrvatskicentarzapotresnoin1185](https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn) | 4 | 240 | 2 | 🟢 aktivan | — | `education` `science` `engineering` | ✅ |
 | **Hercegovina Info** | [@HercegovinaInfo2](https://www.youtube.com/@HercegovinaInfo2/videos) | 3 | 4K | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |

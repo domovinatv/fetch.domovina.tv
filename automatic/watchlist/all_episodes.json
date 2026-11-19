@@ -4082,14 +4082,154 @@
    "sent_at": "2026-11-18T04:29:22.139Z",
    "result": "created",
    "job_id": "ae29db07-aafb-499f-9ced-d4590060a196"
+  },
+  "ZweNzJ14ti0": {
+   "date": "2026-11-19",
+   "slug": "atma-podcast",
+   "title": "BORBA ZA ZEMLJU: Što se upravo događa s čovječanstvom? | Milan Nikolić Izano | ATMA podcast ",
+   "duration": 3780,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:15.204Z",
+   "result": "created",
+   "job_id": "33105ada-5459-471f-99e2-94642db44b17"
+  },
+  "UdGKKqEpK-U": {
+   "date": "2026-11-19",
+   "slug": "mame-kod-lane",
+   "title": "Ep 84. Mame kod Lane: KRISTINA BRADAČ RADIĆ",
+   "duration": 6009,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:15.498Z",
+   "result": "created",
+   "job_id": "e0f0585f-ad18-4166-91d6-c863f6be6ba7"
+  },
+  "MZs8oUvOByI": {
+   "date": "2026-11-19",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Ofenziva Rasprave: Hrvatska se popravila - Gost: Ivan Ivković",
+   "duration": 3839,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:15.800Z",
+   "result": "created",
+   "job_id": "c0a273d7-11a7-4999-b731-262f5ba25c6a"
+  },
+  "RuSRroa2t7M": {
+   "date": "2026-11-19",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1515 - Ratko i Žarko Stojić",
+   "duration": 5504,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:16.019Z",
+   "result": "created",
+   "job_id": "8ff7b1c1-d1af-4d23-b6a4-e3f071cea925"
+  },
+  "QN6joa_BjIM": {
+   "date": "2026-11-19",
+   "slug": "podcast-inkubator-extra-runda",
+   "title": "5Rak vs Hambi - Extra Runda #159 II MEDIĆU DRAW II MARTINJAK PORAŽEN",
+   "duration": 5497,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:16.268Z",
+   "result": "created",
+   "job_id": "0d6596c9-6d93-4d8f-a6b4-df0969f69137"
+  },
+  "wc1vDDykz08": {
+   "date": "2026-11-19",
+   "slug": "tribina-nba-kosarka",
+   "title": "Na Istoku svašta novo | Tribina NBA",
+   "duration": 6171,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:16.526Z",
+   "result": "created",
+   "job_id": "2436f03c-374f-42e4-ae10-99e9077a28c2"
+  },
+  "W1TmN5ylyOc": {
+   "date": "2026-11-19",
+   "slug": "tribina-nfl",
+   "title": "Posljedice velikih obračuna i mailbag | Tribina NFL",
+   "duration": 6100,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:16.808Z",
+   "result": "created",
+   "job_id": "f813dd66-2059-4745-9078-85739a99efae"
+  },
+  "XANVclfx9hs": {
+   "date": "2026-11-19",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za četvrtak, 19.11.2026.",
+   "duration": 2927,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:17.010Z",
+   "result": "created",
+   "job_id": "8a316752-d5eb-472f-9ff2-71ae2aa4237c"
+  },
+  "rf0Q6icFHnw": {
+   "date": "2026-11-19",
+   "slug": "kisobran-uniri-podcast",
+   "title": "🔵 KIŠOVIZIJA #102 | Kišobran UNIRI | Radio Sova",
+   "duration": 3133,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:17.218Z",
+   "result": "created",
+   "job_id": "888b67f6-7935-45d8-81c7-0ef57b80df6b"
+  },
+  "m2IQpo_sRuw": {
+   "date": "2026-11-19",
+   "slug": "podcast-8-24",
+   "title": "KAKO I U ŠTO ULAGATI U 2027? / DNEVNA DOZA FINANCIJA #1",
+   "duration": 7347,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:17.497Z",
+   "result": "created",
+   "job_id": "62a2216c-f5cf-46fb-a4fc-404c57464a35"
+  },
+  "PhXdwa5drf4": {
+   "date": "2026-11-19",
+   "slug": "razvojni-kod",
+   "title": "Razvojni kod: Gošća Tatjane Kaštelan Alida Perkov u povodu Svjetskog dana poduzetnica",
+   "duration": 1340,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:17.715Z",
+   "result": "created",
+   "job_id": "75d87ae6-afcb-445c-bd8b-ad379be0f6e1"
+  },
+  "_tATLW85dRs": {
+   "date": "2026-11-19",
+   "slug": "razgovor-s-razlogom",
+   "title": "Razgovor s razlogom: Thomas Erikson",
+   "duration": 1854,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:17.931Z",
+   "result": "created",
+   "job_id": "589bd480-86e1-45ce-85c7-1893f534b17a"
+  },
+  "uyoQaYux238": {
+   "date": "2026-11-19",
+   "slug": "prgavi-podcast",
+   "title": "Netko dovede Perišića  i Brekala, a netko analitičara iz Gorice ❤️💙 Prgavi podcast 🤍 Josip Paušić",
+   "duration": 14795,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:18.194Z",
+   "result": "created",
+   "job_id": "8a32676a-b5ad-46ce-92aa-acae77e6933d"
+  },
+  "EuCA1QhG3m8": {
+   "date": "2026-11-19",
+   "slug": "osvrt-tv-jadran",
+   "title": "Osvrt 18.11.2026. Draška Krajina, Gabijela Stipanović",
+   "duration": 1765,
+   "attempts": 1,
+   "sent_at": "2026-11-19T03:44:18.409Z",
+   "result": "created",
+   "job_id": "eff57bb4-0d26-49fe-a128-1e740feeb24f"
   }
  },
- "updated_at": "2026-11-18T04:29:22.341Z",
+ "updated_at": "2026-11-19T03:44:18.609Z",
  "last_enqueue_usage": {
-  "at": "2026-11-18T04:29:22.341Z",
-  "five_hour": 33,
-  "five_hour_resets_at": "2026-11-18T04:29:59.866826+00:00",
-  "seven_day": 47,
-  "seven_day_resets_at": "2026-11-20T23:59:59.866849+00:00"
+  "at": "2026-11-19T03:44:18.609Z",
+  "five_hour": 20,
+  "five_hour_resets_at": "2026-11-19T07:30:00.113948+00:00",
+  "seven_day": 57,
+  "seven_day_resets_at": "2026-11-21T00:00:00.113972+00:00"
  }
 }
