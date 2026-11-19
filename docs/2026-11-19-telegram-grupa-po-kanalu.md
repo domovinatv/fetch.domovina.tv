@@ -8,6 +8,9 @@ usmjerivač obavijesti, a Telegram je njegov dostavljač u repou
 nijedan kanal nije stvoren. Petlja na Macu i opt-in zastavica u registryju opisani niže su
 **odbačeni** (petlja je duplicirala domovina-push i nije poštovala postavke kanala;
 pristanak je sada ručno stvaranje kanala). Ostatak dokumenta je istraživanje.
+Navečer 19.11.: poglavlja idu kao **komentari ispod objave epizode**, a bot je
+`@domovina_push_bot`; prvi kanal je DOMOVINA
+(`telegram.domovina.ai/docs/2026-11-19-poglavlja-u-komentarima-i-prvi-kanal.md`).
 
 ## Ideja
 
