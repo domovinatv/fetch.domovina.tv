@@ -1,6 +1,7 @@
 # Telegram grupa po kanalu: lazy stvaranje (istraživanje, 19.11.2026.)
 
-**Status: ideja + istraživanje, ništa nije implementirano.** Pravila „samo nove
+**Status (19.11.2026., popodne): odluke donesene, varijanta A implementirana i pushana
+(`linkedin-poster` `74cd2a7`), Worker NIJE deployan, nijedan stvarni kanal nije stvoren.** Pravila „samo nove
 epizode” (CLAUDE.md #4) vrijede i ovdje: grupa nastaje kad stigne prva NOVA
 epizoda kanala, stari katalog se ne objavljuje.
 
@@ -83,7 +84,27 @@ flowchart LR
 | Limiti | ~500 grupa po računu, ~10 javnih `@username` (20 uz Premium), `FLOOD_WAIT` pri brzom stvaranju (iz pamćenja, provjeriti) | koliko ih ručno napraviš |
 | Kad | kad treba puno kanala bez ručnog rada | dovoljno za Tier 1 (~50 kanala) |
 
-## Otvorene odluke
+## Odluke (19.11.2026.)
+
+| Pitanje | Odluka |
+|---|---|
+| Grupa ili kanal | **kanal + povezana grupa za raspravu** (`SetDiscussionGroup`); dva objekta po podcastu, strop ~250 podcasta po računu |
+| Pristanak | **opt-in**: `telegram.opt_in` (datum) na unosu u `data/podcasts_registry.json`; ime „<Kanal> · domovina.ai” |
+| Račun | **zaseban Domovina Telegram račun**; nova `npm run login`, sesija iz srpnja (novcanik) se ne koristi |
+| Mapiranje | **KV Workera** `tg:podcast:<UC…>`, ključ YouTube `channel_id` (Tier 2 epizode imaju slug `_unlisted`) |
+| Opseg | **Tier 1 + Tier 2** (opt-in ga ionako ograničava) |
+
+## Što je izgrađeno
+
+- `linkedin-poster/scripts/provision/` (teleproto 1.233.0, pinano): `npm run login`,
+  `npm run create-channel -- <UC…> --title … --avatar … [--dry-run]`; idempotentan (GET mapiranja prvo).
+- Worker: `GET|PUT /telegram/podcasts/{UC…}`; `/drafts/{id}/chapters` prima `youtubeChannelId`
+  (bez mapiranja → 404, nikad tihi pad u zajedničku grupu).
+- `draft-episodes.ts`: opt-in iz registryja; `--provision` stvara kanal koji nedostaje. Bez
+  zastavice poglavlja idu u grupu kao prije; neuspjeli provisioning preskače poglavlja do idućeg runa.
+  Draft ostaje u zajedničkoj grupi (tamo se pregledava).
+
+## Otvorene odluke (izvorni popis)
 
 1. **Grupa ili kanal?** Za jednosmjernu objavu 30–46 poglavlja po epizodi bolji
    je Telegram kanal (pretplatnici, bez spama); grupa samo ako ljudi trebaju
