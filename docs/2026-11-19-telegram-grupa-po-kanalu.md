@@ -1,7 +1,11 @@
 # Telegram grupa po kanalu: lazy stvaranje (istraživanje, 19.11.2026.)
 
-**Status (19.11.2026., popodne): odluke donesene, varijanta A implementirana i pushana
-(`linkedin-poster` `74cd2a7`), Worker NIJE deployan, nijedan stvarni kanal nije stvoren.** Pravila „samo nove
+**Status (19.11.2026., popodne): varijanta A implementirana u ZASEBNOM javnom repou
+[`domovinatv/telegram.domovina.ai`](https://github.com/domovinatv/telegram.domovina.ai)
+(`~/git/domovinatv/telegram.domovina.ai`). Worker NIJE deployan, bot i Domovina Telegram
+račun još ne postoje, nijedan stvarni kanal nije stvoren.** Prva verzija je kratko bila u
+`linkedin-poster` (`74cd2a7`) i tamo je revertana (`9b74892`): linkedin-poster ostaje
+privatni alat, a kanali po podcastu su domovina.ai posao s vlastitim botom, računom i Workerom. Pravila „samo nove
 epizode” (CLAUDE.md #4) vrijede i ovdje: grupa nastaje kad stigne prva NOVA
 epizoda kanala, stari katalog se ne objavljuje.
 
@@ -94,15 +98,17 @@ flowchart LR
 | Mapiranje | **KV Workera** `tg:podcast:<UC…>`, ključ YouTube `channel_id` (Tier 2 epizode imaju slug `_unlisted`) |
 | Opseg | **Tier 1 + Tier 2** (opt-in ga ionako ograničava) |
 
-## Što je izgrađeno
+## Što je izgrađeno (`domovinatv/telegram.domovina.ai`)
 
-- `linkedin-poster/scripts/provision/` (teleproto 1.233.0, pinano): `npm run login`,
-  `npm run create-channel -- <UC…> --title … --avatar … [--dry-run]`; idempotentan (GET mapiranja prvo).
-- Worker: `GET|PUT /telegram/podcasts/{UC…}`; `/drafts/{id}/chapters` prima `youtubeChannelId`
-  (bez mapiranja → 404, nikad tihi pad u zajedničku grupu).
-- `draft-episodes.ts`: opt-in iz registryja; `--provision` stvara kanal koji nedostaje. Bez
-  zastavice poglavlja idu u grupu kao prije; neuspjeli provisioning preskače poglavlja do idućeg runa.
-  Draft ostaje u zajedničkoj grupi (tamo se pregledava).
+- Worker `telegram.domovina.ai` (CF račun `7dc7167b…`, KV `PODCASTS`): `GET|PUT /podcasts/{UC…}`,
+  `POST /podcasts/{UC…}/episode` i `/chapter`, javni `GET /public/podcasts/{UC…}` → `{title, link}`
+  za gumb „Pridruži se” na domovina.ai. Bez mapiranja → 404; ništa ne ide u zajedničku grupu.
+- `scripts/provision/` (teleproto 1.233.0, pinano): `npm run login`, `npm run create-channel`;
+  kanal + grupa za raspravu, bot admin, avatar, invite, idempotentan.
+- `scripts/share-chapters.ts`: nove epizode podcasta s pristankom → poruka epizode + poglavlja u
+  njegov kanal; `--provision` stvara kanal koji nedostaje; `--seed`, `--dry-run`; stanje `.state/shared.json`.
+- Nije još u `automatic/nightly_pipeline.sh` (dodati iza koraka linkedin-postera nakon prvog kanala).
+- Tier 2 epizode završavaju danju kroz pipeline.domovina.ai; prozor od 30 h ih uhvati idući nightly.
 
 ## Otvorene odluke (izvorni popis)
 
