@@ -1,13 +1,13 @@
 # Telegram grupa po kanalu: lazy stvaranje (istraživanje, 19.11.2026.)
 
-**Status (19.11.2026., popodne): varijanta A implementirana u ZASEBNOM javnom repou
+**Status (19.11.2026., kraj dana): ARHITEKTURA PROMIJENJENA, vidi plan
+`domovina.ai/docs/plans/2026-11-19-telegram-kanal-po-podcastu.md`.** `domovina-push` je glavni
+usmjerivač obavijesti, a Telegram je njegov dostavljač u repou
 [`domovinatv/telegram.domovina.ai`](https://github.com/domovinatv/telegram.domovina.ai)
-(`~/git/domovinatv/telegram.domovina.ai`). Worker NIJE deployan, bot i Domovina Telegram
-račun još ne postoje, nijedan stvarni kanal nije stvoren.** Prva verzija je kratko bila u
-`linkedin-poster` (`74cd2a7`) i tamo je revertana (`9b74892`): linkedin-poster ostaje
-privatni alat, a kanali po podcastu su domovina.ai posao s vlastitim botom, računom i Workerom. Pravila „samo nove
-epizode” (CLAUDE.md #4) vrijede i ovdje: grupa nastaje kad stigne prva NOVA
-epizoda kanala, stari katalog se ne objavljuje.
+(RPC + Workflow). Oba Workera deployana; bot i Domovina Telegram račun još ne postoje,
+nijedan kanal nije stvoren. Petlja na Macu i opt-in zastavica u registryju opisani niže su
+**odbačeni** (petlja je duplicirala domovina-push i nije poštovala postavke kanala;
+pristanak je sada ručno stvaranje kanala). Ostatak dokumenta je istraživanje.
 
 ## Ideja
 
