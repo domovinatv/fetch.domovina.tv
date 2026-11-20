@@ -1,10 +1,12 @@
 {
-  "generated_at": "2026-11-19T03:45:53.216Z",
+  "generated_at": "2026-11-20T03:47:32.964Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 101,
+  "count": 103,
   "videos": {
+    "-kHnbDuiVMc": {"slug":"prvi-glas-telegram","date":"2026-11-19","langs":["hr"]},
     "LVo9PLbtm08": {"slug":"launched","date":"2026-11-18","langs":["en"]},
     "LMxIow4FcaQ": {"slug":"prvi-glas-telegram","date":"2026-11-17","langs":["hr"]},
+    "dqctLulqtQg": {"slug":"ideje-hr","date":"2026-11-16","langs":["hr"]},
     "umK2aHNGpNI": {"slug":"bijela-kronika","date":"2026-11-16","langs":["hr"]},
     "mu7ZVZ8FESM": {"slug":"karlo-cast","date":"2026-11-15","langs":["hr"]},
     "bXS5_rq0NTA": {"slug":"spica-s-macanom","date":"2026-11-14","langs":["en","hr"]},

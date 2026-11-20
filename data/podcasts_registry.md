@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-19
+**Generirano:** 2026-11-20
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 491 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 253 · 🔴 neaktivan: 155 · ⚪ nepoznato: 93 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 254 · 🔴 neaktivan: 155 · ⚪ nepoznato: 92 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -541,7 +541,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Vrijeme za zdravlje s Doktorom za srce** | [UCFX4Srv6SEU3Oa7bQtT8FqQ](https://www.youtube.com/channel/UCFX4Srv6SEU3Oa7bQtT8FqQ/videos) | 3 | 359 | — | 🟢 aktivan | Davor Miličić | `health` `science` `education` | ⚠️ |
 | **Vrisak Podcast** | [UCk2N0DjcMQgOilSMic09hQg](https://www.youtube.com/channel/UCk2N0DjcMQgOilSMic09hQg/videos) | 3 | 3K | — | ⚪ nepoznato | — | `talk-show` `regional-media` `culture` | ⚠️ |
 | **Vrući krumpir** | [UCuLBPhI5rx8yrCPafw2v3Aw](https://www.youtube.com/playlist?list=PLHtC9C5-dlqRS9OVxtUhb5Lqp1S0uel_4) | 3 | — | — | 🔴 neaktivan | Davor Dretar | `talk-show` `political` | ⚠️ |
-| **XRPG 360 / CyberFleet** | [UCMCONjoZqrzqfRHdSGb9ttQ](https://www.youtube.com/channel/UCMCONjoZqrzqfRHdSGb9ttQ/videos) | 3 | 749 | — | ⚪ nepoznato | — | `technology` `business` | ⚠️ |
+| **XRPG 360 / CyberFleet** | [UCMCONjoZqrzqfRHdSGb9ttQ](https://www.youtube.com/channel/UCMCONjoZqrzqfRHdSGb9ttQ/videos) | 3 | 749 | — | 🟢 aktivan | — | `technology` `business` | ⚠️ |
 | **You go You grow Podcast** | [UCDUycd8sVTE9FvZe1xc3S8g](https://www.youtube.com/channel/UCDUycd8sVTE9FvZe1xc3S8g/videos) | 3 | 16 | — | 🔴 neaktivan | — | `personal-development` `women` | ⚠️ |
 | **Zabavni radio (NA TI Podcast)** | [UCMgTpHyTm1f6P9HynG1Lhng](https://www.youtube.com/playlist?list=PLfjVhYtv5z7UtnEMbk8XgFSzNQdKln6th) | 3 | 188 | — | ⚪ nepoznato | — | `comedy` `talk-show` `regional-media` | ⚠️ |
 | **Zaja Mind** | [UCaEpQ2To0BK5Bpnit-j921Q](https://www.youtube.com/channel/UCaEpQ2To0BK5Bpnit-j921Q/videos) | 3 | 3K | — | ⚪ nepoznato | — | `personal-development` `fitness` | ⚠️ |
