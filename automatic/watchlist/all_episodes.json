@@ -4482,14 +4482,254 @@
    "sent_at": "2026-11-20T03:33:02.734Z",
    "result": "created",
    "job_id": "ede186a8-9441-4659-b0f4-b692775c9d6a"
+  },
+  "9KezpysYMio": {
+   "date": "2026-11-21",
+   "slug": "agape-rtv",
+   "title": "GOLI OTOK: Prešućena ISTINA! Patnja zbog ljubavne pjesme! PUSTITE DA SE UBIJEM!",
+   "duration": 3654,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:42.498Z",
+   "result": "created",
+   "job_id": "60117075-2504-4677-8254-ce7dda7c803e"
+  },
+  "eHK89TDE1SI": {
+   "date": "2026-11-21",
+   "slug": "denis-podcast",
+   "title": "#285 - \"Kako smo osnovali BH Fanaticose\" Ismet Turšić",
+   "duration": 4021,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:42.810Z",
+   "result": "created",
+   "job_id": "70024127-0e7a-464f-b9d0-14d6985aa151"
+  },
+  "8sPi9YWDDzA": {
+   "date": "2026-11-21",
+   "slug": "felix-contras",
+   "title": "Online analiza uživo najvažnijih političkih događaja tjedna",
+   "duration": 3733,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:43.113Z",
+   "result": "created",
+   "job_id": "b61d8d75-c648-4315-8a3f-05f0a853fc08"
+  },
+  "7ngU12Wk0QE": {
+   "date": "2026-11-21",
+   "slug": "rtcg-argumenti",
+   "title": "Hibridni rat u Crnoj Gori: Ko povlači konce iz sjenke? -  ARGUMENTI",
+   "duration": 5206,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:43.378Z",
+   "result": "created",
+   "job_id": "3e60efc1-bb2e-43b1-ae0a-d6951039599d"
+  },
+  "FeOko-sv4M0": {
+   "date": "2026-11-21",
+   "slug": "karlo-cast",
+   "title": "Igrati je jedno, napraviti igru drugo! Digitalna Kultura o game developmentu",
+   "duration": 7098,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:43.614Z",
+   "result": "created",
+   "job_id": "2286b2d9-2728-4c25-902c-737075885cea"
+  },
+  "n2rKOsStv74": {
+   "date": "2026-11-21",
+   "slug": "netokracija-office-talks",
+   "title": "Da li će NVIDIA preživeti ljubavnice generalnog direktora",
+   "duration": 1797,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:43.881Z",
+   "result": "created",
+   "job_id": "3b981143-b433-44e6-ad1f-8a5d4d5842b4"
+  },
+  "IOHajehLAyY": {
+   "date": "2026-11-21",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Krepat ma ne molat: Analiza sportske i generalne politike HNK Rijeka",
+   "duration": 6322,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:44.121Z",
+   "result": "created",
+   "job_id": "f57d58f8-898e-4018-81cd-643894af232b"
+  },
+  "n6-I9v2_1QA": {
+   "date": "2026-11-21",
+   "slug": "podcast-ucka",
+   "title": "PODCAST UČKA #86 Darvin Žufić: „Vladimir Gortan mora ostat za dicu ka dolaze pokle nas!“",
+   "duration": 1735,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:44.402Z",
+   "result": "created",
+   "job_id": "52ac7c7d-145d-486d-a727-fc94ca104658"
+  },
+  "K9ZNDgoIIrk": {
+   "date": "2026-11-21",
+   "slug": "podcast-inkubator-a1-nogometni",
+   "title": "A1 Nogometni Podcast #361 - Vedran Ješe",
+   "duration": 6089,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:44.590Z",
+   "result": "created",
+   "job_id": "1c9c6546-65e9-4e2e-ac4e-e337f86b6282"
+  },
+  "n4D2A1RUTPU": {
+   "date": "2026-11-21",
+   "slug": "projekt-velebit",
+   "title": "PODCAST VELEBIT - Tilošanec: Crkva može i mora izopćiti sve u Vladi i Saboru koji su za pobačaj",
+   "duration": 6142,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:44.802Z",
+   "result": "created",
+   "job_id": "8769f910-c552-4f5f-9627-fbcf97c72395"
+  },
+  "q4fPz5SzMGU": {
+   "date": "2026-11-21",
+   "slug": "prvi-glas-telegram",
+   "title": "Pad Zapada: Kina preuzima, Europa ponižena",
+   "duration": 2382,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:45.043Z",
+   "result": "created",
+   "job_id": "bac650d6-27ea-4b75-8884-22c1e57ca6b1"
+  },
+  "qgaZoMuWUpM": {
+   "date": "2026-11-21",
+   "slug": "tribina-podcast-s-gostom",
+   "title": "Filip \"The Heat\" Majić | Prijatelji HR sporta #10",
+   "duration": 3764,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:45.298Z",
+   "result": "created",
+   "job_id": "15f17740-edd2-48dd-b2da-c6b3d0364504"
+  },
+  "1_nHaJfxvBw": {
+   "date": "2026-11-21",
+   "slug": "poslovnifm",
+   "title": "Make it easy: hrvatski startup koji digitalizira upravljanje vozn...",
+   "duration": 2914,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:45.548Z",
+   "result": "created",
+   "job_id": "cfe1337a-78b4-48e7-bade-c944a4152568"
+  },
+  "J2A3aQkqsK8": {
+   "date": "2026-11-21",
+   "slug": "poslovnifm",
+   "title": "Make IT Easy: hrvatski startup koji digitalizira upravljanje voznim parkovima i otvara vrata pame...",
+   "duration": 2919,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:45.764Z",
+   "result": "created",
+   "job_id": "2f46f738-5d65-41b1-a03b-7cc6cfc1bf80"
+  },
+  "F5PCP8Ftf3s": {
+   "date": "2026-11-21",
+   "slug": "podcast-s-brezom",
+   "title": "PULJIĆ: Trump bi možda priznao Republiku Srpsku, evo što bi tad Hrvatska i koja je sudbina Bošnjaka!",
+   "duration": 2798,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:46.008Z",
+   "result": "created",
+   "job_id": "33822f29-4913-484e-8bd3-92bca9cc55e0"
+  },
+  "offBxBCvJw4": {
+   "date": "2026-11-21",
+   "slug": "bez-dlake-na-glavi",
+   "title": "\"POVIJESNI SASTANAK\" U KINI - ŠTO JE OTKRIO? | BDNG UŽIVO #212",
+   "duration": 10176,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:46.288Z",
+   "result": "created",
+   "job_id": "0dd247b0-3a3c-4bf9-b26d-f12da1f8db4a"
+  },
+  "6calrnnTeXg": {
+   "date": "2026-11-21",
+   "slug": "reci",
+   "title": "Ispovijest mladog pisca: ‘Govorio sam da mi je loše, nisu mi vjerovali. Moje tijelo ih još pamti‘",
+   "duration": 989,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:46.536Z",
+   "result": "created",
+   "job_id": "3631dda8-5162-4fc3-9703-37240be62227"
+  },
+  "zrZuva_000s": {
+   "date": "2026-11-21",
+   "slug": "um-and-boom",
+   "title": "Nataša Barolin Belić: Srodne duše, seks i tajne ljubavnih odnosa! | Um&Boom",
+   "duration": 4083,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:46.729Z",
+   "result": "created",
+   "job_id": "540c5765-35d0-481f-9d26-5ab4a8ca663e"
+  },
+  "yzykLb73b84": {
+   "date": "2026-11-21",
+   "slug": "ton-slika-politika",
+   "title": "TON-SLIKA-POLITIKA * ANDRIJA HEBRANG: \"Hrvatskom vladaju oni koji su vladali i u Jugoslaviji!\"",
+   "duration": 4700,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:46.927Z",
+   "result": "created",
+   "job_id": "b87b9cf2-b58b-4cbd-8de0-375fb3622c08"
+  },
+  "_IzsN02djew": {
+   "date": "2026-11-21",
+   "slug": "radio-marija-bih-medicinsko-psiholoski-savjeti",
+   "title": "Narcisoidni poremećaj ličnosti - Medicinsko - psihološki savjeti - dr. Ana Baotić Bisharat",
+   "duration": 2021,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:47.179Z",
+   "result": "created",
+   "job_id": "cbcb0641-28b9-4895-86da-128a085fdb63"
+  },
+  "246WHnIWsj0": {
+   "date": "2026-11-21",
+   "slug": "radio-mir-medjugorje-na-putu-zivota",
+   "title": "Na putu života 16. 11. 2026.",
+   "duration": 2294,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:47.379Z",
+   "result": "created",
+   "job_id": "8f304280-1d74-452e-ae44-d5338aa39f4c"
+  },
+  "slrWZwv1gKM": {
+   "date": "2026-11-21",
+   "slug": "radio-mir-medjugorje-na-putu-zivota",
+   "title": "Na putu života 9. 11. 2026.",
+   "duration": 2771,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:47.585Z",
+   "result": "created",
+   "job_id": "58e58c8b-6c24-47cf-80cd-0c670fd225bd"
+  },
+  "EC_i1ONTlmI": {
+   "date": "2026-11-21",
+   "slug": "hrt-globalna-hrvatska",
+   "title": "Globalna Hrvatska, 19.11.2026.",
+   "duration": 2621,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:47.828Z",
+   "result": "created",
+   "job_id": "a378ce3d-ef88-474d-a807-d1d63cca8270"
+  },
+  "n_W8FQ-eBEo": {
+   "date": "2026-11-21",
+   "slug": "apparatus-opazovalnica",
+   "title": "Bibliobus",
+   "duration": 2607,
+   "attempts": 1,
+   "sent_at": "2026-11-21T02:45:48.036Z",
+   "result": "created",
+   "job_id": "6c5f235c-fa9e-4047-a73b-f7482439ebdf"
   }
  },
- "updated_at": "2026-11-20T03:33:02.972Z",
+ "updated_at": "2026-11-21T02:45:48.225Z",
  "last_enqueue_usage": {
-  "at": "2026-11-20T03:33:02.972Z",
-  "five_hour": 20,
-  "five_hour_resets_at": "2026-11-20T04:10:00.204521+00:00",
-  "seven_day": 79,
-  "seven_day_resets_at": "2026-11-21T00:00:00.204547+00:00"
+  "at": "2026-11-21T02:45:48.225Z",
+  "five_hour": 2,
+  "five_hour_resets_at": "2026-11-21T05:10:00.393654+00:00",
+  "seven_day": 0,
+  "seven_day_resets_at": "2026-11-28T00:00:00.393678+00:00"
  }
 }
