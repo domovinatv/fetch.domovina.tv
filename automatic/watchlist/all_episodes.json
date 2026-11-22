@@ -4722,14 +4722,74 @@
    "sent_at": "2026-11-21T02:45:48.036Z",
    "result": "created",
    "job_id": "6c5f235c-fa9e-4047-a73b-f7482439ebdf"
+  },
+  "yIvbGAG5QMw": {
+   "date": "2026-11-22",
+   "slug": "felix-contras",
+   "title": "Hrvatska je Nulta točka na planetu Zemlja",
+   "duration": 4391,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:23.866Z",
+   "result": "created",
+   "job_id": "36e82f0f-5f1c-42b1-8602-47b0b87a1b16"
+  },
+  "vmLR0OiyATI": {
+   "date": "2026-11-22",
+   "slug": "ideje-hr",
+   "title": "Bez prosvjeda nema demokracije, bez novca akademske slobode",
+   "duration": 3180,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:24.186Z",
+   "result": "created",
+   "job_id": "25c6216a-c61d-4164-b755-f384b90ba025"
+  },
+  "rytdGOuEBw4": {
+   "date": "2026-11-22",
+   "slug": "libertas-talks",
+   "title": "S5E7: Eva Pavić - Kako nas svijet vidi? | Zrakoplovstvo i diplomacija #86",
+   "duration": 2625,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:24.460Z",
+   "result": "created",
+   "job_id": "3e090fc9-c830-4b14-9f3e-a513f9555422"
+  },
+  "LaLsIfE0_J4": {
+   "date": "2026-11-22",
+   "slug": "mjesto-zlocina",
+   "title": "Epizoda 234: Otmica Natasche Kampusch: Ovo NIJE ista priča kao Fritzl",
+   "duration": 4103,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:24.735Z",
+   "result": "created",
+   "job_id": "970f4d50-d62d-4607-bfea-4d458bdbad8d"
+  },
+  "PR0x8xiGsLw": {
+   "date": "2026-11-22",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1518 - Ratko i Filip Gašpar",
+   "duration": 7028,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:24.916Z",
+   "result": "created",
+   "job_id": "4adfd7ec-0a5a-43a4-88a5-fb3d6ff37074"
+  },
+  "kbf5GZ3h9tI": {
+   "date": "2026-11-22",
+   "slug": "spica-s-macanom",
+   "title": "Iz Dubrovnika do velikih priča i projekata: PR iz prve ruke - PEP konferencija",
+   "duration": 3926,
+   "attempts": 1,
+   "sent_at": "2026-11-22T04:28:25.186Z",
+   "result": "created",
+   "job_id": "4c3e35b1-d8cb-44de-9132-f6ce4eec4817"
   }
  },
- "updated_at": "2026-11-21T02:45:48.225Z",
+ "updated_at": "2026-11-22T04:28:25.362Z",
  "last_enqueue_usage": {
-  "at": "2026-11-21T02:45:48.225Z",
-  "five_hour": 2,
-  "five_hour_resets_at": "2026-11-21T05:10:00.393654+00:00",
-  "seven_day": 0,
-  "seven_day_resets_at": "2026-11-28T00:00:00.393678+00:00"
+  "at": "2026-11-22T04:28:25.362Z",
+  "five_hour": 27,
+  "five_hour_resets_at": "2026-11-22T04:29:59.833972+00:00",
+  "seven_day": 7,
+  "seven_day_resets_at": "2026-11-27T23:59:59.833990+00:00"
  }
 }
