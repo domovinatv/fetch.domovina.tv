@@ -173,3 +173,4 @@ flowchart LR
 ## Vezani dokumenti
 
 - [`REGISTRY_DISCOVERY.md`](REGISTRY_DISCOVERY.md) — runbook discoveryja, ledger, watch
+- [`2026-11-23-katolicki-mediji-cijeli-kanali.md`](2026-11-23-katolicki-mediji-cijeli-kanali.md) — nastavak: Laudato, RM HR/BiH i MIR prate se kao cijeli kanali (playliste nisu hvatale prijenose uživo)
