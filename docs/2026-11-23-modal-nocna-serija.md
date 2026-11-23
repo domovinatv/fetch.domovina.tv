@@ -39,7 +39,16 @@ flowchart TD
 2. **Skidanje** ide istom naredbom kao KORAK 1 joba (`fetch.js --unlisted-url … --unlisted-title …`,
    MP3 + 360p, upis u `_unlisted-state.json`), plus `convert_to_wav.js --channel _unlisted --video-id`.
    Proxy je isti kao u `priority_poller.js` (`~/.cache/domovina-pipeline/youtube_proxy`).
-   Nakon 3 pada zaredom (anti-bot) ostatak skida job sam.
+   Između skidanja je nasumična pauza od 20 do 45 s (`MODAL_NIGHTLY_BATCH_GAP_MIN/MAX`): YouTube
+   anti-bot gleda broj zahtjeva s IP-a, a ne rezoluciju, pa bi ~35 skidanja u nekoliko minuta
+   bilo rizičnije od jobova koji su se prirodno razmicali. Dok je `youtube_antibot.json` svjež
+   (isti prozor kao poller, `PRIORITY_YT_COOLDOWN_MIN`, 120 min) ili nakon 2 pada zaredom,
+   serija više ne dira YouTube, a ostatak skida job nakon pauze.
+
+   Zašto ne samo MP3: 360p `.mkv` je izvor za `video_h264.mp4` (KORAK 12.5, jedini video u
+   appu) i rezerva za screenshotove. Screenshotovi ne skidaju 1080p datoteku, nego iz streama
+   čitaju ~16 kratkih isječaka, pa 360p iz 1080p ne bi uštedio nijedno skidanje. Audio-only
+   skidanje ima jednako YouTube zahtjeva (player API + potpisani URL) kao audio + 360p.
 3. **Modal** se zove jednom, `canary_modal.py::batch_list --manifest`, uz
    `MODAL_CANARY_MAX_CONTAINERS=1`: jedan topli Canary container. Pyannote (T4) ima svoj red
    (`--diar-concurrency 2`), jer A100 ne smije čekati T4: govornici traju ~2,4 s po minuti

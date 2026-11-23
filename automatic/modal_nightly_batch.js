@@ -42,6 +42,13 @@ const LANG_CONF = path.join(REPO, 'automatic/channel_languages.conf');
 const MODAL_APP = path.join(REPO, 'modal_canary/canary_modal.py');
 const LOG_DIR = path.join(REPO, 'automatic/logs');
 const PROXY_FILE = path.join(require('os').homedir(), '.cache', 'domovina-pipeline', 'youtube_proxy');
+const ANTIBOT_FILE = path.join(require('os').homedir(), '.cache', 'domovina-pipeline', 'youtube_antibot.json');
+// Isti prozor kao ANTIBOT_COOLDOWN_MIN u priority_poller.js: dok traje, YouTube se ne dira.
+const ANTIBOT_COOLDOWN_MIN = parseInt(process.env.PRIORITY_YT_COOLDOWN_MIN || '120', 10);
+// Razmak između skidanja: bez njega serija pošalje ~35 zahtjeva u nekoliko minuta, a YouTube
+// anti-bot je po IP-u i broju zahtjeva (ne po rezoluciji). Jobovi su se prirodno razmicali.
+const GAP_MIN_S = parseInt(process.env.MODAL_NIGHTLY_BATCH_GAP_MIN || '20', 10);
+const GAP_MAX_S = parseInt(process.env.MODAL_NIGHTLY_BATCH_GAP_MAX || '45', 10);
 const QUEUE_BASE = process.env.PIPELINE_QUEUE_BASE || 'https://pipeline.domovina.ai';
 
 const args = process.argv.slice(2);
@@ -66,6 +73,15 @@ function localDate(d = new Date()) {
     return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 }
 function ts() { return new Date().toTimeString().slice(0, 8); }
+function sleepSync(sec) { spawnSync('sleep', [String(sec)]); }
+function antiBotActive() {
+    try {
+        const m = JSON.parse(fs.readFileSync(ANTIBOT_FILE, 'utf8'));
+        const at = Date.parse(m.at);
+        if (Number.isFinite(at) && Date.now() - at < ANTIBOT_COOLDOWN_MIN * 60000) return m;
+    } catch { /* nema markera */ }
+    return null;
+}
 
 // ─── 1. Popis: točno ono što bi enqueue_all_new.js sada poslao ──────────────
 function candidates() {
@@ -186,11 +202,22 @@ async function main() {
     if (proxy) console.log(`   🌐 skidanje kroz proxy ${proxy}`);
     const ready = [];
     let consecutiveFail = 0;
+    let downloads = 0;
     for (const [i, e] of eps.entries()) {
         const label = `[${i + 1}/${eps.length}] ${e.id} [${e.slug || '?'}]`;
         if (!downloaded(e.id)) {
             if (NO_DOWNLOAD) { console.log(`   ⏭️  ${label} nije skinut (--no-download)`); continue; }
-            if (consecutiveFail >= 3) { console.log(`   ⏭️  ${label} — 3 pada zaredom, ostatak skida job`); continue; }
+            if (consecutiveFail >= 2) { console.log(`   ⏭️  ${label} — 2 pada zaredom, ostatak skida job`); continue; }
+            const ab = proxy ? null : antiBotActive();
+            if (ab) {
+                console.log(`   ⛔ ${label} — YouTube anti-bot (${ab.source}, ${ab.at}) — ne skidam dalje, ostatak skida job nakon pauze`);
+                consecutiveFail = 99;
+                continue;
+            }
+            if (downloads++ > 0) {
+                const gap = GAP_MIN_S + Math.floor(Math.random() * (GAP_MAX_S - GAP_MIN_S + 1));
+                sleepSync(gap);
+            }
             const fa = ['fetch.js', '--unlisted-url', `https://www.youtube.com/watch?v=${e.id}`];
             if (e.title) fa.push('--unlisted-title', e.title);
             if (proxy) fa.push('--proxy', proxy);
