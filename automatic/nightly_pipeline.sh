@@ -444,6 +444,13 @@ run_step "dnevni snapshot novih epizoda" \
 # automatic/watchlist/ALL_EPISODES_REPORT.md), pa se pošalje nova. ALL_EPISODES_OFF=1 gasi.
 run_step "izvještaj obrade svih epizoda (kvota + vrijeme)" \
     node "$REPO_DIR/automatic/all_episodes_report.js" report || true
+# Noćna Modal serija (23.11.2026., ALTERNATIVNI način, prekidač MODAL_NIGHTLY_BATCH=1 u .env):
+# prije enqueuea skine audio svih epizoda koje će dobiti job i obradi ih na Modalu u JEDNOM
+# appu (Canary + pyannote, model se učita jednom). Jobovi ostaju isti; KORAK 2.6 vidi
+# .canary.srt i ne zove Modal. Bez prekidača skripta odmah izlazi → sve kao prije.
+# docs/2026-11-23-modal-nocna-serija.md
+run_step "noćna Modal serija (MODAL_NIGHTLY_BATCH)" \
+    node "$REPO_DIR/automatic/modal_nightly_batch.js" || true
 run_step "obrada svih novih epizoda (enqueue u pipeline.domovina.ai)" \
     node "$REPO_DIR/automatic/enqueue_all_new.js" || true
 

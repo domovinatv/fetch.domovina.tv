@@ -708,3 +708,138 @@ def batch(input_dir: str = "storage/output", channels: str = "", limit: int = 0,
                        "infer_s": round(infer_total, 1), "gpu": GPU_SPEC,
                        "concurrency": concurrency}, f, ensure_ascii=False, indent=2)
         print(f"   📄 Statistika: {stats_out}")
+
+
+# ─── Noćna serija: modal run ...::batch_list --manifest m.json ───────────────
+# DODANO 2026-11-23 (automatic/modal_nightly_batch.js, prekidač MODAL_NIGHTLY_BATCH=1).
+# Isto kao `::main` po epizodi (prijepis + pyannote govornici, isti izlazni fajlovi,
+# isti _write_words), ali za CIJELU noćnu seriju u JEDNOM ephemeral appu: Canary
+# container se digne i model učita jednom, a ne jednom po epizodi (~60 % plaćenog
+# A100 vremena po pojedinačnom pozivu). `::main` i `::batch` ostaju netaknuti.
+#
+# Manifest: [{"wav": "/abs/put.wav", "source_lang": "hr"}, ...]. Idempotentno: SRT koji
+# postoji se ne radi ponovno (samo govornici ako fale). Epizoda koja ovdje padne nema
+# .canary.srt → njezin job ide starim putem (`::main` u KORAKU 2.6), ništa se ne gubi.
+# Fajlovi iznad `--max-mb` (default 400 MB ≈ 3,5 h zvuka) se preskaču — njih obradi job
+# (`::main`, po potrebi preko volumea). Rezultat po epizodi ide u `--result-out` (JSON) za izvještaj.
+@app.local_entrypoint()
+def batch_list(manifest: str, concurrency: int = 2, diar_concurrency: int = 2,
+               max_mb: float = 400.0, result_out: str = "", target_lang: str = "hr",
+               diarize: str = ""):
+    """Prijepis + govornici za popis WAV-ova u jednom appu (topli Canary container)."""
+
+    items = json.load(open(manifest, encoding="utf-8"))
+    do_diar = DIARIZE_DEFAULT_ON if diarize == "" else diarize.lower() not in ("0", "false", "off", "no")
+
+    jobs, results = [], []
+    for it in items:
+        wav = it["wav"]
+        r = {"wav": wav, "source_lang": it.get("source_lang") or "hr"}
+        if not os.path.isfile(wav):
+            r.update(status="missing"); results.append(r); continue
+        mb = os.path.getsize(wav) / (1024 * 1024)
+        r["mb"] = round(mb, 1)
+        # Do concurrency+diar_concurrency WAV-ova je istodobno u RAM-u klijenta (bytes-argument);
+        # veće ostavi jobu (`::main` ih po potrebi ruta preko volumea, jedan po jedan).
+        if mb > min(max_mb, VOLUME_ROUTE_THRESHOLD_MB):
+            r.update(status="too_big"); results.append(r); continue
+        need_srt = not os.path.exists(wav + ".canary.srt")
+        need_diar = do_diar and not os.path.exists(wav + ".canary.pyannote.json")
+        if not need_srt and not need_diar:
+            r.update(status="already"); results.append(r); continue
+        r.update(need_srt=need_srt, need_diar=need_diar)
+        jobs.append(r)
+
+    print(f"📋 batch_list: {len(items)} u manifestu → {len(jobs)} za obradu "
+          f"({sum(j['mb'] for j in jobs) / 1024:.1f} GB) | GPU {GPU_SPEC} + {DIARIZE_GPU} | "
+          f"concurrency srt {concurrency} / diar {diar_concurrency}")
+    t_start = time.time()
+
+    def _write_srt(r, res):
+        wav = r["wav"]
+        with open(wav + ".canary.srt", "w", encoding="utf-8") as f:
+            f.write(res["srt"])
+        with open(wav + ".canary.csv", "w", encoding="utf-8") as f:
+            f.write(res["csv"])
+        _write_words(wav, res, "")
+        r.update(segments=res["segments"], infer_s=round(res["elapsed"], 1),
+                 peak_vram_gb=res.get("peak_vram_gb"))
+
+    def _write_diar(r, res):
+        with open(r["wav"] + ".canary.pyannote.json", "w", encoding="utf-8") as f:
+            json.dump({"v": 1, "model": res.get("model"), "gpu": res.get("gpu"),
+                       "speakers": res.get("speakers"), "elapsed": round(res.get("elapsed") or 0, 1),
+                       "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                       "segments": res["segments"]}, f, ensure_ascii=False)
+        r.update(speakers=res.get("speakers"), diar_s=round(res.get("elapsed") or 0, 1))
+
+    # Canary i pyannote idu u ODVOJENIM redovima (dva thread poola): A100 ne smije čekati
+    # T4 (govornici ~2,4 s po minuti zvuka, Canary ~0,3 s) — inače topli A100 stoji i
+    # naplaćuje se dok pyannote radi, pa serija ne štedi ništa.
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    lock = threading.Lock()
+
+    def _call(fn):
+        try:
+            return fn()
+        except Exception as e:
+            return {"status": "error", "reason": f"{type(e).__name__}: {e}"}
+
+    def _do_srt(r):
+        t = time.time()
+        data = open(r["wav"], "rb").read()
+        res = _call(lambda: Canary().transcribe.remote(data, os.path.basename(r["wav"]),
+                                                       r["source_lang"], target_lang))
+        del data
+        with lock:
+            if res.get("status") == "transcribed":
+                _write_srt(r, res); r["srt"] = "ok"
+            else:
+                r["srt"] = "error"; r["srt_reason"] = str(res.get("reason"))[:300]
+            r["srt_wall_s"] = round(time.time() - t, 1)
+            print(f"   {'✅' if r['srt'] == 'ok' else '❌'} srt  {r['mb']:5.0f} MB "
+                  f"{str(r.get('infer_s', '-')) + 's infer' if r['srt'] == 'ok' else r['srt_reason'][:120]}"
+                  f"  {os.path.basename(r['wav'])[:60]}")
+
+    def _do_diar(r):
+        t = time.time()
+        data = open(r["wav"], "rb").read()
+        res = _call(lambda: Diarizer().diarize.remote(data, os.path.basename(r["wav"])))
+        del data
+        with lock:
+            if res.get("status") == "diarized":
+                _write_diar(r, res); r["diar"] = "ok"
+            else:
+                r["diar"] = "error"; r["diar_reason"] = str(res.get("reason"))[:300]
+            r["diar_wall_s"] = round(time.time() - t, 1)
+            print(f"   {'🗣️ ' if r['diar'] == 'ok' else '❌'} diar {r['mb']:5.0f} MB "
+                  f"{str(r.get('speakers')) + ' govornika' if r['diar'] == 'ok' else r['diar_reason'][:120]}"
+                  f"  {os.path.basename(r['wav'])[:60]}")
+
+    with ThreadPoolExecutor(max_workers=max(1, concurrency)) as srt_pool, \
+         ThreadPoolExecutor(max_workers=max(1, diar_concurrency)) as diar_pool:
+        futs = [srt_pool.submit(_do_srt, r) for r in jobs if r["need_srt"]]
+        futs += [diar_pool.submit(_do_diar, r) for r in jobs if r["need_diar"]]
+        for f in futs:
+            f.result()
+
+    for r in jobs:
+        ok_srt = r.get("srt") in ("ok", None)
+        r["status"] = "ok" if ok_srt and r.get("diar") in ("ok", None) else ("partial" if ok_srt else "error")
+        results.append(r)
+
+    wall = time.time() - t_start
+    n_ok = sum(1 for r in results if r.get("status") == "ok")
+    n_err = sum(1 for r in results if r.get("status") in ("error", "partial"))
+    infer = sum(r.get("infer_s") or 0 for r in results)
+    print("\n" + "─" * 66)
+    print(f"   ✅ Gotovo: {n_ok}   ⚠️ Greške/djelomično: {n_err}   ⏭️ Preskočeno: "
+          f"{len(results) - n_ok - n_err}")
+    print(f"   ⏱️  Wall clock: {wall / 60:.1f} min | suma Canary inference {infer / 60:.1f} min")
+    if result_out:
+        with open(result_out, "w", encoding="utf-8") as f:
+            json.dump({"gpu": GPU_SPEC, "diarize_gpu": DIARIZE_GPU, "wall_s": round(wall, 1),
+                       "infer_s": round(infer, 1), "concurrency": concurrency,
+                       "files": results}, f, ensure_ascii=False, indent=1)
+        print(f"   📄 Rezultat: {result_out}")
