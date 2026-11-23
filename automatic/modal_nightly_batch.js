@@ -221,6 +221,8 @@ async function main() {
             const fa = ['fetch.js', '--unlisted-url', `https://www.youtube.com/watch?v=${e.id}`];
             if (e.title) fa.push('--unlisted-title', e.title);
             if (proxy) fa.push('--proxy', proxy);
+            // VIDEO_SINGLE_1080P=1: serija skida samo zvuk; video jednom skida job (KORAK 9.95).
+            if (envFromDotenv('VIDEO_SINGLE_1080P') === '1') fa.push('--audio-only');
             console.log(`   ⬇️  [${ts()}] ${label} ${(e.title || '').slice(0, 60)}`);
             const r = spawnSync('node', fa, { cwd: REPO, encoding: 'utf8', env: process.env, maxBuffer: 64 * 1024 * 1024 });
             if (!downloaded(e.id)) {

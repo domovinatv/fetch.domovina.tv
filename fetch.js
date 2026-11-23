@@ -179,8 +179,24 @@ function augmentUnlistedInfoJson(outputDir, videoId, source) {
 
 // targetUrl: kad je zadan, yt-dlp skida TOČNO taj URL (npr. X/Twitter post). Kad je
 // null (stari pozivi), rekonstruira se kanonski YouTube watch URL iz videoId.
+// --audio-only (23.11.2026., samo uz prekidač VIDEO_SINGLE_1080P=1): skine SAMO zvuk (MP3 +
+// info/description/thumbnail), bez 360p videa. Video (1080p → lokalni 360p .mkv) tada skida
+// tools/fetch_video_1080p.js prije KORAKA 10 — jedno video skidanje po epizodi umjesto dva.
+// Bez flaga se ništa ne mijenja.
+const AUDIO_ONLY = process.argv.includes("--audio-only");
+function audioOnlyArgs(base) {
+  const out = [];
+  for (let i = 0; i < base.length; i++) {
+    if (base[i] === "-f") { out.push("-f", "bestaudio/best"); i++; continue; }
+    if (base[i] === "-k") continue;
+    out.push(base[i]);
+  }
+  return out;
+}
+
 function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCookies = false, targetUrl = null) {
   fs.mkdirSync(outputDir, { recursive: true });
+  const BASE_ARGS = AUDIO_ONLY ? audioOnlyArgs(YT_DLP_BASE_ARGS) : YT_DLP_BASE_ARGS;
   const finalTemplate = path.join(outputDir, filenameTemplate + ".%(ext)s");
   const dlUrl = targetUrl || `https://www.youtube.com/watch?v=${videoId}`;
 
@@ -191,10 +207,10 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
   if (useLiveBrowserCookies) {
     // Izbaci --cookies cookies.txt iz base args, ubaci --cookies-from-browser
     const stripped = [];
-    for (let i = 0; i < YT_DLP_BASE_ARGS.length; i++) {
-      if (YT_DLP_BASE_ARGS[i] === "--cookies") { i++; continue; } // preskoči flag + value
-      if (YT_DLP_BASE_ARGS[i] === "--cookies-from-browser") { i++; continue; }
-      stripped.push(YT_DLP_BASE_ARGS[i]);
+    for (let i = 0; i < BASE_ARGS.length; i++) {
+      if (BASE_ARGS[i] === "--cookies") { i++; continue; } // preskoči flag + value
+      if (BASE_ARGS[i] === "--cookies-from-browser") { i++; continue; }
+      stripped.push(BASE_ARGS[i]);
     }
     args = [
       ...stripped,
@@ -204,7 +220,7 @@ function downloadVideo(videoId, outputDir, filenameTemplate, useLiveBrowserCooki
     ];
   } else {
     args = [
-      ...YT_DLP_BASE_ARGS,
+      ...BASE_ARGS,
       "-o", finalTemplate,
       dlUrl,
     ];

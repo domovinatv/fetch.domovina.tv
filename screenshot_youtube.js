@@ -965,7 +965,24 @@ async function processArticle(articlePath) {
     let source = null;
     let sourceLabel = "";
 
-    if (localOnly) {
+    // Lokalni 1080p (23.11.2026., VIDEO_SINGLE_1080P=1): tools/fetch_video_1080p.js ga je
+    // skinuo na vanjski SSD prije ovog koraka → kadrovi iz datoteke, bez YouTube poziva.
+    // Bez env varijable ili bez datoteke ide se postojećim putem (stream).
+    const local1080Dir = process.env.SCREENSHOT_LOCAL_VIDEO_DIR;
+    if (local1080Dir && !localOnly) {
+        try {
+            const f = fs.readdirSync(local1080Dir)
+                .find(x => x.startsWith(`${videoBase}.1080p.`) && !x.endsWith(".part"));
+            if (f) {
+                source = path.join(local1080Dir, f);
+                sourceLabel = "lokalni 1080p (jedno skidanje)";
+            }
+        } catch { /* direktorij nedostupan → stream */ }
+    }
+
+    if (source) {
+        console.log(`   📁 Izvor: ${path.basename(source)} — lokalni 1080p, bez YouTube streama.`);
+    } else if (localOnly) {
         console.log(`   📁 Ne-YouTube izvor (_source) — koristim lokalni video file (ffmpeg), bez YouTube streama.`);
     } else if (!antiBotOfflineMode) {
         // Dohvati stream URL (jednom za sve screenshotove istog videa)

@@ -812,13 +812,24 @@ else
     cd "$SCRIPT_DIR" || exit 1
 fi
 
+# Jedno video skidanje po epizodi (23.11.2026., prekidač VIDEO_SINGLE_1080P=1, env ili .env;
+# samo prioritetni fast-path, --modal-only ID): KORAK 1 skida SAMO zvuk, a video (1080p na
+# vanjski SSD → lokalni 360p .mkv) skida tools/fetch_video_1080p.js prije KORAKA 10.
+# Bez prekidača FETCH_MODE_ARGS je prazan i sve je kao prije. docs/2026-11-23-jedno-video-skidanje.md
+VIDEO_SINGLE_1080P="${VIDEO_SINGLE_1080P:-$(grep -E '^VIDEO_SINGLE_1080P=' "$SCRIPT_DIR/.env" 2>/dev/null | tail -1 | cut -d= -f2 | tr -d '"[:space:]')}"
+FETCH_MODE_ARGS=()
+if [ "$VIDEO_SINGLE_1080P" = "1" ] && [ -n "$MODAL_ONLY_ID" ]; then
+    FETCH_MODE_ARGS=(--audio-only)
+    echo "   🎧 VIDEO_SINGLE_1080P=1 — KORAK 1 skida samo zvuk; video jednom, prije KORAKA 10"
+fi
+
 # fetch.js radi u OBA moda: fast-path preuzima taj jedan --unlisted-url video.
 if [ ${#FETCH_PROXY_ARGS[@]} -gt 0 ]; then
     echo "   🌐 KORAK 1 kroz proxy ${FETCH_PROXY_ARGS[1]} (samo skidanje; ostatak runa ide preko Etherneta)"
-    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}" "${FETCH_PROXY_ARGS[@]}"
+    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}" "${FETCH_PROXY_ARGS[@]}" ${FETCH_MODE_ARGS[@]+"${FETCH_MODE_ARGS[@]}"}
     echo "   🔌 KORAK 1 gotov — proxy ovom runu više ne treba"
 else
-    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}"
+    node "$SCRIPT_DIR/fetch.js" "${COMMON_ARGS[@]}" ${FETCH_MODE_ARGS[@]+"${FETCH_MODE_ARGS[@]}"}
 fi
 
 # --- KORAK 1b: beamly direct-MP3 izvori (Sub Club, Launched) ---
@@ -1738,6 +1749,23 @@ node "$SCRIPT_DIR/generate_webp_thumbs.js" "${WEBP_THUMB_ARGS[@]}" "${PRIORITY_S
 # radio PRIJE nego što KORAK 10 proizvede frame-ove → sve sekcije "no-png" → prazan
 # manifest → nema og-sections. Sada 9.6 ide poslije 10 pa radi u istom prolazu. Vidi niže.
 
+# --- KORAK 9.95: JEDNO VIDEO SKIDANJE (samo uz VIDEO_SINGLE_1080P=1, vidi KORAK 1) ---
+# 1080p na vanjski SSD + lokalni 360p .mkv (ulaz KORAKA 12.5). KORAK 10 tada čita kadrove
+# iz lokalne datoteke (SCREENSHOT_LOCAL_VIDEO_DIR), a 1080p se briše odmah iza njega.
+# Non-fatal: bez 1080p KORAK 10 ide preko streama kao prije.
+if [ ${#FETCH_MODE_ARGS[@]} -gt 0 ]; then
+    echo ""
+    korak "KORAK 9.95: jedno video skidanje (1080p → vanjski SSD, lokalni 360p)"
+    VIDEO_1080P_DIR="${VIDEO_1080P_DIR:-/Volumes/DOMOVINA1TB/fetch_domovina_tv_work/video1080}"
+    export VIDEO_1080P_DIR
+    V1080_PROXY=()
+    [ ${#FETCH_PROXY_ARGS[@]} -gt 0 ] && V1080_PROXY=("--proxy" "${FETCH_PROXY_ARGS[1]}")
+    [ -n "$SCREENSHOT_PROXY" ] && V1080_PROXY=("--proxy" "$SCREENSHOT_PROXY")
+    node "$SCRIPT_DIR/tools/fetch_video_1080p.js" --video-id "$MODAL_ONLY_ID" --channel _unlisted \
+        ${V1080_PROXY[@]+"${V1080_PROXY[@]}"} || echo "   ⚠️  KORAK 9.95 nije uspio — KORAK 10 ide preko streama"
+    export SCREENSHOT_LOCAL_VIDEO_DIR="$VIDEO_1080P_DIR"
+fi
+
 # --- KORAK 10: YOUTUBE SCREENSHOTOVI (opcionalno, --with-screenshots) ---
 if [ "$WITH_SCREENSHOTS" = true ]; then
 echo ""
@@ -1771,6 +1799,10 @@ fi
 node "$SCRIPT_DIR/screenshot_youtube.js" "${SCREENSHOT_ARGS[@]}" "${PRIORITY_SCOPE_ARGS[@]}" || {
     echo "   ⚠️  Greška pri screenshotanju, nastavljam..."
 }
+fi
+# 1080p iz KORAKA 9.95 više ne treba (360p .mkv ostaje za KORAK 12.5).
+if [ ${#FETCH_MODE_ARGS[@]} -gt 0 ]; then
+    node "$SCRIPT_DIR/tools/fetch_video_1080p.js" --video-id "$MODAL_ONLY_ID" --channel _unlisted --cleanup || true
 fi
 
 # --- KORAK 9.6: OG-SECTIONS COMPOSITE GENERIRANJE (Tier B per-section social images) ---
