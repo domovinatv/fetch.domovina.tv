@@ -82,3 +82,20 @@ node automatic/modal_nightly_batch.js --from-queue  # jobovi koji već čekaju u
 
 Test 23.11.: 2 epizode (52 + 84 MB) u jednom appu, oba prijepisa i oba skupa govornika
 ispravna, 2,2 min wall.
+
+## Ručna proba iz reda, 23.11. (nije prošla, otvoreno)
+
+`--from-queue` uzima jobove u stanju `queued` s kraja reda. Dva pokušaja iz iTerma, oba
+bez ijednog skidanja i bez anti-bot markera:
+
+1. 09:38: stari yt-dlp 2026.08.17 iz Python 3.13 Frameworka je u ručnom shellu bio prvi na
+   PATH-u. Nightly i poller stavljaju Homebrew (2026.10.26) ispred. Skripta od `2a145211`
+   sama prependa `/opt/homebrew/bin` i u logu ispisuje pravu `ERROR:` liniju.
+2. 09:54: `Cannot write video description file …/_unlisted/…`. iTerm (i Claude sesija u
+   njemu) od jutra nema macOS dozvolu za vanjske diskove (`ls /Volumes/DOMOVINA2TB` →
+   Operation not permitted). launchd pipeline piše normalno. Popravak: System Settings →
+   Privacy & Security → Files and Folders → iTerm → Removable Volumes (ili Full Disk
+   Access), pa restart iTerma.
+
+Pravilo „2 pada zaredom” ne razlikuje YouTube od lokalne greške, pa je oba puta odustao
+nakon dvije epizode, što je ovdje bilo ispravno.
