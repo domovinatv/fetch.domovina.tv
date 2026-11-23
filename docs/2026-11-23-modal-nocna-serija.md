@@ -76,6 +76,7 @@ plus upload (4–8 GB). Procjena je 30–60 min, nije izmjereno. Jobovi poslije 
 ```bash
 node automatic/modal_nightly_batch.js --dry-run     # popis, bez skidanja i Modala
 node automatic/modal_nightly_batch.js --force       # pravi run bez prekidača
+node automatic/modal_nightly_batch.js --from-queue  # jobovi koji već čekaju u redu (od kraja reda)
 # manifest + rezultat: automatic/logs/modal_batch_<datum>_<vrijeme>.{manifest,result}.json
 ```
 

@@ -23,7 +23,12 @@
  *   node automatic/modal_nightly_batch.js             # poštuje prekidač
  *   node automatic/modal_nightly_batch.js --force     # radi i bez prekidača (ručna proba)
  *   node automatic/modal_nightly_batch.js --dry-run   # samo popis, bez skidanja i Modala
+ *   node automatic/modal_nightly_batch.js --from-queue --force   # jobovi koji već čekaju u redu
  *   [--limit N] [--concurrency 2] [--no-download]
+ *
+ * --from-queue (23.11.): popis = jobovi u stanju `queued` na pipeline.domovina.ai, od kraja reda
+ * (poller uzima s početka, pa se serija i slotovi rijetko preklapaju). Job koji poller uzme
+ * dok serija radi samo ponovno pokrene svoj Modal poziv; ništa se ne gubi.
  *
  * Env: MODAL_NIGHTLY_BATCH (1 = uključeno), MODAL_NIGHTLY_BATCH_MAX (default 40 epizoda),
  *      PIPELINE_QUEUE_INGEST_KEY (transcribe claim, isti kao KORAK 2.6).
@@ -59,6 +64,7 @@ function getArg(name) {
 const DRY = args.includes('--dry-run');
 const FORCE = args.includes('--force');
 const NO_DOWNLOAD = args.includes('--no-download');
+const FROM_QUEUE = args.includes('--from-queue');
 const LIMIT = parseInt(getArg('--limit') || process.env.MODAL_NIGHTLY_BATCH_MAX || '40', 10);
 const CONCURRENCY = parseInt(getArg('--concurrency') || '2', 10);
 
@@ -105,6 +111,24 @@ function candidates() {
         if (ids.includes(e.id) && !byId.has(e.id)) byId.set(e.id, e);
     }
     return ids.map(id => byId.get(id) || { id });
+}
+
+// ─── 1b. Popis iz reda: jobovi koji već čekaju (--from-queue) ───────────────
+async function queuedCandidates() {
+    const key = envFromDotenv('PIPELINE_QUEUE_INGEST_KEY');
+    if (!key) { console.log('   ⚠️  nema PIPELINE_QUEUE_INGEST_KEY — bez serije'); return []; }
+    try {
+        const res = await fetch(`${QUEUE_BASE}/api/jobs?state=queued&limit=200`,
+            { headers: { authorization: `Bearer ${key}` }, signal: AbortSignal.timeout(20000) });
+        const { jobs = [] } = await res.json();
+        const seen = new Set();
+        return jobs.filter(j => /^[A-Za-z0-9_-]{11}$/.test(j.youtube_id || '') && !seen.has(j.youtube_id) && seen.add(j.youtube_id))
+            .reverse()
+            .map(j => ({ id: j.youtube_id, title: j.title, duration: j.duration_seconds, slug: j.channel }));
+    } catch (e) {
+        console.log(`   ⚠️  red nedostupan (${e.message}) — bez serije`);
+        return [];
+    }
 }
 
 // ─── Disk ───────────────────────────────────────────────────────────────────
@@ -180,8 +204,8 @@ async function main() {
     }
     if (envFromDotenv('ALL_EPISODES_OFF') === '1') { console.log('⏭️  ALL_EPISODES_OFF=1 — nema serije'); return; }
     const t0 = Date.now();
-    console.log(`🧺 [${ts()}] Noćna Modal serija (Tier 2): popis iz enqueue_all_new.js --dry-run`);
-    let eps = candidates();
+    console.log(`🧺 [${ts()}] Noćna Modal serija (Tier 2): popis iz ${FROM_QUEUE ? 'reda (queued jobovi)' : 'enqueue_all_new.js --dry-run'}`);
+    let eps = FROM_QUEUE ? await queuedCandidates() : candidates();
     if (eps.length > LIMIT) {
         console.log(`   ✂️  ${eps.length} epizoda > limit ${LIMIT} — ostatak ide pojedinačno kroz svoje jobove`);
         eps = eps.slice(0, LIMIT);
