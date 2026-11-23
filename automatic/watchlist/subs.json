@@ -1,11 +1,13 @@
 {
-  "generated_at": "2026-11-21T06:25:14.015Z",
+  "generated_at": "2026-11-23T02:35:48.959Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 107,
+  "count": 109,
   "videos": {
+    "fu-RZwl-m0w": {"slug":"druga-strana-medalje","date":"2026-11-22","langs":["en"]},
     "FeOko-sv4M0": {"slug":"karlo-cast","date":"2026-11-20","langs":["hr"]},
     "q4fPz5SzMGU": {"slug":"prvi-glas-telegram","date":"2026-11-20","langs":["hr"]},
     "-kHnbDuiVMc": {"slug":"prvi-glas-telegram","date":"2026-11-19","langs":["hr"]},
+    "vmLR0OiyATI": {"slug":"_unlisted","date":"2026-11-19","langs":["en"]},
     "LVo9PLbtm08": {"slug":"launched","date":"2026-11-18","langs":["en"]},
     "ZweNzJ14ti0": {"slug":"atma-podcast","date":"2026-11-18","langs":["hr"]},
     "LMxIow4FcaQ": {"slug":"prvi-glas-telegram","date":"2026-11-17","langs":["hr"]},

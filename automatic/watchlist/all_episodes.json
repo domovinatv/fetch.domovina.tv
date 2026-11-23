@@ -4782,14 +4782,364 @@
    "sent_at": "2026-11-22T04:28:25.186Z",
    "result": "created",
    "job_id": "4c3e35b1-d8cb-44de-9132-f6ce4eec4817"
+  },
+  "9XJsAMzwkAc": {
+   "date": "2026-11-23",
+   "slug": "2pogled-povijest",
+   "title": "Frankopani – šest stoljeća hrvatske povijesti | Ep. 12 –Nikola IV. Frankopan na vrhuncu moći",
+   "duration": 2738,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:07.751Z",
+   "result": "created",
+   "job_id": "378b05aa-8510-4c51-b697-4cb67f94e3ba"
+  },
+  "FoCKxQZOtv0": {
+   "date": "2026-11-23",
+   "slug": "actualitica-podcast",
+   "title": "Actualitica Podcast #77 – Muamer Hasanagić: Pomirenje Srba i Bošnjaka, Rusija i budućnost BiH",
+   "duration": 4229,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:08.011Z",
+   "result": "created",
+   "job_id": "71623806-9dba-4b03-a4da-666e76f545ec"
+  },
+  "F9sN6bAX9aI": {
+   "date": "2026-11-23",
+   "slug": "ana-radisic-podcast",
+   "title": "Život između ambicije, obveza i vremena za sebe - Hana Rukavina | S7E8",
+   "duration": 1691,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:08.361Z",
+   "result": "created",
+   "job_id": "2523eeb6-b25c-4270-9eaf-388fd9dbf7b0"
+  },
+  "44a7VTngeDA": {
+   "date": "2026-11-23",
+   "slug": "don-stipe-mustapic",
+   "title": "Želimo li postati bogovi? Vjera i tehnologija | vlč. Odilon-Gbènoukpo Singbo",
+   "duration": 4051,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:08.588Z",
+   "result": "created",
+   "job_id": "412025ce-66d6-456f-bfc5-1bbae2014886"
+  },
+  "OTPyw9u5o70": {
+   "date": "2026-11-23",
+   "slug": "human-lab-podcast",
+   "title": "Stručnjak za muško zdravlje: Pad testosterona, erektilna disfunkcija i srce | dr. Vladimir Mozetič",
+   "duration": 5233,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:08.852Z",
+   "result": "created",
+   "job_id": "b12cdb1d-1fef-47e1-8be8-49e0172a07f6"
+  },
+  "JSAWVH34fLE": {
+   "date": "2026-11-23",
+   "slug": "moc-komunikacije",
+   "title": "Robot radi tri smjene. Čemu služe ljudi? // Dejan Iličić i robotica Tonka E086",
+   "duration": 4869,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:09.106Z",
+   "result": "created",
+   "job_id": "4faaa06f-c883-4bb4-a7ee-06f530556524"
+  },
+  "-6quY5ShcU8": {
+   "date": "2026-11-23",
+   "slug": "overthinkeri",
+   "title": "EP38: Kako učiti kad ti se ne da?",
+   "duration": 3791,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:09.381Z",
+   "result": "created",
+   "job_id": "56fdd3f3-c218-4bf3-b1ff-0a1f3445b85d"
+  },
+  "1gQou-Bp9I0": {
+   "date": "2026-11-23",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1519 - Marko i Sara Luzar Smajić",
+   "duration": 4207,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:09.616Z",
+   "result": "created",
+   "job_id": "c0bf94c4-7cff-4053-8d6d-1070d0c07588"
+  },
+  "H4u9IuBBBtg": {
+   "date": "2026-11-23",
+   "slug": "ril-tok-podcast",
+   "title": "Ril Tok Podcast #208 - DJBZ",
+   "duration": 8975,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:09.874Z",
+   "result": "created",
+   "job_id": "b25957c1-c230-4cf6-962d-9e934615e8bd"
+  },
+  "Tv6ag4mCVVI": {
+   "date": "2026-11-23",
+   "slug": "tonecast-music-shop-no1",
+   "title": "Tonecast Podcast by Music Shop No1 | Epizoda 16 – Dragomir Herendić Dragianni",
+   "duration": 4183,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:10.121Z",
+   "result": "created",
+   "job_id": "c9d0ea56-db33-4497-839f-236c8bd7ea90"
+  },
+  "UWe9y_K7uJw": {
+   "date": "2026-11-23",
+   "slug": "tribina-iza-tribine",
+   "title": "Vladimir Šagadin | Ne boj se banane | Iza Tribine #38",
+   "duration": 6807,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:10.382Z",
+   "result": "created",
+   "job_id": "5c56d698-efc1-4566-8e0e-0d94dbbcb250"
+  },
+  "1oal_mISDT0": {
+   "date": "2026-11-23",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za ponedjeljak, 23.11.2026.",
+   "duration": 2856,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:10.569Z",
+   "result": "created",
+   "job_id": "7fbf8a1a-fb6b-4c84-b635-c2152b3266dc"
+  },
+  "fu-RZwl-m0w": {
+   "date": "2026-11-23",
+   "slug": "druga-strana-medalje",
+   "title": "Radio, hip-hop i Hi-Fi: 32 godine iza mikrofona | Mario Marin | DSM #71",
+   "duration": 7089,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:10.784Z",
+   "result": "created",
+   "job_id": "aa0a0ac3-61e7-4028-b847-4f3ac3f82e21"
+  },
+  "R7qNz2Il4RU": {
+   "date": "2026-11-23",
+   "slug": "vedran-soric-podcast",
+   "title": "Andrea Andrassy: „Najgore stvari žene čuju od drugih”",
+   "duration": 3491,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:11.020Z",
+   "result": "created",
+   "job_id": "fefe3cb3-98b8-467e-8862-6991f7eccc2d"
+  },
+  "WRdnlhq-pI8": {
+   "date": "2026-11-23",
+   "slug": "pomalo-too-much",
+   "title": "pomalo too much: Situationships i ostale gluposti koje smo radile zbog muškaraca",
+   "duration": 3276,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:11.237Z",
+   "result": "created",
+   "job_id": "89b80b6d-08f4-44ec-87bf-d66ed299098d"
+  },
+  "-JXs0j-CUoU": {
+   "date": "2026-11-23",
+   "slug": "osvrtnik",
+   "title": "Ovako puca AI balon - SND",
+   "duration": 5996,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:11.433Z",
+   "result": "created",
+   "job_id": "ce9e7b07-1ff2-4583-a086-f939de59b7e1"
+  },
+  "LU5PcBa2TEc": {
+   "date": "2026-11-23",
+   "slug": "podcast-8-24",
+   "title": "Dinamo - Istra 3:2 / Dvajsčetvorka #298",
+   "duration": 6687,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:11.653Z",
+   "result": "created",
+   "job_id": "b2427881-763e-48a8-bb74-0a0e2d5d5cd8"
+  },
+  "nyN9KHoNaqg": {
+   "date": "2026-11-23",
+   "slug": "biciklizam-net-podcast",
+   "title": "#21 Na maloj šajbi - Lijepo zaokruženi | biciklizam.net",
+   "duration": 4718,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:11.885Z",
+   "result": "created",
+   "job_id": "6cb18a71-3628-4c7a-a8f1-7acbb6942195"
+  },
+  "GyuNOPbI1x0": {
+   "date": "2026-11-23",
+   "slug": "podcast-s-brezom",
+   "title": "KOVAČEVIĆ: Europa ide u rat s Rusijom, nema drugog ishoda! PODCAST S BREZOM",
+   "duration": 2929,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:12.110Z",
+   "result": "created",
+   "job_id": "fc9afc67-4cee-4ac5-a64f-79882ec8d2c8"
+  },
+  "o1T_feVlWMA": {
+   "date": "2026-11-23",
+   "slug": "poriloox",
+   "title": "Kampanja za operaciju- Kukovi ne lažu - Barbika želi zaplesati - radio emisija",
+   "duration": 1551,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:12.287Z",
+   "result": "created",
+   "job_id": "8d1e889a-b970-4772-8743-783fecef9ff7"
+  },
+  "W0Fh4u6Z3Tg": {
+   "date": "2026-11-23",
+   "slug": "hzv-siempre",
+   "title": "NAVIJAČKA ANALIZA UTAKMICE 14. kola SHNL-a LOKOMOTIVA 1 - 2 HAJDUK",
+   "duration": 12887,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:12.573Z",
+   "result": "created",
+   "job_id": "ae677e9e-7a79-495d-92ed-fc0f6bfc8590"
+  },
+  "3Z4GLTV21Fk": {
+   "date": "2026-11-23",
+   "slug": "hajducka-storija",
+   "title": "Pobjeda protiv agresivne Lokomotive | DOJMOVI NA DRUGU",
+   "duration": 909,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:12.824Z",
+   "result": "created",
+   "job_id": "a79fc500-9d7a-415f-a38f-0f704bbbd60a"
+  },
+  "VD67pryDRDY": {
+   "date": "2026-11-23",
+   "slug": "hajducka-storija",
+   "title": "+3! LOKOMOTIVA - HAJDUK 1:2 | REAKCIJA",
+   "duration": 1042,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:13.037Z",
+   "result": "created",
+   "job_id": "0c1ea9cf-1217-461a-bb19-bf7438db89cc"
+  },
+  "94xbRvfJ7tw": {
+   "date": "2026-11-23",
+   "slug": "nlo-arhivist",
+   "title": "Astronomi i AATIP 73: Korlević i Radonić o razvoju meteoritske debate, nebeskim pojavama i ET životu",
+   "duration": 2334,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:13.234Z",
+   "result": "created",
+   "job_id": "8ffc06d4-7d42-466f-875e-61e049c2651a"
+  },
+  "Yq0KVcEtKRg": {
+   "date": "2026-11-23",
+   "slug": "zona-dinamo-podcast",
+   "title": "Zona Dinamo Podcast - Istra 1961 i Bayer Leverkusen",
+   "duration": 5397,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:13.476Z",
+   "result": "created",
+   "job_id": "2082cb9e-ecc9-4e6c-a71c-20cf9e431fe1"
+  },
+  "LCYA3aK-U38": {
+   "date": "2026-11-23",
+   "slug": "projekt-snovi",
+   "title": "Međunarodno priznanje Republike Hrvatske | Julija Barunčić Pletikosić | Podcast projekta SNOVI #47",
+   "duration": 1713,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:13.654Z",
+   "result": "created",
+   "job_id": "43ea0b0e-299b-4b0f-b335-7830a777e1ad"
+  },
+  "IHdCEjIH87Q": {
+   "date": "2026-11-23",
+   "slug": "iza-pjace",
+   "title": "Iza Pjace #159: Zagrijavanje",
+   "duration": 5295,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:13.883Z",
+   "result": "created",
+   "job_id": "4e90429e-a5a6-429c-9132-3ba5259e95c7"
+  },
+  "Ck1c78aQJUc": {
+   "date": "2026-11-23",
+   "slug": "prgavi-podcast",
+   "title": "Stoperi zabili za pobjedu! ❤️💙 analiza utakmice protiv Lokomotive 🤍 Prgavi podcast",
+   "duration": 9738,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:14.063Z",
+   "result": "created",
+   "job_id": "be208640-3bdc-48b0-8ae5-7c59d31f8a57"
+  },
+  "A74w-wZjQB0": {
+   "date": "2026-11-23",
+   "slug": "planet-formula",
+   "title": "Planet Formula ep. 16 - VN Las Vegasa",
+   "duration": 3798,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:14.289Z",
+   "result": "created",
+   "job_id": "c5c45fdb-a00a-43c3-b3a9-c3c28281d9ad"
+  },
+  "6t3GdMOGD7s": {
+   "date": "2026-11-23",
+   "slug": "fortunal-podcast",
+   "title": "Fortunal Podcast #18 Duško Jaramaz",
+   "duration": 3379,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:14.468Z",
+   "result": "created",
+   "job_id": "57a44a21-7c51-4ded-bb78-5d58126bc861"
+  },
+  "CmyAQ759lTg": {
+   "date": "2026-11-23",
+   "slug": "kontrapovijest-by-hrvoje-klasic",
+   "title": "Kontrapovijest by Hrvoje Klasić #77 – Franjo Maletić – Stepinac i ustaše",
+   "duration": 2045,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:14.672Z",
+   "result": "created",
+   "job_id": "c63beb66-1caa-459d-94d7-9f6903992837"
+  },
+  "moFgPfMkCkw": {
+   "date": "2026-11-23",
+   "slug": "kristov-vojnik",
+   "title": "KRISTOV VOJNIK - MARIO TESKERA: „Bog me izvukao iz pakla droge i kriminala!“",
+   "duration": 3932,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:14.853Z",
+   "result": "created",
+   "job_id": "5c1b71ac-05d4-4b7e-b092-bf2fc8169913"
+  },
+  "zUZQpRZ3EJE": {
+   "date": "2026-11-23",
+   "slug": "xrpg-360-cyberfleet",
+   "title": "Iskustvo u Microsoftu je fakultet kojeg nije moguće platit / Tomislav Tipurić EP. 32",
+   "duration": 4013,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:15.065Z",
+   "result": "created",
+   "job_id": "8a9e67dd-e101-4e22-a4df-f71abf7c4eef"
+  },
+  "1H7-8taMDvw": {
+   "date": "2026-11-23",
+   "slug": "radio-marija-bih-da-progledam-gospodine",
+   "title": "Božja ljubav, čovjekovo nepovjerenje i slobodna odluka da svoj život povjeri Isusu Kristu",
+   "duration": 3595,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:15.257Z",
+   "result": "created",
+   "job_id": "6c68763b-48cc-48f8-bc6a-1f56b478d418"
+  },
+  "Foacz9bVlSU": {
+   "date": "2026-11-23",
+   "slug": "agelast",
+   "title": "Kada i kako je nastao ljudski jezik? | prof. dr Maja Savić | Agelast 374",
+   "duration": 6875,
+   "attempts": 1,
+   "sent_at": "2026-11-23T02:34:15.463Z",
+   "result": "created",
+   "job_id": "ff2ee5ae-33c2-4dba-80f0-e6cf2a0a00b7"
   }
  },
- "updated_at": "2026-11-22T04:28:25.362Z",
+ "updated_at": "2026-11-23T02:34:15.635Z",
  "last_enqueue_usage": {
-  "at": "2026-11-22T04:28:25.362Z",
-  "five_hour": 27,
-  "five_hour_resets_at": "2026-11-22T04:29:59.833972+00:00",
-  "seven_day": 7,
-  "seven_day_resets_at": "2026-11-27T23:59:59.833990+00:00"
+  "at": "2026-11-23T02:34:15.635Z",
+  "five_hour": 6,
+  "five_hour_resets_at": "2026-11-23T04:59:59.661337+00:00",
+  "seven_day": 9,
+  "seven_day_resets_at": "2026-11-27T23:59:59.661355+00:00"
  }
 }
