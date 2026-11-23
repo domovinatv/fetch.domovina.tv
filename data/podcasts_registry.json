@@ -7193,7 +7193,7 @@
         "average_duration_minutes": 56,
         "last_episode_date": "2026-09-24",
         "last_episode_video": "ytO4vaGjCa8",
-        "children_count": 16
+        "children_count": 17
       },
       "tracking": {
         "enabled": false,
@@ -7262,8 +7262,46 @@
         "o-tempora",
         "uvjereno",
         "novo-srce",
-        "generacija-plus"
+        "generacija-plus",
+        "laudato-tv-emisije"
       ]
+    },
+    {
+      "slug": "laudato-tv-emisije",
+      "display_name": "Laudato TV — emisije",
+      "youtube": {
+        "url": "https://www.youtube.com/@LaudatoTV/videos",
+        "channel_id": "UCMNltXN6fWur0K8Z1oubFPA",
+        "type": "channel",
+        "parent_channel": "Laudato TV"
+      },
+      "tags": [
+        "religious-catholic",
+        "talk-show"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "episodes_per_week_estimate": 17.0,
+        "measured": "2026-10-26..2026-11-22 (YouTube Data API)"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 23.11.2026. (docs/2026-11-23-katolicki-mediji-cijeli-kanali.md): cijeli kanal bez liturgije/molitve; nove epizode → watch + podcast.domovina.ai + Tier 2. Bez backfilla.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "laudato-tv",
+      "notes": "Sve razgovorne emisije i reportaže Laudato TV-a (Izdvojeno, Odaziv, Papa s nama, Nova Misija, Kako dalje?, Svi za stol, Svijet očima Vatikana, Klub prijatelja…), uključivo prijenose uživo s kartice /streams. Isključeno: mise, krunice, klanjanja, Egzamen, papinska putovanja. Mjereno 26.10.–22.11.2026.: ~17 epizoda ≥15 min tjedno (~13 h). Playliste-djeca ostaju; isti video se dedupira po ID-u (feed kataloga i Tier 2).",
+      "watch": {
+        "min_duration_sec": 901,
+        "exclude_title_regex": "(?i)\\bmisa\\b|svet[ae] mis|krunic|klanjan|pobožnost|egzamen|ispit svjesnosti|papa u |papa peru|papino apostolsko|putovanje pape|apostolsko putovanje|prijenos|euharistij|križni put|blagoslov|posveta|koncert",
+        "notes": "Cijeli kanal; /streams čita watch automatski (od 23.11.2026.)."
+      }
     },
     {
       "slug": "launched",
@@ -14072,7 +14110,7 @@
         "status": "active",
         "last_episode_date": "2026-09-24",
         "last_episode_video": "v74TA3G_Vuo",
-        "children_count": 11,
+        "children_count": 12,
         "subscribers_as_of": "2026-10"
       },
       "tracking": {
@@ -14136,8 +14174,47 @@
         "radio-marija-bih-crtice-iz-povijesti",
         "radio-marija-bih-stvaramo-mostove",
         "radio-marija-bih-da-progledam-gospodine",
-        "radio-marija-bih-razgovor-bez-maski"
+        "radio-marija-bih-razgovor-bez-maski",
+        "radio-marija-bih-emisije"
       ]
+    },
+    {
+      "slug": "radio-marija-bih-emisije",
+      "display_name": "Radio Marija u BiH — emisije",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCEeV5Hg4lLI3XjIouI0ykug/videos",
+        "channel_id": "UCEeV5Hg4lLI3XjIouI0ykug",
+        "type": "channel",
+        "parent_channel": "Radio Marija u BiH"
+      },
+      "tags": [
+        "religious-catholic",
+        "talk-show",
+        "diaspora"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "episodes_per_week_estimate": 9.0,
+        "measured": "2026-10-26..2026-11-22 (YouTube Data API)"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 23.11.2026. (docs/2026-11-23-katolicki-mediji-cijeli-kanali.md): cijeli kanal bez liturgije/molitve; nove epizode → watch + podcast.domovina.ai + Tier 2. Bez backfilla.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-bih",
+      "notes": "105 od 120 objava (8 tj.) su prijenosi uživo s naslovom teme; playliste-emisije ih hvataju tek djelomično. Cijeli kanal (/videos + /streams) bez misa, krunica, cenakula, Molitve sa svećenicima, audio-knjiga (Čitamo knjigu, Valtorta), klanjanja i koncerata. ~9 epizoda ≥15 min tjedno (~5,5 h).",
+      "watch": {
+        "min_duration_sec": 901,
+        "exclude_title_regex": "(?i)\\bmisa\\b|\\bmise\\b|misno|svet[ae] mis|sv\\.? mis|krunic|klanjan|cenakul|molitva sa svećenicima|čitamo knjigu|valtort|venite adoremus|relikvij|koncert|pobožnost|novena|devetnic|euharistij|križni put|prijenos",
+        "notes": "Cijeli kanal; /streams čita watch automatski (od 23.11.2026.)."
+      }
     },
     {
       "slug": "radio-mreznica",
@@ -40723,7 +40800,7 @@
       "voditelji": [],
       "metadata": {
         "status": "active",
-        "children_count": 12,
+        "children_count": 13,
         "subscribers": 9500,
         "subscribers_as_of": "2026-10"
       },
@@ -40749,7 +40826,8 @@
         "radio-marija-kap-dobrote",
         "radio-marija-zivimo-zajedno",
         "radio-marija-ne-boj-se",
-        "radio-marija-vjera-te-tvoja-spasila"
+        "radio-marija-vjera-te-tvoja-spasila",
+        "radio-marija-hr-emisije"
       ],
       "quality_score": {
         "total": 48,
@@ -40765,6 +40843,43 @@
         "days_since_last_episode": null,
         "last_episode_date": null,
         "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-marija-hr-emisije",
+      "display_name": "Radio Marija Hrvatska — emisije",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UC0QkexsWMyTAQUrFpIjzfAQ/videos",
+        "channel_id": "UC0QkexsWMyTAQUrFpIjzfAQ",
+        "type": "channel",
+        "parent_channel": "Radio Marija Hrvatska"
+      },
+      "tags": [
+        "religious-catholic",
+        "talk-show"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "episodes_per_week_estimate": 2.0,
+        "measured": "2026-10-26..2026-11-22 (YouTube Data API)"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 23.11.2026. (docs/2026-11-23-katolicki-mediji-cijeli-kanali.md): cijeli kanal bez liturgije/molitve; nove epizode → watch + podcast.domovina.ai + Tier 2. Bez backfilla.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-marija-hr",
+      "notes": "Emisije izlaze kao prijenosi uživo („EMISIJA | gost | tema”) i u playliste dođu kasno ili nikad: 12 playlista-djece nije uhvatilo nijednu epizodu 26.10.–22.11.2026. Zato cijeli kanal (/videos + /streams) bez misa, krunica, novena, Zvuci srca, radio drama. ~2 epizode ≥15 min tjedno; sezonski ritam (ljeto pauza). Izvan YouTubea: mp3 arhiva radiomarija.hr/program/arhiva/YYYY-MM-DD (~30/tj, bez RSS-a) — nije uključena.",
+      "watch": {
+        "min_duration_sec": 901,
+        "exclude_title_regex": "(?i)\\bmisa\\b|svet[ae] mis|krunic|klanjan|pobožnost|novena|devetnic|zvuci srca|radio dram|duhovne vježbe|koncert|molitv|euharistij|križni put|korizmene srijede",
+        "notes": "Cijeli kanal; /streams čita watch automatski (od 23.11.2026.)."
       }
     },
     {
@@ -41765,7 +41880,7 @@
       "voditelji": [],
       "metadata": {
         "status": "active",
-        "children_count": 4,
+        "children_count": 5,
         "subscribers": 75400,
         "subscribers_as_of": "2026-10"
       },
@@ -41783,7 +41898,8 @@
         "radio-mir-medjugorje-susret",
         "radio-mir-medjugorje-sitan-kamen-do-kamena",
         "radio-mir-medjugorje-miris-zavicaja",
-        "radio-mir-medjugorje-na-putu-zivota"
+        "radio-mir-medjugorje-na-putu-zivota",
+        "radio-mir-medjugorje-emisije"
       ],
       "quality_score": {
         "total": 51,
@@ -41799,6 +41915,43 @@
         "days_since_last_episode": null,
         "last_episode_date": null,
         "rubric": "v2"
+      }
+    },
+    {
+      "slug": "radio-mir-medjugorje-emisije",
+      "display_name": "Radio MIR Međugorje — emisije",
+      "youtube": {
+        "url": "https://www.youtube.com/channel/UCxLGA4ZfWiBKzhNvGIRyhTA/videos",
+        "channel_id": "UCxLGA4ZfWiBKzhNvGIRyhTA",
+        "type": "channel",
+        "parent_channel": "Radio MIR Međugorje"
+      },
+      "tags": [
+        "religious-catholic",
+        "talk-show"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "episodes_per_week_estimate": 6.2,
+        "measured": "2026-10-26..2026-11-22 (YouTube Data API)"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 23.11.2026. (docs/2026-11-23-katolicki-mediji-cijeli-kanali.md): cijeli kanal bez liturgije/molitve; nove epizode → watch + podcast.domovina.ai + Tier 2. Bez backfilla.",
+        "candidate_phase": 1
+      },
+      "tier": 3,
+      "data_quality": "partial",
+      "sources": [
+        "manual"
+      ],
+      "parent_slug": "radio-mir-medjugorje",
+      "notes": "Cijeli kanal bez dnevnog „Prijenosa molitvenog programa” (~3 h) i glazbe. Ostaju homilije iz Međugorja (15–18 min), Na putu života, Put srca, Nada koja liječi, Kulturni mozaik, Kocka vedrine, Tolle lege, Otvorena knjiga, Zrcalo, Miris zavičaja, Sitan kamen do kamena. ~6 epizoda ≥15 min tjedno (~2,6 h), većina kraća od 30 min.",
+      "watch": {
+        "min_duration_sec": 901,
+        "exclude_title_regex": "(?i)prijenos|\\bmisa\\b|svet[ae] mis|krunic|klanjan|glazbe svijeta|vremeplov klasične|koncert|pobožnost|križni put|euharistij",
+        "notes": "Cijeli kanal; /streams čita watch automatski (od 23.11.2026.)."
       }
     },
     {
