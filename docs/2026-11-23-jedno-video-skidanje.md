@@ -38,4 +38,14 @@ job u KORAKU 9.95.
 
 ## Mjerenje
 
-Vidi odjeljak „Mjerenje 23.11.” ispod (dopunjuje se nakon prve probe).
+23.11. u 08:06, Tonecast #16 (`Tv6ag4mCVVI`, 69:43), sve na DOMOVINA1TB, bez proxyja:
+
+| Što | Rezultat |
+|---|---|
+| 1080p skidanje (h264 1920×1080 + audio) | 766 MB za 144 s (5,3 MB/s), bez anti-bota |
+| 360p `.mkv` izveden lokalno (veryfast crf 26) | 143 MB za 51 s (YouTube 360p: 156 MB) |
+| prozor ±5 s, fps 2, 21 kadar iz lokalnog 1080p | 0,84–0,90 s po timestampu |
+| ukupno video dio po epizodi | ~195 s i jedan YouTube video pristup umjesto dva |
+
+Prostor: 1080p zauzima ~11 MB po minuti i briše se nakon KORAKA 10, pa disk drži
+samo epizode koje su trenutno u obradi.
