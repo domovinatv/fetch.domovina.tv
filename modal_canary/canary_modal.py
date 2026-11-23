@@ -93,14 +93,19 @@ _MAX_CONTAINERS = int(os.environ.get("MODAL_CANARY_MAX_CONTAINERS", "0")) or Non
 # ─── Image ───────────────────────────────────────────────────────────────────
 # Isti pinovi kao colab_canary cell 4 (potvrđeno da rade 2026-07-07): numpy<2.0 +
 # numba 0.60.x rješava "numba.cuda.types has no attribute NPDatetime" skew.
+# Rezolucija je ZAMRZNUTA na datum (uv --exclude-newer): nemo_toolkit nije pinan, pa
+# je svježi build u novom workspaceu (domovinasync, 23.11.2026.) povukao NeMo 3.0 +
+# pyarrow 26 (traži NumPy 2) uz numpy<2 → ImportError na startu containera. 2026-07-07
+# = dan kad je izgrađen image koji je radio u starom workspaceu (NeMo 2.7.3, torch 2.9.1).
+# Nadogradnja modal klijenta to NE rješava — mijenjaj datum samo uz ponovnu probu.
+PIP_FREEZE_DATE = "2026-07-07T00:00:00Z"
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .apt_install("ffmpeg", "libsndfile1", "sox")
-    .pip_install(
-        "numpy>=1.24,<2.0",
-        "numba>=0.60,<0.61",
-        "nemo_toolkit[asr]",
-        "cuda-python",
+    .pip_install("uv")
+    .run_commands(
+        f"uv pip install --system --exclude-newer {PIP_FREEZE_DATE} "
+        "'numpy>=1.24,<2.0' 'numba>=0.60,<0.61' 'nemo_toolkit[asr]' cuda-python"
     )
 )
 
