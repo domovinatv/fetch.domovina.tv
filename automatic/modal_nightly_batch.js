@@ -65,6 +65,10 @@ const DRY = args.includes('--dry-run');
 const FORCE = args.includes('--force');
 const NO_DOWNLOAD = args.includes('--no-download');
 const FROM_QUEUE = args.includes('--from-queue');
+// Isti PATH kao nightly_pipeline.sh: Homebrew ispred Python 3.13 Frameworka. U ručnom terminalu
+// je inače prvi stari yt-dlp iz Frameworka (2026.08.17 na 23.11.), koji YouTube odbije — serija
+// je tako 23.11. pala na prve dvije epizode. Vidi memory ytdlp_version_not_path_order.
+if (fs.existsSync('/opt/homebrew/bin/yt-dlp')) process.env.PATH = `/opt/homebrew/bin:${process.env.PATH || ''}`;
 const LIMIT = parseInt(getArg('--limit') || process.env.MODAL_NIGHTLY_BATCH_MAX || '40', 10);
 const CONCURRENCY = parseInt(getArg('--concurrency') || '2', 10);
 
@@ -251,8 +255,9 @@ async function main() {
             const r = spawnSync('node', fa, { cwd: REPO, encoding: 'utf8', env: process.env, maxBuffer: 64 * 1024 * 1024 });
             if (!downloaded(e.id)) {
                 consecutiveFail++;
-                const err = ((r.stderr || '') + (r.stdout || '')).split('\n')
-                    .filter(l => /ERROR|GREŠKA|bot|unavailable|private/i.test(l)).slice(-1)[0] || `exit ${r.status}`;
+                const lines = ((r.stderr || '') + (r.stdout || '')).split('\n');
+                const err = lines.filter(l => /ERROR:/.test(l)).slice(-1)[0]
+                    || lines.filter(l => /bot|unavailable|private|GREŠKA/i.test(l)).slice(-1)[0] || `exit ${r.status}`;
                 console.log(`   ❌ ${label} skidanje nije uspjelo — ${err.trim().slice(0, 160)}`);
                 continue;
             }
