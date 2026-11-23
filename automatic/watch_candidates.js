@@ -100,6 +100,12 @@ function channelVideosUrl(url) {
     return u + "/videos";
 }
 
+/** Kartica /streams kanala čiji je izvor /videos; null za playliste i ostalo. */
+function channelStreamsUrl(source) {
+    if (!source || /[?&]list=/.test(source)) return null;
+    return /\/videos$/.test(source) ? source.replace(/\/videos$/, "/streams") : null;
+}
+
 function loadRules() {
     try { return JSON.parse(fs.readFileSync(RULES_FILE, "utf8")); } catch { return {}; }
 }
@@ -150,7 +156,14 @@ function loadCandidates({ scoped = true, registry = null, gate = undefined } = {
         if (!onlySlug && trackedUrls.has(source)) continue;    // već ga vuče pravi pipeline
         // Neki podcasti izlaze kao livestream/premijera → /streams uz /videos.
         const sources = [source, ...(rule.extra_source_urls || [])];
-        list.push({ slug: p.slug, name: p.display_name, source, sources, rule, tags: p.tags || [] });
+        // Od 23.11.2026. /streams se čita za SVAKI kanal, ne samo za one iz rules.json:
+        // prijenos uživo YouTube drži samo na kartici /streams, pa ga /videos nikad ne
+        // vidi (h8qR80bc5VY hrt-nedjeljom-u-2, tW71sjw4Lr4 digitalna-kultura, 16. i 19. 11.).
+        // Automatski izvor NIJE dio ključa izvora (inače bi svaki kanal dobio novi baseline).
+        const autoSources = [];
+        const streams = channelStreamsUrl(source);
+        if (streams && !sources.includes(streams)) { sources.push(streams); autoSources.push(streams); }
+        list.push({ slug: p.slug, name: p.display_name, source, sources, autoSources, rule, tags: p.tags || [] });
     }
     return scoped && LIMIT > 0 ? list.slice(0, LIMIT) : list;
 }
@@ -255,9 +268,14 @@ function saveState(st) {
 
 const today = () => new Date().toISOString().slice(0, 10);
 
-async function processChannel(c, state) {
+// Kanal bez kartice /streams: yt-dlp javi grešku pa se kartica ne čita idućih 7 dana.
+const NO_STREAMS_RECHECK_DAYS = 7;
+const NO_STREAMS_RE = /does not have a streams tab|This channel does not have/i;
+
+async function processChannel(c, state, lister = listVideos) {
     let ch = state.channels[c.slug];
-    const sourceKey = c.sources.join(" ");
+    const auto = new Set(c.autoSources || []);
+    const sourceKey = c.sources.filter((s) => !auto.has(s)).join(" ");
     // Promijenjen izvor (npr. kanal → podcast playlista) = drugi skup videa → novi baseline,
     // inače bi cijela nova playlista izgledala kao „nove epizode".
     if (!ch || (ch.source && ch.source !== sourceKey)) ch = state.channels[c.slug] = { seen: {}, baseline_at: null };
@@ -266,11 +284,27 @@ async function processChannel(c, state) {
     // stajalo na kraju je staro, a ne novo → upiši kao baseline, bez događaja (bez backfilla).
     const tailBaseline = !isBaseline && !ch.tail_baseline_at && c.sources.some(isPlaylistUrl);
     const n = isBaseline ? BASELINE_ITEMS : ITEMS;
+    // Prvo čitanje automatske kartice /streams (uvedeno 23.11.2026.) = baseline za nju:
+    // stari prijenosi nisu nove epizode (bez backfilla). Rupe zadnjih 14 dana hvata
+    // missing_report.js iz backfill.json.
+    const streamsBaseline = !isBaseline && auto.size > 0 && !ch.streams_baseline_at;
+    const fromAuto = new Set();
+    let autoRead = false;                                        // kartica pročitana (ili je nema)
     let entries = [], error = null;
     for (const src of c.sources) {
-        const r = await listVideos(src, n);
+        if (auto.has(src) && ch.no_streams_at
+            && Date.now() - Date.parse(ch.no_streams_at) < NO_STREAMS_RECHECK_DAYS * 86400000) continue;
+        const r = await lister(src, n);
         if (r.error && src === c.source) error = r.error;       // greška sporednog izvora nije fatalna
-        for (const e of r.entries) if (!entries.some((x) => x.id === e.id)) entries.push(e);
+        if (auto.has(src)) {
+            if (!r.entries.length && r.error && NO_STREAMS_RE.test(r.error)) { ch.no_streams_at = new Date().toISOString(); autoRead = true; }
+            else if (r.entries.length || !r.error) { delete ch.no_streams_at; autoRead = true; }
+        }
+        for (const e of r.entries) {
+            if (entries.some((x) => x.id === e.id)) continue;
+            entries.push(e);
+            if (auto.has(src)) fromAuto.add(e.id);
+        }
     }
     if (entries.length) error = null;
     ch.last_check = new Date().toISOString();
@@ -298,11 +332,14 @@ async function processChannel(c, state) {
         ch.seen[e.id] = {
             first_seen: today(), upload_date: e.upload_date, duration: e.duration,
             title: e.title.slice(0, 140), cls, ...(reason ? { reason } : {}),
-            ...(isBaseline || tailBaseline ? { baseline: true } : {}),
+            ...(isBaseline || tailBaseline || (streamsBaseline && fromAuto.has(e.id)) ? { baseline: true } : {}),
+            ...(fromAuto.has(e.id) ? { tab: "streams" } : {}),
         };
-        if (!isBaseline && !tailBaseline) fresh.push({ ...e, cls, reason });
+        if (!isBaseline && !tailBaseline && !(streamsBaseline && fromAuto.has(e.id))) fresh.push({ ...e, cls, reason });
     }
     if (isBaseline) ch.baseline_at = new Date().toISOString();
+    // Baseline /streams je gotov tek kad je kartica stvarno pročitana (ili je nema).
+    if ((isBaseline || streamsBaseline) && autoRead) ch.streams_baseline_at = new Date().toISOString();
     if ((isBaseline || tailBaseline) && c.sources.some(isPlaylistUrl)) ch.tail_baseline_at = new Date().toISOString();
     // Pravilo se mijenja (revizija, LLM klasifikacija) → primijeni ga i na već viđene,
     // da izvještaj uvijek odražava TRENUTNO pravilo, a ne ono iz dana otkrića.
@@ -462,4 +499,4 @@ async function main() {
 if (require.main === module) {
     main().catch((e) => { console.error(e); process.exit(1); });
 }
-module.exports = { classify, adaptiveMinDuration, channelVideosUrl, safeRegex, loadCandidates, loadRules, tombstonedUc };
+module.exports = { classify, adaptiveMinDuration, channelVideosUrl, channelStreamsUrl, safeRegex, loadCandidates, loadRules, tombstonedUc, processChannel };

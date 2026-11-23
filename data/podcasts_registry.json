@@ -42676,7 +42676,7 @@
       "notes": "Srpski poduzetnički/razgovorni podcast Ivana Minića; tjedna epizoda (nedjeljom ~19h CET), duge intervjue 1:45–2:50 h. Svaka epizoda dobiva 2–3 YouTube isječka od 5–12 min (naslov \"Gost: citat/tema\" bez \"Pojačalo podcast EP\") i Shorts. Povremeni dodatni formati: Vivaldi specijal (43–75 min), klinika dr Vorobjev (60–75 min, gostujući sadržaj). Katalog ogroman: EP 393 (RSS 468 stavki od 2019., Apple 468), YouTube 974 videa — NE obrađivati. NaPOD predavanje: \"Šta smo naučili iz 2000 produciranih epizoda podkasta\" (2000 ≈ ukupno videa/isječaka/epizoda svih formata, ne EP broj).",
       "watch": {
         "min_duration_sec": 3000,
-        "exclude_title_regex": "^(?!.*(Pojačalo podcast|Vivaldi specijal)).*$"
+        "exclude_title_regex": "^(?!.*(Pojačalo (podcast )?EP|Pojačalo podcast|Vivaldi specijal)).*$"
       },
       "region": "regional",
       "events": [

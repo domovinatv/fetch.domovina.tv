@@ -460,6 +460,16 @@ run_step "obrada svih novih epizoda (enqueue u pipeline.domovina.ai)" \
 run_step "točni datumi objave (YouTube Data API)" \
     node "$REPO_DIR/automatic/backfill_days.js" || true
 
+# Što fali na domovina.ai i zašto (23.11.2026.): originali iz backfill.json za zadnjih 14
+# dana minus obrađeni (article.json u R2 key cacheu), povučeni kanali i [PROMO] →
+# automatic/watchlist/missing.json. never_seen i failed (Tier 2, < 3 pokušaja) idu u isti
+# red kao gore (POST /api/jobs); Tier 1 se samo prijavljuje. Sažetak u Telegram kroz
+# lib/notify_telegram.js. MUST ići iza backfill_days.js (svjež popis originala) i iza
+# enqueue_all_new.js (njegovi jobovi se vide kao queued). MISSING_OFF=1 gasi slanje.
+# docs/2026-11-23-epizode-koje-fale-i-retry.md
+run_step "epizode koje fale na domovina.ai (missing.json + red)" \
+    node "$REPO_DIR/automatic/missing_report.js" --enqueue --telegram || true
+
 # Ručni YouTube titlovi (HR/EN) za download na podcast.domovina.ai: Data API
 # `contentDetails.caption` (true samo za ručne) nad originalima iz backfill.json, pa
 # yt-dlp --write-subs BEZ auto-subs → cdn.domovina.ai/registry/subs/<id>.<lang>.srt +

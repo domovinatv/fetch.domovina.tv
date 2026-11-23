@@ -63,3 +63,81 @@ test("(b) tombstone UC nije kandidat za praćenje (ni po UC-u ni po slugu)", () 
     // bez retka u postavkama (i bez gatea) — nepromijenjeno
     assert.deepEqual(loadCandidates({ scoped: false, registry: reg, gate: null }).map((c) => c.slug), ["obrisan", "normalan"]);
 });
+
+// ─── /streams (23.11.2026.) ─────────────────────────────────────────
+// Prijenose uživo YouTube drži samo na kartici /streams. h8qR80bc5VY (hrt-nedjeljom-u-2,
+// 16. 11.) i tW71sjw4Lr4 (digitalna-kultura, 19. 11., 6 h) zato nikad nisu ušli u red.
+const { channelStreamsUrl, processChannel } = require("./watch_candidates.js");
+
+const REG = { podcasts: [
+    { slug: "hrt-nedjeljom-u-2", display_name: "Nedjeljom u 2", tracking: { enabled: false },
+      youtube: { url: "https://www.youtube.com/@nedjeljomu2HRT/videos", type: "channel" },
+      watch: { min_duration_sec: 1800 } },
+    { slug: "digitalna-kultura", display_name: "Digitalna kultura", tracking: { enabled: false },
+      youtube: { url: "https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/videos", type: "channel" } },
+    { slug: "neka-playlista", tracking: { enabled: false },
+      youtube: { url: "https://www.youtube.com/playlist?list=PLabc", type: "playlist" } },
+] };
+
+test("channelStreamsUrl: samo za /videos kanala", () => {
+    assert.equal(channelStreamsUrl("https://www.youtube.com/@x/videos"), "https://www.youtube.com/@x/streams");
+    assert.equal(channelStreamsUrl("https://www.youtube.com/playlist?list=PLabc"), null);
+    assert.equal(channelStreamsUrl("https://www.youtube.com/@x/streams"), null);
+});
+
+test("loadCandidates dodaje /streams kao automatski izvor (i za oba propuštena kanala)", () => {
+    const list = loadCandidates({ scoped: false, registry: REG, gate: null });
+    const hrt = list.find((c) => c.slug === "hrt-nedjeljom-u-2");
+    const dk = list.find((c) => c.slug === "digitalna-kultura");
+    assert.deepEqual(hrt.autoSources, ["https://www.youtube.com/@nedjeljomu2HRT/streams"]);
+    assert.ok(dk.sources.includes("https://www.youtube.com/channel/UC5G48syi8BJd0UqRkS08hVg/streams"));
+    assert.deepEqual(list.find((c) => c.slug === "neka-playlista").autoSources, []);
+});
+
+function fakeLister(tabs) {
+    return async (url) => {
+        const k = url.endsWith("/streams") ? "streams" : "videos";
+        if (tabs[k] instanceof Error) return { entries: [], error: tabs[k].message };
+        return { entries: tabs[k] || [], error: null };
+    };
+}
+const ep = (id, duration, title = "Nedjeljom u 2: gost") => ({ id, duration, title, upload_date: null, live_status: "was_live" });
+
+test("prijenos s /streams postaje nova epizoda; prvo čitanje kartice je baseline", async () => {
+    const [c] = loadCandidates({ scoped: false, registry: REG, gate: null });
+    // Stanje prije 23.11.: kanal ima baseline samo iz /videos (ključ izvora = /videos).
+    const state = { channels: { [c.slug]: { seen: { OLDvid00001: { duration: 3500, title: "stara", cls: "original" } },
+        baseline_at: "2026-10-14T00:00:00Z", source: c.source } } };
+    // 1. prolaz: kartica /streams prvi put → stari prijenosi su baseline, bez događaja.
+    let r = await processChannel(c, state, fakeLister({ videos: [], streams: [ep("PErFoyR4RKg", 3650)] }));
+    assert.equal(r.error, null);
+    assert.equal(r.fresh.length, 0);
+    assert.equal(state.channels[c.slug].seen.OLDvid00001.title, "stara", "baseline /videos ostaje");
+    assert.ok(state.channels[c.slug].streams_baseline_at);
+    // 2. prolaz: novi prijenos (h8qR80bc5VY) → događaj, original.
+    r = await processChannel(c, state, fakeLister({ videos: [], streams: [ep("h8qR80bc5VY", 3550), ep("PErFoyR4RKg", 3650)] }));
+    assert.deepEqual(r.fresh.map((e) => [e.id, e.cls]), [["h8qR80bc5VY", "original"]]);
+    assert.equal(state.channels[c.slug].seen.h8qR80bc5VY.tab, "streams");
+});
+
+test("6-satni prijenos digitalna-kultura (tW71sjw4Lr4) je original", async () => {
+    const c = loadCandidates({ scoped: false, registry: REG, gate: null }).find((x) => x.slug === "digitalna-kultura");
+    const state = { channels: { [c.slug]: { seen: {}, baseline_at: "2026-09-24T00:00:00Z", source: c.source, streams_baseline_at: "2026-11-23T00:00:00Z" } } };
+    const r = await processChannel(c, state, fakeLister({ videos: [], streams: [ep("tW71sjw4Lr4", 21697, "Je li ovo najbolja igra svih vremena?")] }));
+    assert.deepEqual(r.fresh.map((e) => [e.id, e.cls]), [["tW71sjw4Lr4", "original"]]);
+});
+
+test("kanal bez kartice /streams: nije greška i ne čita se idućih 7 dana", async () => {
+    const [c] = loadCandidates({ scoped: false, registry: REG, gate: null });
+    const state = { channels: {} };
+    let calls = 0;
+    const lister = async (url) => {
+        if (url.endsWith("/streams")) { calls++; return { entries: [], error: "ERROR: [youtube:tab] @x: This channel does not have a streams tab" }; }
+        return { entries: [ep("AAAAAAAAAAA", 3600)], error: null };
+    };
+    let r = await processChannel(c, state, lister);
+    assert.equal(r.error, null);
+    assert.ok(state.channels[c.slug].no_streams_at);
+    r = await processChannel(c, state, lister);
+    assert.equal(calls, 1);
+});
