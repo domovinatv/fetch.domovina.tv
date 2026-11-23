@@ -99,3 +99,47 @@ bez ijednog skidanja i bez anti-bot markera:
 
 Pravilo „2 pada zaredom” ne razlikuje YouTube od lokalne greške, pa je oba puta odustao
 nakon dvije epizode, što je ovdje bilo ispravno.
+
+## Treća proba iz reda, 23.11. 10:40 (prošla)
+
+Nakon što je iTerm dobio dozvolu za vanjske diskove (pokušaj u 10:00 ugašen je restartom
+iTerma nakon prvog skidanja). U redu 9 jobova, poller je istodobno radio s početka reda.
+
+- Skidanje zvuka 10:40 → 10:51 (7 epizoda), Modal app `ap-hbYRxSqgVtyYSgxHyg35qr`
+  12,5 min wall, Canary inference ukupno 2,1 min; ukupno 23,6 min.
+- Rezultat: 7/8 s prijepisom. `tW71sjw4Lr4` preskočen kao `too_big` (WAV 662 MB > 400 MB)
+  i otišao starim putem. `H4u9IuBBBtg` imao WAV od prije, preskočen.
+- `1H7-8taMDvw`: poller ga je uzeo u 10:48, prije Modal dijela serije, i sam napravio
+  prijepis; serija mu je dodala samo govornike. Očekivano preklapanje.
+- **Provjereno:** jobovi `zUZQpRZ3EJE`, `FIOKwc7vxDs`, `R7qNz2Il4RU`, `h8qR80bc5VY`,
+  `O5zlcJhXHE0` u KORAKU 2.6 imaju `Modal kandidata: 0`, dakle nema `::main` poziva.
+- **Rupa:** `Kolwz9xFdBs` je bio job 🔁 *ponovna obrada*. `--reprocess` stash skloni
+  izvedene fajlove (i serijin `.canary.srt`), pa je job ponovno zvao Modal. Serija bi
+  trebala preskakati reprocess jobove (ili stash čuvati svjež `.canary.srt`). Nije popravljeno.
+
+### Trošak (`modal billing report --for today --show-resources`)
+
+| | po appu | A100 | T4 |
+|---|---|---|---|
+| serija, 7 epizoda | $0.50 (~$0.07/ep) | $0.20 | $0.23 |
+| pojedinačni `::main` (26 danas) | $0.08–0.30, obično ~$0.19 | ~$0.15 | ~$0.03 |
+
+Pojedinačni app većinu plaća za hladni start A100 + učitavanje modela + 120 s
+`scaledown_window`. U seriji je najveća stavka pyannote na T4 (~2,4 s po minuti zvuka).
+Ukupno Modal 23.11. do 12 h: $4.76.
+
+Gruba projekcija uz ~27 ep/dan (`DAILY.md`, 31 noć): samo pojedinačno ~$150/mj, sve kroz
+seriju ~$55–60/mj, realno (serija + dnevni ostatak) ~$70–90/mj. Vrijedi samo dok cloud ASR
+(Soniox, Speechmatics) ne radi i bez Tier 1.
+
+### Zadatak: projekcija mjesečnog troška (od 24.11., 3–5 noći)
+
+Svako jutro zapiši u tablicu ispod: `modal billing report --for yesterday --show-resources --json`
+(zbroj po appu, serija odvojeno od `::main`), broj epizoda i sati zvuka koje su prošle
+Modal (`modal_batch_*.result.json` + `Modal kandidata: 1` u `priority_<datum>.log`).
+Nakon 3–5 noći: cijena po epizodi i po satu zvuka, raspon (mirna nedjelja vs dan s 37 ep),
+projekcija u ovaj dokument i usporedba s cijenom Sonioxa/Speechmaticsa po satu.
+
+| datum (UTC) | serija $ | ::main $ | ukupno $ | epizoda | h zvuka | $/ep |
+|---|---|---|---|---|---|---|
+| 2026-11-23 (dio dana) | 0.50 | 4.26 | 4.76 | ~34 | — | ~0.14 |
