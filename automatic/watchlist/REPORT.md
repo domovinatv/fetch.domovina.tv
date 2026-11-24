@@ -1,9 +1,9 @@
 # Praćenje kandidata (watch-only)
 
-Generirano 2026-11-24 02:26 UTC skriptom `automatic/watch_candidates.js`.
+Generirano 2026-11-24 08:57 UTC skriptom `automatic/watch_candidates.js`.
 Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = epizode otkrivene NAKON baselinea.
 
-**467 kanala** · 🟢 201 aktivno (original ≤30 d) · 🟡 44 usporava (≤120 d) · 🔴 222 uspavano · ⚪ 0 nepoznato · ⛔ 0 bez ijednog originala (vjerojatno nije podcast ili treba pravilo) · ⚠️ 0 greška
+**468 kanala** · 🟢 202 aktivno (original ≤30 d) · 🟡 44 usporava (≤120 d) · 🔴 222 uspavano · ⚪ 0 nepoznato · ⛔ 0 bez ijednog originala (vjerojatno nije podcast ili treba pravilo) · ⚠️ 0 greška
 
 ## Novi originali, zadnjih 14 dana
 
@@ -293,6 +293,7 @@ Samo popis videa — ništa se ne skida ni ne obrađuje. „Novi originali" = ep
 | 🟢 aktivan | Radio Marija Hrvatska — emisije `radio-marija-hr-emisije` | 20261117 (7 d) | 29 | 0 | 38 | 15 ✎ |
 | 🟢 aktivan | Laudato TV — emisije `laudato-tv-emisije` | 20261123 (1 d) | 21 | 0 | 83 | 15 ✎ |
 | 🟢 aktivan | Nedjeljom u 2 (HRT) `hrt-nedjeljom-u-2` | 20261123 (1 d) | 18 | 0 | 58 | 30 ✎ |
+| 🟢 aktivan | SoMoCast (SoMo Borac) `somocast` | 20261123 (1 d) | 4 | 0 | 93 | 15 ✎ |
 | 🟢 aktivan | Kršćanine upoznaj svoje dostojanstvo (Radio Marija BiH) `radio-marija-bih-krscanine-upoznaj-svoje-dostojanstvo` | 20261101 (23 d) | 2 | 0 | 0 | 18 |
 | 🟢 aktivan | Pozvani na slobodu (Radio Marija BiH) `radio-marija-bih-pozvani-na-slobodu` | 20261104 (20 d) | 2 | 0 | 2 | 19 |
 | 🟡 usporava | Trend Medij – Gost dana `trend-medij-gost-dana` | 20261009 (46 d) | 33 | 4 | 34 | 15 |

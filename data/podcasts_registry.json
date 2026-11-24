@@ -43563,6 +43563,48 @@
         "last_episode_date": null,
         "rubric": "v2"
       }
+    },
+    {
+      "slug": "somocast",
+      "display_name": "SoMoCast (SoMo Borac)",
+      "youtube": {
+        "url": "https://www.youtube.com/@somoborac/videos",
+        "channel_id": "UCU46Mj9AayA6LvSC_deN_cA",
+        "type": "channel"
+      },
+      "tags": [
+        "media",
+        "marketing",
+        "business"
+      ],
+      "voditelji": [],
+      "metadata": {
+        "status": "active",
+        "last_episode_video": "Wb6u6dyOrBw",
+        "average_duration_minutes": 46,
+        "episodes_sampled": 413,
+        "episodes_over_30min_sampled": 28,
+        "subscribers": 369,
+        "language": "hr",
+        "country": "HR"
+      },
+      "tracking": {
+        "enabled": false,
+        "reason_disabled": "Dodano 24.11.2026. na zahtjev: Tier 2, samo nove epizode. Kanal SoMo Borac je većinom konferencijski sadržaj i oglasi; podcast su samo videi s 'SoMoCast' u naslovu (include_title_regex).",
+        "candidate_phase": 2
+      },
+      "sources": [
+        "youtube-@somoborac",
+        "discovery-2026-09-24-sweep (pogrešno odbijen kao not_hr)"
+      ],
+      "notes": "SoMoCast, podcast hrvatske konferencije o digitalnim medijima i marketingu SoMo Borac. Razgovori s gostima iz medija, oglašavanja i startupa (Ivan Šarić, Matej Lončarić, Hajdi Ćenan, Iva Kutle Škrlec), ~40–75 min. 5 sezona, 28 epizoda (S1 i dio S2 s engleskim naslovima). Ostatak kanala (~385 videa) su snimke konferencije [SoMo Borac …] i oglasi nagrađenih kampanja — nisu podcast.",
+      "region": "hr",
+      "data_quality": "partial",
+      "tier": 3,
+      "watch": {
+        "min_duration_sec": 900,
+        "include_title_regex": "(?i)somocast"
+      }
     }
   ],
   "philosophy": {

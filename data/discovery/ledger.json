@@ -9987,11 +9987,13 @@
  "UCU46Mj9AayA6LvSC_deN_cA": {
   "name": "SoMo Borac",
   "type": "channel",
-  "verdict": "not_hr",
-  "reason": "bosanski / BiH nehrvatski",
-  "judged_at": "2026-09-24",
+  "verdict": "podcast_hr",
+  "reason": "Ispravak 24.11.2026.: SoMo Borac je hrvatska konferencija, SoMoCast je hrvatski razgovorni podcast (5 sezona). Raniji not_hr ('bosanski / BiH') bio je pogrešan.",
+  "judged_at": "2026-11-24",
   "run": "2026-09-24",
-  "by": "yt-sweep-agent"
+  "by": "manual",
+  "slug": "somocast",
+  "previous_verdict": "not_hr"
  },
  "UCsM-HY7YBWuHmgexjzpVdEw": {
   "name": "MobileAppDaily",
