@@ -4918,10 +4918,10 @@
    "slug": "vedran-soric-podcast",
    "title": "Andrea Andrassy: „Najgore stvari žene čuju od drugih”",
    "duration": 3491,
-   "attempts": 1,
-   "sent_at": "2026-11-23T02:34:11.020Z",
+   "attempts": 2,
+   "sent_at": "2026-11-23T07:05:59.286Z",
    "result": "created",
-   "job_id": "fefe3cb3-98b8-467e-8862-6991f7eccc2d"
+   "job_id": "fa5d770f-1693-4ec2-abb9-67ab8f061a6f"
   },
   "WRdnlhq-pI8": {
    "date": "2026-11-23",
@@ -5132,14 +5132,334 @@
    "sent_at": "2026-11-23T02:34:15.463Z",
    "result": "created",
    "job_id": "ff2ee5ae-33c2-4dba-80f0-e6cf2a0a00b7"
+  },
+  "mzBrhiED42Q": {
+   "date": "2026-11-24",
+   "slug": "bijelo-plavi-podcast",
+   "title": "Bijelo-plavi podcast 265: Svoj svome",
+   "duration": 3776,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:05.321Z",
+   "result": "created",
+   "job_id": "b6cee3e7-8026-4f24-a97d-4d6c2e9e19f0"
+  },
+  "H7uGejHoWso": {
+   "date": "2026-11-24",
+   "slug": "games-croatia",
+   "title": "Go Home Annie: razvojni put hrvatske psihološke horror videoigre - S2 Ep01 - Games Croatia Podcast",
+   "duration": 2997,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:05.617Z",
+   "result": "created",
+   "job_id": "48df0ace-d479-43ca-b702-3c288f0ef5cb"
+  },
+  "YjtjgohNVmA": {
+   "date": "2026-11-24",
+   "slug": "ideje-hr",
+   "title": "Horvat o Jankomiru: Pravi horor nastupa kad se zatvore vrata tih ustanova",
+   "duration": 2898,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:05.903Z",
+   "result": "created",
+   "job_id": "7952af08-9396-4a74-9281-227bb55973be"
+  },
+  "WcH5osxyli0": {
+   "date": "2026-11-24",
+   "slug": "kriminalno-dobre-price",
+   "title": "462. epizoda: Jaidyn Leskie",
+   "duration": 2529,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:06.175Z",
+   "result": "created",
+   "job_id": "5f8489d5-9912-4b7f-a387-20950713ce73"
+  },
+  "qUAMaMEYbMw": {
+   "date": "2026-11-24",
+   "slug": "la-vie-podcast",
+   "title": "Beauty brend nastao u spavaćoj sobi, a bira ga 12 od 15 žena | Martina Kallos | La Vie Podcast",
+   "duration": 3071,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:06.433Z",
+   "result": "created",
+   "job_id": "b8241129-5d3b-4314-8505-46d52985144e"
+  },
+  "lnud6CyNy88": {
+   "date": "2026-11-24",
+   "slug": "lider-podcast",
+   "title": "Od avijacije i nekretnina do kozmetike: Gdje se kriju najbolje prilike? | Eva Pavić x Lider 189",
+   "duration": 1636,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:06.684Z",
+   "result": "created",
+   "job_id": "bf963cd1-93f7-4a25-9b6a-a8e4a0c3f912"
+  },
+  "8bZAbe0CMGY": {
+   "date": "2026-11-24",
+   "slug": "netokracija-podcast",
+   "title": "Anthropic želi zamijeniti Microsoft i Google? | S7.EP9",
+   "duration": 1130,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:06.884Z",
+   "result": "created",
+   "job_id": "c57e6816-c82c-4e1a-817f-c7e034c796a7"
+  },
+  "NN6P6ytmb_w": {
+   "date": "2026-11-24",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Adria Slipstream F1: Kaotična VN Las Vegasa",
+   "duration": 6852,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:07.107Z",
+   "result": "created",
+   "job_id": "87911d4e-ae40-4f1e-b9d6-3cde85a44654"
+  },
+  "rROiETtIH7I": {
+   "date": "2026-11-24",
+   "slug": "osoba-s-pogledom",
+   "title": "OSOBA S POGLEDOM #24 TARIK FILIPOVIĆ",
+   "duration": 2390,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:07.305Z",
+   "result": "created",
+   "job_id": "a55b50a3-7cc4-4370-b835-dc705ae90f54"
+  },
+  "KsJVzYKYpCM": {
+   "date": "2026-11-24",
+   "slug": "podcast-inkubator-mysterium",
+   "title": "Podcast Mysterium #189 -  GTA VI || NASILJE U IGRICAMA || SIMPOVI",
+   "duration": 6464,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:07.565Z",
+   "result": "created",
+   "job_id": "2b57f8d8-313d-4ef1-944c-9a632a038879"
+  },
+  "nDEgauYLUes": {
+   "date": "2026-11-24",
+   "slug": "podkist-fer",
+   "title": "Kako je računalo naučilo hrvatski jezik? - Gordan Gledec | podkist #70",
+   "duration": 4880,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:07.777Z",
+   "result": "created",
+   "job_id": "551cec98-5670-4a49-afd9-43de4b0480a6"
+  },
+  "vX8wGD78ILs": {
+   "date": "2026-11-24",
+   "slug": "psihologija-hrt",
+   "title": "S3E12 PSIHOLOGiJA #93 Sve što nosimo u sebi (Tihana Ilić Prskalo)",
+   "duration": 3503,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:08.043Z",
+   "result": "created",
+   "job_id": "7e97dd1e-1e47-46b9-ae4e-e4d01f5b26b2"
+  },
+  "SahX8DgIEK4": {
+   "date": "2026-11-24",
+   "slug": "prvi-glas-telegram",
+   "title": "Razorna istina o inflaciji: Siromašni plaćaju najviše",
+   "duration": 1269,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:08.252Z",
+   "result": "created",
+   "job_id": "158002e7-b387-46f1-8e52-9587f68b025d"
+  },
+  "JPNVObK5iMM": {
+   "date": "2026-11-24",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Dvije krune - 01. dan - Sveti Maksimilijan Kolbe - Upoznaj sveca kroz 7 dana",
+   "duration": 1133,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:08.452Z",
+   "result": "created",
+   "job_id": "f4ed8008-f5e4-4ace-beaf-ee6e1b0904fe"
+  },
+  "kp-Yz7FzaVs": {
+   "date": "2026-11-24",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Ovo nije vjerski rat - . - Crtice iz povijesti  (1992.-1995.) - mons. Ivo Tomašević",
+   "duration": 2665,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:08.655Z",
+   "result": "created",
+   "job_id": "345a56aa-32f5-4e69-b36b-781469293417"
+  },
+  "ttKtau-IoFc": {
+   "date": "2026-11-24",
+   "slug": "samo-bez-panike",
+   "title": "Kako znaš da je vrijeme za nešto drugo? - SAMO BEZ PANIKE podcast",
+   "duration": 3654,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:08.861Z",
+   "result": "created",
+   "job_id": "d89f50af-72bd-45f4-8a2a-98c80afa49ad"
+  },
+  "-XmcID3qMjQ": {
+   "date": "2026-11-24",
+   "slug": "tribina-hnl-ponedjeljak",
+   "title": "Konceptualna umjetnost",
+   "duration": 7789,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:09.100Z",
+   "result": "created",
+   "job_id": "49377753-3bbd-4d83-a97c-e2241da80b2f"
+  },
+  "Gz4HIL5d1XE": {
+   "date": "2026-11-24",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za ponedjeljak, 24.11.2026.",
+   "duration": 3052,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:09.337Z",
+   "result": "created",
+   "job_id": "fd1db310-73f8-411e-a0ca-3622aac1b70d"
+  },
+  "dIJvedJApUU": {
+   "date": "2026-11-24",
+   "slug": "druga-strana-medalje",
+   "title": "Film „Među nama“, mikrobudžet i crowdfunding | Laura Pascu (redateljica) | DSM #72",
+   "duration": 3161,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:09.521Z",
+   "result": "created",
+   "job_id": "9bbdf464-14bb-45d9-bfb3-3650f728fe2b"
+  },
+  "QToxTKSzJkI": {
+   "date": "2026-11-24",
+   "slug": "klub-psece-srece-podcast",
+   "title": "Mislav Kadić: Ništa ne može zamijeniti ortozu i protezu izrađenu po mjeri psa | KPS Podcast EP. 34",
+   "duration": 4079,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:09.766Z",
+   "result": "created",
+   "job_id": "3e331aab-1997-4031-bb84-7edc5f707346"
+  },
+  "m3msysi_gxs": {
+   "date": "2026-11-24",
+   "slug": "ovisnici-o-knjigama",
+   "title": "EPIZODA 21: Od pet zvjezdica do potpunog razočaranja! ",
+   "duration": 3897,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:09.965Z",
+   "result": "created",
+   "job_id": "ab20e769-869a-443c-b8de-e2fe1028e0e5"
+  },
+  "IhCKBLKmy9o": {
+   "date": "2026-11-24",
+   "slug": "prva-linija",
+   "title": "Prva linija, ep. 149, Aleksandar Radić: 'Veliki problem Vojske Srbije je Vučićev 'projekt 5000''",
+   "duration": 3897,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:10.177Z",
+   "result": "created",
+   "job_id": "ae71b295-39da-4db6-83ec-e184718efabf"
+  },
+  "X9l3WM6HMGs": {
+   "date": "2026-11-24",
+   "slug": "briefing-jutarnji-list",
+   "title": "Božo Kovačević: Rusija nudi podjelu Europe na interesne sfere. Što ako se Amerika s time suglasi?",
+   "duration": 2653,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:10.367Z",
+   "result": "created",
+   "job_id": "6a110285-cebf-4985-bc64-56233b46f837"
+  },
+  "tPIKAf_Ugp0": {
+   "date": "2026-11-24",
+   "slug": "veliki-judi",
+   "title": "Veliki judi 21.11.2026. Đordana Barbarić",
+   "duration": 1931,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:10.589Z",
+   "result": "created",
+   "job_id": "b9cfa048-80c0-4420-b044-ac3aebe4477d"
+  },
+  "V-3gm15MkkA": {
+   "date": "2026-11-24",
+   "slug": "laudato-odaziv",
+   "title": "Smijemo li kroz život prolaziti neutralni i distancirani│Odaziv",
+   "duration": 3673,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:10.794Z",
+   "result": "created",
+   "job_id": "11a7ba56-7407-4772-8a6b-318e941b088f"
+  },
+  "TdtgZYgQlgc": {
+   "date": "2026-11-24",
+   "slug": "radio-mir-medjugorje-miris-zavicaja",
+   "title": "Miris zavičaja 22. 11. 2026. – HKM Berlin",
+   "duration": 1568,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:11.007Z",
+   "result": "created",
+   "job_id": "2249a4e1-3509-4b77-b47b-8ee4abc947e0"
+  },
+  "xV4VSWAm47w": {
+   "date": "2026-11-24",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Zrcalo 9. 11. 2026. – Marko, Cenacolo: Savjest me ubijala",
+   "duration": 1115,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:11.205Z",
+   "result": "created",
+   "job_id": "ead9b57b-23e0-4b7e-a76e-c8e48698adab"
+  },
+  "rxhd2xqBaqU": {
+   "date": "2026-11-24",
+   "slug": "hrt-peti-dan",
+   "title": "Peti dan: 35 godina sjećanja; kulturno uzdizanje",
+   "duration": 3539,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:11.398Z",
+   "result": "created",
+   "job_id": "9e6158d5-d0ba-4b7c-8067-b4fb171159b7"
+  },
+  "7gUZQdF1hGU": {
+   "date": "2026-11-24",
+   "slug": "hrt-veterani-mira",
+   "title": "Veterani mira: Bitka za Osijek",
+   "duration": 1507,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:11.640Z",
+   "result": "created",
+   "job_id": "aaa54398-70b7-4b20-a42f-3987214de07c"
+  },
+  "gcHUOu5MTJA": {
+   "date": "2026-11-24",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Koliko o internetu znaju djeca, a koliko njihovi roditelji?",
+   "duration": 1856,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:11.842Z",
+   "result": "created",
+   "job_id": "d65a6968-69b2-470a-b373-a01b2bffa2f0"
+  },
+  "ARzKkZl_UkI": {
+   "date": "2026-11-24",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Mudrost masa",
+   "duration": 3136,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:12.042Z",
+   "result": "created",
+   "job_id": "1965dc56-7009-46e0-bf4d-2e739ab33f87"
+  },
+  "zA24jdV14ug": {
+   "date": "2026-11-24",
+   "slug": "hrt-pozitivno",
+   "title": "Pozitivno: Zora Zakanj",
+   "duration": 1778,
+   "attempts": 1,
+   "sent_at": "2026-11-24T03:32:12.241Z",
+   "result": "created",
+   "job_id": "ca11da33-278f-4900-a52e-8e91cf735064"
   }
  },
- "updated_at": "2026-11-23T02:34:15.635Z",
+ "updated_at": "2026-11-24T03:32:12.440Z",
  "last_enqueue_usage": {
-  "at": "2026-11-23T02:34:15.635Z",
-  "five_hour": 6,
-  "five_hour_resets_at": "2026-11-23T04:59:59.661337+00:00",
-  "seven_day": 9,
-  "seven_day_resets_at": "2026-11-27T23:59:59.661355+00:00"
+  "at": "2026-11-24T03:32:12.440Z",
+  "five_hour": 2,
+  "five_hour_resets_at": "2026-11-24T04:40:00.224117+00:00",
+  "seven_day": 29,
+  "seven_day_resets_at": "2026-11-28T00:00:00.224135+00:00"
  }
 }
