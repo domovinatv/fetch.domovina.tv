@@ -143,3 +143,12 @@ projekcija u ovaj dokument i usporedba s cijenom Sonioxa/Speechmaticsa po satu.
 | datum (UTC) | serija $ | ::main $ | ukupno $ | epizoda | h zvuka | $/ep |
 |---|---|---|---|---|---|---|
 | 2026-11-23 (dio dana) | 0.50 | 4.26 | 4.76 | ~34 | — | ~0.14 |
+| 2026-11-24 (do 12 h UTC) | 1.40 (32 ep, 27,6 h) | 2.25 (18 ep, 10,2 h) | 3.66 | 50 | 37,8 | 0.073 |
+
+24.11.: Soniox bez kredita i Speechmatics 403 na sva 4 ključa od 03:32, pa je SVIH 50 Tier 2
+epizoda dobilo Canary + pyannote s Modala. Serija ≈ $0,044/ep ($0,051/h zvuka) s diarizacijom;
+pojedinačni `::main` ≈ $0,125/ep ($0,22/h), 2,8× skuplji. 18 pojedinačnih su epizode koje je
+`missing_report.js --enqueue` vratio u red POSLIJE serije (serija ih nije mogla vidjeti).
+Usporedba po satu zvuka: Speechmatics ~$0,80/h (Tier 2 inače), Soniox $0,12 + pyannoteAI ~$0,13
+= ~$0,25/h (Tier 1), Modal serija $0,05/h. Canary prijepis zatim prolazi KORAK 2.9 (Opus ispravak,
+kvota pretplate), što Soniox prijepis ne treba.
