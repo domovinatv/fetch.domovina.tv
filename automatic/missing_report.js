@@ -241,6 +241,9 @@ async function main() {
     const doc = { generated_at: new Date().toISOString(), from, to, window_days: WINDOW_DAYS, total, excluded,
         ...(pause ? { pause } : {}), ...(jobsError ? { jobs_error: jobsError } : {}), episodes };
 
+    // Popis za noćnu Modal seriju (modal_nightly_batch.js čita `--dry-run --json`): što bi
+    // `--enqueue` sada poslalo, izračunato PRIJE slanja.
+    const toEnqueue = episodes.filter(shouldEnqueue).map((e) => e.id);
     if (ENQUEUE) await enqueue(doc, { key, DRY, readUsage, gateAvailable: gate.available, jobsError });
 
     doc.sent_log = {};
@@ -249,7 +252,7 @@ async function main() {
     if (!DRY) {
         fs.writeFileSync(FILES.missing, JSON.stringify(doc, null, 1) + '\n');
     }
-    if (args.includes('--json')) console.log(JSON.stringify(doc, null, 1));
+    if (args.includes('--json')) console.log(JSON.stringify({ ...doc, to_enqueue: toEnqueue }, null, 1));
     else console.log(render(doc));
     if (jobsError) console.log(`   ⚠️  red nečitljiv (${jobsError}) — razlozi bez stanja jobova`);
 

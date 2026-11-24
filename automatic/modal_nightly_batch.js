@@ -6,7 +6,8 @@
  *
  * Što radi, PRIJE nego `enqueue_all_new.js` stvori jobove:
  *   1. Popis epizoda = ono što bi `enqueue_all_new.js` sada poslao (njegov `--dry-run`,
- *      dakle ISTA logika: lookback, process:false, postavke kanala, kvota, pokušaji).
+ *      dakle ISTA logika: lookback, process:false, postavke kanala, kvota, pokušaji),
+ *      plus ono što bi `missing_report.js --enqueue` poslao nakon njega (od 24.11.).
  *   2. Za svaku skine SAMO ono što job ionako skida u KORAKU 1 (`fetch.js --unlisted-url`,
  *      MP3 + 360p) i složi WAV (`convert_to_wav.js`), jednu po jednu.
  *   3. Sve WAV-ove pošalje na Modal u JEDNOM appu (`canary_modal.py::batch_list`): Canary
@@ -99,8 +100,8 @@ function candidates() {
         { cwd: REPO, encoding: 'utf8', env: process.env, maxBuffer: 64 * 1024 * 1024 });
     process.stdout.write((r.stdout || '').split('\n').filter(l => !/^\s*\(dry\)/.test(l)).join('\n'));
     if (r.status !== 0) {
-        console.log(`   ⚠️  enqueue_all_new.js --dry-run izašao s ${r.status} — bez serije`);
-        return [];
+        console.log(`   ⚠️  enqueue_all_new.js --dry-run izašao s ${r.status} — samo epizode koje fale`);
+        return missingCandidates(new Set());
     }
     const ids = [];
     for (const l of (r.stdout || '').split('\n')) {
@@ -114,7 +115,30 @@ function candidates() {
         let e; try { e = JSON.parse(line); } catch { continue; }
         if (ids.includes(e.id) && !byId.has(e.id)) byId.set(e.id, e);
     }
-    return ids.map(id => byId.get(id) || { id });
+    const fresh = ids.map(id => byId.get(id) || { id });
+    return [...fresh, ...missingCandidates(new Set(ids))];
+}
+
+// ─── 1a. + epizode koje fale (24.11.): never_seen / failed koje missing_report.js šalje ─────
+// u red NAKON enqueue_all_new.js. Bez ovoga su išle pojedinačno (::main, ~2,8× skuplje po
+// epizodi): 24.11. 18 od 50. Isti predikat kao njegov `--enqueue` (polje `to_enqueue`).
+function missingCandidates(skip) {
+    const r = spawnSync('node', [path.join(REPO, 'automatic/missing_report.js'), '--dry-run', '--json'],
+        { cwd: REPO, encoding: 'utf8', env: process.env, maxBuffer: 64 * 1024 * 1024 });
+    const out = r.stdout || '';
+    let doc;
+    try { doc = JSON.parse(out.slice(out.indexOf('{'), out.lastIndexOf('}') + 1)); } catch { doc = null; }
+    if (r.status !== 0 || !doc || !Array.isArray(doc.to_enqueue)) {
+        console.log(`   ⚠️  missing_report.js --dry-run --json nečitljiv (izlaz ${r.status}) — serija samo s novima`);
+        return [];
+    }
+    const byId = new Map(doc.episodes.map(e => [e.id, e]));
+    const extra = doc.to_enqueue.filter(id => !skip.has(id)).map(id => {
+        const e = byId.get(id) || {};
+        return { id, title: e.title, duration: e.duration, slug: e.slug };
+    });
+    console.log(`   ➕ epizode koje fale (missing_report): ${extra.length}`);
+    return extra;
 }
 
 // ─── 1b. Popis iz reda: jobovi koji već čekaju (--from-queue) ───────────────

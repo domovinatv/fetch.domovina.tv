@@ -444,6 +444,13 @@ run_step "dnevni snapshot novih epizoda" \
 # automatic/watchlist/ALL_EPISODES_REPORT.md), pa se pošalje nova. ALL_EPISODES_OFF=1 gasi.
 run_step "izvještaj obrade svih epizoda (kvota + vrijeme)" \
     node "$REPO_DIR/automatic/all_episodes_report.js" report || true
+# Točni datumi objave (YouTube Data API, YOUTUBE_API_KEY u .env) za arhivu po danima na
+# podcast.domovina.ai/dani/ — flat lista iz 5b daje samo „prije N dana". Inkrementalno:
+# zadnjih 7 dana po kanalu, ~1 000 jedinica kvote od 10 000/dan. Ide PRIJE 5c i PRIJE
+# noćne Modal serije (24.11.): serija čita i popis epizoda koje fale (missing_report.js), a on
+# radi nad backfill.json.
+run_step "točni datumi objave (YouTube Data API)" \
+    node "$REPO_DIR/automatic/backfill_days.js" || true
 # Noćna Modal serija (23.11.2026., ALTERNATIVNI način, prekidač MODAL_NIGHTLY_BATCH=1 u .env):
 # prije enqueuea skine audio svih epizoda koje će dobiti job i obradi ih na Modalu u JEDNOM
 # appu (Canary + pyannote, model se učita jednom). Jobovi ostaju isti; KORAK 2.6 vidi
@@ -454,11 +461,6 @@ run_step "noćna Modal serija (MODAL_NIGHTLY_BATCH)" \
 run_step "obrada svih novih epizoda (enqueue u pipeline.domovina.ai)" \
     node "$REPO_DIR/automatic/enqueue_all_new.js" || true
 
-# Točni datumi objave (YouTube Data API, YOUTUBE_API_KEY u .env) za arhivu po danima na
-# podcast.domovina.ai/dani/ — flat lista iz 5b daje samo „prije N dana". Inkrementalno:
-# zadnjih 7 dana po kanalu, ~1 000 jedinica kvote od 10 000/dan. Ide PRIJE 5c.
-run_step "točni datumi objave (YouTube Data API)" \
-    node "$REPO_DIR/automatic/backfill_days.js" || true
 
 # Što fali na domovina.ai i zašto (23.11.2026.): originali iz backfill.json za zadnjih 14
 # dana minus obrađeni (article.json u R2 key cacheu), povučeni kanali i [PROMO] →

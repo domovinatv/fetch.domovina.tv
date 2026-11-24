@@ -152,3 +152,18 @@ pojedinačni `::main` ≈ $0,125/ep ($0,22/h), 2,8× skuplji. 18 pojedinačnih s
 Usporedba po satu zvuka: Speechmatics ~$0,80/h (Tier 2 inače), Soniox $0,12 + pyannoteAI ~$0,13
 = ~$0,25/h (Tier 1), Modal serija $0,05/h. Canary prijepis zatim prolazi KORAK 2.9 (Opus ispravak,
 kvota pretplate), što Soniox prijepis ne treba.
+
+## Popravak 24.11.: u seriju idu i epizode koje fale
+
+24.11. je 18 od 50 Tier 2 epizoda išlo pojedinačno (`::main`, $0,22/h zvuka umjesto $0,05/h u
+seriji). To su bile epizode koje je `missing_report.js --enqueue` poslao u red nakon serije.
+Popravak:
+
+- `missing_report.js --dry-run --json` vraća i `to_enqueue` (isti predikat kao `--enqueue`).
+- `modal_nightly_batch.js` popisu iz `enqueue_all_new.js --dry-run` dodaje `to_enqueue`
+  (bez duplikata, nove epizode prve).
+- U nightlyju `backfill_days.js` ide prije serije, jer `missing_report.js` čita `backfill.json`.
+- `MODAL_NIGHTLY_BATCH_MAX=60` u `.env` (default 40), jer je noću ~25 novih + do ~25 koje fale.
+
+Serija štedi novac samo dok cloud ASR ne radi. Kad Soniox i Speechmatics rade, job ionako
+uzme njihov prijepis, pa je Canary iz serije samo rezerva za ~$0,05/h.
