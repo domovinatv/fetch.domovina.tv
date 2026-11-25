@@ -5452,14 +5452,344 @@
    "sent_at": "2026-11-24T03:32:12.241Z",
    "result": "created",
    "job_id": "ca11da33-278f-4900-a52e-8e91cf735064"
+  },
+  "AedSJdpEdw8": {
+   "date": "2026-11-25",
+   "slug": "atma-podcast",
+   "title": "ČUVAJTE SE UROKLJIVOG POGLEDA: Zla sreća preko fotografije | Dr. Sherif Mohammed | ATMA Podcast",
+   "duration": 4243,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:55.631Z",
+   "result": "created",
+   "job_id": "c6461065-0492-4547-9723-67964668a20a"
+  },
+  "dqZOhnOMz-E": {
+   "date": "2026-11-25",
+   "slug": "domovinski-rat-borna-marinic",
+   "title": "GDJE SI BIO ‘91? - Zoran Žafran - KILOMETRIMA U NEPRIJATELJSKOJ DUBINI, JEDINI PREŽIVIO",
+   "duration": 13297,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:55.918Z",
+   "result": "created",
+   "job_id": "475f1e01-793c-42d9-914e-148dcb732ec1"
+  },
+  "yIoI13Kmq-o": {
+   "date": "2026-11-25",
+   "slug": "eduza-show",
+   "title": "Kako se kroz priču predstaviti na networking eventu | Martina Hranj",
+   "duration": 4896,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:56.303Z",
+   "result": "created",
+   "job_id": "da9b96f1-cd73-4696-a0f6-f1a3ae4a2d87"
+  },
+  "SxTf-ULzF2w": {
+   "date": "2026-11-25",
+   "slug": "explora-hrt",
+   "title": "Explora 24.11.2026. Tito i Tesla",
+   "duration": 3109,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:56.556Z",
+   "result": "created",
+   "job_id": "003d0780-358b-4305-a332-694cc739b6d8"
+  },
+  "ZUmkR8mGfA4": {
+   "date": "2026-11-25",
+   "slug": "laudato-tv-emisije",
+   "title": "Djeca pjevaju Domu mom│Klub Prijatelja",
+   "duration": 969,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:56.791Z",
+   "result": "created",
+   "job_id": "4b9d6391-a952-42c0-9b03-942fca60be11"
+  },
+  "xTJ7GGpejqw": {
+   "date": "2026-11-25",
+   "slug": "laudato-tv-emisije",
+   "title": "Pina Budišin │Svi za stol",
+   "duration": 3800,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:57.039Z",
+   "result": "created",
+   "job_id": "74d53c7b-add3-4a68-8536-4d0ceaee11d9"
+  },
+  "jTR88UjJntY": {
+   "date": "2026-11-25",
+   "slug": "laudato-tv-emisije",
+   "title": "Određuju li rane moj život?│Izdvojeno",
+   "duration": 2885,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:57.289Z",
+   "result": "created",
+   "job_id": "49c02d9b-80da-418e-8cbf-54b1e9bf3651"
+  },
+  "l-Z7q0stJzw": {
+   "date": "2026-11-25",
+   "slug": "laudato-tv-emisije",
+   "title": "Damir Topić │Čujte i počujte",
+   "duration": 1130,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:57.485Z",
+   "result": "created",
+   "job_id": "07445242-470e-422f-b73d-4962764c878b"
+  },
+  "Apzt2ygalRo": {
+   "date": "2026-11-25",
+   "slug": "laudato-tv-emisije",
+   "title": "[UŽIVO] Radost ljubavi u braku",
+   "duration": 3199,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:57.688Z",
+   "result": "created",
+   "job_id": "143d2964-8625-41d1-b541-b5ccc5229d43"
+  },
+  "GLIVAcV2o-0": {
+   "date": "2026-11-25",
+   "slug": "ofenziva-sportski-podcast",
+   "title": "Krepat ma ne molat: Rijeka - Gorica 2:0",
+   "duration": 2726,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:57.866Z",
+   "result": "created",
+   "job_id": "42721947-ae3e-4fbe-9950-d2181ce50177"
+  },
+  "MceAhCEqBH8": {
+   "date": "2026-11-25",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1520 - Ratko i Teša Tešanović",
+   "duration": 6170,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:58.116Z",
+   "result": "created",
+   "job_id": "73dff529-acb6-4560-8f00-9ef5ddae52f4"
+  },
+  "7TJ26JAQVeo": {
+   "date": "2026-11-25",
+   "slug": "prvi-glas-telegram",
+   "title": "Prijavio sam napastovanje djece, pa dobio otkaz",
+   "duration": 2473,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:58.296Z",
+   "result": "created",
+   "job_id": "884cae05-dba3-42c4-b92a-c1713dea1549"
+  },
+  "qeTCfjZv_9c": {
+   "date": "2026-11-25",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Obiteljska tradicija - 02. dan - Sveti Maksimilijan Kolbe - Upoznaj sveca kroz 7 dana",
+   "duration": 971,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:58.499Z",
+   "result": "created",
+   "job_id": "fec28c49-c2fb-44d4-bd2b-b15a9cb76260"
+  },
+  "Qfl5rJ43JHE": {
+   "date": "2026-11-25",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Hodočašće u Lourdes za osobe sa invaliditetom - emisija - S Kristom nositi križ",
+   "duration": 1541,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:58.680Z",
+   "result": "created",
+   "job_id": "2f72ae7d-de79-4fad-8817-b653a965bf32"
+  },
+  "dem_b7k-pSQ": {
+   "date": "2026-11-25",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Primjer živog Evanđelja - Kardinal Ernest Simoni Troshani - Svjetlo dobra",
+   "duration": 971,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:58.913Z",
+   "result": "created",
+   "job_id": "fa3cbfd3-c9d0-4cf9-a3a1-070715bbba0d"
+  },
+  "PQLOz_M3WRI": {
+   "date": "2026-11-25",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Rane, homoseksualnost, obracenje i oprost",
+   "duration": 2693,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:59.104Z",
+   "result": "created",
+   "job_id": "f6f9fc32-e82b-4d0b-aa8a-81937336f055"
+  },
+  "dockX1QPVDA": {
+   "date": "2026-11-25",
+   "slug": "sportske-novosti-mundocast",
+   "title": "VAR soba #14 \"Layec nije donio ništa dobroga hrvatskom nogometu, suđenje je lošije nego ranije\"",
+   "duration": 2857,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:59.297Z",
+   "result": "created",
+   "job_id": "d7d55d5a-c1f2-4fe5-8288-9eb513896e97"
+  },
+  "cT8uJBot3JE": {
+   "date": "2026-11-25",
+   "slug": "zaja-mind",
+   "title": "Mirela Anić 🎙️- Kako napokon biti sretan i zadovoljan u svom tijelu",
+   "duration": 4844,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:59.479Z",
+   "result": "created",
+   "job_id": "f83e278c-3366-467a-81a0-a50b0bb56fc4"
+  },
+  "_xA06vI0A0A": {
+   "date": "2026-11-25",
+   "slug": "podcast-s-barbarom",
+   "title": "Hana Matić (SMOi): Ako zabrane apartmane, što slijedi? Jesmo mi u Jugoslaviji? | S Barbarom #125",
+   "duration": 6678,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:59.687Z",
+   "result": "created",
+   "job_id": "5bdd38c5-fd25-4204-9160-ad6c445bf101"
+  },
+  "OdIjqqV2Rs8": {
+   "date": "2026-11-25",
+   "slug": "vox-medicus",
+   "title": "ALZHEIMER I DEMENCIJA, prof. dr. sc. prim. Nataša Klepac, neurologinja, KBC Zagreb",
+   "duration": 1695,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:15:59.877Z",
+   "result": "created",
+   "job_id": "e756a7b2-ba98-4b6f-b8f4-a08e5c5ff7e4"
+  },
+  "XkpFkanL-wo": {
+   "date": "2026-11-25",
+   "slug": "podcast-s-brezom",
+   "title": "TEGELTIJA O DINASTIJI DODIK: Igor ima podršku naroda, a samoopredjeljenje RS treba ući u novi Ustav!",
+   "duration": 3303,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:00.117Z",
+   "result": "created",
+   "job_id": "7d3fdefa-e1ee-47d9-9b5c-7fe8c0b26d3d"
+  },
+  "fDsS1sZFAtc": {
+   "date": "2026-11-25",
+   "slug": "hajducka-storija",
+   "title": "SVI ZA ISTI ŠĆAP | Hajduk blizu ostvarenja sna",
+   "duration": 2028,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:00.305Z",
+   "result": "created",
+   "job_id": "8e214b6d-af2c-41bb-abc6-cde578acf36b"
+  },
+  "0KEHHDHi1AE": {
+   "date": "2026-11-25",
+   "slug": "radio-benkovac",
+   "title": "Masaža: Više od opuštanja - Anđela Montana",
+   "duration": 3123,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:00.489Z",
+   "result": "created",
+   "job_id": "d1afa425-b1ba-44bd-8e4f-d17827ba3cd4"
+  },
+  "-AeNNTd7ta0": {
+   "date": "2026-11-25",
+   "slug": "nadji-nacin",
+   "title": "Ovako izgleda mindset nakon 10+ godina rada na njemu",
+   "duration": 1855,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:00.692Z",
+   "result": "created",
+   "job_id": "e7e4c70d-48cb-4ef9-ac06-e0f3b58af0d1"
+  },
+  "fgLaCHOMuGA": {
+   "date": "2026-11-25",
+   "slug": "izbacene-scene",
+   "title": "You Can See Everything | Režija jedne prijevare",
+   "duration": 2062,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:00.917Z",
+   "result": "created",
+   "job_id": "999f121a-4d14-4378-9708-c957eef8e416"
+  },
+  "e9dI-BwbxAY": {
+   "date": "2026-11-25",
+   "slug": "pravi-smjer",
+   "title": "Pravi smjer 24. listopada 2026.",
+   "duration": 1805,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:01.103Z",
+   "result": "created",
+   "job_id": "c508de7a-eb77-4e97-96ee-916302502a55"
+  },
+  "HTpxYn_K-aw": {
+   "date": "2026-11-25",
+   "slug": "poslovni-svijet-s-ilijom-jandricem",
+   "title": "Kresimir Budisa - Poslovni svijet",
+   "duration": 3628,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:01.306Z",
+   "result": "created",
+   "job_id": "f2d9fcfc-6027-4cb1-9db6-aa9ebdbab926"
+  },
+  "b_q8PtuUESM": {
+   "date": "2026-11-25",
+   "slug": "radio-marija-hr-emisije",
+   "title": "ODGOJ ZA IDEALE | Josip Martinović i Duje Bobić | Oblikuje li tehnologija našu sliku Boga?",
+   "duration": 2986,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:01.497Z",
+   "result": "created",
+   "job_id": "cc6d80d4-0d93-4f63-be6a-336f19f1d1e2"
+  },
+  "Sz9ZC1PAIzE": {
+   "date": "2026-11-25",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Što državni proračun donosi građanima u 2027.?",
+   "duration": 1768,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:01.690Z",
+   "result": "created",
+   "job_id": "a0179254-c169-4804-9b31-5cd23894057c"
+  },
+  "-7X6V2YB8jE": {
+   "date": "2026-11-25",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "Is It Worth Starting a Podcast for My Business? (Legit Reasons You Might Be Worried)",
+   "duration": 613,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:01.877Z",
+   "result": "created",
+   "job_id": "16911574-9c27-4afe-b990-a5baabba8bf6"
+  },
+  "NOGveP_OweY": {
+   "date": "2026-11-25",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "Why Repeating Yourself on Your Podcast Is NOT Lazy Content Creation (Podcasting Tips)",
+   "duration": 1216,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:02.076Z",
+   "result": "created",
+   "job_id": "c4491f20-01a0-4ffa-86dc-959dcd13eb49"
+  },
+  "CTxUHct0HXc": {
+   "date": "2026-11-25",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "3 Simple Podcast Format Ideas for Beginners (Start Without Committing Long-Term)",
+   "duration": 961,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:02.261Z",
+   "result": "created",
+   "job_id": "fa03bfb9-8551-4535-974b-55055cd3c728"
+  },
+  "0ZvF2EVKvH8": {
+   "date": "2026-11-25",
+   "slug": "podcasting-for-solopreneurs",
+   "title": "If You’re Still \"Thinking About Starting a Podcast,\" Listen to This",
+   "duration": 1128,
+   "attempts": 1,
+   "sent_at": "2026-11-25T04:16:02.492Z",
+   "result": "created",
+   "job_id": "1df1bb63-f90f-4122-b12b-bd6e3c862a17"
   }
  },
- "updated_at": "2026-11-24T03:32:12.440Z",
+ "updated_at": "2026-11-25T04:16:02.686Z",
  "last_enqueue_usage": {
-  "at": "2026-11-24T03:32:12.440Z",
-  "five_hour": 2,
-  "five_hour_resets_at": "2026-11-24T04:40:00.224117+00:00",
-  "seven_day": 29,
-  "seven_day_resets_at": "2026-11-28T00:00:00.224135+00:00"
+  "at": "2026-11-25T04:16:02.686Z",
+  "five_hour": 15,
+  "five_hour_resets_at": "2026-11-25T05:39:59.565979+00:00",
+  "seven_day": 52,
+  "seven_day_resets_at": "2026-11-27T23:59:59.565998+00:00"
  }
 }
