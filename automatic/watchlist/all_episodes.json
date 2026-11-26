@@ -5538,10 +5538,10 @@
    "slug": "laudato-tv-emisije",
    "title": "[UŽIVO] Radost ljubavi u braku",
    "duration": 3199,
-   "attempts": 1,
-   "sent_at": "2026-11-25T04:15:57.688Z",
+   "attempts": 2,
+   "sent_at": "2026-11-26T05:33:35.251Z",
    "result": "created",
-   "job_id": "143d2964-8625-41d1-b541-b5ccc5229d43"
+   "job_id": "baec5af4-7ffb-4f48-9b98-51b654cd84fc"
   },
   "GLIVAcV2o-0": {
    "date": "2026-11-25",
@@ -5782,14 +5782,354 @@
    "sent_at": "2026-11-25T04:16:02.492Z",
    "result": "created",
    "job_id": "1df1bb63-f90f-4122-b12b-bd6e3c862a17"
+  },
+  "eHi5sCjGUrc": {
+   "date": "2026-11-26",
+   "slug": "don-stipe-mustapic",
+   "title": "Kako moliti za druge i oprostiti? | fra Ante Vučković",
+   "duration": 2845,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:35.735Z",
+   "result": "created",
+   "job_id": "c4652375-8cb6-4aa7-9d25-585f3cacc7e2"
+  },
+  "61vypaokkaE": {
+   "date": "2026-11-26",
+   "slug": "hopecast",
+   "title": "Kako se nanovo roditi? Što Isus zapravo želi promijeniti u tebi? Vedran Manestar",
+   "duration": 4702,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:36.095Z",
+   "result": "created",
+   "job_id": "e31fd74d-80e0-4395-aa34-27d01ea20232"
+  },
+  "5MEhnXDWHvc": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "Kamilica │Zlatni Savjeti",
+   "duration": 1994,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:36.379Z",
+   "result": "created",
+   "job_id": "a3257f02-6fb4-4956-98fa-851d7422e27c"
+  },
+  "5q0DIhwkDxE": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "„Zauzimanje u gospodarstvu i politici način je izgradnje mira”│Papa s nama",
+   "duration": 3631,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:36.632Z",
+   "result": "created",
+   "job_id": "36cb7347-2022-40ea-b583-4c7324da58f5"
+  },
+  "HMcOMYjsUPo": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "Kako samoću pretvoriti u dar, a ne u izolaciju? | Izdvojeno",
+   "duration": 2427,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:36.912Z",
+   "result": "created",
+   "job_id": "57d32a42-d3a6-4593-a2d1-0be2d97be6af"
+  },
+  "sw352y-rELI": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "Ljubomora u braku | Radost ljubavi u braku",
+   "duration": 3419,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:37.186Z",
+   "result": "created",
+   "job_id": "ffa6fae2-8291-4a93-adb7-2f12b5bd24d1"
+  },
+  "dxFnkbJnep8": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "Život kršćana u Svetoj Zemlji │Vijesti iz Svete Zemlje",
+   "duration": 1279,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:37.441Z",
+   "result": "created",
+   "job_id": "8084a9d3-17f4-45d5-9e8d-076bf183ece0"
+  },
+  "dYN-A456RgE": {
+   "date": "2026-11-26",
+   "slug": "laudato-tv-emisije",
+   "title": "[UŽIVO] Papa s nama - Opća audijencija Svetog Oca",
+   "duration": 3644,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:37.733Z",
+   "result": "created",
+   "job_id": "9a72ac8d-e312-4425-8f16-3de098a120a1"
+  },
+  "pKLjQCYqXO4": {
+   "date": "2026-11-26",
+   "slug": "lider-podcast",
+   "title": "Tko će preživjeti SUDAR banaka i Web3 svijeta? | Luka Sučić x Fintech Talks 16",
+   "duration": 2227,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:37.952Z",
+   "result": "created",
+   "job_id": "c714fed5-d571-4ba4-830b-5c488f7656f8"
+  },
+  "UR_pd98LgNU": {
+   "date": "2026-11-26",
+   "slug": "podcast-inkubator-extra-runda",
+   "title": "5Rak vs Hambi - Extra Runda #160 II KRAJ JIRIJA?! STIRLINGU HIGHLIGHT KO!",
+   "duration": 5007,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:38.283Z",
+   "result": "created",
+   "job_id": "13c1ba8f-9f47-4d0b-944a-8f431dc20a15"
+  },
+  "wpTRmAEvYrQ": {
+   "date": "2026-11-26",
+   "slug": "projekt-velebit",
+   "title": "PODCAST VELEBIT - Peternel: Rat Europe i Rusije je gotova stvar",
+   "duration": 5412,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:38.527Z",
+   "result": "created",
+   "job_id": "5f4f8cb3-feec-4783-8fd4-4c45a5ac1fdc"
+  },
+  "4sOUBOzBwUg": {
+   "date": "2026-11-26",
+   "slug": "prvi-glas-telegram",
+   "title": "Snimka i pismo: Čime Dijana Zadravec drži HDZ u šaci?",
+   "duration": 1258,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:38.747Z",
+   "result": "created",
+   "job_id": "a8dc005f-f3ba-4cf1-9662-98ea1381546d"
+  },
+  "eWFCtFivlso": {
+   "date": "2026-11-26",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Vitez Immaculate - 03. dan - Sveti Maksimilijan Kolbe - Upoznaj sveca kroz 7 dana",
+   "duration": 971,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:38.963Z",
+   "result": "created",
+   "job_id": "275693f1-2ee5-4bb2-8d2b-75be73de9fa9"
+  },
+  "XODkqkVLWvM": {
+   "date": "2026-11-26",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Isus o vjeri sv Tri Kralja",
+   "duration": 1813,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:39.195Z",
+   "result": "created",
+   "job_id": "088b1cda-e7a9-4731-b1b8-2cc0c5100719"
+  },
+  "2fSypN2fV8M": {
+   "date": "2026-11-26",
+   "slug": "tribina-nba-kosarka",
+   "title": "Denver, Minnesota i razočaranja | Tribina NBA",
+   "duration": 6080,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:39.477Z",
+   "result": "created",
+   "job_id": "fc92abb1-b256-415b-992e-c9a714784443"
+  },
+  "XuJhhwZGgMA": {
+   "date": "2026-11-26",
+   "slug": "tribina-nfl",
+   "title": "Dominacija, Južnjačka utjeha i oproštaji | Tribina NFL",
+   "duration": 5361,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:39.745Z",
+   "result": "created",
+   "job_id": "f1015dc7-d80b-427e-91bb-e55e41d4c7ed"
+  },
+  "5sKNOxc6nNo": {
+   "date": "2026-11-26",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za četvrtak, 26.11.2026.",
+   "duration": 2943,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:39.985Z",
+   "result": "created",
+   "job_id": "9f7f32a5-92ba-473d-b4c6-8c923c5a7e1a"
+  },
+  "NdMNTfCfdLc": {
+   "date": "2026-11-26",
+   "slug": "druga-strana-medalje",
+   "title": "Zadarska politika, stolni tenis i vjera | Daniel Mijatović (aktivist) | DSM #73",
+   "duration": 7425,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:40.237Z",
+   "result": "created",
+   "job_id": "fc81cf71-5bcf-48e1-9a28-e611e5643228"
+  },
+  "sQCGnM3Xhms": {
+   "date": "2026-11-26",
+   "slug": "kisobran-uniri-podcast",
+   "title": "🔵 KIŠOVIZIJA #103 | Kišobran UNIRI | STIFF, Advent",
+   "duration": 2485,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:40.432Z",
+   "result": "created",
+   "job_id": "48035dbb-5367-4ce2-9ba1-1fd195a02198"
+  },
+  "yVBYdfGAurE": {
+   "date": "2026-11-26",
+   "slug": "hzv-siempre",
+   "title": "NAJAVA #4. UTAKMICE U SKUPINI KL; HNK HAJDUK - SINT-TRUIDENSE VV",
+   "duration": 12728,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:40.642Z",
+   "result": "created",
+   "job_id": "a783343c-577a-4700-bf30-7d082598e8b9"
+  },
+  "-ZPLiP0ENv4": {
+   "date": "2026-11-26",
+   "slug": "hajducka-storija",
+   "title": "URA S TONĆEM #33 | Teorije zavjere",
+   "duration": 4465,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:40.877Z",
+   "result": "created",
+   "job_id": "d6af3580-4057-4ea4-b032-8b30257c42b5"
+  },
+  "pt4-Ny6TMWk": {
+   "date": "2026-11-26",
+   "slug": "nlo-arhivist",
+   "title": "Astronomi i AATIP 11: Korado Korlević komentira slučaj Nimitz",
+   "duration": 2488,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:41.077Z",
+   "result": "created",
+   "job_id": "4d7ed2db-c3e5-4ad0-9e12-ce653c989e74"
+  },
+  "Adam46Hj8Vg": {
+   "date": "2026-11-26",
+   "slug": "razgovor-s-razlogom",
+   "title": "Razgovor s razlogom: Ivo Lučić",
+   "duration": 1791,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:41.293Z",
+   "result": "created",
+   "job_id": "54f01c26-76ab-4cac-b22b-59eecc868d34"
+  },
+  "kDay3dRZ9o0": {
+   "date": "2026-11-26",
+   "slug": "istinom-do-gola",
+   "title": "Istinom do gola 25.11.2026. - Janko Janković",
+   "duration": 2564,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:41.516Z",
+   "result": "created",
+   "job_id": "5106141d-83d8-49c9-98ce-b67ef9413e08"
+  },
+  "LAvVPGrL0gA": {
+   "date": "2026-11-26",
+   "slug": "osvrt-tv-jadran",
+   "title": "Osvrt 25.11.2026.",
+   "duration": 1812,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:41.749Z",
+   "result": "created",
+   "job_id": "d7c619a3-f2f1-4f6c-bffa-7479ea9664fc"
+  },
+  "kKtisW6bZ_I": {
+   "date": "2026-11-26",
+   "slug": "osvrt-tv-jadran",
+   "title": "Osvrt 18.11.2026. Draška Krajina, Gabijela Stipanović",
+   "duration": 1765,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:41.949Z",
+   "result": "created",
+   "job_id": "8ca9c3ef-dba8-443b-a38b-bb53d65f6cef"
+  },
+  "IXUioKOf1_U": {
+   "date": "2026-11-26",
+   "slug": "argumenti-sezona-8",
+   "title": "Argumenti - Cijena šutnje i lošeg sustava: Koje su promjene nužne nakon smrti Kristiana Periša?",
+   "duration": 2735,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:42.183Z",
+   "result": "created",
+   "job_id": "888ac096-e49c-45c3-8d50-93c472713e4b"
+  },
+  "vkMADV55J0c": {
+   "date": "2026-11-26",
+   "slug": "hkm-u-zdravlju-i-bolesti",
+   "title": "U zdravlju i bolesti - Gripa",
+   "duration": 2285,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:42.417Z",
+   "result": "created",
+   "job_id": "c1a8fddc-9034-4d37-96f1-975973cc7c00"
+  },
+  "LV7cILaHqiw": {
+   "date": "2026-11-26",
+   "slug": "radio-marija-hr-emisije",
+   "title": "Sedma u Duhu i s duhom | Mladi o sakramentu pomirenja",
+   "duration": 3008,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:42.627Z",
+   "result": "created",
+   "job_id": "ccf62a60-192c-426a-8d3c-0d2ba3173371"
+  },
+  "CMOswJvkjIs": {
+   "date": "2026-11-26",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Zrcalo 16. i 23. 11. 2026. – Anka Jerković, Međugorje",
+   "duration": 2408,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:42.900Z",
+   "result": "created",
+   "job_id": "8a6baf06-e53c-4864-8f55-f803077d12ac"
+  },
+  "WJK_O-cc7zU": {
+   "date": "2026-11-26",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Kocka vedrine 21. 11. 2026. – Marija Lovrić i svojoj slikovnici 'Tri mačića i velika avantura'",
+   "duration": 1281,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:43.102Z",
+   "result": "created",
+   "job_id": "dd709b4d-04e0-40a0-89a3-44af090e120d"
+  },
+  "FLGQnTYeIQ4": {
+   "date": "2026-11-26",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Put srca 25.11.2026.–Magdalena Perić Bralo, mag. rehab. educ: Svako dijete treba biti dio zajednice",
+   "duration": 1040,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:43.305Z",
+   "result": "created",
+   "job_id": "19f34cb3-7b71-44cd-8e5d-c81e224dcded"
+  },
+  "ORjr2K2DKfI": {
+   "date": "2026-11-26",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Predstavljanje knjige i izložba slika Franjo Asišk - 29. obljetnica RPMM",
+   "duration": 5278,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:43.510Z",
+   "result": "created",
+   "job_id": "a04602e7-fc43-4c93-b53d-0c080d042a2a"
+  },
+  "kwSbsjeWDyg": {
+   "date": "2026-11-26",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno: Kakvo je stanje u hrvatskom zdravstvu?",
+   "duration": 1871,
+   "attempts": 1,
+   "sent_at": "2026-11-26T05:33:43.717Z",
+   "result": "created",
+   "job_id": "2e21c24e-3c0e-4b41-bff8-ad5c5d3eaaf1"
   }
  },
- "updated_at": "2026-11-25T04:16:02.686Z",
+ "updated_at": "2026-11-26T05:33:43.913Z",
  "last_enqueue_usage": {
-  "at": "2026-11-25T04:16:02.686Z",
-  "five_hour": 15,
-  "five_hour_resets_at": "2026-11-25T05:39:59.565979+00:00",
-  "seven_day": 52,
-  "seven_day_resets_at": "2026-11-27T23:59:59.565998+00:00"
+  "at": "2026-11-26T05:33:43.913Z",
+  "five_hour": 0,
+  "five_hour_resets_at": null,
+  "seven_day": 75,
+  "seven_day_resets_at": "2026-11-28T00:00:00.177239+00:00"
  }
 }

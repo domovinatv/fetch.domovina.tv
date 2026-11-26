@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-11-25T04:16:15.020Z",
+  "generated_at": "2026-11-26T05:35:18.834Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 114,
+  "count": 118,
   "videos": {
+    "NdMNTfCfdLc": {"slug":"druga-strana-medalje","date":"2026-11-25","langs":["en","hr"]},
+    "pSpy17bHTHY": {"slug":"subclub","date":"2026-11-25","langs":["en"]},
+    "7TJ26JAQVeo": {"slug":"prvi-glas-telegram","date":"2026-11-24","langs":["hr"]},
+    "AedSJdpEdw8": {"slug":"atma-podcast","date":"2026-11-24","langs":["hr"]},
     "dIJvedJApUU": {"slug":"druga-strana-medalje","date":"2026-11-23","langs":["hr"]},
     "H7uGejHoWso": {"slug":"games-croatia","date":"2026-11-23","langs":["en","hr"]},
     "nDEgauYLUes": {"slug":"podkist-fer","date":"2026-11-23","langs":["hr"]},
