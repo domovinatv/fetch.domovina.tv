@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-26
+**Generirano:** 2026-11-27
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 496 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 262 · 🔴 neaktivan: 155 · ⚪ nepoznato: 89 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 263 · 🔴 neaktivan: 155 · ⚪ nepoznato: 88 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -47,11 +47,11 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **(Ne)uspjeh prvaka** | [@neuspjehprvaka](https://www.youtube.com/@neuspjehprvaka/videos) | 1 | 75K | 186 | 🟢 aktivan | Slaven Bilić, Mirza Džomba, Mario Stanić | `sport` `football` `personal-development` | ✅ |
 | **40 dana za život - Hrvatska za Život** | [@40danazaživot-HrvatskazaŽivot](https://www.youtube.com/@40danaza%C5%BEivot-Hrvatskaza%C5%BDivot/videos) | 3 | 10K | — | ⚪ nepoznato | — | `pro-life` `religious-catholic` | ⚠️ |
-| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 820 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
+| **AbbaCast** | [@AbbaCastPodcast](https://www.youtube.com/@AbbaCastPodcast/videos) | 4 | 821 | — | 🟢 aktivan | Antonio Culej, Marija Culej | `religious-catholic` `entrepreneurship` `testimonies` | — |
 | **Ad Deum Podcast** | [@AdDeumPodcast](https://www.youtube.com/@AdDeumPodcast/videos) | 3 | 13K | 20 | 🟢 aktivan | Fra Andrija Majić, Fra Ivo Rastočić | `religious-catholic` | ✅ |
 | **Božanstvena Komedija** | [@BožanstvenaKomedija](https://www.youtube.com/@Bo%C5%BEanstvenaKomedija/videos) | 3 | 26K | — | ⚪ nepoznato | — | `religious-catholic` `domoljubni` | ⚠️ |
 | **Božja pobjeda** | [@Božjapobjeda](https://www.youtube.com/@Bo%C5%BEjapobjeda/videos) | 3 | 65K | — | ⚪ nepoznato | — | `religious-catholic` | ⚠️ |
-| **Budi FRAjer** | [@budiFRAjer](https://www.youtube.com/@budiFRAjer/videos) | 3 | 63K | — | ⚪ nepoznato | — | `religious-catholic` `franciscan` | ⚠️ |
+| **Budi FRAjer** | [@budiFRAjer](https://www.youtube.com/@budiFRAjer/videos) | 3 | 64K | — | ⚪ nepoznato | — | `religious-catholic` `franciscan` | ⚠️ |
 | **Catholic Futurist** | [@CatholicFuturist](https://www.youtube.com/@CatholicFuturist/videos) | 3 | 213 | — | ⚪ nepoznato | — | `religious-catholic` `technology` | ⚠️ |
 | **Cryptoverse.hr — Kripto caffe** | [UCcQ4HZUBV_xpk1PbtQ_2ngw](https://www.youtube.com/playlist?list=PLsx7E4xTT6fHIKuIkQzgfPRErNd9vevmb) | 3 | 17K | 55 | 🟢 aktivan | Veljko Skenderija | `technology` `finance` `interview` | ✅ |
 | **DijaLOG - Logopedski podcast** | — | 3 | 0 | 54 | ⚪ nepoznato | Laura Marinović, Ines Perović, Tamara Vlahović, Angela Peršun | `speech-therapy` `education` `health` | ✅ |
@@ -60,8 +60,8 @@ Kanali aktivno u `automatic/refresh_podcasts.sh`. Sortirano abecedno.
 | **Eho Projekt** | [@ehoprojekt](https://www.youtube.com/@ehoprojekt/videos) | 3 | 13K | — | ⚪ nepoznato | — | `religious-catholic` `education` | ⚠️ |
 | **Founder Talks (Promocija znanosti)** | [UCOkyFO3dsH1Yq_G-eRApUfw](https://www.youtube.com/playlist?list=PLCbPTnlOFH9nECXcSmBkcCKVWO9o_lDXS) | 3 | 6K | 5 | 🟢 aktivan | — | `entrepreneurship` `business` `technology` `interview` | ✅ |
 | **Franjina ekonomija** | [@franjinaekonomijahrvatska8604](https://www.youtube.com/@franjinaekonomijahrvatska8604/videos) | 3 | 83 | — | ⚪ nepoznato | — | `economics` `religious-catholic` | ⚠️ |
-| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 604 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
-| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 377 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
+| **Glas Koncila** | [@gkonline1](https://www.youtube.com/@gkonline1/videos) | 3 | 605 | — | ⚪ nepoznato | — | `religious-catholic` `media` | ⚠️ |
+| **Glas poduzetnika** | [@glaspoduzetnika8972](https://www.youtube.com/@glaspoduzetnika8972/videos) | 3 | 376 | — | ⚪ nepoznato | Hrvoje Bujas | `business` `advocacy` | ⚠️ |
 | **Gorica TV** | [@GoricaTV](https://www.youtube.com/@GoricaTV/videos) | 3 | — | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
 | **HCPI Podcast - Potresne priče** | [@hrvatskicentarzapotresnoin1185](https://www.youtube.com/playlist?list=PLsugSPwJmdWkkNCOh36nDbakuctPmPmSn) | 4 | 240 | 2 | 🟢 aktivan | — | `education` `science` `engineering` | ✅ |
 | **Hercegovina Info** | [@HercegovinaInfo2](https://www.youtube.com/@HercegovinaInfo2/videos) | 3 | 4K | — | ⚪ nepoznato | — | `regional-media` | ⚠️ |
@@ -675,7 +675,7 @@ Podcasti uglavnom izvan trenutne uske niše DOMOVINA.tv. Razmotriti za Fazu 3 (�
 | **Split Tech City Podcast** | [@splittechcity](https://www.youtube.com/@splittechcity) | 3 | — | — | ⚪ nepoznato | Split Tech City | `technology` `entrepreneurship` `domoljubni` | ✅ |
 | **Sportklub Podcast** | [UChpzBje9Ro6CComXe3BgNaw](https://www.youtube.com/playlist?list=PLUfoX9GOCZD-sY_i79cJ5QcrFla4ZsOL0) | 3 | — | 50 | ⚪ nepoznato | Ivan Ivković, Josip Juraj Pajvot | `sport` | ⚠️ |
 | **Sportske Novosti Podcast** | — | 3 | — | 50 | ⚪ nepoznato | — | `sport` | ⚠️ |
-| **Stanarica podcast o nekretninama** | [@Stanarica](https://www.youtube.com/@Stanarica) | 3 | — | — | ⚪ nepoznato | Ivana Alfier | `business` `realestate` `finance` | ✅ |
+| **Stanarica podcast o nekretninama** | [@Stanarica](https://www.youtube.com/@Stanarica) | 3 | — | — | 🟢 aktivan | Ivana Alfier | `business` `realestate` `finance` | ✅ |
 | **Superhuman Life** | [@Superhumanlife](https://www.youtube.com/c/Superhumanlife) | 1 | 25K | 100 | ⚪ nepoznato | — | `personal-development` | ⚠️ |
 | **Surove Strasti** | [@SuroveStrasti](https://www.youtube.com/c/SuroveStrasti) | 1 | — | 422 | 🔴 neaktivan | Saša Tenodi, Ivan Voras | `business` `lifestyle` | ✅ |
 | **Špica s Macanom** | [@SpicasMacanom](https://www.youtube.com/@SpicasMacanom) | 1 | 10K | 80 | 🟢 aktivan | Krešimir Macan, Neven Kepeski | `political` `society` `economics` | ✅ |

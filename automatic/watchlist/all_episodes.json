@@ -5538,10 +5538,10 @@
    "slug": "laudato-tv-emisije",
    "title": "[UŽIVO] Radost ljubavi u braku",
    "duration": 3199,
-   "attempts": 2,
-   "sent_at": "2026-11-26T05:33:35.251Z",
+   "attempts": 3,
+   "sent_at": "2026-11-26T08:59:44.749Z",
    "result": "created",
-   "job_id": "baec5af4-7ffb-4f48-9b98-51b654cd84fc"
+   "job_id": "1e813a0b-70ce-4ffd-b280-93f768e192e6"
   },
   "GLIVAcV2o-0": {
    "date": "2026-11-25",
@@ -5858,10 +5858,10 @@
    "slug": "laudato-tv-emisije",
    "title": "[UŽIVO] Papa s nama - Opća audijencija Svetog Oca",
    "duration": 3644,
-   "attempts": 1,
-   "sent_at": "2026-11-26T05:33:37.733Z",
+   "attempts": 3,
+   "sent_at": "2026-11-27T04:33:03.750Z",
    "result": "created",
-   "job_id": "9a72ac8d-e312-4425-8f16-3de098a120a1"
+   "job_id": "c6745393-9755-4aeb-aac4-4d3f3c9342e0"
   },
   "pKLjQCYqXO4": {
    "date": "2026-11-26",
@@ -6122,14 +6122,314 @@
    "sent_at": "2026-11-26T05:33:43.717Z",
    "result": "created",
    "job_id": "2e21c24e-3c0e-4b41-bff8-ad5c5d3eaaf1"
+  },
+  "-NOkMCzh3Pg": {
+   "date": "2026-11-27",
+   "slug": "agroklub-podcast",
+   "title": "Agroklub Podcast #16: Marija Heffer",
+   "duration": 4023,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:04.031Z",
+   "result": "created",
+   "job_id": "1b42157d-3cbd-4ae7-8247-0aeabc58f549"
+  },
+  "3vQJ4nefF2U": {
+   "date": "2026-11-27",
+   "slug": "denis-podcast",
+   "title": "#286 - Andrea Kobetić & Samanta Fabris / Hrvatske sportske heroine",
+   "duration": 2171,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:04.338Z",
+   "result": "created",
+   "job_id": "a9dc37de-f041-428d-9a16-f8f42324cef9"
+  },
+  "0-zCu8HvOgc": {
+   "date": "2026-11-27",
+   "slug": "laudato-tv-emisije",
+   "title": "OTVORI SPOMENAR! - SREĆKO BEKAVAC",
+   "duration": 2917,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:04.604Z",
+   "result": "created",
+   "job_id": "f40eca8d-a619-4124-b18e-0aed8a483195"
+  },
+  "gmv0JpbAIn8": {
+   "date": "2026-11-27",
+   "slug": "podcast-inkubator",
+   "title": "Podcast Inkubator #1521 - Ratko i Jurica Galić",
+   "duration": 5352,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:04.826Z",
+   "result": "created",
+   "job_id": "80c424dc-f359-4fa9-9f6a-39bddc27549e"
+  },
+  "cSuFMJIUBDk": {
+   "date": "2026-11-27",
+   "slug": "povijest-cetvrtkom",
+   "title": "Povijest četvrtkom: Sjevernokorejski nuklearni program, II. dio",
+   "duration": 2978,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:05.103Z",
+   "result": "created",
+   "job_id": "994aa5b5-3f8f-4d1b-b4d3-ee665a8874da"
+  },
+  "mj0wkHnuPz0": {
+   "date": "2026-11-27",
+   "slug": "prvi-glas-telegram",
+   "title": "Brutalan raspad sustava u Jankomiru: Sramota Grada i države",
+   "duration": 1911,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:05.371Z",
+   "result": "created",
+   "job_id": "65c233c5-bbe8-4e26-a009-5ad5d6d690e4"
+  },
+  "Uyu9tRMLP0c": {
+   "date": "2026-11-27",
+   "slug": "radio-marija-bih-emisije",
+   "title": "Tko si ti, da meni moje daruješ - Željka Ergelašev - Branitelj je uvijek branitelj",
+   "duration": 1044,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:05.615Z",
+   "result": "created",
+   "job_id": "fc0af740-a722-4672-903c-051681cf3ea8"
+  },
+  "bmnwT69n0_8": {
+   "date": "2026-11-27",
+   "slug": "radio-marija-bih-emisije",
+   "title": "\"Evo dolazim\"",
+   "duration": 2802,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:05.891Z",
+   "result": "created",
+   "job_id": "34fd2426-85a3-4655-b993-a082abd1bea3"
+  },
+  "2pEYQbD869U": {
+   "date": "2026-11-27",
+   "slug": "tipsy-podcast",
+   "title": "Valentin Bufolin: Slovenska vinska scena kroz oči najboljeg sommeliera Slovenije 2022.",
+   "duration": 3957,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:06.166Z",
+   "result": "created",
+   "job_id": "c32d0194-2342-4622-bb8e-b890cc9c5749"
+  },
+  "Kh6wateIxe4": {
+   "date": "2026-11-27",
+   "slug": "tribina-europski-nogomet",
+   "title": "Katastrofe na domaćem terenu",
+   "duration": 3791,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:06.438Z",
+   "result": "created",
+   "job_id": "047235de-ec23-496d-bdb3-51853fcb9304"
+  },
+  "OthX43s_D0c": {
+   "date": "2026-11-27",
+   "slug": "tribina-nba-kosarka",
+   "title": "Pavle Marčinković | HR Košarka",
+   "duration": 6291,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:06.956Z",
+   "result": "created",
+   "job_id": "e1508e84-f312-4404-a9d3-38efbdb852d6"
+  },
+  "N63NYnAkDlk": {
+   "date": "2026-11-27",
+   "slug": "sbs-croatian",
+   "title": "Program SBS-a na hrvatskom za petak, 27.11.2026.",
+   "duration": 2815,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:07.199Z",
+   "result": "created",
+   "job_id": "e38367fd-ee25-4e4e-b6ec-033482a4a926"
+  },
+  "6l4o1jVSeCw": {
+   "date": "2026-11-27",
+   "slug": "stanarica-podcast",
+   "title": "Zašto banka može drukčije procijeniti stan koji kupujete?",
+   "duration": 2665,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:07.410Z",
+   "result": "created",
+   "job_id": "e483a2ef-e3d6-4201-a3fb-1a7e360bb347"
+  },
+  "E8tpwP5hYIs": {
+   "date": "2026-11-27",
+   "slug": "zadarski-podcast",
+   "title": "JUTRO JE UTROJE - DOMAGOJ BUTIĆ",
+   "duration": 1576,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:07.686Z",
+   "result": "created",
+   "job_id": "0bd90a75-d1fc-41b9-a96b-d64d8e298def"
+  },
+  "ZsQXOargn_M": {
+   "date": "2026-11-27",
+   "slug": "digitalna-kultura",
+   "title": "Božićni pokloni za geekove i gamere: što stvarno ima smisla kupiti?",
+   "duration": 7446,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:07.900Z",
+   "result": "created",
+   "job_id": "61d481b7-a370-4d35-a15b-50fdbcbc3a53"
+  },
+  "-mHf5E1DrPY": {
+   "date": "2026-11-27",
+   "slug": "podcast-8-24",
+   "title": "Dinamo - Bayer 0:2 / Dvajsčetvorka #300",
+   "duration": 10181,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:08.101Z",
+   "result": "created",
+   "job_id": "093525d0-7c98-4703-908e-bad605177d7b"
+  },
+  "D60LuwhPh0g": {
+   "date": "2026-11-27",
+   "slug": "podcast-s-brezom",
+   "title": "VIDOVIĆ KRIŠTO: KRISTIAN BI BIO ŽIV da su postupili po prvoj kaznenoj prijavi! SVIMA DATI OTKAZ!",
+   "duration": 2966,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:08.317Z",
+   "result": "created",
+   "job_id": "f6f0dca4-72ca-4bdf-82cd-b9d7ea055375"
+  },
+  "4Wl7b4sMBKE": {
+   "date": "2026-11-27",
+   "slug": "hzv-siempre",
+   "title": "NAVIJAČKI ANAIZIRAMO HRKLJUŽ UTAKMICU; HAJDUK 0 - 2 SINT-TRUIDENSE VV",
+   "duration": 5197,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:08.517Z",
+   "result": "created",
+   "job_id": "b1730334-8061-417e-a946-44f14e468e58"
+  },
+  "WCkSq-SdhHg": {
+   "date": "2026-11-27",
+   "slug": "hajducka-storija",
+   "title": "NEUGODNO! HAJDUK - SINT-TRUIDENSE 0:2 | REAKCIJA",
+   "duration": 1083,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:08.867Z",
+   "result": "created",
+   "job_id": "508b8e60-9b60-46c8-afe5-b3146674d0e3"
+  },
+  "0UIGBCXxm50": {
+   "date": "2026-11-27",
+   "slug": "nlo-arhivist",
+   "title": "Astronomi i AATIP 66: Bubnjević, Martinović i Radonić o izvanzemaljskom životu / Ceraj o SF-u",
+   "duration": 3022,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:09.080Z",
+   "result": "created",
+   "job_id": "369ecb01-18e5-421b-8f26-169ddb073bf1"
+  },
+  "7k--zAlnujw": {
+   "date": "2026-11-27",
+   "slug": "prva-linija",
+   "title": "Prva linija, ep. 150: Sastanak u planinama koji je izmijenio povijest - Dario Špelić o Al-Qa'idi (3)",
+   "duration": 3403,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:09.306Z",
+   "result": "created",
+   "job_id": "0401f457-02cd-49ef-8b39-7acae669ead7"
+  },
+  "Dro6CELDQno": {
+   "date": "2026-11-27",
+   "slug": "occamova-britva",
+   "title": "Occamova britva: Je li bolje da vladara ljube ili da ga se boje",
+   "duration": 1828,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:09.516Z",
+   "result": "created",
+   "job_id": "857e1cbc-968b-4c13-92cc-f689419bb51b"
+  },
+  "DQiuzjCP_g4": {
+   "date": "2026-11-27",
+   "slug": "razvojni-kod",
+   "title": "Razvojni kod: Gosti Tatjane Kaštelan Anica Dobran Černjul, Mauro Dujmović i Daniel Tomić, o proje...",
+   "duration": 2179,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:09.743Z",
+   "result": "created",
+   "job_id": "3bd75029-18de-432e-98ac-c4d8dd027dfb"
+  },
+  "djvP5eg-dBI": {
+   "date": "2026-11-27",
+   "slug": "viza",
+   "title": "VIZA 26.11.2026.",
+   "duration": 2987,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:09.984Z",
+   "result": "created",
+   "job_id": "24fca2ec-727a-4ca2-8733-62e10294f08b"
+  },
+  "SceYQ0XO4Cs": {
+   "date": "2026-11-27",
+   "slug": "cronnect",
+   "title": "„U Hrvatskoj se svi žale, ali nitko ne pokušava“: Hrvatska Peruanka o našem mentalitetu",
+   "duration": 1495,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:10.193Z",
+   "result": "created",
+   "job_id": "3fe5412e-68bf-4376-aa18-bfe2a138c45a"
+  },
+  "c5DnwKhzt1w": {
+   "date": "2026-11-27",
+   "slug": "radio-mir-medjugorje-na-putu-zivota",
+   "title": "Na putu života 23. 11. 2026. – Antonija i Vedran Jurčić",
+   "duration": 2650,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:10.411Z",
+   "result": "created",
+   "job_id": "26f43a8d-c10b-4364-b5b5-15a9d1b61cc4"
+  },
+  "uCDzIXAzdrk": {
+   "date": "2026-11-27",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "Otvorena knjiga - Duhovno zlostavljanje i manipulacije unutar vjerskih zajednica",
+   "duration": 4118,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:10.623Z",
+   "result": "created",
+   "job_id": "ba00b7ab-45f1-4613-90e3-5ef9ce603a44"
+  },
+  "CHvpraHs7fI": {
+   "date": "2026-11-27",
+   "slug": "radio-mir-medjugorje-emisije",
+   "title": "20. studenoga 2026 – fra Ivan Slišković - homilija iz Međugorja",
+   "duration": 1174,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:10.851Z",
+   "result": "created",
+   "job_id": "c65062e7-4eaf-4c83-bcaf-651f04c7cd5e"
+  },
+  "A0rZZjCKtGs": {
+   "date": "2026-11-27",
+   "slug": "hrt-otvoreno",
+   "title": "Otvoreno o rezoluciji o Vukovaru",
+   "duration": 1905,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:11.060Z",
+   "result": "created",
+   "job_id": "215e5790-c9d3-4cd0-b7f4-cf91b103e8b2"
+  },
+  "EQIr28LcXyE": {
+   "date": "2026-11-27",
+   "slug": "hrt-na-rubu-znanosti",
+   "title": "Na rubu znanosti: Priča o GMO",
+   "duration": 3060,
+   "attempts": 1,
+   "sent_at": "2026-11-27T04:33:11.266Z",
+   "result": "created",
+   "job_id": "0e2ef07c-15cd-4786-800b-d4a505bf7fd4"
   }
  },
- "updated_at": "2026-11-26T05:33:43.913Z",
+ "updated_at": "2026-11-27T04:33:11.483Z",
  "last_enqueue_usage": {
-  "at": "2026-11-26T05:33:43.913Z",
+  "at": "2026-11-27T04:33:11.483Z",
   "five_hour": 0,
   "five_hour_resets_at": null,
-  "seven_day": 75,
-  "seven_day_resets_at": "2026-11-28T00:00:00.177239+00:00"
+  "seven_day": 84,
+  "seven_day_resets_at": "2026-11-27T23:59:59.662872+00:00"
  }
 }
