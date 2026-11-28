@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-11-27T04:33:38.859Z",
+  "generated_at": "2026-11-28T02:11:25.764Z",
   "cdn": "https://cdn.domovina.ai/registry/subs/<id>.<lang>.srt",
-  "count": 118,
+  "count": 122,
   "videos": {
+    "I6DdE4fVZB4": {"slug":"prvi-glas-telegram","date":"2026-11-27","langs":["hr"]},
+    "PFtLkDd7rvY": {"slug":"budi-frajer","date":"2026-11-27","langs":["en"]},
+    "6l4o1jVSeCw": {"slug":"stanarica-podcast","date":"2026-11-26","langs":["hr"]},
+    "mj0wkHnuPz0": {"slug":"prvi-glas-telegram","date":"2026-11-26","langs":["hr"]},
     "NdMNTfCfdLc": {"slug":"druga-strana-medalje","date":"2026-11-25","langs":["en","hr"]},
     "pSpy17bHTHY": {"slug":"subclub","date":"2026-11-25","langs":["en"]},
     "7TJ26JAQVeo": {"slug":"prvi-glas-telegram","date":"2026-11-24","langs":["hr"]},

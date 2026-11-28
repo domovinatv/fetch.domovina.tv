@@ -2,7 +2,7 @@
 
 > **Single source of truth** za hrvatske podcaste na YouTubeu. Generiraj ovaj fajl pokretanjem `node data/generate_registry_md.js` nakon izmjena u `podcasts_registry.json`.
 
-**Generirano:** 2026-11-27
+**Generirano:** 2026-11-28
 **Verzija registry-ja:** 1.2
 
 ## Sažetak
@@ -19,7 +19,7 @@
 
 **Distribucija po data_quality:** verified ✅: 82 · partial ⚠️: 496 · complete —: 4 · unverified ❓: 9 · full —: 2
 
-**Distribucija po status-u:** 🟢 aktivan: 263 · 🔴 neaktivan: 155 · ⚪ nepoznato: 88 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
+**Distribucija po status-u:** 🟢 aktivan: 261 · 🔴 neaktivan: 155 · ⚪ nepoznato: 90 · ⚪ nepoznato: 29 · ⚪ nepoznato: 42 · ⚪ nepoznato: 2 · ❌ rejected: 2 · ⏸ pauziran: 3 · ⚪ nepoznato: 1 · ⚪ nepoznato: 3 · ⚪ nepoznato: 4 · ⚪ nepoznato: 1
 
 **Legenda:** ✅ verified · ⚠️ partial · ❓ unverified · 🟢 aktivan · 🔴 neaktivan · ⚪ nepoznato
 
@@ -319,7 +319,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **MLGP Podcast** | [UCKYVCu4kNK4NnMObp7-7G4A](https://www.youtube.com/channel/UCKYVCu4kNK4NnMObp7-7G4A/videos) | 3 | 79 | — | 🔴 neaktivan | — | `gaming` | ⚠️ |
 | **Modul za rast** | [UCXUa2rxSiJoEuNe-lOj3PUg](https://www.youtube.com/channel/UCXUa2rxSiJoEuNe-lOj3PUg/videos) | 3 | 670 | — | 🟢 aktivan | Katarina Divjanović | `personal-development` `health` `women` | ⚠️ |
 | **More milosrđa (Laudato)** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_cHhG-SdFm8ZyZ1yeX0fyvJ) | 3 | — | 128 | 🟢 aktivan | — | `religious-catholic` `theology` | ⚠️ |
-| **Morina Kutija** | [UCZ1iv6WxK7_tClKR5-1XJhg](https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/videos) | 3 | 202 | — | 🟢 aktivan | — | `culture` `talk-show` | ⚠️ |
+| **Morina Kutija** | [UCZ1iv6WxK7_tClKR5-1XJhg](https://www.youtube.com/channel/UCZ1iv6WxK7_tClKR5-1XJhg/videos) | 3 | 202 | — | ⚪ nepoznato | — | `culture` `talk-show` | ⚠️ |
 | **Most TV** | [UCoC_vH7Vp_atyV2AQCCKlZg](https://www.youtube.com/playlist?list=PL3IKH0WTXqSow8ZT9IYe7-ouI2gQQ7UHu) | 3 | — | — | 🔴 neaktivan | — | `political-party` `political` | ⚠️ |
 | **Možemo Podcast** | [UC-EG8D5Im29F-dvNC-wr8uw](https://www.youtube.com/playlist?list=PLX4-hPzuWQFu_kptsBVMmkZ_GkLeRh60A) | 3 | — | — | 🔴 neaktivan | — | `political-party` `political` | ⚠️ |
 | **Mrtvi Piksel (POPCAST)** | [UCLI1nI4jtUtOJjXOzDIp_1w](https://www.youtube.com/channel/UCLI1nI4jtUtOJjXOzDIp_1w/videos) | 3 | 3K | — | 🔴 neaktivan | — | `film` `pop-culture` `gaming` | ⚠️ |
@@ -338,7 +338,7 @@ Visok prioritet za dodavanje. Uklapaju se u trenutni editorijalni profil DOMOVIN
 | **Nedjeljom u 2 (HRT)** | [@nedjeljomu2HRT](https://www.youtube.com/@nedjeljomu2HRT/videos) | 2 | 63K | 421 | 🟢 aktivan | Aleksandar Stanković | `talk-show` `culture` | ⚠️ |
 | **Neka Nova Priča** | [UCEivQbBRJYKOBfko2YeQAnQ](https://www.youtube.com/channel/UCEivQbBRJYKOBfko2YeQAnQ/videos) | 3 | 2K | — | 🔴 neaktivan | Lucia Adžić | `personal-development` `lifestyle` | ⚠️ |
 | **NLO Arhivist** | [UCatMPoW3BfGVvlyRvQJtyqg](https://www.youtube.com/channel/UCatMPoW3BfGVvlyRvQJtyqg/videos) | 3 | 321 | — | 🟢 aktivan | — | `mystery` `science` | ⚠️ |
-| **Noći Bez Cenzure** | [UCrekW01JOy-dPoTCJk2SYNQ](https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos) | 3 | 2K | — | 🟢 aktivan | — | `lifestyle` `talk-show` | ⚠️ |
+| **Noći Bez Cenzure** | [UCrekW01JOy-dPoTCJk2SYNQ](https://www.youtube.com/channel/UCrekW01JOy-dPoTCJk2SYNQ/videos) | 3 | 2K | — | ⚪ nepoznato | — | `lifestyle` `talk-show` | ⚠️ |
 | **Nominis (Udruga eCommerce Hrvatska)** | [UCXHKfN-xMjwMXRZAgJqIK9g](https://www.youtube.com/channel/UCXHKfN-xMjwMXRZAgJqIK9g/videos) | 3 | 1K | — | ⚪ nepoznato | — | `business` `digital` `technology` | ⚠️ |
 | **Norda Disleksija** | [UCu4LN1f9qC_04exifajyw9Q](https://www.youtube.com/channel/UCu4LN1f9qC_04exifajyw9Q/videos) | 3 | 637 | — | 🔴 neaktivan | Anja Norda | `speech-therapy` `education` `testimonies` | ⚠️ |
 | **Nota Bene (Laudato)** | [UCMNltXN6fWur0K8Z1oubFPA](https://www.youtube.com/playlist?list=PLgrvM2s1LQ_ek_eU_5MpEroNTFK1ynOEh) | 3 | — | — | ⚪ nepoznato | — | `pop-culture` `testimonies` | ⚠️ |
